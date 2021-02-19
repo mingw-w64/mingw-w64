@@ -527,6 +527,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mmstream.idl \
 @HAVE_WIDL_TRUE@  include/qedit.idl \
 @HAVE_WIDL_TRUE@  include/qnetwork.idl \
+@HAVE_WIDL_TRUE@  include/relogger.idl \
 @HAVE_WIDL_TRUE@  include/vmr9.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
 @HAVE_WIDL_TRUE@  include/wincodecsdk.idl \
@@ -548,6 +549,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
+@HAVE_WIDL_TRUE@  include/windowscontracts.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
 @HAVE_WIDL_TRUE@  include/wmdrmsdk.idl \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \

@@ -225,6 +225,7 @@ IDL_SRCS = \
   include/mmstream.idl \
   include/qedit.idl \
   include/qnetwork.idl \
+  include/relogger.idl \
   include/vmr9.idl \
   include/wincodec.idl \
   include/wincodecsdk.idl \
@@ -246,6 +247,7 @@ IDL_SRCS = \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
   include/windows.system.threading.idl \
+  include/windowscontracts.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \
   include/wpcapi.idl \

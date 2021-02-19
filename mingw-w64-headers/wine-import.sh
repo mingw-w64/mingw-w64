@@ -182,6 +182,7 @@ for f in \
 	objectarray \
 	optary \
 	qedit \
+        relogger \
 	spatialaudioclient \
 	taskschd \
 	thumbcache \
@@ -191,6 +192,7 @@ for f in \
 	vmr9 \
 	wincodec \
 	wincodecsdk \
+        windowscontracts \
 	wmdrmsdk \
 	wmp \
 	wmsbuffer \
