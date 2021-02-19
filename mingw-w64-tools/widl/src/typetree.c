@@ -29,6 +29,7 @@
 #include "parser.h"
 #include "typetree.h"
 #include "header.h"
+#include "hash.h"
 
 type_t *duptype(type_t *t, int dupname)
 {
@@ -49,6 +50,7 @@ type_t *make_type(enum type_type type)
     t->type_type = type;
     t->attrs = NULL;
     t->c_name = NULL;
+    t->signature = NULL;
     memset(&t->details, 0, sizeof(t->details));
     t->typestring_offset = 0;
     t->ptrdesc = 0;
@@ -110,6 +112,128 @@ static size_t append_namespaces(char **buf, size_t *len, size_t pos, struct name
     return n;
 }
 
+static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t *type);
+
+static size_t append_var_list_signature(char **buf, size_t *len, size_t pos, var_list_t *var_list)
+{
+    var_t *var;
+    size_t n = 0;
+
+    if (!var_list) n += strappend(buf, len, pos + n, ";");
+    else LIST_FOR_EACH_ENTRY(var, var_list, var_t, entry)
+    {
+        n += strappend(buf, len, pos + n, ";");
+        n += append_type_signature(buf, len, pos + n, var->declspec.type);
+    }
+
+    return n;
+}
+
+static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t *type)
+{
+    const GUID *uuid;
+    size_t n = 0;
+
+    if (!type) return 0;
+    switch (type->type_type)
+    {
+    case TYPE_INTERFACE:
+        if (type->signature) n += strappend(buf, len, pos + n, "%s", type->signature);
+        else
+        {
+            if (!(uuid = get_attrp(type->attrs, ATTR_UUID)))
+                error_loc_info(&type->loc_info, "cannot compute type signature, no uuid found for type %s.\n", type->name);
+
+            n += strappend(buf, len, pos + n, "{%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
+                           uuid->Data1, uuid->Data2, uuid->Data3,
+                           uuid->Data4[0], uuid->Data4[1], uuid->Data4[2], uuid->Data4[3],
+                           uuid->Data4[4], uuid->Data4[5], uuid->Data4[6], uuid->Data4[7]);
+        }
+        return n;
+    case TYPE_DELEGATE:
+        n += strappend(buf, len, pos + n, "delegate(");
+        n += append_type_signature(buf, len, pos + n, type_delegate_get_iface(type));
+        n += strappend(buf, len, pos + n, ")");
+        return n;
+    case TYPE_RUNTIMECLASS:
+        n += strappend(buf, len, pos + n, "rc(");
+        n += append_namespaces(buf, len, pos + n, type->namespace, "", ".", type->name, NULL);
+        n += strappend(buf, len, pos + n, ";");
+        n += append_type_signature(buf, len, pos + n, type_runtimeclass_get_default_iface(type));
+        n += strappend(buf, len, pos + n, ")");
+        return n;
+    case TYPE_POINTER:
+        n += append_type_signature(buf, len, pos + n, type->details.pointer.ref.type);
+        return n;
+    case TYPE_ALIAS:
+        if (!strcmp(type->name, "boolean")) n += strappend(buf, len, pos + n, "b1");
+        else n += append_type_signature(buf, len, pos + n, type->details.alias.aliasee.type);
+        return n;
+    case TYPE_STRUCT:
+        n += strappend(buf, len, pos + n, "struct(");
+        n += append_namespaces(buf, len, pos + n, type->namespace, "", ".", type->name, NULL);
+        n += append_var_list_signature(buf, len, pos + n, type->details.structure->fields);
+        n += strappend(buf, len, pos + n, ")");
+        return n;
+    case TYPE_BASIC:
+        switch (type_basic_get_type(type))
+        {
+        case TYPE_BASIC_INT:
+        case TYPE_BASIC_INT32:
+            n += strappend(buf, len, pos + n, type_basic_get_sign(type) < 0 ? "i4" : "u4");
+            return n;
+        case TYPE_BASIC_INT64:
+            n += strappend(buf, len, pos + n, type_basic_get_sign(type) < 0 ? "i8" : "u8");
+            return n;
+        case TYPE_BASIC_INT8:
+            assert(type_basic_get_sign(type) >= 0); /* signature string for signed char isn't specified */
+            n += strappend(buf, len, pos + n, "u1");
+            return n;
+        case TYPE_BASIC_FLOAT:
+            n += strappend(buf, len, pos + n, "f4");
+            return n;
+        case TYPE_BASIC_DOUBLE:
+            n += strappend(buf, len, pos + n, "f8");
+            return n;
+        case TYPE_BASIC_INT16:
+        case TYPE_BASIC_INT3264:
+        case TYPE_BASIC_LONG:
+        case TYPE_BASIC_CHAR:
+        case TYPE_BASIC_HYPER:
+        case TYPE_BASIC_BYTE:
+        case TYPE_BASIC_WCHAR:
+        case TYPE_BASIC_ERROR_STATUS_T:
+        case TYPE_BASIC_HANDLE:
+            error_loc_info(&type->loc_info, "unimplemented type signature for basic type %d.\n", type_basic_get_type(type));
+            break;
+        }
+    case TYPE_ENUM:
+        n += strappend(buf, len, pos + n, "enum(");
+        n += append_namespaces(buf, len, pos + n, type->namespace, "", ".", type->name, NULL);
+        if (is_attr(type->attrs, ATTR_FLAGS)) n += strappend(buf, len, pos + n, ";u4");
+        else n += strappend(buf, len, pos + n, ";i4");
+        n += strappend(buf, len, pos + n, ")");
+        return n;
+    case TYPE_ARRAY:
+    case TYPE_ENCAPSULATED_UNION:
+    case TYPE_UNION:
+    case TYPE_COCLASS:
+    case TYPE_VOID:
+    case TYPE_FUNCTION:
+    case TYPE_BITFIELD:
+    case TYPE_MODULE:
+    case TYPE_APICONTRACT:
+        error_loc_info(&type->loc_info, "unimplemented type signature for type %s of type %d.\n", type->name, type->type_type);
+        break;
+    case TYPE_PARAMETERIZED_TYPE:
+    case TYPE_PARAMETER:
+        assert(0); /* should not be there */
+        break;
+    }
+
+    return n;
+}
+
 char *format_namespace(struct namespace *namespace, const char *prefix, const char *separator, const char *suffix, const char *abi_prefix)
 {
     size_t len = 0;
@@ -142,15 +266,15 @@ static char const *parameterized_type_shorthands[][2] = {
     {"Windows_CFoundation_C", "__F"},
 };
 
-static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *params)
+static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *params, const char *prefix)
 {
     size_t len = 0, pos = 0;
     char *buf = NULL, *tmp;
     int i, count = params ? list_count(params) : 0;
     typeref_t *ref;
 
-    pos += append_namespaces(&buf, &len, pos, type->namespace, "__x_", "_C", type->name, use_abi_namespace ? "ABI" : NULL);
-    pos += strappend(&buf, &len, pos, "_%d", count);
+    pos += append_namespaces(&buf, &len, pos, type->namespace, "__x_", "_C", "", use_abi_namespace ? "ABI" : NULL);
+    pos += strappend(&buf, &len, pos, "%s%s_%d", prefix, type->name, count);
     if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
     {
         for (type = ref->type; type->type_type == TYPE_POINTER; type = type_pointer_get_ref_type(type)) {}
@@ -167,6 +291,30 @@ static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *para
            memmove(buf + 3, tmp, len - (tmp - buf));
         }
     }
+
+    return buf;
+}
+
+static char *format_parameterized_type_signature(type_t *type, typeref_list_t *params)
+{
+    size_t len = 0, pos = 0;
+    char *buf = NULL;
+    typeref_t *ref;
+    const GUID *uuid;
+
+     if (!(uuid = get_attrp(type->attrs, ATTR_UUID)))
+        error_loc_info(&type->loc_info, "cannot compute type signature, no uuid found for type %s.\n", type->name);
+
+    pos += strappend(&buf, &len, pos, "pinterface({%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
+                     uuid->Data1, uuid->Data2, uuid->Data3,
+                     uuid->Data4[0], uuid->Data4[1], uuid->Data4[2], uuid->Data4[3],
+                     uuid->Data4[4], uuid->Data4[5], uuid->Data4[6], uuid->Data4[7]);
+    if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
+    {
+        pos += strappend(&buf, &len, pos, ";");
+        pos += append_type_signature(&buf, &len, pos, ref->type);
+    }
+    pos += strappend(&buf, &len, pos, ")");
 
     return buf;
 }
@@ -664,6 +812,55 @@ type_t *type_apicontract_define(type_t *apicontract, attr_list_t *attrs)
     return apicontract;
 }
 
+static void compute_delegate_iface_names(type_t *delegate, type_t *type, typeref_list_t *params)
+{
+    type_t *iface = delegate->details.delegate.iface;
+    iface->namespace = delegate->namespace;
+    iface->name = strmake("I%s", delegate->name);
+    if (type) iface->c_name = format_parameterized_type_c_name(type, params, "I");
+    else iface->c_name = format_namespace(delegate->namespace, "__x_", "_C", iface->name, use_abi_namespace ? "ABI" : NULL);
+}
+
+type_t *type_delegate_declare(char *name, struct namespace *namespace)
+{
+    type_t *type = get_type(TYPE_DELEGATE, name, NULL, 0);
+    if (type_get_type_detect_alias(type) != TYPE_DELEGATE)
+        error_loc("delegate %s previously not declared a delegate at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_delegate_define(type_t *delegate, attr_list_t *attrs, statement_list_t *stmts)
+{
+    type_t *iface;
+
+    if (delegate->defined)
+        error_loc("delegate %s already defined at %s:%d\n",
+                  delegate->name, delegate->loc_info.input_name, delegate->loc_info.line_number);
+
+    delegate->attrs = check_interface_attrs(delegate->name, attrs);
+
+    iface = make_type(TYPE_INTERFACE);
+    iface->attrs = delegate->attrs;
+    iface->details.iface = xmalloc(sizeof(*iface->details.iface));
+    iface->details.iface->disp_props = NULL;
+    iface->details.iface->disp_methods = NULL;
+    iface->details.iface->stmts = stmts;
+    iface->details.iface->inherit = find_type("IUnknown", NULL, 0);
+    if (!iface->details.iface->inherit) error_loc("IUnknown is undefined\n");
+    iface->details.iface->disp_inherit = NULL;
+    iface->details.iface->async_iface = NULL;
+    iface->details.iface->requires = NULL;
+    iface->defined = TRUE;
+    compute_method_indexes(iface);
+
+    delegate->details.delegate.iface = iface;
+    delegate->defined = TRUE;
+    compute_delegate_iface_names(delegate, NULL, NULL);
+
+    return delegate;
+}
+
 type_t *type_parameterized_interface_declare(char *name, struct namespace *namespace, typeref_list_t *params)
 {
     type_t *type = get_type(TYPE_PARAMETERIZED_TYPE, name, namespace, 0);
@@ -698,6 +895,46 @@ type_t *type_parameterized_interface_define(type_t *type, attr_list_t *attrs, ty
     iface->details.iface->disp_inherit = NULL;
     iface->details.iface->async_iface = NULL;
     iface->details.iface->requires = requires;
+
+    type->defined = TRUE;
+    return type;
+}
+
+type_t *type_parameterized_delegate_declare(char *name, struct namespace *namespace, typeref_list_t *params)
+{
+    type_t *type = get_type(TYPE_PARAMETERIZED_TYPE, name, namespace, 0);
+    if (type_get_type_detect_alias(type) != TYPE_PARAMETERIZED_TYPE)
+        error_loc("pdelegate %s previously not declared a pdelegate at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    type->details.parameterized.type = make_type(TYPE_DELEGATE);
+    type->details.parameterized.params = params;
+    return type;
+}
+
+type_t *type_parameterized_delegate_define(type_t *type, attr_list_t *attrs, statement_list_t *stmts)
+{
+    type_t *iface, *delegate;
+
+    if (type->defined)
+        error_loc("pdelegate %s already defined at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+
+    type->attrs = check_interface_attrs(type->name, attrs);
+
+    delegate = type->details.parameterized.type;
+    delegate->attrs = type->attrs;
+    delegate->details.delegate.iface = make_type(TYPE_INTERFACE);
+
+    iface = delegate->details.delegate.iface;
+    iface->details.iface = xmalloc(sizeof(*iface->details.iface));
+    iface->details.iface->disp_props = NULL;
+    iface->details.iface->disp_methods = NULL;
+    iface->details.iface->stmts = stmts;
+    iface->details.iface->inherit = find_type("IUnknown", NULL, 0);
+    if (!iface->details.iface->inherit) error_loc("IUnknown is undefined\n");
+    iface->details.iface->disp_inherit = NULL;
+    iface->details.iface->async_iface = NULL;
+    iface->details.iface->requires = NULL;
 
     type->defined = TRUE;
     return type;
@@ -821,6 +1058,7 @@ static type_t *replace_type_parameters_in_type(type_t *type, typeref_list_t *ori
     case TYPE_BITFIELD:
     case TYPE_INTERFACE:
     case TYPE_RUNTIMECLASS:
+    case TYPE_DELEGATE:
         return type;
     case TYPE_PARAMETER:
         if (!orig || !repl) return NULL;
@@ -883,6 +1121,11 @@ static void type_parameterized_interface_specialize(type_t *tmpl, type_t *iface,
     iface->details.iface->requires = NULL;
 }
 
+static void type_parameterized_delegate_specialize(type_t *tmpl, type_t *delegate, typeref_list_t *orig, typeref_list_t *repl)
+{
+    type_parameterized_interface_specialize(tmpl->details.delegate.iface, delegate->details.delegate.iface, orig, repl);
+}
+
 type_t *type_parameterized_type_specialize_declare(type_t *type, typeref_list_t *params)
 {
     type_t *tmpl = type->details.parameterized.type;
@@ -891,9 +1134,53 @@ type_t *type_parameterized_type_specialize_declare(type_t *type, typeref_list_t 
     new_type->namespace = type->namespace;
     new_type->name = format_parameterized_type_name(type, params);
     reg_type(new_type, new_type->name, new_type->namespace, 0);
-    new_type->c_name = format_parameterized_type_c_name(type, params);
+    new_type->c_name = format_parameterized_type_c_name(type, params, "");
+
+    if (new_type->type_type == TYPE_DELEGATE)
+    {
+        new_type->details.delegate.iface = duptype(tmpl->details.delegate.iface, 0);
+        compute_delegate_iface_names(new_type, type, params);
+    }
 
     return new_type;
+}
+
+static void compute_interface_signature_uuid(type_t *iface)
+{
+    static const char winrt_pinterface_namespace[] = {0x11,0xf4,0x7a,0xd5,0x7b,0x73,0x42,0xc0,0xab,0xae,0x87,0x8b,0x1e,0x16,0xad,0xee};
+    static const int version = 5;
+    struct sha1_context ctx;
+    unsigned char hash[20];
+    GUID *uuid;
+
+    if (!(uuid = get_attrp(iface->attrs, ATTR_UUID)))
+    {
+        uuid = xmalloc(sizeof(GUID));
+        iface->attrs = append_attr(iface->attrs, make_attrp(ATTR_UUID, uuid));
+    }
+
+    sha1_init(&ctx);
+    sha1_update(&ctx, winrt_pinterface_namespace, sizeof(winrt_pinterface_namespace));
+    sha1_update(&ctx, iface->signature, strlen(iface->signature));
+    sha1_finalize(&ctx, (ULONG *)hash);
+
+    /* https://tools.ietf.org/html/rfc4122:
+
+       * Set the four most significant bits (bits 12 through 15) of the
+         time_hi_and_version field to the appropriate 4-bit version number
+         from Section 4.1.3.
+
+       * Set the two most significant bits (bits 6 and 7) of the
+         clock_seq_hi_and_reserved to zero and one, respectively.
+    */
+
+    hash[6] = ((hash[6] & 0x0f) | (version << 4));
+    hash[8] = ((hash[8] & 0x3f) | 0x80);
+
+    uuid->Data1 = ((DWORD)hash[0] << 24)|((DWORD)hash[1] << 16)|((DWORD)hash[2] << 8)|(DWORD)hash[3];
+    uuid->Data2 = ((WORD)hash[4] << 8)|(WORD)hash[5];
+    uuid->Data3 = ((WORD)hash[6] << 8)|(WORD)hash[7];
+    memcpy(&uuid->Data4, hash + 8, sizeof(*uuid) - offsetof(GUID, Data4));
 }
 
 type_t *type_parameterized_type_specialize_define(type_t *type)
@@ -911,11 +1198,22 @@ type_t *type_parameterized_type_specialize_define(type_t *type)
     if (type_get_type_detect_alias(tmpl->details.parameterized.type) == TYPE_INTERFACE &&
         type_get_type_detect_alias(iface) == TYPE_INTERFACE)
         type_parameterized_interface_specialize(tmpl->details.parameterized.type, iface, orig, repl);
+    else if (type_get_type_detect_alias(tmpl->details.parameterized.type) == TYPE_DELEGATE &&
+             type_get_type_detect_alias(iface) == TYPE_DELEGATE)
+        type_parameterized_delegate_specialize(tmpl->details.parameterized.type, iface, orig, repl);
     else
-        error_loc("pinterface %s previously not declared a pinterface at %s:%d\n",
+        error_loc("pinterface/pdelegate %s previously not declared a pinterface/pdelegate at %s:%d\n",
                   iface->name, iface->loc_info.input_name, iface->loc_info.line_number);
 
+    iface->signature = format_parameterized_type_signature(type, repl);
     iface->defined = TRUE;
+    if (iface->type_type == TYPE_DELEGATE)
+    {
+        iface = iface->details.delegate.iface;
+        iface->signature = format_parameterized_type_signature(type, repl);
+        iface->defined = TRUE;
+    }
+    compute_interface_signature_uuid(iface);
     compute_method_indexes(iface);
     return iface;
 }
