@@ -192,7 +192,8 @@ for f in \
 	vmr9 \
 	wincodec \
 	wincodecsdk \
-        windowscontracts \
+	windowscontracts \
+	windows.foundation.collections \
 	wmdrmsdk \
 	wmp \
 	wmsbuffer \

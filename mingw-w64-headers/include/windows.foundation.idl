@@ -9,6 +9,8 @@
 #endif
 
 import "inspectable.idl";
+import "windowscontracts.idl";
+import "windows.foundation.collections.idl";
 
 namespace Windows {
   namespace Foundation {
@@ -21,7 +23,6 @@ namespace Windows {
     struct    EventRegistrationToken;
 
     namespace Collections {
-      interface IVectorView;
       interface IPropertySet;
     }
   }

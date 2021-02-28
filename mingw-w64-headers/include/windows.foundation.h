@@ -81,6 +81,8 @@ namespace ABI {
 /* Headers for imported files */
 
 #include <inspectable.h>
+#include <windowscontracts.h>
+#include <windows.foundation.collections.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -193,23 +195,6 @@ struct __x_ABI_CWindows_CFoundation_CEventRegistrationToken;
 #ifdef WIDL_using_Windows_Foundation
 #define EventRegistrationToken __x_ABI_CWindows_CFoundation_CEventRegistrationToken
 #endif /* WIDL_using_Windows_Foundation */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIVectorView_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIVectorView_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIVectorView __x_ABI_CWindows_CFoundation_CCollections_CIVectorView;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CCollections_CIVectorView ABI::Windows::Foundation::Collections::IVectorView
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                interface IVectorView;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
 #endif
 
 #ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
