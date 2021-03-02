@@ -87,6 +87,8 @@ extern "C" {
 #define SecInvalidateHandle(x) ((PSecHandle) x)->dwLower = ((ULONG_PTR) ((INT_PTR)-1)); ((PSecHandle) x)->dwUpper = ((ULONG_PTR) ((INT_PTR)-1));
 #define SecIsValidHandle(x) ((((PSecHandle) x)->dwLower!=((ULONG_PTR) ((INT_PTR) -1))) && (((PSecHandle) x)->dwUpper!=((ULONG_PTR) ((INT_PTR) -1))))
 
+#define SEC_DELETED_HANDLE ((ULONG_PTR)(-2))
+
   typedef SecHandle CredHandle;
   typedef PSecHandle PCredHandle;
 
@@ -164,8 +166,20 @@ extern "C" {
 #define SECPKG_FLAG_MUTUAL_AUTH 0x00010000
 #define SECPKG_FLAG_DELEGATION 0x00020000
 #define SECPKG_FLAG_READONLY_WITH_CHECKSUM 0x00040000
+#define SECPKG_FLAG_RESTRICTED_TOKENS 0x00080000
+#define SECPKG_FLAG_NEGO_EXTENDER 0x00100000
+#define SECPKG_FLAG_NEGOTIABLE2 0x00200000
+#define SECPKG_FLAG_APPCONTAINER_PASSTHROUGH 0x00400000
+#define SECPKG_FLAG_APPCONTAINER_CHECKS 0x00800000
+#define SECPKG_FLAG_CREDENTIAL_ISOLATION_ENABLED 0x01000000
+#define SECPKG_FLAG_APPLY_LOOPBACK 0x02000000
 
 #define SECPKG_ID_NONE 0xFFFF
+
+#define SECPKG_CALLFLAGS_APPCONTAINER 0x00000001
+#define SECPKG_CALLFLAGS_APPCONTAINER_AUTHCAPABLE 0x00000002
+#define SECPKG_CALLFLAGS_FORCE_SUPPLIED 0x00000004
+#define SECPKG_CALLFLAGS_APPCONTAINER_UPNCAPABLE 0x00000008
 
   typedef struct _SecBuffer {
     unsigned __LONG32 cbBuffer;
@@ -196,6 +210,20 @@ extern "C" {
 #define SECBUFFER_MECHLIST_SIGNATURE 12
 #define SECBUFFER_TARGET 13
 #define SECBUFFER_CHANNEL_BINDINGS 14
+#define SECBUFFER_CHANGE_PASS_RESPONSE 15
+#define SECBUFFER_TARGET_HOST 16
+#define SECBUFFER_ALERT 17
+#define SECBUFFER_APPLICATION_PROTOCOLS 18
+#define SECBUFFER_SRTP_PROTECTION_PROFILES 19
+#define SECBUFFER_SRTP_MASTER_KEY_IDENTIFIER 20
+#define SECBUFFER_TOKEN_BINDING 21
+#define SECBUFFER_PRESHARED_KEY 22
+#define SECBUFFER_PRESHARED_KEY_IDENTITY 23
+#define SECBUFFER_DTLS_MTU 24
+#define SECBUFFER_SEND_GENERIC_TLS_EXTENSION 25
+#define SECBUFFER_SUBSCRIBE_GENERIC_TLS_EXTENSION 26
+#define SECBUFFER_FLAGS 27
+#define SECBUFFER_TRAFFIC_SECRETS 28
 
 #define SECBUFFER_ATTRMASK 0xF0000000
 #define SECBUFFER_READONLY 0x80000000
@@ -220,6 +248,79 @@ extern "C" {
     unsigned __LONG32 dwApplicationDataOffset;
   } SEC_CHANNEL_BINDINGS,*PSEC_CHANNEL_BINDINGS;
 
+  typedef enum _SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    SecApplicationProtocolNegotiationExt_None,
+    SecApplicationProtocolNegotiationExt_NPN,
+    SecApplicationProtocolNegotiationExt_ALPN
+  } SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,*PSEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT;
+
+  typedef struct _SEC_APPLICATION_PROTOCOL_LIST {
+    SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
+    unsigned short ProtocolListSize;
+    unsigned char ProtocolList[ANYSIZE_ARRAY];
+  } SEC_APPLICATION_PROTOCOL_LIST,*PSEC_APPLICATION_PROTOCOL_LIST;
+
+  typedef struct _SEC_APPLICATION_PROTOCOLS {
+    unsigned __LONG32 ProtocolListsSize;
+    SEC_APPLICATION_PROTOCOL_LIST ProtocolLists[ANYSIZE_ARRAY];
+  } SEC_APPLICATION_PROTOCOLS,*PSEC_APPLICATION_PROTOCOLS;
+
+  typedef struct _SEC_SRTP_PROTECTION_PROFILES {
+    unsigned short ProfilesSize;
+    unsigned short ProfilesList[ANYSIZE_ARRAY];
+  } SEC_SRTP_PROTECTION_PROFILES,*PSEC_SRTP_PROTECTION_PROFILES;
+
+  typedef struct _SEC_SRTP_MASTER_KEY_IDENTIFIER {
+    unsigned char MasterKeyIdentifierSize;
+    unsigned char MasterKeyIdentifier[ANYSIZE_ARRAY];
+  } SEC_SRTP_MASTER_KEY_IDENTIFIER,*PSEC_SRTP_MASTER_KEY_IDENTIFIER;
+
+  typedef struct _SEC_TOKEN_BINDING {
+    unsigned char MajorVersion;
+    unsigned char MinorVersion;
+    unsigned short KeyParametersSize;
+    unsigned char KeyParameters[ANYSIZE_ARRAY];
+  } SEC_TOKEN_BINDING,*PSEC_TOKEN_BINDING;
+
+  typedef struct _SEC_PRESHAREDKEY {
+    unsigned short KeySize;
+    unsigned char Key[ANYSIZE_ARRAY];
+  } SEC_PRESHAREDKEY,*PSEC_PRESHAREDKEY;
+
+  typedef struct _SEC_PRESHAREDKEY_IDENTITY {
+    unsigned short KeyIdentitySize;
+    unsigned char KeyIdentity[ANYSIZE_ARRAY];
+  } SEC_PRESHAREDKEY_IDENTITY,*PSEC_PRESHAREDKEY_IDENTITY;
+
+  typedef struct _SEC_DTLS_MTU {
+    unsigned short PathMTU;
+  } SEC_DTLS_MTU,*PSEC_DTLS_MTU;
+
+  typedef struct _SEC_FLAGS {
+    unsigned long long Flags;
+  } SEC_FLAGS,*PSEC_FLAGS;
+
+  typedef enum _SEC_TRAFFIC_SECRET_TYPE {
+    SecTrafficSecret_None,
+    SecTrafficSecret_Client,
+    SecTrafficSecret_Server
+  } SEC_TRAFFIC_SECRET_TYPE,*PSEC_TRAFFIC_SECRET_TYPE;
+
+#define SZ_ALG_MAX_SIZE 64
+
+  typedef struct _SEC_TRAFFIC_SECRETS {
+    wchar_t SymmetricAlgId[SZ_ALG_MAX_SIZE];
+    wchar_t ChainingMode[SZ_ALG_MAX_SIZE];
+    wchar_t HashAlgId[SZ_ALG_MAX_SIZE];
+    unsigned short KeySize;
+    unsigned short IvSize;
+    unsigned short MsgSequenceStart;
+    unsigned short MsgSequenceEnd;
+    SEC_TRAFFIC_SECRET_TYPE TrafficSecretType;
+    unsigned short TrafficSecretSize;
+    unsigned char TrafficSecret[ANYSIZE_ARRAY];
+} SEC_TRAFFIC_SECRETS,*PSEC_TRAFFIC_SECRETS;
+
 #define SECURITY_NATIVE_DREP 0x00000010
 #define SECURITY_NETWORK_DREP 0x00000000
 
@@ -228,6 +329,9 @@ extern "C" {
 #define SECPKG_CRED_BOTH 0x00000003
 #define SECPKG_CRED_DEFAULT 0x00000004
 #define SECPKG_CRED_RESERVED 0xF0000000
+
+#define SECPKG_CRED_AUTOLOGON_RESTRICTED 0x00000010
+#define SECPKG_CRED_PROCESS_POLICY_ONLY 0x00000020
 
 #define ISC_REQ_DELEGATE 0x00000001
 #define ISC_REQ_MUTUAL_AUTH 0x00000002
@@ -251,6 +355,12 @@ extern "C" {
 #define ISC_REQ_MANUAL_CRED_VALIDATION 0x00080000
 #define ISC_REQ_RESERVED1 0x00100000
 #define ISC_REQ_FRAGMENT_TO_FIT 0x00200000
+#define ISC_REQ_FORWARD_CREDENTIALS 0x00400000
+#define ISC_REQ_NO_INTEGRITY 0x00800000
+#define ISC_REQ_USE_HTTP_STYLE 0x01000000
+#define ISC_REQ_UNVERIFIED_TARGET_NAME 0x20000000
+#define ISC_REQ_CONFIDENTIALITY_ONLY 0x40000000
+#define ISC_REQ_MESSAGES 0x0000000100000000
 
 #define ISC_RET_DELEGATE 0x00000001
 #define ISC_RET_MUTUAL_AUTH 0x00000002
@@ -274,6 +384,12 @@ extern "C" {
 #define ISC_RET_MANUAL_CRED_VALIDATION 0x00080000
 #define ISC_RET_RESERVED1 0x00100000
 #define ISC_RET_FRAGMENT_ONLY 0x00200000
+#define ISC_RET_FORWARD_CREDENTIALS 0x00400000
+#define ISC_RET_USED_HTTP_STYLE 0x01000000
+#define ISC_RET_NO_ADDITIONAL_TOKEN 0x02000000
+#define ISC_RET_REAUTHENTICATION 0x08000000
+#define ISC_RET_CONFIDENTIALITY_ONLY 0x40000000
+#define ISC_RET_MESSAGES 0x0000000100000000
 
 #define ASC_REQ_DELEGATE 0x00000001
 #define ASC_REQ_MUTUAL_AUTH 0x00000002
@@ -281,11 +397,13 @@ extern "C" {
 #define ASC_REQ_SEQUENCE_DETECT 0x00000008
 #define ASC_REQ_CONFIDENTIALITY 0x00000010
 #define ASC_REQ_USE_SESSION_KEY 0x00000020
+#define ASC_REQ_SESSION_TICKET 0x00000040
 #define ASC_REQ_ALLOCATE_MEMORY 0x00000100
 #define ASC_REQ_USE_DCE_STYLE 0x00000200
 #define ASC_REQ_DATAGRAM 0x00000400
 #define ASC_REQ_CONNECTION 0x00000800
 #define ASC_REQ_CALL_LEVEL 0x00001000
+#define ASC_REQ_FRAGMENT_SUPPLIED 0x00002000
 #define ASC_REQ_EXTENDED_ERROR 0x00008000
 #define ASC_REQ_STREAM 0x00010000
 #define ASC_REQ_INTEGRITY 0x00020000
@@ -295,8 +413,10 @@ extern "C" {
 #define ASC_REQ_ALLOW_NON_USER_LOGONS 0x00200000
 #define ASC_REQ_ALLOW_CONTEXT_REPLAY 0x00400000
 #define ASC_REQ_FRAGMENT_TO_FIT 0x00800000
-#define ASC_REQ_FRAGMENT_SUPPLIED 0x00002000
 #define ASC_REQ_NO_TOKEN 0x01000000
+#define ASC_REQ_PROXY_BINDINGS 0x04000000
+#define ASC_REQ_ALLOW_MISSING_BINDINGS 0x10000000
+#define ASC_REQ_MESSAGES 0x0000000100000000
 
 #define ASC_RET_DELEGATE 0x00000001
 #define ASC_RET_MUTUAL_AUTH 0x00000002
@@ -304,6 +424,7 @@ extern "C" {
 #define ASC_RET_SEQUENCE_DETECT 0x00000008
 #define ASC_RET_CONFIDENTIALITY 0x00000010
 #define ASC_RET_USE_SESSION_KEY 0x00000020
+#define ASC_RET_SESSION_TICKET 0x00000040
 #define ASC_RET_ALLOCATED_MEMORY 0x00000100
 #define ASC_RET_USED_DCE_STYLE 0x00000200
 #define ASC_RET_DATAGRAM 0x00000400
@@ -320,9 +441,14 @@ extern "C" {
 #define ASC_RET_ALLOW_CONTEXT_REPLAY 0x00400000
 #define ASC_RET_FRAGMENT_ONLY 0x00800000
 #define ASC_RET_NO_TOKEN 0x01000000
+#define ASC_RET_NO_ADDITIONAL_TOKEN 0x02000000
+#define ASC_RET_MESSAGES 0x0000000100000000
 
 #define SECPKG_CRED_ATTR_NAMES 1
 #define SECPKG_CRED_ATTR_SSI_PROVIDER 2
+#define SECPKG_CRED_ATTR_KDC_PROXY_SETTINGS 3
+#define SECPKG_CRED_ATTR_CERT 4
+#define SECPKG_CRED_ATTR_PAC_BYPASS 5
 
   typedef struct _SecPkgCredentials_NamesW
   {
@@ -352,6 +478,23 @@ extern "C" {
 #define SecPkgCredentials_SSIProvider __MINGW_NAME_AW(SecPkgCredentials_SSIProvider)
 #define PSecPkgCredentials_SSIProvider __MINGW_NAME_AW(PSecPkgCredentials_SSIProvider)
 
+#define KDC_PROXY_SETTINGS_V1 1
+#define KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY 0x1
+
+  typedef struct _SecPkgCredentials_KdcProxySettingsW {
+    ULONG Version;
+    ULONG Flags;
+    USHORT ProxyServerOffset;
+    USHORT ProxyServerLength;
+    USHORT ClientTlsCredOffset;
+    USHORT ClientTlsCredLength;
+  } SecPkgCredentials_KdcProxySettingsW,*PSecPkgCredentials_KdcProxySettingsW;
+
+  typedef struct _SecPkgCredentials_Cert {
+    unsigned __LONG32 EncodedCertSize;
+    unsigned char *EncodedCert;
+  } SecPkgCredentials_Cert,*PSecPkgCredentials_Cert;
+
 #define SECPKG_ATTR_SIZES 0
 #define SECPKG_ATTR_NAMES 1
 #define SECPKG_ATTR_LIFESPAN 2
@@ -374,6 +517,49 @@ extern "C" {
 #define SECPKG_ATTR_TARGET 19
 #define SECPKG_ATTR_AUTHENTICATION_ID 20
 #define SECPKG_ATTR_LOGOFF_TIME 21
+#define SECPKG_ATTR_NEGO_KEYS 22
+#define SECPKG_ATTR_PROMPTING_NEEDED 24
+#define SECPKG_ATTR_UNIQUE_BINDINGS 25
+#define SECPKG_ATTR_ENDPOINT_BINDINGS 26
+#define SECPKG_ATTR_CLIENT_SPECIFIED_TARGET 27
+#define SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS 30
+#define SECPKG_ATTR_NEGO_PKG_INFO 31
+#define SECPKG_ATTR_NEGO_STATUS 32
+#define SECPKG_ATTR_CONTEXT_DELETED 33
+#define SECPKG_ATTR_DTLS_MTU 34
+#define SECPKG_ATTR_DATAGRAM_SIZES SECPKG_ATTR_STREAM_SIZES
+#define SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES 128
+#define SECPKG_ATTR_APPLICATION_PROTOCOL 35
+#define SECPKG_ATTR_NEGOTIATED_TLS_EXTENSIONS 36
+#define SECPKG_ATTR_IS_LOOPBACK 37
+
+  typedef struct _SecPkgContext_SubjectAttributes {
+    void *AttributeInfo;
+  } SecPkgContext_SubjectAttributes,*PSecPkgContext_SubjectAttributes;
+
+#define SECPKG_ATTR_NEGO_INFO_FLAG_NO_KERBEROS 0x1
+#define SECPKG_ATTR_NEGO_INFO_FLAG_NO_NTLM 0x2
+
+  typedef enum _SECPKG_CRED_CLASS {
+    SecPkgCredClass_None = 0,
+    SecPkgCredClass_Ephemeral = 10,
+    SecPkgCredClass_PersistedGeneric = 20,
+    SecPkgCredClass_PersistedSpecific = 30,
+    SecPkgCredClass_Explicit = 40
+  } SECPKG_CRED_CLASS,*PSECPKG_CRED_CLASS;
+
+  typedef struct _SecPkgContext_CredInfo {
+    SECPKG_CRED_CLASS CredClass;
+    unsigned __LONG32 IsPromptingNeeded;
+  } SecPkgContext_CredInfo,*PSecPkgContext_CredInfo;
+
+  typedef struct _SecPkgContext_NegoPackageInfo {
+    unsigned __LONG32 PackageMask;
+  } SecPkgContext_NegoPackageInfo,*PSecPkgContext_NegoPackageInfo;
+
+  typedef struct _SecPkgContext_NegoStatus {
+    unsigned __LONG32 LastStatus;
+  } SecPkgContext_NegoStatus,*PSecPkgContext_NegoStatus;
 
   typedef struct _SecPkgContext_Sizes {
     unsigned __LONG32 cbMaxToken;
@@ -390,9 +576,22 @@ extern "C" {
     unsigned __LONG32 cbBlockSize;
   } SecPkgContext_StreamSizes,*PSecPkgContext_StreamSizes;
 
+typedef SecPkgContext_StreamSizes SecPkgContext_DatagramSizes;
+typedef PSecPkgContext_StreamSizes PSecPkgContext_DatagramSizes;
+
   typedef struct _SecPkgContext_NamesW {
     SEC_WCHAR *sUserName;
   } SecPkgContext_NamesW,*PSecPkgContext_NamesW;
+
+  typedef enum _SECPKG_ATTR_LCT_STATUS {
+    SecPkgAttrLastClientTokenYes,
+    SecPkgAttrLastClientTokenNo,
+    SecPkgAttrLastClientTokenMaybe
+  } SECPKG_ATTR_LCT_STATUS,*PSECPKG_ATTR_LCT_STATUS;
+
+  typedef struct _SecPkgContext_LastClientTokenStatus {
+    SECPKG_ATTR_LCT_STATUS LastClientTokenStatus;
+  } SecPkgContext_LastClientTokenStatus,*PSecPkgContext_LastClientTokenStatus;
 
   typedef struct _SecPkgContext_NamesA {
     SEC_CHAR *sUserName;
@@ -468,6 +667,15 @@ extern "C" {
     unsigned __LONG32 SessionKeyLength;
     unsigned char *SessionKey;
   } SecPkgContext_SessionKey,*PSecPkgContext_SessionKey;
+
+  typedef struct _SecPkgContext_NegoKeys {
+    unsigned __LONG32 KeyType;
+    unsigned short KeyLength;
+    unsigned char *KeyValue;
+    unsigned __LONG32 VerifyKeyType;
+    unsigned short VerifyKeyLength;
+    unsigned char *VerifyKeyValue;
+  } SecPkgContext_NegoKeys,*PSecPkgContext_NegoKeys;
 
   typedef struct _SecPkgContext_PackageInfoW {
     PSecPkgInfoW PackageInfo;
@@ -551,6 +759,43 @@ extern "C" {
     unsigned __LONG32 TargetLength;
     char *Target;
   } SecPkgContext_Target,*PSecPkgContext_Target;
+
+  typedef struct _SecPkgContext_ClientSpecifiedTarget {
+    SEC_WCHAR *sTargetName;
+  } SecPkgContext_ClientSpecifiedTarget,*PSecPkgContext_ClientSpecifiedTarget;
+
+  typedef struct _SecPkgContext_Bindings {
+    unsigned __LONG32 BindingsLength;
+    SEC_CHANNEL_BINDINGS *Bindings;
+  } SecPkgContext_Bindings,*PSecPkgContext_Bindings;
+
+  typedef enum _SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    SecApplicationProtocolNegotiationStatus_None,
+    SecApplicationProtocolNegotiationStatus_Success,
+    SecApplicationProtocolNegotiationStatus_SelectedClientOnly
+  } SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS,*PSEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS;
+
+#define MAX_PROTOCOL_ID_SIZE 0xff
+
+  typedef struct _SecPkgContext_ApplicationProtocol {
+    SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS ProtoNegoStatus;
+    SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
+    unsigned char ProtocolIdSize;
+    unsigned char ProtocolId[MAX_PROTOCOL_ID_SIZE];
+  } SecPkgContext_ApplicationProtocol,*PSecPkgContext_ApplicationProtocol;
+
+  typedef struct _SecPkgContext_NegotiatedTlsExtensions {
+    unsigned __LONG32 ExtensionsCount;
+    unsigned short *Extensions;
+  } SecPkgContext_NegotiatedTlsExtensions,*PSecPkgContext_NegotiatedTlsExtensions;
+
+  typedef struct _SECPKG_APP_MODE_INFO {
+    ULONG UserFunction;
+    ULONG_PTR Argument1;
+    ULONG_PTR Argument2;
+    SecBuffer UserData;
+    BOOLEAN ReturnToLsa;
+  } SECPKG_APP_MODE_INFO,*PSECPKG_APP_MODE_INFO;
 
   typedef void (WINAPI *SEC_GET_KEY_FN) (void *Arg,void *Principal,unsigned __LONG32 KeyVer,void **Key,SECURITY_STATUS *Status);
 
@@ -670,6 +915,17 @@ extern "C" {
 #define QueryContextAttributes __MINGW_NAME_AW(QueryContextAttributes)
 #define QUERY_CONTEXT_ATTRIBUTES_FN __MINGW_NAME_UAW(QUERY_CONTEXT_ATTRIBUTES_FN)
 
+  SECURITY_STATUS WINAPI QueryContextAttributesExW(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
+
+  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_EX_FN_W)(PCtxtHandle,unsigned __LONG32,void*,unsigned __LONG32);
+
+  SECURITY_STATUS WINAPI QueryContextAttributesExA(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
+
+  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_EX_FN_A)(PCtxtHandle,unsigned __LONG32,void*,unsigned __LONG32);
+
+#define QueryContextAttributesEx __MINGW_NAME_AW(QueryContextAttributesEx)
+#define QUERY_CONTEXT_ATTRIBUTES_EX_FN __MINGW_NAME_UAW(QUERY_CONTEXT_ATTRIBUTES_EX_FN)
+
   SECURITY_STATUS WINAPI SetContextAttributesW(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
   typedef SECURITY_STATUS (WINAPI *SET_CONTEXT_ATTRIBUTES_FN_W)(PCtxtHandle,unsigned __LONG32,void *,unsigned __LONG32);
@@ -691,6 +947,17 @@ extern "C" {
 
 #define QueryCredentialsAttributes __MINGW_NAME_AW(QueryCredentialsAttributes)
 #define QUERY_CREDENTIALS_ATTRIBUTES_FN __MINGW_NAME_UAW(QUERY_CREDENTIALS_ATTRIBUTES_FN)
+
+  SECURITY_STATUS WINAPI QueryCredentialsAttributesExW(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
+
+  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W)(PCredHandle,unsigned __LONG32,void*,unsigned __LONG32);
+
+  SECURITY_STATUS WINAPI QueryCredentialsAttributesExA(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
+
+  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A)(PCredHandle,unsigned __LONG32,void*,unsigned __LONG32);
+
+#define QueryCredentialsAttributesEx __MINGW_NAME_AW(QueryCredentialsAttributesEx)
+#define QUERY_CREDENTIALS_ATTRIBUTES_EX_FN __MINGW_NAME_UAW(QUERY_CREDENTIALS_ATTRIBUTES_EX_FN)
 
   KSECDDDECLSPEC SECURITY_STATUS WINAPI SetCredentialsAttributesW(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
@@ -802,6 +1069,7 @@ extern "C" {
 #if ISSP_MODE==0
   KSECDDDECLSPEC NTSTATUS NTAPI SecMakeSPN(PUNICODE_STRING ServiceClass,PUNICODE_STRING ServiceName,PUNICODE_STRING InstanceName,USHORT InstancePort,PUNICODE_STRING Referrer,PUNICODE_STRING Spn,PULONG Length,BOOLEAN Allocate);
   KSECDDDECLSPEC NTSTATUS NTAPI SecMakeSPNEx(PUNICODE_STRING ServiceClass,PUNICODE_STRING ServiceName,PUNICODE_STRING InstanceName,USHORT InstancePort,PUNICODE_STRING Referrer,PUNICODE_STRING TargetInfo,PUNICODE_STRING Spn,PULONG Length,BOOLEAN Allocate);
+  KSECDDDECLSPEC NTSTATUS NTAPI SecMakeSPNEx2(PUNICODE_STRING ServiceClass,PUNICODE_STRING ServiceName,PUNICODE_STRING InstanceName,USHORT InstancePort,PUNICODE_STRING Referrer,PUNICODE_STRING InTargetInfo,PUNICODE_STRING Spn,PULONG TotalSize,BOOLEAN Allocate,BOOLEAN IsTargetInfoMarshaled);
   KSECDDDECLSPEC NTSTATUS WINAPI SecLookupAccountSid(PSID Sid,PULONG NameSize,PUNICODE_STRING NameBuffer,PULONG DomainSize,PUNICODE_STRING DomainBuffer,PSID_NAME_USE NameUse);
   KSECDDDECLSPEC NTSTATUS WINAPI SecLookupAccountName(PUNICODE_STRING Name,PULONG SidSize,PSID Sid,PSID_NAME_USE NameUse,PULONG DomainSize,PUNICODE_STRING ReferencedDomain);
   KSECDDDECLSPEC NTSTATUS WINAPI SecLookupWellKnownSid(WELL_KNOWN_SID_TYPE SidType,PSID Sid,ULONG SidBufferSize,PULONG SidSize);
@@ -895,6 +1163,8 @@ extern "C" {
 #define SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION 1
 #define SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2 2
 #define SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3 3
+#define SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4 4
+#define SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5 5
 
   PSecurityFunctionTableA WINAPI InitSecurityInterfaceA(void);
 
@@ -942,6 +1212,28 @@ extern "C" {
 
   SECURITY_STATUS WINAPI SaslSetContextOption(PCtxtHandle ContextHandle,ULONG Option,PVOID Value,ULONG Size);
   SECURITY_STATUS WINAPI SaslGetContextOption(PCtxtHandle ContextHandle,ULONG Option,PVOID Value,ULONG Size,PULONG Needed);
+#endif
+
+#ifndef _AUTH_IDENTITY_EX2_DEFINED
+#define _AUTH_IDENTITY_EX2_DEFINED
+
+#define SEC_WINNT_AUTH_IDENTITY_VERSION_2 0x201
+
+  typedef struct _SEC_WINNT_AUTH_IDENTITY_EX2 {
+    unsigned __LONG32 Version;
+    unsigned short cbHeaderLength;
+    unsigned __LONG32 cbStructureLength;
+    unsigned __LONG32 UserOffset;
+    unsigned short UserLength;
+    unsigned __LONG32 DomainOffset;
+    unsigned short DomainLength;
+    unsigned __LONG32 PackedCredentialsOffset;
+    unsigned short PackedCredentialsLength;
+    unsigned __LONG32 Flags;
+    unsigned __LONG32 PackageListOffset;
+    unsigned short PackageListLength;
+  } SEC_WINNT_AUTH_IDENTITY_EX2, *PSEC_WINNT_AUTH_IDENTITY_EX2;
+
 #endif
 
 #ifndef _AUTH_IDENTITY_DEFINED
