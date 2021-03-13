@@ -120,6 +120,7 @@ for f in \
 	vfwmsgs.h \
 	winhttp.h \
 	winineti.h \
+	wmpids.h \
 	xapofx.h \
 	xinput.h; do
     import_header $f include
@@ -196,6 +197,8 @@ for f in \
 	windows.foundation.collections \
 	wmdrmsdk \
 	wmp \
+	wmprealestate \
+	wmpservices \
 	wmsbuffer \
 	wmsdkidl \
 	wpcapi \
