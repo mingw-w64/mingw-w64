@@ -5053,7 +5053,7 @@ IDWriteTextFormat3 : public IDWriteTextFormat2
         ) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetFontAxisValues(
-        const DWRITE_FONT_AXIS_VALUE *axis_values,
+        DWRITE_FONT_AXIS_VALUE *axis_values,
         UINT32 num_values) = 0;
 
     virtual DWRITE_AUTOMATIC_FONT_AXES STDMETHODCALLTYPE GetAutomaticFontAxes(
@@ -5229,7 +5229,7 @@ typedef struct IDWriteTextFormat3Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetFontAxisValues)(
         IDWriteTextFormat3 *This,
-        const DWRITE_FONT_AXIS_VALUE *axis_values,
+        DWRITE_FONT_AXIS_VALUE *axis_values,
         UINT32 num_values);
 
     DWRITE_AUTOMATIC_FONT_AXES (STDMETHODCALLTYPE *GetAutomaticFontAxes)(
@@ -5414,7 +5414,7 @@ static FORCEINLINE HRESULT IDWriteTextFormat3_SetFontAxisValues(IDWriteTextForma
 static FORCEINLINE UINT32 IDWriteTextFormat3_GetFontAxisValueCount(IDWriteTextFormat3* This) {
     return This->lpVtbl->GetFontAxisValueCount(This);
 }
-static FORCEINLINE HRESULT IDWriteTextFormat3_GetFontAxisValues(IDWriteTextFormat3* This,const DWRITE_FONT_AXIS_VALUE *axis_values,UINT32 num_values) {
+static FORCEINLINE HRESULT IDWriteTextFormat3_GetFontAxisValues(IDWriteTextFormat3* This,DWRITE_FONT_AXIS_VALUE *axis_values,UINT32 num_values) {
     return This->lpVtbl->GetFontAxisValues(This,axis_values,num_values);
 }
 static FORCEINLINE DWRITE_AUTOMATIC_FONT_AXES IDWriteTextFormat3_GetAutomaticFontAxes(IDWriteTextFormat3* This) {

@@ -6854,9 +6854,9 @@ static FORCEINLINE HRESULT IWMReaderAllocatorEx_AllocateForOutputEx(IWMReaderAll
 #ifndef __IWMSyncReader2_INTERFACE_DEFINED__
 #define __IWMSyncReader2_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IWMSyncReader2, 0xfaed3d21, 0x1b6b, 0x4af7, 0x8b,0xc6, 0x3e,0x18,0x9b,0xbc,0x18,0x7b);
+DEFINE_GUID(IID_IWMSyncReader2, 0xfaed3d21, 0x1b6b, 0x4af7, 0x8c,0xb6, 0x3e,0x18,0x9b,0xbc,0x18,0x7b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("faed3d21-1b6b-4af7-8bc6-3e189bbc187b")
+MIDL_INTERFACE("faed3d21-1b6b-4af7-8cb6-3e189bbc187b")
 IWMSyncReader2 : public IWMSyncReader
 {
     virtual HRESULT STDMETHODCALLTYPE SetRangeByTimecode(
@@ -6888,7 +6888,7 @@ IWMSyncReader2 : public IWMSyncReader
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IWMSyncReader2, 0xfaed3d21, 0x1b6b, 0x4af7, 0x8b,0xc6, 0x3e,0x18,0x9b,0xbc,0x18,0x7b)
+__CRT_UUID_DECL(IWMSyncReader2, 0xfaed3d21, 0x1b6b, 0x4af7, 0x8c,0xb6, 0x3e,0x18,0x9b,0xbc,0x18,0x7b)
 #endif
 #else
 typedef struct IWMSyncReader2Vtbl {
