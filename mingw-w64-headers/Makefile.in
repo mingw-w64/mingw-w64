@@ -533,6 +533,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wincodecsdk.idl \
 @HAVE_WIDL_TRUE@  include/wmcontainer.idl \
 @HAVE_WIDL_TRUE@  include/wmp.idl \
+@HAVE_WIDL_TRUE@  include/wmprealestate.idl \
+@HAVE_WIDL_TRUE@  include/wmpservices.idl \
 @HAVE_WIDL_TRUE@  include/wmsbuffer.idl \
 @HAVE_WIDL_TRUE@  include/wmsdkidl.idl \
 @HAVE_WIDL_TRUE@  include/wsdattachment.idl \
