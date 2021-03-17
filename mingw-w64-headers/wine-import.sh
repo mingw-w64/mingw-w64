@@ -80,6 +80,7 @@ for f in \
 	d3dx9tex.h \
 	d3dx9xof.h \
 	devpkey.h \
+	dinput.h \
 	dls1.h \
 	dls2.h \
 	dmerror.h \
@@ -178,12 +179,14 @@ for f in \
 	mmstream \
 	mscoree \
 	msctf \
+	mulres \
 	netfw \
 	netlistmgr \
 	objectarray \
 	optary \
 	qedit \
-        relogger \
+	relogger \
+	rtworkq \
 	spatialaudioclient \
 	taskschd \
 	thumbcache \
@@ -195,6 +198,7 @@ for f in \
 	wincodecsdk \
 	windowscontracts \
 	windows.foundation.collections \
+	windows.media.speechsynthesis \
 	wmdrmsdk \
 	wmp \
 	wmprealestate \

@@ -89,6 +89,15 @@ interface IMFTopology : IMFAttributes
     HRESULT GetOutputNodeCollection([out] IMFCollection **ppCollection);
 }
 
+[
+    object,
+    uuid(fa993888-4383-415a-a930-dd472a8cf6f7)
+]
+interface IMFGetService : IUnknown
+{
+    HRESULT GetService([in] REFGUID guidService, [in] REFIID riid, [out, iid_is(riid)] LPVOID *ppvObject);
+}
+
 typedef LONGLONG MFTIME;
 
 typedef enum _MF_CLOCK_STATE {
