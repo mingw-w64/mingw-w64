@@ -226,6 +226,7 @@ IDL_SRCS = \
   include/qedit.idl \
   include/qnetwork.idl \
   include/relogger.idl \
+  include/rtworkq.idl \
   include/vmr9.idl \
   include/wincodec.idl \
   include/wincodecsdk.idl \
@@ -245,6 +246,7 @@ IDL_SRCS = \
   include/wtypesbase.idl \
   include/windows.foundation.idl \
   include/windows.foundation.collections.idl \
+  include/windows.media.speechsynthesis.idl \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
   include/windows.storage.streams.idl \
