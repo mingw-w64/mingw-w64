@@ -80,7 +80,6 @@ for f in \
 	d3dx9tex.h \
 	d3dx9xof.h \
 	devpkey.h \
-	dinput.h \
 	dls1.h \
 	dls2.h \
 	dmerror.h \
