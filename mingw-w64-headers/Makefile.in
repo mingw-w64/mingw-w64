@@ -528,6 +528,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/qedit.idl \
 @HAVE_WIDL_TRUE@  include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  include/relogger.idl \
+@HAVE_WIDL_TRUE@  include/rtworkq.idl \
 @HAVE_WIDL_TRUE@  include/vmr9.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
 @HAVE_WIDL_TRUE@  include/wincodecsdk.idl \
@@ -547,6 +548,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.collections.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
