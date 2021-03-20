@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.7.4.  */
+/* A Bison parser, made by GNU Bison 3.7.5.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -46,10 +46,10 @@
    USER NAME SPACE" below.  */
 
 /* Identify Bison output, and Bison version.  */
-#define YYBISON 30704
+#define YYBISON 30705
 
 /* Bison version string.  */
-#define YYBISON_VERSION "3.7.4"
+#define YYBISON_VERSION "3.7.5"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -922,6 +922,18 @@ typedef int_least16_t yytype_int16;
 typedef short yytype_int16;
 #endif
 
+/* Work around bug in HP-UX 11.23, which defines these macros
+   incorrectly for preprocessor constants.  This workaround can likely
+   be removed in 2023, as HPE has promised support for HP-UX 11.23
+   (aka HP-UX 11i v2) only through the end of 2022; see Table 2 of
+   <https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-7673ENW.pdf>.  */
+#ifdef __hpux
+# undef UINT_LEAST8_MAX
+# undef UINT_LEAST16_MAX
+# define UINT_LEAST8_MAX 255
+# define UINT_LEAST16_MAX 65535
+#endif
+
 #if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
 typedef __UINT_LEAST8_TYPE__ yytype_uint8;
 #elif (!defined __UINT_LEAST8_MAX__ && defined YY_STDINT_H \
@@ -1019,9 +1031,9 @@ typedef int yy_state_fast_t;
 
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
-# define YYUSE(E) ((void) (E))
+# define YY_USE(E) ((void) (E))
 #else
-# define YYUSE(E) /* empty */
+# define YY_USE(E) /* empty */
 #endif
 
 #if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
@@ -1676,7 +1688,7 @@ static const yytype_int16 yypgoto[] =
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int16 yydefgoto[] =
 {
-      -1,     1,    47,   299,    48,   662,   354,     2,   393,   236,
+       0,     1,    47,   299,    48,   662,   354,     2,   393,   236,
      664,   522,   266,   355,    50,   560,    51,    52,    53,    54,
      356,   245,    55,   357,   539,   540,   541,   542,   633,    57,
      373,   232,   458,   478,   452,   422,   485,   233,   427,   634,
@@ -2700,7 +2712,7 @@ yy_symbol_value_print (FILE *yyo,
                        yysymbol_kind_t yykind, YYSTYPE const * const yyvaluep)
 {
   FILE *yyoutput = yyo;
-  YYUSE (yyoutput);
+  YY_USE (yyoutput);
   if (!yyvaluep)
     return;
 # ifdef YYPRINT
@@ -2708,7 +2720,7 @@ yy_symbol_value_print (FILE *yyo,
     YYPRINT (yyo, yytoknum[yykind], *yyvaluep);
 # endif
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  YYUSE (yykind);
+  YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
@@ -3089,13 +3101,13 @@ static void
 yydestruct (const char *yymsg,
             yysymbol_kind_t yykind, YYSTYPE *yyvaluep)
 {
-  YYUSE (yyvaluep);
+  YY_USE (yyvaluep);
   if (!yymsg)
     yymsg = "Deleting";
   YY_SYMBOL_PRINT (yymsg, yykind, yyvaluep, yylocationp);
 
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  YYUSE (yykind);
+  YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
@@ -3373,13 +3385,13 @@ yyreduce:
 						  write_dlldata((yyvsp[-1].stmt_list));
 						  write_local_stubs((yyvsp[-1].stmt_list));
 						}
-#line 3377 "tools/widl/parser.tab.c"
+#line 3389 "tools/widl/parser.tab.c"
     break;
 
   case 5: /* decl_statements: %empty  */
 #line 366 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = NULL; }
-#line 3383 "tools/widl/parser.tab.c"
+#line 3395 "tools/widl/parser.tab.c"
     break;
 
   case 6: /* decl_statements: decl_statements tINTERFACE qualified_type '<' parameterized_type_args '>' ';'  */
@@ -3387,73 +3399,73 @@ yyreduce:
                                                 { parameterized_type_stmts = append_statement(parameterized_type_stmts, make_statement_parameterized_type((yyvsp[-4].type), (yyvsp[-2].typeref_list)));
 						  (yyval.stmt_list) = append_statement((yyvsp[-6].stmt_list), make_statement_reference(type_parameterized_type_specialize_declare((yyvsp[-4].type), (yyvsp[-2].typeref_list))));
 						}
-#line 3391 "tools/widl/parser.tab.c"
+#line 3403 "tools/widl/parser.tab.c"
     break;
 
   case 7: /* decl_block: tDECLARE '{' decl_statements '}'  */
 #line 373 "tools/widl/parser.y"
                                              { (yyval.stmt_list) = (yyvsp[-1].stmt_list); }
-#line 3397 "tools/widl/parser.tab.c"
+#line 3409 "tools/widl/parser.tab.c"
     break;
 
   case 8: /* imp_decl_statements: %empty  */
 #line 375 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = NULL; }
-#line 3403 "tools/widl/parser.tab.c"
+#line 3415 "tools/widl/parser.tab.c"
     break;
 
   case 9: /* imp_decl_statements: imp_decl_statements tINTERFACE qualified_type '<' parameterized_type_args '>' ';'  */
 #line 377 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-6].stmt_list), make_statement_reference(type_parameterized_type_specialize_declare((yyvsp[-4].type), (yyvsp[-2].typeref_list)))); }
-#line 3409 "tools/widl/parser.tab.c"
+#line 3421 "tools/widl/parser.tab.c"
     break;
 
   case 10: /* imp_decl_block: tDECLARE '{' imp_decl_statements '}'  */
 #line 380 "tools/widl/parser.y"
                                                      { (yyval.stmt_list) = (yyvsp[-1].stmt_list); }
-#line 3415 "tools/widl/parser.tab.c"
+#line 3427 "tools/widl/parser.tab.c"
     break;
 
   case 11: /* gbl_statements: %empty  */
 #line 382 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = NULL; }
-#line 3421 "tools/widl/parser.tab.c"
+#line 3433 "tools/widl/parser.tab.c"
     break;
 
   case 12: /* $@1: %empty  */
 #line 383 "tools/widl/parser.y"
                                           { push_namespace((yyvsp[-1].str)); }
-#line 3427 "tools/widl/parser.tab.c"
+#line 3439 "tools/widl/parser.tab.c"
     break;
 
   case 13: /* gbl_statements: gbl_statements namespacedef '{' $@1 gbl_statements '}'  */
 #line 384 "tools/widl/parser.y"
                                                 { pop_namespace((yyvsp[-4].str)); (yyval.stmt_list) = append_statements((yyvsp[-5].stmt_list), (yyvsp[-1].stmt_list)); }
-#line 3433 "tools/widl/parser.tab.c"
+#line 3445 "tools/widl/parser.tab.c"
     break;
 
   case 14: /* gbl_statements: gbl_statements interface ';'  */
 #line 385 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-2].stmt_list), make_statement_reference((yyvsp[-1].type))); }
-#line 3439 "tools/widl/parser.tab.c"
+#line 3451 "tools/widl/parser.tab.c"
     break;
 
   case 15: /* gbl_statements: gbl_statements dispinterface ';'  */
 #line 386 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-2].stmt_list), make_statement_reference((yyvsp[-1].type))); }
-#line 3445 "tools/widl/parser.tab.c"
+#line 3457 "tools/widl/parser.tab.c"
     break;
 
   case 16: /* gbl_statements: gbl_statements interfacedef  */
 #line 387 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type))); }
-#line 3451 "tools/widl/parser.tab.c"
+#line 3463 "tools/widl/parser.tab.c"
     break;
 
   case 17: /* gbl_statements: gbl_statements delegatedef  */
 #line 388 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type))); }
-#line 3457 "tools/widl/parser.tab.c"
+#line 3469 "tools/widl/parser.tab.c"
     break;
 
   case 18: /* gbl_statements: gbl_statements coclass ';'  */
@@ -3461,7 +3473,7 @@ yyreduce:
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list);
 						  reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0);
 						}
-#line 3465 "tools/widl/parser.tab.c"
+#line 3477 "tools/widl/parser.tab.c"
     break;
 
   case 19: /* gbl_statements: gbl_statements coclassdef  */
@@ -3469,105 +3481,105 @@ yyreduce:
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 						  reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0);
 						}
-#line 3473 "tools/widl/parser.tab.c"
+#line 3485 "tools/widl/parser.tab.c"
     break;
 
   case 20: /* gbl_statements: gbl_statements apicontract ';'  */
 #line 395 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list); reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0); }
-#line 3479 "tools/widl/parser.tab.c"
+#line 3491 "tools/widl/parser.tab.c"
     break;
 
   case 21: /* gbl_statements: gbl_statements apicontract_def  */
 #line 396 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 						  reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0); }
-#line 3486 "tools/widl/parser.tab.c"
+#line 3498 "tools/widl/parser.tab.c"
     break;
 
   case 22: /* gbl_statements: gbl_statements runtimeclass ';'  */
 #line 398 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list); reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0); }
-#line 3492 "tools/widl/parser.tab.c"
+#line 3504 "tools/widl/parser.tab.c"
     break;
 
   case 23: /* gbl_statements: gbl_statements runtimeclass_def  */
 #line 399 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 	                                          reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0); }
-#line 3499 "tools/widl/parser.tab.c"
+#line 3511 "tools/widl/parser.tab.c"
     break;
 
   case 24: /* gbl_statements: gbl_statements moduledef  */
 #line 401 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_module((yyvsp[0].type))); }
-#line 3505 "tools/widl/parser.tab.c"
+#line 3517 "tools/widl/parser.tab.c"
     break;
 
   case 25: /* gbl_statements: gbl_statements librarydef  */
 #line 402 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_library((yyvsp[0].typelib))); }
-#line 3511 "tools/widl/parser.tab.c"
+#line 3523 "tools/widl/parser.tab.c"
     break;
 
   case 26: /* gbl_statements: gbl_statements statement  */
 #line 403 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), (yyvsp[0].statement)); }
-#line 3517 "tools/widl/parser.tab.c"
+#line 3529 "tools/widl/parser.tab.c"
     break;
 
   case 27: /* gbl_statements: gbl_statements decl_block  */
 #line 404 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statements((yyvsp[-1].stmt_list), (yyvsp[0].stmt_list)); }
-#line 3523 "tools/widl/parser.tab.c"
+#line 3535 "tools/widl/parser.tab.c"
     break;
 
   case 28: /* imp_statements: %empty  */
 #line 407 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = NULL; }
-#line 3529 "tools/widl/parser.tab.c"
+#line 3541 "tools/widl/parser.tab.c"
     break;
 
   case 29: /* imp_statements: imp_statements interface ';'  */
 #line 408 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-2].stmt_list), make_statement_reference((yyvsp[-1].type))); }
-#line 3535 "tools/widl/parser.tab.c"
+#line 3547 "tools/widl/parser.tab.c"
     break;
 
   case 30: /* imp_statements: imp_statements dispinterface ';'  */
 #line 409 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-2].stmt_list), make_statement_reference((yyvsp[-1].type))); }
-#line 3541 "tools/widl/parser.tab.c"
+#line 3553 "tools/widl/parser.tab.c"
     break;
 
   case 31: /* $@2: %empty  */
 #line 410 "tools/widl/parser.y"
                                           { push_namespace((yyvsp[-1].str)); }
-#line 3547 "tools/widl/parser.tab.c"
+#line 3559 "tools/widl/parser.tab.c"
     break;
 
   case 32: /* imp_statements: imp_statements namespacedef '{' $@2 imp_statements '}'  */
 #line 411 "tools/widl/parser.y"
                                                 { pop_namespace((yyvsp[-4].str)); (yyval.stmt_list) = append_statements((yyvsp[-5].stmt_list), (yyvsp[-1].stmt_list)); }
-#line 3553 "tools/widl/parser.tab.c"
+#line 3565 "tools/widl/parser.tab.c"
     break;
 
   case 33: /* imp_statements: imp_statements interfacedef  */
 #line 412 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type))); }
-#line 3559 "tools/widl/parser.tab.c"
+#line 3571 "tools/widl/parser.tab.c"
     break;
 
   case 34: /* imp_statements: imp_statements delegatedef  */
 #line 413 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type))); }
-#line 3565 "tools/widl/parser.tab.c"
+#line 3577 "tools/widl/parser.tab.c"
     break;
 
   case 35: /* imp_statements: imp_statements coclass ';'  */
 #line 414 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list); reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0); }
-#line 3571 "tools/widl/parser.tab.c"
+#line 3583 "tools/widl/parser.tab.c"
     break;
 
   case 36: /* imp_statements: imp_statements coclassdef  */
@@ -3575,117 +3587,117 @@ yyreduce:
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 						  reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0);
 						}
-#line 3579 "tools/widl/parser.tab.c"
+#line 3591 "tools/widl/parser.tab.c"
     break;
 
   case 37: /* imp_statements: imp_statements apicontract ';'  */
 #line 418 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list); reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0); }
-#line 3585 "tools/widl/parser.tab.c"
+#line 3597 "tools/widl/parser.tab.c"
     break;
 
   case 38: /* imp_statements: imp_statements apicontract_def  */
 #line 419 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 						  reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0); }
-#line 3592 "tools/widl/parser.tab.c"
+#line 3604 "tools/widl/parser.tab.c"
     break;
 
   case 39: /* imp_statements: imp_statements runtimeclass ';'  */
 #line 421 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = (yyvsp[-2].stmt_list); reg_type((yyvsp[-1].type), (yyvsp[-1].type)->name, current_namespace, 0); }
-#line 3598 "tools/widl/parser.tab.c"
+#line 3610 "tools/widl/parser.tab.c"
     break;
 
   case 40: /* imp_statements: imp_statements runtimeclass_def  */
 #line 422 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_type_decl((yyvsp[0].type)));
 	                                          reg_type((yyvsp[0].type), (yyvsp[0].type)->name, current_namespace, 0); }
-#line 3605 "tools/widl/parser.tab.c"
+#line 3617 "tools/widl/parser.tab.c"
     break;
 
   case 41: /* imp_statements: imp_statements moduledef  */
 #line 424 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_module((yyvsp[0].type))); }
-#line 3611 "tools/widl/parser.tab.c"
+#line 3623 "tools/widl/parser.tab.c"
     break;
 
   case 42: /* imp_statements: imp_statements statement  */
 #line 425 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), (yyvsp[0].statement)); }
-#line 3617 "tools/widl/parser.tab.c"
+#line 3629 "tools/widl/parser.tab.c"
     break;
 
   case 43: /* imp_statements: imp_statements importlib  */
 #line 426 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_importlib((yyvsp[0].str))); }
-#line 3623 "tools/widl/parser.tab.c"
+#line 3635 "tools/widl/parser.tab.c"
     break;
 
   case 44: /* imp_statements: imp_statements librarydef  */
 #line 427 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), make_statement_library((yyvsp[0].typelib))); }
-#line 3629 "tools/widl/parser.tab.c"
+#line 3641 "tools/widl/parser.tab.c"
     break;
 
   case 45: /* imp_statements: imp_statements imp_decl_block  */
 #line 428 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statements((yyvsp[-1].stmt_list), (yyvsp[0].stmt_list)); }
-#line 3635 "tools/widl/parser.tab.c"
+#line 3647 "tools/widl/parser.tab.c"
     break;
 
   case 46: /* int_statements: %empty  */
 #line 431 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = NULL; }
-#line 3641 "tools/widl/parser.tab.c"
+#line 3653 "tools/widl/parser.tab.c"
     break;
 
   case 47: /* int_statements: int_statements statement  */
 #line 432 "tools/widl/parser.y"
                                                 { (yyval.stmt_list) = append_statement((yyvsp[-1].stmt_list), (yyvsp[0].statement)); }
-#line 3647 "tools/widl/parser.tab.c"
+#line 3659 "tools/widl/parser.tab.c"
     break;
 
   case 50: /* statement: cppquote  */
 #line 440 "tools/widl/parser.y"
                                                 { (yyval.statement) = make_statement_cppquote((yyvsp[0].str)); }
-#line 3653 "tools/widl/parser.tab.c"
+#line 3665 "tools/widl/parser.tab.c"
     break;
 
   case 51: /* statement: typedecl ';'  */
 #line 441 "tools/widl/parser.y"
                                                 { (yyval.statement) = make_statement_type_decl((yyvsp[-1].type)); }
-#line 3659 "tools/widl/parser.tab.c"
+#line 3671 "tools/widl/parser.tab.c"
     break;
 
   case 52: /* statement: declaration ';'  */
 #line 442 "tools/widl/parser.y"
                                                 { (yyval.statement) = make_statement_declaration((yyvsp[-1].var)); }
-#line 3665 "tools/widl/parser.tab.c"
+#line 3677 "tools/widl/parser.tab.c"
     break;
 
   case 53: /* statement: import  */
 #line 443 "tools/widl/parser.y"
                                                 { (yyval.statement) = make_statement_import((yyvsp[0].str)); }
-#line 3671 "tools/widl/parser.tab.c"
+#line 3683 "tools/widl/parser.tab.c"
     break;
 
   case 54: /* statement: typedef ';'  */
 #line 444 "tools/widl/parser.y"
                                                 { (yyval.statement) = (yyvsp[-1].statement); }
-#line 3677 "tools/widl/parser.tab.c"
+#line 3689 "tools/widl/parser.tab.c"
     break;
 
   case 55: /* statement: aPRAGMA  */
 #line 445 "tools/widl/parser.y"
                                                 { (yyval.statement) = make_statement_pragma((yyvsp[0].str)); }
-#line 3683 "tools/widl/parser.tab.c"
+#line 3695 "tools/widl/parser.tab.c"
     break;
 
   case 56: /* statement: pragma_warning  */
 #line 446 "tools/widl/parser.y"
                          { (yyval.statement) = NULL; }
-#line 3689 "tools/widl/parser.tab.c"
+#line 3701 "tools/widl/parser.tab.c"
     break;
 
   case 57: /* pragma_warning: tPRAGMA_WARNING '(' aIDENTIFIER ':' warnings ')'  */
@@ -3697,7 +3709,7 @@ yyreduce:
                       if(!result)
                           error_loc("expected \"disable\", \"enable\" or \"default\"\n");
                   }
-#line 3701 "tools/widl/parser.tab.c"
+#line 3713 "tools/widl/parser.tab.c"
     break;
 
   case 58: /* pragma_warning: tPRAGMA_WARNING '(' tDEFAULT ':' warnings ')'  */
@@ -3706,61 +3718,61 @@ yyreduce:
                       (yyval.statement) = NULL;
                       do_warning("default", (yyvsp[-1].warning_list));
                   }
-#line 3710 "tools/widl/parser.tab.c"
+#line 3722 "tools/widl/parser.tab.c"
     break;
 
   case 59: /* warnings: aNUM  */
 #line 465 "tools/widl/parser.y"
                { (yyval.warning_list) = append_warning(NULL, (yyvsp[0].num)); }
-#line 3716 "tools/widl/parser.tab.c"
+#line 3728 "tools/widl/parser.tab.c"
     break;
 
   case 60: /* warnings: warnings aNUM  */
 #line 466 "tools/widl/parser.y"
                         { (yyval.warning_list) = append_warning((yyvsp[-1].warning_list), (yyvsp[0].num)); }
-#line 3722 "tools/widl/parser.tab.c"
+#line 3734 "tools/widl/parser.tab.c"
     break;
 
   case 62: /* typedecl: tENUM aIDENTIFIER  */
 #line 471 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_enum((yyvsp[0].str), current_namespace, FALSE, NULL); }
-#line 3728 "tools/widl/parser.tab.c"
+#line 3740 "tools/widl/parser.tab.c"
     break;
 
   case 64: /* typedecl: tSTRUCT aIDENTIFIER  */
 #line 473 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_struct((yyvsp[0].str), current_namespace, FALSE, NULL); }
-#line 3734 "tools/widl/parser.tab.c"
+#line 3746 "tools/widl/parser.tab.c"
     break;
 
   case 66: /* typedecl: tUNION aIDENTIFIER  */
 #line 475 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_nonencapsulated_union((yyvsp[0].str), FALSE, NULL); }
-#line 3740 "tools/widl/parser.tab.c"
+#line 3752 "tools/widl/parser.tab.c"
     break;
 
   case 67: /* typedecl: attributes enumdef  */
 #line 476 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); (yyval.type)->attrs = check_enum_attrs((yyvsp[-1].attr_list)); }
-#line 3746 "tools/widl/parser.tab.c"
+#line 3758 "tools/widl/parser.tab.c"
     break;
 
   case 68: /* typedecl: attributes structdef  */
 #line 477 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); (yyval.type)->attrs = check_struct_attrs((yyvsp[-1].attr_list)); }
-#line 3752 "tools/widl/parser.tab.c"
+#line 3764 "tools/widl/parser.tab.c"
     break;
 
   case 69: /* typedecl: attributes uniondef  */
 #line 478 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); (yyval.type)->attrs = check_union_attrs((yyvsp[-1].attr_list)); }
-#line 3758 "tools/widl/parser.tab.c"
+#line 3770 "tools/widl/parser.tab.c"
     break;
 
   case 70: /* cppquote: tCPPQUOTE '(' aSTRING ')'  */
 #line 481 "tools/widl/parser.y"
                                                 { (yyval.str) = (yyvsp[-1].str); }
-#line 3764 "tools/widl/parser.tab.c"
+#line 3776 "tools/widl/parser.tab.c"
     break;
 
   case 71: /* import_start: tIMPORT aSTRING ';'  */
@@ -3771,7 +3783,7 @@ yyreduce:
 						  (yyval.import)->import_performed = do_import((yyvsp[-1].str));
 						  if (!(yyval.import)->import_performed) yychar = aEOF;
 						}
-#line 3775 "tools/widl/parser.tab.c"
+#line 3787 "tools/widl/parser.tab.c"
     break;
 
   case 72: /* import: import_start imp_statements aEOF  */
@@ -3780,19 +3792,19 @@ yyreduce:
 						  if ((yyvsp[-2].import)->import_performed) pop_import();
 						  free((yyvsp[-2].import));
 						}
-#line 3784 "tools/widl/parser.tab.c"
+#line 3796 "tools/widl/parser.tab.c"
     break;
 
   case 73: /* importlib: tIMPORTLIB '(' aSTRING ')' semicolon_opt  */
 #line 498 "tools/widl/parser.y"
                                                 { (yyval.str) = (yyvsp[-2].str); if(!parse_only) add_importlib((yyvsp[-2].str), current_typelib); }
-#line 3790 "tools/widl/parser.tab.c"
+#line 3802 "tools/widl/parser.tab.c"
     break;
 
   case 74: /* libraryhdr: tLIBRARY typename  */
 #line 501 "tools/widl/parser.y"
                                                 { (yyval.str) = (yyvsp[0].str); }
-#line 3796 "tools/widl/parser.tab.c"
+#line 3808 "tools/widl/parser.tab.c"
     break;
 
   case 75: /* library_start: attributes libraryhdr '{'  */
@@ -3800,37 +3812,37 @@ yyreduce:
                                                 { (yyval.typelib) = make_library((yyvsp[-1].str), check_library_attrs((yyvsp[-1].str), (yyvsp[-2].attr_list)));
 						  if (!parse_only && do_typelib) current_typelib = (yyval.typelib);
 						}
-#line 3804 "tools/widl/parser.tab.c"
+#line 3816 "tools/widl/parser.tab.c"
     break;
 
   case 76: /* librarydef: library_start imp_statements '}' semicolon_opt  */
 #line 508 "tools/widl/parser.y"
                                                 { (yyval.typelib) = (yyvsp[-3].typelib); (yyval.typelib)->stmts = (yyvsp[-2].stmt_list); }
-#line 3810 "tools/widl/parser.tab.c"
+#line 3822 "tools/widl/parser.tab.c"
     break;
 
   case 77: /* m_args: %empty  */
 #line 511 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 3816 "tools/widl/parser.tab.c"
+#line 3828 "tools/widl/parser.tab.c"
     break;
 
   case 79: /* arg_list: arg  */
 #line 515 "tools/widl/parser.y"
                                                 { check_arg_attrs((yyvsp[0].var)); (yyval.var_list) = append_var( NULL, (yyvsp[0].var) ); }
-#line 3822 "tools/widl/parser.tab.c"
+#line 3834 "tools/widl/parser.tab.c"
     break;
 
   case 80: /* arg_list: arg_list ',' arg  */
 #line 516 "tools/widl/parser.y"
                                                 { check_arg_attrs((yyvsp[0].var)); (yyval.var_list) = append_var( (yyvsp[-2].var_list), (yyvsp[0].var) ); }
-#line 3828 "tools/widl/parser.tab.c"
+#line 3840 "tools/widl/parser.tab.c"
     break;
 
   case 82: /* args: arg_list ',' ELLIPSIS  */
 #line 520 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var( (yyvsp[-2].var_list), make_var(strdup("...")) ); }
-#line 3834 "tools/widl/parser.tab.c"
+#line 3846 "tools/widl/parser.tab.c"
     break;
 
   case 83: /* arg: attributes decl_spec m_any_declarator  */
@@ -3840,7 +3852,7 @@ yyreduce:
 						  (yyval.var) = declare_var((yyvsp[-2].attr_list), (yyvsp[-1].declspec), (yyvsp[0].declarator), TRUE);
 						  free((yyvsp[-1].declspec)); free((yyvsp[0].declarator));
 						}
-#line 3844 "tools/widl/parser.tab.c"
+#line 3856 "tools/widl/parser.tab.c"
     break;
 
   case 84: /* arg: decl_spec m_any_declarator  */
@@ -3850,7 +3862,7 @@ yyreduce:
 						  (yyval.var) = declare_var(NULL, (yyvsp[-1].declspec), (yyvsp[0].declarator), TRUE);
 						  free((yyvsp[-1].declspec)); free((yyvsp[0].declarator));
 						}
-#line 3854 "tools/widl/parser.tab.c"
+#line 3866 "tools/widl/parser.tab.c"
     break;
 
   case 85: /* array: '[' expr ']'  */
@@ -3859,91 +3871,91 @@ yyreduce:
 						  if (!(yyval.expr)->is_const || (yyval.expr)->cval <= 0)
 						      error_loc("array dimension is not a positive integer constant\n");
 						}
-#line 3863 "tools/widl/parser.tab.c"
+#line 3875 "tools/widl/parser.tab.c"
     break;
 
   case 86: /* array: '[' '*' ']'  */
 #line 540 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr(EXPR_VOID); }
-#line 3869 "tools/widl/parser.tab.c"
+#line 3881 "tools/widl/parser.tab.c"
     break;
 
   case 87: /* array: '[' ']'  */
 #line 541 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr(EXPR_VOID); }
-#line 3875 "tools/widl/parser.tab.c"
+#line 3887 "tools/widl/parser.tab.c"
     break;
 
   case 88: /* m_attributes: %empty  */
 #line 544 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = NULL; }
-#line 3881 "tools/widl/parser.tab.c"
+#line 3893 "tools/widl/parser.tab.c"
     break;
 
   case 90: /* attributes: '[' attrib_list ']'  */
 #line 549 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = (yyvsp[-1].attr_list); }
-#line 3887 "tools/widl/parser.tab.c"
+#line 3899 "tools/widl/parser.tab.c"
     break;
 
   case 91: /* attrib_list: attribute  */
 #line 552 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr( NULL, (yyvsp[0].attr) ); }
-#line 3893 "tools/widl/parser.tab.c"
+#line 3905 "tools/widl/parser.tab.c"
     break;
 
   case 92: /* attrib_list: attrib_list ',' attribute  */
 #line 553 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr( (yyvsp[-2].attr_list), (yyvsp[0].attr) ); }
-#line 3899 "tools/widl/parser.tab.c"
+#line 3911 "tools/widl/parser.tab.c"
     break;
 
   case 93: /* attrib_list: attrib_list ']' '[' attribute  */
 #line 554 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr( (yyvsp[-3].attr_list), (yyvsp[0].attr) ); }
-#line 3905 "tools/widl/parser.tab.c"
+#line 3917 "tools/widl/parser.tab.c"
     break;
 
   case 94: /* str_list: aSTRING  */
 #line 557 "tools/widl/parser.y"
                                                 { (yyval.str_list) = append_str( NULL, (yyvsp[0].str) ); }
-#line 3911 "tools/widl/parser.tab.c"
+#line 3923 "tools/widl/parser.tab.c"
     break;
 
   case 95: /* str_list: str_list ',' aSTRING  */
 #line 558 "tools/widl/parser.y"
                                                 { (yyval.str_list) = append_str( (yyvsp[-2].str_list), (yyvsp[0].str) ); }
-#line 3917 "tools/widl/parser.tab.c"
+#line 3929 "tools/widl/parser.tab.c"
     break;
 
   case 96: /* marshaling_behavior: tAGILE  */
 #line 562 "tools/widl/parser.y"
                                                 { (yyval.num) = MARSHALING_AGILE; }
-#line 3923 "tools/widl/parser.tab.c"
+#line 3935 "tools/widl/parser.tab.c"
     break;
 
   case 97: /* marshaling_behavior: tNONE  */
 #line 563 "tools/widl/parser.y"
                                                 { (yyval.num) = MARSHALING_NONE; }
-#line 3929 "tools/widl/parser.tab.c"
+#line 3941 "tools/widl/parser.tab.c"
     break;
 
   case 98: /* marshaling_behavior: tSTANDARD  */
 #line 564 "tools/widl/parser.y"
                                                 { (yyval.num) = MARSHALING_STANDARD; }
-#line 3935 "tools/widl/parser.tab.c"
+#line 3947 "tools/widl/parser.tab.c"
     break;
 
   case 99: /* contract_ver: aNUM  */
 #line 568 "tools/widl/parser.y"
                                                 { (yyval.num) = MAKEVERSION(0, (yyvsp[0].num)); }
-#line 3941 "tools/widl/parser.tab.c"
+#line 3953 "tools/widl/parser.tab.c"
     break;
 
   case 100: /* contract_ver: aNUM '.' aNUM  */
 #line 569 "tools/widl/parser.y"
                                                 { (yyval.num) = MAKEVERSION((yyvsp[0].num), (yyvsp[-2].num)); }
-#line 3947 "tools/widl/parser.tab.c"
+#line 3959 "tools/widl/parser.tab.c"
     break;
 
   case 101: /* contract_req: decl_spec ',' contract_ver  */
@@ -3953,7 +3965,7 @@ yyreduce:
 						  (yyval.expr) = make_exprl(EXPR_NUM, (yyvsp[0].num));
 						  (yyval.expr) = make_exprt(EXPR_GTREQL, declare_var(NULL, (yyvsp[-2].declspec), make_declarator(NULL), 0), (yyval.expr));
 						}
-#line 3957 "tools/widl/parser.tab.c"
+#line 3969 "tools/widl/parser.tab.c"
     break;
 
   case 102: /* static_attr: decl_spec ',' contract_req  */
@@ -3962,223 +3974,223 @@ yyreduce:
 						      error_loc("type %s is not an interface\n", (yyvsp[-2].declspec)->type->name);
 						  (yyval.expr) = make_exprt(EXPR_MEMBER, declare_var(NULL, (yyvsp[-2].declspec), make_declarator(NULL), 0), (yyvsp[0].expr));
 						}
-#line 3966 "tools/widl/parser.tab.c"
+#line 3978 "tools/widl/parser.tab.c"
     break;
 
   case 103: /* attribute: %empty  */
 #line 583 "tools/widl/parser.y"
                                                 { (yyval.attr) = NULL; }
-#line 3972 "tools/widl/parser.tab.c"
+#line 3984 "tools/widl/parser.tab.c"
     break;
 
   case 104: /* attribute: tACTIVATABLE '(' contract_req ')'  */
 #line 584 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ACTIVATABLE, (yyvsp[-1].expr)); }
-#line 3978 "tools/widl/parser.tab.c"
+#line 3990 "tools/widl/parser.tab.c"
     break;
 
   case 105: /* attribute: tAGGREGATABLE  */
 #line 585 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_AGGREGATABLE); }
-#line 3984 "tools/widl/parser.tab.c"
+#line 3996 "tools/widl/parser.tab.c"
     break;
 
   case 106: /* attribute: tANNOTATION '(' aSTRING ')'  */
 #line 586 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ANNOTATION, (yyvsp[-1].str)); }
-#line 3990 "tools/widl/parser.tab.c"
+#line 4002 "tools/widl/parser.tab.c"
     break;
 
   case 107: /* attribute: tAPPOBJECT  */
 #line 587 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_APPOBJECT); }
-#line 3996 "tools/widl/parser.tab.c"
+#line 4008 "tools/widl/parser.tab.c"
     break;
 
   case 108: /* attribute: tASYNC  */
 #line 588 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_ASYNC); }
-#line 4002 "tools/widl/parser.tab.c"
+#line 4014 "tools/widl/parser.tab.c"
     break;
 
   case 109: /* attribute: tAUTOHANDLE  */
 #line 589 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_AUTO_HANDLE); }
-#line 4008 "tools/widl/parser.tab.c"
+#line 4020 "tools/widl/parser.tab.c"
     break;
 
   case 110: /* attribute: tBINDABLE  */
 #line 590 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_BINDABLE); }
-#line 4014 "tools/widl/parser.tab.c"
+#line 4026 "tools/widl/parser.tab.c"
     break;
 
   case 111: /* attribute: tBROADCAST  */
 #line 591 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_BROADCAST); }
-#line 4020 "tools/widl/parser.tab.c"
+#line 4032 "tools/widl/parser.tab.c"
     break;
 
   case 112: /* attribute: tCALLAS '(' ident ')'  */
 #line 592 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_CALLAS, (yyvsp[-1].var)); }
-#line 4026 "tools/widl/parser.tab.c"
+#line 4038 "tools/widl/parser.tab.c"
     break;
 
   case 113: /* attribute: tCASE '(' expr_list_int_const ')'  */
 #line 593 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_CASE, (yyvsp[-1].expr_list)); }
-#line 4032 "tools/widl/parser.tab.c"
+#line 4044 "tools/widl/parser.tab.c"
     break;
 
   case 114: /* attribute: tCODE  */
 #line 594 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_CODE); }
-#line 4038 "tools/widl/parser.tab.c"
+#line 4050 "tools/widl/parser.tab.c"
     break;
 
   case 115: /* attribute: tCOMMSTATUS  */
 #line 595 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_COMMSTATUS); }
-#line 4044 "tools/widl/parser.tab.c"
+#line 4056 "tools/widl/parser.tab.c"
     break;
 
   case 116: /* attribute: tCONTEXTHANDLE  */
 #line 596 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_CONTEXTHANDLE, 0); }
-#line 4050 "tools/widl/parser.tab.c"
+#line 4062 "tools/widl/parser.tab.c"
     break;
 
   case 117: /* attribute: tCONTEXTHANDLENOSERIALIZE  */
 #line 597 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_CONTEXTHANDLE, 0); /* RPC_CONTEXT_HANDLE_DONT_SERIALIZE */ }
-#line 4056 "tools/widl/parser.tab.c"
+#line 4068 "tools/widl/parser.tab.c"
     break;
 
   case 118: /* attribute: tCONTEXTHANDLESERIALIZE  */
 #line 598 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_CONTEXTHANDLE, 0); /* RPC_CONTEXT_HANDLE_SERIALIZE */ }
-#line 4062 "tools/widl/parser.tab.c"
+#line 4074 "tools/widl/parser.tab.c"
     break;
 
   case 119: /* attribute: tCONTRACT '(' contract_req ')'  */
 #line 599 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_CONTRACT, (yyvsp[-1].expr)); }
-#line 4068 "tools/widl/parser.tab.c"
+#line 4080 "tools/widl/parser.tab.c"
     break;
 
   case 120: /* attribute: tCONTRACTVERSION '(' contract_ver ')'  */
 #line 600 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_CONTRACTVERSION, (yyvsp[-1].num)); }
-#line 4074 "tools/widl/parser.tab.c"
+#line 4086 "tools/widl/parser.tab.c"
     break;
 
   case 121: /* attribute: tCONTROL  */
 #line 601 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_CONTROL); }
-#line 4080 "tools/widl/parser.tab.c"
+#line 4092 "tools/widl/parser.tab.c"
     break;
 
   case 122: /* attribute: tCUSTOM '(' uuid_string ',' expr_const ')'  */
 #line 602 "tools/widl/parser.y"
                                                      { (yyval.attr) = make_custom_attr((yyvsp[-3].uuid), (yyvsp[-1].expr)); }
-#line 4086 "tools/widl/parser.tab.c"
+#line 4098 "tools/widl/parser.tab.c"
     break;
 
   case 123: /* attribute: tDECODE  */
 #line 603 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DECODE); }
-#line 4092 "tools/widl/parser.tab.c"
+#line 4104 "tools/widl/parser.tab.c"
     break;
 
   case 124: /* attribute: tDEFAULT  */
 #line 604 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DEFAULT); }
-#line 4098 "tools/widl/parser.tab.c"
+#line 4110 "tools/widl/parser.tab.c"
     break;
 
   case 125: /* attribute: tDEFAULTBIND  */
 #line 605 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DEFAULTBIND); }
-#line 4104 "tools/widl/parser.tab.c"
+#line 4116 "tools/widl/parser.tab.c"
     break;
 
   case 126: /* attribute: tDEFAULTCOLLELEM  */
 #line 606 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DEFAULTCOLLELEM); }
-#line 4110 "tools/widl/parser.tab.c"
+#line 4122 "tools/widl/parser.tab.c"
     break;
 
   case 127: /* attribute: tDEFAULTVALUE '(' expr_const ')'  */
 #line 607 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_DEFAULTVALUE, (yyvsp[-1].expr)); }
-#line 4116 "tools/widl/parser.tab.c"
+#line 4128 "tools/widl/parser.tab.c"
     break;
 
   case 128: /* attribute: tDEFAULTVTABLE  */
 #line 608 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DEFAULTVTABLE); }
-#line 4122 "tools/widl/parser.tab.c"
+#line 4134 "tools/widl/parser.tab.c"
     break;
 
   case 129: /* attribute: tDISABLECONSISTENCYCHECK  */
 #line 609 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DISABLECONSISTENCYCHECK); }
-#line 4128 "tools/widl/parser.tab.c"
+#line 4140 "tools/widl/parser.tab.c"
     break;
 
   case 130: /* attribute: tDISPLAYBIND  */
 #line 610 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DISPLAYBIND); }
-#line 4134 "tools/widl/parser.tab.c"
+#line 4146 "tools/widl/parser.tab.c"
     break;
 
   case 131: /* attribute: tDLLNAME '(' aSTRING ')'  */
 #line 611 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_DLLNAME, (yyvsp[-1].str)); }
-#line 4140 "tools/widl/parser.tab.c"
+#line 4152 "tools/widl/parser.tab.c"
     break;
 
   case 132: /* attribute: tDUAL  */
 #line 612 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DUAL); }
-#line 4146 "tools/widl/parser.tab.c"
+#line 4158 "tools/widl/parser.tab.c"
     break;
 
   case 133: /* attribute: tENABLEALLOCATE  */
 #line 613 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_ENABLEALLOCATE); }
-#line 4152 "tools/widl/parser.tab.c"
+#line 4164 "tools/widl/parser.tab.c"
     break;
 
   case 134: /* attribute: tENCODE  */
 #line 614 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_ENCODE); }
-#line 4158 "tools/widl/parser.tab.c"
+#line 4170 "tools/widl/parser.tab.c"
     break;
 
   case 135: /* attribute: tENDPOINT '(' str_list ')'  */
 #line 615 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ENDPOINT, (yyvsp[-1].str_list)); }
-#line 4164 "tools/widl/parser.tab.c"
+#line 4176 "tools/widl/parser.tab.c"
     break;
 
   case 136: /* attribute: tENTRY '(' expr_const ')'  */
 #line 616 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ENTRY, (yyvsp[-1].expr)); }
-#line 4170 "tools/widl/parser.tab.c"
+#line 4182 "tools/widl/parser.tab.c"
     break;
 
   case 137: /* attribute: tEVENTADD  */
 #line 617 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_EVENTADD); }
-#line 4176 "tools/widl/parser.tab.c"
+#line 4188 "tools/widl/parser.tab.c"
     break;
 
   case 138: /* attribute: tEVENTREMOVE  */
 #line 618 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_EVENTREMOVE); }
-#line 4182 "tools/widl/parser.tab.c"
+#line 4194 "tools/widl/parser.tab.c"
     break;
 
   case 139: /* attribute: tEXCLUSIVETO '(' decl_spec ')'  */
@@ -4186,289 +4198,289 @@ yyreduce:
                                                 { if ((yyvsp[-1].declspec)->type->type_type != TYPE_RUNTIMECLASS)
 						      error_loc("type %s is not a runtimeclass\n", (yyvsp[-1].declspec)->type->name);
 						  (yyval.attr) = make_attrp(ATTR_EXCLUSIVETO, (yyvsp[-1].declspec)->type); }
-#line 4190 "tools/widl/parser.tab.c"
+#line 4202 "tools/widl/parser.tab.c"
     break;
 
   case 140: /* attribute: tEXPLICITHANDLE  */
 #line 622 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_EXPLICIT_HANDLE); }
-#line 4196 "tools/widl/parser.tab.c"
+#line 4208 "tools/widl/parser.tab.c"
     break;
 
   case 141: /* attribute: tFAULTSTATUS  */
 #line 623 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_FAULTSTATUS); }
-#line 4202 "tools/widl/parser.tab.c"
+#line 4214 "tools/widl/parser.tab.c"
     break;
 
   case 142: /* attribute: tFLAGS  */
 #line 624 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_FLAGS); }
-#line 4208 "tools/widl/parser.tab.c"
+#line 4220 "tools/widl/parser.tab.c"
     break;
 
   case 143: /* attribute: tFORCEALLOCATE  */
 #line 625 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_FORCEALLOCATE); }
-#line 4214 "tools/widl/parser.tab.c"
+#line 4226 "tools/widl/parser.tab.c"
     break;
 
   case 144: /* attribute: tHANDLE  */
 #line 626 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_HANDLE); }
-#line 4220 "tools/widl/parser.tab.c"
+#line 4232 "tools/widl/parser.tab.c"
     break;
 
   case 145: /* attribute: tHELPCONTEXT '(' expr_int_const ')'  */
 #line 627 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_HELPCONTEXT, (yyvsp[-1].expr)); }
-#line 4226 "tools/widl/parser.tab.c"
+#line 4238 "tools/widl/parser.tab.c"
     break;
 
   case 146: /* attribute: tHELPFILE '(' aSTRING ')'  */
 #line 628 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_HELPFILE, (yyvsp[-1].str)); }
-#line 4232 "tools/widl/parser.tab.c"
+#line 4244 "tools/widl/parser.tab.c"
     break;
 
   case 147: /* attribute: tHELPSTRING '(' aSTRING ')'  */
 #line 629 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_HELPSTRING, (yyvsp[-1].str)); }
-#line 4238 "tools/widl/parser.tab.c"
+#line 4250 "tools/widl/parser.tab.c"
     break;
 
   case 148: /* attribute: tHELPSTRINGCONTEXT '(' expr_int_const ')'  */
 #line 630 "tools/widl/parser.y"
                                                         { (yyval.attr) = make_attrp(ATTR_HELPSTRINGCONTEXT, (yyvsp[-1].expr)); }
-#line 4244 "tools/widl/parser.tab.c"
+#line 4256 "tools/widl/parser.tab.c"
     break;
 
   case 149: /* attribute: tHELPSTRINGDLL '(' aSTRING ')'  */
 #line 631 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_HELPSTRINGDLL, (yyvsp[-1].str)); }
-#line 4250 "tools/widl/parser.tab.c"
+#line 4262 "tools/widl/parser.tab.c"
     break;
 
   case 150: /* attribute: tHIDDEN  */
 #line 632 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_HIDDEN); }
-#line 4256 "tools/widl/parser.tab.c"
+#line 4268 "tools/widl/parser.tab.c"
     break;
 
   case 151: /* attribute: tID '(' expr_int_const ')'  */
 #line 633 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ID, (yyvsp[-1].expr)); }
-#line 4262 "tools/widl/parser.tab.c"
+#line 4274 "tools/widl/parser.tab.c"
     break;
 
   case 152: /* attribute: tIDEMPOTENT  */
 #line 634 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_IDEMPOTENT); }
-#line 4268 "tools/widl/parser.tab.c"
+#line 4280 "tools/widl/parser.tab.c"
     break;
 
   case 153: /* attribute: tIGNORE  */
 #line 635 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_IGNORE); }
-#line 4274 "tools/widl/parser.tab.c"
+#line 4286 "tools/widl/parser.tab.c"
     break;
 
   case 154: /* attribute: tIIDIS '(' expr ')'  */
 #line 636 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_IIDIS, (yyvsp[-1].expr)); }
-#line 4280 "tools/widl/parser.tab.c"
+#line 4292 "tools/widl/parser.tab.c"
     break;
 
   case 155: /* attribute: tIMMEDIATEBIND  */
 #line 637 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_IMMEDIATEBIND); }
-#line 4286 "tools/widl/parser.tab.c"
+#line 4298 "tools/widl/parser.tab.c"
     break;
 
   case 156: /* attribute: tIMPLICITHANDLE '(' arg ')'  */
 #line 638 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_IMPLICIT_HANDLE, (yyvsp[-1].var)); }
-#line 4292 "tools/widl/parser.tab.c"
+#line 4304 "tools/widl/parser.tab.c"
     break;
 
   case 157: /* attribute: tIN  */
 #line 639 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_IN); }
-#line 4298 "tools/widl/parser.tab.c"
+#line 4310 "tools/widl/parser.tab.c"
     break;
 
   case 158: /* attribute: tINPUTSYNC  */
 #line 640 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_INPUTSYNC); }
-#line 4304 "tools/widl/parser.tab.c"
+#line 4316 "tools/widl/parser.tab.c"
     break;
 
   case 159: /* attribute: tLENGTHIS '(' m_exprs ')'  */
 #line 641 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_LENGTHIS, (yyvsp[-1].expr_list)); }
-#line 4310 "tools/widl/parser.tab.c"
+#line 4322 "tools/widl/parser.tab.c"
     break;
 
   case 160: /* attribute: tLCID '(' expr_int_const ')'  */
 #line 642 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_LIBLCID, (yyvsp[-1].expr)); }
-#line 4316 "tools/widl/parser.tab.c"
+#line 4328 "tools/widl/parser.tab.c"
     break;
 
   case 161: /* attribute: tLCID  */
 #line 643 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PARAMLCID); }
-#line 4322 "tools/widl/parser.tab.c"
+#line 4334 "tools/widl/parser.tab.c"
     break;
 
   case 162: /* attribute: tLICENSED  */
 #line 644 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_LICENSED); }
-#line 4328 "tools/widl/parser.tab.c"
+#line 4340 "tools/widl/parser.tab.c"
     break;
 
   case 163: /* attribute: tLOCAL  */
 #line 645 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_LOCAL); }
-#line 4334 "tools/widl/parser.tab.c"
+#line 4346 "tools/widl/parser.tab.c"
     break;
 
   case 164: /* attribute: tMARSHALINGBEHAVIOR '(' marshaling_behavior ')'  */
 #line 647 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_MARSHALING_BEHAVIOR, (yyvsp[-1].num)); }
-#line 4340 "tools/widl/parser.tab.c"
+#line 4352 "tools/widl/parser.tab.c"
     break;
 
   case 165: /* attribute: tMAYBE  */
 #line 648 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_MAYBE); }
-#line 4346 "tools/widl/parser.tab.c"
+#line 4358 "tools/widl/parser.tab.c"
     break;
 
   case 166: /* attribute: tMESSAGE  */
 #line 649 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_MESSAGE); }
-#line 4352 "tools/widl/parser.tab.c"
+#line 4364 "tools/widl/parser.tab.c"
     break;
 
   case 167: /* attribute: tNOCODE  */
 #line 650 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NOCODE); }
-#line 4358 "tools/widl/parser.tab.c"
+#line 4370 "tools/widl/parser.tab.c"
     break;
 
   case 168: /* attribute: tNONBROWSABLE  */
 #line 651 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NONBROWSABLE); }
-#line 4364 "tools/widl/parser.tab.c"
+#line 4376 "tools/widl/parser.tab.c"
     break;
 
   case 169: /* attribute: tNONCREATABLE  */
 #line 652 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NONCREATABLE); }
-#line 4370 "tools/widl/parser.tab.c"
+#line 4382 "tools/widl/parser.tab.c"
     break;
 
   case 170: /* attribute: tNONEXTENSIBLE  */
 #line 653 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NONEXTENSIBLE); }
-#line 4376 "tools/widl/parser.tab.c"
+#line 4388 "tools/widl/parser.tab.c"
     break;
 
   case 171: /* attribute: tNOTIFY  */
 #line 654 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NOTIFY); }
-#line 4382 "tools/widl/parser.tab.c"
+#line 4394 "tools/widl/parser.tab.c"
     break;
 
   case 172: /* attribute: tNOTIFYFLAG  */
 #line 655 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_NOTIFYFLAG); }
-#line 4388 "tools/widl/parser.tab.c"
+#line 4400 "tools/widl/parser.tab.c"
     break;
 
   case 173: /* attribute: tOBJECT  */
 #line 656 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_OBJECT); }
-#line 4394 "tools/widl/parser.tab.c"
+#line 4406 "tools/widl/parser.tab.c"
     break;
 
   case 174: /* attribute: tODL  */
 #line 657 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_ODL); }
-#line 4400 "tools/widl/parser.tab.c"
+#line 4412 "tools/widl/parser.tab.c"
     break;
 
   case 175: /* attribute: tOLEAUTOMATION  */
 #line 658 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_OLEAUTOMATION); }
-#line 4406 "tools/widl/parser.tab.c"
+#line 4418 "tools/widl/parser.tab.c"
     break;
 
   case 176: /* attribute: tOPTIMIZE '(' aSTRING ')'  */
 #line 659 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_OPTIMIZE, (yyvsp[-1].str)); }
-#line 4412 "tools/widl/parser.tab.c"
+#line 4424 "tools/widl/parser.tab.c"
     break;
 
   case 177: /* attribute: tOPTIONAL  */
 #line 660 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_OPTIONAL); }
-#line 4418 "tools/widl/parser.tab.c"
+#line 4430 "tools/widl/parser.tab.c"
     break;
 
   case 178: /* attribute: tOUT  */
 #line 661 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_OUT); }
-#line 4424 "tools/widl/parser.tab.c"
+#line 4436 "tools/widl/parser.tab.c"
     break;
 
   case 179: /* attribute: tPARTIALIGNORE  */
 #line 662 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PARTIALIGNORE); }
-#line 4430 "tools/widl/parser.tab.c"
+#line 4442 "tools/widl/parser.tab.c"
     break;
 
   case 180: /* attribute: tPOINTERDEFAULT '(' pointer_type ')'  */
 #line 663 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_POINTERDEFAULT, (yyvsp[-1].num)); }
-#line 4436 "tools/widl/parser.tab.c"
+#line 4448 "tools/widl/parser.tab.c"
     break;
 
   case 181: /* attribute: tPROGID '(' aSTRING ')'  */
 #line 664 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_PROGID, (yyvsp[-1].str)); }
-#line 4442 "tools/widl/parser.tab.c"
+#line 4454 "tools/widl/parser.tab.c"
     break;
 
   case 182: /* attribute: tPROPGET  */
 #line 665 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PROPGET); }
-#line 4448 "tools/widl/parser.tab.c"
+#line 4460 "tools/widl/parser.tab.c"
     break;
 
   case 183: /* attribute: tPROPPUT  */
 #line 666 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PROPPUT); }
-#line 4454 "tools/widl/parser.tab.c"
+#line 4466 "tools/widl/parser.tab.c"
     break;
 
   case 184: /* attribute: tPROPPUTREF  */
 #line 667 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PROPPUTREF); }
-#line 4460 "tools/widl/parser.tab.c"
+#line 4472 "tools/widl/parser.tab.c"
     break;
 
   case 185: /* attribute: tPROXY  */
 #line 668 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PROXY); }
-#line 4466 "tools/widl/parser.tab.c"
+#line 4478 "tools/widl/parser.tab.c"
     break;
 
   case 186: /* attribute: tPUBLIC  */
 #line 669 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_PUBLIC); }
-#line 4472 "tools/widl/parser.tab.c"
+#line 4484 "tools/widl/parser.tab.c"
     break;
 
   case 187: /* attribute: tRANGE '(' expr_int_const ',' expr_int_const ')'  */
@@ -4476,157 +4488,157 @@ yyreduce:
                                                 { expr_list_t *list = append_expr( NULL, (yyvsp[-3].expr) );
 						  list = append_expr( list, (yyvsp[-1].expr) );
 						  (yyval.attr) = make_attrp(ATTR_RANGE, list); }
-#line 4480 "tools/widl/parser.tab.c"
+#line 4492 "tools/widl/parser.tab.c"
     break;
 
   case 188: /* attribute: tREADONLY  */
 #line 674 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_READONLY); }
-#line 4486 "tools/widl/parser.tab.c"
+#line 4498 "tools/widl/parser.tab.c"
     break;
 
   case 189: /* attribute: tREPRESENTAS '(' type ')'  */
 #line 675 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_REPRESENTAS, (yyvsp[-1].type)); }
-#line 4492 "tools/widl/parser.tab.c"
+#line 4504 "tools/widl/parser.tab.c"
     break;
 
   case 190: /* attribute: tREQUESTEDIT  */
 #line 676 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_REQUESTEDIT); }
-#line 4498 "tools/widl/parser.tab.c"
+#line 4510 "tools/widl/parser.tab.c"
     break;
 
   case 191: /* attribute: tRESTRICTED  */
 #line 677 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_RESTRICTED); }
-#line 4504 "tools/widl/parser.tab.c"
+#line 4516 "tools/widl/parser.tab.c"
     break;
 
   case 192: /* attribute: tRETVAL  */
 #line 678 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_RETVAL); }
-#line 4510 "tools/widl/parser.tab.c"
+#line 4522 "tools/widl/parser.tab.c"
     break;
 
   case 193: /* attribute: tSIZEIS '(' m_exprs ')'  */
 #line 679 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_SIZEIS, (yyvsp[-1].expr_list)); }
-#line 4516 "tools/widl/parser.tab.c"
+#line 4528 "tools/widl/parser.tab.c"
     break;
 
   case 194: /* attribute: tSOURCE  */
 #line 680 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_SOURCE); }
-#line 4522 "tools/widl/parser.tab.c"
+#line 4534 "tools/widl/parser.tab.c"
     break;
 
   case 195: /* attribute: tSTATIC '(' static_attr ')'  */
 #line 681 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_STATIC, (yyvsp[-1].expr)); }
-#line 4528 "tools/widl/parser.tab.c"
+#line 4540 "tools/widl/parser.tab.c"
     break;
 
   case 196: /* attribute: tSTRICTCONTEXTHANDLE  */
 #line 682 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_STRICTCONTEXTHANDLE); }
-#line 4534 "tools/widl/parser.tab.c"
+#line 4546 "tools/widl/parser.tab.c"
     break;
 
   case 197: /* attribute: tSTRING  */
 #line 683 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_STRING); }
-#line 4540 "tools/widl/parser.tab.c"
+#line 4552 "tools/widl/parser.tab.c"
     break;
 
   case 198: /* attribute: tSWITCHIS '(' expr ')'  */
 #line 684 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_SWITCHIS, (yyvsp[-1].expr)); }
-#line 4546 "tools/widl/parser.tab.c"
+#line 4558 "tools/widl/parser.tab.c"
     break;
 
   case 199: /* attribute: tSWITCHTYPE '(' type ')'  */
 #line 685 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_SWITCHTYPE, (yyvsp[-1].type)); }
-#line 4552 "tools/widl/parser.tab.c"
+#line 4564 "tools/widl/parser.tab.c"
     break;
 
   case 200: /* attribute: tTRANSMITAS '(' type ')'  */
 #line 686 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_TRANSMITAS, (yyvsp[-1].type)); }
-#line 4558 "tools/widl/parser.tab.c"
+#line 4570 "tools/widl/parser.tab.c"
     break;
 
   case 201: /* attribute: tTHREADING '(' threading_type ')'  */
 #line 687 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_THREADING, (yyvsp[-1].num)); }
-#line 4564 "tools/widl/parser.tab.c"
+#line 4576 "tools/widl/parser.tab.c"
     break;
 
   case 202: /* attribute: tUIDEFAULT  */
 #line 688 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_UIDEFAULT); }
-#line 4570 "tools/widl/parser.tab.c"
+#line 4582 "tools/widl/parser.tab.c"
     break;
 
   case 203: /* attribute: tUSESGETLASTERROR  */
 #line 689 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_USESGETLASTERROR); }
-#line 4576 "tools/widl/parser.tab.c"
+#line 4588 "tools/widl/parser.tab.c"
     break;
 
   case 204: /* attribute: tUSERMARSHAL '(' type ')'  */
 #line 690 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_USERMARSHAL, (yyvsp[-1].type)); }
-#line 4582 "tools/widl/parser.tab.c"
+#line 4594 "tools/widl/parser.tab.c"
     break;
 
   case 205: /* attribute: tUUID '(' uuid_string ')'  */
 #line 691 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_UUID, (yyvsp[-1].uuid)); }
-#line 4588 "tools/widl/parser.tab.c"
+#line 4600 "tools/widl/parser.tab.c"
     break;
 
   case 206: /* attribute: tASYNCUUID '(' uuid_string ')'  */
 #line 692 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_ASYNCUUID, (yyvsp[-1].uuid)); }
-#line 4594 "tools/widl/parser.tab.c"
+#line 4606 "tools/widl/parser.tab.c"
     break;
 
   case 207: /* attribute: tV1ENUM  */
 #line 693 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_V1ENUM); }
-#line 4600 "tools/widl/parser.tab.c"
+#line 4612 "tools/widl/parser.tab.c"
     break;
 
   case 208: /* attribute: tVARARG  */
 #line 694 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_VARARG); }
-#line 4606 "tools/widl/parser.tab.c"
+#line 4618 "tools/widl/parser.tab.c"
     break;
 
   case 209: /* attribute: tVERSION '(' version ')'  */
 #line 695 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_VERSION, (yyvsp[-1].num)); }
-#line 4612 "tools/widl/parser.tab.c"
+#line 4624 "tools/widl/parser.tab.c"
     break;
 
   case 210: /* attribute: tVIPROGID '(' aSTRING ')'  */
 #line 696 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_VIPROGID, (yyvsp[-1].str)); }
-#line 4618 "tools/widl/parser.tab.c"
+#line 4630 "tools/widl/parser.tab.c"
     break;
 
   case 211: /* attribute: tWIREMARSHAL '(' type ')'  */
 #line 697 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrp(ATTR_WIREMARSHAL, (yyvsp[-1].type)); }
-#line 4624 "tools/widl/parser.tab.c"
+#line 4636 "tools/widl/parser.tab.c"
     break;
 
   case 212: /* attribute: pointer_type  */
 #line 698 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_POINTERTYPE, (yyvsp[0].num)); }
-#line 4630 "tools/widl/parser.tab.c"
+#line 4642 "tools/widl/parser.tab.c"
     break;
 
   case 214: /* uuid_string: aSTRING  */
@@ -4634,43 +4646,43 @@ yyreduce:
                                                 { if (!is_valid_uuid((yyvsp[0].str)))
 						    error_loc("invalid UUID: %s\n", (yyvsp[0].str));
 						  (yyval.uuid) = parse_uuid((yyvsp[0].str)); }
-#line 4638 "tools/widl/parser.tab.c"
+#line 4650 "tools/widl/parser.tab.c"
     break;
 
   case 215: /* callconv: tCDECL  */
 #line 708 "tools/widl/parser.y"
                                                 { (yyval.str) = xstrdup("__cdecl"); }
-#line 4644 "tools/widl/parser.tab.c"
+#line 4656 "tools/widl/parser.tab.c"
     break;
 
   case 216: /* callconv: tFASTCALL  */
 #line 709 "tools/widl/parser.y"
                                                 { (yyval.str) = xstrdup("__fastcall"); }
-#line 4650 "tools/widl/parser.tab.c"
+#line 4662 "tools/widl/parser.tab.c"
     break;
 
   case 217: /* callconv: tPASCAL  */
 #line 710 "tools/widl/parser.y"
                                                 { (yyval.str) = xstrdup("__pascal"); }
-#line 4656 "tools/widl/parser.tab.c"
+#line 4668 "tools/widl/parser.tab.c"
     break;
 
   case 218: /* callconv: tSTDCALL  */
 #line 711 "tools/widl/parser.y"
                                                 { (yyval.str) = xstrdup("__stdcall"); }
-#line 4662 "tools/widl/parser.tab.c"
+#line 4674 "tools/widl/parser.tab.c"
     break;
 
   case 219: /* cases: %empty  */
 #line 714 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 4668 "tools/widl/parser.tab.c"
+#line 4680 "tools/widl/parser.tab.c"
     break;
 
   case 220: /* cases: cases case  */
 #line 715 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var( (yyvsp[-1].var_list), (yyvsp[0].var) ); }
-#line 4674 "tools/widl/parser.tab.c"
+#line 4686 "tools/widl/parser.tab.c"
     break;
 
   case 221: /* case: tCASE expr_int_const ':' union_field  */
@@ -4679,7 +4691,7 @@ yyreduce:
 						  (yyval.var) = (yyvsp[0].var); if (!(yyval.var)) (yyval.var) = make_var(NULL);
 						  (yyval.var)->attrs = append_attr( (yyval.var)->attrs, a );
 						}
-#line 4683 "tools/widl/parser.tab.c"
+#line 4695 "tools/widl/parser.tab.c"
     break;
 
   case 222: /* case: tDEFAULT ':' union_field  */
@@ -4688,19 +4700,19 @@ yyreduce:
 						  (yyval.var) = (yyvsp[0].var); if (!(yyval.var)) (yyval.var) = make_var(NULL);
 						  (yyval.var)->attrs = append_attr( (yyval.var)->attrs, a );
 						}
-#line 4692 "tools/widl/parser.tab.c"
+#line 4704 "tools/widl/parser.tab.c"
     break;
 
   case 223: /* enums: %empty  */
 #line 728 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 4698 "tools/widl/parser.tab.c"
+#line 4710 "tools/widl/parser.tab.c"
     break;
 
   case 224: /* enums: enum_list ','  */
 #line 729 "tools/widl/parser.y"
                                                 { (yyval.var_list) = (yyvsp[-1].var_list); }
-#line 4704 "tools/widl/parser.tab.c"
+#line 4716 "tools/widl/parser.tab.c"
     break;
 
   case 226: /* enum_list: enum  */
@@ -4709,7 +4721,7 @@ yyreduce:
 						    (yyvsp[0].var)->eval = make_exprl(EXPR_NUM, 0 /* default for first enum entry */);
                                                   (yyval.var_list) = append_var( NULL, (yyvsp[0].var) );
 						}
-#line 4713 "tools/widl/parser.tab.c"
+#line 4725 "tools/widl/parser.tab.c"
     break;
 
   case 227: /* enum_list: enum_list ',' enum  */
@@ -4724,7 +4736,7 @@ yyreduce:
                                                   }
                                                   (yyval.var_list) = append_var( (yyvsp[-2].var_list), (yyvsp[0].var) );
 						}
-#line 4728 "tools/widl/parser.tab.c"
+#line 4740 "tools/widl/parser.tab.c"
     break;
 
   case 228: /* enum_member: m_attributes ident  */
@@ -4732,7 +4744,7 @@ yyreduce:
                                                 { (yyval.var) = (yyvsp[0].var);
 						  (yyval.var)->attrs = check_enum_member_attrs((yyvsp[-1].attr_list));
 						}
-#line 4736 "tools/widl/parser.tab.c"
+#line 4748 "tools/widl/parser.tab.c"
     break;
 
   case 229: /* enum: enum_member '=' expr_int_const  */
@@ -4741,7 +4753,7 @@ yyreduce:
 						  (yyval.var)->eval = (yyvsp[0].expr);
                                                   (yyval.var)->declspec.type = type_new_int(TYPE_BASIC_INT, 0);
 						}
-#line 4745 "tools/widl/parser.tab.c"
+#line 4757 "tools/widl/parser.tab.c"
     break;
 
   case 230: /* enum: enum_member  */
@@ -4749,289 +4761,289 @@ yyreduce:
                                                 { (yyval.var) = reg_const((yyvsp[0].var));
                                                   (yyval.var)->declspec.type = type_new_int(TYPE_BASIC_INT, 0);
 						}
-#line 4753 "tools/widl/parser.tab.c"
+#line 4765 "tools/widl/parser.tab.c"
     break;
 
   case 231: /* enumdef: tENUM m_typename '{' enums '}'  */
 #line 763 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_enum((yyvsp[-3].str), current_namespace, TRUE, (yyvsp[-1].var_list)); }
-#line 4759 "tools/widl/parser.tab.c"
+#line 4771 "tools/widl/parser.tab.c"
     break;
 
   case 232: /* m_exprs: m_expr  */
 #line 766 "tools/widl/parser.y"
                                                 { (yyval.expr_list) = append_expr( NULL, (yyvsp[0].expr) ); }
-#line 4765 "tools/widl/parser.tab.c"
+#line 4777 "tools/widl/parser.tab.c"
     break;
 
   case 233: /* m_exprs: m_exprs ',' m_expr  */
 #line 767 "tools/widl/parser.y"
                                                 { (yyval.expr_list) = append_expr( (yyvsp[-2].expr_list), (yyvsp[0].expr) ); }
-#line 4771 "tools/widl/parser.tab.c"
+#line 4783 "tools/widl/parser.tab.c"
     break;
 
   case 234: /* m_expr: %empty  */
 #line 770 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr(EXPR_VOID); }
-#line 4777 "tools/widl/parser.tab.c"
+#line 4789 "tools/widl/parser.tab.c"
     break;
 
   case 236: /* expr: aNUM  */
 #line 774 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprl(EXPR_NUM, (yyvsp[0].num)); }
-#line 4783 "tools/widl/parser.tab.c"
+#line 4795 "tools/widl/parser.tab.c"
     break;
 
   case 237: /* expr: aHEXNUM  */
 #line 775 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprl(EXPR_HEXNUM, (yyvsp[0].num)); }
-#line 4789 "tools/widl/parser.tab.c"
+#line 4801 "tools/widl/parser.tab.c"
     break;
 
   case 238: /* expr: aDOUBLE  */
 #line 776 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprd(EXPR_DOUBLE, (yyvsp[0].dbl)); }
-#line 4795 "tools/widl/parser.tab.c"
+#line 4807 "tools/widl/parser.tab.c"
     break;
 
   case 239: /* expr: tFALSE  */
 #line 777 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprl(EXPR_TRUEFALSE, 0); }
-#line 4801 "tools/widl/parser.tab.c"
+#line 4813 "tools/widl/parser.tab.c"
     break;
 
   case 240: /* expr: tNULL  */
 #line 778 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprl(EXPR_NUM, 0); }
-#line 4807 "tools/widl/parser.tab.c"
+#line 4819 "tools/widl/parser.tab.c"
     break;
 
   case 241: /* expr: tTRUE  */
 #line 779 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprl(EXPR_TRUEFALSE, 1); }
-#line 4813 "tools/widl/parser.tab.c"
+#line 4825 "tools/widl/parser.tab.c"
     break;
 
   case 242: /* expr: aSTRING  */
 #line 780 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprs(EXPR_STRLIT, (yyvsp[0].str)); }
-#line 4819 "tools/widl/parser.tab.c"
+#line 4831 "tools/widl/parser.tab.c"
     break;
 
   case 243: /* expr: aWSTRING  */
 #line 781 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprs(EXPR_WSTRLIT, (yyvsp[0].str)); }
-#line 4825 "tools/widl/parser.tab.c"
+#line 4837 "tools/widl/parser.tab.c"
     break;
 
   case 244: /* expr: aSQSTRING  */
 #line 782 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprs(EXPR_CHARCONST, (yyvsp[0].str)); }
-#line 4831 "tools/widl/parser.tab.c"
+#line 4843 "tools/widl/parser.tab.c"
     break;
 
   case 245: /* expr: aIDENTIFIER  */
 #line 783 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprs(EXPR_IDENTIFIER, (yyvsp[0].str)); }
-#line 4837 "tools/widl/parser.tab.c"
+#line 4849 "tools/widl/parser.tab.c"
     break;
 
   case 246: /* expr: expr '?' expr ':' expr  */
 #line 784 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr3(EXPR_COND, (yyvsp[-4].expr), (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4843 "tools/widl/parser.tab.c"
+#line 4855 "tools/widl/parser.tab.c"
     break;
 
   case 247: /* expr: expr LOGICALOR expr  */
 #line 785 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_LOGOR, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4849 "tools/widl/parser.tab.c"
+#line 4861 "tools/widl/parser.tab.c"
     break;
 
   case 248: /* expr: expr LOGICALAND expr  */
 #line 786 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_LOGAND, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4855 "tools/widl/parser.tab.c"
+#line 4867 "tools/widl/parser.tab.c"
     break;
 
   case 249: /* expr: expr '|' expr  */
 #line 787 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_OR , (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4861 "tools/widl/parser.tab.c"
+#line 4873 "tools/widl/parser.tab.c"
     break;
 
   case 250: /* expr: expr '^' expr  */
 #line 788 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_XOR, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4867 "tools/widl/parser.tab.c"
+#line 4879 "tools/widl/parser.tab.c"
     break;
 
   case 251: /* expr: expr '&' expr  */
 #line 789 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_AND, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4873 "tools/widl/parser.tab.c"
+#line 4885 "tools/widl/parser.tab.c"
     break;
 
   case 252: /* expr: expr EQUALITY expr  */
 #line 790 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_EQUALITY, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4879 "tools/widl/parser.tab.c"
+#line 4891 "tools/widl/parser.tab.c"
     break;
 
   case 253: /* expr: expr INEQUALITY expr  */
 #line 791 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_INEQUALITY, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4885 "tools/widl/parser.tab.c"
+#line 4897 "tools/widl/parser.tab.c"
     break;
 
   case 254: /* expr: expr '>' expr  */
 #line 792 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_GTR, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4891 "tools/widl/parser.tab.c"
+#line 4903 "tools/widl/parser.tab.c"
     break;
 
   case 255: /* expr: expr '<' expr  */
 #line 793 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_LESS, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4897 "tools/widl/parser.tab.c"
+#line 4909 "tools/widl/parser.tab.c"
     break;
 
   case 256: /* expr: expr GREATEREQUAL expr  */
 #line 794 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_GTREQL, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4903 "tools/widl/parser.tab.c"
+#line 4915 "tools/widl/parser.tab.c"
     break;
 
   case 257: /* expr: expr LESSEQUAL expr  */
 #line 795 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_LESSEQL, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4909 "tools/widl/parser.tab.c"
+#line 4921 "tools/widl/parser.tab.c"
     break;
 
   case 258: /* expr: expr SHL expr  */
 #line 796 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_SHL, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4915 "tools/widl/parser.tab.c"
+#line 4927 "tools/widl/parser.tab.c"
     break;
 
   case 259: /* expr: expr SHR expr  */
 #line 797 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_SHR, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4921 "tools/widl/parser.tab.c"
+#line 4933 "tools/widl/parser.tab.c"
     break;
 
   case 260: /* expr: expr '+' expr  */
 #line 798 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_ADD, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4927 "tools/widl/parser.tab.c"
+#line 4939 "tools/widl/parser.tab.c"
     break;
 
   case 261: /* expr: expr '-' expr  */
 #line 799 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_SUB, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4933 "tools/widl/parser.tab.c"
+#line 4945 "tools/widl/parser.tab.c"
     break;
 
   case 262: /* expr: expr '%' expr  */
 #line 800 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_MOD, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4939 "tools/widl/parser.tab.c"
+#line 4951 "tools/widl/parser.tab.c"
     break;
 
   case 263: /* expr: expr '*' expr  */
 #line 801 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_MUL, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4945 "tools/widl/parser.tab.c"
+#line 4957 "tools/widl/parser.tab.c"
     break;
 
   case 264: /* expr: expr '/' expr  */
 #line 802 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_DIV, (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 4951 "tools/widl/parser.tab.c"
+#line 4963 "tools/widl/parser.tab.c"
     break;
 
   case 265: /* expr: '!' expr  */
 #line 803 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_LOGNOT, (yyvsp[0].expr)); }
-#line 4957 "tools/widl/parser.tab.c"
+#line 4969 "tools/widl/parser.tab.c"
     break;
 
   case 266: /* expr: '~' expr  */
 #line 804 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_NOT, (yyvsp[0].expr)); }
-#line 4963 "tools/widl/parser.tab.c"
+#line 4975 "tools/widl/parser.tab.c"
     break;
 
   case 267: /* expr: '+' expr  */
 #line 805 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_POS, (yyvsp[0].expr)); }
-#line 4969 "tools/widl/parser.tab.c"
+#line 4981 "tools/widl/parser.tab.c"
     break;
 
   case 268: /* expr: '-' expr  */
 #line 806 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_NEG, (yyvsp[0].expr)); }
-#line 4975 "tools/widl/parser.tab.c"
+#line 4987 "tools/widl/parser.tab.c"
     break;
 
   case 269: /* expr: '&' expr  */
 #line 807 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_ADDRESSOF, (yyvsp[0].expr)); }
-#line 4981 "tools/widl/parser.tab.c"
+#line 4993 "tools/widl/parser.tab.c"
     break;
 
   case 270: /* expr: '*' expr  */
 #line 808 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr1(EXPR_PPTR, (yyvsp[0].expr)); }
-#line 4987 "tools/widl/parser.tab.c"
+#line 4999 "tools/widl/parser.tab.c"
     break;
 
   case 271: /* expr: expr MEMBERPTR aIDENTIFIER  */
 #line 809 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_MEMBER, make_expr1(EXPR_PPTR, (yyvsp[-2].expr)), make_exprs(EXPR_IDENTIFIER, (yyvsp[0].str))); }
-#line 4993 "tools/widl/parser.tab.c"
+#line 5005 "tools/widl/parser.tab.c"
     break;
 
   case 272: /* expr: expr '.' aIDENTIFIER  */
 #line 810 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_MEMBER, (yyvsp[-2].expr), make_exprs(EXPR_IDENTIFIER, (yyvsp[0].str))); }
-#line 4999 "tools/widl/parser.tab.c"
+#line 5011 "tools/widl/parser.tab.c"
     break;
 
   case 273: /* expr: '(' unqualified_decl_spec m_abstract_declarator ')' expr  */
 #line 812 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprt(EXPR_CAST, declare_var(NULL, (yyvsp[-3].declspec), (yyvsp[-2].declarator), 0), (yyvsp[0].expr)); free((yyvsp[-3].declspec)); free((yyvsp[-2].declarator)); }
-#line 5005 "tools/widl/parser.tab.c"
+#line 5017 "tools/widl/parser.tab.c"
     break;
 
   case 274: /* expr: tSIZEOF '(' unqualified_decl_spec m_abstract_declarator ')'  */
 #line 814 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_exprt(EXPR_SIZEOF, declare_var(NULL, (yyvsp[-2].declspec), (yyvsp[-1].declarator), 0), NULL); free((yyvsp[-2].declspec)); free((yyvsp[-1].declarator)); }
-#line 5011 "tools/widl/parser.tab.c"
+#line 5023 "tools/widl/parser.tab.c"
     break;
 
   case 275: /* expr: expr '[' expr ']'  */
 #line 815 "tools/widl/parser.y"
                                                 { (yyval.expr) = make_expr2(EXPR_ARRAY, (yyvsp[-3].expr), (yyvsp[-1].expr)); }
-#line 5017 "tools/widl/parser.tab.c"
+#line 5029 "tools/widl/parser.tab.c"
     break;
 
   case 276: /* expr: '(' expr ')'  */
 #line 816 "tools/widl/parser.y"
                                                 { (yyval.expr) = (yyvsp[-1].expr); }
-#line 5023 "tools/widl/parser.tab.c"
+#line 5035 "tools/widl/parser.tab.c"
     break;
 
   case 277: /* expr_list_int_const: expr_int_const  */
 #line 819 "tools/widl/parser.y"
                                                 { (yyval.expr_list) = append_expr( NULL, (yyvsp[0].expr) ); }
-#line 5029 "tools/widl/parser.tab.c"
+#line 5041 "tools/widl/parser.tab.c"
     break;
 
   case 278: /* expr_list_int_const: expr_list_int_const ',' expr_int_const  */
 #line 820 "tools/widl/parser.y"
                                                         { (yyval.expr_list) = append_expr( (yyvsp[-2].expr_list), (yyvsp[0].expr) ); }
-#line 5035 "tools/widl/parser.tab.c"
+#line 5047 "tools/widl/parser.tab.c"
     break;
 
   case 279: /* expr_int_const: expr  */
@@ -5040,7 +5052,7 @@ yyreduce:
 						  if (!(yyval.expr)->is_const)
 						      error_loc("expression is not an integer constant\n");
 						}
-#line 5044 "tools/widl/parser.tab.c"
+#line 5056 "tools/widl/parser.tab.c"
     break;
 
   case 280: /* expr_const: expr  */
@@ -5049,19 +5061,19 @@ yyreduce:
 						  if (!(yyval.expr)->is_const && (yyval.expr)->type != EXPR_STRLIT && (yyval.expr)->type != EXPR_WSTRLIT)
 						      error_loc("expression is not constant\n");
 						}
-#line 5053 "tools/widl/parser.tab.c"
+#line 5065 "tools/widl/parser.tab.c"
     break;
 
   case 281: /* fields: %empty  */
 #line 835 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 5059 "tools/widl/parser.tab.c"
+#line 5071 "tools/widl/parser.tab.c"
     break;
 
   case 282: /* fields: fields field  */
 #line 836 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var_list((yyvsp[-1].var_list), (yyvsp[0].var_list)); }
-#line 5065 "tools/widl/parser.tab.c"
+#line 5077 "tools/widl/parser.tab.c"
     break;
 
   case 283: /* field: m_attributes decl_spec struct_declarator_list ';'  */
@@ -5070,7 +5082,7 @@ yyreduce:
 						  check_field_attrs(first, (yyvsp[-3].attr_list));
 						  (yyval.var_list) = set_var_types((yyvsp[-3].attr_list), (yyvsp[-2].declspec), (yyvsp[-1].declarator_list));
 						}
-#line 5074 "tools/widl/parser.tab.c"
+#line 5086 "tools/widl/parser.tab.c"
     break;
 
   case 284: /* field: m_attributes uniondef ';'  */
@@ -5079,43 +5091,43 @@ yyreduce:
 						  v->declspec.type = (yyvsp[-1].type); v->attrs = (yyvsp[-2].attr_list);
 						  (yyval.var_list) = append_var(NULL, v);
 						}
-#line 5083 "tools/widl/parser.tab.c"
+#line 5095 "tools/widl/parser.tab.c"
     break;
 
   case 285: /* ne_union_field: s_field ';'  */
 #line 851 "tools/widl/parser.y"
                                                 { (yyval.var) = (yyvsp[-1].var); }
-#line 5089 "tools/widl/parser.tab.c"
+#line 5101 "tools/widl/parser.tab.c"
     break;
 
   case 286: /* ne_union_field: attributes ';'  */
 #line 852 "tools/widl/parser.y"
                                                 { (yyval.var) = make_var(NULL); (yyval.var)->attrs = (yyvsp[-1].attr_list); }
-#line 5095 "tools/widl/parser.tab.c"
+#line 5107 "tools/widl/parser.tab.c"
     break;
 
   case 287: /* ne_union_fields: %empty  */
 #line 855 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 5101 "tools/widl/parser.tab.c"
+#line 5113 "tools/widl/parser.tab.c"
     break;
 
   case 288: /* ne_union_fields: ne_union_fields ne_union_field  */
 #line 856 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var( (yyvsp[-1].var_list), (yyvsp[0].var) ); }
-#line 5107 "tools/widl/parser.tab.c"
+#line 5119 "tools/widl/parser.tab.c"
     break;
 
   case 289: /* union_field: s_field ';'  */
 #line 860 "tools/widl/parser.y"
                                                 { (yyval.var) = (yyvsp[-1].var); }
-#line 5113 "tools/widl/parser.tab.c"
+#line 5125 "tools/widl/parser.tab.c"
     break;
 
   case 290: /* union_field: ';'  */
 #line 861 "tools/widl/parser.y"
                                                 { (yyval.var) = NULL; }
-#line 5119 "tools/widl/parser.tab.c"
+#line 5131 "tools/widl/parser.tab.c"
     break;
 
   case 291: /* s_field: m_attributes decl_spec declarator  */
@@ -5124,7 +5136,7 @@ yyreduce:
 						                (yyvsp[-1].declspec), (yyvsp[0].declarator), FALSE);
 						  free((yyvsp[0].declarator));
 						}
-#line 5128 "tools/widl/parser.tab.c"
+#line 5140 "tools/widl/parser.tab.c"
     break;
 
   case 292: /* s_field: m_attributes structdef  */
@@ -5133,7 +5145,7 @@ yyreduce:
 						  v->declspec.type = (yyvsp[0].type); v->attrs = (yyvsp[-1].attr_list);
 						  (yyval.var) = v;
 						}
-#line 5137 "tools/widl/parser.tab.c"
+#line 5149 "tools/widl/parser.tab.c"
     break;
 
   case 293: /* funcdef: declaration  */
@@ -5143,7 +5155,7 @@ yyreduce:
 						    error_loc("only methods may be declared inside the methods section of a dispinterface\n");
 						  check_function_attrs((yyval.var)->name, (yyval.var)->attrs);
 						}
-#line 5147 "tools/widl/parser.tab.c"
+#line 5159 "tools/widl/parser.tab.c"
     break;
 
   case 294: /* declaration: attributes decl_spec init_declarator  */
@@ -5151,7 +5163,7 @@ yyreduce:
                                                 { (yyval.var) = declare_var((yyvsp[-2].attr_list), (yyvsp[-1].declspec), (yyvsp[0].declarator), FALSE);
 						  free((yyvsp[0].declarator));
 						}
-#line 5155 "tools/widl/parser.tab.c"
+#line 5167 "tools/widl/parser.tab.c"
     break;
 
   case 295: /* declaration: decl_spec init_declarator  */
@@ -5159,385 +5171,385 @@ yyreduce:
                                                 { (yyval.var) = declare_var(NULL, (yyvsp[-1].declspec), (yyvsp[0].declarator), FALSE);
 						  free((yyvsp[0].declarator));
 						}
-#line 5163 "tools/widl/parser.tab.c"
+#line 5175 "tools/widl/parser.tab.c"
     break;
 
   case 296: /* m_ident: %empty  */
 #line 891 "tools/widl/parser.y"
                                                 { (yyval.var) = NULL; }
-#line 5169 "tools/widl/parser.tab.c"
+#line 5181 "tools/widl/parser.tab.c"
     break;
 
   case 298: /* m_typename: %empty  */
 #line 895 "tools/widl/parser.y"
                                                 { (yyval.str) = NULL; }
-#line 5175 "tools/widl/parser.tab.c"
+#line 5187 "tools/widl/parser.tab.c"
     break;
 
   case 302: /* ident: typename  */
 #line 903 "tools/widl/parser.y"
                                                 { (yyval.var) = make_var((yyvsp[0].str)); }
-#line 5181 "tools/widl/parser.tab.c"
+#line 5193 "tools/widl/parser.tab.c"
     break;
 
   case 303: /* base_type: tBYTE  */
 #line 906 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5187 "tools/widl/parser.tab.c"
+#line 5199 "tools/widl/parser.tab.c"
     break;
 
   case 304: /* base_type: tWCHAR  */
 #line 907 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5193 "tools/widl/parser.tab.c"
+#line 5205 "tools/widl/parser.tab.c"
     break;
 
   case 306: /* base_type: tSIGNED int_std  */
 #line 909 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(type_basic_get_type((yyvsp[0].type)), -1); }
-#line 5199 "tools/widl/parser.tab.c"
+#line 5211 "tools/widl/parser.tab.c"
     break;
 
   case 307: /* base_type: tUNSIGNED int_std  */
 #line 910 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(type_basic_get_type((yyvsp[0].type)), 1); }
-#line 5205 "tools/widl/parser.tab.c"
+#line 5217 "tools/widl/parser.tab.c"
     break;
 
   case 308: /* base_type: tUNSIGNED  */
 #line 911 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT, 1); }
-#line 5211 "tools/widl/parser.tab.c"
+#line 5223 "tools/widl/parser.tab.c"
     break;
 
   case 309: /* base_type: tFLOAT  */
 #line 912 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5217 "tools/widl/parser.tab.c"
+#line 5229 "tools/widl/parser.tab.c"
     break;
 
   case 310: /* base_type: tDOUBLE  */
 #line 913 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5223 "tools/widl/parser.tab.c"
+#line 5235 "tools/widl/parser.tab.c"
     break;
 
   case 311: /* base_type: tBOOLEAN  */
 #line 914 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5229 "tools/widl/parser.tab.c"
+#line 5241 "tools/widl/parser.tab.c"
     break;
 
   case 312: /* base_type: tERRORSTATUST  */
 #line 915 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5235 "tools/widl/parser.tab.c"
+#line 5247 "tools/widl/parser.tab.c"
     break;
 
   case 313: /* base_type: tHANDLET  */
 #line 916 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(NULL, (yyvsp[0].str)); }
-#line 5241 "tools/widl/parser.tab.c"
+#line 5253 "tools/widl/parser.tab.c"
     break;
 
   case 316: /* int_std: tINT  */
 #line 923 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT, 0); }
-#line 5247 "tools/widl/parser.tab.c"
+#line 5259 "tools/widl/parser.tab.c"
     break;
 
   case 317: /* int_std: tSHORT m_int  */
 #line 924 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT16, 0); }
-#line 5253 "tools/widl/parser.tab.c"
+#line 5265 "tools/widl/parser.tab.c"
     break;
 
   case 318: /* int_std: tSMALL  */
 #line 925 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT8, 0); }
-#line 5259 "tools/widl/parser.tab.c"
+#line 5271 "tools/widl/parser.tab.c"
     break;
 
   case 319: /* int_std: tLONG m_int  */
 #line 926 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_LONG, 0); }
-#line 5265 "tools/widl/parser.tab.c"
+#line 5277 "tools/widl/parser.tab.c"
     break;
 
   case 320: /* int_std: tHYPER m_int  */
 #line 927 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_HYPER, 0); }
-#line 5271 "tools/widl/parser.tab.c"
+#line 5283 "tools/widl/parser.tab.c"
     break;
 
   case 321: /* int_std: tINT64  */
 #line 928 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT64, 0); }
-#line 5277 "tools/widl/parser.tab.c"
+#line 5289 "tools/widl/parser.tab.c"
     break;
 
   case 322: /* int_std: tCHAR  */
 #line 929 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_CHAR, 0); }
-#line 5283 "tools/widl/parser.tab.c"
+#line 5295 "tools/widl/parser.tab.c"
     break;
 
   case 323: /* int_std: tINT32  */
 #line 930 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT32, 0); }
-#line 5289 "tools/widl/parser.tab.c"
+#line 5301 "tools/widl/parser.tab.c"
     break;
 
   case 324: /* int_std: tINT3264  */
 #line 931 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_int(TYPE_BASIC_INT3264, 0); }
-#line 5295 "tools/widl/parser.tab.c"
+#line 5307 "tools/widl/parser.tab.c"
     break;
 
   case 325: /* namespace_pfx: aIDENTIFIER '.'  */
 #line 935 "tools/widl/parser.y"
                                                 { (yyval.namespace) = find_namespace_or_error(&global_namespace, (yyvsp[-1].str)); }
-#line 5301 "tools/widl/parser.tab.c"
+#line 5313 "tools/widl/parser.tab.c"
     break;
 
   case 326: /* namespace_pfx: namespace_pfx aIDENTIFIER '.'  */
 #line 936 "tools/widl/parser.y"
                                                 { (yyval.namespace) = find_namespace_or_error((yyvsp[-2].namespace), (yyvsp[-1].str)); }
-#line 5307 "tools/widl/parser.tab.c"
+#line 5319 "tools/widl/parser.tab.c"
     break;
 
   case 327: /* qualified_type: typename  */
 #line 940 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(current_namespace, (yyvsp[0].str)); }
-#line 5313 "tools/widl/parser.tab.c"
+#line 5325 "tools/widl/parser.tab.c"
     break;
 
   case 328: /* qualified_type: namespace_pfx typename  */
 #line 941 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error((yyvsp[-1].namespace), (yyvsp[0].str)); }
-#line 5319 "tools/widl/parser.tab.c"
+#line 5331 "tools/widl/parser.tab.c"
     break;
 
   case 329: /* parameterized_type: qualified_type '<' parameterized_type_args '>'  */
 #line 945 "tools/widl/parser.y"
                                                 { (yyval.type) = find_parameterized_type((yyvsp[-3].type), (yyvsp[-1].typeref_list)); }
-#line 5325 "tools/widl/parser.tab.c"
+#line 5337 "tools/widl/parser.tab.c"
     break;
 
   case 330: /* parameterized_type_arg: base_type  */
 #line 949 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 5331 "tools/widl/parser.tab.c"
+#line 5343 "tools/widl/parser.tab.c"
     break;
 
   case 331: /* parameterized_type_arg: qualified_type  */
 #line 950 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 5337 "tools/widl/parser.tab.c"
+#line 5349 "tools/widl/parser.tab.c"
     break;
 
   case 332: /* parameterized_type_arg: qualified_type '*'  */
 #line 951 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_pointer((yyvsp[-1].type)); }
-#line 5343 "tools/widl/parser.tab.c"
+#line 5355 "tools/widl/parser.tab.c"
     break;
 
   case 333: /* parameterized_type_arg: parameterized_type  */
 #line 952 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 5349 "tools/widl/parser.tab.c"
+#line 5361 "tools/widl/parser.tab.c"
     break;
 
   case 334: /* parameterized_type_arg: parameterized_type '*'  */
 #line 953 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_pointer((yyvsp[-1].type)); }
-#line 5355 "tools/widl/parser.tab.c"
+#line 5367 "tools/widl/parser.tab.c"
     break;
 
   case 335: /* parameterized_type_args: parameterized_type_arg  */
 #line 957 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref(NULL, make_typeref((yyvsp[0].type))); }
-#line 5361 "tools/widl/parser.tab.c"
+#line 5373 "tools/widl/parser.tab.c"
     break;
 
   case 336: /* parameterized_type_args: parameterized_type_args ',' parameterized_type_arg  */
 #line 959 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref((yyvsp[-2].typeref_list), make_typeref((yyvsp[0].type))); }
-#line 5367 "tools/widl/parser.tab.c"
+#line 5379 "tools/widl/parser.tab.c"
     break;
 
   case 337: /* coclass: tCOCLASS typename  */
 #line 962 "tools/widl/parser.y"
                                                 { (yyval.type) = type_coclass_declare((yyvsp[0].str)); }
-#line 5373 "tools/widl/parser.tab.c"
+#line 5385 "tools/widl/parser.tab.c"
     break;
 
   case 338: /* coclassdef: attributes coclass '{' class_interfaces '}' semicolon_opt  */
 #line 966 "tools/widl/parser.y"
                                                 { (yyval.type) = type_coclass_define((yyvsp[-4].type), (yyvsp[-5].attr_list), (yyvsp[-2].typeref_list)); }
-#line 5379 "tools/widl/parser.tab.c"
+#line 5391 "tools/widl/parser.tab.c"
     break;
 
   case 339: /* runtimeclass: tRUNTIMECLASS typename  */
 #line 969 "tools/widl/parser.y"
                                                 { (yyval.type) = type_runtimeclass_declare((yyvsp[0].str), current_namespace); }
-#line 5385 "tools/widl/parser.tab.c"
+#line 5397 "tools/widl/parser.tab.c"
     break;
 
   case 340: /* runtimeclass_def: attributes runtimeclass '{' class_interfaces '}' semicolon_opt  */
 #line 973 "tools/widl/parser.y"
                                                 { (yyval.type) = type_runtimeclass_define((yyvsp[-4].type), (yyvsp[-5].attr_list), (yyvsp[-2].typeref_list)); }
-#line 5391 "tools/widl/parser.tab.c"
+#line 5403 "tools/widl/parser.tab.c"
     break;
 
   case 341: /* apicontract: tAPICONTRACT typename  */
 #line 976 "tools/widl/parser.y"
                                                 { (yyval.type) = type_apicontract_declare((yyvsp[0].str), current_namespace); }
-#line 5397 "tools/widl/parser.tab.c"
+#line 5409 "tools/widl/parser.tab.c"
     break;
 
   case 342: /* apicontract_def: attributes apicontract '{' '}' semicolon_opt  */
 #line 980 "tools/widl/parser.y"
                                                 { (yyval.type) = type_apicontract_define((yyvsp[-3].type), (yyvsp[-4].attr_list)); }
-#line 5403 "tools/widl/parser.tab.c"
+#line 5415 "tools/widl/parser.tab.c"
     break;
 
   case 343: /* namespacedef: tNAMESPACE aIDENTIFIER  */
 #line 983 "tools/widl/parser.y"
                                                 { (yyval.str) = (yyvsp[0].str); }
-#line 5409 "tools/widl/parser.tab.c"
+#line 5421 "tools/widl/parser.tab.c"
     break;
 
   case 344: /* class_interfaces: %empty  */
 #line 986 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = NULL; }
-#line 5415 "tools/widl/parser.tab.c"
+#line 5427 "tools/widl/parser.tab.c"
     break;
 
   case 345: /* class_interfaces: class_interfaces class_interface  */
 #line 987 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref( (yyvsp[-1].typeref_list), (yyvsp[0].typeref) ); }
-#line 5421 "tools/widl/parser.tab.c"
+#line 5433 "tools/widl/parser.tab.c"
     break;
 
   case 346: /* class_interface: m_attributes interfaceref ';'  */
 #line 991 "tools/widl/parser.y"
                                                 { (yyval.typeref) = make_typeref((yyvsp[-1].type)); (yyval.typeref)->attrs = (yyvsp[-2].attr_list); }
-#line 5427 "tools/widl/parser.tab.c"
+#line 5439 "tools/widl/parser.tab.c"
     break;
 
   case 347: /* class_interface: m_attributes dispinterfaceref ';'  */
 #line 992 "tools/widl/parser.y"
                                                 { (yyval.typeref) = make_typeref((yyvsp[-1].type)); (yyval.typeref)->attrs = (yyvsp[-2].attr_list); }
-#line 5433 "tools/widl/parser.tab.c"
+#line 5445 "tools/widl/parser.tab.c"
     break;
 
   case 348: /* dispinterface: tDISPINTERFACE typename  */
 #line 995 "tools/widl/parser.y"
                                                 { (yyval.type) = type_dispinterface_declare((yyvsp[0].str)); }
-#line 5439 "tools/widl/parser.tab.c"
+#line 5451 "tools/widl/parser.tab.c"
     break;
 
   case 349: /* dispattributes: attributes  */
 #line 998 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr((yyvsp[0].attr_list), make_attr(ATTR_DISPINTERFACE)); }
-#line 5445 "tools/widl/parser.tab.c"
+#line 5457 "tools/widl/parser.tab.c"
     break;
 
   case 350: /* dispint_props: tPROPERTIES ':'  */
 #line 1001 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 5451 "tools/widl/parser.tab.c"
+#line 5463 "tools/widl/parser.tab.c"
     break;
 
   case 351: /* dispint_props: dispint_props s_field ';'  */
 #line 1002 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var( (yyvsp[-2].var_list), (yyvsp[-1].var) ); }
-#line 5457 "tools/widl/parser.tab.c"
+#line 5469 "tools/widl/parser.tab.c"
     break;
 
   case 352: /* dispint_meths: tMETHODS ':'  */
 #line 1005 "tools/widl/parser.y"
                                                 { (yyval.var_list) = NULL; }
-#line 5463 "tools/widl/parser.tab.c"
+#line 5475 "tools/widl/parser.tab.c"
     break;
 
   case 353: /* dispint_meths: dispint_meths funcdef ';'  */
 #line 1006 "tools/widl/parser.y"
                                                 { (yyval.var_list) = append_var( (yyvsp[-2].var_list), (yyvsp[-1].var) ); }
-#line 5469 "tools/widl/parser.tab.c"
+#line 5481 "tools/widl/parser.tab.c"
     break;
 
   case 354: /* dispinterfacedef: dispattributes dispinterface '{' dispint_props dispint_meths '}'  */
 #line 1011 "tools/widl/parser.y"
                                                 { (yyval.type) = type_dispinterface_define((yyvsp[-4].type), (yyvsp[-5].attr_list), (yyvsp[-2].var_list), (yyvsp[-1].var_list)); }
-#line 5475 "tools/widl/parser.tab.c"
+#line 5487 "tools/widl/parser.tab.c"
     break;
 
   case 355: /* dispinterfacedef: dispattributes dispinterface '{' interface ';' '}'  */
 #line 1013 "tools/widl/parser.y"
                                                 { (yyval.type) = type_dispinterface_define_from_iface((yyvsp[-4].type), (yyvsp[-5].attr_list), (yyvsp[-2].type)); }
-#line 5481 "tools/widl/parser.tab.c"
+#line 5493 "tools/widl/parser.tab.c"
     break;
 
   case 356: /* inherit: %empty  */
 #line 1016 "tools/widl/parser.y"
                                                 { (yyval.type) = NULL; }
-#line 5487 "tools/widl/parser.tab.c"
+#line 5499 "tools/widl/parser.tab.c"
     break;
 
   case 357: /* inherit: ':' qualified_type  */
 #line 1017 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 5493 "tools/widl/parser.tab.c"
+#line 5505 "tools/widl/parser.tab.c"
     break;
 
   case 358: /* inherit: ':' parameterized_type  */
 #line 1018 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 5499 "tools/widl/parser.tab.c"
+#line 5511 "tools/widl/parser.tab.c"
     break;
 
   case 359: /* type_parameter: typename  */
 #line 1021 "tools/widl/parser.y"
                                                 { (yyval.type) = get_type(TYPE_PARAMETER, (yyvsp[0].str), parameters_namespace, 0); }
-#line 5505 "tools/widl/parser.tab.c"
+#line 5517 "tools/widl/parser.tab.c"
     break;
 
   case 360: /* type_parameters: type_parameter  */
 #line 1025 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref(NULL, make_typeref((yyvsp[0].type))); }
-#line 5511 "tools/widl/parser.tab.c"
+#line 5523 "tools/widl/parser.tab.c"
     break;
 
   case 361: /* type_parameters: type_parameters ',' type_parameter  */
 #line 1026 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref((yyvsp[-2].typeref_list), make_typeref((yyvsp[0].type))); }
-#line 5517 "tools/widl/parser.tab.c"
+#line 5529 "tools/widl/parser.tab.c"
     break;
 
   case 362: /* interface: tINTERFACE typename  */
 #line 1030 "tools/widl/parser.y"
                                                 { (yyval.type) = type_interface_declare((yyvsp[0].str), current_namespace); }
-#line 5523 "tools/widl/parser.tab.c"
+#line 5535 "tools/widl/parser.tab.c"
     break;
 
   case 363: /* $@3: %empty  */
 #line 1031 "tools/widl/parser.y"
                                   { push_parameters_namespace((yyvsp[-1].str)); }
-#line 5529 "tools/widl/parser.tab.c"
+#line 5541 "tools/widl/parser.tab.c"
     break;
 
   case 364: /* $@4: %empty  */
 #line 1031 "tools/widl/parser.y"
                                                                                      { pop_parameters_namespace((yyvsp[-3].str)); }
-#line 5535 "tools/widl/parser.tab.c"
+#line 5547 "tools/widl/parser.tab.c"
     break;
 
   case 365: /* interface: tINTERFACE typename '<' $@3 type_parameters $@4 '>'  */
 #line 1032 "tools/widl/parser.y"
                                                 { (yyval.type) = type_parameterized_interface_declare((yyvsp[-5].str), current_namespace, (yyvsp[-2].typeref_list)); }
-#line 5541 "tools/widl/parser.tab.c"
+#line 5553 "tools/widl/parser.tab.c"
     break;
 
   case 366: /* delegatedef: m_attributes tDELEGATE type ident '(' m_args ')' semicolon_opt  */
@@ -5545,19 +5557,19 @@ yyreduce:
                                                 { (yyval.type) = type_delegate_declare((yyvsp[-4].var)->name, current_namespace);
 						  (yyval.type) = type_delegate_define((yyval.type), (yyvsp[-7].attr_list), append_statement(NULL, make_statement_delegate((yyvsp[-5].type), (yyvsp[-2].var_list))));
 						}
-#line 5549 "tools/widl/parser.tab.c"
+#line 5561 "tools/widl/parser.tab.c"
     break;
 
   case 367: /* $@5: %empty  */
 #line 1040 "tools/widl/parser.y"
               { push_parameters_namespace((yyvsp[-1].var)->name); }
-#line 5555 "tools/widl/parser.tab.c"
+#line 5567 "tools/widl/parser.tab.c"
     break;
 
   case 368: /* $@6: %empty  */
 #line 1041 "tools/widl/parser.y"
                          { pop_parameters_namespace((yyvsp[-7].var)->name); }
-#line 5561 "tools/widl/parser.tab.c"
+#line 5573 "tools/widl/parser.tab.c"
     break;
 
   case 369: /* delegatedef: m_attributes tDELEGATE type ident '<' $@5 type_parameters '>' '(' m_args ')' $@6 semicolon_opt  */
@@ -5565,49 +5577,49 @@ yyreduce:
                                                 { (yyval.type) = type_parameterized_delegate_declare((yyvsp[-9].var)->name, current_namespace, (yyvsp[-6].typeref_list));
 						  (yyval.type) = type_parameterized_delegate_define((yyval.type), (yyvsp[-12].attr_list), append_statement(NULL, make_statement_delegate((yyvsp[-10].type), (yyvsp[-3].var_list))));
 						}
-#line 5569 "tools/widl/parser.tab.c"
+#line 5581 "tools/widl/parser.tab.c"
     break;
 
   case 370: /* required_types: qualified_type  */
 #line 1048 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref(NULL, make_typeref((yyvsp[0].type))); }
-#line 5575 "tools/widl/parser.tab.c"
+#line 5587 "tools/widl/parser.tab.c"
     break;
 
   case 371: /* required_types: parameterized_type  */
 #line 1049 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref(NULL, make_typeref((yyvsp[0].type))); }
-#line 5581 "tools/widl/parser.tab.c"
+#line 5593 "tools/widl/parser.tab.c"
     break;
 
   case 372: /* required_types: required_types ',' qualified_type  */
 #line 1050 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref((yyvsp[-2].typeref_list), make_typeref((yyvsp[0].type))); }
-#line 5587 "tools/widl/parser.tab.c"
+#line 5599 "tools/widl/parser.tab.c"
     break;
 
   case 373: /* required_types: required_types ',' parameterized_type  */
 #line 1051 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = append_typeref((yyvsp[-2].typeref_list), make_typeref((yyvsp[0].type))); }
-#line 5593 "tools/widl/parser.tab.c"
+#line 5605 "tools/widl/parser.tab.c"
     break;
 
   case 374: /* requires: %empty  */
 #line 1053 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = NULL; }
-#line 5599 "tools/widl/parser.tab.c"
+#line 5611 "tools/widl/parser.tab.c"
     break;
 
   case 375: /* requires: tREQUIRES required_types  */
 #line 1054 "tools/widl/parser.y"
                                                 { (yyval.typeref_list) = (yyvsp[0].typeref_list); }
-#line 5605 "tools/widl/parser.tab.c"
+#line 5617 "tools/widl/parser.tab.c"
     break;
 
   case 376: /* $@7: %empty  */
 #line 1057 "tools/widl/parser.y"
                                                 { if ((yyvsp[0].type)->type_type == TYPE_PARAMETERIZED_TYPE) push_parameters_namespace((yyvsp[0].type)->name); }
-#line 5611 "tools/widl/parser.tab.c"
+#line 5623 "tools/widl/parser.tab.c"
     break;
 
   case 377: /* interfacedef: attributes interface $@7 inherit requires '{' int_statements '}' semicolon_opt  */
@@ -5623,217 +5635,217 @@ yyreduce:
 						      check_async_uuid((yyval.type));
 						  }
 						}
-#line 5627 "tools/widl/parser.tab.c"
+#line 5639 "tools/widl/parser.tab.c"
     break;
 
   case 378: /* interfacedef: dispinterfacedef semicolon_opt  */
 #line 1070 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[-1].type); }
-#line 5633 "tools/widl/parser.tab.c"
+#line 5645 "tools/widl/parser.tab.c"
     break;
 
   case 379: /* interfaceref: tINTERFACE typename  */
 #line 1074 "tools/widl/parser.y"
                                                 { (yyval.type) = get_type(TYPE_INTERFACE, (yyvsp[0].str), current_namespace, 0); }
-#line 5639 "tools/widl/parser.tab.c"
+#line 5651 "tools/widl/parser.tab.c"
     break;
 
   case 380: /* interfaceref: tINTERFACE namespace_pfx typename  */
 #line 1075 "tools/widl/parser.y"
                                                 { (yyval.type) = get_type(TYPE_INTERFACE, (yyvsp[0].str), (yyvsp[-1].namespace), 0); }
-#line 5645 "tools/widl/parser.tab.c"
+#line 5657 "tools/widl/parser.tab.c"
     break;
 
   case 381: /* dispinterfaceref: tDISPINTERFACE typename  */
 #line 1079 "tools/widl/parser.y"
                                                 { (yyval.type) = get_type(TYPE_INTERFACE, (yyvsp[0].str), current_namespace, 0); }
-#line 5651 "tools/widl/parser.tab.c"
+#line 5663 "tools/widl/parser.tab.c"
     break;
 
   case 382: /* module: tMODULE typename  */
 #line 1082 "tools/widl/parser.y"
                                                 { (yyval.type) = type_module_declare((yyvsp[0].str)); }
-#line 5657 "tools/widl/parser.tab.c"
+#line 5669 "tools/widl/parser.tab.c"
     break;
 
   case 383: /* moduledef: attributes module '{' int_statements '}' semicolon_opt  */
 #line 1086 "tools/widl/parser.y"
                                                 { (yyval.type) = type_module_define((yyvsp[-4].type), (yyvsp[-5].attr_list), (yyvsp[-2].stmt_list)); }
-#line 5663 "tools/widl/parser.tab.c"
+#line 5675 "tools/widl/parser.tab.c"
     break;
 
   case 384: /* storage_cls_spec: tEXTERN  */
 #line 1090 "tools/widl/parser.y"
                                                 { (yyval.stgclass) = STG_EXTERN; }
-#line 5669 "tools/widl/parser.tab.c"
+#line 5681 "tools/widl/parser.tab.c"
     break;
 
   case 385: /* storage_cls_spec: tSTATIC  */
 #line 1091 "tools/widl/parser.y"
                                                 { (yyval.stgclass) = STG_STATIC; }
-#line 5675 "tools/widl/parser.tab.c"
+#line 5687 "tools/widl/parser.tab.c"
     break;
 
   case 386: /* storage_cls_spec: tREGISTER  */
 #line 1092 "tools/widl/parser.y"
                                                 { (yyval.stgclass) = STG_REGISTER; }
-#line 5681 "tools/widl/parser.tab.c"
+#line 5693 "tools/widl/parser.tab.c"
     break;
 
   case 387: /* function_specifier: tINLINE  */
 #line 1096 "tools/widl/parser.y"
                                                 { (yyval.function_specifier) = FUNCTION_SPECIFIER_INLINE; }
-#line 5687 "tools/widl/parser.tab.c"
+#line 5699 "tools/widl/parser.tab.c"
     break;
 
   case 388: /* type_qualifier: tCONST  */
 #line 1100 "tools/widl/parser.y"
                                                 { (yyval.type_qualifier) = TYPE_QUALIFIER_CONST; }
-#line 5693 "tools/widl/parser.tab.c"
+#line 5705 "tools/widl/parser.tab.c"
     break;
 
   case 389: /* m_type_qual_list: %empty  */
 #line 1103 "tools/widl/parser.y"
                                                 { (yyval.type_qualifier) = 0; }
-#line 5699 "tools/widl/parser.tab.c"
+#line 5711 "tools/widl/parser.tab.c"
     break;
 
   case 390: /* m_type_qual_list: m_type_qual_list type_qualifier  */
 #line 1104 "tools/widl/parser.y"
                                                 { (yyval.type_qualifier) = (yyvsp[-1].type_qualifier) | (yyvsp[0].type_qualifier); }
-#line 5705 "tools/widl/parser.tab.c"
+#line 5717 "tools/widl/parser.tab.c"
     break;
 
   case 391: /* decl_spec: type m_decl_spec_no_type  */
 #line 1107 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec((yyvsp[-1].type), (yyvsp[0].declspec), NULL, STG_NONE, 0, 0); }
-#line 5711 "tools/widl/parser.tab.c"
+#line 5723 "tools/widl/parser.tab.c"
     break;
 
   case 392: /* decl_spec: decl_spec_no_type type m_decl_spec_no_type  */
 #line 1109 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec((yyvsp[-1].type), (yyvsp[-2].declspec), (yyvsp[0].declspec), STG_NONE, 0, 0); }
-#line 5717 "tools/widl/parser.tab.c"
+#line 5729 "tools/widl/parser.tab.c"
     break;
 
   case 393: /* unqualified_decl_spec: unqualified_type m_decl_spec_no_type  */
 #line 1113 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec((yyvsp[-1].type), (yyvsp[0].declspec), NULL, STG_NONE, 0, 0); }
-#line 5723 "tools/widl/parser.tab.c"
+#line 5735 "tools/widl/parser.tab.c"
     break;
 
   case 394: /* unqualified_decl_spec: decl_spec_no_type unqualified_type m_decl_spec_no_type  */
 #line 1115 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec((yyvsp[-1].type), (yyvsp[-2].declspec), (yyvsp[0].declspec), STG_NONE, 0, 0); }
-#line 5729 "tools/widl/parser.tab.c"
+#line 5741 "tools/widl/parser.tab.c"
     break;
 
   case 395: /* m_decl_spec_no_type: %empty  */
 #line 1118 "tools/widl/parser.y"
                                                 { (yyval.declspec) = NULL; }
-#line 5735 "tools/widl/parser.tab.c"
+#line 5747 "tools/widl/parser.tab.c"
     break;
 
   case 397: /* decl_spec_no_type: type_qualifier m_decl_spec_no_type  */
 #line 1123 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec(NULL, (yyvsp[0].declspec), NULL, STG_NONE, (yyvsp[-1].type_qualifier), 0); }
-#line 5741 "tools/widl/parser.tab.c"
+#line 5753 "tools/widl/parser.tab.c"
     break;
 
   case 398: /* decl_spec_no_type: function_specifier m_decl_spec_no_type  */
 #line 1124 "tools/widl/parser.y"
                                                   { (yyval.declspec) = make_decl_spec(NULL, (yyvsp[0].declspec), NULL, STG_NONE, 0, (yyvsp[-1].function_specifier)); }
-#line 5747 "tools/widl/parser.tab.c"
+#line 5759 "tools/widl/parser.tab.c"
     break;
 
   case 399: /* decl_spec_no_type: storage_cls_spec m_decl_spec_no_type  */
 #line 1125 "tools/widl/parser.y"
                                                 { (yyval.declspec) = make_decl_spec(NULL, (yyvsp[0].declspec), NULL, (yyvsp[-1].stgclass), 0, 0); }
-#line 5753 "tools/widl/parser.tab.c"
+#line 5765 "tools/widl/parser.tab.c"
     break;
 
   case 400: /* declarator: '*' m_type_qual_list declarator  */
 #line 1130 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_type((yyval.declarator), type_new_pointer(NULL), (yyvsp[-1].type_qualifier)); }
-#line 5759 "tools/widl/parser.tab.c"
+#line 5771 "tools/widl/parser.tab.c"
     break;
 
   case 401: /* declarator: callconv declarator  */
 #line 1131 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_callconv((yyval.declarator)->type, (yyvsp[-1].str)); }
-#line 5765 "tools/widl/parser.tab.c"
+#line 5777 "tools/widl/parser.tab.c"
     break;
 
   case 403: /* direct_declarator: ident  */
 #line 1136 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator((yyvsp[0].var)); }
-#line 5771 "tools/widl/parser.tab.c"
+#line 5783 "tools/widl/parser.tab.c"
     break;
 
   case 404: /* direct_declarator: '(' declarator ')'  */
 #line 1137 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); }
-#line 5777 "tools/widl/parser.tab.c"
+#line 5789 "tools/widl/parser.tab.c"
     break;
 
   case 405: /* direct_declarator: direct_declarator array  */
 #line 1138 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); append_array((yyval.declarator), (yyvsp[0].expr)); }
-#line 5783 "tools/widl/parser.tab.c"
+#line 5795 "tools/widl/parser.tab.c"
     break;
 
   case 406: /* direct_declarator: direct_declarator '(' m_args ')'  */
 #line 1139 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-3].declarator); append_chain_type((yyval.declarator), type_new_function((yyvsp[-1].var_list)), 0); }
-#line 5789 "tools/widl/parser.tab.c"
+#line 5801 "tools/widl/parser.tab.c"
     break;
 
   case 407: /* abstract_declarator: '*' m_type_qual_list m_abstract_declarator  */
 #line 1145 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_type((yyval.declarator), type_new_pointer(NULL), (yyvsp[-1].type_qualifier)); }
-#line 5795 "tools/widl/parser.tab.c"
+#line 5807 "tools/widl/parser.tab.c"
     break;
 
   case 408: /* abstract_declarator: callconv m_abstract_declarator  */
 #line 1146 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_callconv((yyval.declarator)->type, (yyvsp[-1].str)); }
-#line 5801 "tools/widl/parser.tab.c"
+#line 5813 "tools/widl/parser.tab.c"
     break;
 
   case 410: /* abstract_declarator_no_direct: '*' m_type_qual_list m_any_declarator  */
 #line 1153 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_type((yyval.declarator), type_new_pointer(NULL), (yyvsp[-1].type_qualifier)); }
-#line 5807 "tools/widl/parser.tab.c"
+#line 5819 "tools/widl/parser.tab.c"
     break;
 
   case 411: /* abstract_declarator_no_direct: callconv m_any_declarator  */
 #line 1154 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_callconv((yyval.declarator)->type, (yyvsp[-1].str)); }
-#line 5813 "tools/widl/parser.tab.c"
+#line 5825 "tools/widl/parser.tab.c"
     break;
 
   case 412: /* m_abstract_declarator: %empty  */
 #line 1158 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator(NULL); }
-#line 5819 "tools/widl/parser.tab.c"
+#line 5831 "tools/widl/parser.tab.c"
     break;
 
   case 414: /* abstract_direct_declarator: '(' abstract_declarator_no_direct ')'  */
 #line 1164 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); }
-#line 5825 "tools/widl/parser.tab.c"
+#line 5837 "tools/widl/parser.tab.c"
     break;
 
   case 415: /* abstract_direct_declarator: abstract_direct_declarator array  */
 #line 1165 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); append_array((yyval.declarator), (yyvsp[0].expr)); }
-#line 5831 "tools/widl/parser.tab.c"
+#line 5843 "tools/widl/parser.tab.c"
     break;
 
   case 416: /* abstract_direct_declarator: array  */
 #line 1166 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator(NULL); append_array((yyval.declarator), (yyvsp[0].expr)); }
-#line 5837 "tools/widl/parser.tab.c"
+#line 5849 "tools/widl/parser.tab.c"
     break;
 
   case 417: /* abstract_direct_declarator: '(' m_args ')'  */
@@ -5841,7 +5853,7 @@ yyreduce:
                                                 { (yyval.declarator) = make_declarator(NULL);
 						  append_chain_type((yyval.declarator), type_new_function((yyvsp[-1].var_list)), 0);
 						}
-#line 5845 "tools/widl/parser.tab.c"
+#line 5857 "tools/widl/parser.tab.c"
     break;
 
   case 418: /* abstract_direct_declarator: abstract_direct_declarator '(' m_args ')'  */
@@ -5849,61 +5861,61 @@ yyreduce:
                                                 { (yyval.declarator) = (yyvsp[-3].declarator);
 						  append_chain_type((yyval.declarator), type_new_function((yyvsp[-1].var_list)), 0);
 						}
-#line 5853 "tools/widl/parser.tab.c"
+#line 5865 "tools/widl/parser.tab.c"
     break;
 
   case 419: /* any_declarator: '*' m_type_qual_list m_any_declarator  */
 #line 1180 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_type((yyval.declarator), type_new_pointer(NULL), (yyvsp[-1].type_qualifier)); }
-#line 5859 "tools/widl/parser.tab.c"
+#line 5871 "tools/widl/parser.tab.c"
     break;
 
   case 420: /* any_declarator: callconv m_any_declarator  */
 #line 1181 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_callconv((yyval.declarator)->type, (yyvsp[-1].str)); }
-#line 5865 "tools/widl/parser.tab.c"
+#line 5877 "tools/widl/parser.tab.c"
     break;
 
   case 422: /* any_declarator_no_direct: '*' m_type_qual_list m_any_declarator  */
 #line 1188 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_type((yyval.declarator), type_new_pointer(NULL), (yyvsp[-1].type_qualifier)); }
-#line 5871 "tools/widl/parser.tab.c"
+#line 5883 "tools/widl/parser.tab.c"
     break;
 
   case 423: /* any_declarator_no_direct: callconv m_any_declarator  */
 #line 1189 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); append_chain_callconv((yyval.declarator)->type, (yyvsp[-1].str)); }
-#line 5877 "tools/widl/parser.tab.c"
+#line 5889 "tools/widl/parser.tab.c"
     break;
 
   case 424: /* m_any_declarator: %empty  */
 #line 1193 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator(NULL); }
-#line 5883 "tools/widl/parser.tab.c"
+#line 5895 "tools/widl/parser.tab.c"
     break;
 
   case 426: /* any_direct_declarator: ident  */
 #line 1201 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator((yyvsp[0].var)); }
-#line 5889 "tools/widl/parser.tab.c"
+#line 5901 "tools/widl/parser.tab.c"
     break;
 
   case 427: /* any_direct_declarator: '(' any_declarator_no_direct ')'  */
 #line 1202 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); }
-#line 5895 "tools/widl/parser.tab.c"
+#line 5907 "tools/widl/parser.tab.c"
     break;
 
   case 428: /* any_direct_declarator: any_direct_declarator array  */
 #line 1203 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-1].declarator); append_array((yyval.declarator), (yyvsp[0].expr)); }
-#line 5901 "tools/widl/parser.tab.c"
+#line 5913 "tools/widl/parser.tab.c"
     break;
 
   case 429: /* any_direct_declarator: array  */
 #line 1204 "tools/widl/parser.y"
                                                 { (yyval.declarator) = make_declarator(NULL); append_array((yyval.declarator), (yyvsp[0].expr)); }
-#line 5907 "tools/widl/parser.tab.c"
+#line 5919 "tools/widl/parser.tab.c"
     break;
 
   case 430: /* any_direct_declarator: '(' m_args ')'  */
@@ -5911,7 +5923,7 @@ yyreduce:
                                                 { (yyval.declarator) = make_declarator(NULL);
 						  append_chain_type((yyval.declarator), type_new_function((yyvsp[-1].var_list)), 0);
 						}
-#line 5915 "tools/widl/parser.tab.c"
+#line 5927 "tools/widl/parser.tab.c"
     break;
 
   case 431: /* any_direct_declarator: any_direct_declarator '(' m_args ')'  */
@@ -5919,31 +5931,31 @@ yyreduce:
                                                 { (yyval.declarator) = (yyvsp[-3].declarator);
 						  append_chain_type((yyval.declarator), type_new_function((yyvsp[-1].var_list)), 0);
 						}
-#line 5923 "tools/widl/parser.tab.c"
+#line 5935 "tools/widl/parser.tab.c"
     break;
 
   case 432: /* declarator_list: declarator  */
 #line 1216 "tools/widl/parser.y"
                                                 { (yyval.declarator_list) = append_declarator( NULL, (yyvsp[0].declarator) ); }
-#line 5929 "tools/widl/parser.tab.c"
+#line 5941 "tools/widl/parser.tab.c"
     break;
 
   case 433: /* declarator_list: declarator_list ',' declarator  */
 #line 1217 "tools/widl/parser.y"
                                                 { (yyval.declarator_list) = append_declarator( (yyvsp[-2].declarator_list), (yyvsp[0].declarator) ); }
-#line 5935 "tools/widl/parser.tab.c"
+#line 5947 "tools/widl/parser.tab.c"
     break;
 
   case 434: /* m_bitfield: %empty  */
 #line 1220 "tools/widl/parser.y"
                                                 { (yyval.expr) = NULL; }
-#line 5941 "tools/widl/parser.tab.c"
+#line 5953 "tools/widl/parser.tab.c"
     break;
 
   case 435: /* m_bitfield: ':' expr_const  */
 #line 1221 "tools/widl/parser.y"
                                                 { (yyval.expr) = (yyvsp[0].expr); }
-#line 5947 "tools/widl/parser.tab.c"
+#line 5959 "tools/widl/parser.tab.c"
     break;
 
   case 436: /* struct_declarator: any_declarator m_bitfield  */
@@ -5952,163 +5964,163 @@ yyreduce:
 						  if (!(yyval.declarator)->bits && !(yyval.declarator)->var->name)
 						    error_loc("unnamed fields are not allowed\n");
 						}
-#line 5956 "tools/widl/parser.tab.c"
+#line 5968 "tools/widl/parser.tab.c"
     break;
 
   case 437: /* struct_declarator_list: struct_declarator  */
 #line 1231 "tools/widl/parser.y"
                                                 { (yyval.declarator_list) = append_declarator( NULL, (yyvsp[0].declarator) ); }
-#line 5962 "tools/widl/parser.tab.c"
+#line 5974 "tools/widl/parser.tab.c"
     break;
 
   case 438: /* struct_declarator_list: struct_declarator_list ',' struct_declarator  */
 #line 1233 "tools/widl/parser.y"
                                                 { (yyval.declarator_list) = append_declarator( (yyvsp[-2].declarator_list), (yyvsp[0].declarator) ); }
-#line 5968 "tools/widl/parser.tab.c"
+#line 5980 "tools/widl/parser.tab.c"
     break;
 
   case 439: /* init_declarator: declarator  */
 #line 1237 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[0].declarator); }
-#line 5974 "tools/widl/parser.tab.c"
+#line 5986 "tools/widl/parser.tab.c"
     break;
 
   case 440: /* init_declarator: declarator '=' expr_const  */
 #line 1238 "tools/widl/parser.y"
                                                 { (yyval.declarator) = (yyvsp[-2].declarator); (yyvsp[-2].declarator)->var->eval = (yyvsp[0].expr); }
-#line 5980 "tools/widl/parser.tab.c"
+#line 5992 "tools/widl/parser.tab.c"
     break;
 
   case 441: /* threading_type: tAPARTMENT  */
 #line 1242 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_APARTMENT; }
-#line 5986 "tools/widl/parser.tab.c"
+#line 5998 "tools/widl/parser.tab.c"
     break;
 
   case 442: /* threading_type: tNEUTRAL  */
 #line 1243 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_NEUTRAL; }
-#line 5992 "tools/widl/parser.tab.c"
+#line 6004 "tools/widl/parser.tab.c"
     break;
 
   case 443: /* threading_type: tSINGLE  */
 #line 1244 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_SINGLE; }
-#line 5998 "tools/widl/parser.tab.c"
+#line 6010 "tools/widl/parser.tab.c"
     break;
 
   case 444: /* threading_type: tFREE  */
 #line 1245 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_FREE; }
-#line 6004 "tools/widl/parser.tab.c"
+#line 6016 "tools/widl/parser.tab.c"
     break;
 
   case 445: /* threading_type: tBOTH  */
 #line 1246 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_BOTH; }
-#line 6010 "tools/widl/parser.tab.c"
+#line 6022 "tools/widl/parser.tab.c"
     break;
 
   case 446: /* threading_type: tMTA  */
 #line 1247 "tools/widl/parser.y"
                                                 { (yyval.num) = THREADING_FREE; }
-#line 6016 "tools/widl/parser.tab.c"
+#line 6028 "tools/widl/parser.tab.c"
     break;
 
   case 447: /* pointer_type: tREF  */
 #line 1251 "tools/widl/parser.y"
                                                 { (yyval.num) = FC_RP; }
-#line 6022 "tools/widl/parser.tab.c"
+#line 6034 "tools/widl/parser.tab.c"
     break;
 
   case 448: /* pointer_type: tUNIQUE  */
 #line 1252 "tools/widl/parser.y"
                                                 { (yyval.num) = FC_UP; }
-#line 6028 "tools/widl/parser.tab.c"
+#line 6040 "tools/widl/parser.tab.c"
     break;
 
   case 449: /* pointer_type: tPTR  */
 #line 1253 "tools/widl/parser.y"
                                                 { (yyval.num) = FC_FP; }
-#line 6034 "tools/widl/parser.tab.c"
+#line 6046 "tools/widl/parser.tab.c"
     break;
 
   case 450: /* structdef: tSTRUCT m_typename '{' fields '}'  */
 #line 1256 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_struct((yyvsp[-3].str), current_namespace, TRUE, (yyvsp[-1].var_list)); }
-#line 6040 "tools/widl/parser.tab.c"
+#line 6052 "tools/widl/parser.tab.c"
     break;
 
   case 451: /* unqualified_type: tVOID  */
 #line 1260 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_void(); }
-#line 6046 "tools/widl/parser.tab.c"
+#line 6058 "tools/widl/parser.tab.c"
     break;
 
   case 452: /* unqualified_type: base_type  */
 #line 1261 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 6052 "tools/widl/parser.tab.c"
+#line 6064 "tools/widl/parser.tab.c"
     break;
 
   case 453: /* unqualified_type: enumdef  */
 #line 1262 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 6058 "tools/widl/parser.tab.c"
+#line 6070 "tools/widl/parser.tab.c"
     break;
 
   case 454: /* unqualified_type: tENUM aIDENTIFIER  */
 #line 1263 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_enum((yyvsp[0].str), current_namespace, FALSE, NULL); }
-#line 6064 "tools/widl/parser.tab.c"
+#line 6076 "tools/widl/parser.tab.c"
     break;
 
   case 455: /* unqualified_type: structdef  */
 #line 1264 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 6070 "tools/widl/parser.tab.c"
+#line 6082 "tools/widl/parser.tab.c"
     break;
 
   case 456: /* unqualified_type: tSTRUCT aIDENTIFIER  */
 #line 1265 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_struct((yyvsp[0].str), current_namespace, FALSE, NULL); }
-#line 6076 "tools/widl/parser.tab.c"
+#line 6088 "tools/widl/parser.tab.c"
     break;
 
   case 457: /* unqualified_type: uniondef  */
 #line 1266 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 6082 "tools/widl/parser.tab.c"
+#line 6094 "tools/widl/parser.tab.c"
     break;
 
   case 458: /* unqualified_type: tUNION aIDENTIFIER  */
 #line 1267 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_nonencapsulated_union((yyvsp[0].str), FALSE, NULL); }
-#line 6088 "tools/widl/parser.tab.c"
+#line 6100 "tools/widl/parser.tab.c"
     break;
 
   case 459: /* unqualified_type: tSAFEARRAY '(' type ')'  */
 #line 1268 "tools/widl/parser.y"
                                                 { (yyval.type) = make_safearray((yyvsp[-1].type)); }
-#line 6094 "tools/widl/parser.tab.c"
+#line 6106 "tools/widl/parser.tab.c"
     break;
 
   case 460: /* unqualified_type: aKNOWNTYPE  */
 #line 1269 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error(current_namespace, (yyvsp[0].str)); }
-#line 6100 "tools/widl/parser.tab.c"
+#line 6112 "tools/widl/parser.tab.c"
     break;
 
   case 462: /* type: namespace_pfx typename  */
 #line 1274 "tools/widl/parser.y"
                                                 { (yyval.type) = find_type_or_error((yyvsp[-1].namespace), (yyvsp[0].str)); }
-#line 6106 "tools/widl/parser.tab.c"
+#line 6118 "tools/widl/parser.tab.c"
     break;
 
   case 463: /* type: parameterized_type  */
 #line 1275 "tools/widl/parser.y"
                                                 { (yyval.type) = (yyvsp[0].type); }
-#line 6112 "tools/widl/parser.tab.c"
+#line 6124 "tools/widl/parser.tab.c"
     break;
 
   case 464: /* typedef: m_attributes tTYPEDEF m_attributes decl_spec declarator_list  */
@@ -6117,37 +6129,37 @@ yyreduce:
 						  reg_typedefs((yyvsp[-1].declspec), (yyvsp[0].declarator_list), check_typedef_attrs((yyvsp[-4].attr_list)));
 						  (yyval.statement) = make_statement_typedef((yyvsp[0].declarator_list), !(yyvsp[-1].declspec)->type->defined);
 						}
-#line 6121 "tools/widl/parser.tab.c"
+#line 6133 "tools/widl/parser.tab.c"
     break;
 
   case 465: /* uniondef: tUNION m_typename '{' ne_union_fields '}'  */
 #line 1286 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_nonencapsulated_union((yyvsp[-3].str), TRUE, (yyvsp[-1].var_list)); }
-#line 6127 "tools/widl/parser.tab.c"
+#line 6139 "tools/widl/parser.tab.c"
     break;
 
   case 466: /* uniondef: tUNION m_typename tSWITCH '(' s_field ')' m_ident '{' cases '}'  */
 #line 1289 "tools/widl/parser.y"
                                                 { (yyval.type) = type_new_encapsulated_union((yyvsp[-8].str), (yyvsp[-5].var), (yyvsp[-3].var), (yyvsp[-1].var_list)); }
-#line 6133 "tools/widl/parser.tab.c"
+#line 6145 "tools/widl/parser.tab.c"
     break;
 
   case 467: /* version: aNUM  */
 #line 1293 "tools/widl/parser.y"
                                                 { (yyval.num) = MAKEVERSION((yyvsp[0].num), 0); }
-#line 6139 "tools/widl/parser.tab.c"
+#line 6151 "tools/widl/parser.tab.c"
     break;
 
   case 468: /* version: aNUM '.' aNUM  */
 #line 1294 "tools/widl/parser.y"
                                                 { (yyval.num) = MAKEVERSION((yyvsp[-2].num), (yyvsp[0].num)); }
-#line 6145 "tools/widl/parser.tab.c"
+#line 6157 "tools/widl/parser.tab.c"
     break;
 
   case 469: /* version: aHEXNUM  */
 #line 1295 "tools/widl/parser.y"
                                                 { (yyval.num) = (yyvsp[0].num); }
-#line 6151 "tools/widl/parser.tab.c"
+#line 6163 "tools/widl/parser.tab.c"
     break;
 
   case 474: /* acf_int_statement: tTYPEDEF acf_attributes aKNOWNTYPE ';'  */
@@ -6155,7 +6167,7 @@ yyreduce:
                                                 { type_t *type = find_type_or_error(current_namespace, (yyvsp[-1].str));
                                                   type->attrs = append_attr_list(type->attrs, (yyvsp[-2].attr_list));
                                                 }
-#line 6159 "tools/widl/parser.tab.c"
+#line 6171 "tools/widl/parser.tab.c"
     break;
 
   case 475: /* acf_interface: acf_attributes tINTERFACE aKNOWNTYPE '{' acf_int_statements '}'  */
@@ -6165,95 +6177,95 @@ yyreduce:
                                                        error_loc("%s is not an interface\n", iface->name);
                                                    iface->attrs = append_attr_list(iface->attrs, (yyvsp[-5].attr_list));
                                                 }
-#line 6169 "tools/widl/parser.tab.c"
+#line 6181 "tools/widl/parser.tab.c"
     break;
 
   case 476: /* acf_attributes: %empty  */
 #line 1325 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = NULL; }
-#line 6175 "tools/widl/parser.tab.c"
+#line 6187 "tools/widl/parser.tab.c"
     break;
 
   case 477: /* acf_attributes: '[' acf_attribute_list ']'  */
 #line 1326 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = (yyvsp[-1].attr_list); }
-#line 6181 "tools/widl/parser.tab.c"
+#line 6193 "tools/widl/parser.tab.c"
     break;
 
   case 478: /* acf_attribute_list: acf_attribute  */
 #line 1330 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr(NULL, (yyvsp[0].attr)); }
-#line 6187 "tools/widl/parser.tab.c"
+#line 6199 "tools/widl/parser.tab.c"
     break;
 
   case 479: /* acf_attribute_list: acf_attribute_list ',' acf_attribute  */
 #line 1331 "tools/widl/parser.y"
                                                 { (yyval.attr_list) = append_attr((yyvsp[-2].attr_list), (yyvsp[0].attr)); }
-#line 6193 "tools/widl/parser.tab.c"
+#line 6205 "tools/widl/parser.tab.c"
     break;
 
   case 480: /* acf_attribute: tALLOCATE '(' allocate_option_list ')'  */
 #line 1336 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attrv(ATTR_ALLOCATE, (yyvsp[-1].num)); }
-#line 6199 "tools/widl/parser.tab.c"
+#line 6211 "tools/widl/parser.tab.c"
     break;
 
   case 481: /* acf_attribute: tENCODE  */
 #line 1337 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_ENCODE); }
-#line 6205 "tools/widl/parser.tab.c"
+#line 6217 "tools/widl/parser.tab.c"
     break;
 
   case 482: /* acf_attribute: tDECODE  */
 #line 1338 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_DECODE); }
-#line 6211 "tools/widl/parser.tab.c"
+#line 6223 "tools/widl/parser.tab.c"
     break;
 
   case 483: /* acf_attribute: tEXPLICITHANDLE  */
 #line 1339 "tools/widl/parser.y"
                                                 { (yyval.attr) = make_attr(ATTR_EXPLICIT_HANDLE); }
-#line 6217 "tools/widl/parser.tab.c"
+#line 6229 "tools/widl/parser.tab.c"
     break;
 
   case 484: /* allocate_option_list: allocate_option  */
 #line 1343 "tools/widl/parser.y"
                                                 { (yyval.num) = (yyvsp[0].num); }
-#line 6223 "tools/widl/parser.tab.c"
+#line 6235 "tools/widl/parser.tab.c"
     break;
 
   case 485: /* allocate_option_list: allocate_option_list ',' allocate_option  */
 #line 1345 "tools/widl/parser.y"
                                                 { (yyval.num) = (yyvsp[-2].num) | (yyvsp[0].num); }
-#line 6229 "tools/widl/parser.tab.c"
+#line 6241 "tools/widl/parser.tab.c"
     break;
 
   case 486: /* allocate_option: tDONTFREE  */
 #line 1349 "tools/widl/parser.y"
                                                 { (yyval.num) = FC_DONT_FREE; }
-#line 6235 "tools/widl/parser.tab.c"
+#line 6247 "tools/widl/parser.tab.c"
     break;
 
   case 487: /* allocate_option: tFREE  */
 #line 1350 "tools/widl/parser.y"
                                                 { (yyval.num) = 0; }
-#line 6241 "tools/widl/parser.tab.c"
+#line 6253 "tools/widl/parser.tab.c"
     break;
 
   case 488: /* allocate_option: tALLNODES  */
 #line 1351 "tools/widl/parser.y"
                                                 { (yyval.num) = FC_ALLOCATE_ALL_NODES; }
-#line 6247 "tools/widl/parser.tab.c"
+#line 6259 "tools/widl/parser.tab.c"
     break;
 
   case 489: /* allocate_option: tSINGLENODE  */
 #line 1352 "tools/widl/parser.y"
                                                 { (yyval.num) = 0; }
-#line 6253 "tools/widl/parser.tab.c"
+#line 6265 "tools/widl/parser.tab.c"
     break;
 
 
-#line 6257 "tools/widl/parser.tab.c"
+#line 6269 "tools/widl/parser.tab.c"
 
       default: break;
     }
