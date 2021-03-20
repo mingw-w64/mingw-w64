@@ -130,6 +130,7 @@ done
 for f in \
 	amstream \
 	amvideo \
+	asyncinfo \
 	austream \
 	ctfutb \
 	d3d10 \
@@ -169,6 +170,7 @@ for f in \
 	dxgitype \
 	dxva2api \
 	endpointvolume \
+	eventtoken \
 	exdisp \
 	fusion \
 	icftypes \
@@ -196,6 +198,7 @@ for f in \
 	wincodec \
 	wincodecsdk \
 	windowscontracts \
+	windows.foundation \
 	windows.foundation.collections \
 	windows.media.speechsynthesis \
 	wmdrmsdk \

@@ -75,6 +75,7 @@ IDL_SRCS = \
   include/alg.idl \
   include/amstream.idl \
   include/amvideo.idl \
+  include/asyncinfo.idl \
   include/audioclient.idl \
   include/audioendpoints.idl \
   include/audiopolicy.idl \
@@ -131,6 +132,7 @@ IDL_SRCS = \
   include/dxva2api.idl \
   include/dxvahd.idl \
   include/endpointvolume.idl \
+  include/eventtoken.idl \
   include/evr.idl \
   include/exdisp.idl \
   include/filter.idl \

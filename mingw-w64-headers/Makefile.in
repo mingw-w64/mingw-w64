@@ -377,6 +377,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/alg.idl \
 @HAVE_WIDL_TRUE@  include/amstream.idl \
 @HAVE_WIDL_TRUE@  include/amvideo.idl \
+@HAVE_WIDL_TRUE@  include/asyncinfo.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audioendpoints.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
@@ -433,6 +434,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
 @HAVE_WIDL_TRUE@  include/dxvahd.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
+@HAVE_WIDL_TRUE@  include/eventtoken.idl \
 @HAVE_WIDL_TRUE@  include/evr.idl \
 @HAVE_WIDL_TRUE@  include/exdisp.idl \
 @HAVE_WIDL_TRUE@  include/filter.idl \

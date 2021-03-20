@@ -1,7 +1,19 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+/*
+ * Copyright 2015 Jacek Caban for CodeWeavers
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
 #ifdef __WIDL__
@@ -9,82 +21,112 @@
 #endif
 
 import "inspectable.idl";
+import "asyncinfo.idl";
 import "windowscontracts.idl";
+/* import "eventtoken.idl"; */
+/* import "ivectorchangedeventargs.idl"; */
 import "windows.foundation.collections.idl";
 
 namespace Windows {
-  namespace Foundation {
-    interface IAsyncInfo;
-    interface IAsyncAction;
-    interface IAsyncOperation;
-    interface AsyncActionCompletedHandler; // delegate
-    interface TypedEventHandler;           // delegate
-    struct    DateTime;
-    struct    EventRegistrationToken;
+    namespace Foundation {
+        typedef enum PropertyType PropertyType;
+        typedef struct Point Point;
+        typedef struct Size Size;
+        typedef struct Rect Rect;
+        typedef struct DateTime DateTime;
+        typedef struct TimeSpan TimeSpan;
 
-    namespace Collections {
-      interface IPropertySet;
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        enum PropertyType {
+            Empty       = 0,
+            UInt8       = 1,
+            Int16       = 2,
+            UInt16      = 3,
+            Int32       = 4,
+            UInt32      = 5,
+            Int64       = 6,
+            UInt64      = 7,
+            Single      = 8,
+            Double      = 9,
+            Char16      = 10,
+            Boolean     = 11,
+            String      = 12,
+            Inspectable = 13,
+            DateTime    = 14,
+            TimeSpan    = 15,
+            Guid        = 16,
+            Point       = 17,
+            Size        = 18,
+            Rect        = 19,
+            OtherType   = 20,
+            UInt8Array       = 1025,
+            Int16Array       = 1026,
+            UInt16Array      = 1027,
+            Int32Array       = 1028,
+            UInt32Array      = 1029,
+            Int64Array       = 1030,
+            UInt64Array      = 1031,
+            SingleArray      = 1032,
+            DoubleArray      = 1033,
+            Char16Array      = 1034,
+            BooleanArray     = 1035,
+            StringArray      = 1036,
+            InspectableArray = 1037,
+            DateTimeArray    = 1038,
+            TimeSpanArray    = 1039,
+            GuidArray        = 1040,
+            PointArray       = 1041,
+            SizeArray        = 1042,
+            RectArray        = 1043,
+            OtherTypeArray   = 1044
+        };
+
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        struct Point {
+            FLOAT X;
+            FLOAT Y;
+        };
+
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        struct Size {
+            FLOAT Width;
+            FLOAT Height;
+        };
+
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        struct Rect {
+            FLOAT X;
+            FLOAT Y;
+            FLOAT Width;
+            FLOAT Height;
+        };
+
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        struct DateTime {
+            INT64 UniversalTime;
+        };
+
+        [contract(Windows.Foundation.FoundationContract, 1.0)]
+        struct TimeSpan {
+            INT64 Duration;
+        };
+
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(96369f54-8eb6-48f0-abce-c1b211e627c3)
+        ]
+        interface IStringable : IInspectable
+        {
+            HRESULT ToString([out, retval] HSTRING *value);
+        }
     }
-  }
 }
 
 namespace Windows {
-  namespace Foundation {
-    typedef enum AsyncStatus {
-      Started,
-      Completed,
-      Canceled,
-      Error
-    } AsyncStatus;
-
-    typedef struct DateTime {
-      UINT64 UniversalTime;
-    } DateTime;
-
-    typedef struct EventRegistrationToken {
-      UINT64 Value;
-    } EventRegistrationToken;
-
-    [uuid(00000036-0000-0000-C000-000000000046)]
-    interface IAsyncInfo : IInspectable
-    {
-      [propget] HRESULT Id(unsigned int *id);
-      [propget] HRESULT Status(AsyncStatus *status);
-      [propget] HRESULT ErrorCode(HRESULT *errorCode);
-      HRESULT Cancel();
-      HRESULT Close();
+    namespace Foundation {
+        declare {
+            interface Windows.Foundation.AsyncOperationCompletedHandler<boolean>;
+            interface Windows.Foundation.IAsyncOperation<boolean>;
+        }
     }
-
-    [uuid(5A648006-843A-4DA9-865B-9D26E5DFAD7B)]
-    interface IASyncAction : IAsyncInfo {
-      [propput] HRESULT Completed(AsyncActionCompletedHandler* handler);
-      [propget] HRESULT Completed(AsyncActionCompletedHandler** handler);
-      HRESULT GetResults();
-    }
-
-    [uuid(A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7)]
-    interface AsyncActionCompletedHandler : IUnknown {
-      //FIXME: should support cyclic dependency
-      HRESULT Invoke(IAsyncAction *asyncAction, AsyncStatus status);
-    }
-
-    //FIXME: WHERE IS IT?
-    //generic <typename TResult>
-    [uuid("9fc2b0bb-e446-44e2-aa61-9cab8f636af2")]
-    interface IAsyncOperation : IAsyncInfo {
-      [propput] HRESULT Completed(AsyncActionCompletedHandler* handler);
-      [propget] HRESULT Completed(AsyncActionCompletedHandler** handler);
-      //FIXME: implement generics
-      /*TResult*/ IInspectable* GetResults();
-    }
-
-
-    namespace Collections {
-      //interface IVectorView;
-      /*[uuid(8A43ED9F-F4E6-4421-ACF9-1DAB2986820C)]
-      interface IPropertySet : IInspectable {
-        //
-      }*/
-    }
-  }
 }

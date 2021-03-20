@@ -144,23 +144,6 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifdef __cplusplus
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            struct TimeSpan;
-        }
-    }
-}
-extern "C" {
-#else
-struct __x_ABI_CWindows_CFoundation_CTimeSpan;
-#ifdef WIDL_using_Windows_Foundation
-#define TimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan
-#endif /* WIDL_using_Windows_Foundation */
-#endif
-
 #ifndef ____x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler;

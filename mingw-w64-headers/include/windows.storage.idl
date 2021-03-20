@@ -9,13 +9,12 @@
 #endif
 
 import "inspectable.idl";
-import "hstring.idl";
+import "eventtoken.idl";
 import "windows.foundation.idl";
 
 namespace Windows {
   namespace Foundation {
     interface IAsyncAction;
-    interface TypedEventHandler;
     //struct EventRegistrationToken;
 
     namespace Collections {

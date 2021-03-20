@@ -18,69 +18,41 @@
 
 /* Forward declarations */
 
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIAsyncInfo __x_ABI_CWindows_CFoundation_CIAsyncInfo;
+#ifndef ____x_ABI_CWindows_CFoundation_CIStringable_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIStringable_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIStringable __x_ABI_CWindows_CFoundation_CIStringable;
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo ABI::Windows::Foundation::IAsyncInfo
+#define __x_ABI_CWindows_CFoundation_CIStringable ABI::Windows::Foundation::IStringable
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            interface IAsyncInfo;
+            interface IStringable;
         }
     }
 }
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____x_ABI_CWindows_CFoundation_CIASyncAction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIASyncAction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIASyncAction __x_ABI_CWindows_CFoundation_CIASyncAction;
+#ifndef ____FIAsyncOperationCompletedHandler_1_boolean_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_boolean_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_boolean __FIAsyncOperationCompletedHandler_1_boolean;
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIASyncAction ABI::Windows::Foundation::IASyncAction
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IASyncAction;
-        }
-    }
-}
+#define __FIAsyncOperationCompletedHandler_1_boolean ABI::Windows::Foundation::IAsyncOperationCompletedHandler<boolean >
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler;
+#ifndef ____FIAsyncOperation_1_boolean_FWD_DEFINED__
+#define ____FIAsyncOperation_1_boolean_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_boolean __FIAsyncOperation_1_boolean;
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler ABI::Windows::Foundation::AsyncActionCompletedHandler
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface AsyncActionCompletedHandler;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncOperation_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncOperation_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIAsyncOperation __x_ABI_CWindows_CFoundation_CIAsyncOperation;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation ABI::Windows::Foundation::IAsyncOperation
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IAsyncOperation;
-        }
-    }
-}
+#define __FIAsyncOperation_1_boolean ABI::Windows::Foundation::IAsyncOperation<boolean >
 #endif /* __cplusplus */
 #endif
 
 /* Headers for imported files */
 
 #include <inspectable.h>
+#include <asyncinfo.h>
 #include <windowscontracts.h>
 #include <windows.foundation.collections.h>
 
@@ -88,785 +60,606 @@ namespace ABI {
 extern "C" {
 #endif
 
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncInfo_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIAsyncInfo __x_ABI_CWindows_CFoundation_CIAsyncInfo;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo ABI::Windows::Foundation::IAsyncInfo
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IAsyncInfo;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIAsyncAction __x_ABI_CWindows_CFoundation_CIAsyncAction;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIAsyncAction ABI::Windows::Foundation::IAsyncAction
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IAsyncAction;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncOperation_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncOperation_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIAsyncOperation __x_ABI_CWindows_CFoundation_CIAsyncOperation;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation ABI::Windows::Foundation::IAsyncOperation
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IAsyncOperation;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler ABI::Windows::Foundation::AsyncActionCompletedHandler
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface AsyncActionCompletedHandler;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CTypedEventHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CTypedEventHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CTypedEventHandler __x_ABI_CWindows_CFoundation_CTypedEventHandler;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CTypedEventHandler ABI::Windows::Foundation::TypedEventHandler
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface TypedEventHandler;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            struct DateTime;
+            enum PropertyType {
+                PropertyType_Empty = 0,
+                PropertyType_UInt8 = 1,
+                PropertyType_Int16 = 2,
+                PropertyType_UInt16 = 3,
+                PropertyType_Int32 = 4,
+                PropertyType_UInt32 = 5,
+                PropertyType_Int64 = 6,
+                PropertyType_UInt64 = 7,
+                PropertyType_Single = 8,
+                PropertyType_Double = 9,
+                PropertyType_Char16 = 10,
+                PropertyType_Boolean = 11,
+                PropertyType_String = 12,
+                PropertyType_Inspectable = 13,
+                PropertyType_DateTime = 14,
+                PropertyType_TimeSpan = 15,
+                PropertyType_Guid = 16,
+                PropertyType_Point = 17,
+                PropertyType_Size = 18,
+                PropertyType_Rect = 19,
+                PropertyType_OtherType = 20,
+                PropertyType_UInt8Array = 1025,
+                PropertyType_Int16Array = 1026,
+                PropertyType_UInt16Array = 1027,
+                PropertyType_Int32Array = 1028,
+                PropertyType_UInt32Array = 1029,
+                PropertyType_Int64Array = 1030,
+                PropertyType_UInt64Array = 1031,
+                PropertyType_SingleArray = 1032,
+                PropertyType_DoubleArray = 1033,
+                PropertyType_Char16Array = 1034,
+                PropertyType_BooleanArray = 1035,
+                PropertyType_StringArray = 1036,
+                PropertyType_InspectableArray = 1037,
+                PropertyType_DateTimeArray = 1038,
+                PropertyType_TimeSpanArray = 1039,
+                PropertyType_GuidArray = 1040,
+                PropertyType_PointArray = 1041,
+                PropertyType_SizeArray = 1042,
+                PropertyType_RectArray = 1043,
+                PropertyType_OtherTypeArray = 1044
+            };
         }
     }
 }
 extern "C" {
 #else
-struct __x_ABI_CWindows_CFoundation_CDateTime;
+enum __x_ABI_CWindows_CFoundation_CPropertyType {
+    PropertyType_Empty = 0,
+    PropertyType_UInt8 = 1,
+    PropertyType_Int16 = 2,
+    PropertyType_UInt16 = 3,
+    PropertyType_Int32 = 4,
+    PropertyType_UInt32 = 5,
+    PropertyType_Int64 = 6,
+    PropertyType_UInt64 = 7,
+    PropertyType_Single = 8,
+    PropertyType_Double = 9,
+    PropertyType_Char16 = 10,
+    PropertyType_Boolean = 11,
+    PropertyType_String = 12,
+    PropertyType_Inspectable = 13,
+    PropertyType_DateTime = 14,
+    PropertyType_TimeSpan = 15,
+    PropertyType_Guid = 16,
+    PropertyType_Point = 17,
+    PropertyType_Size = 18,
+    PropertyType_Rect = 19,
+    PropertyType_OtherType = 20,
+    PropertyType_UInt8Array = 1025,
+    PropertyType_Int16Array = 1026,
+    PropertyType_UInt16Array = 1027,
+    PropertyType_Int32Array = 1028,
+    PropertyType_UInt32Array = 1029,
+    PropertyType_Int64Array = 1030,
+    PropertyType_UInt64Array = 1031,
+    PropertyType_SingleArray = 1032,
+    PropertyType_DoubleArray = 1033,
+    PropertyType_Char16Array = 1034,
+    PropertyType_BooleanArray = 1035,
+    PropertyType_StringArray = 1036,
+    PropertyType_InspectableArray = 1037,
+    PropertyType_DateTimeArray = 1038,
+    PropertyType_TimeSpanArray = 1039,
+    PropertyType_GuidArray = 1040,
+    PropertyType_PointArray = 1041,
+    PropertyType_SizeArray = 1042,
+    PropertyType_RectArray = 1043,
+    PropertyType_OtherTypeArray = 1044
+};
+#ifdef WIDL_using_Windows_Foundation
+#define PropertyType __x_ABI_CWindows_CFoundation_CPropertyType
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            struct Point {
+                FLOAT X;
+                FLOAT Y;
+            };
+        }
+    }
+}
+extern "C" {
+#else
+struct __x_ABI_CWindows_CFoundation_CPoint {
+    FLOAT X;
+    FLOAT Y;
+};
+#ifdef WIDL_using_Windows_Foundation
+#define Point __x_ABI_CWindows_CFoundation_CPoint
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            struct Size {
+                FLOAT Width;
+                FLOAT Height;
+            };
+        }
+    }
+}
+extern "C" {
+#else
+struct __x_ABI_CWindows_CFoundation_CSize {
+    FLOAT Width;
+    FLOAT Height;
+};
+#ifdef WIDL_using_Windows_Foundation
+#define Size __x_ABI_CWindows_CFoundation_CSize
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            struct Rect {
+                FLOAT X;
+                FLOAT Y;
+                FLOAT Width;
+                FLOAT Height;
+            };
+        }
+    }
+}
+extern "C" {
+#else
+struct __x_ABI_CWindows_CFoundation_CRect {
+    FLOAT X;
+    FLOAT Y;
+    FLOAT Width;
+    FLOAT Height;
+};
+#ifdef WIDL_using_Windows_Foundation
+#define Rect __x_ABI_CWindows_CFoundation_CRect
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            struct DateTime {
+                INT64 UniversalTime;
+            };
+        }
+    }
+}
+extern "C" {
+#else
+struct __x_ABI_CWindows_CFoundation_CDateTime {
+    INT64 UniversalTime;
+};
 #ifdef WIDL_using_Windows_Foundation
 #define DateTime __x_ABI_CWindows_CFoundation_CDateTime
 #endif /* WIDL_using_Windows_Foundation */
 #endif
 
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            struct EventRegistrationToken;
+            struct TimeSpan {
+                INT64 Duration;
+            };
         }
     }
 }
 extern "C" {
 #else
-struct __x_ABI_CWindows_CFoundation_CEventRegistrationToken;
+struct __x_ABI_CWindows_CFoundation_CTimeSpan {
+    INT64 Duration;
+};
 #ifdef WIDL_using_Windows_Foundation
-#define EventRegistrationToken __x_ABI_CWindows_CFoundation_CEventRegistrationToken
+#define TimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan
 #endif /* WIDL_using_Windows_Foundation */
 #endif
 
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet ABI::Windows::Foundation::Collections::IPropertySet
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+/*****************************************************************************
+ * IStringable interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIStringable_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIStringable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIStringable, 0x96369f54, 0x8eb6, 0x48f0, 0xab,0xce, 0xc1,0xb2,0x11,0xe6,0x27,0xc3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            namespace Collections {
-                interface IPropertySet;
-            }
+            MIDL_INTERFACE("96369f54-8eb6-48f0-abce-c1b211e627c3")
+            IStringable : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE ToString(
+                    HSTRING *value) = 0;
+
+            };
         }
     }
 }
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIStringable, 0x96369f54, 0x8eb6, 0x48f0, 0xab,0xce, 0xc1,0xb2,0x11,0xe6,0x27,0xc3)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIStringableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This,
+        TrustLevel *trustLevel);
+
+    /*** IStringable methods ***/
+    HRESULT (STDMETHODCALLTYPE *ToString)(
+        __x_ABI_CWindows_CFoundation_CIStringable *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIStringableVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIStringable {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIStringableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIStringable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIStringable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIStringable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIStringable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIStringable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIStringable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IStringable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIStringable_ToString(This,value) (This)->lpVtbl->ToString(This,value)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIStringable_QueryInterface(__x_ABI_CWindows_CFoundation_CIStringable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIStringable_AddRef(__x_ABI_CWindows_CFoundation_CIStringable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIStringable_Release(__x_ABI_CWindows_CFoundation_CIStringable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIStringable_GetIids(__x_ABI_CWindows_CFoundation_CIStringable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIStringable_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIStringable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIStringable_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIStringable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IStringable methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIStringable_ToString(__x_ABI_CWindows_CFoundation_CIStringable* This,HSTRING *value) {
+    return This->lpVtbl->ToString(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IStringable IID___x_ABI_CWindows_CFoundation_CIStringable
+#define IStringableVtbl __x_ABI_CWindows_CFoundation_CIStringableVtbl
+#define IStringable __x_ABI_CWindows_CFoundation_CIStringable
+#define IStringable_QueryInterface __x_ABI_CWindows_CFoundation_CIStringable_QueryInterface
+#define IStringable_AddRef __x_ABI_CWindows_CFoundation_CIStringable_AddRef
+#define IStringable_Release __x_ABI_CWindows_CFoundation_CIStringable_Release
+#define IStringable_GetIids __x_ABI_CWindows_CFoundation_CIStringable_GetIids
+#define IStringable_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIStringable_GetRuntimeClassName
+#define IStringable_GetTrustLevel __x_ABI_CWindows_CFoundation_CIStringable_GetTrustLevel
+#define IStringable_ToString __x_ABI_CWindows_CFoundation_CIStringable_ToString
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIStringable_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+#ifndef ____FIAsyncOperation_1_boolean_FWD_DEFINED__
+#define ____FIAsyncOperation_1_boolean_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_boolean __FIAsyncOperation_1_boolean;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_boolean ABI::Windows::Foundation::IAsyncOperation<boolean >
 #endif /* __cplusplus */
 #endif
 
 /*****************************************************************************
- * IAsyncInfo interface
+ * IAsyncOperationCompletedHandler<boolean > interface
  */
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncInfo_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncInfo_INTERFACE_DEFINED__
+#ifndef ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIAsyncInfo, 0x00000036, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_boolean, 0xc1d3d1a2, 0xae17, 0x5a5f, 0xb5,0xa2, 0xbd,0xcc,0x88,0x44,0x88,0x9a);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            MIDL_INTERFACE("00000036-0000-0000-c000-000000000046")
-            IAsyncInfo : public IInspectable
+            template<>
+            MIDL_INTERFACE("c1d3d1a2-ae17-5a5f-b5a2-bdcc8844889a")
+            IAsyncOperationCompletedHandler<boolean > : IAsyncOperationCompletedHandler_impl<boolean >
             {
-                virtual HRESULT STDMETHODCALLTYPE get_Id(
-                    unsigned int *id) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE get_Status(
-                    enum AsyncStatus *status) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE get_ErrorCode(
-                    HRESULT *errorCode) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE Cancel(
-                    ) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE Close(
-                    ) = 0;
-
             };
         }
     }
 }
 extern "C" {
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIAsyncInfo, 0x00000036, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_boolean, 0xc1d3d1a2, 0xae17, 0x5a5f, 0xb5,0xa2, 0xbd,0xcc,0x88,0x44,0x88,0x9a)
 #endif
 #else
-typedef struct __x_ABI_CWindows_CFoundation_CIAsyncInfoVtbl {
+typedef struct __FIAsyncOperationCompletedHandler_1_booleanVtbl {
     BEGIN_INTERFACE
 
     /*** IUnknown methods ***/
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
+        __FIAsyncOperationCompletedHandler_1_boolean *This,
         REFIID riid,
         void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This);
+        __FIAsyncOperationCompletedHandler_1_boolean *This);
 
     ULONG (STDMETHODCALLTYPE *Release)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This);
+        __FIAsyncOperationCompletedHandler_1_boolean *This);
 
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        TrustLevel *trustLevel);
-
-    /*** IAsyncInfo methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_Id)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        unsigned int *id);
-
-    HRESULT (STDMETHODCALLTYPE *get_Status)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status);
-
-    HRESULT (STDMETHODCALLTYPE *get_ErrorCode)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This,
-        HRESULT *errorCode);
-
-    HRESULT (STDMETHODCALLTYPE *Cancel)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This);
-
-    HRESULT (STDMETHODCALLTYPE *Close)(
-        __x_ABI_CWindows_CFoundation_CIAsyncInfo *This);
+    /*** IAsyncOperationCompletedHandler<boolean > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_boolean *This,
+        __FIAsyncOperation_1_boolean *info,
+        AsyncStatus status);
 
     END_INTERFACE
-} __x_ABI_CWindows_CFoundation_CIAsyncInfoVtbl;
+} __FIAsyncOperationCompletedHandler_1_booleanVtbl;
 
-interface __x_ABI_CWindows_CFoundation_CIAsyncInfo {
-    CONST_VTBL __x_ABI_CWindows_CFoundation_CIAsyncInfoVtbl* lpVtbl;
+interface __FIAsyncOperationCompletedHandler_1_boolean {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_booleanVtbl* lpVtbl;
 };
 
 #ifdef COBJMACROS
 #ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IAsyncInfo methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Status(This,status) (This)->lpVtbl->get_Status(This,status)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_ErrorCode(This,errorCode) (This)->lpVtbl->get_ErrorCode(This,errorCode)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_Cancel(This) (This)->lpVtbl->Cancel(This)
-#define __x_ABI_CWindows_CFoundation_CIAsyncInfo_Close(This) (This)->lpVtbl->Close(This)
+#define __FIAsyncOperationCompletedHandler_1_boolean_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_boolean_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_boolean_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<boolean > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_boolean_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
 #else
 /*** IUnknown methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_QueryInterface(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,REFIID riid,void **ppvObject) {
+static FORCEINLINE HRESULT __FIAsyncOperationCompletedHandler_1_boolean_QueryInterface(__FIAsyncOperationCompletedHandler_1_boolean* This,REFIID riid,void **ppvObject) {
     return This->lpVtbl->QueryInterface(This,riid,ppvObject);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIAsyncInfo_AddRef(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This) {
+static FORCEINLINE ULONG __FIAsyncOperationCompletedHandler_1_boolean_AddRef(__FIAsyncOperationCompletedHandler_1_boolean* This) {
     return This->lpVtbl->AddRef(This);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIAsyncInfo_Release(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This) {
+static FORCEINLINE ULONG __FIAsyncOperationCompletedHandler_1_boolean_Release(__FIAsyncOperationCompletedHandler_1_boolean* This) {
     return This->lpVtbl->Release(This);
 }
-/*** IInspectable methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetIids(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
-}
-/*** IAsyncInfo methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Id(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,unsigned int *id) {
-    return This->lpVtbl->get_Id(This,id);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Status(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status) {
-    return This->lpVtbl->get_Status(This,status);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_ErrorCode(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This,HRESULT *errorCode) {
-    return This->lpVtbl->get_ErrorCode(This,errorCode);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_Cancel(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This) {
-    return This->lpVtbl->Cancel(This);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncInfo_Close(__x_ABI_CWindows_CFoundation_CIAsyncInfo* This) {
-    return This->lpVtbl->Close(This);
+/*** IAsyncOperationCompletedHandler<boolean > methods ***/
+static FORCEINLINE HRESULT __FIAsyncOperationCompletedHandler_1_boolean_Invoke(__FIAsyncOperationCompletedHandler_1_boolean* This,__FIAsyncOperation_1_boolean *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
 }
 #endif
 #ifdef WIDL_using_Windows_Foundation
-#define IID_IAsyncInfo IID___x_ABI_CWindows_CFoundation_CIAsyncInfo
-#define IAsyncInfoVtbl __x_ABI_CWindows_CFoundation_CIAsyncInfoVtbl
-#define IAsyncInfo __x_ABI_CWindows_CFoundation_CIAsyncInfo
-#define IAsyncInfo_QueryInterface __x_ABI_CWindows_CFoundation_CIAsyncInfo_QueryInterface
-#define IAsyncInfo_AddRef __x_ABI_CWindows_CFoundation_CIAsyncInfo_AddRef
-#define IAsyncInfo_Release __x_ABI_CWindows_CFoundation_CIAsyncInfo_Release
-#define IAsyncInfo_GetIids __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetIids
-#define IAsyncInfo_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetRuntimeClassName
-#define IAsyncInfo_GetTrustLevel __x_ABI_CWindows_CFoundation_CIAsyncInfo_GetTrustLevel
-#define IAsyncInfo_get_Id __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Id
-#define IAsyncInfo_get_Status __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_Status
-#define IAsyncInfo_get_ErrorCode __x_ABI_CWindows_CFoundation_CIAsyncInfo_get_ErrorCode
-#define IAsyncInfo_Cancel __x_ABI_CWindows_CFoundation_CIAsyncInfo_Cancel
-#define IAsyncInfo_Close __x_ABI_CWindows_CFoundation_CIAsyncInfo_Close
+#define IID_IAsyncOperationCompletedHandler_boolean IID___FIAsyncOperationCompletedHandler_1_boolean
+#define IAsyncOperationCompletedHandler_booleanVtbl __FIAsyncOperationCompletedHandler_1_booleanVtbl
+#define IAsyncOperationCompletedHandler_boolean __FIAsyncOperationCompletedHandler_1_boolean
+#define IAsyncOperationCompletedHandler_boolean_QueryInterface __FIAsyncOperationCompletedHandler_1_boolean_QueryInterface
+#define IAsyncOperationCompletedHandler_boolean_AddRef __FIAsyncOperationCompletedHandler_1_boolean_AddRef
+#define IAsyncOperationCompletedHandler_boolean_Release __FIAsyncOperationCompletedHandler_1_boolean_Release
+#define IAsyncOperationCompletedHandler_boolean_Invoke __FIAsyncOperationCompletedHandler_1_boolean_Invoke
 #endif /* WIDL_using_Windows_Foundation */
 #endif
 
 #endif
 
-#endif  /* ____x_ABI_CWindows_CFoundation_CIAsyncInfo_INTERFACE_DEFINED__ */
+#endif  /* ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
- * IASyncAction interface
+ * IAsyncOperation<boolean > interface
  */
-#ifndef ____x_ABI_CWindows_CFoundation_CIASyncAction_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIASyncAction_INTERFACE_DEFINED__
+#ifndef ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIASyncAction, 0x5a648006, 0x843a, 0x4da9, 0x86,0x5b, 0x9d,0x26,0xe5,0xdf,0xad,0x7b);
+DEFINE_GUID(IID___FIAsyncOperation_1_boolean, 0xcdb5efb3, 0x5788, 0x509d, 0x9b,0xe1, 0x71,0xcc,0xb8,0xa3,0x36,0x2a);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            MIDL_INTERFACE("5a648006-843a-4da9-865b-9d26e5dfad7b")
-            IASyncAction : public IAsyncInfo
+            template<>
+            MIDL_INTERFACE("cdb5efb3-5788-509d-9be1-71ccb8a3362a")
+            IAsyncOperation<boolean > : IAsyncOperation_impl<boolean >
             {
-                virtual HRESULT STDMETHODCALLTYPE put_Completed(
-                    ABI::Windows::Foundation::AsyncActionCompletedHandler *handler) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE get_Completed(
-                    ABI::Windows::Foundation::AsyncActionCompletedHandler **handler) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE GetResults(
-                    ) = 0;
-
             };
         }
     }
 }
 extern "C" {
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIASyncAction, 0x5a648006, 0x843a, 0x4da9, 0x86,0x5b, 0x9d,0x26,0xe5,0xdf,0xad,0x7b)
+__CRT_UUID_DECL(__FIAsyncOperation_1_boolean, 0xcdb5efb3, 0x5788, 0x509d, 0x9b,0xe1, 0x71,0xcc,0xb8,0xa3,0x36,0x2a)
 #endif
 #else
-typedef struct __x_ABI_CWindows_CFoundation_CIASyncActionVtbl {
+typedef struct __FIAsyncOperation_1_booleanVtbl {
     BEGIN_INTERFACE
 
     /*** IUnknown methods ***/
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        __FIAsyncOperation_1_boolean *This,
         REFIID riid,
         void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
+        __FIAsyncOperation_1_boolean *This);
 
     ULONG (STDMETHODCALLTYPE *Release)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
+        __FIAsyncOperation_1_boolean *This);
 
     /*** IInspectable methods ***/
     HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        __FIAsyncOperation_1_boolean *This,
         ULONG *iidCount,
         IID **iids);
 
     HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        __FIAsyncOperation_1_boolean *This,
         HSTRING *className);
 
     HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        __FIAsyncOperation_1_boolean *This,
         TrustLevel *trustLevel);
 
-    /*** IAsyncInfo methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_Id)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
-        unsigned int *id);
-
-    HRESULT (STDMETHODCALLTYPE *get_Status)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
-        enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status);
-
-    HRESULT (STDMETHODCALLTYPE *get_ErrorCode)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
-        HRESULT *errorCode);
-
-    HRESULT (STDMETHODCALLTYPE *Cancel)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
-
-    HRESULT (STDMETHODCALLTYPE *Close)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
-
-    /*** IASyncAction methods ***/
+    /*** IAsyncOperation<boolean > methods ***/
     HRESULT (STDMETHODCALLTYPE *put_Completed)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *handler);
+        __FIAsyncOperation_1_boolean *This,
+        __FIAsyncOperationCompletedHandler_1_boolean *handler);
 
     HRESULT (STDMETHODCALLTYPE *get_Completed)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler **handler);
+        __FIAsyncOperation_1_boolean *This,
+        __FIAsyncOperationCompletedHandler_1_boolean **handler);
 
     HRESULT (STDMETHODCALLTYPE *GetResults)(
-        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
+        __FIAsyncOperation_1_boolean *This,
+        boolean **results);
 
     END_INTERFACE
-} __x_ABI_CWindows_CFoundation_CIASyncActionVtbl;
+} __FIAsyncOperation_1_booleanVtbl;
 
-interface __x_ABI_CWindows_CFoundation_CIASyncAction {
-    CONST_VTBL __x_ABI_CWindows_CFoundation_CIASyncActionVtbl* lpVtbl;
+interface __FIAsyncOperation_1_boolean {
+    CONST_VTBL __FIAsyncOperation_1_booleanVtbl* lpVtbl;
 };
 
 #ifdef COBJMACROS
 #ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_Release(This) (This)->lpVtbl->Release(This)
+#define __FIAsyncOperation_1_boolean_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_boolean_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_boolean_Release(This) (This)->lpVtbl->Release(This)
 /*** IInspectable methods ***/
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IAsyncInfo methods ***/
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Status(This,status) (This)->lpVtbl->get_Status(This,status)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_ErrorCode(This,errorCode) (This)->lpVtbl->get_ErrorCode(This,errorCode)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_Cancel(This) (This)->lpVtbl->Cancel(This)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_Close(This) (This)->lpVtbl->Close(This)
-/*** IASyncAction methods ***/
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
-#define __x_ABI_CWindows_CFoundation_CIASyncAction_GetResults(This) (This)->lpVtbl->GetResults(This)
+#define __FIAsyncOperation_1_boolean_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_boolean_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_boolean_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<boolean > methods ***/
+#define __FIAsyncOperation_1_boolean_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_boolean_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_boolean_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
 #else
 /*** IUnknown methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_QueryInterface(__x_ABI_CWindows_CFoundation_CIASyncAction* This,REFIID riid,void **ppvObject) {
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_QueryInterface(__FIAsyncOperation_1_boolean* This,REFIID riid,void **ppvObject) {
     return This->lpVtbl->QueryInterface(This,riid,ppvObject);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIASyncAction_AddRef(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
+static FORCEINLINE ULONG __FIAsyncOperation_1_boolean_AddRef(__FIAsyncOperation_1_boolean* This) {
     return This->lpVtbl->AddRef(This);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIASyncAction_Release(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
+static FORCEINLINE ULONG __FIAsyncOperation_1_boolean_Release(__FIAsyncOperation_1_boolean* This) {
     return This->lpVtbl->Release(This);
 }
 /*** IInspectable methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetIids(__x_ABI_CWindows_CFoundation_CIASyncAction* This,ULONG *iidCount,IID **iids) {
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetIids(__FIAsyncOperation_1_boolean* This,ULONG *iidCount,IID **iids) {
     return This->lpVtbl->GetIids(This,iidCount,iids);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIASyncAction* This,HSTRING *className) {
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetRuntimeClassName(__FIAsyncOperation_1_boolean* This,HSTRING *className) {
     return This->lpVtbl->GetRuntimeClassName(This,className);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIASyncAction* This,TrustLevel *trustLevel) {
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetTrustLevel(__FIAsyncOperation_1_boolean* This,TrustLevel *trustLevel) {
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
-/*** IAsyncInfo methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_Id(__x_ABI_CWindows_CFoundation_CIASyncAction* This,unsigned int *id) {
-    return This->lpVtbl->get_Id(This,id);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_Status(__x_ABI_CWindows_CFoundation_CIASyncAction* This,enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status) {
-    return This->lpVtbl->get_Status(This,status);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_ErrorCode(__x_ABI_CWindows_CFoundation_CIASyncAction* This,HRESULT *errorCode) {
-    return This->lpVtbl->get_ErrorCode(This,errorCode);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_Cancel(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
-    return This->lpVtbl->Cancel(This);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_Close(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
-    return This->lpVtbl->Close(This);
-}
-/*** IASyncAction methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_put_Completed(__x_ABI_CWindows_CFoundation_CIASyncAction* This,__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *handler) {
+/*** IAsyncOperation<boolean > methods ***/
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_put_Completed(__FIAsyncOperation_1_boolean* This,__FIAsyncOperationCompletedHandler_1_boolean *handler) {
     return This->lpVtbl->put_Completed(This,handler);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_Completed(__x_ABI_CWindows_CFoundation_CIASyncAction* This,__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler **handler) {
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_get_Completed(__FIAsyncOperation_1_boolean* This,__FIAsyncOperationCompletedHandler_1_boolean **handler) {
     return This->lpVtbl->get_Completed(This,handler);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetResults(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
-    return This->lpVtbl->GetResults(This);
+static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetResults(__FIAsyncOperation_1_boolean* This,boolean **results) {
+    return This->lpVtbl->GetResults(This,results);
 }
 #endif
 #ifdef WIDL_using_Windows_Foundation
-#define IID_IASyncAction IID___x_ABI_CWindows_CFoundation_CIASyncAction
-#define IASyncActionVtbl __x_ABI_CWindows_CFoundation_CIASyncActionVtbl
-#define IASyncAction __x_ABI_CWindows_CFoundation_CIASyncAction
-#define IASyncAction_QueryInterface __x_ABI_CWindows_CFoundation_CIASyncAction_QueryInterface
-#define IASyncAction_AddRef __x_ABI_CWindows_CFoundation_CIASyncAction_AddRef
-#define IASyncAction_Release __x_ABI_CWindows_CFoundation_CIASyncAction_Release
-#define IASyncAction_GetIids __x_ABI_CWindows_CFoundation_CIASyncAction_GetIids
-#define IASyncAction_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIASyncAction_GetRuntimeClassName
-#define IASyncAction_GetTrustLevel __x_ABI_CWindows_CFoundation_CIASyncAction_GetTrustLevel
-#define IASyncAction_get_Id __x_ABI_CWindows_CFoundation_CIASyncAction_get_Id
-#define IASyncAction_get_Status __x_ABI_CWindows_CFoundation_CIASyncAction_get_Status
-#define IASyncAction_get_ErrorCode __x_ABI_CWindows_CFoundation_CIASyncAction_get_ErrorCode
-#define IASyncAction_Cancel __x_ABI_CWindows_CFoundation_CIASyncAction_Cancel
-#define IASyncAction_Close __x_ABI_CWindows_CFoundation_CIASyncAction_Close
-#define IASyncAction_put_Completed __x_ABI_CWindows_CFoundation_CIASyncAction_put_Completed
-#define IASyncAction_get_Completed __x_ABI_CWindows_CFoundation_CIASyncAction_get_Completed
-#define IASyncAction_GetResults __x_ABI_CWindows_CFoundation_CIASyncAction_GetResults
+#define IID_IAsyncOperation_boolean IID___FIAsyncOperation_1_boolean
+#define IAsyncOperation_booleanVtbl __FIAsyncOperation_1_booleanVtbl
+#define IAsyncOperation_boolean __FIAsyncOperation_1_boolean
+#define IAsyncOperation_boolean_QueryInterface __FIAsyncOperation_1_boolean_QueryInterface
+#define IAsyncOperation_boolean_AddRef __FIAsyncOperation_1_boolean_AddRef
+#define IAsyncOperation_boolean_Release __FIAsyncOperation_1_boolean_Release
+#define IAsyncOperation_boolean_GetIids __FIAsyncOperation_1_boolean_GetIids
+#define IAsyncOperation_boolean_GetRuntimeClassName __FIAsyncOperation_1_boolean_GetRuntimeClassName
+#define IAsyncOperation_boolean_GetTrustLevel __FIAsyncOperation_1_boolean_GetTrustLevel
+#define IAsyncOperation_boolean_put_Completed __FIAsyncOperation_1_boolean_put_Completed
+#define IAsyncOperation_boolean_get_Completed __FIAsyncOperation_1_boolean_get_Completed
+#define IAsyncOperation_boolean_GetResults __FIAsyncOperation_1_boolean_GetResults
 #endif /* WIDL_using_Windows_Foundation */
 #endif
 
 #endif
 
-#endif  /* ____x_ABI_CWindows_CFoundation_CIASyncAction_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * AsyncActionCompletedHandler interface
- */
-#ifndef ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler, 0xa4ed5c81, 0x76c9, 0x40bd, 0x8b,0xe6, 0xb1,0xd9,0x0f,0xb2,0x0a,0xe7);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            MIDL_INTERFACE("a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7")
-            AsyncActionCompletedHandler : public IUnknown
-            {
-                virtual HRESULT STDMETHODCALLTYPE Invoke(
-                    ABI::Windows::Foundation::IAsyncAction *asyncAction,
-                    enum AsyncStatus status) = 0;
-
-            };
-        }
-    }
-}
-extern "C" {
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler, 0xa4ed5c81, 0x76c9, 0x40bd, 0x8b,0xe6, 0xb1,0xd9,0x0f,0xb2,0x0a,0xe7)
-#endif
-#else
-typedef struct __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandlerVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *This);
-
-    /*** AsyncActionCompletedHandler methods ***/
-    HRESULT (STDMETHODCALLTYPE *Invoke)(
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *This,
-        __x_ABI_CWindows_CFoundation_CIAsyncAction *asyncAction,
-        enum __x_ABI_CWindows_CFoundation_CAsyncStatus status);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandlerVtbl;
-
-interface __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler {
-    CONST_VTBL __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandlerVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Release(This) (This)->lpVtbl->Release(This)
-/*** AsyncActionCompletedHandler methods ***/
-#define __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Invoke(This,asyncAction,status) (This)->lpVtbl->Invoke(This,asyncAction,status)
-#else
-/*** IUnknown methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_QueryInterface(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_AddRef(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Release(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** AsyncActionCompletedHandler methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Invoke(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This,__x_ABI_CWindows_CFoundation_CIAsyncAction *asyncAction,enum __x_ABI_CWindows_CFoundation_CAsyncStatus status) {
-    return This->lpVtbl->Invoke(This,asyncAction,status);
-}
-#endif
-#ifdef WIDL_using_Windows_Foundation
-#define IID_AsyncActionCompletedHandler IID___x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler
-#define AsyncActionCompletedHandlerVtbl __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandlerVtbl
-#define AsyncActionCompletedHandler __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler
-#define AsyncActionCompletedHandler_QueryInterface __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_QueryInterface
-#define AsyncActionCompletedHandler_AddRef __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_AddRef
-#define AsyncActionCompletedHandler_Release __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Release
-#define AsyncActionCompletedHandler_Invoke __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Invoke
-#endif /* WIDL_using_Windows_Foundation */
-#endif
-
-#endif
-
-#endif  /* ____x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * IAsyncOperation interface
- */
-#ifndef ____x_ABI_CWindows_CFoundation_CIAsyncOperation_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIAsyncOperation_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIAsyncOperation, 0x9fc2b0bb, 0xe446, 0x44e2, 0xaa,0x61, 0x9c,0xab,0x8f,0x63,0x6a,0xf2);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            MIDL_INTERFACE("9fc2b0bb-e446-44e2-aa61-9cab8f636af2")
-            IAsyncOperation : public IAsyncInfo
-            {
-                virtual HRESULT STDMETHODCALLTYPE put_Completed(
-                    ABI::Windows::Foundation::AsyncActionCompletedHandler *handler) = 0;
-
-                virtual HRESULT STDMETHODCALLTYPE get_Completed(
-                    ABI::Windows::Foundation::AsyncActionCompletedHandler **handler) = 0;
-
-                virtual IInspectable * STDMETHODCALLTYPE GetResults(
-                    ) = 0;
-
-            };
-        }
-    }
-}
-extern "C" {
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIAsyncOperation, 0x9fc2b0bb, 0xe446, 0x44e2, 0xaa,0x61, 0x9c,0xab,0x8f,0x63,0x6a,0xf2)
-#endif
-#else
-typedef struct __x_ABI_CWindows_CFoundation_CIAsyncOperationVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This);
-
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        TrustLevel *trustLevel);
-
-    /*** IAsyncInfo methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_Id)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        unsigned int *id);
-
-    HRESULT (STDMETHODCALLTYPE *get_Status)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status);
-
-    HRESULT (STDMETHODCALLTYPE *get_ErrorCode)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        HRESULT *errorCode);
-
-    HRESULT (STDMETHODCALLTYPE *Cancel)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This);
-
-    HRESULT (STDMETHODCALLTYPE *Close)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This);
-
-    /*** IAsyncOperation methods ***/
-    HRESULT (STDMETHODCALLTYPE *put_Completed)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *handler);
-
-    HRESULT (STDMETHODCALLTYPE *get_Completed)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This,
-        __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler **handler);
-
-    IInspectable * (STDMETHODCALLTYPE *GetResults)(
-        __x_ABI_CWindows_CFoundation_CIAsyncOperation *This);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CFoundation_CIAsyncOperationVtbl;
-
-interface __x_ABI_CWindows_CFoundation_CIAsyncOperation {
-    CONST_VTBL __x_ABI_CWindows_CFoundation_CIAsyncOperationVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IAsyncInfo methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Status(This,status) (This)->lpVtbl->get_Status(This,status)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_ErrorCode(This,errorCode) (This)->lpVtbl->get_ErrorCode(This,errorCode)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_Cancel(This) (This)->lpVtbl->Cancel(This)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_Close(This) (This)->lpVtbl->Close(This)
-/*** IAsyncOperation methods ***/
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
-#define __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetResults(This) (This)->lpVtbl->GetResults(This)
-#else
-/*** IUnknown methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_QueryInterface(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIAsyncOperation_AddRef(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CIAsyncOperation_Release(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IInspectable methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetIids(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
-}
-/*** IAsyncInfo methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Id(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,unsigned int *id) {
-    return This->lpVtbl->get_Id(This,id);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Status(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status) {
-    return This->lpVtbl->get_Status(This,status);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_ErrorCode(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,HRESULT *errorCode) {
-    return This->lpVtbl->get_ErrorCode(This,errorCode);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_Cancel(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This) {
-    return This->lpVtbl->Cancel(This);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_Close(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This) {
-    return This->lpVtbl->Close(This);
-}
-/*** IAsyncOperation methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_put_Completed(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *handler) {
-    return This->lpVtbl->put_Completed(This,handler);
-}
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Completed(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This,__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler **handler) {
-    return This->lpVtbl->get_Completed(This,handler);
-}
-static FORCEINLINE IInspectable * __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetResults(__x_ABI_CWindows_CFoundation_CIAsyncOperation* This) {
-    return This->lpVtbl->GetResults(This);
-}
-#endif
-#ifdef WIDL_using_Windows_Foundation
-#define IID_IAsyncOperation IID___x_ABI_CWindows_CFoundation_CIAsyncOperation
-#define IAsyncOperationVtbl __x_ABI_CWindows_CFoundation_CIAsyncOperationVtbl
-#define IAsyncOperation __x_ABI_CWindows_CFoundation_CIAsyncOperation
-#define IAsyncOperation_QueryInterface __x_ABI_CWindows_CFoundation_CIAsyncOperation_QueryInterface
-#define IAsyncOperation_AddRef __x_ABI_CWindows_CFoundation_CIAsyncOperation_AddRef
-#define IAsyncOperation_Release __x_ABI_CWindows_CFoundation_CIAsyncOperation_Release
-#define IAsyncOperation_GetIids __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetIids
-#define IAsyncOperation_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetRuntimeClassName
-#define IAsyncOperation_GetTrustLevel __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetTrustLevel
-#define IAsyncOperation_get_Id __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Id
-#define IAsyncOperation_get_Status __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Status
-#define IAsyncOperation_get_ErrorCode __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_ErrorCode
-#define IAsyncOperation_Cancel __x_ABI_CWindows_CFoundation_CIAsyncOperation_Cancel
-#define IAsyncOperation_Close __x_ABI_CWindows_CFoundation_CIAsyncOperation_Close
-#define IAsyncOperation_put_Completed __x_ABI_CWindows_CFoundation_CIAsyncOperation_put_Completed
-#define IAsyncOperation_get_Completed __x_ABI_CWindows_CFoundation_CIAsyncOperation_get_Completed
-#define IAsyncOperation_GetResults __x_ABI_CWindows_CFoundation_CIAsyncOperation_GetResults
-#endif /* WIDL_using_Windows_Foundation */
-#endif
-
-#endif
-
-#endif  /* ____x_ABI_CWindows_CFoundation_CIAsyncOperation_INTERFACE_DEFINED__ */
+#endif  /* ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER HSTRING_UserSize     (ULONG *, ULONG, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserMarshal  (ULONG *, unsigned char *, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserUnmarshal(ULONG *, unsigned char *, HSTRING *);
+void            __RPC_USER HSTRING_UserFree     (ULONG *, HSTRING *);
 
 /* End additional prototypes */
 

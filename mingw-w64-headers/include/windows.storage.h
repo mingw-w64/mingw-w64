@@ -171,7 +171,7 @@ namespace ABI {
 /* Headers for imported files */
 
 #include <inspectable.h>
-#include <hstring.h>
+#include <eventtoken.h>
 #include <windows.foundation.h>
 
 #ifdef __cplusplus
@@ -187,21 +187,6 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             interface IAsyncAction;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CFoundation_CTypedEventHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CTypedEventHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CTypedEventHandler __x_ABI_CWindows_CFoundation_CTypedEventHandler;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CTypedEventHandler ABI::Windows::Foundation::TypedEventHandler
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface TypedEventHandler;
         }
     }
 }
@@ -1461,7 +1446,7 @@ namespace ABI {
                     ABI::Windows::Storage::IStorageFolder **value) = 0;
 
                 virtual HRESULT STDMETHODCALLTYPE DataChanged(
-                    struct EventRegistrationToken token) = 0;
+                    EventRegistrationToken token) = 0;
 
                 virtual HRESULT STDMETHODCALLTYPE SignalDataChanged(
                     ) = 0;
@@ -1549,7 +1534,7 @@ typedef struct __x_ABI_CWindows_CStorage_CIApplicationDataVtbl {
 
     HRESULT (STDMETHODCALLTYPE *DataChanged)(
         __x_ABI_CWindows_CStorage_CIApplicationData *This,
-        struct __x_ABI_CWindows_CFoundation_CEventRegistrationToken token);
+        EventRegistrationToken token);
 
     HRESULT (STDMETHODCALLTYPE *SignalDataChanged)(
         __x_ABI_CWindows_CStorage_CIApplicationData *This);
@@ -1637,7 +1622,7 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_get_Roami
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_get_TemporaryFolder(__x_ABI_CWindows_CStorage_CIApplicationData* This,__x_ABI_CWindows_CStorage_CIStorageFolder **value) {
     return This->lpVtbl->get_TemporaryFolder(This,value);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_DataChanged(__x_ABI_CWindows_CStorage_CIApplicationData* This,struct __x_ABI_CWindows_CFoundation_CEventRegistrationToken token) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_DataChanged(__x_ABI_CWindows_CStorage_CIApplicationData* This,EventRegistrationToken token) {
     return This->lpVtbl->DataChanged(This,token);
 }
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_SignalDataChanged(__x_ABI_CWindows_CStorage_CIApplicationData* This) {

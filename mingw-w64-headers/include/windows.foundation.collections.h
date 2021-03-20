@@ -36,6 +36,48 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
+            template <class TResult>
+            struct IAsyncOperationCompletedHandler_impl;
+
+            template <class TResult>
+            struct IAsyncOperationCompletedHandler : IAsyncOperationCompletedHandler_impl<TResult> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult>
+            struct IAsyncOperation_impl;
+
+            template <class TResult>
+            struct IAsyncOperation : IAsyncOperation_impl<TResult> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TSender, class TArgs>
+            struct ITypedEventHandler_impl;
+
+            template <class TSender, class TArgs>
+            struct ITypedEventHandler : ITypedEventHandler_impl<TSender, TArgs> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
             namespace Collections {
                 template <class T>
                 struct IIterator_impl;
@@ -83,6 +125,7 @@ namespace ABI {
 /* Headers for imported files */
 
 #include <inspectable.h>
+#include <asyncinfo.h>
 #include <windowscontracts.h>
 
 #ifdef __cplusplus
@@ -114,6 +157,74 @@ namespace ABI {
             public:
                 typedef T T_complex;
                 virtual HRESULT STDMETHODCALLTYPE Invoke(IInspectable *sender,T_abi args) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult>
+            struct IAsyncOperationCompletedHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TResult>::type     TResult_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TResult>::type TResult_logical;
+            public:
+                typedef TResult TResult_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(IAsyncOperation<TResult_logical> *info,AsyncStatus status) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult>
+            struct IAsyncOperation_impl : IInspectable
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TResult>::type     TResult_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TResult>::type TResult_logical;
+            public:
+                typedef TResult TResult_complex;
+                virtual HRESULT STDMETHODCALLTYPE put_Completed(IAsyncOperationCompletedHandler<TResult_logical> *handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Completed(IAsyncOperationCompletedHandler<TResult_logical> **handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE GetResults(TResult_abi **results) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TSender, class TArgs>
+            struct ITypedEventHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TSender>::type     TSender_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TSender>::type TSender_logical;
+                typedef typename Windows::Foundation::Internal::GetAbiType<TArgs>::type     TArgs_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TArgs>::type TArgs_logical;
+            public:
+                typedef TSender TSender_complex;
+                typedef TArgs TArgs_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(TSender_abi sender,TArgs_abi args) = 0;
             };
         }
     }
