@@ -1557,25 +1557,24 @@ HRESULT WINAPI DXVA2CreateVideoService(IDirect3DDevice9 *pDD,REFIID riid,void **
 #endif
 static inline DXVA2_Fixed32 DXVA2_Fixed32OpaqueAlpha(void) {
   DXVA2_Fixed32 f32;
-  *(LONG *)&f32 = 0 + (1 << 16);
+  f32.ll = 0 + (1 << 16);
   return f32;
 }
 
 static inline DXVA2_Fixed32 DXVA2_Fixed32TransparentAlpha(void) {
-  DXVA2_Fixed32 f32 = {{{ 0 }}};
+  DXVA2_Fixed32 f32;
+  f32.ll = 0;
   return f32;
 }
 
 static inline float DXVA2FixedToFloat(DXVA2_Fixed32 f32) {
-  struct { USHORT Fraction; SHORT Value; } *_f32 = (void *)&f32;
-  return (float)_f32->Value + (float)_f32->Fraction / (1 << 16);
+  return (float)f32.Value + (float)f32.Fraction / (1 << 16);
 }
 
 static inline DXVA2_Fixed32 DXVA2FloatToFixed(float f) {
   DXVA2_Fixed32 f32;
-  struct { USHORT Fraction; SHORT Value; } *_f32 = (void *)&f32;
-  _f32->Value    = ((ULONG) (f * (1 << 16))) >> 16;
-  _f32->Fraction = ((ULONG) (f * (1 << 16))) & 0xFFFF;
+  f32.Value    = ((ULONG) (f * (1 << 16))) >> 16;
+  f32.Fraction = ((ULONG) (f * (1 << 16))) & 0xFFFF;
   return f32;
 }
 /* Begin additional prototypes for all interfaces */
