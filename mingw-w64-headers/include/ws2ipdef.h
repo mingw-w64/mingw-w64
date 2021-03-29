@@ -119,11 +119,6 @@ extern "C" {
 #define PROTECTION_LEVEL_DEFAULT ((UINT)-1)
 #endif
 
-typedef struct ip_mreq {
-  IN_ADDR imr_multiaddr;
-  IN_ADDR imr_interface;
-} IP_MREQ, *PIP_MREQ;
-
 typedef struct ipv6_mreq {
   struct in6_addr ipv6mr_multiaddr;
   unsigned int ipv6mr_interface;
@@ -164,10 +159,59 @@ typedef struct _INTERFACE_INFO {
   sockaddr_gen iiNetmask;
 } INTERFACE_INFO,*LPINTERFACE_INFO;
 
+typedef struct _INTERFACE_INFO_EX {
+  u_long iiFlags;
+  SOCKET_ADDRESS iiAddress;
+  SOCKET_ADDRESS iiBroadcastAddress;
+  SOCKET_ADDRESS iiNetmask;
+} INTERFACE_INFO_EX, *LPINTERFACE_INFO_EX;
+
+#define IFF_UP 0x00000001
+#define IFF_BROADCAST 0x00000002
+#define IFF_LOOPBACK 0x00000004
+#define IFF_POINTTOPOINT 0x00000008
+#define IFF_MULTICAST 0x00000010
+
+typedef enum _PMTUD_STATE {
+  IP_PMTUDISC_NOT_SET,
+  IP_PMTUDISC_DO,
+  IP_PMTUDISC_DONT,
+  IP_PMTUDISC_PROBE,
+  IP_PMTUDISC_MAX
+} PMTUD_STATE, *PPMTUD_STATE;
+
+#define MCAST_JOIN_GROUP 41
+#define MCAST_LEAVE_GROUP 42
+#define MCAST_BLOCK_SOURCE 43
+#define MCAST_UNBLOCK_SOURCE 44
+#define MCAST_JOIN_SOURCE_GROUP 45
+#define MCAST_LEAVE_SOURCE_GROUP 46
+
 typedef enum _MULTICAST_MODE_TYPE {
-  MCAST_INCLUDE   = 0,
+  MCAST_INCLUDE = 0,
   MCAST_EXCLUDE
 } MULTICAST_MODE_TYPE;
+
+typedef struct ip_mreq {
+  IN_ADDR imr_multiaddr;
+  IN_ADDR imr_interface;
+} IP_MREQ, *PIP_MREQ;
+
+typedef struct ip_mreq_source {
+  IN_ADDR imr_multiaddr;
+  IN_ADDR imr_sourceaddr;
+  IN_ADDR imr_interface;
+} IP_MREQ_SOURCE, *PIP_MREQ_SOURCE;
+
+typedef struct ip_msfilter {
+  IN_ADDR imsf_multiaddr;
+  IN_ADDR imsf_interface;
+  MULTICAST_MODE_TYPE imsf_fmode;
+  ULONG imsf_numsrc;
+  IN_ADDR imsf_slist[1];
+} IP_MSFILTER, *PIP_MSFILTER;
+
+#define IP_MSFILTER_SIZE(NumSources) (sizeof(IP_MSFILTER) - sizeof(IN_ADDR) + (NumSources) * sizeof(IN_ADDR))
 
 typedef struct _sockaddr_in6_pair {
   PSOCKADDR_IN6 SourceAddress;

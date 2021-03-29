@@ -19,22 +19,6 @@
 #include <psdk_inc/_ip_mreq1.h>
 #include <winapifamily.h>
 
-struct ip_mreq_source {
-  struct in_addr imr_multiaddr;
-  struct in_addr imr_sourceaddr;
-  struct in_addr imr_interface;
-};
-
-struct ip_msfilter {
-  struct in_addr imsf_multiaddr;
-  struct in_addr imsf_interface;
-  u_long imsf_fmode;
-  u_long imsf_numsrc;
-  struct in_addr imsf_slist[1];
-};
-
-#define IP_MSFILTER_SIZE(numsrc) (sizeof(struct ip_msfilter)-sizeof(struct in_addr) + (numsrc)*sizeof(struct in_addr))
-
 #define SIO_GET_INTERFACE_LIST _IOR('t',127,u_long)
 
 #define SIO_GET_INTERFACE_LIST_EX _IOR('t',126,u_long)
@@ -132,19 +116,6 @@ WS2TCPIP_INLINE void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *a) {
 #ifdef __cplusplus
 }
 #endif
-
-typedef struct _INTERFACE_INFO_EX {
-  u_long iiFlags;
-  SOCKET_ADDRESS iiAddress;
-  SOCKET_ADDRESS iiBroadcastAddress;
-  SOCKET_ADDRESS iiNetmask;
-} INTERFACE_INFO_EX,*LPINTERFACE_INFO_EX;
-
-#define IFF_UP 0x00000001
-#define IFF_BROADCAST 0x00000002
-#define IFF_LOOPBACK 0x00000004
-#define IFF_POINTTOPOINT 0x00000008
-#define IFF_MULTICAST 0x00000010
 
 typedef struct in_pktinfo {
   IN_ADDR ipi_addr;
