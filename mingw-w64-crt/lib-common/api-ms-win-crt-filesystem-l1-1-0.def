@@ -11,12 +11,12 @@ _chdrive
 _chmod
 chmod == _chmod
 _findclose
-_findfirst == _findfirst32
+_findfirst == F32(_findfirst32) F64(_findfirst64)
 _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
-_findnext == _findnext32
+_findnext == F32(_findnext32) F64(_findnext64)
 _findnext32
 _findnext32i64
 _findnext64
