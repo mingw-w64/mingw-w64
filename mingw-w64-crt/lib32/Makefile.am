@@ -132,6 +132,7 @@ lib32_DATA += %reldir%/libelscore.a
 lib32_DATA += %reldir%/libesent.a
 lib32_DATA += %reldir%/libevr.a
 lib32_DATA += %reldir%/libfaultrep.a
+lib32_DATA += %reldir%/libfeclient.a
 lib32_DATA += %reldir%/libfwpuclnt.a
 lib32_DATA += %reldir%/libgdi32.a
 #lib32_DATA += %reldir%/libgdiplus.a  # Handled by custom rule
