@@ -2,11 +2,11 @@
 # Process this file with autoconf to produce a configure script.
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.71])
 AC_INIT([mingw-w64-runtime],[4.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([ChangeLog])
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([1.14 foreign subdir-objects])
 AM_MAINTAINER_MODE
@@ -269,7 +269,7 @@ AS_CASE([$arg],
   [all], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; enable_softmath=yes; ],
   [yes], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; enable_softmath=yes; ],
   [no],  [enable_dfp=no; enable_printf128=no; enable_registeredprintf=no; enable_softmath=no; ],
-  [AC_MSG_ERROR([Unknown option \"$experiment\"])]
+  [AC_MSG_ERROR([Unknown option "$arg"])]
 )
 done
 
