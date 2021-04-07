@@ -225,7 +225,7 @@ extern "C" {
 #define __MACHINEX86X_NOWIN64 __MACHINEZ
 #endif
 
-#if !(_M_ARM)
+#if !(defined(__arm__))
 #undef __MACHINESA
 #undef __MACHINEARMX
 #undef __MACHINECC

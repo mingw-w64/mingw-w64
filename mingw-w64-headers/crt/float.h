@@ -241,11 +241,11 @@
 #define PC_64   _PC_64
 #endif	/* Not __STRICT_ANSI__ */
 
-#if defined(_M_IX86)
+#if defined(__i386__)
 #define _CW_DEFAULT (_RC_NEAR+_PC_53+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
-#elif defined(_M_IA64)
+#elif defined(__ia64__)
 #define _CW_DEFAULT (_RC_NEAR+_PC_64+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
-#elif defined(_M_AMD64)
+#elif defined(__x86_64__)
 #define _CW_DEFAULT (_RC_NEAR+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
 #endif
 
