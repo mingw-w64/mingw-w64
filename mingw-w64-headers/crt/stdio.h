@@ -120,13 +120,13 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define stderr (__acrt_iob_func(2))
 #endif
 
-#define _IOREAD 0x0001
-#define _IOWRT 0x0002
-
 #define _IOFBF 0x0000
 #define _IOLBF 0x0040
 #define _IONBF 0x0004
 
+#ifndef _UCRT
+#define _IOREAD 0x0001
+#define _IOWRT 0x0002
 #define _IOMYBUF 0x0008
 #define _IOEOF 0x0010
 #define _IOERR 0x0020
@@ -134,6 +134,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _IORW 0x0080
 #ifdef _POSIX_
 #define _IOAPPEND 0x0200
+#endif
 #endif
 
 #define _TWO_DIGIT_EXPONENT 0x1
