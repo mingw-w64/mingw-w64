@@ -6,6 +6,9 @@
 
 #include <intrin.h>
 
+/* GCC 11 has this as a macro.  */
+#undef __rdtsc
+
 /* Clang has support for MSVC builtins, GCC doesn't */
 #ifndef __has_builtin
   #define __has_builtin(x) 0
