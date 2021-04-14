@@ -198,6 +198,7 @@ IDL_SRCS = \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/spatialaudioclient.idl \
+  include/spellcheck.idl \
   include/strmif.idl \
   include/structuredquerycondition.idl \
   include/taskschd.idl \
