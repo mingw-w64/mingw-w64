@@ -500,6 +500,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/spatialaudioclient.idl \
+@HAVE_WIDL_TRUE@  include/spellcheck.idl \
 @HAVE_WIDL_TRUE@  include/strmif.idl \
 @HAVE_WIDL_TRUE@  include/structuredquerycondition.idl \
 @HAVE_WIDL_TRUE@  include/taskschd.idl \
