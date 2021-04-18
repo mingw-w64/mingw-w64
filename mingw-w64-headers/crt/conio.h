@@ -39,7 +39,8 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-  __mingw_ovr int __cdecl _cscanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cscanf(const char * __restrict__ _Format,...)
   {
     __builtin_va_list _ArgList;
     int _Ret;
@@ -48,7 +49,8 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-  __mingw_ovr int __cdecl _cscanf_l(const char * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cscanf_l(const char * __restrict__ _Format,_locale_t _Locale,...)
   {
     __builtin_va_list _ArgList;
     int _Ret;
@@ -161,7 +163,8 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-  __mingw_ovr int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...)
   {
     __builtin_va_list _ArgList;
     int _Ret;
@@ -170,7 +173,8 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-  __mingw_ovr int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...)
   {
     __builtin_va_list _ArgList;
     int _Ret;
