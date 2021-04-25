@@ -21,6 +21,7 @@
 #include <sect_attribs.h>
 #include <stdio.h>
 #include <time.h>
+#include <corecrt_startup.h>
 
 #undef __getmainargs
 #undef __wgetmainargs
@@ -45,8 +46,6 @@ _CRTIMP char*** __cdecl __p___argv(void);
 _CRTIMP wchar_t*** __cdecl __p___wargv(void);
 _CRTIMP char*** __cdecl __p__environ(void);
 _CRTIMP wchar_t*** __cdecl __p__wenviron(void);
-
-_CRTIMP int __cdecl _crt_atexit(_onexit_t func);
 
 _CRTIMP int __cdecl _initialize_narrow_environment(void);
 _CRTIMP int __cdecl _initialize_wide_environment(void);
@@ -84,7 +83,7 @@ int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int 
 
 _onexit_t __cdecl _onexit(_onexit_t func)
 {
-  return _crt_atexit(func) == 0 ? func : NULL;
+  return _crt_atexit((_PVFV)func) == 0 ? func : NULL;
 }
 
 _onexit_t __cdecl (*__MINGW_IMP_SYMBOL(_onexit))(_onexit_t func) = _onexit;
