@@ -188,6 +188,7 @@ IDL_SRCS = \
   include/portabledevicetypes.idl \
   include/propidl.idl \
   include/propsys.idl \
+  include/rdpencomapi.idl \
   include/regbag.idl \
   include/sapi51.idl \
   include/sapi53.idl \
