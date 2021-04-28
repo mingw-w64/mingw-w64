@@ -617,4 +617,322 @@ interface IRDPSRAPITransportStreamBuffer : IUnknown
   HRESULT Context([in] IUnknown *pContext);
 }
 
+[object, uuid(ea81c254-f5af-4e40-982e-3e63bb595276), local, pointer_default(unique)]
+interface IRDPSRAPITransportStreamEvents : IUnknown
+{
+  [id(DISPID_RDPSRAPI_EVENT_ON_STREAM_SENDCOMPLETED)]
+  void OnWriteCompleted([in] IRDPSRAPITransportStreamBuffer *pBuffer);
+
+  [id(DISPID_RDPSRAPI_EVENT_ON_STREAM_DATARECEIVED)]
+  void OnReadCompleted([in] IRDPSRAPITransportStreamBuffer *pBuffer);
+
+  [id(DISPID_RDPSRAPI_EVENT_ON_STREAM_CLOSED)]
+  void OnStreamClosed([in] HRESULT hrReason);
+}
+
+[object, uuid(36cfa065-43bb-4ef7-aed7-9b88a5053036), pointer_default(unique)]
+interface IRDPSRAPITransportStream : IUnknown
+{
+  [id(DISPID_RDPSRAPI_METHOD_STREAM_ALLOCBUFFER)]
+  HRESULT AllocBuffer([in] long maxPayload, [out, retval] IRDPSRAPITransportStreamBuffer **ppBuffer);
+
+  [id(DISPID_RDPSRAPI_METHOD_STREAM_FREEBUFFER)]
+  HRESULT FreeBuffer([in] IRDPSRAPITransportStreamBuffer *pBuffer);
+
+  [id(DISPID_RDPSRAPI_METHOD_STREAMSENDDATA)]
+  HRESULT WriteBuffer([in] IRDPSRAPITransportStreamBuffer *pBuffer);
+
+  [id(DISPID_RDPSRAPI_METHOD_STREAMREADDATA)]
+  HRESULT ReadBuffer([in] IRDPSRAPITransportStreamBuffer *pBuffer);
+
+  [id(DISPID_RDPSRAPI_METHOD_STREAMOPEN)]
+  HRESULT Open([in] IRDPSRAPITransportStreamEvents *pCallbacks);
+
+  [id(DISPID_RDPSRAPI_METHOD_STREAMCLOSE)]
+  HRESULT Close(void);
+}
+
+[object, uuid(eeb20886-e470-4cf6-842b-2739c0ec5cfb), dual, pointer_default(unique)]
+interface IRDPSRAPISharingSession : IDispatch
+{
+  [id(DISPID_RDPSRAPI_METHOD_OPEN)]
+  HRESULT Open(void);
+
+  [id(DISPID_RDPSRAPI_METHOD_CLOSE)]
+  HRESULT Close(void);
+
+  [propput, id(DISPID_RDPSRAPI_PROP_SESSION_COLORDEPTH)]
+  HRESULT ColorDepth([in] long colorDepth);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_SESSION_COLORDEPTH)]
+  HRESULT ColorDepth([out, retval] long *pColorDepth);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_SESSION_PROPERTIES)]
+  HRESULT Properties([out, retval] IRDPSRAPISessionProperties **ppVal);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_ATTENDEES)]
+  HRESULT Attendees([out, retval] IRDPSRAPIAttendeeManager **ppVal);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_INVITATIONS)]
+  HRESULT Invitations([out, retval] IRDPSRAPIInvitationManager **ppVal);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_APPLICATION_FILTER)]
+  HRESULT ApplicationFilter([out, retval] IRDPSRAPIApplicationFilter **ppVal);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_CHANNELMANAGER)]
+  HRESULT VirtualChannelManager([out, retval] IRDPSRAPIVirtualChannelManager **ppVal);
+
+  [id(DISPID_RDPSRAPI_METHOD_PAUSE)]
+  HRESULT Pause(void);
+
+  [id(DISPID_RDPSRAPI_METHOD_RESUME)]
+  HRESULT Resume(void);
+
+  [id(DISPID_RDPSRAPI_METHOD_CONNECTTOCLIENT)]
+  HRESULT ConnectToClient([in] BSTR bstrConnectionString);
+
+  [id(DISPID_RDPSRAPI_METHOD_SETSHAREDRECT)]
+  HRESULT SetDesktopSharedRect([in] long left, [in] long top, [in] long right, [in] long bottom);
+
+  [id(DISPID_RDPSRAPI_METHOD_GETSHAREDRECT)]
+  HRESULT GetDesktopSharedRect([out] long *pleft, [out] long *ptop, [out] long *pright, [out] long *pbottom);
+}
+
+[object, uuid(fee4ee57-e3e8-4205-8fb0-8fd1d0675c21), dual, pointer_default(unique)]
+interface IRDPSRAPISharingSession2 : IRDPSRAPISharingSession
+{
+  [id(DISPID_RDPSRAPI_METHOD_CONNECTUSINGTRANSPORTSTREAM)]
+  HRESULT ConnectUsingTransportStream([in] IRDPSRAPITransportStream *pStream, [in] BSTR bstrGroup, [in] BSTR bstrAuthenticatedAttendeeName);
+
+  [propget, id(DISPID_RDPSRAPI_PROP_FRAMEBUFFER)]
+  HRESULT FrameBuffer([out, retval] IRDPSRAPIFrameBuffer **ppVal);
+
+  [id(DISPID_RDPSRAPI_METHOD_SENDCONTROLLEVELCHANGERESPONSE)]
+  HRESULT SendControlLevelChangeResponse([in] IRDPSRAPIAttendee *pAttendee, [in] CTRL_LEVEL RequestedLevel, [in] long ReasonCode);
+}
+
+[uuid(cc802d05-ae07-4c15-b496-db9d22aa0a84), version(1.0)]
+library RDPCOMAPILib
+{
+  importlib("stdole32.tlb");
+  importlib("stdole2.tlb");
+
+  typedef enum
+  {
+    CONST_MAX_CHANNEL_MESSAGE_SIZE = 1024,
+    CONST_MAX_CHANNEL_NAME_LEN = 8,
+    CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE = 409600,
+    CONST_ATTENDEE_ID_EVERYONE = -1,
+    CONST_ATTENDEE_ID_HOST = 0,
+    CONST_CONN_INTERVAL = 50,
+    CONST_ATTENDEE_ID_DEFAULT = 0xffffffff
+  } RDPENCOMAPI_CONSTANTS;
+
+  [uuid(98a97042-6698-40e9-8efd-b3200990004b)]
+  dispinterface _IRDPSessionEvents
+  {
+    properties:
+    methods:
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_CONNECTED)]
+    void OnAttendeeConnected([in] IDispatch *pAttendee);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_DISCONNECTED)]
+    void OnAttendeeDisconnected([in] IDispatch *pDisconnectInfo);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_UPDATE)]
+    void OnAttendeeUpdate([in] IDispatch *pAttendee);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIEWER_CONNECTED)]
+    void OnConnectionEstablished(void);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIEWER_CONNECTFAILED)]
+    void OnConnectionFailed(void);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIEWER_DISCONNECTED)]
+    void OnConnectionTerminated([in] long discReason, [in] long ExtendedInfo);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIEWER_AUTHENTICATED)]
+    void OnConnectionAuthenticated(void);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_ERROR)]
+    void OnError([in] VARIANT ErrorInfo);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_APPLICATION_OPEN)]
+    void OnApplicationOpen([in] IDispatch *pApplication);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_APPLICATION_CLOSE)]
+    void OnApplicationClose([in] IDispatch *pApplication);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_APPLICATION_UPDATE)]
+    void OnApplicationUpdate([in] IDispatch *pApplication);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_WINDOW_OPEN)]
+    void OnWindowOpen([in] IDispatch *pWindow);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_WINDOW_CLOSE)]
+    void OnWindowClose([in] IDispatch *pWindow);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_WINDOW_UPDATE)]
+    void OnWindowUpdate([in] IDispatch *pWindow);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_CTRLLEVEL_CHANGE_REQUEST)]
+    void OnControlLevelChangeRequest([in] IDispatch *pAttendee, [in] CTRL_LEVEL RequestedLevel);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_GRAPHICS_STREAM_PAUSED)]
+    void OnGraphicsStreamPaused(void);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_GRAPHICS_STREAM_RESUMED)]
+    void OnGraphicsStreamResumed(void);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_DATARECEIVED)]
+    void OnChannelDataReceived([in] IUnknown *pChannel, [in] long lAttendeeId, [in] BSTR bstrData);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_SENDCOMPLETED)]
+    void OnChannelDataSent([in] IUnknown *pChannel, [in] long lAttendeeId, [in] long BytesSent);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_SHARED_RECT_CHANGED)]
+    void OnSharedRectChanged([in] long left, [in] long top, [in] long right, [in] long bottom);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_FOCUSRELEASED)]
+    void OnFocusReleased([in] int iDirection);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_SHARED_DESKTOP_SETTINGS_CHANGED)]
+    void OnSharedDesktopSettingsChanged([in] long width, [in] long height, [in] long colordepth);
+
+    [id(DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED)]
+    void OnViewingSizeChanged([in] long left, [in] long top, [in] long right, [in] long bottom);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_CTRLLEVEL_CHANGE_RESPONSE)]
+    void OnControlLevelChangeResponse([in] IDispatch *pAttendee, [in] CTRL_LEVEL RequestedLevel, [in] long ReasonCode);
+
+    [id(DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_JOIN)]
+    void OnChannelBound([in] IUnknown *pChannel, [in] long lAttendeeId);
+
+  };
+
+  [hidden]
+  typedef struct __ReferenceRemainingTypes__
+  {
+    CTRL_LEVEL __ctrlLevel__;
+    ATTENDEE_DISCONNECT_REASON __attendeeDisconnectReason__;
+    CHANNEL_PRIORITY __channelPriority__;
+    CHANNEL_FLAGS __channelFlags__;
+    CHANNEL_ACCESS_ENUM __channelAccessEnum__; 
+    RDPENCOMAPI_ATTENDEE_FLAGS __rdpencomapiAttendeeFlags__;
+    RDPSRAPI_WND_FLAGS __rdpsrapiWndFlags__; 
+    RDPSRAPI_APP_FLAGS __rdpsrapiAppFlags__;
+  } __ReferenceRemainingTypes__;
+
+  interface IRDPViewerRenderingSurface;
+  interface IRDPViewerInputSink;
+  interface IRDPSRAPIAudioStream;
+  interface IRDPSRAPIPerfCounterLoggingManager;
+
+ [uuid(32be5ed2-5c86-480f-a914-0ff8885a1b3f)]
+  coclass RDPViewer
+  {
+    [default] interface IRDPSRAPIViewer;
+    [default, source] dispinterface _IRDPSessionEvents;
+  };
+
+  [uuid(dd7594ff-ea2a-4c06-8fdf-132de48b6510), noncreatable]
+  coclass RDPSRAPISessionProperties
+  {
+    [default] interface IRDPSRAPISessionProperties;
+  };
+
+  [uuid(53d9c9db-75ab-4271-948a-4c4eb36a8f2b), noncreatable]
+  coclass RDPSRAPIInvitationManager
+  {
+    [default] interface IRDPSRAPIInvitationManager;
+  };
+
+  [uuid(49174dc6-0731-4b5e-8ee1-83a63d3868fa), noncreatable]
+  coclass RDPSRAPIInvitation
+  {
+    [default] interface IRDPSRAPIInvitation;
+  };
+
+  [uuid(d7b13a01-f7d4-42a6-8595-12fc8c24e851), noncreatable]
+  coclass RDPSRAPIAttendeeManager
+  {
+    [default] interface IRDPSRAPIAttendeeManager;
+  };
+
+  [uuid(74f93bb5-755f-488e-8a29-2390108aef55), noncreatable]
+  coclass RDPSRAPIAttendee
+  {
+    [default] interface IRDPSRAPIAttendee;
+  };
+
+  [uuid(b47d7250-5bdb-405d-b487-caad9c56f4f8), noncreatable]
+  coclass RDPSRAPIAttendeeDisconnectInfo
+  {
+    [default] interface IRDPSRAPIAttendeeDisconnectInfo;
+  };
+
+  [uuid(e35ace89-c7e8-427e-a4f9-b9da072826bd), noncreatable]
+  coclass RDPSRAPIApplicationFilter
+  {
+    [default] interface IRDPSRAPIApplicationFilter;
+  };
+
+  [uuid(9e31c815-7433-4876-97fb-ed59fe2baa22), noncreatable]
+  coclass RDPSRAPIApplicationList
+  {
+    [default] interface IRDPSRAPIApplicationList;
+  };
+
+  [uuid(c116a484-4b25-4b9f-8a54-b934b06e57fa), noncreatable]
+  coclass RDPSRAPIApplication
+  {
+    [default] interface IRDPSRAPIApplication;
+  };
+
+  [uuid(9c21e2b8-5dd4-42cc-81ba-1c099852e6fa), noncreatable]
+  coclass RDPSRAPIWindowList
+  {
+    [default] interface IRDPSRAPIWindowList;
+  };
+
+  [uuid(03cf46db-ce45-4d36-86ed-ed28b74398bf), noncreatable]
+  coclass RDPSRAPIWindow
+  {
+    [default] interface IRDPSRAPIWindow;
+  };
+
+  [uuid(be49db3f-ebb6-4278-8ce0-d5455833eaee), noncreatable]
+  coclass RDPSRAPITcpConnectionInfo
+  {
+    [default] interface IRDPSRAPITcpConnectionInfo;
+  };
+
+  [uuid(9b78f0e6-3e05-4a5b-b2e8-e743a8956b65)]
+  coclass RDPSession
+  {
+    interface IRDPSRAPISharingSession;
+    [default] interface IRDPSRAPISharingSession2;
+    [default, source] dispinterface _IRDPSessionEvents;
+  };
+
+  [uuid(a4f66bcc-538e-4101-951d-30847adb5101), noncreatable]
+  coclass RDPSRAPIFrameBuffer
+  {
+    [default] interface IRDPSRAPIFrameBuffer;
+  };
+
+  [uuid(8d4a1c69-f17f-4549-a699-761c6e6b5c0a), noncreatable]
+  coclass RDPTransportStreamBuffer
+  {
+    [default] interface IRDPSRAPITransportStreamBuffer;
+  };
+
+  [uuid(31e3ab20-5350-483f-9dc6-6748665efdeb), noncreatable]
+  coclass RDPTransportStreamEvents
+  {
+    [default] interface IRDPSRAPITransportStreamEvents;
+  };
+}
+
 cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
