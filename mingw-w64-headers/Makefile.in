@@ -490,6 +490,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/portabledevicetypes.idl \
 @HAVE_WIDL_TRUE@  include/propidl.idl \
 @HAVE_WIDL_TRUE@  include/propsys.idl \
+@HAVE_WIDL_TRUE@  include/rdpencomapi.idl \
 @HAVE_WIDL_TRUE@  include/regbag.idl \
 @HAVE_WIDL_TRUE@  include/sapi51.idl \
 @HAVE_WIDL_TRUE@  include/sapi53.idl \
