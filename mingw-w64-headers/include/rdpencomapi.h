@@ -210,6 +210,199 @@ interface IRDPSRAPITransportStreamBuffer;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IRDPSRAPITransportStreamEvents_FWD_DEFINED__
+#define __IRDPSRAPITransportStreamEvents_FWD_DEFINED__
+typedef interface IRDPSRAPITransportStreamEvents IRDPSRAPITransportStreamEvents;
+#ifdef __cplusplus
+interface IRDPSRAPITransportStreamEvents;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPSRAPITransportStream_FWD_DEFINED__
+#define __IRDPSRAPITransportStream_FWD_DEFINED__
+typedef interface IRDPSRAPITransportStream IRDPSRAPITransportStream;
+#ifdef __cplusplus
+interface IRDPSRAPITransportStream;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPSRAPISharingSession_FWD_DEFINED__
+#define __IRDPSRAPISharingSession_FWD_DEFINED__
+typedef interface IRDPSRAPISharingSession IRDPSRAPISharingSession;
+#ifdef __cplusplus
+interface IRDPSRAPISharingSession;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPSRAPISharingSession2_FWD_DEFINED__
+#define __IRDPSRAPISharingSession2_FWD_DEFINED__
+typedef interface IRDPSRAPISharingSession2 IRDPSRAPISharingSession2;
+#ifdef __cplusplus
+interface IRDPSRAPISharingSession2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef ___IRDPSessionEvents_FWD_DEFINED__
+#define ___IRDPSessionEvents_FWD_DEFINED__
+typedef interface _IRDPSessionEvents _IRDPSessionEvents;
+#ifdef __cplusplus
+interface _IRDPSessionEvents;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __RDPViewer_FWD_DEFINED__
+#define __RDPViewer_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPViewer RDPViewer;
+#else
+typedef struct RDPViewer RDPViewer;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPViewer_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPISessionProperties_FWD_DEFINED__
+#define __RDPSRAPISessionProperties_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPISessionProperties RDPSRAPISessionProperties;
+#else
+typedef struct RDPSRAPISessionProperties RDPSRAPISessionProperties;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPISessionProperties_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIInvitationManager_FWD_DEFINED__
+#define __RDPSRAPIInvitationManager_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIInvitationManager RDPSRAPIInvitationManager;
+#else
+typedef struct RDPSRAPIInvitationManager RDPSRAPIInvitationManager;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIInvitationManager_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIInvitation_FWD_DEFINED__
+#define __RDPSRAPIInvitation_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIInvitation RDPSRAPIInvitation;
+#else
+typedef struct RDPSRAPIInvitation RDPSRAPIInvitation;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIInvitation_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIAttendeeManager_FWD_DEFINED__
+#define __RDPSRAPIAttendeeManager_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIAttendeeManager RDPSRAPIAttendeeManager;
+#else
+typedef struct RDPSRAPIAttendeeManager RDPSRAPIAttendeeManager;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIAttendeeManager_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIAttendee_FWD_DEFINED__
+#define __RDPSRAPIAttendee_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIAttendee RDPSRAPIAttendee;
+#else
+typedef struct RDPSRAPIAttendee RDPSRAPIAttendee;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIAttendee_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIAttendeeDisconnectInfo_FWD_DEFINED__
+#define __RDPSRAPIAttendeeDisconnectInfo_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIAttendeeDisconnectInfo RDPSRAPIAttendeeDisconnectInfo;
+#else
+typedef struct RDPSRAPIAttendeeDisconnectInfo RDPSRAPIAttendeeDisconnectInfo;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIAttendeeDisconnectInfo_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIApplicationFilter_FWD_DEFINED__
+#define __RDPSRAPIApplicationFilter_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIApplicationFilter RDPSRAPIApplicationFilter;
+#else
+typedef struct RDPSRAPIApplicationFilter RDPSRAPIApplicationFilter;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIApplicationFilter_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIApplicationList_FWD_DEFINED__
+#define __RDPSRAPIApplicationList_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIApplicationList RDPSRAPIApplicationList;
+#else
+typedef struct RDPSRAPIApplicationList RDPSRAPIApplicationList;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIApplicationList_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIApplication_FWD_DEFINED__
+#define __RDPSRAPIApplication_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIApplication RDPSRAPIApplication;
+#else
+typedef struct RDPSRAPIApplication RDPSRAPIApplication;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIApplication_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIWindowList_FWD_DEFINED__
+#define __RDPSRAPIWindowList_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIWindowList RDPSRAPIWindowList;
+#else
+typedef struct RDPSRAPIWindowList RDPSRAPIWindowList;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIWindowList_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIWindow_FWD_DEFINED__
+#define __RDPSRAPIWindow_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIWindow RDPSRAPIWindow;
+#else
+typedef struct RDPSRAPIWindow RDPSRAPIWindow;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIWindow_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPITcpConnectionInfo_FWD_DEFINED__
+#define __RDPSRAPITcpConnectionInfo_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPITcpConnectionInfo RDPSRAPITcpConnectionInfo;
+#else
+typedef struct RDPSRAPITcpConnectionInfo RDPSRAPITcpConnectionInfo;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPITcpConnectionInfo_FWD_DEFINED__ */
+
+#ifndef __RDPSession_FWD_DEFINED__
+#define __RDPSession_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSession RDPSession;
+#else
+typedef struct RDPSession RDPSession;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSession_FWD_DEFINED__ */
+
+#ifndef __RDPSRAPIFrameBuffer_FWD_DEFINED__
+#define __RDPSRAPIFrameBuffer_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPSRAPIFrameBuffer RDPSRAPIFrameBuffer;
+#else
+typedef struct RDPSRAPIFrameBuffer RDPSRAPIFrameBuffer;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPSRAPIFrameBuffer_FWD_DEFINED__ */
+
+#ifndef __RDPTransportStreamBuffer_FWD_DEFINED__
+#define __RDPTransportStreamBuffer_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPTransportStreamBuffer RDPTransportStreamBuffer;
+#else
+typedef struct RDPTransportStreamBuffer RDPTransportStreamBuffer;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPTransportStreamBuffer_FWD_DEFINED__ */
+
+#ifndef __RDPTransportStreamEvents_FWD_DEFINED__
+#define __RDPTransportStreamEvents_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class RDPTransportStreamEvents RDPTransportStreamEvents;
+#else
+typedef struct RDPTransportStreamEvents RDPTransportStreamEvents;
+#endif /* defined __cplusplus */
+#endif /* defined __RDPTransportStreamEvents_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -4143,6 +4336,1174 @@ static FORCEINLINE HRESULT IRDPSRAPITransportStreamBuffer_put_Context(IRDPSRAPIT
 
 #endif  /* __IRDPSRAPITransportStreamBuffer_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IRDPSRAPITransportStreamEvents interface
+ */
+#ifndef __IRDPSRAPITransportStreamEvents_INTERFACE_DEFINED__
+#define __IRDPSRAPITransportStreamEvents_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IRDPSRAPITransportStreamEvents, 0xea81c254, 0xf5af, 0x4e40, 0x98,0x2e, 0x3e,0x63,0xbb,0x59,0x52,0x76);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea81c254-f5af-4e40-982e-3e63bb595276")
+IRDPSRAPITransportStreamEvents : public IUnknown
+{
+    virtual void STDMETHODCALLTYPE OnWriteCompleted(
+        IRDPSRAPITransportStreamBuffer *pBuffer) = 0;
+
+    virtual void STDMETHODCALLTYPE OnReadCompleted(
+        IRDPSRAPITransportStreamBuffer *pBuffer) = 0;
+
+    virtual void STDMETHODCALLTYPE OnStreamClosed(
+        HRESULT hrReason) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRDPSRAPITransportStreamEvents, 0xea81c254, 0xf5af, 0x4e40, 0x98,0x2e, 0x3e,0x63,0xbb,0x59,0x52,0x76)
+#endif
+#else
+typedef struct IRDPSRAPITransportStreamEventsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRDPSRAPITransportStreamEvents *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRDPSRAPITransportStreamEvents *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRDPSRAPITransportStreamEvents *This);
+
+    /*** IRDPSRAPITransportStreamEvents methods ***/
+    void (STDMETHODCALLTYPE *OnWriteCompleted)(
+        IRDPSRAPITransportStreamEvents *This,
+        IRDPSRAPITransportStreamBuffer *pBuffer);
+
+    void (STDMETHODCALLTYPE *OnReadCompleted)(
+        IRDPSRAPITransportStreamEvents *This,
+        IRDPSRAPITransportStreamBuffer *pBuffer);
+
+    void (STDMETHODCALLTYPE *OnStreamClosed)(
+        IRDPSRAPITransportStreamEvents *This,
+        HRESULT hrReason);
+
+    END_INTERFACE
+} IRDPSRAPITransportStreamEventsVtbl;
+
+interface IRDPSRAPITransportStreamEvents {
+    CONST_VTBL IRDPSRAPITransportStreamEventsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IRDPSRAPITransportStreamEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPITransportStreamEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPITransportStreamEvents_Release(This) (This)->lpVtbl->Release(This)
+/*** IRDPSRAPITransportStreamEvents methods ***/
+#define IRDPSRAPITransportStreamEvents_OnWriteCompleted(This,pBuffer) (This)->lpVtbl->OnWriteCompleted(This,pBuffer)
+#define IRDPSRAPITransportStreamEvents_OnReadCompleted(This,pBuffer) (This)->lpVtbl->OnReadCompleted(This,pBuffer)
+#define IRDPSRAPITransportStreamEvents_OnStreamClosed(This,hrReason) (This)->lpVtbl->OnStreamClosed(This,hrReason)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IRDPSRAPITransportStreamEvents_QueryInterface(IRDPSRAPITransportStreamEvents* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IRDPSRAPITransportStreamEvents_AddRef(IRDPSRAPITransportStreamEvents* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IRDPSRAPITransportStreamEvents_Release(IRDPSRAPITransportStreamEvents* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IRDPSRAPITransportStreamEvents methods ***/
+static FORCEINLINE void IRDPSRAPITransportStreamEvents_OnWriteCompleted(IRDPSRAPITransportStreamEvents* This,IRDPSRAPITransportStreamBuffer *pBuffer) {
+    This->lpVtbl->OnWriteCompleted(This,pBuffer);
+}
+static FORCEINLINE void IRDPSRAPITransportStreamEvents_OnReadCompleted(IRDPSRAPITransportStreamEvents* This,IRDPSRAPITransportStreamBuffer *pBuffer) {
+    This->lpVtbl->OnReadCompleted(This,pBuffer);
+}
+static FORCEINLINE void IRDPSRAPITransportStreamEvents_OnStreamClosed(IRDPSRAPITransportStreamEvents* This,HRESULT hrReason) {
+    This->lpVtbl->OnStreamClosed(This,hrReason);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IRDPSRAPITransportStreamEvents_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IRDPSRAPITransportStream interface
+ */
+#ifndef __IRDPSRAPITransportStream_INTERFACE_DEFINED__
+#define __IRDPSRAPITransportStream_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IRDPSRAPITransportStream, 0x36cfa065, 0x43bb, 0x4ef7, 0xae,0xd7, 0x9b,0x88,0xa5,0x05,0x30,0x36);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("36cfa065-43bb-4ef7-aed7-9b88a5053036")
+IRDPSRAPITransportStream : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AllocBuffer(
+        LONG maxPayload,
+        IRDPSRAPITransportStreamBuffer **ppBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FreeBuffer(
+        IRDPSRAPITransportStreamBuffer *pBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteBuffer(
+        IRDPSRAPITransportStreamBuffer *pBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReadBuffer(
+        IRDPSRAPITransportStreamBuffer *pBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Open(
+        IRDPSRAPITransportStreamEvents *pCallbacks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Close(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRDPSRAPITransportStream, 0x36cfa065, 0x43bb, 0x4ef7, 0xae,0xd7, 0x9b,0x88,0xa5,0x05,0x30,0x36)
+#endif
+#else
+typedef struct IRDPSRAPITransportStreamVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRDPSRAPITransportStream *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRDPSRAPITransportStream *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRDPSRAPITransportStream *This);
+
+    /*** IRDPSRAPITransportStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *AllocBuffer)(
+        IRDPSRAPITransportStream *This,
+        LONG maxPayload,
+        IRDPSRAPITransportStreamBuffer **ppBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *FreeBuffer)(
+        IRDPSRAPITransportStream *This,
+        IRDPSRAPITransportStreamBuffer *pBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *WriteBuffer)(
+        IRDPSRAPITransportStream *This,
+        IRDPSRAPITransportStreamBuffer *pBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *ReadBuffer)(
+        IRDPSRAPITransportStream *This,
+        IRDPSRAPITransportStreamBuffer *pBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *Open)(
+        IRDPSRAPITransportStream *This,
+        IRDPSRAPITransportStreamEvents *pCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IRDPSRAPITransportStream *This);
+
+    END_INTERFACE
+} IRDPSRAPITransportStreamVtbl;
+
+interface IRDPSRAPITransportStream {
+    CONST_VTBL IRDPSRAPITransportStreamVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IRDPSRAPITransportStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPITransportStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPITransportStream_Release(This) (This)->lpVtbl->Release(This)
+/*** IRDPSRAPITransportStream methods ***/
+#define IRDPSRAPITransportStream_AllocBuffer(This,maxPayload,ppBuffer) (This)->lpVtbl->AllocBuffer(This,maxPayload,ppBuffer)
+#define IRDPSRAPITransportStream_FreeBuffer(This,pBuffer) (This)->lpVtbl->FreeBuffer(This,pBuffer)
+#define IRDPSRAPITransportStream_WriteBuffer(This,pBuffer) (This)->lpVtbl->WriteBuffer(This,pBuffer)
+#define IRDPSRAPITransportStream_ReadBuffer(This,pBuffer) (This)->lpVtbl->ReadBuffer(This,pBuffer)
+#define IRDPSRAPITransportStream_Open(This,pCallbacks) (This)->lpVtbl->Open(This,pCallbacks)
+#define IRDPSRAPITransportStream_Close(This) (This)->lpVtbl->Close(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_QueryInterface(IRDPSRAPITransportStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IRDPSRAPITransportStream_AddRef(IRDPSRAPITransportStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IRDPSRAPITransportStream_Release(IRDPSRAPITransportStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IRDPSRAPITransportStream methods ***/
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_AllocBuffer(IRDPSRAPITransportStream* This,LONG maxPayload,IRDPSRAPITransportStreamBuffer **ppBuffer) {
+    return This->lpVtbl->AllocBuffer(This,maxPayload,ppBuffer);
+}
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_FreeBuffer(IRDPSRAPITransportStream* This,IRDPSRAPITransportStreamBuffer *pBuffer) {
+    return This->lpVtbl->FreeBuffer(This,pBuffer);
+}
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_WriteBuffer(IRDPSRAPITransportStream* This,IRDPSRAPITransportStreamBuffer *pBuffer) {
+    return This->lpVtbl->WriteBuffer(This,pBuffer);
+}
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_ReadBuffer(IRDPSRAPITransportStream* This,IRDPSRAPITransportStreamBuffer *pBuffer) {
+    return This->lpVtbl->ReadBuffer(This,pBuffer);
+}
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_Open(IRDPSRAPITransportStream* This,IRDPSRAPITransportStreamEvents *pCallbacks) {
+    return This->lpVtbl->Open(This,pCallbacks);
+}
+static FORCEINLINE HRESULT IRDPSRAPITransportStream_Close(IRDPSRAPITransportStream* This) {
+    return This->lpVtbl->Close(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IRDPSRAPITransportStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IRDPSRAPISharingSession interface
+ */
+#ifndef __IRDPSRAPISharingSession_INTERFACE_DEFINED__
+#define __IRDPSRAPISharingSession_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IRDPSRAPISharingSession, 0xeeb20886, 0xe470, 0x4cf6, 0x84,0x2b, 0x27,0x39,0xc0,0xec,0x5c,0xfb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("eeb20886-e470-4cf6-842b-2739c0ec5cfb")
+IRDPSRAPISharingSession : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE Open(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Close(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ColorDepth(
+        LONG colorDepth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ColorDepth(
+        LONG *pColorDepth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Properties(
+        IRDPSRAPISessionProperties **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Attendees(
+        IRDPSRAPIAttendeeManager **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Invitations(
+        IRDPSRAPIInvitationManager **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ApplicationFilter(
+        IRDPSRAPIApplicationFilter **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_VirtualChannelManager(
+        IRDPSRAPIVirtualChannelManager **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Pause(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Resume(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConnectToClient(
+        BSTR bstrConnectionString) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDesktopSharedRect(
+        LONG left,
+        LONG top,
+        LONG right,
+        LONG bottom) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDesktopSharedRect(
+        LONG *pleft,
+        LONG *ptop,
+        LONG *pright,
+        LONG *pbottom) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRDPSRAPISharingSession, 0xeeb20886, 0xe470, 0x4cf6, 0x84,0x2b, 0x27,0x39,0xc0,0xec,0x5c,0xfb)
+#endif
+#else
+typedef struct IRDPSRAPISharingSessionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRDPSRAPISharingSession *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRDPSRAPISharingSession *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRDPSRAPISharingSession *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IRDPSRAPISharingSession *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IRDPSRAPISharingSession *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IRDPSRAPISharingSession *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IRDPSRAPISharingSession *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** IRDPSRAPISharingSession methods ***/
+    HRESULT (STDMETHODCALLTYPE *Open)(
+        IRDPSRAPISharingSession *This);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IRDPSRAPISharingSession *This);
+
+    HRESULT (STDMETHODCALLTYPE *put_ColorDepth)(
+        IRDPSRAPISharingSession *This,
+        LONG colorDepth);
+
+    HRESULT (STDMETHODCALLTYPE *get_ColorDepth)(
+        IRDPSRAPISharingSession *This,
+        LONG *pColorDepth);
+
+    HRESULT (STDMETHODCALLTYPE *get_Properties)(
+        IRDPSRAPISharingSession *This,
+        IRDPSRAPISessionProperties **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_Attendees)(
+        IRDPSRAPISharingSession *This,
+        IRDPSRAPIAttendeeManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_Invitations)(
+        IRDPSRAPISharingSession *This,
+        IRDPSRAPIInvitationManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_ApplicationFilter)(
+        IRDPSRAPISharingSession *This,
+        IRDPSRAPIApplicationFilter **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_VirtualChannelManager)(
+        IRDPSRAPISharingSession *This,
+        IRDPSRAPIVirtualChannelManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IRDPSRAPISharingSession *This);
+
+    HRESULT (STDMETHODCALLTYPE *Resume)(
+        IRDPSRAPISharingSession *This);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectToClient)(
+        IRDPSRAPISharingSession *This,
+        BSTR bstrConnectionString);
+
+    HRESULT (STDMETHODCALLTYPE *SetDesktopSharedRect)(
+        IRDPSRAPISharingSession *This,
+        LONG left,
+        LONG top,
+        LONG right,
+        LONG bottom);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesktopSharedRect)(
+        IRDPSRAPISharingSession *This,
+        LONG *pleft,
+        LONG *ptop,
+        LONG *pright,
+        LONG *pbottom);
+
+    END_INTERFACE
+} IRDPSRAPISharingSessionVtbl;
+
+interface IRDPSRAPISharingSession {
+    CONST_VTBL IRDPSRAPISharingSessionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IRDPSRAPISharingSession_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPISharingSession_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPISharingSession_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IRDPSRAPISharingSession_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IRDPSRAPISharingSession_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IRDPSRAPISharingSession_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IRDPSRAPISharingSession_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** IRDPSRAPISharingSession methods ***/
+#define IRDPSRAPISharingSession_Open(This) (This)->lpVtbl->Open(This)
+#define IRDPSRAPISharingSession_Close(This) (This)->lpVtbl->Close(This)
+#define IRDPSRAPISharingSession_put_ColorDepth(This,colorDepth) (This)->lpVtbl->put_ColorDepth(This,colorDepth)
+#define IRDPSRAPISharingSession_get_ColorDepth(This,pColorDepth) (This)->lpVtbl->get_ColorDepth(This,pColorDepth)
+#define IRDPSRAPISharingSession_get_Properties(This,ppVal) (This)->lpVtbl->get_Properties(This,ppVal)
+#define IRDPSRAPISharingSession_get_Attendees(This,ppVal) (This)->lpVtbl->get_Attendees(This,ppVal)
+#define IRDPSRAPISharingSession_get_Invitations(This,ppVal) (This)->lpVtbl->get_Invitations(This,ppVal)
+#define IRDPSRAPISharingSession_get_ApplicationFilter(This,ppVal) (This)->lpVtbl->get_ApplicationFilter(This,ppVal)
+#define IRDPSRAPISharingSession_get_VirtualChannelManager(This,ppVal) (This)->lpVtbl->get_VirtualChannelManager(This,ppVal)
+#define IRDPSRAPISharingSession_Pause(This) (This)->lpVtbl->Pause(This)
+#define IRDPSRAPISharingSession_Resume(This) (This)->lpVtbl->Resume(This)
+#define IRDPSRAPISharingSession_ConnectToClient(This,bstrConnectionString) (This)->lpVtbl->ConnectToClient(This,bstrConnectionString)
+#define IRDPSRAPISharingSession_SetDesktopSharedRect(This,left,top,right,bottom) (This)->lpVtbl->SetDesktopSharedRect(This,left,top,right,bottom)
+#define IRDPSRAPISharingSession_GetDesktopSharedRect(This,pleft,ptop,pright,pbottom) (This)->lpVtbl->GetDesktopSharedRect(This,pleft,ptop,pright,pbottom)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_QueryInterface(IRDPSRAPISharingSession* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IRDPSRAPISharingSession_AddRef(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IRDPSRAPISharingSession_Release(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_GetTypeInfoCount(IRDPSRAPISharingSession* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_GetTypeInfo(IRDPSRAPISharingSession* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_GetIDsOfNames(IRDPSRAPISharingSession* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_Invoke(IRDPSRAPISharingSession* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IRDPSRAPISharingSession methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_Open(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->Open(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_Close(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->Close(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_put_ColorDepth(IRDPSRAPISharingSession* This,LONG colorDepth) {
+    return This->lpVtbl->put_ColorDepth(This,colorDepth);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_ColorDepth(IRDPSRAPISharingSession* This,LONG *pColorDepth) {
+    return This->lpVtbl->get_ColorDepth(This,pColorDepth);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_Properties(IRDPSRAPISharingSession* This,IRDPSRAPISessionProperties **ppVal) {
+    return This->lpVtbl->get_Properties(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_Attendees(IRDPSRAPISharingSession* This,IRDPSRAPIAttendeeManager **ppVal) {
+    return This->lpVtbl->get_Attendees(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_Invitations(IRDPSRAPISharingSession* This,IRDPSRAPIInvitationManager **ppVal) {
+    return This->lpVtbl->get_Invitations(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_ApplicationFilter(IRDPSRAPISharingSession* This,IRDPSRAPIApplicationFilter **ppVal) {
+    return This->lpVtbl->get_ApplicationFilter(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_get_VirtualChannelManager(IRDPSRAPISharingSession* This,IRDPSRAPIVirtualChannelManager **ppVal) {
+    return This->lpVtbl->get_VirtualChannelManager(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_Pause(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->Pause(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_Resume(IRDPSRAPISharingSession* This) {
+    return This->lpVtbl->Resume(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_ConnectToClient(IRDPSRAPISharingSession* This,BSTR bstrConnectionString) {
+    return This->lpVtbl->ConnectToClient(This,bstrConnectionString);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_SetDesktopSharedRect(IRDPSRAPISharingSession* This,LONG left,LONG top,LONG right,LONG bottom) {
+    return This->lpVtbl->SetDesktopSharedRect(This,left,top,right,bottom);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession_GetDesktopSharedRect(IRDPSRAPISharingSession* This,LONG *pleft,LONG *ptop,LONG *pright,LONG *pbottom) {
+    return This->lpVtbl->GetDesktopSharedRect(This,pleft,ptop,pright,pbottom);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IRDPSRAPISharingSession_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IRDPSRAPISharingSession2 interface
+ */
+#ifndef __IRDPSRAPISharingSession2_INTERFACE_DEFINED__
+#define __IRDPSRAPISharingSession2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IRDPSRAPISharingSession2, 0xfee4ee57, 0xe3e8, 0x4205, 0x8f,0xb0, 0x8f,0xd1,0xd0,0x67,0x5c,0x21);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fee4ee57-e3e8-4205-8fb0-8fd1d0675c21")
+IRDPSRAPISharingSession2 : public IRDPSRAPISharingSession
+{
+    virtual HRESULT STDMETHODCALLTYPE ConnectUsingTransportStream(
+        IRDPSRAPITransportStream *pStream,
+        BSTR bstrGroup,
+        BSTR bstrAuthenticatedAttendeeName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_FrameBuffer(
+        IRDPSRAPIFrameBuffer **ppVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SendControlLevelChangeResponse(
+        IRDPSRAPIAttendee *pAttendee,
+        CTRL_LEVEL RequestedLevel,
+        LONG ReasonCode) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRDPSRAPISharingSession2, 0xfee4ee57, 0xe3e8, 0x4205, 0x8f,0xb0, 0x8f,0xd1,0xd0,0x67,0x5c,0x21)
+#endif
+#else
+typedef struct IRDPSRAPISharingSession2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRDPSRAPISharingSession2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRDPSRAPISharingSession2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRDPSRAPISharingSession2 *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IRDPSRAPISharingSession2 *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IRDPSRAPISharingSession2 *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IRDPSRAPISharingSession2 *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IRDPSRAPISharingSession2 *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** IRDPSRAPISharingSession methods ***/
+    HRESULT (STDMETHODCALLTYPE *Open)(
+        IRDPSRAPISharingSession2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IRDPSRAPISharingSession2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *put_ColorDepth)(
+        IRDPSRAPISharingSession2 *This,
+        LONG colorDepth);
+
+    HRESULT (STDMETHODCALLTYPE *get_ColorDepth)(
+        IRDPSRAPISharingSession2 *This,
+        LONG *pColorDepth);
+
+    HRESULT (STDMETHODCALLTYPE *get_Properties)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPISessionProperties **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_Attendees)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIAttendeeManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_Invitations)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIInvitationManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_ApplicationFilter)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIApplicationFilter **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_VirtualChannelManager)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIVirtualChannelManager **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IRDPSRAPISharingSession2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *Resume)(
+        IRDPSRAPISharingSession2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectToClient)(
+        IRDPSRAPISharingSession2 *This,
+        BSTR bstrConnectionString);
+
+    HRESULT (STDMETHODCALLTYPE *SetDesktopSharedRect)(
+        IRDPSRAPISharingSession2 *This,
+        LONG left,
+        LONG top,
+        LONG right,
+        LONG bottom);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesktopSharedRect)(
+        IRDPSRAPISharingSession2 *This,
+        LONG *pleft,
+        LONG *ptop,
+        LONG *pright,
+        LONG *pbottom);
+
+    /*** IRDPSRAPISharingSession2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ConnectUsingTransportStream)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPITransportStream *pStream,
+        BSTR bstrGroup,
+        BSTR bstrAuthenticatedAttendeeName);
+
+    HRESULT (STDMETHODCALLTYPE *get_FrameBuffer)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIFrameBuffer **ppVal);
+
+    HRESULT (STDMETHODCALLTYPE *SendControlLevelChangeResponse)(
+        IRDPSRAPISharingSession2 *This,
+        IRDPSRAPIAttendee *pAttendee,
+        CTRL_LEVEL RequestedLevel,
+        LONG ReasonCode);
+
+    END_INTERFACE
+} IRDPSRAPISharingSession2Vtbl;
+
+interface IRDPSRAPISharingSession2 {
+    CONST_VTBL IRDPSRAPISharingSession2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IRDPSRAPISharingSession2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPISharingSession2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPISharingSession2_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IRDPSRAPISharingSession2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IRDPSRAPISharingSession2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IRDPSRAPISharingSession2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IRDPSRAPISharingSession2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** IRDPSRAPISharingSession methods ***/
+#define IRDPSRAPISharingSession2_Open(This) (This)->lpVtbl->Open(This)
+#define IRDPSRAPISharingSession2_Close(This) (This)->lpVtbl->Close(This)
+#define IRDPSRAPISharingSession2_put_ColorDepth(This,colorDepth) (This)->lpVtbl->put_ColorDepth(This,colorDepth)
+#define IRDPSRAPISharingSession2_get_ColorDepth(This,pColorDepth) (This)->lpVtbl->get_ColorDepth(This,pColorDepth)
+#define IRDPSRAPISharingSession2_get_Properties(This,ppVal) (This)->lpVtbl->get_Properties(This,ppVal)
+#define IRDPSRAPISharingSession2_get_Attendees(This,ppVal) (This)->lpVtbl->get_Attendees(This,ppVal)
+#define IRDPSRAPISharingSession2_get_Invitations(This,ppVal) (This)->lpVtbl->get_Invitations(This,ppVal)
+#define IRDPSRAPISharingSession2_get_ApplicationFilter(This,ppVal) (This)->lpVtbl->get_ApplicationFilter(This,ppVal)
+#define IRDPSRAPISharingSession2_get_VirtualChannelManager(This,ppVal) (This)->lpVtbl->get_VirtualChannelManager(This,ppVal)
+#define IRDPSRAPISharingSession2_Pause(This) (This)->lpVtbl->Pause(This)
+#define IRDPSRAPISharingSession2_Resume(This) (This)->lpVtbl->Resume(This)
+#define IRDPSRAPISharingSession2_ConnectToClient(This,bstrConnectionString) (This)->lpVtbl->ConnectToClient(This,bstrConnectionString)
+#define IRDPSRAPISharingSession2_SetDesktopSharedRect(This,left,top,right,bottom) (This)->lpVtbl->SetDesktopSharedRect(This,left,top,right,bottom)
+#define IRDPSRAPISharingSession2_GetDesktopSharedRect(This,pleft,ptop,pright,pbottom) (This)->lpVtbl->GetDesktopSharedRect(This,pleft,ptop,pright,pbottom)
+/*** IRDPSRAPISharingSession2 methods ***/
+#define IRDPSRAPISharingSession2_ConnectUsingTransportStream(This,pStream,bstrGroup,bstrAuthenticatedAttendeeName) (This)->lpVtbl->ConnectUsingTransportStream(This,pStream,bstrGroup,bstrAuthenticatedAttendeeName)
+#define IRDPSRAPISharingSession2_get_FrameBuffer(This,ppVal) (This)->lpVtbl->get_FrameBuffer(This,ppVal)
+#define IRDPSRAPISharingSession2_SendControlLevelChangeResponse(This,pAttendee,RequestedLevel,ReasonCode) (This)->lpVtbl->SendControlLevelChangeResponse(This,pAttendee,RequestedLevel,ReasonCode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_QueryInterface(IRDPSRAPISharingSession2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IRDPSRAPISharingSession2_AddRef(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IRDPSRAPISharingSession2_Release(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_GetTypeInfoCount(IRDPSRAPISharingSession2* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_GetTypeInfo(IRDPSRAPISharingSession2* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_GetIDsOfNames(IRDPSRAPISharingSession2* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_Invoke(IRDPSRAPISharingSession2* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IRDPSRAPISharingSession methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_Open(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->Open(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_Close(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->Close(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_put_ColorDepth(IRDPSRAPISharingSession2* This,LONG colorDepth) {
+    return This->lpVtbl->put_ColorDepth(This,colorDepth);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_ColorDepth(IRDPSRAPISharingSession2* This,LONG *pColorDepth) {
+    return This->lpVtbl->get_ColorDepth(This,pColorDepth);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_Properties(IRDPSRAPISharingSession2* This,IRDPSRAPISessionProperties **ppVal) {
+    return This->lpVtbl->get_Properties(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_Attendees(IRDPSRAPISharingSession2* This,IRDPSRAPIAttendeeManager **ppVal) {
+    return This->lpVtbl->get_Attendees(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_Invitations(IRDPSRAPISharingSession2* This,IRDPSRAPIInvitationManager **ppVal) {
+    return This->lpVtbl->get_Invitations(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_ApplicationFilter(IRDPSRAPISharingSession2* This,IRDPSRAPIApplicationFilter **ppVal) {
+    return This->lpVtbl->get_ApplicationFilter(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_VirtualChannelManager(IRDPSRAPISharingSession2* This,IRDPSRAPIVirtualChannelManager **ppVal) {
+    return This->lpVtbl->get_VirtualChannelManager(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_Pause(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->Pause(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_Resume(IRDPSRAPISharingSession2* This) {
+    return This->lpVtbl->Resume(This);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_ConnectToClient(IRDPSRAPISharingSession2* This,BSTR bstrConnectionString) {
+    return This->lpVtbl->ConnectToClient(This,bstrConnectionString);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_SetDesktopSharedRect(IRDPSRAPISharingSession2* This,LONG left,LONG top,LONG right,LONG bottom) {
+    return This->lpVtbl->SetDesktopSharedRect(This,left,top,right,bottom);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_GetDesktopSharedRect(IRDPSRAPISharingSession2* This,LONG *pleft,LONG *ptop,LONG *pright,LONG *pbottom) {
+    return This->lpVtbl->GetDesktopSharedRect(This,pleft,ptop,pright,pbottom);
+}
+/*** IRDPSRAPISharingSession2 methods ***/
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_ConnectUsingTransportStream(IRDPSRAPISharingSession2* This,IRDPSRAPITransportStream *pStream,BSTR bstrGroup,BSTR bstrAuthenticatedAttendeeName) {
+    return This->lpVtbl->ConnectUsingTransportStream(This,pStream,bstrGroup,bstrAuthenticatedAttendeeName);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_get_FrameBuffer(IRDPSRAPISharingSession2* This,IRDPSRAPIFrameBuffer **ppVal) {
+    return This->lpVtbl->get_FrameBuffer(This,ppVal);
+}
+static FORCEINLINE HRESULT IRDPSRAPISharingSession2_SendControlLevelChangeResponse(IRDPSRAPISharingSession2* This,IRDPSRAPIAttendee *pAttendee,CTRL_LEVEL RequestedLevel,LONG ReasonCode) {
+    return This->lpVtbl->SendControlLevelChangeResponse(This,pAttendee,RequestedLevel,ReasonCode);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IRDPSRAPISharingSession2_INTERFACE_DEFINED__ */
+
+#ifndef __RDPCOMAPILib_LIBRARY_DEFINED__
+#define __RDPCOMAPILib_LIBRARY_DEFINED__
+
+DEFINE_GUID(LIBID_RDPCOMAPILib, 0xcc802d05, 0xae07, 0x4c15, 0xb4,0x96, 0xdb,0x9d,0x22,0xaa,0x0a,0x84);
+
+typedef enum __WIDL_rdpencomapi_generated_name_0000002B {
+    CONST_MAX_CHANNEL_MESSAGE_SIZE = 1024,
+    CONST_MAX_CHANNEL_NAME_LEN = 8,
+    CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE = 409600,
+    CONST_ATTENDEE_ID_EVERYONE = -1,
+    CONST_ATTENDEE_ID_HOST = 0,
+    CONST_CONN_INTERVAL = 50,
+    CONST_ATTENDEE_ID_DEFAULT = 0xffffffff
+} RDPENCOMAPI_CONSTANTS;
+/*****************************************************************************
+ * _IRDPSessionEvents dispinterface
+ */
+#ifndef ___IRDPSessionEvents_DISPINTERFACE_DEFINED__
+#define ___IRDPSessionEvents_DISPINTERFACE_DEFINED__
+
+DEFINE_GUID(DIID__IRDPSessionEvents, 0x98a97042, 0x6698, 0x40e9, 0x8e,0xfd, 0xb3,0x20,0x09,0x90,0x00,0x4b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("98a97042-6698-40e9-8efd-b3200990004b")
+_IRDPSessionEvents : public IDispatch
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(_IRDPSessionEvents, 0x98a97042, 0x6698, 0x40e9, 0x8e,0xfd, 0xb3,0x20,0x09,0x90,0x00,0x4b)
+#endif
+#else
+typedef struct _IRDPSessionEventsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        _IRDPSessionEvents *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        _IRDPSessionEvents *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        _IRDPSessionEvents *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        _IRDPSessionEvents *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        _IRDPSessionEvents *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        _IRDPSessionEvents *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        _IRDPSessionEvents *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    END_INTERFACE
+} _IRDPSessionEventsVtbl;
+
+interface _IRDPSessionEvents {
+    CONST_VTBL _IRDPSessionEventsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define _IRDPSessionEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define _IRDPSessionEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define _IRDPSessionEvents_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define _IRDPSessionEvents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define _IRDPSessionEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define _IRDPSessionEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define _IRDPSessionEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT _IRDPSessionEvents_QueryInterface(_IRDPSessionEvents* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG _IRDPSessionEvents_AddRef(_IRDPSessionEvents* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG _IRDPSessionEvents_Release(_IRDPSessionEvents* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT _IRDPSessionEvents_GetTypeInfoCount(_IRDPSessionEvents* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT _IRDPSessionEvents_GetTypeInfo(_IRDPSessionEvents* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT _IRDPSessionEvents_GetIDsOfNames(_IRDPSessionEvents* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT _IRDPSessionEvents_Invoke(_IRDPSessionEvents* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+#endif
+#endif
+
+#endif
+
+#endif  /* ___IRDPSessionEvents_DISPINTERFACE_DEFINED__ */
+
+typedef struct __ReferenceRemainingTypes__ {
+    CTRL_LEVEL __ctrlLevel__;
+    ATTENDEE_DISCONNECT_REASON __attendeeDisconnectReason__;
+    CHANNEL_PRIORITY __channelPriority__;
+    CHANNEL_FLAGS __channelFlags__;
+    CHANNEL_ACCESS_ENUM __channelAccessEnum__;
+    RDPENCOMAPI_ATTENDEE_FLAGS __rdpencomapiAttendeeFlags__;
+    RDPSRAPI_WND_FLAGS __rdpsrapiWndFlags__;
+    RDPSRAPI_APP_FLAGS __rdpsrapiAppFlags__;
+} __ReferenceRemainingTypes__;
+#ifndef __IRDPViewerRenderingSurface_FWD_DEFINED__
+#define __IRDPViewerRenderingSurface_FWD_DEFINED__
+typedef interface IRDPViewerRenderingSurface IRDPViewerRenderingSurface;
+#ifdef __cplusplus
+interface IRDPViewerRenderingSurface;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPViewerInputSink_FWD_DEFINED__
+#define __IRDPViewerInputSink_FWD_DEFINED__
+typedef interface IRDPViewerInputSink IRDPViewerInputSink;
+#ifdef __cplusplus
+interface IRDPViewerInputSink;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPSRAPIAudioStream_FWD_DEFINED__
+#define __IRDPSRAPIAudioStream_FWD_DEFINED__
+typedef interface IRDPSRAPIAudioStream IRDPSRAPIAudioStream;
+#ifdef __cplusplus
+interface IRDPSRAPIAudioStream;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRDPSRAPIPerfCounterLoggingManager_FWD_DEFINED__
+#define __IRDPSRAPIPerfCounterLoggingManager_FWD_DEFINED__
+typedef interface IRDPSRAPIPerfCounterLoggingManager IRDPSRAPIPerfCounterLoggingManager;
+#ifdef __cplusplus
+interface IRDPSRAPIPerfCounterLoggingManager;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * RDPViewer coclass
+ */
+
+DEFINE_GUID(CLSID_RDPViewer, 0x32be5ed2, 0x5c86, 0x480f, 0xa9,0x14, 0x0f,0xf8,0x88,0x5a,0x1b,0x3f);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("32be5ed2-5c86-480f-a914-0ff8885a1b3f") RDPViewer;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPViewer, 0x32be5ed2, 0x5c86, 0x480f, 0xa9,0x14, 0x0f,0xf8,0x88,0x5a,0x1b,0x3f)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPISessionProperties coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPISessionProperties, 0xdd7594ff, 0xea2a, 0x4c06, 0x8f,0xdf, 0x13,0x2d,0xe4,0x8b,0x65,0x10);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("dd7594ff-ea2a-4c06-8fdf-132de48b6510") RDPSRAPISessionProperties;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPISessionProperties, 0xdd7594ff, 0xea2a, 0x4c06, 0x8f,0xdf, 0x13,0x2d,0xe4,0x8b,0x65,0x10)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIInvitationManager coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIInvitationManager, 0x53d9c9db, 0x75ab, 0x4271, 0x94,0x8a, 0x4c,0x4e,0xb3,0x6a,0x8f,0x2b);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("53d9c9db-75ab-4271-948a-4c4eb36a8f2b") RDPSRAPIInvitationManager;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIInvitationManager, 0x53d9c9db, 0x75ab, 0x4271, 0x94,0x8a, 0x4c,0x4e,0xb3,0x6a,0x8f,0x2b)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIInvitation coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIInvitation, 0x49174dc6, 0x0731, 0x4b5e, 0x8e,0xe1, 0x83,0xa6,0x3d,0x38,0x68,0xfa);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("49174dc6-0731-4b5e-8ee1-83a63d3868fa") RDPSRAPIInvitation;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIInvitation, 0x49174dc6, 0x0731, 0x4b5e, 0x8e,0xe1, 0x83,0xa6,0x3d,0x38,0x68,0xfa)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIAttendeeManager coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIAttendeeManager, 0xd7b13a01, 0xf7d4, 0x42a6, 0x85,0x95, 0x12,0xfc,0x8c,0x24,0xe8,0x51);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("d7b13a01-f7d4-42a6-8595-12fc8c24e851") RDPSRAPIAttendeeManager;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIAttendeeManager, 0xd7b13a01, 0xf7d4, 0x42a6, 0x85,0x95, 0x12,0xfc,0x8c,0x24,0xe8,0x51)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIAttendee coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIAttendee, 0x74f93bb5, 0x755f, 0x488e, 0x8a,0x29, 0x23,0x90,0x10,0x8a,0xef,0x55);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("74f93bb5-755f-488e-8a29-2390108aef55") RDPSRAPIAttendee;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIAttendee, 0x74f93bb5, 0x755f, 0x488e, 0x8a,0x29, 0x23,0x90,0x10,0x8a,0xef,0x55)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIAttendeeDisconnectInfo coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIAttendeeDisconnectInfo, 0xb47d7250, 0x5bdb, 0x405d, 0xb4,0x87, 0xca,0xad,0x9c,0x56,0xf4,0xf8);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("b47d7250-5bdb-405d-b487-caad9c56f4f8") RDPSRAPIAttendeeDisconnectInfo;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIAttendeeDisconnectInfo, 0xb47d7250, 0x5bdb, 0x405d, 0xb4,0x87, 0xca,0xad,0x9c,0x56,0xf4,0xf8)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIApplicationFilter coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIApplicationFilter, 0xe35ace89, 0xc7e8, 0x427e, 0xa4,0xf9, 0xb9,0xda,0x07,0x28,0x26,0xbd);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("e35ace89-c7e8-427e-a4f9-b9da072826bd") RDPSRAPIApplicationFilter;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIApplicationFilter, 0xe35ace89, 0xc7e8, 0x427e, 0xa4,0xf9, 0xb9,0xda,0x07,0x28,0x26,0xbd)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIApplicationList coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIApplicationList, 0x9e31c815, 0x7433, 0x4876, 0x97,0xfb, 0xed,0x59,0xfe,0x2b,0xaa,0x22);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("9e31c815-7433-4876-97fb-ed59fe2baa22") RDPSRAPIApplicationList;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIApplicationList, 0x9e31c815, 0x7433, 0x4876, 0x97,0xfb, 0xed,0x59,0xfe,0x2b,0xaa,0x22)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIApplication coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIApplication, 0xc116a484, 0x4b25, 0x4b9f, 0x8a,0x54, 0xb9,0x34,0xb0,0x6e,0x57,0xfa);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("c116a484-4b25-4b9f-8a54-b934b06e57fa") RDPSRAPIApplication;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIApplication, 0xc116a484, 0x4b25, 0x4b9f, 0x8a,0x54, 0xb9,0x34,0xb0,0x6e,0x57,0xfa)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIWindowList coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIWindowList, 0x9c21e2b8, 0x5dd4, 0x42cc, 0x81,0xba, 0x1c,0x09,0x98,0x52,0xe6,0xfa);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("9c21e2b8-5dd4-42cc-81ba-1c099852e6fa") RDPSRAPIWindowList;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIWindowList, 0x9c21e2b8, 0x5dd4, 0x42cc, 0x81,0xba, 0x1c,0x09,0x98,0x52,0xe6,0xfa)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIWindow coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIWindow, 0x03cf46db, 0xce45, 0x4d36, 0x86,0xed, 0xed,0x28,0xb7,0x43,0x98,0xbf);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("03cf46db-ce45-4d36-86ed-ed28b74398bf") RDPSRAPIWindow;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIWindow, 0x03cf46db, 0xce45, 0x4d36, 0x86,0xed, 0xed,0x28,0xb7,0x43,0x98,0xbf)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPITcpConnectionInfo coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPITcpConnectionInfo, 0xbe49db3f, 0xebb6, 0x4278, 0x8c,0xe0, 0xd5,0x45,0x58,0x33,0xea,0xee);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("be49db3f-ebb6-4278-8ce0-d5455833eaee") RDPSRAPITcpConnectionInfo;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPITcpConnectionInfo, 0xbe49db3f, 0xebb6, 0x4278, 0x8c,0xe0, 0xd5,0x45,0x58,0x33,0xea,0xee)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSession coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSession, 0x9b78f0e6, 0x3e05, 0x4a5b, 0xb2,0xe8, 0xe7,0x43,0xa8,0x95,0x6b,0x65);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("9b78f0e6-3e05-4a5b-b2e8-e743a8956b65") RDPSession;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSession, 0x9b78f0e6, 0x3e05, 0x4a5b, 0xb2,0xe8, 0xe7,0x43,0xa8,0x95,0x6b,0x65)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPSRAPIFrameBuffer coclass
+ */
+
+DEFINE_GUID(CLSID_RDPSRAPIFrameBuffer, 0xa4f66bcc, 0x538e, 0x4101, 0x95,0x1d, 0x30,0x84,0x7a,0xdb,0x51,0x01);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("a4f66bcc-538e-4101-951d-30847adb5101") RDPSRAPIFrameBuffer;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPSRAPIFrameBuffer, 0xa4f66bcc, 0x538e, 0x4101, 0x95,0x1d, 0x30,0x84,0x7a,0xdb,0x51,0x01)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPTransportStreamBuffer coclass
+ */
+
+DEFINE_GUID(CLSID_RDPTransportStreamBuffer, 0x8d4a1c69, 0xf17f, 0x4549, 0xa6,0x99, 0x76,0x1c,0x6e,0x6b,0x5c,0x0a);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("8d4a1c69-f17f-4549-a699-761c6e6b5c0a") RDPTransportStreamBuffer;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPTransportStreamBuffer, 0x8d4a1c69, 0xf17f, 0x4549, 0xa6,0x99, 0x76,0x1c,0x6e,0x6b,0x5c,0x0a)
+#endif
+#endif
+
+/*****************************************************************************
+ * RDPTransportStreamEvents coclass
+ */
+
+DEFINE_GUID(CLSID_RDPTransportStreamEvents, 0x31e3ab20, 0x5350, 0x483f, 0x9d,0xc6, 0x67,0x48,0x66,0x5e,0xfd,0xeb);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("31e3ab20-5350-483f-9dc6-6748665efdeb") RDPTransportStreamEvents;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(RDPTransportStreamEvents, 0x31e3ab20, 0x5350, 0x483f, 0x9d,0xc6, 0x67,0x48,0x66,0x5e,0xfd,0xeb)
+#endif
+#endif
+
+#endif /* __RDPCOMAPILib_LIBRARY_DEFINED__ */
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 /* Begin additional prototypes for all interfaces */
 
