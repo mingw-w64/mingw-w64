@@ -70,6 +70,10 @@ typedef int clockid_t;
 #define CLOCK_THREAD_CPUTIME_ID     3
 #endif
 
+#ifndef CLOCK_REALTIME_COARSE
+#define CLOCK_REALTIME_COARSE       4
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

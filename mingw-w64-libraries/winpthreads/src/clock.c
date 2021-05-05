@@ -31,6 +31,30 @@ static WINPTHREADS_INLINE int lc_set_errno(int result)
     return 0;
 }
 
+typedef void (WINAPI * GetSystemTimeAsFileTime_t)(LPFILETIME);
+static GetSystemTimeAsFileTime_t GetSystemTimeAsFileTime_p /* = 0 */;
+
+static GetSystemTimeAsFileTime_t try_load_GetSystemPreciseTimeAsFileTime()
+{
+    /* Use GetSystemTimePreciseAsFileTime() if available (Windows 8 or later) */
+    GetSystemTimeAsFileTime_t get_time = (GetSystemTimeAsFileTime_t)(intptr_t)GetProcAddress(
+        GetModuleHandle ("kernel32.dll"),
+        "GetSystemTimePreciseAsFileTime"); /* <1us precision on Windows 10 */
+    if (get_time == NULL)
+        get_time = GetSystemTimeAsFileTime; /* >15ms precision on Windows 10 */
+    __atomic_store_n(&GetSystemTimeAsFileTime_p, get_time, __ATOMIC_RELAXED);
+    return get_time;
+}
+
+static WINPTHREADS_INLINE GetSystemTimeAsFileTime_t load_GetSystemTimeBestAsFileTime()
+{
+    GetSystemTimeAsFileTime_t get_time =
+        __atomic_load_n(&GetSystemTimeAsFileTime_p, __ATOMIC_RELAXED);
+    if (get_time == NULL)
+        get_time = try_load_GetSystemPreciseTimeAsFileTime();
+    return get_time;
+}
+
 /**
  * Get the resolution of the specified clock clock_id and
  * stores it in the struct timespec pointed to by res.
@@ -52,7 +76,13 @@ static WINPTHREADS_INLINE int lc_set_errno(int result)
  */
 int clock_getres(clockid_t clock_id, struct timespec *res)
 {
-    switch(clock_id) {
+    clockid_t id = clock_id;
+
+    if (id == CLOCK_REALTIME && load_GetSystemTimeBestAsFileTime() == GetSystemTimeAsFileTime)
+        id = CLOCK_REALTIME_COARSE; /* GetSystemTimePreciseAsFileTime() not available */
+
+    switch(id) {
+    case CLOCK_REALTIME:
     case CLOCK_MONOTONIC:
         {
             LARGE_INTEGER pf;
@@ -68,7 +98,7 @@ int clock_getres(clockid_t clock_id, struct timespec *res)
             return 0;
         }
 
-    case CLOCK_REALTIME:
+    case CLOCK_REALTIME_COARSE:
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID:
         {
@@ -117,6 +147,16 @@ int clock_gettime(clockid_t clock_id, struct timespec *tp)
 
     switch(clock_id) {
     case CLOCK_REALTIME:
+        {
+            load_GetSystemTimeBestAsFileTime()(&ct.ft);
+            t = ct.u64 - DELTA_EPOCH_IN_100NS;
+            tp->tv_sec = t / POW10_7;
+            tp->tv_nsec = ((int) (t % POW10_7)) * 100;
+
+            return 0;
+        }
+
+    case CLOCK_REALTIME_COARSE:
         {
             GetSystemTimeAsFileTime(&ct.ft);
             t = ct.u64 - DELTA_EPOCH_IN_100NS;
