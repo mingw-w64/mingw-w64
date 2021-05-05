@@ -690,6 +690,7 @@ typedef struct __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformati
     HRESULT (STDMETHODCALLTYPE *GetMany)(
         __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
         UINT32 count,
+        UINT32 items_size,
         __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,
         UINT32 *value);
 
@@ -714,7 +715,7 @@ interface __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation {
 #define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
 #define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
 #define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
-#define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(This,count,items,value) (This)->lpVtbl->GetMany(This,count,items,value)
+#define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(This,count,items_size,items,value) (This)->lpVtbl->GetMany(This,count,items_size,items,value)
 #else
 /*** IUnknown methods ***/
 static FORCEINLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,REFIID riid,void **ppvObject) {
@@ -746,8 +747,8 @@ static FORCEINLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVo
 static FORCEINLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_MoveNext(__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,WINBOOL *value) {
     return This->lpVtbl->MoveNext(This,value);
 }
-static FORCEINLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,UINT32 count,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,UINT32 *value) {
-    return This->lpVtbl->GetMany(This,count,items,value);
+static FORCEINLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,UINT32 count,UINT32 items_size,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,count,items_size,items,value);
 }
 #endif
 #ifdef WIDL_using_Windows_Foundation_Collections
@@ -954,24 +955,25 @@ typedef struct __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInforma
     /*** IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
     HRESULT (STDMETHODCALLTYPE *GetAt)(
         __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        ULONG index,
+        UINT32 index,
         __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **value);
 
     HRESULT (STDMETHODCALLTYPE *get_Size)(
         __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        ULONG *value);
+        UINT32 *value);
 
     HRESULT (STDMETHODCALLTYPE *IndexOf)(
         __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
         __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation *element,
-        ULONG *index,
+        UINT32 *index,
         BOOLEAN *value);
 
     HRESULT (STDMETHODCALLTYPE *GetMany)(
         __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        ULONG start_index,
+        UINT32 start_index,
+        UINT32 items_size,
         __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,
-        ULONG *value);
+        UINT32 *value);
 
     END_INTERFACE
 } __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl;
@@ -994,7 +996,7 @@ interface __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation 
 #define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
 #define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
 #define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
-#define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(This,start_index,items,value) (This)->lpVtbl->GetMany(This,start_index,items,value)
+#define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
 #else
 /*** IUnknown methods ***/
 static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,REFIID riid,void **ppvObject) {
@@ -1017,17 +1019,17 @@ static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__C
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
 /*** IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
-static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetAt(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,ULONG index,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **value) {
+static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetAt(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,UINT32 index,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **value) {
     return This->lpVtbl->GetAt(This,index,value);
 }
-static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_get_Size(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,ULONG *value) {
+static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_get_Size(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,UINT32 *value) {
     return This->lpVtbl->get_Size(This,value);
 }
-static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_IndexOf(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation *element,ULONG *index,BOOLEAN *value) {
+static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_IndexOf(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation *element,UINT32 *index,BOOLEAN *value) {
     return This->lpVtbl->IndexOf(This,element,index,value);
 }
-static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,ULONG start_index,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,ULONG *value) {
-    return This->lpVtbl->GetMany(This,start_index,items,value);
+static FORCEINLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetMany(__FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
 }
 #endif
 #ifdef WIDL_using_Windows_Foundation_Collections

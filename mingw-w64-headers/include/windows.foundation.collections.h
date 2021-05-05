@@ -249,7 +249,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE get_Current(T_abi *value) = 0;
                     virtual HRESULT STDMETHODCALLTYPE get_HasCurrent(WINBOOL *value) = 0;
                     virtual HRESULT STDMETHODCALLTYPE MoveNext(WINBOOL *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 count,T_abi *items,UINT32 *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 count,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
                 };
             }
         }
@@ -295,10 +295,10 @@ namespace ABI {
                     typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
                 public:
                     typedef T T_complex;
-                    virtual HRESULT STDMETHODCALLTYPE GetAt(ULONG index,T_abi *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Size(ULONG *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE IndexOf(T_abi element,ULONG *index,BOOLEAN *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE GetMany(ULONG start_index,T_abi *items,ULONG *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetAt(UINT32 index,T_abi *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Size(UINT32 *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE IndexOf(T_abi element,UINT32 *index,BOOLEAN *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 start_index,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
                 };
             }
         }

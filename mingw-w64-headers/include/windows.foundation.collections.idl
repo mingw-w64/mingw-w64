@@ -83,7 +83,7 @@ cpp_quote("#endif")
                 [propget] HRESULT Current([out, retval] T *value);
                 [propget] HRESULT HasCurrent([out, retval] BOOL *value);
                 HRESULT MoveNext([out, retval] BOOL *value);
-                HRESULT GetMany([in] UINT32 count, [out] T *items, [out, retval] UINT32 *value);
+                HRESULT GetMany([in] UINT32 count, [in] UINT32 items_size, [out] T *items, [out, retval] UINT32 *value);
             }
 
             [
@@ -101,10 +101,10 @@ cpp_quote("#endif")
             ]
             interface IVectorView<T> : IInspectable
             {
-                HRESULT GetAt([in] ULONG index, [out, retval] T *value);
-                [propget] HRESULT Size([out, retval] ULONG *value);
-                HRESULT IndexOf([in, optional] T element, [out] ULONG *index, [out, retval] BOOLEAN *value);
-                HRESULT GetMany([in] ULONG start_index, [out] T *items, [out, retval] ULONG *value);
+                HRESULT GetAt([in] UINT32 index, [out, retval] T *value);
+                [propget] HRESULT Size([out, retval] UINT32 *value);
+                HRESULT IndexOf([in, optional] T element, [out] UINT32 *index, [out, retval] BOOLEAN *value);
+                HRESULT GetMany([in] UINT32 start_index, [in] UINT32 items_size, [out] T *items, [out, retval] UINT32 *value);
             }
         }
 #endif

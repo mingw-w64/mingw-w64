@@ -49,6 +49,14 @@ typedef interface __FIAsyncOperation_1_boolean __FIAsyncOperation_1_boolean;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIVectorView_1_HSTRING_FWD_DEFINED__
+#define ____FIVectorView_1_HSTRING_FWD_DEFINED__
+typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
+#ifdef __cplusplus
+#define __FIVectorView_1_HSTRING ABI::Windows::Foundation::Collections::IVectorView<HSTRING >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -422,6 +430,14 @@ typedef interface __FIAsyncOperation_1_boolean __FIAsyncOperation_1_boolean;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIVectorView_1_HSTRING_FWD_DEFINED__
+#define ____FIVectorView_1_HSTRING_FWD_DEFINED__
+typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
+#ifdef __cplusplus
+#define __FIVectorView_1_HSTRING ABI::Windows::Foundation::Collections::IVectorView<HSTRING >
+#endif /* __cplusplus */
+#endif
+
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<boolean > interface
  */
@@ -653,6 +669,163 @@ static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetResults(__FIAsyncOper
 #endif
 
 #endif  /* ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<HSTRING > interface
+ */
+#ifndef ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
+#define ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_HSTRING, 0xfca5679c, 0xbfd4, 0x5187, 0x8b,0x2d, 0xde,0x22,0x50,0x49,0xb3,0x46);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("fca5679c-bfd4-5187-8b2d-de225049b346")
+                IVectorView<HSTRING > : IVectorView_impl<HSTRING >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_HSTRING, 0xfca5679c, 0xbfd4, 0x5187, 0x8b,0x2d, 0xde,0x22,0x50,0x49,0xb3,0x46)
+#endif
+#else
+typedef struct __FIVectorView_1_HSTRINGVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_HSTRING *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_HSTRING *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_HSTRING *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_HSTRING *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_HSTRING *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_HSTRING *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<HSTRING > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_HSTRING *This,
+        UINT32 index,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_HSTRING *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_HSTRING *This,
+        HSTRING element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_HSTRING *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        HSTRING *items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_HSTRINGVtbl;
+
+interface __FIVectorView_1_HSTRING {
+    CONST_VTBL __FIVectorView_1_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_HSTRING_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_HSTRING_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_HSTRING_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_HSTRING_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_HSTRING_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_HSTRING_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<HSTRING > methods ***/
+#define __FIVectorView_1_HSTRING_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_HSTRING_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_HSTRING_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_HSTRING_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_QueryInterface(__FIVectorView_1_HSTRING* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG __FIVectorView_1_HSTRING_AddRef(__FIVectorView_1_HSTRING* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG __FIVectorView_1_HSTRING_Release(__FIVectorView_1_HSTRING* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_GetIids(__FIVectorView_1_HSTRING* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_GetRuntimeClassName(__FIVectorView_1_HSTRING* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_GetTrustLevel(__FIVectorView_1_HSTRING* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<HSTRING > methods ***/
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_GetAt(__FIVectorView_1_HSTRING* This,UINT32 index,HSTRING *value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_get_Size(__FIVectorView_1_HSTRING* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_IndexOf(__FIVectorView_1_HSTRING* This,HSTRING element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static FORCEINLINE HRESULT __FIVectorView_1_HSTRING_GetMany(__FIVectorView_1_HSTRING* This,UINT32 start_index,UINT32 items_size,HSTRING *items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_HSTRING IID___FIVectorView_1_HSTRING
+#define IVectorView_HSTRINGVtbl __FIVectorView_1_HSTRINGVtbl
+#define IVectorView_HSTRING __FIVectorView_1_HSTRING
+#define IVectorView_HSTRING_QueryInterface __FIVectorView_1_HSTRING_QueryInterface
+#define IVectorView_HSTRING_AddRef __FIVectorView_1_HSTRING_AddRef
+#define IVectorView_HSTRING_Release __FIVectorView_1_HSTRING_Release
+#define IVectorView_HSTRING_GetIids __FIVectorView_1_HSTRING_GetIids
+#define IVectorView_HSTRING_GetRuntimeClassName __FIVectorView_1_HSTRING_GetRuntimeClassName
+#define IVectorView_HSTRING_GetTrustLevel __FIVectorView_1_HSTRING_GetTrustLevel
+#define IVectorView_HSTRING_GetAt __FIVectorView_1_HSTRING_GetAt
+#define IVectorView_HSTRING_get_Size __FIVectorView_1_HSTRING_get_Size
+#define IVectorView_HSTRING_IndexOf __FIVectorView_1_HSTRING_IndexOf
+#define IVectorView_HSTRING_GetMany __FIVectorView_1_HSTRING_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
