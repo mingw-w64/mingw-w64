@@ -208,6 +208,7 @@ for f in \
 	wmsbuffer \
 	wmsdkidl \
 	wpcapi \
+	wuapi \
 	xapo \
 	xaudio2 \
 	xaudio2fx \

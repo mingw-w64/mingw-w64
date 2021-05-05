@@ -261,6 +261,7 @@ IDL_SRCS = \
   include/wmdrmsdk.idl \
   include/wpcapi.idl \
   include/wtypes.idl \
+  include/wuapi.idl \
   include/xapo.idl \
   include/xaudio2.idl \
   include/xaudio2fx.idl \
