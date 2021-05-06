@@ -121,6 +121,7 @@ u_quad_t	__udivdi3(u_quad_t a, u_quad_t b);
 u_quad_t	__umoddi3(u_quad_t a, u_quad_t b);
 int		__ucmpdi2(u_quad_t a, u_quad_t b);
 quad_t	__divmoddi4(quad_t a, quad_t b, quad_t *rem);
+u_quad_t	__udivmoddi4(u_quad_t a, u_quad_t b, u_quad_t *rem);
 
 #endif /* !_LIBKERN_QUAD_H_ */
 
@@ -571,6 +572,12 @@ __divmoddi4(a, b, rem)
 	if (rem)
 		*rem = (negr ? -ur : ur);
 	return (negq ? -uq : uq);
+}
+
+u_quad_t
+__udivmoddi4(u_quad_t a, u_quad_t b, u_quad_t *rem)
+{
+  return __qdivrem(a, b, rem);
 }
 
 #else
