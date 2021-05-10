@@ -1906,6 +1906,7 @@ void __cpuid(int CPUInfo[4], int InfoType) {
 #define __INTRINSIC_DEFINED___cpuid
 #endif /* __INTRINSIC_PROLOG */
 
+#if (!defined(__GNUC__) || __GNUC__ < 11)
 #if __INTRINSIC_PROLOG(__cpuidex)
 void __cpuidex(int CPUInfo[4], int, int);
 #if !__has_builtin(__cpuidex)
@@ -1919,6 +1920,7 @@ void __cpuidex(int CPUInfo[4], int function_id, int subfunction_id) {
 #endif
 #define __INTRINSIC_DEFINED___cpuidex
 #endif /* __INTRINSIC_PROLOG */
+#endif /* __GNUC__ < 11 */
 
 #if __INTRINSIC_PROLOG(__readmsr)
 __MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32);
