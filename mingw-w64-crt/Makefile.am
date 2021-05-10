@@ -131,6 +131,8 @@ src_libmingwthrd=libsrc/mingwthrd_mt.c
 
 src_libgdiplus=libsrc/gdiplus.c
 
+src_adsiid=libsrc/activeds-uuid.c
+
 src_libuuid=\
   libsrc/ativscp-uuid.c   libsrc/atsmedia-uuid.c    libsrc/bth-uuid.c         libsrc/cguid-uuid.c     libsrc/comcat-uuid.c   \
   libsrc/devguid.c        libsrc/docobj-uuid.c      libsrc/dxva-uuid.c        libsrc/exdisp-uuid.c    libsrc/extras-uuid.c   \
@@ -783,6 +785,10 @@ lib32_libntoskrnl_a_SOURCES = $(src_libntoskrnl)
 lib32_libntoskrnl_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libntoskrnl_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
+lib32_LIBRARIES += lib32/libadsiid.a
+lib32_libadsiid_a_SOURCES = $(src_adsiid)
+lib32_libadsiid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
@@ -1108,6 +1114,10 @@ EXTRA_lib64_libws2_32_a_DEPENDENCIES=lib64/ws2_32.def
 lib64_LIBRARIES += lib64/libtaskschd.a
 lib64_libtaskschd_a_SOURCES = $(src_libtaskschd)
 lib64_libtaskschd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libadsiid.a
+lib64_libadsiid_a_SOURCES = $(src_adsiid)
+lib64_libadsiid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 if !W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
@@ -1442,6 +1452,10 @@ libarm32_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_libws2_32_a_AR = $(DTDEFARM32) libarm32/ws2_32.def && $(AR) $(ARFLAGS)
 EXTRA_libarm32_libws2_32_a_DEPENDENCIES=libarm32/ws2_32.def
 
+libarm32_LIBRARIES += libarm32/libadsiid.a
+libarm32_libadsiid_a_SOURCES = $(src_adsiid)
+libarm32_libadsiid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
 if !W32API
 libarm32_LIBRARIES += libarm32/libdelayimp.a
 libarm32_libdelayimp_a_SOURCES =
@@ -1711,6 +1725,10 @@ libarm64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/libws2_32.def.in
 libarm64_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.def && $(AR) $(ARFLAGS)
 EXTRA_libarm64_libws2_32_a_DEPENDENCIES=libarm64/ws2_32.def
+
+libarm64_LIBRARIES += libarm64/libadsiid.a
+libarm64_libadsiid_a_SOURCES = $(src_adsiid)
+libarm64_libadsiid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 if !W32API
 libarm64_LIBRARIES += libarm64/libdelayimp.a
