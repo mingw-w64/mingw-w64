@@ -199,7 +199,6 @@ typedef struct _STORAGE_READ_CAPACITY {
   LARGE_INTEGER DiskLength;
 } STORAGE_READ_CAPACITY, *PSTORAGE_READ_CAPACITY;
 
-#if (_WIN32_WINNT >= 0x0601)
 #define IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES CTL_CODE(IOCTL_STORAGE_BASE, 0x0501, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define DeviceDsmActionFlag_NonDestructive 0x80000000
 #define DeviceDsmAction_None 0
@@ -210,23 +209,21 @@ typedef struct _STORAGE_READ_CAPACITY {
 
 #define DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE __MSABI_LONG(0x00000001)
 
-typedef DWORD DEVICE_DATA_MANAGEMENT_SET_ACTION;
-typedef struct _DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
-  DWORD                             Size;
-  DEVICE_DATA_MANAGEMENT_SET_ACTION Action;
-  DWORD                             Flags;
-  DWORD                             ParameterBlockOffset;
-  DWORD                             ParameterBlockLength;
-  DWORD                             DataSetRangesOffset;
-  DWORD                             DataSetRangesLength;
-} DEVICE_MANAGE_DATA_SET_ATTRIBUTES, *PDEVICE_MANAGE_DATA_SET_ATTRIBUTES;
+  typedef DWORD DEVICE_DATA_MANAGEMENT_SET_ACTION;
+  typedef struct _DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
+    DWORD                             Size;
+    DEVICE_DATA_MANAGEMENT_SET_ACTION Action;
+    DWORD                             Flags;
+    DWORD                             ParameterBlockOffset;
+    DWORD                             ParameterBlockLength;
+    DWORD                             DataSetRangesOffset;
+    DWORD                             DataSetRangesLength;
+  } DEVICE_MANAGE_DATA_SET_ATTRIBUTES, *PDEVICE_MANAGE_DATA_SET_ATTRIBUTES;
 
-typedef struct _DEVICE_DATA_SET_RANGE {
-  LONGLONG  StartingOffset;
-  DWORDLONG LengthInBytes;
-} DEVICE_DATA_SET_RANGE, *PDEVICE_DATA_SET_RANGE;
-
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+  typedef struct _DEVICE_DATA_SET_RANGE {
+    LONGLONG  StartingOffset;
+    DWORDLONG LengthInBytes;
+  } DEVICE_DATA_SET_RANGE, *PDEVICE_DATA_SET_RANGE;
 
   typedef struct _STORAGE_HOTPLUG_INFO {
     DWORD Size;
@@ -2220,7 +2217,6 @@ typedef struct _STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
 } STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR, *PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR;
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
-#if (_WIN32_WINNT >= 0x0601)
 typedef struct _DEVICE_SEEK_PENALTY_DESCRIPTOR {
   DWORD   Version;
   DWORD   Size;
@@ -2233,6 +2229,7 @@ typedef struct _DEVICE_TRIM_DESCRIPTOR {
   BOOLEAN TrimEnabled;
 } DEVICE_TRIM_DESCRIPTOR, *PDEVICE_TRIM_DESCRIPTOR;
 
+#if (_WIN32_WINNT >= 0x0601)
 typedef struct _REQUEST_OPLOCK_INPUT_BUFFER {
   WORD  StructureVersion;
   WORD  StructureLength;
