@@ -742,6 +742,7 @@ lib64_DATA += %reldir%/libwdsupgcompl.a
 lib64_DATA += %reldir%/libwdsclientapi.a
 lib64_DATA += %reldir%/libwdsutil.a
 lib64_DATA += %reldir%/libwdsimage.a
+lib64_DATA += %reldir%/libwofutil.a
 #lib64_DATA += %reldir%/libws2_32.a      # Handled by custom rule
 lib64_DATA += %reldir%/libvirtdisk.a
 lib64_DATA += %reldir%/libcryptxml.a

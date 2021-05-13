@@ -326,6 +326,7 @@ libarm64_DATA += %reldir%/libwlanutil.a
 libarm64_DATA += %reldir%/libwldap32.a
 libarm64_DATA += %reldir%/libwmi.a
 libarm64_DATA += %reldir%/libwmiprop.a
+libarm64_DATA += %reldir%/libwofutil.a
 libarm64_DATA += %reldir%/libwpd_ci.a
 #libarm64_DATA += %reldir%/libws2_32.a      # Handled by custom rule
 libarm64_DATA += %reldir%/libws2help.a
