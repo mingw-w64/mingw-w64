@@ -461,6 +461,10 @@ typedef struct _STORAGE_READ_CAPACITY {
 #if (_WIN32_WINNT >= 0x0601)
     BusTypeVirtual             = 0xE,
     BusTypeFileBackedVirtual   = 0xF,
+    BusTypeSpaces              = 0x10,
+    BusTypeNvme                = 0x11,
+    BusTypeSCM                 = 0x12,
+    BusTypeUfs                 = 0x13,
 #endif /*(_WIN32_WINNT >= 0x0601)*/
     BusTypeMax,
     BusTypeMaxReserved         = 0x7F 
