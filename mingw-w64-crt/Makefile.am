@@ -229,6 +229,7 @@ src_msvcrt=\
 
 src_ucrtbase=\
   crt/ucrtbase_compat.c \
+  math/_huge.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \
