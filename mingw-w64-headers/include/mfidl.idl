@@ -602,8 +602,9 @@ enum
     MF_RESOLUTION_WRITE                                                 = 0x00020000
 };
 
-/* FIXME: Properly declare followinf interfaces: */
-interface IMFMediaSink;
+/* Forward declaration goes here.
+ * Just for ease, declare interfaces alphabatically.
+ */
 interface IMFASFContentInfo;
 interface IMFASFIndexer;
 interface IMFASFMultiplexer;
@@ -614,13 +615,174 @@ interface IMFPresentationClock;
 interface IMFNetProxyLocator;
 interface IMFRemoteDesktopPlugin;
 interface IMFTransform;
-interface IMFSampleGrabberSinkCallback;
 interface IMFSequencerSource;
+interface IMFStreamSink;
 interface IMFQualityManager;
-interface IMFSourceResolver;
-interface IMFPresentationTimeSource;
-interface IMFTopoLoader;
 interface IMFTranscodeProfile;
+
+[object, uuid(76b1bbdb-4ec8-4f36-b106-70a9316df593)]
+interface IMFAudioStreamVolume : IUnknown
+{
+  HRESULT GetChannelCount([out] UINT32 *pdwCount);
+  HRESULT SetChannelVolume([in] UINT32 dwIndex, [in] const float fLevel);
+  HRESULT GetChannelVolume([in] UINT32 dwIndex, [out] float *pfLevel);
+  HRESULT SetAllVolumes([in] UINT32 dwCount, [in, size_is(dwCount)] const float *pfVolumes);
+  HRESULT GetAllVolumes([in] UINT32 dwCount, [out, size_is(dwCount)] float *pfVolumes);
+}
+
+[object, uuid(6ef2a660-47c0-4666-b13d-cbb717f2fa2c)]
+interface IMFMediaSink : IUnknown
+{
+  HRESULT GetCharacteristics([out] DWORD *pdwCharacteristics);
+  HRESULT AddStreamSink([in] DWORD dwStreamSinkIdentifier, [in] IMFMediaType *pMediaType, [out] IMFStreamSink **ppStreamSink);
+  HRESULT RemoveStreamSink([in] DWORD dwStreamSinkIdentifier);
+  HRESULT GetStreamSinkCount([out] DWORD *pcStreamSinkCount);
+  HRESULT GetStreamSinkByIndex([in] DWORD dwIndex, [out] IMFStreamSink **ppStreamSink);
+  HRESULT GetStreamSinkById([in] DWORD dwStreamSinkIdentifier, [out] IMFStreamSink **ppStreamSink);
+  HRESULT SetPresentationClock([in] IMFPresentationClock *pPresentationClock);
+  HRESULT GetPresentationClock([out] IMFPresentationClock **ppPresentationClock);
+  HRESULT Shutdown(void);
+}
+
+[object, uuid(eaecb74a-9a50-42ce-9541-6a7f57aa4ad7), local]
+interface IMFFinalizableMediaSink : IMFMediaSink
+{
+  HRESULT BeginFinalize([in] IMFAsyncCallback *pCallback, [in] IUnknown *punkState);
+  HRESULT EndFinalize([in] IMFAsyncResult *pResult);
+}
+
+[object, uuid(5dfd4b2a-7674-4110-a4e6-8a68fd5f3688)]
+interface IMFMediaSinkPreroll : IUnknown
+{
+  HRESULT NotifyPreroll([in] MFTIME hnsUpcomingStartTime);
+}
+
+[object, uuid(d182108f-4ec6-443f-aa42-a71106ec825f)]
+interface IMFMediaStream : IMFMediaEventGenerator
+{
+  HRESULT GetMediaSource([out] IMFMediaSource**ppMediaSource);
+  HRESULT GetStreamDescriptor([out] IMFStreamDescriptor **ppStreamDescriptor);
+
+  [local]
+  HRESULT RequestSample([in] IUnknown *pToken);
+
+  [call_as(RequestSample)]
+  HRESULT RemoteRequestSample(void);
+}
+
+[object, uuid(f88cfb8c-ef16-4991-b450-cb8c69e51704)]
+interface IMFMetadata : IUnknown
+{
+  HRESULT SetLanguage([in] LPCWSTR pwszRFC1766);
+  HRESULT GetLanguage([out] LPWSTR *ppwszRFC1766);
+  HRESULT GetAllLanguages([out] PROPVARIANT *ppvLanguages);
+  HRESULT SetProperty([in] LPCWSTR pwszName, [in] const PROPVARIANT *ppvValue);
+  HRESULT GetProperty([in] LPCWSTR pwszName, [out] PROPVARIANT *ppvValue);
+  HRESULT DeleteProperty([in] LPCWSTR pwszName);
+  HRESULT GetAllPropertyNames([out] PROPVARIANT *ppvNames);
+}
+
+[object, uuid(56181d2d-e221-4adb-b1c8-3cee6a53f76f)]
+interface IMFMetadataProvider : IUnknown
+{
+  HRESULT GetMFMetadata([in] IMFPresentationDescriptor *pPresentationDescriptor, [in] DWORD dwStreamIdentifier, [in] DWORD dwFlags, [out] IMFMetadata **ppMFMetadata);
+}
+
+[object, uuid(7ff12cce-f76f-41c2-863b-1666c8e5e139)]
+interface IMFPresentationTimeSource : IMFClock
+{
+  HRESULT GetUnderlyingClock([out] IMFClock **ppClock);
+}
+
+[object, uuid(868ce85c-8ea9-4f55-ab82-b009a910a805)]
+interface IMFPresentationClock : IMFClock
+{
+  HRESULT SetTimeSource([in] IMFPresentationTimeSource *pTimeSource);
+  HRESULT GetTimeSource([out] IMFPresentationTimeSource **ppTimeSource);
+  HRESULT GetTime([out] MFTIME *phnsClockTime);
+  HRESULT AddClockStateSink([in] IMFClockStateSink *pStateSink);
+  HRESULT RemoveClockStateSink([in] IMFClockStateSink* pStateSink);
+  HRESULT Start([in] LONGLONG llClockStartOffset);
+  HRESULT Stop(void);
+  HRESULT Pause(void);
+}
+
+[object, uuid(88ddcd21-03c3-4275-91ed-55ee3929328f), pointer_default(unique)]
+interface IMFRateControl : IUnknown
+{
+  HRESULT SetRate([in] WINBOOL fThin, [in] float flRate);
+  HRESULT GetRate([in, out, unique] WINBOOL *pfThin, [in, out, unique] float *pflRate);
+}
+
+[object, uuid(0a9ccdbc-d797-4563-9667-94ec5d79292d), pointer_default(unique)]
+interface IMFRateSupport : IUnknown
+{
+  HRESULT GetSlowestRate([in] MFRATE_DIRECTION eDirection, [in] WINBOOL fThin, [out] float *pflRate);
+  HRESULT GetFastestRate([in] MFRATE_DIRECTION eDirection, [in] WINBOOL fThin, [out] float *pflRate);
+  HRESULT IsRateSupported([in] WINBOOL fThin, [in] float flRate, [in, out, unique] float *pflNearestSupportedRate);
+}
+
+[object, uuid(8c7b80bf-ee42-4b59-b1df-55668e1bdca8), local]
+interface IMFSampleGrabberSinkCallback : IMFClockStateSink
+{
+  HRESULT OnSetPresentationClock([in] IMFPresentationClock *pPresentationClock);
+  HRESULT OnProcessSample([in] REFGUID guidMajorMediaType, [in] DWORD dwSampleFlags, [in] LONGLONG llSampleTime, [in] LONGLONG llSampleDuration, [in] const BYTE *pSampleBuffer, [in] DWORD dwSampleSize);
+  HRESULT OnShutdown(void);
+}
+
+[object, uuid(fbe5a32d-a497-4b61-bb85-97b1a848a6e3)]
+interface IMFSourceResolver : IUnknown
+{
+  [local]
+  HRESULT CreateObjectFromURL([in] LPCWSTR pwszURL, [in] DWORD dwFlags, [in] IPropertyStore *pProps, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [local]
+  HRESULT CreateObjectFromByteStream([in] IMFByteStream* pByteStream, [in] LPCWSTR pwszURL, [in] DWORD dwFlags, [in] IPropertyStore *pProps, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [local]
+  HRESULT BeginCreateObjectFromURL([in] LPCWSTR pwszURL, [in] DWORD dwFlags, [in] IPropertyStore *pProps, [out] IUnknown **ppIUnknownCancelCookie, [in] IMFAsyncCallback *pCallback, [in] IUnknown *punkState);
+
+  [call_as(BeginCreateObjectFromURL)]
+  HRESULT RemoteBeginCreateObjectFromURL([in, string] LPCWSTR pwszURL, [in] DWORD dwFlags, [in] IPropertyStore *pProps, [in] IMFRemoteAsyncCallback *pCallback);
+
+  [local]
+  HRESULT EndCreateObjectFromURL([in] IMFAsyncResult *pResult, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [call_as(EndCreateObjectFromURL)]
+  HRESULT RemoteEndCreateObjectFromURL([in] IUnknown *pResult, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [local]
+  HRESULT BeginCreateObjectFromByteStream([in] IMFByteStream* pByteStream, [in] LPCWSTR pwszURL, [in] DWORD dwFlags, [in] IPropertyStore *pProps, [out] IUnknown **ppIUnknownCancelCookie, [in] IMFAsyncCallback *pCallback, [in] IUnknown *punkState);
+
+  [call_as(BeginCreateObjectFromByteStream)]
+  HRESULT RemoteBeginCreateObjectFromByteStream([in] IMFByteStream* pByteStream, [in, unique] LPCWSTR pwszURL, [in] DWORD dwFlags, [in, unique] IPropertyStore *pProps, [in] IMFRemoteAsyncCallback *pCallback);
+
+  [local]
+  HRESULT EndCreateObjectFromByteStream([in] IMFAsyncResult *pResult, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [call_as(EndCreateObjectFromByteStream)]
+  HRESULT RemoteEndCreateObjectFromByteStream([in] IUnknown *pResult, [out] MF_OBJECT_TYPE *pObjectType, [out] IUnknown **ppObject);
+
+  [local]
+  HRESULT CancelObjectCreation([in] IUnknown *pIUnknownCancelCookie);
+}
+
+[object, uuid(0a97b3cf-8e7c-4a3d-8f8c-0c843dc247fb)]
+interface IMFStreamSink : IMFMediaEventGenerator
+{
+  HRESULT GetMediaSink([out] IMFMediaSink **ppMediaSink);
+  HRESULT GetIdentifier([out] DWORD *pdwIdentifier);
+  HRESULT GetMediaTypeHandler([out] IMFMediaTypeHandler **ppHandler);
+  HRESULT ProcessSample([in] IMFSample *pSample);
+  HRESULT PlaceMarker([in] MFSTREAMSINK_MARKER_TYPE eMarkerType, [in] const PROPVARIANT *pvarMarkerValue, [in] const PROPVARIANT *pvarContextValue);
+  HRESULT Flush(void);
+}
+
+[object, uuid(de9a6157-f660-4643-b56a-df9f7998c7cd), local]
+interface IMFTopoLoader : IUnknown
+{
+  HRESULT Load([in] IMFTopology *pInputTopo, [out] IMFTopology **ppOutputTopo, [in] IMFTopology *pCurrentTopo);
+}
 
 cpp_quote("HRESULT MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
 cpp_quote("HRESULT MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);")
