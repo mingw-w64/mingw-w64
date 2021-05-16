@@ -10,6 +10,15 @@
 
 #pragma pack(push,_CRT_PACKING)
 
+#pragma push_macro("snprintf")
+#undef snprintf
+#pragma push_macro("vsnprintf")
+#undef vsnprintf
+#pragma push_macro("snwprintf")
+#undef snwprintf
+#pragma push_macro("vsnwprintf")
+#undef vsnwprintf
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -824,10 +833,6 @@ char * tmpnam(char * __dst)
 #pragma GCC diagnostic ignored "-Wshadow"
 #endif
 
-#pragma push_macro("snprintf")
-#pragma push_macro("vsnprintf")
-# undef snprintf
-# undef vsnprintf
   __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
   int __cdecl __ms_vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
     __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -910,8 +915,6 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
 
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
-#pragma pop_macro ("vsnprintf")
-#pragma pop_macro ("snprintf")
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif
@@ -1341,10 +1344,6 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 
 #if __USE_MINGW_ANSI_STDIO == 0
-#pragma push_macro("snwprintf")
-#pragma push_macro("vsnwprintf")
-# undef snwprintf
-# undef vsnwprintf
   int __cdecl __ms_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
   int __cdecl __ms_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
   __mingw_ovr
@@ -1362,8 +1361,6 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   {
     return _vsnwprintf(s,n,format,arg);
   }
-#pragma pop_macro ("vsnwprintf")
-#pragma pop_macro ("snwprintf")
 #endif
 
 #endif /* ! __NO_ISOCEXT */
@@ -1550,6 +1547,11 @@ void __cdecl __mingw_str_free(void *ptr);
 #ifdef __cplusplus
 }
 #endif
+
+#pragma pop_macro("snprintf")
+#pragma pop_macro("vsnprintf")
+#pragma pop_macro("snwprintf")
+#pragma pop_macro("vsnwprintf")
 
 #pragma pack(pop)
 
