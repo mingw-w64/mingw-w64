@@ -1164,6 +1164,15 @@ typedef SECURITY_STATUS (SEC_ENTRY *CHANGE_PASSWORD_FN_A)(SEC_CHAR*,
     DECRYPT_MESSAGE_FN DecryptMessage;
     SET_CONTEXT_ATTRIBUTES_FN_W SetContextAttributesW;
     SET_CREDENTIALS_ATTRIBUTES_FN_W SetCredentialsAttributesW;
+#if ISSP_MODE != 0
+    CHANGE_PASSWORD_FN_W ChangeAccountPasswordW;
+#else
+    void* Reserved9;
+#endif
+#if NTDDI_VERSION > NTDDI_WINBLUE
+    QUERY_CONTEXT_ATTRIBUTES_EX_FN_W QueryContextAttributesExW;
+    QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W QueryCredentialsAttributesExW;
+#endif
   } SecurityFunctionTableW,*PSecurityFunctionTableW;
 
   typedef struct _SECURITY_FUNCTION_TABLE_A {
@@ -1196,6 +1205,15 @@ typedef SECURITY_STATUS (SEC_ENTRY *CHANGE_PASSWORD_FN_A)(SEC_CHAR*,
     DECRYPT_MESSAGE_FN DecryptMessage;
     SET_CONTEXT_ATTRIBUTES_FN_A SetContextAttributesA;
     SET_CREDENTIALS_ATTRIBUTES_FN_A SetCredentialsAttributesA;
+#if ISSP_MODE != 0
+    CHANGE_PASSWORD_FN_A ChangeAccountPasswordA;
+#else
+    void* Reserved9;
+#endif
+#if NTDDI_VERSION > NTDDI_WINBLUE
+    QUERY_CONTEXT_ATTRIBUTES_EX_FN_A QueryContextAttributesExA;
+    QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A QueryCredentialsAttributesExA;
+#endif
   } SecurityFunctionTableA,*PSecurityFunctionTableA;
 
 #define SecurityFunctionTable __MINGW_NAME_AW(SecurityFunctionTable)
@@ -1345,6 +1363,229 @@ typedef SECURITY_STATUS (SEC_ENTRY *CHANGE_PASSWORD_FN_A)(SEC_CHAR*,
 #define PSEC_WINNT_AUTH_IDENTITY_EX __MINGW_NAME_AW(PSEC_WINNT_AUTH_IDENTITY_EX)
 #endif
 
+#ifndef _AUTH_IDENTITY_INFO_DEFINED
+#define _AUTH_IDENTITY_INFO_DEFINED
+
+  typedef union _SEC_WINNT_AUTH_IDENTITY_INFO {
+    SEC_WINNT_AUTH_IDENTITY_EXW AuthIdExw;
+    SEC_WINNT_AUTH_IDENTITY_EXA AuthIdExa;
+    SEC_WINNT_AUTH_IDENTITY_A AuthId_a;
+    SEC_WINNT_AUTH_IDENTITY_W AuthId_w;
+    SEC_WINNT_AUTH_IDENTITY_EX2 AuthIdEx2;
+  } SEC_WINNT_AUTH_IDENTITY_INFO, *PSEC_WINNT_AUTH_IDENTITY_INFO;
+
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_PROCESS_ENCRYPTED     0x10
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED      0x20
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED        0x40
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_ENCRYPTED      0x80
+
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_RESERVED              0x10000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_USER             0x20000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_DOMAIN           0x40000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_ID_PROVIDER           0x80000
+
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_USE_MASK              0xff000000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_SAVE  0x80000000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_BY_CALLER   SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_SAVE
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_CHECKED     0x40000000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_NO_CHECKBOX           0x20000000
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_LOAD  0x10000000
+
+#define SEC_WINNT_AUTH_IDENTITY_FLAGS_VALID_SSPIPFC_FLAGS \
+  (SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_SAVE | \
+   SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_CHECKED | \
+   SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_NO_CHECKBOX | \
+   SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_LOAD)
+
+#endif
+
+#define SSPIPFC_CREDPROV_DO_NOT_SAVE          0x00000001
+#define SSPIPFC_SAVE_CRED_BY_CALLER           SSPIPFC_CREDPROV_DO_NOT_SAVE
+#define SSPIPFC_NO_CHECKBOX                   0x00000002
+#define SSPIPFC_CREDPROV_DO_NOT_LOAD          0x00000004
+#define SSPIPFC_USE_CREDUIBROKER	          0x00000008
+#define SSPIPFC_VALID_FLAGS \
+  (SSPIPFC_CREDPROV_DO_NOT_SAVE | SSPIPFC_NO_CHECKBOX | SSPIPFC_CREDPROV_DO_NOT_LOAD | SSPIPFC_USE_CREDUIBROKER)
+
+#ifndef _SSPIPFC_NONE_
+
+typedef PVOID PSEC_WINNT_AUTH_IDENTITY_OPAQUE;
+
+unsigned __LONG32 SEC_ENTRY SspiPromptForCredentialsW(
+  PCWSTR pszTargetName,
+#ifdef _CREDUI_INFO_DEFINED
+  PCREDUI_INFOW pUiInfo,
+#else
+  PVOID pUiInfo,
+#endif
+  unsigned __LONG32 dwAuthError,
+  PCWSTR pszPackage,
+  PSEC_WINNT_AUTH_IDENTITY_OPAQUE pInputAuthIdentity,
+  PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity,
+  int* pfSave,
+  unsigned __LONG32 dwFlags
+);
+
+unsigned __LONG32 SEC_ENTRY SspiPromptForCredentialsA(
+  PCSTR pszTargetName,
+#ifdef _CREDUI_INFO_DEFINED
+  PCREDUI_INFOA pUiInfo,
+#else
+  PVOID pUiInfo,
+#endif
+  unsigned __LONG32 dwAuthError,
+  PCSTR pszPackage,
+  PSEC_WINNT_AUTH_IDENTITY_OPAQUE pInputAuthIdentity,
+  PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity,
+  int* pfSave,
+  unsigned __LONG32 dwFlags
+);
+
+#else
+
+typedef PSEC_WINNT_AUTH_IDENTITY_INFO PSEC_WINNT_AUTH_IDENTITY_OPAQUE;
+
+#endif
+
+#ifdef _SEC_WINNT_AUTH_TYPES
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_PASSWORD =
+  { 0x28bfc32f, 0x10f6, 0x4738, { 0x98, 0xd1, 0x1a, 0xc0, 0x61, 0xdf, 0x71, 0x6a } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_CERT =
+  { 0x235f69ad, 0x73fb, 0x4dbc, { 0x82, 0x3, 0x6, 0x29, 0xe7, 0x39, 0x33, 0x9b } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_CREDMAN_CERT =
+  { 0x7cb72412, 0x1016, 0x491a, { 0x8c, 0x87, 0x4d, 0x2a, 0xa1, 0xb7, 0xdd, 0x3a } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_NGC =
+  { 0x10a47879, 0x5ebf, 0x4b85, { 0xbd, 0x8d, 0xc2, 0x1b, 0xb4, 0xf4, 0x9c, 0x8a } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_FIDO =
+  { 0x32e8f8d7, 0x7871, 0x4bcc, { 0x83, 0xc5, 0x46, 0xf, 0x66, 0xc6, 0x13, 0x5c } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_KEYTAB =
+  { 0xd587aae8, 0xf78f, 0x4455, { 0xa1, 0x12, 0xc9, 0x34, 0xbe, 0xee, 0x7c, 0xe1 } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_CSP_DATA =
+  { 0x68fd9879, 0x79c, 0x4dfe, { 0x82, 0x81, 0x57, 0x8a, 0xad, 0xc1, 0xc1, 0x0 } };
+
+EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_SMARTCARD_CONTEXTS =
+  { 0xb86c4ff3, 0x49d7, 0x4dc4, { 0xb5, 0x60, 0xb1, 0x16, 0x36, 0x85, 0xb2, 0x36 } };
+
+EXTERN_C __declspec(selectany) const GUID CREDUIWIN_STRUCTURE_TYPE_SSPIPFC  =
+  { 0x3c3e93d9, 0xd96b, 0x49b5, { 0x94, 0xa7, 0x45, 0x85, 0x92, 0x8, 0x83, 0x37 } };
+
+EXTERN_C __declspec(selectany) const GUID SSPIPFC_STRUCTURE_TYPE_CREDUI_CONTEXT =
+  { 0xc2fffe6f, 0x503d, 0x4c3d, { 0xa9, 0x5e, 0xbc, 0xe8, 0x21, 0x21, 0x3d, 0x44 } };
+
+typedef struct _SEC_WINNT_AUTH_BYTE_VECTOR {
+  unsigned __LONG32 ByteArrayOffset;
+  unsigned short ByteArrayLength;
+} SEC_WINNT_AUTH_BYTE_VECTOR, *PSEC_WINNT_AUTH_BYTE_VECTOR;
+
+typedef struct _SEC_WINNT_AUTH_DATA {
+  GUID CredType;
+  SEC_WINNT_AUTH_BYTE_VECTOR CredData;
+} SEC_WINNT_AUTH_DATA, *PSEC_WINNT_AUTH_DATA;
+
+typedef struct _SEC_WINNT_AUTH_PACKED_CREDENTIALS {
+  unsigned short cbHeaderLength;
+  unsigned short cbStructureLength;
+  SEC_WINNT_AUTH_DATA AuthData;
+} SEC_WINNT_AUTH_PACKED_CREDENTIALS, *PSEC_WINNT_AUTH_PACKED_CREDENTIALS;
+
+typedef struct _SEC_WINNT_AUTH_DATA_PASSWORD {
+  SEC_WINNT_AUTH_BYTE_VECTOR UnicodePassword;
+} SEC_WINNT_AUTH_DATA_PASSWORD, PSEC_WINNT_AUTH_DATA_PASSWORD;
+
+typedef struct _SEC_WINNT_AUTH_CERTIFICATE_DATA {
+  unsigned short cbHeaderLength;
+  unsigned short cbStructureLength;
+  SEC_WINNT_AUTH_BYTE_VECTOR Certificate;
+} SEC_WINNT_AUTH_CERTIFICATE_DATA, *PSEC_WINNT_AUTH_CERTIFICATE_DATA;
+
+typedef struct _SEC_WINNT_AUTH_NGC_DATA {
+  LUID LogonId;
+  unsigned __LONG32 Flags;
+  SEC_WINNT_AUTH_BYTE_VECTOR CspInfo;
+  SEC_WINNT_AUTH_BYTE_VECTOR UserIdKeyAuthTicket;
+  SEC_WINNT_AUTH_BYTE_VECTOR DecryptionKeyName;
+  SEC_WINNT_AUTH_BYTE_VECTOR DecryptionKeyAuthTicket;
+} SEC_WINNT_AUTH_NGC_DATA, *PSEC_WINNT_AUTH_NGC_DATA;
+
+#define NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES      1
+#define NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO  2
+#define NGC_DATA_FLAG_IS_SMARTCARD_DATA                                 4
+
+typedef struct _SEC_WINNT_AUTH_DATA_TYPE_SMARTCARD_CONTEXTS_DATA {
+  PVOID pcc;
+  PVOID hProv;
+  LPWSTR pwszECDHKeyName;
+} SEC_WINNT_AUTH_DATA_TYPE_SMARTCARD_CONTEXTS_DATA, *PSEC_WINNT_AUTH_DATA_TYPE_SMARTCARD_CONTEXTS_DATA;
+
+typedef struct _SEC_WINNT_AUTH_FIDO_DATA {
+  unsigned short cbHeaderLength;
+  unsigned short cbStructureLength;
+  SEC_WINNT_AUTH_BYTE_VECTOR Secret;
+  SEC_WINNT_AUTH_BYTE_VECTOR NewSecret;
+  SEC_WINNT_AUTH_BYTE_VECTOR EncryptedNewSecret;
+  SEC_WINNT_AUTH_BYTE_VECTOR NetworkLogonBuffer;
+  ULONG64 ulSignatureCount;
+} SEC_WINNT_AUTH_FIDO_DATA, *PSEC_WINNT_AUTH_FIDO_DATA;
+
+typedef struct _SEC_WINNT_CREDUI_CONTEXT_VECTOR {
+  ULONG CredUIContextArrayOffset;
+  USHORT CredUIContextCount;
+} SEC_WINNT_CREDUI_CONTEXT_VECTOR, *PSEC_WINNT_CREDUI_CONTEXT_VECTOR;
+
+typedef struct _SEC_WINNT_AUTH_SHORT_VECTOR {
+  ULONG ShortArrayOffset;
+  USHORT ShortArrayCount;
+} SEC_WINNT_AUTH_SHORT_VECTOR, *PSEC_WINNT_AUTH_SHORT_VECTOR;
+
+typedef struct _CREDUIWIN_MARSHALED_CONTEXT {
+  GUID StructureType;
+  USHORT cbHeaderLength;
+  LUID LogonId;
+  GUID MarshaledDataType;
+  ULONG MarshaledDataOffset;
+  USHORT MarshaledDataLength;
+} CREDUIWIN_MARSHALED_CONTEXT, *PCREDUIWIN_MARSHALED_CONTEXT;
+
+typedef struct _SEC_WINNT_CREDUI_CONTEXT {
+  USHORT cbHeaderLength;
+  HANDLE CredUIContextHandle;
+#ifdef _CREDUI_INFO_DEFINED
+  PCREDUI_INFOW UIInfo;
+#else
+  PVOID UIInfo;
+#endif
+  ULONG dwAuthError;
+  PSEC_WINNT_AUTH_IDENTITY_OPAQUE pInputAuthIdentity;
+  PUNICODE_STRING TargetName;
+} SEC_WINNT_CREDUI_CONTEXT, *PSEC_WINNT_CREDUI_CONTEXT;
+
+typedef struct _SEC_WINNT_AUTH_PACKED_CREDENTIALS_EX {
+  unsigned short cbHeaderLength;
+  unsigned __LONG32 Flags;
+  SEC_WINNT_AUTH_BYTE_VECTOR PackedCredentials;
+  SEC_WINNT_AUTH_SHORT_VECTOR PackageList;
+} SEC_WINNT_AUTH_PACKED_CREDENTIALS_EX, *PSEC_WINNT_AUTH_PACKED_CREDENTIALS_EX;
+
+SECURITY_STATUS SEC_ENTRY SspiGetCredUIContext(HANDLE ContextHandle, GUID* CredType,
+                                               LUID* LogonId,
+                                               PSEC_WINNT_CREDUI_CONTEXT_VECTOR* CredUIContexts,
+                                               HANDLE* TokenHandle);
+SECURITY_STATUS SEC_ENTRY SspiUpdateCredentials(HANDLE ContextHandle, GUID* CredType,
+                                                ULONG FlatCredUIContextLength,
+                                                PUCHAR FlatCredUIContext);
+SECURITY_STATUS SEC_ENTRY SspiUnmarshalCredUIContext(PUCHAR MarshaledCredUIContext,
+                                                     ULONG MarshaledCredUIContextLength,
+                                                     PSEC_WINNT_CREDUI_CONTEXT* CredUIContext);
+
+#endif
+
 #define SEC_WINNT_AUTH_IDENTITY_MARSHALLED 0x4
 #define SEC_WINNT_AUTH_IDENTITY_ONLY 0x8
 
@@ -1371,17 +1612,181 @@ SECURITY_STATUS WINAPI AddSecurityPackageW(LPWSTR pszPackageName,PSECURITY_PACKA
   SECURITY_STATUS WINAPI DeleteSecurityPackageA(SEC_CHAR *pszPackageName);
   SECURITY_STATUS WINAPI DeleteSecurityPackageW(SEC_WCHAR *pszPackageName);
 
-#if (_WIN32_WINNT >= 0x0601)
-typedef struct _CREDUIWIN_MARSHALED_CONTEXT {
-  GUID   StructureType;
-  USHORT cbHeaderLength;
-  LUID   LogonId;
-  GUID   MarshaledDataType;
-  ULONG  MarshaledDataOffset;
-  USHORT MarshaledDataLength;
-} CREDUIWIN_MARSHALED_CONTEXT, *PCREDUIWIN_MARSHALED_CONTEXT;
+#if ISSP_MODE == 0
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+typedef struct _SspiAsyncContext SspiAsyncContext;
+
+typedef void (*SspiAsyncNotifyCallback)(SspiAsyncContext* Handle, PVOID CallbackData);
+
+SspiAsyncContext* SspiCreateAsyncContext();
+void SspiFreeAsyncContext(SspiAsyncContext* Handle);
+NTSTATUS SspiReinitAsyncContext(SspiAsyncContext* Handle);
+SECURITY_STATUS SspiSetAsyncNotifyCallback(SspiAsyncContext* Context,
+                                           SspiAsyncNotifyCallback Callback,
+                                           void* CallbackData);
+BOOLEAN SspiAsyncContextRequiresNotify(SspiAsyncContext* AsyncContext);
+SECURITY_STATUS SspiGetAsyncCallStatus(SspiAsyncContext* Handle);
+
+SECURITY_STATUS SspiAcquireCredentialsHandleAsyncW(
+  SspiAsyncContext* AsyncContext,
+#if ISSP_MODE == 0
+  PSECURITY_STRING pszPrincipal,
+  PSECURITY_STRING pszPackage,
+#else
+  LPWSTR pszPrincipal,
+  LPWSTR pszPackage,
+#endif
+  unsigned __LONG32 fCredentialUse,
+  void* pvLogonId,
+  void* pAuthData,
+  SEC_GET_KEY_FN pGetKeyFn,
+  void* pvGetKeyArgument,
+  PCredHandle phCredential,
+  PTimeStamp ptsExpiry
+);
+
+SECURITY_STATUS SspiAcquireCredentialsHandleAsyncA(
+  SspiAsyncContext* AsyncContext,
+  LPSTR pszPrincipal,
+  LPSTR pszPackage,
+  unsigned __LONG32 fCredentialUse,
+  void * pvLogonId,
+  void * pAuthData,
+  SEC_GET_KEY_FN pGetKeyFn,
+  void * pvGetKeyArgument,
+  PCredHandle phCredential,
+  PTimeStamp ptsExpiry
+);
+
+SECURITY_STATUS SspiInitializeSecurityContextAsyncW(
+  SspiAsyncContext* AsyncContext,
+  PCredHandle phCredential,
+  PCtxtHandle phContext,
+#if ISSP_MODE == 0
+  PSECURITY_STRING pszTargetName,
+#else
+  LPWSTR pszTargetName,
+#endif
+  unsigned __LONG32 fContextReq,
+  unsigned __LONG32 Reserved1,
+  unsigned __LONG32 TargetDataRep,
+  PSecBufferDesc pInput,
+  unsigned __LONG32 Reserved2,
+  PCtxtHandle phNewContext,
+  PSecBufferDesc pOutput,
+  unsigned __LONG32* pfContextAttr,
+  PTimeStamp ptsExpiry
+);
+
+SECURITY_STATUS SspiInitializeSecurityContextAsyncA(
+  SspiAsyncContext* AsyncContext,
+  PCredHandle phCredential,
+  PCtxtHandle phContext,
+  LPSTR pszTargetName,
+  unsigned __LONG32 fContextReq,
+  unsigned __LONG32 Reserved1,
+  unsigned __LONG32 TargetDataRep,
+  PSecBufferDesc pInput,
+  unsigned __LONG32 Reserved2,
+  PCtxtHandle phNewContext,
+  PSecBufferDesc pOutput,
+  unsigned __LONG32* pfContextAttr,
+  PTimeStamp ptsExpiry
+);
+
+SECURITY_STATUS SspiAcceptSecurityContextAsync(
+  SspiAsyncContext* AsyncContext,
+  PCredHandle phCredential,
+  PCtxtHandle phContext,
+  PSecBufferDesc pInput,
+  unsigned __LONG32 fContextReq,
+  unsigned __LONG32 TargetDataRep,
+  PCtxtHandle phNewContext,
+  PSecBufferDesc pOutput,
+  unsigned __LONG32* pfContextAttr,
+  PTimeStamp ptsExpiry
+);
+
+SECURITY_STATUS SspiFreeCredentialsHandleAsync(
+  SspiAsyncContext* AsyncContext,
+  PCredHandle phCredential
+);
+
+SECURITY_STATUS SspiDeleteSecurityContextAsync(
+  SspiAsyncContext* AsyncContext,
+  PCtxtHandle phContext
+);
+
+#define SspiAcquireCredentialsHandleAsync __MINGW_NAME_AW(SspiAcquireCredentialsHandleAsync)
+#define SspiInitializeSecurityContextAsync __MINGW_NAME_AW(SspiInitializeSecurityContextAsync)
+
+#endif
+
+SECURITY_STATUS SEC_ENTRY SspiPrepareForCredRead(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity,
+                                                 PCWSTR pszTargetName, PULONG pCredmanCredentialType,
+                                                 PCWSTR* ppszCredmanTargetName);
+
+SECURITY_STATUS SEC_ENTRY SspiPrepareForCredWrite(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity,
+                                                  PCWSTR pszTargetName, PULONG pCredmanCredentialType,
+                                                  PCWSTR* ppszCredmanTargetName, PCWSTR* ppszCredmanUserName,
+                                                  PUCHAR *ppCredentialBlob, PULONG pCredentialBlobSize);
+
+#define SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON            1
+#define SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS          2
+#define SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM            4
+
+SECURITY_STATUS SEC_ENTRY SspiEncryptAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData);
+
+SECURITY_STATUS SEC_ENTRY SspiEncryptAuthIdentityEx(ULONG Options, PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData);
+
+SECURITY_STATUS SEC_ENTRY SspiDecryptAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE EncryptedAuthData);
+
+SECURITY_STATUS SEC_ENTRY SspiDecryptAuthIdentityEx(ULONG Options, PSEC_WINNT_AUTH_IDENTITY_OPAQUE EncryptedAuthData);
+
+BOOLEAN SEC_ENTRY SspiIsAuthIdentityEncrypted(PSEC_WINNT_AUTH_IDENTITY_OPAQUE EncryptedAuthData);
+
+#if NTDDI_VERSION >= NTDDI_WIN7
+
+SECURITY_STATUS SEC_ENTRY SspiEncodeAuthIdentityAsStrings(PSEC_WINNT_AUTH_IDENTITY_OPAQUE pAuthIdentity,
+                                                          PCWSTR* ppszUserName, PCWSTR* ppszDomainName,
+                                                          PCWSTR* ppszPackedCredentialsString);
+
+SECURITY_STATUS SEC_ENTRY SspiValidateAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData);
+
+SECURITY_STATUS SEC_ENTRY SspiCopyAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData,
+                                               PSEC_WINNT_AUTH_IDENTITY_OPAQUE* AuthDataCopy);
+
+VOID SEC_ENTRY SspiFreeAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData);
+
+VOID SEC_ENTRY SspiZeroAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData);
+
+VOID SEC_ENTRY SspiLocalFree(PVOID DataBuffer);
+
+SECURITY_STATUS SEC_ENTRY SspiEncodeStringsAsAuthIdentity(PCWSTR pszUserName, PCWSTR pszDomainName,
+                                                          PCWSTR pszPackedCredentialsString,
+                                                          PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity);
+
+SECURITY_STATUS SEC_ENTRY SspiCompareAuthIdentities(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity1,
+                                                    PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity2,
+                                                    PBOOLEAN SameSuppliedUser, PBOOLEAN SameSuppliedIdentity);
+
+SECURITY_STATUS SEC_ENTRY SspiMarshalAuthIdentity(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity,
+                                                  unsigned __LONG32* AuthIdentityLength,
+                                                  char** AuthIdentityByteArray);
+
+SECURITY_STATUS SEC_ENTRY SspiUnmarshalAuthIdentity(unsigned __LONG32 AuthIdentityLength,
+                                                    char* AuthIdentityByteArray,
+                                                    PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity);
+
+BOOLEAN SEC_ENTRY SspiIsPromptingNeeded(unsigned __LONG32 ErrorOrNtStatus);
+
+SECURITY_STATUS SEC_ENTRY SspiGetTargetHostName(PCWSTR pszTargetName, PWSTR* pszHostName);
+
+SECURITY_STATUS SEC_ENTRY SspiExcludePackage(PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthIdentity,
+                                             PCWSTR pszPackageName,
+                                             PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppNewAuthIdentity);
+
+#endif
 
 #ifdef __cplusplus
 }
