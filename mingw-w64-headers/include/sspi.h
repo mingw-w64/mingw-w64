@@ -1091,6 +1091,49 @@ typedef PSecPkgContext_StreamSizes PSecPkgContext_DatagramSizes;
 
 #define FreeCredentialHandle FreeCredentialsHandle
 
+#if ISSP_MODE != 0
+
+SECURITY_STATUS SEC_ENTRY ChangeAccountPasswordW(SEC_WCHAR* pszPackageName,
+                                                 SEC_WCHAR* pszDomainName,
+                                                 SEC_WCHAR* pszAccountName,
+                                                 SEC_WCHAR* pszOldPassword,
+                                                 SEC_WCHAR* pszNewPassword,
+                                                 BOOLEAN bImpersonating,
+                                                 unsigned __LONG32 dwReserved,
+                                                 PSecBufferDesc pOutput);
+
+typedef SECURITY_STATUS (SEC_ENTRY *CHANGE_PASSWORD_FN_W)(SEC_WCHAR*,
+                                                          SEC_WCHAR*,
+                                                          SEC_WCHAR*,
+                                                          SEC_WCHAR*,
+                                                          SEC_WCHAR*,
+                                                          BOOLEAN,
+                                                          unsigned __LONG32,
+                                                          PSecBufferDesc);
+
+SECURITY_STATUS SEC_ENTRY ChangeAccountPasswordA(SEC_CHAR* pszPackageName,
+                                                 SEC_CHAR* pszDomainName,
+                                                 SEC_CHAR* pszAccountName,
+                                                 SEC_CHAR* pszOldPassword,
+                                                 SEC_CHAR* pszNewPassword,
+                                                 BOOLEAN bImpersonating,
+                                                 unsigned __LONG32 dwReserved,
+                                                 PSecBufferDesc pOutput);
+
+typedef SECURITY_STATUS (SEC_ENTRY *CHANGE_PASSWORD_FN_A)(SEC_CHAR*,
+                                                          SEC_CHAR*,
+                                                          SEC_CHAR*,
+                                                          SEC_CHAR*,
+                                                          SEC_CHAR*,
+                                                          BOOLEAN,
+                                                          unsigned __LONG32,
+                                                          PSecBufferDesc);
+
+#define ChangeAccountPassword __MINGW_NAME_AW(ChangeAccountPassword)
+#define CHANGE_PASSWORD_FN __MINGW_NAME_UAW(CHANGE_PASSWORD_FN)
+
+#endif
+
   typedef struct _SECURITY_FUNCTION_TABLE_W {
     unsigned __LONG32 dwVersion;
     ENUMERATE_SECURITY_PACKAGES_FN_W EnumerateSecurityPackagesW;
@@ -1328,18 +1371,6 @@ SECURITY_STATUS WINAPI AddSecurityPackageW(LPWSTR pszPackageName,PSECURITY_PACKA
   SECURITY_STATUS WINAPI DeleteSecurityPackageA(SEC_CHAR *pszPackageName);
   SECURITY_STATUS WINAPI DeleteSecurityPackageW(SEC_WCHAR *pszPackageName);
 
-#if (_WIN32_WINNT >= 0x0600)
-  SECURITY_STATUS WINAPI ChangeAccountPassword(
-    SEC_WCHAR *pszPackageName,
-    SEC_WCHAR *pszDomainName,
-    SEC_WCHAR *pszAccountName,
-    SEC_WCHAR *pszOldPassword,
-    SEC_WCHAR *pszNewPassword,
-    BOOLEAN bImpersonating,
-    unsigned __LONG32 dwReserved,
-    PSecBufferDesc pOutput
-  );
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 #if (_WIN32_WINNT >= 0x0601)
 typedef struct _CREDUIWIN_MARSHALED_CONTEXT {
   GUID   StructureType;
