@@ -3292,10 +3292,49 @@ extern "C" {
 #endif
 #endif
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#if _WIN32_WINNT >= 0x0600
+#if !defined(__WIDL__)
+
+FORCEINLINE VOID InitializeThreadpoolEnvironment(PTP_CALLBACK_ENVIRON cbe) {
+  TpInitializeCallbackEnviron(cbe);
+}
+
+FORCEINLINE VOID SetThreadpoolCallbackPool(PTP_CALLBACK_ENVIRON cbe, PTP_POOL pool) {
+  TpSetCallbackThreadpool(cbe, pool);
+}
+
+FORCEINLINE VOID SetThreadpoolCallbackCleanupGroup(PTP_CALLBACK_ENVIRON cbe, PTP_CLEANUP_GROUP cleanup_group, PTP_CLEANUP_GROUP_CANCEL_CALLBACK cleanup_group_cb) {
+  TpSetCallbackCleanupGroup(cbe, cleanup_group, cleanup_group_cb);
+}
+
+FORCEINLINE VOID SetThreadpoolCallbackRunsLong(PTP_CALLBACK_ENVIRON cbe) {
+  TpSetCallbackLongFunction(cbe);
+}
+
+FORCEINLINE VOID SetThreadpoolCallbackLibrary(PTP_CALLBACK_ENVIRON cbe, PVOID h) {
+  TpSetCallbackRaceWithDll(cbe, h);
+}
+
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN7
+FORCEINLINE VOID SetThreadpoolCallbackPriority(PTP_CALLBACK_ENVIRON cbe, TP_CALLBACK_PRIORITY prio) {
+  TpSetCallbackPriority(cbe, prio);
+}
+#endif
+
+FORCEINLINE VOID DestroyThreadpoolEnvironment(PTP_CALLBACK_ENVIRON cbe) {
+  TpDestroyCallbackEnviron(cbe);
+}
+
+#endif /* !__WIDL__ */
+#endif /* _WIN32_WINNT >= 0x0600 */
+#endif /* WINAPI_PARTITION_APP */
+
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINBASE_ */
 
 #if !defined (RC_INVOKED) && !defined (NOWINBASEINTERLOCK) && !defined (_NTOS_) && !defined (MICROSOFT_WINDOWS_WINBASE_INTERLOCKED_CPLUSPLUS_H_INCLUDED)
 #define MICROSOFT_WINDOWS_WINBASE_INTERLOCKED_CPLUSPLUS_H_INCLUDED
