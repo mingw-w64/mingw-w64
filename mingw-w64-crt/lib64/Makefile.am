@@ -448,6 +448,7 @@ lib64_DATA += %reldir%/libolecnv32.a
 lib64_DATA += %reldir%/liboledb32.a
 lib64_DATA += %reldir%/liboledlg.a
 lib64_DATA += %reldir%/libolesvr32.a
+lib64_DATA += %reldir%/libopends60.a
 lib64_DATA += %reldir%/libopengl32.a
 lib64_DATA += %reldir%/libosuninst.a
 lib64_DATA += %reldir%/libpathcch.a
