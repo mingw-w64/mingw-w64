@@ -1531,7 +1531,13 @@ typedef struct _MINIDUMP_MEMORY_INFO_LIST {
     MiniDumpWithFullAuxiliaryState           = 0x00008000,
     MiniDumpWithPrivateWriteCopyMemory       = 0x00010000,
     MiniDumpIgnoreInaccessibleMemory         = 0x00020000,
-    MiniDumpWithTokenInformation             = 0x00040000
+    MiniDumpWithTokenInformation             = 0x00040000,
+    MiniDumpWithModuleHeaders                = 0x00080000,
+    MiniDumpFilterTriage                     = 0x00100000,
+    MiniDumpWithAvxXStateContext             = 0x00200000,
+    MiniDumpWithIptTrace                     = 0x00400000,
+    MiniDumpScanInaccessiblePartialPages     = 0x00800000,
+    MiniDumpValidTypeFlags                   = 0x00ffffff
   } MINIDUMP_TYPE;
 
 #define MINIDUMP_THREAD_INFO_ERROR_THREAD    0x00000001
