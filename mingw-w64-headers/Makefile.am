@@ -208,6 +208,7 @@ IDL_SRCS = \
   include/tlbref.idl \
   include/tlogstg.idl \
   include/tpcshrd.idl \
+  include/tsvirtualchannels.idl \
   include/tuner.idl \
   include/uianimation.idl \
   include/uiautomationclient.idl \
