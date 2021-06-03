@@ -800,7 +800,10 @@ typedef enum _KBUGCHECK_CALLBACK_REASON {
   KbCallbackReserved1,
   KbCallbackSecondaryDumpData,
   KbCallbackDumpIo,
-  KbCallbackAddPages
+  KbCallbackAddPages,
+  KbCallbackSecondaryMultiPartDumpData,
+  KbCallbackRemovePages,
+  KbCallbackTriageDumpData
 } KBUGCHECK_CALLBACK_REASON;
 
 struct _KBUGCHECK_REASON_CALLBACK_RECORD;
@@ -917,7 +920,16 @@ typedef PROCESSOR_CALLBACK_FUNCTION *PPROCESSOR_CALLBACK_FUNCTION;
 typedef enum _KINTERRUPT_POLARITY {
   InterruptPolarityUnknown,
   InterruptActiveHigh,
-  InterruptActiveLow
+  InterruptRisingEdge = InterruptActiveHigh,
+  InterruptActiveLow,
+  InterruptFallingEdge = InterruptActiveLow,
+#if NTDDI_VERSION >= NTDDI_WIN8
+  InterruptActiveBoth,
+#endif
+#if NTDDI_VERSION >= NTDDI_WINBLUE
+  InterruptActiveBothTriggerLow = InterruptActiveBoth,
+  InterruptActiveBothTriggerHigh
+#endif
 } KINTERRUPT_POLARITY, *PKINTERRUPT_POLARITY;
 
 typedef enum _KPROFILE_SOURCE {
@@ -963,7 +975,7 @@ typedef enum _KWAIT_REASON {
   WrDelayExecution,
   WrSuspended,
   WrUserRequest,
-  WrEventPair,
+  WrSpare0,
   WrQueue,
   WrLpcReceive,
   WrLpcReply,
@@ -986,6 +998,9 @@ typedef enum _KWAIT_REASON {
   WrFastMutex,
   WrGuardedMutex,
   WrRundown,
+  WrAlertByThreadId,
+  WrDeferredPreempt,
+  WrPhysicalFault,
   MaximumWaitReason
 } KWAIT_REASON;
 
@@ -1134,48 +1149,46 @@ typedef struct _KLOCK_QUEUE_HANDLE {
 
 typedef ULONG64 KSPIN_LOCK_QUEUE_NUMBER;
 
-#define LockQueueDispatcherLock 0
-#define LockQueueExpansionLock 1
-#define LockQueuePfnLock 2
-#define LockQueueSystemSpaceLock 3
+#define LockQueueUnusedSpare0 0
+#define LockQueueUnusedSpare1 1
+#define LockQueueUnusedSpare2 2
+#define LockQueueUnusedSpare3 3
 #define LockQueueVacbLock 4
 #define LockQueueMasterLock 5
 #define LockQueueNonPagedPoolLock 6
 #define LockQueueIoCancelLock 7
-#define LockQueueWorkQueueLock 8
+#define LockQueueUnusedSpare8 8
 #define LockQueueIoVpbLock 9
 #define LockQueueIoDatabaseLock 10
 #define LockQueueIoCompletionLock 11
 #define LockQueueNtfsStructLock 12
 #define LockQueueAfdWorkQueueLock 13
 #define LockQueueBcbLock 14
-#define LockQueueMmNonPagedPoolLock 15
+#define LockQueueUnusedSpare15 15
 #define LockQueueUnusedSpare16 16
-#define LockQueueTimerTableLock 17
-#define LockQueueMaximumLock (LockQueueTimerTableLock + LOCK_QUEUE_TIMER_TABLE_LOCKS)
+#define LockQueueMaximumLock 17
 
 #else
 
 typedef enum _KSPIN_LOCK_QUEUE_NUMBER {
-  LockQueueDispatcherLock,
-  LockQueueExpansionLock,
-  LockQueuePfnLock,
-  LockQueueSystemSpaceLock,
+  LockQueueUnusedSpare0,
+  LockQueueUnusedSpare1,
+  LockQueueUnusedSpare2,
+  LockQueueUnusedSpare3,
   LockQueueVacbLock,
   LockQueueMasterLock,
   LockQueueNonPagedPoolLock,
   LockQueueIoCancelLock,
-  LockQueueWorkQueueLock,
+  LockQueueUnusedSpare8,
   LockQueueIoVpbLock,
   LockQueueIoDatabaseLock,
   LockQueueIoCompletionLock,
   LockQueueNtfsStructLock,
   LockQueueAfdWorkQueueLock,
   LockQueueBcbLock,
-  LockQueueMmNonPagedPoolLock,
+  LockQueueUnusedSpare15,
   LockQueueUnusedSpare16,
-  LockQueueTimerTableLock,
-  LockQueueMaximumLock = LockQueueTimerTableLock + LOCK_QUEUE_TIMER_TABLE_LOCKS
+  LockQueueMaximumLock = LockQueueUnusedSpare16 + 1
 } KSPIN_LOCK_QUEUE_NUMBER, *PKSPIN_LOCK_QUEUE_NUMBER;
 
 #endif /* defined(_AMD64_) */
@@ -1371,6 +1384,7 @@ typedef KSYNCHRONIZE_ROUTINE *PKSYNCHRONIZE_ROUTINE;
 
 typedef enum _POOL_TYPE {
   NonPagedPool,
+  NonPagedPoolExecute = NonPagedPool,
   PagedPool,
   NonPagedPoolMustSucceed,
   DontUseThisType,
@@ -1378,13 +1392,20 @@ typedef enum _POOL_TYPE {
   PagedPoolCacheAligned,
   NonPagedPoolCacheAlignedMustS,
   MaxPoolType,
+  NonPagedPoolBase = 0,
+  NonPagedPoolBaseMustSucceed = 2,
+  NonPagedPoolBaseCacheAligned = 4,
+  NonPagedPoolBaseCacheAlignedMustS = 6,
   NonPagedPoolSession = 32,
   PagedPoolSession,
   NonPagedPoolMustSucceedSession,
   DontUseThisTypeSession,
   NonPagedPoolCacheAlignedSession,
   PagedPoolCacheAlignedSession,
-  NonPagedPoolCacheAlignedMustSSession
+  NonPagedPoolCacheAlignedMustSSession,
+  NonPagedPoolNx = 512,
+  NonPagedPoolNxCacheAligned = 516,
+  NonPagedPoolSessionNx = 544,
 } POOL_TYPE;
 
 typedef enum _ALTERNATIVE_ARCHITECTURE_TYPE {
@@ -1666,7 +1687,8 @@ typedef enum _MEMORY_CACHING_TYPE {
   MmHardwareCoherentCached,
   MmNonCachedUnordered,
   MmUSWCCached,
-  MmMaximumCacheType
+  MmMaximumCacheType,
+  MmNotMapped = -1
 } MEMORY_CACHING_TYPE;
 
 typedef enum _MM_PAGE_PRIORITY {
@@ -1863,7 +1885,12 @@ typedef enum _WORK_QUEUE_TYPE {
   CriticalWorkQueue,
   DelayedWorkQueue,
   HyperCriticalWorkQueue,
-  MaximumWorkQueue
+  NormalWorkQueue,
+  BackgroundWorkQueue,
+  RealTimeWorkQueue,
+  SuperCriticalWorkQueue,
+  MaximumWorkQueue,
+  CustomPriorityWorkQueue = 32
 } WORK_QUEUE_TYPE;
 
 typedef VOID
@@ -2215,7 +2242,13 @@ typedef enum _SE_ADT_PARAMETER_TYPE {
   SeAdtParmTypeLogonIdNoSid,
   SeAdtParmTypeUlongNoConv,
   SeAdtParmTypeSockAddrNoPort,
-  SeAdtParmTypeAccessReason
+  SeAdtParmTypeAccessReason,
+  SeAdtParmTypeStagingReason,
+  SeAdtParmTypeResourceAttribute,
+  SeAdtParmTypeClaims,
+  SeAdtParmTypeLogonIdAsSid,
+  SeAdtParmTypeMultiSzString,
+  SeAdtParmTypeLogonIdEx
 } SE_ADT_PARAMETER_TYPE, *PSE_ADT_PARAMETER_TYPE;
 
 typedef struct _SE_ADT_OBJECT_TYPE {
@@ -2311,7 +2344,7 @@ typedef enum _POWER_INFORMATION_LEVEL {
   SetPowerSettingValue,
   NotifyUserPowerSetting,
   PowerInformationLevelUnused0,
-  PowerInformationLevelUnused1,
+  SystemMonitorHiberBootPowerOff,
   SystemVideoState,
   TraceApplicationPowerMessage,
   TraceApplicationPowerMessageEnd,
@@ -2335,6 +2368,50 @@ typedef enum _POWER_INFORMATION_LEVEL {
   ProcessorIdleDomains,
   WakeTimerList,
   SystemHiberFileSize,
+  ProcessorIdleStatesHv,
+  ProcessorPerfStatesHv,
+  ProcessorPerfCapHv,
+  ProcessorSetIdle,
+  LogicalProcessorIdling,
+  UserPresence,
+  PowerSettingNotificationName,
+  GetPowerSettingValue,
+  IdleResiliency,
+  SessionRITState,
+  SessionConnectNotification,
+  SessionPowerCleanup,
+  SessionLockState,
+  SystemHiberbootState,
+  PlatformInformation,
+  PdcInvocation,
+  MonitorInvocation,
+  FirmwareTableInformationRegistered,
+  SetShutdownSelectedTime,
+  SuspendResumeInvocation,
+  PlmPowerRequestCreate,
+  ScreenOff,
+  CsDeviceNotification,
+  PlatformRole,
+  LastResumePerformance,
+  DisplayBurst,
+  ExitLatencySamplingPercentage,
+  RegisterSpmPowerSettings,
+  PlatformIdleStates,
+  ProcessorIdleVeto,
+  PlatformIdleVeto,
+  SystemBatteryStatePrecise,
+  ThermalEvent,
+  PowerRequestActionInternal,
+  BatteryDeviceState,
+  PowerInformationInternal,
+  ThermalStandby,
+  SystemHiberFileType,
+  PhysicalPowerButtonPress,
+  QueryPotentialDripsConstraint,
+  EnergyTrackerCreate,
+  EnergyTrackerQuery,
+  UpdateBlackBoxRecorder,
+  SessionAllowExternalDmaDevices,
   PowerInformationLevelMaximum
 } POWER_INFORMATION_LEVEL;
 
@@ -2346,7 +2423,8 @@ typedef enum {
   PowerActionShutdown,
   PowerActionShutdownReset,
   PowerActionShutdownOff,
-  PowerActionWarmEject
+  PowerActionWarmEject,
+  PowerActionDisplayOff
 } POWER_ACTION, *PPOWER_ACTION;
 
 typedef enum _DEVICE_POWER_STATE {
@@ -2445,7 +2523,8 @@ typedef enum {
 typedef enum _POWER_REQUEST_TYPE {
   PowerRequestDisplayRequired,
   PowerRequestSystemRequired,
-  PowerRequestAwayModeRequired
+  PowerRequestAwayModeRequired,
+  PowerRequestExecutionRequired
 } POWER_REQUEST_TYPE, *PPOWER_REQUEST_TYPE;
 
 #if (NTDDI_VERSION >= NTDDI_WINXP)
@@ -2509,6 +2588,7 @@ typedef enum _POWER_PLATFORM_ROLE {
   PlatformRoleSOHOServer,
   PlatformRoleAppliancePC,
   PlatformRolePerformanceServer,
+  PlatformRoleSlate,
   PlatformRoleMaximum
 } POWER_PLATFORM_ROLE;
 
@@ -3041,6 +3121,7 @@ typedef enum _INTERFACE_TYPE {
   PNPISABus,
   PNPBus,
   Vmcs,
+  ACPIBus,
   MaximumInterfaceType
 } INTERFACE_TYPE, *PINTERFACE_TYPE;
 
@@ -3224,6 +3305,8 @@ typedef enum _KEY_INFORMATION_CLASS {
   KeyFlagsInformation,
   KeyVirtualizationInformation,
   KeyHandleTagsInformation,
+  KeyTrustInformation,
+  KeyLayerInformation,
   MaxKeyInfoClass
 } KEY_INFORMATION_CLASS;
 
@@ -3272,6 +3355,7 @@ typedef enum _KEY_SET_INFORMATION_CLASS {
   KeySetVirtualizationInformation,
   KeySetDebugInformation,
   KeySetHandleTagsInformation,
+  KeySetLayerInformation,
   MaxKeySetInfoClass
 } KEY_SET_INFORMATION_CLASS;
 
@@ -3323,7 +3407,9 @@ typedef enum _KEY_VALUE_INFORMATION_CLASS {
   KeyValueFullInformation,
   KeyValuePartialInformation,
   KeyValueFullInformationAlign64,
-  KeyValuePartialInformationAlign64
+  KeyValuePartialInformationAlign64,
+  KeyValueLayerInformation,
+  MaxKeyValueInfoClass
 } KEY_VALUE_INFORMATION_CLASS;
 
 typedef struct _KEY_WOW64_FLAGS_INFORMATION {
@@ -3393,6 +3479,8 @@ typedef enum _REG_NOTIFY_CLASS {
   RegNtPostSaveKey,
   RegNtPreReplaceKey,
   RegNtPostReplaceKey,
+  RegNtPreQueryKeyName,
+  RegNtPostQueryKeyName,
   MaxRegNtNotifyClass
 } REG_NOTIFY_CLASS, *PREG_NOTIFY_CLASS;
 
@@ -3840,7 +3928,10 @@ typedef enum _IRQ_DEVICE_POLICY_USHORT {
   IrqPolicyAllProcessorsInMachine = 3,
   IrqPolicyAllProcessorsInGroup = 3,
   IrqPolicySpecifiedProcessors = 4,
-  IrqPolicySpreadMessagesAcrossAllProcessors = 5};
+  IrqPolicySpreadMessagesAcrossAllProcessors = 5,
+  IrqPolicyAllProcessorsInMachineWhenSteered = 6,
+  IrqPolicyAllProcessorsInGroupWhenSteered = 6
+};
 
 #else /* defined(NT_PROCESSOR_GROUPS) */
 
@@ -3850,7 +3941,8 @@ typedef enum _IRQ_DEVICE_POLICY {
   IrqPolicyOneCloseProcessor,
   IrqPolicyAllProcessorsInMachine,
   IrqPolicySpecifiedProcessors,
-  IrqPolicySpreadMessagesAcrossAllProcessors
+  IrqPolicySpreadMessagesAcrossAllProcessors,
+  IrqPolicyAllProcessorsInMachineWhenSteered
 } IRQ_DEVICE_POLICY, *PIRQ_DEVICE_POLICY;
 
 #endif
@@ -4873,7 +4965,10 @@ typedef enum _DEVICE_USAGE_NOTIFICATION_TYPE {
   DeviceUsageTypeUndefined,
   DeviceUsageTypePaging,
   DeviceUsageTypeHibernation,
-  DeviceUsageTypeDumpFile
+  DeviceUsageTypeDumpFile,
+  DeviceUsageTypeBoot,
+  DeviceUsageTypePostDisplay,
+  DeviceUsageTypeGuestAssigned
 } DEVICE_USAGE_NOTIFICATION_TYPE;
 
 typedef struct _POWER_SEQUENCE {
@@ -4912,7 +5007,8 @@ typedef enum _IO_NOTIFICATION_EVENT_CATEGORY {
   EventCategoryReserved,
   EventCategoryHardwareProfileChange,
   EventCategoryDeviceInterfaceChange,
-  EventCategoryTargetDeviceChange
+  EventCategoryTargetDeviceChange,
+  EventCategoryKernelSoftRestart
 } IO_NOTIFICATION_EVENT_CATEGORY;
 
 typedef enum _IO_PRIORITY_HINT {
@@ -4989,10 +5085,30 @@ typedef enum _FILE_INFORMATION_CLASS {
   FileNetworkPhysicalNameInformation,
   FileIdGlobalTxDirectoryInformation,
   FileIsRemoteDeviceInformation,
-  FileAttributeCacheInformation,
+  FileUnusedInformation,
   FileNumaNodeInformation,
   FileStandardLinkInformation,
   FileRemoteProtocolInformation,
+  FileRenameInformationBypassAccessCheck,
+  FileLinkInformationBypassAccessCheck,
+  FileVolumeNameInformation,
+  FileIdInformation,
+  FileIdExtdDirectoryInformation,
+  FileReplaceCompletionInformation,
+  FileHardLinkFullIdInformation,
+  FileIdExtdBothDirectoryInformation,
+  FileDispositionInformationEx,
+  FileRenameInformationEx,
+  FileRenameInformationExBypassAccessCheck,
+  FileDesiredStorageClassInformation,
+  FileStatInformation,
+  FileMemoryPartitionInformation,
+  FileStatLxInformation,
+  FileCaseSensitiveInformation,
+  FileLinkInformationEx,
+  FileLinkInformationExBypassAccessCheck,
+  FileStorageReserveIdInformation,
+  FileCaseSensitiveInformationForceAccessCheck,
   FileMaximumInformation
 } FILE_INFORMATION_CLASS, *PFILE_INFORMATION_CLASS;
 
@@ -5063,6 +5179,10 @@ typedef enum _FSINFOCLASS {
   FileFsObjectIdInformation,
   FileFsDriverPathInformation,
   FileFsVolumeFlagsInformation,
+  FileFsSectorSizeInformation,
+  FileFsDataCopyInformation,
+  FileFsMetadataSizeInformation,
+  FileFsFullSizeInformationEx,
   FileFsMaximumInformation
 } FS_INFORMATION_CLASS, *PFS_INFORMATION_CLASS;
 
@@ -5662,6 +5782,8 @@ typedef enum _DMA_WIDTH {
   Width8Bits,
   Width16Bits,
   Width32Bits,
+  Width64Bits,
+  WidthNoWrap,
   MaximumDmaWidth
 } DMA_WIDTH, *PDMA_WIDTH;
 
@@ -6202,7 +6324,8 @@ typedef enum _BUS_QUERY_ID_TYPE {
   BusQueryHardwareIDs,
   BusQueryCompatibleIDs,
   BusQueryInstanceID,
-  BusQueryDeviceSerialNumber
+  BusQueryDeviceSerialNumber,
+  BusQueryContainerID
 } BUS_QUERY_ID_TYPE, *PBUS_QUERY_ID_TYPE;
 
 typedef enum _DEVICE_TEXT_TYPE {
@@ -7679,6 +7802,11 @@ typedef enum _TRACE_INFORMATION_CLASS {
   LoggerEventsLostClass,
   TraceSessionSettingsClass,
   LoggerEventsLoggedClass,
+  DiskIoNotifyRoutinesClass,
+  TraceInformationClassReserved1,
+  FltIoNotifyRoutinesClass,
+  TraceInformationClassReserved2,
+  WdfNotifyRoutinesClass,
   MaxTraceInformationClass
 } TRACE_INFORMATION_CLASS;
 
