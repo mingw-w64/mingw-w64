@@ -435,7 +435,7 @@ src_libmingwex=\
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
   math/cbrt.c           \
-  math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     \
+  math/cbrtf.c          math/cbrtl.c       math/copysign.c      math/copysignf.c     \
   math/coshf.c          math/coshl.c       math/erfl.c           \
   math/expf.c           \
   math/fabs.c           math/fabsf.c       math/fabsl.c          math/fdim.c          math/fdimf.c         math/fdiml.c         \
@@ -457,7 +457,7 @@ src_libmingwex=\
   math/sqrtf.c          math/sqrtl.c       math/tanhf.c          math/tanhl.c         math/tgamma.c        \
   math/tgammaf.c        math/tgammal.c     math/truncl.c         \
   math/powi.def.h       math/sqrt.def.h       \
-  math/cephes_emath.h   math/cephes_mconf.h math/fp_consts.h     math/abs64.c \
+  math/cephes_mconf.h   math/fp_consts.h   math/abs64.c \
   \
   misc/mb_wc_common.h \
   misc/mingw_longjmp.S \
@@ -474,7 +474,7 @@ src_libmingwex=\
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mkstemp.c             misc/seterrno.c         misc/sleep.c          \
   misc/strnlen.c         misc/strsafe.c         \
-  misc/strtoimax.c       misc/strtold.c             misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
+  misc/strtoimax.c       misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
   misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
