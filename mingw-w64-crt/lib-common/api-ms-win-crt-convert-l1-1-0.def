@@ -106,7 +106,8 @@ strtod
 strtof
 strtoimax
 strtol
-strtold
+; Can't use long double functions from the CRT on x86
+F_ARM_ANY(strtold)
 strtoll
 strtoul
 strtoull
@@ -119,7 +120,8 @@ wcstod
 wcstof
 wcstoimax
 wcstol
-wcstold
+; Can't use long double functions from the CRT on x86
+F_ARM_ANY(wcstold)
 wcstoll
 wcstombs
 wcstombs_s
