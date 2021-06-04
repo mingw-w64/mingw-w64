@@ -72,3 +72,7 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
 
   return ret;
 }
+
+long double
+__mingw_wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
+  __attribute__((alias("wcstold")));

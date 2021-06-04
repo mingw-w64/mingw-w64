@@ -472,7 +472,7 @@ src_libmingwex=\
   misc/gettimeofday.c    misc/imaxabs.c             misc/imaxdiv.c          misc/isblank.c               misc/iswblank.c        \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
-  misc/mingw_wcstold.c   misc/mkstemp.c             misc/seterrno.c         misc/sleep.c          \
+  misc/mkstemp.c             misc/seterrno.c         misc/sleep.c          \
   misc/strnlen.c         misc/strsafe.c         \
   misc/strtoimax.c       misc/strtold.c             misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
