@@ -2492,6 +2492,7 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	    /*
 	     * Unsigned integer values; octal, decimal or hexadecimal format...
 	     */
+	    stream.flags &= ~PFORMAT_POSITIVE;
 #if __ENABLE_PRINTF128
         argval.__pformat_u128_t.t128.digits[1] = 0LL; /* no sign extend needed */
 	    if( length == PFORMAT_LENGTH_LLONG128 )
