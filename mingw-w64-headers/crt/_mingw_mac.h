@@ -301,6 +301,8 @@
 #  define __mingw_attribute_artificial
 #endif
 
+#define __MINGW_SELECTANY  __attribute__((__selectany__))
+
 #if _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 && __MINGW_GNUC_PREREQ(4, 1)
 #  if _FORTIFY_SOURCE > 1
 #    define __MINGW_FORTIFY_LEVEL 2
