@@ -66,7 +66,7 @@ extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
 /* TLS initialization hook.  */
 extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
 
-extern int mingw_app_type;
+extern int __mingw_app_type;
 
 HINSTANCE __mingw_winmain_hInstance;
 _TCHAR *__mingw_winmain_lpCmdLine;
@@ -126,7 +126,7 @@ static int __cdecl
 pre_c_init (void)
 {
   managedapp = check_managed_app ();
-  if (mingw_app_type)
+  if (__mingw_app_type)
     __set_app_type(_GUI_APP);
   else
     __set_app_type (_CONSOLE_APP);
@@ -172,7 +172,7 @@ int WinMainCRTStartup (void)
 #ifdef SEH_INLINE_ASM
   asm ("\t.l_startw:\n");
 #endif
-  mingw_app_type = 1;
+  __mingw_app_type = 1;
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
@@ -198,7 +198,7 @@ int mainCRTStartup (void)
 #ifdef SEH_INLINE_ASM
   asm ("\t.l_start:\n");
 #endif
-  mingw_app_type = 0;
+  __mingw_app_type = 0;
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
@@ -226,7 +226,7 @@ __tmainCRTStartup (void)
   WINBOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
 
-  if (mingw_app_type)
+  if (__mingw_app_type)
     GetStartupInfo (&StartupInfo);
   {
     void *lock_free = NULL;
@@ -304,7 +304,7 @@ __tmainCRTStartup (void)
 	__mingw_winmain_lpCmdLine = lpszCommandLine;
       }
 
-    if (mingw_app_type)
+    if (__mingw_app_type)
       {
 	__mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
 				    StartupInfo.wShowWindow : SW_SHOWDEFAULT;
