@@ -99,8 +99,8 @@ static void duplicate_ppstrings (int ac, char ***av);
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
-_CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
-_CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
+_CRTALLOC(".CRT$XIAA") _PIFV __mingw_pcinit = pre_c_init;
+_CRTALLOC(".CRT$XCAA") _PVFV __mingw_pcppinit = pre_cpp_init;
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
 
