@@ -329,9 +329,9 @@ __tmainCRTStartup (void)
   return mainret;
 }
 
-extern int mingw_initltsdrot_force;
-extern int mingw_initltsdyn_force;
-extern int mingw_initltssuo_force;
+extern int __mingw_initltsdrot_force;
+extern int __mingw_initltsdyn_force;
+extern int __mingw_initltssuo_force;
 
 static int __cdecl
 check_managed_app (void)
@@ -342,9 +342,9 @@ check_managed_app (void)
   PIMAGE_OPTIONAL_HEADER64 pNTHeader64;
 
   /* Force to be linked.  */
-  mingw_initltsdrot_force=1;
-  mingw_initltsdyn_force=1;
-  mingw_initltssuo_force=1;
+  __mingw_initltsdrot_force=1;
+  __mingw_initltsdyn_force=1;
+  __mingw_initltssuo_force=1;
 
   pDOSHeader = (PIMAGE_DOS_HEADER) &__ImageBase;
   if (pDOSHeader->e_magic != IMAGE_DOS_SIGNATURE)
