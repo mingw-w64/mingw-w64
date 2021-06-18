@@ -30,6 +30,9 @@ __MINGW_USYMBOL(longjmp):
         movq    0x38(%rcx),%r13      /* jmp_buf->R13 */
         movq    0x40(%rcx),%r14      /* jmp_buf->R14 */
         movq    0x48(%rcx),%r15      /* jmp_buf->R15 */
+        ldmxcsr 0x58(%rcx)           /* jmp_buf->MxCsr */
+        fnclex
+        fldcw   0x5c(%rcx)           /* jmp_buf->FpCsr */
         movdqa  0x60(%rcx),%xmm6     /* jmp_buf->Xmm6 */
         movdqa  0x70(%rcx),%xmm7     /* jmp_buf->Xmm7 */
         movdqa  0x80(%rcx),%xmm8     /* jmp_buf->Xmm8 */

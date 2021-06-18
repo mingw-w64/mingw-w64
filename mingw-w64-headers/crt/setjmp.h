@@ -128,7 +128,9 @@ extern "C" {
     __MINGW_EXTENSION unsigned __int64 R14;
     __MINGW_EXTENSION unsigned __int64 R15;
     __MINGW_EXTENSION unsigned __int64 Rip;
-    __MINGW_EXTENSION unsigned __int64 Spare;
+    unsigned long MxCsr;
+    unsigned short FpCsr;
+    unsigned short Spare;
     SETJMP_FLOAT128 Xmm6;
     SETJMP_FLOAT128 Xmm7;
     SETJMP_FLOAT128 Xmm8;
