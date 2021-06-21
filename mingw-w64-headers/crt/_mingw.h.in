@@ -583,7 +583,7 @@ __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 #if defined(__i386__) || defined(__x86_64__)
   __asm__ __volatile__("int {$}3":);
 #elif defined(__arm__)
-  __asm__ __volatile__("udf #1");
+  __asm__ __volatile__("udf #0xfe");
 #elif defined(__aarch64__)
   __asm__ __volatile__("brk #0xf000");
 #else
