@@ -1575,6 +1575,7 @@ typedef enum _SE_ADT_PARAMETER_TYPE {
 #define MSV1_0_NTLM3_INPUT_LENGTH (sizeof(MSV1_0_NTLM3_RESPONSE) - MSV1_0_NTLM3_RESPONSE_LENGTH)
 #define MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH RTL_SIZEOF_THROUGH_FIELD(MSV1_0_NTLM3_RESPONSE,AvPairsOff)
 
+/* MsvAvSingleHost present in MS-NLMP specifications but not in WinSDK */
   typedef enum {
     MsvAvEOL,
     MsvAvNbComputerName,
@@ -1587,6 +1588,7 @@ typedef enum _SE_ADT_PARAMETER_TYPE {
 #if _WIN32_WINNT >= 0x0600
     ,MsvAvTimestamp
     ,MsvAvRestrictions
+    ,MsvAvSingleHost = MsvAvRestrictions
     ,MsvAvTargetName
     ,MsvAvChannelBindings
 #endif
