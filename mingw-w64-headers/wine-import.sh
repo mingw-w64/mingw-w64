@@ -185,6 +185,7 @@ for f in \
 	netlistmgr \
 	objectarray \
 	optary \
+	proofofpossessioncookieinfo \
 	qedit \
 	relogger \
 	rtworkq \

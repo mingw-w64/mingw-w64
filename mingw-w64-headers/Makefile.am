@@ -228,6 +228,7 @@ IDL_SRCS = \
   include/mediaobj.idl \
   include/medparam.idl \
   include/mmstream.idl \
+  include/proofofpossessioncookieinfo.idl \
   include/qedit.idl \
   include/qnetwork.idl \
   include/relogger.idl \
