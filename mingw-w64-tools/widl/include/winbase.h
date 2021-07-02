@@ -679,6 +679,7 @@ typedef struct _PROCESS_INFORMATION{
 #define PROFILE_USER                      0x10000000
 #define PROFILE_KERNEL                    0x20000000
 #define PROFILE_SERVER                    0x40000000
+#define CREATE_IGNORE_SYSTEM_DEFAULT      0x80000000
 
 #define STACK_SIZE_PARAM_IS_A_RESERVATION 0x00010000
 
@@ -2274,6 +2275,7 @@ WINBASEAPI VOID        WINAPI GetStartupInfoA(LPSTARTUPINFOA);
 WINBASEAPI VOID        WINAPI GetStartupInfoW(LPSTARTUPINFOW);
 #define                       GetStartupInfo WINELIB_NAME_AW(GetStartupInfo)
 WINBASEAPI HANDLE      WINAPI GetStdHandle(DWORD);
+WINBASEAPI BOOL        WINAPI GetSystemCpuSetInformation(SYSTEM_CPU_SET_INFORMATION*,ULONG,ULONG*,HANDLE,ULONG);
 WINBASEAPI UINT        WINAPI GetSystemDirectoryA(LPSTR,UINT);
 WINBASEAPI UINT        WINAPI GetSystemDirectoryW(LPWSTR,UINT);
 #define                       GetSystemDirectory WINELIB_NAME_AW(GetSystemDirectory)
@@ -2747,6 +2749,7 @@ WINBASEAPI LPVOID      WINAPI VirtualAlloc(LPVOID,SIZE_T,DWORD,DWORD);
 WINBASEAPI LPVOID      WINAPI VirtualAlloc2(HANDLE,LPVOID,SIZE_T,DWORD,DWORD,MEM_EXTENDED_PARAMETER*,ULONG);
 WINBASEAPI LPVOID      WINAPI VirtualAllocEx(HANDLE,LPVOID,SIZE_T,DWORD,DWORD);
 WINBASEAPI LPVOID      WINAPI VirtualAllocExNuma(HANDLE,void*,SIZE_T,DWORD,DWORD,DWORD);
+WINBASEAPI LPVOID      WINAPI VirtualAllocFromApp(LPVOID,SIZE_T,DWORD,DWORD);
 WINBASEAPI BOOL        WINAPI VirtualFree(LPVOID,SIZE_T,DWORD);
 WINBASEAPI BOOL        WINAPI VirtualFreeEx(HANDLE,LPVOID,SIZE_T,DWORD);
 WINBASEAPI BOOL        WINAPI VirtualLock(LPVOID,SIZE_T);
@@ -2885,9 +2888,11 @@ static inline LPSTR WINAPI lstrcatA( LPSTR dst, LPCSTR src )
     return strcat( dst, src );
 }
 
-/* strncpy doesn't do what you think, don't use it */
+/* strncpy/wcsncpy don't do what you think, don't use them */
 #undef strncpy
+#undef wcsncpy
 #define strncpy(d,s,n) error do_not_use_strncpy_use_lstrcpynA_or_memcpy_instead
+#define wcsncpy(d,s,n) error do_not_use_wcsncpy_use_lstrcpynW_or_memcpy_instead
 
 #endif /* !defined(__WINESRC__) || defined(WINE_NO_INLINE_STRING) */
 
