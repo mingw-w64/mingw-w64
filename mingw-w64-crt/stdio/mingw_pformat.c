@@ -1048,27 +1048,22 @@ typedef union
  */
 #include "../gdtoa/gdtoa.h"
 
-static
-char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
+static __pformat_fpreg_t init_fpreg_ldouble( long double val )
 {
-  /* Helper function, derived from David M. Gay's `g_xfmt()', calling
-   * his `__gdtoa()' function in a manner to provide extended precision
-   * replacements for `ecvt()' and `fcvt()'.
-   */
-  int k; unsigned int e = 0; char *ep;
-  static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0, 14 /* Int_max */ };
- 
+  __pformat_fpreg_t x;
+  x.__pformat_fpreg_ldouble_t = val;
+
   if( sizeof( double ) == sizeof( long double ) )
   {
-    /* The caller has written into x.__pformat_fpreg_ldouble_t, which
-     * actually isn't laid out in the way the rest of the union expects it.
+    /* Here, __pformat_fpreg_t expects to be initialized with a 80 bit long
+     * double, but this platform doesn't have long doubles that differ from
+     * regular 64 bit doubles. Therefore manually convert the 64 bit float
+     * value to an 80 bit float value.
      */
     int exp = (x.__pformat_fpreg_mantissa >> 52) & 0x7ff;
     unsigned long long mant = x.__pformat_fpreg_mantissa & 0x000fffffffffffffULL;
     int integer = exp ? 1 : 0;
     int signbit = x.__pformat_fpreg_mantissa >> 63;
-
-    k = __fpclassify( x.__pformat_fpreg_double_t );
 
     if (exp == 0x7ff)
       exp = 0x7fff;
@@ -1077,9 +1072,22 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
     x.__pformat_fpreg_mantissa = (mant << 11) | ((unsigned long long)integer << 63);
     x.__pformat_fpreg_exponent = exp | (signbit << 15);
   }
-  else
-    k = __fpclassifyl( x.__pformat_fpreg_ldouble_t );
 
+  return x;
+}
+
+static
+char *__pformat_cvt( int mode, long double val, int nd, int *dp, int *sign )
+{
+  /* Helper function, derived from David M. Gay's `g_xfmt()', calling
+   * his `__gdtoa()' function in a manner to provide extended precision
+   * replacements for `ecvt()' and `fcvt()'.
+   */
+  int k; unsigned int e = 0; char *ep;
+  static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0, 14 /* Int_max */ };
+  __pformat_fpreg_t x = init_fpreg_ldouble( val );
+
+  k = __fpclassifyl( val );
 
   /* Classify the argument into an appropriate `__gdtoa()' category...
    */
@@ -1130,8 +1138,7 @@ char *__pformat_ecvt( long double x, int precision, int *dp, int *sign )
   /* A convenience wrapper for the above...
    * it emulates `ecvt()', but takes a `long double' argument.
    */
-  __pformat_fpreg_t z; z.__pformat_fpreg_ldouble_t = x;
-  return __pformat_cvt( 2, z, precision, dp, sign );
+  return __pformat_cvt( 2, x, precision, dp, sign );
 }
 
 static
@@ -1140,8 +1147,7 @@ char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
   /* A convenience wrapper for the above...
    * it emulates `fcvt()', but takes a `long double' argument.
    */
-  __pformat_fpreg_t z; z.__pformat_fpreg_ldouble_t = x;
-  return __pformat_cvt( 3, z, precision, dp, sign );
+  return __pformat_cvt( 3, x, precision, dp, sign );
 }
 
 /* The following are required, to clean up the `__gdtoa()' memory pool,
@@ -2259,7 +2265,7 @@ void __pformat_xldouble( long double x, __pformat_t *stream )
    * value specified as `long double' type).
    */
   unsigned sign_bit = 0;
-  __pformat_fpreg_t z; z.__pformat_fpreg_ldouble_t = x;
+  __pformat_fpreg_t z = init_fpreg_ldouble( x );
 
   /* First check for NaN; it is emitted unsigned...
    */
