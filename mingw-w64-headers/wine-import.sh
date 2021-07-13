@@ -113,6 +113,7 @@ for f in \
 	mscat.h \
 	propkeydef.h \
 	propkey.h \
+	propvarutil.h \
 	rpcsal.h \
 	t2embapi.h \
 	uiautomationcoreapi.h \
