@@ -1,0 +1,5 @@
+CREATE libmsvcr90d.a
+ADDLIB libmsvcr90d_def.a
+ADDLIB libmsvcrt_common.a
+SAVE
+END

@@ -1,0 +1,6 @@
+CREATE libmsvcrt-os.a
+ADDLIB libmsvcrt_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcrt_extra.a
+SAVE
+END

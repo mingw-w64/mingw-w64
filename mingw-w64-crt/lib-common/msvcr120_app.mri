@@ -1,0 +1,6 @@
+CREATE libmsvcr120_app.a
+ADDLIB libmsvcr120_app_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcr120_app_extra.a
+SAVE
+END

@@ -1,0 +1,5 @@
+CREATE libmsvcr80.a
+ADDLIB libmsvcr80_def.a
+ADDLIB libmsvcrt_common.a
+SAVE
+END

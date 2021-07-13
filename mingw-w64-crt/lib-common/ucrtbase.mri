@@ -1,0 +1,5 @@
+CREATE libucrtbase.a
+ADDLIB libucrtbase_def.a
+ADDLIB libucrt_extra.a
+SAVE
+END
