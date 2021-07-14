@@ -170,6 +170,10 @@ src_msvcrt_common=\
   misc/uchar_mbrtoc16.c \
   misc/uchar_mbrtoc32.c \
   misc/wcrtomb.c \
+  stdio/_getc_nolock.c \
+  stdio/_getwc_nolock.c \
+  stdio/_putc_nolock.c \
+  stdio/_putwc_nolock.c \
   stdio/acrt_iob_func.c \
   stdio/snprintf_alias.c \
   stdio/vsnprintf_alias.c \
@@ -486,8 +490,8 @@ src_libmingwex=\
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         stdio/strtok_r.c          stdio/scanf.S \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
-  stdio/_fstat64i32.c      stdio/_ftime.c            stdio/_getc_nolock.c     stdio/_getwc_nolock.c     stdio/_putc_nolock.c    \
-  stdio/_putwc_nolock.c    stdio/_stat.c             stdio/_stat64i32.c       stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
+  stdio/_fstat64i32.c      stdio/_ftime.c       \
+  stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/atoll.c             stdio/fgetpos64.c       \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c         stdio/fsetpos64.c         stdio/ftello.c          \
   stdio/ftello64.c         stdio/ftruncate64.c       stdio/lltoa.c            stdio/lltow.c             stdio/lseek64.c         \
