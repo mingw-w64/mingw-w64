@@ -22,6 +22,11 @@
 #include <shtypes.h>
 #include <shlwapi.h>
 
+#ifndef WINE_NTSTATUS_DECLARED
+#define WINE_NTSTATUS_DECLARED
+typedef LONG NTSTATUS;
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -178,7 +183,11 @@ inline HRESULT InitPropVariantFromString(PCWSTR psz, PROPVARIANT *ppropvar)
 
 inline HRESULT InitPropVariantFromGUIDAsBuffer(REFGUID guid, PROPVARIANT *ppropvar)
 {
+#ifdef __cplusplus
+    return InitPropVariantFromBuffer(&guid, sizeof(GUID), ppropvar);
+#else
     return InitPropVariantFromBuffer(guid, sizeof(GUID), ppropvar);
+#endif
 }
 
 inline WINBOOL IsPropVariantVector(REFPROPVARIANT propvar)
