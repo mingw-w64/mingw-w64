@@ -238,9 +238,9 @@ typedef struct group_source_req {
   SOCKADDR_STORAGE gsr_source;
 } GROUP_SOURCE_REQ, *PGROUP_SOURCE_REQ;
 
-#define WS2TCPIP_INLINE __mingw_ovr
+#define WS2TCPIP_INLINE __CRT_INLINE
 
-static int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
+int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
 WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a, const struct in6_addr *b) {
     return !memcmp(a, b, sizeof(struct in6_addr));
 }
