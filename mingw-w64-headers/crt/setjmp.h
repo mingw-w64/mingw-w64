@@ -233,7 +233,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #    elif defined(__SEH__)
 #     if defined(__aarch64__) || defined(_ARM64_)
 #      define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
-#     elif (__MINGW_GCC_VERSION < 40702)
+#     elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
 #      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
 #     else
 #      define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
@@ -246,7 +246,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #  else
 #    undef setjmp
 #    ifdef __SEH__
-#     if (__MINGW_GCC_VERSION < 40702)
+#     if (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
 #      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
 #      define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
 #     else
