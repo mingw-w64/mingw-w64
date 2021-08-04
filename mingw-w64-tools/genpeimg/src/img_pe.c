@@ -101,10 +101,12 @@ fill_pe_info (pe_image *pe)
   switch (pe->pe_filehdr.machine)
     {
     case 0x14c: /* i386 */
+    case 0x1c4: /* ARMNT */
       pe->is_64bit = 0;
       pe->is_bigendian = 0;
       break;
-    case 0x8664:
+    case 0x8664: /* x64 */
+    case 0xaa64: /* ARM64 */
       pe->is_64bit = 1;
       pe->is_bigendian = 0;
       break;
