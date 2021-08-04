@@ -272,14 +272,14 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
     case 2: fprintf (outfp, "Windows GUI (2)\n"); break;
     case 3: fprintf (outfp, "Windows CUI (3)\n"); break;
     case 5: fprintf (outfp, "OS/2 CUI (5)\n"); break;
-    case 7: fprintf (outfp, "Posix CUI (4)\n"); break;
+    case 7: fprintf (outfp, "Posix CUI (7)\n"); break;
     case 8: fprintf (outfp, "Native Windows (8)\n"); break;
     case 9: fprintf (outfp, "Windows CE GUI (9)\n"); break;
     case 10: fprintf (outfp, "EFI Application (10)\n"); break;
     case 11: fprintf (outfp, "EFI Service Driver (11)\n"); break;
     case 12: fprintf (outfp, "EFI Runtime Driver (12)\n"); break;
     case 13: fprintf (outfp, "EFI ROM (13)\n"); break;
-    case 14: fprintf (outfp, "XBOX\n"); break;
+    case 14: fprintf (outfp, "XBOX (14)\n"); break;
     case 16: fprintf (outfp, "Windows Boot Application (16)\n"); break;
     default:
       fprintf (outfp, "Unkown (%u)\n", PEIMG_GET_USHORT (ppeimg, ppeimg->optional_hdr_pos + 68));
@@ -290,7 +290,7 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
     {
       fprintf (outfp, "  Optional Characteristics:\n   ");
       if ((hdr_cha & 0x20) != 0)
-	fprintf (outfp, " large-address-aware");
+	fprintf (outfp, " high-entropy-va");
       if ((hdr_cha & 0x40) != 0)
         fprintf (outfp, " dynamic-base");
       if ((hdr_cha & 0x80) != 0)
@@ -307,6 +307,8 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
 	fprintf (outfp, " app-container");
       if ((hdr_cha & 0x2000) != 0)
         fprintf (outfp, " wdm-Driver");
+      if ((hdr_cha & 0x4000) != 0)
+        fprintf (outfp, " control-flow-guard");
       if ((hdr_cha & 0x8000) != 0)
         fprintf (outfp, " terminal-server-aware");
       hdr_cha &= ~(0xbfef);

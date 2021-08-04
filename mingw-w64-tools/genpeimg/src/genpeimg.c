@@ -46,7 +46,8 @@ show_usage (void)
     " -d  Takes as addition argument one or more of the following\n"
     "     options:\n"
     "  +<flags> and/or -<flags>\n"
-    "  flags are: d, f, n, i, s, b, a, w, t\n"
+    "  flags are: e, d, f, n, i, s, b, a, w, c, t\n"
+    "    e: high entropy va\n"
     "    d: dynamic base\n"
     "    f: force integrity\n"
     "    n: nx compatible\n"
@@ -55,6 +56,7 @@ show_usage (void)
     "    b: no-bind\n"
     "    a: app-container\n"
     "    w: WDM-driver\n"
+    "    c: control-flow-guard\n"
     "    t: terminal-server-aware\n");
   fprintf (stderr,
     " -h: Show this page.\n"
@@ -150,6 +152,10 @@ pass_args (int argc, char **argv)
 	        {
 		case '-': is_pos = 0; break;
 		case '+': is_pos = 1; break;
+		case 'e':
+		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x20;
+		  else mask_pe_opt_hdr_dll_chara &= ~0x20;
+		  break;
 		case 'd':
 		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x40;
 		  else mask_pe_opt_hdr_dll_chara &= ~0x40;
@@ -181,6 +187,10 @@ pass_args (int argc, char **argv)
 		case 'w':
 		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x2000;
 		  else mask_pe_opt_hdr_dll_chara &= ~0x2000;
+		  break;
+		case 'c':
+		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x4000;
+		  else mask_pe_opt_hdr_dll_chara &= ~0x4000;
 		  break;
 		case 't':
 		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x8000;
