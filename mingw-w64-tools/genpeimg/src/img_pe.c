@@ -345,6 +345,13 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
 }
 
 void
+peimg_set_hdr_opt_subsystem (pe_image *pe, unsigned short subsystem)
+{
+  if (subsystem != PEIMG_GET_USHORT (pe, pe->optional_hdr_pos + 68))
+    PEIMG_SET_USHORT (pe, pe->optional_hdr_pos + 68, subsystem);
+}
+
+void
 peimg_set_hdr_opt_dll_characteristics (pe_image *pe, unsigned short set, unsigned short mask)
 {
   unsigned short flgs;

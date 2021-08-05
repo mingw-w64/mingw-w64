@@ -21,16 +21,41 @@
 
 #include "img.h"
 
+static const struct SUBSYSTEM_MAPPING {
+  const char * const name;
+  const unsigned short value;
+} SUBSYSTEMS[] = {
+  { "BOOT_APPLICATION", 16 },
+  { "CONSOLE", 3 },
+  { "EFI_APPLICATION", 10 },
+  { "EFI_BOOT_SERVICE_DRIVER", 11},
+  { "EFI_ROM", 13 },
+  { "EFI_RUNTIME_DRIVER", 12},
+  { "NATIVE", 1 },
+  { "POSIX", 7 },
+  { "WINDOWS", 2 },
+  /* not listed on MS doc page for /SUBSYSTEM option to LINK */
+  { "OS2", 5 },
+  { "NATIVE_WINDOWS9X", 8 },
+  { "WINDOWS_CE", 9 },
+  { "XBOX", 14 },
+  { "UNKNOWN", 0 },
+  { NULL, 0 }
+};
+
 unsigned short set_pe_hdr_chara = 0;
 unsigned short mask_pe_hdr_chara = 0xffff;
 unsigned short set_pe_opt_hdr_dll_chara = 0;
 unsigned short mask_pe_opt_hdr_dll_chara = 0xffff;
+unsigned short set_subsystem = 0xffff;
 int dump_information = 0;
 static char *file_name = NULL;
 
 static void __attribute__((noreturn))
 show_usage (void)
 {
+  const struct SUBSYSTEM_MAPPING *p;
+
   fprintf (stderr, "genpeimg [options] files...\n");
   fprintf (stderr, "\nOptions:\n"
     " -p  Takes as addition argument one or more of the following\n"
@@ -59,6 +84,12 @@ show_usage (void)
     "    c: control-flow-guard\n"
     "    t: terminal-server-aware\n");
   fprintf (stderr,
+    " -s  Sets the image subsystem to the specified value\n");
+  for (p = &SUBSYSTEMS[0]; p->name; ++p)
+    fprintf (stderr, "    %s\n", p->name);
+  fprintf (stderr,
+    "    or an integer value\n");
+  fprintf (stderr,
     " -h: Show this page.\n"
     " -x: Dump image information to stdout\n");
   exit (0);
@@ -71,6 +102,7 @@ pass_args (int argc, char **argv)
   int has_error = 0;
   while (argc-- > 0)
     {
+      const struct SUBSYSTEM_MAPPING *p;
       int is_pos = 1;
       char *h = *argv++;
       if (h[0] != '-')
@@ -204,6 +236,41 @@ pass_args (int argc, char **argv)
 	      ++h;
 	    }
 	  break;
+	case 's':
+	  if (h[2] != 0)
+	    goto error_point;
+	  if (argc == 0)
+	    {
+	      fprintf (stderr, "Missing argument for -s\n");
+	      show_usage ();
+	    }
+	  h = *argv++; argc--;
+
+	  for (p = &SUBSYSTEMS[0]; p->name; ++p)
+	    {
+	      if (0 == strcasecmp (h, p->name))
+	        {
+		  set_subsystem = p->value;
+		  break;
+		}
+	    }
+	  if (p->name == NULL)
+	    {
+	      unsigned long ulparam = strtoul (h, &h, 0);
+	      /* TODO: support ",major.minor" suffix? */
+	      if (*h != 0)
+		{
+		  fprintf (stderr, "Unknown subsystem '%s' for -s\n", *(argv-1));
+		  has_error = 1;
+		}
+	      if (ulparam >= 0xffff)
+		{
+		  fprintf (stderr, "Subsystem '%s' out of range for -s\n", *(argv-1));
+		  has_error = 1;
+		}
+	      set_subsystem = (unsigned short)ulparam;
+	    }
+	  break;
 	case 'x':
 	  if (h[2] == 0)
 	    {
@@ -250,6 +317,8 @@ int main (int argc, char **argv)
   /* First we need to do actions which aren't modifying image's size.  */
   peimg_set_hdr_characeristics (pe, set_pe_hdr_chara, mask_pe_hdr_chara);
   peimg_set_hdr_opt_dll_characteristics (pe, set_pe_opt_hdr_dll_chara, mask_pe_opt_hdr_dll_chara);
+  if (set_subsystem != 0xffff)
+    peimg_set_hdr_opt_subsystem (pe, set_subsystem);
   if (pe->pimg->is_modified)
     pe->pimg->want_save = 1;
   peimg_free (pe);
