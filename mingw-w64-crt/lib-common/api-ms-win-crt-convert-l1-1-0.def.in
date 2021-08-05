@@ -2,6 +2,8 @@ LIBRARY api-ms-win-crt-convert-l1-1-0
 
 EXPORTS
 
+#include "func.def.in"
+
 __toascii
 toascii == __toascii
 _atodbl
