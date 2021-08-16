@@ -133,7 +133,7 @@ fill_pe_info (pe_image *pe)
       return 0;
     }
   pe->section_list = pe->optional_hdr_pos + pe->pe_filehdr.szOptHdr;
-  pe->section_list_sz = ((size_t) pe->pe_filehdr.numsecs) * (4 * 9);
+  pe->section_list_sz = ((size_t) pe->pe_filehdr.numsecs) * 40;
   return 1;
 }
 
