@@ -47,6 +47,37 @@ AC_CHECK_TOOL([AS], [as], [:])
 dnl ---
 AM_PROG_CC_C_O
 
+AC_MSG_CHECKING([whether dlltool supports --temp-prefix])
+cat > test.def <<EOF
+LIBRARY test.dll
+EXPORTS
+myfunc
+EOF
+
+AS_VAR_SET([test_dlltool_flags],[])
+AC_DEFUN([TEST_DLLTOOL], [
+  test_dlltool_flags_save="$test_dlltool_flags"
+  test_dlltool_flags="$test_dlltool_flags $1"
+  AS_ECHO([["$DLLTOOL $test_dlltool_flags -d test.def -l libtest.a"]]) >&AS_MESSAGE_LOG_FD
+  AS_IF($DLLTOOL $test_dlltool_flags -d test.def -l libtest.a >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD, [
+    $2
+  ], [
+    test_dlltool_flags="$test_dlltool_flags_save"
+  ])
+])
+
+# First check if $DLLTOOL supports the -m option. LLVM dlltool might not
+# have a default arch (in older versions), so make sure we specify one.
+TEST_DLLTOOL([--as-flags=--64 -m i386:x86-64])
+# Now check if --temp-prefix is supported. GNU dlltool supports it,
+# LLVM dlltool doesn't, yet at least (but doesn't need it either).
+AS_VAR_SET([dlltool_has_temp_prefix],[no])
+TEST_DLLTOOL([--temp-prefix myprefix], [dlltool_has_temp_prefix=yes])
+
+rm -f test.def libtest.a
+AC_MSG_RESULT([$dlltool_has_temp_prefix])
+AM_CONDITIONAL([DLLTOOL_HAS_TEMP_PREFIX],[test $dlltool_has_temp_prefix = yes])
+
 AC_MSG_CHECKING([whether to build a w32api package for Cygwin])
 AC_ARG_ENABLE([w32api],
   [AS_HELP_STRING([--enable-w32api],

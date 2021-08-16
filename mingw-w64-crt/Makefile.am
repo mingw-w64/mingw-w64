@@ -46,6 +46,9 @@ else
   DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
   DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
 endif
+if DLLTOOL_HAS_TEMP_PREFIX
+  AM_DLLTOOLFLAGS += --temp-prefix $$(basename $@ .a)
+endif
 if DELAY_IMPORT_LIBS
   AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
 endif
