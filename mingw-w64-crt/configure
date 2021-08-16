@@ -689,6 +689,8 @@ LIB32_FALSE
 LIB32_TRUE
 W32API_FALSE
 W32API_TRUE
+DLLTOOL_HAS_TEMP_PREFIX_FALSE
+DLLTOOL_HAS_TEMP_PREFIX_TRUE
 AS
 am__fastdepCCAS_FALSE
 am__fastdepCCAS_TRUE
@@ -6202,6 +6204,65 @@ fi
 
 
 
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether dlltool supports --temp-prefix" >&5
+printf %s "checking whether dlltool supports --temp-prefix... " >&6; }
+cat > test.def <<EOF
+LIBRARY test.dll
+EXPORTS
+myfunc
+EOF
+
+test_dlltool_flags=
+
+
+# First check if $DLLTOOL supports the -m option. LLVM dlltool might not
+# have a default arch (in older versions), so make sure we specify one.
+
+  test_dlltool_flags_save="$test_dlltool_flags"
+  test_dlltool_flags="$test_dlltool_flags --as-flags=--64 -m i386:x86-64"
+  printf "%s\n" "$DLLTOOL $test_dlltool_flags -d test.def -l libtest.a" >&5
+  if $DLLTOOL $test_dlltool_flags -d test.def -l libtest.a >&5 2>&5
+then :
+
+
+
+else $as_nop
+
+    test_dlltool_flags="$test_dlltool_flags_save"
+
+fi
+
+# Now check if --temp-prefix is supported. GNU dlltool supports it,
+# LLVM dlltool doesn't, yet at least (but doesn't need it either).
+dlltool_has_temp_prefix=no
+
+  test_dlltool_flags_save="$test_dlltool_flags"
+  test_dlltool_flags="$test_dlltool_flags --temp-prefix myprefix"
+  printf "%s\n" "$DLLTOOL $test_dlltool_flags -d test.def -l libtest.a" >&5
+  if $DLLTOOL $test_dlltool_flags -d test.def -l libtest.a >&5 2>&5
+then :
+
+    dlltool_has_temp_prefix=yes
+
+else $as_nop
+
+    test_dlltool_flags="$test_dlltool_flags_save"
+
+fi
+
+
+rm -f test.def libtest.a
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $dlltool_has_temp_prefix" >&5
+printf "%s\n" "$dlltool_has_temp_prefix" >&6; }
+ if test $dlltool_has_temp_prefix = yes; then
+  DLLTOOL_HAS_TEMP_PREFIX_TRUE=
+  DLLTOOL_HAS_TEMP_PREFIX_FALSE='#'
+else
+  DLLTOOL_HAS_TEMP_PREFIX_TRUE='#'
+  DLLTOOL_HAS_TEMP_PREFIX_FALSE=
+fi
+
+
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to build a w32api package for Cygwin" >&5
 printf %s "checking whether to build a w32api package for Cygwin... " >&6; }
 # Check whether --enable-w32api was given.
@@ -7111,6 +7172,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCCAS_TRUE}" && test -z "${am__fastdepCCAS_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCCAS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${DLLTOOL_HAS_TEMP_PREFIX_TRUE}" && test -z "${DLLTOOL_HAS_TEMP_PREFIX_FALSE}"; then
+  as_fn_error $? "conditional \"DLLTOOL_HAS_TEMP_PREFIX\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${W32API_TRUE}" && test -z "${W32API_FALSE}"; then
