@@ -530,6 +530,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mediaobj.idl \
 @HAVE_WIDL_TRUE@  include/medparam.idl \
 @HAVE_WIDL_TRUE@  include/mmstream.idl \
+@HAVE_WIDL_TRUE@  include/proofofpossessioncookieinfo.idl \
 @HAVE_WIDL_TRUE@  include/qedit.idl \
 @HAVE_WIDL_TRUE@  include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  include/relogger.idl \
