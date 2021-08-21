@@ -366,6 +366,9 @@ typedef struct _PARTITION_INFORMATION_MBR {
   BOOLEAN  BootIndicator;
   BOOLEAN  RecognizedPartition;
   ULONG  HiddenSectors;
+#if NTDDI_VERSION > NTDDI_WINBLUE
+  GUID PartitionId;
+#endif
 } PARTITION_INFORMATION_MBR, *PPARTITION_INFORMATION_MBR;
 
 typedef struct _PARTITION_INFORMATION_EX {
