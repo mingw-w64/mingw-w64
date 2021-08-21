@@ -745,6 +745,9 @@ typedef struct _PARTITION_INFORMATION_EX {
   LARGE_INTEGER PartitionLength;
   DWORD PartitionNumber;
   BOOLEAN RewritePartition;
+#if NTDDI_VERSION >= NTDDI_WIN10_RS3
+  BOOLEAN  IsServicePartition;
+#endif
   __C89_NAMELESS union {
     PARTITION_INFORMATION_MBR Mbr;
     PARTITION_INFORMATION_GPT Gpt;
