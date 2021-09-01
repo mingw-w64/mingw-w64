@@ -1011,6 +1011,9 @@ typedef unsigned int GROUP;
 #ifndef __INSIDE_CYGWIN__
   WINSOCK_API_LINKAGE u_long WSAAPI htonl(u_long hostlong);
   WINSOCK_API_LINKAGE u_short WSAAPI htons(u_short hostshort);
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN8
+  WINSOCK_API_LINKAGE unsigned __int64 WSAAPI htonll(unsigned __int64 Value);
+#endif
 #endif /* !__INSIDE_CYGWIN__ */
   WINSOCK_API_LINKAGE unsigned __LONG32 WSAAPI inet_addr(const char *cp);
   WINSOCK_API_LINKAGE char *WSAAPI inet_ntoa(struct in_addr in);
@@ -1018,6 +1021,9 @@ typedef unsigned int GROUP;
 #ifndef __INSIDE_CYGWIN__
   WINSOCK_API_LINKAGE u_long WSAAPI ntohl(u_long netlong);
   WINSOCK_API_LINKAGE u_short WSAAPI ntohs(u_short netshort);
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN8
+  WINSOCK_API_LINKAGE unsigned __int64 WSAAPI ntohll(unsigned __int64 Value);
+#endif
 #endif /* !__INSIDE_CYGWIN__ */
   WINSOCK_API_LINKAGE int WSAAPI recv(SOCKET s,char *buf,int len,int flags);
   WINSOCK_API_LINKAGE int WSAAPI recvfrom(SOCKET s,char *buf,int len,int flags,struct sockaddr *from,int *fromlen);

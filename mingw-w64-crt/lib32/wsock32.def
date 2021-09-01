@@ -53,6 +53,7 @@ getsockname@12
 getsockopt@20
 htonl@4
 htons@4
+htonll@8
 inet_addr@4
 inet_network@4
 inet_ntoa@4
@@ -60,6 +61,7 @@ ioctlsocket@12
 listen@8
 ntohl@4
 ntohs@4
+ntohll@8
 rcmd@24
 recv@16
 recvfrom@24

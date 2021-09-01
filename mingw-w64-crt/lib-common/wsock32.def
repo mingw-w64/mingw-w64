@@ -14,12 +14,14 @@ getsockname
 getsockopt
 htonl
 htons
+htonll
 inet_addr
 inet_ntoa
 ioctlsocket
 listen
 ntohl
 ntohs
+ntohll
 recv
 recvfrom
 select
