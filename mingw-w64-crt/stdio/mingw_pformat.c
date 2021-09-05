@@ -2002,6 +2002,17 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
   char buf[18 + 6], *p = buf;
   __pformat_intarg_t exponent; short exp_width = 2;
 
+  if (value.__pformat_fpreg_mantissa != 0 ||
+     value.__pformat_fpreg_exponent != 0)
+  {
+    /* Reduce the exponent since the leading digit emited will start at
+     * the 4th bit from the highest order bit instead, the later being
+     * the leading digit of the floating point. Don't do this adjustment
+     * if the value is an actual zero.
+     */
+    value.__pformat_fpreg_exponent -= 3;
+  }
+
   /* The mantissa field of the argument value representation can
    * accommodate at most 16 hexadecimal digits, of which one will
    * be placed before the radix point, leaving at most 15 digits
@@ -2045,7 +2056,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
        * of this is equivalent to an increment of the exponent. We will
        * discard a whole digit to match glibc's behavior.
        */
-      value.__pformat_fpreg_exponent++;
+      value.__pformat_fpreg_exponent += 4;
       value.__pformat_fpreg_mantissa >>= 3;
     }
 
@@ -2085,20 +2096,6 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
            * at the time of transfer to the ultimate destination.
            */
           *p++ = '.';
-        }
-
-        /* If the most significant hexadecimal digit of the encoded
-         * output value is greater than one, then the indicated value
-         * will appear too large, by an additional binary exponent
-         * corresponding to the number of higher order bit positions
-         * which it occupies...
-         */
-        while( value.__pformat_fpreg_mantissa > 1 )
-        {
-          /* so reduce the exponent value to compensate...
-           */
-          value.__pformat_fpreg_exponent--;
-          value.__pformat_fpreg_mantissa >>= 1;
         }
       }
 
@@ -2305,7 +2302,7 @@ void __pformat_xldouble( long double x, __pformat_t *stream )
         {
           /* ...this mantissa represents a subnormal value.
            */
-          z.__pformat_fpreg_exponent = -0x3FFF - 2;
+          z.__pformat_fpreg_exponent = 1 - 0x3FFF;
         }
       }
       else
