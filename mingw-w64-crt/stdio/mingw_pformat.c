@@ -2319,6 +2319,84 @@ void __pformat_xldouble( long double x, __pformat_t *stream )
   }
 }
 
+static
+void __pformat_xdouble( double x, __pformat_t *stream )
+{
+  /* Handler for `%la' and `%lA' format specifiers, (with argument
+   * value specified as `double' type).
+   */
+  unsigned sign_bit = 0;
+  __pformat_fpreg_t z = init_fpreg_ldouble( (long double)x );
+
+  /* First check for NaN; it is emitted unsigned...
+   */
+  if( isnan( x ) )
+    __pformat_emit_inf_or_nan( sign_bit, "NaN", stream );
+
+  else
+  { /* Capture the sign bit up-front, so we can show it correctly
+     * even when the argument value is zero or infinite.
+     */
+    if( (sign_bit = (z.__pformat_fpreg_exponent & 0x8000)) != 0 )
+      stream->flags |= PFORMAT_NEGATIVE;
+
+    /* Check for infinity, (positive or negative)...
+     */
+    if( isinf( x ) )
+      /*
+       * displaying the appropriately signed indicator,
+       * when appropriate.
+       */
+      __pformat_emit_inf_or_nan( sign_bit, "Inf", stream );
+
+    else
+    { /* The argument value is a representable number...
+       * extract the effective value of the biased exponent...
+       */
+      z.__pformat_fpreg_exponent &= 0x7FFF;
+
+      /* If the double value was a denormalized number, it might have been renormalized by
+       * the conversion to long double. We will redenormalize it.
+       */
+      if( z.__pformat_fpreg_exponent != 0 && z.__pformat_fpreg_exponent <= (0x3FFF - 0x3FF) )
+      {
+        int shifted = (0x3FFF - 0x3FF) - z.__pformat_fpreg_exponent + 1;
+        z.__pformat_fpreg_mantissa >>= shifted;
+        z.__pformat_fpreg_exponent += shifted;
+      }
+
+      if( z.__pformat_fpreg_exponent == 0 )
+      {
+        /* A biased exponent value of zero means either a
+         * true zero value, if the mantissa field also has
+         * a zero value, otherwise...
+         */
+        if( z.__pformat_fpreg_mantissa != 0 )
+        {
+          /* ...this mantissa represents a subnormal value.
+           */
+          z.__pformat_fpreg_exponent = 1 - 0x3FF + 3;
+        }
+      }
+      else
+        /* This argument represents a non-zero normal number;
+         * eliminate the bias from the exponent...
+         */
+        z.__pformat_fpreg_exponent -= 0x3FFF - 3;
+
+      /* Shift the mantissa so the leading 4 bits digit is 0 or 1.
+       * The exponent was also adjusted by 3 previously.
+       */
+      z.__pformat_fpreg_mantissa >>= 3;
+
+      /* Finally, hand the adjusted representation off to the
+       * generalised hexadecimal floating point format handler...
+       */
+      __pformat_emit_xfloat( z, stream );
+    }
+  }
+}
+
 int
 __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 {
@@ -2765,7 +2843,7 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
              * Hexadecimal floating point format; handles radix and
              * exponent indicators in either upper or lower case...
              */
-            if( stream.flags & PFORMAT_LDOUBLE )
+            if( sizeof( double ) != sizeof( long double ) && stream.flags & PFORMAT_LDOUBLE )
               /*
                * with a `long double' argument...
                */
@@ -2774,7 +2852,7 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
             else
               /* or just a `double'.
                */
-              __pformat_xldouble( (long double)(va_arg( argv, double )), &stream );
+              __pformat_xdouble( va_arg( argv, double ), &stream );
 
             goto format_scan;
 
