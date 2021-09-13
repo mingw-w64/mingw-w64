@@ -1062,14 +1062,25 @@ static __pformat_fpreg_t init_fpreg_ldouble( long double val )
      */
     int exp = (x.__pformat_fpreg_mantissa >> 52) & 0x7ff;
     unsigned long long mant = x.__pformat_fpreg_mantissa & 0x000fffffffffffffULL;
-    int integer = exp ? 1 : 0;
+    int topbit = exp ? 1 : 0;
     int signbit = x.__pformat_fpreg_mantissa >> 63;
 
     if (exp == 0x7ff)
       exp = 0x7fff;
     else if (exp != 0)
       exp = exp - 1023 + 16383;
-    x.__pformat_fpreg_mantissa = (mant << 11) | ((unsigned long long)integer << 63);
+    else if (mant != 0) {
+      /* Denormal when stored as a 64 bit double, but becomes a normal when
+       * converted to 80 bit long double form. */
+      exp = 1 - 1023 + 16383;
+      while (!(mant & 0x0010000000000000ULL)) {
+        /* Normalize the mantissa. */
+        mant <<= 1;
+        exp--;
+      }
+      topbit = 1; /* The top bit, which is implicit in the 64 bit form. */
+    }
+    x.__pformat_fpreg_mantissa = (mant << 11) | ((unsigned long long)topbit << 63);
     x.__pformat_fpreg_exponent = exp | (signbit << 15);
   }
 
