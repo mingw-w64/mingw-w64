@@ -4360,6 +4360,24 @@ typedef enum _CREATE_FILE_TYPE {
   CreateFileTypeMailslot
 } CREATE_FILE_TYPE;
 
+typedef struct _NAMED_PIPE_CREATE_PARAMETERS {
+  ULONG NamedPipeType;
+  ULONG ReadMode;
+  ULONG CompletionMode;
+  ULONG MaximumInstances;
+  ULONG InboundQuota;
+  ULONG OutboundQuota;
+  LARGE_INTEGER DefaultTimeout;
+  BOOLEAN TimeoutSpecified;
+} NAMED_PIPE_CREATE_PARAMETERS, *PNAMED_PIPE_CREATE_PARAMETERS;
+
+typedef struct _MAILSLOT_CREATE_PARAMETERS {
+  ULONG MailslotQuota;
+  ULONG MaximumMessageSize;
+  LARGE_INTEGER ReadTimeout;
+  BOOLEAN TimeoutSpecified;
+} MAILSLOT_CREATE_PARAMETERS, *PMAILSLOT_CREATE_PARAMETERS;
+
 #define IO_FORCE_ACCESS_CHECK               0x001
 #define IO_NO_PARAMETER_CHECKING            0x100
 
@@ -5111,6 +5129,11 @@ typedef enum _FILE_INFORMATION_CLASS {
   FileCaseSensitiveInformationForceAccessCheck,
   FileMaximumInformation
 } FILE_INFORMATION_CLASS, *PFILE_INFORMATION_CLASS;
+
+typedef enum _DIRECTORY_NOTIFY_INFORMATION_CLASS {
+  DirectoryNotifyInformation = 1,
+  DirectoryNotifyExtendedInformation
+} DIRECTORY_NOTIFY_INFORMATION_CLASS, *PDIRECTORY_NOTIFY_INFORMATION_CLASS;
 
 typedef struct _FILE_POSITION_INFORMATION {
   LARGE_INTEGER CurrentByteOffset;
@@ -6480,25 +6503,50 @@ typedef struct _IO_STACK_LOCATION {
       ULONG POINTER_ALIGNMENT EaLength;
     } Create;
     struct {
+      PIO_SECURITY_CONTEXT SecurityContext;
+      ULONG Options;
+      USHORT POINTER_ALIGNMENT Reserved;
+      USHORT ShareAccess;
+      PNAMED_PIPE_CREATE_PARAMETERS Parameters;
+    } CreatePipe;
+    struct {
+      PIO_SECURITY_CONTEXT SecurityContext;
+      ULONG Options;
+      USHORT POINTER_ALIGNMENT Reserved;
+      USHORT ShareAccess;
+      PMAILSLOT_CREATE_PARAMETERS Parameters;
+    } CreateMailslot;
+    struct {
       ULONG Length;
       ULONG POINTER_ALIGNMENT Key;
+#ifdef _WIN64
+      ULONG Flags;
+#endif
       LARGE_INTEGER ByteOffset;
     } Read;
     struct {
       ULONG Length;
       ULONG POINTER_ALIGNMENT Key;
+#ifdef _WIN64
+      ULONG Flags;
+#endif
       LARGE_INTEGER ByteOffset;
     } Write;
     struct {
       ULONG Length;
       PUNICODE_STRING FileName;
       FILE_INFORMATION_CLASS FileInformationClass;
-      ULONG FileIndex;
+      ULONG POINTER_ALIGNMENT FileIndex;
     } QueryDirectory;
     struct {
       ULONG Length;
-      ULONG CompletionFilter;
+      ULONG POINTER_ALIGNMENT CompletionFilter;
     } NotifyDirectory;
+    struct {
+      ULONG Length;
+      ULONG POINTER_ALIGNMENT CompletionFilter;
+      DIRECTORY_NOTIFY_INFORMATION_CLASS POINTER_ALIGNMENT DirectoryNotifyInformationClass;
+    } NotifyDirectoryEx;
     struct {
       ULONG Length;
       FILE_INFORMATION_CLASS POINTER_ALIGNMENT FileInformationClass;
@@ -6520,7 +6568,7 @@ typedef struct _IO_STACK_LOCATION {
       ULONG Length;
       PVOID EaList;
       ULONG EaListLength;
-      ULONG EaIndex;
+      ULONG POINTER_ALIGNMENT EaIndex;
     } QueryEa;
     struct {
       ULONG Length;
@@ -6531,17 +6579,17 @@ typedef struct _IO_STACK_LOCATION {
     } QueryVolume;
     struct {
       ULONG Length;
-      FS_INFORMATION_CLASS FsInformationClass;
+      FS_INFORMATION_CLASS POINTER_ALIGNMENT FsInformationClass;
     } SetVolume;
     struct {
       ULONG OutputBufferLength;
-      ULONG InputBufferLength;
-      ULONG FsControlCode;
+      ULONG POINTER_ALIGNMENT InputBufferLength;
+      ULONG POINTER_ALIGNMENT FsControlCode;
       PVOID Type3InputBuffer;
     } FileSystemControl;
     struct {
       PLARGE_INTEGER Length;
-      ULONG Key;
+      ULONG POINTER_ALIGNMENT Key;
       LARGE_INTEGER ByteOffset;
     } LockControl;
     struct {
@@ -6622,7 +6670,14 @@ typedef struct _IO_STACK_LOCATION {
       PPOWER_SEQUENCE PowerSequence;
     } PowerSequence;
     struct {
-      ULONG SystemContext;
+#if (NTDDI_VERSION >= NTDDI_WINVISTA)
+      _ANONYMOUS_UNION union {
+#endif
+        ULONG SystemContext;
+#if (NTDDI_VERSION >= NTDDI_WINVISTA)
+        SYSTEM_POWER_STATE_CONTEXT SystemPowerStateContext;
+      } DUMMYUNIONNAME;
+#endif
       POWER_STATE_TYPE POINTER_ALIGNMENT Type;
       POWER_STATE POINTER_ALIGNMENT State;
       POWER_ACTION POINTER_ALIGNMENT ShutdownType;
