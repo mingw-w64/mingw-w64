@@ -36,9 +36,11 @@ HcnDeleteLoadBalancer
 HcnDeleteNamespace
 HcnDeleteNetwork
 HcnEnumerateEndpoints
+HcnEnumerateGuestNetworkPortReservations
 HcnEnumerateLoadBalancers
 HcnEnumerateNamespaces
 HcnEnumerateNetworks
+HcnFreeGuestNetworkPortReservations
 HcnModifyEndpoint
 HcnModifyLoadBalancer
 HcnModifyNamespace
@@ -48,8 +50,12 @@ HcnOpenLoadBalancer
 HcnOpenNamespace
 HcnOpenNetwork
 HcnQueryEndpointProperties
+HcnQueryEndpointStats
 HcnQueryLoadBalancerProperties
 HcnQueryNamespaceProperties
 HcnQueryNetworkProperties
 HcnRegisterServiceCallback
+HcnReleaseGuestNetworkServicePortReservationHandle
+HcnReserveGuestNetworkServicePort
+HcnReserveGuestNetworkServicePortRange
 HcnUnregisterServiceCallback
