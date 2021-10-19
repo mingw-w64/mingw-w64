@@ -800,8 +800,8 @@ interface IMFTopoLoader : IUnknown
   HRESULT Load([in] IMFTopology *pInputTopo, [out] IMFTopology **ppOutputTopo, [in] IMFTopology *pCurrentTopo);
 }
 
-cpp_quote("HRESULT MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
-cpp_quote("HRESULT MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);")
+cpp_quote("HRESULT WINAPI MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
+cpp_quote("HRESULT WINAPI MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);")
 cpp_quote("")
 cpp_quote("HRESULT WINAPI MFCreateAlignedMemoryBuffer(DWORD cbMaxLength,DWORD fAlignmentFlags,IMFMediaBuffer **ppBuffer);")
 cpp_quote("HRESULT WINAPI MFCreateASFContentInfo(IMFASFContentInfo **ppIContentInfo);")
