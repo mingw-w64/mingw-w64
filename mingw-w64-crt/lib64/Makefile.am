@@ -425,6 +425,7 @@ lib64_DATA += %reldir%/libntmarta.a
 lib64_DATA += %reldir%/libntmsapi.a
 lib64_DATA += %reldir%/libntoc.a
 lib64_DATA += %reldir%/libntprint.a
+lib64_DATA += %reldir%/libntquery.a
 lib64_DATA += %reldir%/libntshrui.a
 lib64_DATA += %reldir%/libntvdm64.a
 lib64_DATA += %reldir%/libnwprovau.a

@@ -514,6 +514,7 @@ libarm32_DATA += %reldir%/libntlanman.a
 libarm32_DATA += %reldir%/libntmarta.a
 libarm32_DATA += %reldir%/libntoskrnl.a
 libarm32_DATA += %reldir%/libntprint.a
+libarm32_DATA += %reldir%/libntquery.a
 libarm32_DATA += %reldir%/libntshrui.a
 libarm32_DATA += %reldir%/libnvcameraispb.a
 libarm32_DATA += %reldir%/libnvcameraisp.a
