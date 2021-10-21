@@ -5610,8 +5610,8 @@ static FORCEINLINE HRESULT IMFTopoLoader_Load(IMFTopoLoader* This,IMFTopology *p
 
 #endif  /* __IMFTopoLoader_INTERFACE_DEFINED__ */
 
-HRESULT MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);
-HRESULT MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);
+HRESULT WINAPI MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);
+HRESULT WINAPI MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);
 
 HRESULT WINAPI MFCreateAlignedMemoryBuffer(DWORD cbMaxLength,DWORD fAlignmentFlags,IMFMediaBuffer **ppBuffer);
 HRESULT WINAPI MFCreateASFContentInfo(IMFASFContentInfo **ppIContentInfo);
