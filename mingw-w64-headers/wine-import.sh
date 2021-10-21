@@ -209,6 +209,7 @@ for f in \
 	wmpservices \
 	wmsbuffer \
 	wmsdkidl \
+	wmsecure \
 	wpcapi \
 	wuapi \
 	xapo \
