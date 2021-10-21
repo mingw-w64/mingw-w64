@@ -236,6 +236,18 @@ interface IMFMediaSource : IMFMediaEventGenerator
     HRESULT Shutdown();
 }
 
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8)")
+[object, uuid(3c9b2eb9-86d5-4514-a394-f56664f9f0d8)]
+interface IMFMediaSourceEx : IMFMediaSource
+{
+  HRESULT GetSourceAttributes([out] IMFAttributes **ppAttributes);
+  HRESULT GetStreamAttributes([in] DWORD dwStreamIdentifier, [out] IMFAttributes **ppAttributes);
+  HRESULT SetD3DManager([in] IUnknown *pManager);
+}
+cpp_quote("EXTERN_GUID(MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION, 0xa38253aa, 0x6314, 0x42fd, 0xa3, 0xce, 0xbb, 0x27, 0xb6, 0x85, 0x99, 0x46);")
+
+cpp_quote("#endif /* (WINVER >= _WIN32_WINNT_WIN8) */")
+
 typedef [public] struct _MF_LEAKY_BUCKET_PAIR {
     DWORD dwBitrate;
     DWORD msBufferWindow;
@@ -746,6 +758,22 @@ interface IMFSampleGrabberSinkCallback : IMFClockStateSink
   HRESULT OnShutdown(void);
 }
 
+[object, uuid(97ec2ea4-0e42-4937-97ac-9d6d328824e1)]
+interface IMFShutdown : IUnknown
+{
+  HRESULT Shutdown(void);
+  HRESULT GetShutdownStatus([out] MFSHUTDOWN_STATUS *pStatus);
+};
+
+[object, uuid(089edf13-cf71-4338-8d13-9e569dbdc319)]
+interface IMFSimpleAudioVolume : IUnknown
+{
+  HRESULT SetMasterVolume([in] float fLevel);
+  HRESULT GetMasterVolume([out] float *pfLevel);
+  HRESULT SetMute([in] const WINBOOL bMute);
+  HRESULT GetMute([out] WINBOOL *pbMute);
+}
+
 [object, uuid(fbe5a32d-a497-4b61-bb85-97b1a848a6e3)]
 interface IMFSourceResolver : IUnknown
 {
@@ -794,6 +822,13 @@ interface IMFStreamSink : IMFMediaEventGenerator
   HRESULT Flush(void);
 }
 
+[object, uuid(e56e4cbd-8f70-49d8-a0f8-edb3d6ab9bf2), local]
+interface IMFTimer : IUnknown
+{
+  HRESULT SetTimer([in] DWORD dwFlags, [in] LONGLONG llClockTime, [in] IMFAsyncCallback *pCallback, [in] IUnknown *punkState, [out] IUnknown **ppunkKey);
+  HRESULT CancelTimer([in] IUnknown *punkKey);
+}
+
 [object, uuid(de9a6157-f660-4643-b56a-df9f7998c7cd), local]
 interface IMFTopoLoader : IUnknown
 {
@@ -815,6 +850,7 @@ cpp_quote("HRESULT WINAPI MFCreateASFProfileFromPresentationDescriptor(IMFPresen
 cpp_quote("HRESULT WINAPI MFCreateASFSplitter(IMFASFSplitter **ppISplitter);")
 cpp_quote("HRESULT WINAPI MFCreateAudioRenderer(IMFAttributes *pAudioAttributes, IMFMediaSink **ppSink);")
 cpp_quote("HRESULT WINAPI MFCreateAudioRendererActivate(IMFActivate **ppActivate);")
+cpp_quote("HRESULT WINAPI MFCreateDeviceSource(IMFAttributes *pAttributes,IMFMediaSource **ppSource);")
 cpp_quote("HRESULT WINAPI MFCreateMediaSession(IMFAttributes *pConfiguration,IMFMediaSession **ppMS);")
 cpp_quote("HRESULT WINAPI MFCreateMP3MediaSink(IMFByteStream *pTargetByteStream,IMFMediaSink **ppMediaSink);")
 cpp_quote("HRESULT WINAPI MFCreateMPEG4MediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
