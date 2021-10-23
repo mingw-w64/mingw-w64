@@ -242,6 +242,7 @@ IDL_SRCS = \
   include/wmpservices.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \
+  include/wmsecure.idl \
   include/wsdattachment.idl \
   include/wsdbase.idl \
   include/wsdclient.idl \
