@@ -90,6 +90,14 @@ interface IMFMediaSource;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IMFMediaSourceEx_FWD_DEFINED__
+#define __IMFMediaSourceEx_FWD_DEFINED__
+typedef interface IMFMediaSourceEx IMFMediaSourceEx;
+#ifdef __cplusplus
+interface IMFMediaSourceEx;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IMFByteStreamBuffering_FWD_DEFINED__
 #define __IMFByteStreamBuffering_FWD_DEFINED__
 typedef interface IMFByteStreamBuffering IMFByteStreamBuffering;
@@ -202,6 +210,22 @@ interface IMFSampleGrabberSinkCallback;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IMFShutdown_FWD_DEFINED__
+#define __IMFShutdown_FWD_DEFINED__
+typedef interface IMFShutdown IMFShutdown;
+#ifdef __cplusplus
+interface IMFShutdown;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFSimpleAudioVolume_FWD_DEFINED__
+#define __IMFSimpleAudioVolume_FWD_DEFINED__
+typedef interface IMFSimpleAudioVolume IMFSimpleAudioVolume;
+#ifdef __cplusplus
+interface IMFSimpleAudioVolume;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IMFSourceResolver_FWD_DEFINED__
 #define __IMFSourceResolver_FWD_DEFINED__
 typedef interface IMFSourceResolver IMFSourceResolver;
@@ -215,6 +239,14 @@ interface IMFSourceResolver;
 typedef interface IMFStreamSink IMFStreamSink;
 #ifdef __cplusplus
 interface IMFStreamSink;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFTimer_FWD_DEFINED__
+#define __IMFTimer_FWD_DEFINED__
+typedef interface IMFTimer IMFTimer;
+#ifdef __cplusplus
+interface IMFTimer;
 #endif /* __cplusplus */
 #endif
 
@@ -2852,6 +2884,201 @@ HRESULT __RPC_STUB IMFMediaSource_CreatePresentationDescriptor_Stub(
 
 #endif  /* __IMFMediaSource_INTERFACE_DEFINED__ */
 
+#if (WINVER >= _WIN32_WINNT_WIN8)
+/*****************************************************************************
+ * IMFMediaSourceEx interface
+ */
+#ifndef __IMFMediaSourceEx_INTERFACE_DEFINED__
+#define __IMFMediaSourceEx_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFMediaSourceEx, 0x3c9b2eb9, 0x86d5, 0x4514, 0xa3,0x94, 0xf5,0x66,0x64,0xf9,0xf0,0xd8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3c9b2eb9-86d5-4514-a394-f56664f9f0d8")
+IMFMediaSourceEx : public IMFMediaSource
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSourceAttributes(
+        IMFAttributes **ppAttributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamAttributes(
+        DWORD dwStreamIdentifier,
+        IMFAttributes **ppAttributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetD3DManager(
+        IUnknown *pManager) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFMediaSourceEx, 0x3c9b2eb9, 0x86d5, 0x4514, 0xa3,0x94, 0xf5,0x66,0x64,0xf9,0xf0,0xd8)
+#endif
+#else
+typedef struct IMFMediaSourceExVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFMediaSourceEx *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFMediaSourceEx *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFMediaSourceEx *This);
+
+    /*** IMFMediaEventGenerator methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetEvent)(
+        IMFMediaSourceEx *This,
+        DWORD dwFlags,
+        IMFMediaEvent **ppEvent);
+
+    HRESULT (STDMETHODCALLTYPE *BeginGetEvent)(
+        IMFMediaSourceEx *This,
+        IMFAsyncCallback *pCallback,
+        IUnknown *punkState);
+
+    HRESULT (STDMETHODCALLTYPE *EndGetEvent)(
+        IMFMediaSourceEx *This,
+        IMFAsyncResult *pResult,
+        IMFMediaEvent **ppEvent);
+
+    HRESULT (STDMETHODCALLTYPE *QueueEvent)(
+        IMFMediaSourceEx *This,
+        MediaEventType met,
+        REFGUID guidExtendedType,
+        HRESULT hrStatus,
+        const PROPVARIANT *pvValue);
+
+    /*** IMFMediaSource methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCharacteristics)(
+        IMFMediaSourceEx *This,
+        DWORD *pdwCharacteristics);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePresentationDescriptor)(
+        IMFMediaSourceEx *This,
+        IMFPresentationDescriptor **ppPresentationDescriptor);
+
+    HRESULT (STDMETHODCALLTYPE *Start)(
+        IMFMediaSourceEx *This,
+        IMFPresentationDescriptor *pPresentationDescriptor,
+        const GUID *pguidTimeFormat,
+        const PROPVARIANT *pvarStartPosition);
+
+    HRESULT (STDMETHODCALLTYPE *Stop)(
+        IMFMediaSourceEx *This);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IMFMediaSourceEx *This);
+
+    HRESULT (STDMETHODCALLTYPE *Shutdown)(
+        IMFMediaSourceEx *This);
+
+    /*** IMFMediaSourceEx methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSourceAttributes)(
+        IMFMediaSourceEx *This,
+        IMFAttributes **ppAttributes);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamAttributes)(
+        IMFMediaSourceEx *This,
+        DWORD dwStreamIdentifier,
+        IMFAttributes **ppAttributes);
+
+    HRESULT (STDMETHODCALLTYPE *SetD3DManager)(
+        IMFMediaSourceEx *This,
+        IUnknown *pManager);
+
+    END_INTERFACE
+} IMFMediaSourceExVtbl;
+
+interface IMFMediaSourceEx {
+    CONST_VTBL IMFMediaSourceExVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFMediaSourceEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaSourceEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaSourceEx_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFMediaEventGenerator methods ***/
+#define IMFMediaSourceEx_GetEvent(This,dwFlags,ppEvent) (This)->lpVtbl->GetEvent(This,dwFlags,ppEvent)
+#define IMFMediaSourceEx_BeginGetEvent(This,pCallback,punkState) (This)->lpVtbl->BeginGetEvent(This,pCallback,punkState)
+#define IMFMediaSourceEx_EndGetEvent(This,pResult,ppEvent) (This)->lpVtbl->EndGetEvent(This,pResult,ppEvent)
+#define IMFMediaSourceEx_QueueEvent(This,met,guidExtendedType,hrStatus,pvValue) (This)->lpVtbl->QueueEvent(This,met,guidExtendedType,hrStatus,pvValue)
+/*** IMFMediaSource methods ***/
+#define IMFMediaSourceEx_GetCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetCharacteristics(This,pdwCharacteristics)
+#define IMFMediaSourceEx_CreatePresentationDescriptor(This,ppPresentationDescriptor) (This)->lpVtbl->CreatePresentationDescriptor(This,ppPresentationDescriptor)
+#define IMFMediaSourceEx_Start(This,pPresentationDescriptor,pguidTimeFormat,pvarStartPosition) (This)->lpVtbl->Start(This,pPresentationDescriptor,pguidTimeFormat,pvarStartPosition)
+#define IMFMediaSourceEx_Stop(This) (This)->lpVtbl->Stop(This)
+#define IMFMediaSourceEx_Pause(This) (This)->lpVtbl->Pause(This)
+#define IMFMediaSourceEx_Shutdown(This) (This)->lpVtbl->Shutdown(This)
+/*** IMFMediaSourceEx methods ***/
+#define IMFMediaSourceEx_GetSourceAttributes(This,ppAttributes) (This)->lpVtbl->GetSourceAttributes(This,ppAttributes)
+#define IMFMediaSourceEx_GetStreamAttributes(This,dwStreamIdentifier,ppAttributes) (This)->lpVtbl->GetStreamAttributes(This,dwStreamIdentifier,ppAttributes)
+#define IMFMediaSourceEx_SetD3DManager(This,pManager) (This)->lpVtbl->SetD3DManager(This,pManager)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFMediaSourceEx_QueryInterface(IMFMediaSourceEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFMediaSourceEx_AddRef(IMFMediaSourceEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFMediaSourceEx_Release(IMFMediaSourceEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFMediaEventGenerator methods ***/
+static FORCEINLINE HRESULT IMFMediaSourceEx_GetEvent(IMFMediaSourceEx* This,DWORD dwFlags,IMFMediaEvent **ppEvent) {
+    return This->lpVtbl->GetEvent(This,dwFlags,ppEvent);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_BeginGetEvent(IMFMediaSourceEx* This,IMFAsyncCallback *pCallback,IUnknown *punkState) {
+    return This->lpVtbl->BeginGetEvent(This,pCallback,punkState);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_EndGetEvent(IMFMediaSourceEx* This,IMFAsyncResult *pResult,IMFMediaEvent **ppEvent) {
+    return This->lpVtbl->EndGetEvent(This,pResult,ppEvent);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_QueueEvent(IMFMediaSourceEx* This,MediaEventType met,REFGUID guidExtendedType,HRESULT hrStatus,const PROPVARIANT *pvValue) {
+    return This->lpVtbl->QueueEvent(This,met,guidExtendedType,hrStatus,pvValue);
+}
+/*** IMFMediaSource methods ***/
+static FORCEINLINE HRESULT IMFMediaSourceEx_GetCharacteristics(IMFMediaSourceEx* This,DWORD *pdwCharacteristics) {
+    return This->lpVtbl->GetCharacteristics(This,pdwCharacteristics);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_CreatePresentationDescriptor(IMFMediaSourceEx* This,IMFPresentationDescriptor **ppPresentationDescriptor) {
+    return This->lpVtbl->CreatePresentationDescriptor(This,ppPresentationDescriptor);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_Start(IMFMediaSourceEx* This,IMFPresentationDescriptor *pPresentationDescriptor,const GUID *pguidTimeFormat,const PROPVARIANT *pvarStartPosition) {
+    return This->lpVtbl->Start(This,pPresentationDescriptor,pguidTimeFormat,pvarStartPosition);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_Stop(IMFMediaSourceEx* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_Pause(IMFMediaSourceEx* This) {
+    return This->lpVtbl->Pause(This);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_Shutdown(IMFMediaSourceEx* This) {
+    return This->lpVtbl->Shutdown(This);
+}
+/*** IMFMediaSourceEx methods ***/
+static FORCEINLINE HRESULT IMFMediaSourceEx_GetSourceAttributes(IMFMediaSourceEx* This,IMFAttributes **ppAttributes) {
+    return This->lpVtbl->GetSourceAttributes(This,ppAttributes);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_GetStreamAttributes(IMFMediaSourceEx* This,DWORD dwStreamIdentifier,IMFAttributes **ppAttributes) {
+    return This->lpVtbl->GetStreamAttributes(This,dwStreamIdentifier,ppAttributes);
+}
+static FORCEINLINE HRESULT IMFMediaSourceEx_SetD3DManager(IMFMediaSourceEx* This,IUnknown *pManager) {
+    return This->lpVtbl->SetD3DManager(This,pManager);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFMediaSourceEx_INTERFACE_DEFINED__ */
+
+EXTERN_GUID(MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION, 0xa38253aa, 0x6314, 0x42fd, 0xa3, 0xce, 0xbb, 0x27, 0xb6, 0x85, 0x99, 0x46);
+#endif /* (WINVER >= _WIN32_WINNT_WIN8) */
 typedef struct _MF_LEAKY_BUCKET_PAIR {
     DWORD dwBitrate;
     DWORD msBufferWindow;
@@ -5070,6 +5297,203 @@ static FORCEINLINE HRESULT IMFSampleGrabberSinkCallback_OnShutdown(IMFSampleGrab
 #endif  /* __IMFSampleGrabberSinkCallback_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IMFShutdown interface
+ */
+#ifndef __IMFShutdown_INTERFACE_DEFINED__
+#define __IMFShutdown_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFShutdown, 0x97ec2ea4, 0x0e42, 0x4937, 0x97,0xac, 0x9d,0x6d,0x32,0x88,0x24,0xe1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("97ec2ea4-0e42-4937-97ac-9d6d328824e1")
+IMFShutdown : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Shutdown(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetShutdownStatus(
+        MFSHUTDOWN_STATUS *pStatus) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFShutdown, 0x97ec2ea4, 0x0e42, 0x4937, 0x97,0xac, 0x9d,0x6d,0x32,0x88,0x24,0xe1)
+#endif
+#else
+typedef struct IMFShutdownVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFShutdown *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFShutdown *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFShutdown *This);
+
+    /*** IMFShutdown methods ***/
+    HRESULT (STDMETHODCALLTYPE *Shutdown)(
+        IMFShutdown *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetShutdownStatus)(
+        IMFShutdown *This,
+        MFSHUTDOWN_STATUS *pStatus);
+
+    END_INTERFACE
+} IMFShutdownVtbl;
+
+interface IMFShutdown {
+    CONST_VTBL IMFShutdownVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFShutdown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFShutdown_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFShutdown_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFShutdown methods ***/
+#define IMFShutdown_Shutdown(This) (This)->lpVtbl->Shutdown(This)
+#define IMFShutdown_GetShutdownStatus(This,pStatus) (This)->lpVtbl->GetShutdownStatus(This,pStatus)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFShutdown_QueryInterface(IMFShutdown* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFShutdown_AddRef(IMFShutdown* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFShutdown_Release(IMFShutdown* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFShutdown methods ***/
+static FORCEINLINE HRESULT IMFShutdown_Shutdown(IMFShutdown* This) {
+    return This->lpVtbl->Shutdown(This);
+}
+static FORCEINLINE HRESULT IMFShutdown_GetShutdownStatus(IMFShutdown* This,MFSHUTDOWN_STATUS *pStatus) {
+    return This->lpVtbl->GetShutdownStatus(This,pStatus);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFShutdown_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMFSimpleAudioVolume interface
+ */
+#ifndef __IMFSimpleAudioVolume_INTERFACE_DEFINED__
+#define __IMFSimpleAudioVolume_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFSimpleAudioVolume, 0x089edf13, 0xcf71, 0x4338, 0x8d,0x13, 0x9e,0x56,0x9d,0xbd,0xc3,0x19);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("089edf13-cf71-4338-8d13-9e569dbdc319")
+IMFSimpleAudioVolume : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetMasterVolume(
+        float fLevel) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMasterVolume(
+        float *pfLevel) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMute(
+        const WINBOOL bMute) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMute(
+        WINBOOL *pbMute) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFSimpleAudioVolume, 0x089edf13, 0xcf71, 0x4338, 0x8d,0x13, 0x9e,0x56,0x9d,0xbd,0xc3,0x19)
+#endif
+#else
+typedef struct IMFSimpleAudioVolumeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFSimpleAudioVolume *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFSimpleAudioVolume *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFSimpleAudioVolume *This);
+
+    /*** IMFSimpleAudioVolume methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetMasterVolume)(
+        IMFSimpleAudioVolume *This,
+        float fLevel);
+
+    HRESULT (STDMETHODCALLTYPE *GetMasterVolume)(
+        IMFSimpleAudioVolume *This,
+        float *pfLevel);
+
+    HRESULT (STDMETHODCALLTYPE *SetMute)(
+        IMFSimpleAudioVolume *This,
+        const WINBOOL bMute);
+
+    HRESULT (STDMETHODCALLTYPE *GetMute)(
+        IMFSimpleAudioVolume *This,
+        WINBOOL *pbMute);
+
+    END_INTERFACE
+} IMFSimpleAudioVolumeVtbl;
+
+interface IMFSimpleAudioVolume {
+    CONST_VTBL IMFSimpleAudioVolumeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFSimpleAudioVolume_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSimpleAudioVolume_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSimpleAudioVolume_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFSimpleAudioVolume methods ***/
+#define IMFSimpleAudioVolume_SetMasterVolume(This,fLevel) (This)->lpVtbl->SetMasterVolume(This,fLevel)
+#define IMFSimpleAudioVolume_GetMasterVolume(This,pfLevel) (This)->lpVtbl->GetMasterVolume(This,pfLevel)
+#define IMFSimpleAudioVolume_SetMute(This,bMute) (This)->lpVtbl->SetMute(This,bMute)
+#define IMFSimpleAudioVolume_GetMute(This,pbMute) (This)->lpVtbl->GetMute(This,pbMute)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFSimpleAudioVolume_QueryInterface(IMFSimpleAudioVolume* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFSimpleAudioVolume_AddRef(IMFSimpleAudioVolume* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFSimpleAudioVolume_Release(IMFSimpleAudioVolume* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFSimpleAudioVolume methods ***/
+static FORCEINLINE HRESULT IMFSimpleAudioVolume_SetMasterVolume(IMFSimpleAudioVolume* This,float fLevel) {
+    return This->lpVtbl->SetMasterVolume(This,fLevel);
+}
+static FORCEINLINE HRESULT IMFSimpleAudioVolume_GetMasterVolume(IMFSimpleAudioVolume* This,float *pfLevel) {
+    return This->lpVtbl->GetMasterVolume(This,pfLevel);
+}
+static FORCEINLINE HRESULT IMFSimpleAudioVolume_SetMute(IMFSimpleAudioVolume* This,const WINBOOL bMute) {
+    return This->lpVtbl->SetMute(This,bMute);
+}
+static FORCEINLINE HRESULT IMFSimpleAudioVolume_GetMute(IMFSimpleAudioVolume* This,WINBOOL *pbMute) {
+    return This->lpVtbl->GetMute(This,pbMute);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFSimpleAudioVolume_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IMFSourceResolver interface
  */
 #ifndef __IMFSourceResolver_INTERFACE_DEFINED__
@@ -5530,6 +5954,102 @@ static FORCEINLINE HRESULT IMFStreamSink_Flush(IMFStreamSink* This) {
 #endif  /* __IMFStreamSink_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IMFTimer interface
+ */
+#ifndef __IMFTimer_INTERFACE_DEFINED__
+#define __IMFTimer_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFTimer, 0xe56e4cbd, 0x8f70, 0x49d8, 0xa0,0xf8, 0xed,0xb3,0xd6,0xab,0x9b,0xf2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e56e4cbd-8f70-49d8-a0f8-edb3d6ab9bf2")
+IMFTimer : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetTimer(
+        DWORD dwFlags,
+        LONGLONG llClockTime,
+        IMFAsyncCallback *pCallback,
+        IUnknown *punkState,
+        IUnknown **ppunkKey) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelTimer(
+        IUnknown *punkKey) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFTimer, 0xe56e4cbd, 0x8f70, 0x49d8, 0xa0,0xf8, 0xed,0xb3,0xd6,0xab,0x9b,0xf2)
+#endif
+#else
+typedef struct IMFTimerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFTimer *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFTimer *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFTimer *This);
+
+    /*** IMFTimer methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetTimer)(
+        IMFTimer *This,
+        DWORD dwFlags,
+        LONGLONG llClockTime,
+        IMFAsyncCallback *pCallback,
+        IUnknown *punkState,
+        IUnknown **ppunkKey);
+
+    HRESULT (STDMETHODCALLTYPE *CancelTimer)(
+        IMFTimer *This,
+        IUnknown *punkKey);
+
+    END_INTERFACE
+} IMFTimerVtbl;
+
+interface IMFTimer {
+    CONST_VTBL IMFTimerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFTimer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTimer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTimer_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFTimer methods ***/
+#define IMFTimer_SetTimer(This,dwFlags,llClockTime,pCallback,punkState,ppunkKey) (This)->lpVtbl->SetTimer(This,dwFlags,llClockTime,pCallback,punkState,ppunkKey)
+#define IMFTimer_CancelTimer(This,punkKey) (This)->lpVtbl->CancelTimer(This,punkKey)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFTimer_QueryInterface(IMFTimer* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFTimer_AddRef(IMFTimer* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFTimer_Release(IMFTimer* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFTimer methods ***/
+static FORCEINLINE HRESULT IMFTimer_SetTimer(IMFTimer* This,DWORD dwFlags,LONGLONG llClockTime,IMFAsyncCallback *pCallback,IUnknown *punkState,IUnknown **ppunkKey) {
+    return This->lpVtbl->SetTimer(This,dwFlags,llClockTime,pCallback,punkState,ppunkKey);
+}
+static FORCEINLINE HRESULT IMFTimer_CancelTimer(IMFTimer* This,IUnknown *punkKey) {
+    return This->lpVtbl->CancelTimer(This,punkKey);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFTimer_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IMFTopoLoader interface
  */
 #ifndef __IMFTopoLoader_INTERFACE_DEFINED__
@@ -5625,6 +6145,7 @@ HRESULT WINAPI MFCreateASFProfileFromPresentationDescriptor(IMFPresentationDescr
 HRESULT WINAPI MFCreateASFSplitter(IMFASFSplitter **ppISplitter);
 HRESULT WINAPI MFCreateAudioRenderer(IMFAttributes *pAudioAttributes, IMFMediaSink **ppSink);
 HRESULT WINAPI MFCreateAudioRendererActivate(IMFActivate **ppActivate);
+HRESULT WINAPI MFCreateDeviceSource(IMFAttributes *pAttributes,IMFMediaSource **ppSource);
 HRESULT WINAPI MFCreateMediaSession(IMFAttributes *pConfiguration,IMFMediaSession **ppMS);
 HRESULT WINAPI MFCreateMP3MediaSink(IMFByteStream *pTargetByteStream,IMFMediaSink **ppMediaSink);
 HRESULT WINAPI MFCreateMPEG4MediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);
