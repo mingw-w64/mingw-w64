@@ -262,6 +262,21 @@ interface IWMReaderCallback : IWMStatusCallback
 
 [
     object,
+    local,
+    uuid(96406beb-2b2b-11d3-b36b-00c04f6108ff),
+]
+interface IWMReaderCallbackAdvanced : IUnknown
+{
+    HRESULT OnStreamSample(WORD stream_number, QWORD pts, QWORD duration, DWORD flags, INSSBuffer *sample, void *context);
+    HRESULT OnTime(QWORD time, void *context);
+    HRESULT OnStreamSelection(WORD count, WORD *stream_numbers, WMT_STREAM_SELECTION *selections, void *context);
+    HRESULT OnOutputPropsChanged(DWORD output_number, WM_MEDIA_TYPE *mt, void *context);
+    HRESULT AllocateForStream(WORD stream_number, DWORD size, INSSBuffer **sample, void *context);
+    HRESULT AllocateForOutput(DWORD output_number, DWORD size, INSSBuffer **sample, void *context);
+}
+
+[
+    object,
     uuid(96406Bdd-2b2b-11d3-b36b-00c04f6108ff),
     pointer_default(unique),
     local
@@ -1082,7 +1097,7 @@ interface IWMReaderAllocatorEx : IUnknown
         [in] void *pvContext);
 
     HRESULT AllocateForOutputEx(
-        [in] WORD wOutputNum,
+        [in] DWORD output,
         [in] DWORD cbBuffer,
         [out] INSSBuffer **ppBuffer,
         [in] DWORD dwFlags,
@@ -1886,6 +1901,27 @@ interface IWMLicenseRestore : IUnknown
         [in] IWMStatusCallback *pCallback);
 
     HRESULT CancelLicenseRestore();
+}
+
+[
+    object,
+    local,
+    uuid(6816dad3-2b4b-4c8e-8149-874c3483a753),
+]
+interface IWMIStreamProps : IUnknown
+{
+    HRESULT GetProperty(const WCHAR *name, WMT_ATTR_DATATYPE *type, BYTE *value, DWORD *size);
+}
+
+[
+    object,
+    local,
+    uuid(342e0eb7-e651-450c-975b-2ace2c90c48e),
+]
+interface IWMCredentialCallback : IUnknown
+{
+    HRESULT AcquireCredentials(WCHAR *realm, WCHAR *site, WCHAR *username, DWORD username_size,
+            WCHAR *password, DWORD password_size, HRESULT hr, DWORD *flags);
 }
 
 cpp_quote("HRESULT WINAPI WMCheckURLExtension(LPCWSTR);")
