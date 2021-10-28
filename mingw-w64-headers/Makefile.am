@@ -134,6 +134,7 @@ IDL_SRCS = \
   include/endpointvolume.idl \
   include/eventtoken.idl \
   include/evr.idl \
+  include/evr9.idl \
   include/exdisp.idl \
   include/filter.idl \
   include/fsrm.idl \

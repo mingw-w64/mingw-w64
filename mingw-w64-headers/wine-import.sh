@@ -172,6 +172,7 @@ for f in \
 	dxva2api \
 	endpointvolume \
 	eventtoken \
+	evr9 \
 	exdisp \
 	fusion \
 	icftypes \
