@@ -436,6 +436,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/eventtoken.idl \
 @HAVE_WIDL_TRUE@  include/evr.idl \
+@HAVE_WIDL_TRUE@  include/evr9.idl \
 @HAVE_WIDL_TRUE@  include/exdisp.idl \
 @HAVE_WIDL_TRUE@  include/filter.idl \
 @HAVE_WIDL_TRUE@  include/fsrm.idl \
@@ -544,6 +545,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wmpservices.idl \
 @HAVE_WIDL_TRUE@  include/wmsbuffer.idl \
 @HAVE_WIDL_TRUE@  include/wmsdkidl.idl \
+@HAVE_WIDL_TRUE@  include/wmsecure.idl \
 @HAVE_WIDL_TRUE@  include/wsdattachment.idl \
 @HAVE_WIDL_TRUE@  include/wsdbase.idl \
 @HAVE_WIDL_TRUE@  include/wsdclient.idl \
