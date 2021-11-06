@@ -94,6 +94,7 @@ src_dfp_math =
 
 endif
 
+src_libbits=libsrc/bits.c
 src_libshell32=libsrc/shell32.c
 src_libdinput=libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
@@ -677,6 +678,10 @@ lib32/libmsvcrt-os.a: lib-common/msvcrt-os.mri lib32/libmsvcrt_def.a lib32/libms
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
+lib32_LIBRARIES += lib32/libbits.a
+lib32_libbits_a_SOURCES = $(src_libbits)
+lib32_libbits_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
 lib32_libshell32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
@@ -1001,6 +1006,10 @@ lib64_DATA += lib64/libmsvcrt-os.a
 lib64/libmsvcrt-os.a: lib-common/msvcrt-os.mri lib64/libmsvcrt_def.a lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
+
+lib64_LIBRARIES += lib64/libbits.a
+lib64_libbits_a_SOURCES = $(src_libbits)
+lib64_libbits_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
@@ -1336,6 +1345,10 @@ libarm32/libmsvcrt-os.a: lib-common/msvcrt-os.mri libarm32/libmsvcrt_def.a libar
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
+libarm32_LIBRARIES += libarm32/libbits.a
+libarm32_libbits_a_SOURCES = $(src_libbits)
+libarm32_libbits_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
 libarm32_LIBRARIES += libarm32/libshell32.a
 libarm32_libshell32_a_SOURCES = $(src_libshell32)
 libarm32_libshell32_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
@@ -1613,6 +1626,10 @@ libarm64_DATA += libarm64/libmsvcrt-os.a
 libarm64/libmsvcrt-os.a: lib-common/msvcrt-os.mri libarm64/libmsvcrt_def.a libarm64/libmsvcrt_common.a libarm64/libmsvcrt_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
+
+libarm64_LIBRARIES += libarm64/libbits.a
+libarm64_libbits_a_SOURCES = $(src_libbits)
+libarm64_libbits_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libshell32.a
 libarm64_libshell32_a_SOURCES = $(src_libshell32)
