@@ -81,6 +81,12 @@ IDL_SRCS = \
   include/audiopolicy.idl \
   include/austream.idl \
   include/bdaiface.idl \
+  include/bits.idl \
+  include/bits1_5.idl \
+  include/bits2_0.idl \
+  include/bits2_5.idl \
+  include/bits3_0.idl \
+  include/bits5_0.idl \
   include/comadmin.idl \
   include/commoncontrols.idl \
   include/control.idl \

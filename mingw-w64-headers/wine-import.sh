@@ -133,6 +133,12 @@ for f in \
 	amvideo \
 	asyncinfo \
 	austream \
+	bits \
+	bits1_5 \
+	bits2_0 \
+	bits2_5 \
+	bits3_0 \
+	bits5_0 \
 	ctfutb \
 	d3d10 \
 	d3d10_1 \
