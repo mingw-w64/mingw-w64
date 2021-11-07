@@ -543,6 +543,11 @@ typedef struct _WMReaderClientInfo {
     QWORD qwHostVersion;
     WCHAR *wszPlayerUserAgent;
 } WM_READER_CLIENTINFO;
+enum {
+    WM_SF_CLEANPOINT = 0x1,
+    WM_SF_DISCONTINUITY = 0x2,
+    WM_SF_DATALOSS = 0x4
+};
 typedef enum WMT_ATTR_DATATYPE {
     WMT_TYPE_DWORD = 0,
     WMT_TYPE_STRING = 1,
