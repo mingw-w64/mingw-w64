@@ -109,6 +109,7 @@ for f in \
 	errors.h \
 	evcode.h \
 	exdispid.h \
+	fontsub.h \
 	mediaerr.h \
 	mscat.h \
 	propkeydef.h \
