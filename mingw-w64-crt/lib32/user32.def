@@ -455,7 +455,6 @@ GetRawInputDeviceList@12
 GetRawPointerDeviceData@20
 GetReasonTitleFromReasonCode@12
 GetRegisteredRawInputDevices@12
-GetQueueStatus@4
 GetScrollBarInfo@12
 GetScrollInfo@12
 GetScrollPos@8
@@ -768,7 +767,6 @@ RegisterErrorReportingDialog@8
 RegisterFrostWindow@8
 RegisterGhostWindow@8
 RegisterHotKey@16
-RegisterPowerSettingNotification@12
 RegisterLogonProcess@8
 RegisterMessagePumpHook@4
 RegisterPointerDeviceNotifications@8
