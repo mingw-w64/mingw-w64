@@ -247,7 +247,7 @@ DwmLockScreenUpdates@4
 DwmStartRedirection@8 ; Mentioned on http://habrahabr.ru/post/145174/ , enables GDI virtualization (for security purposes)
 DwmStopRedirection@0
 DwmValidateWindow@8
-EditWndProc@16
+EditWndProc@20
 EmptyClipboard@0
 EnableMenuItem@12
 EnableMouseInPointer@4
