@@ -86,3 +86,4 @@ gmtime == _gmtime64
 localtime == _localtime64
 mktime == _mktime64
 time == _time64
+timespec_get == _timespec64_get
