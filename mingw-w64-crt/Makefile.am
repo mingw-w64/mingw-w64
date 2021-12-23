@@ -283,7 +283,8 @@ src_msvcrt32=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/lc_locale_func.c \
-  misc/wassert.c
+  misc/wassert.c \
+  stdio/_vscprintf.c
 
 src_msvcrt64=\
   $(src_msvcrt) \
