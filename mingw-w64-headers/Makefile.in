@@ -1314,7 +1314,7 @@ dist-hook:
 @HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
 @HAVE_WIDL_TRUE@%.tlb: %.idl
-@HAVE_WIDL_TRUE@	$(WIDL) -I$(srcdir)/include -t -o $@ $<
+@HAVE_WIDL_TRUE@	$(WIDL) -I$(srcdir)/include -L$(srcdir)/tlb -t -o $@ $<
 
 @HAVE_WIDL_TRUE@%_i.c: %.idl crt/_mingw.h
 @HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -u -o $@ $<

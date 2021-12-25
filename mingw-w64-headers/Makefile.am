@@ -292,7 +292,7 @@ BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
 %.tlb: %.idl
-	$(WIDL) -I$(srcdir)/include -t -o $@ $<
+	$(WIDL) -I$(srcdir)/include -L$(srcdir)/tlb -t -o $@ $<
 
 %_i.c: %.idl crt/_mingw.h
 	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -u -o $@ $<
