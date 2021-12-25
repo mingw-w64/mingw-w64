@@ -28,7 +28,6 @@
  */
 
 #include "config.h"
-#include "wine/port.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -39,12 +38,11 @@
 
 #define NONAMELESSUNION
 
+#include "widl.h"
 #include "winerror.h"
 #include "windef.h"
 #include "winbase.h"
 #include "winnls.h"
-
-#include "widl.h"
 #include "typelib.h"
 #include "typelib_struct.h"
 #include "utils.h"
@@ -304,17 +302,10 @@ static int ctl2_encode_name(
 
     value = lhash_val_of_name_sys(typelib->typelib_header.varflags & 0x0f, typelib->typelib_header.lcid, converted_name + 4);
 
-#ifdef WORDS_BIGENDIAN
-    converted_name[3] = length & 0xff;
-    converted_name[2] = length >> 8;
-    converted_name[1] = value;
-    converted_name[0] = value >> 8;
-#else
     converted_name[0] = length & 0xff;
     converted_name[1] = length >> 8;
     converted_name[2] = value;
     converted_name[3] = value >> 8;
-#endif
 
     for (offset = (4 - length) & 3; offset; offset--) converted_name[length + offset + 3] = 0x57;
 
@@ -351,14 +342,8 @@ static int ctl2_encode_string(
     if (length < 3) size += 4;
     converted_string = xmalloc(size);
     memcpy(converted_string + 2, string, length);
-
-#ifdef WORDS_BIGENDIAN
-    converted_string[1] = length & 0xff;
-    converted_string[0] = (length >> 8) & 0xff;
-#else
     converted_string[0] = length & 0xff;
     converted_string[1] = (length >> 8) & 0xff;
-#endif
 
     if(length < 3) { /* strings of this length are padded with up to 8 bytes incl the 2 byte length */
         for(offset = 0; offset < 4; offset++)
@@ -1221,7 +1206,8 @@ static void write_default_value(msft_typelib_t *typelib, type_t *type, expr_t *e
     int vt;
 
     if (expr->type == EXPR_STRLIT || expr->type == EXPR_WSTRLIT) {
-        if (get_type_vt(type) != VT_BSTR)
+        vt = get_type_vt(type);
+        if (vt != VT_BSTR && vt != VT_VARIANT)
             error("string default value applied to non-string type\n");
         chat("default value '%s'\n", expr->u.sval);
         write_string_value(typelib, out, expr->u.sval);
@@ -1251,6 +1237,20 @@ static void write_default_value(msft_typelib_t *typelib, type_t *type, expr_t *e
         case VT_UINT:
         case VT_HRESULT:
             break;
+        case VT_VARIANT: {
+            switch (expr->type) {
+            case EXPR_DOUBLE:
+                vt = VT_R4;
+                break;
+            case EXPR_NUM:
+                vt = VT_I4;
+                break;
+            default:
+                warning("can't write default VT_VARIANT value for expression type %d.\n", expr->type);
+                return;
+            }
+            break;
+        }
         default:
             warning("can't write value of type %d yet\n", vt);
             return;
@@ -2725,7 +2725,6 @@ static void save_all_changes(msft_typelib_t *typelib)
 
     ctl2_finalize_typeinfos(typelib, filepos);
 
-    byte_swapped = 0;
     init_output_buffer();
 
     put_data(&typelib->typelib_header, sizeof(typelib->typelib_header));
@@ -2758,7 +2757,8 @@ static void save_all_changes(msft_typelib_t *typelib)
         if (expr)
             sprintf( typelib_id, "#%d", expr->cval );
         add_output_to_resources( "TYPELIB", typelib_id );
-        output_typelib_regscript( typelib->typelib );
+        if (strendswith( typelib_name, "_t.res" ))  /* add typelib registration */
+            output_typelib_regscript( typelib->typelib );
     }
     else flush_output_buffer( typelib_name );
 }

@@ -10,15 +10,6 @@ index a99eed4e9..69cb4b628 100644
  
  static const char usage[] =
  "Usage: widl [options...] infile.idl\n"
-@@ -596,7 +597,7 @@ static void init_argv0_dir( const char *argv0 )
- 
- int main(int argc,char *argv[])
- {
--  int i, optc;
-+  int optc;
-   int ret = 0;
-   int opti = 0;
-   char *output_name = NULL;
 @@ -772,19 +773,12 @@ int main(int argc,char *argv[])
  
    if (stdinc)

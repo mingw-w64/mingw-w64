@@ -21,6 +21,7 @@
 #ifndef __WIDL_WIDL_H
 #define __WIDL_WIDL_H
 
+#include "../tools.h"
 #include "widltypes.h"
 
 #include <time.h>
@@ -74,13 +75,6 @@ extern time_t now;
 extern int line_number;
 extern int char_number;
 
-enum target_cpu
-{
-    CPU_x86, CPU_x86_64, CPU_POWERPC, CPU_ARM, CPU_ARM64, CPU_POWERPC64, CPU_LAST = CPU_POWERPC64
-};
-
-extern enum target_cpu target_cpu;
-
 enum stub_mode
 {
     MODE_Os,  /* inline stubs */
@@ -88,6 +82,7 @@ enum stub_mode
     MODE_Oif  /* new-style fully interpreted stubs */
 };
 extern enum stub_mode get_stub_mode(void);
+extern int open_typelib( const char *name );
 
 extern void write_header(const statement_list_t *stmts);
 extern void write_id_data(const statement_list_t *stmts);

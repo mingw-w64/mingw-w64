@@ -1,7 +1,5 @@
 /*
- * Exported functions of the Wine preprocessor
- *
- * Copyright 2002 Alexandre Julliard
+ * Copyright 2021 Brendan Shanks for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,19 +16,18 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#ifndef __WINE_WPP_H
-#define __WINE_WPP_H
+#ifndef _PROCESSTHREADSAPI_H
+#define _PROCESSTHREADSAPI_H
 
-#include <stdio.h>
-#include <stdarg.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-extern void wpp_del_define( const char *name );
-extern void wpp_add_cmdline_define( const char *value );
-extern void wpp_set_debug( int lex_debug, int parser_debug, int msg_debug );
-extern void wpp_set_pedantic( int on );
-extern void wpp_add_include_path( const char *path );
-extern char *wpp_find_include( const char *name, const char *parent_name );
-/* Return value == 0 means successful execution */
-extern int wpp_parse( const char *input, FILE *output );
+WINBASEAPI HRESULT WINAPI GetThreadDescription(HANDLE,PWSTR *);
+WINBASEAPI HRESULT WINAPI SetThreadDescription(HANDLE,PCWSTR);
 
-#endif  /* __WINE_WPP_H */
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* _PROCESSTHREADSAPI_H */

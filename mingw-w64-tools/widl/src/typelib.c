@@ -20,23 +20,18 @@
  */
 
 #include "config.h"
-#include "wine/port.h"
-#include "wine/wpp.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#ifdef HAVE_UNISTD_H
-# include <unistd.h>
-#endif
 #include <string.h>
 #include <ctype.h>
 
+#include "widl.h"
 #include "windef.h"
 #include "winbase.h"
-
-#include "widl.h"
 #include "utils.h"
+#include "wpp_private.h"
 #include "parser.h"
 #include "header.h"
 #include "typelib.h"
@@ -244,128 +239,144 @@ unsigned short get_type_vt(type_t *t)
   return 0;
 }
 
-static void tlb_read(int fd, void *buf, int count)
+static void msft_read_guid(void *data, MSFT_SegDir *segdir, int offset, GUID *guid)
 {
-    if(read(fd, buf, count) < count)
-        error("error while reading importlib.\n");
+    memcpy( guid, (char *)data + segdir->pGuidTab.offset + offset, sizeof(*guid) );
 }
 
-static void tlb_lseek(int fd, off_t offset)
+static void read_msft_importlib(importlib_t *importlib, void *data, unsigned int size)
 {
-    if(lseek(fd, offset, SEEK_SET) == -1)
-        error("lseek failed\n");
-}
-
-static void msft_read_guid(int fd, MSFT_SegDir *segdir, int offset, GUID *guid)
-{
-    tlb_lseek(fd, segdir->pGuidTab.offset+offset);
-    tlb_read(fd, guid, sizeof(GUID));
-}
-
-static void read_msft_importlib(importlib_t *importlib, int fd)
-{
-    MSFT_Header header;
-    MSFT_SegDir segdir;
+    MSFT_Header *header = data;
+    MSFT_SegDir *segdir;
     int *typeinfo_offs;
     int i;
 
     importlib->allocated = 0;
+    importlib->version = header->version;
 
-    tlb_lseek(fd, 0);
-    tlb_read(fd, &header, sizeof(header));
+    typeinfo_offs = (int *)(header + 1);
+    segdir = (MSFT_SegDir *)(typeinfo_offs + header->nrtypeinfos);
 
-    importlib->version = header.version;
+    msft_read_guid(data, segdir, header->posguid, &importlib->guid);
 
-    typeinfo_offs = xmalloc(header.nrtypeinfos*sizeof(INT));
-    tlb_read(fd, typeinfo_offs, header.nrtypeinfos*sizeof(INT));
-    tlb_read(fd, &segdir, sizeof(segdir));
-
-    msft_read_guid(fd, &segdir, header.posguid, &importlib->guid);
-
-    importlib->ntypeinfos = header.nrtypeinfos;
+    importlib->ntypeinfos = header->nrtypeinfos;
     importlib->importinfos = xmalloc(importlib->ntypeinfos*sizeof(importinfo_t));
 
     for(i=0; i < importlib->ntypeinfos; i++) {
-        MSFT_TypeInfoBase base;
-        MSFT_NameIntro nameintro;
+        MSFT_TypeInfoBase *base = (MSFT_TypeInfoBase *)((char *)(segdir + 1) + typeinfo_offs[i]);
+        MSFT_NameIntro *nameintro;
         int len;
 
-        tlb_lseek(fd, sizeof(MSFT_Header) + header.nrtypeinfos*sizeof(INT) + sizeof(MSFT_SegDir)
-                 + typeinfo_offs[i]);
-        tlb_read(fd, &base, sizeof(base));
-
         importlib->importinfos[i].importlib = importlib;
-        importlib->importinfos[i].flags = (base.typekind&0xf)<<24;
+        importlib->importinfos[i].flags = (base->typekind & 0xf)<<24;
         importlib->importinfos[i].offset = -1;
         importlib->importinfos[i].id = i;
 
-        if(base.posguid != -1) {
+        if(base->posguid != -1) {
             importlib->importinfos[i].flags |= MSFT_IMPINFO_OFFSET_IS_GUID;
-            msft_read_guid(fd, &segdir, base.posguid, &importlib->importinfos[i].guid);
+            msft_read_guid(data, segdir, base->posguid, &importlib->importinfos[i].guid);
         }
         else memset( &importlib->importinfos[i].guid, 0, sizeof(importlib->importinfos[i].guid));
 
-        tlb_lseek(fd, segdir.pNametab.offset + base.NameOffset);
-        tlb_read(fd, &nameintro, sizeof(nameintro));
+        nameintro = (MSFT_NameIntro *)((char *)data + segdir->pNametab.offset + base->NameOffset);
 
-        len = nameintro.namelen & 0xff;
-
+        len = nameintro->namelen & 0xff;
         importlib->importinfos[i].name = xmalloc(len+1);
-        tlb_read(fd, importlib->importinfos[i].name, len);
+        memcpy( importlib->importinfos[i].name, nameintro + 1, len );
         importlib->importinfos[i].name[len] = 0;
     }
-
-    free(typeinfo_offs);
 }
 
-static int open_typelib(const char *name)
+static unsigned int rva_to_va( const IMAGE_NT_HEADERS32 *nt, unsigned int rva )
 {
-    char *file_name;
-    int fd;
+    IMAGE_SECTION_HEADER *sec = (IMAGE_SECTION_HEADER *)((char *)&nt->OptionalHeader + nt->FileHeader.SizeOfOptionalHeader);
+    unsigned int i;
 
-    file_name = wpp_find_include(name, NULL);
-    if(!file_name)
-        return open(name, O_RDONLY | O_BINARY );
+    for (i = 0; i < nt->FileHeader.NumberOfSections; i++, sec++)
+        if (sec->VirtualAddress <= rva && sec->VirtualAddress + sec->Misc.VirtualSize > rva)
+            return sec->PointerToRawData + (rva - sec->VirtualAddress);
+    error( "no PE section found for addr %x\n", rva );
+}
 
-    fd = open(file_name, O_RDONLY | O_BINARY );
-    free(file_name);
-    return fd;
+static void read_pe_importlib(importlib_t *importlib, void *data, unsigned int size)
+{
+    IMAGE_DOS_HEADER *dos = data;
+    IMAGE_NT_HEADERS32 *nt;
+    IMAGE_DATA_DIRECTORY *dir;
+    IMAGE_RESOURCE_DIRECTORY *root, *resdir;
+    IMAGE_RESOURCE_DIRECTORY_ENTRY *entry;
+    IMAGE_RESOURCE_DATA_ENTRY *resdata;
+    void *ptr;
+    unsigned int i, va;
+
+    if (dos->e_lfanew < sizeof(*dos) || dos->e_lfanew >= size) error( "not a PE file\n" );
+    nt = (IMAGE_NT_HEADERS32 *)((char *)data + dos->e_lfanew);
+    if (nt->Signature != IMAGE_NT_SIGNATURE) error( "not a PE file\n" );
+    if ((char *)&nt->OptionalHeader + nt->FileHeader.SizeOfOptionalHeader > (char *)data + size)
+        error( "invalid PE file\n" );
+    switch (nt->OptionalHeader.Magic)
+    {
+    case IMAGE_NT_OPTIONAL_HDR32_MAGIC:
+        dir = &nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_RESOURCE];
+        break;
+    case IMAGE_NT_OPTIONAL_HDR64_MAGIC:
+        dir = &((IMAGE_NT_HEADERS64 *)nt)->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_RESOURCE];
+        break;
+    default:
+        error( "invalid PE file\n" );
+    }
+    if (!dir->VirtualAddress || !dir->Size) error( "resource not found in PE file\n" );
+    va = rva_to_va( nt, dir->VirtualAddress );
+    if (va + dir->Size > size) error( "invalid resource data in PE file\n" );
+    root = resdir = (IMAGE_RESOURCE_DIRECTORY *)((char *)data + va );
+    entry = (IMAGE_RESOURCE_DIRECTORY_ENTRY *)(resdir + 1);
+    for (i = 0; i < resdir->NumberOfNamedEntries; i++, entry++)
+    {
+        static const WCHAR typelibW[] = {'T','Y','P','E','L','I','B'};
+        WCHAR *name = (WCHAR *)((char *)root + entry->NameOffset);
+        if (name[0] != ARRAY_SIZE(typelibW)) continue;
+        if (!memcmp( name + 1, typelibW, sizeof(typelibW) )) break;
+    }
+    if (i == resdir->NumberOfNamedEntries) error( "typelib resource not found in PE file\n" );
+    while (entry->DataIsDirectory)
+    {
+        resdir = (IMAGE_RESOURCE_DIRECTORY *)((char *)root + entry->OffsetToDirectory);
+        entry = (IMAGE_RESOURCE_DIRECTORY_ENTRY *)(resdir + 1);
+    }
+    resdata = (IMAGE_RESOURCE_DATA_ENTRY *)((char *)root + entry->OffsetToData);
+    ptr = (char *)data + rva_to_va( nt, resdata->OffsetToData );
+    if (memcmp( ptr, "MSFT", 4 )) error( "invalid typelib found in PE file\n" );
+    read_msft_importlib( importlib, ptr, resdata->Size );
 }
 
 static void read_importlib(importlib_t *importlib)
 {
-    int fd;
-    INT magic;
+    int fd, size;
+    void *data;
 
     fd = open_typelib(importlib->name);
 
     /* widl extension: if importlib name has no .tlb extension, try using .tlb */
-    if(fd < 0) {
-        const char *p = strrchr(importlib->name, '.');
-        size_t len = p ? p - importlib->name : strlen(importlib->name);
-        if(strcmp(importlib->name + len, ".tlb")) {
-            char *tlb_name = xmalloc(len + 5);
-            memcpy(tlb_name, importlib->name, len);
-            strcpy(tlb_name + len, ".tlb");
-            fd = open_typelib(tlb_name);
-            free(tlb_name);
-        }
-    }
+    if (fd < 0 && !strendswith( importlib->name, ".tlb" ))
+        fd = open_typelib( strmake( "%s.tlb", importlib->name ));
 
     if(fd < 0)
         error("Could not find importlib %s.\n", importlib->name);
 
-    tlb_read(fd, &magic, sizeof(magic));
+    size = lseek( fd, 0, SEEK_END );
+    data = xmalloc( size );
+    lseek( fd, 0, SEEK_SET );
+    if (read( fd, data, size) < size) error("error while reading importlib.\n");
+    close( fd );
 
-    switch(magic) {
-    case MSFT_MAGIC:
-        read_msft_importlib(importlib, fd);
-        break;
-    default:
-        error("Wrong or unsupported typelib magic %x\n", magic);
-    };
+    if (!memcmp( data, "MSFT", 4 ))
+        read_msft_importlib(importlib, data, size);
+    else if (!memcmp( data, "MZ", 2 ))
+        read_pe_importlib(importlib, data, size);
+    else
+        error("Wrong or unsupported typelib\n");
 
-    close(fd);
+    free( data );
 }
 
 void add_importlib(const char *name, typelib_t *typelib)

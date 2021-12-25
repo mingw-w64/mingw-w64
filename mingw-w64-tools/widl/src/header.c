@@ -23,9 +23,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#ifdef HAVE_UNISTD_H
-# include <unistd.h>
-#endif
 #include <string.h>
 #include <ctype.h>
 
@@ -192,11 +189,11 @@ static void write_namespace_end(FILE *header, struct namespace *namespace)
 {
     if(is_global_namespace(namespace)) {
         if(use_abi_namespace)
-            write_line(header, -1, "}", namespace->name);
+            write_line(header, -1, "}");
         return;
     }
 
-    write_line(header, -1, "}", namespace->name);
+    write_line(header, -1, "}");
     write_namespace_end(header, namespace->parent);
 }
 
@@ -1929,12 +1926,9 @@ static void write_runtimeclass_forward(FILE *header, type_t *runtimeclass)
 
 static void write_import(FILE *header, const char *fname)
 {
-  char *hname, *p;
+  char *hname = replace_extension( get_basename(fname), ".idl", "" );
 
-  hname = dup_basename(fname, ".idl");
-  p = hname + strlen(hname) - 2;
-  if (p <= hname || strcmp( p, ".h" )) strcat(hname, ".h");
-
+  if (!strendswith( hname, ".h" )) hname = strmake( "%s.h", hname );
   fprintf(header, "#include <%s>\n", hname);
   free(hname);
 }

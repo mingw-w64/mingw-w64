@@ -24,6 +24,14 @@
 #include <string.h>
 #include "wine/list.h"
 
+extern void wpp_del_define( const char *name );
+extern void wpp_add_cmdline_define( const char *value );
+extern void wpp_set_debug( int lex_debug, int parser_debug, int msg_debug );
+extern void wpp_add_include_path( const char *path );
+extern char *wpp_find_include( const char *name, const char *parent_name );
+/* Return value == 0 means successful execution */
+extern int wpp_parse( const char *input, FILE *output );
+
 struct pp_entry;	/* forward */
 /*
  * Include logic
@@ -146,12 +154,7 @@ typedef struct cval {
 
 
 
-void *pp_xmalloc(size_t);
-void *pp_xrealloc(void *, size_t);
-char *pp_xstrdup(const char *str);
 pp_entry_t *pplookup(const char *ident);
-void pp_init_define_state(void);
-void pp_free_define_state(void);
 pp_entry_t *pp_add_define(const char *def, const char *text);
 pp_entry_t *pp_add_macro(char *ident, char *args[], int nargs, mtext_t *exp);
 void pp_del_define(const char *name);
@@ -161,16 +164,9 @@ void pp_next_if_state(int);
 pp_if_state_t pp_pop_if(void);
 pp_if_state_t pp_if_state(void);
 int pp_get_if_depth(void);
-char *wpp_lookup(const char *name, int type, const char *parent_name,
-                 char **include_path, int include_path_count);
-
-#ifndef __GNUC__
-#define __attribute__(x)  /*nothing*/
-#endif
 
 int ppy_error(const char *s, ...) __attribute__((format (printf, 1, 2)));
 int ppy_warning(const char *s, ...) __attribute__((format (printf, 1, 2)));
-void pp_internal_error(const char *file, int line, const char *s, ...) __attribute__((format (printf, 3, 4)));
 
 /* current preprocessor state */
 /* everything is in this structure to avoid polluting the global symbol space */
@@ -180,13 +176,12 @@ struct pp_status
     FILE *file;         /* current input file descriptor */
     int line_number;    /* current line number */
     int char_number;    /* current char number in line */
-    int pedantic;       /* pedantic option */
     int debug;          /* debug messages flag */
 };
 
 extern struct pp_status pp_status;
 extern include_state_t pp_incl_state;
-extern struct list pp_includelogiclist;
+extern int pedantic;
 
 /*
  * From ppl.l
@@ -200,8 +195,6 @@ int ppy_lex(void);
 void pp_do_include(char *fname, int type);
 void pp_push_ignore_state(void);
 void pp_pop_ignore_state(void);
-
-void pp_writestring(const char *format, ...) __attribute__((format (printf, 1, 2)));
 
 /*
  * From ppy.y

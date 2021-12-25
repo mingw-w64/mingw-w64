@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.5.  */
+/* A Bison parser, made by GNU Bison 3.7.6.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_PPY_LIBS_WPP_PPY_TAB_H_INCLUDED
-# define YY_PPY_LIBS_WPP_PPY_TAB_H_INCLUDED
+#ifndef YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED
+# define YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -105,7 +105,7 @@ extern int ppy_debug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 125 "libs/wpp/ppy.y"
+#line 118 "tools/wrc/ppy.y"
 
 	int		sint;
 	unsigned int	uint;
@@ -119,7 +119,7 @@ union YYSTYPE
 	char		*marg;
 	mtext_t		*mtext;
 
-#line 123 "libs/wpp/ppy.tab.h"
+#line 123 "tools/wrc/ppy.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -132,4 +132,4 @@ extern YYSTYPE ppy_lval;
 
 int ppy_parse (void);
 
-#endif /* !YY_PPY_LIBS_WPP_PPY_TAB_H_INCLUDED  */
+#endif /* !YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED  */

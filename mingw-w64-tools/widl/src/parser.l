@@ -43,7 +43,6 @@ double	[0-9]+\.[0-9]+([eE][+-]?[0-9]+)*
 %{
 
 #include "config.h"
-#include "wine/port.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,17 +51,12 @@ double	[0-9]+\.[0-9]+([eE][+-]?[0-9]+)*
 #include <assert.h>
 #include <errno.h>
 #include <limits.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#else
 #define YY_NO_UNISTD_H
-#endif
 
 #include "widl.h"
 #include "utils.h"
 #include "parser.h"
-#include "wine/wpp.h"
+#include "wpp_private.h"
 
 #include "parser.tab.h"
 
@@ -564,10 +558,7 @@ int do_import(char *fname)
     input_name = path;
     line_number = 1;
 
-    name = xstrdup( "widl.XXXXXX" );
-    if((fd = mkstemps( name, 0 )) == -1)
-        error("Could not generate a temp name from %s\n", name);
-
+    fd = make_temp_file( "widl-pp", NULL, &name );
     temp_name = name;
     if (!(f = fdopen(fd, "wt")))
         error("Could not open fd %s for writing\n", name);
@@ -605,10 +596,7 @@ static void switch_to_acf(void)
     acf_name = NULL;
     line_number = 1;
 
-    name = xstrdup( "widl.XXXXXX" );
-    if((fd = mkstemps( name, 0 )) == -1)
-        error("Could not generate a temp name from %s\n", name);
-
+    fd = make_temp_file( "widl-acf", NULL, &name );
     temp_name = name;
     if (!(f = fdopen(fd, "wt")))
         error("Could not open fd %s for writing\n", name);

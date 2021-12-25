@@ -24,6 +24,7 @@
 #include <basetsd.h>
 #include <guiddef.h>
 #include <winapifamily.h>
+#include <specstrings.h>
 
 #ifndef RC_INVOKED
 #include <ctype.h>
@@ -41,7 +42,7 @@
 extern "C" {
 #endif
 
-#ifdef _NTSYSTEM_
+#if defined(_NTSYSTEM_) || defined(WINE_UNIX_LIB)
 #define NTSYSAPI
 #else
 #define NTSYSAPI DECLSPEC_IMPORT
@@ -123,10 +124,14 @@ extern "C" {
 #endif
 
 #ifndef NOP_FUNCTION
-# if defined(_MSC_VER) && (_MSC_VER >= 1210)
-#  define NOP_FUNCTION __noop
+# if defined(_MSC_VER)
+#  if (_MSC_VER >= 1210)
+#   define NOP_FUNCTION __noop
+#  else
+#   define NOP_FUNCTION (void)0
+#  endif
 # else
-#  define NOP_FUNCTION (void)0
+#  define NOP_FUNCTION(...)
 # endif
 #endif
 
@@ -173,12 +178,14 @@ extern "C" {
 # define DECLSPEC_EXPORT
 #endif
 
-#if defined(_MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__) || defined(__sun)
-# define DECLSPEC_HIDDEN
-#elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3)))
-# define DECLSPEC_HIDDEN __attribute__((visibility ("hidden")))
-#else
-# define DECLSPEC_HIDDEN
+#ifndef DECLSPEC_HIDDEN
+# if defined(_MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__) || defined(__sun)
+#  define DECLSPEC_HIDDEN
+# elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3)))
+#  define DECLSPEC_HIDDEN __attribute__((visibility ("hidden")))
+# else
+#  define DECLSPEC_HIDDEN
+# endif
 #endif
 
 #ifndef __has_attribute
@@ -768,6 +775,12 @@ typedef struct DECLSPEC_ALIGN(8) MEM_EXTENDED_PARAMETER {
         DWORD ULong;
     } DUMMYUNIONNAME;
 } MEM_EXTENDED_PARAMETER, *PMEM_EXTENDED_PARAMETER;
+
+typedef struct _WIN32_MEMORY_RANGE_ENTRY
+{
+    PVOID  VirtualAddress;
+    SIZE_T NumberOfBytes;
+} WIN32_MEMORY_RANGE_ENTRY, *PWIN32_MEMORY_RANGE_ENTRY;
 
 #define	PAGE_NOACCESS		0x01
 #define	PAGE_READONLY		0x02
@@ -3735,6 +3748,8 @@ typedef struct _SID {
 } SID,*PISID;
 #endif /* !defined(SID_DEFINED) */
 
+#define CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID 0x01
+
 #define	SID_REVISION			(1)	/* Current revision */
 #define	SID_MAX_SUB_AUTHORITIES		(15)	/* current max subauths */
 #define	SID_RECOMMENDED_SUB_AUTHORITIES	(1)	/* recommended subauths */
@@ -6301,6 +6316,19 @@ static inline BOOLEAN BitScanReverse(DWORD *index, DWORD mask)
 
 /* Interlocked functions */
 
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+#define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedDecrement16 _InterlockedDecrement16
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedExchangePointer _InterlockedExchangePointer
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedOr _InterlockedOr
+
 #ifdef _MSC_VER
 
 #pragma intrinsic(_InterlockedAnd)
@@ -6325,66 +6353,13 @@ long      _InterlockedIncrement(long volatile*);
 short     _InterlockedIncrement16(short volatile*);
 long      _InterlockedOr(long volatile *,long);
 
-static FORCEINLINE LONG WINAPI InterlockedAnd( LONG volatile *dest, LONG val )
-{
-    return _InterlockedAnd( (long volatile *)dest, val );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedCompareExchange( LONG volatile *dest, LONG xchg, LONG compare )
-{
-    return _InterlockedCompareExchange( (long volatile *)dest, xchg, compare );
-}
-
-static FORCEINLINE LONGLONG WINAPI InterlockedCompareExchange64( LONGLONG volatile *dest, LONGLONG xchg, LONGLONG compare )
-{
-    return _InterlockedCompareExchange64( (long long volatile *)dest, xchg, compare );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedExchange( LONG volatile *dest, LONG val )
-{
-    return _InterlockedExchange( (long volatile *)dest, val );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedExchangeAdd( LONG volatile *dest, LONG incr )
-{
-    return _InterlockedExchangeAdd( (long volatile *)dest, incr );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedIncrement( LONG volatile *dest )
-{
-    return _InterlockedIncrement( (long volatile *)dest );
-}
-
-static FORCEINLINE short WINAPI InterlockedIncrement16( short volatile *dest )
-{
-    return _InterlockedIncrement16( dest );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedDecrement( LONG volatile *dest )
-{
-    return _InterlockedDecrement( (long volatile *)dest );
-}
-
-static FORCEINLINE short WINAPI InterlockedDecrement16( short volatile *dest )
-{
-    return _InterlockedDecrement16( dest );
-}
-
-static FORCEINLINE LONG WINAPI InterlockedOr( LONG volatile *dest, LONG val )
-{
-    return _InterlockedOr( (long volatile *)dest, val );
-}
-
-#ifndef __i386__
+#if !defined(__i386__) || _MSC_VER >= 1600
 
 #pragma intrinsic(_InterlockedCompareExchangePointer)
 #pragma intrinsic(_InterlockedExchangePointer)
 
-#define InterlockedCompareExchangePointer    _InterlockedCompareExchangePointer
-#define InterlockedExchangePointer           _InterlockedExchangePointer
-
-void *InterlockedCompareExchangePointer(void *volatile*,void*,void*);
-void *InterlockedExchangePointer(void *volatile*,void*);
+void *_InterlockedCompareExchangePointer(void *volatile*,void*,void*);
+void *_InterlockedExchangePointer(void *volatile*,void*);
 
 #else
 
@@ -6524,6 +6499,9 @@ static FORCEINLINE void MemoryBarrier(void)
 #endif  /* __GNUC__ */
 
 #ifdef _WIN64
+
+#define InterlockedCompareExchange128 _InterlockedCompareExchange128
+
 #if defined(_MSC_VER) && !defined(__clang__)
 
 #pragma intrinsic(_InterlockedCompareExchange128)

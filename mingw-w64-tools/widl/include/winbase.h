@@ -40,6 +40,7 @@ extern "C" {
 #endif
 
 #include <libloaderapi.h>
+#include <processthreadsapi.h>
 #include <synchapi.h>
 #include <threadpoolapiset.h>
 
@@ -239,6 +240,8 @@ typedef struct _SECURITY_ATTRIBUTES
     LPVOID  lpSecurityDescriptor;
     BOOL  bInheritHandle;
 } SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
+
+#include <namespaceapi.h>
 
 #ifndef _FILETIME_
 #define _FILETIME_
@@ -2611,6 +2614,7 @@ WINBASEAPI DWORD       WINAPI SearchPathA(LPCSTR,LPCSTR,LPCSTR,DWORD,LPSTR,LPSTR
 WINBASEAPI DWORD       WINAPI SearchPathW(LPCWSTR,LPCWSTR,LPCWSTR,DWORD,LPWSTR,LPWSTR*);
 #define                       SearchPath WINELIB_NAME_AW(SearchPath)
 WINADVAPI  BOOL        WINAPI SetAclInformation(PACL,LPVOID,DWORD,ACL_INFORMATION_CLASS);
+WINBASEAPI BOOL        WINAPI SetCachedSigningLevel(PHANDLE,ULONG,ULONG,HANDLE);
 WINBASEAPI BOOL        WINAPI SetCommConfig(HANDLE,LPCOMMCONFIG,DWORD);
 WINBASEAPI BOOL        WINAPI SetCommBreak(HANDLE);
 WINBASEAPI BOOL        WINAPI SetCommMask(HANDLE,DWORD);

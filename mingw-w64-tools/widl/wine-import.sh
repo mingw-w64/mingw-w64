@@ -23,27 +23,32 @@ done
 
 for f in ppl.l ppl.yy.c ppy.tab.c ppy.tab.h ppy.y wpp.c wpp_private.h
 do
-	if [ ! -f $WINE_DIR/libs/wpp/$f ] && [ -f $WINE_BUILD_DIR/libs/wpp/$f ]; then
-		cp $WINE_BUILD_DIR/libs/wpp/$f src/wpp
+	if [ ! -f $WINE_DIR/tools/wrc/$f ] && [ -f $WINE_BUILD_DIR/tools/wrc/$f ]; then
+		cp $WINE_BUILD_DIR/tools/wrc/$f src
 	else
-		cp $WINE_DIR/libs/wpp/$f src/wpp
+		cp $WINE_DIR/tools/wrc/$f src
 	fi
 done
 
-for f in basetsd.h guiddef.h excpt.h ndrtypes.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h threadpoolapiset.h \
+for f in tools.h
+do
+	if [ ! -f $WINE_DIR/tools/$f ] && [ -f $WINE_BUILD_DIR/tools/$f ]; then
+		cp $WINE_BUILD_DIR/tools/$f .
+	else
+		cp $WINE_DIR/tools/$f .
+	fi
+done
+
+for f in basetsd.h concurrencysal.h driverspecs.h guiddef.h excpt.h namespaceapi.h ndrtypes.h poppack.h pshpack1.h \
+        processthreadsapi.h pshpack2.h pshpack4.h pshpack8.h sal.h specstrings.h threadpoolapiset.h \
         timezoneapi.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h winapifamily.h
 do
 	cp $WINE_DIR/include/$f include
 done
 
-for f in list.h wpp.h
+for f in list.h
 do
 	cp $WINE_DIR/include/wine/$f include/wine
-done
-
-for f in getopt.c
-do
-	cp $WINE_DIR/libs/port/$f src/port/
 done
 
 sed s/Wine/WIDL/ < $WINE_DIR/VERSION >VERSION

@@ -962,7 +962,6 @@ char *yytext;
 #line 44 "tools/widl/parser.l"
 
 #include "config.h"
-#include "wine/port.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -971,17 +970,12 @@ char *yytext;
 #include <assert.h>
 #include <errno.h>
 #include <limits.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#else
 #define YY_NO_UNISTD_H
-#endif
 
 #include "widl.h"
 #include "utils.h"
 #include "parser.h"
-#include "wine/wpp.h"
+#include "wpp_private.h"
 
 #include "parser.tab.h"
 
@@ -1041,13 +1035,13 @@ UUID *parse_uuid(const char *u)
   return uuid;
 }
 
-#line 1044 "tools/widl/parser.yy.c"
+#line 1038 "tools/widl/parser.yy.c"
 /*
  **************************************************************************
  * The flexer starts here
  **************************************************************************
  */
-#line 1050 "tools/widl/parser.yy.c"
+#line 1044 "tools/widl/parser.yy.c"
 
 #define INITIAL 0
 #define QUOTE 1
@@ -1279,9 +1273,9 @@ YY_DECL
 		}
 
 	{
-#line 132 "tools/widl/parser.l"
+#line 126 "tools/widl/parser.l"
 
-#line 1284 "tools/widl/parser.yy.c"
+#line 1278 "tools/widl/parser.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1337,17 +1331,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 133 "tools/widl/parser.l"
+#line 127 "tools/widl/parser.l"
 yy_push_state(PP_PRAGMA);
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 134 "tools/widl/parser.l"
+#line 128 "tools/widl/parser.l"
 yy_push_state(PP_LINE);
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 135 "tools/widl/parser.l"
+#line 129 "tools/widl/parser.l"
 {
                             int lineno;
                             char *cptr, *fname;
@@ -1369,12 +1363,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 153 "tools/widl/parser.l"
+#line 147 "tools/widl/parser.l"
 yyless(9); yy_pop_state(); return tCPPQUOTE;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 154 "tools/widl/parser.l"
+#line 148 "tools/widl/parser.l"
 {
                             if(import_stack_ptr) {
                                 if(!winrt_mode)
@@ -1394,22 +1388,22 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 170 "tools/widl/parser.l"
+#line 164 "tools/widl/parser.l"
 parser_lval.str = xstrdup(yytext); yy_pop_state(); return aPRAGMA;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 171 "tools/widl/parser.l"
+#line 165 "tools/widl/parser.l"
 return tPRAGMA_WARNING;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 172 "tools/widl/parser.l"
+#line 166 "tools/widl/parser.l"
 yy_push_state(QUOTE); cbufidx = 0;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 173 "tools/widl/parser.l"
+#line 167 "tools/widl/parser.l"
 {
 				yy_pop_state();
 				parser_lval.str = get_buffered_cstring();
@@ -1418,12 +1412,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 178 "tools/widl/parser.l"
+#line 172 "tools/widl/parser.l"
 yy_push_state(WSTRQUOTE); cbufidx = 0;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 179 "tools/widl/parser.l"
+#line 173 "tools/widl/parser.l"
 {
 				yy_pop_state();
 				parser_lval.str = get_buffered_cstring();
@@ -1432,12 +1426,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 184 "tools/widl/parser.l"
+#line 178 "tools/widl/parser.l"
 yy_push_state(SQUOTE); cbufidx = 0;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 185 "tools/widl/parser.l"
+#line 179 "tools/widl/parser.l"
 {
 				yy_pop_state();
 				parser_lval.str = get_buffered_cstring();
@@ -1445,45 +1439,45 @@ YY_RULE_SETUP
 			}
 	YY_BREAK
 case 14:
-#line 191 "tools/widl/parser.l"
+#line 185 "tools/widl/parser.l"
 case 15:
 YY_RULE_SETUP
-#line 191 "tools/widl/parser.l"
+#line 185 "tools/widl/parser.l"
 addcchar(yytext[1]);
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 192 "tools/widl/parser.l"
+#line 186 "tools/widl/parser.l"
 addcchar(yytext[1]);
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 193 "tools/widl/parser.l"
+#line 187 "tools/widl/parser.l"
 addcchar('\\'); addcchar(yytext[1]);
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 194 "tools/widl/parser.l"
+#line 188 "tools/widl/parser.l"
 addcchar(yytext[0]);
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 195 "tools/widl/parser.l"
+#line 189 "tools/widl/parser.l"
 yy_push_state(ATTR); return '[';
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 196 "tools/widl/parser.l"
+#line 190 "tools/widl/parser.l"
 yy_pop_state(); return ']';
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 197 "tools/widl/parser.l"
+#line 191 "tools/widl/parser.l"
 return attr_token(yytext);
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 198 "tools/widl/parser.l"
+#line 192 "tools/widl/parser.l"
 {
 				parser_lval.uuid = parse_uuid(yytext);
 				return aUUID;
@@ -1491,7 +1485,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 202 "tools/widl/parser.l"
+#line 196 "tools/widl/parser.l"
 {
 				parser_lval.num = xstrtoul(yytext, NULL, 0);
 				return aHEXNUM;
@@ -1499,7 +1493,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 206 "tools/widl/parser.l"
+#line 200 "tools/widl/parser.l"
 {
 				parser_lval.num = xstrtoul(yytext, NULL, 0);
 				return aNUM;
@@ -1507,7 +1501,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 210 "tools/widl/parser.l"
+#line 204 "tools/widl/parser.l"
 {
 				parser_lval.dbl = strtod(yytext, NULL);
 				return aDOUBLE;
@@ -1518,78 +1512,78 @@ case 26:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 214 "tools/widl/parser.l"
+#line 208 "tools/widl/parser.l"
 return tSAFEARRAY;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 215 "tools/widl/parser.l"
+#line 209 "tools/widl/parser.l"
 return kw_token(yytext);
 	YY_BREAK
 case 28:
 /* rule 28 can match eol */
 YY_RULE_SETUP
-#line 216 "tools/widl/parser.l"
+#line 210 "tools/widl/parser.l"
 line_number++;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 217 "tools/widl/parser.l"
+#line 211 "tools/widl/parser.l"
 
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 218 "tools/widl/parser.l"
+#line 212 "tools/widl/parser.l"
 return SHL;
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 219 "tools/widl/parser.l"
+#line 213 "tools/widl/parser.l"
 return SHR;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 220 "tools/widl/parser.l"
+#line 214 "tools/widl/parser.l"
 return MEMBERPTR;
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 221 "tools/widl/parser.l"
+#line 215 "tools/widl/parser.l"
 return EQUALITY;
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 222 "tools/widl/parser.l"
+#line 216 "tools/widl/parser.l"
 return INEQUALITY;
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 223 "tools/widl/parser.l"
+#line 217 "tools/widl/parser.l"
 return GREATEREQUAL;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 224 "tools/widl/parser.l"
+#line 218 "tools/widl/parser.l"
 return LESSEQUAL;
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 225 "tools/widl/parser.l"
+#line 219 "tools/widl/parser.l"
 return LOGICALOR;
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 226 "tools/widl/parser.l"
+#line 220 "tools/widl/parser.l"
 return LOGICALAND;
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 227 "tools/widl/parser.l"
+#line 221 "tools/widl/parser.l"
 return ELLIPSIS;
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 228 "tools/widl/parser.l"
+#line 222 "tools/widl/parser.l"
 return yytext[0];
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
@@ -1599,7 +1593,7 @@ case YY_STATE_EOF(ATTR):
 case YY_STATE_EOF(PP_LINE):
 case YY_STATE_EOF(PP_PRAGMA):
 case YY_STATE_EOF(SQUOTE):
-#line 229 "tools/widl/parser.l"
+#line 223 "tools/widl/parser.l"
 {
                             if (import_stack_ptr)
                                 return aEOF;
@@ -1613,10 +1607,10 @@ case YY_STATE_EOF(SQUOTE):
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 239 "tools/widl/parser.l"
+#line 233 "tools/widl/parser.l"
 ECHO;
 	YY_BREAK
-#line 1619 "tools/widl/parser.yy.c"
+#line 1613 "tools/widl/parser.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2627,7 +2621,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 239 "tools/widl/parser.l"
+#line 233 "tools/widl/parser.l"
 
 
 #ifndef parser_wrap
@@ -2956,10 +2950,7 @@ int do_import(char *fname)
     input_name = path;
     line_number = 1;
 
-    name = xstrdup( "widl.XXXXXX" );
-    if((fd = mkstemps( name, 0 )) == -1)
-        error("Could not generate a temp name from %s\n", name);
-
+    fd = make_temp_file( "widl-pp", NULL, &name );
     temp_name = name;
     if (!(f = fdopen(fd, "wt")))
         error("Could not open fd %s for writing\n", name);
@@ -2997,10 +2988,7 @@ static void switch_to_acf(void)
     acf_name = NULL;
     line_number = 1;
 
-    name = xstrdup( "widl.XXXXXX" );
-    if((fd = mkstemps( name, 0 )) == -1)
-        error("Could not generate a temp name from %s\n", name);
-
+    fd = make_temp_file( "widl-acf", NULL, &name );
     temp_name = name;
     if (!(f = fdopen(fd, "wt")))
         error("Could not open fd %s for writing\n", name);

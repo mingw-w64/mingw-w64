@@ -111,12 +111,12 @@ am_widl_OBJECTS = src/widl-client.$(OBJEXT) src/widl-expr.$(OBJEXT) \
 	src/widl-hash.$(OBJEXT) src/widl-header.$(OBJEXT) \
 	src/widl-parser.tab.$(OBJEXT) src/widl-parser.yy.$(OBJEXT) \
 	src/port/widl-getopt.$(OBJEXT) src/port/widl-port.$(OBJEXT) \
+	src/widl-ppl.yy.$(OBJEXT) src/widl-ppy.tab.$(OBJEXT) \
 	src/widl-proxy.$(OBJEXT) src/widl-register.$(OBJEXT) \
 	src/widl-server.$(OBJEXT) src/widl-typegen.$(OBJEXT) \
 	src/widl-typelib.$(OBJEXT) src/widl-typetree.$(OBJEXT) \
 	src/widl-utils.$(OBJEXT) src/widl-widl.$(OBJEXT) \
-	src/widl-write_msft.$(OBJEXT) src/wpp/widl-ppl.yy.$(OBJEXT) \
-	src/wpp/widl-ppy.tab.$(OBJEXT) src/wpp/widl-wpp.$(OBJEXT) \
+	src/widl-wpp.$(OBJEXT) src/widl-write_msft.$(OBJEXT) \
 	src/widl-pathtools.$(OBJEXT)
 widl_OBJECTS = $(am_widl_OBJECTS)
 widl_LDADD = $(LDADD)
@@ -141,16 +141,15 @@ am__depfiles_remade = src/$(DEPDIR)/widl-client.Po \
 	src/$(DEPDIR)/widl-expr.Po src/$(DEPDIR)/widl-hash.Po \
 	src/$(DEPDIR)/widl-header.Po src/$(DEPDIR)/widl-parser.tab.Po \
 	src/$(DEPDIR)/widl-parser.yy.Po \
-	src/$(DEPDIR)/widl-pathtools.Po src/$(DEPDIR)/widl-proxy.Po \
+	src/$(DEPDIR)/widl-pathtools.Po src/$(DEPDIR)/widl-ppl.yy.Po \
+	src/$(DEPDIR)/widl-ppy.tab.Po src/$(DEPDIR)/widl-proxy.Po \
 	src/$(DEPDIR)/widl-register.Po src/$(DEPDIR)/widl-server.Po \
 	src/$(DEPDIR)/widl-typegen.Po src/$(DEPDIR)/widl-typelib.Po \
 	src/$(DEPDIR)/widl-typetree.Po src/$(DEPDIR)/widl-utils.Po \
-	src/$(DEPDIR)/widl-widl.Po src/$(DEPDIR)/widl-write_msft.Po \
+	src/$(DEPDIR)/widl-widl.Po src/$(DEPDIR)/widl-wpp.Po \
+	src/$(DEPDIR)/widl-write_msft.Po \
 	src/port/$(DEPDIR)/widl-getopt.Po \
-	src/port/$(DEPDIR)/widl-port.Po \
-	src/wpp/$(DEPDIR)/widl-ppl.yy.Po \
-	src/wpp/$(DEPDIR)/widl-ppy.tab.Po \
-	src/wpp/$(DEPDIR)/widl-wpp.Po
+	src/port/$(DEPDIR)/widl-port.Po
 am__mv = mv -f
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -345,6 +344,9 @@ widl_SOURCES = src/widl.h \
   src/parser.yy.c \
   src/port/getopt.c \
   src/port/port.c \
+  src/ppy.tab.h \
+  src/ppl.yy.c \
+  src/ppy.tab.c \
   src/proxy.c \
   src/register.c \
   src/server.c \
@@ -353,12 +355,9 @@ widl_SOURCES = src/widl.h \
   src/typetree.c \
   src/utils.c \
   src/widl.c \
+  src/wpp_private.h \
+  src/wpp.c \
   src/write_msft.c \
-  src/wpp/wpp_private.h \
-  src/wpp/ppy.tab.h \
-  src/wpp/ppl.yy.c \
-  src/wpp/ppy.tab.c \
-  src/wpp/wpp.c \
   src/pathtools.c \
   include/pshpack1.h \
   include/pshpack2.h \
@@ -381,7 +380,7 @@ widl_SOURCES = src/widl.h \
   include/pathtools.h \
   include/winnt.rh
 
-widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DBIN_TO_INCLUDEDIR=\""@BIN_TO_INCLUDEDIR@"\"
+widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DBIN_TO_INCLUDEDIR=\""@BIN_TO_INCLUDEDIR@"\" -DBIN_TO_DLLDIR=\""@BIN_TO_INCLUDEDIR@"\" -DDLLDIR="\"@prefix@/lib\""
 widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)
 all: all-am
@@ -506,6 +505,10 @@ src/port/widl-getopt.$(OBJEXT): src/port/$(am__dirstamp) \
 	src/port/$(DEPDIR)/$(am__dirstamp)
 src/port/widl-port.$(OBJEXT): src/port/$(am__dirstamp) \
 	src/port/$(DEPDIR)/$(am__dirstamp)
+src/widl-ppl.yy.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/widl-ppy.tab.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-proxy.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-register.$(OBJEXT): src/$(am__dirstamp) \
@@ -522,20 +525,10 @@ src/widl-utils.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-widl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/widl-wpp.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-write_msft.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
-src/wpp/$(am__dirstamp):
-	@$(MKDIR_P) src/wpp
-	@: > src/wpp/$(am__dirstamp)
-src/wpp/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) src/wpp/$(DEPDIR)
-	@: > src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/widl-ppl.yy.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/widl-ppy.tab.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/widl-wpp.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
 src/widl-pathtools.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -547,7 +540,6 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/*.$(OBJEXT)
 	-rm -f src/port/*.$(OBJEXT)
-	-rm -f src/wpp/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -559,6 +551,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.tab.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.yy.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-pathtools.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-ppl.yy.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-ppy.tab.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-proxy.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-server.Po@am__quote@ # am--include-marker
@@ -567,12 +561,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-typetree.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-utils.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-widl.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-wpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-write_msft.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-getopt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-port.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppl.yy.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppy.tab.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-wpp.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -708,6 +700,34 @@ src/port/widl-port.obj: src/port/port.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
 
+src/widl-ppl.yy.o: src/ppl.yy.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-ppl.yy.o -MD -MP -MF src/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/widl-ppl.yy.o `test -f 'src/ppl.yy.c' || echo '$(srcdir)/'`src/ppl.yy.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-ppl.yy.Tpo src/$(DEPDIR)/widl-ppl.yy.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/ppl.yy.c' object='src/widl-ppl.yy.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-ppl.yy.o `test -f 'src/ppl.yy.c' || echo '$(srcdir)/'`src/ppl.yy.c
+
+src/widl-ppl.yy.obj: src/ppl.yy.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-ppl.yy.obj -MD -MP -MF src/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/widl-ppl.yy.obj `if test -f 'src/ppl.yy.c'; then $(CYGPATH_W) 'src/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/ppl.yy.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-ppl.yy.Tpo src/$(DEPDIR)/widl-ppl.yy.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/ppl.yy.c' object='src/widl-ppl.yy.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-ppl.yy.obj `if test -f 'src/ppl.yy.c'; then $(CYGPATH_W) 'src/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/ppl.yy.c'; fi`
+
+src/widl-ppy.tab.o: src/ppy.tab.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-ppy.tab.o -MD -MP -MF src/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/widl-ppy.tab.o `test -f 'src/ppy.tab.c' || echo '$(srcdir)/'`src/ppy.tab.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-ppy.tab.Tpo src/$(DEPDIR)/widl-ppy.tab.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/ppy.tab.c' object='src/widl-ppy.tab.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-ppy.tab.o `test -f 'src/ppy.tab.c' || echo '$(srcdir)/'`src/ppy.tab.c
+
+src/widl-ppy.tab.obj: src/ppy.tab.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-ppy.tab.obj -MD -MP -MF src/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/widl-ppy.tab.obj `if test -f 'src/ppy.tab.c'; then $(CYGPATH_W) 'src/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/ppy.tab.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-ppy.tab.Tpo src/$(DEPDIR)/widl-ppy.tab.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/ppy.tab.c' object='src/widl-ppy.tab.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-ppy.tab.obj `if test -f 'src/ppy.tab.c'; then $(CYGPATH_W) 'src/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/ppy.tab.c'; fi`
+
 src/widl-proxy.o: src/proxy.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-proxy.o -MD -MP -MF src/$(DEPDIR)/widl-proxy.Tpo -c -o src/widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-proxy.Tpo src/$(DEPDIR)/widl-proxy.Po
@@ -820,6 +840,20 @@ src/widl-widl.obj: src/widl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
 
+src/widl-wpp.o: src/wpp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-wpp.o -MD -MP -MF src/$(DEPDIR)/widl-wpp.Tpo -c -o src/widl-wpp.o `test -f 'src/wpp.c' || echo '$(srcdir)/'`src/wpp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-wpp.Tpo src/$(DEPDIR)/widl-wpp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp.c' object='src/widl-wpp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-wpp.o `test -f 'src/wpp.c' || echo '$(srcdir)/'`src/wpp.c
+
+src/widl-wpp.obj: src/wpp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-wpp.obj -MD -MP -MF src/$(DEPDIR)/widl-wpp.Tpo -c -o src/widl-wpp.obj `if test -f 'src/wpp.c'; then $(CYGPATH_W) 'src/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-wpp.Tpo src/$(DEPDIR)/widl-wpp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp.c' object='src/widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-wpp.obj `if test -f 'src/wpp.c'; then $(CYGPATH_W) 'src/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp.c'; fi`
+
 src/widl-write_msft.o: src/write_msft.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.o -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-write_msft.Tpo src/$(DEPDIR)/widl-write_msft.Po
@@ -833,48 +867,6 @@ src/widl-write_msft.obj: src/write_msft.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/write_msft.c' object='src/widl-write_msft.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
-
-src/wpp/widl-ppl.yy.o: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/widl-ppl.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/ppl.yy.c' object='src/wpp/widl-ppl.yy.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
-
-src/wpp/widl-ppl.yy.obj: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/widl-ppl.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/ppl.yy.c' object='src/wpp/widl-ppl.yy.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
-
-src/wpp/widl-ppy.tab.o: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/widl-ppy.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/ppy.tab.c' object='src/wpp/widl-ppy.tab.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
-
-src/wpp/widl-ppy.tab.obj: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/widl-ppy.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/ppy.tab.c' object='src/wpp/widl-ppy.tab.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
-
-src/wpp/widl-wpp.o: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-wpp.Tpo src/wpp/$(DEPDIR)/widl-wpp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/wpp.c' object='src/wpp/widl-wpp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
-
-src/wpp/widl-wpp.obj: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/wpp/$(DEPDIR)/widl-wpp.Tpo src/wpp/$(DEPDIR)/widl-wpp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp/wpp.c' object='src/wpp/widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
 
 src/widl-pathtools.o: src/pathtools.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-pathtools.o -MD -MP -MF src/$(DEPDIR)/widl-pathtools.Tpo -c -o src/widl-pathtools.o `test -f 'src/pathtools.c' || echo '$(srcdir)/'`src/pathtools.c
@@ -1157,8 +1149,6 @@ distclean-generic:
 	-rm -f src/$(am__dirstamp)
 	-rm -f src/port/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/port/$(am__dirstamp)
-	-rm -f src/wpp/$(DEPDIR)/$(am__dirstamp)
-	-rm -f src/wpp/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -1176,6 +1166,8 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/widl-parser.tab.Po
 	-rm -f src/$(DEPDIR)/widl-parser.yy.Po
 	-rm -f src/$(DEPDIR)/widl-pathtools.Po
+	-rm -f src/$(DEPDIR)/widl-ppl.yy.Po
+	-rm -f src/$(DEPDIR)/widl-ppy.tab.Po
 	-rm -f src/$(DEPDIR)/widl-proxy.Po
 	-rm -f src/$(DEPDIR)/widl-register.Po
 	-rm -f src/$(DEPDIR)/widl-server.Po
@@ -1184,12 +1176,10 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/widl-typetree.Po
 	-rm -f src/$(DEPDIR)/widl-utils.Po
 	-rm -f src/$(DEPDIR)/widl-widl.Po
+	-rm -f src/$(DEPDIR)/widl-wpp.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-ppl.yy.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-ppy.tab.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-wpp.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-tags
@@ -1244,6 +1234,8 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/widl-parser.tab.Po
 	-rm -f src/$(DEPDIR)/widl-parser.yy.Po
 	-rm -f src/$(DEPDIR)/widl-pathtools.Po
+	-rm -f src/$(DEPDIR)/widl-ppl.yy.Po
+	-rm -f src/$(DEPDIR)/widl-ppy.tab.Po
 	-rm -f src/$(DEPDIR)/widl-proxy.Po
 	-rm -f src/$(DEPDIR)/widl-register.Po
 	-rm -f src/$(DEPDIR)/widl-server.Po
@@ -1252,12 +1244,10 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/widl-typetree.Po
 	-rm -f src/$(DEPDIR)/widl-utils.Po
 	-rm -f src/$(DEPDIR)/widl-widl.Po
+	-rm -f src/$(DEPDIR)/widl-wpp.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-ppl.yy.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-ppy.tab.Po
-	-rm -f src/wpp/$(DEPDIR)/widl-wpp.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
