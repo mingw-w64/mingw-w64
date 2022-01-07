@@ -3982,6 +3982,16 @@ interface IDesktopGadget : IUnknown {
 }
 
 cpp_quote("")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+[object, uuid (a5cd92ff-29be-454c-8d04-d82879fb3f1b),]
+interface IVirtualDesktopManager : IUnknown {
+  HRESULT IsWindowOnCurrentVirtualDesktop ([in] HWND topLevelWindow, [out] WINBOOL *onCurrentDesktop);
+  HRESULT GetWindowDesktopId ([in] HWND topLevelWindow, [out] GUID *desktopId);
+  HRESULT MoveWindowToDesktop ([in] HWND topLevelWindow, [in] REFGUID desktopId);
+}
+cpp_quote("#endif")
+
+cpp_quote("")
 cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN8")
 [object, uuid (B92B56A9-8b55-4e14-9a89-0199bbb6f93b)]
 interface IDesktopWallpaper : IUnknown {
@@ -4274,6 +4284,7 @@ library ShellObjects {
   [uuid (45ba127d-10a8-46ea-8ab7-56ea9078943c)] coclass ApplicationActivationManager { interface IApplicationActivationManager; }
   [uuid (958a6fb5-dcb2-4faf-aafd-7fb054ad1a3b)] coclass ApplicationDesignModeSettings { interface IApplicationDesignModeSettings; }
   [uuid (11dbb47c-a525-400b-9e80-a54615a090c0)] coclass ExecuteFolder { interface IExecuteCommand; }
+  [uuid (aa509086-5ca9-4c25-8f95-589d3c07b48a)] coclass VirtualDesktopManager { interface IVirtualDesktopManager; }
 };
 cpp_quote("")
 cpp_quote("#if NTDDI_VERSION >= NTDDI_VISTA")
