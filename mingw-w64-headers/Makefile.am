@@ -283,7 +283,7 @@ IDL_SRCS = \
   include/xpsprint.idl
 
 TLB_SRCS = \
-  tlb/oleacc.idl \
+  tlb/oleacc.dll.idl \
   tlb/stdole2.idl
 
 BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
