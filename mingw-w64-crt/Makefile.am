@@ -284,6 +284,7 @@ src_msvcrt32=\
   misc/_get_current_locale.c \
   misc/lc_locale_func.c \
   misc/wassert.c \
+  stdio/_scprintf.c \
   stdio/_vscprintf.c
 
 src_msvcrt64=\

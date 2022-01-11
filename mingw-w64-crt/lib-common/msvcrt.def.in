@@ -930,7 +930,7 @@ _scalb
 F_X64(_scalbf)
 _scanf_l
 _scanf_s_l
-_scprintf
+F_NON_I386(_scprintf) ; i386 _scprintf replaced by emu
 _scprintf_l
 _scprintf_p_l
 _scwprintf
