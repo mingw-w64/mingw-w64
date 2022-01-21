@@ -283,6 +283,7 @@ src_msvcrt32=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/lc_locale_func.c \
+  misc/seterrno.c \
   misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c
@@ -296,7 +297,8 @@ src_msvcrt64=\
   misc/__p__wcmdln.c \
   misc/_create_locale.c \
   misc/_free_locale.c \
-  misc/_get_current_locale.c
+  misc/_get_current_locale.c \
+  misc/seterrno.c
 
 src_msvcrtarm32=\
   $(src_msvcrt) \
@@ -481,7 +483,7 @@ src_libmingwex=\
   misc/mempcpy.c         misc/mingw-aligned-malloc.c \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
-  misc/mkstemp.c             misc/seterrno.c         misc/sleep.c          \
+  misc/mkstemp.c         misc/sleep.c           \
   misc/strnlen.c         misc/strsafe.c         \
   misc/strtoimax.c       misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
