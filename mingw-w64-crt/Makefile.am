@@ -1178,10 +1178,6 @@ include lib64/Makefile.am
 if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcp120_app.a
 
-lib64_DATA += lib64/libcrtdll.a
-lib64/libcrtdll.a: lib-common/crtdll.mri lib64/libcrtdll_def.a lib64/libmsvcrt_common.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-
 lib64_DATA += lib64/libmsvcr80.a
 lib64/libmsvcr80.a: lib-common/msvcr80_64.mri lib64/libmsvcr80_def.a lib64/libmsvcrt_common.a lib64/libmsvcr80_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
