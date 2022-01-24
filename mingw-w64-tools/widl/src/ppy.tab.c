@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.6.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -46,10 +46,10 @@
    USER NAME SPACE" below.  */
 
 /* Identify Bison output, and Bison version.  */
-#define YYBISON 30706
+#define YYBISON 30802
 
 /* Bison version string.  */
-#define YYBISON_VERSION "3.7.6"
+#define YYBISON_VERSION "3.8.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -63,7 +63,8 @@
 /* Pull parsers.  */
 #define YYPULL 1
 
-
+/* Substitute the type names.  */
+#define YYSTYPE         PPY_STYPE
 /* Substitute the variable and function names.  */
 #define yyparse         ppy_parse
 #define yylex           ppy_lex
@@ -170,7 +171,7 @@ static char   **macro_args;	/* Macro parameters array while parsing */
 static int	nmacro_args;
 
 
-#line 174 "tools/wrc/ppy.tab.c"
+#line 175 "tools/wrc/ppy.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -195,22 +196,30 @@ static int	nmacro_args;
 
 
 /* Debug traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
+#ifndef PPY_DEBUG
+# if defined YYDEBUG
 #if YYDEBUG
+#   define PPY_DEBUG 1
+#  else
+#   define PPY_DEBUG 0
+#  endif
+# else /* ! defined YYDEBUG */
+#  define PPY_DEBUG 0
+# endif /* ! defined YYDEBUG */
+#endif  /* ! defined PPY_DEBUG */
+#if PPY_DEBUG
 extern int ppy_debug;
 #endif
 
 /* Token kinds.  */
-#ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
+#ifndef PPY_TOKENTYPE
+# define PPY_TOKENTYPE
+  enum ppy_tokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
+    PPY_EMPTY = -2,
+    PPY_EOF = 0,                   /* "end of file"  */
+    PPY_error = 256,               /* error  */
+    PPY_UNDEF = 257,               /* "invalid token"  */
     tRCINCLUDE = 258,              /* tRCINCLUDE  */
     tIF = 259,                     /* tIF  */
     tIFDEF = 260,                  /* tIFDEF  */
@@ -255,14 +264,14 @@ extern int ppy_debug;
     tLSHIFT = 299,                 /* tLSHIFT  */
     tRSHIFT = 300                  /* tRSHIFT  */
   };
-  typedef enum yytokentype yytoken_kind_t;
+  typedef enum ppy_tokentype ppy_token_kind_t;
 #endif
 
 /* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
+#if ! defined PPY_STYPE && ! defined PPY_STYPE_IS_DECLARED
+union PPY_STYPE
 {
-#line 118 "tools/wrc/ppy.y"
+#line 120 "tools/wrc/ppy.y"
 
 	int		sint;
 	unsigned int	uint;
@@ -276,18 +285,20 @@ union YYSTYPE
 	char		*marg;
 	mtext_t		*mtext;
 
-#line 280 "tools/wrc/ppy.tab.c"
+#line 289 "tools/wrc/ppy.tab.c"
 
 };
-typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
+typedef union PPY_STYPE PPY_STYPE;
+# define PPY_STYPE_IS_TRIVIAL 1
+# define PPY_STYPE_IS_DECLARED 1
 #endif
 
 
-extern YYSTYPE ppy_lval;
+extern PPY_STYPE ppy_lval;
+
 
 int ppy_parse (void);
+
 
 
 /* Symbol kind.  */
@@ -526,12 +537,18 @@ typedef int yy_state_fast_t;
 # define YY_USE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
+#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
+# if __GNUC__ * 100 + __GNUC_MINOR__ < 407
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")
+# else
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
     _Pragma ("GCC diagnostic push")                                     \
     _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# endif
 # define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
     _Pragma ("GCC diagnostic pop")
 #else
@@ -629,7 +646,7 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 
 #if (! defined yyoverflow \
      && (! defined __cplusplus \
-         || (defined YYSTYPE_IS_TRIVIAL && YYSTYPE_IS_TRIVIAL)))
+         || (defined PPY_STYPE_IS_TRIVIAL && PPY_STYPE_IS_TRIVIAL)))
 
 /* A type that is properly aligned for any stack member.  */
 union yyalloc
@@ -749,26 +766,26 @@ static const yytype_int8 yytranslate[] =
       52
 };
 
-#if YYDEBUG
-  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+#if PPY_DEBUG
+/* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   173,   173,   174,   178,   179,   180,   181,   182,   202,
-     224,   248,   265,   266,   267,   270,   271,   272,   274,   276,
-     278,   280,   281,   282,   283,   284,   285,   288,   294,   295,
-     298,   299,   300,   301,   302,   303,   306,   309,   310,   313,
-     314,   315,   318,   319,   323,   324,   330,   331,   334,   335,
-     336,   337,   338,   345,   354,   355,   356,   357,   358,   359,
-     360,   361,   362,   363,   364,   365,   366,   367,   368,   369,
-     370,   371,   372,   373,   374,   375,   376,   377,   378,   379,
-     380,   381,   382,   383,   384,   385
+       0,   175,   175,   176,   180,   181,   182,   183,   184,   204,
+     226,   250,   267,   268,   269,   272,   273,   274,   276,   278,
+     280,   282,   283,   284,   285,   286,   287,   290,   296,   297,
+     300,   301,   302,   303,   304,   305,   308,   311,   312,   315,
+     316,   317,   320,   321,   325,   326,   332,   333,   336,   337,
+     338,   339,   340,   347,   356,   357,   358,   359,   360,   361,
+     362,   363,   364,   365,   366,   367,   368,   369,   370,   371,
+     372,   373,   374,   375,   376,   377,   378,   379,   380,   381,
+     382,   383,   384,   385,   386,   387
 };
 #endif
 
 /** Accessing symbol of state STATE.  */
 #define YY_ACCESSING_SYMBOL(State) YY_CAST (yysymbol_kind_t, yystos[State])
 
-#if YYDEBUG || 0
+#if PPY_DEBUG || 0
 /* The user-facing name of the symbol whose (internal) number is
    YYSYMBOL.  No bounds checking.  */
 static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
@@ -798,21 +815,6 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#ifdef YYPRINT
-/* YYTOKNUM[NUM] -- (External) token number corresponding to the
-   (internal) symbol number NUM (which must be that of a token).  */
-static const yytype_int16 yytoknum[] =
-{
-       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
-     285,   286,   287,   288,   289,   290,   291,   292,    63,    58,
-     293,   294,   124,    94,    38,   295,   296,    60,   297,    62,
-     298,   299,   300,    43,    45,    42,    47,   126,    33,    44,
-      40,    41
-};
-#endif
-
 #define YYPACT_NINF (-27)
 
 #define yypact_value_is_default(Yyn) \
@@ -823,8 +825,8 @@ static const yytype_int16 yytoknum[] =
 #define yytable_value_is_error(Yyn) \
   0
 
-  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
-     STATE-NUM.  */
+/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+   STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
      -27,   124,   -27,   -26,    -3,   -12,    -2,    30,    -3,    41,
@@ -845,9 +847,9 @@ static const yytype_int16 yypact[] =
      -27,   -27,   292,   -27
 };
 
-  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
-     Performed when YYTABLE does not specify something else to do.  Zero
-     means the default is an error.  */
+/* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+   Performed when YYTABLE does not specify something else to do.  Zero
+   means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
        2,     0,     1,     0,     0,     0,     0,     0,     0,     0,
@@ -868,23 +870,23 @@ static const yytype_int8 yydefact[] =
       47,    19,     0,    20
 };
 
-  /* YYPGOTO[NTERM-NUM].  */
+/* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
      -27,   -27,   -27,   -11,   -27,   -27,   -27,   -27,   -27,   -27,
      -27,   163,    -8
 };
 
-  /* YYDEFGOTO[NTERM-NUM].  */
+/* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_uint8 yydefgoto[] =
 {
        0,     1,    20,    50,    51,    56,   101,   102,   103,   140,
      141,   142,    36
 };
 
-  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
-     positive, shift that token.  If negative, reduce the rule whose
-     number is the opposite.  If YYTABLE_NINF, syntax error.  */
+/* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+   positive, shift that token.  If negative, reduce the rule whose
+   number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
       40,    58,    21,    52,    53,    54,    47,    23,    57,    48,
@@ -955,8 +957,8 @@ static const yytype_uint8 yycheck[] =
       61,    24,    11,    11,   141
 };
 
-  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
-     symbol of state STATE-NUM.  */
+/* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
+   state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
        0,    63,     0,     3,     4,     5,     6,     7,     8,     9,
@@ -977,7 +979,7 @@ static const yytype_int8 yystos[] =
       73,    11,    32,    11
 };
 
-  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
+/* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
        0,    62,    63,    63,    64,    64,    64,    64,    64,    64,
@@ -991,7 +993,7 @@ static const yytype_int8 yyr1[] =
       74,    74,    74,    74,    74,    74
 };
 
-  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
+/* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     2,     3,     3,     3,     3,     3,     3,
@@ -1009,18 +1011,19 @@ static const yytype_int8 yyr2[] =
 enum { YYENOMEM = -2 };
 
 #define yyerrok         (yyerrstatus = 0)
-#define yyclearin       (yychar = YYEMPTY)
+#define yyclearin       (yychar = PPY_EMPTY)
 
 #define YYACCEPT        goto yyacceptlab
 #define YYABORT         goto yyabortlab
 #define YYERROR         goto yyerrorlab
+#define YYNOMEM         goto yyexhaustedlab
 
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
 #define YYBACKUP(Token, Value)                                    \
   do                                                              \
-    if (yychar == YYEMPTY)                                        \
+    if (yychar == PPY_EMPTY)                                        \
       {                                                           \
         yychar = (Token);                                         \
         yylval = (Value);                                         \
@@ -1036,12 +1039,12 @@ enum { YYENOMEM = -2 };
   while (0)
 
 /* Backward compatibility with an undocumented macro.
-   Use YYerror or YYUNDEF. */
-#define YYERRCODE YYUNDEF
+   Use PPY_error or PPY_UNDEF. */
+#define YYERRCODE PPY_UNDEF
 
 
 /* Enable debugging if requested.  */
-#if YYDEBUG
+#if PPY_DEBUG
 
 # ifndef YYFPRINTF
 #  include <stdio.h> /* INFRINGES ON USER NAME SPACE */
@@ -1054,10 +1057,7 @@ do {                                            \
     YYFPRINTF Args;                             \
 } while (0)
 
-/* This macro is provided for backward compatibility. */
-# ifndef YY_LOCATION_PRINT
-#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
-# endif
+
 
 
 # define YY_SYMBOL_PRINT(Title, Kind, Value, Location)                    \
@@ -1084,10 +1084,6 @@ yy_symbol_value_print (FILE *yyo,
   YY_USE (yyoutput);
   if (!yyvaluep)
     return;
-# ifdef YYPRINT
-  if (yykind < YYNTOKENS)
-    YYPRINT (yyo, yytoknum[yykind], *yyvaluep);
-# endif
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
@@ -1166,12 +1162,12 @@ do {                                    \
 /* Nonzero means print parse trace.  It is left uninitialized so that
    multiple parsers can coexist.  */
 int yydebug;
-#else /* !YYDEBUG */
+#else /* !PPY_DEBUG */
 # define YYDPRINTF(Args) ((void) 0)
 # define YY_SYMBOL_PRINT(Title, Kind, Value, Location)
 # define YY_STACK_PRINT(Bottom, Top)
 # define YY_REDUCE_PRINT(Rule)
-#endif /* !YYDEBUG */
+#endif /* !PPY_DEBUG */
 
 
 /* YYINITDEPTH -- initial size of the parser's stacks.  */
@@ -1271,7 +1267,8 @@ yyparse (void)
 
   YYDPRINTF ((stderr, "Starting parse\n"));
 
-  yychar = YYEMPTY; /* Cause a token to be read.  */
+  yychar = PPY_EMPTY; /* Cause a token to be read.  */
+
   goto yysetstate;
 
 
@@ -1297,7 +1294,7 @@ yysetstate:
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
-    goto yyexhaustedlab;
+    YYNOMEM;
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
@@ -1325,7 +1322,7 @@ yysetstate:
 # else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
-        goto yyexhaustedlab;
+        YYNOMEM;
       yystacksize *= 2;
       if (YYMAXDEPTH < yystacksize)
         yystacksize = YYMAXDEPTH;
@@ -1336,7 +1333,7 @@ yysetstate:
           YY_CAST (union yyalloc *,
                    YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
         if (! yyptr)
-          goto yyexhaustedlab;
+          YYNOMEM;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
 #  undef YYSTACK_RELOCATE
@@ -1357,6 +1354,7 @@ yysetstate:
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
+
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -1379,25 +1377,25 @@ yybackup:
   /* Not known => get a lookahead token if don't already have one.  */
 
   /* YYCHAR is either empty, or end-of-input, or a valid lookahead.  */
-  if (yychar == YYEMPTY)
+  if (yychar == PPY_EMPTY)
     {
       YYDPRINTF ((stderr, "Reading a token\n"));
       yychar = yylex ();
     }
 
-  if (yychar <= YYEOF)
+  if (yychar <= PPY_EOF)
     {
-      yychar = YYEOF;
+      yychar = PPY_EOF;
       yytoken = YYSYMBOL_YYEOF;
       YYDPRINTF ((stderr, "Now at end of input.\n"));
     }
-  else if (yychar == YYerror)
+  else if (yychar == PPY_error)
     {
       /* The scanner already issued an error message, process directly
          to error recovery.  But do not keep the error token as
          lookahead, it is too special and may lead us to an endless
          loop in error recovery. */
-      yychar = YYUNDEF;
+      yychar = PPY_UNDEF;
       yytoken = YYSYMBOL_YYerror;
       goto yyerrlab1;
     }
@@ -1434,7 +1432,7 @@ yybackup:
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 
   /* Discard the shifted token.  */
-  yychar = YYEMPTY;
+  yychar = PPY_EMPTY;
   goto yynewstate;
 
 
@@ -1470,31 +1468,31 @@ yyreduce:
   switch (yyn)
     {
   case 4: /* preprocessor: tINCLUDE tDQSTRING tNL  */
-#line 178 "tools/wrc/ppy.y"
+#line 180 "tools/wrc/ppy.y"
                                         { pp_do_include((yyvsp[-1].cptr), 1); }
-#line 1476 "tools/wrc/ppy.tab.c"
+#line 1474 "tools/wrc/ppy.tab.c"
     break;
 
   case 5: /* preprocessor: tINCLUDE tIQSTRING tNL  */
-#line 179 "tools/wrc/ppy.y"
+#line 181 "tools/wrc/ppy.y"
                                         { pp_do_include((yyvsp[-1].cptr), 0); }
-#line 1482 "tools/wrc/ppy.tab.c"
+#line 1480 "tools/wrc/ppy.tab.c"
     break;
 
   case 6: /* preprocessor: tIF pp_expr tNL  */
-#line 180 "tools/wrc/ppy.y"
+#line 182 "tools/wrc/ppy.y"
                                 { pp_next_if_state(boolean(&(yyvsp[-1].cval))); }
-#line 1488 "tools/wrc/ppy.tab.c"
+#line 1486 "tools/wrc/ppy.tab.c"
     break;
 
   case 7: /* preprocessor: tIFDEF tIDENT tNL  */
-#line 181 "tools/wrc/ppy.y"
+#line 183 "tools/wrc/ppy.y"
                                 { pp_next_if_state(pplookup((yyvsp[-1].cptr)) != NULL); free((yyvsp[-1].cptr)); }
-#line 1494 "tools/wrc/ppy.tab.c"
+#line 1492 "tools/wrc/ppy.tab.c"
     break;
 
   case 8: /* preprocessor: tIFNDEF tIDENT tNL  */
-#line 182 "tools/wrc/ppy.y"
+#line 184 "tools/wrc/ppy.y"
                                 {
 		int t = pplookup((yyvsp[-1].cptr)) == NULL;
 		if(pp_incl_state.state == 0 && t && !pp_incl_state.seen_junk)
@@ -1515,11 +1513,11 @@ yyreduce:
 			fprintf(stderr, "tIFNDEF: %s:%d: include_state=%d, include_ppp='%s', include_ifdepth=%d\n",
                                 pp_status.input, pp_status.line_number, pp_incl_state.state, pp_incl_state.ppp, pp_incl_state.ifdepth);
 		}
-#line 1519 "tools/wrc/ppy.tab.c"
+#line 1517 "tools/wrc/ppy.tab.c"
     break;
 
   case 9: /* preprocessor: tELIF pp_expr tNL  */
-#line 202 "tools/wrc/ppy.y"
+#line 204 "tools/wrc/ppy.y"
                                 {
 		pp_if_state_t s = pp_pop_if();
 		switch(s)
@@ -1542,11 +1540,11 @@ yyreduce:
 			break;
 		}
 		}
-#line 1546 "tools/wrc/ppy.tab.c"
+#line 1544 "tools/wrc/ppy.tab.c"
     break;
 
   case 10: /* preprocessor: tELSE tNL  */
-#line 224 "tools/wrc/ppy.y"
+#line 226 "tools/wrc/ppy.y"
                                 {
 		pp_if_state_t s = pp_pop_if();
 		switch(s)
@@ -1571,11 +1569,11 @@ yyreduce:
 			break;
 		}
 		}
-#line 1575 "tools/wrc/ppy.tab.c"
+#line 1573 "tools/wrc/ppy.tab.c"
     break;
 
   case 11: /* preprocessor: tENDIF tNL  */
-#line 248 "tools/wrc/ppy.y"
+#line 250 "tools/wrc/ppy.y"
                                 {
 		if(pp_pop_if() != if_error)
 		{
@@ -1593,254 +1591,254 @@ yyreduce:
 					pp_status.input, pp_status.line_number, pp_incl_state.state, pp_incl_state.ppp, pp_incl_state.ifdepth);
 		}
 		}
-#line 1597 "tools/wrc/ppy.tab.c"
+#line 1595 "tools/wrc/ppy.tab.c"
     break;
 
   case 12: /* preprocessor: tUNDEF tIDENT tNL  */
-#line 265 "tools/wrc/ppy.y"
+#line 267 "tools/wrc/ppy.y"
                                 { pp_del_define((yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1603 "tools/wrc/ppy.tab.c"
+#line 1601 "tools/wrc/ppy.tab.c"
     break;
 
   case 13: /* preprocessor: tDEFINE opt_text tNL  */
-#line 266 "tools/wrc/ppy.y"
+#line 268 "tools/wrc/ppy.y"
                                 { pp_add_define((yyvsp[-2].cptr), (yyvsp[-1].cptr)); free((yyvsp[-2].cptr)); free((yyvsp[-1].cptr)); }
-#line 1609 "tools/wrc/ppy.tab.c"
+#line 1607 "tools/wrc/ppy.tab.c"
     break;
 
   case 14: /* preprocessor: tMACRO res_arg allmargs tMACROEND opt_mtexts tNL  */
-#line 267 "tools/wrc/ppy.y"
+#line 269 "tools/wrc/ppy.y"
                                                                 {
 		pp_add_macro((yyvsp[-5].cptr), macro_args, nmacro_args, (yyvsp[-1].mtext));
 		}
-#line 1617 "tools/wrc/ppy.tab.c"
+#line 1615 "tools/wrc/ppy.tab.c"
     break;
 
   case 15: /* preprocessor: tLINE tSINT tDQSTRING tNL  */
-#line 270 "tools/wrc/ppy.y"
+#line 272 "tools/wrc/ppy.y"
                                         { if((yyvsp[-1].cptr)) fprintf(ppy_out, "# %d %s\n", (yyvsp[-2].sint) , (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1623 "tools/wrc/ppy.tab.c"
+#line 1621 "tools/wrc/ppy.tab.c"
     break;
 
   case 16: /* preprocessor: tGCCLINE tSINT tDQSTRING tNL  */
-#line 271 "tools/wrc/ppy.y"
+#line 273 "tools/wrc/ppy.y"
                                         { if((yyvsp[-1].cptr)) fprintf(ppy_out, "# %d %s\n", (yyvsp[-2].sint) , (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1629 "tools/wrc/ppy.tab.c"
+#line 1627 "tools/wrc/ppy.tab.c"
     break;
 
   case 17: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tNL  */
-#line 273 "tools/wrc/ppy.y"
+#line 275 "tools/wrc/ppy.y"
                 { if((yyvsp[-2].cptr)) fprintf(ppy_out, "# %d %s %d\n", (yyvsp[-3].sint), (yyvsp[-2].cptr), (yyvsp[-1].sint)); free((yyvsp[-2].cptr)); }
-#line 1635 "tools/wrc/ppy.tab.c"
+#line 1633 "tools/wrc/ppy.tab.c"
     break;
 
   case 18: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tNL  */
-#line 275 "tools/wrc/ppy.y"
+#line 277 "tools/wrc/ppy.y"
                 { if((yyvsp[-3].cptr)) fprintf(ppy_out, "# %d %s %d %d\n", (yyvsp[-4].sint) ,(yyvsp[-3].cptr), (yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-3].cptr)); }
-#line 1641 "tools/wrc/ppy.tab.c"
+#line 1639 "tools/wrc/ppy.tab.c"
     break;
 
   case 19: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tSINT tNL  */
-#line 277 "tools/wrc/ppy.y"
+#line 279 "tools/wrc/ppy.y"
                 { if((yyvsp[-4].cptr)) fprintf(ppy_out, "# %d %s %d %d %d\n", (yyvsp[-5].sint) ,(yyvsp[-4].cptr) ,(yyvsp[-3].sint) ,(yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-4].cptr)); }
-#line 1647 "tools/wrc/ppy.tab.c"
+#line 1645 "tools/wrc/ppy.tab.c"
     break;
 
   case 20: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tSINT tSINT tNL  */
-#line 279 "tools/wrc/ppy.y"
+#line 281 "tools/wrc/ppy.y"
                 { if((yyvsp[-5].cptr)) fprintf(ppy_out, "# %d %s %d %d %d %d\n", (yyvsp[-6].sint) ,(yyvsp[-5].cptr) ,(yyvsp[-4].sint) ,(yyvsp[-3].sint), (yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-5].cptr)); }
-#line 1653 "tools/wrc/ppy.tab.c"
+#line 1651 "tools/wrc/ppy.tab.c"
     break;
 
   case 22: /* preprocessor: tERROR opt_text tNL  */
-#line 281 "tools/wrc/ppy.y"
+#line 283 "tools/wrc/ppy.y"
                                 { ppy_error("#error directive: '%s'", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1659 "tools/wrc/ppy.tab.c"
+#line 1657 "tools/wrc/ppy.tab.c"
     break;
 
   case 23: /* preprocessor: tWARNING opt_text tNL  */
-#line 282 "tools/wrc/ppy.y"
+#line 284 "tools/wrc/ppy.y"
                                 { ppy_warning("#warning directive: '%s'", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1665 "tools/wrc/ppy.tab.c"
+#line 1663 "tools/wrc/ppy.tab.c"
     break;
 
   case 24: /* preprocessor: tPRAGMA opt_text tNL  */
-#line 283 "tools/wrc/ppy.y"
+#line 285 "tools/wrc/ppy.y"
                                 { fprintf(ppy_out, "#pragma %s\n", (yyvsp[-1].cptr) ? (yyvsp[-1].cptr) : ""); free((yyvsp[-1].cptr)); }
-#line 1671 "tools/wrc/ppy.tab.c"
+#line 1669 "tools/wrc/ppy.tab.c"
     break;
 
   case 25: /* preprocessor: tPPIDENT opt_text tNL  */
-#line 284 "tools/wrc/ppy.y"
+#line 286 "tools/wrc/ppy.y"
                                 { if(pedantic) ppy_warning("#ident ignored (arg: '%s')", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1677 "tools/wrc/ppy.tab.c"
+#line 1675 "tools/wrc/ppy.tab.c"
     break;
 
   case 26: /* preprocessor: tRCINCLUDE tRCINCLUDEPATH  */
-#line 285 "tools/wrc/ppy.y"
+#line 287 "tools/wrc/ppy.y"
                                     {
                 pp_do_include(strmake( "\"%s\"", (yyvsp[0].cptr) ),1);
 	}
-#line 1685 "tools/wrc/ppy.tab.c"
+#line 1683 "tools/wrc/ppy.tab.c"
     break;
 
   case 27: /* preprocessor: tRCINCLUDE tDQSTRING  */
-#line 288 "tools/wrc/ppy.y"
+#line 290 "tools/wrc/ppy.y"
                                {
 		pp_do_include((yyvsp[0].cptr),1);
 	}
-#line 1693 "tools/wrc/ppy.tab.c"
+#line 1691 "tools/wrc/ppy.tab.c"
     break;
 
   case 28: /* opt_text: %empty  */
-#line 294 "tools/wrc/ppy.y"
+#line 296 "tools/wrc/ppy.y"
                         { (yyval.cptr) = NULL; }
-#line 1699 "tools/wrc/ppy.tab.c"
+#line 1697 "tools/wrc/ppy.tab.c"
     break;
 
   case 29: /* opt_text: text  */
-#line 295 "tools/wrc/ppy.y"
+#line 297 "tools/wrc/ppy.y"
                         { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1705 "tools/wrc/ppy.tab.c"
+#line 1703 "tools/wrc/ppy.tab.c"
     break;
 
   case 30: /* text: tLITERAL  */
-#line 298 "tools/wrc/ppy.y"
+#line 300 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1711 "tools/wrc/ppy.tab.c"
+#line 1709 "tools/wrc/ppy.tab.c"
     break;
 
   case 31: /* text: tDQSTRING  */
-#line 299 "tools/wrc/ppy.y"
+#line 301 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1717 "tools/wrc/ppy.tab.c"
+#line 1715 "tools/wrc/ppy.tab.c"
     break;
 
   case 32: /* text: tSQSTRING  */
-#line 300 "tools/wrc/ppy.y"
+#line 302 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1723 "tools/wrc/ppy.tab.c"
+#line 1721 "tools/wrc/ppy.tab.c"
     break;
 
   case 33: /* text: text tLITERAL  */
-#line 301 "tools/wrc/ppy.y"
+#line 303 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1729 "tools/wrc/ppy.tab.c"
+#line 1727 "tools/wrc/ppy.tab.c"
     break;
 
   case 34: /* text: text tDQSTRING  */
-#line 302 "tools/wrc/ppy.y"
+#line 304 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1735 "tools/wrc/ppy.tab.c"
+#line 1733 "tools/wrc/ppy.tab.c"
     break;
 
   case 35: /* text: text tSQSTRING  */
-#line 303 "tools/wrc/ppy.y"
+#line 305 "tools/wrc/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1741 "tools/wrc/ppy.tab.c"
+#line 1739 "tools/wrc/ppy.tab.c"
     break;
 
   case 36: /* res_arg: %empty  */
-#line 306 "tools/wrc/ppy.y"
+#line 308 "tools/wrc/ppy.y"
                         { macro_args = NULL; nmacro_args = 0; }
-#line 1747 "tools/wrc/ppy.tab.c"
+#line 1745 "tools/wrc/ppy.tab.c"
     break;
 
   case 37: /* allmargs: %empty  */
-#line 309 "tools/wrc/ppy.y"
+#line 311 "tools/wrc/ppy.y"
                                 { (yyval.sint) = 0; macro_args = NULL; nmacro_args = 0; }
-#line 1753 "tools/wrc/ppy.tab.c"
+#line 1751 "tools/wrc/ppy.tab.c"
     break;
 
   case 38: /* allmargs: emargs  */
-#line 310 "tools/wrc/ppy.y"
+#line 312 "tools/wrc/ppy.y"
                                 { (yyval.sint) = nmacro_args; }
-#line 1759 "tools/wrc/ppy.tab.c"
+#line 1757 "tools/wrc/ppy.tab.c"
     break;
 
   case 39: /* emargs: margs  */
-#line 313 "tools/wrc/ppy.y"
+#line 315 "tools/wrc/ppy.y"
                                 { (yyval.marg) = (yyvsp[0].marg); }
-#line 1765 "tools/wrc/ppy.tab.c"
+#line 1763 "tools/wrc/ppy.tab.c"
     break;
 
   case 40: /* emargs: margs ',' tELLIPSIS  */
-#line 314 "tools/wrc/ppy.y"
+#line 316 "tools/wrc/ppy.y"
                                 { nmacro_args *= -1; }
-#line 1771 "tools/wrc/ppy.tab.c"
+#line 1769 "tools/wrc/ppy.tab.c"
     break;
 
   case 41: /* emargs: tELLIPSIS  */
-#line 315 "tools/wrc/ppy.y"
+#line 317 "tools/wrc/ppy.y"
                         { macro_args = NULL; nmacro_args = 0; }
-#line 1777 "tools/wrc/ppy.tab.c"
+#line 1775 "tools/wrc/ppy.tab.c"
     break;
 
   case 42: /* margs: margs ',' tIDENT  */
-#line 318 "tools/wrc/ppy.y"
+#line 320 "tools/wrc/ppy.y"
                                 { (yyval.marg) = add_new_marg((yyvsp[0].cptr)); }
-#line 1783 "tools/wrc/ppy.tab.c"
+#line 1781 "tools/wrc/ppy.tab.c"
     break;
 
   case 43: /* margs: tIDENT  */
-#line 319 "tools/wrc/ppy.y"
+#line 321 "tools/wrc/ppy.y"
                                 { (yyval.marg) = add_new_marg((yyvsp[0].cptr)); }
-#line 1789 "tools/wrc/ppy.tab.c"
+#line 1787 "tools/wrc/ppy.tab.c"
     break;
 
   case 44: /* opt_mtexts: %empty  */
-#line 323 "tools/wrc/ppy.y"
+#line 325 "tools/wrc/ppy.y"
                         { (yyval.mtext) = NULL; }
-#line 1795 "tools/wrc/ppy.tab.c"
+#line 1793 "tools/wrc/ppy.tab.c"
     break;
 
   case 45: /* opt_mtexts: mtexts  */
-#line 324 "tools/wrc/ppy.y"
+#line 326 "tools/wrc/ppy.y"
                         {
 		for((yyval.mtext) = (yyvsp[0].mtext); (yyval.mtext) && (yyval.mtext)->prev; (yyval.mtext) = (yyval.mtext)->prev)
 			;
 		}
-#line 1804 "tools/wrc/ppy.tab.c"
+#line 1802 "tools/wrc/ppy.tab.c"
     break;
 
   case 46: /* mtexts: mtext  */
-#line 330 "tools/wrc/ppy.y"
+#line 332 "tools/wrc/ppy.y"
                         { (yyval.mtext) = (yyvsp[0].mtext); }
-#line 1810 "tools/wrc/ppy.tab.c"
+#line 1808 "tools/wrc/ppy.tab.c"
     break;
 
   case 47: /* mtexts: mtexts mtext  */
-#line 331 "tools/wrc/ppy.y"
+#line 333 "tools/wrc/ppy.y"
                         { (yyval.mtext) = combine_mtext((yyvsp[-1].mtext), (yyvsp[0].mtext)); }
-#line 1816 "tools/wrc/ppy.tab.c"
+#line 1814 "tools/wrc/ppy.tab.c"
     break;
 
   case 48: /* mtext: tLITERAL  */
-#line 334 "tools/wrc/ppy.y"
+#line 336 "tools/wrc/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1822 "tools/wrc/ppy.tab.c"
+#line 1820 "tools/wrc/ppy.tab.c"
     break;
 
   case 49: /* mtext: tDQSTRING  */
-#line 335 "tools/wrc/ppy.y"
+#line 337 "tools/wrc/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1828 "tools/wrc/ppy.tab.c"
+#line 1826 "tools/wrc/ppy.tab.c"
     break;
 
   case 50: /* mtext: tSQSTRING  */
-#line 336 "tools/wrc/ppy.y"
+#line 338 "tools/wrc/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1834 "tools/wrc/ppy.tab.c"
+#line 1832 "tools/wrc/ppy.tab.c"
     break;
 
   case 51: /* mtext: tCONCAT  */
-#line 337 "tools/wrc/ppy.y"
+#line 339 "tools/wrc/ppy.y"
                         { (yyval.mtext) = new_mtext(NULL, 0, exp_concat); }
-#line 1840 "tools/wrc/ppy.tab.c"
+#line 1838 "tools/wrc/ppy.tab.c"
     break;
 
   case 52: /* mtext: tSTRINGIZE tIDENT  */
-#line 338 "tools/wrc/ppy.y"
+#line 340 "tools/wrc/ppy.y"
                                 {
 		int mat = marg_index((yyvsp[0].cptr));
 		if(mat < 0)
@@ -1848,11 +1846,11 @@ yyreduce:
 		else
 			(yyval.mtext) = new_mtext(NULL, mat, exp_stringize);
 		}
-#line 1852 "tools/wrc/ppy.tab.c"
+#line 1850 "tools/wrc/ppy.tab.c"
     break;
 
   case 53: /* mtext: tIDENT  */
-#line 345 "tools/wrc/ppy.y"
+#line 347 "tools/wrc/ppy.y"
                         {
 		int mat = marg_index((yyvsp[0].cptr));
 		if(mat >= 0)
@@ -1860,203 +1858,203 @@ yyreduce:
 		else if((yyvsp[0].cptr))
 			(yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text);
 		}
-#line 1864 "tools/wrc/ppy.tab.c"
+#line 1862 "tools/wrc/ppy.tab.c"
     break;
 
   case 54: /* pp_expr: tSINT  */
-#line 354 "tools/wrc/ppy.y"
+#line 356 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = (yyvsp[0].sint); }
-#line 1870 "tools/wrc/ppy.tab.c"
+#line 1868 "tools/wrc/ppy.tab.c"
     break;
 
   case 55: /* pp_expr: tUINT  */
-#line 355 "tools/wrc/ppy.y"
+#line 357 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_uint;  (yyval.cval).val.ui = (yyvsp[0].uint); }
-#line 1876 "tools/wrc/ppy.tab.c"
+#line 1874 "tools/wrc/ppy.tab.c"
     break;
 
   case 56: /* pp_expr: tSLONG  */
-#line 356 "tools/wrc/ppy.y"
+#line 358 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_slong; (yyval.cval).val.sl = (yyvsp[0].slong); }
-#line 1882 "tools/wrc/ppy.tab.c"
+#line 1880 "tools/wrc/ppy.tab.c"
     break;
 
   case 57: /* pp_expr: tULONG  */
-#line 357 "tools/wrc/ppy.y"
+#line 359 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_ulong; (yyval.cval).val.ul = (yyvsp[0].ulong); }
-#line 1888 "tools/wrc/ppy.tab.c"
+#line 1886 "tools/wrc/ppy.tab.c"
     break;
 
   case 58: /* pp_expr: tSLONGLONG  */
-#line 358 "tools/wrc/ppy.y"
+#line 360 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sll;   (yyval.cval).val.sll = (yyvsp[0].sll); }
-#line 1894 "tools/wrc/ppy.tab.c"
+#line 1892 "tools/wrc/ppy.tab.c"
     break;
 
   case 59: /* pp_expr: tULONGLONG  */
-#line 359 "tools/wrc/ppy.y"
+#line 361 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_ull;   (yyval.cval).val.ull = (yyvsp[0].ull); }
-#line 1900 "tools/wrc/ppy.tab.c"
+#line 1898 "tools/wrc/ppy.tab.c"
     break;
 
   case 60: /* pp_expr: tDEFINED tIDENT  */
-#line 360 "tools/wrc/ppy.y"
+#line 362 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = pplookup((yyvsp[0].cptr)) != NULL; }
-#line 1906 "tools/wrc/ppy.tab.c"
+#line 1904 "tools/wrc/ppy.tab.c"
     break;
 
   case 61: /* pp_expr: tDEFINED '(' tIDENT ')'  */
-#line 361 "tools/wrc/ppy.y"
+#line 363 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = pplookup((yyvsp[-1].cptr)) != NULL; }
-#line 1912 "tools/wrc/ppy.tab.c"
+#line 1910 "tools/wrc/ppy.tab.c"
     break;
 
   case 62: /* pp_expr: tIDENT  */
-#line 362 "tools/wrc/ppy.y"
+#line 364 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = 0; }
-#line 1918 "tools/wrc/ppy.tab.c"
+#line 1916 "tools/wrc/ppy.tab.c"
     break;
 
   case 63: /* pp_expr: pp_expr tLOGOR pp_expr  */
-#line 363 "tools/wrc/ppy.y"
+#line 365 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = boolean(&(yyvsp[-2].cval)) || boolean(&(yyvsp[0].cval)); }
-#line 1924 "tools/wrc/ppy.tab.c"
+#line 1922 "tools/wrc/ppy.tab.c"
     break;
 
   case 64: /* pp_expr: pp_expr tLOGAND pp_expr  */
-#line 364 "tools/wrc/ppy.y"
+#line 366 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = boolean(&(yyvsp[-2].cval)) && boolean(&(yyvsp[0].cval)); }
-#line 1930 "tools/wrc/ppy.tab.c"
+#line 1928 "tools/wrc/ppy.tab.c"
     break;
 
   case 65: /* pp_expr: pp_expr tEQ pp_expr  */
-#line 365 "tools/wrc/ppy.y"
+#line 367 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), ==); }
-#line 1936 "tools/wrc/ppy.tab.c"
+#line 1934 "tools/wrc/ppy.tab.c"
     break;
 
   case 66: /* pp_expr: pp_expr tNE pp_expr  */
-#line 366 "tools/wrc/ppy.y"
+#line 368 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), !=); }
-#line 1942 "tools/wrc/ppy.tab.c"
+#line 1940 "tools/wrc/ppy.tab.c"
     break;
 
   case 67: /* pp_expr: pp_expr '<' pp_expr  */
-#line 367 "tools/wrc/ppy.y"
+#line 369 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  <); }
-#line 1948 "tools/wrc/ppy.tab.c"
+#line 1946 "tools/wrc/ppy.tab.c"
     break;
 
   case 68: /* pp_expr: pp_expr '>' pp_expr  */
-#line 368 "tools/wrc/ppy.y"
+#line 370 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  >); }
-#line 1954 "tools/wrc/ppy.tab.c"
+#line 1952 "tools/wrc/ppy.tab.c"
     break;
 
   case 69: /* pp_expr: pp_expr tLTE pp_expr  */
-#line 369 "tools/wrc/ppy.y"
+#line 371 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), <=); }
-#line 1960 "tools/wrc/ppy.tab.c"
+#line 1958 "tools/wrc/ppy.tab.c"
     break;
 
   case 70: /* pp_expr: pp_expr tGTE pp_expr  */
-#line 370 "tools/wrc/ppy.y"
+#line 372 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), >=); }
-#line 1966 "tools/wrc/ppy.tab.c"
+#line 1964 "tools/wrc/ppy.tab.c"
     break;
 
   case 71: /* pp_expr: pp_expr '+' pp_expr  */
-#line 371 "tools/wrc/ppy.y"
+#line 373 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  +); }
-#line 1972 "tools/wrc/ppy.tab.c"
+#line 1970 "tools/wrc/ppy.tab.c"
     break;
 
   case 72: /* pp_expr: pp_expr '-' pp_expr  */
-#line 372 "tools/wrc/ppy.y"
+#line 374 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  -); }
-#line 1978 "tools/wrc/ppy.tab.c"
+#line 1976 "tools/wrc/ppy.tab.c"
     break;
 
   case 73: /* pp_expr: pp_expr '^' pp_expr  */
-#line 373 "tools/wrc/ppy.y"
+#line 375 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  ^); }
-#line 1984 "tools/wrc/ppy.tab.c"
+#line 1982 "tools/wrc/ppy.tab.c"
     break;
 
   case 74: /* pp_expr: pp_expr '&' pp_expr  */
-#line 374 "tools/wrc/ppy.y"
+#line 376 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  &); }
-#line 1990 "tools/wrc/ppy.tab.c"
+#line 1988 "tools/wrc/ppy.tab.c"
     break;
 
   case 75: /* pp_expr: pp_expr '|' pp_expr  */
-#line 375 "tools/wrc/ppy.y"
+#line 377 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  |); }
-#line 1996 "tools/wrc/ppy.tab.c"
+#line 1994 "tools/wrc/ppy.tab.c"
     break;
 
   case 76: /* pp_expr: pp_expr '*' pp_expr  */
-#line 376 "tools/wrc/ppy.y"
+#line 378 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  *); }
-#line 2002 "tools/wrc/ppy.tab.c"
+#line 2000 "tools/wrc/ppy.tab.c"
     break;
 
   case 77: /* pp_expr: pp_expr '/' pp_expr  */
-#line 377 "tools/wrc/ppy.y"
+#line 379 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  /); }
-#line 2008 "tools/wrc/ppy.tab.c"
+#line 2006 "tools/wrc/ppy.tab.c"
     break;
 
   case 78: /* pp_expr: pp_expr tLSHIFT pp_expr  */
-#line 378 "tools/wrc/ppy.y"
+#line 380 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), <<); }
-#line 2014 "tools/wrc/ppy.tab.c"
+#line 2012 "tools/wrc/ppy.tab.c"
     break;
 
   case 79: /* pp_expr: pp_expr tRSHIFT pp_expr  */
-#line 379 "tools/wrc/ppy.y"
+#line 381 "tools/wrc/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), >>); }
-#line 2020 "tools/wrc/ppy.tab.c"
+#line 2018 "tools/wrc/ppy.tab.c"
     break;
 
   case 80: /* pp_expr: '+' pp_expr  */
-#line 380 "tools/wrc/ppy.y"
+#line 382 "tools/wrc/ppy.y"
                                         { (yyval.cval) =  (yyvsp[0].cval); }
-#line 2026 "tools/wrc/ppy.tab.c"
+#line 2024 "tools/wrc/ppy.tab.c"
     break;
 
   case 81: /* pp_expr: '-' pp_expr  */
-#line 381 "tools/wrc/ppy.y"
+#line 383 "tools/wrc/ppy.y"
                                         { UNARY_OP((yyval.cval), (yyvsp[0].cval), -); }
-#line 2032 "tools/wrc/ppy.tab.c"
+#line 2030 "tools/wrc/ppy.tab.c"
     break;
 
   case 82: /* pp_expr: '~' pp_expr  */
-#line 382 "tools/wrc/ppy.y"
+#line 384 "tools/wrc/ppy.y"
                                         { UNARY_OP((yyval.cval), (yyvsp[0].cval), ~); }
-#line 2038 "tools/wrc/ppy.tab.c"
+#line 2036 "tools/wrc/ppy.tab.c"
     break;
 
   case 83: /* pp_expr: '!' pp_expr  */
-#line 383 "tools/wrc/ppy.y"
+#line 385 "tools/wrc/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = !boolean(&(yyvsp[0].cval)); }
-#line 2044 "tools/wrc/ppy.tab.c"
+#line 2042 "tools/wrc/ppy.tab.c"
     break;
 
   case 84: /* pp_expr: '(' pp_expr ')'  */
-#line 384 "tools/wrc/ppy.y"
+#line 386 "tools/wrc/ppy.y"
                                         { (yyval.cval) =  (yyvsp[-1].cval); }
-#line 2050 "tools/wrc/ppy.tab.c"
+#line 2048 "tools/wrc/ppy.tab.c"
     break;
 
   case 85: /* pp_expr: pp_expr '?' pp_expr ':' pp_expr  */
-#line 385 "tools/wrc/ppy.y"
+#line 387 "tools/wrc/ppy.y"
                                           { (yyval.cval) = boolean(&(yyvsp[-4].cval)) ? (yyvsp[-2].cval) : (yyvsp[0].cval); }
-#line 2056 "tools/wrc/ppy.tab.c"
+#line 2054 "tools/wrc/ppy.tab.c"
     break;
 
 
-#line 2060 "tools/wrc/ppy.tab.c"
+#line 2058 "tools/wrc/ppy.tab.c"
 
       default: break;
     }
@@ -2098,7 +2096,7 @@ yyreduce:
 yyerrlab:
   /* Make sure we have latest lookahead translation.  See comments at
      user semantic actions for why this is necessary.  */
-  yytoken = yychar == YYEMPTY ? YYSYMBOL_YYEMPTY : YYTRANSLATE (yychar);
+  yytoken = yychar == PPY_EMPTY ? YYSYMBOL_YYEMPTY : YYTRANSLATE (yychar);
   /* If not already recovering from an error, report this error.  */
   if (!yyerrstatus)
     {
@@ -2111,17 +2109,17 @@ yyerrlab:
       /* If just tried and failed to reuse lookahead token after an
          error, discard it.  */
 
-      if (yychar <= YYEOF)
+      if (yychar <= PPY_EOF)
         {
           /* Return failure if at end of input.  */
-          if (yychar == YYEOF)
+          if (yychar == PPY_EOF)
             YYABORT;
         }
       else
         {
           yydestruct ("Error: discarding",
                       yytoken, &yylval);
-          yychar = YYEMPTY;
+          yychar = PPY_EMPTY;
         }
     }
 
@@ -2138,6 +2136,7 @@ yyerrorlab:
      label yyerrorlab therefore never appears in user code.  */
   if (0)
     YYERROR;
+  ++yynerrs;
 
   /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
@@ -2198,7 +2197,7 @@ yyerrlab1:
 `-------------------------------------*/
 yyacceptlab:
   yyresult = 0;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
 /*-----------------------------------.
@@ -2206,25 +2205,23 @@ yyacceptlab:
 `-----------------------------------*/
 yyabortlab:
   yyresult = 1;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
-#if !defined yyoverflow
-/*-------------------------------------------------.
-| yyexhaustedlab -- memory exhaustion comes here.  |
-`-------------------------------------------------*/
+/*-----------------------------------------------------------.
+| yyexhaustedlab -- YYNOMEM (memory exhaustion) comes here.  |
+`-----------------------------------------------------------*/
 yyexhaustedlab:
   yyerror (YY_("memory exhausted"));
   yyresult = 2;
-  goto yyreturn;
-#endif
+  goto yyreturnlab;
 
 
-/*-------------------------------------------------------.
-| yyreturn -- parsing is finished, clean up and return.  |
-`-------------------------------------------------------*/
-yyreturn:
-  if (yychar != YYEMPTY)
+/*----------------------------------------------------------.
+| yyreturnlab -- parsing is finished, clean up and return.  |
+`----------------------------------------------------------*/
+yyreturnlab:
+  if (yychar != PPY_EMPTY)
     {
       /* Make sure we have latest lookahead translation.  See comments at
          user semantic actions for why this is necessary.  */
@@ -2250,7 +2247,7 @@ yyreturn:
   return yyresult;
 }
 
-#line 388 "tools/wrc/ppy.y"
+#line 390 "tools/wrc/ppy.y"
 
 
 /*

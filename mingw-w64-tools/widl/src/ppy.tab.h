@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.6.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -38,22 +38,30 @@
 #ifndef YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED
 # define YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED
 /* Debug traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
+#ifndef PPY_DEBUG
+# if defined YYDEBUG
 #if YYDEBUG
+#   define PPY_DEBUG 1
+#  else
+#   define PPY_DEBUG 0
+#  endif
+# else /* ! defined YYDEBUG */
+#  define PPY_DEBUG 0
+# endif /* ! defined YYDEBUG */
+#endif  /* ! defined PPY_DEBUG */
+#if PPY_DEBUG
 extern int ppy_debug;
 #endif
 
 /* Token kinds.  */
-#ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
+#ifndef PPY_TOKENTYPE
+# define PPY_TOKENTYPE
+  enum ppy_tokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
+    PPY_EMPTY = -2,
+    PPY_EOF = 0,                   /* "end of file"  */
+    PPY_error = 256,               /* error  */
+    PPY_UNDEF = 257,               /* "invalid token"  */
     tRCINCLUDE = 258,              /* tRCINCLUDE  */
     tIF = 259,                     /* tIF  */
     tIFDEF = 260,                  /* tIFDEF  */
@@ -98,14 +106,14 @@ extern int ppy_debug;
     tLSHIFT = 299,                 /* tLSHIFT  */
     tRSHIFT = 300                  /* tRSHIFT  */
   };
-  typedef enum yytokentype yytoken_kind_t;
+  typedef enum ppy_tokentype ppy_token_kind_t;
 #endif
 
 /* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
+#if ! defined PPY_STYPE && ! defined PPY_STYPE_IS_DECLARED
+union PPY_STYPE
 {
-#line 118 "tools/wrc/ppy.y"
+#line 120 "tools/wrc/ppy.y"
 
 	int		sint;
 	unsigned int	uint;
@@ -119,17 +127,19 @@ union YYSTYPE
 	char		*marg;
 	mtext_t		*mtext;
 
-#line 123 "tools/wrc/ppy.tab.h"
+#line 131 "tools/wrc/ppy.tab.h"
 
 };
-typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
+typedef union PPY_STYPE PPY_STYPE;
+# define PPY_STYPE_IS_TRIVIAL 1
+# define PPY_STYPE_IS_DECLARED 1
 #endif
 
 
-extern YYSTYPE ppy_lval;
+extern PPY_STYPE ppy_lval;
+
 
 int ppy_parse (void);
+
 
 #endif /* !YY_PPY_TOOLS_WRC_PPY_TAB_H_INCLUDED  */

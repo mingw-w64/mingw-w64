@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.6.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -38,22 +38,30 @@
 #ifndef YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED
 # define YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
+#ifndef PARSER_DEBUG
+# if defined YYDEBUG
 #if YYDEBUG
+#   define PARSER_DEBUG 1
+#  else
+#   define PARSER_DEBUG 0
+#  endif
+# else /* ! defined YYDEBUG */
+#  define PARSER_DEBUG 0
+# endif /* ! defined YYDEBUG */
+#endif  /* ! defined PARSER_DEBUG */
+#if PARSER_DEBUG
 extern int parser_debug;
 #endif
 
 /* Token kinds.  */
-#ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
+#ifndef PARSER_TOKENTYPE
+# define PARSER_TOKENTYPE
+  enum parser_tokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
+    PARSER_EMPTY = -2,
+    PARSER_EOF = 0,                /* "end of file"  */
+    PARSER_error = 256,            /* error  */
+    PARSER_UNDEF = 257,            /* "invalid token"  */
     aIDENTIFIER = 258,             /* aIDENTIFIER  */
     aPRAGMA = 259,                 /* aPRAGMA  */
     aKNOWNTYPE = 260,              /* aKNOWNTYPE  */
@@ -262,14 +270,14 @@ extern int parser_debug;
     NEG = 463,                     /* NEG  */
     ADDRESSOF = 464                /* ADDRESSOF  */
   };
-  typedef enum yytokentype yytoken_kind_t;
+  typedef enum parser_tokentype parser_token_kind_t;
 #endif
 
 /* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
+#if ! defined PARSER_STYPE && ! defined PARSER_STYPE_IS_DECLARED
+union PARSER_STYPE
 {
-#line 123 "tools/widl/parser.y"
+#line 126 "tools/widl/parser.y"
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -299,17 +307,19 @@ union YYSTYPE
 	enum function_specifier function_specifier;
 	struct namespace *namespace;
 
-#line 303 "tools/widl/parser.tab.h"
+#line 311 "tools/widl/parser.tab.h"
 
 };
-typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
+typedef union PARSER_STYPE PARSER_STYPE;
+# define PARSER_STYPE_IS_TRIVIAL 1
+# define PARSER_STYPE_IS_DECLARED 1
 #endif
 
 
-extern YYSTYPE parser_lval;
+extern PARSER_STYPE parser_lval;
+
 
 int parser_parse (void);
+
 
 #endif /* !YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED  */
