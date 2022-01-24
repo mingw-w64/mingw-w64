@@ -562,6 +562,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.collections.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \

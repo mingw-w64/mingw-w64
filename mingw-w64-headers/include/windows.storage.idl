@@ -19,7 +19,6 @@ namespace Windows {
 
     namespace Collections {
       interface IPropertySet;
-      interface IMapView;
     }
   }
   namespace Storage {

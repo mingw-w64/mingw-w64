@@ -210,6 +210,7 @@ for f in \
 	windowscontracts \
 	windows.foundation \
 	windows.foundation.collections \
+	windows.media \
 	windows.media.speechsynthesis \
 	wmdrmsdk \
 	wmp \

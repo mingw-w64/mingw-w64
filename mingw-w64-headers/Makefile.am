@@ -260,6 +260,7 @@ IDL_SRCS = \
   include/wtypesbase.idl \
   include/windows.foundation.idl \
   include/windows.foundation.collections.idl \
+  include/windows.media.idl \
   include/windows.media.speechsynthesis.idl \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
