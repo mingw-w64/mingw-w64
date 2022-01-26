@@ -330,87 +330,31 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum StorageDeleteOption StorageDeleteOption;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CStorageDeleteOption __x_ABI_CWindows_CStorage_CStorageDeleteOption;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum NameCollisionOption NameCollisionOption;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CNameCollisionOption __x_ABI_CWindows_CStorage_CNameCollisionOption;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum StorageItemTypes StorageItemTypes;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CStorageItemTypes __x_ABI_CWindows_CStorage_CStorageItemTypes;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum ApplicationDataLocality ApplicationDataLocality;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CApplicationDataLocality __x_ABI_CWindows_CStorage_CApplicationDataLocality;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum ApplicationDataCreateDisposition ApplicationDataCreateDisposition;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum FileAttributes FileAttributes;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CFileAttributes __x_ABI_CWindows_CStorage_CFileAttributes;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            typedef enum CreationCollisionOption CreationCollisionOption;
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CStorage_CCreationCollisionOption __x_ABI_CWindows_CStorage_CCreationCollisionOption;
 #endif /* __cplusplus */
 

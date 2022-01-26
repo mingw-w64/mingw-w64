@@ -144,31 +144,11 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                typedef enum WorkItemPriority WorkItemPriority;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                typedef enum WorkItemOptions WorkItemOptions;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions;
 #endif /* __cplusplus */
 
@@ -325,22 +305,6 @@ enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions {
 #define WorkItemOptions __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions
 #endif /* WIDL_using_Windows_System_Threading */
 #endif
-
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                typedef struct TimeSpan {
-                    INT64 Duration;
-                } TimeSpan;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
-typedef struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan __x_ABI_CWindows_CSystem_CThreading_CTimeSpan;
-#endif /* __cplusplus */
 
 /*****************************************************************************
  * TimerElapsedHandler interface
@@ -856,11 +820,11 @@ typedef struct __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerVtbl {
     /*** IThreadPoolTimer methods ***/
     HRESULT (STDMETHODCALLTYPE *get_Period)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer *This,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan *value);
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan *value);
 
     HRESULT (STDMETHODCALLTYPE *get_Delay)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer *This,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan *value);
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan *value);
 
     HRESULT (STDMETHODCALLTYPE *Cancel)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer *This);
@@ -908,10 +872,10 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
 /*** IThreadPoolTimer methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer_get_Period(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer* This,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan *value) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer_get_Period(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer* This,struct __x_ABI_CWindows_CFoundation_CTimeSpan *value) {
     return This->lpVtbl->get_Period(This,value);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer_get_Delay(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer* This,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan *value) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer_get_Delay(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer* This,struct __x_ABI_CWindows_CFoundation_CTimeSpan *value) {
     return This->lpVtbl->get_Delay(This,value);
 }
 static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer_Cancel(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer* This) {
@@ -1019,26 +983,26 @@ typedef struct __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStaticsVtbl 
     HRESULT (STDMETHODCALLTYPE *CreatePeriodicTimer)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics *This,
         __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan period,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan period,
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer);
 
     HRESULT (STDMETHODCALLTYPE *CreateTimer)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics *This,
         __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan delay,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan delay,
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer);
 
     HRESULT (STDMETHODCALLTYPE *CreatePeriodicTimerWithCompletion)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics *This,
         __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan period,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan period,
         __x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer);
 
     HRESULT (STDMETHODCALLTYPE *CreateTimerWithCompletion)(
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics *This,
         __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,
-        struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan delay,
+        struct __x_ABI_CWindows_CFoundation_CTimeSpan delay,
         __x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,
         __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer);
 
@@ -1086,16 +1050,16 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
 /*** IThreadPoolTimerStatics methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreatePeriodicTimer(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan period,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreatePeriodicTimer(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CFoundation_CTimeSpan period,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
     return This->lpVtbl->CreatePeriodicTimer(This,handler,period,timer);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreateTimer(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan delay,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreateTimer(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CFoundation_CTimeSpan delay,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
     return This->lpVtbl->CreateTimer(This,handler,delay,timer);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreatePeriodicTimerWithCompletion(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan period,__x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreatePeriodicTimerWithCompletion(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CFoundation_CTimeSpan period,__x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
     return This->lpVtbl->CreatePeriodicTimerWithCompletion(This,handler,period,destroyed,timer);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreateTimerWithCompletion(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CSystem_CThreading_CTimeSpan delay,__x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics_CreateTimerWithCompletion(__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimerStatics* This,__x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler *handler,struct __x_ABI_CWindows_CFoundation_CTimeSpan delay,__x_ABI_CWindows_CSystem_CThreading_CTimerDestroyedHandler *destroyed,__x_ABI_CWindows_CSystem_CThreading_CIThreadPoolTimer **timer) {
     return This->lpVtbl->CreateTimerWithCompletion(This,handler,delay,destroyed,timer);
 }
 #endif
