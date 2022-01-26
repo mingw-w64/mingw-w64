@@ -50,7 +50,7 @@ static decl_spec_t *make_decl_spec(type_t *type, decl_spec_t *left, decl_spec_t 
         enum storage_class stgclass, enum type_qualifier qual, enum function_specifier func_specifier);
 static attr_t *make_attr(enum attr_type type);
 static attr_t *make_attrv(enum attr_type type, unsigned int val);
-static attr_t *make_custom_attr(UUID *id, expr_t *pval);
+static attr_t *make_custom_attr(struct uuid *id, expr_t *pval);
 static expr_list_t *append_expr(expr_list_t *list, expr_t *expr);
 static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, declarator_t *decl, int top);
 static var_list_t *set_var_types(attr_list_t *attrs, decl_spec_t *decl_spec, declarator_list_t *decls);
@@ -141,7 +141,7 @@ static typelib_t *current_typelib;
 	typeref_t *typeref;
 	typeref_list_t *typeref_list;
 	char *str;
-	UUID *uuid;
+	struct uuid *uuid;
 	unsigned int num;
 	double dbl;
 	typelib_t *typelib;
@@ -231,6 +231,7 @@ static typelib_t *current_typelib;
 %token tOBJECT tODL tOLEAUTOMATION
 %token tOPTIMIZE tOPTIONAL
 %token tOUT
+%token tOVERLOAD
 %token tPARTIALIGNORE tPASCAL
 %token tPOINTERDEFAULT
 %token tPRAGMA_WARNING
@@ -281,6 +282,7 @@ static typelib_t *current_typelib;
 %type <expr_list> m_exprs /* exprs expr_list */ expr_list_int_const
 %type <expr> contract_req
 %type <expr> static_attr
+%type <expr> activatable_attr
 %type <type> delegatedef
 %type <stgclass> storage_cls_spec
 %type <type_qualifier> type_qualifier m_type_qual_list
@@ -582,8 +584,15 @@ static_attr: decl_spec ',' contract_req		{ if ($1->type->type_type != TYPE_INTER
 						  $$ = make_exprt(EXPR_MEMBER, declare_var(NULL, $1, make_declarator(NULL), 0), $3);
 						}
 
+activatable_attr:
+	  decl_spec ',' contract_req		{ if ($1->type->type_type != TYPE_INTERFACE)
+						      error_loc("type %s is not an interface\n", $1->type->name);
+						  $$ = make_exprt(EXPR_MEMBER, declare_var(NULL, $1, make_declarator(NULL), 0), $3);
+						}
+	| contract_req				{ $$ = $1; } /* activatable on the default activation factory */
+
 attribute:					{ $$ = NULL; }
-	| tACTIVATABLE '(' contract_req ')'	{ $$ = make_attrp(ATTR_ACTIVATABLE, $3); }
+	| tACTIVATABLE '(' activatable_attr ')'	{ $$ = make_attrp(ATTR_ACTIVATABLE, $3); }
 	| tAGGREGATABLE				{ $$ = make_attr(ATTR_AGGREGATABLE); }
 	| tANNOTATION '(' aSTRING ')'		{ $$ = make_attrp(ATTR_ANNOTATION, $3); }
 	| tAPPOBJECT				{ $$ = make_attr(ATTR_APPOBJECT); }
@@ -661,6 +670,7 @@ attribute:					{ $$ = NULL; }
 	| tOPTIMIZE '(' aSTRING ')'		{ $$ = make_attrp(ATTR_OPTIMIZE, $3); }
 	| tOPTIONAL                             { $$ = make_attr(ATTR_OPTIONAL); }
 	| tOUT					{ $$ = make_attr(ATTR_OUT); }
+	| tOVERLOAD '(' aSTRING ')'		{ $$ = make_attrp(ATTR_OVERLOAD, $3); }
 	| tPARTIALIGNORE			{ $$ = make_attr(ATTR_PARTIALIGNORE); }
 	| tPOINTERDEFAULT '(' pointer_type ')'	{ $$ = make_attrv(ATTR_POINTERDEFAULT, $3); }
 	| tPROGID '(' aSTRING ')'		{ $$ = make_attrp(ATTR_PROGID, $3); }
@@ -1515,7 +1525,7 @@ attr_t *make_attrp(enum attr_type type, void *val)
   return a;
 }
 
-static attr_t *make_custom_attr(UUID *id, expr_t *pval)
+static attr_t *make_custom_attr(struct uuid *id, expr_t *pval)
 {
   attr_t *a = xmalloc(sizeof(attr_t));
   attr_custdata_t *cstdata = xmalloc(sizeof(attr_custdata_t));
@@ -2377,6 +2387,7 @@ struct allowed_attr allowed_attr[] =
     /* ATTR_OPTIMIZE */            { 0, 0, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "optimize" },
     /* ATTR_OPTIONAL */            { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "optional" },
     /* ATTR_OUT */                 { 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "out" },
+    /* ATTR_OVERLOAD */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "overload" },
     /* ATTR_PARAMLCID */           { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "lcid" },
     /* ATTR_PARTIALIGNORE */       { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "partial_ignore" },
     /* ATTR_POINTERDEFAULT */      { 1, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "pointer_default" },

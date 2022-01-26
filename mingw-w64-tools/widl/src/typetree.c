@@ -53,6 +53,7 @@ type_t *make_type(enum type_type type)
     t->signature = NULL;
     t->qualified_name = NULL;
     t->impl_name = NULL;
+    t->param_name = NULL;
     t->short_name = NULL;
     memset(&t->details, 0, sizeof(t->details));
     t->typestring_offset = 0;
@@ -81,7 +82,7 @@ static const var_t *find_arg(const var_list_t *args, const char *name)
     return NULL;
 }
 
-const char *type_get_name(const type_t *type, enum name_type name_type)
+const char *type_get_decl_name(const type_t *type, enum name_type name_type)
 {
     switch(name_type) {
     case NAME_DEFAULT:
@@ -94,13 +95,13 @@ const char *type_get_name(const type_t *type, enum name_type name_type)
     return NULL;
 }
 
-const char *type_get_qualified_name(const type_t *type, enum name_type name_type)
+const char *type_get_name(const type_t *type, enum name_type name_type)
 {
     switch(name_type) {
     case NAME_DEFAULT:
-        return type->qualified_name;
+        return type->qualified_name ? type->qualified_name : type->name;
     case NAME_C:
-        return type->c_name;
+        return type->c_name ? type->c_name : type->name;
     }
 
     assert(0);
@@ -160,7 +161,7 @@ static size_t append_var_list_signature(char **buf, size_t *len, size_t pos, var
 
 static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t *type)
 {
-    const GUID *uuid;
+    const struct uuid *uuid;
     size_t n = 0;
 
     if (!type) return 0;
@@ -196,6 +197,7 @@ static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t 
         return n;
     case TYPE_ALIAS:
         if (!strcmp(type->name, "boolean")) n += strappend(buf, len, pos + n, "b1");
+        else if (!strcmp(type->name, "HSTRING")) n += strappend(buf, len, pos + n, "string");
         else n += append_type_signature(buf, len, pos + n, type->details.alias.aliasee.type);
         return n;
     case TYPE_STRUCT:
@@ -209,13 +211,13 @@ static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t 
         {
         case TYPE_BASIC_INT:
         case TYPE_BASIC_INT32:
-            n += strappend(buf, len, pos + n, type_basic_get_sign(type) < 0 ? "i4" : "u4");
+            n += strappend(buf, len, pos + n, type_basic_get_sign(type) <= 0 ? "i4" : "u4");
             return n;
         case TYPE_BASIC_INT64:
-            n += strappend(buf, len, pos + n, type_basic_get_sign(type) < 0 ? "i8" : "u8");
+            n += strappend(buf, len, pos + n, type_basic_get_sign(type) <= 0 ? "i8" : "u8");
             return n;
         case TYPE_BASIC_INT8:
-            assert(type_basic_get_sign(type) >= 0); /* signature string for signed char isn't specified */
+            assert(type_basic_get_sign(type) > 0); /* signature string for signed char isn't specified */
             n += strappend(buf, len, pos + n, "u1");
             return n;
         case TYPE_BASIC_FLOAT:
@@ -291,29 +293,36 @@ char *format_parameterized_type_name(type_t *type, typeref_list_t *params)
 }
 
 static char const *parameterized_type_shorthands[][2] = {
+    {"Windows__CFoundation__CCollections__C", "__F"},
     {"Windows_CFoundation_CCollections_C", "__F"},
+    {"Windows__CFoundation__C", "__F"},
     {"Windows_CFoundation_C", "__F"},
 };
 
-static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *params, const char *prefix)
+static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *params, const char *prefix, const char *separator)
 {
+    const char *tmp, *ns_prefix = "__x_", *abi_prefix = NULL;
     size_t len = 0, pos = 0;
-    char *buf = NULL, *tmp;
+    char *buf = NULL;
     int i, count = params ? list_count(params) : 0;
     typeref_t *ref;
 
-    pos += append_namespaces(&buf, &len, pos, type->namespace, "__x_", "_C", "", use_abi_namespace ? "ABI" : NULL);
+    if (!strcmp(separator, "__C")) ns_prefix = "_C";
+    else if (use_abi_namespace) abi_prefix = "ABI";
+
+    pos += append_namespaces(&buf, &len, pos, type->namespace, ns_prefix, separator, "", abi_prefix);
     pos += strappend(&buf, &len, pos, "%s%s_%d", prefix, type->name, count);
     if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
     {
         type = type_pointer_get_root_type(ref->type);
-        pos += append_namespaces(&buf, &len, pos, type->namespace, "_", "__C", type->name, NULL);
+        if ((tmp = type->param_name)) pos += strappend(&buf, &len, pos, "_%s", tmp);
+        else pos += append_namespaces(&buf, &len, pos, type->namespace, "_", "__C", type->name, NULL);
     }
 
     for (i = 0; i < ARRAY_SIZE(parameterized_type_shorthands); ++i)
     {
         if ((tmp = strstr(buf, parameterized_type_shorthands[i][0])) &&
-            (tmp - buf) == strlen(use_abi_namespace ? "__x_ABI_C" : "__x_C"))
+            (tmp - buf) == strlen(ns_prefix) + (abi_prefix ? 5 : 0))
         {
            tmp += strlen(parameterized_type_shorthands[i][0]);
            strcpy(buf, parameterized_type_shorthands[i][1]);
@@ -329,7 +338,7 @@ static char *format_parameterized_type_signature(type_t *type, typeref_list_t *p
     size_t len = 0, pos = 0;
     char *buf = NULL;
     typeref_t *ref;
-    const GUID *uuid;
+    const struct uuid *uuid;
 
      if (!(uuid = get_attrp(type->attrs, ATTR_UUID)))
         error_loc_info(&type->loc_info, "cannot compute type signature, no uuid found for type %s.\n", type->name);
@@ -358,7 +367,8 @@ static char *format_parameterized_type_short_name(type_t *type, typeref_list_t *
     if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
     {
         type = type_pointer_get_root_type(ref->type);
-        pos += strappend(&buf, &len, pos, "_%s", type->name);
+        if (type->short_name) pos += strappend(&buf, &len, pos, "_%s", type->short_name);
+        else pos += strappend(&buf, &len, pos, "_%s", type->name);
     }
 
     return buf;
@@ -895,8 +905,10 @@ static void compute_delegate_iface_names(type_t *delegate, type_t *type, typeref
     type_t *iface = delegate->details.delegate.iface;
     iface->namespace = delegate->namespace;
     iface->name = strmake("I%s", delegate->name);
-    if (type) iface->c_name = format_parameterized_type_c_name(type, params, "I");
+    if (type) iface->c_name = format_parameterized_type_c_name(type, params, "I", "_C");
     else iface->c_name = format_namespace(delegate->namespace, "__x_", "_C", iface->name, use_abi_namespace ? "ABI" : NULL);
+    if (type) iface->param_name = format_parameterized_type_c_name(type, params, "I", "__C");
+    else iface->param_name = format_namespace(delegate->namespace, "_", "__C", iface->name, NULL);
     iface->qualified_name = format_namespace(delegate->namespace, "", "::", iface->name, use_abi_namespace ? "ABI" : NULL);
 }
 
@@ -1218,8 +1230,9 @@ type_t *type_parameterized_type_specialize_declare(type_t *type, typeref_list_t 
     new_type->namespace = type->namespace;
     new_type->name = format_parameterized_type_name(type, params);
     reg_type(new_type, new_type->name, new_type->namespace, 0);
-    new_type->c_name = format_parameterized_type_c_name(type, params, "");
+    new_type->c_name = format_parameterized_type_c_name(type, params, "", "_C");
     new_type->short_name = format_parameterized_type_short_name(type, params, "");
+    new_type->param_name = format_parameterized_type_c_name(type, params, "", "__C");
 
     if (new_type->type_type == TYPE_DELEGATE)
     {
@@ -1237,18 +1250,18 @@ static void compute_interface_signature_uuid(type_t *iface)
     static const int version = 5;
     struct sha1_context ctx;
     unsigned char hash[20];
-    GUID *uuid;
+    struct uuid *uuid;
 
     if (!(uuid = get_attrp(iface->attrs, ATTR_UUID)))
     {
-        uuid = xmalloc(sizeof(GUID));
+        uuid = xmalloc(sizeof(*uuid));
         iface->attrs = append_attr(iface->attrs, make_attrp(ATTR_UUID, uuid));
     }
 
     sha1_init(&ctx);
     sha1_update(&ctx, winrt_pinterface_namespace, sizeof(winrt_pinterface_namespace));
     sha1_update(&ctx, iface->signature, strlen(iface->signature));
-    sha1_finalize(&ctx, (ULONG *)hash);
+    sha1_finalize(&ctx, (unsigned int *)hash);
 
     /* https://tools.ietf.org/html/rfc4122:
 
@@ -1263,10 +1276,10 @@ static void compute_interface_signature_uuid(type_t *iface)
     hash[6] = ((hash[6] & 0x0f) | (version << 4));
     hash[8] = ((hash[8] & 0x3f) | 0x80);
 
-    uuid->Data1 = ((DWORD)hash[0] << 24)|((DWORD)hash[1] << 16)|((DWORD)hash[2] << 8)|(DWORD)hash[3];
-    uuid->Data2 = ((WORD)hash[4] << 8)|(WORD)hash[5];
-    uuid->Data3 = ((WORD)hash[6] << 8)|(WORD)hash[7];
-    memcpy(&uuid->Data4, hash + 8, sizeof(*uuid) - offsetof(GUID, Data4));
+    uuid->Data1 = ((unsigned int)hash[0] << 24) | ((unsigned int)hash[1] << 16) | ((unsigned int)hash[2] << 8) | hash[3];
+    uuid->Data2 = ((unsigned short)hash[4] << 8) | hash[5];
+    uuid->Data3 = ((unsigned short)hash[6] << 8) | hash[7];
+    memcpy(&uuid->Data4, hash + 8, sizeof(*uuid) - offsetof(struct uuid, Data4));
 }
 
 type_t *type_parameterized_type_specialize_define(type_t *type)

@@ -96,9 +96,9 @@ static unsigned int xstrtoul(const char *nptr, char **endptr, int base)
     return val;
 }
 
-UUID *parse_uuid(const char *u)
+struct uuid *parse_uuid(const char *u)
 {
-  UUID* uuid = xmalloc(sizeof(UUID));
+  struct uuid* uuid = xmalloc(sizeof(*uuid));
   char b[3];
   /* it would be nice to use UuidFromStringA */
   uuid->Data1 = strtoul(u, NULL, 16);
@@ -403,6 +403,7 @@ static const struct keyword attr_keywords[] =
 	{"optimize",                    tOPTIMIZE,                  0},
 	{"optional",                    tOPTIONAL,                  0},
 	{"out",                         tOUT,                       0},
+	{"overload",                    tOVERLOAD,                  0},
 	{"partial_ignore",              tPARTIALIGNORE,             0},
 	{"pointer_default",             tPOINTERDEFAULT,            0},
 	{"progid",                      tPROGID,                    0},
