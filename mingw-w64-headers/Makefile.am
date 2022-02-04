@@ -226,6 +226,7 @@ IDL_SRCS = \
   include/urlhist.idl \
   include/urlmon.idl \
   include/vdslun.idl \
+  include/vsadmin.idl \
   include/vss.idl \
   include/wbemads.idl \
   include/wbemcli.idl \
