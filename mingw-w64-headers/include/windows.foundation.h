@@ -83,13 +83,19 @@ typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
 extern "C" {
 #endif
 
-#ifndef __cplusplus
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            typedef enum PropertyType PropertyType;
+        }
+    }
+}
+#else /* __cplusplus */
 typedef enum __x_ABI_CWindows_CFoundation_CPropertyType __x_ABI_CWindows_CFoundation_CPropertyType;
 #endif /* __cplusplus */
 
-#ifndef __cplusplus
-typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
-#else /* __cplusplus */
+#ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -97,11 +103,11 @@ namespace ABI {
         }
     }
 }
+#else /* __cplusplus */
+typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
 #endif /* __cplusplus */
 
-#ifndef __cplusplus
-typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
-#else /* __cplusplus */
+#ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -109,11 +115,11 @@ namespace ABI {
         }
     }
 }
+#else /* __cplusplus */
+typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
 #endif /* __cplusplus */
 
-#ifndef __cplusplus
-typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_CRect;
-#else /* __cplusplus */
+#ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -121,11 +127,11 @@ namespace ABI {
         }
     }
 }
+#else /* __cplusplus */
+typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_CRect;
 #endif /* __cplusplus */
 
-#ifndef __cplusplus
-typedef struct __x_ABI_CWindows_CFoundation_CDateTime __x_ABI_CWindows_CFoundation_CDateTime;
-#else /* __cplusplus */
+#ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -133,11 +139,11 @@ namespace ABI {
         }
     }
 }
+#else /* __cplusplus */
+typedef struct __x_ABI_CWindows_CFoundation_CDateTime __x_ABI_CWindows_CFoundation_CDateTime;
 #endif /* __cplusplus */
 
-#ifndef __cplusplus
-typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
-#else /* __cplusplus */
+#ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -145,6 +151,8 @@ namespace ABI {
         }
     }
 }
+#else /* __cplusplus */
+typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
 #endif /* __cplusplus */
 
 #if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
@@ -880,7 +888,7 @@ static FORCEINLINE HRESULT __FIAsyncOperation_1_boolean_GetResults(__FIAsyncOper
 #ifndef ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
 #define ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID___FIVectorView_1_HSTRING, 0x2f13c006, 0xa03a, 0x5f69, 0xb0,0x90, 0x75,0xa4,0x3e,0x33,0x42,0x3e);
+DEFINE_GUID(IID___FIVectorView_1_HSTRING, 0xfca5679c, 0xbfd4, 0x5187, 0x8b,0x2d, 0xde,0x22,0x50,0x49,0xb3,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 } /* extern "C" */
 namespace ABI {
@@ -888,7 +896,7 @@ namespace ABI {
         namespace Foundation {
             namespace Collections {
                 template<>
-                MIDL_INTERFACE("2f13c006-a03a-5f69-b090-75a43e33423e")
+                MIDL_INTERFACE("fca5679c-bfd4-5187-8b2d-de225049b346")
                 IVectorView<HSTRING > : IVectorView_impl<HSTRING >
                 {
                 };
@@ -898,7 +906,7 @@ namespace ABI {
 }
 extern "C" {
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__FIVectorView_1_HSTRING, 0x2f13c006, 0xa03a, 0x5f69, 0xb0,0x90, 0x75,0xa4,0x3e,0x33,0x42,0x3e)
+__CRT_UUID_DECL(__FIVectorView_1_HSTRING, 0xfca5679c, 0xbfd4, 0x5187, 0x8b,0x2d, 0xde,0x22,0x50,0x49,0xb3,0x46)
 #endif
 #else
 typedef struct __FIVectorView_1_HSTRINGVtbl {

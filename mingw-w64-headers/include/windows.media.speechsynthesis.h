@@ -210,7 +210,17 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifndef __cplusplus
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                typedef enum VoiceGender VoiceGender;
+            }
+        }
+    }
+}
+#else /* __cplusplus */
 typedef enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CVoiceGender __x_ABI_CWindows_CMedia_CSpeechSynthesis_CVoiceGender;
 #endif /* __cplusplus */
 
@@ -637,10 +647,10 @@ namespace ABI {
                         ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Media::SpeechSynthesis::SpeechSynthesisStream* > **operation) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE put_Voice(
-                        ABI::Windows::Media::SpeechSynthesis::IVoiceInformation *value) = 0;
+                        IVoiceInformation *value) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE get_Voice(
-                        ABI::Windows::Media::SpeechSynthesis::IVoiceInformation **value) = 0;
+                        IVoiceInformation **value) = 0;
 
                 };
             }
@@ -976,7 +986,7 @@ namespace ABI {
                         ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > **value) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE get_DefaultVoice(
-                        ABI::Windows::Media::SpeechSynthesis::IVoiceInformation **value) = 0;
+                        IVoiceInformation **value) = 0;
 
                 };
             }

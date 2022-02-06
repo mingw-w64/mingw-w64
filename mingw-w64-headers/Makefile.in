@@ -527,6 +527,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/unknwnbase.idl \
 @HAVE_WIDL_TRUE@  include/urlhist.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
+@HAVE_WIDL_TRUE@  include/vdslun.idl \
+@HAVE_WIDL_TRUE@  include/vsadmin.idl \
+@HAVE_WIDL_TRUE@  include/vsprov.idl \
 @HAVE_WIDL_TRUE@  include/vss.idl \
 @HAVE_WIDL_TRUE@  include/wbemads.idl \
 @HAVE_WIDL_TRUE@  include/wbemcli.idl \
