@@ -191,10 +191,13 @@ _CIsqrt
 _CItan
 _CItanh
 _HUGE_dll DATA
+_HUGE DATA == _HUGE_dll
 _XcptFilter
 __GetMainArgs
 __argc_dll DATA
+__argc DATA == __argc_dll
 __argv_dll DATA
+__argv DATA == __argv_dll
 __dllonexit
 __doserrno
 __fpecode
@@ -202,6 +205,7 @@ __isascii
 __iscsym
 __iscsymf
 __mb_cur_max_dll DATA
+__mb_cur_max DATA == __mb_cur_max_dll
 __pxcptinfoptrs
 __threadhandle
 __threadid
@@ -209,7 +213,9 @@ __toascii
 _abnormal_termination
 _access
 _acmdln_dll DATA
+_acmdln DATA == _acmdln_dll
 _aexit_rtn_dll DATA
+_aexit_rtn DATA == _aexit_rtn_dll
 _amsg_exit
 _assert
 _basemajor_dll DATA
@@ -230,6 +236,7 @@ _clearfp
 _close
 _commit
 _commode_dll DATA
+_commode DATA == _commode_dll
 _control87
 _controlfp
 _copysign
@@ -241,11 +248,13 @@ _cscanf
 _ctype
 _cwait
 _daylight_dll DATA
+_daylight DATA == _daylight_dll
 _dup
 _dup2
 _ecvt
 _endthread
 _environ_dll DATA
+_environ DATA == _environ_dll
 _eof
 _errno
 _except_handler2
@@ -266,6 +275,7 @@ _fgetchar
 _fgetwchar
 _filbuf
 _fileinfo_dll DATA
+_fileinfo DATA == _fileinfo_dll
 _filelength
 _fileno
 _findclose
@@ -275,6 +285,7 @@ _finite
 _flsbuf
 _flushall
 _fmode_dll DATA
+_fmode DATA == _fmode_dll
 _fpclass
 _fpieee_flt
 _fpreset DATA
@@ -416,10 +427,13 @@ _osmajor_dll DATA
 _osminor_dll DATA
 _osmode_dll DATA
 _osver_dll DATA
+_osver DATA == _osver_dll
 _osversion_dll DATA
 _pclose
 _pctype_dll DATA
+_pctype DATA == _pctype_dll
 _pgmptr_dll DATA
+_pgmptr DATA == _pgmptr_dll
 _pipe
 _popen
 _purecall
@@ -427,6 +441,7 @@ _putch
 _putenv
 _putw
 _pwctype_dll DATA
+_pwctype DATA == _pwctype_dll
 _read
 _rmdir
 _rmtmp
@@ -476,9 +491,11 @@ _strupr
 _swab
 _sys_errlist DATA
 _sys_nerr_dll DATA
+_sys_nerr DATA == _sys_nerr_dll
 _tell
 _tempnam
 _timezone_dll DATA
+_timezone DATA == _timezone_dll
 _tolower
 _toupper
 _tzname DATA
@@ -502,8 +519,11 @@ _wcsrev
 _wcsset
 _wcsupr
 _winmajor_dll DATA
+_winmajor DATA == _winmajor_dll
 _winminor_dll DATA
+_winminor DATA == _winminor_dll
 _winver_dll DATA
+_winver DATA == _winver_dll
 _write
 _wtoi
 _wtol
