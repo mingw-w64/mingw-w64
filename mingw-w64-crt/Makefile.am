@@ -851,7 +851,7 @@ if !W32API
 lib32_DATA += lib32/libglut.a lib32/libmsvcp60.a lib32/libmsvcp120_app.a
 
 lib32_DATA += lib32/libcrtdll.a
-lib32/libcrtdll.a: lib-common/crtdll.mri lib32/libcrtdll_def.a lib32/libmsvcrt_common.a
+lib32/libcrtdll.a: lib32/crtdll.mri lib32/libcrtdll_def.a lib32/libmsvcrt_common.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr80.a
