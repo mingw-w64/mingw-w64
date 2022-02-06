@@ -720,6 +720,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
 #ifdef _UCRT
   __mingw_ovr
+  __attribute__((pure))
   int __cdecl _scprintf(const char * __restrict__ _Format,...)
   {
     __builtin_va_list __ap;
@@ -740,6 +741,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     return __ret;
   }
 #else
+  __attribute__((pure))
   _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
   _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
@@ -921,6 +923,7 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
 #endif /* _UCRT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
+  __attribute__((pure))
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
 
   _CRTIMP int __cdecl _set_printf_count_output(int _Value);
