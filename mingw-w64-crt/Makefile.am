@@ -356,6 +356,9 @@ src_ucrtbase=\
   stdio/ucrt_fwprintf.c \
   stdio/ucrt_printf.c \
   stdio/ucrt_scanf.c \
+  stdio/ucrt__scprintf.c \
+  stdio/ucrt__snprintf.c \
+  stdio/ucrt__snscanf.c \
   stdio/ucrt__snwprintf.c \
   stdio/ucrt_snprintf.c \
   stdio/ucrt_sprintf.c \
