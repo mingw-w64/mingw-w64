@@ -506,6 +506,7 @@ src_libmingwex=\
   misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \
   \
   stdio/mingw_pformat.h    \
+  stdio/scanf2-argcount-char.c stdio/scanf2-argcount-wchar.c \
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         stdio/strtok_r.c          stdio/scanf.S \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
@@ -2242,6 +2243,7 @@ EXTRA_DIST += revstamp.h \
   profile/gcrt0.c \
   profile/COPYING \
   profile/CYGWIN_LICENSE \
+  stdio/scanf2-argcount-template.c \
   stdio/scanf2-template.S
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
