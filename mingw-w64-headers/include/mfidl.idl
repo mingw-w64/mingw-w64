@@ -17,11 +17,12 @@ typedef enum MFSESSION_SETTOPOLOGY_FLAGS {
 } MFSESSION_SETTOPOLOGY_FLAGS;
 
 typedef enum MFSESSION_GETFULLTOPOLOGY_FLAGS {
-    MFSESSION_GETFULLTOPOLOGY_CURRENT
+    MFSESSION_GETFULLTOPOLOGY_CURRENT = 0x1
 } MFSESSION_GETFULLTOPOLOGY_FLAGS;
 
 typedef enum MFPMPSESSION_CREATION_FLAGS {
-    MFPMPSESSION_UNPROTECTED_PROCESS = 0x1
+    MFPMPSESSION_UNPROTECTED_PROCESS = 0x1,
+    MFPMPSESSION_IN_PROCESS = 0x2
 } MFPMPSESSION_CREATION_FLAGS;
 
 typedef unsigned __int64 TOPOID;
@@ -835,6 +836,122 @@ interface IMFTopoLoader : IUnknown
   HRESULT Load([in] IMFTopology *pInputTopo, [out] IMFTopology **ppOutputTopo, [in] IMFTopology *pCurrentTopo);
 }
 
+[object, uuid(86cbc910-e533-4751-8e3b-f19b5b806a03), local]
+interface IMFVideoSampleAllocator : IUnknown
+{
+  HRESULT SetDirectXManager([in, unique] IUnknown *pManager);
+  HRESULT UninitializeSampleAllocator();
+  HRESULT InitializeSampleAllocator([in] DWORD cRequestedFrames, [in] IMFMediaType *pMediaType);
+  HRESULT AllocateSample([out] IMFSample **ppSample);
+}
+
+cpp_quote("#if WINVER >= _WIN32_WINNT_WIN7")
+
+[object, uuid(a792cdbe-c374-4e89-8335-278e7b9956a4), local]
+interface IMFVideoSampleAllocatorNotify : IUnknown
+{
+  HRESULT NotifyRelease();
+}
+
+[object, uuid(3978aa1a-6d5b-4b7f-a340-90899189ae34), local]
+interface IMFVideoSampleAllocatorNotifyEx : IMFVideoSampleAllocatorNotify
+{
+  HRESULT NotifyPrune(IMFSample *ppSample);
+}
+
+[object, uuid(992388b4-3372-4f67-8b6f-c84c071f4751), local]
+interface IMFVideoSampleAllocatorCallback : IUnknown
+{
+  HRESULT SetCallback([in, unique] IMFVideoSampleAllocatorNotify *pNotify);
+  HRESULT GetFreeSampleCount([out] LONG *plSamples);
+}
+
+[object, local, uuid(545b3a48-3283-4f62-866f-a62d8f598f9f), pointer_default(unique)]
+interface IMFVideoSampleAllocatorEx : IMFVideoSampleAllocator
+{
+  HRESULT InitializeSampleAllocatorEx([in] DWORD cInitialSamples, [in] DWORD cMaximumSamples, [in, optional] IMFAttributes *pAttributes, [in] IMFMediaType *pMediaType);
+}
+
+cpp_quote("#endif /* WINVER >= _WIN32_WINNT_WIN7 */")
+
+cpp_quote("#if WINVER >= _WIN32_WINNT_WIN8")
+
+typedef enum _MF_VIDEO_PROCESSOR_ROTATION {
+  ROTATION_NONE = 0,
+  ROTATION_NORMAL = 1
+} MF_VIDEO_PROCESSOR_ROTATION;
+
+typedef enum _MF_VIDEO_PROCESSOR_MIRROR {
+  MIRROR_NONE = 0,
+  MIRROR_HORIZONTAL = 1,
+  MIRROR_VERTICAL = 2
+} MF_VIDEO_PROCESSOR_MIRROR;
+
+[object, local, uuid(a3f675d5-6119-4f7f-a100-1d8b280f0efb), pointer_default(unique)]
+interface IMFVideoProcessorControl : IUnknown
+{
+  HRESULT SetBorderColor([in, optional] MFARGB *pBorderColor);
+  HRESULT SetSourceRectangle([in, optional] RECT *pSrcRect);
+  HRESULT SetDestinationRectangle([in, optional] RECT *pDstRect);
+  HRESULT SetMirror([in] MF_VIDEO_PROCESSOR_MIRROR eMirror);
+  HRESULT SetRotation([in] MF_VIDEO_PROCESSOR_ROTATION eRotation);
+  HRESULT SetConstrictionSize([in, optional] SIZE *pConstrictionSize);
+}
+
+cpp_quote("#if WINVER >= _WIN32_WINNT_WINBLUE")
+[object, local, uuid(bde633d3-e1dc-4a7f-a693-bbae399c4a20), pointer_default(unique)]
+interface IMFVideoProcessorControl2 : IMFVideoProcessorControl
+{
+  HRESULT SetRotationOverride([in] UINT uiRotation);
+  HRESULT EnableHardwareEffects([in] WINBOOL fEnabled);
+  HRESULT GetSupportedHardwareEffects([out, retval] UINT *puiSupport);
+}
+
+cpp_quote("#if WINVER >= _WIN32_WINNT_WIN10")
+
+typedef enum _MFVideoSphericalFormat {
+  MFVideoSphericalFormat_Unsupported = 0,
+  MFVideoSphericalFormat_Equirectangular = 1,
+  MFVideoSphericalFormat_CubeMap = 2,
+  MFVideoSphericalFormat_3DMesh = 3
+} MFVideoSphericalFormat;
+
+cpp_quote("#endif /* WINVER >= _WIN32_WINNT_WIN10 */")
+
+cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN10_RS3")
+
+cpp_quote("EXTERN_GUID(MF_XVP_SAMPLE_LOCK_TIMEOUT, 0xaa4ddb29, 0x5134, 0x4363, 0xac, 0x72, 0x83, 0xec, 0x4b, 0xc1, 0x4, 0x26);")
+
+typedef enum MFVideoSphericalProjectionMode {
+  MFVideoSphericalProjectionMode_Spherical = 0,
+  MFVideoSphericalProjectionMode_Flat
+} MFVideoSphericalProjectionMode;
+
+[object, local, uuid(2424b3f2-eb23-40f1-91aa-74bddeea0883)]
+interface IMFVideoProcessorControl3 : IMFVideoProcessorControl2
+{
+  HRESULT GetNaturalOutputType([out] IMFMediaType **ppType);
+  HRESULT EnableSphericalVideoProcessing([in] WINBOOL fEnable, [in] MFVideoSphericalFormat eFormat, [in] MFVideoSphericalProjectionMode eProjectionMode);
+  HRESULT SetSphericalVideoProperties([in] float X, [in] float Y, [in] float Z, [in] float W, [in] float fieldOfView);
+  HRESULT SetOutputDevice([in] IUnknown *pOutputDevice);
+}
+
+cpp_quote("#endif /* NTDDI_VERSION >= NTDDI_WIN10_RS3 */")
+
+cpp_quote("#endif /* WINVER >= _WIN32_WINNT_WINBLUE */")
+
+cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN10_VB")
+
+[object, local, uuid(604d33d7-cf23-41d5-8224-5bbbb1a87475)]
+interface IMFVideoRendererEffectControl : IUnknown
+{
+  HRESULT OnAppServiceConnectionEstablished([in] IUnknown *pAppServiceConnection);
+}
+
+cpp_quote("#endif /* WINVER >= NTDDI_WIN10_VB */")
+
+cpp_quote("#endif /* WINVER >= _WIN32_WINNT_WIN8 */")
+
 cpp_quote("HRESULT WINAPI MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
 cpp_quote("HRESULT WINAPI MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);")
 cpp_quote("")
@@ -911,6 +1028,7 @@ cpp_quote("EXTERN_GUID(MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY, 0xa9770471, 
 
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME, 0x60d0e559,0x52f8,0x4fa2,0xbb,0xce,0xac,0xdb,0x34,0xa8,0xec,0x1);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE, 0x56a819ca,0xc78,0x4de4,0xa0,0xa7,0x3d,0xda,0xba,0xf,0x24,0xd4);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID, 0x14dd9a1c, 0x7cff, 0x41be, 0xb1, 0xb9, 0xba, 0x1a, 0xc6, 0xec, 0xb5, 0x71);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID, 0x30da9258,0xfeb9,0x47a7,0xa4,0x53,0x76,0x3a,0x7a,0x8e,0x1c,0x5f);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE, 0xbc9d118e,0x8c67,0x4a18,0x85,0xd4,0x12,0xd3,0x0,0x40,0x5,0x52);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, 0x77f0ae69,0xc3bd,0x4509,0x94,0x1d,0x46,0x7e,0x4d,0x24,0x89,0x9e);")
@@ -919,11 +1037,22 @@ cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS, 0x
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK, 0x58f0aad8,0x22bf,0x4f8a,0xbb,0x3d,0xd2,0xc4,0x97,0x8c,0x6e,0x2f);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, 0xc60ac5fe,0x252a,0x478f,0xa0,0xef,0xbc,0x8f,0xa5,0xf7,0xca,0xd3);")
 cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID, 0x8ac3587a,0x4ae7,0x42d8,0x99,0xe0,0x0a,0x60,0x13,0xee,0xf9,0x0f);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK, 0x98d24b5e, 0x5930, 0x4614, 0xb5, 0xa1, 0xf6, 0x0, 0xf9, 0x35, 0x5a, 0x78);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID, 0x36689d42, 0xa06c, 0x40ae, 0x84, 0xcf, 0xf5, 0xa0, 0x34, 0x6, 0x7c, 0xc4);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS, 0xbca0be52, 0xc327, 0x44c7, 0x9b, 0x7d, 0x7f, 0xa8, 0xd9, 0xb5, 0xbc, 0xda);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL, 0x9d7b40d2, 0x3617, 0x4043, 0x93, 0xe3, 0x8d, 0x6d, 0xa9, 0xbb, 0x34, 0x92);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME,0x5d01add, 0x949f, 0x46eb, 0xbc, 0x8e, 0x8b, 0xd, 0x2b, 0x32, 0xd7, 0x9d);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD, 0xa0fd7e16, 0x42d9, 0x49df, 0x84, 0xc0, 0xe8, 0x2c, 0x5e, 0xab, 0x88, 0x74);")
 
 cpp_quote("EXTERN_GUID(MF_METADATA_PROVIDER_SERVICE, 0xdb214084, 0x58a4, 0x4d2e, 0xb8, 0x4f, 0x6f, 0x75, 0x5b, 0x2f, 0x7a, 0xd);")
 cpp_quote("EXTERN_GUID(MF_PROPERTY_HANDLER_SERVICE, 0xa3face02, 0x32b8, 0x41dd, 0x90, 0xe7, 0x5f, 0xef, 0x7c, 0x89, 0x91, 0xb5);")
 cpp_quote("EXTERN_GUID(MF_RATE_CONTROL_SERVICE, 0x866fa297, 0xb802, 0x4bf8, 0x9d, 0xc9, 0x5e, 0x3b, 0x6a, 0x9f, 0x53, 0xc9);")
 cpp_quote("EXTERN_GUID(MF_SAMPLEGRABBERSINK_IGNORE_CLOCK, 0x0efda2c0, 0x2b69, 0x4e2e, 0xab, 0x8d, 0x46, 0xdc, 0xbf, 0xf7, 0xd2, 0x5d);")
+
+cpp_quote("EXTERN_GUID(MF_SD_LANGUAGE, 0xaf2180, 0xbdc2, 0x423c, 0xab, 0xca, 0xf5, 0x3, 0x59, 0x3b, 0xc1, 0x21);")
+cpp_quote("EXTERN_GUID(MF_SD_PROTECTED, 0xaf2181, 0xbdc2, 0x423c, 0xab, 0xca, 0xf5, 0x3, 0x59, 0x3b, 0xc1, 0x21);")
+cpp_quote("EXTERN_GUID(MF_SD_STREAM_NAME, 0x4f1b099d, 0xd314, 0x41e5, 0xa7, 0x81, 0x7f, 0xef, 0xaa, 0x4c, 0x50, 0x1f);")
+cpp_quote("EXTERN_GUID(MF_SD_MUTUALLY_EXCLUSIVE, 0x23ef79c, 0x388d, 0x487f, 0xac, 0x17, 0x69, 0x6c, 0xd6, 0xe3, 0xc6, 0xf5);")
 
 cpp_quote("EXTERN_GUID(MF_TOPONODE_DRAIN, 0x494bbce9, 0xb031, 0x4e38, 0x97, 0xc4, 0xd5, 0x42, 0x2d, 0xd6, 0x18, 0xdc);")
 cpp_quote("EXTERN_GUID(MF_TOPONODE_D3DAWARE, 0x494bbced, 0xb031, 0x4e38, 0x97, 0xc4, 0xd5, 0x42, 0x2d, 0xd6, 0x18, 0xdc);")
@@ -956,4 +1085,14 @@ cpp_quote("EXTERN_GUID(MF_TOPONODE_RATELESS, 0x14932f9d, 0x9087, 0x4bb4, 0x84, 0
 cpp_quote("EXTERN_GUID(MF_TOPONODE_DISABLE_PREROLL, 0x14932f9e, 0x9087, 0x4bb4, 0x84, 0x12, 0x51, 0x67, 0x14, 0x5c, 0xbe, 0x04);")
 cpp_quote("EXTERN_GUID(MF_TOPONODE_PRIMARYOUTPUT, 0x6304ef99, 0x16b2, 0x4ebe, 0x9d, 0x67, 0xe4, 0xc5, 0x39, 0xb3, 0xa2, 0x59);")
 
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_SKIP_METADATA_TRANSFER, 0x4e4469ef, 0xb571, 0x4959, 0x8f, 0x83, 0x3d, 0xcf, 0xba, 0x33, 0xa3, 0x93);")
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_TOPOLOGYMODE, 0x3e3df610, 0x394a, 0x40b2, 0x9d, 0xea, 0x3b, 0xab, 0x65, 0xb, 0xeb, 0xf2);")
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_ADJUST_PROFILE, 0x9c37c21b, 0x60f, 0x487c, 0xa6, 0x90, 0x80, 0xd7, 0xf5, 0xd, 0x1c, 0x72);")
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_ENCODINGPROFILE, 0x6947787c, 0xf508, 0x4ea9, 0xb1, 0xe9, 0xa1, 0xfe, 0x3a, 0x49, 0xfb, 0xc9);")
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_QUALITYVSSPEED, 0x98332df8, 0x03cd, 0x476b, 0x89, 0xfa, 0x3f, 0x9e, 0x44, 0x2d, 0xec, 0x9f);")
+cpp_quote("EXTERN_GUID(MF_TRANSCODE_DONOT_INSERT_ENCODER, 0xf45aa7ce, 0xab24, 0x4012, 0xa1, 0x1b, 0xdc, 0x82, 0x20, 0x20, 0x14, 0x10);")
+
+cpp_quote("EXTERN_GUID(MR_AUDIO_POLICY_SERVICE, 0x911fd737, 0x6775, 0x4ab0, 0xa6, 0x14, 0x29, 0x78, 0x62, 0xfd, 0xac, 0x88);")
+cpp_quote("EXTERN_GUID(MR_CAPTURE_POLICY_VOLUME_SERVICE, 0x24030acd, 0x107a, 0x4265, 0x97, 0x5c, 0x41, 0x4e, 0x33, 0xe6, 0x5f, 0x2a);")
+cpp_quote("EXTERN_GUID(MR_POLICY_VOLUME_SERVICE, 0x1abaa2ac, 0x9d3b, 0x47c6, 0xab, 0x48, 0xc5, 0x95, 0x6, 0xde, 0x78, 0x4d);")
 cpp_quote("EXTERN_GUID(MR_STREAM_VOLUME_SERVICE, 0xf8b5fa2f, 0x32ef, 0x46f5, 0xb1, 0x72, 0x13, 0x21, 0x21, 0x2f, 0xb2, 0xc4);")
