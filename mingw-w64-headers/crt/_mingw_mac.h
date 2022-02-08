@@ -355,7 +355,7 @@
 
 /* Enable workaround for ABI incompatibility on affected platforms */
 #ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS
-#if defined(__GNUC__) && defined(__cplusplus) && (defined(__x86_64__) || defined(__i386__))
+#if defined(__GNUC__) && defined(__cplusplus)
 #define  WIDL_EXPLICIT_AGGREGATE_RETURNS
 #endif
 #endif
