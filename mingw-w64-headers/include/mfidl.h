@@ -258,6 +258,78 @@ interface IMFTopoLoader;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IMFVideoSampleAllocator_FWD_DEFINED__
+#define __IMFVideoSampleAllocator_FWD_DEFINED__
+typedef interface IMFVideoSampleAllocator IMFVideoSampleAllocator;
+#ifdef __cplusplus
+interface IMFVideoSampleAllocator;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoSampleAllocatorNotify_FWD_DEFINED__
+#define __IMFVideoSampleAllocatorNotify_FWD_DEFINED__
+typedef interface IMFVideoSampleAllocatorNotify IMFVideoSampleAllocatorNotify;
+#ifdef __cplusplus
+interface IMFVideoSampleAllocatorNotify;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoSampleAllocatorNotifyEx_FWD_DEFINED__
+#define __IMFVideoSampleAllocatorNotifyEx_FWD_DEFINED__
+typedef interface IMFVideoSampleAllocatorNotifyEx IMFVideoSampleAllocatorNotifyEx;
+#ifdef __cplusplus
+interface IMFVideoSampleAllocatorNotifyEx;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoSampleAllocatorCallback_FWD_DEFINED__
+#define __IMFVideoSampleAllocatorCallback_FWD_DEFINED__
+typedef interface IMFVideoSampleAllocatorCallback IMFVideoSampleAllocatorCallback;
+#ifdef __cplusplus
+interface IMFVideoSampleAllocatorCallback;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoSampleAllocatorEx_FWD_DEFINED__
+#define __IMFVideoSampleAllocatorEx_FWD_DEFINED__
+typedef interface IMFVideoSampleAllocatorEx IMFVideoSampleAllocatorEx;
+#ifdef __cplusplus
+interface IMFVideoSampleAllocatorEx;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoProcessorControl_FWD_DEFINED__
+#define __IMFVideoProcessorControl_FWD_DEFINED__
+typedef interface IMFVideoProcessorControl IMFVideoProcessorControl;
+#ifdef __cplusplus
+interface IMFVideoProcessorControl;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoProcessorControl2_FWD_DEFINED__
+#define __IMFVideoProcessorControl2_FWD_DEFINED__
+typedef interface IMFVideoProcessorControl2 IMFVideoProcessorControl2;
+#ifdef __cplusplus
+interface IMFVideoProcessorControl2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoProcessorControl3_FWD_DEFINED__
+#define __IMFVideoProcessorControl3_FWD_DEFINED__
+typedef interface IMFVideoProcessorControl3 IMFVideoProcessorControl3;
+#ifdef __cplusplus
+interface IMFVideoProcessorControl3;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMFVideoRendererEffectControl_FWD_DEFINED__
+#define __IMFVideoRendererEffectControl_FWD_DEFINED__
+typedef interface IMFVideoRendererEffectControl IMFVideoRendererEffectControl;
+#ifdef __cplusplus
+interface IMFVideoRendererEffectControl;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <mfobjects.h>
@@ -274,10 +346,11 @@ typedef enum MFSESSION_SETTOPOLOGY_FLAGS {
     MFSESSION_SETTOPOLOGY_CLEAR_CURRENT = 0x4
 } MFSESSION_SETTOPOLOGY_FLAGS;
 typedef enum MFSESSION_GETFULLTOPOLOGY_FLAGS {
-    MFSESSION_GETFULLTOPOLOGY_CURRENT = 0
+    MFSESSION_GETFULLTOPOLOGY_CURRENT = 0x1
 } MFSESSION_GETFULLTOPOLOGY_FLAGS;
 typedef enum MFPMPSESSION_CREATION_FLAGS {
-    MFPMPSESSION_UNPROTECTED_PROCESS = 0x1
+    MFPMPSESSION_UNPROTECTED_PROCESS = 0x1,
+    MFPMPSESSION_IN_PROCESS = 0x2
 } MFPMPSESSION_CREATION_FLAGS;
 typedef UINT64 TOPOID;
 typedef enum MF_TOPOLOGY_TYPE {
@@ -3381,7 +3454,7 @@ EXTERN_GUID(MFTranscodeContainerType_WAVE, 0x64c3453c, 0x0f26, 0x4741, 0xbe, 0x6
 EXTERN_GUID(MFTranscodeContainerType_AVI, 0x7edfe8af, 0x402f, 0x4d76, 0xa3, 0x3c, 0x61, 0x9f, 0xd1, 0x57, 0xd0, 0xf1);
 #if (WINVER >= _WIN32_WINNT_WIN8)
 EXTERN_GUID(MFTranscodeContainerType_FMPEG4, 0x9ba876f1, 0x419f, 0x4b77, 0xa1, 0xe0, 0x35, 0x95, 0x9d, 0x9d, 0x40, 0x4);
-#endif // (WINVER >= _WIN32_WINNT_WIN8)
+#endif /* (WINVER >= _WIN32_WINNT_WIN8) */
 EXTERN_GUID(MFTranscodeContainerType_AMR, 0x25d5ad3, 0x621a, 0x475b, 0x96, 0x4d, 0x66, 0xb1, 0xc8, 0x24, 0xf0, 0x79);
 typedef enum __WIDL_mfidl_generated_name_0000002E {
     MF_LICENSE_URL_UNTRUSTED = 0,
@@ -6130,6 +6203,1077 @@ static FORCEINLINE HRESULT IMFTopoLoader_Load(IMFTopoLoader* This,IMFTopology *p
 
 #endif  /* __IMFTopoLoader_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IMFVideoSampleAllocator interface
+ */
+#ifndef __IMFVideoSampleAllocator_INTERFACE_DEFINED__
+#define __IMFVideoSampleAllocator_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoSampleAllocator, 0x86cbc910, 0xe533, 0x4751, 0x8e,0x3b, 0xf1,0x9b,0x5b,0x80,0x6a,0x03);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("86cbc910-e533-4751-8e3b-f19b5b806a03")
+IMFVideoSampleAllocator : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetDirectXManager(
+        IUnknown *pManager) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UninitializeSampleAllocator(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE InitializeSampleAllocator(
+        DWORD cRequestedFrames,
+        IMFMediaType *pMediaType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AllocateSample(
+        IMFSample **ppSample) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoSampleAllocator, 0x86cbc910, 0xe533, 0x4751, 0x8e,0x3b, 0xf1,0x9b,0x5b,0x80,0x6a,0x03)
+#endif
+#else
+typedef struct IMFVideoSampleAllocatorVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoSampleAllocator *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoSampleAllocator *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoSampleAllocator *This);
+
+    /*** IMFVideoSampleAllocator methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetDirectXManager)(
+        IMFVideoSampleAllocator *This,
+        IUnknown *pManager);
+
+    HRESULT (STDMETHODCALLTYPE *UninitializeSampleAllocator)(
+        IMFVideoSampleAllocator *This);
+
+    HRESULT (STDMETHODCALLTYPE *InitializeSampleAllocator)(
+        IMFVideoSampleAllocator *This,
+        DWORD cRequestedFrames,
+        IMFMediaType *pMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *AllocateSample)(
+        IMFVideoSampleAllocator *This,
+        IMFSample **ppSample);
+
+    END_INTERFACE
+} IMFVideoSampleAllocatorVtbl;
+
+interface IMFVideoSampleAllocator {
+    CONST_VTBL IMFVideoSampleAllocatorVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoSampleAllocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocator_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoSampleAllocator methods ***/
+#define IMFVideoSampleAllocator_SetDirectXManager(This,pManager) (This)->lpVtbl->SetDirectXManager(This,pManager)
+#define IMFVideoSampleAllocator_UninitializeSampleAllocator(This) (This)->lpVtbl->UninitializeSampleAllocator(This)
+#define IMFVideoSampleAllocator_InitializeSampleAllocator(This,cRequestedFrames,pMediaType) (This)->lpVtbl->InitializeSampleAllocator(This,cRequestedFrames,pMediaType)
+#define IMFVideoSampleAllocator_AllocateSample(This,ppSample) (This)->lpVtbl->AllocateSample(This,ppSample)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocator_QueryInterface(IMFVideoSampleAllocator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocator_AddRef(IMFVideoSampleAllocator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocator_Release(IMFVideoSampleAllocator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoSampleAllocator methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocator_SetDirectXManager(IMFVideoSampleAllocator* This,IUnknown *pManager) {
+    return This->lpVtbl->SetDirectXManager(This,pManager);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocator_UninitializeSampleAllocator(IMFVideoSampleAllocator* This) {
+    return This->lpVtbl->UninitializeSampleAllocator(This);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocator_InitializeSampleAllocator(IMFVideoSampleAllocator* This,DWORD cRequestedFrames,IMFMediaType *pMediaType) {
+    return This->lpVtbl->InitializeSampleAllocator(This,cRequestedFrames,pMediaType);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocator_AllocateSample(IMFVideoSampleAllocator* This,IMFSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,ppSample);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoSampleAllocator_INTERFACE_DEFINED__ */
+
+#if WINVER >= _WIN32_WINNT_WIN7
+/*****************************************************************************
+ * IMFVideoSampleAllocatorNotify interface
+ */
+#ifndef __IMFVideoSampleAllocatorNotify_INTERFACE_DEFINED__
+#define __IMFVideoSampleAllocatorNotify_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoSampleAllocatorNotify, 0xa792cdbe, 0xc374, 0x4e89, 0x83,0x35, 0x27,0x8e,0x7b,0x99,0x56,0xa4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a792cdbe-c374-4e89-8335-278e7b9956a4")
+IMFVideoSampleAllocatorNotify : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE NotifyRelease(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoSampleAllocatorNotify, 0xa792cdbe, 0xc374, 0x4e89, 0x83,0x35, 0x27,0x8e,0x7b,0x99,0x56,0xa4)
+#endif
+#else
+typedef struct IMFVideoSampleAllocatorNotifyVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoSampleAllocatorNotify *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoSampleAllocatorNotify *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoSampleAllocatorNotify *This);
+
+    /*** IMFVideoSampleAllocatorNotify methods ***/
+    HRESULT (STDMETHODCALLTYPE *NotifyRelease)(
+        IMFVideoSampleAllocatorNotify *This);
+
+    END_INTERFACE
+} IMFVideoSampleAllocatorNotifyVtbl;
+
+interface IMFVideoSampleAllocatorNotify {
+    CONST_VTBL IMFVideoSampleAllocatorNotifyVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoSampleAllocatorNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorNotify_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoSampleAllocatorNotify methods ***/
+#define IMFVideoSampleAllocatorNotify_NotifyRelease(This) (This)->lpVtbl->NotifyRelease(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorNotify_QueryInterface(IMFVideoSampleAllocatorNotify* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorNotify_AddRef(IMFVideoSampleAllocatorNotify* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorNotify_Release(IMFVideoSampleAllocatorNotify* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoSampleAllocatorNotify methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorNotify_NotifyRelease(IMFVideoSampleAllocatorNotify* This) {
+    return This->lpVtbl->NotifyRelease(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoSampleAllocatorNotify_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMFVideoSampleAllocatorNotifyEx interface
+ */
+#ifndef __IMFVideoSampleAllocatorNotifyEx_INTERFACE_DEFINED__
+#define __IMFVideoSampleAllocatorNotifyEx_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoSampleAllocatorNotifyEx, 0x3978aa1a, 0x6d5b, 0x4b7f, 0xa3,0x40, 0x90,0x89,0x91,0x89,0xae,0x34);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3978aa1a-6d5b-4b7f-a340-90899189ae34")
+IMFVideoSampleAllocatorNotifyEx : public IMFVideoSampleAllocatorNotify
+{
+    virtual HRESULT STDMETHODCALLTYPE NotifyPrune(
+        IMFSample *ppSample) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoSampleAllocatorNotifyEx, 0x3978aa1a, 0x6d5b, 0x4b7f, 0xa3,0x40, 0x90,0x89,0x91,0x89,0xae,0x34)
+#endif
+#else
+typedef struct IMFVideoSampleAllocatorNotifyExVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoSampleAllocatorNotifyEx *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoSampleAllocatorNotifyEx *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoSampleAllocatorNotifyEx *This);
+
+    /*** IMFVideoSampleAllocatorNotify methods ***/
+    HRESULT (STDMETHODCALLTYPE *NotifyRelease)(
+        IMFVideoSampleAllocatorNotifyEx *This);
+
+    /*** IMFVideoSampleAllocatorNotifyEx methods ***/
+    HRESULT (STDMETHODCALLTYPE *NotifyPrune)(
+        IMFVideoSampleAllocatorNotifyEx *This,
+        IMFSample *ppSample);
+
+    END_INTERFACE
+} IMFVideoSampleAllocatorNotifyExVtbl;
+
+interface IMFVideoSampleAllocatorNotifyEx {
+    CONST_VTBL IMFVideoSampleAllocatorNotifyExVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoSampleAllocatorNotifyEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorNotifyEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorNotifyEx_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoSampleAllocatorNotify methods ***/
+#define IMFVideoSampleAllocatorNotifyEx_NotifyRelease(This) (This)->lpVtbl->NotifyRelease(This)
+/*** IMFVideoSampleAllocatorNotifyEx methods ***/
+#define IMFVideoSampleAllocatorNotifyEx_NotifyPrune(This,ppSample) (This)->lpVtbl->NotifyPrune(This,ppSample)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorNotifyEx_QueryInterface(IMFVideoSampleAllocatorNotifyEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorNotifyEx_AddRef(IMFVideoSampleAllocatorNotifyEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorNotifyEx_Release(IMFVideoSampleAllocatorNotifyEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoSampleAllocatorNotify methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorNotifyEx_NotifyRelease(IMFVideoSampleAllocatorNotifyEx* This) {
+    return This->lpVtbl->NotifyRelease(This);
+}
+/*** IMFVideoSampleAllocatorNotifyEx methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorNotifyEx_NotifyPrune(IMFVideoSampleAllocatorNotifyEx* This,IMFSample *ppSample) {
+    return This->lpVtbl->NotifyPrune(This,ppSample);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoSampleAllocatorNotifyEx_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMFVideoSampleAllocatorCallback interface
+ */
+#ifndef __IMFVideoSampleAllocatorCallback_INTERFACE_DEFINED__
+#define __IMFVideoSampleAllocatorCallback_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoSampleAllocatorCallback, 0x992388b4, 0x3372, 0x4f67, 0x8b,0x6f, 0xc8,0x4c,0x07,0x1f,0x47,0x51);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("992388b4-3372-4f67-8b6f-c84c071f4751")
+IMFVideoSampleAllocatorCallback : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetCallback(
+        IMFVideoSampleAllocatorNotify *pNotify) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFreeSampleCount(
+        LONG *plSamples) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoSampleAllocatorCallback, 0x992388b4, 0x3372, 0x4f67, 0x8b,0x6f, 0xc8,0x4c,0x07,0x1f,0x47,0x51)
+#endif
+#else
+typedef struct IMFVideoSampleAllocatorCallbackVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoSampleAllocatorCallback *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoSampleAllocatorCallback *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoSampleAllocatorCallback *This);
+
+    /*** IMFVideoSampleAllocatorCallback methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetCallback)(
+        IMFVideoSampleAllocatorCallback *This,
+        IMFVideoSampleAllocatorNotify *pNotify);
+
+    HRESULT (STDMETHODCALLTYPE *GetFreeSampleCount)(
+        IMFVideoSampleAllocatorCallback *This,
+        LONG *plSamples);
+
+    END_INTERFACE
+} IMFVideoSampleAllocatorCallbackVtbl;
+
+interface IMFVideoSampleAllocatorCallback {
+    CONST_VTBL IMFVideoSampleAllocatorCallbackVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoSampleAllocatorCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorCallback_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoSampleAllocatorCallback methods ***/
+#define IMFVideoSampleAllocatorCallback_SetCallback(This,pNotify) (This)->lpVtbl->SetCallback(This,pNotify)
+#define IMFVideoSampleAllocatorCallback_GetFreeSampleCount(This,plSamples) (This)->lpVtbl->GetFreeSampleCount(This,plSamples)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorCallback_QueryInterface(IMFVideoSampleAllocatorCallback* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorCallback_AddRef(IMFVideoSampleAllocatorCallback* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorCallback_Release(IMFVideoSampleAllocatorCallback* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoSampleAllocatorCallback methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorCallback_SetCallback(IMFVideoSampleAllocatorCallback* This,IMFVideoSampleAllocatorNotify *pNotify) {
+    return This->lpVtbl->SetCallback(This,pNotify);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorCallback_GetFreeSampleCount(IMFVideoSampleAllocatorCallback* This,LONG *plSamples) {
+    return This->lpVtbl->GetFreeSampleCount(This,plSamples);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoSampleAllocatorCallback_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMFVideoSampleAllocatorEx interface
+ */
+#ifndef __IMFVideoSampleAllocatorEx_INTERFACE_DEFINED__
+#define __IMFVideoSampleAllocatorEx_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoSampleAllocatorEx, 0x545b3a48, 0x3283, 0x4f62, 0x86,0x6f, 0xa6,0x2d,0x8f,0x59,0x8f,0x9f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("545b3a48-3283-4f62-866f-a62d8f598f9f")
+IMFVideoSampleAllocatorEx : public IMFVideoSampleAllocator
+{
+    virtual HRESULT STDMETHODCALLTYPE InitializeSampleAllocatorEx(
+        DWORD cInitialSamples,
+        DWORD cMaximumSamples,
+        IMFAttributes *pAttributes,
+        IMFMediaType *pMediaType) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoSampleAllocatorEx, 0x545b3a48, 0x3283, 0x4f62, 0x86,0x6f, 0xa6,0x2d,0x8f,0x59,0x8f,0x9f)
+#endif
+#else
+typedef struct IMFVideoSampleAllocatorExVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoSampleAllocatorEx *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoSampleAllocatorEx *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoSampleAllocatorEx *This);
+
+    /*** IMFVideoSampleAllocator methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetDirectXManager)(
+        IMFVideoSampleAllocatorEx *This,
+        IUnknown *pManager);
+
+    HRESULT (STDMETHODCALLTYPE *UninitializeSampleAllocator)(
+        IMFVideoSampleAllocatorEx *This);
+
+    HRESULT (STDMETHODCALLTYPE *InitializeSampleAllocator)(
+        IMFVideoSampleAllocatorEx *This,
+        DWORD cRequestedFrames,
+        IMFMediaType *pMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *AllocateSample)(
+        IMFVideoSampleAllocatorEx *This,
+        IMFSample **ppSample);
+
+    /*** IMFVideoSampleAllocatorEx methods ***/
+    HRESULT (STDMETHODCALLTYPE *InitializeSampleAllocatorEx)(
+        IMFVideoSampleAllocatorEx *This,
+        DWORD cInitialSamples,
+        DWORD cMaximumSamples,
+        IMFAttributes *pAttributes,
+        IMFMediaType *pMediaType);
+
+    END_INTERFACE
+} IMFVideoSampleAllocatorExVtbl;
+
+interface IMFVideoSampleAllocatorEx {
+    CONST_VTBL IMFVideoSampleAllocatorExVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoSampleAllocatorEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorEx_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoSampleAllocator methods ***/
+#define IMFVideoSampleAllocatorEx_SetDirectXManager(This,pManager) (This)->lpVtbl->SetDirectXManager(This,pManager)
+#define IMFVideoSampleAllocatorEx_UninitializeSampleAllocator(This) (This)->lpVtbl->UninitializeSampleAllocator(This)
+#define IMFVideoSampleAllocatorEx_InitializeSampleAllocator(This,cRequestedFrames,pMediaType) (This)->lpVtbl->InitializeSampleAllocator(This,cRequestedFrames,pMediaType)
+#define IMFVideoSampleAllocatorEx_AllocateSample(This,ppSample) (This)->lpVtbl->AllocateSample(This,ppSample)
+/*** IMFVideoSampleAllocatorEx methods ***/
+#define IMFVideoSampleAllocatorEx_InitializeSampleAllocatorEx(This,cInitialSamples,cMaximumSamples,pAttributes,pMediaType) (This)->lpVtbl->InitializeSampleAllocatorEx(This,cInitialSamples,cMaximumSamples,pAttributes,pMediaType)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_QueryInterface(IMFVideoSampleAllocatorEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorEx_AddRef(IMFVideoSampleAllocatorEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoSampleAllocatorEx_Release(IMFVideoSampleAllocatorEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoSampleAllocator methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_SetDirectXManager(IMFVideoSampleAllocatorEx* This,IUnknown *pManager) {
+    return This->lpVtbl->SetDirectXManager(This,pManager);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_UninitializeSampleAllocator(IMFVideoSampleAllocatorEx* This) {
+    return This->lpVtbl->UninitializeSampleAllocator(This);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_InitializeSampleAllocator(IMFVideoSampleAllocatorEx* This,DWORD cRequestedFrames,IMFMediaType *pMediaType) {
+    return This->lpVtbl->InitializeSampleAllocator(This,cRequestedFrames,pMediaType);
+}
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_AllocateSample(IMFVideoSampleAllocatorEx* This,IMFSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,ppSample);
+}
+/*** IMFVideoSampleAllocatorEx methods ***/
+static FORCEINLINE HRESULT IMFVideoSampleAllocatorEx_InitializeSampleAllocatorEx(IMFVideoSampleAllocatorEx* This,DWORD cInitialSamples,DWORD cMaximumSamples,IMFAttributes *pAttributes,IMFMediaType *pMediaType) {
+    return This->lpVtbl->InitializeSampleAllocatorEx(This,cInitialSamples,cMaximumSamples,pAttributes,pMediaType);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoSampleAllocatorEx_INTERFACE_DEFINED__ */
+
+#endif /* WINVER >= _WIN32_WINNT_WIN7 */
+#if WINVER >= _WIN32_WINNT_WIN8
+typedef enum _MF_VIDEO_PROCESSOR_ROTATION {
+    ROTATION_NONE = 0,
+    ROTATION_NORMAL = 1
+} MF_VIDEO_PROCESSOR_ROTATION;
+typedef enum _MF_VIDEO_PROCESSOR_MIRROR {
+    MIRROR_NONE = 0,
+    MIRROR_HORIZONTAL = 1,
+    MIRROR_VERTICAL = 2
+} MF_VIDEO_PROCESSOR_MIRROR;
+/*****************************************************************************
+ * IMFVideoProcessorControl interface
+ */
+#ifndef __IMFVideoProcessorControl_INTERFACE_DEFINED__
+#define __IMFVideoProcessorControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoProcessorControl, 0xa3f675d5, 0x6119, 0x4f7f, 0xa1,0x00, 0x1d,0x8b,0x28,0x0f,0x0e,0xfb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a3f675d5-6119-4f7f-a100-1d8b280f0efb")
+IMFVideoProcessorControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetBorderColor(
+        MFARGB *pBorderColor) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSourceRectangle(
+        RECT *pSrcRect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDestinationRectangle(
+        RECT *pDstRect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMirror(
+        MF_VIDEO_PROCESSOR_MIRROR eMirror) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetRotation(
+        MF_VIDEO_PROCESSOR_ROTATION eRotation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetConstrictionSize(
+        SIZE *pConstrictionSize) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoProcessorControl, 0xa3f675d5, 0x6119, 0x4f7f, 0xa1,0x00, 0x1d,0x8b,0x28,0x0f,0x0e,0xfb)
+#endif
+#else
+typedef struct IMFVideoProcessorControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoProcessorControl *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoProcessorControl *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoProcessorControl *This);
+
+    /*** IMFVideoProcessorControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetBorderColor)(
+        IMFVideoProcessorControl *This,
+        MFARGB *pBorderColor);
+
+    HRESULT (STDMETHODCALLTYPE *SetSourceRectangle)(
+        IMFVideoProcessorControl *This,
+        RECT *pSrcRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetDestinationRectangle)(
+        IMFVideoProcessorControl *This,
+        RECT *pDstRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetMirror)(
+        IMFVideoProcessorControl *This,
+        MF_VIDEO_PROCESSOR_MIRROR eMirror);
+
+    HRESULT (STDMETHODCALLTYPE *SetRotation)(
+        IMFVideoProcessorControl *This,
+        MF_VIDEO_PROCESSOR_ROTATION eRotation);
+
+    HRESULT (STDMETHODCALLTYPE *SetConstrictionSize)(
+        IMFVideoProcessorControl *This,
+        SIZE *pConstrictionSize);
+
+    END_INTERFACE
+} IMFVideoProcessorControlVtbl;
+
+interface IMFVideoProcessorControl {
+    CONST_VTBL IMFVideoProcessorControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoProcessorControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoProcessorControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoProcessorControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoProcessorControl methods ***/
+#define IMFVideoProcessorControl_SetBorderColor(This,pBorderColor) (This)->lpVtbl->SetBorderColor(This,pBorderColor)
+#define IMFVideoProcessorControl_SetSourceRectangle(This,pSrcRect) (This)->lpVtbl->SetSourceRectangle(This,pSrcRect)
+#define IMFVideoProcessorControl_SetDestinationRectangle(This,pDstRect) (This)->lpVtbl->SetDestinationRectangle(This,pDstRect)
+#define IMFVideoProcessorControl_SetMirror(This,eMirror) (This)->lpVtbl->SetMirror(This,eMirror)
+#define IMFVideoProcessorControl_SetRotation(This,eRotation) (This)->lpVtbl->SetRotation(This,eRotation)
+#define IMFVideoProcessorControl_SetConstrictionSize(This,pConstrictionSize) (This)->lpVtbl->SetConstrictionSize(This,pConstrictionSize)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl_QueryInterface(IMFVideoProcessorControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl_AddRef(IMFVideoProcessorControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl_Release(IMFVideoProcessorControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoProcessorControl methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetBorderColor(IMFVideoProcessorControl* This,MFARGB *pBorderColor) {
+    return This->lpVtbl->SetBorderColor(This,pBorderColor);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetSourceRectangle(IMFVideoProcessorControl* This,RECT *pSrcRect) {
+    return This->lpVtbl->SetSourceRectangle(This,pSrcRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetDestinationRectangle(IMFVideoProcessorControl* This,RECT *pDstRect) {
+    return This->lpVtbl->SetDestinationRectangle(This,pDstRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetMirror(IMFVideoProcessorControl* This,MF_VIDEO_PROCESSOR_MIRROR eMirror) {
+    return This->lpVtbl->SetMirror(This,eMirror);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetRotation(IMFVideoProcessorControl* This,MF_VIDEO_PROCESSOR_ROTATION eRotation) {
+    return This->lpVtbl->SetRotation(This,eRotation);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl_SetConstrictionSize(IMFVideoProcessorControl* This,SIZE *pConstrictionSize) {
+    return This->lpVtbl->SetConstrictionSize(This,pConstrictionSize);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoProcessorControl_INTERFACE_DEFINED__ */
+
+#if WINVER >= _WIN32_WINNT_WINBLUE
+/*****************************************************************************
+ * IMFVideoProcessorControl2 interface
+ */
+#ifndef __IMFVideoProcessorControl2_INTERFACE_DEFINED__
+#define __IMFVideoProcessorControl2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoProcessorControl2, 0xbde633d3, 0xe1dc, 0x4a7f, 0xa6,0x93, 0xbb,0xae,0x39,0x9c,0x4a,0x20);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("bde633d3-e1dc-4a7f-a693-bbae399c4a20")
+IMFVideoProcessorControl2 : public IMFVideoProcessorControl
+{
+    virtual HRESULT STDMETHODCALLTYPE SetRotationOverride(
+        UINT uiRotation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnableHardwareEffects(
+        WINBOOL fEnabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSupportedHardwareEffects(
+        UINT *puiSupport) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoProcessorControl2, 0xbde633d3, 0xe1dc, 0x4a7f, 0xa6,0x93, 0xbb,0xae,0x39,0x9c,0x4a,0x20)
+#endif
+#else
+typedef struct IMFVideoProcessorControl2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoProcessorControl2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoProcessorControl2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoProcessorControl2 *This);
+
+    /*** IMFVideoProcessorControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetBorderColor)(
+        IMFVideoProcessorControl2 *This,
+        MFARGB *pBorderColor);
+
+    HRESULT (STDMETHODCALLTYPE *SetSourceRectangle)(
+        IMFVideoProcessorControl2 *This,
+        RECT *pSrcRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetDestinationRectangle)(
+        IMFVideoProcessorControl2 *This,
+        RECT *pDstRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetMirror)(
+        IMFVideoProcessorControl2 *This,
+        MF_VIDEO_PROCESSOR_MIRROR eMirror);
+
+    HRESULT (STDMETHODCALLTYPE *SetRotation)(
+        IMFVideoProcessorControl2 *This,
+        MF_VIDEO_PROCESSOR_ROTATION eRotation);
+
+    HRESULT (STDMETHODCALLTYPE *SetConstrictionSize)(
+        IMFVideoProcessorControl2 *This,
+        SIZE *pConstrictionSize);
+
+    /*** IMFVideoProcessorControl2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetRotationOverride)(
+        IMFVideoProcessorControl2 *This,
+        UINT uiRotation);
+
+    HRESULT (STDMETHODCALLTYPE *EnableHardwareEffects)(
+        IMFVideoProcessorControl2 *This,
+        WINBOOL fEnabled);
+
+    HRESULT (STDMETHODCALLTYPE *GetSupportedHardwareEffects)(
+        IMFVideoProcessorControl2 *This,
+        UINT *puiSupport);
+
+    END_INTERFACE
+} IMFVideoProcessorControl2Vtbl;
+
+interface IMFVideoProcessorControl2 {
+    CONST_VTBL IMFVideoProcessorControl2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoProcessorControl2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoProcessorControl2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoProcessorControl2_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoProcessorControl methods ***/
+#define IMFVideoProcessorControl2_SetBorderColor(This,pBorderColor) (This)->lpVtbl->SetBorderColor(This,pBorderColor)
+#define IMFVideoProcessorControl2_SetSourceRectangle(This,pSrcRect) (This)->lpVtbl->SetSourceRectangle(This,pSrcRect)
+#define IMFVideoProcessorControl2_SetDestinationRectangle(This,pDstRect) (This)->lpVtbl->SetDestinationRectangle(This,pDstRect)
+#define IMFVideoProcessorControl2_SetMirror(This,eMirror) (This)->lpVtbl->SetMirror(This,eMirror)
+#define IMFVideoProcessorControl2_SetRotation(This,eRotation) (This)->lpVtbl->SetRotation(This,eRotation)
+#define IMFVideoProcessorControl2_SetConstrictionSize(This,pConstrictionSize) (This)->lpVtbl->SetConstrictionSize(This,pConstrictionSize)
+/*** IMFVideoProcessorControl2 methods ***/
+#define IMFVideoProcessorControl2_SetRotationOverride(This,uiRotation) (This)->lpVtbl->SetRotationOverride(This,uiRotation)
+#define IMFVideoProcessorControl2_EnableHardwareEffects(This,fEnabled) (This)->lpVtbl->EnableHardwareEffects(This,fEnabled)
+#define IMFVideoProcessorControl2_GetSupportedHardwareEffects(This,puiSupport) (This)->lpVtbl->GetSupportedHardwareEffects(This,puiSupport)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_QueryInterface(IMFVideoProcessorControl2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl2_AddRef(IMFVideoProcessorControl2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl2_Release(IMFVideoProcessorControl2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoProcessorControl methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetBorderColor(IMFVideoProcessorControl2* This,MFARGB *pBorderColor) {
+    return This->lpVtbl->SetBorderColor(This,pBorderColor);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetSourceRectangle(IMFVideoProcessorControl2* This,RECT *pSrcRect) {
+    return This->lpVtbl->SetSourceRectangle(This,pSrcRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetDestinationRectangle(IMFVideoProcessorControl2* This,RECT *pDstRect) {
+    return This->lpVtbl->SetDestinationRectangle(This,pDstRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetMirror(IMFVideoProcessorControl2* This,MF_VIDEO_PROCESSOR_MIRROR eMirror) {
+    return This->lpVtbl->SetMirror(This,eMirror);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetRotation(IMFVideoProcessorControl2* This,MF_VIDEO_PROCESSOR_ROTATION eRotation) {
+    return This->lpVtbl->SetRotation(This,eRotation);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetConstrictionSize(IMFVideoProcessorControl2* This,SIZE *pConstrictionSize) {
+    return This->lpVtbl->SetConstrictionSize(This,pConstrictionSize);
+}
+/*** IMFVideoProcessorControl2 methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_SetRotationOverride(IMFVideoProcessorControl2* This,UINT uiRotation) {
+    return This->lpVtbl->SetRotationOverride(This,uiRotation);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_EnableHardwareEffects(IMFVideoProcessorControl2* This,WINBOOL fEnabled) {
+    return This->lpVtbl->EnableHardwareEffects(This,fEnabled);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl2_GetSupportedHardwareEffects(IMFVideoProcessorControl2* This,UINT *puiSupport) {
+    return This->lpVtbl->GetSupportedHardwareEffects(This,puiSupport);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoProcessorControl2_INTERFACE_DEFINED__ */
+
+#if WINVER >= _WIN32_WINNT_WIN10
+typedef enum _MFVideoSphericalFormat {
+    MFVideoSphericalFormat_Unsupported = 0,
+    MFVideoSphericalFormat_Equirectangular = 1,
+    MFVideoSphericalFormat_CubeMap = 2,
+    MFVideoSphericalFormat_3DMesh = 3
+} MFVideoSphericalFormat;
+#endif /* WINVER >= _WIN32_WINNT_WIN10 */
+#if NTDDI_VERSION >= NTDDI_WIN10_RS3
+EXTERN_GUID(MF_XVP_SAMPLE_LOCK_TIMEOUT, 0xaa4ddb29, 0x5134, 0x4363, 0xac, 0x72, 0x83, 0xec, 0x4b, 0xc1, 0x4, 0x26);
+typedef enum MFVideoSphericalProjectionMode {
+    MFVideoSphericalProjectionMode_Spherical = 0,
+    MFVideoSphericalProjectionMode_Flat = 1
+} MFVideoSphericalProjectionMode;
+/*****************************************************************************
+ * IMFVideoProcessorControl3 interface
+ */
+#ifndef __IMFVideoProcessorControl3_INTERFACE_DEFINED__
+#define __IMFVideoProcessorControl3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoProcessorControl3, 0x2424b3f2, 0xeb23, 0x40f1, 0x91,0xaa, 0x74,0xbd,0xde,0xea,0x08,0x83);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2424b3f2-eb23-40f1-91aa-74bddeea0883")
+IMFVideoProcessorControl3 : public IMFVideoProcessorControl2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetNaturalOutputType(
+        IMFMediaType **ppType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnableSphericalVideoProcessing(
+        WINBOOL fEnable,
+        MFVideoSphericalFormat eFormat,
+        MFVideoSphericalProjectionMode eProjectionMode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSphericalVideoProperties(
+        float X,
+        float Y,
+        float Z,
+        float W,
+        float fieldOfView) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputDevice(
+        IUnknown *pOutputDevice) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoProcessorControl3, 0x2424b3f2, 0xeb23, 0x40f1, 0x91,0xaa, 0x74,0xbd,0xde,0xea,0x08,0x83)
+#endif
+#else
+typedef struct IMFVideoProcessorControl3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoProcessorControl3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoProcessorControl3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoProcessorControl3 *This);
+
+    /*** IMFVideoProcessorControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetBorderColor)(
+        IMFVideoProcessorControl3 *This,
+        MFARGB *pBorderColor);
+
+    HRESULT (STDMETHODCALLTYPE *SetSourceRectangle)(
+        IMFVideoProcessorControl3 *This,
+        RECT *pSrcRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetDestinationRectangle)(
+        IMFVideoProcessorControl3 *This,
+        RECT *pDstRect);
+
+    HRESULT (STDMETHODCALLTYPE *SetMirror)(
+        IMFVideoProcessorControl3 *This,
+        MF_VIDEO_PROCESSOR_MIRROR eMirror);
+
+    HRESULT (STDMETHODCALLTYPE *SetRotation)(
+        IMFVideoProcessorControl3 *This,
+        MF_VIDEO_PROCESSOR_ROTATION eRotation);
+
+    HRESULT (STDMETHODCALLTYPE *SetConstrictionSize)(
+        IMFVideoProcessorControl3 *This,
+        SIZE *pConstrictionSize);
+
+    /*** IMFVideoProcessorControl2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetRotationOverride)(
+        IMFVideoProcessorControl3 *This,
+        UINT uiRotation);
+
+    HRESULT (STDMETHODCALLTYPE *EnableHardwareEffects)(
+        IMFVideoProcessorControl3 *This,
+        WINBOOL fEnabled);
+
+    HRESULT (STDMETHODCALLTYPE *GetSupportedHardwareEffects)(
+        IMFVideoProcessorControl3 *This,
+        UINT *puiSupport);
+
+    /*** IMFVideoProcessorControl3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetNaturalOutputType)(
+        IMFVideoProcessorControl3 *This,
+        IMFMediaType **ppType);
+
+    HRESULT (STDMETHODCALLTYPE *EnableSphericalVideoProcessing)(
+        IMFVideoProcessorControl3 *This,
+        WINBOOL fEnable,
+        MFVideoSphericalFormat eFormat,
+        MFVideoSphericalProjectionMode eProjectionMode);
+
+    HRESULT (STDMETHODCALLTYPE *SetSphericalVideoProperties)(
+        IMFVideoProcessorControl3 *This,
+        float X,
+        float Y,
+        float Z,
+        float W,
+        float fieldOfView);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputDevice)(
+        IMFVideoProcessorControl3 *This,
+        IUnknown *pOutputDevice);
+
+    END_INTERFACE
+} IMFVideoProcessorControl3Vtbl;
+
+interface IMFVideoProcessorControl3 {
+    CONST_VTBL IMFVideoProcessorControl3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoProcessorControl3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoProcessorControl3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoProcessorControl3_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoProcessorControl methods ***/
+#define IMFVideoProcessorControl3_SetBorderColor(This,pBorderColor) (This)->lpVtbl->SetBorderColor(This,pBorderColor)
+#define IMFVideoProcessorControl3_SetSourceRectangle(This,pSrcRect) (This)->lpVtbl->SetSourceRectangle(This,pSrcRect)
+#define IMFVideoProcessorControl3_SetDestinationRectangle(This,pDstRect) (This)->lpVtbl->SetDestinationRectangle(This,pDstRect)
+#define IMFVideoProcessorControl3_SetMirror(This,eMirror) (This)->lpVtbl->SetMirror(This,eMirror)
+#define IMFVideoProcessorControl3_SetRotation(This,eRotation) (This)->lpVtbl->SetRotation(This,eRotation)
+#define IMFVideoProcessorControl3_SetConstrictionSize(This,pConstrictionSize) (This)->lpVtbl->SetConstrictionSize(This,pConstrictionSize)
+/*** IMFVideoProcessorControl2 methods ***/
+#define IMFVideoProcessorControl3_SetRotationOverride(This,uiRotation) (This)->lpVtbl->SetRotationOverride(This,uiRotation)
+#define IMFVideoProcessorControl3_EnableHardwareEffects(This,fEnabled) (This)->lpVtbl->EnableHardwareEffects(This,fEnabled)
+#define IMFVideoProcessorControl3_GetSupportedHardwareEffects(This,puiSupport) (This)->lpVtbl->GetSupportedHardwareEffects(This,puiSupport)
+/*** IMFVideoProcessorControl3 methods ***/
+#define IMFVideoProcessorControl3_GetNaturalOutputType(This,ppType) (This)->lpVtbl->GetNaturalOutputType(This,ppType)
+#define IMFVideoProcessorControl3_EnableSphericalVideoProcessing(This,fEnable,eFormat,eProjectionMode) (This)->lpVtbl->EnableSphericalVideoProcessing(This,fEnable,eFormat,eProjectionMode)
+#define IMFVideoProcessorControl3_SetSphericalVideoProperties(This,X,Y,Z,W,fieldOfView) (This)->lpVtbl->SetSphericalVideoProperties(This,X,Y,Z,W,fieldOfView)
+#define IMFVideoProcessorControl3_SetOutputDevice(This,pOutputDevice) (This)->lpVtbl->SetOutputDevice(This,pOutputDevice)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_QueryInterface(IMFVideoProcessorControl3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl3_AddRef(IMFVideoProcessorControl3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoProcessorControl3_Release(IMFVideoProcessorControl3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoProcessorControl methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetBorderColor(IMFVideoProcessorControl3* This,MFARGB *pBorderColor) {
+    return This->lpVtbl->SetBorderColor(This,pBorderColor);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetSourceRectangle(IMFVideoProcessorControl3* This,RECT *pSrcRect) {
+    return This->lpVtbl->SetSourceRectangle(This,pSrcRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetDestinationRectangle(IMFVideoProcessorControl3* This,RECT *pDstRect) {
+    return This->lpVtbl->SetDestinationRectangle(This,pDstRect);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetMirror(IMFVideoProcessorControl3* This,MF_VIDEO_PROCESSOR_MIRROR eMirror) {
+    return This->lpVtbl->SetMirror(This,eMirror);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetRotation(IMFVideoProcessorControl3* This,MF_VIDEO_PROCESSOR_ROTATION eRotation) {
+    return This->lpVtbl->SetRotation(This,eRotation);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetConstrictionSize(IMFVideoProcessorControl3* This,SIZE *pConstrictionSize) {
+    return This->lpVtbl->SetConstrictionSize(This,pConstrictionSize);
+}
+/*** IMFVideoProcessorControl2 methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetRotationOverride(IMFVideoProcessorControl3* This,UINT uiRotation) {
+    return This->lpVtbl->SetRotationOverride(This,uiRotation);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_EnableHardwareEffects(IMFVideoProcessorControl3* This,WINBOOL fEnabled) {
+    return This->lpVtbl->EnableHardwareEffects(This,fEnabled);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_GetSupportedHardwareEffects(IMFVideoProcessorControl3* This,UINT *puiSupport) {
+    return This->lpVtbl->GetSupportedHardwareEffects(This,puiSupport);
+}
+/*** IMFVideoProcessorControl3 methods ***/
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_GetNaturalOutputType(IMFVideoProcessorControl3* This,IMFMediaType **ppType) {
+    return This->lpVtbl->GetNaturalOutputType(This,ppType);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_EnableSphericalVideoProcessing(IMFVideoProcessorControl3* This,WINBOOL fEnable,MFVideoSphericalFormat eFormat,MFVideoSphericalProjectionMode eProjectionMode) {
+    return This->lpVtbl->EnableSphericalVideoProcessing(This,fEnable,eFormat,eProjectionMode);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetSphericalVideoProperties(IMFVideoProcessorControl3* This,float X,float Y,float Z,float W,float fieldOfView) {
+    return This->lpVtbl->SetSphericalVideoProperties(This,X,Y,Z,W,fieldOfView);
+}
+static FORCEINLINE HRESULT IMFVideoProcessorControl3_SetOutputDevice(IMFVideoProcessorControl3* This,IUnknown *pOutputDevice) {
+    return This->lpVtbl->SetOutputDevice(This,pOutputDevice);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoProcessorControl3_INTERFACE_DEFINED__ */
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_RS3 */
+#endif /* WINVER >= _WIN32_WINNT_WINBLUE */
+#if NTDDI_VERSION >= NTDDI_WIN10_VB
+/*****************************************************************************
+ * IMFVideoRendererEffectControl interface
+ */
+#ifndef __IMFVideoRendererEffectControl_INTERFACE_DEFINED__
+#define __IMFVideoRendererEffectControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFVideoRendererEffectControl, 0x604d33d7, 0xcf23, 0x41d5, 0x82,0x24, 0x5b,0xbb,0xb1,0xa8,0x74,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("604d33d7-cf23-41d5-8224-5bbbb1a87475")
+IMFVideoRendererEffectControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnAppServiceConnectionEstablished(
+        IUnknown *pAppServiceConnection) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFVideoRendererEffectControl, 0x604d33d7, 0xcf23, 0x41d5, 0x82,0x24, 0x5b,0xbb,0xb1,0xa8,0x74,0x75)
+#endif
+#else
+typedef struct IMFVideoRendererEffectControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFVideoRendererEffectControl *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFVideoRendererEffectControl *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFVideoRendererEffectControl *This);
+
+    /*** IMFVideoRendererEffectControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnAppServiceConnectionEstablished)(
+        IMFVideoRendererEffectControl *This,
+        IUnknown *pAppServiceConnection);
+
+    END_INTERFACE
+} IMFVideoRendererEffectControlVtbl;
+
+interface IMFVideoRendererEffectControl {
+    CONST_VTBL IMFVideoRendererEffectControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFVideoRendererEffectControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoRendererEffectControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoRendererEffectControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFVideoRendererEffectControl methods ***/
+#define IMFVideoRendererEffectControl_OnAppServiceConnectionEstablished(This,pAppServiceConnection) (This)->lpVtbl->OnAppServiceConnectionEstablished(This,pAppServiceConnection)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFVideoRendererEffectControl_QueryInterface(IMFVideoRendererEffectControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFVideoRendererEffectControl_AddRef(IMFVideoRendererEffectControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFVideoRendererEffectControl_Release(IMFVideoRendererEffectControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFVideoRendererEffectControl methods ***/
+static FORCEINLINE HRESULT IMFVideoRendererEffectControl_OnAppServiceConnectionEstablished(IMFVideoRendererEffectControl* This,IUnknown *pAppServiceConnection) {
+    return This->lpVtbl->OnAppServiceConnectionEstablished(This,pAppServiceConnection);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMFVideoRendererEffectControl_INTERFACE_DEFINED__ */
+
+#endif /* WINVER >= NTDDI_WIN10_VB */
+#endif /* WINVER >= _WIN32_WINNT_WIN8 */
 HRESULT WINAPI MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);
 HRESULT WINAPI MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);
 
@@ -6202,6 +7346,7 @@ EXTERN_GUID(MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE, 0x6ba644ff, 0x27c5, 0x4d0
 EXTERN_GUID(MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY, 0xa9770471, 0x92ec, 0x4df4, 0x94, 0xfe, 0x81, 0xc3, 0x6f, 0xc, 0x3a, 0x7a);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME, 0x60d0e559,0x52f8,0x4fa2,0xbb,0xce,0xac,0xdb,0x34,0xa8,0xec,0x1);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE, 0x56a819ca,0xc78,0x4de4,0xa0,0xa7,0x3d,0xda,0xba,0xf,0x24,0xd4);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID, 0x14dd9a1c, 0x7cff, 0x41be, 0xb1, 0xb9, 0xba, 0x1a, 0xc6, 0xec, 0xb5, 0x71);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID, 0x30da9258,0xfeb9,0x47a7,0xa4,0x53,0x76,0x3a,0x7a,0x8e,0x1c,0x5f);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE, 0xbc9d118e,0x8c67,0x4a18,0x85,0xd4,0x12,0xd3,0x0,0x40,0x5,0x52);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, 0x77f0ae69,0xc3bd,0x4509,0x94,0x1d,0x46,0x7e,0x4d,0x24,0x89,0x9e);
@@ -6210,10 +7355,20 @@ EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS, 0x7dd9b730,0x
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK, 0x58f0aad8,0x22bf,0x4f8a,0xbb,0x3d,0xd2,0xc4,0x97,0x8c,0x6e,0x2f);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, 0xc60ac5fe,0x252a,0x478f,0xa0,0xef,0xbc,0x8f,0xa5,0xf7,0xca,0xd3);
 EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID, 0x8ac3587a,0x4ae7,0x42d8,0x99,0xe0,0x0a,0x60,0x13,0xee,0xf9,0x0f);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK, 0x98d24b5e, 0x5930, 0x4614, 0xb5, 0xa1, 0xf6, 0x0, 0xf9, 0x35, 0x5a, 0x78);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID, 0x36689d42, 0xa06c, 0x40ae, 0x84, 0xcf, 0xf5, 0xa0, 0x34, 0x6, 0x7c, 0xc4);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS, 0xbca0be52, 0xc327, 0x44c7, 0x9b, 0x7d, 0x7f, 0xa8, 0xd9, 0xb5, 0xbc, 0xda);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL, 0x9d7b40d2, 0x3617, 0x4043, 0x93, 0xe3, 0x8d, 0x6d, 0xa9, 0xbb, 0x34, 0x92);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME,0x5d01add, 0x949f, 0x46eb, 0xbc, 0x8e, 0x8b, 0xd, 0x2b, 0x32, 0xd7, 0x9d);
+EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD, 0xa0fd7e16, 0x42d9, 0x49df, 0x84, 0xc0, 0xe8, 0x2c, 0x5e, 0xab, 0x88, 0x74);
 EXTERN_GUID(MF_METADATA_PROVIDER_SERVICE, 0xdb214084, 0x58a4, 0x4d2e, 0xb8, 0x4f, 0x6f, 0x75, 0x5b, 0x2f, 0x7a, 0xd);
 EXTERN_GUID(MF_PROPERTY_HANDLER_SERVICE, 0xa3face02, 0x32b8, 0x41dd, 0x90, 0xe7, 0x5f, 0xef, 0x7c, 0x89, 0x91, 0xb5);
 EXTERN_GUID(MF_RATE_CONTROL_SERVICE, 0x866fa297, 0xb802, 0x4bf8, 0x9d, 0xc9, 0x5e, 0x3b, 0x6a, 0x9f, 0x53, 0xc9);
 EXTERN_GUID(MF_SAMPLEGRABBERSINK_IGNORE_CLOCK, 0x0efda2c0, 0x2b69, 0x4e2e, 0xab, 0x8d, 0x46, 0xdc, 0xbf, 0xf7, 0xd2, 0x5d);
+EXTERN_GUID(MF_SD_LANGUAGE, 0xaf2180, 0xbdc2, 0x423c, 0xab, 0xca, 0xf5, 0x3, 0x59, 0x3b, 0xc1, 0x21);
+EXTERN_GUID(MF_SD_PROTECTED, 0xaf2181, 0xbdc2, 0x423c, 0xab, 0xca, 0xf5, 0x3, 0x59, 0x3b, 0xc1, 0x21);
+EXTERN_GUID(MF_SD_STREAM_NAME, 0x4f1b099d, 0xd314, 0x41e5, 0xa7, 0x81, 0x7f, 0xef, 0xaa, 0x4c, 0x50, 0x1f);
+EXTERN_GUID(MF_SD_MUTUALLY_EXCLUSIVE, 0x23ef79c, 0x388d, 0x487f, 0xac, 0x17, 0x69, 0x6c, 0xd6, 0xe3, 0xc6, 0xf5);
 EXTERN_GUID(MF_TOPONODE_DRAIN, 0x494bbce9, 0xb031, 0x4e38, 0x97, 0xc4, 0xd5, 0x42, 0x2d, 0xd6, 0x18, 0xdc);
 EXTERN_GUID(MF_TOPONODE_D3DAWARE, 0x494bbced, 0xb031, 0x4e38, 0x97, 0xc4, 0xd5, 0x42, 0x2d, 0xd6, 0x18, 0xdc);
 EXTERN_GUID(MF_TOPOLOGY_RESOLUTION_STATUS, 0x494bbcde, 0xb031, 0x4e38, 0x97, 0xc4, 0xd5, 0x42, 0x2d, 0xd6, 0x18, 0xdc);
@@ -6244,6 +7399,15 @@ EXTERN_GUID(MF_TOPONODE_NOSHUTDOWN_ON_REMOVE, 0x14932f9c, 0x9087, 0x4bb4, 0x84, 
 EXTERN_GUID(MF_TOPONODE_RATELESS, 0x14932f9d, 0x9087, 0x4bb4, 0x84, 0x12, 0x51, 0x67, 0x14, 0x5c, 0xbe, 0x04);
 EXTERN_GUID(MF_TOPONODE_DISABLE_PREROLL, 0x14932f9e, 0x9087, 0x4bb4, 0x84, 0x12, 0x51, 0x67, 0x14, 0x5c, 0xbe, 0x04);
 EXTERN_GUID(MF_TOPONODE_PRIMARYOUTPUT, 0x6304ef99, 0x16b2, 0x4ebe, 0x9d, 0x67, 0xe4, 0xc5, 0x39, 0xb3, 0xa2, 0x59);
+EXTERN_GUID(MF_TRANSCODE_SKIP_METADATA_TRANSFER, 0x4e4469ef, 0xb571, 0x4959, 0x8f, 0x83, 0x3d, 0xcf, 0xba, 0x33, 0xa3, 0x93);
+EXTERN_GUID(MF_TRANSCODE_TOPOLOGYMODE, 0x3e3df610, 0x394a, 0x40b2, 0x9d, 0xea, 0x3b, 0xab, 0x65, 0xb, 0xeb, 0xf2);
+EXTERN_GUID(MF_TRANSCODE_ADJUST_PROFILE, 0x9c37c21b, 0x60f, 0x487c, 0xa6, 0x90, 0x80, 0xd7, 0xf5, 0xd, 0x1c, 0x72);
+EXTERN_GUID(MF_TRANSCODE_ENCODINGPROFILE, 0x6947787c, 0xf508, 0x4ea9, 0xb1, 0xe9, 0xa1, 0xfe, 0x3a, 0x49, 0xfb, 0xc9);
+EXTERN_GUID(MF_TRANSCODE_QUALITYVSSPEED, 0x98332df8, 0x03cd, 0x476b, 0x89, 0xfa, 0x3f, 0x9e, 0x44, 0x2d, 0xec, 0x9f);
+EXTERN_GUID(MF_TRANSCODE_DONOT_INSERT_ENCODER, 0xf45aa7ce, 0xab24, 0x4012, 0xa1, 0x1b, 0xdc, 0x82, 0x20, 0x20, 0x14, 0x10);
+EXTERN_GUID(MR_AUDIO_POLICY_SERVICE, 0x911fd737, 0x6775, 0x4ab0, 0xa6, 0x14, 0x29, 0x78, 0x62, 0xfd, 0xac, 0x88);
+EXTERN_GUID(MR_CAPTURE_POLICY_VOLUME_SERVICE, 0x24030acd, 0x107a, 0x4265, 0x97, 0x5c, 0x41, 0x4e, 0x33, 0xe6, 0x5f, 0x2a);
+EXTERN_GUID(MR_POLICY_VOLUME_SERVICE, 0x1abaa2ac, 0x9d3b, 0x47c6, 0xab, 0x48, 0xc5, 0x95, 0x6, 0xde, 0x78, 0x4d);
 EXTERN_GUID(MR_STREAM_VOLUME_SERVICE, 0xf8b5fa2f, 0x32ef, 0x46f5, 0xb1, 0x72, 0x13, 0x21, 0x21, 0x2f, 0xb2, 0xc4);
 /* Begin additional prototypes for all interfaces */
 
