@@ -11,5 +11,6 @@
 #include <initguid.h>
 #include <vss.h>
 #include <vsadmin.h>
+#include <vsbackup.h>
 #include <vsmgmt.h>
 #include <vsprov.h>
