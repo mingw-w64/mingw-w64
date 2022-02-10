@@ -231,6 +231,7 @@ IDL_SRCS = \
   include/vsmgmt.idl \
   include/vsprov.idl \
   include/vss.idl \
+  include/vswriter.idl \
   include/wbemads.idl \
   include/wbemcli.idl \
   include/wbemdisp.idl \

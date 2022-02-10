@@ -14,3 +14,4 @@
 #include <vsbackup.h>
 #include <vsmgmt.h>
 #include <vsprov.h>
+#include <vswriter.h>
