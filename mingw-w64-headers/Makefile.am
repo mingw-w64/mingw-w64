@@ -162,6 +162,7 @@ IDL_SRCS = \
   include/comcat.idl \
   include/mediaobj.idl \
   include/mfcaptureengine.idl \
+  include/mfd3d12.idl \
   include/mfidl.idl \
   include/mfobjects.idl \
   include/mfplay.idl \
