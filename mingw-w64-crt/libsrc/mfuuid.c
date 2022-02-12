@@ -5,5 +5,6 @@
 
 #include <initguid.h>
 #include <mfapi.h>
+#include <mfcaptureengine.h>
 #include <mfidl.h>
 #include <mfreadwrite.h>
