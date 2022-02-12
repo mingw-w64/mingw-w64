@@ -529,9 +529,11 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/vdslun.idl \
 @HAVE_WIDL_TRUE@  include/vsadmin.idl \
+@HAVE_WIDL_TRUE@  include/vsbackup.idl \
 @HAVE_WIDL_TRUE@  include/vsmgmt.idl \
 @HAVE_WIDL_TRUE@  include/vsprov.idl \
 @HAVE_WIDL_TRUE@  include/vss.idl \
+@HAVE_WIDL_TRUE@  include/vswriter.idl \
 @HAVE_WIDL_TRUE@  include/wbemads.idl \
 @HAVE_WIDL_TRUE@  include/wbemcli.idl \
 @HAVE_WIDL_TRUE@  include/wbemdisp.idl \
