@@ -1038,7 +1038,7 @@ pthread_self (void)
 
 /* Internal helper for getting event handle of thread T.  */
 void *
-pthread_getevent ()
+pthread_getevent (void)
 {
   _pthread_v *t = __pthread_self_lite ();
   return (!t ? NULL : t->evStart);
