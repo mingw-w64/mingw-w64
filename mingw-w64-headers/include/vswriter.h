@@ -2077,22 +2077,22 @@ IVssCreateWriterMetadata
         boolean bRestoreMetadata,
         boolean bNotifyOnBackupComplete,
         boolean bSelectable,
-        boolean bSelectableForRestore,
-        DWORD dwComponentFlags) = 0;
+        boolean bSelectableForRestore = 0,
+        DWORD dwComponentFlags = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddDatabaseFiles(
         LPCWSTR wszLogicalPath,
         LPCWSTR wszDatabaseName,
         LPCWSTR wszPath,
         LPCWSTR wszFilespec,
-        DWORD dwBackupTypeMask) = 0;
+        DWORD dwBackupTypeMask = VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddDatabaseLogFiles(
         LPCWSTR wszLogicalPath,
         LPCWSTR wszDatabaseName,
         LPCWSTR wszPath,
         LPCWSTR wszFilespec,
-        DWORD dwBackupTypeMask) = 0;
+        DWORD dwBackupTypeMask = VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddFilesToFileGroup(
         LPCWSTR wszLogicalPath,
@@ -2101,7 +2101,7 @@ IVssCreateWriterMetadata
         LPCWSTR wszFilespec,
         boolean bRecursive,
         LPCWSTR wszAlternateLocation,
-        DWORD dwBackupTypeMask) = 0;
+        DWORD dwBackupTypeMask = VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetRestoreMethod(
         VSS_RESTOREMETHOD_ENUM method,
@@ -2856,8 +2856,8 @@ IVssCreateExpressWriterMetadata : public IUnknown
         boolean bRestoreMetadata,
         boolean bNotifyOnBackupComplete,
         boolean bSelectable,
-        boolean bSelectableForRestore,
-        DWORD dwComponentFlags) = 0;
+        boolean bSelectableForRestore = 0,
+        DWORD dwComponentFlags = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddFilesToFileGroup(
         LPCWSTR wszLogicalPath,
@@ -2866,7 +2866,7 @@ IVssCreateExpressWriterMetadata : public IUnknown
         LPCWSTR wszFilespec,
         boolean bRecursive,
         LPCWSTR wszAlternateLocation,
-        DWORD dwBackupTypeMask) = 0;
+        DWORD dwBackupTypeMask = VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetRestoreMethod(
         VSS_RESTOREMETHOD_ENUM method,

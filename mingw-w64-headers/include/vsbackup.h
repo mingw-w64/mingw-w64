@@ -989,13 +989,13 @@ IVssBackupComponents : public IUnknown
         IVssWriterComponentsExt **ppWriter) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE InitializeForBackup(
-        BSTR bstrXML) = 0;
+        BSTR bstrXML = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetBackupState(
         boolean bSelectComponents,
         boolean bBackupBootableSystemState,
         VSS_BACKUP_TYPE backupType,
-        boolean bPartialFileSupport) = 0;
+        boolean bPartialFileSupport = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE InitializeForRestore(
         BSTR bstrXML) = 0;
@@ -3016,13 +3016,13 @@ IVssBackupComponentsEx3 : public IVssBackupComponentsEx2
         BSTR *pbstrWriter,
         VSS_WRITER_STATE *pnStatus,
         HRESULT *phrFailureWriter,
-        HRESULT *phrApplication,
-        BSTR *pbstrApplicationMessage) = 0;
+        HRESULT *phrApplication = 0,
+        BSTR *pbstrApplicationMessage = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddSnapshotToRecoverySet(
         VSS_ID snapshotId,
         DWORD dwFlags,
-        VSS_PWSZ pwszDestinationVolume) = 0;
+        VSS_PWSZ pwszDestinationVolume = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE RecoverSet(
         DWORD dwFlags,
@@ -3721,7 +3721,7 @@ IVssBackupComponentsEx4 : public IVssBackupComponentsEx3
         VSS_PWSZ pwszFilePath,
         VSS_PWSZ *ppwszRootPath,
         VSS_PWSZ *ppwszLogicalPrefix,
-        WINBOOL bNormalizeFQDNforRootPath) = 0;
+        WINBOOL bNormalizeFQDNforRootPath = FALSE) = 0;
 
 };
 #ifdef __CRT_UUID_DECL
