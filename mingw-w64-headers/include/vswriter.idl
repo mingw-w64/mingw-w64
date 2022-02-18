@@ -276,7 +276,7 @@ interface IVssComponent : IUnknown
     [in] UINT iDifferencedFile,
     [out] BSTR *pbstrPath,
     [out] BSTR *pbstrFilespec,
-    [out] BOOL *pbRecursive,
+    [out] WINBOOL *pbRecursive,
     [out] BSTR *pbstrLsnString,
     [out] FILETIME *pftLastModifyTime);
 }
@@ -364,22 +364,22 @@ interface IVssCreateWriterMetadata
     [in] boolean bRestoreMetadata,
     [in] boolean bNotifyOnBackupComplete,
     [in] boolean bSelectable,
-    [in] boolean bSelectableForRestore,
-    [in] DWORD dwComponentFlags);
+    [in, defaultvalue(0)] boolean bSelectableForRestore,
+    [in, defaultvalue(0)] DWORD dwComponentFlags);
 
   HRESULT AddDatabaseFiles(
     [in] LPCWSTR wszLogicalPath,
     [in] LPCWSTR wszDatabaseName,
     [in] LPCWSTR wszPath,
     [in] LPCWSTR wszFilespec,
-    [in] DWORD dwBackupTypeMask);
+    [in, defaultvalue(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)] DWORD dwBackupTypeMask);
 
   HRESULT AddDatabaseLogFiles(
     [in] LPCWSTR wszLogicalPath,
     [in] LPCWSTR wszDatabaseName,
     [in] LPCWSTR wszPath,
     [in] LPCWSTR wszFilespec,
-    [in] DWORD dwBackupTypeMask);
+    [in, defaultvalue(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)] DWORD dwBackupTypeMask);
 
   HRESULT AddFilesToFileGroup(
     [in] LPCWSTR wszLogicalPath,
@@ -388,7 +388,7 @@ interface IVssCreateWriterMetadata
     [in] LPCWSTR wszFilespec,
     [in] boolean bRecursive,
     [in] LPCWSTR wszAlternateLocation,
-    [in] DWORD dwBackupTypeMask);
+    [in, defaultvalue(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)] DWORD dwBackupTypeMask);
 
   HRESULT SetRestoreMethod(
     [in] VSS_RESTOREMETHOD_ENUM method,
@@ -518,8 +518,8 @@ interface IVssCreateExpressWriterMetadata : IUnknown
     [in] boolean bRestoreMetadata,
     [in] boolean bNotifyOnBackupComplete,
     [in] boolean bSelectable,
-    [in] boolean bSelectableForRestore,
-    [in] DWORD dwComponentFlags);
+    [in, defaultvalue(0)] boolean bSelectableForRestore,
+    [in, defaultvalue(0)] DWORD dwComponentFlags);
 
   HRESULT AddFilesToFileGroup(
     [in] LPCWSTR wszLogicalPath,
@@ -528,7 +528,7 @@ interface IVssCreateExpressWriterMetadata : IUnknown
     [in] LPCWSTR wszFilespec,
     [in] boolean bRecursive,
     [in] LPCWSTR wszAlternateLocation,
-    [in] DWORD dwBackupTypeMask);
+    [in, defaultvalue(VSS_FSBT_ALL_BACKUP_REQUIRED | VSS_FSBT_ALL_SNAPSHOT_REQUIRED)] DWORD dwBackupTypeMask);
 
   HRESULT SetRestoreMethod(
     [in] VSS_RESTOREMETHOD_ENUM method,
