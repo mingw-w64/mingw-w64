@@ -157,13 +157,13 @@ interface IVssBackupComponents : IUnknown
     [out] IVssWriterComponentsExt **ppWriter);
 
   HRESULT InitializeForBackup(
-    [in] BSTR bstrXML);
+    [in, defaultvalue(NULL)] BSTR bstrXML);
 
   HRESULT SetBackupState(
     [in] boolean bSelectComponents,
     [in] boolean bBackupBootableSystemState,
     [in] VSS_BACKUP_TYPE backupType,
-    [in] boolean bPartialFileSupport);
+    [in, defaultvalue(0)] boolean bPartialFileSupport);
 
   HRESULT InitializeForRestore(
     [in] BSTR bstrXML);
@@ -452,13 +452,13 @@ interface IVssBackupComponentsEx3 : IVssBackupComponentsEx2
     [out] BSTR *pbstrWriter,
     [out] VSS_WRITER_STATE *pnStatus,
     [out] HRESULT *phrFailureWriter,
-    [out] HRESULT *phrApplication,
-    [out] BSTR *pbstrApplicationMessage);
+    [out, defaultvalue(NULL)] HRESULT *phrApplication,
+    [out, defaultvalue(NULL)] BSTR *pbstrApplicationMessage);
 
   HRESULT AddSnapshotToRecoverySet(
     [in] VSS_ID snapshotId,
     [in] DWORD dwFlags,
-    [in] VSS_PWSZ pwszDestinationVolume);
+    [in, defaultvalue(NULL)] VSS_PWSZ pwszDestinationVolume);
 
   HRESULT RecoverSet(
     [in] DWORD dwFlags,
@@ -475,7 +475,7 @@ interface IVssBackupComponentsEx4 : IVssBackupComponentsEx3
     [in] VSS_PWSZ pwszFilePath,
     [out] VSS_PWSZ *ppwszRootPath,
     [out] VSS_PWSZ *ppwszLogicalPrefix,
-    [in] WINBOOL bNormalizeFQDNforRootPath);
+    [in, defaultvalue(FALSE)] WINBOOL bNormalizeFQDNforRootPath);
 }
 
 cpp_quote("#define VSS_SW_BOOTABLE_STATE (1 << 0)")
