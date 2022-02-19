@@ -8,7 +8,7 @@
 #define _UCRT
 #include <stdio.h>
 
-int _vscprintf(const char * __restrict__ _Format, va_list _ArgList)
+int __cdecl _vscprintf(const char * __restrict__ _Format, va_list _ArgList)
 {
   return __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
 }

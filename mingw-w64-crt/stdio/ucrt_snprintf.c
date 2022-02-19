@@ -8,7 +8,7 @@
 #define _UCRT
 #include <stdio.h>
 
-int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
+int __cdecl snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
 {
   __builtin_va_list ap;
   int ret;
