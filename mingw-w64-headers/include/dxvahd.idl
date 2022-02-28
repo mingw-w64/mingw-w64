@@ -388,13 +388,9 @@ cpp_quote("} DXVAHDSW_CALLBACKS;")
 cpp_quote("")
 cpp_quote("HRESULT DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_DESC *pContentDesc,DXVAHD_DEVICE_USAGE Usage,PDXVAHDSW_Plugin pPlugin,IDXVAHD_Device **ppDevice);")
 cpp_quote("")
-cpp_quote("#ifdef __GNUC__")
-cpp_quote("#warning COM interfaces layout in this header has not been verified.")
-cpp_quote("#warning COM interfaces with incorrect layout may not work at all.")
-cpp_quote("__MINGW_BROKEN_INTERFACE(INTERFACE)")
-cpp_quote("#endif")
 [
     object,
+    uuid(95f12dfd-d77e-49be-815f-57d579634d6d),
     local
 ]
 interface IDXVAHD_Device : IUnknown
@@ -409,13 +405,9 @@ interface IDXVAHD_Device : IUnknown
     HRESULT CreateVideoProcessor(const GUID *pVPGuid,IDXVAHD_VideoProcessor **ppVideoProcessor);
 };
 
-cpp_quote("#ifdef __GNUC__")
-cpp_quote("#warning COM interfaces layout in this header has not been verified.")
-cpp_quote("#warning COM interfaces with incorrect layout may not work at all.")
-cpp_quote("__MINGW_BROKEN_INTERFACE(INTERFACE)")
-cpp_quote("#endif")
 [
     object,
+    uuid(95f4edf4-6e03-4cd7-be1b-3075d665aa52),
     local
 ]
 interface IDXVAHD_VideoProcessor : IUnknown
