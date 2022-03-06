@@ -1,0 +1,6 @@
+CREATE libmsvcr71.a
+ADDLIB libmsvcr71_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcr71_extra.a
+SAVE
+END
