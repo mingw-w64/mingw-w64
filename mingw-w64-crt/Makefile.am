@@ -430,6 +430,7 @@ src_crtdll=\
   misc/seterrno.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
+  stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
 src_msvcr120_app=\
