@@ -7,12 +7,6 @@
 #include <internal.h>
 #include <math.h>
 
-/* Define __initenv and __winitenv as crtdll.dll does not provide them */
-static char ** local__initenv;
-static wchar_t ** local__winitenv;
-char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
-wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
-
 /* Define dummy __setusermatherr() function as crtdll.dll does not provide it */
 #undef __setusermatherr
 void __setusermatherr(__UNUSED_PARAM(int (__cdecl *f)(struct _exception *))) { }

@@ -111,11 +111,6 @@ unsigned int __cdecl _get_output_format(void)
   return 0;
 }
 
-static char ** local__initenv;
-static wchar_t ** local__winitenv;
-char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
-wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
-
 
 // These are required to provide the unrepfixed data symbols "timezone"
 // and "tzname"; we can't remap "timezone" via a define due to clashes

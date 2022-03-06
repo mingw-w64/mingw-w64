@@ -238,6 +238,7 @@ src_msvcrt=\
 src_ucrtbase=\
   crt/ucrtbase_compat.c \
   math/_huge.c \
+  misc/__initenv.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \
@@ -418,6 +419,7 @@ src_msvcr80_64=\
 src_crtdll=\
   crt/crtdll_compat.c \
   misc/___mb_cur_max_func.c \
+  misc/__initenv.c \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
