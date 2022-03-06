@@ -732,6 +732,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     return __ret;
   }
   __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
   int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...)
   {
     __builtin_va_list __ap;
@@ -745,6 +746,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   __MINGW_ATTRIB_PURE
   __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
   _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
+  __attribute__((__format__ (ms_scanf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
   _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
   __MINGW_ATTRIB_PURE
