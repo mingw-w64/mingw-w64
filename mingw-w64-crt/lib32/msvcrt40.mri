@@ -1,0 +1,6 @@
+CREATE libmsvcrt40.a
+ADDLIB libmsvcrt40_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcrt40_extra.a
+SAVE
+END
