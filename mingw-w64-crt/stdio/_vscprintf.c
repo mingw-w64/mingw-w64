@@ -4,7 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <windows.h>
-#include <msvcrt.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -53,6 +52,14 @@ static int __cdecl emu_vscprintf(const char * __restrict__ format, va_list argli
     return ret;
 }
 
+#ifndef __LIBMSVCRT_OS__
+
+int (__cdecl *__MINGW_IMP_SYMBOL(_vscprintf))(const char * __restrict__, va_list) = emu_vscprintf;
+
+#else
+
+#include <msvcrt.h>
+
 static int __cdecl init_vscprintf(const char * __restrict__ format, va_list arglist);
 
 int (__cdecl *__MINGW_IMP_SYMBOL(_vscprintf))(const char * __restrict__, va_list) = init_vscprintf;
@@ -70,6 +77,8 @@ static int __cdecl init_vscprintf(const char * __restrict__ format, va_list argl
 
     return (__MINGW_IMP_SYMBOL(_vscprintf) = func)(format, arglist);
 }
+
+#endif
 
 int __cdecl _vscprintf(const char * __restrict__ format, va_list arglist)
 {

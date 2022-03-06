@@ -425,6 +425,9 @@ src_crtdll=\
   misc/__set_app_type.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/seterrno.c \
+  stdio/_scprintf.c \
+  stdio/_vscprintf.c \
   stdio/mingw_lock.c
 
 src_msvcr120_app=\
