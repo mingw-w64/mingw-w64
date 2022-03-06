@@ -451,6 +451,18 @@ src_msvcrt10=\
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
+src_msvcrt20=\
+  misc/___mb_cur_max_func.c \
+  misc/__set_app_type.c \
+  misc/dummy__setusermatherr.c \
+  misc/invalid_parameter_handler.c \
+  misc/lc_locale_func.c \
+  misc/seterrno.c \
+  stdio/_scprintf.c \
+  stdio/_vscprintf.c \
+  stdio/mingw_dummy__lock.c \
+  stdio/mingw_lock.c
+
 src_msvcr120_app=\
   misc/__set_app_type.c \
   misc/_getpid.c
@@ -895,6 +907,10 @@ lib32_DATA += lib32/libmsvcrt10.a
 lib32/libmsvcrt10.a: lib32/msvcrt10.mri lib32/libmsvcrt10_def.a lib32/libmsvcrt_common.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
+lib32_DATA += lib32/libmsvcrt20.a
+lib32/libmsvcrt20.a: lib32/msvcrt20.mri lib32/libmsvcrt20_def.a lib32/libmsvcrt_common.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
 lib32_DATA += lib32/libmsvcr80.a
 lib32/libmsvcr80.a: lib-common/msvcr80.mri lib32/libmsvcr80_def.a lib32/libmsvcrt_common.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
@@ -932,11 +948,13 @@ lib32/libucrtbase.a: lib-common/ucrtbase.mri lib32/libucrtbase_def.a lib32/libuc
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrt.a lib32/libucrtapp.a
-noinst_LIBRARIES += lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
+noinst_LIBRARIES += lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt20_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
 lib32_libcrtdll_extra_a_SOURCES = $(src_crtdll)
 lib32_libcrtdll_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt10_extra_a_SOURCES = $(src_msvcrt10)
 lib32_libmsvcrt10_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+lib32_libmsvcrt20_extra_a_SOURCES = $(src_msvcrt20)
+lib32_libmsvcrt20_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common)
 lib32_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt_extra_a_SOURCES = $(src_msvcrt32)

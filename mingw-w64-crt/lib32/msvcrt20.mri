@@ -1,0 +1,6 @@
+CREATE libmsvcrt20.a
+ADDLIB libmsvcrt20_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcrt20_extra.a
+SAVE
+END
