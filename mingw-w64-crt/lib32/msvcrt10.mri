@@ -1,0 +1,6 @@
+CREATE libmsvcrt10.a
+ADDLIB libmsvcrt10_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcrt10_extra.a
+SAVE
+END
