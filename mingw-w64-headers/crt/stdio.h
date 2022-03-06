@@ -721,6 +721,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #ifdef _UCRT
   __mingw_ovr
   __MINGW_ATTRIB_PURE
+  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
   int __cdecl _scprintf(const char * __restrict__ _Format,...)
   {
     __builtin_va_list __ap;
@@ -742,10 +743,12 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   }
 #else
   __MINGW_ATTRIB_PURE
+  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
   _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
   _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
   __MINGW_ATTRIB_PURE
+  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
   FILE *__cdecl tmpfile(void) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char *__cdecl tmpnam(char *_Buffer);
