@@ -5,11 +5,6 @@
  */
 
 #include <internal.h>
-#include <math.h>
-
-/* Define dummy __setusermatherr() function as crtdll.dll does not provide it */
-#undef __setusermatherr
-void __setusermatherr(__UNUSED_PARAM(int (__cdecl *f)(struct _exception *))) { }
 
 /* Define __getmainargs() function via crtdll.dll __GetMainArgs() function */
 extern void __GetMainArgs(int *argc, char ***argv, char ***envp, int expand_wildcards);

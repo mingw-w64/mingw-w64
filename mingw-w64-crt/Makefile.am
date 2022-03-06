@@ -425,6 +425,7 @@ src_crtdll=\
   misc/__p__commode.c \
   misc/__p__fmode.c \
   misc/__set_app_type.c \
+  misc/dummy__setusermatherr.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
