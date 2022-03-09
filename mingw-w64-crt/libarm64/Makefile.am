@@ -310,6 +310,7 @@ libarm64_DATA += %reldir%/libvirtdisk.a
 libarm64_DATA += %reldir%/libw32time.a
 libarm64_DATA += %reldir%/libw32topl.a
 libarm64_DATA += %reldir%/libwdigest.a
+libarm64_DATA += %reldir%/libwebauthn.a
 libarm64_DATA += %reldir%/libwebclnt.a
 libarm64_DATA += %reldir%/libwebsocket.a
 libarm64_DATA += %reldir%/libwecapi.a

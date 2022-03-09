@@ -877,6 +877,7 @@ libarm32_DATA += %reldir%/libwdiasqmmodule.a
 libarm32_DATA += %reldir%/libwdi.a
 libarm32_DATA += %reldir%/libwdigest.a
 libarm32_DATA += %reldir%/libwdscore.a
+libarm32_DATA += %reldir%/libwebauthn.a
 libarm32_DATA += %reldir%/libwebclnt.a
 libarm32_DATA += %reldir%/libwebio.a
 libarm32_DATA += %reldir%/libwebservices.a

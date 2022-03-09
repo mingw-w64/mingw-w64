@@ -642,6 +642,7 @@ lib64_DATA += %reldir%/libwbemcore.a
 lib64_DATA += %reldir%/libwbemupgd.a
 lib64_DATA += %reldir%/libwdigest.a
 lib64_DATA += %reldir%/libwdmaud.a
+lib64_DATA += %reldir%/libwebauthn.a
 lib64_DATA += %reldir%/libwebcheck.a
 lib64_DATA += %reldir%/libwebclnt.a
 lib64_DATA += %reldir%/libwebhits.a
