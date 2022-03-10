@@ -105,6 +105,7 @@ libarm64_DATA += %reldir%/libfilemgmt.a
 libarm64_DATA += %reldir%/libfltlib.a
 libarm64_DATA += %reldir%/libfmifs.a
 libarm64_DATA += %reldir%/libfontsub.a
+libarm64_DATA += %reldir%/libfwpuclnt.a
 libarm64_DATA += %reldir%/libgdi32.a
 #libarm64_DATA += %reldir%/libgdiplus.a  # Handled by custom rule
 libarm64_DATA += %reldir%/libgetuname.a
