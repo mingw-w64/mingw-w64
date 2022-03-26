@@ -64,6 +64,7 @@ libarm32_DATA += %reldir%/libbrowcli.a
 libarm32_DATA += %reldir%/libbrowser.a
 libarm32_DATA += %reldir%/libbthci.a
 libarm32_DATA += %reldir%/libbthpanapi.a
+libarm32_DATA += %reldir%/libbthprops.a
 libarm32_DATA += %reldir%/libbthsqm.a
 libarm32_DATA += %reldir%/libcabinet.a
 libarm32_DATA += %reldir%/libcabview.a

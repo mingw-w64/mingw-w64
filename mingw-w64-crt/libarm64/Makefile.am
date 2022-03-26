@@ -17,6 +17,7 @@ libarm64_DATA += %reldir%/libbootvid.a
 libarm64_DATA += %reldir%/libbrowcli.a
 libarm64_DATA += %reldir%/libbrowser.a
 libarm64_DATA += %reldir%/libbthci.a
+libarm64_DATA += %reldir%/libbthprops.a
 libarm64_DATA += %reldir%/libcabinet.a
 libarm64_DATA += %reldir%/libcabview.a
 libarm64_DATA += %reldir%/libcfgbkend.a
