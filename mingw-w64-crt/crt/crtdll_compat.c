@@ -7,7 +7,7 @@
 #include <internal.h>
 
 /* Define __getmainargs() function via crtdll.dll __GetMainArgs() function */
-extern void __GetMainArgs(int *argc, char ***argv, char ***envp, int expand_wildcards);
+extern void __cdecl __GetMainArgs(int *argc, char ***argv, char ***envp, int expand_wildcards);
 int __cdecl __getmainargs(int *argc, char ***argv, char ***envp, int expand_wildcards, __UNUSED_PARAM(_startupinfo *startup_info))
 {
   __GetMainArgs(argc, argv, envp, expand_wildcards);
