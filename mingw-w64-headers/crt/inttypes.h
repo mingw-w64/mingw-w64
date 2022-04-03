@@ -28,7 +28,7 @@ typedef struct {
  * length specifier. It appears to treat "ll" as "l".
  * The non-standard I64 length specifier causes warning in GCC,
  * but understood by MS runtime functions.
- * crtdll.dll runtime does not support any 64-bit modifier.
+ * crtdll.dll and msvcrt10.dll do not support any 64-bit modifier.
  */
 #if defined(_UCRT) || __USE_MINGW_ANSI_STDIO
 #define PRId64 "lld"
@@ -37,7 +37,7 @@ typedef struct {
 #define PRIu64 "llu"
 #define PRIx64 "llx"
 #define PRIX64 "llX"
-#elif !defined(__CRTDLL__)
+#elif !defined(__CRTDLL__) && __MSVCRT_VERSION__ >= 0x200
 #define PRId64 "I64d"
 #define PRIi64 "I64i"
 #define PRIo64 "I64o"
@@ -279,9 +279,9 @@ typedef struct {
 #define SCNuFAST8 "hhu"
 #endif /* __STDC_VERSION__ >= 199901 */
 
-#if defined(__CRTDLL__) && !defined(__USE_MINGW_ANSI_STDIO)
+#if (defined(__CRTDLL__) || __MSVCRT_VERSION__ < 0x200) && !defined(__USE_MINGW_ANSI_STDIO)
 /*
- * crtdll.dll runtime does not support any 64-bit modifier.
+ * crtdll.dll and msvcrt10.dll do not support any 64-bit modifier.
  * Undef all previously defined 64-bit modifiers.
  */
 #undef PRIdLEAST64
