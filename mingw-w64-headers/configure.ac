@@ -148,6 +148,21 @@ AC_ARG_WITH([default-msvcrt],
   [],
   [with_default_msvcrt=msvcrt])
 case $with_default_msvcrt in
+msvcrt10*)
+  default_msvcrt_version=0x100
+  ;;
+msvcrt20*)
+  default_msvcrt_version=0x200
+  ;;
+msvcrt40*)
+  default_msvcrt_version=0x400
+  ;;
+msvcr70*)
+  default_msvcrt_version=0x700
+  ;;
+msvcr71*)
+  default_msvcrt_version=0x701
+  ;;
 msvcr80*)
   default_msvcrt_version=0x800
   ;;
