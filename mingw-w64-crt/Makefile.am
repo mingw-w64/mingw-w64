@@ -116,6 +116,7 @@ src_libsensorsapi=libsrc/sensorsapi.c
 src_libportabledeviceguids=libsrc/portabledeviceguids.c
 src_libtaskschd=libsrc/taskschd.c
 src_libntoskrnl=libsrc/memcmp.c
+src_libdloadhelper=libsrc/dloadhelper.c misc/delay-f.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/crt0_c.c        crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
@@ -870,6 +871,10 @@ lib32_LIBRARIES += lib32/libadsiid.a
 lib32_libadsiid_a_SOURCES = $(src_adsiid)
 lib32_libadsiid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libdloadhelper.a
+lib32_libdloadhelper_a_SOURCES = $(src_libdloadhelper)
+lib32_libdloadhelper_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
@@ -1227,6 +1232,10 @@ lib64_LIBRARIES += lib64/libadsiid.a
 lib64_libadsiid_a_SOURCES = $(src_adsiid)
 lib64_libadsiid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
+lib64_LIBRARIES += lib64/libdloadhelper.a
+lib64_libdloadhelper_a_SOURCES = $(src_libdloadhelper)
+lib64_libdloadhelper_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
 if !W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
@@ -1557,6 +1566,10 @@ libarm32_LIBRARIES += libarm32/libadsiid.a
 libarm32_libadsiid_a_SOURCES = $(src_adsiid)
 libarm32_libadsiid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
+libarm32_LIBRARIES += libarm32/libdloadhelper.a
+libarm32_libdloadhelper_a_SOURCES = $(src_libdloadhelper)
+libarm32_libdloadhelper_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
 if !W32API
 libarm32_LIBRARIES += libarm32/libdelayimp.a
 libarm32_libdelayimp_a_SOURCES =
@@ -1838,6 +1851,10 @@ EXTRA_libarm64_libws2_32_a_DEPENDENCIES=libarm64/ws2_32.def
 libarm64_LIBRARIES += libarm64/libadsiid.a
 libarm64_libadsiid_a_SOURCES = $(src_adsiid)
 libarm64_libadsiid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdloadhelper.a
+libarm64_libdloadhelper_a_SOURCES = $(src_libdloadhelper)
+libarm64_libdloadhelper_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 if !W32API
 libarm64_LIBRARIES += libarm64/libdelayimp.a
