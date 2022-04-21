@@ -1429,7 +1429,18 @@ typedef enum D3D12_LOGIC_OP {
     D3D12_LOGIC_OP_SET = 1,
     D3D12_LOGIC_OP_COPY = 2,
     D3D12_LOGIC_OP_COPY_INVERTED = 3,
-    D3D12_LOGIC_OP_NOOP = 4
+    D3D12_LOGIC_OP_NOOP = 4,
+    D3D12_LOGIC_OP_INVERT = 5,
+    D3D12_LOGIC_OP_AND = 6,
+    D3D12_LOGIC_OP_NAND = 7,
+    D3D12_LOGIC_OP_OR = 8,
+    D3D12_LOGIC_OP_NOR = 9,
+    D3D12_LOGIC_OP_XOR = 10,
+    D3D12_LOGIC_OP_EQUIV = 11,
+    D3D12_LOGIC_OP_AND_REVERSE = 12,
+    D3D12_LOGIC_OP_AND_INVERTED = 13,
+    D3D12_LOGIC_OP_OR_REVERSE = 14,
+    D3D12_LOGIC_OP_OR_INVERTED = 15
 } D3D12_LOGIC_OP;
 typedef enum D3D12_COLOR_WRITE_ENABLE {
     D3D12_COLOR_WRITE_ENABLE_RED = 0x1,
@@ -3078,7 +3089,7 @@ ID3D12GraphicsCommandList : public ID3D12CommandList
         ID3D12CommandAllocator *allocator,
         ID3D12PipelineState *initial_state) = 0;
 
-    virtual HRESULT STDMETHODCALLTYPE ClearState(
+    virtual void STDMETHODCALLTYPE ClearState(
         ID3D12PipelineState *pipeline_state) = 0;
 
     virtual void STDMETHODCALLTYPE DrawInstanced(
@@ -3382,7 +3393,7 @@ typedef struct ID3D12GraphicsCommandListVtbl {
         ID3D12CommandAllocator *allocator,
         ID3D12PipelineState *initial_state);
 
-    HRESULT (STDMETHODCALLTYPE *ClearState)(
+    void (STDMETHODCALLTYPE *ClearState)(
         ID3D12GraphicsCommandList *This,
         ID3D12PipelineState *pipeline_state);
 
@@ -3786,8 +3797,8 @@ static FORCEINLINE HRESULT ID3D12GraphicsCommandList_Close(ID3D12GraphicsCommand
 static FORCEINLINE HRESULT ID3D12GraphicsCommandList_Reset(ID3D12GraphicsCommandList* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
     return This->lpVtbl->Reset(This,allocator,initial_state);
 }
-static FORCEINLINE HRESULT ID3D12GraphicsCommandList_ClearState(ID3D12GraphicsCommandList* This,ID3D12PipelineState *pipeline_state) {
-    return This->lpVtbl->ClearState(This,pipeline_state);
+static FORCEINLINE void ID3D12GraphicsCommandList_ClearState(ID3D12GraphicsCommandList* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
 }
 static FORCEINLINE void ID3D12GraphicsCommandList_DrawInstanced(ID3D12GraphicsCommandList* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
     This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);
@@ -4054,7 +4065,7 @@ typedef struct ID3D12GraphicsCommandList1Vtbl {
         ID3D12CommandAllocator *allocator,
         ID3D12PipelineState *initial_state);
 
-    HRESULT (STDMETHODCALLTYPE *ClearState)(
+    void (STDMETHODCALLTYPE *ClearState)(
         ID3D12GraphicsCommandList1 *This,
         ID3D12PipelineState *pipeline_state);
 
@@ -4513,8 +4524,8 @@ static FORCEINLINE HRESULT ID3D12GraphicsCommandList1_Close(ID3D12GraphicsComman
 static FORCEINLINE HRESULT ID3D12GraphicsCommandList1_Reset(ID3D12GraphicsCommandList1* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
     return This->lpVtbl->Reset(This,allocator,initial_state);
 }
-static FORCEINLINE HRESULT ID3D12GraphicsCommandList1_ClearState(ID3D12GraphicsCommandList1* This,ID3D12PipelineState *pipeline_state) {
-    return This->lpVtbl->ClearState(This,pipeline_state);
+static FORCEINLINE void ID3D12GraphicsCommandList1_ClearState(ID3D12GraphicsCommandList1* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
 }
 static FORCEINLINE void ID3D12GraphicsCommandList1_DrawInstanced(ID3D12GraphicsCommandList1* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
     This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);
@@ -4764,7 +4775,7 @@ typedef struct ID3D12GraphicsCommandList2Vtbl {
         ID3D12CommandAllocator *allocator,
         ID3D12PipelineState *initial_state);
 
-    HRESULT (STDMETHODCALLTYPE *ClearState)(
+    void (STDMETHODCALLTYPE *ClearState)(
         ID3D12GraphicsCommandList2 *This,
         ID3D12PipelineState *pipeline_state);
 
@@ -5232,8 +5243,8 @@ static FORCEINLINE HRESULT ID3D12GraphicsCommandList2_Close(ID3D12GraphicsComman
 static FORCEINLINE HRESULT ID3D12GraphicsCommandList2_Reset(ID3D12GraphicsCommandList2* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
     return This->lpVtbl->Reset(This,allocator,initial_state);
 }
-static FORCEINLINE HRESULT ID3D12GraphicsCommandList2_ClearState(ID3D12GraphicsCommandList2* This,ID3D12PipelineState *pipeline_state) {
-    return This->lpVtbl->ClearState(This,pipeline_state);
+static FORCEINLINE void ID3D12GraphicsCommandList2_ClearState(ID3D12GraphicsCommandList2* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
 }
 static FORCEINLINE void ID3D12GraphicsCommandList2_DrawInstanced(ID3D12GraphicsCommandList2* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
     This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);

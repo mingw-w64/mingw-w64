@@ -18,137 +18,280 @@
 
 /* Forward declarations */
 
-#ifndef ____x_ABI_CWindows_CSystem_CIDispatcherQueueController_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSystem_CIDispatcherQueueController_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSystem_CIDispatcherQueueController __x_ABI_CWindows_CSystem_CIDispatcherQueueController;
+#ifndef ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIUserChangedEventArgs __x_ABI_CWindows_CSystem_CIUserChangedEventArgs;
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController ABI::Windows::System::IDispatcherQueueController
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs ABI::Windows::System::IUserChangedEventArgs
 namespace ABI {
     namespace Windows {
         namespace System {
-            interface IDispatcherQueueController;
+            interface IUserChangedEventArgs;
         }
     }
 }
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CSystem_CUser_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CUser_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            class User;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CSystem_CUser __x_ABI_CWindows_CSystem_CUser;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CSystem_CUser_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CSystem_CUserChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CUserChangedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            class UserChangedEventArgs;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CSystem_CUserChangedEventArgs __x_ABI_CWindows_CSystem_CUserChangedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CSystem_CUserChangedEventArgs_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <inspectable.h>
+#include <asyncinfo.h>
+#include <eventtoken.h>
+#include <windowscontracts.h>
+#include <windows.foundation.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/*****************************************************************************
- * IDispatcherQueueController interface
- */
-#ifndef ____x_ABI_CWindows_CSystem_CIDispatcherQueueController_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CSystem_CIDispatcherQueueController_INTERFACE_DEFINED__
+#ifndef ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIUser __x_ABI_CWindows_CSystem_CIUser;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CIUser ABI::Windows::System::IUser
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IUser;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
 
-DEFINE_GUID(IID___x_ABI_CWindows_CSystem_CIDispatcherQueueController, 0x22f34e66, 0x50db, 0x4e36, 0xa9,0x8d, 0x61,0xc0,0x1b,0x38,0x4d,0x20);
+#ifndef ____x_ABI_CWindows_CSystem_CIUserStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUserStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIUserStatics __x_ABI_CWindows_CSystem_CIUserStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CIUserStatics ABI::Windows::System::IUserStatics
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IUserStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIUserChangedEventArgs __x_ABI_CWindows_CSystem_CIUserChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs ABI::Windows::System::IUserChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IUserChangedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIUserChangedEventArgs2 __x_ABI_CWindows_CSystem_CIUserChangedEventArgs2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs2 ABI::Windows::System::IUserChangedEventArgs2
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IUserChangedEventArgs2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUserChangedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CSystem_CIUserChangedEventArgs, 0x086459dc, 0x18c6, 0x48db, 0xbc,0x99, 0x72,0x4f,0xb9,0x20,0x3c,0xcc);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace System {
-            MIDL_INTERFACE("22f34e66-50db-4e36-a98d-61c01b384d20")
-            IDispatcherQueueController : public IInspectable
+            MIDL_INTERFACE("086459dc-18c6-48db-bc99-724fb9203ccc")
+            IUserChangedEventArgs : public IInspectable
             {
+                virtual HRESULT STDMETHODCALLTYPE get_User(
+                    ABI::Windows::System::IUser **value) = 0;
+
             };
         }
     }
 }
 extern "C" {
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__x_ABI_CWindows_CSystem_CIDispatcherQueueController, 0x22f34e66, 0x50db, 0x4e36, 0xa9,0x8d, 0x61,0xc0,0x1b,0x38,0x4d,0x20)
+__CRT_UUID_DECL(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs, 0x086459dc, 0x18c6, 0x48db, 0xbc,0x99, 0x72,0x4f,0xb9,0x20,0x3c,0xcc)
 #endif
 #else
-typedef struct __x_ABI_CWindows_CSystem_CIDispatcherQueueControllerVtbl {
+typedef struct __x_ABI_CWindows_CSystem_CIUserChangedEventArgsVtbl {
     BEGIN_INTERFACE
 
     /*** IUnknown methods ***/
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This,
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This,
         REFIID riid,
         void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This);
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This);
 
     ULONG (STDMETHODCALLTYPE *Release)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This);
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This);
 
     /*** IInspectable methods ***/
     HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This,
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This,
         ULONG *iidCount,
         IID **iids);
 
     HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This,
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This,
         HSTRING *className);
 
     HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __x_ABI_CWindows_CSystem_CIDispatcherQueueController *This,
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This,
         TrustLevel *trustLevel);
 
-    END_INTERFACE
-} __x_ABI_CWindows_CSystem_CIDispatcherQueueControllerVtbl;
+    /*** IUserChangedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_User)(
+        __x_ABI_CWindows_CSystem_CIUserChangedEventArgs *This,
+        __x_ABI_CWindows_CSystem_CIUser **value);
 
-interface __x_ABI_CWindows_CSystem_CIDispatcherQueueController {
-    CONST_VTBL __x_ABI_CWindows_CSystem_CIDispatcherQueueControllerVtbl* lpVtbl;
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CIUserChangedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CSystem_CIUserChangedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CSystem_CIUserChangedEventArgsVtbl* lpVtbl;
 };
 
 #ifdef COBJMACROS
 #ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_Release(This) (This)->lpVtbl->Release(This)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
 /*** IInspectable methods ***/
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUserChangedEventArgs methods ***/
+#define __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_get_User(This,value) (This)->lpVtbl->get_User(This,value)
 #else
 /*** IUnknown methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIDispatcherQueueController_QueryInterface(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This,REFIID riid,void **ppvObject) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_QueryInterface(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This,REFIID riid,void **ppvObject) {
     return This->lpVtbl->QueryInterface(This,riid,ppvObject);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CSystem_CIDispatcherQueueController_AddRef(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This) {
+static FORCEINLINE ULONG __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_AddRef(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This) {
     return This->lpVtbl->AddRef(This);
 }
-static FORCEINLINE ULONG __x_ABI_CWindows_CSystem_CIDispatcherQueueController_Release(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This) {
+static FORCEINLINE ULONG __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_Release(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This) {
     return This->lpVtbl->Release(This);
 }
 /*** IInspectable methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetIids(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This,ULONG *iidCount,IID **iids) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetIids(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This,ULONG *iidCount,IID **iids) {
     return This->lpVtbl->GetIids(This,iidCount,iids);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetRuntimeClassName(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This,HSTRING *className) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This,HSTRING *className) {
     return This->lpVtbl->GetRuntimeClassName(This,className);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetTrustLevel(__x_ABI_CWindows_CSystem_CIDispatcherQueueController* This,TrustLevel *trustLevel) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetTrustLevel(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This,TrustLevel *trustLevel) {
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUserChangedEventArgs methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_get_User(__x_ABI_CWindows_CSystem_CIUserChangedEventArgs* This,__x_ABI_CWindows_CSystem_CIUser **value) {
+    return This->lpVtbl->get_User(This,value);
 }
 #endif
 #ifdef WIDL_using_Windows_System
-#define IID_IDispatcherQueueController IID___x_ABI_CWindows_CSystem_CIDispatcherQueueController
-#define IDispatcherQueueControllerVtbl __x_ABI_CWindows_CSystem_CIDispatcherQueueControllerVtbl
-#define IDispatcherQueueController __x_ABI_CWindows_CSystem_CIDispatcherQueueController
-#define IDispatcherQueueController_QueryInterface __x_ABI_CWindows_CSystem_CIDispatcherQueueController_QueryInterface
-#define IDispatcherQueueController_AddRef __x_ABI_CWindows_CSystem_CIDispatcherQueueController_AddRef
-#define IDispatcherQueueController_Release __x_ABI_CWindows_CSystem_CIDispatcherQueueController_Release
-#define IDispatcherQueueController_GetIids __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetIids
-#define IDispatcherQueueController_GetRuntimeClassName __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetRuntimeClassName
-#define IDispatcherQueueController_GetTrustLevel __x_ABI_CWindows_CSystem_CIDispatcherQueueController_GetTrustLevel
+#define IID_IUserChangedEventArgs IID___x_ABI_CWindows_CSystem_CIUserChangedEventArgs
+#define IUserChangedEventArgsVtbl __x_ABI_CWindows_CSystem_CIUserChangedEventArgsVtbl
+#define IUserChangedEventArgs __x_ABI_CWindows_CSystem_CIUserChangedEventArgs
+#define IUserChangedEventArgs_QueryInterface __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_QueryInterface
+#define IUserChangedEventArgs_AddRef __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_AddRef
+#define IUserChangedEventArgs_Release __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_Release
+#define IUserChangedEventArgs_GetIids __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetIids
+#define IUserChangedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetRuntimeClassName
+#define IUserChangedEventArgs_GetTrustLevel __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_GetTrustLevel
+#define IUserChangedEventArgs_get_User __x_ABI_CWindows_CSystem_CIUserChangedEventArgs_get_User
 #endif /* WIDL_using_Windows_System */
 #endif
 
 #endif
 
-#endif  /* ____x_ABI_CWindows_CSystem_CIDispatcherQueueController_INTERFACE_DEFINED__ */
+#endif  /* ____x_ABI_CWindows_CSystem_CIUserChangedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.System.User
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_System_User_DEFINED
+#define RUNTIMECLASS_Windows_System_User_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_System_User[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','U','s','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_User[] = L"Windows.System.User";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_User[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','U','s','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_System_User_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.System.UserChangedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_System_UserChangedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_System_UserChangedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_System_UserChangedEventArgs[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','U','s','e','r','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_UserChangedEventArgs[] = L"Windows.System.UserChangedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_UserChangedEventArgs[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','U','s','e','r','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_System_UserChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /* Begin additional prototypes for all interfaces */
 

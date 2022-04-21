@@ -144,31 +144,11 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                typedef enum WorkItemPriority WorkItemPriority;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority;
 #endif /* __cplusplus */
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                typedef enum WorkItemOptions WorkItemOptions;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions;
 #endif /* __cplusplus */
 

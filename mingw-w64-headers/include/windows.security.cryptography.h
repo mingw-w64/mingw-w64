@@ -78,17 +78,7 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Cryptography {
-                typedef enum BinaryStringEncoding BinaryStringEncoding;
-            }
-        }
-    }
-}
-#else /* __cplusplus */
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSecurity_CCryptography_CBinaryStringEncoding __x_ABI_CWindows_CSecurity_CCryptography_CBinaryStringEncoding;
 #endif /* __cplusplus */
 

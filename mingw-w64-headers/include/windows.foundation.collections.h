@@ -78,13 +78,11 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            namespace Collections {
-                template <class K, class V>
-                struct IMapView_impl;
+            template <class T>
+            struct IReference_impl;
 
-                template <class K, class V>
-                struct IMapView : IMapView_impl<K, V> {};
-            }
+            template <class T>
+            struct IReference : IReference_impl<T> {};
         }
     }
 }
@@ -127,11 +125,59 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             namespace Collections {
+                template <class K, class V>
+                struct IKeyValuePair_impl;
+
+                template <class K, class V>
+                struct IKeyValuePair : IKeyValuePair_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IMapView_impl;
+
+                template <class K, class V>
+                struct IMapView : IMapView_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
                 template <class T>
                 struct IVectorView_impl;
 
                 template <class T>
                 struct IVectorView : IVectorView_impl<T> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IVector_impl;
+
+                template <class T>
+                struct IVector : IVector_impl<T> {};
             }
         }
     }
@@ -216,7 +262,7 @@ namespace ABI {
                 typedef TResult TResult_complex;
                 virtual HRESULT STDMETHODCALLTYPE put_Completed(IAsyncOperationCompletedHandler<TResult_logical> *handler) = 0;
                 virtual HRESULT STDMETHODCALLTYPE get_Completed(IAsyncOperationCompletedHandler<TResult_logical> **handler) = 0;
-                virtual HRESULT STDMETHODCALLTYPE GetResults(TResult_abi **results) = 0;
+                virtual HRESULT STDMETHODCALLTYPE GetResults(TResult_abi *results) = 0;
             };
         }
     }
@@ -242,6 +288,103 @@ namespace ABI {
                 typedef TArgs TArgs_complex;
                 virtual HRESULT STDMETHODCALLTYPE Invoke(TSender_abi sender,TArgs_abi args) = 0;
             };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class T>
+            struct IReference_impl : IInspectable
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+            public:
+                typedef T T_complex;
+                virtual HRESULT STDMETHODCALLTYPE get_Value(T_abi *value) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IIterator_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE get_Current(T_abi *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_HasCurrent(WINBOOL *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE MoveNext(WINBOOL *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 items_size,T_abi *items,UINT32 *value) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IIterable_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE First(IIterator<T_logical> **value) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IKeyValuePair_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<K>::type     K_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<K>::type K_logical;
+                    typedef typename Windows::Foundation::Internal::GetAbiType<V>::type     V_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<V>::type V_logical;
+                public:
+                    typedef K K_complex;
+                    typedef V V_complex;
+                    virtual HRESULT STDMETHODCALLTYPE get_Key(K_abi *key) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Value(V_abi *value) = 0;
+                };
+            }
         }
     }
 }
@@ -284,55 +427,6 @@ namespace ABI {
         namespace Foundation {
             namespace Collections {
                 template <class T>
-                struct IIterator_impl : IInspectable
-                {
-                private:
-                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
-                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
-                public:
-                    typedef T T_complex;
-                    virtual HRESULT STDMETHODCALLTYPE get_Current(T_abi *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_HasCurrent(WINBOOL *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE MoveNext(WINBOOL *value) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 count,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
-                };
-            }
-        }
-    }
-}
-extern "C" {
-#endif
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                template <class T>
-                struct IIterable_impl : IInspectable
-                {
-                private:
-                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
-                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
-                public:
-                    typedef T T_complex;
-                    virtual HRESULT STDMETHODCALLTYPE First(IIterator<T_logical> **value) = 0;
-                };
-            }
-        }
-    }
-}
-extern "C" {
-#endif
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                template <class T>
                 struct IVectorView_impl : IInspectable
                 {
                 private:
@@ -344,6 +438,40 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE get_Size(UINT32 *value) = 0;
                     virtual HRESULT STDMETHODCALLTYPE IndexOf(T_abi element,UINT32 *index,BOOLEAN *value) = 0;
                     virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 start_index,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IVector_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE GetAt(UINT32 index,T_abi *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Size(UINT32 *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetView(IVectorView<T_logical> **value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE IndexOf(T_abi element,UINT32 *index,BOOLEAN *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE SetAt(UINT32 index,T_abi value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE InsertAt(UINT32 index,T_abi value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE RemoveAt(UINT32 index) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE Append(T_abi value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE RemoveAtEnd() = 0;
+                    virtual HRESULT STDMETHODCALLTYPE Clear() = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 start_index,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE ReplaceAll(UINT32 count,T_abi *items) = 0;
                 };
             }
         }
