@@ -212,6 +212,7 @@ for f in \
 	windows.foundation.collections \
 	windows.media \
 	windows.media.speechsynthesis \
+	windows.system \
 	wmdrmsdk \
 	wmp \
 	wmprealestate \
