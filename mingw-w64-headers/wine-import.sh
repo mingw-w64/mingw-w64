@@ -213,6 +213,7 @@ for f in \
 	windows.media \
 	windows.media.speechsynthesis \
 	windows.system \
+	windows.system.power \
 	wmdrmsdk \
 	wmp \
 	wmprealestate \

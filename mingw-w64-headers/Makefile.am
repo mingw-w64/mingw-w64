@@ -275,6 +275,7 @@ IDL_SRCS = \
   include/windows.storage.idl \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
+  include/windows.system.power.idl \
   include/windows.system.threading.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \
