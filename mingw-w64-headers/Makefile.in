@@ -577,6 +577,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.idl \
+@HAVE_WIDL_TRUE@  include/windows.system.power.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/windowscontracts.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
