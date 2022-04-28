@@ -467,7 +467,7 @@ typedef VOID           *PVOID64;
 typedef BYTE            BOOLEAN,    *PBOOLEAN;
 typedef char            CHAR,       *PCHAR;
 typedef short           SHORT,      *PSHORT;
-#ifdef WINE_USE_LONG
+#if !defined(__LP64__) && !defined(WINE_NO_LONG_TYPES)
 typedef long            LONG,       *PLONG;
 #else
 typedef int             LONG,       *PLONG;
@@ -604,7 +604,7 @@ typedef DWORD FLONG;
 
 /* Macro to deal with LP64 <=> LLP64 differences in numeric constants with 'l' modifier */
 #ifndef __MSABI_LONG
-# if defined(_MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__)
+#if !defined(__LP64__) && !defined(WINE_NO_LONG_TYPES)
 #  define __MSABI_LONG(x)         x ## l
 # else
 #  define __MSABI_LONG(x)         x
@@ -5861,6 +5861,7 @@ typedef enum _ACTIVATION_CONTEXT_INFO_CLASS {
 #define ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES                9
 #define ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS          10
 #define ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO            11
+#define ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES     12
 
 typedef enum _JOBOBJECTINFOCLASS
 {
@@ -6276,6 +6277,7 @@ typedef enum _PROCESS_MITIGATION_POLICY
 #define InterlockedDecrement16 _InterlockedDecrement16
 #define InterlockedExchange _InterlockedExchange
 #define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedExchangeAdd64 _InterlockedExchangeAdd64
 #define InterlockedExchangePointer _InterlockedExchangePointer
 #define InterlockedIncrement _InterlockedIncrement
 #define InterlockedIncrement16 _InterlockedIncrement16
@@ -6349,8 +6351,10 @@ static FORCEINLINE void MemoryBarrier(void)
 
 #elif defined(__x86_64__)
 
+#pragma intrinsic(_InterlockedExchangeAdd64)
 #pragma intrinsic(__faststorefence)
 
+long long _InterlockedExchangeAdd64(long long volatile *, long long);
 void __faststorefence(void);
 
 static FORCEINLINE void MemoryBarrier(void)
@@ -6366,6 +6370,10 @@ static FORCEINLINE void MemoryBarrier(void)
 }
 
 #elif defined(__aarch64__)
+
+#pragma intrinsic(_InterlockedExchangeAdd64)
+
+long long _InterlockedExchangeAdd64(long long volatile *, long long);
 
 static FORCEINLINE void MemoryBarrier(void)
 {
@@ -6432,6 +6440,11 @@ static FORCEINLINE LONG WINAPI InterlockedExchangeAdd( LONG volatile *dest, LONG
     return __sync_fetch_and_add( dest, incr );
 }
 
+static FORCEINLINE LONGLONG WINAPI InterlockedExchangeAdd64( LONGLONG volatile *dest, LONGLONG incr )
+{
+    return __sync_fetch_and_add( dest, incr );
+}
+
 static FORCEINLINE LONG WINAPI InterlockedIncrement( LONG volatile *dest )
 {
     return __sync_add_and_fetch( dest, 1 );
@@ -6492,10 +6505,6 @@ static FORCEINLINE void MemoryBarrier(void)
 
 #pragma intrinsic(_InterlockedCompareExchange128)
 unsigned char _InterlockedCompareExchange128(volatile __int64 *, __int64, __int64, __int64 *);
-static FORCEINLINE unsigned char WINAPI InterlockedCompareExchange128( volatile __int64 *dest, __int64 xchg_high, __int64 xchg_low, __int64 *compare )
-{
-    return _InterlockedCompareExchange128( dest, xchg_high, xchg_low, compare );
-}
 
 #else
 
@@ -6515,7 +6524,14 @@ static FORCEINLINE unsigned char InterlockedCompareExchange128( volatile __int64
 }
 
 #endif
-#endif
+
+#define InterlockedExchangeAddSizeT(a, b) InterlockedExchangeAdd64((LONGLONG *)(a), (b))
+
+#else /* _WIN64 */
+
+#define InterlockedExchangeAddSizeT(a, b) InterlockedExchangeAdd((LONG *)(a), (b))
+
+#endif /* _WIN64 */
 
 static FORCEINLINE void YieldProcessor(void)
 {

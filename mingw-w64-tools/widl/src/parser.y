@@ -70,8 +70,8 @@ static struct namespace *find_namespace_or_error(struct namespace *namespace, co
 
 static var_t *reg_const(var_t *var);
 
-static void push_namespace(const char *name);
-static void pop_namespace(const char *name);
+static void push_namespaces(str_list_t *names);
+static void pop_namespaces(str_list_t *names);
 static void push_parameters_namespace(const char *name);
 static void pop_parameters_namespace(const char *name);
 
@@ -293,7 +293,7 @@ static typelib_t *current_typelib;
 %type <type> dispinterfaceref
 %type <type> dispinterface dispinterfacedef
 %type <type> module moduledef
-%type <str> namespacedef
+%type <str_list> namespacedef
 %type <type> base_type int_std
 %type <type> enumdef structdef uniondef typedecl
 %type <type> type unqualified_type qualified_type
@@ -385,8 +385,8 @@ imp_decl_statements:				{ $$ = NULL; }
 imp_decl_block: tDECLARE '{' imp_decl_statements '}' { $$ = $3; }
 
 gbl_statements:					{ $$ = NULL; }
-	| gbl_statements namespacedef '{' { push_namespace($2); } gbl_statements '}'
-						{ pop_namespace($2); $$ = append_statements($1, $5); }
+	| gbl_statements namespacedef '{' { push_namespaces($2); } gbl_statements '}'
+						{ pop_namespaces($2); $$ = append_statements($1, $5); }
 	| gbl_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
 	| gbl_statements dispinterface ';'	{ $$ = append_statement($1, make_statement_reference($2)); }
 	| gbl_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
@@ -412,8 +412,8 @@ gbl_statements:					{ $$ = NULL; }
 imp_statements:					{ $$ = NULL; }
 	| imp_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
 	| imp_statements dispinterface ';'	{ $$ = append_statement($1, make_statement_reference($2)); }
-	| imp_statements namespacedef '{' { push_namespace($2); } imp_statements '}'
-						{ pop_namespace($2); $$ = append_statements($1, $5); }
+	| imp_statements namespacedef '{' { push_namespaces($2); } imp_statements '}'
+						{ pop_namespaces($2); $$ = append_statements($1, $5); }
 	| imp_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| imp_statements delegatedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| imp_statements coclass ';'		{ $$ = $1; reg_type($2, $2->name, current_namespace, 0); }
@@ -521,7 +521,7 @@ arg_list: arg					{ check_arg_attrs($1); $$ = append_var( NULL, $1 ); }
 	;
 
 args:	  arg_list
-	| arg_list ',' ELLIPSIS			{ $$ = append_var( $1, make_var(strdup("...")) ); }
+	| arg_list ',' ELLIPSIS			{ $$ = append_var( $1, make_var(xstrdup("...")) ); }
 	;
 
 /* split into two rules to get bison to resolve a tVOID conflict */
@@ -992,7 +992,8 @@ apicontract_def: attributes apicontract '{' '}' semicolon_opt
 						{ $$ = type_apicontract_define($2, $1); }
 	;
 
-namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = $2; }
+namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = append_str( NULL, $2 ); }
+	| namespacedef '.' aIDENTIFIER		{ $$ = append_str( $1, $3 ); }
 	;
 
 class_interfaces:				{ $$ = NULL; }
@@ -2041,6 +2042,20 @@ static void pop_namespace(const char *name)
   current_namespace = current_namespace->parent;
 }
 
+static void push_namespaces(str_list_t *names)
+{
+  const struct str_list_entry_t *name;
+  LIST_FOR_EACH_ENTRY(name, names, const struct str_list_entry_t, entry)
+    push_namespace(name->str);
+}
+
+static void pop_namespaces(str_list_t *names)
+{
+  const struct str_list_entry_t *name;
+  LIST_FOR_EACH_ENTRY_REV(name, names, const struct str_list_entry_t, entry)
+    pop_namespace(name->str);
+}
+
 static void push_parameters_namespace(const char *name)
 {
     struct namespace *namespace;
@@ -2311,7 +2326,7 @@ struct allowed_attr
 struct allowed_attr allowed_attr[] =
 {
     /* attr                        { D ACF M   I Fn ARG T En Enm St Un Fi L  DI M  C AC  R  <display name> } */
-    /* ATTR_ACTIVATABLE */         { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "activatable" },
+    /* ATTR_ACTIVATABLE */         { 0, 0, 1,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "activatable" },
     /* ATTR_AGGREGATABLE */        { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "aggregatable" },
     /* ATTR_ALLOCATE */            { 0, 1, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "allocate" },
     /* ATTR_ANNOTATION */          { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "annotation" },
@@ -3107,9 +3122,9 @@ static void check_async_uuid(type_t *iface)
         if (args) LIST_FOR_EACH_ENTRY(arg, args, var_t, entry)
         {
             if (is_attr(arg->attrs, ATTR_IN) || !is_attr(arg->attrs, ATTR_OUT))
-                begin_args = append_var(begin_args, copy_var(arg, strdup(arg->name), arg_in_attrs));
+                begin_args = append_var(begin_args, copy_var(arg, xstrdup(arg->name), arg_in_attrs));
             if (is_attr(arg->attrs, ATTR_OUT))
-                finish_args = append_var(finish_args, copy_var(arg, strdup(arg->name), arg_out_attrs));
+                finish_args = append_var(finish_args, copy_var(arg, xstrdup(arg->name), arg_out_attrs));
         }
 
         begin_func = copy_var(func, strmake("Begin_%s", func->name), NULL);
