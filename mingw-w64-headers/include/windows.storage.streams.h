@@ -52,29 +52,65 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-/* Headers for imported files */
-
-#include <inspectable.h>
-
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics;
 #ifdef __cplusplus
-extern "C" {
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory ABI::Windows::Storage::Streams::IBufferFactory
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics ABI::Windows::Storage::Streams::IBufferStatics
 namespace ABI {
     namespace Windows {
         namespace Storage {
             namespace Streams {
-                interface IBufferFactory;
+                interface IBufferStatics;
             }
         }
     }
 }
 #endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IRandomAccessStreamWithContentType;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                class Buffer;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CBuffer __x_ABI_CWindows_CStorage_CStreams_CBuffer;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__ */
+
+/* Headers for imported files */
+
+#include <inspectable.h>
+#include <eventtoken.h>
+#include <windows.foundation.h>
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_FWD_DEFINED__
@@ -94,9 +130,129 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory ABI::Windows::Storage::Streams::IBufferFactory
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IBufferFactory;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics ABI::Windows::Storage::Streams::IBufferStatics
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IBufferStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider ABI::Windows::Storage::Streams::IContentTypeProvider
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IContentTypeProvider;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIInputStream __x_ABI_CWindows_CStorage_CStreams_CIInputStream;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIInputStream ABI::Windows::Storage::Streams::IInputStream
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IInputStream;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream ABI::Windows::Storage::Streams::IOutputStream
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IOutputStream;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream ABI::Windows::Storage::Streams::IRandomAccessStream
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IRandomAccessStream;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IRandomAccessStreamWithContentType;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 /*****************************************************************************
  * IBuffer interface
  */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_INTERFACE_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_INTERFACE_DEFINED__
 
@@ -243,10 +399,12 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBuffer_put_Lengt
 #endif
 
 #endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
  * IBufferFactory interface
  */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_INTERFACE_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_INTERFACE_DEFINED__
 
@@ -371,6 +529,278 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_Cr
 #endif
 
 #endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIBufferFactory_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IBufferStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIBufferStatics, 0xe901e65b, 0xd716, 0x475a, 0xa9,0x0a, 0xaf,0x72,0x29,0xb1,0xe7,0x41);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("e901e65b-d716-475a-a90a-af7229b1e741")
+                IBufferStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE CreateCopyFromMemoryBuffer(
+                        ABI::Windows::Foundation::IMemoryBuffer *input,
+                        ABI::Windows::Storage::Streams::IBuffer **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateMemoryBufferOverIBuffer(
+                        ABI::Windows::Storage::Streams::IBuffer *input,
+                        ABI::Windows::Foundation::IMemoryBuffer **value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics, 0xe901e65b, 0xd716, 0x475a, 0xa9,0x0a, 0xaf,0x72,0x29,0xb1,0xe7,0x41)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIBufferStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IBufferStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateCopyFromMemoryBuffer)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        __x_ABI_CWindows_CFoundation_CIMemoryBuffer *input,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateMemoryBufferOverIBuffer)(
+        __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer *input,
+        __x_ABI_CWindows_CFoundation_CIMemoryBuffer **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIBufferStaticsVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIBufferStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IBufferStatics methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateCopyFromMemoryBuffer(This,input,value) (This)->lpVtbl->CreateCopyFromMemoryBuffer(This,input,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateMemoryBufferOverIBuffer(This,input,value) (This)->lpVtbl->CreateMemoryBufferOverIBuffer(This,input,value)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_Release(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IBufferStatics methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateCopyFromMemoryBuffer(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,__x_ABI_CWindows_CFoundation_CIMemoryBuffer *input,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **value) {
+    return This->lpVtbl->CreateCopyFromMemoryBuffer(This,input,value);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateMemoryBufferOverIBuffer(__x_ABI_CWindows_CStorage_CStreams_CIBufferStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *input,__x_ABI_CWindows_CFoundation_CIMemoryBuffer **value) {
+    return This->lpVtbl->CreateMemoryBufferOverIBuffer(This,input,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IBufferStatics IID___x_ABI_CWindows_CStorage_CStreams_CIBufferStatics
+#define IBufferStaticsVtbl __x_ABI_CWindows_CStorage_CStreams_CIBufferStaticsVtbl
+#define IBufferStatics __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics
+#define IBufferStatics_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_QueryInterface
+#define IBufferStatics_AddRef __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_AddRef
+#define IBufferStatics_Release __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_Release
+#define IBufferStatics_GetIids __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetIids
+#define IBufferStatics_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetRuntimeClassName
+#define IBufferStatics_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_GetTrustLevel
+#define IBufferStatics_CreateCopyFromMemoryBuffer __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateCopyFromMemoryBuffer
+#define IBufferStatics_CreateMemoryBufferOverIBuffer __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_CreateMemoryBufferOverIBuffer
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IRandomAccessStreamWithContentType interface
+ */
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType, 0xcc254827, 0x4b3d, 0x438f, 0x92,0x32, 0x10,0xc7,0x6b,0xc7,0xe0,0x38);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("cc254827-4b3d-438f-9232-10c76bc7e038")
+                IRandomAccessStreamWithContentType : public IInspectable
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType, 0xcc254827, 0x4b3d, 0x438f, 0x92,0x32, 0x10,0xc7,0x6b,0xc7,0xe0,0x38)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType *This,
+        TrustLevel *trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_Release(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IRandomAccessStreamWithContentType IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
+#define IRandomAccessStreamWithContentTypeVtbl __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl
+#define IRandomAccessStreamWithContentType __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
+#define IRandomAccessStreamWithContentType_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_QueryInterface
+#define IRandomAccessStreamWithContentType_AddRef __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_AddRef
+#define IRandomAccessStreamWithContentType_Release __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_Release
+#define IRandomAccessStreamWithContentType_GetIids __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetIids
+#define IRandomAccessStreamWithContentType_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetRuntimeClassName
+#define IRandomAccessStreamWithContentType_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_GetTrustLevel
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__ */
+
+/*
+ * Class Windows.Storage.Streams.Buffer
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_Streams_Buffer_DEFINED
+#define RUNTIMECLASS_Windows_Storage_Streams_Buffer_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_Streams_Buffer[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','B','u','f','f','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_Buffer[] = L"Windows.Storage.Streams.Buffer";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_Buffer[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','B','u','f','f','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_Streams_Buffer_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /* Begin additional prototypes for all interfaces */
 

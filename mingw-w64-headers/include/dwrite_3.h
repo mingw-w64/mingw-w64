@@ -1205,11 +1205,11 @@ IDWriteFontResource : public IUnknown
         ) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDefaultFontAxisValues(
-        const DWRITE_FONT_AXIS_VALUE *values,
+        DWRITE_FONT_AXIS_VALUE *values,
         UINT32 num_values) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetFontAxisRanges(
-        const DWRITE_FONT_AXIS_RANGE *ranges,
+        DWRITE_FONT_AXIS_RANGE *ranges,
         UINT32 num_ranges) = 0;
 
     virtual DWRITE_FONT_AXIS_ATTRIBUTES STDMETHODCALLTYPE GetFontAxisAttributes(
@@ -1276,12 +1276,12 @@ typedef struct IDWriteFontResourceVtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetDefaultFontAxisValues)(
         IDWriteFontResource *This,
-        const DWRITE_FONT_AXIS_VALUE *values,
+        DWRITE_FONT_AXIS_VALUE *values,
         UINT32 num_values);
 
     HRESULT (STDMETHODCALLTYPE *GetFontAxisRanges)(
         IDWriteFontResource *This,
-        const DWRITE_FONT_AXIS_RANGE *ranges,
+        DWRITE_FONT_AXIS_RANGE *ranges,
         UINT32 num_ranges);
 
     DWRITE_FONT_AXIS_ATTRIBUTES (STDMETHODCALLTYPE *GetFontAxisAttributes)(
@@ -1368,10 +1368,10 @@ static FORCEINLINE UINT32 IDWriteFontResource_GetFontFaceIndex(IDWriteFontResour
 static FORCEINLINE UINT32 IDWriteFontResource_GetFontAxisCount(IDWriteFontResource* This) {
     return This->lpVtbl->GetFontAxisCount(This);
 }
-static FORCEINLINE HRESULT IDWriteFontResource_GetDefaultFontAxisValues(IDWriteFontResource* This,const DWRITE_FONT_AXIS_VALUE *values,UINT32 num_values) {
+static FORCEINLINE HRESULT IDWriteFontResource_GetDefaultFontAxisValues(IDWriteFontResource* This,DWRITE_FONT_AXIS_VALUE *values,UINT32 num_values) {
     return This->lpVtbl->GetDefaultFontAxisValues(This,values,num_values);
 }
-static FORCEINLINE HRESULT IDWriteFontResource_GetFontAxisRanges(IDWriteFontResource* This,const DWRITE_FONT_AXIS_RANGE *ranges,UINT32 num_ranges) {
+static FORCEINLINE HRESULT IDWriteFontResource_GetFontAxisRanges(IDWriteFontResource* This,DWRITE_FONT_AXIS_RANGE *ranges,UINT32 num_ranges) {
     return This->lpVtbl->GetFontAxisRanges(This,ranges,num_ranges);
 }
 static FORCEINLINE DWRITE_FONT_AXIS_ATTRIBUTES IDWriteFontResource_GetFontAxisAttributes(IDWriteFontResource* This,UINT32 axis) {
