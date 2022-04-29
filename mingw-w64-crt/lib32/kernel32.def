@@ -234,8 +234,9 @@ CreatePipe@16
 CreatePrivateNamespaceA@12
 CreatePrivateNamespaceW@12
 CreateProcessA@40
-CreateProcessAsUserA@44
-CreateProcessAsUserW@44
+; MSDN says these are exported from ADVAPI32.DLL.
+; CreateProcessAsUserA@44
+; CreateProcessAsUserW@44
 CreateProcessInternalA@48
 CreateProcessInternalW@48
 CreateProcessW@40
@@ -1069,7 +1070,8 @@ OpenSemaphoreW@12
 OpenState@0
 OpenStateExplicit@8
 OpenThread@12
-OpenThreadToken@16
+; MSDN says this is exported from ADVAPI32.DLL.
+; OpenThreadToken@16
 OpenWaitableTimerA@12
 OpenWaitableTimerW@12
 OutputDebugStringA@4
@@ -1418,7 +1420,8 @@ SetThreadPriority@8
 SetThreadPriorityBoost@8
 SetThreadSelectedCpuSets@12
 SetThreadStackGuarantee@4
-SetThreadToken@8
+; MSDN says this is exported from ADVAPI32.DLL.
+; SetThreadToken@8
 SetThreadUILanguage@4
 SetThreadpoolStackInformation@8
 SetThreadpoolThreadMaximum@8
