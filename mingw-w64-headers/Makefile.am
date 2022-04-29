@@ -267,9 +267,20 @@ IDL_SRCS = \
   include/wsdxml.idl \
   include/wsmandisp.idl \
   include/wtypesbase.idl \
+  include/windows.devices.enumeration.idl \
+  include/windows.devices.haptics.idl \
+  include/windows.devices.power.idl \
   include/windows.foundation.idl \
   include/windows.foundation.collections.idl \
+  include/windows.foundation.metadata.idl \
+  include/windows.foundation.numerics.idl \
+  include/windows.gaming.input.idl \
+  include/windows.gaming.input.custom.idl \
+  include/windows.gaming.input.forcefeedback.idl \
+  include/windows.globalization.idl \
   include/windows.media.idl \
+  include/windows.media.closedcaptioning.idl \
+  include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
@@ -277,6 +288,7 @@ IDL_SRCS = \
   include/windows.system.idl \
   include/windows.system.power.idl \
   include/windows.system.threading.idl \
+  include/windows.ui.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \

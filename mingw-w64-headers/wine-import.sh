@@ -208,12 +208,25 @@ for f in \
 	wincodec \
 	wincodecsdk \
 	windowscontracts \
+	windows.devices.enumeration \
+	windows.devices.haptics \
+	windows.devices.power \
 	windows.foundation \
 	windows.foundation.collections \
+	windows.foundation.metadata \
+	windows.foundation.numerics \
+	windows.gaming.input \
+	windows.gaming.input.custom \
+	windows.gaming.input.forcefeedback \
+	windows.globalization \
 	windows.media \
+	windows.media.closedcaptioning \
+	windows.media.speechrecognition \
 	windows.media.speechsynthesis \
+	windows.storage.streams \
 	windows.system \
 	windows.system.power \
+	windows.ui \
 	wmdrmsdk \
 	wmp \
 	wmprealestate \
