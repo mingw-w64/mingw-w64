@@ -27,14 +27,18 @@
 extern "C" {
 #endif
 
-#if defined DLL_EXPORT && !defined (WINPTHREAD_EXPORT_ALL_DEBUG)
 #ifdef IN_WINPTHREAD
-#define WINPTHREAD_SEMA_API __declspec(dllexport)
+#  if defined(DLL_EXPORT) && !defined(WINPTHREAD_EXPORT_ALL_DEBUG)
+#    define WINPTHREAD_SEMA_API __declspec(dllexport)
+#  else
+#    define WINPTHREAD_SEMA_API
+#  endif
 #else
-#define WINPTHREAD_SEMA_API __declspec(dllimport)
-#endif
-#else
-#define WINPTHREAD_SEMA_API
+#  ifdef WINPTHREAD_STATIC
+#    define WINPTHREAD_SEMA_API
+#  else
+#    define WINPTHREAD_SEMA_API __declspec(dllimport)
+#  endif
 #endif
 
 /* Set this to 0 to disable it */

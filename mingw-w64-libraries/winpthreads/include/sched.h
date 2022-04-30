@@ -49,14 +49,18 @@ struct sched_param {
 extern "C" {
 #endif
 
-#if defined DLL_EXPORT && !defined (WINPTHREAD_EXPORT_ALL_DEBUG)
 #ifdef IN_WINPTHREAD
-#define WINPTHREAD_SCHED_API __declspec(dllexport)
+#  if defined(DLL_EXPORT) && !defined(WINPTHREAD_EXPORT_ALL_DEBUG)
+#    define WINPTHREAD_SCHED_API __declspec(dllexport)
+#  else
+#    define WINPTHREAD_SCHED_API
+#  endif
 #else
-#define WINPTHREAD_SCHED_API __declspec(dllimport)
-#endif
-#else
-#define WINPTHREAD_SCHED_API
+#  ifdef WINPTHREAD_STATIC
+#    define WINPTHREAD_SCHED_API
+#  else
+#    define WINPTHREAD_SCHED_API __declspec(dllimport)
+#  endif
 #endif
 
 int WINPTHREAD_SCHED_API sched_yield(void);

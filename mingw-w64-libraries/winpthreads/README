@@ -1,0 +1,10 @@
+The Winpthreads Library
+-----------------------
+
+This library provides POSIX threading APIs for mingw-w64.
+
+Programs are usually linked against the winpthreads DLL, and winpthreads
+headers expose `dllimport` APIs by default. When linking against the
+static library, especially when building a user DLL with libtool, it is
+necessary to define the `WINPTHREAD_STATIC` macro to avoid undefined
+references.
