@@ -46,7 +46,7 @@ AS_CASE([$host],
 # Checks for libraries.
 
 # Checks for header files.
-AC_CHECK_HEADERS([getopt.h io.h fcntl.h inttypes.h libintl.h limits.h malloc.h stddef.h stdlib.h string.h sys/time.h unistd.h])
+AC_CHECK_HEADERS([getopt.h io.h fcntl.h inttypes.h libintl.h limits.h malloc.h stddef.h stdlib.h string.h sys/sysctl.h sys/time.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
