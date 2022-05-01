@@ -353,7 +353,6 @@ VarI4FromI8
 VarI4FromUI8
 F_64(LPSAFEARRAY_UserSize64)
 F_64(LPSAFEARRAY_UserUnmarshal64)
-OACreateTypeLib2
 F_64(VARIANT_UserFree64)
 F_64(VARIANT_UserMarshal64)
 F_64(VARIANT_UserSize64)

@@ -884,7 +884,6 @@ InitOnceInitialize@4
 InitializeConditionVariable@4
 InitializeContext2@24
 InitializeContext@16
-InitializeCriticalSection@4
 InitializeCriticalSectionAndSpinCount@8
 InitializeCriticalSectionEx@12
 InitializeEnclave@20
@@ -1173,7 +1172,6 @@ ReadFileScatter@20
 ReadFileVlm@20
 ReadProcessMemory@20
 ReadThreadProfilingData@12
-ReclaimVirtualMemory@8
 ;
 ; MSDN says these functions are exported
 ; from advapi32.dll. Commented out for
@@ -1266,7 +1264,6 @@ ResetWriteWatch@8
 ResizePseudoConsole@8
 ResolveDelayLoadedAPI@24
 ResolveDelayLoadsFromDll@12
-ResolveLocaleName@12
 RestoreLastError@4
 ResumeThread@4
 RtlCaptureContext@4
@@ -1621,7 +1618,6 @@ WriteProfileSectionW@8
 WriteProfileStringA@12
 WriteProfileStringW@12
 WriteTapemark@16
-WTSGetActiveConsoleSessionId@0
 ZombifyActCtx@4
 ZombifyActCtxWorker@4
 _hread@12

@@ -98,7 +98,6 @@ _fpclassf
 F_I386(_ftol)
 _get_FMA3_enable
 _hypot
-hypot == _hypot
 _hypotf
 _isnan
 F_X64(_isnanf)
@@ -135,7 +134,6 @@ _libm_sse2_tan_precise
 _logb
 F_NON_I386(_logbf)
 _nextafter
-nextafter == _nextafter
 F_X64(_nextafterf)
 _scalb
 F_X64(_scalbf)

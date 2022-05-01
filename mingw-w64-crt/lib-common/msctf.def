@@ -74,7 +74,6 @@ TF_GetGlobalCompartment
 TF_GetInitSystemFlags
 TF_GetInputScope
 TF_GetShowFloatingStatus
-TF_GetThreadFlags
 TF_GetThreadMgr
 TF_InitSystem
 TF_InvalidAssemblyListCache

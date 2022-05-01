@@ -324,7 +324,6 @@ EndUpdateResourceW
 EnterCriticalSection
 F_X64(EnterUmsSchedulingMode)
 EnterSynchronizationBarrier
-EnterUmsSchedulingMode
 EnumCalendarInfoA
 EnumCalendarInfoExA
 EnumCalendarInfoExEx
@@ -717,7 +716,6 @@ GetProcAddress
 GetProcessAffinityMask
 GetProcessDefaultCpuSets
 GetProcessDEPPolicy
-GetProcessDefaultCpuSets
 GetProcessGroupAffinity
 GetProcessHandleCount
 GetProcessHeap
@@ -1184,7 +1182,6 @@ ReadFileEx
 ReadFileScatter
 ReadProcessMemory
 ReadThreadProfilingData
-ReclaimVirtualMemory
 ;
 ; MSDN says these functions are exported
 ; from advapi32.dll. Commented out for

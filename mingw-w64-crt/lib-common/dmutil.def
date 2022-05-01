@@ -13,7 +13,6 @@ FTraceValist
 FreeRgszw
 GetErrorData
 GetInstallDirectoryPath
-GetSystemVolume
 IsPersonalSKU
 LowAcquirePrivilege
 LowGetPartitionInfo

@@ -595,7 +595,6 @@ RegDeleteKeyTransactedA@24
 RegDeleteKeyTransactedW@24
 RegDeleteKeyValueA@12
 RegDeleteKeyValueW@12
-RegDeleteKeyW@8
 RegDeleteTreeA@8
 RegDeleteTreeW@8
 RegDeleteValueA@8
