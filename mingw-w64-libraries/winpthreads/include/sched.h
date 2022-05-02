@@ -49,17 +49,17 @@ struct sched_param {
 extern "C" {
 #endif
 
-#ifdef IN_WINPTHREAD
+#if defined(IN_WINPTHREAD)
 #  if defined(DLL_EXPORT) && !defined(WINPTHREAD_EXPORT_ALL_DEBUG)
-#    define WINPTHREAD_SCHED_API __declspec(dllexport)
+#    define WINPTHREAD_SCHED_API  __declspec(dllexport)  /* building the DLL  */
 #  else
-#    define WINPTHREAD_SCHED_API
+#    define WINPTHREAD_SCHED_API  /* building the static library  */
 #  endif
 #else
-#  ifdef WINPTHREAD_STATIC
-#    define WINPTHREAD_SCHED_API
+#  if defined(WINPTHREADS_USE_DLLIMPORT)
+#    define WINPTHREAD_SCHED_API  __declspec(dllimport)  /* user wants explicit `dllimport`  */
 #  else
-#    define WINPTHREAD_SCHED_API __declspec(dllimport)
+#    define WINPTHREAD_SCHED_API  /* the default; auto imported in case of DLL  */
 #  endif
 #endif
 
