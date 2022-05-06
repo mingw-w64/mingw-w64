@@ -1527,7 +1527,11 @@ pthread_create_wrapper (void *args)
         trslt = (intptr_t) tv->func(tv->ret_arg);
       #ifdef __SEH__
 	asm ("\tnop\n\t.tl_end: nop\n"
+#ifdef __arm__
+	  "\t.seh_handler __C_specific_handler, %except\n"
+#else
 	  "\t.seh_handler __C_specific_handler, @except\n"
+#endif
 	  "\t.seh_handlerdata\n"
 	  "\t.long 1\n"
 	  "\t.rva .tl_start, .tl_end, _gnu_exception_handler ,.tl_end\n"

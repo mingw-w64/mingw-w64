@@ -177,7 +177,11 @@ int WinMainCRTStartup (void)
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
     "\t.l_endw: nop\n"
+#ifdef __arm__
+    "\t.seh_handler __C_specific_handler, %except\n"
+#else
     "\t.seh_handler __C_specific_handler, @except\n"
+#endif
     "\t.seh_handlerdata\n"
     "\t.long 1\n"
     "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
@@ -203,7 +207,11 @@ int mainCRTStartup (void)
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
     "\t.l_end: nop\n"
+#ifdef __arm__
+    "\t.seh_handler __C_specific_handler, %except\n"
+#else
     "\t.seh_handler __C_specific_handler, @except\n"
+#endif
     "\t.seh_handlerdata\n"
     "\t.long 1\n"
     "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
