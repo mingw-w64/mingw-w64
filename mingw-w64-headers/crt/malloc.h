@@ -58,16 +58,18 @@ extern "C" {
   void __cdecl free(void *_Memory);
   void *__cdecl malloc(size_t _Size);
   void *__cdecl realloc(void *_Memory,size_t _NewSize);
-  _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
 
   _CRTIMP void __cdecl _aligned_free(void *_Memory);
   _CRTIMP void *__cdecl _aligned_malloc(size_t _Size,size_t _Alignment);
 
   _CRTIMP void *__cdecl _aligned_offset_malloc(size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP void *__cdecl _aligned_realloc(void *_Memory,size_t _Size,size_t _Alignment);
-  _CRTIMP void *__cdecl _aligned_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment);
   _CRTIMP void *__cdecl _aligned_offset_realloc(void *_Memory,size_t _Size,size_t _Alignment,size_t _Offset);
+# if __MSVCRT_VERSION__ >= 0x900
+  _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
+  _CRTIMP void *__cdecl _aligned_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment);
   _CRTIMP void *__cdecl _aligned_offset_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment,size_t _Offset);
+# endif
 #endif
 
 /* Users should really use MS provided versions */
