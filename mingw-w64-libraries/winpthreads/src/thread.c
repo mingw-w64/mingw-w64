@@ -1520,19 +1520,19 @@ pthread_create_wrapper (void *args)
       intptr_t trslt = (intptr_t) 128;
       /* Provide to this thread a default exception handler.  */
       #ifdef __SEH__
-	asm ("\t.tl_start:\n"
+	asm ("\t.tl_start:\n");
+      #endif      /* Call function and save return value */
+      pthread_mutex_unlock (&mtx_pthr_locked);
+      if (tv->func)
+        trslt = (intptr_t) tv->func(tv->ret_arg);
+      #ifdef __SEH__
+	asm ("\tnop\n\t.tl_end: nop\n"
 	  "\t.seh_handler __C_specific_handler, @except\n"
 	  "\t.seh_handlerdata\n"
 	  "\t.long 1\n"
 	  "\t.rva .tl_start, .tl_end, _gnu_exception_handler ,.tl_end\n"
 	  "\t.text"
 	  );
-      #endif      /* Call function and save return value */
-      pthread_mutex_unlock (&mtx_pthr_locked);
-      if (tv->func)
-        trslt = (intptr_t) tv->func(tv->ret_arg);
-      #ifdef __SEH__
-	asm ("\tnop\n\t.tl_end: nop\n");
       #endif
       pthread_mutex_lock (&mtx_pthr_locked);
       tv->ret_arg = (void*) trslt;
