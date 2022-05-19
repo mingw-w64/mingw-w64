@@ -20,7 +20,11 @@
 #include <d3d9.h>
 #include <d3d10.h>
 #include <d3d11.h>
+#include <d3d11sdklayers.h>
 #include <d3d11shader.h>
+#include <d3d12.h>
+#include <d3d12sdklayers.h>
+#include <d3d12shader.h>
 
 #include <dxgidebug.h>
 #include <dxgi.h>
