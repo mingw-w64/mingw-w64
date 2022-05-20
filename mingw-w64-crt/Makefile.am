@@ -240,6 +240,7 @@ src_ucrtbase=\
   crt/ucrtbase_compat.c \
   math/_huge.c \
   misc/__initenv.c \
+  misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \

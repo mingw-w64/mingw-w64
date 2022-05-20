@@ -3,7 +3,8 @@ LIBRARY api-ms-win-crt-filesystem-l1-1-0
 EXPORTS
 
 _access
-access == _access
+; access is provided as an alias for __mingw_access
+; access == _access
 _access_s
 _chdir
 chdir == _chdir

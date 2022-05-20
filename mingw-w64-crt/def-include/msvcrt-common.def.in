@@ -12,7 +12,11 @@ wcscmpi == _wcsicmp
 strcasecmp == _stricmp
 strncasecmp == _strnicmp
 
+#ifdef UCRTBASE
+; access is provided as an alias for __mingw_access
+#else
 ADD_UNDERSCORE(access)
+#endif
 ADD_UNDERSCORE(chdir)
 ADD_UNDERSCORE(chmod)
 ADD_UNDERSCORE(chsize)
