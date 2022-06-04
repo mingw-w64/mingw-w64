@@ -9,6 +9,7 @@ HcsEnumerateVmWorkerProcesses
 HcsFindVmWorkerProcesses
 HcsGetWorkerProcessJob
 HcsStartVmWorkerProcess
+HcsAddResourceToOperation
 HcsCancelOperation
 HcsCloseComputeSystem
 HcsCloseOperation
@@ -19,6 +20,7 @@ HcsCreateComputeSystemInNamespace
 HcsCreateEmptyGuestStateFile
 HcsCreateEmptyRuntimeStateFile
 HcsCreateOperation
+HcsCreateOperationWithNotifications
 HcsCreateProcess
 HcsEnumerateComputeSystems
 HcsEnumerateComputeSystemsInNamespace
@@ -26,6 +28,7 @@ HcsGetComputeSystemFromOperation
 HcsGetComputeSystemProperties
 HcsGetOperationContext
 HcsGetOperationId
+HcsGetOperationProperties
 HcsGetOperationResult
 HcsGetOperationResultAndProcessInfo
 HcsGetOperationType
@@ -55,6 +58,7 @@ HcsShutDownComputeSystem
 HcsSignalProcess
 HcsStartComputeSystem
 HcsSubmitWerReport
+HcsSystemControl
 HcsTerminateComputeSystem
 HcsTerminateProcess
 HcsWaitForComputeSystemExit

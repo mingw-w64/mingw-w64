@@ -49,6 +49,7 @@ HcnOpenEndpoint
 HcnOpenLoadBalancer
 HcnOpenNamespace
 HcnOpenNetwork
+HcnQueryEndpointAddresses
 HcnQueryEndpointProperties
 HcnQueryEndpointStats
 HcnQueryLoadBalancerProperties
