@@ -91,12 +91,6 @@ extern "C++" {
   };
 }
 __CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
-HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(IUnknown *This, REFIID riid, void **ppvObject);
-void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
-ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(IUnknown *This);
-void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
-ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(IUnknown *This);
-void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
 #else
 DEFINE_GUID(IID_IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
@@ -171,6 +165,12 @@ static FORCEINLINE ULONG IUnknown_Release(IUnknown* This) {
 #endif  /* __IUnknown_INTERFACE_DEFINED__ */
 
 #endif
+HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(IUnknown *This, REFIID riid, void **ppvObject);
+void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
+ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(IUnknown *This);
+void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
+ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(IUnknown *This);
+void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);
 #endif
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)

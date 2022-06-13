@@ -36,18 +36,18 @@ interface IUnknown {
   cpp_quote("  };")
   cpp_quote("}")
   cpp_quote("__CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)")
-  cpp_quote("HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(IUnknown *This, REFIID riid, void **ppvObject);")
-  cpp_quote("void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
-  cpp_quote("ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(IUnknown *This);")
-  cpp_quote("void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
-  cpp_quote("ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(IUnknown *This);")
-  cpp_quote("void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
   cpp_quote("#else")
   HRESULT QueryInterface ([in] REFIID riid,[out, iid_is (riid)] void **ppvObject);
   ULONG AddRef ();
   ULONG Release ();
 }
 cpp_quote("#endif")
+cpp_quote("HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(IUnknown *This, REFIID riid, void **ppvObject);")
+cpp_quote("void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
+cpp_quote("ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(IUnknown *This);")
+cpp_quote("void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
+cpp_quote("ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(IUnknown *This);")
+cpp_quote("void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
 
 cpp_quote("")
