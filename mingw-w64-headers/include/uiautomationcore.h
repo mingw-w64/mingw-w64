@@ -50,6 +50,14 @@ interface IRawElementProviderFragmentRoot;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ILegacyIAccessibleProvider_FWD_DEFINED__
+#define __ILegacyIAccessibleProvider_FWD_DEFINED__
+typedef interface ILegacyIAccessibleProvider ILegacyIAccessibleProvider;
+#ifdef __cplusplus
+interface ILegacyIAccessibleProvider;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -556,6 +564,225 @@ static FORCEINLINE HRESULT IRawElementProviderFragmentRoot_GetFocus(IRawElementP
 
 #endif  /* __IRawElementProviderFragmentRoot_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * ILegacyIAccessibleProvider interface
+ */
+#ifndef __ILegacyIAccessibleProvider_INTERFACE_DEFINED__
+#define __ILegacyIAccessibleProvider_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ILegacyIAccessibleProvider, 0xe44c3566, 0x915d, 0x4070, 0x99,0xc6, 0x04,0x7b,0xff,0x5a,0x08,0xf5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e44c3566-915d-4070-99c6-047bff5a08f5")
+ILegacyIAccessibleProvider : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Select(
+        LONG flagsSelect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DoDefaultAction(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetValue(
+        LPCWSTR szValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetIAccessible(
+        IAccessible **ppAccessible) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ChildId(
+        int *pRetVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Name(
+        BSTR *pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Value(
+        BSTR *pszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Description(
+        BSTR *pszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Role(
+        DWORD *pdwRole) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_State(
+        DWORD *pdwState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Help(
+        BSTR *pszHelp) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_KeyboardShortcut(
+        BSTR *pszKeyboardShortcut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSelection(
+        SAFEARRAY **pvarSelectedChildren) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_DefaultAction(
+        BSTR *pszDefaultAction) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ILegacyIAccessibleProvider, 0xe44c3566, 0x915d, 0x4070, 0x99,0xc6, 0x04,0x7b,0xff,0x5a,0x08,0xf5)
+#endif
+#else
+typedef struct ILegacyIAccessibleProviderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ILegacyIAccessibleProvider *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ILegacyIAccessibleProvider *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ILegacyIAccessibleProvider *This);
+
+    /*** ILegacyIAccessibleProvider methods ***/
+    HRESULT (STDMETHODCALLTYPE *Select)(
+        ILegacyIAccessibleProvider *This,
+        LONG flagsSelect);
+
+    HRESULT (STDMETHODCALLTYPE *DoDefaultAction)(
+        ILegacyIAccessibleProvider *This);
+
+    HRESULT (STDMETHODCALLTYPE *SetValue)(
+        ILegacyIAccessibleProvider *This,
+        LPCWSTR szValue);
+
+    HRESULT (STDMETHODCALLTYPE *GetIAccessible)(
+        ILegacyIAccessibleProvider *This,
+        IAccessible **ppAccessible);
+
+    HRESULT (STDMETHODCALLTYPE *get_ChildId)(
+        ILegacyIAccessibleProvider *This,
+        int *pRetVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_Name)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_Description)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *get_Role)(
+        ILegacyIAccessibleProvider *This,
+        DWORD *pdwRole);
+
+    HRESULT (STDMETHODCALLTYPE *get_State)(
+        ILegacyIAccessibleProvider *This,
+        DWORD *pdwState);
+
+    HRESULT (STDMETHODCALLTYPE *get_Help)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszHelp);
+
+    HRESULT (STDMETHODCALLTYPE *get_KeyboardShortcut)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszKeyboardShortcut);
+
+    HRESULT (STDMETHODCALLTYPE *GetSelection)(
+        ILegacyIAccessibleProvider *This,
+        SAFEARRAY **pvarSelectedChildren);
+
+    HRESULT (STDMETHODCALLTYPE *get_DefaultAction)(
+        ILegacyIAccessibleProvider *This,
+        BSTR *pszDefaultAction);
+
+    END_INTERFACE
+} ILegacyIAccessibleProviderVtbl;
+
+interface ILegacyIAccessibleProvider {
+    CONST_VTBL ILegacyIAccessibleProviderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ILegacyIAccessibleProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ILegacyIAccessibleProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ILegacyIAccessibleProvider_Release(This) (This)->lpVtbl->Release(This)
+/*** ILegacyIAccessibleProvider methods ***/
+#define ILegacyIAccessibleProvider_Select(This,flagsSelect) (This)->lpVtbl->Select(This,flagsSelect)
+#define ILegacyIAccessibleProvider_DoDefaultAction(This) (This)->lpVtbl->DoDefaultAction(This)
+#define ILegacyIAccessibleProvider_SetValue(This,szValue) (This)->lpVtbl->SetValue(This,szValue)
+#define ILegacyIAccessibleProvider_GetIAccessible(This,ppAccessible) (This)->lpVtbl->GetIAccessible(This,ppAccessible)
+#define ILegacyIAccessibleProvider_get_ChildId(This,pRetVal) (This)->lpVtbl->get_ChildId(This,pRetVal)
+#define ILegacyIAccessibleProvider_get_Name(This,pszName) (This)->lpVtbl->get_Name(This,pszName)
+#define ILegacyIAccessibleProvider_get_Value(This,pszValue) (This)->lpVtbl->get_Value(This,pszValue)
+#define ILegacyIAccessibleProvider_get_Description(This,pszDescription) (This)->lpVtbl->get_Description(This,pszDescription)
+#define ILegacyIAccessibleProvider_get_Role(This,pdwRole) (This)->lpVtbl->get_Role(This,pdwRole)
+#define ILegacyIAccessibleProvider_get_State(This,pdwState) (This)->lpVtbl->get_State(This,pdwState)
+#define ILegacyIAccessibleProvider_get_Help(This,pszHelp) (This)->lpVtbl->get_Help(This,pszHelp)
+#define ILegacyIAccessibleProvider_get_KeyboardShortcut(This,pszKeyboardShortcut) (This)->lpVtbl->get_KeyboardShortcut(This,pszKeyboardShortcut)
+#define ILegacyIAccessibleProvider_GetSelection(This,pvarSelectedChildren) (This)->lpVtbl->GetSelection(This,pvarSelectedChildren)
+#define ILegacyIAccessibleProvider_get_DefaultAction(This,pszDefaultAction) (This)->lpVtbl->get_DefaultAction(This,pszDefaultAction)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_QueryInterface(ILegacyIAccessibleProvider* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ILegacyIAccessibleProvider_AddRef(ILegacyIAccessibleProvider* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ILegacyIAccessibleProvider_Release(ILegacyIAccessibleProvider* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ILegacyIAccessibleProvider methods ***/
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_Select(ILegacyIAccessibleProvider* This,LONG flagsSelect) {
+    return This->lpVtbl->Select(This,flagsSelect);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_DoDefaultAction(ILegacyIAccessibleProvider* This) {
+    return This->lpVtbl->DoDefaultAction(This);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_SetValue(ILegacyIAccessibleProvider* This,LPCWSTR szValue) {
+    return This->lpVtbl->SetValue(This,szValue);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_GetIAccessible(ILegacyIAccessibleProvider* This,IAccessible **ppAccessible) {
+    return This->lpVtbl->GetIAccessible(This,ppAccessible);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_ChildId(ILegacyIAccessibleProvider* This,int *pRetVal) {
+    return This->lpVtbl->get_ChildId(This,pRetVal);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_Name(ILegacyIAccessibleProvider* This,BSTR *pszName) {
+    return This->lpVtbl->get_Name(This,pszName);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_Value(ILegacyIAccessibleProvider* This,BSTR *pszValue) {
+    return This->lpVtbl->get_Value(This,pszValue);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_Description(ILegacyIAccessibleProvider* This,BSTR *pszDescription) {
+    return This->lpVtbl->get_Description(This,pszDescription);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_Role(ILegacyIAccessibleProvider* This,DWORD *pdwRole) {
+    return This->lpVtbl->get_Role(This,pdwRole);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_State(ILegacyIAccessibleProvider* This,DWORD *pdwState) {
+    return This->lpVtbl->get_State(This,pdwState);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_Help(ILegacyIAccessibleProvider* This,BSTR *pszHelp) {
+    return This->lpVtbl->get_Help(This,pszHelp);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_KeyboardShortcut(ILegacyIAccessibleProvider* This,BSTR *pszKeyboardShortcut) {
+    return This->lpVtbl->get_KeyboardShortcut(This,pszKeyboardShortcut);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_GetSelection(ILegacyIAccessibleProvider* This,SAFEARRAY **pvarSelectedChildren) {
+    return This->lpVtbl->GetSelection(This,pvarSelectedChildren);
+}
+static FORCEINLINE HRESULT ILegacyIAccessibleProvider_get_DefaultAction(ILegacyIAccessibleProvider* This,BSTR *pszDefaultAction) {
+    return This->lpVtbl->get_DefaultAction(This,pszDefaultAction);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ILegacyIAccessibleProvider_INTERFACE_DEFINED__ */
+
 #endif /* __UIA_LIBRARY_DEFINED__ */
 /* Begin additional prototypes for all interfaces */
 
@@ -563,6 +790,10 @@ ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
 void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
+ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
+unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
+unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
+void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 
 /* End additional prototypes */
 

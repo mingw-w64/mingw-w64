@@ -591,6 +591,21 @@ typedef DWORD TfGuidAtom;
 #define TF_PROFILETYPE_INPUTPROCESSOR  0x0001
 #define TF_PROFILETYPE_KEYBOARDLAYOUT  0x0002
 #define TF_IPSINK_FLAG_ACTIVE 0x0001
+#define TF_TMAE_NOACTIVATETIP            0x00000001
+#define TF_TMAE_SECUREMODE               0x00000002
+#define TF_TMAE_UIELEMENTENABLEDONLY     0x00000004
+#define TF_TMAE_COMLESS                  0x00000008
+#define TF_TMAE_WOW16                    0x00000010
+#define TF_TMAE_NOACTIVATEKEYBOARDLAYOUT 0x00000020
+#define TF_TMAE_CONSOLE                  0x00000040
+#define TF_TMF_NOACTIVATETIP             TF_TMAE_NOACTIVATETIP
+#define TF_TMF_SECUREMODE                TF_TMAE_SECUREMODE
+#define TF_TMF_UIELEMENTENABLEDONLY      TF_TMAE_UIELEMENTENABLEDONLY
+#define TF_TMF_COMLESS                   TF_TMAE_COMLESS
+#define TF_TMF_WOW16                     TF_TMAE_WOW16
+#define TF_TMF_CONSOLE                   TF_TMAE_CONSOLE
+#define TF_TMF_IMMERSIVEMODE             0x40000000
+#define TF_TMF_ACTIVATED                 0x80000000
 #ifndef __ITfDocumentMgr_FWD_DEFINED__
 #define __ITfDocumentMgr_FWD_DEFINED__
 typedef interface ITfDocumentMgr ITfDocumentMgr;

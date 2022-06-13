@@ -602,6 +602,8 @@ typedef enum XmlError {
 } XmlError;
 STDAPI CreateXmlReader(REFIID riid, void **ppvObject, IMalloc *pMalloc);
 typedef IUnknown IXmlReaderInput;
+STDAPI CreateXmlReaderInputWithEncodingCodePage(IUnknown *stream, IMalloc *pMalloc,
+        UINT encoding_codepage, WINBOOL hint, const WCHAR *base_uri, IXmlReaderInput **pInput);
 STDAPI CreateXmlReaderInputWithEncodingName(IUnknown *stream, IMalloc *pMalloc,
                                             LPCWSTR encoding, WINBOOL hint,
                                             LPCWSTR base_uri, IXmlReaderInput **ppInput);

@@ -137,6 +137,23 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CGaming_CInput_CIGamepad2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGaming_CInput_CIGamepad2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGaming_CInput_CIGamepad2 __x_ABI_CWindows_CGaming_CInput_CIGamepad2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2 ABI::Windows::Gaming::Input::IGamepad2
+namespace ABI {
+    namespace Windows {
+        namespace Gaming {
+            namespace Input {
+                interface IGamepad2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CGaming_CInput_CIRacingWheel_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGaming_CInput_CIRacingWheel_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CGaming_CInput_CIRacingWheel __x_ABI_CWindows_CGaming_CInput_CIRacingWheel;
@@ -2948,6 +2965,136 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad_GetCurrentR
 
 #endif  /* ____x_ABI_CWindows_CGaming_CInput_CIGamepad_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IGamepad2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef ____x_ABI_CWindows_CGaming_CInput_CIGamepad2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGaming_CInput_CIGamepad2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGaming_CInput_CIGamepad2, 0x3c1689bd, 0x5915, 0x4245, 0xb0,0xc0, 0xc8,0x9f,0xae,0x03,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Gaming {
+            namespace Input {
+                MIDL_INTERFACE("3c1689bd-5915-4245-b0c0-c89fae0308ff")
+                IGamepad2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetButtonLabel(
+                        enum GamepadButtons button,
+                        enum GameControllerButtonLabel *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGaming_CInput_CIGamepad2, 0x3c1689bd, 0x5915, 0x4245, 0xb0,0xc0, 0xc8,0x9f,0xae,0x03,0x08,0xff)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGaming_CInput_CIGamepad2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IGamepad2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetButtonLabel)(
+        __x_ABI_CWindows_CGaming_CInput_CIGamepad2 *This,
+        enum __x_ABI_CWindows_CGaming_CInput_CGamepadButtons button,
+        enum __x_ABI_CWindows_CGaming_CInput_CGameControllerButtonLabel *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGaming_CInput_CIGamepad2Vtbl;
+
+interface __x_ABI_CWindows_CGaming_CInput_CIGamepad2 {
+    CONST_VTBL __x_ABI_CWindows_CGaming_CInput_CIGamepad2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IGamepad2 methods ***/
+#define __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetButtonLabel(This,button,value) (This)->lpVtbl->GetButtonLabel(This,button,value)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad2_QueryInterface(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CGaming_CInput_CIGamepad2_AddRef(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG __x_ABI_CWindows_CGaming_CInput_CIGamepad2_Release(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetIids(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetRuntimeClassName(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetTrustLevel(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IGamepad2 methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetButtonLabel(__x_ABI_CWindows_CGaming_CInput_CIGamepad2* This,enum __x_ABI_CWindows_CGaming_CInput_CGamepadButtons button,enum __x_ABI_CWindows_CGaming_CInput_CGameControllerButtonLabel *value) {
+    return This->lpVtbl->GetButtonLabel(This,button,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Gaming_Input
+#define IID_IGamepad2 IID___x_ABI_CWindows_CGaming_CInput_CIGamepad2
+#define IGamepad2Vtbl __x_ABI_CWindows_CGaming_CInput_CIGamepad2Vtbl
+#define IGamepad2 __x_ABI_CWindows_CGaming_CInput_CIGamepad2
+#define IGamepad2_QueryInterface __x_ABI_CWindows_CGaming_CInput_CIGamepad2_QueryInterface
+#define IGamepad2_AddRef __x_ABI_CWindows_CGaming_CInput_CIGamepad2_AddRef
+#define IGamepad2_Release __x_ABI_CWindows_CGaming_CInput_CIGamepad2_Release
+#define IGamepad2_GetIids __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetIids
+#define IGamepad2_GetRuntimeClassName __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetRuntimeClassName
+#define IGamepad2_GetTrustLevel __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetTrustLevel
+#define IGamepad2_GetButtonLabel __x_ABI_CWindows_CGaming_CInput_CIGamepad2_GetButtonLabel
+#endif /* WIDL_using_Windows_Gaming_Input */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGaming_CInput_CIGamepad2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
 
 /*****************************************************************************
  * IRacingWheel interface
