@@ -911,6 +911,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define PRODUCT_XBOX_ERAOS                        0xC3
 #define PRODUCT_XBOX_DURANGOHOSTOS                0xC4
 #define PRODUCT_XBOX_SCARLETTHOSTOS               0xC5
+#define PRODUCT_XBOX_KEYSTONE                     0xC6
 #define PRODUCT_AZURE_SERVER_CLOUDHOST            0xC7
 #define PRODUCT_AZURE_SERVER_CLOUDMOS             0xC8
 #define PRODUCT_CLOUDEDITIONN                     0xCA
@@ -3279,6 +3280,7 @@ __buildmemorybarrier()
 #define SECURITY_APP_PACKAGE_RID_COUNT (__MSABI_LONG(8))
 #define SECURITY_CAPABILITY_BASE_RID (__MSABI_LONG(0x00000003))
 #define SECURITY_CAPABILITY_APP_RID (__MSABI_LONG(0x000000400))
+#define SECURITY_CAPABILITY_APP_SILO_RID (__MSABI_LONG(0x00010000))
 #define SECURITY_BUILTIN_CAPABILITY_RID_COUNT (__MSABI_LONG(2))
 #define SECURITY_CAPABILITY_RID_COUNT (__MSABI_LONG(5))
 #define SECURITY_PARENT_PACKAGE_RID_COUNT (SECURITY_APP_PACKAGE_RID_COUNT)
@@ -3891,7 +3893,12 @@ __buildmemorybarrier()
 #define SE_SESSION_IMPERSONATION_CAPABILITY L"sessionImpersonation"
 #define SE_MUMA_CAPABILITY L"muma"
 #define SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY L"developmentModeNetwork"
+#define SE_LEARNING_MODE_LOGGING_CAPABILITY L"learningModeLogging"
 #define SE_PERMISSIVE_LEARNING_MODE_CAPABILITY L"permissiveLearningMode"
+#define SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY L"isolatedWin32-volumeRootMinimal"
+#define SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY L"isolatedWin32-profilesRootMinimal"
+#define SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY L"isolatedWin32-userProfileMinimal"
+#define SE_APP_SILO_PRINT_CAPABILITY L"isolatedWin32-print"
 
     typedef enum _SECURITY_IMPERSONATION_LEVEL {
       SecurityAnonymous,SecurityIdentification,SecurityImpersonation,SecurityDelegation
@@ -3920,6 +3927,12 @@ __buildmemorybarrier()
 
 #define TOKEN_EXECUTE (STANDARD_RIGHTS_EXECUTE)
 
+#define TOKEN_TRUST_CONSTRAINT_MASK (STANDARD_RIGHTS_READ | TOKEN_QUERY | TOKEN_QUERY_SOURCE)
+
+#if NTDDI_VERSION >= NTDDI_WIN8
+#define TOKEN_ACCESS_PSEUDO_HANDLE_WIN8 (TOKEN_QUERY | TOKEN_QUERY_SOURCE)
+#define TOKEN_ACCESS_PSEUDO_HANDLE TOKEN_ACCESS_PSEUDO_HANDLE_WIN8
+#endif
     typedef enum _TOKEN_TYPE {
       TokenPrimary = 1,TokenImpersonation
     } TOKEN_TYPE;
@@ -3972,12 +3985,37 @@ __buildmemorybarrier()
       TokenRestrictedDeviceGroups,
       TokenSecurityAttributes,
       TokenIsRestricted,
+      TokenProcessTrustLevel,
+      TokenPrivateNameSpace,
+      TokenSingletonAttributes,
+      TokenBnoIsolation,
+      TokenChildProcessFlags,
+      TokenIsLessPrivilegedAppContainer,
+      TokenIsSandboxed,
+      TokenIsAppSilo,
       MaxTokenInfoClass
     } TOKEN_INFORMATION_CLASS,*PTOKEN_INFORMATION_CLASS;
 
     typedef struct _TOKEN_USER {
       SID_AND_ATTRIBUTES User;
     } TOKEN_USER,*PTOKEN_USER;
+
+#ifndef __WIDL__
+
+    typedef struct _SE_TOKEN_USER {
+      __C89_NAMELESS union {
+        TOKEN_USER TokenUser;
+        SID_AND_ATTRIBUTES User;
+      };
+      __C89_NAMELESS union {
+        SID Sid;
+        BYTE  Buffer[SECURITY_MAX_SID_SIZE];
+      };
+    } SE_TOKEN_USER,*PSE_TOKEN_USER;
+
+#define TOKEN_USER_MAX_SIZE (sizeof(TOKEN_USER) + SECURITY_MAX_SID_SIZE)
+
+#endif
 
     typedef struct _TOKEN_GROUPS {
       DWORD GroupCount;
@@ -3996,6 +4034,10 @@ __buildmemorybarrier()
     typedef struct _TOKEN_OWNER {
       PSID Owner;
     } TOKEN_OWNER,*PTOKEN_OWNER;
+
+#ifndef __WIDL__
+#define TOKEN_OWNER_MAX_SIZE (sizeof(TOKEN_OWNER) + SECURITY_MAX_SID_SIZE)
+#endif
 
     typedef struct _TOKEN_PRIMARY_GROUP {
       PSID PrimaryGroup;
@@ -4044,9 +4086,15 @@ __buildmemorybarrier()
 
 #define TOKEN_MANDATORY_POLICY_VALID_MASK (TOKEN_MANDATORY_POLICY_NO_WRITE_UP | TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN)
 
+#ifndef __WIDL__
+#define TOKEN_INTEGRITY_LEVEL_MAX_SIZE ((((DWORD)(sizeof(TOKEN_MANDATORY_LABEL)) + sizeof(PVOID) - 1) & ~(sizeof(PVOID)-1)) + SECURITY_MAX_SID_SIZE)
+#endif
+
     typedef struct _TOKEN_MANDATORY_POLICY {
       DWORD Policy;
     } TOKEN_MANDATORY_POLICY,*PTOKEN_MANDATORY_POLICY;
+
+    typedef PVOID PSECURITY_ATTRIBUTES_OPAQUE;
 
     typedef struct _TOKEN_ACCESS_INFORMATION {
       PSID_AND_ATTRIBUTES_HASH SidHash;
@@ -4112,6 +4160,19 @@ __buildmemorybarrier()
     typedef struct _TOKEN_APPCONTAINER_INFORMATION {
       PSID TokenAppContainer;
     } TOKEN_APPCONTAINER_INFORMATION,*PTOKEN_APPCONTAINER_INFORMATION;
+
+#ifndef __WIDL__
+#define TOKEN_APPCONTAINER_SID_MAX_SIZE (sizeof(TOKEN_APPCONTAINER_INFORMATION) + SECURITY_MAX_SID_SIZE)
+#endif
+
+    typedef struct _TOKEN_SID_INFORMATION {
+      PSID Sid;
+    } TOKEN_SID_INFORMATION,*PTOKEN_SID_INFORMATION;
+
+    typedef struct _TOKEN_BNO_ISOLATION_INFORMATION {
+      PWSTR IsolationPrefix;
+      BOOLEAN IsolationEnabled;
+    } TOKEN_BNO_ISOLATION_INFORMATION,*PTOKEN_BNO_ISOLATION_INFORMATION;
 
 #define CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID 0x00
 #define CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64 0x01
@@ -4218,6 +4279,8 @@ __buildmemorybarrier()
 #define LABEL_SECURITY_INFORMATION (__MSABI_LONG(0x00000010))
 #define ATTRIBUTE_SECURITY_INFORMATION (__MSABI_LONG(0x00000020))
 #define SCOPE_SECURITY_INFORMATION (__MSABI_LONG(0x00000040))
+#define PROCESS_TRUST_LABEL_SECURITY_INFORMATION (__MSABI_LONG(0x00000080))
+#define ACCESS_FILTER_SECURITY_INFORMATION (__MSABI_LONG(0x00000100))
 #define BACKUP_SECURITY_INFORMATION (__MSABI_LONG(0x00010000))
 
 #define PROTECTED_DACL_SECURITY_INFORMATION (__MSABI_LONG(0x80000000))
@@ -4253,6 +4316,7 @@ __buildmemorybarrier()
 #define PROCESS_QUERY_INFORMATION (0x0400)
 #define PROCESS_SUSPEND_RESUME (0x0800)
 #define PROCESS_QUERY_LIMITED_INFORMATION (0x1000)
+#define PROCESS_SET_LIMITED_INFORMATION (0x2000)
 
 #if NTDDI_VERSION >= 0x06000000
 #define PROCESS_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xffff)
@@ -4279,6 +4343,7 @@ __buildmemorybarrier()
 #define THREAD_DIRECT_IMPERSONATION (0x0200)
 #define THREAD_SET_LIMITED_INFORMATION (0x0400)
 #define THREAD_QUERY_LIMITED_INFORMATION (0x0800)
+#define THREAD_RESUME (0x1000)
 
 #if NTDDI_VERSION >= 0x06000000
 #define THREAD_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xffff)
@@ -4291,7 +4356,8 @@ __buildmemorybarrier()
 #define JOB_OBJECT_QUERY (0x0004)
 #define JOB_OBJECT_TERMINATE (0x0008)
 #define JOB_OBJECT_SET_SECURITY_ATTRIBUTES (0x0010)
-#define JOB_OBJECT_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0x1F)
+#define JOB_OBJECT_IMPERSONATE (0x0020)
+#define JOB_OBJECT_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0x3F)
 
     typedef struct _JOB_SET_ARRAY {
       HANDLE JobHandle;
@@ -4366,6 +4432,8 @@ __buildmemorybarrier()
 #if !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_)
 #define WX86
 #endif
+
+#define THREAD_DYNAMIC_CODE_ALLOW 1
 
 #define THREAD_BASE_PRIORITY_LOWRT 15
 #define THREAD_BASE_PRIORITY_MAX 2
@@ -4490,6 +4558,8 @@ __buildmemorybarrier()
       ProcessSideChannelIsolationPolicy,
       ProcessUserShadowStackPolicy,
       ProcessRedirectionTrustPolicy,
+      ProcessUserPointerAuthPolicy,
+      ProcessSEHOPPolicy,
       MaxProcessMitigationPolicy
     } PROCESS_MITIGATION_POLICY,*PPROCESS_MITIGATION_POLICY;
 
@@ -4517,6 +4587,16 @@ __buildmemorybarrier()
       };
       BOOLEAN Permanent;
     } PROCESS_MITIGATION_DEP_POLICY,*PPROCESS_MITIGATION_DEP_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_SEHOP_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD EnableSehop : 1;
+          DWORD ReservedFlags : 31;
+        };
+      };
+    } PROCESS_MITIGATION_SEHOP_POLICY,*PPROCESS_MITIGATION_SEHOP_POLICY;
 
     typedef struct _PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
       __C89_NAMELESS union {
@@ -4659,7 +4739,8 @@ __buildmemorybarrier()
           DWORD IsolateSecurityDomain  :1;
           DWORD DisablePageCombine  :1;
           DWORD SpeculativeStoreBypassDisable  :1;
-          DWORD ReservedFlags  :28;
+          DWORD RestrictCoreSharing : 1;
+          DWORD ReservedFlags : 27;
         };
       };
     } PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY, *PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY;
@@ -4682,6 +4763,16 @@ __buildmemorybarrier()
         };
       };
     } PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY, *PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD EnablePointerAuthUserIp : 1;
+          DWORD ReservedFlags : 31;
+        };
+      };
+    } PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY, *PPROCESS_MITIGATION_USER_POINTER_AUTH_POLICY;
 
     typedef struct _PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
       __C89_NAMELESS union {
@@ -4821,9 +4912,11 @@ __buildmemorybarrier()
 #define JOB_OBJECT_MSG_JOB_MEMORY_LIMIT 10
 #define JOB_OBJECT_MSG_NOTIFICATION_LIMIT 11
 #define JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT 12
+#define JOB_OBJECT_MSG_SILO_TERMINATED 13
 
 #define JOB_OBJECT_MSG_MINIMUM 1
 #define JOB_OBJECT_MSG_MAXIMUM 12
+#define JOB_OBJECT_VALID_COMPLETION_FILTER (((__MSABI_LONG(1U) << (JOB_OBJECT_MSG_MAXIMUM + 1)) - 1) - ((__MSABI_LONG(1U) << JOB_OBJECT_MSG_MINIMUM) - 1))
 
 #define JOB_OBJECT_LIMIT_WORKINGSET 0x00000001
 #define JOB_OBJECT_LIMIT_PROCESS_TIME 0x00000002
@@ -4836,16 +4929,20 @@ __buildmemorybarrier()
 
 #define JOB_OBJECT_LIMIT_PROCESS_MEMORY 0x00000100
 #define JOB_OBJECT_LIMIT_JOB_MEMORY 0x00000200
+#define JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH JOB_OBJECT_LIMIT_JOB_MEMORY
 #define JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION 0x00000400
 #define JOB_OBJECT_LIMIT_BREAKAWAY_OK 0x00000800
 #define JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK 0x00001000
 #define JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE 0x00002000
-
 #define JOB_OBJECT_LIMIT_SUBSET_AFFINITY 0x00004000
-#define JOB_OBJECT_LIMIT_RESERVED3 0x00008000
+#define JOB_OBJECT_LIMIT_JOB_MEMORY_LOW 0x00008000
+
 #define JOB_OBJECT_LIMIT_JOB_READ_BYTES 0x00010000
 #define JOB_OBJECT_LIMIT_JOB_WRITE_BYTES 0x00020000
 #define JOB_OBJECT_LIMIT_RATE_CONTROL 0x00040000
+#define JOB_OBJECT_LIMIT_CPU_RATE_CONTROL JOB_OBJECT_LIMIT_RATE_CONTROL
+#define JOB_OBJECT_LIMIT_IO_RATE_CONTROL 0x00080000
+#define JOB_OBJECT_LIMIT_NET_RATE_CONTROL 0x00100000
 
 #define JOB_OBJECT_LIMIT_RESERVED3 0x00008000
 #define JOB_OBJECT_LIMIT_RESERVED4 0x00010000
@@ -4885,14 +4982,20 @@ __buildmemorybarrier()
 #define JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED 0x2
 #define JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP 0x4
 #define JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY 0x8
-#define JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS 0xf
+#define JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE 0x10
+#define JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS 0x1f
 
     typedef enum _JOBOBJECTINFOCLASS {
-      JobObjectBasicAccountingInformation = 1, JobObjectBasicLimitInformation,
-      JobObjectBasicProcessIdList, JobObjectBasicUIRestrictions,
-      JobObjectSecurityLimitInformation, JobObjectEndOfJobTimeInformation,
-      JobObjectAssociateCompletionPortInformation, JobObjectBasicAndIoAccountingInformation,
-      JobObjectExtendedLimitInformation, JobObjectJobSetInformation,
+      JobObjectBasicAccountingInformation = 1,
+      JobObjectBasicLimitInformation,
+      JobObjectBasicProcessIdList,
+      JobObjectBasicUIRestrictions,
+      JobObjectSecurityLimitInformation,
+      JobObjectEndOfJobTimeInformation,
+      JobObjectAssociateCompletionPortInformation,
+      JobObjectBasicAndIoAccountingInformation,
+      JobObjectExtendedLimitInformation,
+      JobObjectJobSetInformation,
       JobObjectGroupInformation,
       JobObjectNotificationLimitInformation,
       JobObjectLimitViolationInformation,
@@ -4908,8 +5011,34 @@ __buildmemorybarrier()
       JobObjectReserved6Information,
       JobObjectReserved7Information,
       JobObjectReserved8Information,
+      JobObjectReserved9Information,
+      JobObjectReserved10Information,
+      JobObjectReserved11Information,
+      JobObjectReserved12Information,
+      JobObjectReserved13Information,
+      JobObjectReserved14Information = 31,
+      JobObjectNetRateControlInformation,
+      JobObjectNotificationLimitInformation2,
+      JobObjectLimitViolationInformation2,
+      JobObjectCreateSilo,
+      JobObjectSiloBasicInformation,
+      JobObjectReserved15Information = 37,
+      JobObjectReserved16Information = 38,
+      JobObjectReserved17Information = 39,
+      JobObjectReserved18Information = 40,
+      JobObjectReserved19Information = 41,
+      JobObjectReserved20Information = 42,
+      JobObjectReserved21Information = 43,
+      JobObjectReserved22Information = 44,
+      JobObjectReserved23Information = 45,
+      JobObjectReserved24Information = 46,
+      JobObjectReserved25Information = 47,
       MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
+
+#define MEMORY_PARTITION_QUERY_ACCESS 0x0001
+#define MEMORY_PARTITION_MODIFY_ACCESS 0x0002
+#define MEMORY_PARTITION_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | MEMORY_PARTITION_QUERY_ACCESS | MEMORY_PARTITION_MODIFY_ACCESS)
 
     typedef enum _FIRMWARE_TYPE {
       FirmwareTypeUnknown,
@@ -4937,8 +5066,15 @@ __buildmemorybarrier()
 #define TIME_ZONE_ID_DAYLIGHT 2
 
     typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP {
-      RelationProcessorCore,RelationNumaNode,RelationCache,
-      RelationProcessorPackage,RelationGroup,RelationAll=0xffff
+      RelationProcessorCore,
+      RelationNumaNode,
+      RelationCache,
+      RelationProcessorPackage,
+      RelationGroup,
+      RelationProcessorDie,
+      RelationNumaNodeEx,
+      RelationProcessorModule,
+      RelationAll = 0xffff
     } LOGICAL_PROCESSOR_RELATIONSHIP;
 
 #define LTP_PC_SMT 0x1
@@ -5013,14 +5149,60 @@ __buildmemorybarrier()
       LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
       DWORD Size;
       __C89_NAMELESS union {
-	PROCESSOR_RELATIONSHIP Processor;
-	NUMA_NODE_RELATIONSHIP NumaNode;
-	CACHE_RELATIONSHIP Cache;
-	GROUP_RELATIONSHIP Group;
-      } DUMMYUNIONNAME;
+        PROCESSOR_RELATIONSHIP Processor;
+        NUMA_NODE_RELATIONSHIP NumaNode;
+        CACHE_RELATIONSHIP Cache;
+        GROUP_RELATIONSHIP Group;
+      };
     };
 
-    typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,*PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+    typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, *PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+
+    typedef enum _CPU_SET_INFORMATION_TYPE {
+      CpuSetInformation
+    } CPU_SET_INFORMATION_TYPE, *PCPU_SET_INFORMATION_TYPE;
+
+#define SYSTEM_CPU_SET_INFORMATION_PARKED 0x1
+#define SYSTEM_CPU_SET_INFORMATION_ALLOCATED 0x2
+#define SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS 0x4
+#define SYSTEM_CPU_SET_INFORMATION_REALTIME 0x8
+
+    struct _SYSTEM_CPU_SET_INFORMATION {
+      DWORD Size;
+      CPU_SET_INFORMATION_TYPE Type;
+      __C89_NAMELESS union {
+        struct {
+          DWORD Id;
+          WORD Group;
+          BYTE LogicalProcessorIndex;
+          BYTE CoreIndex;
+          BYTE LastLevelCacheIndex;
+          BYTE NumaNodeIndex;
+          BYTE EfficiencyClass;
+          __C89_NAMELESS union {
+            BYTE AllFlags;
+            __C89_NAMELESS struct {
+              BYTE Parked : 1;
+              BYTE Allocated : 1;
+              BYTE AllocatedToTargetProcess : 1;
+              BYTE RealTime : 1;
+              BYTE ReservedFlags : 4;
+            };
+          };
+          __C89_NAMELESS union {
+            DWORD Reserved;
+            BYTE  SchedulingClass;
+          };
+          DWORD64 AllocationTag;
+        } CpuSet;
+      };
+    };
+
+    typedef struct _SYSTEM_CPU_SET_INFORMATION SYSTEM_CPU_SET_INFORMATION, *PSYSTEM_CPU_SET_INFORMATION;
+
+    typedef struct _SYSTEM_POOL_ZEROING_INFORMATION {
+      BOOLEAN PoolZeroingSupportPresent;
+    } SYSTEM_POOL_ZEROING_INFORMATION, *PSYSTEM_POOL_ZEROING_INFORMATION;
 
     typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
       DWORD64 CycleTime;
@@ -5165,6 +5347,20 @@ __buildmemorybarrier()
 #define XSTATE_MASK_USER_VISIBLE_SUPERVISOR (XSTATE_MASK_CET_U)
 #define XSTATE_MASK_LARGE_FEATURES (XSTATE_MASK_AMX_TILE_DATA)
 
+#define XSTATE_COMPACTION_ENABLE (63)
+#define XSTATE_COMPACTION_ENABLE_MASK (1ULL << (XSTATE_COMPACTION_ENABLE))
+
+#define XSTATE_ALIGN_BIT (1)
+#define XSTATE_ALIGN_MASK (1ULL << (XSTATE_ALIGN_BIT))
+
+#define XSTATE_XFD_BIT (2)
+#define XSTATE_XFD_MASK (1ULL << (XSTATE_XFD_BIT))
+
+#define XSTATE_CONTROLFLAG_XSAVEOPT_MASK (1)
+#define XSTATE_CONTROLFLAG_XSAVEC_MASK (2)
+#define XSTATE_CONTROLFLAG_XFD_MASK (4)
+#define XSTATE_CONTROLFLAG_VALID_MASK (XSTATE_CONTROLFLAG_XSAVEOPT_MASK | XSTATE_CONTROLFLAG_XSAVEC_MASK | XSTATE_CONTROLFLAG_XFD_MASK)
+
     typedef struct _XSTATE_FEATURE {
       DWORD Offset;
       DWORD Size;
@@ -5174,14 +5370,32 @@ __buildmemorybarrier()
       DWORD64 EnabledFeatures;
       DWORD64 EnabledVolatileFeatures;
       DWORD Size;
-      DWORD OptimizedSave : 1;
+      __C89_NAMELESS union {
+        DWORD ControlFlags;
+        __C89_NAMELESS struct {
+          DWORD OptimizedSave : 1;
+          DWORD CompactionEnabled : 1;
+          DWORD ExtendedFeatureDisable : 1;
+        };
+      };
       XSTATE_FEATURE Features[MAXIMUM_XSTATE_FEATURES];
-    } XSTATE_CONFIGURATION,*PXSTATE_CONFIGURATION;
+      DWORD64 EnabledSupervisorFeatures;
+      DWORD64 AlignedFeatures;
+      DWORD AllFeatureSize;
+      DWORD AllFeatures[MAXIMUM_XSTATE_FEATURES];
+      DWORD64 EnabledUserVisibleSupervisorFeatures;
+      DWORD64 ExtendedFeatureDisableFeatures;
+      DWORD AllNonLargeFeatureSize;
+      DWORD Spare;
+    } XSTATE_CONFIGURATION, *PXSTATE_CONFIGURATION;
 
     typedef struct _MEMORY_BASIC_INFORMATION {
       PVOID BaseAddress;
       PVOID AllocationBase;
       DWORD AllocationProtect;
+#if defined (_WIN64)
+      WORD PartitionId;
+#endif
       SIZE_T RegionSize;
       DWORD State;
       DWORD Protect;
@@ -5213,6 +5427,8 @@ __buildmemorybarrier()
 #define CFG_CALL_TARGET_VALID 0x01
 #define CFG_CALL_TARGET_PROCESSED 0x02
 #define CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID 0x04
+#define CFG_CALL_TARGET_VALID_XFG (0x08)
+#define CFG_CALL_TARGET_CONVERT_XFG_TO_CFG (0x10)
 
   typedef struct _CFG_CALL_TARGET_INFO {
     ULONG_PTR Offset;
@@ -5251,12 +5467,16 @@ __buildmemorybarrier()
 #define PAGE_GRAPHICS_EXECUTE_READ 0x8000
 #define PAGE_GRAPHICS_EXECUTE_READWRITE 0x10000
 #define PAGE_GRAPHICS_COHERENT 0x20000
+#define PAGE_GRAPHICS_NOCACHE 0x40000
 #define PAGE_ENCLAVE_THREAD_CONTROL 0x80000000
 #define PAGE_REVERT_TO_FILE_MAP 0x80000000
 #define PAGE_TARGETS_NO_UPDATE 0x40000000
 #define PAGE_TARGETS_INVALID 0x40000000
 #define PAGE_ENCLAVE_UNVALIDATED 0x20000000
-#define PAGE_ENCLAVE_DECOMMIT 0x10000000
+#define PAGE_ENCLAVE_MASK 0x10000000
+#define PAGE_ENCLAVE_DECOMMIT (PAGE_ENCLAVE_MASK | 0)
+#define PAGE_ENCLAVE_SS_FIRST (PAGE_ENCLAVE_MASK | 1)
+#define PAGE_ENCLAVE_SS_REST (PAGE_ENCLAVE_MASK | 2)
 
 #define MEM_COMMIT 0x1000
 #define MEM_RESERVE 0x2000
@@ -5275,6 +5495,9 @@ __buildmemorybarrier()
 #define MEM_LARGE_PAGES 0x20000000
 #define MEM_4MB_PAGES 0x80000000
 #define MEM_64K_PAGES (MEM_LARGE_PAGES | MEM_PHYSICAL)
+#define MEM_UNMAP_WITH_TRANSIENT_BOOST 0x00000001
+#define MEM_COALESCE_PLACEHOLDERS 0x00000001
+#define MEM_PRESERVE_PLACEHOLDER 0x00000002
 
   typedef struct _MEM_ADDRESS_REQUIREMENTS {
     PVOID LowestStartingAddress;
@@ -5287,6 +5510,11 @@ __buildmemorybarrier()
 #define MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL 0x04
 #define MEM_EXTENDED_PARAMETER_NONPAGED_LARGE 0x08
 #define MEM_EXTENDED_PARAMETER_NONPAGED_HUGE 0x10
+#define MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES 0x20
+#define MEM_EXTENDED_PARAMETER_EC_CODE 0x40
+#define MEM_EXTENDED_PARAMETER_IMAGE_NO_HPAT 0x80
+
+#define MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY MINLONG64
 
   typedef enum MEM_EXTENDED_PARAMETER_TYPE {
     MemExtendedParameterInvalidType = 0,
@@ -5295,6 +5523,7 @@ __buildmemorybarrier()
     MemExtendedParameterPartitionHandle,
     MemExtendedParameterUserPhysicalHandle,
     MemExtendedParameterAttributeFlags,
+    MemExtendedParameterImageMachine,
     MemExtendedParameterMax
   } MEM_EXTENDED_PARAMETER_TYPE, *PMEM_EXTENDED_PARAMETER_TYPE;
 
@@ -5314,6 +5543,20 @@ __buildmemorybarrier()
     };
   } MEM_EXTENDED_PARAMETER, *PMEM_EXTENDED_PARAMETER;
 
+#define MEMORY_CURRENT_PARTITION_HANDLE ((HANDLE)(LONG_PTR)(-1))
+#define MEMORY_SYSTEM_PARTITION_HANDLE ((HANDLE)(LONG_PTR)(-2))
+#define MEMORY_EXISTING_VAD_PARTITION_HANDLE ((HANDLE)(LONG_PTR)(-3))
+#define MEM_DEDICATED_ATTRIBUTE_NOT_SPECIFIED ((DWORD64)(-1))
+
+    typedef enum _MEM_DEDICATED_ATTRIBUTE_TYPE {
+      MemDedicatedAttributeReadBandwidth = 0,
+      MemDedicatedAttributeReadLatency,
+      MemDedicatedAttributeWriteBandwidth,
+      MemDedicatedAttributeWriteLatency,
+      MemDedicatedAttributeMax
+    } MEM_DEDICATED_ATTRIBUTE_TYPE, *PMEM_DEDICATED_ATTRIBUTE_TYPE;
+
+#define SEC_HUGE_PAGES 0x20000
 #define SEC_PARTITION_OWNER_HANDLE 0x40000
 #define SEC_64K_PAGES 0x80000
 #define SEC_FILE 0x800000
@@ -5330,12 +5573,12 @@ __buildmemorybarrier()
     MemSectionExtendedParameterInvalidType = 0,
     MemSectionExtendedParameterUserPhysicalFlags,
     MemSectionExtendedParameterNumaNode,
+    MemSectionExtendedParameterSigningLevel,
     MemSectionExtendedParameterMax
   } MEM_SECTION_EXTENDED_PARAMETER_TYPE, *PMEM_SECTION_EXTENDED_PARAMETER_TYPE;
 
 #define MEM_IMAGE SEC_IMAGE
 #define WRITE_WATCH_FLAG_RESET 0x01
-#define MEM_UNMAP_WITH_TRANSIENT_BOOST 0x01
 
 #define FILE_READ_DATA (0x0001)
 #define FILE_LIST_DIRECTORY (0x0001)
@@ -5411,7 +5654,19 @@ __buildmemorybarrier()
 #define FILE_ATTRIBUTE_OFFLINE 0x00001000
 #define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED 0x00002000
 #define FILE_ATTRIBUTE_ENCRYPTED 0x00004000
+#define FILE_ATTRIBUTE_INTEGRITY_STREAM 0x00008000
 #define FILE_ATTRIBUTE_VIRTUAL 0x00010000
+#define FILE_ATTRIBUTE_NO_SCRUB_DATA 0x00020000
+#define FILE_ATTRIBUTE_EA 0x00040000
+#define FILE_ATTRIBUTE_PINNED 0x00080000
+#define FILE_ATTRIBUTE_UNPINNED 0x00100000
+#define FILE_ATTRIBUTE_RECALL_ON_OPEN 0x00040000
+#define FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 0x00400000
+#define TREE_CONNECT_ATTRIBUTE_PRIVACY 0x00004000
+#define TREE_CONNECT_ATTRIBUTE_INTEGRITY 0x00008000
+#define TREE_CONNECT_ATTRIBUTE_GLOBAL 0x00000004
+#define TREE_CONNECT_ATTRIBUTE_PINNED 0x00000002
+#define FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL 0x20000000
 #define FILE_NOTIFY_CHANGE_FILE_NAME 0x00000001
 #define FILE_NOTIFY_CHANGE_DIR_NAME 0x00000002
 #define FILE_NOTIFY_CHANGE_ATTRIBUTES 0x00000004
@@ -5436,6 +5691,12 @@ __buildmemorybarrier()
 #define FILE_SUPPORTS_SPARSE_FILES 0x00000040
 #define FILE_SUPPORTS_REPARSE_POINTS 0x00000080
 #define FILE_SUPPORTS_REMOTE_STORAGE 0x00000100
+#define FILE_RETURNS_CLEANUP_RESULT_INFO 0x00000200
+#define FILE_SUPPORTS_POSIX_UNLINK_RENAME 0x00000400
+#define FILE_SUPPORTS_BYPASS_IO 0x00000800
+#define FILE_SUPPORTS_STREAM_SNAPSHOTS 0x00001000
+#define FILE_SUPPORTS_CASE_SENSITIVE_DIRS 0x00002000
+
 #define FILE_VOLUME_IS_COMPRESSED 0x00008000
 #define FILE_SUPPORTS_OBJECT_IDS 0x00010000
 #define FILE_SUPPORTS_ENCRYPTION 0x00020000
@@ -5448,8 +5709,13 @@ __buildmemorybarrier()
 #define FILE_SUPPORTS_OPEN_BY_FILE_ID 0x01000000
 #define FILE_SUPPORTS_USN_JOURNAL 0x02000000
 #define FILE_SUPPORTS_INTEGRITY_STREAMS 0x04000000
+#define FILE_SUPPORTS_BLOCK_REFCOUNTING 0x08000000
+#define FILE_SUPPORTS_SPARSE_VDL 0x10000000
+#define FILE_DAX_VOLUME 0x20000000
+#define FILE_SUPPORTS_GHOSTING 0x40000000
+#define FILE_INVALID_FILE_ID ((LONGLONG)(-1LL))
 
-    typedef struct FILE_ID_128 {
+    typedef struct _FILE_ID_128 {
       BYTE Identifier[16];
     } FILE_ID_128, *PFILE_ID_128;
 
@@ -5459,6 +5725,60 @@ __buildmemorybarrier()
       DWORD FileNameLength;
       WCHAR FileName[1];
     } FILE_NOTIFY_INFORMATION,*PFILE_NOTIFY_INFORMATION;
+
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN10_RS3
+    typedef struct _FILE_NOTIFY_EXTENDED_INFORMATION {
+      DWORD NextEntryOffset;
+      DWORD Action;
+      LARGE_INTEGER CreationTime;
+      LARGE_INTEGER LastModificationTime;
+      LARGE_INTEGER LastChangeTime;
+      LARGE_INTEGER LastAccessTime;
+      LARGE_INTEGER AllocatedLength;
+      LARGE_INTEGER FileSize;
+      DWORD FileAttributes;
+      __C89_NAMELESS union {
+        DWORD ReparsePointTag;
+        DWORD EaSize;
+      };
+      LARGE_INTEGER FileId;
+      LARGE_INTEGER ParentFileId;
+      DWORD FileNameLength;
+      WCHAR FileName[1];
+    } FILE_NOTIFY_EXTENDED_INFORMATION,*PFILE_NOTIFY_EXTENDED_INFORMATION;
+#endif
+
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN10_NI
+#define FILE_NAME_FLAG_HARDLINK 0
+#define FILE_NAME_FLAG_NTFS 0x01
+#define FILE_NAME_FLAG_DOS 0x02
+#define FILE_NAME_FLAG_BOTH 0x03
+#define FILE_NAME_FLAGS_UNSPECIFIED 0x80
+
+    typedef struct _FILE_NOTIFY_FULL_INFORMATION {
+      DWORD NextEntryOffset;
+      DWORD Action;
+      LARGE_INTEGER CreationTime;
+      LARGE_INTEGER LastModificationTime;
+      LARGE_INTEGER LastChangeTime;
+      LARGE_INTEGER LastAccessTime;
+      LARGE_INTEGER AllocatedLength;
+      LARGE_INTEGER FileSize;
+      DWORD FileAttributes;
+      __C89_NAMELESS union {
+        DWORD ReparsePointTag;
+        DWORD EaSize;
+      };
+      LARGE_INTEGER FileId;
+      LARGE_INTEGER ParentFileId;
+      WORD FileNameLength;
+      BYTE FileNameFlags;
+      BYTE Reserved;
+      WCHAR FileName[1];
+    } FILE_NOTIFY_FULL_INFORMATION,*PFILE_NOTIFY_FULL_INFORMATION;
+#endif
+
+#define FILE_CS_FLAG_CASE_SENSITIVE_DIR 0x00000001
 
     typedef union _FILE_SEGMENT_ELEMENT {
       PVOID64 Buffer;
