@@ -76,7 +76,7 @@ __FLT_ABI(__powi) (__FLT_TYPE x, int y)
 {
   int x_class = fpclassify (x);
   int odd_y = y & 1;
-  __FLT_TYPE d, rslt;
+  __FLT_TYPE rslt;
 
   if (y == 0 || x == __FLT_CST(1.0))
     return __FLT_CST(1.0);
@@ -121,33 +121,121 @@ __FLT_ABI(__powi) (__FLT_TYPE x, int y)
       return (odd_y && signbit(x) ? -__FLT_HUGE_VAL : __FLT_HUGE_VAL);
     }
 
-  d = __FLT_ABI(fabs) (x);
 
-  if (y < 0)
-    {
-      d = __FLT_CST(1.0) / d;
-      y = -y;
-    }
+    // credit: netlib.org/cephes
+    // This project uses source code from the files cephes/cmath/powi.c  
+    // from https://www.netlib.org/cephes/
+    // Cephes Math Library Release 2.8:  June, 2000
+    // Copyright 1984, 1995, 2000 by Stephen L. Moshier
 
-  if (!y)
-    rslt = __FLT_CST(1.0);
-  else if (y == 1)
-    rslt = d;
-  else
-    {
-      unsigned int u = (unsigned int) y;
-      rslt = ((u & 1) != 0) ? d : __FLT_CST(1.0);
-      u >>= 1;
-      do
+
+    int n, e, sign, asign, lx;
+    __FLT_TYPE w, rslt, s;
+
+    if( y == -1 )
+	    return( __FLT_CST(1.0)/x );
+
+
+    /* check x sign */
+    if( x < __FLT_CST(0.0) )
 	{
-	  d *= d;
-	  if ((u & 1) != 0)
-	    rslt *= d;
-	  u >>= 1;
+	    asign = -1;
+	    x = -x;
 	}
-      while (u > 0);
+    else
+	    asign = 0;
+
+
+    /* check y sign */
+    if( y < 0 )
+	{
+        sign = -1;
+        n = -y;
+	}
+    else
+	{
+        sign = 1;
+        n = y;
+	}
+
+    /* Even power will be positive. */
+    if( (n & 1) == 0 )
+	    asign = 0;
+
+
+    /* Overflow detection */
+
+    /* Calculate approximate logarithm of answer */
+    s = __FLT_ABI(frexp)( x, &lx );
+    e = (lx - 1)*n;
+    if( (e == 0) || (e > 64) || (e < -64) )
+    {
+        s = (s - __FLT_ABI(7.0710678118654752e-1)) / (s + __FLT_ABI(7.0710678118654752e-1));
+        s = (__FLT_ABI(2.9142135623730950) * s - __FLT_ABI(0.5) + lx) * y * __FLT_LOGE2;
     }
-  if (signbit (x) && odd_y)
-    rslt = -rslt;
-  return rslt;
+    else
+    {
+        s = __FLT_LOGE2 * e;
+    }
+
+
+    if( s > __FLT_MAXLOG )
+	{
+        rslt = __FLT_HUGE_VAL;
+        goto done;
+    }
+
+
+    if( s < __FLT_MINLOG )
+	{
+        rslt = __FLT_CST(0.0);
+        goto done;
+	}
+
+
+    /* Handle tiny denormal answer, but with less accuracy
+    * since roundoff error in 1.0/x will be amplified.
+    * The precise demarcation should be the gradual underflow threshold.
+    */
+    if( (s < (-__FLT_MAXLOG+__FLT_CST(2.0))) && (sign < 0) )
+	{
+        x = __FLT_CST(1.0)/x;
+        sign = -sign;
+	}
+
+
+    /* First bit of the power */
+    if( n & 1 )
+        rslt = x;
+    else
+        rslt = __FLT_CST(1.0);
+
+
+    w = x;
+    n >>= 1;
+    while( n )
+    {
+        w = w * w;	/* arg to the 2-to-the-kth power */
+        if( n & 1 )	/* if that bit is set, then include in product */
+            rslt *= w;
+        n >>= 1;
+    }
+
+
+    if( sign < 0 )
+	    rslt = __FLT_CST(1.0)/rslt;
+
+
+    
+    done:
+
+    if( asign )
+    {
+        /* odd power of negative number */
+        if( rslt == 0.0 )
+            rslt = -__FLT_CST(0.0);
+        else
+            rslt = -rslt;
+    }
+    return(rslt);
 }
