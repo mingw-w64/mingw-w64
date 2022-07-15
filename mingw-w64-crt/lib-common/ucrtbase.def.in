@@ -2431,7 +2431,6 @@ logb
 logbf
 logbl
 F_NON_I386(logf F_X86_ANY(DATA))
-longjmp F_X86_ANY(DATA)
 lrint
 lrintf
 lrintl
