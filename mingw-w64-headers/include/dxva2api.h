@@ -804,14 +804,14 @@ IDirectXVideoDecoderService : public IDirectXVideoAccelerationService
     virtual HRESULT STDMETHODCALLTYPE GetDecoderConfigurations(
         REFGUID guid,
         const DXVA2_VideoDesc *pVideoDesc,
-        IUnknown *pReserved,
+        void *pReserved,
         UINT *pCount,
         DXVA2_ConfigPictureDecode **ppConfigs) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateVideoDecoder(
         REFGUID guid,
         const DXVA2_VideoDesc *pVideoDesc,
-        DXVA2_ConfigPictureDecode *pConfig,
+        const DXVA2_ConfigPictureDecode *pConfig,
         IDirect3DSurface9 **ppDecoderRenderTargets,
         UINT NumSurfaces,
         IDirectXVideoDecoder **ppDecode) = 0;
@@ -865,7 +865,7 @@ typedef struct IDirectXVideoDecoderServiceVtbl {
         IDirectXVideoDecoderService *This,
         REFGUID guid,
         const DXVA2_VideoDesc *pVideoDesc,
-        IUnknown *pReserved,
+        void *pReserved,
         UINT *pCount,
         DXVA2_ConfigPictureDecode **ppConfigs);
 
@@ -873,7 +873,7 @@ typedef struct IDirectXVideoDecoderServiceVtbl {
         IDirectXVideoDecoderService *This,
         REFGUID guid,
         const DXVA2_VideoDesc *pVideoDesc,
-        DXVA2_ConfigPictureDecode *pConfig,
+        const DXVA2_ConfigPictureDecode *pConfig,
         IDirect3DSurface9 **ppDecoderRenderTargets,
         UINT NumSurfaces,
         IDirectXVideoDecoder **ppDecode);
@@ -920,10 +920,10 @@ static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderDeviceGuids(IDi
 static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderRenderTargets(IDirectXVideoDecoderService* This,REFGUID guid,UINT *pCount,D3DFORMAT **pFormats) {
     return This->lpVtbl->GetDecoderRenderTargets(This,guid,pCount,pFormats);
 }
-static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderConfigurations(IDirectXVideoDecoderService* This,REFGUID guid,const DXVA2_VideoDesc *pVideoDesc,IUnknown *pReserved,UINT *pCount,DXVA2_ConfigPictureDecode **ppConfigs) {
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderConfigurations(IDirectXVideoDecoderService* This,REFGUID guid,const DXVA2_VideoDesc *pVideoDesc,void *pReserved,UINT *pCount,DXVA2_ConfigPictureDecode **ppConfigs) {
     return This->lpVtbl->GetDecoderConfigurations(This,guid,pVideoDesc,pReserved,pCount,ppConfigs);
 }
-static FORCEINLINE HRESULT IDirectXVideoDecoderService_CreateVideoDecoder(IDirectXVideoDecoderService* This,REFGUID guid,const DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 **ppDecoderRenderTargets,UINT NumSurfaces,IDirectXVideoDecoder **ppDecode) {
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_CreateVideoDecoder(IDirectXVideoDecoderService* This,REFGUID guid,const DXVA2_VideoDesc *pVideoDesc,const DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 **ppDecoderRenderTargets,UINT NumSurfaces,IDirectXVideoDecoder **ppDecode) {
     return This->lpVtbl->CreateVideoDecoder(This,guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumSurfaces,ppDecode);
 }
 #endif
