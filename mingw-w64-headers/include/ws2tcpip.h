@@ -265,12 +265,11 @@ WCHAR *gai_strerrorW(int);
 #include <mstcpip.h>
 
 #if (_WIN32_WINNT >= 0x0600)
-#define addrinfoEx __MINGW_NAME_AW(addrinfoEx)
 #define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
 #define GetAddrInfoEx __MINGW_NAME_AW(GetAddrInfoEx)
 #define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
 
-  typedef struct addrinfoExA {
+  typedef struct addrinfoexA {
     int                ai_flags;
     int                ai_family;
     int                ai_socktype;
@@ -284,7 +283,7 @@ WCHAR *gai_strerrorW(int);
     struct addrinfoexA *ai_next;
   } ADDRINFOEXA, *PADDRINFOEXA;
 
-  typedef struct addrinfoExW {
+  typedef struct addrinfoexW {
     int                ai_flags;
     int                ai_family;
     int                ai_socktype;
