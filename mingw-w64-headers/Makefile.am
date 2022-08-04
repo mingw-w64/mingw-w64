@@ -90,6 +90,7 @@ IDL_SRCS = \
   include/comadmin.idl \
   include/commoncontrols.idl \
   include/control.idl \
+  include/credentialprovider.idl \
   include/ctfutb.idl \
   include/d3d10.idl \
   include/d3d10_1.idl \

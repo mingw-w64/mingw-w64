@@ -14,6 +14,7 @@
 #define INITGUID
 #include <basetyps.h>
 
+#include <credentialprovider.h>
 #include <textstor.h>
 #include <shobjidl.h>
 #include <propkey.h>
