@@ -106,7 +106,7 @@ __FLT_ABI(cacosh) (__FLT_TYPE __complex__ z)
 
   x = __FLT_ABI(csqrt) (x);
 
-  if (__real__ z < __FLT_CST(0.0))
+  if (signbit (__real__ z))
     x = -x;
 
   __real__ x += __real__ z;
@@ -114,7 +114,7 @@ __FLT_ABI(cacosh) (__FLT_TYPE __complex__ z)
 
   ret = __FLT_ABI(clog) (x);
 
-  if (__real__ ret < __FLT_CST(0.0))
+  if (signbit (__real__ ret))
     ret = -ret;
 
   return ret;
