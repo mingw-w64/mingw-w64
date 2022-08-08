@@ -104,6 +104,37 @@ __FLT_ABI(casinh) (__FLT_TYPE __complex__ z)
     ret = __FLT_ABI(clog) (x);
     __real__ ret += M_LN2;
   }
+  else if (aiz < __FLT_CST(1.0) && arz <= __FLT_EPSILON)
+  {
+    /* Taylor series expansion around arz=0 for z + sqrt(z*z + 1):
+    c = arz + sqrt(1-aiz^2) + i*(aiz + arz*aiz / sqrt(1-aiz^2)) + O(arz^2)
+    Identity: clog(c) = log(|c|) + i*arg(c)
+    For real part of result:
+    |c| = 1 + arz / sqrt(1-aiz^2) + O(arz^2)  (Taylor series expansion)
+    For imaginary part of result:
+    c = (arz + sqrt(1-aiz^2))/sqrt(1-aiz^2) * (sqrt(1-aiz^2) + i*aiz) + O(arz^6)
+    */
+    __FLT_TYPE s1maiz2 = __FLT_ABI(sqrt) ((__FLT_CST(1.0)+aiz)*(__FLT_CST(1.0)-aiz));
+    __real__ ret = __FLT_ABI(log1p) (arz / s1maiz2);
+    __imag__ ret = __FLT_ABI(atan2) (aiz, s1maiz2);
+  }
+  else if (aiz < __FLT_CST(1.0) && arz*arz <= __FLT_EPSILON)
+  {
+    /* Taylor series expansion around arz=0 for z + sqrt(z*z + 1):
+    c = arz + sqrt(1-aiz^2) + arz^2 / (2*(1-aiz^2)^(3/2)) + i*(aiz + arz*aiz / sqrt(1-aiz^2)) + O(arz^4)
+    Identity: clog(c) = log(|c|) + i*arg(c)
+    For real part of result:
+    |c| = 1 + arz / sqrt(1-aiz^2) + arz^2/(2*(1-aiz^2)) + O(arz^3)  (Taylor series expansion)
+    For imaginary part of result:
+    c = 1/sqrt(1-aiz^2) * ((1-aiz^2) + arz*sqrt(1-aiz^2) + arz^2/(2*(1-aiz^2)) + i*aiz*(sqrt(1-aiz^2)+arz)) + O(arz^3)
+    */
+    __FLT_TYPE onemaiz2 = (__FLT_CST(1.0)+aiz)*(__FLT_CST(1.0)-aiz);
+    __FLT_TYPE s1maiz2 = __FLT_ABI(sqrt) (onemaiz2);
+    __FLT_TYPE arz2red = arz * arz / __FLT_CST(2.0) / s1maiz2;
+    __real__ ret = __FLT_ABI(log1p) ((arz + arz2red) / s1maiz2);
+    __imag__ ret = __FLT_ABI(atan2) (aiz * (s1maiz2 + arz),
+                                     onemaiz2 + arz*s1maiz2 + arz2red);
+  }
   else
   {
     __real__ x = (arz - aiz) * (arz + aiz) + __FLT_CST(1.0);
