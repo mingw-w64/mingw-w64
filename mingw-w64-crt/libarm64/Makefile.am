@@ -172,6 +172,7 @@ libarm64_DATA += %reldir%/libmpr.a
 libarm64_DATA += %reldir%/libmsacm32.a
 libarm64_DATA += %reldir%/libmsafd.a
 libarm64_DATA += %reldir%/libmscat32.a
+libarm64_DATA += %reldir%/libmscms.a
 libarm64_DATA += %reldir%/libmsctf.a
 libarm64_DATA += %reldir%/libmsdadiag.a
 libarm64_DATA += %reldir%/libmsdmo.a
