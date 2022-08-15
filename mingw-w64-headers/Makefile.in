@@ -532,6 +532,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/urlhist.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/vdslun.idl \
+@HAVE_WIDL_TRUE@  include/vidcap.idl \
 @HAVE_WIDL_TRUE@  include/vsadmin.idl \
 @HAVE_WIDL_TRUE@  include/vsbackup.idl \
 @HAVE_WIDL_TRUE@  include/vsmgmt.idl \
