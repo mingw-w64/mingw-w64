@@ -230,6 +230,7 @@ IDL_SRCS = \
   include/urlhist.idl \
   include/urlmon.idl \
   include/vdslun.idl \
+  include/vidcap.idl \
   include/vsadmin.idl \
   include/vsbackup.idl \
   include/vsmgmt.idl \
