@@ -565,8 +565,8 @@ src_libmingwex=\
   misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \
   \
   ssp/chk_fail.c         ssp/memcpy_chk.c           ssp/memmove_chk.c       ssp/mempcpy_chk.c \
-  ssp/memset_chk.c       ssp/strcat_chk.c           ssp/strcpy_chk.c        ssp/strncat_chk.c \
-  ssp/strncpy_chk.c \
+  ssp/memset_chk.c       ssp/stack_chk_fail.c       ssp/stack_chk_guard.c   ssp/strcat_chk.c \
+  ssp/strcpy_chk.c       ssp/strncat_chk.c          ssp/strncpy_chk.c \
   \
   stdio/mingw_pformat.h    \
   stdio/scanf2-argcount-char.c stdio/scanf2-argcount-wchar.c \
