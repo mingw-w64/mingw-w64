@@ -929,23 +929,23 @@ lib32/libcrtdll.a: lib32/crtdll.mri lib32/libcrtdll_def.a lib32/libmsvcrt_common
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt10.a
-lib32/libmsvcrt10.a: lib32/msvcrt10.mri lib32/libmsvcrt10_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcrt10.a: lib32/msvcrt10.mri lib32/libmsvcrt10_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt10_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt20.a
-lib32/libmsvcrt20.a: lib32/msvcrt20.mri lib32/libmsvcrt20_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcrt20.a: lib32/msvcrt20.mri lib32/libmsvcrt20_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt20_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt40.a
-lib32/libmsvcrt40.a: lib32/msvcrt40.mri lib32/libmsvcrt40_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcrt40.a: lib32/msvcrt40.mri lib32/libmsvcrt40_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt40_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr70.a
-lib32/libmsvcr70.a: lib32/msvcr70.mri lib32/libmsvcr70_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcr70.a: lib32/msvcr70.mri lib32/libmsvcr70_def.a lib32/libmsvcrt_common.a lib32/libmsvcr70_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr71.a
-lib32/libmsvcr71.a: lib32/msvcr71.mri lib32/libmsvcr71_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcr71.a: lib32/msvcr71.mri lib32/libmsvcr71_def.a lib32/libmsvcrt_common.a lib32/libmsvcr71_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr80.a
