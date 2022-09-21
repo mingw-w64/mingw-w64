@@ -4692,7 +4692,7 @@ typedef BYTE SE_SIGNING_LEVEL, *PSE_SIGNING_LEVEL;
           DWORD ProhibitDynamicCode  :1;
           DWORD AllowThreadOptOut  :1;
           DWORD AllowRemoteDowngrade  :1;
-          DWORD ReservedFlags  :30;
+          DWORD ReservedFlags  :29;
         };
       };
     } PROCESS_MITIGATION_DYNAMIC_CODE_POLICY, *PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY;
