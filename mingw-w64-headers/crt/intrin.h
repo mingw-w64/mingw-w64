@@ -310,6 +310,7 @@ extern "C" {
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __emulu(unsigned int,unsigned int))
     __MACHINEI(void __cdecl _enable(void))
     __MACHINEIA64(void __cdecl _enable(void))
+    __MACHINE(void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int code))
     __MACHINEIA64(__MINGW_EXTENSION void __fc(__int64))
     __MACHINEIA64(void __fclrf(void))
     __MACHINEIA64(void __fsetc(int,int))
