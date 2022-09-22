@@ -20,7 +20,7 @@ else
 endif
 
 AM_CPPFLAGS=$(sysincludes)
-AM_CFLAGS=-pipe -std=gnu99 -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x700 -D__USE_MINGW_ANSI_STDIO=0 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS=-pipe -std=gnu99 -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x700 -D__USE_MINGW_ANSI_STDIO=0 @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 CPPFLAGSARM32=-mfpu=vfpv3
 CPPFLAGS32=-m32
@@ -490,6 +490,8 @@ src_msvcr120_app=\
 
 # These mingwex sources are target independent:
 src_libmingwex=\
+  cfguard/mingw_cfguard_support.c \
+  \
   crt/dllentry.c        crt/dllmain.c \
   \
   complex/_cabs.c    complex/cabs.c   complex/cabsf.c   complex/cabsl.c   complex/cacos.c   complex/cacosf.c   \
@@ -581,6 +583,12 @@ src_libmingwex=\
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c        stdio/vfscanf.c           stdio/vfwscanf.c        \
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
+
+# Include the default load config struct only for Control Flow Guard support.
+if CFGUARD
+src_libmingwex+=\
+  cfguard/mingw_cfguard_loadcfg.S
+endif
 
 # these go into both 32 and 64 bit x86 versions:
 src_libmingwex_x86=\

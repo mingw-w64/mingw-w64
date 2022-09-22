@@ -277,6 +277,21 @@ AC_MSG_RESULT([$with_default_msvcrt])
 AS_VAR_SET([MSVCRT_LIB],[lib${with_default_msvcrt}.a])
 AC_SUBST([MSVCRT_LIB])
 
+AC_MSG_CHECKING([whether to include support for Control Flow Guard])
+AC_ARG_ENABLE([cfguard],
+  [AS_HELP_STRING([--enable-cfguard],
+    [Enable building with Control Flow Guard support (Clang)])],
+  [],
+  [AS_VAR_SET([enable_cfguard],[no])])
+AC_MSG_RESULT([$enable_cfguard])
+AS_CASE([$enable_cfguard],
+  [no],[],
+  [yes],[AS_VAR_SET([CFGUARD])
+	 AS_VAR_SET([CFGUARD_CFLAGS],[-mguard=cf])],
+  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
+AM_CONDITIONAL([CFGUARD], [AS_VAR_TEST_SET([CFGUARD])])
+AC_SUBST([CFGUARD_CFLAGS])
+
 AC_MSG_CHECKING([whether to enable experimental features])
 AC_ARG_ENABLE([experimental],
   [AS_HELP_STRING([--enable-experimental],
@@ -413,6 +428,7 @@ AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS])
 AC_MSG_NOTICE([  Default msvcrt.......: $with_default_msvcrt])
+AC_MSG_NOTICE([  Control Flow Guard...: $enable_cfguard])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([  DFP printf...........: $enable_dfp])
 AC_MSG_NOTICE([  128-bit printf.......: $enable_printf128])
