@@ -350,9 +350,6 @@ WINOLEAUTAPI VarDecFromUI8(ULONG64 ui64In,DECIMAL *pdecOut);
 #define VarUI4FromUI4(in,pOut) (*(pOut) = (in))
 #define VarI4FromI4(in,pOut) (*(pOut) = (in))
 
-WINOLEAUTAPI VarI4FromI8(LONG64 i64In,LONG *plOut);
-WINOLEAUTAPI VarI4FromUI8(ULONG64 ui64In,LONG *plOut);
-
 #define VarUI8FromUI8(in,pOut) (*(pOut) = (in))
 #define VarI8FromI8(in,pOut) (*(pOut) = (in))
 
