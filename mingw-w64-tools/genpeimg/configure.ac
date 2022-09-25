@@ -24,8 +24,8 @@ AC_CHECK_HEADERS([stdlib.h string.h])
 AC_TYPE_SIZE_T
 
 # Checks for library functions.
-AC_FUNC_MALLOC
-AC_FUNC_REALLOC
+#AC_FUNC_MALLOC
+#AC_FUNC_REALLOC
 AC_CHECK_FUNCS([memmove memset strdup])
 
 AC_CONFIG_FILES([Makefile])
