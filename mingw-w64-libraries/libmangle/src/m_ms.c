@@ -22,9 +22,15 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_MALLOC_H
 #include <malloc.h>
+#endif
 #include <string.h>
 #include <inttypes.h>
 #include <stdint.h>
