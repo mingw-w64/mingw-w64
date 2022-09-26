@@ -667,6 +667,9 @@ ENABLE_PRINTF128_FALSE
 ENABLE_PRINTF128_TRUE
 ENABLE_DFP_FALSE
 ENABLE_DFP_TRUE
+CFGUARD_CFLAGS
+CFGUARD_FALSE
+CFGUARD_TRUE
 MSVCRT_LIB
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
@@ -826,6 +829,7 @@ enable_wildcard
 enable_private_exports
 enable_delay_import_libs
 with_default_msvcrt
+enable_cfguard
 enable_experimental
 enable_tests_unicode
 enable_warnings
@@ -1491,6 +1495,8 @@ Optional Features:
                           Enable exporting private internal functions
   --enable-delay-import-libs
                           Enable creation of delay-import libraries
+  --enable-cfguard        Enable building with Control Flow Guard support
+                          (Clang)
   --enable-experimental   Enable experimental features, valid options are
                           comma separated combination of all, dfp, printf128,
                           registeredprintf, softmath.
@@ -6791,6 +6797,37 @@ printf "%s\n" "$with_default_msvcrt" >&6; }
 MSVCRT_LIB=lib${with_default_msvcrt}.a
 
 
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to include support for Control Flow Guard" >&5
+printf %s "checking whether to include support for Control Flow Guard... " >&6; }
+# Check whether --enable-cfguard was given.
+if test ${enable_cfguard+y}
+then :
+  enableval=$enable_cfguard;
+else $as_nop
+  enable_cfguard=no
+fi
+
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $enable_cfguard" >&5
+printf "%s\n" "$enable_cfguard" >&6; }
+case $enable_cfguard in #(
+  no) :
+     ;; #(
+  yes) :
+    CFGUARD=
+	 CFGUARD_CFLAGS=-mguard=cf ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if test ${CFGUARD+y}; then
+  CFGUARD_TRUE=
+  CFGUARD_FALSE='#'
+else
+  CFGUARD_TRUE='#'
+  CFGUARD_FALSE=
+fi
+
+
+
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to enable experimental features" >&5
 printf %s "checking whether to enable experimental features... " >&6; }
 # Check whether --enable-experimental was given.
@@ -7225,6 +7262,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
   as_fn_error $? "conditional \"DELAY_IMPORT_LIBS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${CFGUARD_TRUE}" && test -z "${CFGUARD_FALSE}"; then
+  as_fn_error $? "conditional \"CFGUARD\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_DFP_TRUE}" && test -z "${ENABLE_DFP_FALSE}"; then
@@ -8603,6 +8644,8 @@ printf "%s\n" "$as_me:   C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS" >&6
 printf "%s\n" "$as_me:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   Default msvcrt.......: $with_default_msvcrt" >&5
 printf "%s\n" "$as_me:   Default msvcrt.......: $with_default_msvcrt" >&6;}
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}:   Control Flow Guard...: $enable_cfguard" >&5
+printf "%s\n" "$as_me:   Control Flow Guard...: $enable_cfguard" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: " >&5
 printf "%s\n" "$as_me: " >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   DFP printf...........: $enable_dfp" >&5
