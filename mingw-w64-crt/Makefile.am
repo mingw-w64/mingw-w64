@@ -2253,6 +2253,7 @@ endif
 		%/libapi-ms-win-security-provider-l1-1-0.a \
 		%/libapi-ms-win-security-sddl-ansi-l1-1-0.a \
 		%/libapi-ms-win-security-sddl-l1-1-0.a \
+		%/libapi-ms-win-security-systemfunctions-l1-1-0.a \
 		%/libapi-ms-win-shcore-obsolete-l1-1-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)

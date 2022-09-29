@@ -147,6 +147,7 @@ ADDLIB libapi-ms-win-security-provider-ansi-l1-1-0.a
 ADDLIB libapi-ms-win-security-provider-l1-1-0.a
 ADDLIB libapi-ms-win-security-sddl-ansi-l1-1-0.a
 ADDLIB libapi-ms-win-security-sddl-l1-1-0.a
+ADDLIB libapi-ms-win-security-systemfunctions-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-obsolete-l1-1-0.a
 SAVE
 END
