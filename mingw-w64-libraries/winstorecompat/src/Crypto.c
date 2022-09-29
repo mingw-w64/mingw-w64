@@ -73,7 +73,10 @@ BOOL WINAPI CryptAcquireContextW(HCRYPTPROV *phProv, LPCTSTR pszContainer, LPCTS
 
 BOOL WINAPI CryptAcquireContextA(HCRYPTPROV *phProv, LPCTSTR pszContainer, LPCTSTR pszProvider, DWORD dwProvType, DWORD dwFlags)
 {
-    return FALSE;
+    // The implementation of CryptAcquireContextW above disregards
+    // the pszContainer and pszProvider parameters anyway, so don't bother
+    // to convert them, just pass NULL.
+    return CryptAcquireContextW(phProv, NULL, NULL, dwProvType, dwFlags);
 }
 
 BOOL WINAPI CryptReleaseContext(HCRYPTPROV phProv, DWORD dwFlags)
