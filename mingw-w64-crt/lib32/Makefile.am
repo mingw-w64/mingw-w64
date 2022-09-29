@@ -27,6 +27,7 @@ lib32_DATA += %reldir%/libconnect.a
 lib32_DATA += %reldir%/libcredui.a
 #lib32_DATA += %reldir%/libcrtdll.a     # Specialized for W32API conditional
 lib32_DATA += %reldir%/libcrypt32.a
+lib32_DATA += %reldir%/libcryptbase.a
 lib32_DATA += %reldir%/libcryptnet.a
 lib32_DATA += %reldir%/libcryptsp.a
 lib32_DATA += %reldir%/libcryptxml.a

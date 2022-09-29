@@ -42,6 +42,7 @@ libarm64_DATA += %reldir%/libconnect.a
 libarm64_DATA += %reldir%/libconsole.a
 libarm64_DATA += %reldir%/libcredui.a
 libarm64_DATA += %reldir%/libcrypt32.a
+libarm64_DATA += %reldir%/libcryptbase.a
 libarm64_DATA += %reldir%/libcryptdlg.a
 libarm64_DATA += %reldir%/libcryptdll.a
 libarm64_DATA += %reldir%/libcryptext.a

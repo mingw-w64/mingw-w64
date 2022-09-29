@@ -81,6 +81,7 @@ lib64_DATA += %reldir%/libcorpol.a
 lib64_DATA += %reldir%/libcredui.a
 #lib64_DATA += %reldir%/libcrtdll.a     # Specialized for W32API conditional
 lib64_DATA += %reldir%/libcrypt32.a
+lib64_DATA += %reldir%/libcryptbase.a
 lib64_DATA += %reldir%/libcryptdlg.a
 lib64_DATA += %reldir%/libcryptdll.a
 lib64_DATA += %reldir%/libcryptext.a

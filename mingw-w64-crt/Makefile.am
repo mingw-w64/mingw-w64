@@ -2060,6 +2060,7 @@ endif
 		%/libbcrypt.a \
 		%/libcabinet.a \
 		%/libcrypt32.a \
+		%/libcryptbase.a \
 		%/libcryptnet.a \
 		%/libdnsapi.a \
 		%/libiphlpapi.a \

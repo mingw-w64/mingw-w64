@@ -161,7 +161,7 @@ ADDLIB libauthz.a
 ADDLIB libbcrypt.a
 ADDLIB libcabinet.a
 ADDLIB libcrypt32.a
-; FIXME libcryptbase.a
+ADDLIB libcryptbase.a
 ADDLIB libcryptnet.a
 ; FIXME libdfscli.a
 ADDLIB libdnsapi.a
