@@ -59,6 +59,9 @@ BOOL WINAPI CryptAcquireContextW(HCRYPTPROV *phProv, LPCTSTR pszContainer, LPCTS
         return FALSE;
     }
 
+    // Note; this fails if run early in the process init (e.g. while running
+    // DLL constructors); it succeeds if called later on, when the runtime
+    // has started up properly.
     __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics *cryptoStatics = NULL;
     hr = RoGetActivationFactory(hClassName, &IID___x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics, (void**)&cryptoStatics);
     WindowsDeleteString(hClassName);
