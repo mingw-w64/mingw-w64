@@ -1956,6 +1956,14 @@ extern "C" {
 
 #define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
 #define MemoryBarrier() __asm__ __volatile__("dmb":::"memory")
+#define PreFetchCacheLine(l,a) __prefetch((const void *) (a))
+#define PrefetchForWrite(p) __prefetch((const void *) (p))
+#define ReadForWriteAccess(p) (*(p))
+
+#define PF_TEMPORAL_LEVEL_1 0
+#define PF_TEMPORAL_LEVEL_2 1
+#define PF_TEMPORAL_LEVEL_3 2
+#define PF_NON_TEMPORAL_LEVEL_ALL 3
 
 #ifdef __cplusplus
   }
@@ -2168,6 +2176,14 @@ extern "C" {
 
 #define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
 #define MemoryBarrier() __asm__ __volatile__("dmb sy":::"memory")
+#define PreFetchCacheLine(l,a) __prefetch((const void *) (a))
+#define PrefetchForWrite(p) __prefetch((const void *) (p))
+#define ReadForWriteAccess(p) (*(p))
+
+#define PF_TEMPORAL_LEVEL_1 0
+#define PF_TEMPORAL_LEVEL_2 1
+#define PF_TEMPORAL_LEVEL_3 2
+#define PF_NON_TEMPORAL_LEVEL_ALL 3
 
 #ifdef __cplusplus
   }
