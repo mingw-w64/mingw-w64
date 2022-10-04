@@ -504,6 +504,7 @@ extern "C" {
     __MACHINEI(unsigned short __cdecl _outpw(unsigned short,unsigned short))
     __MACHINEI(unsigned short __cdecl outpw(unsigned short,unsigned short))
     __MACHINECE(void __cdecl __prefetch(unsigned long *addr))
+    __MACHINEARM_ARM64(void __cdecl __prefetch(const void *addr))
     __MACHINEIA64(__MINGW_EXTENSION void __ptcl(__int64,__int64))
     __MACHINEIA64(__MINGW_EXTENSION void __ptcg(__int64,__int64))
     __MACHINEIA64(__MINGW_EXTENSION void __ptcga(__int64,__int64))

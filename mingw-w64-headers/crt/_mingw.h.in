@@ -622,6 +622,25 @@ __MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned i
 }
 #endif /* __MINGW_FASTFAIL_IMPL == 1 */
 
+#ifdef __has_builtin
+#define __MINGW_PREFETCH_IMPL !__has_builtin(__prefetch)
+#else
+#define __MINGW_PREFETCH_IMPL 1
+#endif
+#if __MINGW_PREFETCH_IMPL == 1
+#if defined(__arm__) || defined(__aarch64__)
+void __cdecl __prefetch(const void *addr);
+__MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *addr)
+{
+#if defined(__arm__)
+  __asm__ __volatile__("pld [%0]"::"r"(addr));
+#elif defined(__aarch64__)
+  __asm__ __volatile__("prfm pldl1keep, [%0]"::"r"(addr));
+#endif
+}
+#endif /* defined(__arm__) || defined(__aarch64__) */
+#endif /* __MINGW_PREFETCH_IMPL == 1 */
+
 #endif /* defined(__MINGW_INTRIN_INLINE) */
 
 /* mingw-w64 specific functions: */
