@@ -185,6 +185,9 @@ extern "C" {
 #define __MACHINESA __MACHINE
 #define __MACHINEIW64 __MACHINE
 #define __MACHINEW64 __MACHINE
+#define __MACHINEARM __MACHINE
+#define __MACHINEARM64 __MACHINE
+#define __MACHINEARM_ARM64 __MACHINE
 
 #define __MACHINE(X) X;
 #define __MACHINEZ(X)
@@ -231,11 +234,23 @@ extern "C" {
 
 #if !(defined(__arm__))
 #undef __MACHINESA
+#undef __MACHINEARM
 #undef __MACHINEARMX
 #undef __MACHINECC
 #define __MACHINESA __MACHINEZ
+#define __MACHINEARM __MACHINEZ
 #define __MACHINEARMX __MACHINEZ
 #define __MACHINECC __MACHINEZ
+#endif
+
+#if !(defined(__aarch64__))
+#undef __MACHINEARM64
+#define __MACHINEARM64 __MACHINEZ
+#endif
+
+#if !(defined(__arm__) || defined(__aarch64__))
+#undef __MACHINEARM_ARM64
+#define __MACHINEARM_ARM64 __MACHINEZ
 #endif
 
 #if !(defined(__x86_64))
