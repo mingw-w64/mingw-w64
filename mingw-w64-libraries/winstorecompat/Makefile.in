@@ -155,7 +155,8 @@ am_libwindowsappcompat_a_OBJECTS =  \
 	src/libwindowsappcompat_a-RtlRestoreContext.$(OBJEXT) \
 	src/libwindowsappcompat_a-GetUserName.$(OBJEXT) \
 	src/libwindowsappcompat_a-getpid.$(OBJEXT) \
-	src/libwindowsappcompat_a-GetFileInformationByHandle.$(OBJEXT)
+	src/libwindowsappcompat_a-GetFileInformationByHandle.$(OBJEXT) \
+	src/libwindowsappcompat_a-SystemFunction036.$(OBJEXT)
 libwindowsappcompat_a_OBJECTS = $(am_libwindowsappcompat_a_OBJECTS)
 libwinstorecompat_a_AR = $(AR) $(ARFLAGS)
 libwinstorecompat_a_LIBADD =
@@ -181,7 +182,8 @@ am_libwinstorecompat_a_OBJECTS = src/beginthread.$(OBJEXT) \
 	src/RtlAddFunctionTable.$(OBJEXT) \
 	src/RtlCaptureContext.$(OBJEXT) src/RtlVirtualUnwind.$(OBJEXT) \
 	src/RtlRestoreContext.$(OBJEXT) src/GetUserName.$(OBJEXT) \
-	src/getpid.$(OBJEXT) src/GetFileInformationByHandle.$(OBJEXT)
+	src/getpid.$(OBJEXT) src/GetFileInformationByHandle.$(OBJEXT) \
+	src/SystemFunction036.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -220,6 +222,7 @@ am__depfiles_remade = src/$(DEPDIR)/CreateEventW.Po \
 	src/$(DEPDIR)/SetErrorMode.Po src/$(DEPDIR)/SetFilePointer.Po \
 	src/$(DEPDIR)/SetUnhandledExceptionFilter.Po \
 	src/$(DEPDIR)/Sleep.Po src/$(DEPDIR)/SleepEx.Po \
+	src/$(DEPDIR)/SystemFunction036.Po \
 	src/$(DEPDIR)/TerminateProcess.Po src/$(DEPDIR)/Tls.Po \
 	src/$(DEPDIR)/UnhandledExceptionFilter.Po \
 	src/$(DEPDIR)/VirtualProtect.Po \
@@ -241,6 +244,7 @@ am__depfiles_remade = src/$(DEPDIR)/CreateEventW.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-RtlRestoreContext.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-RtlVirtualUnwind.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-SHGetFolderPathW.Po \
+	src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po \
@@ -453,6 +457,7 @@ libwinstorecompat_a_SOURCES = \
   src/GetUserName.c \
   src/getpid.c \
   src/GetFileInformationByHandle.c \
+  src/SystemFunction036.c \
   $(NULL)
 
 libwindowsappcompat_a_SOURCES = \
@@ -476,6 +481,7 @@ libwindowsappcompat_a_SOURCES = \
   src/GetUserName.c \
   src/getpid.c \
   src/GetFileInformationByHandle.c \
+  src/SystemFunction036.c \
   $(NULL)
 
 libwindowsappcompat_a_CFLAGS = $(AM_CFLAGS) -D_WIN32_WINNT=_WIN32_WINNT_WIN10
@@ -593,6 +599,8 @@ src/libwindowsappcompat_a-getpid.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libwindowsappcompat_a-GetFileInformationByHandle.$(OBJEXT):  \
 	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+src/libwindowsappcompat_a-SystemFunction036.$(OBJEXT):  \
+	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 libwindowsappcompat.a: $(libwindowsappcompat_a_OBJECTS) $(libwindowsappcompat_a_DEPENDENCIES) $(EXTRA_libwindowsappcompat_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libwindowsappcompat.a
@@ -674,6 +682,8 @@ src/getpid.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/GetFileInformationByHandle.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/SystemFunction036.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libwinstorecompat.a
@@ -718,6 +728,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Sleep.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SleepEx.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SystemFunction036.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/TerminateProcess.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Tls.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/UnhandledExceptionFilter.Po@am__quote@ # am--include-marker
@@ -741,6 +752,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-RtlRestoreContext.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-RtlVirtualUnwind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-SHGetFolderPathW.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po@am__quote@ # am--include-marker
@@ -1049,6 +1061,20 @@ src/libwindowsappcompat_a-GetFileInformationByHandle.obj: src/GetFileInformation
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-GetFileInformationByHandle.obj `if test -f 'src/GetFileInformationByHandle.c'; then $(CYGPATH_W) 'src/GetFileInformationByHandle.c'; else $(CYGPATH_W) '$(srcdir)/src/GetFileInformationByHandle.c'; fi`
 
+src/libwindowsappcompat_a-SystemFunction036.o: src/SystemFunction036.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-SystemFunction036.o -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Tpo -c -o src/libwindowsappcompat_a-SystemFunction036.o `test -f 'src/SystemFunction036.c' || echo '$(srcdir)/'`src/SystemFunction036.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Tpo src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/SystemFunction036.c' object='src/libwindowsappcompat_a-SystemFunction036.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-SystemFunction036.o `test -f 'src/SystemFunction036.c' || echo '$(srcdir)/'`src/SystemFunction036.c
+
+src/libwindowsappcompat_a-SystemFunction036.obj: src/SystemFunction036.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-SystemFunction036.obj -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Tpo -c -o src/libwindowsappcompat_a-SystemFunction036.obj `if test -f 'src/SystemFunction036.c'; then $(CYGPATH_W) 'src/SystemFunction036.c'; else $(CYGPATH_W) '$(srcdir)/src/SystemFunction036.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Tpo src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/SystemFunction036.c' object='src/libwindowsappcompat_a-SystemFunction036.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-SystemFunction036.obj `if test -f 'src/SystemFunction036.c'; then $(CYGPATH_W) 'src/SystemFunction036.c'; else $(CYGPATH_W) '$(srcdir)/src/SystemFunction036.c'; fi`
+
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
 tags: tags-am
@@ -1355,6 +1381,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/SetUnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/Sleep.Po
 	-rm -f src/$(DEPDIR)/SleepEx.Po
+	-rm -f src/$(DEPDIR)/SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/TerminateProcess.Po
 	-rm -f src/$(DEPDIR)/Tls.Po
 	-rm -f src/$(DEPDIR)/UnhandledExceptionFilter.Po
@@ -1378,6 +1405,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-RtlRestoreContext.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-RtlVirtualUnwind.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SHGetFolderPathW.Po
+	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
@@ -1461,6 +1489,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/SetUnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/Sleep.Po
 	-rm -f src/$(DEPDIR)/SleepEx.Po
+	-rm -f src/$(DEPDIR)/SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/TerminateProcess.Po
 	-rm -f src/$(DEPDIR)/Tls.Po
 	-rm -f src/$(DEPDIR)/UnhandledExceptionFilter.Po
@@ -1484,6 +1513,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-RtlRestoreContext.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-RtlVirtualUnwind.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SHGetFolderPathW.Po
+	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
