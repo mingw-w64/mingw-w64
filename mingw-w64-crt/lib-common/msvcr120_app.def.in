@@ -2029,7 +2029,7 @@ F_NON_I386(atanf)
 F_X86_ANY(atanh)
 F_X86_ANY(atanhf)
 F_X86_ANY(atanhl)
-atexit
+atexit DATA
 atof
 atoi
 atol

@@ -1867,7 +1867,7 @@ atanf
 atanh
 atanhf
 atanhl
-atexit
+atexit DATA
 atof
 atoi
 atol

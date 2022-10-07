@@ -1889,7 +1889,7 @@ _invalid_parameter
 _onexit
 _purecall
 _time64
-atexit
+atexit DATA
 exit
 hgets
 hwprintf
