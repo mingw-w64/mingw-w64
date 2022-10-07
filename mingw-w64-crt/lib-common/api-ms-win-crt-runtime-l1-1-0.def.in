@@ -4,7 +4,7 @@ EXPORTS
 
 #include "func.def.in"
 
-_Exit
+_Exit DATA
 F_I386(__control87_2)
 __doserrno
 __fpe_flt_rounds
@@ -42,7 +42,7 @@ _endthread
 _endthreadex
 _errno
 _execute_onexit_table
-_exit
+_exit DATA
 F_NON_I386(_fpieee_flt)
 ; DATA added manually
 _fpreset DATA
@@ -96,7 +96,7 @@ _wcserror_s
 _wperror
 _wsystem
 abort
-exit
+exit DATA
 ; Don't use the float env functions from UCRT; fesetround doesn't seem to have
 ; any effect on the FPU control word as required by other libmingwex math
 ; routines.
@@ -110,7 +110,7 @@ fesetexceptflag DATA
 fesetround DATA
 fetestexcept DATA
 perror
-quick_exit
+quick_exit DATA
 raise
 set_terminate
 signal

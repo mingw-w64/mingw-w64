@@ -1882,7 +1882,7 @@ __wgetmainargs
 _amsg_exit
 _c_exit
 _cexit
-_exit
+_exit DATA
 _initterm
 _initterm_e
 _invalid_parameter
@@ -1890,7 +1890,7 @@ _onexit
 _purecall
 _time64
 atexit DATA
-exit
+exit DATA
 hgets
 hwprintf
 lstrcmp

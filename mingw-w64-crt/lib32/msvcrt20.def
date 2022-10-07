@@ -1013,7 +1013,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit
+_exit DATA
 _expand
 _fcloseall
 _fcvt
@@ -1394,7 +1394,7 @@ cosh
 ctime
 difftime
 div
-exit
+exit DATA
 exp
 fabs
 fclose

@@ -1080,7 +1080,7 @@ F_ARM32(_execv)
 F_ARM32(_execve)
 F_ARM32(_execvp)
 F_ARM32(_execvpe)
-_exit
+_exit DATA
 F_X86_ANY(_exit_app)
 _expand
 F_X86_ANY(_fclose_nolock)
@@ -2143,7 +2143,7 @@ erfcl
 erff
 erfl
 #endif
-exit
+exit DATA
 exp
 exp2
 exp2f

@@ -978,7 +978,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit
+_exit DATA
 _expand
 _expand_dbg
 _fclose_nolock
@@ -1967,7 +1967,7 @@ erfcf
 erfcl
 erff
 erfl
-exit
+exit DATA
 exp
 exp2
 exp2f

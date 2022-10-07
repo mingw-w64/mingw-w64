@@ -30,7 +30,7 @@ _CreateFrameInfo
 F_I386(_CxxThrowException@8)
 F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
-_Exit
+_Exit DATA
 _FCbuild
 _FCmulcc
 _FCmulcr
@@ -299,7 +299,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit
+_exit DATA
 _expand
 _fclose_nolock
 _fcloseall
@@ -2305,7 +2305,7 @@ erfcf
 erfcl F_X86_ANY(DATA)
 erff
 erfl F_X86_ANY(DATA)
-exit
+exit DATA
 exp F_X86_ANY(DATA)
 exp2
 exp2f
@@ -2500,7 +2500,7 @@ putwc
 putwchar
 qsort
 qsort_s
-quick_exit
+quick_exit DATA
 raise
 rand
 rand_s
