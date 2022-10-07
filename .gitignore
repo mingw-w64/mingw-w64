@@ -1,1 +1,37 @@
+# Temporary files
+*~
+.*
+
+# Compiled files
+*.o
+*.a
+*.so
+*.out
+*.exe
+*.dll
+*.lo
+*.la
+*.gch
+
+# Specialized files
 autom4te.cache
+Makefile
+libtool
+config.status
+config.h
+stamp-h1
+
+# Autotools test results
+*.trs
+*.test
+*.test.exe
+*.log
+
+# Merge conflict files
+*.orig
+*.rej
+
+# Others
+*.swp
+*.tar
+*.tar.*
