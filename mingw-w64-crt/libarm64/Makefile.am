@@ -354,3 +354,4 @@ libarm64_DATA += %reldir%/libwsock32.a
 libarm64_DATA += %reldir%/libwtsapi32.a
 libarm64_DATA += %reldir%/libxaudio2_8.a
 libarm64_DATA += %reldir%/libxinput1_4.a
+libarm64_DATA += %reldir%/libxmllite.a

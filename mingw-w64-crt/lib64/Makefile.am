@@ -831,3 +831,4 @@ lib64_DATA += %reldir%/libsynchronization.a
 lib64_DATA += %reldir%/libwindowsapp.a
 lib64_DATA += %reldir%/libwscapi.a
 lib64_DATA += %reldir%/libwslapi.a
+lib64_DATA += %reldir%/libxmllite.a
