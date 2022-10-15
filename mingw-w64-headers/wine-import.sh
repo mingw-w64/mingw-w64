@@ -141,6 +141,7 @@ for f in \
 	bits3_0 \
 	bits5_0 \
 	ctfutb \
+	ctxtcall \
 	d3d10 \
 	d3d10_1 \
 	d3d10sdklayers \

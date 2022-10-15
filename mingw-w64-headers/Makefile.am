@@ -92,6 +92,7 @@ IDL_SRCS = \
   include/control.idl \
   include/credentialprovider.idl \
   include/ctfutb.idl \
+  include/ctxtcall.idl \
   include/d3d10.idl \
   include/d3d10_1.idl \
   include/d3d10sdklayers.idl \
