@@ -394,6 +394,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/credentialprovider.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
+@HAVE_WIDL_TRUE@  include/ctxtcall.idl \
 @HAVE_WIDL_TRUE@  include/d3d10.idl \
 @HAVE_WIDL_TRUE@  include/d3d10_1.idl \
 @HAVE_WIDL_TRUE@  include/d3d10sdklayers.idl \
