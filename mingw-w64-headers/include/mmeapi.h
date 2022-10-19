@@ -735,7 +735,7 @@ WINMMAPI MMRESULT WINAPI midiInGetDevCapsA(UINT_PTR uDeviceID, LPMIDIINCAPSA pmi
 WINMMAPI MMRESULT WINAPI midiInGetDevCapsW(UINT_PTR uDeviceID, LPMIDIINCAPSW pmic, UINT cbmic);
 #define midiInGetDevCaps __MINGW_NAME_AW(midiInGetDevCaps)
 
-WINMMAPI MMRESULT WINAPImidiInGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
+WINMMAPI MMRESULT WINAPI midiInGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
 WINMMAPI MMRESULT WINAPI midiInGetErrorTextW(MMRESULT mmrError, LPWSTR pszText, UINT cchText);
 #define midiInGetErrorText __MINGW_NAME_AW(midiInGetErrorText)
 #else
