@@ -20,6 +20,10 @@
 #include <tchar.h>
 #include <sect_attribs.h>
 #include <locale.h>
+#include <stdio.h>
+#ifdef __USING_MCFGTHREAD__
+#include <mcfgthread/cxa.h>
+#endif
 
 #if defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7)
 #define SEH_INLINE_ASM
@@ -45,6 +49,7 @@ int *__cdecl __p__commode(void);
 extern int _fmode;
 extern int _commode;
 extern int _dowildcard;
+extern HANDLE __dso_handle;
 
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
@@ -256,6 +261,11 @@ __tmainCRTStartup (void)
     _fpreset ();
 
     duplicate_ppstrings (argc, &argv);
+#ifdef __USING_MCFGTHREAD__
+    /* Register `fflush(NULL)` before user-defined constructors, so
+     * it will be executed after all user-defined destructors.  */
+    __MCF_cxa_atexit ((__MCF_cxa_dtor_cdecl*)(intptr_t) fflush, NULL, &__dso_handle);
+#endif
     __main (); /* C++ initialization. */
 #ifdef _UNICODE
     __winitenv = envp;
@@ -332,7 +342,11 @@ static void duplicate_ppstrings (int ac, _TCHAR ***av)
 
 int __cdecl atexit (_PVFV func)
 {
+#ifdef __USING_MCFGTHREAD__
+    return __MCF_cxa_atexit ((__MCF_cxa_dtor_cdecl*)(intptr_t) func, NULL, &__dso_handle);
+#else
     return _onexit((_onexit_t)func) ? 0 : -1;
+#endif
 }
 
 char __mingw_module_is_dll = 0;

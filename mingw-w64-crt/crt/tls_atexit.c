@@ -4,6 +4,29 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+typedef void (__thiscall * dtor_fn)(void*);
+int __mingw_cxa_atexit(dtor_fn dtor, void *obj, void *dso);
+int __mingw_cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso);
+
+/* This is the per-module DSO handle as required by Itanium ABI.  */
+void* __dso_handle;
+
+#ifdef __USING_MCFGTHREAD__
+
+#include <mcfgthread/cxa.h>
+
+int __mingw_cxa_atexit(dtor_fn dtor, void *obj, void *dso)
+{
+  return __MCF_cxa_atexit(dtor, obj, dso);
+}
+
+int __mingw_cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso)
+{
+  return __MCF_cxa_thread_atexit(dtor, obj, dso);
+}
+
+#else  /* __USING_MCFGTHREAD__  */
+
 #include <sect_attribs.h>
 
 #ifndef WIN32_LEAN_AND_MEAN
@@ -18,10 +41,6 @@
 #include <process.h>
 
 
-typedef void (__thiscall * dtor_fn)(void*);
-int __mingw_cxa_atexit(dtor_fn dtor, void *obj, void *dso);
-int __mingw_cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso);
-
 typedef struct dtor_obj dtor_obj;
 struct dtor_obj {
   dtor_fn dtor;
@@ -29,7 +48,6 @@ struct dtor_obj {
   dtor_obj *next;
 };
 
-HANDLE __dso_handle;
 extern char __mingw_module_is_dll;
 
 static CRITICAL_SECTION lock;
@@ -159,3 +177,5 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
 }
 
 _CRTALLOC(".CRT$XLB") PIMAGE_TLS_CALLBACK __xl_b = (PIMAGE_TLS_CALLBACK) tls_callback;
+
+#endif  /* __USING_MCFGTHREAD__  */
