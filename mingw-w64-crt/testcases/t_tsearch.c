@@ -31,6 +31,11 @@ static int node_any (const void *a, const void *b)
  return 0;
 }
 
+static void
+noop_free (void *arg)
+{
+}
+
 void print_node (const void *ptr, VISIT order, int level)
 {
  const char *s = *(const char **) ptr;
@@ -69,6 +74,17 @@ int main (int argc, char **argv)
  while (tdelete(NULL, &root, node_any) != NULL)
    ;
  printf("---------- tree after deletion of all nodes using tdelete() only:\n");
+ twalk(root, print_node);
+ printf("----------\n");
+
+ tsearch("ggg", &root, node_cmp);
+ tsearch("hhh", &root, node_cmp);
+ tsearch("iii", &root, node_cmp);
+ printf("---------- tree after insertion of 3 new nodes:\n");
+ twalk(root, print_node);
+ printf("----------\n");
+ tdestroy(root, noop_free);
+ printf("---------- tree after deletion of all nodes using tdeosty() only:\n");
  twalk(root, print_node);
  printf("----------\n");
  printf("Passed\n");

@@ -557,7 +557,7 @@ src_libmingwex=\
   misc/mingw_wcstold.c \
   misc/mkstemp.c         misc/sleep.c           \
   misc/strnlen.c         misc/strsafe.c         \
-  misc/strtoimax.c       misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
+  misc/strtoimax.c       misc/strtoumax.c           misc/tdelete.c          misc/tdestroy.c              misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
   misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
