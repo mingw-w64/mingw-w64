@@ -376,7 +376,9 @@ int printf (const char *__format, ...)
 
 #if __MINGW_FORTIFY_VA_ARG
 
-__mingw_bos_ovr
+int sprintf (char *__stream, const char *__format, ...) __MINGW_ASM_CALL(__mingw_sprintf);
+
+__mingw_bos_extern_ovr
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sprintf (char *__stream, const char *__format, ...)
 {
@@ -436,7 +438,9 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 
 #if __MINGW_FORTIFY_VA_ARG
 
-__mingw_bos_ovr
+int snprintf (char *__stream, size_t __n, const char *__format, ...) __MINGW_ASM_CALL(__mingw_snprintf);
+
+__mingw_bos_extern_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char *__stream, size_t __n, const char *__format, ...)
 {
@@ -864,7 +868,9 @@ char * tmpnam(char * __dst)
 #ifndef __NO_ISOCEXT
 #if __MINGW_FORTIFY_VA_ARG
 
-__mingw_bos_ovr
+int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...) __MINGW_ASM_CALL(__ms_snprintf);
+
+__mingw_bos_extern_ovr
 __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
 {
@@ -1103,7 +1109,9 @@ int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
 
 #if __MINGW_FORTIFY_VA_ARG
 
-__mingw_bos_ovr
+int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...) __MINGW_ASM_CALL(__mingw_snwprintf);
+
+__mingw_bos_extern_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {
