@@ -294,7 +294,7 @@
 #  define __mingw_static_ovr __mingw_ovr
 #endif /* __cplusplus */
 
-#if __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)
+#if __MINGW_GNUC_PREREQ(4, 3) || defined(__clang__)
 #  define __mingw_attribute_artificial \
      __attribute__((__artificial__))
 #else
@@ -345,7 +345,8 @@
 
 /* If _FORTIFY_SOURCE is enabled, some inline functions may use
    __builtin_va_arg_pack().  GCC may report an error if the address
-   of such a function is used.  Set _FORTIFY_VA_ARG=0 in this case.  */
+   of such a function is used.  Set _FORTIFY_VA_ARG=0 in this case.
+   Clang doesn't, as of version 15, yet implement __builtin_va_arg_pack().  */
 #if __MINGW_FORTIFY_LEVEL > 0 && __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__) \
     && (!defined(_FORTIFY_VA_ARG) || _FORTIFY_VA_ARG > 0)
 #  define __MINGW_FORTIFY_VA_ARG 1
