@@ -515,6 +515,7 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   double __cdecl __mingw_strtod (const char * __restrict__, char ** __restrict__);
   long double __cdecl __mingw_strtold(const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
+  _CRTIMP float __cdecl _strtof_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,_locale_t _Locale);
   _CRTIMP double __cdecl _strtod_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,_locale_t _Locale);
   long __cdecl strtol(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix);
   _CRTIMP long __cdecl _strtol_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix,_locale_t _Locale);
