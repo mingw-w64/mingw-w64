@@ -15,7 +15,7 @@ void __cdecl __attribute__((__noreturn__)) __chk_fail(void) {
   static const char msg[] = "*** buffer overflow detected ***: terminated\n";
   write(STDERR_FILENO, msg, strlen(msg));
   if (IsProcessorFeaturePresent(PF_FASTFAIL_AVAILABLE)) {
-    __fastfail(FAST_FAIL_STACK_COOKIE_CHECK_FAILURE);
+    __fastfail(FAST_FAIL_RANGE_CHECK_FAILURE);
   } else {
     TerminateProcess(GetCurrentProcess(), STATUS_STACK_BUFFER_OVERRUN);
     __builtin_unreachable();
