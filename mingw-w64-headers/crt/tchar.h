@@ -209,6 +209,7 @@ extern "C" {
 #define _ungettc ungetwc
 #define _ungettch _ungetwch
 
+#define _tcstof wcstof
 #define _tcstod wcstod
 #define _tcstol wcstol
 #define _tcstoul wcstoul
