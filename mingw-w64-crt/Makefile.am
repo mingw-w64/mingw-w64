@@ -182,6 +182,7 @@ src_msvcrt_common=\
   stdio/_putc_nolock.c \
   stdio/_putwc_nolock.c \
   stdio/_strtof_l.c \
+  stdio/_wcstof_l.c \
   stdio/acrt_iob_func.c \
   stdio/strtof.c \
   stdio/snprintf_alias.c \

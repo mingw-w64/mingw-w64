@@ -219,6 +219,7 @@ extern "C" {
 #define _tstol _wtol
 #define _tstoi _wtoi
 #define _tstoi64 _wtoi64
+#define _tcstof_l _wcstof_l
 #define _tcstod_l _wcstod_l
 #define _tcstol_l _wcstol_l
 #define _tcstoul_l _wcstoul_l
