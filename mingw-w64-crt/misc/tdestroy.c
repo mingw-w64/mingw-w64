@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #define _SEARCH_PRIVATE
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <search.h>
 
