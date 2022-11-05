@@ -27,13 +27,6 @@
 #endif
 
 /* C/C++ specific language defines.  */
-#ifdef _WIN64
-#ifdef __stdcall
-#undef __stdcall
-#endif
-#define __stdcall
-#endif
-
 #ifndef __GNUC__
 # ifndef __MINGW_IMPORT
 #  define __MINGW_IMPORT  __declspec(dllimport)
