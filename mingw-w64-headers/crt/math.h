@@ -521,14 +521,14 @@ __mingw_choose_expr (                                         \
   {
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_dbl_type_t hlp;
-    int l, h;
+    unsigned int l, h;
 
     hlp.x = _x;
     l = hlp.lh.low;
     h = hlp.lh.high & 0x7fffffff;
-    h |= (unsigned int) (l | -l) >> 31;
+    h |= (l | -l) >> 31;
     h = 0x7ff00000 - h;
-    return (int) ((unsigned int) h) >> 31;
+    return (int) h >> 31;
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
@@ -542,12 +542,12 @@ __mingw_choose_expr (                                         \
   {
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_flt_type_t hlp;
-    int i;
+    unsigned int i;
     
     hlp.x = _x;
     i = hlp.val & 0x7fffffff;
     i = 0x7f800000 - i;
-    return (int) (((unsigned int) i) >> 31);
+    return (int) (i >> 31);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
@@ -561,14 +561,14 @@ __mingw_choose_expr (                                         \
   {
 #if defined(__x86_64__) || defined(_AMD64_)
     __mingw_ldbl_type_t ld;
-    int xx, signexp;
+    unsigned int xx, signexp;
 
     ld.x = _x;
     signexp = (ld.lh.sign_exponent & 0x7fff) << 1;
-    xx = (int) (ld.lh.low | (ld.lh.high & 0x7fffffffu)); /* explicit */
-    signexp |= (unsigned int) (xx | (-xx)) >> 31;
+    xx = ld.lh.low | (ld.lh.high & 0x7fffffffu);
+    signexp |= (xx | (-xx)) >> 31;
     signexp = 0xfffe - signexp;
-    return (int) ((unsigned int) signexp) >> 16;
+    return (int) signexp >> 16;
 #elif defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
