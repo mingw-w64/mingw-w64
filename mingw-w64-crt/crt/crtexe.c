@@ -43,8 +43,6 @@ extern char *** __MINGW_IMP_SYMBOL(__initenv);
 extern IMAGE_DOS_HEADER __ImageBase;
 
 extern void _fpreset (void);
-#define SPACECHAR _T(' ')
-#define DQUOTECHAR _T('\"')
 
 int *__cdecl __p__commode(void);
 
@@ -67,10 +65,6 @@ extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
 extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
 
 extern int __mingw_app_type;
-
-HINSTANCE __mingw_winmain_hInstance;
-_TCHAR *__mingw_winmain_lpCmdLine;
-DWORD __mingw_winmain_nShowCmd = SW_SHOWDEFAULT;
 
 static int argc;
 extern void __main(void);
@@ -229,14 +223,6 @@ __attribute__((force_align_arg_pointer))
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
-  _TCHAR *lpszCommandLine = NULL;
-  STARTUPINFO StartupInfo;
-  WINBOOL inDoubleQuote = FALSE;
-  memset (&StartupInfo, 0, sizeof (STARTUPINFO));
-
-  if (__mingw_app_type)
-    GetStartupInfo (&StartupInfo);
-  {
     void *lock_free = NULL;
     void *fiberid = ((PNT_TIB)NtCurrentTeb())->StackBase;
     int nested = FALSE;
@@ -283,40 +269,6 @@ __tmainCRTStartup (void)
     
     _fpreset ();
 
-    __mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
-
-#ifdef WPRFLAG
-    lpszCommandLine = (_TCHAR *) _wcmdln;
-#else
-    lpszCommandLine = (char *) _acmdln;
-#endif
-
-    if (lpszCommandLine)
-      {
-	while (*lpszCommandLine > SPACECHAR || (*lpszCommandLine && inDoubleQuote))
-	  {
-	    if (*lpszCommandLine == DQUOTECHAR)
-	      inDoubleQuote = !inDoubleQuote;
-#ifdef _MBCS
-	    if (_ismbblead (*lpszCommandLine))
-	      {
-		if (lpszCommandLine[1])
-		  ++lpszCommandLine;
-	      }
-#endif
-	    ++lpszCommandLine;
-	  }
-	while (*lpszCommandLine && (*lpszCommandLine <= SPACECHAR))
-	  lpszCommandLine++;
-
-	__mingw_winmain_lpCmdLine = lpszCommandLine;
-      }
-
-    if (__mingw_app_type)
-      {
-	__mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
-				    StartupInfo.wShowWindow : SW_SHOWDEFAULT;
-      }
     duplicate_ppstrings (argc, &argv);
     __main (); /* C++ initialization. */
 #ifdef WPRFLAG
@@ -331,7 +283,7 @@ __tmainCRTStartup (void)
 
     if (has_cctor == 0)
       _cexit ();
-  }
+
   return mainret;
 }
 
