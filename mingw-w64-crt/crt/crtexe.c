@@ -318,11 +318,9 @@ __tmainCRTStartup (void)
 				    StartupInfo.wShowWindow : SW_SHOWDEFAULT;
       }
     duplicate_ppstrings (argc, &argv);
-    __main ();
+    __main (); /* C++ initialization. */
 #ifdef WPRFLAG
     __winitenv = envp;
-    /* C++ initialization.
-       gcc inserts this call automatically for a function called main, but not for wmain.  */
     mainret = wmain (argc, argv, envp);
 #else
     __initenv = envp;
