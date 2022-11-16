@@ -749,7 +749,11 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   inline float2 transform(const float2 &pos, const float4x4 &mat);
   inline float2 transform_normal(const float2 &norm, const float3x2 &mat);
   inline float2 transform_normal(const float2 &norm, const float4x4 &mat);
-  inline float2 transform(const float2 &val, const quaternion &rot);
+  inline float2 transform(const float2 &val, const quaternion &rot) {
+    // See comments in the float3 transform function.
+    quaternion result = rot * quaternion(float3(val.x, val.y, 0.0f), 0.0f) * inverse(rot);
+    return { result.x, result.y };
+  }
 
 } _WINDOWS_NUMERICS_END_NAMESPACE_
 
@@ -801,7 +805,16 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   // TODO: impl
   inline float3 transform(const float3 &pos, const float4x4 &mat);
   inline float3 transform_normal(const float3 &norm, const float4x4 &mat);
-  inline float3 transform(const float3 &val, const quaternion &rot);
+  inline float3 transform(const float3 &val, const quaternion &rot) {
+    // https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Using_quaternions_as_rotations
+    // If assuming rot is a unit quaternion, this could use
+    // conjugate() instead of inverse() too.
+    // This can be expressed as a matrix operation too, with
+    // https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Quaternion-derived_rotation_matrix
+    // (see make_float4x4_from_quaternion).
+    quaternion result = rot * quaternion(val, 0.0f) * inverse(rot);
+    return { result.x, result.y, result.z };
+  }
 
 } _WINDOWS_NUMERICS_END_NAMESPACE_
 
@@ -863,9 +876,19 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   inline float4 transform(const float4 &pos, const float4x4 &mat);
   inline float4 transform4(const float3 &pos, const float4x4 &mat);
   inline float4 transform4(const float2 &pos, const float4x4 &mat);
-  inline float4 transform(const float4 &val, const quaternion &rot);
-  inline float4 transform4(const float3 &val, const quaternion &rot);
-  inline float4 transform4(const float2 &val, const quaternion &rot);
+  inline float4 transform(const float4 &val, const quaternion &rot) {
+    // See comments in the float3 transform function.
+    quaternion result = rot * quaternion(float3(val.x, val.y, val.z), 0.0f) * inverse(rot);
+    return { result.x, result.y, result.z, val.w };
+  }
+  inline float4 transform4(const float3 &val, const quaternion &rot) {
+    quaternion result = rot * quaternion(val, 0.0f) * inverse(rot);
+    return { result.x, result.y, result.z, 1.0f };
+  }
+  inline float4 transform4(const float2 &val, const quaternion &rot) {
+    quaternion result = rot * quaternion(float3(val.x, val.y, 0.0f), 0.0f) * inverse(rot);
+    return { result.x, result.y, result.z, 1.0f };
+  }
 
 } _WINDOWS_NUMERICS_END_NAMESPACE_
 
@@ -910,11 +933,25 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   // TODO: impl
   inline float4x4 make_float4x4_billboard(const float3 &objpos, const float3 &camerapos, const float3 &cameraup, const float3 &camerafwd);
   inline float4x4 make_float4x4_constrained_billboard(const float3 &objpos, const float3 &camerapos, const float3 &rotateaxis, const float3 &camerafwd, const float3 &objfwd);
-  inline float4x4 make_float4x4_translation(const float3 &pos);
+  inline float4x4 make_float4x4_translation(const float3 &pos) {
+    return {
+      1.0f,  0.0f,  0.0f,  0.0f,
+      0.0f,  1.0f,  0.0f,  0.0f,
+      0.0f,  0.0f,  1.0f,  0.0f,
+      pos.x, pos.y, pos.z, 1.0f
+    };
+  }
   inline float4x4 make_float4x4_translation(float xpos, float ypos, float zpos);
   inline float4x4 make_float4x4_scale(float xscale, float yscale, float zscale);
   inline float4x4 make_float4x4_scale(float xscale, float yscale, float zscale, const float3 &center);
-  inline float4x4 make_float4x4_scale(const float3 &xyzscale);
+  inline float4x4 make_float4x4_scale(const float3 &xyzscale) {
+    return {
+      xyzscale.x, 0.0f,       0.0f,       0.0f,
+      0.0f,       xyzscale.y, 0.0f,       0.0f,
+      0.0f,       0.0f,       xyzscale.z, 0.0f,
+      0.0f,       0.0f,       0.0f,       1.0f
+    };
+  }
   inline float4x4 make_float4x4_scale(const float3 &xyzscale, const float3 &center);
   inline float4x4 make_float4x4_scale(float scale);
   inline float4x4 make_float4x4_scale(float scale, const float3 &center);
@@ -932,7 +969,24 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   inline float4x4 make_float4x4_orthographic_off_center(float left, float right, float bottom, float top, float znearplane, float zfarplane);
   inline float4x4 make_float4x4_look_at(const float3 &camerapos, const float3 &target, const float3 &cameraup);
   inline float4x4 make_float4x4_world(const float3 &pos, const float3 &fwd, const float3 &up);
-  inline float4x4 make_float4x4_from_quaternion(const quaternion &quat);
+  inline float4x4 make_float4x4_from_quaternion(const quaternion &quat) {
+    // https://en.wikipedia.org/wiki/Rotation_matrix#Quaternion
+    float xx = quat.x * quat.x;
+    float yy = quat.y * quat.y;
+    float zz = quat.z * quat.z;
+    float xy = quat.x * quat.y;
+    float xz = quat.x * quat.z;
+    float xw = quat.x * quat.w;
+    float yz = quat.y * quat.z;
+    float yw = quat.y * quat.w;
+    float zw = quat.z * quat.w;
+    return {
+      1.0f - 2.0f*yy - 2.0f*zz, 2.0f*xy + 2.0f*zw,        2.0f*xz - 2.0f*yw,        0.0f,
+      2.0f*xy - 2.0f*zw,        1.0f - 2.0f*xx - 2.0f*zz, 2.0f*yz + 2.0f*xw,        0.0f,
+      2.0f*xz + 2.0f*yw,        2.0f*yz - 2.0f*xw,        1.0f - 2.0f*xx - 2.0f*yy, 0.0f,
+      0.0f,                     0.0f,                     0.0f,                     1.0f
+    };
+  }
   inline float4x4 make_float4x4_from_yaw_pitch_roll(float yaw, float pitch, float roll);
   inline float4x4 make_float4x4_shadow(const float3 &lightdir, const plane &plane);
   inline float4x4 make_float4x4_reflection(const plane &plane);
@@ -956,7 +1010,9 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   }
   inline bool invert(const float4x4 &mat, float4x4 *out);
   inline bool decompose(const float4x4 &mat, float3 *out_scale, quaternion *out_rot, float3 *out_translate);
-  inline float4x4 transform(const float4x4 &val, const quaternion &rot);
+  inline float4x4 transform(const float4x4 &val, const quaternion &rot) {
+    return val * make_float4x4_from_quaternion(rot);
+  }
   inline float4x4 transpose(const float4x4 &val) {
     return  {
       val.m11, val.m21, val.m31, val.m41,
@@ -980,7 +1036,10 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
     return { val.normal * invlen, val.d * invlen };
   }
   inline plane transform(const plane &plane, const float4x4 &mat);
-  inline plane transform(const plane &plane, const quaternion &rot);
+  inline plane transform(const plane &plane, const quaternion &rot) {
+    quaternion result = rot * quaternion(plane.normal, 0.0f) * inverse(rot);
+    return { float3(result.x, result.y, result.z), plane.d };
+  }
   inline float dot(const plane &plane, const float4 &val);
   inline float dot_coordinate(const plane &plane, const float3 &val);
   inline float dot_normal(const plane &plane, const float3 &val);
@@ -991,10 +1050,40 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
 // Define quaternion functions
 _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
 
-  // TODO: impl
-  inline quaternion make_quaternion_from_axis_angle(const float3 &axis, float angle);
-  inline quaternion make_quaternion_from_yaw_pitch_roll(float yaw, float pitch, float roll);
-  inline quaternion make_quaternion_from_rotation_matrix(const float4x4 &mat);
+  inline quaternion make_quaternion_from_axis_angle(const float3 &axis, float angle) {
+    return quaternion(axis * ::std::sin(angle * 0.5f), ::std::cos(angle * 0.5f));
+  }
+  inline quaternion make_quaternion_from_yaw_pitch_roll(float yaw, float pitch, float roll) {
+    quaternion yq = make_quaternion_from_axis_angle(float3(0.0f, 1.0f, 0.0f), yaw);
+    quaternion pq = make_quaternion_from_axis_angle(float3(1.0f, 0.0f, 0.0f), pitch);
+    quaternion rq = make_quaternion_from_axis_angle(float3(0.0f, 0.0f, 1.0f), roll);
+    return concatenate(concatenate(rq, pq), yq);
+  }
+  inline quaternion make_quaternion_from_rotation_matrix(const float4x4 &mat) {
+    // https://en.wikipedia.org/wiki/Rotation_matrix#Quaternion
+    float t = mat.m11 + mat.m22 + mat.m33;
+    if (t > 0) {
+      float r = ::std::sqrt(1.0f + t);
+      float s = 1.0f / (2.0f * r);
+      return { (mat.m23 - mat.m32) * s, (mat.m31 - mat.m13) * s,
+               (mat.m12 - mat.m21) * s, r * 0.5f };
+    } else if (mat.m11 >= mat.m22 && mat.m11 >= mat.m33) {
+      float r = ::std::sqrt(1.0f + mat.m11 - mat.m22 - mat.m33);
+      float s = 1.0f / (2.0f * r);
+      return { r * 0.5f, (mat.m21 + mat.m12) * s,
+               (mat.m13 + mat.m31) * s, (mat.m23 - mat.m32) * s };
+    } else if (mat.m22 >= mat.m11 && mat.m22 >= mat.m33) {
+      float r = ::std::sqrt(1.0f + mat.m22 - mat.m11 - mat.m33);
+      float s = 1.0f / (2.0f * r);
+      return { (mat.m21 + mat.m12) * s, r * 0.5f,
+               (mat.m32 + mat.m23) * s, (mat.m31 - mat.m13) * s };
+    } else {
+      float r = ::std::sqrt(1.0f + mat.m33 - mat.m11 - mat.m22);
+      float s = 1.0f / (2.0f * r);
+      return { (mat.m13 + mat.m31) * s, (mat.m32 + mat.m23) * s,
+               r * 0.5f, (mat.m12 - mat.m21) * s };
+    }
+  }
   inline bool is_identity(const quaternion &val) {
     return val == quaternion::identity();
   }
@@ -1002,9 +1091,11 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
     return ::std::sqrt(length_squared(val));
   }
   inline float length_squared(const quaternion &val) {
-    return val.x * val.x + val.y * val.y + val.z * val.z + val.w * val.w;
+    return dot(val, val);
   }
-  inline float dot(const quaternion &val1, const quaternion &val2);
+  inline float dot(const quaternion &val1, const quaternion &val2) {
+    return val1.x * val2.x + val1.y * val2.y + val1.z * val2.z + val1.w * val2.w;
+  }
   inline quaternion normalize(const quaternion &val) {
     return operator*(val, 1.0f / length(val));
   }
@@ -1014,9 +1105,40 @@ _WINDOWS_NUMERICS_BEGIN_NAMESPACE_ {
   inline quaternion inverse(const quaternion &val) {
     return operator*(conjugate(val), 1.0f / length_squared(val));
   }
-  inline quaternion slerp(const quaternion &val1, const quaternion &val2, float amount);
-  inline quaternion lerp(const quaternion &val1, const quaternion &val2, float amount);
-  inline quaternion concatenate(const quaternion &val1, const quaternion &val2);
+  inline quaternion slerp(const quaternion &val1, const quaternion &val2, float amount) {
+    // https://en.wikipedia.org/wiki/Slerp#Geometric_Slerp
+    float cosangle = dot(val1, val2);
+    quaternion end = val2;
+    if (cosangle < 0.0f) {
+      end = -val2;
+      cosangle = -cosangle;
+    }
+    float fact1, fact2;
+    const float epsilon = 1.0e-6f;
+    if (cosangle > 1.0f - epsilon) {
+      // Very small rotation range, or non-normalized input quaternions.
+      fact1 = (1.0f - amount);
+      fact2 = amount;
+    } else {
+      float angle = ::std::acos(cosangle);
+      float sinangle = ::std::sin(angle);
+      fact1 = ::std::sin((1.0f - amount) * angle) / sinangle;
+      fact2 = ::std::sin(amount * angle) / sinangle;
+    }
+    return val1 * fact1 + end * fact2;
+  }
+  inline quaternion lerp(const quaternion &val1, const quaternion &val2, float amount) {
+    quaternion end = val2;
+    if (dot(val1, val2) < 0.0f)
+      end = -val2;
+    return normalize(quaternion(
+      _impl::lerp(val1.x, end.x, amount), _impl::lerp(val1.y, end.y, amount),
+      _impl::lerp(val1.z, end.z, amount), _impl::lerp(val1.w, end.w, amount)
+    ));
+  }
+  inline quaternion concatenate(const quaternion &val1, const quaternion &val2) {
+    return val2 * val1;
+  }
 
 } _WINDOWS_NUMERICS_END_NAMESPACE_
 

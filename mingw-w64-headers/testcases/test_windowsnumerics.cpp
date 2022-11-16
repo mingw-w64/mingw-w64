@@ -25,6 +25,8 @@
 
 using namespace Windows::Foundation::Numerics;
 
+constexpr float pi = 3.141592654f;
+
 std::ostream &operator<<(std::ostream &os, float2 const &v) {
   os << "{" << v.x << ", " << v.y << "}";
   return os;
@@ -377,6 +379,8 @@ TEST_CASE("float2-functions") {
   CHECK_THAT(lerp(v1, v2, -0.5f), eq2(0.5f, -2.0f));
   CHECK_THAT(lerp(v1, v2, 1.5f), eq2(10.5f, 22.0f));
   // TODO: transform
+  const quaternion q1 = normalize(quaternion(-1.0f, 2.0f, -3.0f, 4.0f));
+  CHECK_THAT(transform(v1, q1), eq2(3.06667f, -1.46667f));
 }
 
 // === float3 ===
@@ -474,6 +478,8 @@ TEST_CASE("float3-functions") {
   CHECK_THAT(lerp(v1, v2, -0.5f), eq3(0.5f, -2.0f, -4.5f));
   CHECK_THAT(lerp(v1, v2, 1.5f), eq3(10.5f, 22.0f, 33.5f));
   // TODO: transform
+  const quaternion q1 = normalize(quaternion(-1.0f, 2.0f, -3.0f, 4.0f));
+  CHECK_THAT(transform(v1, q1), eq3(6.73333f, -2.13333f, -0.333333f));
 }
 
 // === float4 ===
@@ -573,6 +579,12 @@ TEST_CASE("float4-functions") {
   CHECK_THAT(lerp(v1, v2, -0.5f), eq4(0.5f, -2.0f, -4.5f, 2.5f));
   CHECK_THAT(lerp(v1, v2, 1.5f), eq4(10.5f, 22.0f, 33.5f, 16.5f));
   // TODO: transform
+  const quaternion q1 = normalize(quaternion(-1.0f, 2.0f, -3.0f, 4.0f));
+  const float3 v4{ 3.0f, 4.0f, 5.0f };
+  const float2 v5{ 3.0f, 4.0f };
+  CHECK_THAT(transform(v1, q1), eq4(6.73333f, -2.13333f, -0.333333f, 6.0f));
+  CHECK_THAT(transform4(v4, q1), eq4(6.73333f, -2.13333f, -0.333333f, 1.0f));
+  CHECK_THAT(transform4(v5, q1), eq4(3.06667f, -1.46667f, -3.66667f, 1.0f));
 }
 
 // === float3x2 ===
@@ -872,6 +884,31 @@ TEST_CASE("float4x4-functions") {
     0.0f, 0.0f, 0.0f, 1.0f
   ));
   // TODO
+  CHECK_THAT(make_float4x4_translation(float3(1.0f, 2.0f, 3.0f)), eq4x4(
+    1.0f, 0.0f, 0.0f, 0.0f,
+    0.0f, 1.0f, 0.0f, 0.0f,
+    0.0f, 0.0f, 1.0f, 0.0f,
+    1.0f, 2.0f, 3.0f, 1.0f
+  ));
+  CHECK_THAT(make_float4x4_scale(float3(4.0f, 5.0f, 6.0f)), eq4x4(
+    4.0f, 0.0f, 0.0f, 0.0f,
+    0.0f, 5.0f, 0.0f, 0.0f,
+    0.0f, 0.0f, 6.0f, 0.0f,
+    0.0f, 0.0f, 0.0f, 1.0f
+  ));
+  const quaternion q1 = normalize(quaternion(-1.0f, 2.0f, -3.0f, 4.0f));
+  CHECK_THAT(make_float4x4_from_quaternion(q1), eq4x4(
+    0.133333f, -0.933333f, -0.333333f, 0.0f,
+    0.666667f,  0.333333f, -0.666667f, 0.0f,
+    0.733333f, -0.133333f,  0.666667f, 0.0f,
+    0.0f,       0.0f,       0.0f,      1.0f
+  ));
+  CHECK_THAT(transform(v1, q1), eq4x4(
+    3.66667f, -0.666667f, 0.333333f, 4.0f,
+    9.8f,     -3.6f,     -0.999999f, 8.0f,
+    15.9333f, -6.53333f, -2.33333f,  12.0f,
+    22.0667f, -9.46667f, -3.66667f,  16.0f
+  ));
 }
 
 // === plane ===
@@ -896,6 +933,8 @@ TEST_CASE("plane-functions") {
   const plane v1 { 1.0f, 2.0f, 3.0f, 4.0f };
   CHECK_THAT(normalize(v1), eqp(0.267261f, 0.534522f, 0.801784f, 1.06904f));
   // TODO
+  const quaternion q1 = normalize(quaternion(-1.0f, 2.0f, -3.0f, 4.0f));
+  CHECK_THAT(transform(v1, q1), eqp(3.66667f, -0.666667f, 0.333333f, 4.0f));
 }
 
 // === quaternion ===
@@ -946,7 +985,70 @@ TEST_CASE("quaternion-functions") {
   CHECK_THAT(normalize(v1), eqq(0.182574f, 0.365148f, 0.547723f, 0.730297f));
   CHECK_THAT(conjugate(v1), eqq(-1.0f, -2.0f, -3.0f, 4.0f));
   CHECK_THAT(inverse(v1), eqq(-0.0333333f, -0.0666667f, -0.1f, 0.133333f));
-  // TODO
+  const float3 v2 { 0.0f, 1.0f, 0.0f };
+  CHECK_THAT(make_quaternion_from_axis_angle(v2, 0.0f), eqq(0.0f, 0.0f, 0.0f, 1.0f));
+  CHECK_THAT(make_quaternion_from_axis_angle(v2, -pi/2), eqq(0.0f, -0.707107f, 0.0f, 0.707107f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(0.0f, 0.0f, 0.0f), eqq(0.0f, 0.0f, 0.0f, 1.0f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(pi/2, 0.0f, 0.0f), eqq(0.0f, 0.707107f, 0.0f, 0.707107f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(0.0f, pi/2, 0.0f), eqq(0.707107f, 0.0f, 0.0f, 0.707107f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(0.0f, 0.0f, pi/2), eqq(0.0f, 0.0f, 0.707107f, 0.707107f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(-pi/2, 0.0f, 0.0f), eqq(0.0f, -0.707107f, 0.0f, 0.707107f));
+  CHECK_THAT(make_quaternion_from_yaw_pitch_roll(pi/4, pi/4, pi/4), eqq(0.46194f, 0.191342f, 0.191342f, 0.844623f));
+  const float4x4 m1{
+     0.707107f,  0.0f,       0.707107f, 1.0f,
+     0.0f,       1.0f,       0.0f,      2.0f,
+    -0.707107f,  0.0f,       0.707107f, 3.0f,
+     4.0f,       5.0f,       6.0f,      1.0f,
+  };
+  CHECK_THAT(make_quaternion_from_rotation_matrix(m1), eqq(0.0f, -0.382684f, 0.0f, 0.92388f));
+  const float4x4 m2{
+     0.381126f,  0.904788f,  0.190003f, 0.0f,
+     0.523383f, -0.380566f,  0.762391f, 0.0f,
+     0.762111f, -0.191122f, -0.618594f, 0.0f,
+     0.0f,       0.0f,       0.0f,      1.0f
+  };
+  CHECK_THAT(make_quaternion_from_rotation_matrix(m2), eqq(0.771409f, 0.462845f, 0.308563f, 0.309017f));
+  const float4x4 m3{
+    -0.618594f,  0.762391f,  0.190003f, 0.0f,
+    -0.191122f, -0.380566f,  0.904788f, 0.0f,
+     0.762111f,  0.523383f,  0.381126f, 0.0f,
+     0.0f,       0.0f,       0.0f,      1.0f
+  };
+  CHECK_THAT(make_quaternion_from_rotation_matrix(m3), eqq(0.308563f, 0.462845f, 0.771409f, 0.309017f));
+  const float4x4 m4{
+    -0.618594f,  0.762111f, -0.191122f, 0.0f,
+     0.190003f,  0.381126f,  0.904788f, 0.0f,
+     0.762391f,  0.523383f, -0.380566f, 0.0f,
+     0.0f,       0.0f,       0.0f,      1.0f
+  };
+  CHECK_THAT(make_quaternion_from_rotation_matrix(m4), eqq(0.308563f, 0.771409f, 0.462845f, 0.309017f));
+  const quaternion v3 { 4.0f, 3.0f, 2.0f, 1.0f };
+  CHECK(dot(v1, v3) == 20.0_a);
+  const quaternion v4 { 0.0f, 0.0f, 1.0f, 0.0f };
+  const quaternion v5 { 0.46194f, 0.191342f, 0.191342f, 0.844623f };
+  const quaternion v6 { -0.327447f, -0.218298f, -0.436596f, 0.809017f };
+  const quaternion v7 { 0.925506f, 0.154251f, 0.308502f, 0.156434f };
+  CHECK(dot(v4, v5) == 0.19134_a);
+  CHECK(dot(v6, v7) == -0.34486_a);
+  CHECK_THAT(slerp(v1, v3, 0.0), eqq(v1));
+  CHECK_THAT(slerp(v1, v3, 1.0), eqq(v3));
+  CHECK_THAT(slerp(v1, v3, 0.4), eqq(2.2f, 2.4f, 2.6f, 2.8f));
+  CHECK_THAT(slerp(v4, v5, 0.0), eqq(v4));
+  CHECK_THAT(slerp(v4, v5, 1.0), eqq(v5));
+  CHECK_THAT(slerp(v4, v5, 0.4), eqq(0.246519f, 0.102112f, 0.851841f, 0.450743f));
+  CHECK_THAT(slerp(v6, v7, 0.0), eqq(v6));
+  CHECK_THAT(slerp(v6, v7, 1.0), eqq(-v7));
+  CHECK_THAT(slerp(v6, v7, 0.4), eqq(-0.694796f, -0.232276f, -0.464552f, 0.497491f));
+  CHECK_THAT(lerp(v1, v3, 0.0), eqq(normalize(v1)));
+  CHECK_THAT(lerp(v1, v3, 1.0), eqq(normalize(v3)));
+  CHECK_THAT(lerp(v4, v5, 0.4), eqq(0.236225f, 0.0978475f, 0.86491f, 0.431919f));
+  CHECK_THAT(lerp(v4, v5, 0.0), eqq(v4));
+  CHECK_THAT(lerp(v4, v5, 1.0), eqq(v5));
+  CHECK_THAT(lerp(v4, v5, 0.4), eqq(0.236225f, 0.0978475f, 0.86491f, 0.431919f));
+  CHECK_THAT(lerp(v6, v7, 0.0), eqq(v6));
+  CHECK_THAT(lerp(v6, v7, 1.0), eqq(-v7));
+  CHECK_THAT(lerp(v6, v7, 0.4), eqq(-0.68441f, -0.232713f, -0.465426f, 0.510691f));
+  CHECK_THAT(concatenate(v1, v3), eqq(22.0f, 4.0f, 16.0f, -12.0f));
 }
 
 
