@@ -68,13 +68,8 @@ extern int __mingw_app_type;
 
 static int argc;
 extern void __main(void);
-#ifdef WPRFLAG
-static wchar_t **argv;
-static wchar_t **envp;
-#else
-static char **argv;
-static char **envp;
-#endif
+static _TCHAR **argv;
+static _TCHAR **envp;
 
 static int argret;
 static int mainret=0;
@@ -85,11 +80,7 @@ extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
 long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
-#ifdef WPRFLAG
-static void duplicate_ppstrings (int ac, wchar_t ***av);
-#else
-static void duplicate_ppstrings (int ac, char ***av);
-#endif
+static void duplicate_ppstrings (int ac, _TCHAR ***av);
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
@@ -273,11 +264,10 @@ __tmainCRTStartup (void)
     __main (); /* C++ initialization. */
 #ifdef WPRFLAG
     __winitenv = envp;
-    mainret = wmain (argc, argv, envp);
 #else
     __initenv = envp;
-    mainret = main (argc, argv, envp);
 #endif
+    mainret = _tmain (argc, argv, envp);
     if (!managedapp)
       exit (mainret);
 
@@ -328,49 +318,22 @@ check_managed_app (void)
   return 0;
 }
 
-#ifdef WPRFLAG
-static size_t wbytelen(const wchar_t *p)
+static void duplicate_ppstrings (int ac, _TCHAR ***av)
 {
-	size_t ret = 1;
-	while (*p!=0) {
-		ret++,++p;
-	}
-	return ret*2;
-}
-static void duplicate_ppstrings (int ac, wchar_t ***av)
-{
-	wchar_t **avl;
+	_TCHAR **avl;
 	int i;
-	wchar_t **n = (wchar_t **) malloc (sizeof (wchar_t *) * (ac + 1));
-
-	avl=*av;
-	for (i=0; i < ac; i++)
-	  {
-		size_t l = wbytelen (avl[i]);
-		n[i] = (wchar_t *) malloc (l);
-		memcpy (n[i], avl[i], l);
-	  }
-	n[i] = NULL;
-	*av = n;
-}
-#else
-static void duplicate_ppstrings (int ac, char ***av)
-{
-	char **avl;
-	int i;
-	char **n = (char **) malloc (sizeof (char *) * (ac + 1));
+	_TCHAR **n = (_TCHAR **) malloc (sizeof (_TCHAR *) * (ac + 1));
 	
 	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
-		size_t l = strlen (avl[i]) + 1;
-		n[i] = (char *) malloc (l);
+		size_t l = sizeof (_TCHAR) * (_tcslen (avl[i]) + 1);
+		n[i] = (_TCHAR *) malloc (l);
 		memcpy (n[i], avl[i], l);
 	  }
 	n[i] = NULL;
 	*av = n;
 }
-#endif
 
 int __cdecl atexit (_PVFV func)
 {
