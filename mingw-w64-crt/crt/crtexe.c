@@ -119,7 +119,7 @@ pre_c_init (void)
   * __p__fmode() = _fmode;
   * __p__commode() = _commode;
 
-#ifdef WPRFLAG
+#ifdef _UNICODE
   _wsetargv();
 #else
   _setargv();
@@ -140,7 +140,7 @@ pre_cpp_init (void)
 {
   startinfo.newmode = _newmode;
 
-#ifdef WPRFLAG
+#ifdef _UNICODE
   argret = __wgetmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
 #else
   argret = __getmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
@@ -262,7 +262,7 @@ __tmainCRTStartup (void)
 
     duplicate_ppstrings (argc, &argv);
     __main (); /* C++ initialization. */
-#ifdef WPRFLAG
+#ifdef _UNICODE
     __winitenv = envp;
 #else
     __initenv = envp;
