@@ -129,6 +129,10 @@ src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   \
   crt/cxa_atexit.c    crt/cxa_thread_atexit.c crt/tls_atexit.c
 
+if !LD_PROVIDES_IMAGEBASE
+src_libmingw32+=crt/__imagebase.c
+endif
+
 src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
 src_libstrmiids=libsrc/strmiids.c
