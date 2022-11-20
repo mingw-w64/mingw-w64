@@ -1727,53 +1727,6 @@ fi
 
 } # ac_fn_c_try_cpp
 
-# ac_fn_c_try_link LINENO
-# -----------------------
-# Try to link conftest.$ac_ext, and return whether this succeeded.
-ac_fn_c_try_link ()
-{
-  as_lineno=${as_lineno-"$1"} as_lineno_stack=as_lineno_stack=$as_lineno_stack
-  rm -f conftest.$ac_objext conftest.beam conftest$ac_exeext
-  if { { ac_try="$ac_link"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval ac_try_echo="\"\$as_me:${as_lineno-$LINENO}: $ac_try_echo\""
-printf "%s\n" "$ac_try_echo"; } >&5
-  (eval "$ac_link") 2>conftest.err
-  ac_status=$?
-  if test -s conftest.err; then
-    grep -v '^ *+' conftest.err >conftest.er1
-    cat conftest.er1 >&5
-    mv -f conftest.er1 conftest.err
-  fi
-  printf "%s\n" "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext && {
-	 test "$cross_compiling" = yes ||
-	 test -x conftest$ac_exeext
-       }
-then :
-  ac_retval=0
-else $as_nop
-  printf "%s\n" "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	ac_retval=1
-fi
-  # Delete the IPA/IPO (Inter Procedural Analysis/Optimization) information
-  # created by the PGI compiler (conftest_ipa8_conftest.oo), as it would
-  # interfere with the next link command; also delete a directory that is
-  # left behind by Apple's compiler.  We do this before executing the actions.
-  rm -rf conftest.dSYM conftest_ipa8_conftest.oo
-  eval $as_lineno_stack; ${as_lineno_stack:+:} unset as_lineno
-  as_fn_set_status $ac_retval
-
-} # ac_fn_c_try_link
-
 # ac_fn_c_check_header_compile LINENO HEADER VAR INCLUDES
 # -------------------------------------------------------
 # Tests whether HEADER exists and can be compiled using the include files in
@@ -7035,28 +6988,48 @@ printf "%s\n" "$enable_tests_unicode" >&6; }
 # Check for __ImageBase linker symbol.
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the linker provides __ImageBase symbol" >&5
 printf %s "checking whether the linker provides __ImageBase symbol... " >&6; }
-if test x$ac_no_link = xyes; then
-  as_fn_error $? "link tests are not allowed after AC_NO_EXECUTABLES" "$LINENO" 5
-fi
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
+# Run this test manually instead of wrapping it in AC_LINK_IFELSE; when
+# bootstrapping an environment, an earlier linking test will have failed,
+# which both causes autoconf to refuse to run any linker test at all,
+# and even if $ac_no_link is overridden, the linker test iteslf will explicitly
+# check that the linker actually produced output in the given output file.
+# If $ac_exeext is empty, as it is when the earlier linker test failed, gcc
+# will behave differently depending on version. If run with "gcc conftest.c
+# -o conftest", old versions will produce explicitly a file named "conftest",
+# while modern GCC versions will produce "conftest.exe". AC_LINK_IFELSE will
+# explicitly look for the output file named "conftest$ac_exeext", which isn't
+# found, and the test fails even though linking succeeded.
+#
+# Therefore, just do a manual test; run the linking command and check the return
+# code whether it was successful or not.
+#
+# This test uses both mainCRTStartup and main functions, to let lld deduce
+# entry point and subsystem automatically without having to manually specify,
+# anything. And as long as main() is provided, we need to implicitly provide
+# __main as well, since the compiler injects a call to it.
+
+cat <<_ACEOF >conftest.$ac_ext
 extern unsigned char __ImageBase[];
-int
-main (void)
-{
-return __ImageBase[0];
-  ;
-  return 0;
+void __main(void) {
+}
+int main(void) {
+  return __ImageBase[0];
+}
+int mainCRTStartup(void) {
+  return main();
 }
 _ACEOF
-if ac_fn_c_try_link "$LINENO"
-then :
+
+echo "$as_me:$LINENO: $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext" >&5
+# Doing the link test with -nosdlib, to avoid trying to link in any libraries
+# which might not exist yet at this point.
+if $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext >&5 2>&1; then
   ld_provides_imagebase=yes
-else $as_nop
+else
   ld_provides_imagebase=no
 fi
-rm -f core conftest.err conftest.$ac_objext conftest.beam \
-    conftest$ac_exeext conftest.$ac_ext
+rm -f conftest$ac_exeext conftest.$ac_ext
+
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ld_provides_imagebase" >&5
 printf "%s\n" "$ld_provides_imagebase" >&6; }
  if test $ld_provides_imagebase = yes; then
