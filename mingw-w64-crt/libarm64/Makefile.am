@@ -223,6 +223,7 @@ libarm64_DATA += %reldir%/libp2p.a
 libarm64_DATA += %reldir%/libp2pgraph.a
 libarm64_DATA += %reldir%/libpathcch.a
 libarm64_DATA += %reldir%/libpcwum.a
+libarm64_DATA += %reldir%/libpdh.a
 libarm64_DATA += %reldir%/libperfctrs.a
 libarm64_DATA += %reldir%/libperfdisk.a
 libarm64_DATA += %reldir%/libperfnet.a
