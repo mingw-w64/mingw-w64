@@ -245,7 +245,7 @@ _cpumode_dll DATA
 _cputs
 _creat
 _cscanf
-_ctype
+_ctype DATA
 _cwait
 _daylight_dll DATA
 _daylight DATA == _daylight_dll
@@ -374,7 +374,7 @@ _mbctokata
 _mbctolower
 _mbctombb
 _mbctoupper
-_mbctype
+_mbctype DATA
 _mbsbtype
 _mbscat
 _mbschr
@@ -414,13 +414,10 @@ _mbsupr
 _memccpy
 _memicmp
 _mkdir
-_mkgmtime DATA
-;_mkgmtime32 = _mkgmtime
-_mkgmtime64
 _mktemp
 _msize
 _nextafter
-_onexit DATA
+_onexit
 _open
 _open_osfhandle
 _osmajor_dll DATA
