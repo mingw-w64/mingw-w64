@@ -439,8 +439,11 @@ src_crtdll=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
+  stdio/atoll.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -456,8 +459,11 @@ src_msvcrt10=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
+  stdio/atoll.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -468,8 +474,11 @@ src_msvcrt20=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
+  stdio/atoll.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -478,8 +487,11 @@ src_msvcrt40=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
+  stdio/atoll.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -563,7 +575,7 @@ src_libmingwex=\
   misc/mingw_wcstold.c \
   misc/mkstemp.c         misc/sleep.c           \
   misc/strnlen.c         misc/strsafe.c         \
-  misc/strtoimax.c       misc/strtoumax.c           misc/tdelete.c          misc/tdestroy.c              misc/tfind.c           \
+  misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
   misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
@@ -582,7 +594,7 @@ src_libmingwex=\
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
   stdio/_fstat64i32.c      stdio/_ftime.c       \
   stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
-  stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/atoll.c             stdio/fgetpos64.c       \
+  stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/fgetpos64.c       \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c         stdio/fsetpos64.c         stdio/ftello.c          \
   stdio/ftello64.c         stdio/ftruncate64.c       stdio/lltoa.c            stdio/lltow.c             stdio/lseek64.c         \
   stdio/mingw_fprintf.c    stdio/mingw_fprintfw.c    stdio/mingw_fscanf.c     stdio/mingw_fwscanf.c     stdio/mingw_pformat.c   \

@@ -114,6 +114,7 @@ _amsg_exit
 _assert
 _atodbl
 _atoi64
+atoll == _atoi64
 _atoldbl
 _beep
 _beginthread
@@ -842,7 +843,11 @@ _set_security_error_handler
 _snscanf
 _snwscanf
 _strtoi64
+strtoll == _strtoi64
+strtoimax == _strtoi64
 _strtoui64
+strtoull == _strtoui64
+strtoumax == _strtoui64
 _ungetwch
 _vscprintf
 _vscwprintf

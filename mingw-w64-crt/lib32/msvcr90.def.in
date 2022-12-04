@@ -363,7 +363,9 @@ _atof_l
 _atoflt
 _atoflt_l
 _atoi64
+atoll == _atoi64
 _atoi64_l
+_atoll_l == _atoi64_l
 _atoi_l
 _atol_l
 _atoldbl
@@ -1038,10 +1040,18 @@ _strtime
 _strtime_s
 _strtod_l
 _strtoi64
+strtoll == _strtoi64
+strtoimax == _strtoi64
 _strtoi64_l
+_strtoll_l == _strtoi64_l
+_strtoimax_l == _strtoi64_l
 _strtol_l
 _strtoui64
+strtoull == _strtoui64
+strtoumax == _strtoui64
 _strtoui64_l
+_strtoull_l == _strtoui64_l
+_strtoumax_l == _strtoui64_l
 _strtoul_l
 _strupr
 _strupr_l
