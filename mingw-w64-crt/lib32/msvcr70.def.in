@@ -5,6 +5,9 @@
 ;
 LIBRARY "MSVCR70.dll"
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAE@ABV0@@Z ; has WINAPI (@4)
 ; public: __thiscall __non_rtti_object::__non_rtti_object(char const *)
