@@ -251,7 +251,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit DATA
+_exit
 _expand
 _fcloseall
 _fcvt
@@ -718,7 +718,7 @@ coshf
 _ctime32
 difftime
 div
-exit DATA
+exit
 exp DATA
 expf DATA
 fabs

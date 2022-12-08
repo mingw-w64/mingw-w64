@@ -574,7 +574,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit DATA
+_exit
 _expand
 _fclose_nolock
 _fcloseall
@@ -1410,7 +1410,7 @@ cosf
 cosh
 coshf
 div
-exit DATA
+exit
 exp
 expf
 fabs

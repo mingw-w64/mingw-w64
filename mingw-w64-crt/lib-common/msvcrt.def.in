@@ -483,7 +483,7 @@ _execv
 _execve
 _execvp
 _execvpe
-_exit DATA
+_exit
 _expand
 F_ARM_ANY(_expand_dbg)
 _fcloseall
@@ -1352,7 +1352,7 @@ F_NON_I386(coshf DATA)
 ctime
 difftime
 div
-exit DATA
+exit
 exp F_X86_ANY(DATA)
 F_NON_I386(expf F_X86_ANY(DATA))
 F_ARM_ANY(expl == exp)
