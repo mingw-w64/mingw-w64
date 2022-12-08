@@ -31,12 +31,6 @@
 #endif
 #include <sect_attribs.h>
 #include <locale.h>
-#include <stdio.h>
-#ifdef __USING_MCFGTHREAD__
-#include <mcfgthread/cxa.h>
-#endif
-
-extern HANDLE __dso_handle;
 
 extern void __cdecl _initterm(_PVFV *,_PVFV *);
 extern void __main ();
@@ -187,14 +181,7 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  }
     }
   if (dwReason == DLL_PROCESS_ATTACH)
-    {
-#ifdef __USING_MCFGTHREAD__
-      /* Register `fflush(NULL)` before user-defined constructors, so
-       * it will be executed after all user-defined destructors.  */
-      __MCF_cxa_atexit ((__MCF_cxa_dtor_cdecl*)(intptr_t) fflush, NULL, &__dso_handle);
-#endif
-      __main ();
-    }
+    __main ();
   retcode = DllMain(hDllHandle,dwReason,lpreserved);
   if (dwReason == DLL_PROCESS_ATTACH && ! retcode)
     {
@@ -208,16 +195,6 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	if (_CRT_INIT (hDllHandle, dwReason, lpreserved) == FALSE)
 	  retcode = FALSE;
     }
-#ifdef __USING_MCFGTHREAD__
-  if (dwReason == DLL_PROCESS_DETACH && lpreserved == NULL)
-    {
-      /* Call `__cxa_finalize(dso_handle)` if the library is unloaded
-       * dynamically. This conforms to the Itanium C++ ABI. Note it is
-       * not called in case of process termination, where a call to
-       * `__cxa_finalize(NULL)` shall have been made instead.  */
-      __MCF_cxa_finalize (&__dso_handle);
-    }
-#endif
 i__leave:
   __native_dllmain_reason = UINT_MAX;
   return retcode ;
@@ -226,11 +203,7 @@ i__leave:
 
 int __cdecl atexit (_PVFV func)
 {
-#ifdef __USING_MCFGTHREAD__
-    return __MCF_cxa_atexit ((__MCF_cxa_dtor_cdecl*)(intptr_t) func, NULL, &__dso_handle);
-#else
     return _register_onexit_function(&atexit_table, (_onexit_t)func);
-#endif
 }
 
 char __mingw_module_is_dll = 1;

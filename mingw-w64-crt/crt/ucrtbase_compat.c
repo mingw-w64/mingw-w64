@@ -55,6 +55,8 @@ _CRTIMP int __cdecl _configure_wide_argv(int mode);
 // Declared in new.h, but only visible to C++
 _CRTIMP int __cdecl _set_new_mode(int _NewMode);
 
+extern char __mingw_module_is_dll;
+
 
 // Wrappers with legacy msvcrt.dll style API, based on the new ucrtbase.dll functions.
 int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWildCard, _startupinfo *_StartInfo)
@@ -88,10 +90,6 @@ _onexit_t __cdecl _onexit(_onexit_t func)
 
 _onexit_t __cdecl (*__MINGW_IMP_SYMBOL(_onexit))(_onexit_t func) = _onexit;
 
-// When using mcfgthread, `at_quick_exit()` is provided in 'exit_wrappers.c'.
-#ifndef __USING_MCFGTHREAD__
-extern char __mingw_module_is_dll;
-
 int __cdecl at_quick_exit(void (__cdecl *func)(void))
 {
   // In a DLL, we can't register a function with _crt_at_quick_exit, because
@@ -103,7 +101,6 @@ int __cdecl at_quick_exit(void (__cdecl *func)(void))
 }
 
 int __cdecl (*__MINGW_IMP_SYMBOL(at_quick_exit))(void (__cdecl *)(void)) = at_quick_exit;
-#endif  // __USING_MCFGTHREAD__
 
 void __cdecl _amsg_exit(int ret) {
   fprintf(stderr, "runtime error %d\n", ret);
