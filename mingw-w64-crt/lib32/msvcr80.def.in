@@ -142,6 +142,7 @@ _creat
 _cscanf
 _ctype DATA
 _cwait
+_daylight DATA
 _difftime32
 _difftime64
 _dstbias DATA
@@ -435,8 +436,10 @@ _sys_nerr DATA
 _tell
 _telli64
 _tempnam
+_timezone DATA
 _tolower
 _toupper
+_tzname DATA
 _tzset
 _ui64toa
 _ui64tow
@@ -667,6 +670,7 @@ _localtime32
 log DATA
 ; If we implement log10, we can set it to DATA only.
 log10
+longjmp
 malloc
 mblen
 mbstowcs

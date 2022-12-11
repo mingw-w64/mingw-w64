@@ -232,6 +232,7 @@ _ctype
 _cwait
 _cwprintf
 _cwscanf
+_daylight DATA
 _difftime32
 _difftime64
 _dstbias DATA
@@ -545,8 +546,10 @@ _telli64
 _tempnam
 _time64
 time == _time64
+_timezone DATA
 _tolower
 _toupper
+_tzname DATA
 _tzset
 _ui64toa
 _ui64tow
@@ -799,6 +802,7 @@ log DATA
 log10
 log10f
 logf DATA
+longjmp
 malloc
 mblen
 mbstowcs

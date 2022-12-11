@@ -461,7 +461,7 @@ _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
 F_X86_ANY(_dstbias DATA)
-F_ARM_ANY(_daylight DATA)
+_daylight DATA
 _difftime32 F_I386(== difftime)
 _difftime64
 _dup
@@ -1071,12 +1071,14 @@ F_ARM_ANY(_tempnam_dbg)
 F_I386(_time32 == time)
 F_ARM_ANY(_time32)
 _time64
+_timezone DATA
 _tolower
 _tolower_l
 _toupper
 _toupper_l
 _towlower_l
 _towupper_l
+_tzname DATA
 _tzset
 _ui64toa
 _ui64toa_s
@@ -1445,6 +1447,7 @@ F_NON_I386(log10f F_X86_ANY(DATA))
 F_ARM_ANY(log10l == log10)
 F_NON_I386(logf F_X86_ANY(DATA))
 F_ARM_ANY(logl == log)
+longjmp
 malloc
 mblen
 F_ARM_ANY(mbrlen)
