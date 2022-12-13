@@ -113,7 +113,7 @@ extern int ppy_debug;
 #if ! defined PPY_STYPE && ! defined PPY_STYPE_IS_DECLARED
 union PPY_STYPE
 {
-#line 120 "tools/wrc/ppy.y"
+#line 121 "tools/wrc/ppy.y"
 
 	int		sint;
 	unsigned int	uint;

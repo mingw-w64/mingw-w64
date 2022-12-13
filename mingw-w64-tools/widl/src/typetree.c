@@ -168,7 +168,8 @@ static size_t append_type_signature(char **buf, size_t *len, size_t pos, type_t 
     switch (type->type_type)
     {
     case TYPE_INTERFACE:
-        if (type->signature) n += strappend(buf, len, pos + n, "%s", type->signature);
+        if (!strcmp(type->name, "IInspectable")) n += strappend(buf, len, pos + n, "cinterface(IInspectable)");
+        else if (type->signature) n += strappend(buf, len, pos + n, "%s", type->signature);
         else
         {
             if (!(uuid = get_attrp(type->attrs, ATTR_UUID)))
@@ -580,19 +581,20 @@ type_t *type_new_struct(char *name, struct namespace *namespace, int defined, va
     return t;
 }
 
-type_t *type_new_nonencapsulated_union(const char *name, int defined, var_list_t *fields)
+type_t *type_new_nonencapsulated_union(const char *name, struct namespace *namespace, int defined, var_list_t *fields)
 {
     type_t *t = NULL;
 
     if (name)
-        t = find_type(name, NULL, tsUNION);
+        t = find_type(name, namespace, tsUNION);
 
     if (!t)
     {
         t = make_type(TYPE_UNION);
         t->name = name;
+        t->namespace = namespace;
         if (name)
-            reg_type(t, name, NULL, tsUNION);
+            reg_type(t, name, namespace, tsUNION);
     }
 
     if (!t->defined && defined)
@@ -627,7 +629,7 @@ type_t *type_new_encapsulated_union(char *name, var_t *switch_field, var_t *unio
     {
         if (!union_field)
             union_field = make_var(xstrdup("tagged_union"));
-        union_field->declspec.type = type_new_nonencapsulated_union(gen_name(), TRUE, cases);
+        union_field->declspec.type = type_new_nonencapsulated_union(gen_name(), NULL, TRUE, cases);
 
         t->details.structure = xmalloc(sizeof(*t->details.structure));
         t->details.structure->fields = append_var(NULL, switch_field);
@@ -1157,6 +1159,9 @@ static type_t *replace_type_parameters_in_type(type_t *type, typeref_list_t *ori
     case TYPE_INTERFACE:
     case TYPE_RUNTIMECLASS:
     case TYPE_DELEGATE:
+    case TYPE_STRUCT:
+    case TYPE_ENCAPSULATED_UNION:
+    case TYPE_UNION:
         return type;
     case TYPE_PARAMETER:
         if (!orig || !repl) return NULL;
@@ -1194,9 +1199,6 @@ static type_t *replace_type_parameters_in_type(type_t *type, typeref_list_t *ori
         if (t->type_type != TYPE_PARAMETERIZED_TYPE) return find_parameterized_type(type, repl);
         repl = replace_type_parameters_in_type_list(type->details.parameterized.params, orig, repl);
         return replace_type_parameters_in_type(t, t->details.parameterized.params, repl);
-    case TYPE_STRUCT:
-    case TYPE_ENCAPSULATED_UNION:
-    case TYPE_UNION:
     case TYPE_MODULE:
     case TYPE_COCLASS:
     case TYPE_APICONTRACT:
