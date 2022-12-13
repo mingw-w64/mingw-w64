@@ -41,6 +41,38 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterable_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CMedia__CIMediaMarker __FIIterable_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CMedia__CIMediaMarker __FIIterator_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CMedia__CIMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVector_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIVector_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIVector_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -62,6 +94,53 @@ namespace ABI {
         }
     }
 }
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIMediaMarker __x_ABI_CWindows_CMedia_CIMediaMarker;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIMediaMarker ABI::Windows::Media::IMediaMarker
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IMediaMarker;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CMedia__CIMediaMarker __FIIterable_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CMedia__CIMediaMarker __FIIterator_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CMedia__CIMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::IMediaMarker* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVector_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+#define ____FIVector_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
+typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windows__CMedia__CIMediaMarker;
+#ifdef __cplusplus
+#define __FIVector_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Media::IMediaMarker* >
 #endif /* __cplusplus */
 #endif
 
@@ -214,6 +293,670 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIMediaMarker_get_Text(__x_
 
 #endif  /* ____x_ABI_CWindows_CMedia_CIMediaMarker_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Media::IMediaMarker* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CMedia__CIMediaMarker, 0xa1c0a397, 0x0364, 0x5e4c, 0x9d,0xca, 0x7c,0xd7,0x01,0x1b,0xd1,0x14);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("a1c0a397-0364-5e4c-9dca-7cd7011bd114")
+                IIterable<ABI::Windows::Media::IMediaMarker* > : IIterable_impl<ABI::Windows::Media::IMediaMarker* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CMedia__CIMediaMarker, 0xa1c0a397, 0x0364, 0x5e4c, 0x9d,0xca, 0x7c,0xd7,0x01,0x1b,0xd1,0x14)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CMedia__CIMediaMarkerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Media::IMediaMarker* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CMedia__CIMediaMarker *This,
+        __FIIterator_1_Windows__CMedia__CIMediaMarker **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CMedia__CIMediaMarkerVtbl;
+
+interface __FIIterable_1_Windows__CMedia__CIMediaMarker {
+    CONST_VTBL __FIIterable_1_Windows__CMedia__CIMediaMarkerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Media::IMediaMarker* > methods ***/
+#define __FIIterable_1_Windows__CMedia__CIMediaMarker_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CIMediaMarker_QueryInterface(__FIIterable_1_Windows__CMedia__CIMediaMarker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CIMediaMarker_AddRef(__FIIterable_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CIMediaMarker_Release(__FIIterable_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CIMediaMarker_GetIids(__FIIterable_1_Windows__CMedia__CIMediaMarker* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(__FIIterable_1_Windows__CMedia__CIMediaMarker* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(__FIIterable_1_Windows__CMedia__CIMediaMarker* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Media::IMediaMarker* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CIMediaMarker_First(__FIIterable_1_Windows__CMedia__CIMediaMarker* This,__FIIterator_1_Windows__CMedia__CIMediaMarker **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_IMediaMarker IID___FIIterable_1_Windows__CMedia__CIMediaMarker
+#define IIterable_IMediaMarkerVtbl __FIIterable_1_Windows__CMedia__CIMediaMarkerVtbl
+#define IIterable_IMediaMarker __FIIterable_1_Windows__CMedia__CIMediaMarker
+#define IIterable_IMediaMarker_QueryInterface __FIIterable_1_Windows__CMedia__CIMediaMarker_QueryInterface
+#define IIterable_IMediaMarker_AddRef __FIIterable_1_Windows__CMedia__CIMediaMarker_AddRef
+#define IIterable_IMediaMarker_Release __FIIterable_1_Windows__CMedia__CIMediaMarker_Release
+#define IIterable_IMediaMarker_GetIids __FIIterable_1_Windows__CMedia__CIMediaMarker_GetIids
+#define IIterable_IMediaMarker_GetRuntimeClassName __FIIterable_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName
+#define IIterable_IMediaMarker_GetTrustLevel __FIIterable_1_Windows__CMedia__CIMediaMarker_GetTrustLevel
+#define IIterable_IMediaMarker_First __FIIterable_1_Windows__CMedia__CIMediaMarker_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Media::IMediaMarker* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CMedia__CIMediaMarker, 0xf464661e, 0x88bc, 0x5cea, 0x93,0xcd, 0x0c,0x12,0x3f,0x17,0xd2,0x58);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("f464661e-88bc-5cea-93cd-0c123f17d258")
+                IIterator<ABI::Windows::Media::IMediaMarker* > : IIterator_impl<ABI::Windows::Media::IMediaMarker* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CMedia__CIMediaMarker, 0xf464661e, 0x88bc, 0x5cea, 0x93,0xcd, 0x0c,0x12,0x3f,0x17,0xd2,0x58)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CMedia__CIMediaMarkerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Media::IMediaMarker* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CMedia__CIMediaMarkerVtbl;
+
+interface __FIIterator_1_Windows__CMedia__CIMediaMarker {
+    CONST_VTBL __FIIterator_1_Windows__CMedia__CIMediaMarkerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Media::IMediaMarker* > methods ***/
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CMedia__CIMediaMarker_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_QueryInterface(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CMedia__CIMediaMarker_AddRef(__FIIterator_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CMedia__CIMediaMarker_Release(__FIIterator_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_GetIids(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Media::IMediaMarker* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_get_Current(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,__x_ABI_CWindows_CMedia_CIMediaMarker **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_get_HasCurrent(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,WINBOOL *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_MoveNext(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,WINBOOL *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CIMediaMarker_GetMany(__FIIterator_1_Windows__CMedia__CIMediaMarker* This,UINT32 items_size,__x_ABI_CWindows_CMedia_CIMediaMarker **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_IMediaMarker IID___FIIterator_1_Windows__CMedia__CIMediaMarker
+#define IIterator_IMediaMarkerVtbl __FIIterator_1_Windows__CMedia__CIMediaMarkerVtbl
+#define IIterator_IMediaMarker __FIIterator_1_Windows__CMedia__CIMediaMarker
+#define IIterator_IMediaMarker_QueryInterface __FIIterator_1_Windows__CMedia__CIMediaMarker_QueryInterface
+#define IIterator_IMediaMarker_AddRef __FIIterator_1_Windows__CMedia__CIMediaMarker_AddRef
+#define IIterator_IMediaMarker_Release __FIIterator_1_Windows__CMedia__CIMediaMarker_Release
+#define IIterator_IMediaMarker_GetIids __FIIterator_1_Windows__CMedia__CIMediaMarker_GetIids
+#define IIterator_IMediaMarker_GetRuntimeClassName __FIIterator_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName
+#define IIterator_IMediaMarker_GetTrustLevel __FIIterator_1_Windows__CMedia__CIMediaMarker_GetTrustLevel
+#define IIterator_IMediaMarker_get_Current __FIIterator_1_Windows__CMedia__CIMediaMarker_get_Current
+#define IIterator_IMediaMarker_get_HasCurrent __FIIterator_1_Windows__CMedia__CIMediaMarker_get_HasCurrent
+#define IIterator_IMediaMarker_MoveNext __FIIterator_1_Windows__CMedia__CIMediaMarker_MoveNext
+#define IIterator_IMediaMarker_GetMany __FIIterator_1_Windows__CMedia__CIMediaMarker_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Media::IMediaMarker* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CMedia__CIMediaMarker, 0xb543562c, 0x02b1, 0x5824, 0x80,0xa8, 0x98,0x54,0x13,0x0c,0xda,0xdd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("b543562c-02b1-5824-80a8-9854130cdadd")
+                IVectorView<ABI::Windows::Media::IMediaMarker* > : IVectorView_impl<ABI::Windows::Media::IMediaMarker* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CMedia__CIMediaMarker, 0xb543562c, 0x02b1, 0x5824, 0x80,0xa8, 0x98,0x54,0x13,0x0c,0xda,0xdd)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 index,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        __x_ABI_CWindows_CMedia_CIMediaMarker *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl;
+
+interface __FIVectorView_1_Windows__CMedia__CIMediaMarker {
+    CONST_VTBL __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 index,__x_ABI_CWindows_CMedia_CIMediaMarker **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,__x_ABI_CWindows_CMedia_CIMediaMarker *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CMedia_CIMediaMarker **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_IMediaMarker IID___FIVectorView_1_Windows__CMedia__CIMediaMarker
+#define IVectorView_IMediaMarkerVtbl __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl
+#define IVectorView_IMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker
+#define IVectorView_IMediaMarker_QueryInterface __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface
+#define IVectorView_IMediaMarker_AddRef __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef
+#define IVectorView_IMediaMarker_Release __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release
+#define IVectorView_IMediaMarker_GetIids __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids
+#define IVectorView_IMediaMarker_GetRuntimeClassName __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName
+#define IVectorView_IMediaMarker_GetTrustLevel __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel
+#define IVectorView_IMediaMarker_GetAt __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt
+#define IVectorView_IMediaMarker_get_Size __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size
+#define IVectorView_IMediaMarker_IndexOf __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf
+#define IVectorView_IMediaMarker_GetMany __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVector<ABI::Windows::Media::IMediaMarker* > interface
+ */
+#ifndef ____FIVector_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+#define ____FIVector_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVector_1_Windows__CMedia__CIMediaMarker, 0x057e6bc9, 0x7bb8, 0x5816, 0x98,0x8b, 0x8e,0x9b,0x3f,0xb1,0xbf,0xf4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("057e6bc9-7bb8-5816-988b-8e9b3fb1bff4")
+                IVector<ABI::Windows::Media::IMediaMarker* > : IVector_impl<ABI::Windows::Media::IMediaMarker* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVector_1_Windows__CMedia__CIMediaMarker, 0x057e6bc9, 0x7bb8, 0x5816, 0x98,0x8b, 0x8e,0x9b,0x3f,0xb1,0xbf,0xf4)
+#endif
+#else
+typedef struct __FIVector_1_Windows__CMedia__CIMediaMarkerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        TrustLevel *trustLevel);
+
+    /*** IVector<ABI::Windows::Media::IMediaMarker* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 index,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetView)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        __FIVectorView_1_Windows__CMedia__CIMediaMarker **value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        __x_ABI_CWindows_CMedia_CIMediaMarker *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *SetAt)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 index,
+        __x_ABI_CWindows_CMedia_CIMediaMarker *value);
+
+    HRESULT (STDMETHODCALLTYPE *InsertAt)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 index,
+        __x_ABI_CWindows_CMedia_CIMediaMarker *value);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAt)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 index);
+
+    HRESULT (STDMETHODCALLTYPE *Append)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        __x_ABI_CWindows_CMedia_CIMediaMarker *value);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAtEnd)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **items,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *ReplaceAll)(
+        __FIVector_1_Windows__CMedia__CIMediaMarker *This,
+        UINT32 count,
+        __x_ABI_CWindows_CMedia_CIMediaMarker **items);
+
+    END_INTERFACE
+} __FIVector_1_Windows__CMedia__CIMediaMarkerVtbl;
+
+interface __FIVector_1_Windows__CMedia__CIMediaMarker {
+    CONST_VTBL __FIVector_1_Windows__CMedia__CIMediaMarkerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVector<ABI::Windows::Media::IMediaMarker* > methods ***/
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetView(This,value) (This)->lpVtbl->GetView(This,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_SetAt(This,index,value) (This)->lpVtbl->SetAt(This,index,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_InsertAt(This,index,value) (This)->lpVtbl->InsertAt(This,index,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAt(This,index) (This)->lpVtbl->RemoveAt(This,index)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_Append(This,value) (This)->lpVtbl->Append(This,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAtEnd(This) (This)->lpVtbl->RemoveAtEnd(This)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_Clear(This) (This)->lpVtbl->Clear(This)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#define __FIVector_1_Windows__CMedia__CIMediaMarker_ReplaceAll(This,count,items) (This)->lpVtbl->ReplaceAll(This,count,items)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_QueryInterface(__FIVector_1_Windows__CMedia__CIMediaMarker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVector_1_Windows__CMedia__CIMediaMarker_AddRef(__FIVector_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVector_1_Windows__CMedia__CIMediaMarker_Release(__FIVector_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetIids(__FIVector_1_Windows__CMedia__CIMediaMarker* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(__FIVector_1_Windows__CMedia__CIMediaMarker* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(__FIVector_1_Windows__CMedia__CIMediaMarker* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVector<ABI::Windows::Media::IMediaMarker* > methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetAt(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 index,__x_ABI_CWindows_CMedia_CIMediaMarker **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_get_Size(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetView(__FIVector_1_Windows__CMedia__CIMediaMarker* This,__FIVectorView_1_Windows__CMedia__CIMediaMarker **value) {
+    return This->lpVtbl->GetView(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_IndexOf(__FIVector_1_Windows__CMedia__CIMediaMarker* This,__x_ABI_CWindows_CMedia_CIMediaMarker *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_SetAt(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 index,__x_ABI_CWindows_CMedia_CIMediaMarker *value) {
+    return This->lpVtbl->SetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_InsertAt(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 index,__x_ABI_CWindows_CMedia_CIMediaMarker *value) {
+    return This->lpVtbl->InsertAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAt(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 index) {
+    return This->lpVtbl->RemoveAt(This,index);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_Append(__FIVector_1_Windows__CMedia__CIMediaMarker* This,__x_ABI_CWindows_CMedia_CIMediaMarker *value) {
+    return This->lpVtbl->Append(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAtEnd(__FIVector_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->RemoveAtEnd(This);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_Clear(__FIVector_1_Windows__CMedia__CIMediaMarker* This) {
+    return This->lpVtbl->Clear(This);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_GetMany(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CMedia_CIMediaMarker **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_ReplaceAll(__FIVector_1_Windows__CMedia__CIMediaMarker* This,UINT32 count,__x_ABI_CWindows_CMedia_CIMediaMarker **items) {
+    return This->lpVtbl->ReplaceAll(This,count,items);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVector_IMediaMarker IID___FIVector_1_Windows__CMedia__CIMediaMarker
+#define IVector_IMediaMarkerVtbl __FIVector_1_Windows__CMedia__CIMediaMarkerVtbl
+#define IVector_IMediaMarker __FIVector_1_Windows__CMedia__CIMediaMarker
+#define IVector_IMediaMarker_QueryInterface __FIVector_1_Windows__CMedia__CIMediaMarker_QueryInterface
+#define IVector_IMediaMarker_AddRef __FIVector_1_Windows__CMedia__CIMediaMarker_AddRef
+#define IVector_IMediaMarker_Release __FIVector_1_Windows__CMedia__CIMediaMarker_Release
+#define IVector_IMediaMarker_GetIids __FIVector_1_Windows__CMedia__CIMediaMarker_GetIids
+#define IVector_IMediaMarker_GetRuntimeClassName __FIVector_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName
+#define IVector_IMediaMarker_GetTrustLevel __FIVector_1_Windows__CMedia__CIMediaMarker_GetTrustLevel
+#define IVector_IMediaMarker_GetAt __FIVector_1_Windows__CMedia__CIMediaMarker_GetAt
+#define IVector_IMediaMarker_get_Size __FIVector_1_Windows__CMedia__CIMediaMarker_get_Size
+#define IVector_IMediaMarker_GetView __FIVector_1_Windows__CMedia__CIMediaMarker_GetView
+#define IVector_IMediaMarker_IndexOf __FIVector_1_Windows__CMedia__CIMediaMarker_IndexOf
+#define IVector_IMediaMarker_SetAt __FIVector_1_Windows__CMedia__CIMediaMarker_SetAt
+#define IVector_IMediaMarker_InsertAt __FIVector_1_Windows__CMedia__CIMediaMarker_InsertAt
+#define IVector_IMediaMarker_RemoveAt __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAt
+#define IVector_IMediaMarker_Append __FIVector_1_Windows__CMedia__CIMediaMarker_Append
+#define IVector_IMediaMarker_RemoveAtEnd __FIVector_1_Windows__CMedia__CIMediaMarker_RemoveAtEnd
+#define IVector_IMediaMarker_Clear __FIVector_1_Windows__CMedia__CIMediaMarker_Clear
+#define IVector_IMediaMarker_GetMany __FIVector_1_Windows__CMedia__CIMediaMarker_GetMany
+#define IVector_IMediaMarker_ReplaceAll __FIVector_1_Windows__CMedia__CIMediaMarker_ReplaceAll
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVector_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

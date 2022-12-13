@@ -26,6 +26,296 @@
 
 /* Forward declarations */
 
+#ifndef __IUIAutomationCondition_FWD_DEFINED__
+#define __IUIAutomationCondition_FWD_DEFINED__
+typedef interface IUIAutomationCondition IUIAutomationCondition;
+#ifdef __cplusplus
+interface IUIAutomationCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationBoolCondition_FWD_DEFINED__
+#define __IUIAutomationBoolCondition_FWD_DEFINED__
+typedef interface IUIAutomationBoolCondition IUIAutomationBoolCondition;
+#ifdef __cplusplus
+interface IUIAutomationBoolCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationPropertyCondition_FWD_DEFINED__
+#define __IUIAutomationPropertyCondition_FWD_DEFINED__
+typedef interface IUIAutomationPropertyCondition IUIAutomationPropertyCondition;
+#ifdef __cplusplus
+interface IUIAutomationPropertyCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationAndCondition_FWD_DEFINED__
+#define __IUIAutomationAndCondition_FWD_DEFINED__
+typedef interface IUIAutomationAndCondition IUIAutomationAndCondition;
+#ifdef __cplusplus
+interface IUIAutomationAndCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationOrCondition_FWD_DEFINED__
+#define __IUIAutomationOrCondition_FWD_DEFINED__
+typedef interface IUIAutomationOrCondition IUIAutomationOrCondition;
+#ifdef __cplusplus
+interface IUIAutomationOrCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationNotCondition_FWD_DEFINED__
+#define __IUIAutomationNotCondition_FWD_DEFINED__
+typedef interface IUIAutomationNotCondition IUIAutomationNotCondition;
+#ifdef __cplusplus
+interface IUIAutomationNotCondition;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationCacheRequest_FWD_DEFINED__
+#define __IUIAutomationCacheRequest_FWD_DEFINED__
+typedef interface IUIAutomationCacheRequest IUIAutomationCacheRequest;
+#ifdef __cplusplus
+interface IUIAutomationCacheRequest;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTreeWalker_FWD_DEFINED__
+#define __IUIAutomationTreeWalker_FWD_DEFINED__
+typedef interface IUIAutomationTreeWalker IUIAutomationTreeWalker;
+#ifdef __cplusplus
+interface IUIAutomationTreeWalker;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationEventHandler_FWD_DEFINED__
+#define __IUIAutomationEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationEventHandler IUIAutomationEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationPropertyChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationPropertyChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationPropertyChangedEventHandler IUIAutomationPropertyChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationPropertyChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationStructureChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationStructureChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationStructureChangedEventHandler IUIAutomationStructureChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationStructureChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationFocusChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationFocusChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationFocusChangedEventHandler IUIAutomationFocusChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationFocusChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextEditTextChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationTextEditTextChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationTextEditTextChangedEventHandler IUIAutomationTextEditTextChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationTextEditTextChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationChangesEventHandler_FWD_DEFINED__
+#define __IUIAutomationChangesEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationChangesEventHandler IUIAutomationChangesEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationChangesEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationValuePattern_FWD_DEFINED__
+#define __IUIAutomationValuePattern_FWD_DEFINED__
+typedef interface IUIAutomationValuePattern IUIAutomationValuePattern;
+#ifdef __cplusplus
+interface IUIAutomationValuePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationWindowPattern_FWD_DEFINED__
+#define __IUIAutomationWindowPattern_FWD_DEFINED__
+typedef interface IUIAutomationWindowPattern IUIAutomationWindowPattern;
+#ifdef __cplusplus
+interface IUIAutomationWindowPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationLegacyIAccessiblePattern_FWD_DEFINED__
+#define __IUIAutomationLegacyIAccessiblePattern_FWD_DEFINED__
+typedef interface IUIAutomationLegacyIAccessiblePattern IUIAutomationLegacyIAccessiblePattern;
+#ifdef __cplusplus
+interface IUIAutomationLegacyIAccessiblePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement_FWD_DEFINED__
+#define __IUIAutomationElement_FWD_DEFINED__
+typedef interface IUIAutomationElement IUIAutomationElement;
+#ifdef __cplusplus
+interface IUIAutomationElement;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement2_FWD_DEFINED__
+#define __IUIAutomationElement2_FWD_DEFINED__
+typedef interface IUIAutomationElement2 IUIAutomationElement2;
+#ifdef __cplusplus
+interface IUIAutomationElement2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement3_FWD_DEFINED__
+#define __IUIAutomationElement3_FWD_DEFINED__
+typedef interface IUIAutomationElement3 IUIAutomationElement3;
+#ifdef __cplusplus
+interface IUIAutomationElement3;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement4_FWD_DEFINED__
+#define __IUIAutomationElement4_FWD_DEFINED__
+typedef interface IUIAutomationElement4 IUIAutomationElement4;
+#ifdef __cplusplus
+interface IUIAutomationElement4;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement5_FWD_DEFINED__
+#define __IUIAutomationElement5_FWD_DEFINED__
+typedef interface IUIAutomationElement5 IUIAutomationElement5;
+#ifdef __cplusplus
+interface IUIAutomationElement5;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement6_FWD_DEFINED__
+#define __IUIAutomationElement6_FWD_DEFINED__
+typedef interface IUIAutomationElement6 IUIAutomationElement6;
+#ifdef __cplusplus
+interface IUIAutomationElement6;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement7_FWD_DEFINED__
+#define __IUIAutomationElement7_FWD_DEFINED__
+typedef interface IUIAutomationElement7 IUIAutomationElement7;
+#ifdef __cplusplus
+interface IUIAutomationElement7;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement8_FWD_DEFINED__
+#define __IUIAutomationElement8_FWD_DEFINED__
+typedef interface IUIAutomationElement8 IUIAutomationElement8;
+#ifdef __cplusplus
+interface IUIAutomationElement8;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElement9_FWD_DEFINED__
+#define __IUIAutomationElement9_FWD_DEFINED__
+typedef interface IUIAutomationElement9 IUIAutomationElement9;
+#ifdef __cplusplus
+interface IUIAutomationElement9;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElementArray_FWD_DEFINED__
+#define __IUIAutomationElementArray_FWD_DEFINED__
+typedef interface IUIAutomationElementArray IUIAutomationElementArray;
+#ifdef __cplusplus
+interface IUIAutomationElementArray;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationEventHandlerGroup_FWD_DEFINED__
+#define __IUIAutomationEventHandlerGroup_FWD_DEFINED__
+typedef interface IUIAutomationEventHandlerGroup IUIAutomationEventHandlerGroup;
+#ifdef __cplusplus
+interface IUIAutomationEventHandlerGroup;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation_FWD_DEFINED__
+#define __IUIAutomation_FWD_DEFINED__
+typedef interface IUIAutomation IUIAutomation;
+#ifdef __cplusplus
+interface IUIAutomation;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation2_FWD_DEFINED__
+#define __IUIAutomation2_FWD_DEFINED__
+typedef interface IUIAutomation2 IUIAutomation2;
+#ifdef __cplusplus
+interface IUIAutomation2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation3_FWD_DEFINED__
+#define __IUIAutomation3_FWD_DEFINED__
+typedef interface IUIAutomation3 IUIAutomation3;
+#ifdef __cplusplus
+interface IUIAutomation3;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation4_FWD_DEFINED__
+#define __IUIAutomation4_FWD_DEFINED__
+typedef interface IUIAutomation4 IUIAutomation4;
+#ifdef __cplusplus
+interface IUIAutomation4;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation5_FWD_DEFINED__
+#define __IUIAutomation5_FWD_DEFINED__
+typedef interface IUIAutomation5 IUIAutomation5;
+#ifdef __cplusplus
+interface IUIAutomation5;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomation6_FWD_DEFINED__
+#define __IUIAutomation6_FWD_DEFINED__
+typedef interface IUIAutomation6 IUIAutomation6;
+#ifdef __cplusplus
+interface IUIAutomation6;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __CUIAutomation_FWD_DEFINED__
+#define __CUIAutomation_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CUIAutomation CUIAutomation;
+#else
+typedef struct CUIAutomation CUIAutomation;
+#endif /* defined __cplusplus */
+#endif /* defined __CUIAutomation_FWD_DEFINED__ */
+
+#ifndef __CUIAutomation8_FWD_DEFINED__
+#define __CUIAutomation8_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CUIAutomation8 CUIAutomation8;
+#else
+typedef struct CUIAutomation8 CUIAutomation8;
+#endif /* defined __cplusplus */
+#endif /* defined __CUIAutomation8_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <uiautomationcore.h>
@@ -34,6 +324,42 @@
 extern "C" {
 #endif
 
+#ifndef _INC_UIAUTOMATIONCOREAPI
+enum TreeScope {
+    TreeScope_Element = 0x1,
+    TreeScope_Children = 0x2,
+    TreeScope_Descendants = 0x4,
+    TreeScope_Parent = 0x8,
+    TreeScope_Ancestors = 0x10,
+    TreeScope_SubTree = (TreeScope_Element | TreeScope_Children) | TreeScope_Descendants
+};
+enum PropertyConditionFlags {
+    PropertyConditionFlags_None = 0x0,
+    PropertyConditionFlags_IgnoreCase = 0x1
+};
+enum AutomationElementMode {
+    AutomationElementMode_None = 0x0,
+    AutomationElementMode_Full = 0x1
+};
+enum TreeTraversalOptions {
+    TreeTraversalOptions_Default = 0x0,
+    TreeTraversalOptions_PostOrder = 0x1,
+    TreeTraversalOptions_LastToFirstOrder = 0x2
+};
+enum ConnectionRecoveryBehaviorOptions {
+    ConnectionRecoveryBehaviorOptions_Disabled = 0x0,
+    ConnectionRecoveryBehaviorOptions_Enabled = 0x1
+};
+enum CoalesceEventsOptions {
+    CoalesceEventsOptions_Disabled = 0x0,
+    CoalesceEventsOptions_Enabled = 0x1
+};
+#endif
+struct ExtendedProperty {
+    BSTR PropertyName;
+    BSTR PropertyValue;
+};
+typedef void *UIA_HWND;
 #ifndef __UIAutomationClient_LIBRARY_DEFINED__
 #define __UIAutomationClient_LIBRARY_DEFINED__
 
@@ -106,6 +432,74 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 #define UIA_TextEditPatternId (10032)
 
 #define UIA_CustomNavigationPatternId (10033)
+
+#define UIA_ToolTipOpenedEventId (20000)
+
+#define UIA_ToolTipClosedEventId (20001)
+
+#define UIA_StructureChangedEventId (20002)
+
+#define UIA_MenuOpenedEventId (20003)
+
+#define UIA_AutomationPropertyChangedEventId (20004)
+
+#define UIA_AutomationFocusChangedEventId (20005)
+
+#define UIA_AsyncContentLoadedEventId (20006)
+
+#define UIA_MenuClosedEventId (20007)
+
+#define UIA_LayoutInvalidatedEventId (20008)
+
+#define UIA_Invoke_InvokedEventId (20009)
+
+#define UIA_SelectionItem_ElementAddedToSelectionEventId (20010)
+
+#define UIA_SelectionItem_ElementRemovedFromSelectionEventId (20011)
+
+#define UIA_SelectionItem_ElementSelectedEventId (20012)
+
+#define UIA_Selection_InvalidatedEventId (20013)
+
+#define UIA_Text_TextSelectionChangedEventId (20014)
+
+#define UIA_Text_TextChangedEventId (20015)
+
+#define UIA_Window_WindowOpenedEventId (20016)
+
+#define UIA_Window_WindowClosedEventId (20017)
+
+#define UIA_MenuModeStartEventId (20018)
+
+#define UIA_MenuModeEndEventId (20019)
+
+#define UIA_InputReachedTargetEventId (20020)
+
+#define UIA_InputReachedOtherElementEventId (20021)
+
+#define UIA_InputDiscardedEventId (20022)
+
+#define UIA_SystemAlertEventId (20023)
+
+#define UIA_LiveRegionChangedEventId (20024)
+
+#define UIA_HostedFragmentRootsInvalidatedEventId (20025)
+
+#define UIA_Drag_DragStartEventId (20026)
+
+#define UIA_Drag_DragCancelEventId (20027)
+
+#define UIA_Drag_DragCompleteEventId (20028)
+
+#define UIA_DropTarget_DragEnterEventId (20029)
+
+#define UIA_DropTarget_DragLeaveEventId (20030)
+
+#define UIA_DropTarget_DroppedEventId (20031)
+
+#define UIA_TextEdit_TextChangedEventId (20032)
+
+#define UIA_TextEdit_ConversionTargetChangedEventId (20033)
 
 #define UIA_RuntimeIdPropertyId (30000)
 
@@ -539,9 +933,15745 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 
 #define UIA_AppBarControlTypeId (50040)
 
+#ifndef __IUIAutomationElement_FWD_DEFINED__
+#define __IUIAutomationElement_FWD_DEFINED__
+typedef interface IUIAutomationElement IUIAutomationElement;
+#ifdef __cplusplus
+interface IUIAutomationElement;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationElementArray_FWD_DEFINED__
+#define __IUIAutomationElementArray_FWD_DEFINED__
+typedef interface IUIAutomationElementArray IUIAutomationElementArray;
+#ifdef __cplusplus
+interface IUIAutomationElementArray;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUIAutomationCondition interface
+ */
+#ifndef __IUIAutomationCondition_INTERFACE_DEFINED__
+#define __IUIAutomationCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationCondition, 0x352ffba8, 0x0973, 0x437c, 0xa6,0x1f, 0xf6,0x4c,0xaf,0xd8,0x1d,0xf9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("352ffba8-0973-437c-a61f-f64cafd81df9")
+IUIAutomationCondition : public IUnknown
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationCondition, 0x352ffba8, 0x0973, 0x437c, 0xa6,0x1f, 0xf6,0x4c,0xaf,0xd8,0x1d,0xf9)
+#endif
+#else
+typedef struct IUIAutomationConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationCondition *This);
+
+    END_INTERFACE
+} IUIAutomationConditionVtbl;
+
+interface IUIAutomationCondition {
+    CONST_VTBL IUIAutomationConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationCondition_Release(This) (This)->lpVtbl->Release(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationCondition_QueryInterface(IUIAutomationCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationCondition_AddRef(IUIAutomationCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationCondition_Release(IUIAutomationCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationBoolCondition interface
+ */
+#ifndef __IUIAutomationBoolCondition_INTERFACE_DEFINED__
+#define __IUIAutomationBoolCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationBoolCondition, 0x1b4e1f2e, 0x75eb, 0x4d0b, 0x89,0x52, 0x5a,0x69,0x98,0x8e,0x23,0x07);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1b4e1f2e-75eb-4d0b-8952-5a69988e2307")
+IUIAutomationBoolCondition : public IUIAutomationCondition
+{
+    virtual HRESULT STDMETHODCALLTYPE get_BooleanValue(
+        WINBOOL *boolVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationBoolCondition, 0x1b4e1f2e, 0x75eb, 0x4d0b, 0x89,0x52, 0x5a,0x69,0x98,0x8e,0x23,0x07)
+#endif
+#else
+typedef struct IUIAutomationBoolConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationBoolCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationBoolCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationBoolCondition *This);
+
+    /*** IUIAutomationBoolCondition methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_BooleanValue)(
+        IUIAutomationBoolCondition *This,
+        WINBOOL *boolVal);
+
+    END_INTERFACE
+} IUIAutomationBoolConditionVtbl;
+
+interface IUIAutomationBoolCondition {
+    CONST_VTBL IUIAutomationBoolConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationBoolCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationBoolCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationBoolCondition_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationBoolCondition methods ***/
+#define IUIAutomationBoolCondition_get_BooleanValue(This,boolVal) (This)->lpVtbl->get_BooleanValue(This,boolVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationBoolCondition_QueryInterface(IUIAutomationBoolCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationBoolCondition_AddRef(IUIAutomationBoolCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationBoolCondition_Release(IUIAutomationBoolCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationBoolCondition methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationBoolCondition_get_BooleanValue(IUIAutomationBoolCondition* This,WINBOOL *boolVal) {
+    return This->lpVtbl->get_BooleanValue(This,boolVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationBoolCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationPropertyCondition interface
+ */
+#ifndef __IUIAutomationPropertyCondition_INTERFACE_DEFINED__
+#define __IUIAutomationPropertyCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationPropertyCondition, 0x99ebf2cb, 0x5578, 0x4267, 0x9a,0xd4, 0xaf,0xd6,0xea,0x77,0xe9,0x4b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("99ebf2cb-5578-4267-9ad4-afd6ea77e94b")
+IUIAutomationPropertyCondition : public IUIAutomationCondition
+{
+    virtual HRESULT STDMETHODCALLTYPE get_PropertyId(
+        PROPERTYID *propertyId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_PropertyValue(
+        VARIANT *propertyValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_PropertyConditionFlags(
+        enum PropertyConditionFlags *flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationPropertyCondition, 0x99ebf2cb, 0x5578, 0x4267, 0x9a,0xd4, 0xaf,0xd6,0xea,0x77,0xe9,0x4b)
+#endif
+#else
+typedef struct IUIAutomationPropertyConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationPropertyCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationPropertyCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationPropertyCondition *This);
+
+    /*** IUIAutomationPropertyCondition methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_PropertyId)(
+        IUIAutomationPropertyCondition *This,
+        PROPERTYID *propertyId);
+
+    HRESULT (STDMETHODCALLTYPE *get_PropertyValue)(
+        IUIAutomationPropertyCondition *This,
+        VARIANT *propertyValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_PropertyConditionFlags)(
+        IUIAutomationPropertyCondition *This,
+        enum PropertyConditionFlags *flags);
+
+    END_INTERFACE
+} IUIAutomationPropertyConditionVtbl;
+
+interface IUIAutomationPropertyCondition {
+    CONST_VTBL IUIAutomationPropertyConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationPropertyCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationPropertyCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationPropertyCondition_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationPropertyCondition methods ***/
+#define IUIAutomationPropertyCondition_get_PropertyId(This,propertyId) (This)->lpVtbl->get_PropertyId(This,propertyId)
+#define IUIAutomationPropertyCondition_get_PropertyValue(This,propertyValue) (This)->lpVtbl->get_PropertyValue(This,propertyValue)
+#define IUIAutomationPropertyCondition_get_PropertyConditionFlags(This,flags) (This)->lpVtbl->get_PropertyConditionFlags(This,flags)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPropertyCondition_QueryInterface(IUIAutomationPropertyCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationPropertyCondition_AddRef(IUIAutomationPropertyCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationPropertyCondition_Release(IUIAutomationPropertyCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationPropertyCondition methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPropertyCondition_get_PropertyId(IUIAutomationPropertyCondition* This,PROPERTYID *propertyId) {
+    return This->lpVtbl->get_PropertyId(This,propertyId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationPropertyCondition_get_PropertyValue(IUIAutomationPropertyCondition* This,VARIANT *propertyValue) {
+    return This->lpVtbl->get_PropertyValue(This,propertyValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationPropertyCondition_get_PropertyConditionFlags(IUIAutomationPropertyCondition* This,enum PropertyConditionFlags *flags) {
+    return This->lpVtbl->get_PropertyConditionFlags(This,flags);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationPropertyCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationAndCondition interface
+ */
+#ifndef __IUIAutomationAndCondition_INTERFACE_DEFINED__
+#define __IUIAutomationAndCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationAndCondition, 0xa7d0af36, 0xb912, 0x45fe, 0x98,0x55, 0x09,0x1d,0xdc,0x17,0x4a,0xec);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a7d0af36-b912-45fe-9855-091ddc174aec")
+IUIAutomationAndCondition : public IUIAutomationCondition
+{
+    virtual HRESULT STDMETHODCALLTYPE get_ChildCount(
+        int *childCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChildrenAsNativeArray(
+        IUIAutomationCondition ***childArray,
+        int *childArrayCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChildren(
+        SAFEARRAY **childArray) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationAndCondition, 0xa7d0af36, 0xb912, 0x45fe, 0x98,0x55, 0x09,0x1d,0xdc,0x17,0x4a,0xec)
+#endif
+#else
+typedef struct IUIAutomationAndConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationAndCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationAndCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationAndCondition *This);
+
+    /*** IUIAutomationAndCondition methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_ChildCount)(
+        IUIAutomationAndCondition *This,
+        int *childCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildrenAsNativeArray)(
+        IUIAutomationAndCondition *This,
+        IUIAutomationCondition ***childArray,
+        int *childArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildren)(
+        IUIAutomationAndCondition *This,
+        SAFEARRAY **childArray);
+
+    END_INTERFACE
+} IUIAutomationAndConditionVtbl;
+
+interface IUIAutomationAndCondition {
+    CONST_VTBL IUIAutomationAndConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationAndCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationAndCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationAndCondition_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationAndCondition methods ***/
+#define IUIAutomationAndCondition_get_ChildCount(This,childCount) (This)->lpVtbl->get_ChildCount(This,childCount)
+#define IUIAutomationAndCondition_GetChildrenAsNativeArray(This,childArray,childArrayCount) (This)->lpVtbl->GetChildrenAsNativeArray(This,childArray,childArrayCount)
+#define IUIAutomationAndCondition_GetChildren(This,childArray) (This)->lpVtbl->GetChildren(This,childArray)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationAndCondition_QueryInterface(IUIAutomationAndCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationAndCondition_AddRef(IUIAutomationAndCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationAndCondition_Release(IUIAutomationAndCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationAndCondition methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationAndCondition_get_ChildCount(IUIAutomationAndCondition* This,int *childCount) {
+    return This->lpVtbl->get_ChildCount(This,childCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAndCondition_GetChildrenAsNativeArray(IUIAutomationAndCondition* This,IUIAutomationCondition ***childArray,int *childArrayCount) {
+    return This->lpVtbl->GetChildrenAsNativeArray(This,childArray,childArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAndCondition_GetChildren(IUIAutomationAndCondition* This,SAFEARRAY **childArray) {
+    return This->lpVtbl->GetChildren(This,childArray);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationAndCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationOrCondition interface
+ */
+#ifndef __IUIAutomationOrCondition_INTERFACE_DEFINED__
+#define __IUIAutomationOrCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationOrCondition, 0x8753f032, 0x3db1, 0x47b5, 0xa1,0xfc, 0x6e,0x34,0xa2,0x66,0xc7,0x12);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8753f032-3db1-47b5-a1fc-6e34a266c712")
+IUIAutomationOrCondition : public IUIAutomationCondition
+{
+    virtual HRESULT STDMETHODCALLTYPE get_ChildCount(
+        int *childCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChildrenAsNativeArray(
+        IUIAutomationCondition ***childArray,
+        int *childArrayCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChildren(
+        SAFEARRAY **childArray) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationOrCondition, 0x8753f032, 0x3db1, 0x47b5, 0xa1,0xfc, 0x6e,0x34,0xa2,0x66,0xc7,0x12)
+#endif
+#else
+typedef struct IUIAutomationOrConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationOrCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationOrCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationOrCondition *This);
+
+    /*** IUIAutomationOrCondition methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_ChildCount)(
+        IUIAutomationOrCondition *This,
+        int *childCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildrenAsNativeArray)(
+        IUIAutomationOrCondition *This,
+        IUIAutomationCondition ***childArray,
+        int *childArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildren)(
+        IUIAutomationOrCondition *This,
+        SAFEARRAY **childArray);
+
+    END_INTERFACE
+} IUIAutomationOrConditionVtbl;
+
+interface IUIAutomationOrCondition {
+    CONST_VTBL IUIAutomationOrConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationOrCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationOrCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationOrCondition_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationOrCondition methods ***/
+#define IUIAutomationOrCondition_get_ChildCount(This,childCount) (This)->lpVtbl->get_ChildCount(This,childCount)
+#define IUIAutomationOrCondition_GetChildrenAsNativeArray(This,childArray,childArrayCount) (This)->lpVtbl->GetChildrenAsNativeArray(This,childArray,childArrayCount)
+#define IUIAutomationOrCondition_GetChildren(This,childArray) (This)->lpVtbl->GetChildren(This,childArray)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationOrCondition_QueryInterface(IUIAutomationOrCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationOrCondition_AddRef(IUIAutomationOrCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationOrCondition_Release(IUIAutomationOrCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationOrCondition methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationOrCondition_get_ChildCount(IUIAutomationOrCondition* This,int *childCount) {
+    return This->lpVtbl->get_ChildCount(This,childCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationOrCondition_GetChildrenAsNativeArray(IUIAutomationOrCondition* This,IUIAutomationCondition ***childArray,int *childArrayCount) {
+    return This->lpVtbl->GetChildrenAsNativeArray(This,childArray,childArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationOrCondition_GetChildren(IUIAutomationOrCondition* This,SAFEARRAY **childArray) {
+    return This->lpVtbl->GetChildren(This,childArray);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationOrCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationNotCondition interface
+ */
+#ifndef __IUIAutomationNotCondition_INTERFACE_DEFINED__
+#define __IUIAutomationNotCondition_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationNotCondition, 0xf528b657, 0x847b, 0x498c, 0x88,0x96, 0xd5,0x2b,0x56,0x54,0x07,0xa1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f528b657-847b-498c-8896-d52b565407a1")
+IUIAutomationNotCondition : public IUIAutomationCondition
+{
+    virtual HRESULT STDMETHODCALLTYPE GetChild(
+        IUIAutomationCondition **condition) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationNotCondition, 0xf528b657, 0x847b, 0x498c, 0x88,0x96, 0xd5,0x2b,0x56,0x54,0x07,0xa1)
+#endif
+#else
+typedef struct IUIAutomationNotConditionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationNotCondition *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationNotCondition *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationNotCondition *This);
+
+    /*** IUIAutomationNotCondition methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetChild)(
+        IUIAutomationNotCondition *This,
+        IUIAutomationCondition **condition);
+
+    END_INTERFACE
+} IUIAutomationNotConditionVtbl;
+
+interface IUIAutomationNotCondition {
+    CONST_VTBL IUIAutomationNotConditionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationNotCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationNotCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationNotCondition_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationNotCondition methods ***/
+#define IUIAutomationNotCondition_GetChild(This,condition) (This)->lpVtbl->GetChild(This,condition)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationNotCondition_QueryInterface(IUIAutomationNotCondition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationNotCondition_AddRef(IUIAutomationNotCondition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationNotCondition_Release(IUIAutomationNotCondition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationNotCondition methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationNotCondition_GetChild(IUIAutomationNotCondition* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->GetChild(This,condition);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationNotCondition_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationCacheRequest interface
+ */
+#ifndef __IUIAutomationCacheRequest_INTERFACE_DEFINED__
+#define __IUIAutomationCacheRequest_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationCacheRequest, 0xb32a92b5, 0xbc25, 0x4078, 0x9c,0x08, 0xd7,0xee,0x95,0xc4,0x8e,0x03);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b32a92b5-bc25-4078-9c08-d7ee95c48e03")
+IUIAutomationCacheRequest : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AddProperty(
+        PROPERTYID propertyId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddPattern(
+        PATTERNID patternId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IUIAutomationCacheRequest **clonedRequest) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_TreeScope(
+        enum TreeScope *scope) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_TreeScope(
+        enum TreeScope scope) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_TreeFilter(
+        IUIAutomationCondition **filter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_TreeFilter(
+        IUIAutomationCondition *filter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_AutomationElementMode(
+        enum AutomationElementMode *mode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_AutomationElementMode(
+        enum AutomationElementMode mode) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationCacheRequest, 0xb32a92b5, 0xbc25, 0x4078, 0x9c,0x08, 0xd7,0xee,0x95,0xc4,0x8e,0x03)
+#endif
+#else
+typedef struct IUIAutomationCacheRequestVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationCacheRequest *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationCacheRequest *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationCacheRequest *This);
+
+    /*** IUIAutomationCacheRequest methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddProperty)(
+        IUIAutomationCacheRequest *This,
+        PROPERTYID propertyId);
+
+    HRESULT (STDMETHODCALLTYPE *AddPattern)(
+        IUIAutomationCacheRequest *This,
+        PATTERNID patternId);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IUIAutomationCacheRequest *This,
+        IUIAutomationCacheRequest **clonedRequest);
+
+    HRESULT (STDMETHODCALLTYPE *get_TreeScope)(
+        IUIAutomationCacheRequest *This,
+        enum TreeScope *scope);
+
+    HRESULT (STDMETHODCALLTYPE *put_TreeScope)(
+        IUIAutomationCacheRequest *This,
+        enum TreeScope scope);
+
+    HRESULT (STDMETHODCALLTYPE *get_TreeFilter)(
+        IUIAutomationCacheRequest *This,
+        IUIAutomationCondition **filter);
+
+    HRESULT (STDMETHODCALLTYPE *put_TreeFilter)(
+        IUIAutomationCacheRequest *This,
+        IUIAutomationCondition *filter);
+
+    HRESULT (STDMETHODCALLTYPE *get_AutomationElementMode)(
+        IUIAutomationCacheRequest *This,
+        enum AutomationElementMode *mode);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutomationElementMode)(
+        IUIAutomationCacheRequest *This,
+        enum AutomationElementMode mode);
+
+    END_INTERFACE
+} IUIAutomationCacheRequestVtbl;
+
+interface IUIAutomationCacheRequest {
+    CONST_VTBL IUIAutomationCacheRequestVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationCacheRequest_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationCacheRequest_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationCacheRequest_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationCacheRequest methods ***/
+#define IUIAutomationCacheRequest_AddProperty(This,propertyId) (This)->lpVtbl->AddProperty(This,propertyId)
+#define IUIAutomationCacheRequest_AddPattern(This,patternId) (This)->lpVtbl->AddPattern(This,patternId)
+#define IUIAutomationCacheRequest_Clone(This,clonedRequest) (This)->lpVtbl->Clone(This,clonedRequest)
+#define IUIAutomationCacheRequest_get_TreeScope(This,scope) (This)->lpVtbl->get_TreeScope(This,scope)
+#define IUIAutomationCacheRequest_put_TreeScope(This,scope) (This)->lpVtbl->put_TreeScope(This,scope)
+#define IUIAutomationCacheRequest_get_TreeFilter(This,filter) (This)->lpVtbl->get_TreeFilter(This,filter)
+#define IUIAutomationCacheRequest_put_TreeFilter(This,filter) (This)->lpVtbl->put_TreeFilter(This,filter)
+#define IUIAutomationCacheRequest_get_AutomationElementMode(This,mode) (This)->lpVtbl->get_AutomationElementMode(This,mode)
+#define IUIAutomationCacheRequest_put_AutomationElementMode(This,mode) (This)->lpVtbl->put_AutomationElementMode(This,mode)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_QueryInterface(IUIAutomationCacheRequest* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationCacheRequest_AddRef(IUIAutomationCacheRequest* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationCacheRequest_Release(IUIAutomationCacheRequest* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationCacheRequest methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_AddProperty(IUIAutomationCacheRequest* This,PROPERTYID propertyId) {
+    return This->lpVtbl->AddProperty(This,propertyId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_AddPattern(IUIAutomationCacheRequest* This,PATTERNID patternId) {
+    return This->lpVtbl->AddPattern(This,patternId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_Clone(IUIAutomationCacheRequest* This,IUIAutomationCacheRequest **clonedRequest) {
+    return This->lpVtbl->Clone(This,clonedRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_get_TreeScope(IUIAutomationCacheRequest* This,enum TreeScope *scope) {
+    return This->lpVtbl->get_TreeScope(This,scope);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_put_TreeScope(IUIAutomationCacheRequest* This,enum TreeScope scope) {
+    return This->lpVtbl->put_TreeScope(This,scope);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_get_TreeFilter(IUIAutomationCacheRequest* This,IUIAutomationCondition **filter) {
+    return This->lpVtbl->get_TreeFilter(This,filter);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_put_TreeFilter(IUIAutomationCacheRequest* This,IUIAutomationCondition *filter) {
+    return This->lpVtbl->put_TreeFilter(This,filter);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_get_AutomationElementMode(IUIAutomationCacheRequest* This,enum AutomationElementMode *mode) {
+    return This->lpVtbl->get_AutomationElementMode(This,mode);
+}
+static __WIDL_INLINE HRESULT IUIAutomationCacheRequest_put_AutomationElementMode(IUIAutomationCacheRequest* This,enum AutomationElementMode mode) {
+    return This->lpVtbl->put_AutomationElementMode(This,mode);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationCacheRequest_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTreeWalker interface
+ */
+#ifndef __IUIAutomationTreeWalker_INTERFACE_DEFINED__
+#define __IUIAutomationTreeWalker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTreeWalker, 0x4042c624, 0x389c, 0x4afc, 0xa6,0x30, 0x9d,0xf8,0x54,0xa5,0x41,0xfc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4042c624-389c-4afc-a630-9df854a541fc")
+IUIAutomationTreeWalker : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetParentElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **parent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFirstChildElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **first) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLastChildElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **last) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetNextSiblingElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **next) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreviousSiblingElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **previous) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NormalizeElement(
+        IUIAutomationElement *element,
+        IUIAutomationElement **normalized) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetParentElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **parent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFirstChildElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **first) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLastChildElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **last) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetNextSiblingElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **next) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreviousSiblingElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **previous) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NormalizeElementBuildCache(
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **normalized) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Condition(
+        IUIAutomationCondition **condition) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTreeWalker, 0x4042c624, 0x389c, 0x4afc, 0xa6,0x30, 0x9d,0xf8,0x54,0xa5,0x41,0xfc)
+#endif
+#else
+typedef struct IUIAutomationTreeWalkerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTreeWalker *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTreeWalker *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTreeWalker *This);
+
+    /*** IUIAutomationTreeWalker methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetParentElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetFirstChildElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **first);
+
+    HRESULT (STDMETHODCALLTYPE *GetLastChildElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **last);
+
+    HRESULT (STDMETHODCALLTYPE *GetNextSiblingElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **next);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreviousSiblingElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **previous);
+
+    HRESULT (STDMETHODCALLTYPE *NormalizeElement)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationElement **normalized);
+
+    HRESULT (STDMETHODCALLTYPE *GetParentElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetFirstChildElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **first);
+
+    HRESULT (STDMETHODCALLTYPE *GetLastChildElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **last);
+
+    HRESULT (STDMETHODCALLTYPE *GetNextSiblingElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **next);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreviousSiblingElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **previous);
+
+    HRESULT (STDMETHODCALLTYPE *NormalizeElementBuildCache)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationElement *element,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **normalized);
+
+    HRESULT (STDMETHODCALLTYPE *get_Condition)(
+        IUIAutomationTreeWalker *This,
+        IUIAutomationCondition **condition);
+
+    END_INTERFACE
+} IUIAutomationTreeWalkerVtbl;
+
+interface IUIAutomationTreeWalker {
+    CONST_VTBL IUIAutomationTreeWalkerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTreeWalker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTreeWalker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTreeWalker_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTreeWalker methods ***/
+#define IUIAutomationTreeWalker_GetParentElement(This,element,parent) (This)->lpVtbl->GetParentElement(This,element,parent)
+#define IUIAutomationTreeWalker_GetFirstChildElement(This,element,first) (This)->lpVtbl->GetFirstChildElement(This,element,first)
+#define IUIAutomationTreeWalker_GetLastChildElement(This,element,last) (This)->lpVtbl->GetLastChildElement(This,element,last)
+#define IUIAutomationTreeWalker_GetNextSiblingElement(This,element,next) (This)->lpVtbl->GetNextSiblingElement(This,element,next)
+#define IUIAutomationTreeWalker_GetPreviousSiblingElement(This,element,previous) (This)->lpVtbl->GetPreviousSiblingElement(This,element,previous)
+#define IUIAutomationTreeWalker_NormalizeElement(This,element,normalized) (This)->lpVtbl->NormalizeElement(This,element,normalized)
+#define IUIAutomationTreeWalker_GetParentElementBuildCache(This,element,cacheRequest,parent) (This)->lpVtbl->GetParentElementBuildCache(This,element,cacheRequest,parent)
+#define IUIAutomationTreeWalker_GetFirstChildElementBuildCache(This,element,cacheRequest,first) (This)->lpVtbl->GetFirstChildElementBuildCache(This,element,cacheRequest,first)
+#define IUIAutomationTreeWalker_GetLastChildElementBuildCache(This,element,cacheRequest,last) (This)->lpVtbl->GetLastChildElementBuildCache(This,element,cacheRequest,last)
+#define IUIAutomationTreeWalker_GetNextSiblingElementBuildCache(This,element,cacheRequest,next) (This)->lpVtbl->GetNextSiblingElementBuildCache(This,element,cacheRequest,next)
+#define IUIAutomationTreeWalker_GetPreviousSiblingElementBuildCache(This,element,cacheRequest,previous) (This)->lpVtbl->GetPreviousSiblingElementBuildCache(This,element,cacheRequest,previous)
+#define IUIAutomationTreeWalker_NormalizeElementBuildCache(This,element,cacheRequest,normalized) (This)->lpVtbl->NormalizeElementBuildCache(This,element,cacheRequest,normalized)
+#define IUIAutomationTreeWalker_get_Condition(This,condition) (This)->lpVtbl->get_Condition(This,condition)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_QueryInterface(IUIAutomationTreeWalker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTreeWalker_AddRef(IUIAutomationTreeWalker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTreeWalker_Release(IUIAutomationTreeWalker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTreeWalker methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetParentElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetParentElement(This,element,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetFirstChildElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **first) {
+    return This->lpVtbl->GetFirstChildElement(This,element,first);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetLastChildElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **last) {
+    return This->lpVtbl->GetLastChildElement(This,element,last);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetNextSiblingElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **next) {
+    return This->lpVtbl->GetNextSiblingElement(This,element,next);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetPreviousSiblingElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **previous) {
+    return This->lpVtbl->GetPreviousSiblingElement(This,element,previous);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_NormalizeElement(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationElement **normalized) {
+    return This->lpVtbl->NormalizeElement(This,element,normalized);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetParentElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetParentElementBuildCache(This,element,cacheRequest,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetFirstChildElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **first) {
+    return This->lpVtbl->GetFirstChildElementBuildCache(This,element,cacheRequest,first);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetLastChildElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **last) {
+    return This->lpVtbl->GetLastChildElementBuildCache(This,element,cacheRequest,last);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetNextSiblingElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **next) {
+    return This->lpVtbl->GetNextSiblingElementBuildCache(This,element,cacheRequest,next);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_GetPreviousSiblingElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **previous) {
+    return This->lpVtbl->GetPreviousSiblingElementBuildCache(This,element,cacheRequest,previous);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_NormalizeElementBuildCache(IUIAutomationTreeWalker* This,IUIAutomationElement *element,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **normalized) {
+    return This->lpVtbl->NormalizeElementBuildCache(This,element,cacheRequest,normalized);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTreeWalker_get_Condition(IUIAutomationTreeWalker* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_Condition(This,condition);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTreeWalker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationEventHandler interface
+ */
+#ifndef __IUIAutomationEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationEventHandler, 0x146c3c17, 0xf12e, 0x4e22, 0x8c,0x27, 0xf8,0x94,0xb9,0xb7,0x9c,0x69);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("146c3c17-f12e-4e22-8c27-f894b9b79c69")
+IUIAutomationEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleAutomationEvent(
+        IUIAutomationElement *sender,
+        EVENTID eventId) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationEventHandler, 0x146c3c17, 0xf12e, 0x4e22, 0x8c,0x27, 0xf8,0x94,0xb9,0xb7,0x9c,0x69)
+#endif
+#else
+typedef struct IUIAutomationEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationEventHandler *This);
+
+    /*** IUIAutomationEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleAutomationEvent)(
+        IUIAutomationEventHandler *This,
+        IUIAutomationElement *sender,
+        EVENTID eventId);
+
+    END_INTERFACE
+} IUIAutomationEventHandlerVtbl;
+
+interface IUIAutomationEventHandler {
+    CONST_VTBL IUIAutomationEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationEventHandler methods ***/
+#define IUIAutomationEventHandler_HandleAutomationEvent(This,sender,eventId) (This)->lpVtbl->HandleAutomationEvent(This,sender,eventId)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationEventHandler_QueryInterface(IUIAutomationEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationEventHandler_AddRef(IUIAutomationEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationEventHandler_Release(IUIAutomationEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationEventHandler_HandleAutomationEvent(IUIAutomationEventHandler* This,IUIAutomationElement *sender,EVENTID eventId) {
+    return This->lpVtbl->HandleAutomationEvent(This,sender,eventId);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationPropertyChangedEventHandler interface
+ */
+#ifndef __IUIAutomationPropertyChangedEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationPropertyChangedEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationPropertyChangedEventHandler, 0x40cd37d4, 0xc756, 0x4b0c, 0x8c,0x6f, 0xbd,0xdf,0xee,0xb1,0x3b,0x50);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("40cd37d4-c756-4b0c-8c6f-bddfeeb13b50")
+IUIAutomationPropertyChangedEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandlePropertyChangedEvent(
+        IUIAutomationElement *sender,
+        PROPERTYID propertyId,
+        VARIANT newValue) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationPropertyChangedEventHandler, 0x40cd37d4, 0xc756, 0x4b0c, 0x8c,0x6f, 0xbd,0xdf,0xee,0xb1,0x3b,0x50)
+#endif
+#else
+typedef struct IUIAutomationPropertyChangedEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationPropertyChangedEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationPropertyChangedEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationPropertyChangedEventHandler *This);
+
+    /*** IUIAutomationPropertyChangedEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandlePropertyChangedEvent)(
+        IUIAutomationPropertyChangedEventHandler *This,
+        IUIAutomationElement *sender,
+        PROPERTYID propertyId,
+        VARIANT newValue);
+
+    END_INTERFACE
+} IUIAutomationPropertyChangedEventHandlerVtbl;
+
+interface IUIAutomationPropertyChangedEventHandler {
+    CONST_VTBL IUIAutomationPropertyChangedEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationPropertyChangedEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationPropertyChangedEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationPropertyChangedEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationPropertyChangedEventHandler methods ***/
+#define IUIAutomationPropertyChangedEventHandler_HandlePropertyChangedEvent(This,sender,propertyId,newValue) (This)->lpVtbl->HandlePropertyChangedEvent(This,sender,propertyId,newValue)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPropertyChangedEventHandler_QueryInterface(IUIAutomationPropertyChangedEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationPropertyChangedEventHandler_AddRef(IUIAutomationPropertyChangedEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationPropertyChangedEventHandler_Release(IUIAutomationPropertyChangedEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationPropertyChangedEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPropertyChangedEventHandler_HandlePropertyChangedEvent(IUIAutomationPropertyChangedEventHandler* This,IUIAutomationElement *sender,PROPERTYID propertyId,VARIANT newValue) {
+    return This->lpVtbl->HandlePropertyChangedEvent(This,sender,propertyId,newValue);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationPropertyChangedEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationStructureChangedEventHandler interface
+ */
+#ifndef __IUIAutomationStructureChangedEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationStructureChangedEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationStructureChangedEventHandler, 0xe81d1b4e, 0x11c5, 0x42f8, 0x97,0x54, 0xe7,0x03,0x6c,0x79,0xf0,0x54);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e81d1b4e-11c5-42f8-9754-e7036c79f054")
+IUIAutomationStructureChangedEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleStructureChangedEvent(
+        IUIAutomationElement *sender,
+        enum StructureChangeType changeType,
+        SAFEARRAY *runtimeId) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationStructureChangedEventHandler, 0xe81d1b4e, 0x11c5, 0x42f8, 0x97,0x54, 0xe7,0x03,0x6c,0x79,0xf0,0x54)
+#endif
+#else
+typedef struct IUIAutomationStructureChangedEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationStructureChangedEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationStructureChangedEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationStructureChangedEventHandler *This);
+
+    /*** IUIAutomationStructureChangedEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleStructureChangedEvent)(
+        IUIAutomationStructureChangedEventHandler *This,
+        IUIAutomationElement *sender,
+        enum StructureChangeType changeType,
+        SAFEARRAY *runtimeId);
+
+    END_INTERFACE
+} IUIAutomationStructureChangedEventHandlerVtbl;
+
+interface IUIAutomationStructureChangedEventHandler {
+    CONST_VTBL IUIAutomationStructureChangedEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationStructureChangedEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationStructureChangedEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationStructureChangedEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationStructureChangedEventHandler methods ***/
+#define IUIAutomationStructureChangedEventHandler_HandleStructureChangedEvent(This,sender,changeType,runtimeId) (This)->lpVtbl->HandleStructureChangedEvent(This,sender,changeType,runtimeId)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationStructureChangedEventHandler_QueryInterface(IUIAutomationStructureChangedEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationStructureChangedEventHandler_AddRef(IUIAutomationStructureChangedEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationStructureChangedEventHandler_Release(IUIAutomationStructureChangedEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationStructureChangedEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationStructureChangedEventHandler_HandleStructureChangedEvent(IUIAutomationStructureChangedEventHandler* This,IUIAutomationElement *sender,enum StructureChangeType changeType,SAFEARRAY *runtimeId) {
+    return This->lpVtbl->HandleStructureChangedEvent(This,sender,changeType,runtimeId);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationStructureChangedEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationFocusChangedEventHandler interface
+ */
+#ifndef __IUIAutomationFocusChangedEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationFocusChangedEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationFocusChangedEventHandler, 0xc270f6b5, 0x5c69, 0x4290, 0x97,0x45, 0x7a,0x7f,0x97,0x16,0x94,0x68);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c270f6b5-5c69-4290-9745-7a7f97169468")
+IUIAutomationFocusChangedEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleFocusChangedEvent(
+        IUIAutomationElement *sender) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationFocusChangedEventHandler, 0xc270f6b5, 0x5c69, 0x4290, 0x97,0x45, 0x7a,0x7f,0x97,0x16,0x94,0x68)
+#endif
+#else
+typedef struct IUIAutomationFocusChangedEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationFocusChangedEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationFocusChangedEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationFocusChangedEventHandler *This);
+
+    /*** IUIAutomationFocusChangedEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleFocusChangedEvent)(
+        IUIAutomationFocusChangedEventHandler *This,
+        IUIAutomationElement *sender);
+
+    END_INTERFACE
+} IUIAutomationFocusChangedEventHandlerVtbl;
+
+interface IUIAutomationFocusChangedEventHandler {
+    CONST_VTBL IUIAutomationFocusChangedEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationFocusChangedEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationFocusChangedEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationFocusChangedEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationFocusChangedEventHandler methods ***/
+#define IUIAutomationFocusChangedEventHandler_HandleFocusChangedEvent(This,sender) (This)->lpVtbl->HandleFocusChangedEvent(This,sender)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationFocusChangedEventHandler_QueryInterface(IUIAutomationFocusChangedEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationFocusChangedEventHandler_AddRef(IUIAutomationFocusChangedEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationFocusChangedEventHandler_Release(IUIAutomationFocusChangedEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationFocusChangedEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationFocusChangedEventHandler_HandleFocusChangedEvent(IUIAutomationFocusChangedEventHandler* This,IUIAutomationElement *sender) {
+    return This->lpVtbl->HandleFocusChangedEvent(This,sender);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationFocusChangedEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextEditTextChangedEventHandler interface
+ */
+#ifndef __IUIAutomationTextEditTextChangedEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationTextEditTextChangedEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextEditTextChangedEventHandler, 0x92faa680, 0xe704, 0x4156, 0x93,0x1a, 0xe3,0x2d,0x5b,0xb3,0x8f,0x3f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("92faa680-e704-4156-931a-e32d5bb38f3f")
+IUIAutomationTextEditTextChangedEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleTextEditTextChangedEvent(
+        IUIAutomationElement *sender,
+        enum TextEditChangeType textEditChangeType,
+        SAFEARRAY *eventStrings) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextEditTextChangedEventHandler, 0x92faa680, 0xe704, 0x4156, 0x93,0x1a, 0xe3,0x2d,0x5b,0xb3,0x8f,0x3f)
+#endif
+#else
+typedef struct IUIAutomationTextEditTextChangedEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextEditTextChangedEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextEditTextChangedEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextEditTextChangedEventHandler *This);
+
+    /*** IUIAutomationTextEditTextChangedEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleTextEditTextChangedEvent)(
+        IUIAutomationTextEditTextChangedEventHandler *This,
+        IUIAutomationElement *sender,
+        enum TextEditChangeType textEditChangeType,
+        SAFEARRAY *eventStrings);
+
+    END_INTERFACE
+} IUIAutomationTextEditTextChangedEventHandlerVtbl;
+
+interface IUIAutomationTextEditTextChangedEventHandler {
+    CONST_VTBL IUIAutomationTextEditTextChangedEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextEditTextChangedEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextEditTextChangedEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextEditTextChangedEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextEditTextChangedEventHandler methods ***/
+#define IUIAutomationTextEditTextChangedEventHandler_HandleTextEditTextChangedEvent(This,sender,textEditChangeType,eventStrings) (This)->lpVtbl->HandleTextEditTextChangedEvent(This,sender,textEditChangeType,eventStrings)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextEditTextChangedEventHandler_QueryInterface(IUIAutomationTextEditTextChangedEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextEditTextChangedEventHandler_AddRef(IUIAutomationTextEditTextChangedEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextEditTextChangedEventHandler_Release(IUIAutomationTextEditTextChangedEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextEditTextChangedEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextEditTextChangedEventHandler_HandleTextEditTextChangedEvent(IUIAutomationTextEditTextChangedEventHandler* This,IUIAutomationElement *sender,enum TextEditChangeType textEditChangeType,SAFEARRAY *eventStrings) {
+    return This->lpVtbl->HandleTextEditTextChangedEvent(This,sender,textEditChangeType,eventStrings);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTextEditTextChangedEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationChangesEventHandler interface
+ */
+#ifndef __IUIAutomationChangesEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationChangesEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationChangesEventHandler, 0x58edca55, 0x2c3e, 0x4980, 0xb1,0xb9, 0x56,0xc1,0x7f,0x27,0xa2,0xa0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("58edca55-2c3e-4980-b1b9-56c17f27a2a0")
+IUIAutomationChangesEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleChangesEvent(
+        IUIAutomationElement *sender,
+        struct UiaChangeInfo *uiaChanges,
+        int changesCount) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationChangesEventHandler, 0x58edca55, 0x2c3e, 0x4980, 0xb1,0xb9, 0x56,0xc1,0x7f,0x27,0xa2,0xa0)
+#endif
+#else
+typedef struct IUIAutomationChangesEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationChangesEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationChangesEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationChangesEventHandler *This);
+
+    /*** IUIAutomationChangesEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleChangesEvent)(
+        IUIAutomationChangesEventHandler *This,
+        IUIAutomationElement *sender,
+        struct UiaChangeInfo *uiaChanges,
+        int changesCount);
+
+    END_INTERFACE
+} IUIAutomationChangesEventHandlerVtbl;
+
+interface IUIAutomationChangesEventHandler {
+    CONST_VTBL IUIAutomationChangesEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationChangesEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationChangesEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationChangesEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationChangesEventHandler methods ***/
+#define IUIAutomationChangesEventHandler_HandleChangesEvent(This,sender,uiaChanges,changesCount) (This)->lpVtbl->HandleChangesEvent(This,sender,uiaChanges,changesCount)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationChangesEventHandler_QueryInterface(IUIAutomationChangesEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationChangesEventHandler_AddRef(IUIAutomationChangesEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationChangesEventHandler_Release(IUIAutomationChangesEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationChangesEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationChangesEventHandler_HandleChangesEvent(IUIAutomationChangesEventHandler* This,IUIAutomationElement *sender,struct UiaChangeInfo *uiaChanges,int changesCount) {
+    return This->lpVtbl->HandleChangesEvent(This,sender,uiaChanges,changesCount);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationChangesEventHandler_INTERFACE_DEFINED__ */
+
+#ifndef __IUIAutomationNotificationEventHandler_FWD_DEFINED__
+#define __IUIAutomationNotificationEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationNotificationEventHandler IUIAutomationNotificationEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationNotificationEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationInvokePattern_FWD_DEFINED__
+#define __IUIAutomationInvokePattern_FWD_DEFINED__
+typedef interface IUIAutomationInvokePattern IUIAutomationInvokePattern;
+#ifdef __cplusplus
+interface IUIAutomationInvokePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDockPattern_FWD_DEFINED__
+#define __IUIAutomationDockPattern_FWD_DEFINED__
+typedef interface IUIAutomationDockPattern IUIAutomationDockPattern;
+#ifdef __cplusplus
+interface IUIAutomationDockPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
+#define __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
+typedef interface IUIAutomationExpandCollapsePattern IUIAutomationExpandCollapsePattern;
+#ifdef __cplusplus
+interface IUIAutomationExpandCollapsePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationGridPattern_FWD_DEFINED__
+#define __IUIAutomationGridPattern_FWD_DEFINED__
+typedef interface IUIAutomationGridPattern IUIAutomationGridPattern;
+#ifdef __cplusplus
+interface IUIAutomationGridPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationGridItemPattern_FWD_DEFINED__
+#define __IUIAutomationGridItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationGridItemPattern IUIAutomationGridItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationGridItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationMultipleViewPattern_FWD_DEFINED__
+#define __IUIAutomationMultipleViewPattern_FWD_DEFINED__
+typedef interface IUIAutomationMultipleViewPattern IUIAutomationMultipleViewPattern;
+#ifdef __cplusplus
+interface IUIAutomationMultipleViewPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationObjectModelPattern_FWD_DEFINED__
+#define __IUIAutomationObjectModelPattern_FWD_DEFINED__
+typedef interface IUIAutomationObjectModelPattern IUIAutomationObjectModelPattern;
+#ifdef __cplusplus
+interface IUIAutomationObjectModelPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationRangeValuePattern_FWD_DEFINED__
+#define __IUIAutomationRangeValuePattern_FWD_DEFINED__
+typedef interface IUIAutomationRangeValuePattern IUIAutomationRangeValuePattern;
+#ifdef __cplusplus
+interface IUIAutomationRangeValuePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationScrollPattern_FWD_DEFINED__
+#define __IUIAutomationScrollPattern_FWD_DEFINED__
+typedef interface IUIAutomationScrollPattern IUIAutomationScrollPattern;
+#ifdef __cplusplus
+interface IUIAutomationScrollPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationScrollItemPattern_FWD_DEFINED__
+#define __IUIAutomationScrollItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationScrollItemPattern IUIAutomationScrollItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationScrollItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSelectionPattern_FWD_DEFINED__
+#define __IUIAutomationSelectionPattern_FWD_DEFINED__
+typedef interface IUIAutomationSelectionPattern IUIAutomationSelectionPattern;
+#ifdef __cplusplus
+interface IUIAutomationSelectionPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSelectionItemPattern_FWD_DEFINED__
+#define __IUIAutomationSelectionItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationSelectionItemPattern IUIAutomationSelectionItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationSelectionItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
+#define __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
+typedef interface IUIAutomationSynchronizedInputPattern IUIAutomationSynchronizedInputPattern;
+#ifdef __cplusplus
+interface IUIAutomationSynchronizedInputPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTablePattern_FWD_DEFINED__
+#define __IUIAutomationTablePattern_FWD_DEFINED__
+typedef interface IUIAutomationTablePattern IUIAutomationTablePattern;
+#ifdef __cplusplus
+interface IUIAutomationTablePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTableItemPattern_FWD_DEFINED__
+#define __IUIAutomationTableItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationTableItemPattern IUIAutomationTableItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationTableItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTogglePattern_FWD_DEFINED__
+#define __IUIAutomationTogglePattern_FWD_DEFINED__
+typedef interface IUIAutomationTogglePattern IUIAutomationTogglePattern;
+#ifdef __cplusplus
+interface IUIAutomationTogglePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTransformPattern_FWD_DEFINED__
+#define __IUIAutomationTransformPattern_FWD_DEFINED__
+typedef interface IUIAutomationTransformPattern IUIAutomationTransformPattern;
+#ifdef __cplusplus
+interface IUIAutomationTransformPattern;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUIAutomationValuePattern interface
+ */
+#ifndef __IUIAutomationValuePattern_INTERFACE_DEFINED__
+#define __IUIAutomationValuePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationValuePattern, 0xa94cd8b1, 0x0844, 0x4cd6, 0x9d,0x2d, 0x64,0x05,0x37,0xab,0x39,0xe9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a94cd8b1-0844-4cd6-9d2d-640537ab39e9")
+IUIAutomationValuePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetValue(
+        BSTR val) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentValue(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsReadOnly(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedValue(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsReadOnly(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationValuePattern, 0xa94cd8b1, 0x0844, 0x4cd6, 0x9d,0x2d, 0x64,0x05,0x37,0xab,0x39,0xe9)
+#endif
+#else
+typedef struct IUIAutomationValuePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationValuePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationValuePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationValuePattern *This);
+
+    /*** IUIAutomationValuePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetValue)(
+        IUIAutomationValuePattern *This,
+        BSTR val);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentValue)(
+        IUIAutomationValuePattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsReadOnly)(
+        IUIAutomationValuePattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedValue)(
+        IUIAutomationValuePattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsReadOnly)(
+        IUIAutomationValuePattern *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationValuePatternVtbl;
+
+interface IUIAutomationValuePattern {
+    CONST_VTBL IUIAutomationValuePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationValuePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationValuePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationValuePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationValuePattern methods ***/
+#define IUIAutomationValuePattern_SetValue(This,val) (This)->lpVtbl->SetValue(This,val)
+#define IUIAutomationValuePattern_get_CurrentValue(This,retVal) (This)->lpVtbl->get_CurrentValue(This,retVal)
+#define IUIAutomationValuePattern_get_CurrentIsReadOnly(This,retVal) (This)->lpVtbl->get_CurrentIsReadOnly(This,retVal)
+#define IUIAutomationValuePattern_get_CachedValue(This,retVal) (This)->lpVtbl->get_CachedValue(This,retVal)
+#define IUIAutomationValuePattern_get_CachedIsReadOnly(This,retVal) (This)->lpVtbl->get_CachedIsReadOnly(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_QueryInterface(IUIAutomationValuePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationValuePattern_AddRef(IUIAutomationValuePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationValuePattern_Release(IUIAutomationValuePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationValuePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_SetValue(IUIAutomationValuePattern* This,BSTR val) {
+    return This->lpVtbl->SetValue(This,val);
+}
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_get_CurrentValue(IUIAutomationValuePattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentValue(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_get_CurrentIsReadOnly(IUIAutomationValuePattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsReadOnly(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_get_CachedValue(IUIAutomationValuePattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedValue(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationValuePattern_get_CachedIsReadOnly(IUIAutomationValuePattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsReadOnly(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationValuePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationWindowPattern interface
+ */
+#ifndef __IUIAutomationWindowPattern_INTERFACE_DEFINED__
+#define __IUIAutomationWindowPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationWindowPattern, 0x0faef453, 0x9208, 0x43ef, 0xbb,0xb2, 0x3b,0x48,0x51,0x77,0x86,0x4f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("0faef453-9208-43ef-bbb2-3b485177864f")
+IUIAutomationWindowPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Close(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WaitForInputIdle(
+        int milliseconds,
+        WINBOOL *success) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetWindowVisualState(
+        enum WindowVisualState state) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanMaximize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanMinimize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsModal(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsTopmost(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentWindowVisualState(
+        enum WindowVisualState *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentWindowInteractionState(
+        enum WindowInteractionState *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanMaximize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanMinimize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsModal(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsTopmost(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedWindowVisualState(
+        enum WindowVisualState *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedWindowInteractionState(
+        enum WindowInteractionState *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationWindowPattern, 0x0faef453, 0x9208, 0x43ef, 0xbb,0xb2, 0x3b,0x48,0x51,0x77,0x86,0x4f)
+#endif
+#else
+typedef struct IUIAutomationWindowPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationWindowPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationWindowPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationWindowPattern *This);
+
+    /*** IUIAutomationWindowPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IUIAutomationWindowPattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *WaitForInputIdle)(
+        IUIAutomationWindowPattern *This,
+        int milliseconds,
+        WINBOOL *success);
+
+    HRESULT (STDMETHODCALLTYPE *SetWindowVisualState)(
+        IUIAutomationWindowPattern *This,
+        enum WindowVisualState state);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanMaximize)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanMinimize)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsModal)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsTopmost)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentWindowVisualState)(
+        IUIAutomationWindowPattern *This,
+        enum WindowVisualState *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentWindowInteractionState)(
+        IUIAutomationWindowPattern *This,
+        enum WindowInteractionState *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanMaximize)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanMinimize)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsModal)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsTopmost)(
+        IUIAutomationWindowPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedWindowVisualState)(
+        IUIAutomationWindowPattern *This,
+        enum WindowVisualState *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedWindowInteractionState)(
+        IUIAutomationWindowPattern *This,
+        enum WindowInteractionState *retVal);
+
+    END_INTERFACE
+} IUIAutomationWindowPatternVtbl;
+
+interface IUIAutomationWindowPattern {
+    CONST_VTBL IUIAutomationWindowPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationWindowPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationWindowPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationWindowPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationWindowPattern methods ***/
+#define IUIAutomationWindowPattern_Close(This) (This)->lpVtbl->Close(This)
+#define IUIAutomationWindowPattern_WaitForInputIdle(This,milliseconds,success) (This)->lpVtbl->WaitForInputIdle(This,milliseconds,success)
+#define IUIAutomationWindowPattern_SetWindowVisualState(This,state) (This)->lpVtbl->SetWindowVisualState(This,state)
+#define IUIAutomationWindowPattern_get_CurrentCanMaximize(This,retVal) (This)->lpVtbl->get_CurrentCanMaximize(This,retVal)
+#define IUIAutomationWindowPattern_get_CurrentCanMinimize(This,retVal) (This)->lpVtbl->get_CurrentCanMinimize(This,retVal)
+#define IUIAutomationWindowPattern_get_CurrentIsModal(This,retVal) (This)->lpVtbl->get_CurrentIsModal(This,retVal)
+#define IUIAutomationWindowPattern_get_CurrentIsTopmost(This,retVal) (This)->lpVtbl->get_CurrentIsTopmost(This,retVal)
+#define IUIAutomationWindowPattern_get_CurrentWindowVisualState(This,retVal) (This)->lpVtbl->get_CurrentWindowVisualState(This,retVal)
+#define IUIAutomationWindowPattern_get_CurrentWindowInteractionState(This,retVal) (This)->lpVtbl->get_CurrentWindowInteractionState(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedCanMaximize(This,retVal) (This)->lpVtbl->get_CachedCanMaximize(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedCanMinimize(This,retVal) (This)->lpVtbl->get_CachedCanMinimize(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedIsModal(This,retVal) (This)->lpVtbl->get_CachedIsModal(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedIsTopmost(This,retVal) (This)->lpVtbl->get_CachedIsTopmost(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedWindowVisualState(This,retVal) (This)->lpVtbl->get_CachedWindowVisualState(This,retVal)
+#define IUIAutomationWindowPattern_get_CachedWindowInteractionState(This,retVal) (This)->lpVtbl->get_CachedWindowInteractionState(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_QueryInterface(IUIAutomationWindowPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationWindowPattern_AddRef(IUIAutomationWindowPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationWindowPattern_Release(IUIAutomationWindowPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationWindowPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_Close(IUIAutomationWindowPattern* This) {
+    return This->lpVtbl->Close(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_WaitForInputIdle(IUIAutomationWindowPattern* This,int milliseconds,WINBOOL *success) {
+    return This->lpVtbl->WaitForInputIdle(This,milliseconds,success);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_SetWindowVisualState(IUIAutomationWindowPattern* This,enum WindowVisualState state) {
+    return This->lpVtbl->SetWindowVisualState(This,state);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentCanMaximize(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanMaximize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentCanMinimize(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanMinimize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentIsModal(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsModal(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentIsTopmost(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsTopmost(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentWindowVisualState(IUIAutomationWindowPattern* This,enum WindowVisualState *retVal) {
+    return This->lpVtbl->get_CurrentWindowVisualState(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CurrentWindowInteractionState(IUIAutomationWindowPattern* This,enum WindowInteractionState *retVal) {
+    return This->lpVtbl->get_CurrentWindowInteractionState(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedCanMaximize(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanMaximize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedCanMinimize(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanMinimize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedIsModal(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsModal(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedIsTopmost(IUIAutomationWindowPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsTopmost(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedWindowVisualState(IUIAutomationWindowPattern* This,enum WindowVisualState *retVal) {
+    return This->lpVtbl->get_CachedWindowVisualState(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedWindowInteractionState(IUIAutomationWindowPattern* This,enum WindowInteractionState *retVal) {
+    return This->lpVtbl->get_CachedWindowInteractionState(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationWindowPattern_INTERFACE_DEFINED__ */
+
+#ifndef __IUIAutomationTextRange_FWD_DEFINED__
+#define __IUIAutomationTextRange_FWD_DEFINED__
+typedef interface IUIAutomationTextRange IUIAutomationTextRange;
+#ifdef __cplusplus
+interface IUIAutomationTextRange;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextRange2_FWD_DEFINED__
+#define __IUIAutomationTextRange2_FWD_DEFINED__
+typedef interface IUIAutomationTextRange2 IUIAutomationTextRange2;
+#ifdef __cplusplus
+interface IUIAutomationTextRange2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextRangeArray_FWD_DEFINED__
+#define __IUIAutomationTextRangeArray_FWD_DEFINED__
+typedef interface IUIAutomationTextRangeArray IUIAutomationTextRangeArray;
+#ifdef __cplusplus
+interface IUIAutomationTextRangeArray;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextPattern_FWD_DEFINED__
+#define __IUIAutomationTextPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextPattern IUIAutomationTextPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextPattern2_FWD_DEFINED__
+#define __IUIAutomationTextPattern2_FWD_DEFINED__
+typedef interface IUIAutomationTextPattern2 IUIAutomationTextPattern2;
+#ifdef __cplusplus
+interface IUIAutomationTextPattern2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextEditPattern_FWD_DEFINED__
+#define __IUIAutomationTextEditPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextEditPattern IUIAutomationTextEditPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextEditPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
+#define __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
+typedef interface IUIAutomationCustomNavigationPattern IUIAutomationCustomNavigationPattern;
+#ifdef __cplusplus
+interface IUIAutomationCustomNavigationPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationActiveTextPositionChangedEventHandler IUIAutomationActiveTextPositionChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationActiveTextPositionChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUIAutomationLegacyIAccessiblePattern interface
+ */
+#ifndef __IUIAutomationLegacyIAccessiblePattern_INTERFACE_DEFINED__
+#define __IUIAutomationLegacyIAccessiblePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationLegacyIAccessiblePattern, 0x828055ad, 0x355b, 0x4435, 0x86,0xd5, 0x3b,0x51,0xc1,0x4a,0x9b,0x1b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("828055ad-355b-4435-86d5-3b51c14a9b1b")
+IUIAutomationLegacyIAccessiblePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Select(
+        LONG flagsSelect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DoDefaultAction(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetValue(
+        LPCWSTR szValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentChildId(
+        int *pRetVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentName(
+        BSTR *pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentValue(
+        BSTR *pszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDescription(
+        BSTR *pszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentRole(
+        DWORD *pdwRole) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentState(
+        DWORD *pdwState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHelp(
+        BSTR *pszHelp) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentKeyboardShortcut(
+        BSTR *pszKeyboardShortcut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSelection(
+        IUIAutomationElementArray **pvarSelectedChildren) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDefaultAction(
+        BSTR *pszDefaultAction) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedChildId(
+        int *pRetVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedName(
+        BSTR *pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedValue(
+        BSTR *pszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDescription(
+        BSTR *pszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedRole(
+        DWORD *pdwRole) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedState(
+        DWORD *pdwState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHelp(
+        BSTR *pszHelp) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedKeyboardShortcut(
+        BSTR *pszKeyboardShortcut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedSelection(
+        IUIAutomationElementArray **pvarSelectedChildren) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDefaultAction(
+        BSTR *pszDefaultAction) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetIAccessible(
+        IAccessible **ppAccessible) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationLegacyIAccessiblePattern, 0x828055ad, 0x355b, 0x4435, 0x86,0xd5, 0x3b,0x51,0xc1,0x4a,0x9b,0x1b)
+#endif
+#else
+typedef struct IUIAutomationLegacyIAccessiblePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationLegacyIAccessiblePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationLegacyIAccessiblePattern *This);
+
+    /*** IUIAutomationLegacyIAccessiblePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Select)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        LONG flagsSelect);
+
+    HRESULT (STDMETHODCALLTYPE *DoDefaultAction)(
+        IUIAutomationLegacyIAccessiblePattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *SetValue)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        LPCWSTR szValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentChildId)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        int *pRetVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentValue)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescription)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentRole)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        DWORD *pdwRole);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentState)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        DWORD *pdwState);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelp)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszHelp);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentKeyboardShortcut)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszKeyboardShortcut);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSelection)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        IUIAutomationElementArray **pvarSelectedChildren);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDefaultAction)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszDefaultAction);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedChildId)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        int *pRetVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedValue)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescription)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedRole)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        DWORD *pdwRole);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedState)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        DWORD *pdwState);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelp)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszHelp);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedKeyboardShortcut)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszKeyboardShortcut);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedSelection)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        IUIAutomationElementArray **pvarSelectedChildren);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDefaultAction)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        BSTR *pszDefaultAction);
+
+    HRESULT (STDMETHODCALLTYPE *GetIAccessible)(
+        IUIAutomationLegacyIAccessiblePattern *This,
+        IAccessible **ppAccessible);
+
+    END_INTERFACE
+} IUIAutomationLegacyIAccessiblePatternVtbl;
+
+interface IUIAutomationLegacyIAccessiblePattern {
+    CONST_VTBL IUIAutomationLegacyIAccessiblePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationLegacyIAccessiblePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationLegacyIAccessiblePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationLegacyIAccessiblePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationLegacyIAccessiblePattern methods ***/
+#define IUIAutomationLegacyIAccessiblePattern_Select(This,flagsSelect) (This)->lpVtbl->Select(This,flagsSelect)
+#define IUIAutomationLegacyIAccessiblePattern_DoDefaultAction(This) (This)->lpVtbl->DoDefaultAction(This)
+#define IUIAutomationLegacyIAccessiblePattern_SetValue(This,szValue) (This)->lpVtbl->SetValue(This,szValue)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentChildId(This,pRetVal) (This)->lpVtbl->get_CurrentChildId(This,pRetVal)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentName(This,pszName) (This)->lpVtbl->get_CurrentName(This,pszName)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentValue(This,pszValue) (This)->lpVtbl->get_CurrentValue(This,pszValue)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentDescription(This,pszDescription) (This)->lpVtbl->get_CurrentDescription(This,pszDescription)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentRole(This,pdwRole) (This)->lpVtbl->get_CurrentRole(This,pdwRole)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentState(This,pdwState) (This)->lpVtbl->get_CurrentState(This,pdwState)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentHelp(This,pszHelp) (This)->lpVtbl->get_CurrentHelp(This,pszHelp)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentKeyboardShortcut(This,pszKeyboardShortcut) (This)->lpVtbl->get_CurrentKeyboardShortcut(This,pszKeyboardShortcut)
+#define IUIAutomationLegacyIAccessiblePattern_GetCurrentSelection(This,pvarSelectedChildren) (This)->lpVtbl->GetCurrentSelection(This,pvarSelectedChildren)
+#define IUIAutomationLegacyIAccessiblePattern_get_CurrentDefaultAction(This,pszDefaultAction) (This)->lpVtbl->get_CurrentDefaultAction(This,pszDefaultAction)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedChildId(This,pRetVal) (This)->lpVtbl->get_CachedChildId(This,pRetVal)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedName(This,pszName) (This)->lpVtbl->get_CachedName(This,pszName)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedValue(This,pszValue) (This)->lpVtbl->get_CachedValue(This,pszValue)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedDescription(This,pszDescription) (This)->lpVtbl->get_CachedDescription(This,pszDescription)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedRole(This,pdwRole) (This)->lpVtbl->get_CachedRole(This,pdwRole)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedState(This,pdwState) (This)->lpVtbl->get_CachedState(This,pdwState)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedHelp(This,pszHelp) (This)->lpVtbl->get_CachedHelp(This,pszHelp)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedKeyboardShortcut(This,pszKeyboardShortcut) (This)->lpVtbl->get_CachedKeyboardShortcut(This,pszKeyboardShortcut)
+#define IUIAutomationLegacyIAccessiblePattern_GetCachedSelection(This,pvarSelectedChildren) (This)->lpVtbl->GetCachedSelection(This,pvarSelectedChildren)
+#define IUIAutomationLegacyIAccessiblePattern_get_CachedDefaultAction(This,pszDefaultAction) (This)->lpVtbl->get_CachedDefaultAction(This,pszDefaultAction)
+#define IUIAutomationLegacyIAccessiblePattern_GetIAccessible(This,ppAccessible) (This)->lpVtbl->GetIAccessible(This,ppAccessible)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_QueryInterface(IUIAutomationLegacyIAccessiblePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationLegacyIAccessiblePattern_AddRef(IUIAutomationLegacyIAccessiblePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationLegacyIAccessiblePattern_Release(IUIAutomationLegacyIAccessiblePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationLegacyIAccessiblePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_Select(IUIAutomationLegacyIAccessiblePattern* This,LONG flagsSelect) {
+    return This->lpVtbl->Select(This,flagsSelect);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_DoDefaultAction(IUIAutomationLegacyIAccessiblePattern* This) {
+    return This->lpVtbl->DoDefaultAction(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_SetValue(IUIAutomationLegacyIAccessiblePattern* This,LPCWSTR szValue) {
+    return This->lpVtbl->SetValue(This,szValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentChildId(IUIAutomationLegacyIAccessiblePattern* This,int *pRetVal) {
+    return This->lpVtbl->get_CurrentChildId(This,pRetVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentName(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszName) {
+    return This->lpVtbl->get_CurrentName(This,pszName);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentValue(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszValue) {
+    return This->lpVtbl->get_CurrentValue(This,pszValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentDescription(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszDescription) {
+    return This->lpVtbl->get_CurrentDescription(This,pszDescription);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentRole(IUIAutomationLegacyIAccessiblePattern* This,DWORD *pdwRole) {
+    return This->lpVtbl->get_CurrentRole(This,pdwRole);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentState(IUIAutomationLegacyIAccessiblePattern* This,DWORD *pdwState) {
+    return This->lpVtbl->get_CurrentState(This,pdwState);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentHelp(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszHelp) {
+    return This->lpVtbl->get_CurrentHelp(This,pszHelp);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentKeyboardShortcut(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszKeyboardShortcut) {
+    return This->lpVtbl->get_CurrentKeyboardShortcut(This,pszKeyboardShortcut);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_GetCurrentSelection(IUIAutomationLegacyIAccessiblePattern* This,IUIAutomationElementArray **pvarSelectedChildren) {
+    return This->lpVtbl->GetCurrentSelection(This,pvarSelectedChildren);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CurrentDefaultAction(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszDefaultAction) {
+    return This->lpVtbl->get_CurrentDefaultAction(This,pszDefaultAction);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedChildId(IUIAutomationLegacyIAccessiblePattern* This,int *pRetVal) {
+    return This->lpVtbl->get_CachedChildId(This,pRetVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedName(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszName) {
+    return This->lpVtbl->get_CachedName(This,pszName);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedValue(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszValue) {
+    return This->lpVtbl->get_CachedValue(This,pszValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedDescription(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszDescription) {
+    return This->lpVtbl->get_CachedDescription(This,pszDescription);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedRole(IUIAutomationLegacyIAccessiblePattern* This,DWORD *pdwRole) {
+    return This->lpVtbl->get_CachedRole(This,pdwRole);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedState(IUIAutomationLegacyIAccessiblePattern* This,DWORD *pdwState) {
+    return This->lpVtbl->get_CachedState(This,pdwState);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedHelp(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszHelp) {
+    return This->lpVtbl->get_CachedHelp(This,pszHelp);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedKeyboardShortcut(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszKeyboardShortcut) {
+    return This->lpVtbl->get_CachedKeyboardShortcut(This,pszKeyboardShortcut);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_GetCachedSelection(IUIAutomationLegacyIAccessiblePattern* This,IUIAutomationElementArray **pvarSelectedChildren) {
+    return This->lpVtbl->GetCachedSelection(This,pvarSelectedChildren);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_get_CachedDefaultAction(IUIAutomationLegacyIAccessiblePattern* This,BSTR *pszDefaultAction) {
+    return This->lpVtbl->get_CachedDefaultAction(This,pszDefaultAction);
+}
+static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_GetIAccessible(IUIAutomationLegacyIAccessiblePattern* This,IAccessible **ppAccessible) {
+    return This->lpVtbl->GetIAccessible(This,ppAccessible);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationLegacyIAccessiblePattern_INTERFACE_DEFINED__ */
+
+#ifndef __IUIAutomationItemContainerPattern_FWD_DEFINED__
+#define __IUIAutomationItemContainerPattern_FWD_DEFINED__
+typedef interface IUIAutomationItemContainerPattern IUIAutomationItemContainerPattern;
+#ifdef __cplusplus
+interface IUIAutomationItemContainerPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
+#define __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationVirtualizedItemPattern IUIAutomationVirtualizedItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationVirtualizedItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationAnnotationPattern_FWD_DEFINED__
+#define __IUIAutomationAnnotationPattern_FWD_DEFINED__
+typedef interface IUIAutomationAnnotationPattern IUIAutomationAnnotationPattern;
+#ifdef __cplusplus
+interface IUIAutomationAnnotationPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationStylesPattern_FWD_DEFINED__
+#define __IUIAutomationStylesPattern_FWD_DEFINED__
+typedef interface IUIAutomationStylesPattern IUIAutomationStylesPattern;
+#ifdef __cplusplus
+interface IUIAutomationStylesPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
+#define __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
+typedef interface IUIAutomationSpreadsheetPattern IUIAutomationSpreadsheetPattern;
+#ifdef __cplusplus
+interface IUIAutomationSpreadsheetPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
+#define __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationSpreadsheetItemPattern IUIAutomationSpreadsheetItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationSpreadsheetItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTransformPattern2_FWD_DEFINED__
+#define __IUIAutomationTransformPattern2_FWD_DEFINED__
+typedef interface IUIAutomationTransformPattern2 IUIAutomationTransformPattern2;
+#ifdef __cplusplus
+interface IUIAutomationTransformPattern2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextChildPattern_FWD_DEFINED__
+#define __IUIAutomationTextChildPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextChildPattern IUIAutomationTextChildPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextChildPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDragPattern_FWD_DEFINED__
+#define __IUIAutomationDragPattern_FWD_DEFINED__
+typedef interface IUIAutomationDragPattern IUIAutomationDragPattern;
+#ifdef __cplusplus
+interface IUIAutomationDragPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDropTargetPattern_FWD_DEFINED__
+#define __IUIAutomationDropTargetPattern_FWD_DEFINED__
+typedef interface IUIAutomationDropTargetPattern IUIAutomationDropTargetPattern;
+#ifdef __cplusplus
+interface IUIAutomationDropTargetPattern;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUIAutomationElement interface
+ */
+#ifndef __IUIAutomationElement_INTERFACE_DEFINED__
+#define __IUIAutomationElement_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement, 0xd22108aa, 0x8ac5, 0x49a5, 0x83,0x7b, 0x37,0xbb,0xb3,0xd7,0x59,0x1e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d22108aa-8ac5-49a5-837b-37bbb3d7591e")
+IUIAutomationElement : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFocus(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRuntimeId(
+        SAFEARRAY **runtimeId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindFirst(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindAll(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindFirstBuildCache(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindAllBuildCache(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BuildUpdatedCache(
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentPropertyValue(
+        PROPERTYID propertyId,
+        VARIANT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentPropertyValueEx(
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedPropertyValue(
+        PROPERTYID propertyId,
+        VARIANT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedPropertyValueEx(
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentPatternAs(
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedPatternAs(
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentPattern(
+        PATTERNID patternId,
+        IUnknown **patternObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedPattern(
+        PATTERNID patternId,
+        IUnknown **patternObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedParent(
+        IUIAutomationElement **parent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedChildren(
+        IUIAutomationElementArray **children) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentProcessId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentControlType(
+        CONTROLTYPEID *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLocalizedControlType(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAcceleratorKey(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAccessKey(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHasKeyboardFocus(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsKeyboardFocusable(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsEnabled(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAutomationId(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentClassName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHelpText(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCulture(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsControlElement(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsContentElement(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsPassword(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentNativeWindowHandle(
+        UIA_HWND *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentItemType(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsOffscreen(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentOrientation(
+        enum OrientationType *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFrameworkId(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsRequiredForForm(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentItemStatus(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentBoundingRectangle(
+        RECT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLabeledBy(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAriaRole(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAriaProperties(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsDataValidForForm(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentControllerFor(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDescribedBy(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFlowsTo(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentProviderDescription(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedProcessId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedControlType(
+        CONTROLTYPEID *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLocalizedControlType(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAcceleratorKey(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAccessKey(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHasKeyboardFocus(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsKeyboardFocusable(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsEnabled(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAutomationId(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedClassName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHelpText(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCulture(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsControlElement(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsContentElement(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsPassword(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedNativeWindowHandle(
+        UIA_HWND *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedItemType(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsOffscreen(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedOrientation(
+        enum OrientationType *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFrameworkId(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsRequiredForForm(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedItemStatus(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedBoundingRectangle(
+        RECT *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLabeledBy(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAriaRole(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAriaProperties(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsDataValidForForm(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedControllerFor(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDescribedBy(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFlowsTo(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedProviderDescription(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetClickablePoint(
+        POINT *clickable,
+        WINBOOL *gotClickable) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement, 0xd22108aa, 0x8ac5, 0x49a5, 0x83,0x7b, 0x37,0xbb,0xb3,0xd7,0x59,0x1e)
+#endif
+#else
+typedef struct IUIAutomationElementVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    END_INTERFACE
+} IUIAutomationElementVtbl;
+
+interface IUIAutomationElement {
+    CONST_VTBL IUIAutomationElementVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement_QueryInterface(IUIAutomationElement* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement_AddRef(IUIAutomationElement* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement_Release(IUIAutomationElement* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement_SetFocus(IUIAutomationElement* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetRuntimeId(IUIAutomationElement* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_FindFirst(IUIAutomationElement* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_FindAll(IUIAutomationElement* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_FindFirstBuildCache(IUIAutomationElement* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_FindAllBuildCache(IUIAutomationElement* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_BuildUpdatedCache(IUIAutomationElement* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCurrentPropertyValue(IUIAutomationElement* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCurrentPropertyValueEx(IUIAutomationElement* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedPropertyValue(IUIAutomationElement* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedPropertyValueEx(IUIAutomationElement* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCurrentPatternAs(IUIAutomationElement* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedPatternAs(IUIAutomationElement* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCurrentPattern(IUIAutomationElement* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedPattern(IUIAutomationElement* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedParent(IUIAutomationElement* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetCachedChildren(IUIAutomationElement* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentProcessId(IUIAutomationElement* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentControlType(IUIAutomationElement* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentLocalizedControlType(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentName(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentAcceleratorKey(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentAccessKey(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentHasKeyboardFocus(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsKeyboardFocusable(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsEnabled(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentAutomationId(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentClassName(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentHelpText(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentCulture(IUIAutomationElement* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsControlElement(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsContentElement(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsPassword(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentNativeWindowHandle(IUIAutomationElement* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentItemType(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsOffscreen(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentOrientation(IUIAutomationElement* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentFrameworkId(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsRequiredForForm(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentItemStatus(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentBoundingRectangle(IUIAutomationElement* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentLabeledBy(IUIAutomationElement* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentAriaRole(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentAriaProperties(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentIsDataValidForForm(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentControllerFor(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentDescribedBy(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentFlowsTo(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CurrentProviderDescription(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedProcessId(IUIAutomationElement* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedControlType(IUIAutomationElement* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedLocalizedControlType(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedName(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedAcceleratorKey(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedAccessKey(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedHasKeyboardFocus(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsKeyboardFocusable(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsEnabled(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedAutomationId(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedClassName(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedHelpText(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedCulture(IUIAutomationElement* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsControlElement(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsContentElement(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsPassword(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedNativeWindowHandle(IUIAutomationElement* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedItemType(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsOffscreen(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedOrientation(IUIAutomationElement* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedFrameworkId(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsRequiredForForm(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedItemStatus(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedBoundingRectangle(IUIAutomationElement* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedLabeledBy(IUIAutomationElement* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedAriaRole(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedAriaProperties(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedIsDataValidForForm(IUIAutomationElement* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedControllerFor(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedDescribedBy(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedFlowsTo(IUIAutomationElement* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_get_CachedProviderDescription(IUIAutomationElement* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement_GetClickablePoint(IUIAutomationElement* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement2 interface
+ */
+#ifndef __IUIAutomationElement2_INTERFACE_DEFINED__
+#define __IUIAutomationElement2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement2, 0x6749c683, 0xf70d, 0x4487, 0xa6,0x98, 0x5f,0x79,0xd5,0x52,0x90,0xd6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6749c683-f70d-4487-a698-5f79d55290d6")
+IUIAutomationElement2 : public IUIAutomationElement
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentOptimizeForVisualContent(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedOptimizeForVisualContent(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLiveSetting(
+        enum LiveSetting *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLiveSetting(
+        enum LiveSetting *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFlowsFrom(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFlowsFrom(
+        IUIAutomationElementArray **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement2, 0x6749c683, 0xf70d, 0x4487, 0xa6,0x98, 0x5f,0x79,0xd5,0x52,0x90,0xd6)
+#endif
+#else
+typedef struct IUIAutomationElement2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement2 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement2 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement2 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement2 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement2 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement2 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement2 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement2 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement2 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement2 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement2 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement2 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement2 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement2 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement2 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement2 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement2 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement2 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement2 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement2 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement2 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement2 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement2 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement2 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement2 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement2 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement2 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement2 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement2 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement2 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement2 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement2 *This,
+        IUIAutomationElementArray **retVal);
+
+    END_INTERFACE
+} IUIAutomationElement2Vtbl;
+
+interface IUIAutomationElement2 {
+    CONST_VTBL IUIAutomationElement2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement2_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement2_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement2_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement2_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement2_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement2_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement2_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement2_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement2_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement2_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement2_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement2_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement2_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement2_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement2_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement2_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement2_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement2_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement2_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement2_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement2_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement2_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement2_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement2_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement2_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement2_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement2_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement2_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement2_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement2_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement2_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement2_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement2_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement2_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement2_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement2_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement2_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement2_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement2_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement2_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement2_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement2_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement2_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement2_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement2_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement2_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement2_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement2_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement2_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement2_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement2_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement2_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement2_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement2_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement2_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement2_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement2_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement2_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement2_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement2_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement2_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement2_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement2_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement2_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement2_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement2_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement2_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement2_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement2_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement2_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement2_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement2_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement2_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement2_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement2_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement2_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement2_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement2_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement2_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement2_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement2_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement2_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement2_QueryInterface(IUIAutomationElement2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement2_AddRef(IUIAutomationElement2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement2_Release(IUIAutomationElement2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement2_SetFocus(IUIAutomationElement2* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetRuntimeId(IUIAutomationElement2* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_FindFirst(IUIAutomationElement2* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_FindAll(IUIAutomationElement2* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_FindFirstBuildCache(IUIAutomationElement2* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_FindAllBuildCache(IUIAutomationElement2* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_BuildUpdatedCache(IUIAutomationElement2* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCurrentPropertyValue(IUIAutomationElement2* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCurrentPropertyValueEx(IUIAutomationElement2* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedPropertyValue(IUIAutomationElement2* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedPropertyValueEx(IUIAutomationElement2* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCurrentPatternAs(IUIAutomationElement2* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedPatternAs(IUIAutomationElement2* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCurrentPattern(IUIAutomationElement2* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedPattern(IUIAutomationElement2* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedParent(IUIAutomationElement2* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetCachedChildren(IUIAutomationElement2* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentProcessId(IUIAutomationElement2* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentControlType(IUIAutomationElement2* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentLocalizedControlType(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentName(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentAcceleratorKey(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentAccessKey(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentHasKeyboardFocus(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsKeyboardFocusable(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsEnabled(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentAutomationId(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentClassName(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentHelpText(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentCulture(IUIAutomationElement2* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsControlElement(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsContentElement(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsPassword(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentNativeWindowHandle(IUIAutomationElement2* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentItemType(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsOffscreen(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentOrientation(IUIAutomationElement2* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentFrameworkId(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsRequiredForForm(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentItemStatus(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentBoundingRectangle(IUIAutomationElement2* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentLabeledBy(IUIAutomationElement2* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentAriaRole(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentAriaProperties(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentIsDataValidForForm(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentControllerFor(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentDescribedBy(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentFlowsTo(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentProviderDescription(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedProcessId(IUIAutomationElement2* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedControlType(IUIAutomationElement2* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedLocalizedControlType(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedName(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedAcceleratorKey(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedAccessKey(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedHasKeyboardFocus(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsKeyboardFocusable(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsEnabled(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedAutomationId(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedClassName(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedHelpText(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedCulture(IUIAutomationElement2* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsControlElement(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsContentElement(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsPassword(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedNativeWindowHandle(IUIAutomationElement2* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedItemType(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsOffscreen(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedOrientation(IUIAutomationElement2* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedFrameworkId(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsRequiredForForm(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedItemStatus(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedBoundingRectangle(IUIAutomationElement2* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedLabeledBy(IUIAutomationElement2* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedAriaRole(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedAriaProperties(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedIsDataValidForForm(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedControllerFor(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedDescribedBy(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedFlowsTo(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedProviderDescription(IUIAutomationElement2* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_GetClickablePoint(IUIAutomationElement2* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentOptimizeForVisualContent(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedOptimizeForVisualContent(IUIAutomationElement2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentLiveSetting(IUIAutomationElement2* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedLiveSetting(IUIAutomationElement2* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CurrentFlowsFrom(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement2_get_CachedFlowsFrom(IUIAutomationElement2* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement3 interface
+ */
+#ifndef __IUIAutomationElement3_INTERFACE_DEFINED__
+#define __IUIAutomationElement3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement3, 0x8471df34, 0xaee0, 0x4a01, 0xa7,0xde, 0x7d,0xb9,0xaf,0x12,0xc2,0x96);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8471df34-aee0-4a01-a7de-7db9af12c296")
+IUIAutomationElement3 : public IUIAutomationElement2
+{
+    virtual HRESULT STDMETHODCALLTYPE ShowContextMenu(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsPeripheral(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsPeripheral(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement3, 0x8471df34, 0xaee0, 0x4a01, 0xa7,0xde, 0x7d,0xb9,0xaf,0x12,0xc2,0x96)
+#endif
+#else
+typedef struct IUIAutomationElement3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement3 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement3 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement3 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement3 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement3 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement3 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement3 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement3 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement3 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement3 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement3 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement3 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement3 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement3 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement3 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement3 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement3 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement3 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement3 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement3 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement3 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement3 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement3 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement3 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement3 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement3 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement3 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement3 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement3 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement3 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement3 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement3 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement3 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement3 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement3 *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationElement3Vtbl;
+
+interface IUIAutomationElement3 {
+    CONST_VTBL IUIAutomationElement3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement3_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement3_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement3_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement3_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement3_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement3_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement3_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement3_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement3_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement3_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement3_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement3_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement3_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement3_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement3_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement3_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement3_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement3_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement3_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement3_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement3_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement3_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement3_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement3_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement3_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement3_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement3_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement3_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement3_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement3_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement3_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement3_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement3_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement3_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement3_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement3_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement3_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement3_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement3_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement3_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement3_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement3_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement3_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement3_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement3_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement3_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement3_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement3_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement3_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement3_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement3_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement3_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement3_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement3_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement3_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement3_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement3_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement3_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement3_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement3_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement3_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement3_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement3_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement3_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement3_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement3_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement3_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement3_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement3_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement3_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement3_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement3_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement3_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement3_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement3_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement3_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement3_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement3_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement3_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement3_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement3_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement3_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement3_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement3_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement3_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement3_QueryInterface(IUIAutomationElement3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement3_AddRef(IUIAutomationElement3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement3_Release(IUIAutomationElement3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement3_SetFocus(IUIAutomationElement3* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetRuntimeId(IUIAutomationElement3* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_FindFirst(IUIAutomationElement3* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_FindAll(IUIAutomationElement3* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_FindFirstBuildCache(IUIAutomationElement3* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_FindAllBuildCache(IUIAutomationElement3* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_BuildUpdatedCache(IUIAutomationElement3* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCurrentPropertyValue(IUIAutomationElement3* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCurrentPropertyValueEx(IUIAutomationElement3* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedPropertyValue(IUIAutomationElement3* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedPropertyValueEx(IUIAutomationElement3* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCurrentPatternAs(IUIAutomationElement3* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedPatternAs(IUIAutomationElement3* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCurrentPattern(IUIAutomationElement3* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedPattern(IUIAutomationElement3* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedParent(IUIAutomationElement3* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetCachedChildren(IUIAutomationElement3* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentProcessId(IUIAutomationElement3* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentControlType(IUIAutomationElement3* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentLocalizedControlType(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentName(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentAcceleratorKey(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentAccessKey(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentHasKeyboardFocus(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsKeyboardFocusable(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsEnabled(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentAutomationId(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentClassName(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentHelpText(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentCulture(IUIAutomationElement3* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsControlElement(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsContentElement(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsPassword(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentNativeWindowHandle(IUIAutomationElement3* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentItemType(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsOffscreen(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentOrientation(IUIAutomationElement3* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentFrameworkId(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsRequiredForForm(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentItemStatus(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentBoundingRectangle(IUIAutomationElement3* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentLabeledBy(IUIAutomationElement3* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentAriaRole(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentAriaProperties(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsDataValidForForm(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentControllerFor(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentDescribedBy(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentFlowsTo(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentProviderDescription(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedProcessId(IUIAutomationElement3* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedControlType(IUIAutomationElement3* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedLocalizedControlType(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedName(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedAcceleratorKey(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedAccessKey(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedHasKeyboardFocus(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsKeyboardFocusable(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsEnabled(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedAutomationId(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedClassName(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedHelpText(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedCulture(IUIAutomationElement3* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsControlElement(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsContentElement(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsPassword(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedNativeWindowHandle(IUIAutomationElement3* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedItemType(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsOffscreen(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedOrientation(IUIAutomationElement3* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedFrameworkId(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsRequiredForForm(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedItemStatus(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedBoundingRectangle(IUIAutomationElement3* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedLabeledBy(IUIAutomationElement3* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedAriaRole(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedAriaProperties(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsDataValidForForm(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedControllerFor(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedDescribedBy(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedFlowsTo(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedProviderDescription(IUIAutomationElement3* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_GetClickablePoint(IUIAutomationElement3* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentOptimizeForVisualContent(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedOptimizeForVisualContent(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentLiveSetting(IUIAutomationElement3* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedLiveSetting(IUIAutomationElement3* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentFlowsFrom(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedFlowsFrom(IUIAutomationElement3* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement3_ShowContextMenu(IUIAutomationElement3* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CurrentIsPeripheral(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement3_get_CachedIsPeripheral(IUIAutomationElement3* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement4 interface
+ */
+#ifndef __IUIAutomationElement4_INTERFACE_DEFINED__
+#define __IUIAutomationElement4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement4, 0x3b6e233c, 0x52fb, 0x4063, 0xa4,0xc9, 0x77,0xc0,0x75,0xc2,0xa0,0x6b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3b6e233c-52fb-4063-a4c9-77c075c2a06b")
+IUIAutomationElement4 : public IUIAutomationElement3
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentPositionInSet(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentSizeOfSet(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLevel(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAnnotationTypes(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAnnotationObjects(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedPositionInSet(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedSizeOfSet(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLevel(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAnnotationTypes(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAnnotationObjects(
+        IUIAutomationElementArray **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement4, 0x3b6e233c, 0x52fb, 0x4063, 0xa4,0xc9, 0x77,0xc0,0x75,0xc2,0xa0,0x6b)
+#endif
+#else
+typedef struct IUIAutomationElement4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement4 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement4 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement4 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement4 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement4 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement4 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement4 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement4 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement4 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement4 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement4 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement4 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement4 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement4 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement4 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement4 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement4 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement4 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement4 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement4 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement4 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement4 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement4 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement4 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement4 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement4 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement4 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement4 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement4 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement4 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement4 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement4 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement4 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement4 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement4 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement4 *This,
+        IUIAutomationElementArray **retVal);
+
+    END_INTERFACE
+} IUIAutomationElement4Vtbl;
+
+interface IUIAutomationElement4 {
+    CONST_VTBL IUIAutomationElement4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement4_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement4_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement4_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement4_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement4_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement4_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement4_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement4_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement4_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement4_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement4_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement4_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement4_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement4_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement4_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement4_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement4_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement4_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement4_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement4_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement4_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement4_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement4_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement4_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement4_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement4_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement4_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement4_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement4_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement4_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement4_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement4_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement4_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement4_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement4_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement4_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement4_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement4_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement4_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement4_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement4_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement4_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement4_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement4_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement4_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement4_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement4_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement4_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement4_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement4_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement4_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement4_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement4_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement4_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement4_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement4_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement4_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement4_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement4_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement4_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement4_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement4_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement4_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement4_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement4_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement4_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement4_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement4_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement4_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement4_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement4_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement4_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement4_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement4_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement4_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement4_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement4_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement4_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement4_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement4_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement4_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement4_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement4_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement4_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement4_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement4_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement4_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement4_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement4_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement4_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement4_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement4_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement4_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement4_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement4_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement4_QueryInterface(IUIAutomationElement4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement4_AddRef(IUIAutomationElement4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement4_Release(IUIAutomationElement4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement4_SetFocus(IUIAutomationElement4* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetRuntimeId(IUIAutomationElement4* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_FindFirst(IUIAutomationElement4* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_FindAll(IUIAutomationElement4* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_FindFirstBuildCache(IUIAutomationElement4* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_FindAllBuildCache(IUIAutomationElement4* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_BuildUpdatedCache(IUIAutomationElement4* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCurrentPropertyValue(IUIAutomationElement4* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCurrentPropertyValueEx(IUIAutomationElement4* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedPropertyValue(IUIAutomationElement4* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedPropertyValueEx(IUIAutomationElement4* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCurrentPatternAs(IUIAutomationElement4* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedPatternAs(IUIAutomationElement4* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCurrentPattern(IUIAutomationElement4* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedPattern(IUIAutomationElement4* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedParent(IUIAutomationElement4* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetCachedChildren(IUIAutomationElement4* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentProcessId(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentControlType(IUIAutomationElement4* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentLocalizedControlType(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentName(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAcceleratorKey(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAccessKey(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentHasKeyboardFocus(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsKeyboardFocusable(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsEnabled(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAutomationId(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentClassName(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentHelpText(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentCulture(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsControlElement(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsContentElement(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsPassword(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentNativeWindowHandle(IUIAutomationElement4* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentItemType(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsOffscreen(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentOrientation(IUIAutomationElement4* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentFrameworkId(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsRequiredForForm(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentItemStatus(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentBoundingRectangle(IUIAutomationElement4* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentLabeledBy(IUIAutomationElement4* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAriaRole(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAriaProperties(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsDataValidForForm(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentControllerFor(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentDescribedBy(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentFlowsTo(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentProviderDescription(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedProcessId(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedControlType(IUIAutomationElement4* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedLocalizedControlType(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedName(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAcceleratorKey(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAccessKey(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedHasKeyboardFocus(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsKeyboardFocusable(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsEnabled(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAutomationId(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedClassName(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedHelpText(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedCulture(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsControlElement(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsContentElement(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsPassword(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedNativeWindowHandle(IUIAutomationElement4* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedItemType(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsOffscreen(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedOrientation(IUIAutomationElement4* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedFrameworkId(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsRequiredForForm(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedItemStatus(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedBoundingRectangle(IUIAutomationElement4* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedLabeledBy(IUIAutomationElement4* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAriaRole(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAriaProperties(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsDataValidForForm(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedControllerFor(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedDescribedBy(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedFlowsTo(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedProviderDescription(IUIAutomationElement4* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_GetClickablePoint(IUIAutomationElement4* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentOptimizeForVisualContent(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedOptimizeForVisualContent(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentLiveSetting(IUIAutomationElement4* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedLiveSetting(IUIAutomationElement4* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentFlowsFrom(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedFlowsFrom(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement4_ShowContextMenu(IUIAutomationElement4* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentIsPeripheral(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedIsPeripheral(IUIAutomationElement4* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentPositionInSet(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentSizeOfSet(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentLevel(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAnnotationTypes(IUIAutomationElement4* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CurrentAnnotationObjects(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedPositionInSet(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedSizeOfSet(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedLevel(IUIAutomationElement4* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAnnotationTypes(IUIAutomationElement4* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement4_get_CachedAnnotationObjects(IUIAutomationElement4* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement4_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement5 interface
+ */
+#ifndef __IUIAutomationElement5_INTERFACE_DEFINED__
+#define __IUIAutomationElement5_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement5, 0x98141c1d, 0x0d0e, 0x4175, 0xbb,0xe2, 0x6b,0xff,0x45,0x58,0x42,0xa7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("98141c1d-0d0e-4175-bbe2-6bff455842a7")
+IUIAutomationElement5 : public IUIAutomationElement4
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLandmarkType(
+        LANDMARKTYPEID *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLocalizedLandmarkType(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLandmarkType(
+        LANDMARKTYPEID *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLocalizedLandmarkType(
+        BSTR *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement5, 0x98141c1d, 0x0d0e, 0x4175, 0xbb,0xe2, 0x6b,0xff,0x45,0x58,0x42,0xa7)
+#endif
+#else
+typedef struct IUIAutomationElement5Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement5 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement5 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement5 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement5 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement5 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement5 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement5 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement5 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement5 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement5 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement5 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement5 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement5 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement5 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement5 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement5 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement5 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement5 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement5 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement5 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement5 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement5 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement5 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement5 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement5 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement5 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement5 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement5 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement5 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement5 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement5 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement5 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement5 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement5 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement5 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLandmarkType)(
+        IUIAutomationElement5 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedLandmarkType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLandmarkType)(
+        IUIAutomationElement5 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedLandmarkType)(
+        IUIAutomationElement5 *This,
+        BSTR *retVal);
+
+    END_INTERFACE
+} IUIAutomationElement5Vtbl;
+
+interface IUIAutomationElement5 {
+    CONST_VTBL IUIAutomationElement5Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement5_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement5_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement5_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement5_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement5_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement5_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement5_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement5_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement5_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement5_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement5_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement5_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement5_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement5_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement5_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement5_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement5_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement5_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement5_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement5_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement5_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement5_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement5_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement5_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement5_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement5_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement5_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement5_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement5_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement5_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement5_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement5_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement5_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement5_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement5_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement5_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement5_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement5_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement5_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement5_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement5_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement5_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement5_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement5_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement5_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement5_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement5_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement5_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement5_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement5_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement5_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement5_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement5_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement5_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement5_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement5_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement5_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement5_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement5_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement5_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement5_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement5_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement5_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement5_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement5_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement5_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement5_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement5_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement5_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement5_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement5_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement5_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement5_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement5_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement5_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement5_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement5_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement5_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement5_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement5_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement5_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement5_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement5_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement5_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement5_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement5_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement5_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement5_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement5_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement5_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement5_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement5_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement5_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement5_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement5_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement5_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement5_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+/*** IUIAutomationElement5 methods ***/
+#define IUIAutomationElement5_get_CurrentLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLandmarkType(This,retVal)
+#define IUIAutomationElement5_get_CurrentLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal)
+#define IUIAutomationElement5_get_CachedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLandmarkType(This,retVal)
+#define IUIAutomationElement5_get_CachedLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_QueryInterface(IUIAutomationElement5* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement5_AddRef(IUIAutomationElement5* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement5_Release(IUIAutomationElement5* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_SetFocus(IUIAutomationElement5* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetRuntimeId(IUIAutomationElement5* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_FindFirst(IUIAutomationElement5* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_FindAll(IUIAutomationElement5* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_FindFirstBuildCache(IUIAutomationElement5* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_FindAllBuildCache(IUIAutomationElement5* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_BuildUpdatedCache(IUIAutomationElement5* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCurrentPropertyValue(IUIAutomationElement5* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCurrentPropertyValueEx(IUIAutomationElement5* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedPropertyValue(IUIAutomationElement5* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedPropertyValueEx(IUIAutomationElement5* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCurrentPatternAs(IUIAutomationElement5* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedPatternAs(IUIAutomationElement5* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCurrentPattern(IUIAutomationElement5* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedPattern(IUIAutomationElement5* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedParent(IUIAutomationElement5* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetCachedChildren(IUIAutomationElement5* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentProcessId(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentControlType(IUIAutomationElement5* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLocalizedControlType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentName(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAcceleratorKey(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAccessKey(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentHasKeyboardFocus(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsKeyboardFocusable(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsEnabled(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAutomationId(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentClassName(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentHelpText(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentCulture(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsControlElement(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsContentElement(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsPassword(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentNativeWindowHandle(IUIAutomationElement5* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentItemType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsOffscreen(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentOrientation(IUIAutomationElement5* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentFrameworkId(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsRequiredForForm(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentItemStatus(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentBoundingRectangle(IUIAutomationElement5* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLabeledBy(IUIAutomationElement5* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAriaRole(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAriaProperties(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsDataValidForForm(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentControllerFor(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentDescribedBy(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentFlowsTo(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentProviderDescription(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedProcessId(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedControlType(IUIAutomationElement5* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLocalizedControlType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedName(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAcceleratorKey(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAccessKey(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedHasKeyboardFocus(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsKeyboardFocusable(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsEnabled(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAutomationId(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedClassName(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedHelpText(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedCulture(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsControlElement(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsContentElement(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsPassword(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedNativeWindowHandle(IUIAutomationElement5* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedItemType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsOffscreen(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedOrientation(IUIAutomationElement5* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedFrameworkId(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsRequiredForForm(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedItemStatus(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedBoundingRectangle(IUIAutomationElement5* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLabeledBy(IUIAutomationElement5* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAriaRole(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAriaProperties(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsDataValidForForm(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedControllerFor(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedDescribedBy(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedFlowsTo(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedProviderDescription(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_GetClickablePoint(IUIAutomationElement5* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentOptimizeForVisualContent(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedOptimizeForVisualContent(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLiveSetting(IUIAutomationElement5* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLiveSetting(IUIAutomationElement5* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentFlowsFrom(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedFlowsFrom(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_ShowContextMenu(IUIAutomationElement5* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentIsPeripheral(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedIsPeripheral(IUIAutomationElement5* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentPositionInSet(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentSizeOfSet(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLevel(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAnnotationTypes(IUIAutomationElement5* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentAnnotationObjects(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedPositionInSet(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedSizeOfSet(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLevel(IUIAutomationElement5* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAnnotationTypes(IUIAutomationElement5* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedAnnotationObjects(IUIAutomationElement5* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+/*** IUIAutomationElement5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLandmarkType(IUIAutomationElement5* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CurrentLocalizedLandmarkType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLandmarkType(IUIAutomationElement5* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CachedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement5_get_CachedLocalizedLandmarkType(IUIAutomationElement5* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement5_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement6 interface
+ */
+#ifndef __IUIAutomationElement6_INTERFACE_DEFINED__
+#define __IUIAutomationElement6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement6, 0x4780d450, 0x8bca, 0x4977, 0xaf,0xa5, 0xa4,0xa5,0x17,0xf5,0x55,0xe3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4780d450-8bca-4977-afa5-a4a517f555e3")
+IUIAutomationElement6 : public IUIAutomationElement5
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFullDescription(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFullDescription(
+        BSTR *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement6, 0x4780d450, 0x8bca, 0x4977, 0xaf,0xa5, 0xa4,0xa5,0x17,0xf5,0x55,0xe3)
+#endif
+#else
+typedef struct IUIAutomationElement6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement6 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement6 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement6 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement6 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement6 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement6 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement6 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement6 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement6 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement6 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement6 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement6 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement6 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement6 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement6 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement6 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement6 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement6 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement6 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement6 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement6 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement6 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement6 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement6 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement6 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement6 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement6 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement6 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement6 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement6 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement6 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement6 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement6 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLandmarkType)(
+        IUIAutomationElement6 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedLandmarkType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLandmarkType)(
+        IUIAutomationElement6 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedLandmarkType)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFullDescription)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFullDescription)(
+        IUIAutomationElement6 *This,
+        BSTR *retVal);
+
+    END_INTERFACE
+} IUIAutomationElement6Vtbl;
+
+interface IUIAutomationElement6 {
+    CONST_VTBL IUIAutomationElement6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement6_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement6_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement6_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement6_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement6_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement6_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement6_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement6_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement6_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement6_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement6_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement6_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement6_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement6_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement6_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement6_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement6_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement6_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement6_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement6_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement6_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement6_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement6_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement6_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement6_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement6_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement6_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement6_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement6_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement6_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement6_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement6_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement6_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement6_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement6_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement6_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement6_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement6_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement6_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement6_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement6_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement6_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement6_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement6_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement6_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement6_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement6_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement6_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement6_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement6_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement6_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement6_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement6_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement6_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement6_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement6_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement6_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement6_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement6_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement6_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement6_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement6_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement6_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement6_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement6_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement6_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement6_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement6_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement6_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement6_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement6_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement6_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement6_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement6_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement6_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement6_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement6_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement6_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement6_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement6_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement6_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement6_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement6_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement6_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement6_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement6_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement6_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement6_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement6_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement6_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement6_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement6_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement6_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement6_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement6_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+/*** IUIAutomationElement5 methods ***/
+#define IUIAutomationElement6_get_CurrentLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLandmarkType(This,retVal)
+#define IUIAutomationElement6_get_CurrentLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal)
+#define IUIAutomationElement6_get_CachedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLandmarkType(This,retVal)
+#define IUIAutomationElement6_get_CachedLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal)
+/*** IUIAutomationElement6 methods ***/
+#define IUIAutomationElement6_get_CurrentFullDescription(This,retVal) (This)->lpVtbl->get_CurrentFullDescription(This,retVal)
+#define IUIAutomationElement6_get_CachedFullDescription(This,retVal) (This)->lpVtbl->get_CachedFullDescription(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_QueryInterface(IUIAutomationElement6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement6_AddRef(IUIAutomationElement6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement6_Release(IUIAutomationElement6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_SetFocus(IUIAutomationElement6* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetRuntimeId(IUIAutomationElement6* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_FindFirst(IUIAutomationElement6* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_FindAll(IUIAutomationElement6* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_FindFirstBuildCache(IUIAutomationElement6* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_FindAllBuildCache(IUIAutomationElement6* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_BuildUpdatedCache(IUIAutomationElement6* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCurrentPropertyValue(IUIAutomationElement6* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCurrentPropertyValueEx(IUIAutomationElement6* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedPropertyValue(IUIAutomationElement6* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedPropertyValueEx(IUIAutomationElement6* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCurrentPatternAs(IUIAutomationElement6* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedPatternAs(IUIAutomationElement6* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCurrentPattern(IUIAutomationElement6* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedPattern(IUIAutomationElement6* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedParent(IUIAutomationElement6* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetCachedChildren(IUIAutomationElement6* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentProcessId(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentControlType(IUIAutomationElement6* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLocalizedControlType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentName(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAcceleratorKey(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAccessKey(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentHasKeyboardFocus(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsKeyboardFocusable(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsEnabled(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAutomationId(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentClassName(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentHelpText(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentCulture(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsControlElement(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsContentElement(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsPassword(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentNativeWindowHandle(IUIAutomationElement6* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentItemType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsOffscreen(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentOrientation(IUIAutomationElement6* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentFrameworkId(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsRequiredForForm(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentItemStatus(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentBoundingRectangle(IUIAutomationElement6* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLabeledBy(IUIAutomationElement6* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAriaRole(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAriaProperties(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsDataValidForForm(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentControllerFor(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentDescribedBy(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentFlowsTo(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentProviderDescription(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedProcessId(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedControlType(IUIAutomationElement6* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLocalizedControlType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedName(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAcceleratorKey(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAccessKey(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedHasKeyboardFocus(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsKeyboardFocusable(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsEnabled(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAutomationId(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedClassName(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedHelpText(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedCulture(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsControlElement(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsContentElement(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsPassword(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedNativeWindowHandle(IUIAutomationElement6* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedItemType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsOffscreen(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedOrientation(IUIAutomationElement6* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedFrameworkId(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsRequiredForForm(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedItemStatus(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedBoundingRectangle(IUIAutomationElement6* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLabeledBy(IUIAutomationElement6* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAriaRole(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAriaProperties(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsDataValidForForm(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedControllerFor(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedDescribedBy(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedFlowsTo(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedProviderDescription(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_GetClickablePoint(IUIAutomationElement6* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentOptimizeForVisualContent(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedOptimizeForVisualContent(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLiveSetting(IUIAutomationElement6* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLiveSetting(IUIAutomationElement6* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentFlowsFrom(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedFlowsFrom(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_ShowContextMenu(IUIAutomationElement6* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentIsPeripheral(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedIsPeripheral(IUIAutomationElement6* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentPositionInSet(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentSizeOfSet(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLevel(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAnnotationTypes(IUIAutomationElement6* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentAnnotationObjects(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedPositionInSet(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedSizeOfSet(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLevel(IUIAutomationElement6* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAnnotationTypes(IUIAutomationElement6* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedAnnotationObjects(IUIAutomationElement6* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+/*** IUIAutomationElement5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLandmarkType(IUIAutomationElement6* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentLocalizedLandmarkType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLandmarkType(IUIAutomationElement6* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CachedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedLocalizedLandmarkType(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal);
+}
+/*** IUIAutomationElement6 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CurrentFullDescription(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFullDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement6_get_CachedFullDescription(IUIAutomationElement6* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFullDescription(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement6_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement7 interface
+ */
+#ifndef __IUIAutomationElement7_INTERFACE_DEFINED__
+#define __IUIAutomationElement7_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement7, 0x204e8572, 0xcfc3, 0x4c11, 0xb0,0xc8, 0x7d,0xa7,0x42,0x07,0x50,0xb7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("204e8572-cfc3-4c11-b0c8-7da7420750b7")
+IUIAutomationElement7 : public IUIAutomationElement6
+{
+    virtual HRESULT STDMETHODCALLTYPE FindFirstWithOptions(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindAllWithOptions(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindFirstWithOptionsBuildCache(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindAllWithOptionsBuildCache(
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentMetadataValue(
+        int targetId,
+        METADATAID metadataId,
+        VARIANT *returnVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement7, 0x204e8572, 0xcfc3, 0x4c11, 0xb0,0xc8, 0x7d,0xa7,0x42,0x07,0x50,0xb7)
+#endif
+#else
+typedef struct IUIAutomationElement7Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement7 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement7 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement7 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement7 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement7 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement7 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement7 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement7 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement7 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement7 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement7 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement7 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement7 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement7 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement7 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement7 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement7 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement7 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement7 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement7 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement7 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement7 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement7 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement7 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement7 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement7 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement7 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement7 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement7 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement7 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement7 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLandmarkType)(
+        IUIAutomationElement7 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedLandmarkType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLandmarkType)(
+        IUIAutomationElement7 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedLandmarkType)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFullDescription)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFullDescription)(
+        IUIAutomationElement7 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement7 methods ***/
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptions)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptions)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptionsBuildCache)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptionsBuildCache)(
+        IUIAutomationElement7 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentMetadataValue)(
+        IUIAutomationElement7 *This,
+        int targetId,
+        METADATAID metadataId,
+        VARIANT *returnVal);
+
+    END_INTERFACE
+} IUIAutomationElement7Vtbl;
+
+interface IUIAutomationElement7 {
+    CONST_VTBL IUIAutomationElement7Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement7_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement7_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement7_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement7_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement7_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement7_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement7_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement7_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement7_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement7_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement7_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement7_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement7_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement7_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement7_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement7_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement7_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement7_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement7_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement7_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement7_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement7_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement7_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement7_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement7_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement7_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement7_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement7_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement7_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement7_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement7_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement7_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement7_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement7_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement7_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement7_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement7_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement7_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement7_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement7_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement7_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement7_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement7_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement7_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement7_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement7_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement7_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement7_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement7_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement7_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement7_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement7_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement7_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement7_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement7_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement7_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement7_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement7_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement7_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement7_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement7_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement7_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement7_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement7_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement7_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement7_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement7_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement7_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement7_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement7_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement7_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement7_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement7_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement7_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement7_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement7_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement7_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement7_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement7_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement7_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement7_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement7_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement7_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement7_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement7_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement7_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement7_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement7_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement7_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement7_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement7_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement7_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement7_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement7_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement7_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement7_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement7_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+/*** IUIAutomationElement5 methods ***/
+#define IUIAutomationElement7_get_CurrentLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLandmarkType(This,retVal)
+#define IUIAutomationElement7_get_CurrentLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal)
+#define IUIAutomationElement7_get_CachedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLandmarkType(This,retVal)
+#define IUIAutomationElement7_get_CachedLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal)
+/*** IUIAutomationElement6 methods ***/
+#define IUIAutomationElement7_get_CurrentFullDescription(This,retVal) (This)->lpVtbl->get_CurrentFullDescription(This,retVal)
+#define IUIAutomationElement7_get_CachedFullDescription(This,retVal) (This)->lpVtbl->get_CachedFullDescription(This,retVal)
+/*** IUIAutomationElement7 methods ***/
+#define IUIAutomationElement7_FindFirstWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement7_FindAllWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement7_FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement7_FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement7_GetCurrentMetadataValue(This,targetId,metadataId,returnVal) (This)->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_QueryInterface(IUIAutomationElement7* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement7_AddRef(IUIAutomationElement7* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement7_Release(IUIAutomationElement7* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_SetFocus(IUIAutomationElement7* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetRuntimeId(IUIAutomationElement7* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindFirst(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindAll(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindFirstBuildCache(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindAllBuildCache(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_BuildUpdatedCache(IUIAutomationElement7* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCurrentPropertyValue(IUIAutomationElement7* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCurrentPropertyValueEx(IUIAutomationElement7* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedPropertyValue(IUIAutomationElement7* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedPropertyValueEx(IUIAutomationElement7* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCurrentPatternAs(IUIAutomationElement7* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedPatternAs(IUIAutomationElement7* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCurrentPattern(IUIAutomationElement7* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedPattern(IUIAutomationElement7* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedParent(IUIAutomationElement7* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCachedChildren(IUIAutomationElement7* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentProcessId(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentControlType(IUIAutomationElement7* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLocalizedControlType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentName(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAcceleratorKey(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAccessKey(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentHasKeyboardFocus(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsKeyboardFocusable(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsEnabled(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAutomationId(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentClassName(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentHelpText(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentCulture(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsControlElement(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsContentElement(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsPassword(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentNativeWindowHandle(IUIAutomationElement7* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentItemType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsOffscreen(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentOrientation(IUIAutomationElement7* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentFrameworkId(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsRequiredForForm(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentItemStatus(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentBoundingRectangle(IUIAutomationElement7* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLabeledBy(IUIAutomationElement7* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAriaRole(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAriaProperties(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsDataValidForForm(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentControllerFor(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentDescribedBy(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentFlowsTo(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentProviderDescription(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedProcessId(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedControlType(IUIAutomationElement7* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLocalizedControlType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedName(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAcceleratorKey(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAccessKey(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedHasKeyboardFocus(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsKeyboardFocusable(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsEnabled(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAutomationId(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedClassName(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedHelpText(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedCulture(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsControlElement(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsContentElement(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsPassword(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedNativeWindowHandle(IUIAutomationElement7* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedItemType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsOffscreen(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedOrientation(IUIAutomationElement7* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedFrameworkId(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsRequiredForForm(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedItemStatus(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedBoundingRectangle(IUIAutomationElement7* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLabeledBy(IUIAutomationElement7* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAriaRole(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAriaProperties(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsDataValidForForm(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedControllerFor(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedDescribedBy(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedFlowsTo(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedProviderDescription(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetClickablePoint(IUIAutomationElement7* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentOptimizeForVisualContent(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedOptimizeForVisualContent(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLiveSetting(IUIAutomationElement7* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLiveSetting(IUIAutomationElement7* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentFlowsFrom(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedFlowsFrom(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_ShowContextMenu(IUIAutomationElement7* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentIsPeripheral(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedIsPeripheral(IUIAutomationElement7* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentPositionInSet(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentSizeOfSet(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLevel(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAnnotationTypes(IUIAutomationElement7* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentAnnotationObjects(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedPositionInSet(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedSizeOfSet(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLevel(IUIAutomationElement7* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAnnotationTypes(IUIAutomationElement7* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedAnnotationObjects(IUIAutomationElement7* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+/*** IUIAutomationElement5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLandmarkType(IUIAutomationElement7* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentLocalizedLandmarkType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLandmarkType(IUIAutomationElement7* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CachedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedLocalizedLandmarkType(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal);
+}
+/*** IUIAutomationElement6 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CurrentFullDescription(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFullDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_get_CachedFullDescription(IUIAutomationElement7* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFullDescription(This,retVal);
+}
+/*** IUIAutomationElement7 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindFirstWithOptions(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindAllWithOptions(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindFirstWithOptionsBuildCache(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_FindAllWithOptionsBuildCache(IUIAutomationElement7* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement7_GetCurrentMetadataValue(IUIAutomationElement7* This,int targetId,METADATAID metadataId,VARIANT *returnVal) {
+    return This->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement7_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement8 interface
+ */
+#ifndef __IUIAutomationElement8_INTERFACE_DEFINED__
+#define __IUIAutomationElement8_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement8, 0x8c60217d, 0x5411, 0x4cde, 0xbc,0xc0, 0x1c,0xed,0xa2,0x23,0x83,0x0c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8c60217d-5411-4cde-bcc0-1ceda223830c")
+IUIAutomationElement8 : public IUIAutomationElement7
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHeadingLevel(
+        HEADINGLEVELID *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHeadingLevel(
+        HEADINGLEVELID *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement8, 0x8c60217d, 0x5411, 0x4cde, 0xbc,0xc0, 0x1c,0xed,0xa2,0x23,0x83,0x0c)
+#endif
+#else
+typedef struct IUIAutomationElement8Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement8 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement8 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement8 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement8 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement8 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement8 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement8 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement8 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement8 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement8 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement8 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement8 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement8 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement8 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement8 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement8 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement8 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement8 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement8 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement8 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement8 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement8 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement8 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement8 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement8 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement8 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement8 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement8 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement8 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement8 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement8 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLandmarkType)(
+        IUIAutomationElement8 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedLandmarkType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLandmarkType)(
+        IUIAutomationElement8 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedLandmarkType)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFullDescription)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFullDescription)(
+        IUIAutomationElement8 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement7 methods ***/
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptions)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptions)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptionsBuildCache)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptionsBuildCache)(
+        IUIAutomationElement8 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentMetadataValue)(
+        IUIAutomationElement8 *This,
+        int targetId,
+        METADATAID metadataId,
+        VARIANT *returnVal);
+
+    /*** IUIAutomationElement8 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHeadingLevel)(
+        IUIAutomationElement8 *This,
+        HEADINGLEVELID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHeadingLevel)(
+        IUIAutomationElement8 *This,
+        HEADINGLEVELID *retVal);
+
+    END_INTERFACE
+} IUIAutomationElement8Vtbl;
+
+interface IUIAutomationElement8 {
+    CONST_VTBL IUIAutomationElement8Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement8_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement8_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement8_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement8_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement8_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement8_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement8_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement8_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement8_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement8_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement8_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement8_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement8_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement8_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement8_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement8_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement8_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement8_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement8_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement8_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement8_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement8_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement8_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement8_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement8_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement8_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement8_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement8_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement8_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement8_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement8_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement8_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement8_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement8_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement8_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement8_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement8_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement8_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement8_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement8_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement8_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement8_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement8_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement8_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement8_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement8_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement8_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement8_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement8_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement8_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement8_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement8_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement8_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement8_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement8_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement8_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement8_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement8_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement8_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement8_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement8_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement8_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement8_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement8_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement8_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement8_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement8_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement8_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement8_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement8_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement8_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement8_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement8_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement8_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement8_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement8_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement8_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement8_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement8_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement8_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement8_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement8_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement8_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement8_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement8_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement8_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement8_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement8_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement8_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement8_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement8_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement8_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement8_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement8_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement8_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement8_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement8_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+/*** IUIAutomationElement5 methods ***/
+#define IUIAutomationElement8_get_CurrentLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLandmarkType(This,retVal)
+#define IUIAutomationElement8_get_CurrentLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal)
+#define IUIAutomationElement8_get_CachedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLandmarkType(This,retVal)
+#define IUIAutomationElement8_get_CachedLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal)
+/*** IUIAutomationElement6 methods ***/
+#define IUIAutomationElement8_get_CurrentFullDescription(This,retVal) (This)->lpVtbl->get_CurrentFullDescription(This,retVal)
+#define IUIAutomationElement8_get_CachedFullDescription(This,retVal) (This)->lpVtbl->get_CachedFullDescription(This,retVal)
+/*** IUIAutomationElement7 methods ***/
+#define IUIAutomationElement8_FindFirstWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement8_FindAllWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement8_FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement8_FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement8_GetCurrentMetadataValue(This,targetId,metadataId,returnVal) (This)->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal)
+/*** IUIAutomationElement8 methods ***/
+#define IUIAutomationElement8_get_CurrentHeadingLevel(This,retVal) (This)->lpVtbl->get_CurrentHeadingLevel(This,retVal)
+#define IUIAutomationElement8_get_CachedHeadingLevel(This,retVal) (This)->lpVtbl->get_CachedHeadingLevel(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_QueryInterface(IUIAutomationElement8* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement8_AddRef(IUIAutomationElement8* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement8_Release(IUIAutomationElement8* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_SetFocus(IUIAutomationElement8* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetRuntimeId(IUIAutomationElement8* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindFirst(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindAll(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindFirstBuildCache(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindAllBuildCache(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_BuildUpdatedCache(IUIAutomationElement8* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCurrentPropertyValue(IUIAutomationElement8* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCurrentPropertyValueEx(IUIAutomationElement8* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedPropertyValue(IUIAutomationElement8* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedPropertyValueEx(IUIAutomationElement8* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCurrentPatternAs(IUIAutomationElement8* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedPatternAs(IUIAutomationElement8* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCurrentPattern(IUIAutomationElement8* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedPattern(IUIAutomationElement8* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedParent(IUIAutomationElement8* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCachedChildren(IUIAutomationElement8* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentProcessId(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentControlType(IUIAutomationElement8* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLocalizedControlType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentName(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAcceleratorKey(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAccessKey(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentHasKeyboardFocus(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsKeyboardFocusable(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsEnabled(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAutomationId(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentClassName(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentHelpText(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentCulture(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsControlElement(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsContentElement(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsPassword(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentNativeWindowHandle(IUIAutomationElement8* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentItemType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsOffscreen(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentOrientation(IUIAutomationElement8* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentFrameworkId(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsRequiredForForm(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentItemStatus(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentBoundingRectangle(IUIAutomationElement8* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLabeledBy(IUIAutomationElement8* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAriaRole(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAriaProperties(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsDataValidForForm(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentControllerFor(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentDescribedBy(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentFlowsTo(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentProviderDescription(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedProcessId(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedControlType(IUIAutomationElement8* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLocalizedControlType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedName(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAcceleratorKey(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAccessKey(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedHasKeyboardFocus(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsKeyboardFocusable(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsEnabled(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAutomationId(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedClassName(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedHelpText(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedCulture(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsControlElement(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsContentElement(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsPassword(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedNativeWindowHandle(IUIAutomationElement8* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedItemType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsOffscreen(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedOrientation(IUIAutomationElement8* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedFrameworkId(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsRequiredForForm(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedItemStatus(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedBoundingRectangle(IUIAutomationElement8* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLabeledBy(IUIAutomationElement8* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAriaRole(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAriaProperties(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsDataValidForForm(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedControllerFor(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedDescribedBy(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedFlowsTo(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedProviderDescription(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetClickablePoint(IUIAutomationElement8* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentOptimizeForVisualContent(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedOptimizeForVisualContent(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLiveSetting(IUIAutomationElement8* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLiveSetting(IUIAutomationElement8* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentFlowsFrom(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedFlowsFrom(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_ShowContextMenu(IUIAutomationElement8* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentIsPeripheral(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedIsPeripheral(IUIAutomationElement8* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentPositionInSet(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentSizeOfSet(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLevel(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAnnotationTypes(IUIAutomationElement8* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentAnnotationObjects(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedPositionInSet(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedSizeOfSet(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLevel(IUIAutomationElement8* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAnnotationTypes(IUIAutomationElement8* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedAnnotationObjects(IUIAutomationElement8* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+/*** IUIAutomationElement5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLandmarkType(IUIAutomationElement8* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentLocalizedLandmarkType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLandmarkType(IUIAutomationElement8* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CachedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedLocalizedLandmarkType(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal);
+}
+/*** IUIAutomationElement6 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentFullDescription(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFullDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedFullDescription(IUIAutomationElement8* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFullDescription(This,retVal);
+}
+/*** IUIAutomationElement7 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindFirstWithOptions(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindAllWithOptions(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindFirstWithOptionsBuildCache(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_FindAllWithOptionsBuildCache(IUIAutomationElement8* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_GetCurrentMetadataValue(IUIAutomationElement8* This,int targetId,METADATAID metadataId,VARIANT *returnVal) {
+    return This->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal);
+}
+/*** IUIAutomationElement8 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CurrentHeadingLevel(IUIAutomationElement8* This,HEADINGLEVELID *retVal) {
+    return This->lpVtbl->get_CurrentHeadingLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement8_get_CachedHeadingLevel(IUIAutomationElement8* This,HEADINGLEVELID *retVal) {
+    return This->lpVtbl->get_CachedHeadingLevel(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement8_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElement9 interface
+ */
+#ifndef __IUIAutomationElement9_INTERFACE_DEFINED__
+#define __IUIAutomationElement9_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElement9, 0x39325fac, 0x039d, 0x440e, 0xa3,0xa3, 0x5e,0xb8,0x1a,0x5c,0xec,0xc3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("39325fac-039d-440e-a3a3-5eb81a5cecc3")
+IUIAutomationElement9 : public IUIAutomationElement8
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsDialog(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsDialog(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElement9, 0x39325fac, 0x039d, 0x440e, 0xa3,0xa3, 0x5e,0xb8,0x1a,0x5c,0xec,0xc3)
+#endif
+#else
+typedef struct IUIAutomationElement9Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElement9 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElement9 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElement9 *This);
+
+    /*** IUIAutomationElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IUIAutomationElement9 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeId)(
+        IUIAutomationElement9 *This,
+        SAFEARRAY **runtimeId);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirst)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAll)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstBuildCache)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllBuildCache)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *BuildUpdatedCache)(
+        IUIAutomationElement9 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **updatedElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValue)(
+        IUIAutomationElement9 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPropertyValueEx)(
+        IUIAutomationElement9 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValue)(
+        IUIAutomationElement9 *This,
+        PROPERTYID propertyId,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPropertyValueEx)(
+        IUIAutomationElement9 *This,
+        PROPERTYID propertyId,
+        WINBOOL ignoreDefaultValue,
+        VARIANT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPatternAs)(
+        IUIAutomationElement9 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPatternAs)(
+        IUIAutomationElement9 *This,
+        PATTERNID patternId,
+        REFIID riid,
+        void **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPattern)(
+        IUIAutomationElement9 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedPattern)(
+        IUIAutomationElement9 *This,
+        PATTERNID patternId,
+        IUnknown **patternObject);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedParent)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElement **parent);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedChildren)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **children);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProcessId)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControlType)(
+        IUIAutomationElement9 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedControlType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentName)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAcceleratorKey)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAccessKey)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHasKeyboardFocus)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsKeyboardFocusable)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsEnabled)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAutomationId)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentClassName)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHelpText)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCulture)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsControlElement)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsContentElement)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPassword)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentNativeWindowHandle)(
+        IUIAutomationElement9 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsOffscreen)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOrientation)(
+        IUIAutomationElement9 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFrameworkId)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsRequiredForForm)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentItemStatus)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentBoundingRectangle)(
+        IUIAutomationElement9 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLabeledBy)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaRole)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAriaProperties)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDataValidForForm)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentControllerFor)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDescribedBy)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsTo)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentProviderDescription)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProcessId)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControlType)(
+        IUIAutomationElement9 *This,
+        CONTROLTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedControlType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedName)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAcceleratorKey)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAccessKey)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHasKeyboardFocus)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsKeyboardFocusable)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsEnabled)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAutomationId)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedClassName)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHelpText)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCulture)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsControlElement)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsContentElement)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPassword)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedNativeWindowHandle)(
+        IUIAutomationElement9 *This,
+        UIA_HWND *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsOffscreen)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOrientation)(
+        IUIAutomationElement9 *This,
+        enum OrientationType *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFrameworkId)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsRequiredForForm)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedItemStatus)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedBoundingRectangle)(
+        IUIAutomationElement9 *This,
+        RECT *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLabeledBy)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaRole)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAriaProperties)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDataValidForForm)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedControllerFor)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDescribedBy)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsTo)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedProviderDescription)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetClickablePoint)(
+        IUIAutomationElement9 *This,
+        POINT *clickable,
+        WINBOOL *gotClickable);
+
+    /*** IUIAutomationElement2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentOptimizeForVisualContent)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedOptimizeForVisualContent)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLiveSetting)(
+        IUIAutomationElement9 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLiveSetting)(
+        IUIAutomationElement9 *This,
+        enum LiveSetting *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFlowsFrom)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFlowsFrom)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationElement9 *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsPeripheral)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsPeripheral)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationElement4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentPositionInSet)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSizeOfSet)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLevel)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypes)(
+        IUIAutomationElement9 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationObjects)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedPositionInSet)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSizeOfSet)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLevel)(
+        IUIAutomationElement9 *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypes)(
+        IUIAutomationElement9 *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationObjects)(
+        IUIAutomationElement9 *This,
+        IUIAutomationElementArray **retVal);
+
+    /*** IUIAutomationElement5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLandmarkType)(
+        IUIAutomationElement9 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLocalizedLandmarkType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLandmarkType)(
+        IUIAutomationElement9 *This,
+        LANDMARKTYPEID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLocalizedLandmarkType)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFullDescription)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFullDescription)(
+        IUIAutomationElement9 *This,
+        BSTR *retVal);
+
+    /*** IUIAutomationElement7 methods ***/
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptions)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptions)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindFirstWithOptionsBuildCache)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElement **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllWithOptionsBuildCache)(
+        IUIAutomationElement9 *This,
+        enum TreeScope scope,
+        IUIAutomationCondition *condition,
+        IUIAutomationCacheRequest *cacheRequest,
+        enum TreeTraversalOptions traversalOptions,
+        IUIAutomationElement *root,
+        IUIAutomationElementArray **found);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentMetadataValue)(
+        IUIAutomationElement9 *This,
+        int targetId,
+        METADATAID metadataId,
+        VARIANT *returnVal);
+
+    /*** IUIAutomationElement8 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHeadingLevel)(
+        IUIAutomationElement9 *This,
+        HEADINGLEVELID *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHeadingLevel)(
+        IUIAutomationElement9 *This,
+        HEADINGLEVELID *retVal);
+
+    /*** IUIAutomationElement9 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsDialog)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsDialog)(
+        IUIAutomationElement9 *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationElement9Vtbl;
+
+interface IUIAutomationElement9 {
+    CONST_VTBL IUIAutomationElement9Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElement9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElement9_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElement9_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElement methods ***/
+#define IUIAutomationElement9_SetFocus(This) (This)->lpVtbl->SetFocus(This)
+#define IUIAutomationElement9_GetRuntimeId(This,runtimeId) (This)->lpVtbl->GetRuntimeId(This,runtimeId)
+#define IUIAutomationElement9_FindFirst(This,scope,condition,found) (This)->lpVtbl->FindFirst(This,scope,condition,found)
+#define IUIAutomationElement9_FindAll(This,scope,condition,found) (This)->lpVtbl->FindAll(This,scope,condition,found)
+#define IUIAutomationElement9_FindFirstBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement9_FindAllBuildCache(This,scope,condition,cacheRequest,found) (This)->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found)
+#define IUIAutomationElement9_BuildUpdatedCache(This,cacheRequest,updatedElement) (This)->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement)
+#define IUIAutomationElement9_GetCurrentPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement9_GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement9_GetCachedPropertyValue(This,propertyId,retVal) (This)->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal)
+#define IUIAutomationElement9_GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal) (This)->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal)
+#define IUIAutomationElement9_GetCurrentPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement9_GetCachedPatternAs(This,patternId,riid,patternObject) (This)->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject)
+#define IUIAutomationElement9_GetCurrentPattern(This,patternId,patternObject) (This)->lpVtbl->GetCurrentPattern(This,patternId,patternObject)
+#define IUIAutomationElement9_GetCachedPattern(This,patternId,patternObject) (This)->lpVtbl->GetCachedPattern(This,patternId,patternObject)
+#define IUIAutomationElement9_GetCachedParent(This,parent) (This)->lpVtbl->GetCachedParent(This,parent)
+#define IUIAutomationElement9_GetCachedChildren(This,children) (This)->lpVtbl->GetCachedChildren(This,children)
+#define IUIAutomationElement9_get_CurrentProcessId(This,retVal) (This)->lpVtbl->get_CurrentProcessId(This,retVal)
+#define IUIAutomationElement9_get_CurrentControlType(This,retVal) (This)->lpVtbl->get_CurrentControlType(This,retVal)
+#define IUIAutomationElement9_get_CurrentLocalizedControlType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedControlType(This,retVal)
+#define IUIAutomationElement9_get_CurrentName(This,retVal) (This)->lpVtbl->get_CurrentName(This,retVal)
+#define IUIAutomationElement9_get_CurrentAcceleratorKey(This,retVal) (This)->lpVtbl->get_CurrentAcceleratorKey(This,retVal)
+#define IUIAutomationElement9_get_CurrentAccessKey(This,retVal) (This)->lpVtbl->get_CurrentAccessKey(This,retVal)
+#define IUIAutomationElement9_get_CurrentHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsEnabled(This,retVal) (This)->lpVtbl->get_CurrentIsEnabled(This,retVal)
+#define IUIAutomationElement9_get_CurrentAutomationId(This,retVal) (This)->lpVtbl->get_CurrentAutomationId(This,retVal)
+#define IUIAutomationElement9_get_CurrentClassName(This,retVal) (This)->lpVtbl->get_CurrentClassName(This,retVal)
+#define IUIAutomationElement9_get_CurrentHelpText(This,retVal) (This)->lpVtbl->get_CurrentHelpText(This,retVal)
+#define IUIAutomationElement9_get_CurrentCulture(This,retVal) (This)->lpVtbl->get_CurrentCulture(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsControlElement(This,retVal) (This)->lpVtbl->get_CurrentIsControlElement(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsContentElement(This,retVal) (This)->lpVtbl->get_CurrentIsContentElement(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsPassword(This,retVal) (This)->lpVtbl->get_CurrentIsPassword(This,retVal)
+#define IUIAutomationElement9_get_CurrentNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CurrentNativeWindowHandle(This,retVal)
+#define IUIAutomationElement9_get_CurrentItemType(This,retVal) (This)->lpVtbl->get_CurrentItemType(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsOffscreen(This,retVal) (This)->lpVtbl->get_CurrentIsOffscreen(This,retVal)
+#define IUIAutomationElement9_get_CurrentOrientation(This,retVal) (This)->lpVtbl->get_CurrentOrientation(This,retVal)
+#define IUIAutomationElement9_get_CurrentFrameworkId(This,retVal) (This)->lpVtbl->get_CurrentFrameworkId(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CurrentIsRequiredForForm(This,retVal)
+#define IUIAutomationElement9_get_CurrentItemStatus(This,retVal) (This)->lpVtbl->get_CurrentItemStatus(This,retVal)
+#define IUIAutomationElement9_get_CurrentBoundingRectangle(This,retVal) (This)->lpVtbl->get_CurrentBoundingRectangle(This,retVal)
+#define IUIAutomationElement9_get_CurrentLabeledBy(This,retVal) (This)->lpVtbl->get_CurrentLabeledBy(This,retVal)
+#define IUIAutomationElement9_get_CurrentAriaRole(This,retVal) (This)->lpVtbl->get_CurrentAriaRole(This,retVal)
+#define IUIAutomationElement9_get_CurrentAriaProperties(This,retVal) (This)->lpVtbl->get_CurrentAriaProperties(This,retVal)
+#define IUIAutomationElement9_get_CurrentIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CurrentIsDataValidForForm(This,retVal)
+#define IUIAutomationElement9_get_CurrentControllerFor(This,retVal) (This)->lpVtbl->get_CurrentControllerFor(This,retVal)
+#define IUIAutomationElement9_get_CurrentDescribedBy(This,retVal) (This)->lpVtbl->get_CurrentDescribedBy(This,retVal)
+#define IUIAutomationElement9_get_CurrentFlowsTo(This,retVal) (This)->lpVtbl->get_CurrentFlowsTo(This,retVal)
+#define IUIAutomationElement9_get_CurrentProviderDescription(This,retVal) (This)->lpVtbl->get_CurrentProviderDescription(This,retVal)
+#define IUIAutomationElement9_get_CachedProcessId(This,retVal) (This)->lpVtbl->get_CachedProcessId(This,retVal)
+#define IUIAutomationElement9_get_CachedControlType(This,retVal) (This)->lpVtbl->get_CachedControlType(This,retVal)
+#define IUIAutomationElement9_get_CachedLocalizedControlType(This,retVal) (This)->lpVtbl->get_CachedLocalizedControlType(This,retVal)
+#define IUIAutomationElement9_get_CachedName(This,retVal) (This)->lpVtbl->get_CachedName(This,retVal)
+#define IUIAutomationElement9_get_CachedAcceleratorKey(This,retVal) (This)->lpVtbl->get_CachedAcceleratorKey(This,retVal)
+#define IUIAutomationElement9_get_CachedAccessKey(This,retVal) (This)->lpVtbl->get_CachedAccessKey(This,retVal)
+#define IUIAutomationElement9_get_CachedHasKeyboardFocus(This,retVal) (This)->lpVtbl->get_CachedHasKeyboardFocus(This,retVal)
+#define IUIAutomationElement9_get_CachedIsKeyboardFocusable(This,retVal) (This)->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal)
+#define IUIAutomationElement9_get_CachedIsEnabled(This,retVal) (This)->lpVtbl->get_CachedIsEnabled(This,retVal)
+#define IUIAutomationElement9_get_CachedAutomationId(This,retVal) (This)->lpVtbl->get_CachedAutomationId(This,retVal)
+#define IUIAutomationElement9_get_CachedClassName(This,retVal) (This)->lpVtbl->get_CachedClassName(This,retVal)
+#define IUIAutomationElement9_get_CachedHelpText(This,retVal) (This)->lpVtbl->get_CachedHelpText(This,retVal)
+#define IUIAutomationElement9_get_CachedCulture(This,retVal) (This)->lpVtbl->get_CachedCulture(This,retVal)
+#define IUIAutomationElement9_get_CachedIsControlElement(This,retVal) (This)->lpVtbl->get_CachedIsControlElement(This,retVal)
+#define IUIAutomationElement9_get_CachedIsContentElement(This,retVal) (This)->lpVtbl->get_CachedIsContentElement(This,retVal)
+#define IUIAutomationElement9_get_CachedIsPassword(This,retVal) (This)->lpVtbl->get_CachedIsPassword(This,retVal)
+#define IUIAutomationElement9_get_CachedNativeWindowHandle(This,retVal) (This)->lpVtbl->get_CachedNativeWindowHandle(This,retVal)
+#define IUIAutomationElement9_get_CachedItemType(This,retVal) (This)->lpVtbl->get_CachedItemType(This,retVal)
+#define IUIAutomationElement9_get_CachedIsOffscreen(This,retVal) (This)->lpVtbl->get_CachedIsOffscreen(This,retVal)
+#define IUIAutomationElement9_get_CachedOrientation(This,retVal) (This)->lpVtbl->get_CachedOrientation(This,retVal)
+#define IUIAutomationElement9_get_CachedFrameworkId(This,retVal) (This)->lpVtbl->get_CachedFrameworkId(This,retVal)
+#define IUIAutomationElement9_get_CachedIsRequiredForForm(This,retVal) (This)->lpVtbl->get_CachedIsRequiredForForm(This,retVal)
+#define IUIAutomationElement9_get_CachedItemStatus(This,retVal) (This)->lpVtbl->get_CachedItemStatus(This,retVal)
+#define IUIAutomationElement9_get_CachedBoundingRectangle(This,retVal) (This)->lpVtbl->get_CachedBoundingRectangle(This,retVal)
+#define IUIAutomationElement9_get_CachedLabeledBy(This,retVal) (This)->lpVtbl->get_CachedLabeledBy(This,retVal)
+#define IUIAutomationElement9_get_CachedAriaRole(This,retVal) (This)->lpVtbl->get_CachedAriaRole(This,retVal)
+#define IUIAutomationElement9_get_CachedAriaProperties(This,retVal) (This)->lpVtbl->get_CachedAriaProperties(This,retVal)
+#define IUIAutomationElement9_get_CachedIsDataValidForForm(This,retVal) (This)->lpVtbl->get_CachedIsDataValidForForm(This,retVal)
+#define IUIAutomationElement9_get_CachedControllerFor(This,retVal) (This)->lpVtbl->get_CachedControllerFor(This,retVal)
+#define IUIAutomationElement9_get_CachedDescribedBy(This,retVal) (This)->lpVtbl->get_CachedDescribedBy(This,retVal)
+#define IUIAutomationElement9_get_CachedFlowsTo(This,retVal) (This)->lpVtbl->get_CachedFlowsTo(This,retVal)
+#define IUIAutomationElement9_get_CachedProviderDescription(This,retVal) (This)->lpVtbl->get_CachedProviderDescription(This,retVal)
+#define IUIAutomationElement9_GetClickablePoint(This,clickable,gotClickable) (This)->lpVtbl->GetClickablePoint(This,clickable,gotClickable)
+/*** IUIAutomationElement2 methods ***/
+#define IUIAutomationElement9_get_CurrentOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement9_get_CachedOptimizeForVisualContent(This,retVal) (This)->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal)
+#define IUIAutomationElement9_get_CurrentLiveSetting(This,retVal) (This)->lpVtbl->get_CurrentLiveSetting(This,retVal)
+#define IUIAutomationElement9_get_CachedLiveSetting(This,retVal) (This)->lpVtbl->get_CachedLiveSetting(This,retVal)
+#define IUIAutomationElement9_get_CurrentFlowsFrom(This,retVal) (This)->lpVtbl->get_CurrentFlowsFrom(This,retVal)
+#define IUIAutomationElement9_get_CachedFlowsFrom(This,retVal) (This)->lpVtbl->get_CachedFlowsFrom(This,retVal)
+/*** IUIAutomationElement3 methods ***/
+#define IUIAutomationElement9_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#define IUIAutomationElement9_get_CurrentIsPeripheral(This,retVal) (This)->lpVtbl->get_CurrentIsPeripheral(This,retVal)
+#define IUIAutomationElement9_get_CachedIsPeripheral(This,retVal) (This)->lpVtbl->get_CachedIsPeripheral(This,retVal)
+/*** IUIAutomationElement4 methods ***/
+#define IUIAutomationElement9_get_CurrentPositionInSet(This,retVal) (This)->lpVtbl->get_CurrentPositionInSet(This,retVal)
+#define IUIAutomationElement9_get_CurrentSizeOfSet(This,retVal) (This)->lpVtbl->get_CurrentSizeOfSet(This,retVal)
+#define IUIAutomationElement9_get_CurrentLevel(This,retVal) (This)->lpVtbl->get_CurrentLevel(This,retVal)
+#define IUIAutomationElement9_get_CurrentAnnotationTypes(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypes(This,retVal)
+#define IUIAutomationElement9_get_CurrentAnnotationObjects(This,retVal) (This)->lpVtbl->get_CurrentAnnotationObjects(This,retVal)
+#define IUIAutomationElement9_get_CachedPositionInSet(This,retVal) (This)->lpVtbl->get_CachedPositionInSet(This,retVal)
+#define IUIAutomationElement9_get_CachedSizeOfSet(This,retVal) (This)->lpVtbl->get_CachedSizeOfSet(This,retVal)
+#define IUIAutomationElement9_get_CachedLevel(This,retVal) (This)->lpVtbl->get_CachedLevel(This,retVal)
+#define IUIAutomationElement9_get_CachedAnnotationTypes(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypes(This,retVal)
+#define IUIAutomationElement9_get_CachedAnnotationObjects(This,retVal) (This)->lpVtbl->get_CachedAnnotationObjects(This,retVal)
+/*** IUIAutomationElement5 methods ***/
+#define IUIAutomationElement9_get_CurrentLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLandmarkType(This,retVal)
+#define IUIAutomationElement9_get_CurrentLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal)
+#define IUIAutomationElement9_get_CachedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLandmarkType(This,retVal)
+#define IUIAutomationElement9_get_CachedLocalizedLandmarkType(This,retVal) (This)->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal)
+/*** IUIAutomationElement6 methods ***/
+#define IUIAutomationElement9_get_CurrentFullDescription(This,retVal) (This)->lpVtbl->get_CurrentFullDescription(This,retVal)
+#define IUIAutomationElement9_get_CachedFullDescription(This,retVal) (This)->lpVtbl->get_CachedFullDescription(This,retVal)
+/*** IUIAutomationElement7 methods ***/
+#define IUIAutomationElement9_FindFirstWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement9_FindAllWithOptions(This,scope,condition,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found)
+#define IUIAutomationElement9_FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement9_FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found) (This)->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found)
+#define IUIAutomationElement9_GetCurrentMetadataValue(This,targetId,metadataId,returnVal) (This)->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal)
+/*** IUIAutomationElement8 methods ***/
+#define IUIAutomationElement9_get_CurrentHeadingLevel(This,retVal) (This)->lpVtbl->get_CurrentHeadingLevel(This,retVal)
+#define IUIAutomationElement9_get_CachedHeadingLevel(This,retVal) (This)->lpVtbl->get_CachedHeadingLevel(This,retVal)
+/*** IUIAutomationElement9 methods ***/
+#define IUIAutomationElement9_get_CurrentIsDialog(This,retVal) (This)->lpVtbl->get_CurrentIsDialog(This,retVal)
+#define IUIAutomationElement9_get_CachedIsDialog(This,retVal) (This)->lpVtbl->get_CachedIsDialog(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_QueryInterface(IUIAutomationElement9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement9_AddRef(IUIAutomationElement9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElement9_Release(IUIAutomationElement9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElement methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_SetFocus(IUIAutomationElement9* This) {
+    return This->lpVtbl->SetFocus(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetRuntimeId(IUIAutomationElement9* This,SAFEARRAY **runtimeId) {
+    return This->lpVtbl->GetRuntimeId(This,runtimeId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindFirst(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirst(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindAll(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAll(This,scope,condition,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindFirstBuildCache(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindAllBuildCache(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllBuildCache(This,scope,condition,cacheRequest,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_BuildUpdatedCache(IUIAutomationElement9* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **updatedElement) {
+    return This->lpVtbl->BuildUpdatedCache(This,cacheRequest,updatedElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCurrentPropertyValue(IUIAutomationElement9* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCurrentPropertyValueEx(IUIAutomationElement9* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCurrentPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedPropertyValue(IUIAutomationElement9* This,PROPERTYID propertyId,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValue(This,propertyId,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedPropertyValueEx(IUIAutomationElement9* This,PROPERTYID propertyId,WINBOOL ignoreDefaultValue,VARIANT *retVal) {
+    return This->lpVtbl->GetCachedPropertyValueEx(This,propertyId,ignoreDefaultValue,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCurrentPatternAs(IUIAutomationElement9* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCurrentPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedPatternAs(IUIAutomationElement9* This,PATTERNID patternId,REFIID riid,void **patternObject) {
+    return This->lpVtbl->GetCachedPatternAs(This,patternId,riid,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCurrentPattern(IUIAutomationElement9* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCurrentPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedPattern(IUIAutomationElement9* This,PATTERNID patternId,IUnknown **patternObject) {
+    return This->lpVtbl->GetCachedPattern(This,patternId,patternObject);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedParent(IUIAutomationElement9* This,IUIAutomationElement **parent) {
+    return This->lpVtbl->GetCachedParent(This,parent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCachedChildren(IUIAutomationElement9* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetCachedChildren(This,children);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentProcessId(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CurrentProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentControlType(IUIAutomationElement9* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLocalizedControlType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentName(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAcceleratorKey(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAccessKey(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentHasKeyboardFocus(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsKeyboardFocusable(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsEnabled(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAutomationId(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentClassName(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentHelpText(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentCulture(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsControlElement(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsContentElement(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsPassword(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentNativeWindowHandle(IUIAutomationElement9* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CurrentNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentItemType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsOffscreen(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentOrientation(IUIAutomationElement9* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CurrentOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentFrameworkId(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsRequiredForForm(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentItemStatus(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentBoundingRectangle(IUIAutomationElement9* This,RECT *retVal) {
+    return This->lpVtbl->get_CurrentBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLabeledBy(IUIAutomationElement9* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAriaRole(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAriaProperties(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsDataValidForForm(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentControllerFor(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentDescribedBy(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentFlowsTo(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentProviderDescription(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedProcessId(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CachedProcessId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedControlType(IUIAutomationElement9* This,CONTROLTYPEID *retVal) {
+    return This->lpVtbl->get_CachedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLocalizedControlType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedControlType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedName(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAcceleratorKey(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAcceleratorKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAccessKey(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAccessKey(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedHasKeyboardFocus(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHasKeyboardFocus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsKeyboardFocusable(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsKeyboardFocusable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsEnabled(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsEnabled(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAutomationId(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAutomationId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedClassName(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedClassName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedHelpText(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedHelpText(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedCulture(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CachedCulture(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsControlElement(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsControlElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsContentElement(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsContentElement(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsPassword(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPassword(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedNativeWindowHandle(IUIAutomationElement9* This,UIA_HWND *retVal) {
+    return This->lpVtbl->get_CachedNativeWindowHandle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedItemType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsOffscreen(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsOffscreen(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedOrientation(IUIAutomationElement9* This,enum OrientationType *retVal) {
+    return This->lpVtbl->get_CachedOrientation(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedFrameworkId(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFrameworkId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsRequiredForForm(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsRequiredForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedItemStatus(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedItemStatus(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedBoundingRectangle(IUIAutomationElement9* This,RECT *retVal) {
+    return This->lpVtbl->get_CachedBoundingRectangle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLabeledBy(IUIAutomationElement9* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedLabeledBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAriaRole(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaRole(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAriaProperties(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAriaProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsDataValidForForm(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDataValidForForm(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedControllerFor(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedControllerFor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedDescribedBy(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedDescribedBy(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedFlowsTo(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsTo(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedProviderDescription(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedProviderDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetClickablePoint(IUIAutomationElement9* This,POINT *clickable,WINBOOL *gotClickable) {
+    return This->lpVtbl->GetClickablePoint(This,clickable,gotClickable);
+}
+/*** IUIAutomationElement2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentOptimizeForVisualContent(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedOptimizeForVisualContent(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedOptimizeForVisualContent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLiveSetting(IUIAutomationElement9* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CurrentLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLiveSetting(IUIAutomationElement9* This,enum LiveSetting *retVal) {
+    return This->lpVtbl->get_CachedLiveSetting(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentFlowsFrom(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentFlowsFrom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedFlowsFrom(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedFlowsFrom(This,retVal);
+}
+/*** IUIAutomationElement3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_ShowContextMenu(IUIAutomationElement9* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsPeripheral(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsPeripheral(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsPeripheral(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsPeripheral(This,retVal);
+}
+/*** IUIAutomationElement4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentPositionInSet(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CurrentPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentSizeOfSet(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CurrentSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLevel(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CurrentLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAnnotationTypes(IUIAutomationElement9* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentAnnotationObjects(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedPositionInSet(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CachedPositionInSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedSizeOfSet(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CachedSizeOfSet(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLevel(IUIAutomationElement9* This,int *retVal) {
+    return This->lpVtbl->get_CachedLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAnnotationTypes(IUIAutomationElement9* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedAnnotationObjects(IUIAutomationElement9* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->get_CachedAnnotationObjects(This,retVal);
+}
+/*** IUIAutomationElement5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLandmarkType(IUIAutomationElement9* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CurrentLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentLocalizedLandmarkType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentLocalizedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLandmarkType(IUIAutomationElement9* This,LANDMARKTYPEID *retVal) {
+    return This->lpVtbl->get_CachedLandmarkType(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedLocalizedLandmarkType(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedLocalizedLandmarkType(This,retVal);
+}
+/*** IUIAutomationElement6 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentFullDescription(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFullDescription(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedFullDescription(IUIAutomationElement9* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFullDescription(This,retVal);
+}
+/*** IUIAutomationElement7 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindFirstWithOptions(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindAllWithOptions(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptions(This,scope,condition,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindFirstWithOptionsBuildCache(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElement **found) {
+    return This->lpVtbl->FindFirstWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_FindAllWithOptionsBuildCache(IUIAutomationElement9* This,enum TreeScope scope,IUIAutomationCondition *condition,IUIAutomationCacheRequest *cacheRequest,enum TreeTraversalOptions traversalOptions,IUIAutomationElement *root,IUIAutomationElementArray **found) {
+    return This->lpVtbl->FindAllWithOptionsBuildCache(This,scope,condition,cacheRequest,traversalOptions,root,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_GetCurrentMetadataValue(IUIAutomationElement9* This,int targetId,METADATAID metadataId,VARIANT *returnVal) {
+    return This->lpVtbl->GetCurrentMetadataValue(This,targetId,metadataId,returnVal);
+}
+/*** IUIAutomationElement8 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentHeadingLevel(IUIAutomationElement9* This,HEADINGLEVELID *retVal) {
+    return This->lpVtbl->get_CurrentHeadingLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedHeadingLevel(IUIAutomationElement9* This,HEADINGLEVELID *retVal) {
+    return This->lpVtbl->get_CachedHeadingLevel(This,retVal);
+}
+/*** IUIAutomationElement9 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CurrentIsDialog(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsDialog(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElement9_get_CachedIsDialog(IUIAutomationElement9* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsDialog(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElement9_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationElementArray interface
+ */
+#ifndef __IUIAutomationElementArray_INTERFACE_DEFINED__
+#define __IUIAutomationElementArray_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationElementArray, 0x14314595, 0xb4bc, 0x4055, 0x95,0xf2, 0x58,0xf2,0xe4,0x2c,0x98,0x55);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("14314595-b4bc-4055-95f2-58f2e42c9855")
+IUIAutomationElementArray : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Length(
+        int *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetElement(
+        int index,
+        IUIAutomationElement **element) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationElementArray, 0x14314595, 0xb4bc, 0x4055, 0x95,0xf2, 0x58,0xf2,0xe4,0x2c,0x98,0x55)
+#endif
+#else
+typedef struct IUIAutomationElementArrayVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationElementArray *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationElementArray *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationElementArray *This);
+
+    /*** IUIAutomationElementArray methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Length)(
+        IUIAutomationElementArray *This,
+        int *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetElement)(
+        IUIAutomationElementArray *This,
+        int index,
+        IUIAutomationElement **element);
+
+    END_INTERFACE
+} IUIAutomationElementArrayVtbl;
+
+interface IUIAutomationElementArray {
+    CONST_VTBL IUIAutomationElementArrayVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationElementArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationElementArray_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationElementArray_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationElementArray methods ***/
+#define IUIAutomationElementArray_get_Length(This,length) (This)->lpVtbl->get_Length(This,length)
+#define IUIAutomationElementArray_GetElement(This,index,element) (This)->lpVtbl->GetElement(This,index,element)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElementArray_QueryInterface(IUIAutomationElementArray* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationElementArray_AddRef(IUIAutomationElementArray* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationElementArray_Release(IUIAutomationElementArray* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationElementArray methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationElementArray_get_Length(IUIAutomationElementArray* This,int *length) {
+    return This->lpVtbl->get_Length(This,length);
+}
+static __WIDL_INLINE HRESULT IUIAutomationElementArray_GetElement(IUIAutomationElementArray* This,int index,IUIAutomationElement **element) {
+    return This->lpVtbl->GetElement(This,index,element);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationElementArray_INTERFACE_DEFINED__ */
+
+#ifndef __IUIAutomationProxyFactory_FWD_DEFINED__
+#define __IUIAutomationProxyFactory_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactory IUIAutomationProxyFactory;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactory;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
+#define __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactoryEntry IUIAutomationProxyFactoryEntry;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactoryEntry;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
+#define __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactoryMapping IUIAutomationProxyFactoryMapping;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactoryMapping;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IUIAutomationEventHandlerGroup interface
+ */
+#ifndef __IUIAutomationEventHandlerGroup_INTERFACE_DEFINED__
+#define __IUIAutomationEventHandlerGroup_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationEventHandlerGroup, 0xc9ee12f2, 0xc13b, 0x4408, 0x99,0x7c, 0x63,0x99,0x14,0x37,0x7f,0x4e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c9ee12f2-c13b-4408-997c-639914377f4e")
+IUIAutomationEventHandlerGroup : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AddActiveTextPositionChangedEventHandler(
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddAutomationEventHandler(
+        EVENTID eventId,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddChangesEventHandler(
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationChangesEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddNotificationEventHandler(
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationNotificationEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddPropertyChangedEventHandler(
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddStructureChangedEventHandler(
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddTextEditTextChangedEventHandler(
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationEventHandlerGroup, 0xc9ee12f2, 0xc13b, 0x4408, 0x99,0x7c, 0x63,0x99,0x14,0x37,0x7f,0x4e)
+#endif
+#else
+typedef struct IUIAutomationEventHandlerGroupVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationEventHandlerGroup *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationEventHandlerGroup *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationEventHandlerGroup *This);
+
+    /*** IUIAutomationEventHandlerGroup methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddActiveTextPositionChangedEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        EVENTID eventId,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddChangesEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationChangesEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddNotificationEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationNotificationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddTextEditTextChangedEventHandler)(
+        IUIAutomationEventHandlerGroup *This,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    END_INTERFACE
+} IUIAutomationEventHandlerGroupVtbl;
+
+interface IUIAutomationEventHandlerGroup {
+    CONST_VTBL IUIAutomationEventHandlerGroupVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationEventHandlerGroup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationEventHandlerGroup_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationEventHandlerGroup_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationEventHandlerGroup methods ***/
+#define IUIAutomationEventHandlerGroup_AddActiveTextPositionChangedEventHandler(This,scope,cacheRequest,handler) (This)->lpVtbl->AddActiveTextPositionChangedEventHandler(This,scope,cacheRequest,handler)
+#define IUIAutomationEventHandlerGroup_AddAutomationEventHandler(This,eventId,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,scope,cacheRequest,handler)
+#define IUIAutomationEventHandlerGroup_AddChangesEventHandler(This,scope,changeTypes,changesCount,cacheRequest,handler) (This)->lpVtbl->AddChangesEventHandler(This,scope,changeTypes,changesCount,cacheRequest,handler)
+#define IUIAutomationEventHandlerGroup_AddNotificationEventHandler(This,scope,cacheRequest,handler) (This)->lpVtbl->AddNotificationEventHandler(This,scope,cacheRequest,handler)
+#define IUIAutomationEventHandlerGroup_AddPropertyChangedEventHandler(This,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandler(This,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomationEventHandlerGroup_AddStructureChangedEventHandler(This,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,scope,cacheRequest,handler)
+#define IUIAutomationEventHandlerGroup_AddTextEditTextChangedEventHandler(This,scope,textEditChangeType,cacheRequest,handler) (This)->lpVtbl->AddTextEditTextChangedEventHandler(This,scope,textEditChangeType,cacheRequest,handler)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_QueryInterface(IUIAutomationEventHandlerGroup* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationEventHandlerGroup_AddRef(IUIAutomationEventHandlerGroup* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationEventHandlerGroup_Release(IUIAutomationEventHandlerGroup* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationEventHandlerGroup methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddActiveTextPositionChangedEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationActiveTextPositionChangedEventHandler *handler) {
+    return This->lpVtbl->AddActiveTextPositionChangedEventHandler(This,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddAutomationEventHandler(IUIAutomationEventHandlerGroup* This,EVENTID eventId,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddChangesEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,int *changeTypes,int changesCount,IUIAutomationCacheRequest *cacheRequest,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->AddChangesEventHandler(This,scope,changeTypes,changesCount,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddNotificationEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationNotificationEventHandler *handler) {
+    return This->lpVtbl->AddNotificationEventHandler(This,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddPropertyChangedEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddStructureChangedEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomationEventHandlerGroup_AddTextEditTextChangedEventHandler(IUIAutomationEventHandlerGroup* This,enum TreeScope scope,enum TextEditChangeType textEditChangeType,IUIAutomationCacheRequest *cacheRequest,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->AddTextEditTextChangedEventHandler(This,scope,textEditChangeType,cacheRequest,handler);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationEventHandlerGroup_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation interface
+ */
+#ifndef __IUIAutomation_INTERFACE_DEFINED__
+#define __IUIAutomation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation, 0x30cbe57d, 0xd9d0, 0x452a, 0xab,0x13, 0x7a,0xc5,0xac,0x48,0x25,0xee);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("30cbe57d-d9d0-452a-ab13-7ac5ac4825ee")
+IUIAutomation : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CompareElements(
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CompareRuntimeIds(
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRootElement(
+        IUIAutomationElement **root) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromHandle(
+        UIA_HWND hwnd,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromPoint(
+        POINT pt,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFocusedElement(
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRootElementBuildCache(
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromHandleBuildCache(
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromPointBuildCache(
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFocusedElementBuildCache(
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateTreeWalker(
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ControlViewWalker(
+        IUIAutomationTreeWalker **walker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ContentViewWalker(
+        IUIAutomationTreeWalker **walker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RawViewWalker(
+        IUIAutomationTreeWalker **walker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RawViewCondition(
+        IUIAutomationCondition **condition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ControlViewCondition(
+        IUIAutomationCondition **condition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ContentViewCondition(
+        IUIAutomationCondition **condition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateCacheRequest(
+        IUIAutomationCacheRequest **cacheRequest) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateTrueCondition(
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateFalseCondition(
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreatePropertyCondition(
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreatePropertyConditionEx(
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateAndCondition(
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateAndConditionFromArray(
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateAndConditionFromNativeArray(
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateOrCondition(
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateOrConditionFromArray(
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateOrConditionFromNativeArray(
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateNotCondition(
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddAutomationEventHandler(
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveAutomationEventHandler(
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddPropertyChangedEventHandlerNativeArray(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddPropertyChangedEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemovePropertyChangedEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddStructureChangedEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveStructureChangedEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddFocusChangedEventHandler(
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFocusChangedEventHandler(
+        IUIAutomationFocusChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveAllEventHandlers(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IntNativeArrayToSafeArray(
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IntSafeArrayToNativeArray(
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RectToVariant(
+        RECT rc,
+        VARIANT *var) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VariantToRect(
+        VARIANT var,
+        RECT *rc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SafeArrayToRectNativeArray(
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateProxyFactoryEntry(
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ProxyFactoryMapping(
+        IUIAutomationProxyFactoryMapping **factoryMapping) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyProgrammaticName(
+        PROPERTYID property,
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPatternProgrammaticName(
+        PATTERNID pattern,
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PollForPotentialSupportedPatterns(
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PollForPotentialSupportedProperties(
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckNotSupported(
+        VARIANT value,
+        WINBOOL *isNotSupported) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ReservedNotSupportedValue(
+        IUnknown **notSupportedValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ReservedMixedAttributeValue(
+        IUnknown **mixedAttributeValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromIAccessible(
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ElementFromIAccessibleBuildCache(
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation, 0x30cbe57d, 0xd9d0, 0x452a, 0xab,0x13, 0x7a,0xc5,0xac,0x48,0x25,0xee)
+#endif
+#else
+typedef struct IUIAutomationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    END_INTERFACE
+} IUIAutomationVtbl;
+
+interface IUIAutomation {
+    CONST_VTBL IUIAutomationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation_QueryInterface(IUIAutomation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation_AddRef(IUIAutomation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation_Release(IUIAutomation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation_CompareElements(IUIAutomation* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CompareRuntimeIds(IUIAutomation* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetRootElement(IUIAutomation* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromHandle(IUIAutomation* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromPoint(IUIAutomation* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetFocusedElement(IUIAutomation* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetRootElementBuildCache(IUIAutomation* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromHandleBuildCache(IUIAutomation* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromPointBuildCache(IUIAutomation* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetFocusedElementBuildCache(IUIAutomation* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateTreeWalker(IUIAutomation* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ControlViewWalker(IUIAutomation* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ContentViewWalker(IUIAutomation* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_RawViewWalker(IUIAutomation* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_RawViewCondition(IUIAutomation* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ControlViewCondition(IUIAutomation* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ContentViewCondition(IUIAutomation* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateCacheRequest(IUIAutomation* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateTrueCondition(IUIAutomation* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateFalseCondition(IUIAutomation* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreatePropertyCondition(IUIAutomation* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreatePropertyConditionEx(IUIAutomation* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateAndCondition(IUIAutomation* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateAndConditionFromArray(IUIAutomation* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateAndConditionFromNativeArray(IUIAutomation* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateOrCondition(IUIAutomation* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateOrConditionFromArray(IUIAutomation* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateOrConditionFromNativeArray(IUIAutomation* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateNotCondition(IUIAutomation* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_AddAutomationEventHandler(IUIAutomation* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RemoveAutomationEventHandler(IUIAutomation* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_AddPropertyChangedEventHandlerNativeArray(IUIAutomation* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_AddPropertyChangedEventHandler(IUIAutomation* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RemovePropertyChangedEventHandler(IUIAutomation* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_AddStructureChangedEventHandler(IUIAutomation* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RemoveStructureChangedEventHandler(IUIAutomation* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_AddFocusChangedEventHandler(IUIAutomation* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RemoveFocusChangedEventHandler(IUIAutomation* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RemoveAllEventHandlers(IUIAutomation* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_IntNativeArrayToSafeArray(IUIAutomation* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_IntSafeArrayToNativeArray(IUIAutomation* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_RectToVariant(IUIAutomation* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_VariantToRect(IUIAutomation* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_SafeArrayToRectNativeArray(IUIAutomation* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CreateProxyFactoryEntry(IUIAutomation* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ProxyFactoryMapping(IUIAutomation* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetPropertyProgrammaticName(IUIAutomation* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_GetPatternProgrammaticName(IUIAutomation* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_PollForPotentialSupportedPatterns(IUIAutomation* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_PollForPotentialSupportedProperties(IUIAutomation* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_CheckNotSupported(IUIAutomation* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ReservedNotSupportedValue(IUIAutomation* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_get_ReservedMixedAttributeValue(IUIAutomation* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromIAccessible(IUIAutomation* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation_ElementFromIAccessibleBuildCache(IUIAutomation* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation2 interface
+ */
+#ifndef __IUIAutomation2_INTERFACE_DEFINED__
+#define __IUIAutomation2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation2, 0x34723aff, 0x0c9d, 0x49d0, 0x98,0x96, 0x7a,0xb5,0x2d,0xf8,0xcd,0x8a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("34723aff-0c9d-49d0-9896-7ab52df8cd8a")
+IUIAutomation2 : public IUIAutomation
+{
+    virtual HRESULT STDMETHODCALLTYPE get_AutoSetFocus(
+        WINBOOL *autoSetFocus) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_AutoSetFocus(
+        WINBOOL autoSetFocus) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ConnectionTimeout(
+        DWORD *timeout) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ConnectionTimeout(
+        DWORD timeout) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_TransactionTimeout(
+        DWORD *timeout) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_TransactionTimeout(
+        DWORD timeout) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation2, 0x34723aff, 0x0c9d, 0x49d0, 0x98,0x96, 0x7a,0xb5,0x2d,0xf8,0xcd,0x8a)
+#endif
+#else
+typedef struct IUIAutomation2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation2 *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation2 *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation2 *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation2 *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation2 *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation2 *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation2 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation2 *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation2 *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation2 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation2 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation2 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation2 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation2 *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation2 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation2 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation2 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation2 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation2 *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation2 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation2 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation2 *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation2 *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation2 *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation2 *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation2 *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation2 *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation2 *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation2 *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation2 *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation2 *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation2 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation2 *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation2 *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation2 *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation2 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation2 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    /*** IUIAutomation2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoSetFocus)(
+        IUIAutomation2 *This,
+        WINBOOL *autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoSetFocus)(
+        IUIAutomation2 *This,
+        WINBOOL autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionTimeout)(
+        IUIAutomation2 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionTimeout)(
+        IUIAutomation2 *This,
+        DWORD timeout);
+
+    HRESULT (STDMETHODCALLTYPE *get_TransactionTimeout)(
+        IUIAutomation2 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_TransactionTimeout)(
+        IUIAutomation2 *This,
+        DWORD timeout);
+
+    END_INTERFACE
+} IUIAutomation2Vtbl;
+
+interface IUIAutomation2 {
+    CONST_VTBL IUIAutomation2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation2_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation2_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation2_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation2_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation2_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation2_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation2_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation2_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation2_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation2_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation2_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation2_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation2_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation2_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation2_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation2_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation2_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation2_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation2_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation2_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation2_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation2_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation2_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation2_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation2_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation2_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation2_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation2_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation2_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation2_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation2_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation2_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation2_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation2_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation2_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation2_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation2_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation2_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation2_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation2_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation2_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation2_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation2_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation2_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation2_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation2_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation2_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation2_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation2_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation2_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation2_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation2_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation2_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation2_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation2_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation2_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+/*** IUIAutomation2 methods ***/
+#define IUIAutomation2_get_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->get_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation2_put_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->put_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation2_get_ConnectionTimeout(This,timeout) (This)->lpVtbl->get_ConnectionTimeout(This,timeout)
+#define IUIAutomation2_put_ConnectionTimeout(This,timeout) (This)->lpVtbl->put_ConnectionTimeout(This,timeout)
+#define IUIAutomation2_get_TransactionTimeout(This,timeout) (This)->lpVtbl->get_TransactionTimeout(This,timeout)
+#define IUIAutomation2_put_TransactionTimeout(This,timeout) (This)->lpVtbl->put_TransactionTimeout(This,timeout)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation2_QueryInterface(IUIAutomation2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation2_AddRef(IUIAutomation2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation2_Release(IUIAutomation2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation2_CompareElements(IUIAutomation2* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CompareRuntimeIds(IUIAutomation2* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetRootElement(IUIAutomation2* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromHandle(IUIAutomation2* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromPoint(IUIAutomation2* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetFocusedElement(IUIAutomation2* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetRootElementBuildCache(IUIAutomation2* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromHandleBuildCache(IUIAutomation2* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromPointBuildCache(IUIAutomation2* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetFocusedElementBuildCache(IUIAutomation2* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateTreeWalker(IUIAutomation2* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ControlViewWalker(IUIAutomation2* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ContentViewWalker(IUIAutomation2* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_RawViewWalker(IUIAutomation2* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_RawViewCondition(IUIAutomation2* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ControlViewCondition(IUIAutomation2* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ContentViewCondition(IUIAutomation2* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateCacheRequest(IUIAutomation2* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateTrueCondition(IUIAutomation2* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateFalseCondition(IUIAutomation2* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreatePropertyCondition(IUIAutomation2* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreatePropertyConditionEx(IUIAutomation2* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateAndCondition(IUIAutomation2* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateAndConditionFromArray(IUIAutomation2* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateAndConditionFromNativeArray(IUIAutomation2* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateOrCondition(IUIAutomation2* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateOrConditionFromArray(IUIAutomation2* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateOrConditionFromNativeArray(IUIAutomation2* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateNotCondition(IUIAutomation2* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_AddAutomationEventHandler(IUIAutomation2* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RemoveAutomationEventHandler(IUIAutomation2* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_AddPropertyChangedEventHandlerNativeArray(IUIAutomation2* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_AddPropertyChangedEventHandler(IUIAutomation2* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RemovePropertyChangedEventHandler(IUIAutomation2* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_AddStructureChangedEventHandler(IUIAutomation2* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RemoveStructureChangedEventHandler(IUIAutomation2* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_AddFocusChangedEventHandler(IUIAutomation2* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RemoveFocusChangedEventHandler(IUIAutomation2* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RemoveAllEventHandlers(IUIAutomation2* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_IntNativeArrayToSafeArray(IUIAutomation2* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_IntSafeArrayToNativeArray(IUIAutomation2* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_RectToVariant(IUIAutomation2* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_VariantToRect(IUIAutomation2* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_SafeArrayToRectNativeArray(IUIAutomation2* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CreateProxyFactoryEntry(IUIAutomation2* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ProxyFactoryMapping(IUIAutomation2* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetPropertyProgrammaticName(IUIAutomation2* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_GetPatternProgrammaticName(IUIAutomation2* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_PollForPotentialSupportedPatterns(IUIAutomation2* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_PollForPotentialSupportedProperties(IUIAutomation2* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_CheckNotSupported(IUIAutomation2* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ReservedNotSupportedValue(IUIAutomation2* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ReservedMixedAttributeValue(IUIAutomation2* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromIAccessible(IUIAutomation2* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_ElementFromIAccessibleBuildCache(IUIAutomation2* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+/*** IUIAutomation2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation2_get_AutoSetFocus(IUIAutomation2* This,WINBOOL *autoSetFocus) {
+    return This->lpVtbl->get_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_put_AutoSetFocus(IUIAutomation2* This,WINBOOL autoSetFocus) {
+    return This->lpVtbl->put_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_ConnectionTimeout(IUIAutomation2* This,DWORD *timeout) {
+    return This->lpVtbl->get_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_put_ConnectionTimeout(IUIAutomation2* This,DWORD timeout) {
+    return This->lpVtbl->put_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_get_TransactionTimeout(IUIAutomation2* This,DWORD *timeout) {
+    return This->lpVtbl->get_TransactionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation2_put_TransactionTimeout(IUIAutomation2* This,DWORD timeout) {
+    return This->lpVtbl->put_TransactionTimeout(This,timeout);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation3 interface
+ */
+#ifndef __IUIAutomation3_INTERFACE_DEFINED__
+#define __IUIAutomation3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation3, 0x73d768da, 0x9b51, 0x4b89, 0x93,0x6e, 0xc2,0x09,0x29,0x09,0x73,0xe7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("73d768da-9b51-4b89-936e-c209290973e7")
+IUIAutomation3 : public IUIAutomation2
+{
+    virtual HRESULT STDMETHODCALLTYPE AddTextEditTextChangedEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveTextEditTextChangedEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationTextEditTextChangedEventHandler *handler) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation3, 0x73d768da, 0x9b51, 0x4b89, 0x93,0x6e, 0xc2,0x09,0x29,0x09,0x73,0xe7)
+#endif
+#else
+typedef struct IUIAutomation3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation3 *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation3 *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation3 *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation3 *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation3 *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation3 *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation3 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation3 *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation3 *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation3 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation3 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation3 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation3 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation3 *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation3 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation3 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation3 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation3 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation3 *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation3 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation3 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation3 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation3 *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation3 *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation3 *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation3 *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation3 *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation3 *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation3 *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation3 *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation3 *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation3 *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation3 *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation3 *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation3 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation3 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    /*** IUIAutomation2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoSetFocus)(
+        IUIAutomation3 *This,
+        WINBOOL *autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoSetFocus)(
+        IUIAutomation3 *This,
+        WINBOOL autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionTimeout)(
+        IUIAutomation3 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionTimeout)(
+        IUIAutomation3 *This,
+        DWORD timeout);
+
+    HRESULT (STDMETHODCALLTYPE *get_TransactionTimeout)(
+        IUIAutomation3 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_TransactionTimeout)(
+        IUIAutomation3 *This,
+        DWORD timeout);
+
+    /*** IUIAutomation3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddTextEditTextChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveTextEditTextChangedEventHandler)(
+        IUIAutomation3 *This,
+        IUIAutomationElement *element,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    END_INTERFACE
+} IUIAutomation3Vtbl;
+
+interface IUIAutomation3 {
+    CONST_VTBL IUIAutomation3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation3_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation3_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation3_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation3_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation3_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation3_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation3_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation3_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation3_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation3_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation3_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation3_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation3_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation3_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation3_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation3_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation3_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation3_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation3_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation3_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation3_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation3_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation3_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation3_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation3_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation3_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation3_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation3_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation3_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation3_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation3_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation3_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation3_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation3_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation3_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation3_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation3_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation3_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation3_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation3_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation3_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation3_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation3_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation3_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation3_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation3_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation3_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation3_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation3_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation3_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation3_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation3_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation3_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation3_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation3_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation3_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+/*** IUIAutomation2 methods ***/
+#define IUIAutomation3_get_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->get_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation3_put_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->put_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation3_get_ConnectionTimeout(This,timeout) (This)->lpVtbl->get_ConnectionTimeout(This,timeout)
+#define IUIAutomation3_put_ConnectionTimeout(This,timeout) (This)->lpVtbl->put_ConnectionTimeout(This,timeout)
+#define IUIAutomation3_get_TransactionTimeout(This,timeout) (This)->lpVtbl->get_TransactionTimeout(This,timeout)
+#define IUIAutomation3_put_TransactionTimeout(This,timeout) (This)->lpVtbl->put_TransactionTimeout(This,timeout)
+/*** IUIAutomation3 methods ***/
+#define IUIAutomation3_AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler) (This)->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler)
+#define IUIAutomation3_RemoveTextEditTextChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation3_QueryInterface(IUIAutomation3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation3_AddRef(IUIAutomation3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation3_Release(IUIAutomation3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation3_CompareElements(IUIAutomation3* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CompareRuntimeIds(IUIAutomation3* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetRootElement(IUIAutomation3* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromHandle(IUIAutomation3* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromPoint(IUIAutomation3* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetFocusedElement(IUIAutomation3* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetRootElementBuildCache(IUIAutomation3* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromHandleBuildCache(IUIAutomation3* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromPointBuildCache(IUIAutomation3* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetFocusedElementBuildCache(IUIAutomation3* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateTreeWalker(IUIAutomation3* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ControlViewWalker(IUIAutomation3* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ContentViewWalker(IUIAutomation3* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_RawViewWalker(IUIAutomation3* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_RawViewCondition(IUIAutomation3* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ControlViewCondition(IUIAutomation3* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ContentViewCondition(IUIAutomation3* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateCacheRequest(IUIAutomation3* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateTrueCondition(IUIAutomation3* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateFalseCondition(IUIAutomation3* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreatePropertyCondition(IUIAutomation3* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreatePropertyConditionEx(IUIAutomation3* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateAndCondition(IUIAutomation3* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateAndConditionFromArray(IUIAutomation3* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateAndConditionFromNativeArray(IUIAutomation3* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateOrCondition(IUIAutomation3* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateOrConditionFromArray(IUIAutomation3* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateOrConditionFromNativeArray(IUIAutomation3* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateNotCondition(IUIAutomation3* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_AddAutomationEventHandler(IUIAutomation3* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemoveAutomationEventHandler(IUIAutomation3* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_AddPropertyChangedEventHandlerNativeArray(IUIAutomation3* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_AddPropertyChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemovePropertyChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_AddStructureChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemoveStructureChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_AddFocusChangedEventHandler(IUIAutomation3* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemoveFocusChangedEventHandler(IUIAutomation3* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemoveAllEventHandlers(IUIAutomation3* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_IntNativeArrayToSafeArray(IUIAutomation3* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_IntSafeArrayToNativeArray(IUIAutomation3* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RectToVariant(IUIAutomation3* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_VariantToRect(IUIAutomation3* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_SafeArrayToRectNativeArray(IUIAutomation3* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CreateProxyFactoryEntry(IUIAutomation3* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ProxyFactoryMapping(IUIAutomation3* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetPropertyProgrammaticName(IUIAutomation3* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_GetPatternProgrammaticName(IUIAutomation3* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_PollForPotentialSupportedPatterns(IUIAutomation3* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_PollForPotentialSupportedProperties(IUIAutomation3* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_CheckNotSupported(IUIAutomation3* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ReservedNotSupportedValue(IUIAutomation3* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ReservedMixedAttributeValue(IUIAutomation3* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromIAccessible(IUIAutomation3* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_ElementFromIAccessibleBuildCache(IUIAutomation3* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+/*** IUIAutomation2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation3_get_AutoSetFocus(IUIAutomation3* This,WINBOOL *autoSetFocus) {
+    return This->lpVtbl->get_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_put_AutoSetFocus(IUIAutomation3* This,WINBOOL autoSetFocus) {
+    return This->lpVtbl->put_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_ConnectionTimeout(IUIAutomation3* This,DWORD *timeout) {
+    return This->lpVtbl->get_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_put_ConnectionTimeout(IUIAutomation3* This,DWORD timeout) {
+    return This->lpVtbl->put_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_get_TransactionTimeout(IUIAutomation3* This,DWORD *timeout) {
+    return This->lpVtbl->get_TransactionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_put_TransactionTimeout(IUIAutomation3* This,DWORD timeout) {
+    return This->lpVtbl->put_TransactionTimeout(This,timeout);
+}
+/*** IUIAutomation3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation3_AddTextEditTextChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,enum TreeScope scope,enum TextEditChangeType textEditChangeType,IUIAutomationCacheRequest *cacheRequest,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation3_RemoveTextEditTextChangedEventHandler(IUIAutomation3* This,IUIAutomationElement *element,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation4 interface
+ */
+#ifndef __IUIAutomation4_INTERFACE_DEFINED__
+#define __IUIAutomation4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation4, 0x1189c02a, 0x05f8, 0x4319, 0x8e,0x21, 0xe8,0x17,0xe3,0xdb,0x28,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1189c02a-05f8-4319-8e21-e817e3db2860")
+IUIAutomation4 : public IUIAutomation3
+{
+    virtual HRESULT STDMETHODCALLTYPE AddChangesEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *pCacheRequest,
+        IUIAutomationChangesEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveChangesEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationChangesEventHandler *handler) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation4, 0x1189c02a, 0x05f8, 0x4319, 0x8e,0x21, 0xe8,0x17,0xe3,0xdb,0x28,0x60)
+#endif
+#else
+typedef struct IUIAutomation4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation4 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation4 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation4 *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation4 *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation4 *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation4 *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation4 *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation4 *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation4 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation4 *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation4 *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation4 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation4 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation4 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation4 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation4 *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation4 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation4 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation4 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation4 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation4 *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation4 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation4 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation4 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation4 *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation4 *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation4 *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation4 *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation4 *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation4 *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation4 *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation4 *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation4 *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation4 *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation4 *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation4 *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation4 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation4 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    /*** IUIAutomation2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoSetFocus)(
+        IUIAutomation4 *This,
+        WINBOOL *autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoSetFocus)(
+        IUIAutomation4 *This,
+        WINBOOL autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionTimeout)(
+        IUIAutomation4 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionTimeout)(
+        IUIAutomation4 *This,
+        DWORD timeout);
+
+    HRESULT (STDMETHODCALLTYPE *get_TransactionTimeout)(
+        IUIAutomation4 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_TransactionTimeout)(
+        IUIAutomation4 *This,
+        DWORD timeout);
+
+    /*** IUIAutomation3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddTextEditTextChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveTextEditTextChangedEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    /*** IUIAutomation4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddChangesEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *pCacheRequest,
+        IUIAutomationChangesEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveChangesEventHandler)(
+        IUIAutomation4 *This,
+        IUIAutomationElement *element,
+        IUIAutomationChangesEventHandler *handler);
+
+    END_INTERFACE
+} IUIAutomation4Vtbl;
+
+interface IUIAutomation4 {
+    CONST_VTBL IUIAutomation4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation4_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation4_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation4_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation4_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation4_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation4_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation4_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation4_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation4_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation4_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation4_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation4_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation4_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation4_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation4_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation4_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation4_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation4_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation4_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation4_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation4_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation4_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation4_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation4_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation4_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation4_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation4_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation4_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation4_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation4_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation4_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation4_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation4_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation4_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation4_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation4_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation4_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation4_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation4_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation4_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation4_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation4_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation4_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation4_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation4_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation4_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation4_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation4_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation4_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation4_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation4_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation4_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation4_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation4_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation4_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation4_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+/*** IUIAutomation2 methods ***/
+#define IUIAutomation4_get_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->get_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation4_put_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->put_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation4_get_ConnectionTimeout(This,timeout) (This)->lpVtbl->get_ConnectionTimeout(This,timeout)
+#define IUIAutomation4_put_ConnectionTimeout(This,timeout) (This)->lpVtbl->put_ConnectionTimeout(This,timeout)
+#define IUIAutomation4_get_TransactionTimeout(This,timeout) (This)->lpVtbl->get_TransactionTimeout(This,timeout)
+#define IUIAutomation4_put_TransactionTimeout(This,timeout) (This)->lpVtbl->put_TransactionTimeout(This,timeout)
+/*** IUIAutomation3 methods ***/
+#define IUIAutomation4_AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler) (This)->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler)
+#define IUIAutomation4_RemoveTextEditTextChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler)
+/*** IUIAutomation4 methods ***/
+#define IUIAutomation4_AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler) (This)->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler)
+#define IUIAutomation4_RemoveChangesEventHandler(This,element,handler) (This)->lpVtbl->RemoveChangesEventHandler(This,element,handler)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation4_QueryInterface(IUIAutomation4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation4_AddRef(IUIAutomation4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation4_Release(IUIAutomation4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation4_CompareElements(IUIAutomation4* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CompareRuntimeIds(IUIAutomation4* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetRootElement(IUIAutomation4* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromHandle(IUIAutomation4* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromPoint(IUIAutomation4* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetFocusedElement(IUIAutomation4* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetRootElementBuildCache(IUIAutomation4* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromHandleBuildCache(IUIAutomation4* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromPointBuildCache(IUIAutomation4* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetFocusedElementBuildCache(IUIAutomation4* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateTreeWalker(IUIAutomation4* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ControlViewWalker(IUIAutomation4* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ContentViewWalker(IUIAutomation4* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_RawViewWalker(IUIAutomation4* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_RawViewCondition(IUIAutomation4* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ControlViewCondition(IUIAutomation4* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ContentViewCondition(IUIAutomation4* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateCacheRequest(IUIAutomation4* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateTrueCondition(IUIAutomation4* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateFalseCondition(IUIAutomation4* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreatePropertyCondition(IUIAutomation4* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreatePropertyConditionEx(IUIAutomation4* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateAndCondition(IUIAutomation4* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateAndConditionFromArray(IUIAutomation4* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateAndConditionFromNativeArray(IUIAutomation4* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateOrCondition(IUIAutomation4* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateOrConditionFromArray(IUIAutomation4* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateOrConditionFromNativeArray(IUIAutomation4* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateNotCondition(IUIAutomation4* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_AddAutomationEventHandler(IUIAutomation4* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveAutomationEventHandler(IUIAutomation4* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_AddPropertyChangedEventHandlerNativeArray(IUIAutomation4* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_AddPropertyChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemovePropertyChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_AddStructureChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveStructureChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_AddFocusChangedEventHandler(IUIAutomation4* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveFocusChangedEventHandler(IUIAutomation4* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveAllEventHandlers(IUIAutomation4* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_IntNativeArrayToSafeArray(IUIAutomation4* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_IntSafeArrayToNativeArray(IUIAutomation4* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RectToVariant(IUIAutomation4* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_VariantToRect(IUIAutomation4* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_SafeArrayToRectNativeArray(IUIAutomation4* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CreateProxyFactoryEntry(IUIAutomation4* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ProxyFactoryMapping(IUIAutomation4* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetPropertyProgrammaticName(IUIAutomation4* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_GetPatternProgrammaticName(IUIAutomation4* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_PollForPotentialSupportedPatterns(IUIAutomation4* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_PollForPotentialSupportedProperties(IUIAutomation4* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_CheckNotSupported(IUIAutomation4* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ReservedNotSupportedValue(IUIAutomation4* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ReservedMixedAttributeValue(IUIAutomation4* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromIAccessible(IUIAutomation4* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_ElementFromIAccessibleBuildCache(IUIAutomation4* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+/*** IUIAutomation2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation4_get_AutoSetFocus(IUIAutomation4* This,WINBOOL *autoSetFocus) {
+    return This->lpVtbl->get_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_put_AutoSetFocus(IUIAutomation4* This,WINBOOL autoSetFocus) {
+    return This->lpVtbl->put_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_ConnectionTimeout(IUIAutomation4* This,DWORD *timeout) {
+    return This->lpVtbl->get_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_put_ConnectionTimeout(IUIAutomation4* This,DWORD timeout) {
+    return This->lpVtbl->put_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_get_TransactionTimeout(IUIAutomation4* This,DWORD *timeout) {
+    return This->lpVtbl->get_TransactionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_put_TransactionTimeout(IUIAutomation4* This,DWORD timeout) {
+    return This->lpVtbl->put_TransactionTimeout(This,timeout);
+}
+/*** IUIAutomation3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation4_AddTextEditTextChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,enum TreeScope scope,enum TextEditChangeType textEditChangeType,IUIAutomationCacheRequest *cacheRequest,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveTextEditTextChangedEventHandler(IUIAutomation4* This,IUIAutomationElement *element,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler);
+}
+/*** IUIAutomation4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation4_AddChangesEventHandler(IUIAutomation4* This,IUIAutomationElement *element,enum TreeScope scope,int *changeTypes,int changesCount,IUIAutomationCacheRequest *pCacheRequest,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation4_RemoveChangesEventHandler(IUIAutomation4* This,IUIAutomationElement *element,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->RemoveChangesEventHandler(This,element,handler);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation4_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation5 interface
+ */
+#ifndef __IUIAutomation5_INTERFACE_DEFINED__
+#define __IUIAutomation5_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation5, 0x25f700c8, 0xd816, 0x4057, 0xa9,0xdc, 0x3c,0xbd,0xee,0x77,0xe2,0x56);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("25f700c8-d816-4057-a9dc-3cbdee77e256")
+IUIAutomation5 : public IUIAutomation4
+{
+    virtual HRESULT STDMETHODCALLTYPE AddNotificationEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationNotificationEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveNotificationEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationNotificationEventHandler *handler) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation5, 0x25f700c8, 0xd816, 0x4057, 0xa9,0xdc, 0x3c,0xbd,0xee,0x77,0xe2,0x56)
+#endif
+#else
+typedef struct IUIAutomation5Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation5 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation5 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation5 *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation5 *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation5 *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation5 *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation5 *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation5 *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation5 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation5 *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation5 *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation5 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation5 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation5 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation5 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation5 *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation5 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation5 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation5 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation5 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation5 *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation5 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation5 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation5 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation5 *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation5 *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation5 *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation5 *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation5 *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation5 *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation5 *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation5 *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation5 *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation5 *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation5 *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation5 *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation5 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation5 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    /*** IUIAutomation2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoSetFocus)(
+        IUIAutomation5 *This,
+        WINBOOL *autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoSetFocus)(
+        IUIAutomation5 *This,
+        WINBOOL autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionTimeout)(
+        IUIAutomation5 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionTimeout)(
+        IUIAutomation5 *This,
+        DWORD timeout);
+
+    HRESULT (STDMETHODCALLTYPE *get_TransactionTimeout)(
+        IUIAutomation5 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_TransactionTimeout)(
+        IUIAutomation5 *This,
+        DWORD timeout);
+
+    /*** IUIAutomation3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddTextEditTextChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveTextEditTextChangedEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    /*** IUIAutomation4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddChangesEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *pCacheRequest,
+        IUIAutomationChangesEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveChangesEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        IUIAutomationChangesEventHandler *handler);
+
+    /*** IUIAutomation5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddNotificationEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationNotificationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveNotificationEventHandler)(
+        IUIAutomation5 *This,
+        IUIAutomationElement *element,
+        IUIAutomationNotificationEventHandler *handler);
+
+    END_INTERFACE
+} IUIAutomation5Vtbl;
+
+interface IUIAutomation5 {
+    CONST_VTBL IUIAutomation5Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation5_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation5_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation5_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation5_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation5_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation5_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation5_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation5_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation5_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation5_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation5_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation5_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation5_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation5_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation5_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation5_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation5_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation5_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation5_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation5_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation5_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation5_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation5_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation5_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation5_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation5_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation5_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation5_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation5_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation5_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation5_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation5_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation5_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation5_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation5_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation5_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation5_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation5_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation5_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation5_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation5_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation5_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation5_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation5_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation5_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation5_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation5_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation5_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation5_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation5_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation5_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation5_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation5_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation5_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation5_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation5_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation5_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation5_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+/*** IUIAutomation2 methods ***/
+#define IUIAutomation5_get_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->get_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation5_put_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->put_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation5_get_ConnectionTimeout(This,timeout) (This)->lpVtbl->get_ConnectionTimeout(This,timeout)
+#define IUIAutomation5_put_ConnectionTimeout(This,timeout) (This)->lpVtbl->put_ConnectionTimeout(This,timeout)
+#define IUIAutomation5_get_TransactionTimeout(This,timeout) (This)->lpVtbl->get_TransactionTimeout(This,timeout)
+#define IUIAutomation5_put_TransactionTimeout(This,timeout) (This)->lpVtbl->put_TransactionTimeout(This,timeout)
+/*** IUIAutomation3 methods ***/
+#define IUIAutomation5_AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler) (This)->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler)
+#define IUIAutomation5_RemoveTextEditTextChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler)
+/*** IUIAutomation4 methods ***/
+#define IUIAutomation5_AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler) (This)->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler)
+#define IUIAutomation5_RemoveChangesEventHandler(This,element,handler) (This)->lpVtbl->RemoveChangesEventHandler(This,element,handler)
+/*** IUIAutomation5 methods ***/
+#define IUIAutomation5_AddNotificationEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddNotificationEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation5_RemoveNotificationEventHandler(This,element,handler) (This)->lpVtbl->RemoveNotificationEventHandler(This,element,handler)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_QueryInterface(IUIAutomation5* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation5_AddRef(IUIAutomation5* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation5_Release(IUIAutomation5* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_CompareElements(IUIAutomation5* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CompareRuntimeIds(IUIAutomation5* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetRootElement(IUIAutomation5* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromHandle(IUIAutomation5* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromPoint(IUIAutomation5* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetFocusedElement(IUIAutomation5* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetRootElementBuildCache(IUIAutomation5* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromHandleBuildCache(IUIAutomation5* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromPointBuildCache(IUIAutomation5* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetFocusedElementBuildCache(IUIAutomation5* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateTreeWalker(IUIAutomation5* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ControlViewWalker(IUIAutomation5* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ContentViewWalker(IUIAutomation5* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_RawViewWalker(IUIAutomation5* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_RawViewCondition(IUIAutomation5* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ControlViewCondition(IUIAutomation5* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ContentViewCondition(IUIAutomation5* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateCacheRequest(IUIAutomation5* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateTrueCondition(IUIAutomation5* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateFalseCondition(IUIAutomation5* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreatePropertyCondition(IUIAutomation5* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreatePropertyConditionEx(IUIAutomation5* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateAndCondition(IUIAutomation5* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateAndConditionFromArray(IUIAutomation5* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateAndConditionFromNativeArray(IUIAutomation5* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateOrCondition(IUIAutomation5* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateOrConditionFromArray(IUIAutomation5* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateOrConditionFromNativeArray(IUIAutomation5* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateNotCondition(IUIAutomation5* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_AddAutomationEventHandler(IUIAutomation5* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveAutomationEventHandler(IUIAutomation5* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_AddPropertyChangedEventHandlerNativeArray(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_AddPropertyChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemovePropertyChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_AddStructureChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveStructureChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_AddFocusChangedEventHandler(IUIAutomation5* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveFocusChangedEventHandler(IUIAutomation5* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveAllEventHandlers(IUIAutomation5* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_IntNativeArrayToSafeArray(IUIAutomation5* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_IntSafeArrayToNativeArray(IUIAutomation5* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RectToVariant(IUIAutomation5* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_VariantToRect(IUIAutomation5* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_SafeArrayToRectNativeArray(IUIAutomation5* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CreateProxyFactoryEntry(IUIAutomation5* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ProxyFactoryMapping(IUIAutomation5* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetPropertyProgrammaticName(IUIAutomation5* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_GetPatternProgrammaticName(IUIAutomation5* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_PollForPotentialSupportedPatterns(IUIAutomation5* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_PollForPotentialSupportedProperties(IUIAutomation5* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_CheckNotSupported(IUIAutomation5* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ReservedNotSupportedValue(IUIAutomation5* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ReservedMixedAttributeValue(IUIAutomation5* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromIAccessible(IUIAutomation5* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_ElementFromIAccessibleBuildCache(IUIAutomation5* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+/*** IUIAutomation2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_get_AutoSetFocus(IUIAutomation5* This,WINBOOL *autoSetFocus) {
+    return This->lpVtbl->get_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_put_AutoSetFocus(IUIAutomation5* This,WINBOOL autoSetFocus) {
+    return This->lpVtbl->put_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_ConnectionTimeout(IUIAutomation5* This,DWORD *timeout) {
+    return This->lpVtbl->get_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_put_ConnectionTimeout(IUIAutomation5* This,DWORD timeout) {
+    return This->lpVtbl->put_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_get_TransactionTimeout(IUIAutomation5* This,DWORD *timeout) {
+    return This->lpVtbl->get_TransactionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_put_TransactionTimeout(IUIAutomation5* This,DWORD timeout) {
+    return This->lpVtbl->put_TransactionTimeout(This,timeout);
+}
+/*** IUIAutomation3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_AddTextEditTextChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,enum TextEditChangeType textEditChangeType,IUIAutomationCacheRequest *cacheRequest,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveTextEditTextChangedEventHandler(IUIAutomation5* This,IUIAutomationElement *element,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler);
+}
+/*** IUIAutomation4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_AddChangesEventHandler(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,int *changeTypes,int changesCount,IUIAutomationCacheRequest *pCacheRequest,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveChangesEventHandler(IUIAutomation5* This,IUIAutomationElement *element,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->RemoveChangesEventHandler(This,element,handler);
+}
+/*** IUIAutomation5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation5_AddNotificationEventHandler(IUIAutomation5* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationNotificationEventHandler *handler) {
+    return This->lpVtbl->AddNotificationEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation5_RemoveNotificationEventHandler(IUIAutomation5* This,IUIAutomationElement *element,IUIAutomationNotificationEventHandler *handler) {
+    return This->lpVtbl->RemoveNotificationEventHandler(This,element,handler);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation5_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomation6 interface
+ */
+#ifndef __IUIAutomation6_INTERFACE_DEFINED__
+#define __IUIAutomation6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomation6, 0xaae072da, 0x29e3, 0x413d, 0x87,0xa7, 0x19,0x2d,0xbf,0x81,0xed,0x10);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("aae072da-29e3-413d-87a7-192dbf81ed10")
+IUIAutomation6 : public IUIAutomation5
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateEventHandlerGroup(
+        IUIAutomationEventHandlerGroup **handlerGroup) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddEventHandlerGroup(
+        IUIAutomationElement *element,
+        IUIAutomationEventHandlerGroup *handlerGroup) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveEventHandlerGroup(
+        IUIAutomationElement *element,
+        IUIAutomationEventHandlerGroup *handlerGroup) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ConnectionRecoveryBehavior(
+        enum ConnectionRecoveryBehaviorOptions *connectionRecoveryBehaviorOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ConnectionRecoveryBehavior(
+        enum ConnectionRecoveryBehaviorOptions connectionRecoveryBehaviorOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CoalesceEvents(
+        enum CoalesceEventsOptions *coalesceEventsOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_CoalesceEvents(
+        enum CoalesceEventsOptions coalesceEventsOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddActiveTextPositionChangedEventHandler(
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveActiveTextPositionChangedEventHandler(
+        IUIAutomationElement *element,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomation6, 0xaae072da, 0x29e3, 0x413d, 0x87,0xa7, 0x19,0x2d,0xbf,0x81,0xed,0x10)
+#endif
+#else
+typedef struct IUIAutomation6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomation6 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomation6 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomation6 *This);
+
+    /*** IUIAutomation methods ***/
+    HRESULT (STDMETHODCALLTYPE *CompareElements)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *el1,
+        IUIAutomationElement *el2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareRuntimeIds)(
+        IUIAutomation6 *This,
+        SAFEARRAY *runtimeId1,
+        SAFEARRAY *runtimeId2,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElement)(
+        IUIAutomation6 *This,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandle)(
+        IUIAutomation6 *This,
+        UIA_HWND hwnd,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPoint)(
+        IUIAutomation6 *This,
+        POINT pt,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElement)(
+        IUIAutomation6 *This,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetRootElementBuildCache)(
+        IUIAutomation6 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **root);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromHandleBuildCache)(
+        IUIAutomation6 *This,
+        UIA_HWND hwnd,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromPointBuildCache)(
+        IUIAutomation6 *This,
+        POINT pt,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocusedElementBuildCache)(
+        IUIAutomation6 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTreeWalker)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition *pCondition,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewWalker)(
+        IUIAutomation6 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewWalker)(
+        IUIAutomation6 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewWalker)(
+        IUIAutomation6 *This,
+        IUIAutomationTreeWalker **walker);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawViewCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ControlViewCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *get_ContentViewCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **condition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCacheRequest)(
+        IUIAutomation6 *This,
+        IUIAutomationCacheRequest **cacheRequest);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTrueCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFalseCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyCondition)(
+        IUIAutomation6 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePropertyConditionEx)(
+        IUIAutomation6 *This,
+        PROPERTYID propertyId,
+        VARIANT value,
+        enum PropertyConditionFlags flags,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromArray)(
+        IUIAutomation6 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAndConditionFromNativeArray)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition *condition1,
+        IUIAutomationCondition *condition2,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromArray)(
+        IUIAutomation6 *This,
+        SAFEARRAY *conditions,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateOrConditionFromNativeArray)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition **conditions,
+        int conditionCount,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNotCondition)(
+        IUIAutomation6 *This,
+        IUIAutomationCondition *condition,
+        IUIAutomationCondition **newCondition);
+
+    HRESULT (STDMETHODCALLTYPE *AddAutomationEventHandler)(
+        IUIAutomation6 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAutomationEventHandler)(
+        IUIAutomation6 *This,
+        EVENTID eventId,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandlerNativeArray)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        PROPERTYID *propertyArray,
+        int propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *AddPropertyChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationPropertyChangedEventHandler *handler,
+        SAFEARRAY *propertyArray);
+
+    HRESULT (STDMETHODCALLTYPE *RemovePropertyChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationPropertyChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddStructureChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStructureChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationStructureChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *AddFocusChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFocusChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationFocusChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAllEventHandlers)(
+        IUIAutomation6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IntNativeArrayToSafeArray)(
+        IUIAutomation6 *This,
+        int *array,
+        int arrayCount,
+        SAFEARRAY **safeArray);
+
+    HRESULT (STDMETHODCALLTYPE *IntSafeArrayToNativeArray)(
+        IUIAutomation6 *This,
+        SAFEARRAY *intArray,
+        int **array,
+        int *arrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *RectToVariant)(
+        IUIAutomation6 *This,
+        RECT rc,
+        VARIANT *var);
+
+    HRESULT (STDMETHODCALLTYPE *VariantToRect)(
+        IUIAutomation6 *This,
+        VARIANT var,
+        RECT *rc);
+
+    HRESULT (STDMETHODCALLTYPE *SafeArrayToRectNativeArray)(
+        IUIAutomation6 *This,
+        SAFEARRAY *rects,
+        RECT **rectArray,
+        int *rectArrayCount);
+
+    HRESULT (STDMETHODCALLTYPE *CreateProxyFactoryEntry)(
+        IUIAutomation6 *This,
+        IUIAutomationProxyFactory *factory,
+        IUIAutomationProxyFactoryEntry **factoryEntry);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryMapping)(
+        IUIAutomation6 *This,
+        IUIAutomationProxyFactoryMapping **factoryMapping);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyProgrammaticName)(
+        IUIAutomation6 *This,
+        PROPERTYID property,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *GetPatternProgrammaticName)(
+        IUIAutomation6 *This,
+        PATTERNID pattern,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedPatterns)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **patternIds,
+        SAFEARRAY **patternNames);
+
+    HRESULT (STDMETHODCALLTYPE *PollForPotentialSupportedProperties)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *pElement,
+        SAFEARRAY **propertyIds,
+        SAFEARRAY **propertyNames);
+
+    HRESULT (STDMETHODCALLTYPE *CheckNotSupported)(
+        IUIAutomation6 *This,
+        VARIANT value,
+        WINBOOL *isNotSupported);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedNotSupportedValue)(
+        IUIAutomation6 *This,
+        IUnknown **notSupportedValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_ReservedMixedAttributeValue)(
+        IUIAutomation6 *This,
+        IUnknown **mixedAttributeValue);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessible)(
+        IUIAutomation6 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *ElementFromIAccessibleBuildCache)(
+        IUIAutomation6 *This,
+        IAccessible *accessible,
+        int childId,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationElement **element);
+
+    /*** IUIAutomation2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoSetFocus)(
+        IUIAutomation6 *This,
+        WINBOOL *autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoSetFocus)(
+        IUIAutomation6 *This,
+        WINBOOL autoSetFocus);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionTimeout)(
+        IUIAutomation6 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionTimeout)(
+        IUIAutomation6 *This,
+        DWORD timeout);
+
+    HRESULT (STDMETHODCALLTYPE *get_TransactionTimeout)(
+        IUIAutomation6 *This,
+        DWORD *timeout);
+
+    HRESULT (STDMETHODCALLTYPE *put_TransactionTimeout)(
+        IUIAutomation6 *This,
+        DWORD timeout);
+
+    /*** IUIAutomation3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddTextEditTextChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        enum TextEditChangeType textEditChangeType,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveTextEditTextChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationTextEditTextChangedEventHandler *handler);
+
+    /*** IUIAutomation4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddChangesEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        int *changeTypes,
+        int changesCount,
+        IUIAutomationCacheRequest *pCacheRequest,
+        IUIAutomationChangesEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveChangesEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationChangesEventHandler *handler);
+
+    /*** IUIAutomation5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddNotificationEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationNotificationEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveNotificationEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationNotificationEventHandler *handler);
+
+    /*** IUIAutomation6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateEventHandlerGroup)(
+        IUIAutomation6 *This,
+        IUIAutomationEventHandlerGroup **handlerGroup);
+
+    HRESULT (STDMETHODCALLTYPE *AddEventHandlerGroup)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandlerGroup *handlerGroup);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveEventHandlerGroup)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationEventHandlerGroup *handlerGroup);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionRecoveryBehavior)(
+        IUIAutomation6 *This,
+        enum ConnectionRecoveryBehaviorOptions *connectionRecoveryBehaviorOptions);
+
+    HRESULT (STDMETHODCALLTYPE *put_ConnectionRecoveryBehavior)(
+        IUIAutomation6 *This,
+        enum ConnectionRecoveryBehaviorOptions connectionRecoveryBehaviorOptions);
+
+    HRESULT (STDMETHODCALLTYPE *get_CoalesceEvents)(
+        IUIAutomation6 *This,
+        enum CoalesceEventsOptions *coalesceEventsOptions);
+
+    HRESULT (STDMETHODCALLTYPE *put_CoalesceEvents)(
+        IUIAutomation6 *This,
+        enum CoalesceEventsOptions coalesceEventsOptions);
+
+    HRESULT (STDMETHODCALLTYPE *AddActiveTextPositionChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        enum TreeScope scope,
+        IUIAutomationCacheRequest *cacheRequest,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveActiveTextPositionChangedEventHandler)(
+        IUIAutomation6 *This,
+        IUIAutomationElement *element,
+        IUIAutomationActiveTextPositionChangedEventHandler *handler);
+
+    END_INTERFACE
+} IUIAutomation6Vtbl;
+
+interface IUIAutomation6 {
+    CONST_VTBL IUIAutomation6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomation6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomation6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomation6_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomation methods ***/
+#define IUIAutomation6_CompareElements(This,el1,el2,areSame) (This)->lpVtbl->CompareElements(This,el1,el2,areSame)
+#define IUIAutomation6_CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame) (This)->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame)
+#define IUIAutomation6_GetRootElement(This,root) (This)->lpVtbl->GetRootElement(This,root)
+#define IUIAutomation6_ElementFromHandle(This,hwnd,element) (This)->lpVtbl->ElementFromHandle(This,hwnd,element)
+#define IUIAutomation6_ElementFromPoint(This,pt,element) (This)->lpVtbl->ElementFromPoint(This,pt,element)
+#define IUIAutomation6_GetFocusedElement(This,element) (This)->lpVtbl->GetFocusedElement(This,element)
+#define IUIAutomation6_GetRootElementBuildCache(This,cacheRequest,root) (This)->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root)
+#define IUIAutomation6_ElementFromHandleBuildCache(This,hwnd,cacheRequest,element) (This)->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element)
+#define IUIAutomation6_ElementFromPointBuildCache(This,pt,cacheRequest,element) (This)->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element)
+#define IUIAutomation6_GetFocusedElementBuildCache(This,cacheRequest,element) (This)->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element)
+#define IUIAutomation6_CreateTreeWalker(This,pCondition,walker) (This)->lpVtbl->CreateTreeWalker(This,pCondition,walker)
+#define IUIAutomation6_get_ControlViewWalker(This,walker) (This)->lpVtbl->get_ControlViewWalker(This,walker)
+#define IUIAutomation6_get_ContentViewWalker(This,walker) (This)->lpVtbl->get_ContentViewWalker(This,walker)
+#define IUIAutomation6_get_RawViewWalker(This,walker) (This)->lpVtbl->get_RawViewWalker(This,walker)
+#define IUIAutomation6_get_RawViewCondition(This,condition) (This)->lpVtbl->get_RawViewCondition(This,condition)
+#define IUIAutomation6_get_ControlViewCondition(This,condition) (This)->lpVtbl->get_ControlViewCondition(This,condition)
+#define IUIAutomation6_get_ContentViewCondition(This,condition) (This)->lpVtbl->get_ContentViewCondition(This,condition)
+#define IUIAutomation6_CreateCacheRequest(This,cacheRequest) (This)->lpVtbl->CreateCacheRequest(This,cacheRequest)
+#define IUIAutomation6_CreateTrueCondition(This,newCondition) (This)->lpVtbl->CreateTrueCondition(This,newCondition)
+#define IUIAutomation6_CreateFalseCondition(This,newCondition) (This)->lpVtbl->CreateFalseCondition(This,newCondition)
+#define IUIAutomation6_CreatePropertyCondition(This,propertyId,value,newCondition) (This)->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition)
+#define IUIAutomation6_CreatePropertyConditionEx(This,propertyId,value,flags,newCondition) (This)->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition)
+#define IUIAutomation6_CreateAndCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation6_CreateAndConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation6_CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation6_CreateOrCondition(This,condition1,condition2,newCondition) (This)->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition)
+#define IUIAutomation6_CreateOrConditionFromArray(This,conditions,newCondition) (This)->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition)
+#define IUIAutomation6_CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition) (This)->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition)
+#define IUIAutomation6_CreateNotCondition(This,condition,newCondition) (This)->lpVtbl->CreateNotCondition(This,condition,newCondition)
+#define IUIAutomation6_AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler) (This)->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler)
+#define IUIAutomation6_RemoveAutomationEventHandler(This,eventId,element,handler) (This)->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler)
+#define IUIAutomation6_AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount) (This)->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount)
+#define IUIAutomation6_AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray) (This)->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray)
+#define IUIAutomation6_RemovePropertyChangedEventHandler(This,element,handler) (This)->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler)
+#define IUIAutomation6_AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation6_RemoveStructureChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler)
+#define IUIAutomation6_AddFocusChangedEventHandler(This,cacheRequest,handler) (This)->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler)
+#define IUIAutomation6_RemoveFocusChangedEventHandler(This,handler) (This)->lpVtbl->RemoveFocusChangedEventHandler(This,handler)
+#define IUIAutomation6_RemoveAllEventHandlers(This) (This)->lpVtbl->RemoveAllEventHandlers(This)
+#define IUIAutomation6_IntNativeArrayToSafeArray(This,array,arrayCount,safeArray) (This)->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray)
+#define IUIAutomation6_IntSafeArrayToNativeArray(This,intArray,array,arrayCount) (This)->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount)
+#define IUIAutomation6_RectToVariant(This,rc,var) (This)->lpVtbl->RectToVariant(This,rc,var)
+#define IUIAutomation6_VariantToRect(This,var,rc) (This)->lpVtbl->VariantToRect(This,var,rc)
+#define IUIAutomation6_SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount) (This)->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount)
+#define IUIAutomation6_CreateProxyFactoryEntry(This,factory,factoryEntry) (This)->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry)
+#define IUIAutomation6_get_ProxyFactoryMapping(This,factoryMapping) (This)->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping)
+#define IUIAutomation6_GetPropertyProgrammaticName(This,property,name) (This)->lpVtbl->GetPropertyProgrammaticName(This,property,name)
+#define IUIAutomation6_GetPatternProgrammaticName(This,pattern,name) (This)->lpVtbl->GetPatternProgrammaticName(This,pattern,name)
+#define IUIAutomation6_PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames) (This)->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames)
+#define IUIAutomation6_PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames) (This)->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames)
+#define IUIAutomation6_CheckNotSupported(This,value,isNotSupported) (This)->lpVtbl->CheckNotSupported(This,value,isNotSupported)
+#define IUIAutomation6_get_ReservedNotSupportedValue(This,notSupportedValue) (This)->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue)
+#define IUIAutomation6_get_ReservedMixedAttributeValue(This,mixedAttributeValue) (This)->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue)
+#define IUIAutomation6_ElementFromIAccessible(This,accessible,childId,element) (This)->lpVtbl->ElementFromIAccessible(This,accessible,childId,element)
+#define IUIAutomation6_ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element) (This)->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element)
+/*** IUIAutomation2 methods ***/
+#define IUIAutomation6_get_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->get_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation6_put_AutoSetFocus(This,autoSetFocus) (This)->lpVtbl->put_AutoSetFocus(This,autoSetFocus)
+#define IUIAutomation6_get_ConnectionTimeout(This,timeout) (This)->lpVtbl->get_ConnectionTimeout(This,timeout)
+#define IUIAutomation6_put_ConnectionTimeout(This,timeout) (This)->lpVtbl->put_ConnectionTimeout(This,timeout)
+#define IUIAutomation6_get_TransactionTimeout(This,timeout) (This)->lpVtbl->get_TransactionTimeout(This,timeout)
+#define IUIAutomation6_put_TransactionTimeout(This,timeout) (This)->lpVtbl->put_TransactionTimeout(This,timeout)
+/*** IUIAutomation3 methods ***/
+#define IUIAutomation6_AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler) (This)->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler)
+#define IUIAutomation6_RemoveTextEditTextChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler)
+/*** IUIAutomation4 methods ***/
+#define IUIAutomation6_AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler) (This)->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler)
+#define IUIAutomation6_RemoveChangesEventHandler(This,element,handler) (This)->lpVtbl->RemoveChangesEventHandler(This,element,handler)
+/*** IUIAutomation5 methods ***/
+#define IUIAutomation6_AddNotificationEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddNotificationEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation6_RemoveNotificationEventHandler(This,element,handler) (This)->lpVtbl->RemoveNotificationEventHandler(This,element,handler)
+/*** IUIAutomation6 methods ***/
+#define IUIAutomation6_CreateEventHandlerGroup(This,handlerGroup) (This)->lpVtbl->CreateEventHandlerGroup(This,handlerGroup)
+#define IUIAutomation6_AddEventHandlerGroup(This,element,handlerGroup) (This)->lpVtbl->AddEventHandlerGroup(This,element,handlerGroup)
+#define IUIAutomation6_RemoveEventHandlerGroup(This,element,handlerGroup) (This)->lpVtbl->RemoveEventHandlerGroup(This,element,handlerGroup)
+#define IUIAutomation6_get_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions) (This)->lpVtbl->get_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions)
+#define IUIAutomation6_put_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions) (This)->lpVtbl->put_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions)
+#define IUIAutomation6_get_CoalesceEvents(This,coalesceEventsOptions) (This)->lpVtbl->get_CoalesceEvents(This,coalesceEventsOptions)
+#define IUIAutomation6_put_CoalesceEvents(This,coalesceEventsOptions) (This)->lpVtbl->put_CoalesceEvents(This,coalesceEventsOptions)
+#define IUIAutomation6_AddActiveTextPositionChangedEventHandler(This,element,scope,cacheRequest,handler) (This)->lpVtbl->AddActiveTextPositionChangedEventHandler(This,element,scope,cacheRequest,handler)
+#define IUIAutomation6_RemoveActiveTextPositionChangedEventHandler(This,element,handler) (This)->lpVtbl->RemoveActiveTextPositionChangedEventHandler(This,element,handler)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_QueryInterface(IUIAutomation6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomation6_AddRef(IUIAutomation6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomation6_Release(IUIAutomation6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomation methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_CompareElements(IUIAutomation6* This,IUIAutomationElement *el1,IUIAutomationElement *el2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareElements(This,el1,el2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CompareRuntimeIds(IUIAutomation6* This,SAFEARRAY *runtimeId1,SAFEARRAY *runtimeId2,WINBOOL *areSame) {
+    return This->lpVtbl->CompareRuntimeIds(This,runtimeId1,runtimeId2,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetRootElement(IUIAutomation6* This,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElement(This,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromHandle(IUIAutomation6* This,UIA_HWND hwnd,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandle(This,hwnd,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromPoint(IUIAutomation6* This,POINT pt,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPoint(This,pt,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetFocusedElement(IUIAutomation6* This,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElement(This,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetRootElementBuildCache(IUIAutomation6* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **root) {
+    return This->lpVtbl->GetRootElementBuildCache(This,cacheRequest,root);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromHandleBuildCache(IUIAutomation6* This,UIA_HWND hwnd,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromHandleBuildCache(This,hwnd,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromPointBuildCache(IUIAutomation6* This,POINT pt,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromPointBuildCache(This,pt,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetFocusedElementBuildCache(IUIAutomation6* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->GetFocusedElementBuildCache(This,cacheRequest,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateTreeWalker(IUIAutomation6* This,IUIAutomationCondition *pCondition,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->CreateTreeWalker(This,pCondition,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ControlViewWalker(IUIAutomation6* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ControlViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ContentViewWalker(IUIAutomation6* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_ContentViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_RawViewWalker(IUIAutomation6* This,IUIAutomationTreeWalker **walker) {
+    return This->lpVtbl->get_RawViewWalker(This,walker);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_RawViewCondition(IUIAutomation6* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_RawViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ControlViewCondition(IUIAutomation6* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ControlViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ContentViewCondition(IUIAutomation6* This,IUIAutomationCondition **condition) {
+    return This->lpVtbl->get_ContentViewCondition(This,condition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateCacheRequest(IUIAutomation6* This,IUIAutomationCacheRequest **cacheRequest) {
+    return This->lpVtbl->CreateCacheRequest(This,cacheRequest);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateTrueCondition(IUIAutomation6* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateTrueCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateFalseCondition(IUIAutomation6* This,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateFalseCondition(This,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreatePropertyCondition(IUIAutomation6* This,PROPERTYID propertyId,VARIANT value,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyCondition(This,propertyId,value,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreatePropertyConditionEx(IUIAutomation6* This,PROPERTYID propertyId,VARIANT value,enum PropertyConditionFlags flags,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreatePropertyConditionEx(This,propertyId,value,flags,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateAndCondition(IUIAutomation6* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateAndConditionFromArray(IUIAutomation6* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateAndConditionFromNativeArray(IUIAutomation6* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateAndConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateOrCondition(IUIAutomation6* This,IUIAutomationCondition *condition1,IUIAutomationCondition *condition2,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrCondition(This,condition1,condition2,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateOrConditionFromArray(IUIAutomation6* This,SAFEARRAY *conditions,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromArray(This,conditions,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateOrConditionFromNativeArray(IUIAutomation6* This,IUIAutomationCondition **conditions,int conditionCount,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateOrConditionFromNativeArray(This,conditions,conditionCount,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateNotCondition(IUIAutomation6* This,IUIAutomationCondition *condition,IUIAutomationCondition **newCondition) {
+    return This->lpVtbl->CreateNotCondition(This,condition,newCondition);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddAutomationEventHandler(IUIAutomation6* This,EVENTID eventId,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->AddAutomationEventHandler(This,eventId,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveAutomationEventHandler(IUIAutomation6* This,EVENTID eventId,IUIAutomationElement *element,IUIAutomationEventHandler *handler) {
+    return This->lpVtbl->RemoveAutomationEventHandler(This,eventId,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddPropertyChangedEventHandlerNativeArray(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,PROPERTYID *propertyArray,int propertyCount) {
+    return This->lpVtbl->AddPropertyChangedEventHandlerNativeArray(This,element,scope,cacheRequest,handler,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddPropertyChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationPropertyChangedEventHandler *handler,SAFEARRAY *propertyArray) {
+    return This->lpVtbl->AddPropertyChangedEventHandler(This,element,scope,cacheRequest,handler,propertyArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemovePropertyChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationPropertyChangedEventHandler *handler) {
+    return This->lpVtbl->RemovePropertyChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddStructureChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->AddStructureChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveStructureChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationStructureChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveStructureChangedEventHandler(This,element,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddFocusChangedEventHandler(IUIAutomation6* This,IUIAutomationCacheRequest *cacheRequest,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->AddFocusChangedEventHandler(This,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveFocusChangedEventHandler(IUIAutomation6* This,IUIAutomationFocusChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveFocusChangedEventHandler(This,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveAllEventHandlers(IUIAutomation6* This) {
+    return This->lpVtbl->RemoveAllEventHandlers(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_IntNativeArrayToSafeArray(IUIAutomation6* This,int *array,int arrayCount,SAFEARRAY **safeArray) {
+    return This->lpVtbl->IntNativeArrayToSafeArray(This,array,arrayCount,safeArray);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_IntSafeArrayToNativeArray(IUIAutomation6* This,SAFEARRAY *intArray,int **array,int *arrayCount) {
+    return This->lpVtbl->IntSafeArrayToNativeArray(This,intArray,array,arrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RectToVariant(IUIAutomation6* This,RECT rc,VARIANT *var) {
+    return This->lpVtbl->RectToVariant(This,rc,var);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_VariantToRect(IUIAutomation6* This,VARIANT var,RECT *rc) {
+    return This->lpVtbl->VariantToRect(This,var,rc);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_SafeArrayToRectNativeArray(IUIAutomation6* This,SAFEARRAY *rects,RECT **rectArray,int *rectArrayCount) {
+    return This->lpVtbl->SafeArrayToRectNativeArray(This,rects,rectArray,rectArrayCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateProxyFactoryEntry(IUIAutomation6* This,IUIAutomationProxyFactory *factory,IUIAutomationProxyFactoryEntry **factoryEntry) {
+    return This->lpVtbl->CreateProxyFactoryEntry(This,factory,factoryEntry);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ProxyFactoryMapping(IUIAutomation6* This,IUIAutomationProxyFactoryMapping **factoryMapping) {
+    return This->lpVtbl->get_ProxyFactoryMapping(This,factoryMapping);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetPropertyProgrammaticName(IUIAutomation6* This,PROPERTYID property,BSTR *name) {
+    return This->lpVtbl->GetPropertyProgrammaticName(This,property,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_GetPatternProgrammaticName(IUIAutomation6* This,PATTERNID pattern,BSTR *name) {
+    return This->lpVtbl->GetPatternProgrammaticName(This,pattern,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_PollForPotentialSupportedPatterns(IUIAutomation6* This,IUIAutomationElement *pElement,SAFEARRAY **patternIds,SAFEARRAY **patternNames) {
+    return This->lpVtbl->PollForPotentialSupportedPatterns(This,pElement,patternIds,patternNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_PollForPotentialSupportedProperties(IUIAutomation6* This,IUIAutomationElement *pElement,SAFEARRAY **propertyIds,SAFEARRAY **propertyNames) {
+    return This->lpVtbl->PollForPotentialSupportedProperties(This,pElement,propertyIds,propertyNames);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_CheckNotSupported(IUIAutomation6* This,VARIANT value,WINBOOL *isNotSupported) {
+    return This->lpVtbl->CheckNotSupported(This,value,isNotSupported);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ReservedNotSupportedValue(IUIAutomation6* This,IUnknown **notSupportedValue) {
+    return This->lpVtbl->get_ReservedNotSupportedValue(This,notSupportedValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ReservedMixedAttributeValue(IUIAutomation6* This,IUnknown **mixedAttributeValue) {
+    return This->lpVtbl->get_ReservedMixedAttributeValue(This,mixedAttributeValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromIAccessible(IUIAutomation6* This,IAccessible *accessible,int childId,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessible(This,accessible,childId,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_ElementFromIAccessibleBuildCache(IUIAutomation6* This,IAccessible *accessible,int childId,IUIAutomationCacheRequest *cacheRequest,IUIAutomationElement **element) {
+    return This->lpVtbl->ElementFromIAccessibleBuildCache(This,accessible,childId,cacheRequest,element);
+}
+/*** IUIAutomation2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_get_AutoSetFocus(IUIAutomation6* This,WINBOOL *autoSetFocus) {
+    return This->lpVtbl->get_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_put_AutoSetFocus(IUIAutomation6* This,WINBOOL autoSetFocus) {
+    return This->lpVtbl->put_AutoSetFocus(This,autoSetFocus);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ConnectionTimeout(IUIAutomation6* This,DWORD *timeout) {
+    return This->lpVtbl->get_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_put_ConnectionTimeout(IUIAutomation6* This,DWORD timeout) {
+    return This->lpVtbl->put_ConnectionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_TransactionTimeout(IUIAutomation6* This,DWORD *timeout) {
+    return This->lpVtbl->get_TransactionTimeout(This,timeout);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_put_TransactionTimeout(IUIAutomation6* This,DWORD timeout) {
+    return This->lpVtbl->put_TransactionTimeout(This,timeout);
+}
+/*** IUIAutomation3 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_AddTextEditTextChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,enum TextEditChangeType textEditChangeType,IUIAutomationCacheRequest *cacheRequest,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->AddTextEditTextChangedEventHandler(This,element,scope,textEditChangeType,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveTextEditTextChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationTextEditTextChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveTextEditTextChangedEventHandler(This,element,handler);
+}
+/*** IUIAutomation4 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_AddChangesEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,int *changeTypes,int changesCount,IUIAutomationCacheRequest *pCacheRequest,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->AddChangesEventHandler(This,element,scope,changeTypes,changesCount,pCacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveChangesEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationChangesEventHandler *handler) {
+    return This->lpVtbl->RemoveChangesEventHandler(This,element,handler);
+}
+/*** IUIAutomation5 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_AddNotificationEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationNotificationEventHandler *handler) {
+    return This->lpVtbl->AddNotificationEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveNotificationEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationNotificationEventHandler *handler) {
+    return This->lpVtbl->RemoveNotificationEventHandler(This,element,handler);
+}
+/*** IUIAutomation6 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomation6_CreateEventHandlerGroup(IUIAutomation6* This,IUIAutomationEventHandlerGroup **handlerGroup) {
+    return This->lpVtbl->CreateEventHandlerGroup(This,handlerGroup);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddEventHandlerGroup(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationEventHandlerGroup *handlerGroup) {
+    return This->lpVtbl->AddEventHandlerGroup(This,element,handlerGroup);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveEventHandlerGroup(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationEventHandlerGroup *handlerGroup) {
+    return This->lpVtbl->RemoveEventHandlerGroup(This,element,handlerGroup);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_ConnectionRecoveryBehavior(IUIAutomation6* This,enum ConnectionRecoveryBehaviorOptions *connectionRecoveryBehaviorOptions) {
+    return This->lpVtbl->get_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_put_ConnectionRecoveryBehavior(IUIAutomation6* This,enum ConnectionRecoveryBehaviorOptions connectionRecoveryBehaviorOptions) {
+    return This->lpVtbl->put_ConnectionRecoveryBehavior(This,connectionRecoveryBehaviorOptions);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_get_CoalesceEvents(IUIAutomation6* This,enum CoalesceEventsOptions *coalesceEventsOptions) {
+    return This->lpVtbl->get_CoalesceEvents(This,coalesceEventsOptions);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_put_CoalesceEvents(IUIAutomation6* This,enum CoalesceEventsOptions coalesceEventsOptions) {
+    return This->lpVtbl->put_CoalesceEvents(This,coalesceEventsOptions);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_AddActiveTextPositionChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,enum TreeScope scope,IUIAutomationCacheRequest *cacheRequest,IUIAutomationActiveTextPositionChangedEventHandler *handler) {
+    return This->lpVtbl->AddActiveTextPositionChangedEventHandler(This,element,scope,cacheRequest,handler);
+}
+static __WIDL_INLINE HRESULT IUIAutomation6_RemoveActiveTextPositionChangedEventHandler(IUIAutomation6* This,IUIAutomationElement *element,IUIAutomationActiveTextPositionChangedEventHandler *handler) {
+    return This->lpVtbl->RemoveActiveTextPositionChangedEventHandler(This,element,handler);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomation6_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * CUIAutomation coclass
+ */
+
+DEFINE_GUID(CLSID_CUIAutomation, 0xff48dba4, 0x60ef, 0x4201, 0xaa,0x87, 0x54,0x10,0x3e,0xef,0x59,0x4e);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("ff48dba4-60ef-4201-aa87-54103eef594e") CUIAutomation;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CUIAutomation, 0xff48dba4, 0x60ef, 0x4201, 0xaa,0x87, 0x54,0x10,0x3e,0xef,0x59,0x4e)
+#endif
+#endif
+
+/*****************************************************************************
+ * CUIAutomation8 coclass
+ */
+
+DEFINE_GUID(CLSID_CUIAutomation8, 0xe22ad333, 0xb25f, 0x460c, 0x83,0xd0, 0x05,0x81,0x10,0x73,0x95,0xc9);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("e22ad333-b25f-460c-83d0-0581107395c9") CUIAutomation8;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CUIAutomation8, 0xe22ad333, 0xb25f, 0x460c, 0x83,0xd0, 0x05,0x81,0x10,0x73,0x95,0xc9)
+#endif
+#endif
+
 #endif /* __UIAutomationClient_LIBRARY_DEFINED__ */
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
+void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
+ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
+unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
+unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
+void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 
 /* End additional prototypes */
 

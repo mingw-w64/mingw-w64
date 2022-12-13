@@ -111,6 +111,40 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 ABI::Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                interface ISpeechSynthesizerOptions2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 ABI::Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                interface ISpeechSynthesizerOptions3;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CIInstalledVoicesStatic_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CIInstalledVoicesStatic_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIInstalledVoicesStatic __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIInstalledVoicesStatic;
@@ -196,14 +230,6 @@ typedef struct __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechSynthesizer __x_A
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechSynthesizer_FWD_DEFINED__ */
 
-#ifndef ____FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
-#define ____FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
-typedef interface __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
-#ifdef __cplusplus
-#define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
-#endif /* __cplusplus */
-#endif
-
 #ifndef ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 #define ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 typedef interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
@@ -212,19 +238,19 @@ typedef interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInform
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
 #ifdef __cplusplus
 #define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
-#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
-typedef interface __FIVectorView_1_Windows__CMedia__CIMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker;
-#ifdef __cplusplus
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::IMediaMarker* >
 #endif /* __cplusplus */
 #endif
 
@@ -249,25 +275,19 @@ typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CMedia__CSpeechS
 #include <inspectable.h>
 #include <windows.foundation.h>
 #include <windows.media.h>
+#include <windows.storage.streams.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#ifndef ____x_ABI_CWindows_CFoundation_CIClosable_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CIClosable_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CIClosable __x_ABI_CWindows_CFoundation_CIClosable;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CFoundation_CIClosable ABI::Windows::Foundation::IClosable
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            interface IClosable;
-        }
-    }
-}
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence;
 #endif /* __cplusplus */
-#endif
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence;
+#endif /* __cplusplus */
 
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CVoiceGender __x_ABI_CWindows_CMedia_CSpeechSynthesis_CVoiceGender;
@@ -341,6 +361,57 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions ABI::Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                interface ISpeechSynthesizerOptions;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 ABI::Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                interface ISpeechSynthesizerOptions2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 ABI::Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                interface ISpeechSynthesizerOptions3;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInformation;
@@ -375,103 +446,11 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType;
+#ifndef ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IRandomAccessStreamWithContentType;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream ABI::Windows::Storage::Streams::IRandomAccessStream
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IRandomAccessStream;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIInputStream __x_ABI_CWindows_CStorage_CStreams_CIInputStream;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIInputStream ABI::Windows::Storage::Streams::IInputStream
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IInputStream;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream ABI::Windows::Storage::Streams::IOutputStream
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IOutputStream;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider ABI::Windows::Storage::Streams::IContentTypeProvider
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IContentTypeProvider;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CIMediaMarker __x_ABI_CWindows_CMedia_CIMediaMarker;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CMedia_CIMediaMarker ABI::Windows::Media::IMediaMarker
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            interface IMediaMarker;
-        }
-    }
-}
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
 #endif /* __cplusplus */
 #endif
 
@@ -483,27 +462,11 @@ typedef interface __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInform
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
-#define ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
-typedef interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
-#ifdef __cplusplus
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
-#endif /* __cplusplus */
-#endif
-
 #ifndef ____FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation;
 #ifdef __cplusplus
 #define __FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* >
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
-#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_FWD_DEFINED__
-typedef interface __FIVectorView_1_Windows__CMedia__CIMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker;
-#ifdef __cplusplus
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::IMediaMarker* >
 #endif /* __cplusplus */
 #endif
 
@@ -515,6 +478,60 @@ typedef interface __FIAsyncOperation_1_Windows__CMedia__CSpeechSynthesis__CSpeec
 #endif /* __cplusplus */
 #endif
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                enum SpeechAppendedSilence {
+                    SpeechAppendedSilence_Default = 0,
+                    SpeechAppendedSilence_Min = 1
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence {
+    SpeechAppendedSilence_Default = 0,
+    SpeechAppendedSilence_Min = 1
+};
+#ifdef WIDL_using_Windows_Media_SpeechSynthesis
+#define SpeechAppendedSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence
+#endif /* WIDL_using_Windows_Media_SpeechSynthesis */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                enum SpeechPunctuationSilence {
+                    SpeechPunctuationSilence_Default = 0,
+                    SpeechPunctuationSilence_Min = 1
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence {
+    SpeechPunctuationSilence_Default = 0,
+    SpeechPunctuationSilence_Min = 1
+};
+#ifdef WIDL_using_Windows_Media_SpeechSynthesis
+#define SpeechPunctuationSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence
+#endif /* WIDL_using_Windows_Media_SpeechSynthesis */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000 */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
@@ -1145,7 +1162,7 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CIVoiceInf
 /*****************************************************************************
  * ISpeechSynthesizerOptions interface
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
 #ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions_INTERFACE_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions_INTERFACE_DEFINED__
 
@@ -1304,7 +1321,359 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSy
 #endif
 
 #endif  /* ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions_INTERFACE_DEFINED__ */
-#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000 */
+
+/*****************************************************************************
+ * ISpeechSynthesizerOptions2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2, 0x1cbef60e, 0x119c, 0x4bed, 0xb1,0x18, 0xd2,0x50,0xc3,0xa2,0x57,0x93);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                MIDL_INTERFACE("1cbef60e-119c-4bed-b118-d250c3a25793")
+                ISpeechSynthesizerOptions2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_AudioVolume(
+                        DOUBLE *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_AudioVolume(
+                        DOUBLE value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_SpeakingRate(
+                        DOUBLE *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_SpeakingRate(
+                        DOUBLE value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_AudioPitch(
+                        DOUBLE *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_AudioPitch(
+                        DOUBLE value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2, 0x1cbef60e, 0x119c, 0x4bed, 0xb1,0x18, 0xd2,0x50,0xc3,0xa2,0x57,0x93)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        TrustLevel *trustLevel);
+
+    /*** ISpeechSynthesizerOptions2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AudioVolume)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_AudioVolume)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE value);
+
+    HRESULT (STDMETHODCALLTYPE *get_SpeakingRate)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_SpeakingRate)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE value);
+
+    HRESULT (STDMETHODCALLTYPE *get_AudioPitch)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_AudioPitch)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 *This,
+        DOUBLE value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2Vtbl;
+
+interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2 {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISpeechSynthesizerOptions2 methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioVolume(This,value) (This)->lpVtbl->get_AudioVolume(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioVolume(This,value) (This)->lpVtbl->put_AudioVolume(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_SpeakingRate(This,value) (This)->lpVtbl->get_SpeakingRate(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_SpeakingRate(This,value) (This)->lpVtbl->put_SpeakingRate(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioPitch(This,value) (This)->lpVtbl->get_AudioPitch(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioPitch(This,value) (This)->lpVtbl->put_AudioPitch(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_QueryInterface(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_AddRef(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_Release(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetIids(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetTrustLevel(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISpeechSynthesizerOptions2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioVolume(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE *value) {
+    return This->lpVtbl->get_AudioVolume(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioVolume(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE value) {
+    return This->lpVtbl->put_AudioVolume(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_SpeakingRate(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE *value) {
+    return This->lpVtbl->get_SpeakingRate(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_SpeakingRate(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE value) {
+    return This->lpVtbl->put_SpeakingRate(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioPitch(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE *value) {
+    return This->lpVtbl->get_AudioPitch(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioPitch(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2* This,DOUBLE value) {
+    return This->lpVtbl->put_AudioPitch(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_SpeechSynthesis
+#define IID_ISpeechSynthesizerOptions2 IID___x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2
+#define ISpeechSynthesizerOptions2Vtbl __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2Vtbl
+#define ISpeechSynthesizerOptions2 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2
+#define ISpeechSynthesizerOptions2_QueryInterface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_QueryInterface
+#define ISpeechSynthesizerOptions2_AddRef __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_AddRef
+#define ISpeechSynthesizerOptions2_Release __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_Release
+#define ISpeechSynthesizerOptions2_GetIids __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetIids
+#define ISpeechSynthesizerOptions2_GetRuntimeClassName __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetRuntimeClassName
+#define ISpeechSynthesizerOptions2_GetTrustLevel __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_GetTrustLevel
+#define ISpeechSynthesizerOptions2_get_AudioVolume __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioVolume
+#define ISpeechSynthesizerOptions2_put_AudioVolume __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioVolume
+#define ISpeechSynthesizerOptions2_get_SpeakingRate __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_SpeakingRate
+#define ISpeechSynthesizerOptions2_put_SpeakingRate __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_SpeakingRate
+#define ISpeechSynthesizerOptions2_get_AudioPitch __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_get_AudioPitch
+#define ISpeechSynthesizerOptions2_put_AudioPitch __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_put_AudioPitch
+#endif /* WIDL_using_Windows_Media_SpeechSynthesis */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000 */
+
+/*****************************************************************************
+ * ISpeechSynthesizerOptions3 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#ifndef ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3, 0x401ed877, 0x902c, 0x4814, 0xa5,0x82, 0xa5,0xd0,0xc0,0x76,0x9f,0xa8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace SpeechSynthesis {
+                MIDL_INTERFACE("401ed877-902c-4814-a582-a5d0c0769fa8")
+                ISpeechSynthesizerOptions3 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_AppendedSilence(
+                        enum SpeechAppendedSilence *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_AppendedSilence(
+                        enum SpeechAppendedSilence value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_PunctuationSilence(
+                        enum SpeechPunctuationSilence *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_PunctuationSilence(
+                        enum SpeechPunctuationSilence value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3, 0x401ed877, 0x902c, 0x4814, 0xa5,0x82, 0xa5,0xd0,0xc0,0x76,0x9f,0xa8)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        TrustLevel *trustLevel);
+
+    /*** ISpeechSynthesizerOptions3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AppendedSilence)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_AppendedSilence)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence value);
+
+    HRESULT (STDMETHODCALLTYPE *get_PunctuationSilence)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_PunctuationSilence)(
+        __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 *This,
+        enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3Vtbl;
+
+interface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3 {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISpeechSynthesizerOptions3 methods ***/
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_AppendedSilence(This,value) (This)->lpVtbl->get_AppendedSilence(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_AppendedSilence(This,value) (This)->lpVtbl->put_AppendedSilence(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_PunctuationSilence(This,value) (This)->lpVtbl->get_PunctuationSilence(This,value)
+#define __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_PunctuationSilence(This,value) (This)->lpVtbl->put_PunctuationSilence(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_QueryInterface(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_AddRef(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_Release(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetIids(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetTrustLevel(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISpeechSynthesizerOptions3 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_AppendedSilence(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence *value) {
+    return This->lpVtbl->get_AppendedSilence(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_AppendedSilence(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechAppendedSilence value) {
+    return This->lpVtbl->put_AppendedSilence(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_PunctuationSilence(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence *value) {
+    return This->lpVtbl->get_PunctuationSilence(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_PunctuationSilence(__x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3* This,enum __x_ABI_CWindows_CMedia_CSpeechSynthesis_CSpeechPunctuationSilence value) {
+    return This->lpVtbl->put_PunctuationSilence(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_SpeechSynthesis
+#define IID_ISpeechSynthesizerOptions3 IID___x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3
+#define ISpeechSynthesizerOptions3Vtbl __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3Vtbl
+#define ISpeechSynthesizerOptions3 __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3
+#define ISpeechSynthesizerOptions3_QueryInterface __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_QueryInterface
+#define ISpeechSynthesizerOptions3_AddRef __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_AddRef
+#define ISpeechSynthesizerOptions3_Release __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_Release
+#define ISpeechSynthesizerOptions3_GetIids __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetIids
+#define ISpeechSynthesizerOptions3_GetRuntimeClassName __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetRuntimeClassName
+#define ISpeechSynthesizerOptions3_GetTrustLevel __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_GetTrustLevel
+#define ISpeechSynthesizerOptions3_get_AppendedSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_AppendedSilence
+#define ISpeechSynthesizerOptions3_put_AppendedSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_AppendedSilence
+#define ISpeechSynthesizerOptions3_get_PunctuationSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_get_PunctuationSilence
+#define ISpeechSynthesizerOptions3_put_PunctuationSilence __x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_put_PunctuationSilence
+#endif /* WIDL_using_Windows_Media_SpeechSynthesis */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CSpeechSynthesis_CISpeechSynthesizerOptions3_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000 */
 
 /*****************************************************************************
  * IInstalledVoicesStatic interface
@@ -1465,7 +1834,7 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SpeechSynthesis
 /*
  * Class Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
 #ifndef RUNTIMECLASS_Windows_Media_SpeechSynthesis_SpeechSynthesizerOptions_DEFINED
 #define RUNTIMECLASS_Windows_Media_SpeechSynthesis_SpeechSynthesizerOptions_DEFINED
 #if !defined(_MSC_VER) && !defined(__MINGW32__)
@@ -1476,7 +1845,7 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SpeechSynthesis_Speech
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SpeechSynthesis_SpeechSynthesizerOptions[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','p','e','e','c','h','S','y','n','t','h','e','s','i','s','.','S','p','e','e','c','h','S','y','n','t','h','e','s','i','z','e','r','O','p','t','i','o','n','s',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Media_SpeechSynthesis_SpeechSynthesizerOptions_DEFINED */
-#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000 */
 
 /*
  * Class Windows.Media.SpeechSynthesis.SpeechSynthesisStream
@@ -1509,6 +1878,130 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SpeechSynthesis
 #endif
 #endif /* RUNTIMECLASS_Windows_Media_SpeechSynthesis_SpeechSynthesizer_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation, 0x3c33bb52, 0xbd98, 0x5c8c, 0xad,0xee, 0xee,0x8d,0xa0,0x62,0x8e,0xfc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("3c33bb52-bd98-5c8c-adee-ee8da0628efc")
+                IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SpeechSynthesis::VoiceInformation*, ABI::Windows::Media::SpeechSynthesis::IVoiceInformation* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation, 0x3c33bb52, 0xbd98, 0x5c8c, 0xad,0xee, 0xee,0x8d,0xa0,0x62,0x8e,0xfc)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
+        __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl;
+
+interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation {
+    CONST_VTBL __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
+#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_VoiceInformation IID___FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation
+#define IIterable_VoiceInformationVtbl __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl
+#define IIterable_VoiceInformation __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation
+#define IIterable_VoiceInformation_QueryInterface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface
+#define IIterable_VoiceInformation_AddRef __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef
+#define IIterable_VoiceInformation_Release __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release
+#define IIterable_VoiceInformation_GetIids __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids
+#define IIterable_VoiceInformation_GetRuntimeClassName __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName
+#define IIterable_VoiceInformation_GetTrustLevel __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel
+#define IIterable_VoiceInformation_First __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IIterator<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > interface
@@ -1662,130 +2155,6 @@ static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CMedia__CSpeechSynthesis__C
 #endif
 
 #endif  /* ____FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > interface
- */
-#ifndef ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__
-#define ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID___FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation, 0x3c33bb52, 0xbd98, 0x5c8c, 0xad,0xee, 0xee,0x8d,0xa0,0x62,0x8e,0xfc);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                template<>
-                MIDL_INTERFACE("3c33bb52-bd98-5c8c-adee-ee8da0628efc")
-                IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SpeechSynthesis::VoiceInformation*, ABI::Windows::Media::SpeechSynthesis::IVoiceInformation* > >
-                {
-                };
-            }
-        }
-    }
-}
-extern "C" {
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation, 0x3c33bb52, 0xbd98, 0x5c8c, 0xad,0xee, 0xee,0x8d,0xa0,0x62,0x8e,0xfc)
-#endif
-#else
-typedef struct __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This);
-
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        TrustLevel *trustLevel);
-
-    /*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
-    HRESULT (STDMETHODCALLTYPE *First)(
-        __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation *This,
-        __FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation **value);
-
-    END_INTERFACE
-} __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl;
-
-interface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation {
-    CONST_VTBL __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
-#define __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First(This,value) (This)->lpVtbl->First(This,value)
-#else
-/*** IUnknown methods ***/
-static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static __WIDL_INLINE ULONG __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IInspectable methods ***/
-static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
-}
-/*** IIterable<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > methods ***/
-static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First(__FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation* This,__FIIterator_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation **value) {
-    return This->lpVtbl->First(This,value);
-}
-#endif
-#ifdef WIDL_using_Windows_Foundation_Collections
-#define IID_IIterable_VoiceInformation IID___FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation
-#define IIterable_VoiceInformationVtbl __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformationVtbl
-#define IIterable_VoiceInformation __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation
-#define IIterable_VoiceInformation_QueryInterface __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_QueryInterface
-#define IIterable_VoiceInformation_AddRef __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_AddRef
-#define IIterable_VoiceInformation_Release __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_Release
-#define IIterable_VoiceInformation_GetIids __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetIids
-#define IIterable_VoiceInformation_GetRuntimeClassName __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetRuntimeClassName
-#define IIterable_VoiceInformation_GetTrustLevel __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_GetTrustLevel
-#define IIterable_VoiceInformation_First __FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_First
-#endif /* WIDL_using_Windows_Foundation_Collections */
-#endif
-
-#endif
-
-#endif  /* ____FIIterable_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVectorView<ABI::Windows::Media::SpeechSynthesis::VoiceInformation* > interface
@@ -1943,163 +2312,6 @@ static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CSpeechSynthesis_
 #endif
 
 #endif  /* ____FIVectorView_1_Windows__CMedia__CSpeechSynthesis__CVoiceInformation_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * IVectorView<ABI::Windows::Media::IMediaMarker* > interface
- */
-#ifndef ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
-#define ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID___FIVectorView_1_Windows__CMedia__CIMediaMarker, 0xb543562c, 0x02b1, 0x5824, 0x80,0xa8, 0x98,0x54,0x13,0x0c,0xda,0xdd);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                template<>
-                MIDL_INTERFACE("b543562c-02b1-5824-80a8-9854130cdadd")
-                IVectorView<ABI::Windows::Media::IMediaMarker* > : IVectorView_impl<ABI::Windows::Media::IMediaMarker* >
-                {
-                };
-            }
-        }
-    }
-}
-extern "C" {
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__FIVectorView_1_Windows__CMedia__CIMediaMarker, 0xb543562c, 0x02b1, 0x5824, 0x80,0xa8, 0x98,0x54,0x13,0x0c,0xda,0xdd)
-#endif
-#else
-typedef struct __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This);
-
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        TrustLevel *trustLevel);
-
-    /*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetAt)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        UINT32 index,
-        __x_ABI_CWindows_CMedia_CIMediaMarker **value);
-
-    HRESULT (STDMETHODCALLTYPE *get_Size)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        UINT32 *value);
-
-    HRESULT (STDMETHODCALLTYPE *IndexOf)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        __x_ABI_CWindows_CMedia_CIMediaMarker *element,
-        UINT32 *index,
-        BOOLEAN *value);
-
-    HRESULT (STDMETHODCALLTYPE *GetMany)(
-        __FIVectorView_1_Windows__CMedia__CIMediaMarker *This,
-        UINT32 start_index,
-        UINT32 items_size,
-        __x_ABI_CWindows_CMedia_CIMediaMarker **items,
-        UINT32 *value);
-
-    END_INTERFACE
-} __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl;
-
-interface __FIVectorView_1_Windows__CMedia__CIMediaMarker {
-    CONST_VTBL __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
-#define __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
-#else
-/*** IUnknown methods ***/
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IInspectable methods ***/
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
-}
-/*** IVectorView<ABI::Windows::Media::IMediaMarker* > methods ***/
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 index,__x_ABI_CWindows_CMedia_CIMediaMarker **value) {
-    return This->lpVtbl->GetAt(This,index,value);
-}
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 *value) {
-    return This->lpVtbl->get_Size(This,value);
-}
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,__x_ABI_CWindows_CMedia_CIMediaMarker *element,UINT32 *index,BOOLEAN *value) {
-    return This->lpVtbl->IndexOf(This,element,index,value);
-}
-static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany(__FIVectorView_1_Windows__CMedia__CIMediaMarker* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CMedia_CIMediaMarker **items,UINT32 *value) {
-    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
-}
-#endif
-#ifdef WIDL_using_Windows_Foundation_Collections
-#define IID_IVectorView_IMediaMarker IID___FIVectorView_1_Windows__CMedia__CIMediaMarker
-#define IVectorView_IMediaMarkerVtbl __FIVectorView_1_Windows__CMedia__CIMediaMarkerVtbl
-#define IVectorView_IMediaMarker __FIVectorView_1_Windows__CMedia__CIMediaMarker
-#define IVectorView_IMediaMarker_QueryInterface __FIVectorView_1_Windows__CMedia__CIMediaMarker_QueryInterface
-#define IVectorView_IMediaMarker_AddRef __FIVectorView_1_Windows__CMedia__CIMediaMarker_AddRef
-#define IVectorView_IMediaMarker_Release __FIVectorView_1_Windows__CMedia__CIMediaMarker_Release
-#define IVectorView_IMediaMarker_GetIids __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetIids
-#define IVectorView_IMediaMarker_GetRuntimeClassName __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetRuntimeClassName
-#define IVectorView_IMediaMarker_GetTrustLevel __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetTrustLevel
-#define IVectorView_IMediaMarker_GetAt __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetAt
-#define IVectorView_IMediaMarker_get_Size __FIVectorView_1_Windows__CMedia__CIMediaMarker_get_Size
-#define IVectorView_IMediaMarker_IndexOf __FIVectorView_1_Windows__CMedia__CIMediaMarker_IndexOf
-#define IVectorView_IMediaMarker_GetMany __FIVectorView_1_Windows__CMedia__CIMediaMarker_GetMany
-#endif /* WIDL_using_Windows_Foundation_Collections */
-#endif
-
-#endif
-
-#endif  /* ____FIVectorView_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperation<ABI::Windows::Media::SpeechSynthesis::SpeechSynthesisStream* > interface

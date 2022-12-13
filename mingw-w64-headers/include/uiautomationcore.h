@@ -58,6 +58,14 @@ interface IRawElementProviderFragmentRoot;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IRawElementProviderHwndOverride_FWD_DEFINED__
+#define __IRawElementProviderHwndOverride_FWD_DEFINED__
+typedef interface IRawElementProviderHwndOverride IRawElementProviderHwndOverride;
+#ifdef __cplusplus
+interface IRawElementProviderHwndOverride;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ILegacyIAccessibleProvider_FWD_DEFINED__
 #define __ILegacyIAccessibleProvider_FWD_DEFINED__
 typedef interface ILegacyIAccessibleProvider ILegacyIAccessibleProvider;
@@ -65,6 +73,39 @@ typedef interface ILegacyIAccessibleProvider ILegacyIAccessibleProvider;
 interface ILegacyIAccessibleProvider;
 #endif /* __cplusplus */
 #endif
+
+#ifndef __IUIAutomationPatternInstance_FWD_DEFINED__
+#define __IUIAutomationPatternInstance_FWD_DEFINED__
+typedef interface IUIAutomationPatternInstance IUIAutomationPatternInstance;
+#ifdef __cplusplus
+interface IUIAutomationPatternInstance;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationPatternHandler_FWD_DEFINED__
+#define __IUIAutomationPatternHandler_FWD_DEFINED__
+typedef interface IUIAutomationPatternHandler IUIAutomationPatternHandler;
+#ifdef __cplusplus
+interface IUIAutomationPatternHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationRegistrar_FWD_DEFINED__
+#define __IUIAutomationRegistrar_FWD_DEFINED__
+typedef interface IUIAutomationRegistrar IUIAutomationRegistrar;
+#ifdef __cplusplus
+interface IUIAutomationRegistrar;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __CUIAutomationRegistrar_FWD_DEFINED__
+#define __CUIAutomationRegistrar_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CUIAutomationRegistrar CUIAutomationRegistrar;
+#else
+typedef struct CUIAutomationRegistrar CUIAutomationRegistrar;
+#endif /* defined __cplusplus */
+#endif /* defined __CUIAutomationRegistrar_FWD_DEFINED__ */
 
 /* Headers for imported files */
 
@@ -93,16 +134,61 @@ enum ProviderOptions {
     ProviderOptions_HasNativeIAccessible = 0x80,
     ProviderOptions_UseClientCoordinates = 0x100
 };
+enum StructureChangeType {
+    StructureChangeType_ChildAdded = 0x0,
+    StructureChangeType_ChildRemoved = 0x1,
+    StructureChangeType_ChildrenInvalidated = 0x2,
+    StructureChangeType_ChildrenBulkAdded = 0x3,
+    StructureChangeType_ChildrenBulkRemoved = 0x4,
+    StructureChangeType_ChildrenReordered = 0x5
+};
+enum TextEditChangeType {
+    TextEditChangeType_None = 0x0,
+    TextEditChangeType_AutoCorrect = 0x1,
+    TextEditChangeType_Composition = 0x2,
+    TextEditChangeType_CompositionFinalized = 0x3,
+    TextEditChangeType_AutoComplete = 0x4
+};
+enum OrientationType {
+    OrientationType_None = 0x0,
+    OrientationType_Horizontal = 0x1,
+    OrientationType_Vertical = 0x2
+};
+enum WindowVisualState {
+    WindowVisualState_Normal = 0x0,
+    WindowVisualState_Maximized = 0x1,
+    WindowVisualState_Minimized = 0x2
+};
+enum WindowInteractionState {
+    WindowInteractionState_Running = 0x0,
+    WindowInteractionState_Closing = 0x1,
+    WindowInteractionState_ReadyForUserInteraction = 0x2,
+    WindowInteractionState_BlockedByModalWindow = 0x3,
+    WindowInteractionState_NotResponding = 0x4
+};
+enum LiveSetting {
+    Off = 0x0,
+    Polite = 0x1,
+    Assertive = 0x2
+};
 typedef int PROPERTYID;
 typedef int PATTERNID;
 typedef int EVENTID;
 typedef int TEXTATTRIBUTEID;
 typedef int CONTROLTYPEID;
+typedef int LANDMARKTYPEID;
+typedef int METADATAID;
+typedef int HEADINGLEVELID;
 struct UiaRect {
     double left;
     double top;
     double width;
     double height;
+};
+struct UiaChangeInfo {
+    int uiaId;
+    VARIANT payload;
+    VARIANT extraInfo;
 };
 #ifndef __UIA_LIBRARY_DEFINED__
 #define __UIA_LIBRARY_DEFINED__
@@ -573,6 +659,85 @@ static __WIDL_INLINE HRESULT IRawElementProviderFragmentRoot_GetFocus(IRawElemen
 #endif  /* __IRawElementProviderFragmentRoot_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IRawElementProviderHwndOverride interface
+ */
+#ifndef __IRawElementProviderHwndOverride_INTERFACE_DEFINED__
+#define __IRawElementProviderHwndOverride_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IRawElementProviderHwndOverride, 0x1d5df27c, 0x8947, 0x4425, 0xb8,0xd9, 0x79,0x78,0x7b,0xb4,0x60,0xb8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1d5df27c-8947-4425-b8d9-79787bb460b8")
+IRawElementProviderHwndOverride : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetOverrideProviderForHwnd(
+        HWND hwnd,
+        IRawElementProviderSimple **pRetVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRawElementProviderHwndOverride, 0x1d5df27c, 0x8947, 0x4425, 0xb8,0xd9, 0x79,0x78,0x7b,0xb4,0x60,0xb8)
+#endif
+#else
+typedef struct IRawElementProviderHwndOverrideVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRawElementProviderHwndOverride *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRawElementProviderHwndOverride *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRawElementProviderHwndOverride *This);
+
+    /*** IRawElementProviderHwndOverride methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetOverrideProviderForHwnd)(
+        IRawElementProviderHwndOverride *This,
+        HWND hwnd,
+        IRawElementProviderSimple **pRetVal);
+
+    END_INTERFACE
+} IRawElementProviderHwndOverrideVtbl;
+
+interface IRawElementProviderHwndOverride {
+    CONST_VTBL IRawElementProviderHwndOverrideVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IRawElementProviderHwndOverride_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRawElementProviderHwndOverride_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRawElementProviderHwndOverride_Release(This) (This)->lpVtbl->Release(This)
+/*** IRawElementProviderHwndOverride methods ***/
+#define IRawElementProviderHwndOverride_GetOverrideProviderForHwnd(This,hwnd,pRetVal) (This)->lpVtbl->GetOverrideProviderForHwnd(This,hwnd,pRetVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IRawElementProviderHwndOverride_QueryInterface(IRawElementProviderHwndOverride* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IRawElementProviderHwndOverride_AddRef(IRawElementProviderHwndOverride* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IRawElementProviderHwndOverride_Release(IRawElementProviderHwndOverride* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IRawElementProviderHwndOverride methods ***/
+static __WIDL_INLINE HRESULT IRawElementProviderHwndOverride_GetOverrideProviderForHwnd(IRawElementProviderHwndOverride* This,HWND hwnd,IRawElementProviderSimple **pRetVal) {
+    return This->lpVtbl->GetOverrideProviderForHwnd(This,hwnd,pRetVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IRawElementProviderHwndOverride_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * ILegacyIAccessibleProvider interface
  */
 #ifndef __ILegacyIAccessibleProvider_INTERFACE_DEFINED__
@@ -791,6 +956,395 @@ static __WIDL_INLINE HRESULT ILegacyIAccessibleProvider_get_DefaultAction(ILegac
 
 #endif  /* __ILegacyIAccessibleProvider_INTERFACE_DEFINED__ */
 
+enum UIAutomationType {
+    UIAutomationType_Int = 0x1,
+    UIAutomationType_Bool = 0x2,
+    UIAutomationType_String = 0x3,
+    UIAutomationType_Double = 0x4,
+    UIAutomationType_Point = 0x5,
+    UIAutomationType_Rect = 0x6,
+    UIAutomationType_Element = 0x7,
+    UIAutomationType_Array = 0x10000,
+    UIAutomationType_Out = 0x20000,
+    UIAutomationType_IntArray = UIAutomationType_Int | UIAutomationType_Array,
+    UIAutomationType_BoolArray = UIAutomationType_Bool | UIAutomationType_Array,
+    UIAutomationType_StringArray = UIAutomationType_String | UIAutomationType_Array,
+    UIAutomationType_DoubleArray = UIAutomationType_Double | UIAutomationType_Array,
+    UIAutomationType_PointArray = UIAutomationType_Point | UIAutomationType_Array,
+    UIAutomationType_RectArray = UIAutomationType_Rect | UIAutomationType_Array,
+    UIAutomationType_ElementArray = UIAutomationType_Element | UIAutomationType_Array,
+    UIAutomationType_OutInt = UIAutomationType_Int | UIAutomationType_Out,
+    UIAutomationType_OutBool = UIAutomationType_Bool | UIAutomationType_Out,
+    UIAutomationType_OutString = UIAutomationType_String | UIAutomationType_Out,
+    UIAutomationType_OutDouble = UIAutomationType_Double | UIAutomationType_Out,
+    UIAutomationType_OutPoint = UIAutomationType_Point | UIAutomationType_Out,
+    UIAutomationType_OutRect = UIAutomationType_Rect | UIAutomationType_Out,
+    UIAutomationType_OutElement = UIAutomationType_Element | UIAutomationType_Out,
+    UIAutomationType_OutIntArray = (UIAutomationType_Int | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutBoolArray = (UIAutomationType_Bool | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutStringArray = (UIAutomationType_String | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutDoubleArray = (UIAutomationType_Double | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutPointArray = (UIAutomationType_Point | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutRectArray = (UIAutomationType_Rect | UIAutomationType_Array) | UIAutomationType_Out,
+    UIAutomationType_OutElementArray = (UIAutomationType_Element | UIAutomationType_Array) | UIAutomationType_Out
+};
+DEFINE_ENUM_FLAG_OPERATORS(UIAutomationType)
+struct UIAutomationParameter {
+    enum UIAutomationType type;
+    void *pData;
+};
+struct UIAutomationPropertyInfo {
+    GUID guid;
+    LPCWSTR pProgrammaticName;
+    enum UIAutomationType type;
+};
+struct UIAutomationEventInfo {
+    GUID guid;
+    LPCWSTR pProgrammaticName;
+};
+struct UIAutomationMethodInfo {
+    LPCWSTR pProgrammaticName;
+    WINBOOL doSetFocus;
+    UINT cInParameters;
+    UINT cOutParameters;
+    enum UIAutomationType *pParameterTypes;
+    LPCWSTR *pParameterNames;
+};
+/*****************************************************************************
+ * IUIAutomationPatternInstance interface
+ */
+#ifndef __IUIAutomationPatternInstance_INTERFACE_DEFINED__
+#define __IUIAutomationPatternInstance_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationPatternInstance, 0xc03a7fe4, 0x9431, 0x409f, 0xbe,0xd8, 0xae,0x7c,0x22,0x99,0xbc,0x8d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c03a7fe4-9431-409f-bed8-ae7c2299bc8d")
+IUIAutomationPatternInstance : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetProperty(
+        UINT index,
+        WINBOOL cached,
+        enum UIAutomationType type,
+        void *pPtr) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CallMethod(
+        UINT index,
+        const struct UIAutomationParameter *pParams,
+        UINT cParams) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationPatternInstance, 0xc03a7fe4, 0x9431, 0x409f, 0xbe,0xd8, 0xae,0x7c,0x22,0x99,0xbc,0x8d)
+#endif
+#else
+typedef struct IUIAutomationPatternInstanceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationPatternInstance *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationPatternInstance *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationPatternInstance *This);
+
+    /*** IUIAutomationPatternInstance methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetProperty)(
+        IUIAutomationPatternInstance *This,
+        UINT index,
+        WINBOOL cached,
+        enum UIAutomationType type,
+        void *pPtr);
+
+    HRESULT (STDMETHODCALLTYPE *CallMethod)(
+        IUIAutomationPatternInstance *This,
+        UINT index,
+        const struct UIAutomationParameter *pParams,
+        UINT cParams);
+
+    END_INTERFACE
+} IUIAutomationPatternInstanceVtbl;
+
+interface IUIAutomationPatternInstance {
+    CONST_VTBL IUIAutomationPatternInstanceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationPatternInstance_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationPatternInstance_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationPatternInstance_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationPatternInstance methods ***/
+#define IUIAutomationPatternInstance_GetProperty(This,index,cached,type,pPtr) (This)->lpVtbl->GetProperty(This,index,cached,type,pPtr)
+#define IUIAutomationPatternInstance_CallMethod(This,index,pParams,cParams) (This)->lpVtbl->CallMethod(This,index,pParams,cParams)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPatternInstance_QueryInterface(IUIAutomationPatternInstance* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationPatternInstance_AddRef(IUIAutomationPatternInstance* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationPatternInstance_Release(IUIAutomationPatternInstance* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationPatternInstance methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPatternInstance_GetProperty(IUIAutomationPatternInstance* This,UINT index,WINBOOL cached,enum UIAutomationType type,void *pPtr) {
+    return This->lpVtbl->GetProperty(This,index,cached,type,pPtr);
+}
+static __WIDL_INLINE HRESULT IUIAutomationPatternInstance_CallMethod(IUIAutomationPatternInstance* This,UINT index,const struct UIAutomationParameter *pParams,UINT cParams) {
+    return This->lpVtbl->CallMethod(This,index,pParams,cParams);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationPatternInstance_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationPatternHandler interface
+ */
+#ifndef __IUIAutomationPatternHandler_INTERFACE_DEFINED__
+#define __IUIAutomationPatternHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationPatternHandler, 0xd97022f3, 0xa947, 0x465e, 0x8b,0x2a, 0xac,0x43,0x15,0xfa,0x54,0xe8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d97022f3-a947-465e-8b2a-ac4315fa54e8")
+IUIAutomationPatternHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateClientWrapper(
+        IUIAutomationPatternInstance *pPatternInstance,
+        IUnknown **pClientWrapper) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Dispatch(
+        IUnknown *pTarget,
+        UINT index,
+        const struct UIAutomationParameter *pParams,
+        UINT cParams) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationPatternHandler, 0xd97022f3, 0xa947, 0x465e, 0x8b,0x2a, 0xac,0x43,0x15,0xfa,0x54,0xe8)
+#endif
+#else
+typedef struct IUIAutomationPatternHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationPatternHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationPatternHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationPatternHandler *This);
+
+    /*** IUIAutomationPatternHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateClientWrapper)(
+        IUIAutomationPatternHandler *This,
+        IUIAutomationPatternInstance *pPatternInstance,
+        IUnknown **pClientWrapper);
+
+    HRESULT (STDMETHODCALLTYPE *Dispatch)(
+        IUIAutomationPatternHandler *This,
+        IUnknown *pTarget,
+        UINT index,
+        const struct UIAutomationParameter *pParams,
+        UINT cParams);
+
+    END_INTERFACE
+} IUIAutomationPatternHandlerVtbl;
+
+interface IUIAutomationPatternHandler {
+    CONST_VTBL IUIAutomationPatternHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationPatternHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationPatternHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationPatternHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationPatternHandler methods ***/
+#define IUIAutomationPatternHandler_CreateClientWrapper(This,pPatternInstance,pClientWrapper) (This)->lpVtbl->CreateClientWrapper(This,pPatternInstance,pClientWrapper)
+#define IUIAutomationPatternHandler_Dispatch(This,pTarget,index,pParams,cParams) (This)->lpVtbl->Dispatch(This,pTarget,index,pParams,cParams)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPatternHandler_QueryInterface(IUIAutomationPatternHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationPatternHandler_AddRef(IUIAutomationPatternHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationPatternHandler_Release(IUIAutomationPatternHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationPatternHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationPatternHandler_CreateClientWrapper(IUIAutomationPatternHandler* This,IUIAutomationPatternInstance *pPatternInstance,IUnknown **pClientWrapper) {
+    return This->lpVtbl->CreateClientWrapper(This,pPatternInstance,pClientWrapper);
+}
+static __WIDL_INLINE HRESULT IUIAutomationPatternHandler_Dispatch(IUIAutomationPatternHandler* This,IUnknown *pTarget,UINT index,const struct UIAutomationParameter *pParams,UINT cParams) {
+    return This->lpVtbl->Dispatch(This,pTarget,index,pParams,cParams);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationPatternHandler_INTERFACE_DEFINED__ */
+
+struct UIAutomationPatternInfo {
+    GUID guid;
+    LPCWSTR pProgrammaticName;
+    GUID providerInterfaceId;
+    GUID clientInterfaceId;
+    UINT cProperties;
+    struct UIAutomationPropertyInfo *pProperties;
+    UINT cMethods;
+    struct UIAutomationMethodInfo *pMethods;
+    UINT cEvents;
+    struct UIAutomationEventInfo *pEvents;
+    IUIAutomationPatternHandler *pPatternHandler;
+};
+/*****************************************************************************
+ * IUIAutomationRegistrar interface
+ */
+#ifndef __IUIAutomationRegistrar_INTERFACE_DEFINED__
+#define __IUIAutomationRegistrar_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationRegistrar, 0x8609c4ec, 0x4a1a, 0x4d88, 0xa3,0x57, 0x5a,0x66,0xe0,0x60,0xe1,0xcf);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8609c4ec-4a1a-4d88-a357-5a66e060e1cf")
+IUIAutomationRegistrar : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RegisterProperty(
+        const struct UIAutomationPropertyInfo *property,
+        PROPERTYID *propertyId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterEvent(
+        const struct UIAutomationEventInfo *event,
+        EVENTID *eventId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterPattern(
+        const struct UIAutomationPatternInfo *pattern,
+        PATTERNID *pPatternId,
+        PROPERTYID *pPatternAvailablePropertyId,
+        UINT propertyIdCount,
+        PROPERTYID *pPropertyIds,
+        UINT eventIdCount,
+        EVENTID *pEventIds) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationRegistrar, 0x8609c4ec, 0x4a1a, 0x4d88, 0xa3,0x57, 0x5a,0x66,0xe0,0x60,0xe1,0xcf)
+#endif
+#else
+typedef struct IUIAutomationRegistrarVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationRegistrar *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationRegistrar *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationRegistrar *This);
+
+    /*** IUIAutomationRegistrar methods ***/
+    HRESULT (STDMETHODCALLTYPE *RegisterProperty)(
+        IUIAutomationRegistrar *This,
+        const struct UIAutomationPropertyInfo *property,
+        PROPERTYID *propertyId);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterEvent)(
+        IUIAutomationRegistrar *This,
+        const struct UIAutomationEventInfo *event,
+        EVENTID *eventId);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterPattern)(
+        IUIAutomationRegistrar *This,
+        const struct UIAutomationPatternInfo *pattern,
+        PATTERNID *pPatternId,
+        PROPERTYID *pPatternAvailablePropertyId,
+        UINT propertyIdCount,
+        PROPERTYID *pPropertyIds,
+        UINT eventIdCount,
+        EVENTID *pEventIds);
+
+    END_INTERFACE
+} IUIAutomationRegistrarVtbl;
+
+interface IUIAutomationRegistrar {
+    CONST_VTBL IUIAutomationRegistrarVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationRegistrar_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationRegistrar_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationRegistrar_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationRegistrar methods ***/
+#define IUIAutomationRegistrar_RegisterProperty(This,property,propertyId) (This)->lpVtbl->RegisterProperty(This,property,propertyId)
+#define IUIAutomationRegistrar_RegisterEvent(This,event,eventId) (This)->lpVtbl->RegisterEvent(This,event,eventId)
+#define IUIAutomationRegistrar_RegisterPattern(This,pattern,pPatternId,pPatternAvailablePropertyId,propertyIdCount,pPropertyIds,eventIdCount,pEventIds) (This)->lpVtbl->RegisterPattern(This,pattern,pPatternId,pPatternAvailablePropertyId,propertyIdCount,pPropertyIds,eventIdCount,pEventIds)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationRegistrar_QueryInterface(IUIAutomationRegistrar* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationRegistrar_AddRef(IUIAutomationRegistrar* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationRegistrar_Release(IUIAutomationRegistrar* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationRegistrar methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationRegistrar_RegisterProperty(IUIAutomationRegistrar* This,const struct UIAutomationPropertyInfo *property,PROPERTYID *propertyId) {
+    return This->lpVtbl->RegisterProperty(This,property,propertyId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRegistrar_RegisterEvent(IUIAutomationRegistrar* This,const struct UIAutomationEventInfo *event,EVENTID *eventId) {
+    return This->lpVtbl->RegisterEvent(This,event,eventId);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRegistrar_RegisterPattern(IUIAutomationRegistrar* This,const struct UIAutomationPatternInfo *pattern,PATTERNID *pPatternId,PROPERTYID *pPatternAvailablePropertyId,UINT propertyIdCount,PROPERTYID *pPropertyIds,UINT eventIdCount,EVENTID *pEventIds) {
+    return This->lpVtbl->RegisterPattern(This,pattern,pPatternId,pPatternAvailablePropertyId,propertyIdCount,pPropertyIds,eventIdCount,pEventIds);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationRegistrar_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * CUIAutomationRegistrar coclass
+ */
+
+DEFINE_GUID(CLSID_CUIAutomationRegistrar, 0x6e29fabf, 0x9977, 0x42d1, 0x8d,0x0e, 0xca,0x7e,0x61,0xad,0x87,0xe6);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("6e29fabf-9977-42d1-8d0e-ca7e61ad87e6") CUIAutomationRegistrar;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CUIAutomationRegistrar, 0x6e29fabf, 0x9977, 0x42d1, 0x8d,0x0e, 0xca,0x7e,0x61,0xad,0x87,0xe6)
+#endif
+#endif
+
 #endif /* __UIA_LIBRARY_DEFINED__ */
 /* Begin additional prototypes for all interfaces */
 
@@ -798,6 +1352,10 @@ ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
 unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
 void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
+ULONG           __RPC_USER HWND_UserSize     (ULONG *, ULONG, HWND *);
+unsigned char * __RPC_USER HWND_UserMarshal  (ULONG *, unsigned char *, HWND *);
+unsigned char * __RPC_USER HWND_UserUnmarshal(ULONG *, unsigned char *, HWND *);
+void            __RPC_USER HWND_UserFree     (ULONG *, HWND *);
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
 unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
 unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);

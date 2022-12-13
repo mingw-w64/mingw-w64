@@ -94,6 +94,91 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 ABI::Windows::Devices::Enumeration::IDeviceInformationStatics2
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                interface IDeviceInformationStatics2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs ABI::Windows::Devices::Enumeration::IDeviceAccessChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                interface IDeviceAccessChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 ABI::Windows::Devices::Enumeration::IDeviceAccessChangedEventArgs2
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                interface IDeviceAccessChangedEventArgs2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation ABI::Windows::Devices::Enumeration::IDeviceAccessInformation
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                interface IDeviceAccessInformation;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics ABI::Windows::Devices::Enumeration::IDeviceAccessInformationStatics
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                interface IDeviceAccessInformationStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformation_FWD_DEFINED__
 #ifdef __cplusplus
@@ -110,6 +195,23 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformation __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformation;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformation_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationCollection_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationCollection_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                class DeviceInformationCollection;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationCollection __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationCollection;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationCollection_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationUpdate_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationUpdate_FWD_DEFINED__
@@ -179,11 +281,77 @@ typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CEnclosureLocation __x_ABI
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CDevices_CEnumeration_CEnclosureLocation_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessChangedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                class DeviceAccessChangedEventArgs;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessChangedEventArgs __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessChangedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessChangedEventArgs_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessInformation_FWD_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessInformation_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                class DeviceAccessInformation;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessInformation __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessInformation;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessInformation_FWD_DEFINED__ */
+
+#ifndef ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
 #define ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation;
 #ifdef __cplusplus
 #define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* >
 #endif /* __cplusplus */
 #endif
 
@@ -208,6 +376,14 @@ typedef interface __FIMapView_2_HSTRING_IInspectable __FIMapView_2_HSTRING_IInsp
 typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* >
 #endif /* __cplusplus */
 #endif
 
@@ -243,6 +419,14 @@ typedef interface __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDevi
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -257,11 +441,23 @@ extern "C" {
 #endif
 
 #ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus;
 #endif /* __cplusplus */
 
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CDevices_CEnumeration_CPanel __x_ABI_CWindows_CDevices_CEnumeration_CPanel;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus;
 #endif /* __cplusplus */
 
 #ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation_FWD_DEFINED__
@@ -349,6 +545,30 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
 #define ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
 typedef interface __FIMapView_2_HSTRING_IInspectable __FIMapView_2_HSTRING_IInspectable;
@@ -365,6 +585,14 @@ typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceI
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceThumbnail_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceThumbnail_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceThumbnail __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceThumbnail;
@@ -373,91 +601,96 @@ typedef interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceT
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider;
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider ABI::Windows::Storage::Streams::IContentTypeProvider
+} /* extern "C" */
 namespace ABI {
     namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IContentTypeProvider;
+        namespace Devices {
+            namespace Enumeration {
+                enum DeviceClass {
+                    DeviceClass_All = 0,
+                    DeviceClass_AudioCapture = 1,
+                    DeviceClass_AudioRender = 2,
+                    DeviceClass_PortableStorageDevice = 3,
+                    DeviceClass_VideoCapture = 4,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+                    DeviceClass_ImageScanner = 5,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+                    DeviceClass_Location = 6
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+                };
             }
         }
     }
 }
-#endif /* __cplusplus */
+extern "C" {
+#else
+enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass {
+    DeviceClass_All = 0,
+    DeviceClass_AudioCapture = 1,
+    DeviceClass_AudioRender = 2,
+    DeviceClass_PortableStorageDevice = 3,
+    DeviceClass_VideoCapture = 4,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+    DeviceClass_ImageScanner = 5,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+    DeviceClass_Location = 6
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+};
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define DeviceClass __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass
+#endif /* WIDL_using_Windows_Devices_Enumeration */
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIInputStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIInputStream __x_ABI_CWindows_CStorage_CStreams_CIInputStream;
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIInputStream ABI::Windows::Storage::Streams::IInputStream
+} /* extern "C" */
 namespace ABI {
     namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IInputStream;
+        namespace Devices {
+            namespace Enumeration {
+                enum DeviceInformationKind {
+                    DeviceInformationKind_Unknown = 0,
+                    DeviceInformationKind_DeviceInterface = 1,
+                    DeviceInformationKind_DeviceContainer = 2,
+                    DeviceInformationKind_Device = 3,
+                    DeviceInformationKind_DeviceInterfaceClass = 4,
+                    DeviceInformationKind_AssociationEndpoint = 5,
+                    DeviceInformationKind_AssociationEndpointContainer = 6,
+                    DeviceInformationKind_AssociationEndpointService = 7,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+                    DeviceInformationKind_DevicePanel = 8
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000 */
+                };
             }
         }
     }
 }
-#endif /* __cplusplus */
+extern "C" {
+#else
+enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind {
+    DeviceInformationKind_Unknown = 0,
+    DeviceInformationKind_DeviceInterface = 1,
+    DeviceInformationKind_DeviceContainer = 2,
+    DeviceInformationKind_Device = 3,
+    DeviceInformationKind_DeviceInterfaceClass = 4,
+    DeviceInformationKind_AssociationEndpoint = 5,
+    DeviceInformationKind_AssociationEndpointContainer = 6,
+    DeviceInformationKind_AssociationEndpointService = 7,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+    DeviceInformationKind_DevicePanel = 8
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000 */
+};
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define DeviceInformationKind __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind
+#endif /* WIDL_using_Windows_Devices_Enumeration */
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream ABI::Windows::Storage::Streams::IOutputStream
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IOutputStream;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream ABI::Windows::Storage::Streams::IRandomAccessStream
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IRandomAccessStream;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IRandomAccessStreamWithContentType;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 #ifdef __cplusplus
 } /* extern "C" */
 namespace ABI {
@@ -526,6 +759,37 @@ enum __x_ABI_CWindows_CDevices_CEnumeration_CPanel {
 #endif /* WIDL_using_Windows_Devices_Enumeration */
 #endif
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                enum DeviceAccessStatus {
+                    DeviceAccessStatus_Unspecified = 0,
+                    DeviceAccessStatus_Allowed = 1,
+                    DeviceAccessStatus_DeniedByUser = 2,
+                    DeviceAccessStatus_DeniedBySystem = 3
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus {
+    DeviceAccessStatus_Unspecified = 0,
+    DeviceAccessStatus_Allowed = 1,
+    DeviceAccessStatus_DeniedByUser = 2,
+    DeviceAccessStatus_DeniedBySystem = 3
+};
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define DeviceAccessStatus __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 /*****************************************************************************
  * IDeviceInformation interface
  */
@@ -1314,6 +1578,758 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureL
 
 #endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IDeviceInformationStatics2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2, 0x493b4f34, 0xa84f, 0x45fd, 0x91,0x67, 0x15,0xd1,0xcb,0x1b,0xd1,0xf9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                MIDL_INTERFACE("493b4f34-a84f-45fd-9167-15d1cb1bd1f9")
+                IDeviceInformationStatics2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetAqsFilterFromDeviceClass(
+                        enum DeviceClass device_class,
+                        HSTRING *filter) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromIdAsyncWithKindAndAdditionalProperties(
+                        HSTRING device_id,
+                        ABI::Windows::Foundation::Collections::IIterable<HSTRING > *additional_properties,
+                        enum DeviceInformationKind kind,
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformation* > **async_operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE FindAllAsyncWithKindAqsFilterAndAdditionalProperties(
+                        HSTRING filter,
+                        ABI::Windows::Foundation::Collections::IIterable<HSTRING > *additional_properties,
+                        enum DeviceInformationKind kind,
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > **async_operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateWatcherWithKindAqsFilterAndAdditionalProperties(
+                        HSTRING filter,
+                        ABI::Windows::Foundation::Collections::IIterable<HSTRING > *additional_properties,
+                        enum DeviceInformationKind kind,
+                        ABI::Windows::Devices::Enumeration::IDeviceWatcher **watcher) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2, 0x493b4f34, 0xa84f, 0x45fd, 0x91,0x67, 0x15,0xd1,0xcb,0x1b,0xd1,0xf9)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeviceInformationStatics2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAqsFilterFromDeviceClass)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass device_class,
+        HSTRING *filter);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFromIdAsyncWithKindAndAdditionalProperties)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        HSTRING device_id,
+        __FIIterable_1_HSTRING *additional_properties,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation **async_operation);
+
+    HRESULT (STDMETHODCALLTYPE *FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        HSTRING filter,
+        __FIIterable_1_HSTRING *additional_properties,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection **async_operation);
+
+    HRESULT (STDMETHODCALLTYPE *CreateWatcherWithKindAqsFilterAndAdditionalProperties)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 *This,
+        HSTRING filter,
+        __FIIterable_1_HSTRING *additional_properties,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher **watcher);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2Vtbl;
+
+interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 {
+    CONST_VTBL __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeviceInformationStatics2 methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetAqsFilterFromDeviceClass(This,device_class,filter) (This)->lpVtbl->GetAqsFilterFromDeviceClass(This,device_class,filter)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateFromIdAsyncWithKindAndAdditionalProperties(This,device_id,additional_properties,kind,async_operation) (This)->lpVtbl->CreateFromIdAsyncWithKindAndAdditionalProperties(This,device_id,additional_properties,kind,async_operation)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_FindAllAsyncWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,async_operation) (This)->lpVtbl->FindAllAsyncWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,async_operation)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateWatcherWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,watcher) (This)->lpVtbl->CreateWatcherWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,watcher)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_QueryInterface(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_AddRef(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_Release(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetIids(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetRuntimeClassName(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetTrustLevel(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeviceInformationStatics2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetAqsFilterFromDeviceClass(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass device_class,HSTRING *filter) {
+    return This->lpVtbl->GetAqsFilterFromDeviceClass(This,device_class,filter);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateFromIdAsyncWithKindAndAdditionalProperties(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,HSTRING device_id,__FIIterable_1_HSTRING *additional_properties,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation **async_operation) {
+    return This->lpVtbl->CreateFromIdAsyncWithKindAndAdditionalProperties(This,device_id,additional_properties,kind,async_operation);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_FindAllAsyncWithKindAqsFilterAndAdditionalProperties(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,HSTRING filter,__FIIterable_1_HSTRING *additional_properties,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection **async_operation) {
+    return This->lpVtbl->FindAllAsyncWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,async_operation);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateWatcherWithKindAqsFilterAndAdditionalProperties(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2* This,HSTRING filter,__FIIterable_1_HSTRING *additional_properties,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind kind,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher **watcher) {
+    return This->lpVtbl->CreateWatcherWithKindAqsFilterAndAdditionalProperties(This,filter,additional_properties,kind,watcher);
+}
+#endif
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define IID_IDeviceInformationStatics2 IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2
+#define IDeviceInformationStatics2Vtbl __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2Vtbl
+#define IDeviceInformationStatics2 __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2
+#define IDeviceInformationStatics2_QueryInterface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_QueryInterface
+#define IDeviceInformationStatics2_AddRef __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_AddRef
+#define IDeviceInformationStatics2_Release __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_Release
+#define IDeviceInformationStatics2_GetIids __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetIids
+#define IDeviceInformationStatics2_GetRuntimeClassName __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetRuntimeClassName
+#define IDeviceInformationStatics2_GetTrustLevel __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetTrustLevel
+#define IDeviceInformationStatics2_GetAqsFilterFromDeviceClass __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_GetAqsFilterFromDeviceClass
+#define IDeviceInformationStatics2_CreateFromIdAsyncWithKindAndAdditionalProperties __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateFromIdAsyncWithKindAndAdditionalProperties
+#define IDeviceInformationStatics2_FindAllAsyncWithKindAqsFilterAndAdditionalProperties __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_FindAllAsyncWithKindAqsFilterAndAdditionalProperties
+#define IDeviceInformationStatics2_CreateWatcherWithKindAqsFilterAndAdditionalProperties __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_CreateWatcherWithKindAqsFilterAndAdditionalProperties
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeviceAccessChangedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs, 0xdeda0bcc, 0x4f9d, 0x4f58, 0x9d,0xba, 0xa9,0xbc,0x80,0x04,0x08,0xd5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                MIDL_INTERFACE("deda0bcc-4f9d-4f58-9dba-a9bc800408d5")
+                IDeviceAccessChangedEventArgs : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Status(
+                        enum DeviceAccessStatus *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs, 0xdeda0bcc, 0x4f9d, 0x4f58, 0x9d,0xba, 0xa9,0xbc,0x80,0x04,0x08,0xd5)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeviceAccessChangedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Status)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *This,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeviceAccessChangedEventArgs methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_get_Status(This,value) (This)->lpVtbl->get_Status(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_QueryInterface(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_AddRef(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_Release(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetIids(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetTrustLevel(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeviceAccessChangedEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_get_Status(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs* This,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus *value) {
+    return This->lpVtbl->get_Status(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define IID_IDeviceAccessChangedEventArgs IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs
+#define IDeviceAccessChangedEventArgsVtbl __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgsVtbl
+#define IDeviceAccessChangedEventArgs __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs
+#define IDeviceAccessChangedEventArgs_QueryInterface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_QueryInterface
+#define IDeviceAccessChangedEventArgs_AddRef __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_AddRef
+#define IDeviceAccessChangedEventArgs_Release __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_Release
+#define IDeviceAccessChangedEventArgs_GetIids __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetIids
+#define IDeviceAccessChangedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetRuntimeClassName
+#define IDeviceAccessChangedEventArgs_GetTrustLevel __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_GetTrustLevel
+#define IDeviceAccessChangedEventArgs_get_Status __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_get_Status
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeviceAccessChangedEventArgs2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2, 0x82523262, 0x934b, 0x4b30, 0xa1,0x78, 0xad,0xc3,0x9f,0x2f,0x2b,0xe3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                MIDL_INTERFACE("82523262-934b-4b30-a178-adc39f2f2be3")
+                IDeviceAccessChangedEventArgs2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Id(
+                        HSTRING *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2, 0x82523262, 0x934b, 0x4b30, 0xa1,0x78, 0xad,0xc3,0x9f,0x2f,0x2b,0xe3)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeviceAccessChangedEventArgs2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2Vtbl;
+
+interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2 {
+    CONST_VTBL __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeviceAccessChangedEventArgs2 methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_get_Id(This,value) (This)->lpVtbl->get_Id(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_QueryInterface(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_AddRef(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_Release(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetIids(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetRuntimeClassName(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetTrustLevel(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeviceAccessChangedEventArgs2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_get_Id(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2* This,HSTRING *value) {
+    return This->lpVtbl->get_Id(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define IID_IDeviceAccessChangedEventArgs2 IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2
+#define IDeviceAccessChangedEventArgs2Vtbl __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2Vtbl
+#define IDeviceAccessChangedEventArgs2 __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2
+#define IDeviceAccessChangedEventArgs2_QueryInterface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_QueryInterface
+#define IDeviceAccessChangedEventArgs2_AddRef __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_AddRef
+#define IDeviceAccessChangedEventArgs2_Release __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_Release
+#define IDeviceAccessChangedEventArgs2_GetIids __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetIids
+#define IDeviceAccessChangedEventArgs2_GetRuntimeClassName __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetRuntimeClassName
+#define IDeviceAccessChangedEventArgs2_GetTrustLevel __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_GetTrustLevel
+#define IDeviceAccessChangedEventArgs2_get_Id __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_get_Id
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
+
+/*****************************************************************************
+ * IDeviceAccessInformation interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation, 0x0baa9a73, 0x6de5, 0x4915, 0x8d,0xdd, 0x9a,0x05,0x54,0xa6,0xf5,0x45);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                MIDL_INTERFACE("0baa9a73-6de5-4915-8ddd-9a0554a6f545")
+                IDeviceAccessInformation : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE add_AccessChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > *handler,
+                        EventRegistrationToken *cookie) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AccessChanged(
+                        EventRegistrationToken cookie) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_CurrentStatus(
+                        enum DeviceAccessStatus *status) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation, 0x0baa9a73, 0x6de5, 0x4915, 0x8d,0xdd, 0x9a,0x05,0x54,0xa6,0xf5,0x45)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeviceAccessInformation methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_AccessChanged)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *handler,
+        EventRegistrationToken *cookie);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AccessChanged)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        EventRegistrationToken cookie);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentStatus)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *This,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus *status);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationVtbl;
+
+interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation {
+    CONST_VTBL __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeviceAccessInformation methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_add_AccessChanged(This,handler,cookie) (This)->lpVtbl->add_AccessChanged(This,handler,cookie)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_remove_AccessChanged(This,cookie) (This)->lpVtbl->remove_AccessChanged(This,cookie)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_get_CurrentStatus(This,status) (This)->lpVtbl->get_CurrentStatus(This,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_QueryInterface(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_AddRef(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_Release(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetIids(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetRuntimeClassName(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetTrustLevel(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeviceAccessInformation methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_add_AccessChanged(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *handler,EventRegistrationToken *cookie) {
+    return This->lpVtbl->add_AccessChanged(This,handler,cookie);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_remove_AccessChanged(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,EventRegistrationToken cookie) {
+    return This->lpVtbl->remove_AccessChanged(This,cookie);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_get_CurrentStatus(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation* This,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceAccessStatus *status) {
+    return This->lpVtbl->get_CurrentStatus(This,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define IID_IDeviceAccessInformation IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation
+#define IDeviceAccessInformationVtbl __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationVtbl
+#define IDeviceAccessInformation __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation
+#define IDeviceAccessInformation_QueryInterface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_QueryInterface
+#define IDeviceAccessInformation_AddRef __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_AddRef
+#define IDeviceAccessInformation_Release __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_Release
+#define IDeviceAccessInformation_GetIids __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetIids
+#define IDeviceAccessInformation_GetRuntimeClassName __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetRuntimeClassName
+#define IDeviceAccessInformation_GetTrustLevel __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_GetTrustLevel
+#define IDeviceAccessInformation_add_AccessChanged __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_add_AccessChanged
+#define IDeviceAccessInformation_remove_AccessChanged __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_remove_AccessChanged
+#define IDeviceAccessInformation_get_CurrentStatus __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_get_CurrentStatus
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeviceAccessInformationStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics, 0x574bd3d3, 0x5f30, 0x45cd, 0x8a,0x94, 0x72,0x4f,0xe5,0x97,0x30,0x84);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Devices {
+            namespace Enumeration {
+                MIDL_INTERFACE("574bd3d3-5f30-45cd-8a94-724fe5973084")
+                IDeviceAccessInformationStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromId(
+                        HSTRING device_id,
+                        ABI::Windows::Devices::Enumeration::IDeviceAccessInformation **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromDeviceClassId(
+                        GUID device_class_id,
+                        ABI::Windows::Devices::Enumeration::IDeviceAccessInformation **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromDeviceClass(
+                        enum DeviceClass device_class,
+                        ABI::Windows::Devices::Enumeration::IDeviceAccessInformation **value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics, 0x574bd3d3, 0x5f30, 0x45cd, 0x8a,0x94, 0x72,0x4f,0xe5,0x97,0x30,0x84)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeviceAccessInformationStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateFromId)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        HSTRING device_id,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFromDeviceClassId)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        GUID device_class_id,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFromDeviceClass)(
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics *This,
+        enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass device_class,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStaticsVtbl;
+
+interface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics {
+    CONST_VTBL __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeviceAccessInformationStatics methods ***/
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromId(This,device_id,value) (This)->lpVtbl->CreateFromId(This,device_id,value)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClassId(This,device_class_id,value) (This)->lpVtbl->CreateFromDeviceClassId(This,device_class_id,value)
+#define __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClass(This,device_class,value) (This)->lpVtbl->CreateFromDeviceClass(This,device_class,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_QueryInterface(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_AddRef(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_Release(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetIids(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetRuntimeClassName(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetTrustLevel(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeviceAccessInformationStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromId(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,HSTRING device_id,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value) {
+    return This->lpVtbl->CreateFromId(This,device_id,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClassId(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,GUID device_class_id,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value) {
+    return This->lpVtbl->CreateFromDeviceClassId(This,device_class_id,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClass(__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics* This,enum __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass device_class,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation **value) {
+    return This->lpVtbl->CreateFromDeviceClass(This,device_class,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Devices_Enumeration
+#define IID_IDeviceAccessInformationStatics IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics
+#define IDeviceAccessInformationStaticsVtbl __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStaticsVtbl
+#define IDeviceAccessInformationStatics __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics
+#define IDeviceAccessInformationStatics_QueryInterface __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_QueryInterface
+#define IDeviceAccessInformationStatics_AddRef __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_AddRef
+#define IDeviceAccessInformationStatics_Release __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_Release
+#define IDeviceAccessInformationStatics_GetIids __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetIids
+#define IDeviceAccessInformationStatics_GetRuntimeClassName __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetRuntimeClassName
+#define IDeviceAccessInformationStatics_GetTrustLevel __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_GetTrustLevel
+#define IDeviceAccessInformationStatics_CreateFromId __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromId
+#define IDeviceAccessInformationStatics_CreateFromDeviceClassId __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClassId
+#define IDeviceAccessInformationStatics_CreateFromDeviceClass __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_CreateFromDeviceClass
+#endif /* WIDL_using_Windows_Devices_Enumeration */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformationStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Devices.Enumeration.DeviceInformation
  */
@@ -1328,6 +2344,22 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceIn
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceInformation[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','I','n','f','o','r','m','a','t','i','o','n',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Devices_Enumeration_DeviceInformation_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Devices.Enumeration.DeviceInformationCollection
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Devices_Enumeration_DeviceInformationCollection_DEFINED
+#define RUNTIMECLASS_Windows_Devices_Enumeration_DeviceInformationCollection_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceInformationCollection[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','I','n','f','o','r','m','a','t','i','o','n','C','o','l','l','e','c','t','i','o','n',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceInformationCollection[] = L"Windows.Devices.Enumeration.DeviceInformationCollection";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceInformationCollection[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','I','n','f','o','r','m','a','t','i','o','n','C','o','l','l','e','c','t','i','o','n',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Devices_Enumeration_DeviceInformationCollection_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
@@ -1385,6 +2417,472 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_Enclosur
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_EnclosureLocation[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','E','n','c','l','o','s','u','r','e','L','o','c','a','t','i','o','n',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Devices_Enumeration_EnclosureLocation_DEFINED */
+
+/*
+ * Class Windows.Devices.Enumeration.DeviceAccessChangedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','A','c','c','e','s','s','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs[] = L"Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','A','c','c','e','s','s','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Devices.Enumeration.DeviceAccessInformation
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessInformation_DEFINED
+#define RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessInformation_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessInformation[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','A','c','c','e','s','s','I','n','f','o','r','m','a','t','i','o','n',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessInformation[] = L"Windows.Devices.Enumeration.DeviceAccessInformation";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Enumeration_DeviceAccessInformation[] = {'W','i','n','d','o','w','s','.','D','e','v','i','c','e','s','.','E','n','u','m','e','r','a','t','i','o','n','.','D','e','v','i','c','e','A','c','c','e','s','s','I','n','f','o','r','m','a','t','i','o','n',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Devices_Enumeration_DeviceAccessInformation_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0xe170688f, 0x3495, 0x5bf6, 0xaa,0xb5, 0x9c,0xac,0x17,0xe0,0xf1,0x0f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("e170688f-3495-5bf6-aab5-9cac17e0f10f")
+                IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* > : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceInformation*, ABI::Windows::Devices::Enumeration::IDeviceInformation* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0xe170688f, 0x3495, 0x5bf6, 0xaa,0xb5, 0x9c,0xac,0x17,0xe0,0xf1,0x0f)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        UINT32 index,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl;
+
+interface __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation {
+    CONST_VTBL __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetAt(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,UINT32 index,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Size(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_IndexOf(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany(__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_DeviceInformation IID___FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IVectorView_DeviceInformationVtbl __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl
+#define IVectorView_DeviceInformation __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IVectorView_DeviceInformation_QueryInterface __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface
+#define IVectorView_DeviceInformation_AddRef __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef
+#define IVectorView_DeviceInformation_Release __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release
+#define IVectorView_DeviceInformation_GetIids __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids
+#define IVectorView_DeviceInformation_GetRuntimeClassName __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName
+#define IVectorView_DeviceInformation_GetTrustLevel __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel
+#define IVectorView_DeviceInformation_GetAt __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetAt
+#define IVectorView_DeviceInformation_get_Size __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Size
+#define IVectorView_DeviceInformation_IndexOf __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_IndexOf
+#define IVectorView_DeviceInformation_GetMany __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0xdd9f8a5d, 0xec98, 0x5f4b, 0xa3,0xea, 0x9c,0x8b,0x5a,0xd5,0x3c,0x4b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("dd9f8a5d-ec98-5f4b-a3ea-9c8b5ad53c4b")
+                IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceInformation*, ABI::Windows::Devices::Enumeration::IDeviceInformation* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0xdd9f8a5d, 0xec98, 0x5f4b, 0xa3,0xea, 0x9c,0x8b,0x5a,0xd5,0x3c,0x4b)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl;
+
+interface __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation {
+    CONST_VTBL __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+#define __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_First(__FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_DeviceInformation IID___FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IIterable_DeviceInformationVtbl __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl
+#define IIterable_DeviceInformation __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IIterable_DeviceInformation_QueryInterface __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface
+#define IIterable_DeviceInformation_AddRef __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef
+#define IIterable_DeviceInformation_Release __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release
+#define IIterable_DeviceInformation_GetIids __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids
+#define IIterable_DeviceInformation_GetRuntimeClassName __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName
+#define IIterable_DeviceInformation_GetTrustLevel __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel
+#define IIterable_DeviceInformation_First __FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0x6f85d843, 0xe8ab, 0x5b46, 0x85,0xd7, 0x32,0x7c,0x58,0xd1,0x87,0x12);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("6f85d843-e8ab-5b46-85d7-327c58d18712")
+                IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* > : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceInformation*, ABI::Windows::Devices::Enumeration::IDeviceInformation* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation, 0x6f85d843, 0xe8ab, 0x5b46, 0x85,0xd7, 0x32,0x7c,0x58,0xd1,0x87,0x12)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl;
+
+interface __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation {
+    CONST_VTBL __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Devices::Enumeration::DeviceInformation* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Current(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_HasCurrent(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,WINBOOL *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_MoveNext(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,WINBOOL *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany(__FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation* This,UINT32 items_size,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_DeviceInformation IID___FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IIterator_DeviceInformationVtbl __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformationVtbl
+#define IIterator_DeviceInformation __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation
+#define IIterator_DeviceInformation_QueryInterface __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_QueryInterface
+#define IIterator_DeviceInformation_AddRef __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_AddRef
+#define IIterator_DeviceInformation_Release __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_Release
+#define IIterator_DeviceInformation_GetIids __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetIids
+#define IIterator_DeviceInformation_GetRuntimeClassName __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetRuntimeClassName
+#define IIterator_DeviceInformation_GetTrustLevel __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetTrustLevel
+#define IIterator_DeviceInformation_get_Current __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_Current
+#define IIterator_DeviceInformation_get_HasCurrent __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_get_HasCurrent
+#define IIterator_DeviceInformation_MoveNext __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_MoveNext
+#define IIterator_DeviceInformation_GetMany __FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformation* > interface
@@ -1477,6 +2975,98 @@ static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CDevi
 #endif
 
 #endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection, 0x4a458732, 0x527e, 0x5c73, 0x9a,0x68, 0xa7,0x3d,0xa3,0x70,0xf7,0x82);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("4a458732-527e-5c73-9a68-a73da370f782")
+            IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceInformationCollection*, ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* >* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection, 0x4a458732, 0x527e, 0x5c73, 0x9a,0x68, 0xa7,0x3d,0xa3,0x70,0xf7,0x82)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release(__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_DeviceInformationCollection IID___FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection
+#define IAsyncOperationCompletedHandler_DeviceInformationCollectionVtbl __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl
+#define IAsyncOperationCompletedHandler_DeviceInformationCollection __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection
+#define IAsyncOperationCompletedHandler_DeviceInformationCollection_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface
+#define IAsyncOperationCompletedHandler_DeviceInformationCollection_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef
+#define IAsyncOperationCompletedHandler_DeviceInformationCollection_Release __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release
+#define IAsyncOperationCompletedHandler_DeviceInformationCollection_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Devices::Enumeration::DeviceThumbnail* > interface
@@ -1863,6 +3453,146 @@ static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeratio
 #endif
 
 #endif  /* ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection, 0x45180254, 0x082e, 0x5274, 0xb2,0xe7, 0xac,0x05,0x17,0xf4,0x4d,0x07);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("45180254-082e-5274-b2e7-ac0517f44d07")
+            IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceInformationCollection*, ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Enumeration::DeviceInformation* >* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection, 0x45180254, 0x082e, 0x5274, 0xb2,0xe7, 0xac,0x05,0x17,0xf4,0x4d,0x07)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *This,
+        __FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl;
+
+interface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetIids(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetTrustLevel(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceInformationCollection* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_put_Completed(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_get_Completed(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,__FIAsyncOperationCompletedHandler_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetResults(__FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection* This,__FIVectorView_1_Windows__CDevices__CEnumeration__CDeviceInformation **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_DeviceInformationCollection IID___FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection
+#define IAsyncOperation_DeviceInformationCollectionVtbl __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollectionVtbl
+#define IAsyncOperation_DeviceInformationCollection __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection
+#define IAsyncOperation_DeviceInformationCollection_QueryInterface __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_QueryInterface
+#define IAsyncOperation_DeviceInformationCollection_AddRef __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_AddRef
+#define IAsyncOperation_DeviceInformationCollection_Release __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_Release
+#define IAsyncOperation_DeviceInformationCollection_GetIids __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetIids
+#define IAsyncOperation_DeviceInformationCollection_GetRuntimeClassName __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetRuntimeClassName
+#define IAsyncOperation_DeviceInformationCollection_GetTrustLevel __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetTrustLevel
+#define IAsyncOperation_DeviceInformationCollection_put_Completed __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_put_Completed
+#define IAsyncOperation_DeviceInformationCollection_get_Completed __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_get_Completed
+#define IAsyncOperation_DeviceInformationCollection_GetResults __FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CDevices__CEnumeration__CDeviceInformationCollection_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperation<ABI::Windows::Devices::Enumeration::DeviceThumbnail* > interface
@@ -2279,6 +4009,98 @@ static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CDevices__CEnumera
 #endif
 
 #endif  /* ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceWatcher_Windows__CDevices__CEnumeration__CDeviceInformationUpdate_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs, 0x4c71d028, 0xb793, 0x5bce, 0xae,0x59, 0xfa,0x77,0xf4,0x5a,0x40,0xd8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("4c71d028-b793-5bce-ae59-fa77f45a40d8")
+            ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*, ABI::Windows::Devices::Enumeration::IDeviceAccessInformation* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs*, ABI::Windows::Devices::Enumeration::IDeviceAccessChangedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs, 0x4c71d028, 0xb793, 0x5bce, 0xae,0x59, 0xfa,0x77,0xf4,0x5a,0x40,0xd8)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs *This,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *sender,
+        __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Release(__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Devices::Enumeration::DeviceAccessInformation*,ABI::Windows::Devices::Enumeration::DeviceAccessChangedEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs* This,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessInformation *sender,__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceAccessChangedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs IID___FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgsVtbl __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgsVtbl
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_QueryInterface
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs_AddRef __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_AddRef
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs_Release __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Release
+#define ITypedEventHandler_DeviceAccessInformation_DeviceAccessChangedEventArgs_Invoke __FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CDevices__CEnumeration__CDeviceAccessInformation_Windows__CDevices__CEnumeration__CDeviceAccessChangedEventArgs_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
