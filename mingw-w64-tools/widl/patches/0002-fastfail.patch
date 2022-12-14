@@ -1,0 +1,20 @@
+diff --git a/mingw-w64-tools/widl/include/winnt.h b/mingw-w64-tools/widl/include/winnt.h
+index 14cfe64af..e2971ba2b 100644
+--- a/mingw-w64-tools/widl/include/winnt.h
++++ b/mingw-w64-tools/widl/include/winnt.h
+@@ -6768,6 +6768,7 @@ static FORCEINLINE void WriteNoFence( LONG volatile *dest, LONG value )
+     __WINE_ATOMIC_STORE_RELAXED( dest, &value );
+ }
+ 
++#if !defined(__MINGW_FASTFAIL_IMPL)
+ static FORCEINLINE DECLSPEC_NORETURN void __fastfail(unsigned int code)
+ {
+ #if defined(__x86_64__) || defined(__i386__)
+@@ -6780,6 +6781,7 @@ static FORCEINLINE DECLSPEC_NORETURN void __fastfail(unsigned int code)
+     for (;;) __asm__ __volatile__( "udf #0xfb" :: "r" (val) : "memory" );
+ #endif
+ }
++#endif
+ 
+ #endif  /* __GNUC__ */
+ 
