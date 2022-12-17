@@ -144,9 +144,9 @@ ADD_UNDERSCORE(hypot)
 ADD_UNDERSCORE(nextafter)
 
 #ifndef UCRTBASE
-ADD_UNDERSCORE(daylight)
-ADD_UNDERSCORE(timezone)
-ADD_UNDERSCORE(tzname)
+daylight DATA == _daylight
+timezone DATA == _timezone
+tzname DATA == _tzname
 
 ADD_UNDERSCORE(vsnprintf_s)
 #endif
