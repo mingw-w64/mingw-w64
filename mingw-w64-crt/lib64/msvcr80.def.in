@@ -183,6 +183,8 @@ __wcserror
 __wgetmainargs
 __winitenv DATA
 _abs64
+llabs == _abs64
+imaxabs == _abs64
 _access
 _acmdln DATA
 _aexit_rtn DATA

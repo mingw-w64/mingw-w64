@@ -1917,6 +1917,7 @@ labs
 ldexp DATA
 ldiv
 llabs
+imaxabs == llabs
 lldiv
 imaxdiv == lldiv
 localeconv

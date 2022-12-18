@@ -1739,7 +1739,8 @@ isxdigit
 labs
 ldexp DATA
 ldiv
-llabs DATA
+llabs
+imaxabs == llabs
 lldiv
 imaxdiv == lldiv
 localeconv

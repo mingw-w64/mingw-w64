@@ -294,6 +294,7 @@ src_msvcrt32=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/imaxabs.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
   misc/wassert.c \
@@ -420,6 +421,9 @@ src_msvcrtarm64=\
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
+src_msvcr80_32=\
+  misc/imaxabs.c
+
 src_msvcr80_64=\
   misc/__p___argv.c \
   misc/__p__acmdln.c \
@@ -437,6 +441,7 @@ src_crtdll=\
   misc/__p__fmode.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
@@ -458,6 +463,7 @@ src_msvcrt10=\
   misc/__p__fmode.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
@@ -474,6 +480,7 @@ src_msvcrt20=\
   misc/___mb_cur_max_func.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
@@ -488,6 +495,7 @@ src_msvcrt20=\
 
 src_msvcrt40=\
   misc/___mb_cur_max_func.c \
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
@@ -501,11 +509,13 @@ src_msvcrt40=\
   stdio/mingw_lock.c
 
 src_msvcr70=\
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   stdio/mingw_lock.c
 
 src_msvcr71=\
+  misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   stdio/mingw_lock.c
@@ -570,7 +580,7 @@ src_libmingwex=\
   math/sqrtf.c          math/sqrtl.c       math/tanhf.c          math/tanhl.c         math/tgamma.c        \
   math/tgammaf.c        math/tgammal.c     math/truncl.c         \
   math/powi.def.h       math/sqrt.def.h       \
-  math/cephes_mconf.h   math/fp_consts.h   math/abs64.c \
+  math/cephes_mconf.h   math/fp_consts.h   \
   \
   misc/mb_wc_common.h \
   misc/mingw_longjmp.S \
@@ -582,7 +592,7 @@ src_libmingwex=\
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
   misc/feraiseexcept.c   misc/fesetenv.c            misc/fesetexceptflag.c  misc/fesetround.c            misc/fetestexcept.c    \
   misc/feupdateenv.c     misc/ftruncate.c           misc/fwide.c            misc/getlogin.c              misc/getopt.c          \
-  misc/gettimeofday.c    misc/imaxabs.c             misc/isblank.c               misc/iswblank.c        \
+  misc/gettimeofday.c    misc/isblank.c             misc/iswblank.c        \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
@@ -1046,7 +1056,7 @@ lib32_libmsvcr70_extra_a_SOURCES = $(src_msvcr70)
 lib32_libmsvcr70_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr71_extra_a_SOURCES = $(src_msvcr71)
 lib32_libmsvcr71_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-lib32_libmsvcr80_extra_a_SOURCES = $(src_msvcr80)
+lib32_libmsvcr80_extra_a_SOURCES = $(src_msvcr80) $(src_msvcr80_32)
 lib32_libmsvcr80_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr90_extra_a_SOURCES = $(src_msvcr90)
 lib32_libmsvcr90_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)

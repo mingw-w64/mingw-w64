@@ -372,6 +372,8 @@ __wgetmainargs
 __winitenv DATA
 _abnormal_termination
 _abs64
+llabs == _abs64
+imaxabs == _abs64
 _access
 _access_s
 _acmdln DATA

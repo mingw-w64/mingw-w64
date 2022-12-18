@@ -350,6 +350,8 @@ __wgetmainargs
 F_X86_ANY(__winitenv DATA)
 F_I386(_abnormal_termination)
 F_NON_I386(_abs64)
+F_NON_I386(llabs == _abs64)
+F_NON_I386(imaxabs == _abs64)
 _access
 ; _access_s Replaced by emu
 _acmdln DATA
