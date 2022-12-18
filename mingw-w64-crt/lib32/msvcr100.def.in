@@ -1784,7 +1784,8 @@ labs
 ldexp DATA
 ldiv
 llabs DATA
-lldiv DATA
+lldiv
+imaxdiv == lldiv
 localeconv
 log DATA
 ; If we implement log10, we can set it to DATA only.

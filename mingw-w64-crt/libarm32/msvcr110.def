@@ -1495,6 +1495,7 @@ ldexp
 ldiv
 llabs
 lldiv
+imaxdiv == lldiv
 localeconv
 log
 log10

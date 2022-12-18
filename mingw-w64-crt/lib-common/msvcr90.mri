@@ -1,5 +1,6 @@
 CREATE libmsvcr90.a
 ADDLIB libmsvcr90_def.a
 ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcr90_extra.a
 SAVE
 END

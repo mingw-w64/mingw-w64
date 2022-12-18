@@ -1740,7 +1740,8 @@ labs
 ldexp DATA
 ldiv
 llabs DATA
-lldiv DATA
+lldiv
+imaxdiv == lldiv
 localeconv
 log DATA
 log10
