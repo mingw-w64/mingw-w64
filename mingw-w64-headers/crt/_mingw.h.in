@@ -612,6 +612,7 @@ __MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned i
 #else
   __asm__ __volatile__("unimplemented");
 #endif
+  __builtin_unreachable();
 }
 #endif /* __MINGW_FASTFAIL_IMPL == 1 */
 
