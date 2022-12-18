@@ -125,7 +125,7 @@ int gethex (const char **sp, FPI *fpi, Long *expo, Bigint **bp, int sign)
 		switch(*++s) {
 		  case '-':
 			esign = 1;
-			/* no break */
+			/* fallthrough */
 		  case '+':
 			s++;
 		}

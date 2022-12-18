@@ -309,11 +309,11 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *expo, ULong *bits)
 	for(s = s00;;s++) switch(*s) {
 		case '-':
 			sign = 1;
-			/* no break */
+			/* fallthrough */
 		case '+':
 			if (*++s)
 				goto break2;
-			/* no break */
+			/* fallthrough */
 		case 0:
 			sign = 0;
 			irv = STRTOG_NoNumber;
@@ -411,8 +411,10 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *expo, ULong *bits)
 		switch(c = *++s) {
 			case '-':
 				esign = 1;
+				/* fallthrough */
 			case '+':
 				c = *++s;
+				/* fallthrough */
 		}
 		if (c >= '0' && c <= '9') {
 			while(c == '0')
