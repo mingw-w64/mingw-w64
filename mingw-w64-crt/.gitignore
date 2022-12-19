@@ -1,1 +1,3 @@
 _libm_dummy.c
+lib64/kernel32.def
+lib64/ws2_32.def
