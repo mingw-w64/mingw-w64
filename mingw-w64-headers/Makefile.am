@@ -214,6 +214,7 @@ IDL_SRCS = \
   include/spellcheck.idl \
   include/strmif.idl \
   include/structuredquerycondition.idl \
+  include/systemmediatransportcontrolsinterop.idl \
   include/taskschd.idl \
   include/textstor.idl \
   include/thumbcache.idl \
