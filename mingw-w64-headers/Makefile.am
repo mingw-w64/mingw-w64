@@ -252,6 +252,7 @@ IDL_SRCS = \
   include/qedit.idl \
   include/qnetwork.idl \
   include/relogger.idl \
+  include/robuffer.idl \
   include/rtworkq.idl \
   include/vmr9.idl \
   include/wincodec.idl \
