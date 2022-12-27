@@ -554,6 +554,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/qedit.idl \
 @HAVE_WIDL_TRUE@  include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  include/relogger.idl \
+@HAVE_WIDL_TRUE@  include/robuffer.idl \
 @HAVE_WIDL_TRUE@  include/rtworkq.idl \
 @HAVE_WIDL_TRUE@  include/vmr9.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
