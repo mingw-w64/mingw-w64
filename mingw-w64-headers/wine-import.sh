@@ -112,6 +112,8 @@ for f in \
 	fontsub.h \
 	mediaerr.h \
 	mscat.h \
+	msxml2did.h \
+	msxml6did.h \
 	propkeydef.h \
 	propkey.h \
 	propvarutil.h \
@@ -190,6 +192,9 @@ for f in \
 	mmstream \
 	mscoree \
 	msctf \
+	msxml \
+	msxml2 \
+	msxml6 \
 	mulres \
 	netfw \
 	netlistmgr \
@@ -240,6 +245,8 @@ for f in \
 	xapo \
 	xaudio2 \
 	xaudio2fx \
+	xmldom \
+	xmldso \
 	xmllite; do
     import_idl $f.idl include
 done

@@ -179,6 +179,8 @@ IDL_SRCS = \
   include/mshtmhst.idl \
   include/msopc.idl \
   include/msxml.idl \
+  include/msxml2.idl \
+  include/msxml6.idl \
   include/napcertrelyingparty.idl \
   include/napcommon.idl \
   include/napenforcementclient.idl \
