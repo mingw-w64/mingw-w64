@@ -15,6 +15,7 @@
  */
 typedef DWORD NTSTATUS;
 
+#define __ImageBase __MINGW_LSYMBOL(_image_base__)
 extern IMAGE_DOS_HEADER __ImageBase;
 
 /* this typedef is missing from the Windows SDK header, but is present in

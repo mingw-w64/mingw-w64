@@ -368,12 +368,6 @@ AC_MSG_RESULT([$enable_tests_unicode])
 #AC_FUNC_VPRINTF
 #AC_CHECK_FUNCS([alarm atexit btowc fesetround floor ftruncate gettimeofday isascii localeconv mbrlen memmove memset pow rint setlocale sqrt strcasecmp strchr strncasecmp strtoull strtoumax])
 
-# Check for __ImageBase linker symbol.
-AC_MSG_CHECKING([whether the linker provides __ImageBase symbol])
-AC_LINK_IFELSE([AC_LANG_PROGRAM([[extern unsigned char __ImageBase[];]], [[return __ImageBase[0];]])], [ld_provides_imagebase=yes], [ld_provides_imagebase=no])
-AC_MSG_RESULT([$ld_provides_imagebase])
-AM_CONDITIONAL([LD_PROVIDES_IMAGEBASE],[test $ld_provides_imagebase = yes])
-
 AC_CHECK_HEADER([_mingw_mac.h], [], [AC_MSG_ERROR([Please check if the mingw-w64 header set and the build/host option are set properly.])])
 
 #Warnings and errors, default level is 3

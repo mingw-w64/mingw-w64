@@ -35,6 +35,11 @@ extern char *** __MINGW_IMP_SYMBOL(__initenv);
 #define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
 #endif
 
+/* Hack, for bug in ld.  Will be removed soon.  */
+#if defined(__GNUC__)
+#define __ImageBase __MINGW_LSYMBOL(_image_base__)
+#endif
+/* This symbol is defined by ld.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 
 extern void _fpreset (void);
