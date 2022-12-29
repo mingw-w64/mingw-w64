@@ -657,8 +657,6 @@ LIBOBJS
 ADD_CXX_ONLY_WARNING_FLAGS
 ADD_C_CXX_WARNING_FLAGS
 ADD_C_ONLY_WARNING_FLAGS
-LD_PROVIDES_IMAGEBASE_FALSE
-LD_PROVIDES_IMAGEBASE_TRUE
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
 ENABLE_SOFTMATH_FALSE
@@ -6985,62 +6983,6 @@ printf "%s\n" "$enable_tests_unicode" >&6; }
 #AC_FUNC_VPRINTF
 #AC_CHECK_FUNCS([alarm atexit btowc fesetround floor ftruncate gettimeofday isascii localeconv mbrlen memmove memset pow rint setlocale sqrt strcasecmp strchr strncasecmp strtoull strtoumax])
 
-# Check for __ImageBase linker symbol.
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the linker provides __ImageBase symbol" >&5
-printf %s "checking whether the linker provides __ImageBase symbol... " >&6; }
-# Run this test manually instead of wrapping it in AC_LINK_IFELSE; when
-# bootstrapping an environment, an earlier linking test will have failed,
-# which both causes autoconf to refuse to run any linker test at all,
-# and even if $ac_no_link is overridden, the linker test iteslf will explicitly
-# check that the linker actually produced output in the given output file.
-# If $ac_exeext is empty, as it is when the earlier linker test failed, gcc
-# will behave differently depending on version. If run with "gcc conftest.c
-# -o conftest", old versions will produce explicitly a file named "conftest",
-# while modern GCC versions will produce "conftest.exe". AC_LINK_IFELSE will
-# explicitly look for the output file named "conftest$ac_exeext", which isn't
-# found, and the test fails even though linking succeeded.
-#
-# Therefore, just do a manual test; run the linking command and check the return
-# code whether it was successful or not.
-#
-# This test uses both mainCRTStartup and main functions, to let lld deduce
-# entry point and subsystem automatically without having to manually specify,
-# anything. And as long as main() is provided, we need to implicitly provide
-# __main as well, since the compiler injects a call to it.
-
-cat <<_ACEOF >conftest.$ac_ext
-extern unsigned char __ImageBase[];
-void __main(void) {
-}
-int main(void) {
-  return __ImageBase[0];
-}
-int mainCRTStartup(void) {
-  return main();
-}
-_ACEOF
-
-echo "$as_me:$LINENO: $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext" >&5
-# Doing the link test with -nosdlib, to avoid trying to link in any libraries
-# which might not exist yet at this point.
-if $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext >&5 2>&1; then
-  ld_provides_imagebase=yes
-else
-  ld_provides_imagebase=no
-fi
-rm -f conftest$ac_exeext conftest.$ac_ext
-
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ld_provides_imagebase" >&5
-printf "%s\n" "$ld_provides_imagebase" >&6; }
- if test $ld_provides_imagebase = yes; then
-  LD_PROVIDES_IMAGEBASE_TRUE=
-  LD_PROVIDES_IMAGEBASE_FALSE='#'
-else
-  LD_PROVIDES_IMAGEBASE_TRUE='#'
-  LD_PROVIDES_IMAGEBASE_FALSE=
-fi
-
-
 ac_header= ac_cache=
 for ac_item in $ac_header_c_list
 do
@@ -7344,10 +7286,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_TESTS_UNICODE\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${LD_PROVIDES_IMAGEBASE_TRUE}" && test -z "${LD_PROVIDES_IMAGEBASE_FALSE}"; then
-  as_fn_error $? "conditional \"LD_PROVIDES_IMAGEBASE\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 
