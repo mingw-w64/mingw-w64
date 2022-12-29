@@ -481,6 +481,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mshtmhst.idl \
 @HAVE_WIDL_TRUE@  include/msopc.idl \
 @HAVE_WIDL_TRUE@  include/msxml.idl \
+@HAVE_WIDL_TRUE@  include/msxml2.idl \
+@HAVE_WIDL_TRUE@  include/msxml6.idl \
 @HAVE_WIDL_TRUE@  include/napcertrelyingparty.idl \
 @HAVE_WIDL_TRUE@  include/napcommon.idl \
 @HAVE_WIDL_TRUE@  include/napenforcementclient.idl \
