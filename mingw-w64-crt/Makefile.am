@@ -102,6 +102,8 @@ src_libdmoguids=libsrc/dmoguids.c
 src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
 src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
 src_libmfuuid=libsrc/mfuuid.c
+src_libmsxml2=libsrc/msxml2.c
+src_libmsxml6=libsrc/msxml6.c
 src_libamstrmid=libsrc/amstrmid.c
 src_libwbemuuid=libsrc/wbemuuid.c
 src_libwmcodecdspuuid=libsrc/wmcodecdspuuid.c
@@ -833,6 +835,14 @@ lib32_LIBRARIES += lib32/libdxerr9.a
 lib32_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib32_libdxerr9_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libmsxml2.a
+lib32_libmsxml2_a_SOURCES = $(src_libmsxml2)
+lib32_libmsxml2_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/libmsxml6.a
+lib32_libmsxml6_a_SOURCES = $(src_libmsxml6)
+lib32_libmsxml6_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libmfuuid.a
 lib32_libmfuuid_a_SOURCES = $(src_libmfuuid)
 lib32_libmfuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
@@ -1203,6 +1213,14 @@ lib64_LIBRARIES += lib64/libdxerr9.a
 lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib64_libdxerr9_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
+lib64_LIBRARIES += lib64/libmsxml2.a
+lib64_libmsxml2_a_SOURCES = $(src_libmsxml2)
+lib64_libmsxml2_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libmsxml6.a
+lib64_libmsxml6_a_SOURCES = $(src_libmsxml6)
+lib64_libmsxml6_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+
 lib64_LIBRARIES += lib64/libmfuuid.a
 lib64_libmfuuid_a_SOURCES = $(src_libmfuuid)
 lib64_libmfuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
@@ -1543,6 +1561,14 @@ libarm32_LIBRARIES += libarm32/libdxerr9.a
 libarm32_libdxerr9_a_SOURCES = $(src_libdxerr9)
 libarm32_libdxerr9_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
+libarm32_LIBRARIES += libarm32/libmsxml2.a
+libarm32_libmsxml2_a_SOURCES = $(src_libmsxml2)
+libarm32_libmsxml2_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libmsxml6.a
+libarm32_libmsxml6_a_SOURCES = $(src_libmsxml6)
+libarm32_libmsxml6_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
 libarm32_LIBRARIES += libarm32/libmfuuid.a
 libarm32_libmfuuid_a_SOURCES = $(src_libmfuuid)
 libarm32_libmfuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
@@ -1828,6 +1854,14 @@ libarm64_libdxerr8_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libdxerr9.a
 libarm64_libdxerr9_a_SOURCES = $(src_libdxerr9)
 libarm64_libdxerr9_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libmsxml2.a
+libarm64_libmsxml2_a_SOURCES = $(src_libmsxml2)
+libarm64_libmsxml2_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libmsxml6.a
+libarm64_libmsxml6_a_SOURCES = $(src_libmsxml6)
+libarm64_libmsxml6_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmfuuid.a
 libarm64_libmfuuid_a_SOURCES = $(src_libmfuuid)
