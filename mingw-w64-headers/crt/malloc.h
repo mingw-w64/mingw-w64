@@ -78,8 +78,10 @@ void __mingw_aligned_free (void *_Memory);
 void * __mingw_aligned_offset_realloc (void *_Memory, size_t _Size, size_t _Alignment, size_t _Offset);
 void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 
+#if defined(__x86_64__) || defined(__i386__)
 /* Get the compiler's definition of _mm_malloc and _mm_free. */
 #include <mm_malloc.h>
+#endif
 
 #define _MAX_WAIT_MALLOC_CRT 60000
 
