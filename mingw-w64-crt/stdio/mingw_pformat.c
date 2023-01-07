@@ -1039,7 +1039,7 @@ typedef union
     signed short         __pformat_fpreg_exponent;
   };
   unsigned short         __pformat_fpreg_bitmap[5];
-  unsigned long          __pformat_fpreg_bits;
+  unsigned int           __pformat_fpreg_bits;
 } __pformat_fpreg_t;
 
 #ifdef _WIN32

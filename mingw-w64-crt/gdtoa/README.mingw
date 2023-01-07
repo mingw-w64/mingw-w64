@@ -1,6 +1,6 @@
 The gdtoa code here is based on David M. Gay's original
-gdtoa source at http://www.netlib.org/fp/ from Sep. 27,
-2010. The major changes between the original source and
+gdtoa source at http://www.netlib.org/fp/ from Jan. 6,
+2023. The major changes between the original source and
 the mingw port here include:
 
 * IBM, CRAY and VAX code removed.
@@ -14,6 +14,7 @@ the mingw port here include:
   (grep'ped better..)
 * A few compiler warning fixes here and there.
 * A few other insignificant changes (if any..)
+* set_max_gdtoa_threads functionality removed
 
 MinGW specific compile-time definitions are at the top of
 gdtoaimp.h and gdtoa.h headers.
