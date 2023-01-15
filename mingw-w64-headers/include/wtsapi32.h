@@ -381,8 +381,8 @@ typedef enum _WTS_TYPE_CLASS {
   WTSTypeProcessInfoLevel1,
   WTSTypeSessionInfoLevel1
 } WTS_TYPE_CLASS;
-WINBOOL WTSFreeMemoryExA(WTS_TYPE_CLASS WTSTypeClass,PVOID pMemory,ULONG NumberOfEntries);
-WINBOOL WTSFreeMemoryExW(WTS_TYPE_CLASS WTSTypeClass,PVOID pMemory,ULONG NumberOfEntries);
+WINBOOL WINAPI WTSFreeMemoryExA(WTS_TYPE_CLASS WTSTypeClass,PVOID pMemory,ULONG NumberOfEntries);
+WINBOOL WINAPI WTSFreeMemoryExW(WTS_TYPE_CLASS WTSTypeClass,PVOID pMemory,ULONG NumberOfEntries);
 #define WTSFreeMemoryEx __MINGW_NAME_AW(WTSFreeMemoryEx)
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
