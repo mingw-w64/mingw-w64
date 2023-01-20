@@ -1259,7 +1259,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   float __cdecl __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
   long double __cdecl __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 
-#if __USE_MINGW_STRTOX
+#if defined(__USE_MINGW_STRTOX) && !defined(_UCRT)
   __mingw_ovr
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr){
     return __mingw_wcstod(_Str,_EndPtr);
@@ -1272,7 +1272,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #else
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   float __cdecl wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
-#endif /* defined(__USE_MINGW_STRTOX) */
+#endif /* !defined(__USE_MINGW_STRTOX) || defined(_UCRT) */
 #if !defined __NO_ISOCEXT /* in libmingwex.a */
   long double __cdecl wcstold (const wchar_t * __restrict__, wchar_t ** __restrict__);
 #endif /* __NO_ISOCEXT */
