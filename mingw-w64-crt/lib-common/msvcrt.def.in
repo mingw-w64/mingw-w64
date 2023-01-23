@@ -564,7 +564,7 @@ _fwscanf_s_l
 _gcvt
 _gcvt_s
 F_ARM_ANY(_get_current_locale)
-F_ARM_ANY(_get_doserrno)
+_get_doserrno
 F_ARM_ANY(_get_environ)
 F_ARM_ANY(_get_errno)
 F_ARM_ANY(_get_fileinfo)
@@ -943,8 +943,8 @@ _scwprintf_p_l
 _searchenv
 _searchenv_s
 F_I386(_seh_longjmp_unwind)
-F_ARM_ANY(_set_controlfp)
-F_ARM_ANY(_set_doserrno)
+_set_controlfp
+_set_doserrno
 F_ARM_ANY(_set_errno)
 _set_error_mode
 F_ARM_ANY(_set_fileinfo)
