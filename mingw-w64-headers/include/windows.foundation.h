@@ -26,6 +26,23 @@
 
 /* Forward declarations */
 
+#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet ABI::Windows::Foundation::Collections::IPropertySet
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                interface IPropertySet;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler __x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler;
@@ -145,6 +162,70 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CFoundation_CMemoryBuffer __x_ABI_CWindows_CFoundation_CMemoryBuffer;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CFoundation_CMemoryBuffer_FWD_DEFINED__ */
+
+#ifndef ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIKeyValuePair_2_HSTRING_IInspectable __FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMapChangedEventArgs_1_HSTRING_FWD_DEFINED__
+#define ____FIMapChangedEventArgs_1_HSTRING_FWD_DEFINED__
+typedef interface __FIMapChangedEventArgs_1_HSTRING __FIMapChangedEventArgs_1_HSTRING;
+#ifdef __cplusplus
+#define __FIMapChangedEventArgs_1_HSTRING ABI::Windows::Foundation::Collections::IMapChangedEventArgs<HSTRING >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMapChangedEventHandler_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMapChangedEventHandler_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMapChangedEventHandler_2_HSTRING_IInspectable __FIMapChangedEventHandler_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMapChangedEventHandler_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMapChangedEventHandler<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMapView_2_HSTRING_IInspectable __FIMapView_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMapView_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMapView<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIObservableMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIObservableMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIObservableMap_2_HSTRING_IInspectable __FIObservableMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIObservableMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IObservableMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
 
 #ifndef ____FIIterable_1_HSTRING_FWD_DEFINED__
 #define ____FIIterable_1_HSTRING_FWD_DEFINED__
@@ -293,6 +374,192 @@ typedef interface __FITypedEventHandler_2_Windows__CFoundation__CIMemoryBufferRe
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet ABI::Windows::Foundation::Collections::IPropertySet
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                interface IPropertySet;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIKeyValuePair_2_HSTRING_IInspectable __FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMapChangedEventArgs_1_HSTRING_FWD_DEFINED__
+#define ____FIMapChangedEventArgs_1_HSTRING_FWD_DEFINED__
+typedef interface __FIMapChangedEventArgs_1_HSTRING __FIMapChangedEventArgs_1_HSTRING;
+#ifdef __cplusplus
+#define __FIMapChangedEventArgs_1_HSTRING ABI::Windows::Foundation::Collections::IMapChangedEventArgs<HSTRING >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMapView_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMapView_2_HSTRING_IInspectable __FIMapView_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMapView_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMapView<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIObservableMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIObservableMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIObservableMap_2_HSTRING_IInspectable __FIObservableMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIObservableMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IObservableMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IPropertySet interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CCollections_CIPropertySet, 0x8a43ed9f, 0xf4e6, 0x4421, 0xac,0xf9, 0x1d,0xab,0x29,0x86,0x82,0x0c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                MIDL_INTERFACE("8a43ed9f-f4e6-4421-acf9-1dab2986820c")
+                IPropertySet : public IInspectable
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet, 0x8a43ed9f, 0xf4e6, 0x4421, 0xac,0xf9, 0x1d,0xab,0x29,0x86,0x82,0x0c)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet *This,
+        TrustLevel *trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_QueryInterface(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_AddRef(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_Release(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetIids(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetTrustLevel(__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IPropertySet IID___x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+#define IPropertySetVtbl __x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
+#define IPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+#define IPropertySet_QueryInterface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_QueryInterface
+#define IPropertySet_AddRef __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_AddRef
+#define IPropertySet_Release __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_Release
+#define IPropertySet_GetIids __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetIids
+#define IPropertySet_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetRuntimeClassName
+#define IPropertySet_GetTrustLevel __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_GetTrustLevel
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
 
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CFoundation_CPropertyType __x_ABI_CWindows_CFoundation_CPropertyType;
@@ -1690,6 +1957,1112 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_MemoryBuff
 #endif
 #endif /* RUNTIMECLASS_Windows_Foundation_MemoryBuffer_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IKeyValuePair<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIKeyValuePair_2_HSTRING_IInspectable, 0x09335560, 0x6c6b, 0x5a26, 0x93,0x48, 0x97,0xb7,0x81,0x13,0x2b,0x20);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("09335560-6c6b-5a26-9348-97b781132b20")
+                IKeyValuePair<HSTRING,IInspectable* > : IKeyValuePair_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIKeyValuePair_2_HSTRING_IInspectable, 0x09335560, 0x6c6b, 0x5a26, 0x93,0x48, 0x97,0xb7,0x81,0x13,0x2b,0x20)
+#endif
+#else
+typedef struct __FIKeyValuePair_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IKeyValuePair<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Key)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        HSTRING *key);
+
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIKeyValuePair_2_HSTRING_IInspectable *This,
+        IInspectable **value);
+
+    END_INTERFACE
+} __FIKeyValuePair_2_HSTRING_IInspectableVtbl;
+
+interface __FIKeyValuePair_2_HSTRING_IInspectable {
+    CONST_VTBL __FIKeyValuePair_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIKeyValuePair_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIKeyValuePair_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIKeyValuePair_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IKeyValuePair<HSTRING,IInspectable* > methods ***/
+#define __FIKeyValuePair_2_HSTRING_IInspectable_get_Key(This,key) (This)->lpVtbl->get_Key(This,key)
+#define __FIKeyValuePair_2_HSTRING_IInspectable_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(__FIKeyValuePair_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIKeyValuePair_2_HSTRING_IInspectable_AddRef(__FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIKeyValuePair_2_HSTRING_IInspectable_Release(__FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_GetIids(__FIKeyValuePair_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(__FIKeyValuePair_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(__FIKeyValuePair_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IKeyValuePair<HSTRING,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_get_Key(__FIKeyValuePair_2_HSTRING_IInspectable* This,HSTRING *key) {
+    return This->lpVtbl->get_Key(This,key);
+}
+static __WIDL_INLINE HRESULT __FIKeyValuePair_2_HSTRING_IInspectable_get_Value(__FIKeyValuePair_2_HSTRING_IInspectable* This,IInspectable **value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IKeyValuePair_HSTRING_IInspectable IID___FIKeyValuePair_2_HSTRING_IInspectable
+#define IKeyValuePair_HSTRING_IInspectableVtbl __FIKeyValuePair_2_HSTRING_IInspectableVtbl
+#define IKeyValuePair_HSTRING_IInspectable __FIKeyValuePair_2_HSTRING_IInspectable
+#define IKeyValuePair_HSTRING_IInspectable_QueryInterface __FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface
+#define IKeyValuePair_HSTRING_IInspectable_AddRef __FIKeyValuePair_2_HSTRING_IInspectable_AddRef
+#define IKeyValuePair_HSTRING_IInspectable_Release __FIKeyValuePair_2_HSTRING_IInspectable_Release
+#define IKeyValuePair_HSTRING_IInspectable_GetIids __FIKeyValuePair_2_HSTRING_IInspectable_GetIids
+#define IKeyValuePair_HSTRING_IInspectable_GetRuntimeClassName __FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IKeyValuePair_HSTRING_IInspectable_GetTrustLevel __FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel
+#define IKeyValuePair_HSTRING_IInspectable_get_Key __FIKeyValuePair_2_HSTRING_IInspectable_get_Key
+#define IKeyValuePair_HSTRING_IInspectable_get_Value __FIKeyValuePair_2_HSTRING_IInspectable_get_Value
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > interface
+ */
+#ifndef ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable, 0xfe2f3d47, 0x5d47, 0x5499, 0x83,0x74, 0x43,0x0c,0x7c,0xda,0x02,0x04);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("fe2f3d47-5d47-5499-8374-430c7cda0204")
+                IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > : IIterable_impl<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable, 0xfe2f3d47, 0x5d47, 0x5499, 0x83,0x74, 0x43,0x0c,0x7c,0xda,0x02,0x04)
+#endif
+#else
+typedef struct __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable **value);
+
+    END_INTERFACE
+} __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl;
+
+interface __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable {
+    CONST_VTBL __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+#define __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_Release(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_First(__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable* This,__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_IKeyValuePair_HSTRING_IInspectable IID___FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable
+#define IIterable_IKeyValuePair_HSTRING_IInspectableVtbl __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl
+#define IIterable_IKeyValuePair_HSTRING_IInspectable __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_QueryInterface __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_AddRef __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_Release __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_Release
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_GetIids __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_GetRuntimeClassName __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_GetTrustLevel __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel
+#define IIterable_IKeyValuePair_HSTRING_IInspectable_First __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > interface
+ */
+#ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable, 0x5db5fa32, 0x707c, 0x5849, 0xa0,0x6b, 0x91,0xc8,0xeb,0x9d,0x10,0xe8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("5db5fa32-707c-5849-a06b-91c8eb9d10e8")
+                IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > : IIterator_impl<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable, 0x5db5fa32, 0x707c, 0x5849, 0xa0,0x6b, 0x91,0xc8,0xeb,0x9d,0x10,0xe8)
+#endif
+#else
+typedef struct __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        __FIKeyValuePair_2_HSTRING_IInspectable **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable *This,
+        UINT32 items_size,
+        __FIKeyValuePair_2_HSTRING_IInspectable **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl;
+
+interface __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable {
+    CONST_VTBL __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_Release(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_Current(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,__FIKeyValuePair_2_HSTRING_IInspectable **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_HasCurrent(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,WINBOOL *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_MoveNext(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,WINBOOL *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetMany(__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable* This,UINT32 items_size,__FIKeyValuePair_2_HSTRING_IInspectable **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_IKeyValuePair_HSTRING_IInspectable IID___FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable
+#define IIterator_IKeyValuePair_HSTRING_IInspectableVtbl __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl
+#define IIterator_IKeyValuePair_HSTRING_IInspectable __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_QueryInterface __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_QueryInterface
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_AddRef __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_AddRef
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_Release __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_Release
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_GetIids __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetIids
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_GetRuntimeClassName __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_GetTrustLevel __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetTrustLevel
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_get_Current __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_Current
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_get_HasCurrent __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_get_HasCurrent
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_MoveNext __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_MoveNext
+#define IIterator_IKeyValuePair_HSTRING_IInspectable_GetMany __FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMapChangedEventArgs<HSTRING > interface
+ */
+#ifndef ____FIMapChangedEventArgs_1_HSTRING_INTERFACE_DEFINED__
+#define ____FIMapChangedEventArgs_1_HSTRING_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMapChangedEventArgs_1_HSTRING, 0x60141efb, 0xf2f9, 0x5377, 0x96,0xfd, 0xf8,0xc6,0x0d,0x95,0x58,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("60141efb-f2f9-5377-96fd-f8c60d9558b5")
+                IMapChangedEventArgs<HSTRING > : IMapChangedEventArgs_impl<HSTRING >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMapChangedEventArgs_1_HSTRING, 0x60141efb, 0xf2f9, 0x5377, 0x96,0xfd, 0xf8,0xc6,0x0d,0x95,0x58,0xb5)
+#endif
+#else
+typedef struct __FIMapChangedEventArgs_1_HSTRINGVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMapChangedEventArgs_1_HSTRING *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMapChangedEventArgs_1_HSTRING *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        TrustLevel *trustLevel);
+
+    /*** IMapChangedEventArgs<HSTRING > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CollectionChanged)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        enum __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Key)(
+        __FIMapChangedEventArgs_1_HSTRING *This,
+        HSTRING *key);
+
+    END_INTERFACE
+} __FIMapChangedEventArgs_1_HSTRINGVtbl;
+
+interface __FIMapChangedEventArgs_1_HSTRING {
+    CONST_VTBL __FIMapChangedEventArgs_1_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMapChangedEventArgs_1_HSTRING_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMapChangedEventArgs_1_HSTRING_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMapChangedEventArgs_1_HSTRING_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMapChangedEventArgs_1_HSTRING_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMapChangedEventArgs_1_HSTRING_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMapChangedEventArgs_1_HSTRING_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMapChangedEventArgs<HSTRING > methods ***/
+#define __FIMapChangedEventArgs_1_HSTRING_get_CollectionChanged(This,value) (This)->lpVtbl->get_CollectionChanged(This,value)
+#define __FIMapChangedEventArgs_1_HSTRING_get_Key(This,key) (This)->lpVtbl->get_Key(This,key)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_QueryInterface(__FIMapChangedEventArgs_1_HSTRING* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIMapChangedEventArgs_1_HSTRING_AddRef(__FIMapChangedEventArgs_1_HSTRING* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIMapChangedEventArgs_1_HSTRING_Release(__FIMapChangedEventArgs_1_HSTRING* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_GetIids(__FIMapChangedEventArgs_1_HSTRING* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_GetRuntimeClassName(__FIMapChangedEventArgs_1_HSTRING* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_GetTrustLevel(__FIMapChangedEventArgs_1_HSTRING* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMapChangedEventArgs<HSTRING > methods ***/
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_get_CollectionChanged(__FIMapChangedEventArgs_1_HSTRING* This,enum __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange *value) {
+    return This->lpVtbl->get_CollectionChanged(This,value);
+}
+static __WIDL_INLINE HRESULT __FIMapChangedEventArgs_1_HSTRING_get_Key(__FIMapChangedEventArgs_1_HSTRING* This,HSTRING *key) {
+    return This->lpVtbl->get_Key(This,key);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMapChangedEventArgs_HSTRING IID___FIMapChangedEventArgs_1_HSTRING
+#define IMapChangedEventArgs_HSTRINGVtbl __FIMapChangedEventArgs_1_HSTRINGVtbl
+#define IMapChangedEventArgs_HSTRING __FIMapChangedEventArgs_1_HSTRING
+#define IMapChangedEventArgs_HSTRING_QueryInterface __FIMapChangedEventArgs_1_HSTRING_QueryInterface
+#define IMapChangedEventArgs_HSTRING_AddRef __FIMapChangedEventArgs_1_HSTRING_AddRef
+#define IMapChangedEventArgs_HSTRING_Release __FIMapChangedEventArgs_1_HSTRING_Release
+#define IMapChangedEventArgs_HSTRING_GetIids __FIMapChangedEventArgs_1_HSTRING_GetIids
+#define IMapChangedEventArgs_HSTRING_GetRuntimeClassName __FIMapChangedEventArgs_1_HSTRING_GetRuntimeClassName
+#define IMapChangedEventArgs_HSTRING_GetTrustLevel __FIMapChangedEventArgs_1_HSTRING_GetTrustLevel
+#define IMapChangedEventArgs_HSTRING_get_CollectionChanged __FIMapChangedEventArgs_1_HSTRING_get_CollectionChanged
+#define IMapChangedEventArgs_HSTRING_get_Key __FIMapChangedEventArgs_1_HSTRING_get_Key
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMapChangedEventArgs_1_HSTRING_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMapChangedEventHandler<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIMapChangedEventHandler_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIMapChangedEventHandler_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMapChangedEventHandler_2_HSTRING_IInspectable, 0x24f981e5, 0xddca, 0x538d, 0xaa,0xda, 0xa5,0x99,0x06,0x08,0x4c,0xf1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("24f981e5-ddca-538d-aada-a59906084cf1")
+                IMapChangedEventHandler<HSTRING,IInspectable* > : IMapChangedEventHandler_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMapChangedEventHandler_2_HSTRING_IInspectable, 0x24f981e5, 0xddca, 0x538d, 0xaa,0xda, 0xa5,0x99,0x06,0x08,0x4c,0xf1)
+#endif
+#else
+typedef struct __FIMapChangedEventHandler_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMapChangedEventHandler_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMapChangedEventHandler_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMapChangedEventHandler_2_HSTRING_IInspectable *This);
+
+    /*** IMapChangedEventHandler<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIMapChangedEventHandler_2_HSTRING_IInspectable *This,
+        __FIObservableMap_2_HSTRING_IInspectable *sender,
+        __FIMapChangedEventArgs_1_HSTRING *args);
+
+    END_INTERFACE
+} __FIMapChangedEventHandler_2_HSTRING_IInspectableVtbl;
+
+interface __FIMapChangedEventHandler_2_HSTRING_IInspectable {
+    CONST_VTBL __FIMapChangedEventHandler_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMapChangedEventHandler_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMapChangedEventHandler_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMapChangedEventHandler_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IMapChangedEventHandler<HSTRING,IInspectable* > methods ***/
+#define __FIMapChangedEventHandler_2_HSTRING_IInspectable_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIMapChangedEventHandler_2_HSTRING_IInspectable_QueryInterface(__FIMapChangedEventHandler_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIMapChangedEventHandler_2_HSTRING_IInspectable_AddRef(__FIMapChangedEventHandler_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIMapChangedEventHandler_2_HSTRING_IInspectable_Release(__FIMapChangedEventHandler_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMapChangedEventHandler<HSTRING,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FIMapChangedEventHandler_2_HSTRING_IInspectable_Invoke(__FIMapChangedEventHandler_2_HSTRING_IInspectable* This,__FIObservableMap_2_HSTRING_IInspectable *sender,__FIMapChangedEventArgs_1_HSTRING *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMapChangedEventHandler_HSTRING_IInspectable IID___FIMapChangedEventHandler_2_HSTRING_IInspectable
+#define IMapChangedEventHandler_HSTRING_IInspectableVtbl __FIMapChangedEventHandler_2_HSTRING_IInspectableVtbl
+#define IMapChangedEventHandler_HSTRING_IInspectable __FIMapChangedEventHandler_2_HSTRING_IInspectable
+#define IMapChangedEventHandler_HSTRING_IInspectable_QueryInterface __FIMapChangedEventHandler_2_HSTRING_IInspectable_QueryInterface
+#define IMapChangedEventHandler_HSTRING_IInspectable_AddRef __FIMapChangedEventHandler_2_HSTRING_IInspectable_AddRef
+#define IMapChangedEventHandler_HSTRING_IInspectable_Release __FIMapChangedEventHandler_2_HSTRING_IInspectable_Release
+#define IMapChangedEventHandler_HSTRING_IInspectable_Invoke __FIMapChangedEventHandler_2_HSTRING_IInspectable_Invoke
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMapChangedEventHandler_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMap<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMap_2_HSTRING_IInspectable, 0x1b0d3570, 0x0877, 0x5ec2, 0x8a,0x2c, 0x3b,0x95,0x39,0x50,0x6a,0xca);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("1b0d3570-0877-5ec2-8a2c-3b9539506aca")
+                IMap<HSTRING,IInspectable* > : IMap_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMap_2_HSTRING_IInspectable, 0x1b0d3570, 0x0877, 0x5ec2, 0x8a,0x2c, 0x3b,0x95,0x39,0x50,0x6a,0xca)
+#endif
+#else
+typedef struct __FIMap_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IMap<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Lookup)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        IInspectable **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        unsigned int *size);
+
+    HRESULT (STDMETHODCALLTYPE *HasKey)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        boolean *found);
+
+    HRESULT (STDMETHODCALLTYPE *GetView)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        __FIMapView_2_HSTRING_IInspectable **view);
+
+    HRESULT (STDMETHODCALLTYPE *Insert)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        IInspectable *value,
+        boolean *replaced);
+
+    HRESULT (STDMETHODCALLTYPE *Remove)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    END_INTERFACE
+} __FIMap_2_HSTRING_IInspectableVtbl;
+
+interface __FIMap_2_HSTRING_IInspectable {
+    CONST_VTBL __FIMap_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMap_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMap_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMap_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMap_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMap_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMap<HSTRING,IInspectable* > methods ***/
+#define __FIMap_2_HSTRING_IInspectable_Lookup(This,key,value) (This)->lpVtbl->Lookup(This,key,value)
+#define __FIMap_2_HSTRING_IInspectable_get_Size(This,size) (This)->lpVtbl->get_Size(This,size)
+#define __FIMap_2_HSTRING_IInspectable_HasKey(This,key,found) (This)->lpVtbl->HasKey(This,key,found)
+#define __FIMap_2_HSTRING_IInspectable_GetView(This,view) (This)->lpVtbl->GetView(This,view)
+#define __FIMap_2_HSTRING_IInspectable_Insert(This,key,value,replaced) (This)->lpVtbl->Insert(This,key,value,replaced)
+#define __FIMap_2_HSTRING_IInspectable_Remove(This,key) (This)->lpVtbl->Remove(This,key)
+#define __FIMap_2_HSTRING_IInspectable_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_QueryInterface(__FIMap_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIMap_2_HSTRING_IInspectable_AddRef(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIMap_2_HSTRING_IInspectable_Release(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_GetIids(__FIMap_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(__FIMap_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_GetTrustLevel(__FIMap_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMap<HSTRING,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_Lookup(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,IInspectable **value) {
+    return This->lpVtbl->Lookup(This,key,value);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_get_Size(__FIMap_2_HSTRING_IInspectable* This,unsigned int *size) {
+    return This->lpVtbl->get_Size(This,size);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_HasKey(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,boolean *found) {
+    return This->lpVtbl->HasKey(This,key,found);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_GetView(__FIMap_2_HSTRING_IInspectable* This,__FIMapView_2_HSTRING_IInspectable **view) {
+    return This->lpVtbl->GetView(This,view);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_Insert(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,IInspectable *value,boolean *replaced) {
+    return This->lpVtbl->Insert(This,key,value,replaced);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_Remove(__FIMap_2_HSTRING_IInspectable* This,HSTRING key) {
+    return This->lpVtbl->Remove(This,key);
+}
+static __WIDL_INLINE HRESULT __FIMap_2_HSTRING_IInspectable_Clear(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMap_HSTRING_IInspectable IID___FIMap_2_HSTRING_IInspectable
+#define IMap_HSTRING_IInspectableVtbl __FIMap_2_HSTRING_IInspectableVtbl
+#define IMap_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable
+#define IMap_HSTRING_IInspectable_QueryInterface __FIMap_2_HSTRING_IInspectable_QueryInterface
+#define IMap_HSTRING_IInspectable_AddRef __FIMap_2_HSTRING_IInspectable_AddRef
+#define IMap_HSTRING_IInspectable_Release __FIMap_2_HSTRING_IInspectable_Release
+#define IMap_HSTRING_IInspectable_GetIids __FIMap_2_HSTRING_IInspectable_GetIids
+#define IMap_HSTRING_IInspectable_GetRuntimeClassName __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IMap_HSTRING_IInspectable_GetTrustLevel __FIMap_2_HSTRING_IInspectable_GetTrustLevel
+#define IMap_HSTRING_IInspectable_Lookup __FIMap_2_HSTRING_IInspectable_Lookup
+#define IMap_HSTRING_IInspectable_get_Size __FIMap_2_HSTRING_IInspectable_get_Size
+#define IMap_HSTRING_IInspectable_HasKey __FIMap_2_HSTRING_IInspectable_HasKey
+#define IMap_HSTRING_IInspectable_GetView __FIMap_2_HSTRING_IInspectable_GetView
+#define IMap_HSTRING_IInspectable_Insert __FIMap_2_HSTRING_IInspectable_Insert
+#define IMap_HSTRING_IInspectable_Remove __FIMap_2_HSTRING_IInspectable_Remove
+#define IMap_HSTRING_IInspectable_Clear __FIMap_2_HSTRING_IInspectable_Clear
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMapView<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIMapView_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIMapView_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMapView_2_HSTRING_IInspectable, 0xbb78502a, 0xf79d, 0x54fa, 0x92,0xc9, 0x90,0xc5,0x03,0x9f,0xdf,0x7e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("bb78502a-f79d-54fa-92c9-90c5039fdf7e")
+                IMapView<HSTRING,IInspectable* > : IMapView_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMapView_2_HSTRING_IInspectable, 0xbb78502a, 0xf79d, 0x54fa, 0x92,0xc9, 0x90,0xc5,0x03,0x9f,0xdf,0x7e)
+#endif
+#else
+typedef struct __FIMapView_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMapView_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMapView_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IMapView<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Lookup)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        IInspectable **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        unsigned int *size);
+
+    HRESULT (STDMETHODCALLTYPE *HasKey)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        boolean *found);
+
+    HRESULT (STDMETHODCALLTYPE *Split)(
+        __FIMapView_2_HSTRING_IInspectable *This,
+        __FIMapView_2_HSTRING_IInspectable **first,
+        __FIMapView_2_HSTRING_IInspectable **second);
+
+    END_INTERFACE
+} __FIMapView_2_HSTRING_IInspectableVtbl;
+
+interface __FIMapView_2_HSTRING_IInspectable {
+    CONST_VTBL __FIMapView_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMapView_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMapView_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMapView_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMapView_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMapView_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMapView_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMapView<HSTRING,IInspectable* > methods ***/
+#define __FIMapView_2_HSTRING_IInspectable_Lookup(This,key,value) (This)->lpVtbl->Lookup(This,key,value)
+#define __FIMapView_2_HSTRING_IInspectable_get_Size(This,size) (This)->lpVtbl->get_Size(This,size)
+#define __FIMapView_2_HSTRING_IInspectable_HasKey(This,key,found) (This)->lpVtbl->HasKey(This,key,found)
+#define __FIMapView_2_HSTRING_IInspectable_Split(This,first,second) (This)->lpVtbl->Split(This,first,second)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_QueryInterface(__FIMapView_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIMapView_2_HSTRING_IInspectable_AddRef(__FIMapView_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIMapView_2_HSTRING_IInspectable_Release(__FIMapView_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_GetIids(__FIMapView_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_GetRuntimeClassName(__FIMapView_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_GetTrustLevel(__FIMapView_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMapView<HSTRING,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_Lookup(__FIMapView_2_HSTRING_IInspectable* This,HSTRING key,IInspectable **value) {
+    return This->lpVtbl->Lookup(This,key,value);
+}
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_get_Size(__FIMapView_2_HSTRING_IInspectable* This,unsigned int *size) {
+    return This->lpVtbl->get_Size(This,size);
+}
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_HasKey(__FIMapView_2_HSTRING_IInspectable* This,HSTRING key,boolean *found) {
+    return This->lpVtbl->HasKey(This,key,found);
+}
+static __WIDL_INLINE HRESULT __FIMapView_2_HSTRING_IInspectable_Split(__FIMapView_2_HSTRING_IInspectable* This,__FIMapView_2_HSTRING_IInspectable **first,__FIMapView_2_HSTRING_IInspectable **second) {
+    return This->lpVtbl->Split(This,first,second);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMapView_HSTRING_IInspectable IID___FIMapView_2_HSTRING_IInspectable
+#define IMapView_HSTRING_IInspectableVtbl __FIMapView_2_HSTRING_IInspectableVtbl
+#define IMapView_HSTRING_IInspectable __FIMapView_2_HSTRING_IInspectable
+#define IMapView_HSTRING_IInspectable_QueryInterface __FIMapView_2_HSTRING_IInspectable_QueryInterface
+#define IMapView_HSTRING_IInspectable_AddRef __FIMapView_2_HSTRING_IInspectable_AddRef
+#define IMapView_HSTRING_IInspectable_Release __FIMapView_2_HSTRING_IInspectable_Release
+#define IMapView_HSTRING_IInspectable_GetIids __FIMapView_2_HSTRING_IInspectable_GetIids
+#define IMapView_HSTRING_IInspectable_GetRuntimeClassName __FIMapView_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IMapView_HSTRING_IInspectable_GetTrustLevel __FIMapView_2_HSTRING_IInspectable_GetTrustLevel
+#define IMapView_HSTRING_IInspectable_Lookup __FIMapView_2_HSTRING_IInspectable_Lookup
+#define IMapView_HSTRING_IInspectable_get_Size __FIMapView_2_HSTRING_IInspectable_get_Size
+#define IMapView_HSTRING_IInspectable_HasKey __FIMapView_2_HSTRING_IInspectable_HasKey
+#define IMapView_HSTRING_IInspectable_Split __FIMapView_2_HSTRING_IInspectable_Split
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMapView_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IObservableMap<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIObservableMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIObservableMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIObservableMap_2_HSTRING_IInspectable, 0x236aac9d, 0xfb12, 0x5c4d, 0xa4,0x1c, 0x9e,0x44,0x5f,0xb4,0xd7,0xec);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("236aac9d-fb12-5c4d-a41c-9e445fb4d7ec")
+                IObservableMap<HSTRING,IInspectable* > : IObservableMap_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIObservableMap_2_HSTRING_IInspectable, 0x236aac9d, 0xfb12, 0x5c4d, 0xa4,0x1c, 0x9e,0x44,0x5f,0xb4,0xd7,0xec)
+#endif
+#else
+typedef struct __FIObservableMap_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIObservableMap_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIObservableMap_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IObservableMap<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_MapChanged)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        __FIMapChangedEventHandler_2_HSTRING_IInspectable *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_MapChanged)(
+        __FIObservableMap_2_HSTRING_IInspectable *This,
+        EventRegistrationToken token);
+
+    END_INTERFACE
+} __FIObservableMap_2_HSTRING_IInspectableVtbl;
+
+interface __FIObservableMap_2_HSTRING_IInspectable {
+    CONST_VTBL __FIObservableMap_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIObservableMap_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIObservableMap_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIObservableMap_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIObservableMap_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIObservableMap_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIObservableMap_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IObservableMap<HSTRING,IInspectable* > methods ***/
+#define __FIObservableMap_2_HSTRING_IInspectable_add_MapChanged(This,handler,token) (This)->lpVtbl->add_MapChanged(This,handler,token)
+#define __FIObservableMap_2_HSTRING_IInspectable_remove_MapChanged(This,token) (This)->lpVtbl->remove_MapChanged(This,token)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_QueryInterface(__FIObservableMap_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIObservableMap_2_HSTRING_IInspectable_AddRef(__FIObservableMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIObservableMap_2_HSTRING_IInspectable_Release(__FIObservableMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_GetIids(__FIObservableMap_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_GetRuntimeClassName(__FIObservableMap_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_GetTrustLevel(__FIObservableMap_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IObservableMap<HSTRING,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_add_MapChanged(__FIObservableMap_2_HSTRING_IInspectable* This,__FIMapChangedEventHandler_2_HSTRING_IInspectable *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_MapChanged(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __FIObservableMap_2_HSTRING_IInspectable_remove_MapChanged(__FIObservableMap_2_HSTRING_IInspectable* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_MapChanged(This,token);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IObservableMap_HSTRING_IInspectable IID___FIObservableMap_2_HSTRING_IInspectable
+#define IObservableMap_HSTRING_IInspectableVtbl __FIObservableMap_2_HSTRING_IInspectableVtbl
+#define IObservableMap_HSTRING_IInspectable __FIObservableMap_2_HSTRING_IInspectable
+#define IObservableMap_HSTRING_IInspectable_QueryInterface __FIObservableMap_2_HSTRING_IInspectable_QueryInterface
+#define IObservableMap_HSTRING_IInspectable_AddRef __FIObservableMap_2_HSTRING_IInspectable_AddRef
+#define IObservableMap_HSTRING_IInspectable_Release __FIObservableMap_2_HSTRING_IInspectable_Release
+#define IObservableMap_HSTRING_IInspectable_GetIids __FIObservableMap_2_HSTRING_IInspectable_GetIids
+#define IObservableMap_HSTRING_IInspectable_GetRuntimeClassName __FIObservableMap_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IObservableMap_HSTRING_IInspectable_GetTrustLevel __FIObservableMap_2_HSTRING_IInspectable_GetTrustLevel
+#define IObservableMap_HSTRING_IInspectable_add_MapChanged __FIObservableMap_2_HSTRING_IInspectable_add_MapChanged
+#define IObservableMap_HSTRING_IInspectable_remove_MapChanged __FIObservableMap_2_HSTRING_IInspectable_remove_MapChanged
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIObservableMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IIterable<HSTRING > interface

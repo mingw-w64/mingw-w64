@@ -178,6 +178,14 @@ interface IDWriteFontSet3;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IDWriteFontSet4_FWD_DEFINED__
+#define __IDWriteFontSet4_FWD_DEFINED__
+typedef interface IDWriteFontSet4 IDWriteFontSet4;
+#ifdef __cplusplus
+interface IDWriteFontSet4;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IDWriteFontFace3_FWD_DEFINED__
 #define __IDWriteFontFace3_FWD_DEFINED__
 typedef interface IDWriteFontFace3 IDWriteFontFace3;
@@ -279,6 +287,14 @@ interface IDWriteFontFace4;
 typedef interface IDWriteFontFace5 IDWriteFontFace5;
 #ifdef __cplusplus
 interface IDWriteFontFace5;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IDWriteFontFace6_FWD_DEFINED__
+#define __IDWriteFontFace6_FWD_DEFINED__
+typedef interface IDWriteFontFace6 IDWriteFontFace6;
+#ifdef __cplusplus
+interface IDWriteFontFace6;
 #endif /* __cplusplus */
 #endif
 
@@ -4122,6 +4138,377 @@ static __WIDL_INLINE HRESULT IDWriteFontSet3_GetFontSourceName(IDWriteFontSet3* 
 
 
 #endif  /* __IDWriteFontSet3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDWriteFontSet4 interface
+ */
+#ifndef __IDWriteFontSet4_INTERFACE_DEFINED__
+#define __IDWriteFontSet4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDWriteFontSet4, 0xeec175fc, 0xbea9, 0x4c86, 0x8b,0x53, 0xcc,0xbd,0xd7,0xdf,0x0c,0x82);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("eec175fc-bea9-4c86-8b53-ccbdd7df0c82")
+IDWriteFontSet4 : public IDWriteFontSet3
+{
+    virtual UINT32 STDMETHODCALLTYPE ConvertWeightStretchStyleToFontAxisValues(
+        const DWRITE_FONT_AXIS_VALUE *input_axis_values,
+        UINT32 input_axis_count,
+        DWRITE_FONT_WEIGHT weight,
+        DWRITE_FONT_STRETCH stretch,
+        DWRITE_FONT_STYLE style,
+        float size,
+        DWRITE_FONT_AXIS_VALUE *output_axis_values) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMatchingFonts(
+        const WCHAR *family_name,
+        const DWRITE_FONT_AXIS_VALUE *axis_values,
+        UINT32 axis_value_count,
+        DWRITE_FONT_SIMULATIONS allowed_simulations,
+        IDWriteFontSet4 **fonts) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDWriteFontSet4, 0xeec175fc, 0xbea9, 0x4c86, 0x8b,0x53, 0xcc,0xbd,0xd7,0xdf,0x0c,0x82)
+#endif
+#else
+typedef struct IDWriteFontSet4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDWriteFontSet4 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDWriteFontSet4 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDWriteFontSet4 *This);
+
+    /*** IDWriteFontSet methods ***/
+    UINT32 (STDMETHODCALLTYPE *GetFontCount)(
+        IDWriteFontSet4 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontFaceReference)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        IDWriteFontFaceReference **reference);
+
+    HRESULT (STDMETHODCALLTYPE *FindFontFaceReference)(
+        IDWriteFontSet4 *This,
+        IDWriteFontFaceReference *reference,
+        UINT32 *index,
+        WINBOOL *exists);
+
+    HRESULT (STDMETHODCALLTYPE *FindFontFace)(
+        IDWriteFontSet4 *This,
+        IDWriteFontFace *fontface,
+        UINT32 *index,
+        WINBOOL *exists);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyValues__)(
+        IDWriteFontSet4 *This,
+        DWRITE_FONT_PROPERTY_ID id,
+        IDWriteStringList **values);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyValues_)(
+        IDWriteFontSet4 *This,
+        DWRITE_FONT_PROPERTY_ID id,
+        const WCHAR *preferred_locales,
+        IDWriteStringList **values);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyValues)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        DWRITE_FONT_PROPERTY_ID id,
+        WINBOOL *exists,
+        IDWriteLocalizedStrings **values);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyOccurrenceCount)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_PROPERTY *property,
+        UINT32 *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetMatchingFonts_)(
+        IDWriteFontSet4 *This,
+        const WCHAR *family,
+        DWRITE_FONT_WEIGHT weight,
+        DWRITE_FONT_STRETCH stretch,
+        DWRITE_FONT_STYLE style,
+        IDWriteFontSet **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetMatchingFonts)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_PROPERTY *props,
+        UINT32 count,
+        IDWriteFontSet **fontset);
+
+    /*** IDWriteFontSet1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontSet1_GetMatchingFonts)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_PROPERTY *property,
+        const DWRITE_FONT_AXIS_VALUE *axis_values,
+        UINT32 num_values,
+        IDWriteFontSet1 **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetFirstFontResources)(
+        IDWriteFontSet4 *This,
+        IDWriteFontSet1 **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilteredFonts__)(
+        IDWriteFontSet4 *This,
+        const UINT32 *indices,
+        UINT32 num_indices,
+        IDWriteFontSet1 **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilteredFonts_)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_AXIS_RANGE *axis_ranges,
+        UINT32 num_ranges,
+        WINBOOL select_any_range,
+        IDWriteFontSet1 **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilteredFonts)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_PROPERTY *props,
+        UINT32 num_properties,
+        WINBOOL select_any_property,
+        IDWriteFontSet1 **fontset);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilteredFontIndices_)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_AXIS_RANGE *ranges,
+        UINT32 num_ranges,
+        WINBOOL select_any_range,
+        UINT32 *indices,
+        UINT32 num_indices,
+        UINT32 *actual_num_indices);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilteredFontIndices)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_PROPERTY *props,
+        UINT32 num_properties,
+        WINBOOL select_any_range,
+        UINT32 *indices,
+        UINT32 num_indices,
+        UINT32 *actual_num_indices);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontAxisRanges_)(
+        IDWriteFontSet4 *This,
+        UINT32 font_index,
+        DWRITE_FONT_AXIS_RANGE *axis_ranges,
+        UINT32 num_ranges,
+        UINT32 *actual_num_ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontAxisRanges)(
+        IDWriteFontSet4 *This,
+        DWRITE_FONT_AXIS_RANGE *axis_ranges,
+        UINT32 num_ranges,
+        UINT32 *actual_num_ranges);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontSet1_GetFontFaceReference)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        IDWriteFontFaceReference1 **reference);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFontResource)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        IDWriteFontResource **resource);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFontFace)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        IDWriteFontFace5 **fontface);
+
+    DWRITE_LOCALITY (STDMETHODCALLTYPE *GetFontLocality)(
+        IDWriteFontSet4 *This,
+        UINT32 index);
+
+    /*** IDWriteFontSet2 methods ***/
+    HANDLE (STDMETHODCALLTYPE *GetExpirationEvent)(
+        IDWriteFontSet4 *This);
+
+    /*** IDWriteFontSet3 methods ***/
+    DWRITE_FONT_SOURCE_TYPE (STDMETHODCALLTYPE *GetFontSourceType)(
+        IDWriteFontSet4 *This,
+        UINT32 index);
+
+    UINT32 (STDMETHODCALLTYPE *GetFontSourceNameLength)(
+        IDWriteFontSet4 *This,
+        UINT32 index);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontSourceName)(
+        IDWriteFontSet4 *This,
+        UINT32 index,
+        WCHAR *buffer,
+        UINT32 buffer_size);
+
+    /*** IDWriteFontSet4 methods ***/
+    UINT32 (STDMETHODCALLTYPE *ConvertWeightStretchStyleToFontAxisValues)(
+        IDWriteFontSet4 *This,
+        const DWRITE_FONT_AXIS_VALUE *input_axis_values,
+        UINT32 input_axis_count,
+        DWRITE_FONT_WEIGHT weight,
+        DWRITE_FONT_STRETCH stretch,
+        DWRITE_FONT_STYLE style,
+        float size,
+        DWRITE_FONT_AXIS_VALUE *output_axis_values);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontSet4_GetMatchingFonts)(
+        IDWriteFontSet4 *This,
+        const WCHAR *family_name,
+        const DWRITE_FONT_AXIS_VALUE *axis_values,
+        UINT32 axis_value_count,
+        DWRITE_FONT_SIMULATIONS allowed_simulations,
+        IDWriteFontSet4 **fonts);
+
+    END_INTERFACE
+} IDWriteFontSet4Vtbl;
+
+interface IDWriteFontSet4 {
+    CONST_VTBL IDWriteFontSet4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDWriteFontSet4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontSet4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontSet4_Release(This) (This)->lpVtbl->Release(This)
+/*** IDWriteFontSet methods ***/
+#define IDWriteFontSet4_GetFontCount(This) (This)->lpVtbl->GetFontCount(This)
+#define IDWriteFontSet4_FindFontFaceReference(This,reference,index,exists) (This)->lpVtbl->FindFontFaceReference(This,reference,index,exists)
+#define IDWriteFontSet4_FindFontFace(This,fontface,index,exists) (This)->lpVtbl->FindFontFace(This,fontface,index,exists)
+#define IDWriteFontSet4_GetPropertyValues__(This,id,values) (This)->lpVtbl->GetPropertyValues__(This,id,values)
+#define IDWriteFontSet4_GetPropertyValues_(This,id,preferred_locales,values) (This)->lpVtbl->GetPropertyValues_(This,id,preferred_locales,values)
+#define IDWriteFontSet4_GetPropertyValues(This,index,id,exists,values) (This)->lpVtbl->GetPropertyValues(This,index,id,exists,values)
+#define IDWriteFontSet4_GetPropertyOccurrenceCount(This,property,count) (This)->lpVtbl->GetPropertyOccurrenceCount(This,property,count)
+#define IDWriteFontSet4_GetMatchingFonts_(This,family,weight,stretch,style,fontset) (This)->lpVtbl->GetMatchingFonts_(This,family,weight,stretch,style,fontset)
+/*** IDWriteFontSet1 methods ***/
+#define IDWriteFontSet4_GetFirstFontResources(This,fontset) (This)->lpVtbl->GetFirstFontResources(This,fontset)
+#define IDWriteFontSet4_GetFilteredFonts__(This,indices,num_indices,fontset) (This)->lpVtbl->GetFilteredFonts__(This,indices,num_indices,fontset)
+#define IDWriteFontSet4_GetFilteredFonts_(This,axis_ranges,num_ranges,select_any_range,fontset) (This)->lpVtbl->GetFilteredFonts_(This,axis_ranges,num_ranges,select_any_range,fontset)
+#define IDWriteFontSet4_GetFilteredFonts(This,props,num_properties,select_any_property,fontset) (This)->lpVtbl->GetFilteredFonts(This,props,num_properties,select_any_property,fontset)
+#define IDWriteFontSet4_GetFilteredFontIndices_(This,ranges,num_ranges,select_any_range,indices,num_indices,actual_num_indices) (This)->lpVtbl->GetFilteredFontIndices_(This,ranges,num_ranges,select_any_range,indices,num_indices,actual_num_indices)
+#define IDWriteFontSet4_GetFilteredFontIndices(This,props,num_properties,select_any_range,indices,num_indices,actual_num_indices) (This)->lpVtbl->GetFilteredFontIndices(This,props,num_properties,select_any_range,indices,num_indices,actual_num_indices)
+#define IDWriteFontSet4_GetFontAxisRanges_(This,font_index,axis_ranges,num_ranges,actual_num_ranges) (This)->lpVtbl->GetFontAxisRanges_(This,font_index,axis_ranges,num_ranges,actual_num_ranges)
+#define IDWriteFontSet4_GetFontAxisRanges(This,axis_ranges,num_ranges,actual_num_ranges) (This)->lpVtbl->GetFontAxisRanges(This,axis_ranges,num_ranges,actual_num_ranges)
+#define IDWriteFontSet4_GetFontFaceReference(This,index,reference) (This)->lpVtbl->IDWriteFontSet1_GetFontFaceReference(This,index,reference)
+#define IDWriteFontSet4_CreateFontResource(This,index,resource) (This)->lpVtbl->CreateFontResource(This,index,resource)
+#define IDWriteFontSet4_CreateFontFace(This,index,fontface) (This)->lpVtbl->CreateFontFace(This,index,fontface)
+#define IDWriteFontSet4_GetFontLocality(This,index) (This)->lpVtbl->GetFontLocality(This,index)
+/*** IDWriteFontSet2 methods ***/
+#define IDWriteFontSet4_GetExpirationEvent(This) (This)->lpVtbl->GetExpirationEvent(This)
+/*** IDWriteFontSet3 methods ***/
+#define IDWriteFontSet4_GetFontSourceType(This,index) (This)->lpVtbl->GetFontSourceType(This,index)
+#define IDWriteFontSet4_GetFontSourceNameLength(This,index) (This)->lpVtbl->GetFontSourceNameLength(This,index)
+#define IDWriteFontSet4_GetFontSourceName(This,index,buffer,buffer_size) (This)->lpVtbl->GetFontSourceName(This,index,buffer,buffer_size)
+/*** IDWriteFontSet4 methods ***/
+#define IDWriteFontSet4_ConvertWeightStretchStyleToFontAxisValues(This,input_axis_values,input_axis_count,weight,stretch,style,size,output_axis_values) (This)->lpVtbl->ConvertWeightStretchStyleToFontAxisValues(This,input_axis_values,input_axis_count,weight,stretch,style,size,output_axis_values)
+#define IDWriteFontSet4_GetMatchingFonts(This,family_name,axis_values,axis_value_count,allowed_simulations,fonts) (This)->lpVtbl->IDWriteFontSet4_GetMatchingFonts(This,family_name,axis_values,axis_value_count,allowed_simulations,fonts)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontSet4_QueryInterface(IDWriteFontSet4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IDWriteFontSet4_AddRef(IDWriteFontSet4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IDWriteFontSet4_Release(IDWriteFontSet4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDWriteFontSet methods ***/
+static __WIDL_INLINE UINT32 IDWriteFontSet4_GetFontCount(IDWriteFontSet4* This) {
+    return This->lpVtbl->GetFontCount(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_FindFontFaceReference(IDWriteFontSet4* This,IDWriteFontFaceReference *reference,UINT32 *index,WINBOOL *exists) {
+    return This->lpVtbl->FindFontFaceReference(This,reference,index,exists);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_FindFontFace(IDWriteFontSet4* This,IDWriteFontFace *fontface,UINT32 *index,WINBOOL *exists) {
+    return This->lpVtbl->FindFontFace(This,fontface,index,exists);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetPropertyValues__(IDWriteFontSet4* This,DWRITE_FONT_PROPERTY_ID id,IDWriteStringList **values) {
+    return This->lpVtbl->GetPropertyValues__(This,id,values);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetPropertyValues_(IDWriteFontSet4* This,DWRITE_FONT_PROPERTY_ID id,const WCHAR *preferred_locales,IDWriteStringList **values) {
+    return This->lpVtbl->GetPropertyValues_(This,id,preferred_locales,values);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetPropertyValues(IDWriteFontSet4* This,UINT32 index,DWRITE_FONT_PROPERTY_ID id,WINBOOL *exists,IDWriteLocalizedStrings **values) {
+    return This->lpVtbl->GetPropertyValues(This,index,id,exists,values);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetPropertyOccurrenceCount(IDWriteFontSet4* This,const DWRITE_FONT_PROPERTY *property,UINT32 *count) {
+    return This->lpVtbl->GetPropertyOccurrenceCount(This,property,count);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetMatchingFonts_(IDWriteFontSet4* This,const WCHAR *family,DWRITE_FONT_WEIGHT weight,DWRITE_FONT_STRETCH stretch,DWRITE_FONT_STYLE style,IDWriteFontSet **fontset) {
+    return This->lpVtbl->GetMatchingFonts_(This,family,weight,stretch,style,fontset);
+}
+/*** IDWriteFontSet1 methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFirstFontResources(IDWriteFontSet4* This,IDWriteFontSet1 **fontset) {
+    return This->lpVtbl->GetFirstFontResources(This,fontset);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFilteredFonts__(IDWriteFontSet4* This,const UINT32 *indices,UINT32 num_indices,IDWriteFontSet1 **fontset) {
+    return This->lpVtbl->GetFilteredFonts__(This,indices,num_indices,fontset);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFilteredFonts_(IDWriteFontSet4* This,const DWRITE_FONT_AXIS_RANGE *axis_ranges,UINT32 num_ranges,WINBOOL select_any_range,IDWriteFontSet1 **fontset) {
+    return This->lpVtbl->GetFilteredFonts_(This,axis_ranges,num_ranges,select_any_range,fontset);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFilteredFonts(IDWriteFontSet4* This,const DWRITE_FONT_PROPERTY *props,UINT32 num_properties,WINBOOL select_any_property,IDWriteFontSet1 **fontset) {
+    return This->lpVtbl->GetFilteredFonts(This,props,num_properties,select_any_property,fontset);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFilteredFontIndices_(IDWriteFontSet4* This,const DWRITE_FONT_AXIS_RANGE *ranges,UINT32 num_ranges,WINBOOL select_any_range,UINT32 *indices,UINT32 num_indices,UINT32 *actual_num_indices) {
+    return This->lpVtbl->GetFilteredFontIndices_(This,ranges,num_ranges,select_any_range,indices,num_indices,actual_num_indices);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFilteredFontIndices(IDWriteFontSet4* This,const DWRITE_FONT_PROPERTY *props,UINT32 num_properties,WINBOOL select_any_range,UINT32 *indices,UINT32 num_indices,UINT32 *actual_num_indices) {
+    return This->lpVtbl->GetFilteredFontIndices(This,props,num_properties,select_any_range,indices,num_indices,actual_num_indices);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFontAxisRanges_(IDWriteFontSet4* This,UINT32 font_index,DWRITE_FONT_AXIS_RANGE *axis_ranges,UINT32 num_ranges,UINT32 *actual_num_ranges) {
+    return This->lpVtbl->GetFontAxisRanges_(This,font_index,axis_ranges,num_ranges,actual_num_ranges);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFontAxisRanges(IDWriteFontSet4* This,DWRITE_FONT_AXIS_RANGE *axis_ranges,UINT32 num_ranges,UINT32 *actual_num_ranges) {
+    return This->lpVtbl->GetFontAxisRanges(This,axis_ranges,num_ranges,actual_num_ranges);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFontFaceReference(IDWriteFontSet4* This,UINT32 index,IDWriteFontFaceReference1 **reference) {
+    return This->lpVtbl->IDWriteFontSet1_GetFontFaceReference(This,index,reference);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_CreateFontResource(IDWriteFontSet4* This,UINT32 index,IDWriteFontResource **resource) {
+    return This->lpVtbl->CreateFontResource(This,index,resource);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_CreateFontFace(IDWriteFontSet4* This,UINT32 index,IDWriteFontFace5 **fontface) {
+    return This->lpVtbl->CreateFontFace(This,index,fontface);
+}
+static __WIDL_INLINE DWRITE_LOCALITY IDWriteFontSet4_GetFontLocality(IDWriteFontSet4* This,UINT32 index) {
+    return This->lpVtbl->GetFontLocality(This,index);
+}
+/*** IDWriteFontSet2 methods ***/
+static __WIDL_INLINE HANDLE IDWriteFontSet4_GetExpirationEvent(IDWriteFontSet4* This) {
+    return This->lpVtbl->GetExpirationEvent(This);
+}
+/*** IDWriteFontSet3 methods ***/
+static __WIDL_INLINE DWRITE_FONT_SOURCE_TYPE IDWriteFontSet4_GetFontSourceType(IDWriteFontSet4* This,UINT32 index) {
+    return This->lpVtbl->GetFontSourceType(This,index);
+}
+static __WIDL_INLINE UINT32 IDWriteFontSet4_GetFontSourceNameLength(IDWriteFontSet4* This,UINT32 index) {
+    return This->lpVtbl->GetFontSourceNameLength(This,index);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetFontSourceName(IDWriteFontSet4* This,UINT32 index,WCHAR *buffer,UINT32 buffer_size) {
+    return This->lpVtbl->GetFontSourceName(This,index,buffer,buffer_size);
+}
+/*** IDWriteFontSet4 methods ***/
+static __WIDL_INLINE UINT32 IDWriteFontSet4_ConvertWeightStretchStyleToFontAxisValues(IDWriteFontSet4* This,const DWRITE_FONT_AXIS_VALUE *input_axis_values,UINT32 input_axis_count,DWRITE_FONT_WEIGHT weight,DWRITE_FONT_STRETCH stretch,DWRITE_FONT_STYLE style,float size,DWRITE_FONT_AXIS_VALUE *output_axis_values) {
+    return This->lpVtbl->ConvertWeightStretchStyleToFontAxisValues(This,input_axis_values,input_axis_count,weight,stretch,style,size,output_axis_values);
+}
+static __WIDL_INLINE HRESULT IDWriteFontSet4_GetMatchingFonts(IDWriteFontSet4* This,const WCHAR *family_name,const DWRITE_FONT_AXIS_VALUE *axis_values,UINT32 axis_value_count,DWRITE_FONT_SIMULATIONS allowed_simulations,IDWriteFontSet4 **fonts) {
+    return This->lpVtbl->IDWriteFontSet4_GetMatchingFonts(This,family_name,axis_values,axis_value_count,allowed_simulations,fonts);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IDWriteFontSet4_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IDWriteFontFace3 interface
@@ -9318,6 +9705,605 @@ static __WIDL_INLINE WINBOOL IDWriteFontFace5_Equals(IDWriteFontFace5* This,IDWr
 
 
 #endif  /* __IDWriteFontFace5_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDWriteFontFace6 interface
+ */
+#ifndef __IDWriteFontFace6_INTERFACE_DEFINED__
+#define __IDWriteFontFace6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDWriteFontFace6, 0xc4b1fe1b, 0x6e84, 0x47d5, 0xb5,0x4c, 0xa5,0x97,0x98,0x1b,0x06,0xad);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c4b1fe1b-6e84-47d5-b54c-a597981b06ad")
+IDWriteFontFace6 : public IDWriteFontFace5
+{
+    virtual HRESULT STDMETHODCALLTYPE GetFamilyNames(
+        DWRITE_FONT_FAMILY_MODEL font_family_model,
+        IDWriteLocalizedStrings **names) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFaceNames(
+        DWRITE_FONT_FAMILY_MODEL font_family_model,
+        IDWriteLocalizedStrings **names) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDWriteFontFace6, 0xc4b1fe1b, 0x6e84, 0x47d5, 0xb5,0x4c, 0xa5,0x97,0x98,0x1b,0x06,0xad)
+#endif
+#else
+typedef struct IDWriteFontFace6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDWriteFontFace6 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDWriteFontFace6 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDWriteFontFace6 *This);
+
+    /*** IDWriteFontFace methods ***/
+    DWRITE_FONT_FACE_TYPE (STDMETHODCALLTYPE *GetType)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetFiles)(
+        IDWriteFontFace6 *This,
+        UINT32 *number_of_files,
+        IDWriteFontFile **fontfiles);
+
+    UINT32 (STDMETHODCALLTYPE *GetIndex)(
+        IDWriteFontFace6 *This);
+
+    DWRITE_FONT_SIMULATIONS (STDMETHODCALLTYPE *GetSimulations)(
+        IDWriteFontFace6 *This);
+
+    WINBOOL (STDMETHODCALLTYPE *IsSymbolFont)(
+        IDWriteFontFace6 *This);
+
+    void (STDMETHODCALLTYPE *GetMetrics)(
+        IDWriteFontFace6 *This,
+        DWRITE_FONT_METRICS *metrics);
+
+    UINT16 (STDMETHODCALLTYPE *GetGlyphCount)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesignGlyphMetrics)(
+        IDWriteFontFace6 *This,
+        const UINT16 *glyph_indices,
+        UINT32 glyph_count,
+        DWRITE_GLYPH_METRICS *metrics,
+        WINBOOL is_sideways);
+
+    HRESULT (STDMETHODCALLTYPE *GetGlyphIndices)(
+        IDWriteFontFace6 *This,
+        const UINT32 *codepoints,
+        UINT32 count,
+        UINT16 *glyph_indices);
+
+    HRESULT (STDMETHODCALLTYPE *TryGetFontTable)(
+        IDWriteFontFace6 *This,
+        UINT32 table_tag,
+        const void **table_data,
+        UINT32 *table_size,
+        void **context,
+        WINBOOL *exists);
+
+    void (STDMETHODCALLTYPE *ReleaseFontTable)(
+        IDWriteFontFace6 *This,
+        void *table_context);
+
+    HRESULT (STDMETHODCALLTYPE *GetGlyphRunOutline)(
+        IDWriteFontFace6 *This,
+        FLOAT emSize,
+        const UINT16 *glyph_indices,
+        const FLOAT *glyph_advances,
+        const DWRITE_GLYPH_OFFSET *glyph_offsets,
+        UINT32 glyph_count,
+        WINBOOL is_sideways,
+        WINBOOL is_rtl,
+        IDWriteGeometrySink *geometrysink);
+
+    HRESULT (STDMETHODCALLTYPE *GetRecommendedRenderingMode)(
+        IDWriteFontFace6 *This,
+        FLOAT emSize,
+        FLOAT pixels_per_dip,
+        DWRITE_MEASURING_MODE mode,
+        IDWriteRenderingParams *params,
+        DWRITE_RENDERING_MODE *rendering_mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetGdiCompatibleMetrics)(
+        IDWriteFontFace6 *This,
+        FLOAT emSize,
+        FLOAT pixels_per_dip,
+        const DWRITE_MATRIX *transform,
+        DWRITE_FONT_METRICS *metrics);
+
+    HRESULT (STDMETHODCALLTYPE *GetGdiCompatibleGlyphMetrics)(
+        IDWriteFontFace6 *This,
+        FLOAT emSize,
+        FLOAT pixels_per_dip,
+        const DWRITE_MATRIX *transform,
+        WINBOOL use_gdi_natural,
+        const UINT16 *glyph_indices,
+        UINT32 glyph_count,
+        DWRITE_GLYPH_METRICS *metrics,
+        WINBOOL is_sideways);
+
+    /*** IDWriteFontFace1 methods ***/
+    void (STDMETHODCALLTYPE *IDWriteFontFace1_GetMetrics)(
+        IDWriteFontFace6 *This,
+        DWRITE_FONT_METRICS1 *metrics);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace1_GetGdiCompatibleMetrics)(
+        IDWriteFontFace6 *This,
+        FLOAT em_size,
+        FLOAT pixels_per_dip,
+        const DWRITE_MATRIX *transform,
+        DWRITE_FONT_METRICS1 *metrics);
+
+    void (STDMETHODCALLTYPE *GetCaretMetrics)(
+        IDWriteFontFace6 *This,
+        DWRITE_CARET_METRICS *metrics);
+
+    HRESULT (STDMETHODCALLTYPE *GetUnicodeRanges)(
+        IDWriteFontFace6 *This,
+        UINT32 max_count,
+        DWRITE_UNICODE_RANGE *ranges,
+        UINT32 *count);
+
+    WINBOOL (STDMETHODCALLTYPE *IsMonospacedFont)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesignGlyphAdvances)(
+        IDWriteFontFace6 *This,
+        UINT32 glyph_count,
+        const UINT16 *indices,
+        INT32 *advances,
+        WINBOOL is_sideways);
+
+    HRESULT (STDMETHODCALLTYPE *GetGdiCompatibleGlyphAdvances)(
+        IDWriteFontFace6 *This,
+        FLOAT em_size,
+        FLOAT pixels_per_dip,
+        const DWRITE_MATRIX *transform,
+        WINBOOL use_gdi_natural,
+        WINBOOL is_sideways,
+        UINT32 glyph_count,
+        const UINT16 *indices,
+        INT32 *advances);
+
+    HRESULT (STDMETHODCALLTYPE *GetKerningPairAdjustments)(
+        IDWriteFontFace6 *This,
+        UINT32 glyph_count,
+        const UINT16 *indices,
+        INT32 *adjustments);
+
+    WINBOOL (STDMETHODCALLTYPE *HasKerningPairs)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace1_GetRecommendedRenderingMode)(
+        IDWriteFontFace6 *This,
+        FLOAT font_emsize,
+        FLOAT dpiX,
+        FLOAT dpiY,
+        const DWRITE_MATRIX *transform,
+        WINBOOL is_sideways,
+        DWRITE_OUTLINE_THRESHOLD threshold,
+        DWRITE_MEASURING_MODE measuring_mode,
+        DWRITE_RENDERING_MODE *rendering_mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetVerticalGlyphVariants)(
+        IDWriteFontFace6 *This,
+        UINT32 glyph_count,
+        const UINT16 *nominal_indices,
+        UINT16 *vertical_indices);
+
+    WINBOOL (STDMETHODCALLTYPE *HasVerticalGlyphVariants)(
+        IDWriteFontFace6 *This);
+
+    /*** IDWriteFontFace2 methods ***/
+    WINBOOL (STDMETHODCALLTYPE *IsColorFont)(
+        IDWriteFontFace6 *This);
+
+    UINT32 (STDMETHODCALLTYPE *GetColorPaletteCount)(
+        IDWriteFontFace6 *This);
+
+    UINT32 (STDMETHODCALLTYPE *GetPaletteEntryCount)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetPaletteEntries)(
+        IDWriteFontFace6 *This,
+        UINT32 palette_index,
+        UINT32 first_entry_index,
+        UINT32 entry_count,
+        DWRITE_COLOR_F *entries);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace2_GetRecommendedRenderingMode)(
+        IDWriteFontFace6 *This,
+        FLOAT fontEmSize,
+        FLOAT dpiX,
+        FLOAT dpiY,
+        const DWRITE_MATRIX *transform,
+        WINBOOL is_sideways,
+        DWRITE_OUTLINE_THRESHOLD threshold,
+        DWRITE_MEASURING_MODE measuringmode,
+        IDWriteRenderingParams *params,
+        DWRITE_RENDERING_MODE *renderingmode,
+        DWRITE_GRID_FIT_MODE *gridfitmode);
+
+    /*** IDWriteFontFace3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetFontFaceReference)(
+        IDWriteFontFace6 *This,
+        IDWriteFontFaceReference **reference);
+
+    void (STDMETHODCALLTYPE *GetPanose)(
+        IDWriteFontFace6 *This,
+        DWRITE_PANOSE *panose);
+
+    DWRITE_FONT_WEIGHT (STDMETHODCALLTYPE *GetWeight)(
+        IDWriteFontFace6 *This);
+
+    DWRITE_FONT_STRETCH (STDMETHODCALLTYPE *GetStretch)(
+        IDWriteFontFace6 *This);
+
+    DWRITE_FONT_STYLE (STDMETHODCALLTYPE *GetStyle)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetFamilyNames)(
+        IDWriteFontFace6 *This,
+        IDWriteLocalizedStrings **names);
+
+    HRESULT (STDMETHODCALLTYPE *GetFaceNames)(
+        IDWriteFontFace6 *This,
+        IDWriteLocalizedStrings **names);
+
+    HRESULT (STDMETHODCALLTYPE *GetInformationalStrings)(
+        IDWriteFontFace6 *This,
+        DWRITE_INFORMATIONAL_STRING_ID stringid,
+        IDWriteLocalizedStrings **strings,
+        WINBOOL *exists);
+
+    WINBOOL (STDMETHODCALLTYPE *HasCharacter)(
+        IDWriteFontFace6 *This,
+        UINT32 character);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace3_GetRecommendedRenderingMode)(
+        IDWriteFontFace6 *This,
+        FLOAT emsize,
+        FLOAT dpi_x,
+        FLOAT dpi_y,
+        const DWRITE_MATRIX *transform,
+        WINBOOL is_sideways,
+        DWRITE_OUTLINE_THRESHOLD threshold,
+        DWRITE_MEASURING_MODE measuring_mode,
+        IDWriteRenderingParams *params,
+        DWRITE_RENDERING_MODE1 *rendering_mode,
+        DWRITE_GRID_FIT_MODE *gridfit_mode);
+
+    WINBOOL (STDMETHODCALLTYPE *IsCharacterLocal)(
+        IDWriteFontFace6 *This,
+        UINT32 character);
+
+    WINBOOL (STDMETHODCALLTYPE *IsGlyphLocal)(
+        IDWriteFontFace6 *This,
+        UINT16 glyph);
+
+    HRESULT (STDMETHODCALLTYPE *AreCharactersLocal)(
+        IDWriteFontFace6 *This,
+        const WCHAR *characters,
+        UINT32 count,
+        WINBOOL enqueue_if_not,
+        WINBOOL *are_local);
+
+    HRESULT (STDMETHODCALLTYPE *AreGlyphsLocal)(
+        IDWriteFontFace6 *This,
+        const UINT16 *glyphs,
+        UINT32 count,
+        WINBOOL enqueue_if_not,
+        WINBOOL *are_local);
+
+    /*** IDWriteFontFace4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetGlyphImageFormats_)(
+        IDWriteFontFace6 *This,
+        UINT16 glyph,
+        UINT32 ppem_first,
+        UINT32 ppem_last,
+        DWRITE_GLYPH_IMAGE_FORMATS *formats);
+
+    DWRITE_GLYPH_IMAGE_FORMATS (STDMETHODCALLTYPE *GetGlyphImageFormats)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetGlyphImageData)(
+        IDWriteFontFace6 *This,
+        UINT16 glyph,
+        UINT32 ppem,
+        DWRITE_GLYPH_IMAGE_FORMATS format,
+        DWRITE_GLYPH_IMAGE_DATA *data,
+        void **context);
+
+    void (STDMETHODCALLTYPE *ReleaseGlyphImageData)(
+        IDWriteFontFace6 *This,
+        void *context);
+
+    /*** IDWriteFontFace5 methods ***/
+    UINT32 (STDMETHODCALLTYPE *GetFontAxisValueCount)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontAxisValues)(
+        IDWriteFontFace6 *This,
+        DWRITE_FONT_AXIS_VALUE *values,
+        UINT32 value_count);
+
+    WINBOOL (STDMETHODCALLTYPE *HasVariations)(
+        IDWriteFontFace6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetFontResource)(
+        IDWriteFontFace6 *This,
+        IDWriteFontResource **resource);
+
+    WINBOOL (STDMETHODCALLTYPE *Equals)(
+        IDWriteFontFace6 *This,
+        IDWriteFontFace *fontface);
+
+    /*** IDWriteFontFace6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace6_GetFamilyNames)(
+        IDWriteFontFace6 *This,
+        DWRITE_FONT_FAMILY_MODEL font_family_model,
+        IDWriteLocalizedStrings **names);
+
+    HRESULT (STDMETHODCALLTYPE *IDWriteFontFace6_GetFaceNames)(
+        IDWriteFontFace6 *This,
+        DWRITE_FONT_FAMILY_MODEL font_family_model,
+        IDWriteLocalizedStrings **names);
+
+    END_INTERFACE
+} IDWriteFontFace6Vtbl;
+
+interface IDWriteFontFace6 {
+    CONST_VTBL IDWriteFontFace6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDWriteFontFace6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFace6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFace6_Release(This) (This)->lpVtbl->Release(This)
+/*** IDWriteFontFace methods ***/
+#define IDWriteFontFace6_GetType(This) (This)->lpVtbl->GetType(This)
+#define IDWriteFontFace6_GetFiles(This,number_of_files,fontfiles) (This)->lpVtbl->GetFiles(This,number_of_files,fontfiles)
+#define IDWriteFontFace6_GetIndex(This) (This)->lpVtbl->GetIndex(This)
+#define IDWriteFontFace6_GetSimulations(This) (This)->lpVtbl->GetSimulations(This)
+#define IDWriteFontFace6_IsSymbolFont(This) (This)->lpVtbl->IsSymbolFont(This)
+#define IDWriteFontFace6_GetGlyphCount(This) (This)->lpVtbl->GetGlyphCount(This)
+#define IDWriteFontFace6_GetDesignGlyphMetrics(This,glyph_indices,glyph_count,metrics,is_sideways) (This)->lpVtbl->GetDesignGlyphMetrics(This,glyph_indices,glyph_count,metrics,is_sideways)
+#define IDWriteFontFace6_GetGlyphIndices(This,codepoints,count,glyph_indices) (This)->lpVtbl->GetGlyphIndices(This,codepoints,count,glyph_indices)
+#define IDWriteFontFace6_TryGetFontTable(This,table_tag,table_data,table_size,context,exists) (This)->lpVtbl->TryGetFontTable(This,table_tag,table_data,table_size,context,exists)
+#define IDWriteFontFace6_ReleaseFontTable(This,table_context) (This)->lpVtbl->ReleaseFontTable(This,table_context)
+#define IDWriteFontFace6_GetGlyphRunOutline(This,emSize,glyph_indices,glyph_advances,glyph_offsets,glyph_count,is_sideways,is_rtl,geometrysink) (This)->lpVtbl->GetGlyphRunOutline(This,emSize,glyph_indices,glyph_advances,glyph_offsets,glyph_count,is_sideways,is_rtl,geometrysink)
+#define IDWriteFontFace6_GetGdiCompatibleGlyphMetrics(This,emSize,pixels_per_dip,transform,use_gdi_natural,glyph_indices,glyph_count,metrics,is_sideways) (This)->lpVtbl->GetGdiCompatibleGlyphMetrics(This,emSize,pixels_per_dip,transform,use_gdi_natural,glyph_indices,glyph_count,metrics,is_sideways)
+/*** IDWriteFontFace1 methods ***/
+#define IDWriteFontFace6_GetMetrics(This,metrics) (This)->lpVtbl->IDWriteFontFace1_GetMetrics(This,metrics)
+#define IDWriteFontFace6_GetGdiCompatibleMetrics(This,em_size,pixels_per_dip,transform,metrics) (This)->lpVtbl->IDWriteFontFace1_GetGdiCompatibleMetrics(This,em_size,pixels_per_dip,transform,metrics)
+#define IDWriteFontFace6_GetCaretMetrics(This,metrics) (This)->lpVtbl->GetCaretMetrics(This,metrics)
+#define IDWriteFontFace6_GetUnicodeRanges(This,max_count,ranges,count) (This)->lpVtbl->GetUnicodeRanges(This,max_count,ranges,count)
+#define IDWriteFontFace6_IsMonospacedFont(This) (This)->lpVtbl->IsMonospacedFont(This)
+#define IDWriteFontFace6_GetDesignGlyphAdvances(This,glyph_count,indices,advances,is_sideways) (This)->lpVtbl->GetDesignGlyphAdvances(This,glyph_count,indices,advances,is_sideways)
+#define IDWriteFontFace6_GetGdiCompatibleGlyphAdvances(This,em_size,pixels_per_dip,transform,use_gdi_natural,is_sideways,glyph_count,indices,advances) (This)->lpVtbl->GetGdiCompatibleGlyphAdvances(This,em_size,pixels_per_dip,transform,use_gdi_natural,is_sideways,glyph_count,indices,advances)
+#define IDWriteFontFace6_GetKerningPairAdjustments(This,glyph_count,indices,adjustments) (This)->lpVtbl->GetKerningPairAdjustments(This,glyph_count,indices,adjustments)
+#define IDWriteFontFace6_HasKerningPairs(This) (This)->lpVtbl->HasKerningPairs(This)
+#define IDWriteFontFace6_GetVerticalGlyphVariants(This,glyph_count,nominal_indices,vertical_indices) (This)->lpVtbl->GetVerticalGlyphVariants(This,glyph_count,nominal_indices,vertical_indices)
+#define IDWriteFontFace6_HasVerticalGlyphVariants(This) (This)->lpVtbl->HasVerticalGlyphVariants(This)
+/*** IDWriteFontFace2 methods ***/
+#define IDWriteFontFace6_IsColorFont(This) (This)->lpVtbl->IsColorFont(This)
+#define IDWriteFontFace6_GetColorPaletteCount(This) (This)->lpVtbl->GetColorPaletteCount(This)
+#define IDWriteFontFace6_GetPaletteEntryCount(This) (This)->lpVtbl->GetPaletteEntryCount(This)
+#define IDWriteFontFace6_GetPaletteEntries(This,palette_index,first_entry_index,entry_count,entries) (This)->lpVtbl->GetPaletteEntries(This,palette_index,first_entry_index,entry_count,entries)
+/*** IDWriteFontFace3 methods ***/
+#define IDWriteFontFace6_GetFontFaceReference(This,reference) (This)->lpVtbl->GetFontFaceReference(This,reference)
+#define IDWriteFontFace6_GetPanose(This,panose) (This)->lpVtbl->GetPanose(This,panose)
+#define IDWriteFontFace6_GetWeight(This) (This)->lpVtbl->GetWeight(This)
+#define IDWriteFontFace6_GetStretch(This) (This)->lpVtbl->GetStretch(This)
+#define IDWriteFontFace6_GetStyle(This) (This)->lpVtbl->GetStyle(This)
+#define IDWriteFontFace6_GetInformationalStrings(This,stringid,strings,exists) (This)->lpVtbl->GetInformationalStrings(This,stringid,strings,exists)
+#define IDWriteFontFace6_HasCharacter(This,character) (This)->lpVtbl->HasCharacter(This,character)
+#define IDWriteFontFace6_GetRecommendedRenderingMode(This,emsize,dpi_x,dpi_y,transform,is_sideways,threshold,measuring_mode,params,rendering_mode,gridfit_mode) (This)->lpVtbl->IDWriteFontFace3_GetRecommendedRenderingMode(This,emsize,dpi_x,dpi_y,transform,is_sideways,threshold,measuring_mode,params,rendering_mode,gridfit_mode)
+#define IDWriteFontFace6_IsCharacterLocal(This,character) (This)->lpVtbl->IsCharacterLocal(This,character)
+#define IDWriteFontFace6_IsGlyphLocal(This,glyph) (This)->lpVtbl->IsGlyphLocal(This,glyph)
+#define IDWriteFontFace6_AreCharactersLocal(This,characters,count,enqueue_if_not,are_local) (This)->lpVtbl->AreCharactersLocal(This,characters,count,enqueue_if_not,are_local)
+#define IDWriteFontFace6_AreGlyphsLocal(This,glyphs,count,enqueue_if_not,are_local) (This)->lpVtbl->AreGlyphsLocal(This,glyphs,count,enqueue_if_not,are_local)
+/*** IDWriteFontFace4 methods ***/
+#define IDWriteFontFace6_GetGlyphImageFormats_(This,glyph,ppem_first,ppem_last,formats) (This)->lpVtbl->GetGlyphImageFormats_(This,glyph,ppem_first,ppem_last,formats)
+#define IDWriteFontFace6_GetGlyphImageFormats(This) (This)->lpVtbl->GetGlyphImageFormats(This)
+#define IDWriteFontFace6_GetGlyphImageData(This,glyph,ppem,format,data,context) (This)->lpVtbl->GetGlyphImageData(This,glyph,ppem,format,data,context)
+#define IDWriteFontFace6_ReleaseGlyphImageData(This,context) (This)->lpVtbl->ReleaseGlyphImageData(This,context)
+/*** IDWriteFontFace5 methods ***/
+#define IDWriteFontFace6_GetFontAxisValueCount(This) (This)->lpVtbl->GetFontAxisValueCount(This)
+#define IDWriteFontFace6_GetFontAxisValues(This,values,value_count) (This)->lpVtbl->GetFontAxisValues(This,values,value_count)
+#define IDWriteFontFace6_HasVariations(This) (This)->lpVtbl->HasVariations(This)
+#define IDWriteFontFace6_GetFontResource(This,resource) (This)->lpVtbl->GetFontResource(This,resource)
+#define IDWriteFontFace6_Equals(This,fontface) (This)->lpVtbl->Equals(This,fontface)
+/*** IDWriteFontFace6 methods ***/
+#define IDWriteFontFace6_GetFamilyNames(This,font_family_model,names) (This)->lpVtbl->IDWriteFontFace6_GetFamilyNames(This,font_family_model,names)
+#define IDWriteFontFace6_GetFaceNames(This,font_family_model,names) (This)->lpVtbl->IDWriteFontFace6_GetFaceNames(This,font_family_model,names)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontFace6_QueryInterface(IDWriteFontFace6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IDWriteFontFace6_AddRef(IDWriteFontFace6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IDWriteFontFace6_Release(IDWriteFontFace6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDWriteFontFace methods ***/
+static __WIDL_INLINE DWRITE_FONT_FACE_TYPE IDWriteFontFace6_GetType(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetType(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFiles(IDWriteFontFace6* This,UINT32 *number_of_files,IDWriteFontFile **fontfiles) {
+    return This->lpVtbl->GetFiles(This,number_of_files,fontfiles);
+}
+static __WIDL_INLINE UINT32 IDWriteFontFace6_GetIndex(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetIndex(This);
+}
+static __WIDL_INLINE DWRITE_FONT_SIMULATIONS IDWriteFontFace6_GetSimulations(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetSimulations(This);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_IsSymbolFont(IDWriteFontFace6* This) {
+    return This->lpVtbl->IsSymbolFont(This);
+}
+static __WIDL_INLINE UINT16 IDWriteFontFace6_GetGlyphCount(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetGlyphCount(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetDesignGlyphMetrics(IDWriteFontFace6* This,const UINT16 *glyph_indices,UINT32 glyph_count,DWRITE_GLYPH_METRICS *metrics,WINBOOL is_sideways) {
+    return This->lpVtbl->GetDesignGlyphMetrics(This,glyph_indices,glyph_count,metrics,is_sideways);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGlyphIndices(IDWriteFontFace6* This,const UINT32 *codepoints,UINT32 count,UINT16 *glyph_indices) {
+    return This->lpVtbl->GetGlyphIndices(This,codepoints,count,glyph_indices);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_TryGetFontTable(IDWriteFontFace6* This,UINT32 table_tag,const void **table_data,UINT32 *table_size,void **context,WINBOOL *exists) {
+    return This->lpVtbl->TryGetFontTable(This,table_tag,table_data,table_size,context,exists);
+}
+static __WIDL_INLINE void IDWriteFontFace6_ReleaseFontTable(IDWriteFontFace6* This,void *table_context) {
+    This->lpVtbl->ReleaseFontTable(This,table_context);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGlyphRunOutline(IDWriteFontFace6* This,FLOAT emSize,const UINT16 *glyph_indices,const FLOAT *glyph_advances,const DWRITE_GLYPH_OFFSET *glyph_offsets,UINT32 glyph_count,WINBOOL is_sideways,WINBOOL is_rtl,IDWriteGeometrySink *geometrysink) {
+    return This->lpVtbl->GetGlyphRunOutline(This,emSize,glyph_indices,glyph_advances,glyph_offsets,glyph_count,is_sideways,is_rtl,geometrysink);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGdiCompatibleGlyphMetrics(IDWriteFontFace6* This,FLOAT emSize,FLOAT pixels_per_dip,const DWRITE_MATRIX *transform,WINBOOL use_gdi_natural,const UINT16 *glyph_indices,UINT32 glyph_count,DWRITE_GLYPH_METRICS *metrics,WINBOOL is_sideways) {
+    return This->lpVtbl->GetGdiCompatibleGlyphMetrics(This,emSize,pixels_per_dip,transform,use_gdi_natural,glyph_indices,glyph_count,metrics,is_sideways);
+}
+/*** IDWriteFontFace1 methods ***/
+static __WIDL_INLINE void IDWriteFontFace6_GetMetrics(IDWriteFontFace6* This,DWRITE_FONT_METRICS1 *metrics) {
+    This->lpVtbl->IDWriteFontFace1_GetMetrics(This,metrics);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGdiCompatibleMetrics(IDWriteFontFace6* This,FLOAT em_size,FLOAT pixels_per_dip,const DWRITE_MATRIX *transform,DWRITE_FONT_METRICS1 *metrics) {
+    return This->lpVtbl->IDWriteFontFace1_GetGdiCompatibleMetrics(This,em_size,pixels_per_dip,transform,metrics);
+}
+static __WIDL_INLINE void IDWriteFontFace6_GetCaretMetrics(IDWriteFontFace6* This,DWRITE_CARET_METRICS *metrics) {
+    This->lpVtbl->GetCaretMetrics(This,metrics);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetUnicodeRanges(IDWriteFontFace6* This,UINT32 max_count,DWRITE_UNICODE_RANGE *ranges,UINT32 *count) {
+    return This->lpVtbl->GetUnicodeRanges(This,max_count,ranges,count);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_IsMonospacedFont(IDWriteFontFace6* This) {
+    return This->lpVtbl->IsMonospacedFont(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetDesignGlyphAdvances(IDWriteFontFace6* This,UINT32 glyph_count,const UINT16 *indices,INT32 *advances,WINBOOL is_sideways) {
+    return This->lpVtbl->GetDesignGlyphAdvances(This,glyph_count,indices,advances,is_sideways);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGdiCompatibleGlyphAdvances(IDWriteFontFace6* This,FLOAT em_size,FLOAT pixels_per_dip,const DWRITE_MATRIX *transform,WINBOOL use_gdi_natural,WINBOOL is_sideways,UINT32 glyph_count,const UINT16 *indices,INT32 *advances) {
+    return This->lpVtbl->GetGdiCompatibleGlyphAdvances(This,em_size,pixels_per_dip,transform,use_gdi_natural,is_sideways,glyph_count,indices,advances);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetKerningPairAdjustments(IDWriteFontFace6* This,UINT32 glyph_count,const UINT16 *indices,INT32 *adjustments) {
+    return This->lpVtbl->GetKerningPairAdjustments(This,glyph_count,indices,adjustments);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_HasKerningPairs(IDWriteFontFace6* This) {
+    return This->lpVtbl->HasKerningPairs(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetVerticalGlyphVariants(IDWriteFontFace6* This,UINT32 glyph_count,const UINT16 *nominal_indices,UINT16 *vertical_indices) {
+    return This->lpVtbl->GetVerticalGlyphVariants(This,glyph_count,nominal_indices,vertical_indices);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_HasVerticalGlyphVariants(IDWriteFontFace6* This) {
+    return This->lpVtbl->HasVerticalGlyphVariants(This);
+}
+/*** IDWriteFontFace2 methods ***/
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_IsColorFont(IDWriteFontFace6* This) {
+    return This->lpVtbl->IsColorFont(This);
+}
+static __WIDL_INLINE UINT32 IDWriteFontFace6_GetColorPaletteCount(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetColorPaletteCount(This);
+}
+static __WIDL_INLINE UINT32 IDWriteFontFace6_GetPaletteEntryCount(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetPaletteEntryCount(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetPaletteEntries(IDWriteFontFace6* This,UINT32 palette_index,UINT32 first_entry_index,UINT32 entry_count,DWRITE_COLOR_F *entries) {
+    return This->lpVtbl->GetPaletteEntries(This,palette_index,first_entry_index,entry_count,entries);
+}
+/*** IDWriteFontFace3 methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFontFaceReference(IDWriteFontFace6* This,IDWriteFontFaceReference **reference) {
+    return This->lpVtbl->GetFontFaceReference(This,reference);
+}
+static __WIDL_INLINE void IDWriteFontFace6_GetPanose(IDWriteFontFace6* This,DWRITE_PANOSE *panose) {
+    This->lpVtbl->GetPanose(This,panose);
+}
+static __WIDL_INLINE DWRITE_FONT_WEIGHT IDWriteFontFace6_GetWeight(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetWeight(This);
+}
+static __WIDL_INLINE DWRITE_FONT_STRETCH IDWriteFontFace6_GetStretch(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetStretch(This);
+}
+static __WIDL_INLINE DWRITE_FONT_STYLE IDWriteFontFace6_GetStyle(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetStyle(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetInformationalStrings(IDWriteFontFace6* This,DWRITE_INFORMATIONAL_STRING_ID stringid,IDWriteLocalizedStrings **strings,WINBOOL *exists) {
+    return This->lpVtbl->GetInformationalStrings(This,stringid,strings,exists);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_HasCharacter(IDWriteFontFace6* This,UINT32 character) {
+    return This->lpVtbl->HasCharacter(This,character);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetRecommendedRenderingMode(IDWriteFontFace6* This,FLOAT emsize,FLOAT dpi_x,FLOAT dpi_y,const DWRITE_MATRIX *transform,WINBOOL is_sideways,DWRITE_OUTLINE_THRESHOLD threshold,DWRITE_MEASURING_MODE measuring_mode,IDWriteRenderingParams *params,DWRITE_RENDERING_MODE1 *rendering_mode,DWRITE_GRID_FIT_MODE *gridfit_mode) {
+    return This->lpVtbl->IDWriteFontFace3_GetRecommendedRenderingMode(This,emsize,dpi_x,dpi_y,transform,is_sideways,threshold,measuring_mode,params,rendering_mode,gridfit_mode);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_IsCharacterLocal(IDWriteFontFace6* This,UINT32 character) {
+    return This->lpVtbl->IsCharacterLocal(This,character);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_IsGlyphLocal(IDWriteFontFace6* This,UINT16 glyph) {
+    return This->lpVtbl->IsGlyphLocal(This,glyph);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_AreCharactersLocal(IDWriteFontFace6* This,const WCHAR *characters,UINT32 count,WINBOOL enqueue_if_not,WINBOOL *are_local) {
+    return This->lpVtbl->AreCharactersLocal(This,characters,count,enqueue_if_not,are_local);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_AreGlyphsLocal(IDWriteFontFace6* This,const UINT16 *glyphs,UINT32 count,WINBOOL enqueue_if_not,WINBOOL *are_local) {
+    return This->lpVtbl->AreGlyphsLocal(This,glyphs,count,enqueue_if_not,are_local);
+}
+/*** IDWriteFontFace4 methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGlyphImageFormats_(IDWriteFontFace6* This,UINT16 glyph,UINT32 ppem_first,UINT32 ppem_last,DWRITE_GLYPH_IMAGE_FORMATS *formats) {
+    return This->lpVtbl->GetGlyphImageFormats_(This,glyph,ppem_first,ppem_last,formats);
+}
+static __WIDL_INLINE DWRITE_GLYPH_IMAGE_FORMATS IDWriteFontFace6_GetGlyphImageFormats(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetGlyphImageFormats(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetGlyphImageData(IDWriteFontFace6* This,UINT16 glyph,UINT32 ppem,DWRITE_GLYPH_IMAGE_FORMATS format,DWRITE_GLYPH_IMAGE_DATA *data,void **context) {
+    return This->lpVtbl->GetGlyphImageData(This,glyph,ppem,format,data,context);
+}
+static __WIDL_INLINE void IDWriteFontFace6_ReleaseGlyphImageData(IDWriteFontFace6* This,void *context) {
+    This->lpVtbl->ReleaseGlyphImageData(This,context);
+}
+/*** IDWriteFontFace5 methods ***/
+static __WIDL_INLINE UINT32 IDWriteFontFace6_GetFontAxisValueCount(IDWriteFontFace6* This) {
+    return This->lpVtbl->GetFontAxisValueCount(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFontAxisValues(IDWriteFontFace6* This,DWRITE_FONT_AXIS_VALUE *values,UINT32 value_count) {
+    return This->lpVtbl->GetFontAxisValues(This,values,value_count);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_HasVariations(IDWriteFontFace6* This) {
+    return This->lpVtbl->HasVariations(This);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFontResource(IDWriteFontFace6* This,IDWriteFontResource **resource) {
+    return This->lpVtbl->GetFontResource(This,resource);
+}
+static __WIDL_INLINE WINBOOL IDWriteFontFace6_Equals(IDWriteFontFace6* This,IDWriteFontFace *fontface) {
+    return This->lpVtbl->Equals(This,fontface);
+}
+/*** IDWriteFontFace6 methods ***/
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFamilyNames(IDWriteFontFace6* This,DWRITE_FONT_FAMILY_MODEL font_family_model,IDWriteLocalizedStrings **names) {
+    return This->lpVtbl->IDWriteFontFace6_GetFamilyNames(This,font_family_model,names);
+}
+static __WIDL_INLINE HRESULT IDWriteFontFace6_GetFaceNames(IDWriteFontFace6* This,DWRITE_FONT_FAMILY_MODEL font_family_model,IDWriteLocalizedStrings **names) {
+    return This->lpVtbl->IDWriteFontFace6_GetFaceNames(This,font_family_model,names);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IDWriteFontFace6_INTERFACE_DEFINED__ */
 
 typedef struct DWRITE_COLOR_GLYPH_RUN1 DWRITE_COLOR_GLYPH_RUN1;
 struct DWRITE_COLOR_GLYPH_RUN1

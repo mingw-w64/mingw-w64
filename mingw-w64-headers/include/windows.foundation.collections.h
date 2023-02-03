@@ -72,6 +72,90 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionProgressHandler_impl;
+
+            template <class TProgress>
+            struct IAsyncActionProgressHandler : IAsyncActionProgressHandler_impl<TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionWithProgressCompletedHandler_impl;
+
+            template <class TProgress>
+            struct IAsyncActionWithProgressCompletedHandler : IAsyncActionWithProgressCompletedHandler_impl<TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionWithProgress_impl;
+
+            template <class TProgress>
+            struct IAsyncActionWithProgress : IAsyncActionWithProgress_impl<TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationProgressHandler_impl;
+
+            template <class TResult, class TProgress>
+            struct IAsyncOperationProgressHandler : IAsyncOperationProgressHandler_impl<TResult, TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgressCompletedHandler_impl;
+
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgressCompletedHandler : IAsyncOperationWithProgressCompletedHandler_impl<TResult, TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgress_impl;
+
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgress : IAsyncOperationWithProgress_impl<TResult, TProgress> {};
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
             template <class TSender, class TArgs>
             struct ITypedEventHandler_impl;
 
@@ -133,6 +217,38 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             namespace Collections {
+                template <class T>
+                struct IMapChangedEventArgs_impl;
+
+                template <class T>
+                struct IMapChangedEventArgs : IMapChangedEventArgs_impl<T> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IMapChangedEventHandler_impl;
+
+                template <class K, class V>
+                struct IMapChangedEventHandler : IMapChangedEventHandler_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
                 template <class K, class V>
                 struct IKeyValuePair_impl;
 
@@ -154,6 +270,54 @@ namespace ABI {
 
                 template <class K, class V>
                 struct IMapView : IMapView_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IMap_impl;
+
+                template <class K, class V>
+                struct IMap : IMap_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IObservableMap_impl;
+
+                template <class K, class V>
+                struct IObservableMap : IObservableMap_impl<K, V> {};
+            }
+        }
+    }
+}
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IVectorChangedEventHandler_impl;
+
+                template <class T>
+                struct IVectorChangedEventHandler : IVectorChangedEventHandler_impl<T> {};
             }
         }
     }
@@ -192,11 +356,29 @@ namespace ABI {
 }
 #endif
 
+#if defined(__cplusplus) && !defined(CINTERFACE)
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IObservableVector_impl;
+
+                template <class T>
+                struct IObservableVector : IObservableVector_impl<T> {};
+            }
+        }
+    }
+}
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
 #include <asyncinfo.h>
 #include <windowscontracts.h>
+#include <eventtoken.h>
+#include <ivectorchangedeventargs.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -270,6 +452,149 @@ namespace ABI {
                 typedef TResult TResult_complex;
                 virtual HRESULT STDMETHODCALLTYPE put_Completed(IAsyncOperationCompletedHandler<TResult_logical> *handler) = 0;
                 virtual HRESULT STDMETHODCALLTYPE get_Completed(IAsyncOperationCompletedHandler<TResult_logical> **handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE GetResults(TResult_abi *results) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionProgressHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(IAsyncActionWithProgress<TProgress_logical> *info,TProgress_abi progress) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionWithProgressCompletedHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(IAsyncActionWithProgress<TProgress_logical> *info,AsyncStatus status) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TProgress>
+            struct IAsyncActionWithProgress_impl : IInspectable
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE put_Progress(IAsyncActionProgressHandler<TProgress_logical> *handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Progress(IAsyncActionProgressHandler<TProgress_logical> **handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE put_Completed(IAsyncActionWithProgressCompletedHandler<TProgress_logical> *handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Completed(IAsyncActionWithProgressCompletedHandler<TProgress_logical> **handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE GetResults() = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationProgressHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TResult>::type     TResult_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TResult>::type TResult_logical;
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TResult TResult_complex;
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(IAsyncOperationWithProgress<TResult_logical, TProgress_logical> *info,TProgress_abi progress) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgressCompletedHandler_impl : IUnknown
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TResult>::type     TResult_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TResult>::type TResult_logical;
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TResult TResult_complex;
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE Invoke(IAsyncOperationWithProgress<TResult_logical, TProgress_logical> *info,AsyncStatus status) = 0;
+            };
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template <class TResult, class TProgress>
+            struct IAsyncOperationWithProgress_impl : IInspectable
+            {
+            private:
+                typedef typename Windows::Foundation::Internal::GetAbiType<TResult>::type     TResult_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TResult>::type TResult_logical;
+                typedef typename Windows::Foundation::Internal::GetAbiType<TProgress>::type     TProgress_abi;
+                typedef typename Windows::Foundation::Internal::GetLogicalType<TProgress>::type TProgress_logical;
+            public:
+                typedef TResult TResult_complex;
+                typedef TProgress TProgress_complex;
+                virtual HRESULT STDMETHODCALLTYPE put_Progress(IAsyncOperationProgressHandler<TResult_logical, TProgress_logical> *handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Progress(IAsyncOperationProgressHandler<TResult_logical, TProgress_logical> **handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE put_Completed(IAsyncOperationWithProgressCompletedHandler<TResult_logical, TProgress_logical> *handler) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Completed(IAsyncOperationWithProgressCompletedHandler<TResult_logical, TProgress_logical> **handler) = 0;
                 virtual HRESULT STDMETHODCALLTYPE GetResults(TResult_abi *results) = 0;
             };
         }
@@ -378,6 +703,56 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             namespace Collections {
+                template <class T>
+                struct IMapChangedEventArgs_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE get_CollectionChanged(enum CollectionChange *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Key(T_abi *key) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IMapChangedEventHandler_impl : IUnknown
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<K>::type     K_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<K>::type K_logical;
+                    typedef typename Windows::Foundation::Internal::GetAbiType<V>::type     V_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<V>::type V_logical;
+                public:
+                    typedef K K_complex;
+                    typedef V V_complex;
+                    virtual HRESULT STDMETHODCALLTYPE Invoke(IObservableMap<K_logical, V_logical> *sender,IMapChangedEventArgs<K_logical> *args) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
                 template <class K, class V>
                 struct IKeyValuePair_impl : IInspectable
                 {
@@ -420,6 +795,88 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE get_Size(unsigned int *size) = 0;
                     virtual HRESULT STDMETHODCALLTYPE HasKey(K_abi key,boolean *found) = 0;
                     virtual HRESULT STDMETHODCALLTYPE Split(IMapView<K_logical, V_logical> **first,IMapView<K_logical, V_logical> **second) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IMap_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<K>::type     K_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<K>::type K_logical;
+                    typedef typename Windows::Foundation::Internal::GetAbiType<V>::type     V_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<V>::type V_logical;
+                public:
+                    typedef K K_complex;
+                    typedef V V_complex;
+                    virtual HRESULT STDMETHODCALLTYPE Lookup(K_abi key,V_abi *value) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Size(unsigned int *size) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE HasKey(K_abi key,boolean *found) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetView(IMapView<K_logical, V_logical> **view) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE Insert(K_abi key,V_abi value,boolean *replaced) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE Remove(K_abi key) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE Clear() = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class K, class V>
+                struct IObservableMap_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<K>::type     K_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<K>::type K_logical;
+                    typedef typename Windows::Foundation::Internal::GetAbiType<V>::type     V_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<V>::type V_logical;
+                public:
+                    typedef K K_complex;
+                    typedef V V_complex;
+                    virtual HRESULT STDMETHODCALLTYPE add_MapChanged(IMapChangedEventHandler<K_logical, V_logical> *handler,EventRegistrationToken *token) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE remove_MapChanged(EventRegistrationToken token) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IVectorChangedEventHandler_impl : IUnknown
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE Invoke(IObservableVector<T_logical> *sender,ABI::Windows::Foundation::Collections::IVectorChangedEventArgs *args) = 0;
                 };
             }
         }
@@ -480,6 +937,30 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Clear() = 0;
                     virtual HRESULT STDMETHODCALLTYPE GetMany(UINT32 start_index,UINT32 items_size,T_abi *items,UINT32 *value) = 0;
                     virtual HRESULT STDMETHODCALLTYPE ReplaceAll(UINT32 count,T_abi *items) = 0;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#endif
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template <class T>
+                struct IObservableVector_impl : IInspectable
+                {
+                private:
+                    typedef typename Windows::Foundation::Internal::GetAbiType<T>::type     T_abi;
+                    typedef typename Windows::Foundation::Internal::GetLogicalType<T>::type T_logical;
+                public:
+                    typedef T T_complex;
+                    virtual HRESULT STDMETHODCALLTYPE add_VectorChanged(IVectorChangedEventHandler<T_logical> *handler,EventRegistrationToken *token) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE remove_VectorChanged(EventRegistrationToken token) = 0;
                 };
             }
         }

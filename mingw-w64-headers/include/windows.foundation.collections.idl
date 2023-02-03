@@ -23,7 +23,8 @@
 import "inspectable.idl";
 import "asyncinfo.idl";
 import "windowscontracts.idl";
-/* import "eventtoken.idl"; */
+import "eventtoken.idl";
+import "ivectorchangedeventargs.idl";
 
 namespace Windows {
     namespace Foundation {
@@ -67,6 +68,62 @@ cpp_quote("#endif")
             HRESULT GetResults([out, retval] TResult *results);
         }
 
+        interface IAsyncActionWithProgress<TProgress>;
+
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(6d844858-0cff-4590-ae89-95a5a5c8b4b8)
+        ]
+        delegate HRESULT AsyncActionProgressHandler<TProgress>([in] Windows.Foundation.IAsyncActionWithProgress<TProgress> *info,
+                                                               [in] TProgress progress);
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(9c029f91-cc84-44fd-ac26-0a6c4e555281)
+        ]
+        delegate HRESULT AsyncActionWithProgressCompletedHandler<TProgress>([in] Windows.Foundation.IAsyncActionWithProgress<TProgress> *info,
+                                                                            [in] AsyncStatus status);
+
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(1f6db258-e803-48a1-9546-eb7353398884)
+        ]
+        interface IAsyncActionWithProgress<TProgress> : IInspectable
+        {
+            [propput] HRESULT Progress([in] Windows.Foundation.AsyncActionProgressHandler<TProgress> *handler);
+            [propget] HRESULT Progress([out, retval] Windows.Foundation.AsyncActionProgressHandler<TProgress> **handler);
+            [propput] HRESULT Completed([in] Windows.Foundation.AsyncActionWithProgressCompletedHandler<TProgress> *handler);
+            [propget] HRESULT Completed([out, retval] Windows.Foundation.AsyncActionWithProgressCompletedHandler<TProgress> **handler);
+            HRESULT GetResults();
+        }
+
+        interface IAsyncOperationWithProgress<TResult, TProgress>;
+
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(55690902-0aab-421a-8778-f8ce5026d758)
+        ]
+        delegate HRESULT AsyncOperationProgressHandler<TResult, TProgress>([in] Windows.Foundation.IAsyncOperationWithProgress<TResult, TProgress> *info,
+                                                                           [in] TProgress progress);
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(e85df41d-6aa7-46e3-a8e2-f009d840c627)
+        ]
+        delegate HRESULT AsyncOperationWithProgressCompletedHandler<TResult, TProgress>([in] Windows.Foundation.IAsyncOperationWithProgress<TResult, TProgress> *info,
+                                                                                        [in] AsyncStatus status);
+
+        [
+            contract(Windows.Foundation.FoundationContract, 1.0),
+            uuid(b5d036d7-e297-498f-ba60-0289e76e23dd)
+        ]
+        interface IAsyncOperationWithProgress<TResult, TProgress> : IInspectable
+        {
+            [propput] HRESULT Progress([in] Windows.Foundation.AsyncOperationProgressHandler<TResult, TProgress> *handler);
+            [propget] HRESULT Progress([out, retval] Windows.Foundation.AsyncOperationProgressHandler<TResult, TProgress> **handler);
+            [propput] HRESULT Completed([in] Windows.Foundation.AsyncOperationWithProgressCompletedHandler<TResult, TProgress> *handler);
+            [propget] HRESULT Completed([out, retval] Windows.Foundation.AsyncOperationWithProgressCompletedHandler<TResult, TProgress> **handler);
+            HRESULT GetResults([out, retval] TResult *results);
+        }
+
         [
             contract(Windows.Foundation.FoundationContract, 1.0),
             uuid(9de1c534-6ae1-11e0-84e1-18a905bcc53f)
@@ -107,6 +164,25 @@ cpp_quote("#endif")
 
             [
                 contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(9939f4df-050a-4c0f-aa60-77075f9c4777)
+            ]
+            interface IMapChangedEventArgs<T> : IInspectable
+            {
+                [propget] HRESULT CollectionChanged([out, retval] Windows.Foundation.Collections.CollectionChange *value);
+                [propget] HRESULT Key([out, retval] T *key);
+            }
+
+            interface IObservableMap<K, V>;
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(179517f3-94ee-41f8-bddc-768a895544f3)
+            ]
+            delegate HRESULT MapChangedEventHandler<K, V>([in] Windows.Foundation.Collections.IObservableMap<K, V> *sender,
+                                                          [in] Windows.Foundation.Collections.IMapChangedEventArgs<K> *args);
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
                 uuid(02b51929-c1c4-4a7e-8940-0312b5c18500)
             ]
             interface IKeyValuePair<K, V> : IInspectable
@@ -128,6 +204,43 @@ cpp_quote("#endif")
                 HRESULT Split([out] Windows.Foundation.Collections.IMapView<K, V> **first,
                               [out] Windows.Foundation.Collections.IMapView<K, V> **second);
             }
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(3c2925fe-8519-45c1-aa79-197b6718c1c1)
+            ]
+            interface IMap<K, V> : IInspectable
+                requires Windows.Foundation.Collections.IIterable<Windows.Foundation.Collections.IKeyValuePair<K, V> *>
+            {
+                HRESULT Lookup([in] K key, [out, retval] V *value);
+                [propget] HRESULT Size([out, retval] unsigned int *size);
+                HRESULT HasKey([in] K key, [out, retval] boolean *found);
+                HRESULT GetView([out, retval] Windows.Foundation.Collections.IMapView<K, V> **view);
+                HRESULT Insert([in] K key, [in] V value, [out, retval] boolean *replaced);
+                HRESULT Remove([in] K key);
+                HRESULT Clear();
+            }
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(65df2bf5-bf39-41b5-aebc-5a9d865e472b)
+            ]
+            interface IObservableMap<K, V> : IInspectable
+                requires Windows.Foundation.Collections.IMap<K, V>
+            {
+                [eventadd] HRESULT MapChanged([in] Windows.Foundation.Collections.MapChangedEventHandler<K, V> *handler,
+                                              [out, retval] EventRegistrationToken *token);
+                [eventremove] HRESULT MapChanged([in] EventRegistrationToken token);
+            }
+
+            interface IObservableVector<T>;
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(0c051752-9fbf-4c70-aa0c-0e4c82d9a761)
+            ]
+            delegate HRESULT VectorChangedEventHandler<T>([in] Windows.Foundation.Collections.IObservableVector<T> *sender,
+                                                          [in] Windows.Foundation.Collections.IVectorChangedEventArgs *args);
 
             [
                 contract(Windows.Foundation.FoundationContract, 1.0),
@@ -161,6 +274,18 @@ cpp_quote("#endif")
                 HRESULT Clear();
                 HRESULT GetMany([in] UINT32 start_index, [in] UINT32 items_size, [out] T *items, [out, retval] UINT32 *value);
                 HRESULT ReplaceAll([in] UINT32 count, [in] T *items);
+            }
+
+            [
+                contract(Windows.Foundation.FoundationContract, 1.0),
+                uuid(5917eb53-50b4-4a0d-b309-65862b3f1dbc)
+            ]
+            interface IObservableVector<T> : IInspectable
+                requires Windows.Foundation.Collections.IVector<T>
+            {
+                [eventadd] HRESULT VectorChanged([in] Windows.Foundation.Collections.VectorChangedEventHandler<T> *handler,
+                                              [out, retval] EventRegistrationToken *token);
+                [eventremove] HRESULT VectorChanged([in] EventRegistrationToken token);
             }
         }
 #endif

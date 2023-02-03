@@ -256,6 +256,20 @@ typedef enum _SCHEMATYPEVARIETY
 } SCHEMATYPEVARIETY;
 cpp_quote("#endif /* __msxml_som_enums__ */")
 
+typedef [v1_enum] enum _XHR_CRED_PROMPT
+{
+    XHR_CRED_PROMPT_ALL,
+    XHR_CRED_PROMPT_NONE,
+    XHR_CRED_PROMPT_PROXY
+} XHR_CRED_PROMPT;
+
+typedef [v1_enum] enum _XHR_AUTH
+{
+    XHR_AUTH_ALL,
+    XHR_AUTH_NONE,
+    XHR_AUTH_PROXY
+} XHR_AUTH;
+
 typedef [v1_enum] enum _XHR_PROPERTY
 {
     XHR_PROP_NO_CRED_PROMPT,
@@ -267,6 +281,9 @@ typedef [v1_enum] enum _XHR_PROPERTY
     XHR_PROP_EXTENDED_ERROR,
     XHR_PROP_QUERY_STRING_UTF8,
     XHR_PROP_IGNORE_CERT_ERRORS,
+    XHR_PROP_ONDATA_THRESHOLD,
+    XHR_PROP_SET_ENTERPRISEID,
+    XHR_PROP_MAX_CONNECTIONS
 } XHR_PROPERTY;
 
 typedef struct tagXHR_COOKIE
