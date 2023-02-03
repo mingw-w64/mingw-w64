@@ -186,6 +186,7 @@ for f in \
 	exdisp \
 	fusion \
 	icftypes \
+	ivectorchangedeventargs \
 	mediaobj \
 	mfreadwrite \
 	mmdeviceapi \
