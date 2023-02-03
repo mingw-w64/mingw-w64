@@ -158,6 +158,7 @@ IDL_SRCS = \
   include/iketypes.idl \
   include/inputscope.idl \
   include/inspectable.idl \
+  include/ivectorchangedeventargs.idl \
   include/locationapi.idl \
   include/oaidl.idl \
   include/ocidl.idl \
