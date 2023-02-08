@@ -303,15 +303,20 @@
 
 #define __MINGW_SELECTANY  __attribute__((__selectany__))
 
+#pragma push_macro("__has_builtin")
+#ifndef __has_builtin
+#  define __has_builtin(x) 0
+#endif
+
 #if _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 && __MINGW_GNUC_PREREQ(4, 1)
 #  if _FORTIFY_SOURCE > 3
 #    warning Using _FORTIFY_SOURCE=3 (levels > 3 are not supported)
 #  endif
 #  if _FORTIFY_SOURCE > 2
-#    if __MINGW_GNUC_PREREQ(12, 0)
+#    if __has_builtin(__builtin_dynamic_object_size)
 #      define __MINGW_FORTIFY_LEVEL 3
 #    else
-#      warning Using _FORTIFY_SOURCE=2 (level 3 requires GCC 12.0 or later)
+#      warning Using _FORTIFY_SOURCE=2 (level 3 requires __builtin_dynamic_object_size support)
 #      define __MINGW_FORTIFY_LEVEL 2
 #    endif
 #  elif _FORTIFY_SOURCE > 1
@@ -367,12 +372,16 @@
    __builtin_va_arg_pack().  GCC may report an error if the address
    of such a function is used.  Set _FORTIFY_VA_ARG=0 in this case.
    Clang doesn't, as of version 15, yet implement __builtin_va_arg_pack().  */
-#if __MINGW_FORTIFY_LEVEL > 0 && __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__) \
+#if __MINGW_FORTIFY_LEVEL > 0 \
+    && ((__MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)) \
+    || __has_builtin(__builtin_va_arg_pack)) \
     && (!defined(_FORTIFY_VA_ARG) || _FORTIFY_VA_ARG > 0)
 #  define __MINGW_FORTIFY_VA_ARG 1
 #else
 #  define __MINGW_FORTIFY_VA_ARG 0
 #endif
+
+#pragma pop_macro("__has_builtin")
 
 /* Enable workaround for ABI incompatibility on affected platforms */
 #ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS
