@@ -833,10 +833,67 @@ char * tmpnam(char * __dst)
 
   __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
   int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...);
+
+#if __MINGW_FORTIFY_LEVEL > 0
+
+  int __cdecl __mingw_call_vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv) __MINGW_ASM_CALL(vsprintf);
+  int __cdecl __mingw_call_vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv) __MINGW_ASM_CALL(vsnprintf);
+
+  __mingw_bos_extern_ovr
+  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(3)
+  int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv)
+  {
+    if (__mingw_bos_known(__stream)) {
+      int __retval = __mingw_call_vsnprintf (__stream, __mingw_bos(__stream, 1), __format, __local_argv);
+      if (__retval >= 0)
+        __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+      return __retval;
+    }
+    return __mingw_call_vsprintf(__stream, __format, __local_argv);
+  }
+
+  __mingw_bos_extern_ovr
+  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv)
+  {
+    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+    return __mingw_call_vsnprintf (__stream, __n, __format, __local_argv);
+  }
+
+#endif /* __MINGW_FORTIFY_LEVEL > 0 */
+
+#if __MINGW_FORTIFY_VA_ARG
+
+  int __cdecl __mingw_call_sprintf (char * __restrict__ __stream, const char * __restrict__ __Format, ...) __MINGW_ASM_CALL(sprintf);
+  int __cdecl __mingw_call_snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...) __MINGW_ASM_CALL(snprintf);
+
+  __mingw_bos_extern_ovr
+  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+  int sprintf (char * __restrict__ __stream, const char * __restrict__ __format, ...)
+  {
+    if (__mingw_bos_known(__stream)) {
+      int __retval = __mingw_call_snprintf (__stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack());
+      if (__retval >= 0)
+        __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+      return __retval;
+    }
+    return __mingw_call_sprintf (__stream, __format, __builtin_va_arg_pack());
+  }
+
+  __mingw_bos_extern_ovr
+  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+  int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
+  {
+    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+    return __mingw_call_snprintf (__stream, __n, __format, __builtin_va_arg_pack());
+  }
+
+#endif /* __MINGW_FORTIFY_VA_ARG */
+
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif
-#else
+#else /* !_UCRT */
 
 /* this is here to deal with software defining
  * vsnprintf as _vsnprintf, eg. libxml2.  */
