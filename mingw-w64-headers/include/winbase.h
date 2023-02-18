@@ -2840,7 +2840,7 @@ WINBASEAPI WINBOOL WINAPI ReadDirectoryChangesExW (HANDLE hDirectory, LPVOID lpB
     BYTE ACLineStatus;
     BYTE BatteryFlag;
     BYTE BatteryLifePercent;
-    BYTE Reserved1;
+    BYTE SystemStatusFlag;
     DWORD BatteryLifeTime;
     DWORD BatteryFullLifeTime;
   } SYSTEM_POWER_STATUS,*LPSYSTEM_POWER_STATUS;
