@@ -276,6 +276,7 @@
 /* First, we deal with  platform-specific or compiler-specific issues. */
 
 /* begin standard C headers. */
+
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
@@ -292,8 +293,8 @@
 
 #if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-/* C99 says to define __STDC_LIMIT_MACROS before including stdint.h,
- * if you want the limit (max/min) macros for int types. 
+/* C++ systems might need __STDC_LIMIT_MACROS defined before including
+ * <stdint.h>, if you want the limit (max/min) macros for int types.
  */
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
@@ -1035,13 +1036,13 @@ struct uuid *parse_uuid(const char *u)
   return uuid;
 }
 
-#line 1038 "tools/widl/parser.yy.c"
+#line 1039 "tools/widl/parser.yy.c"
 /*
  **************************************************************************
  * The flexer starts here
  **************************************************************************
  */
-#line 1044 "tools/widl/parser.yy.c"
+#line 1045 "tools/widl/parser.yy.c"
 
 #define INITIAL 0
 #define QUOTE 1
@@ -1275,7 +1276,7 @@ YY_DECL
 	{
 #line 126 "tools/widl/parser.l"
 
-#line 1278 "tools/widl/parser.yy.c"
+#line 1279 "tools/widl/parser.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1610,7 +1611,7 @@ YY_RULE_SETUP
 #line 233 "tools/widl/parser.l"
 ECHO;
 	YY_BREAK
-#line 1613 "tools/widl/parser.yy.c"
+#line 1614 "tools/widl/parser.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2901,11 +2902,6 @@ void pop_import(void)
 	fclose(yyin);
 	yy_delete_buffer( YY_CURRENT_BUFFER );
 	yy_switch_to_buffer( import_stack[ptr].state );
-	if (temp_name) {
-		unlink(temp_name);
-		free(temp_name);
-	}
-	temp_name = import_stack[ptr].temp_name;
 	input_name = import_stack[ptr].input_name;
 	line_number = import_stack[ptr].line_number;
 	import_stack_ptr--;
@@ -2922,7 +2918,7 @@ int do_import(char *fname)
     char *path, *name;
     struct imports *import;
     int ptr = import_stack_ptr;
-    int ret, fd;
+    int ret;
 
     import = first_import;
     while (import && strcmp(import->name, fname))
@@ -2944,24 +2940,22 @@ int do_import(char *fname)
     if (import_stack_ptr == MAX_IMPORT_DEPTH)
         error_loc("Exceeded max import depth\n");
 
-    import_stack[ptr].temp_name = temp_name;
     import_stack[ptr].input_name = input_name;
     import_stack[ptr].line_number = line_number;
     import_stack_ptr++;
     input_name = path;
     line_number = 1;
 
-    fd = make_temp_file( "widl-pp", NULL, &name );
-    temp_name = name;
-    if (!(f = fdopen(fd, "wt")))
+    name = make_temp_file( "widl-pp", NULL );
+    if (!(f = fopen(name, "wt")))
         error("Could not open fd %s for writing\n", name);
 
     ret = wpp_parse( path, f );
     fclose( f );
     if (ret) exit(1);
 
-    if((f = fopen(temp_name, "r")) == NULL)
-        error_loc("Unable to open %s\n", temp_name);
+    if((f = fopen(name, "r")) == NULL)
+        error_loc("Unable to open %s\n", name);
 
     import_stack[ptr].state = YY_CURRENT_BUFFER;
     yy_switch_to_buffer(yy_create_buffer(f, YY_BUF_SIZE));
@@ -2979,7 +2973,7 @@ void abort_import(void)
 static void switch_to_acf(void)
 {
     int ptr = import_stack_ptr;
-    int ret, fd;
+    int ret;
     char *name;
     FILE *f;
 
@@ -2989,17 +2983,16 @@ static void switch_to_acf(void)
     acf_name = NULL;
     line_number = 1;
 
-    fd = make_temp_file( "widl-acf", NULL, &name );
-    temp_name = name;
-    if (!(f = fdopen(fd, "wt")))
+    name = make_temp_file( "widl-acf", NULL );
+    if (!(f = fopen(name, "wt")))
         error("Could not open fd %s for writing\n", name);
 
     ret = wpp_parse(input_name, f);
     fclose(f);
     if (ret) exit(1);
 
-    if((f = fopen(temp_name, "r")) == NULL)
-        error_loc("Unable to open %s\n", temp_name);
+    if((f = fopen(name, "r")) == NULL)
+        error_loc("Unable to open %s\n", name);
 
     import_stack[ptr].state = YY_CURRENT_BUFFER;
     yy_switch_to_buffer(yy_create_buffer(f, YY_BUF_SIZE));

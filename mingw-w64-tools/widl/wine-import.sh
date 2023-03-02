@@ -40,7 +40,7 @@ do
 done
 
 for f in basetsd.h concurrencysal.h driverspecs.h guiddef.h excpt.h memoryapi.h namespaceapi.h ndrtypes.h poppack.h pshpack1.h \
-        processthreadsapi.h pshpack2.h pshpack4.h pshpack8.h sal.h specstrings.h threadpoolapiset.h \
+        processthreadsapi.h pshpack2.h pshpack4.h pshpack8.h realtimeapiset.h sal.h specstrings.h threadpoolapiset.h \
         timezoneapi.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h winapifamily.h
 do
 	cp $WINE_DIR/include/$f include
