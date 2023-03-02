@@ -225,15 +225,23 @@ for f in \
 	windows.gaming.input \
 	windows.gaming.input.custom \
 	windows.gaming.input.forcefeedback \
+	windows.gaming.ui \
 	windows.globalization \
 	windows.media \
 	windows.media.closedcaptioning \
+	windows.media.devices \
 	windows.media.speechrecognition \
 	windows.media.speechsynthesis \
+	windows.security.credentials \
+	windows.security.cryptography \
 	windows.storage.streams \
 	windows.system \
 	windows.system.power \
+	windows.system.profile.systemmanufacturers \
+	windows.system.threading \
+	windows.system.userprofile \
 	windows.ui \
+	windows.ui.viewmanagement \
 	wmdrmsdk \
 	wmp \
 	wmprealestate \

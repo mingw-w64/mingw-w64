@@ -285,18 +285,24 @@ IDL_SRCS = \
   include/windows.gaming.input.idl \
   include/windows.gaming.input.custom.idl \
   include/windows.gaming.input.forcefeedback.idl \
+  include/windows.gaming.ui.idl \
   include/windows.globalization.idl \
   include/windows.media.idl \
   include/windows.media.closedcaptioning.idl \
+  include/windows.media.devices.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
+  include/windows.security.credentials.idl \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
   include/windows.system.power.idl \
+  include/windows.system.profile.systemmanufacturers.idl \
   include/windows.system.threading.idl \
+  include/windows.system.userprofile.idl \
   include/windows.ui.idl \
+  include/windows.ui.viewmanagement.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \

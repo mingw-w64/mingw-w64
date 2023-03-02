@@ -1,7 +1,19 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+/*
+ * Copyright 2022 Nikolay Sivov for CodeWeavers
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
 #ifdef __WIDL__
@@ -9,110 +21,76 @@
 #endif
 
 import "inspectable.idl";
+import "asyncinfo.idl";
+import "windowscontracts.idl";
 import "windows.foundation.idl";
 
-namespace Windows {
-    namespace Foundation {
-        interface IAsyncAction;
+namespace Windows.System.Threading
+{
+    typedef enum WorkItemPriority WorkItemPriority;
+    typedef enum WorkItemOptions WorkItemOptions;
+
+    runtimeclass ThreadPool;
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0)
+    ]
+    enum WorkItemPriority
+    {
+        Low = -1,
+        Normal = 0,
+        High = 1
+    };
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        flags
+    ]
+    enum WorkItemOptions
+    {
+        None = 0x0,
+        TimeSliced = 0x1
+    };
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        uuid(1d1a8b8b-fa66-414f-9cbd-b65fc99d17fa)
+    ]
+    delegate HRESULT WorkItemHandler([in] Windows.Foundation.IAsyncAction *operation);
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        exclusiveto(Windows.System.Threading.ThreadPool),
+        uuid(b6bf67dd-84bd-44f8-ac1c-93ebcb9dba91)
+    ]
+    interface IThreadPoolStatics : IInspectable
+    {
+        [overload("RunAsync")] HRESULT RunAsync(
+                [in] Windows.System.Threading.WorkItemHandler *handler,
+                [out, retval] Windows.Foundation.IAsyncAction **operation
+        );
+
+        [overload("RunAsync")] HRESULT RunWithPriorityAsync(
+                [in] Windows.System.Threading.WorkItemHandler *handler,
+                [in] Windows.System.Threading.WorkItemPriority priority,
+                [out, retval] Windows.Foundation.IAsyncAction **operation
+        );
+
+        [overload("RunAsync")] HRESULT RunWithPriorityAndOptionsAsync(
+                [in] Windows.System.Threading.WorkItemHandler *handler,
+                [in] Windows.System.Threading.WorkItemPriority priority,
+                [in] Windows.System.Threading.WorkItemOptions options,
+                [out, retval] Windows.Foundation.IAsyncAction **operation
+        );
     }
 
-    namespace System {
-        namespace Threading {
-            typedef enum WorkItemPriority WorkItemPriority;
-            typedef enum WorkItemOptions WorkItemOptions;
-            interface TimerElapsedHandler;   //delegate
-            interface TimerDestroyedHandler; //delegate
-            interface WorkItemHandler;       //delegate
-            interface IThreadPoolStatics;
-            interface IThreadPoolTimer;
-            interface IThreadPoolTimerStatics;
-        }
-    }
-}
-
-namespace Windows {
-    namespace System {
-        namespace Threading
-        {
-            enum WorkItemPriority {
-                Low    = -1,
-                Normal = 0,
-                High   = 1
-            };
-
-            enum WorkItemOptions {
-                None       = 0,
-                TimeSliced = 1
-            };
-
-            [uuid(FAAEA667-FBEB-49CB-ADB2-71184C556E43)]
-            interface TimerElapsedHandler : IUnknown {
-                HRESULT Invoke(IThreadPoolTimer* timer);
-            }
-
-            [uuid(34ED19FA-8384-4EB9-8209-FB5094EEEC35)]
-            interface TimerDestroyedHandler : IUnknown {
-                HRESULT Invoke(IThreadPoolTimer* timer);
-            }
-
-            [uuid(1D1A8B8B-FA66-414F-9CBD-B65FC99D17FA)]
-            interface WorkItemHandler : IUnknown {
-                HRESULT Invoke(
-                        Windows.Foundation.IAsyncAction* operation);
-            }
-
-            [uuid(B6BF67DD-84BD-44F8-AC1C-93EBCB9DBA91)]
-            interface IThreadPoolStatics : IInspectable
-            {
-                HRESULT RunAsync(
-                        WorkItemHandler* handler,
-                        Windows.Foundation.IAsyncAction** operation);
-
-                HRESULT RunWithPriorityAsync(
-                        WorkItemHandler* handler,
-                        WorkItemPriority priority,
-                        Windows.Foundation.IAsyncAction** operation);
-
-                HRESULT RunWithPriorityAndOptionsAsync(
-                        WorkItemHandler* handler,
-                        WorkItemPriority priority,
-                        WorkItemOptions options,
-                        Windows.Foundation.IAsyncAction** operation);
-            }
-
-            [uuid(594EBE78-55EA-4A88-A50D-3402AE1F9CF2)]
-            interface IThreadPoolTimer : IInspectable
-            {
-                [propget] HRESULT Period(Windows.Foundation.TimeSpan* value);
-                [propget] HRESULT Delay(Windows.Foundation.TimeSpan* value);
-                HRESULT Cancel();
-            }
-
-            [uuid(1A8A9D02-E482-461B-B8C7-8EFAD1CCE590)]
-            interface IThreadPoolTimerStatics : IInspectable
-            {
-                HRESULT CreatePeriodicTimer(
-                        TimerElapsedHandler* handler,
-                        Windows.Foundation.TimeSpan period,
-                        IThreadPoolTimer** timer);
-
-                HRESULT CreateTimer(
-                        TimerElapsedHandler* handler,
-                        Windows.Foundation.TimeSpan delay,
-                        IThreadPoolTimer** timer);
-
-                HRESULT CreatePeriodicTimerWithCompletion(
-                        TimerElapsedHandler* handler,
-                        Windows.Foundation.TimeSpan period,
-                        TimerDestroyedHandler* destroyed,
-                        IThreadPoolTimer** timer);
-
-                HRESULT CreateTimerWithCompletion(
-                        TimerElapsedHandler* handler,
-                        Windows.Foundation.TimeSpan delay,
-                        TimerDestroyedHandler* destroyed,
-                        IThreadPoolTimer** timer);
-            }
-        }
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        marshaling_behavior(agile),
+        static(Windows.System.Threading.IThreadPoolStatics, Windows.Foundation.UniversalApiContract, 1.0),
+        threading(both)
+    ]
+    runtimeclass ThreadPool
+    {
     }
 }

@@ -43,53 +43,40 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CSecurity_CCryptography_CCryptographicBuffer_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSecurity_CCryptography_CCryptographicBuffer_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Security {
+            namespace Cryptography {
+                class CryptographicBuffer;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CSecurity_CCryptography_CCryptographicBuffer __x_ABI_CWindows_CSecurity_CCryptography_CCryptographicBuffer;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CSecurity_CCryptography_CCryptographicBuffer_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <inspectable.h>
+#include <asyncinfo.h>
+#include <windowscontracts.h>
+#include <windows.foundation.h>
 #include <windows.storage.streams.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIBuffer __x_ABI_CWindows_CStorage_CStreams_CIBuffer;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CStorage_CStreams_CIBuffer ABI::Windows::Storage::Streams::IBuffer
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IBuffer;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics;
-#ifdef __cplusplus
-#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics ABI::Windows::Security::Cryptography::ICryptographicBufferStatics
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Cryptography {
-                interface ICryptographicBufferStatics;
-            }
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CSecurity_CCryptography_CBinaryStringEncoding __x_ABI_CWindows_CSecurity_CCryptography_CBinaryStringEncoding;
 #endif /* __cplusplus */
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
 namespace ABI {
@@ -117,9 +104,11 @@ enum __x_ABI_CWindows_CSecurity_CCryptography_CBinaryStringEncoding {
 #endif /* WIDL_using_Windows_Security_Cryptography */
 #endif
 
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 /*****************************************************************************
  * ICryptographicBufferStatics interface
  */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifndef ____x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_INTERFACE_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_INTERFACE_DEFINED__
 
@@ -136,7 +125,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Compare(
                         ABI::Windows::Storage::Streams::IBuffer *object1,
                         ABI::Windows::Storage::Streams::IBuffer *object2,
-                        boolean *isEqual) = 0;
+                        boolean *is_equal) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE GenerateRandom(
                         UINT32 length,
@@ -146,13 +135,13 @@ namespace ABI {
                         UINT32 *value) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE CreateFromByteArray(
-                        UINT32 __valueSize,
+                        UINT32 value_size,
                         BYTE *value,
                         ABI::Windows::Storage::Streams::IBuffer **buffer) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE CopyToByteArray(
                         ABI::Windows::Storage::Streams::IBuffer *buffer,
-                        UINT32 *__valueSize,
+                        UINT32 *value_size,
                         BYTE **value) = 0;
 
                     virtual HRESULT STDMETHODCALLTYPE DecodeFromHexString(
@@ -225,7 +214,7 @@ typedef struct __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferSta
         __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics *This,
         __x_ABI_CWindows_CStorage_CStreams_CIBuffer *object1,
         __x_ABI_CWindows_CStorage_CStreams_CIBuffer *object2,
-        boolean *isEqual);
+        boolean *is_equal);
 
     HRESULT (STDMETHODCALLTYPE *GenerateRandom)(
         __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics *This,
@@ -238,14 +227,14 @@ typedef struct __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferSta
 
     HRESULT (STDMETHODCALLTYPE *CreateFromByteArray)(
         __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics *This,
-        UINT32 __valueSize,
+        UINT32 value_size,
         BYTE *value,
         __x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer);
 
     HRESULT (STDMETHODCALLTYPE *CopyToByteArray)(
         __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics *This,
         __x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,
-        UINT32 *__valueSize,
+        UINT32 *value_size,
         BYTE **value);
 
     HRESULT (STDMETHODCALLTYPE *DecodeFromHexString)(
@@ -298,11 +287,11 @@ interface __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics 
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
 /*** ICryptographicBufferStatics methods ***/
-#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_Compare(This,object1,object2,isEqual) (This)->lpVtbl->Compare(This,object1,object2,isEqual)
+#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_Compare(This,object1,object2,is_equal) (This)->lpVtbl->Compare(This,object1,object2,is_equal)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GenerateRandom(This,length,buffer) (This)->lpVtbl->GenerateRandom(This,length,buffer)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GenerateRandomNumber(This,value) (This)->lpVtbl->GenerateRandomNumber(This,value)
-#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CreateFromByteArray(This,__valueSize,value,buffer) (This)->lpVtbl->CreateFromByteArray(This,__valueSize,value,buffer)
-#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CopyToByteArray(This,buffer,__valueSize,value) (This)->lpVtbl->CopyToByteArray(This,buffer,__valueSize,value)
+#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CreateFromByteArray(This,value_size,value,buffer) (This)->lpVtbl->CreateFromByteArray(This,value_size,value,buffer)
+#define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CopyToByteArray(This,buffer,value_size,value) (This)->lpVtbl->CopyToByteArray(This,buffer,value_size,value)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_DecodeFromHexString(This,value,buffer) (This)->lpVtbl->DecodeFromHexString(This,value,buffer)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_EncodeToHexString(This,buffer,value) (This)->lpVtbl->EncodeToHexString(This,buffer,value)
 #define __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_DecodeFromBase64String(This,value,buffer) (This)->lpVtbl->DecodeFromBase64String(This,value,buffer)
@@ -331,8 +320,8 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptogr
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
 /*** ICryptographicBufferStatics methods ***/
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_Compare(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *object1,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *object2,boolean *isEqual) {
-    return This->lpVtbl->Compare(This,object1,object2,isEqual);
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_Compare(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *object1,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *object2,boolean *is_equal) {
+    return This->lpVtbl->Compare(This,object1,object2,is_equal);
 }
 static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GenerateRandom(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,UINT32 length,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer) {
     return This->lpVtbl->GenerateRandom(This,length,buffer);
@@ -340,11 +329,11 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptogr
 static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_GenerateRandomNumber(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,UINT32 *value) {
     return This->lpVtbl->GenerateRandomNumber(This,value);
 }
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CreateFromByteArray(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,UINT32 __valueSize,BYTE *value,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer) {
-    return This->lpVtbl->CreateFromByteArray(This,__valueSize,value,buffer);
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CreateFromByteArray(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,UINT32 value_size,BYTE *value,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer) {
+    return This->lpVtbl->CreateFromByteArray(This,value_size,value,buffer);
 }
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CopyToByteArray(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,UINT32 *__valueSize,BYTE **value) {
-    return This->lpVtbl->CopyToByteArray(This,buffer,__valueSize,value);
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CopyToByteArray(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,UINT32 *value_size,BYTE **value) {
+    return This->lpVtbl->CopyToByteArray(This,buffer,value_size,value);
 }
 static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_DecodeFromHexString(__x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics* This,HSTRING value,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer) {
     return This->lpVtbl->DecodeFromHexString(This,value,buffer);
@@ -392,6 +381,23 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CSecurity_CCryptography_CICryptogr
 #endif
 
 #endif  /* ____x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Security.Cryptography.CryptographicBuffer
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Security_Cryptography_CryptographicBuffer_DEFINED
+#define RUNTIMECLASS_Windows_Security_Cryptography_CryptographicBuffer_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Security_Cryptography_CryptographicBuffer[] = {'W','i','n','d','o','w','s','.','S','e','c','u','r','i','t','y','.','C','r','y','p','t','o','g','r','a','p','h','y','.','C','r','y','p','t','o','g','r','a','p','h','i','c','B','u','f','f','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Security_Cryptography_CryptographicBuffer[] = L"Windows.Security.Cryptography.CryptographicBuffer";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Security_Cryptography_CryptographicBuffer[] = {'W','i','n','d','o','w','s','.','S','e','c','u','r','i','t','y','.','C','r','y','p','t','o','g','r','a','p','h','y','.','C','r','y','p','t','o','g','r','a','p','h','i','c','B','u','f','f','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Security_Cryptography_CryptographicBuffer_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /* Begin additional prototypes for all interfaces */
 
