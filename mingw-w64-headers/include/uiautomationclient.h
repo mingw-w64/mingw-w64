@@ -138,6 +138,150 @@ interface IUIAutomationChangesEventHandler;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IUIAutomationNotificationEventHandler_FWD_DEFINED__
+#define __IUIAutomationNotificationEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationNotificationEventHandler IUIAutomationNotificationEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationNotificationEventHandler;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationInvokePattern_FWD_DEFINED__
+#define __IUIAutomationInvokePattern_FWD_DEFINED__
+typedef interface IUIAutomationInvokePattern IUIAutomationInvokePattern;
+#ifdef __cplusplus
+interface IUIAutomationInvokePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDockPattern_FWD_DEFINED__
+#define __IUIAutomationDockPattern_FWD_DEFINED__
+typedef interface IUIAutomationDockPattern IUIAutomationDockPattern;
+#ifdef __cplusplus
+interface IUIAutomationDockPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
+#define __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
+typedef interface IUIAutomationExpandCollapsePattern IUIAutomationExpandCollapsePattern;
+#ifdef __cplusplus
+interface IUIAutomationExpandCollapsePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationGridPattern_FWD_DEFINED__
+#define __IUIAutomationGridPattern_FWD_DEFINED__
+typedef interface IUIAutomationGridPattern IUIAutomationGridPattern;
+#ifdef __cplusplus
+interface IUIAutomationGridPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationGridItemPattern_FWD_DEFINED__
+#define __IUIAutomationGridItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationGridItemPattern IUIAutomationGridItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationGridItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationMultipleViewPattern_FWD_DEFINED__
+#define __IUIAutomationMultipleViewPattern_FWD_DEFINED__
+typedef interface IUIAutomationMultipleViewPattern IUIAutomationMultipleViewPattern;
+#ifdef __cplusplus
+interface IUIAutomationMultipleViewPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationObjectModelPattern_FWD_DEFINED__
+#define __IUIAutomationObjectModelPattern_FWD_DEFINED__
+typedef interface IUIAutomationObjectModelPattern IUIAutomationObjectModelPattern;
+#ifdef __cplusplus
+interface IUIAutomationObjectModelPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationRangeValuePattern_FWD_DEFINED__
+#define __IUIAutomationRangeValuePattern_FWD_DEFINED__
+typedef interface IUIAutomationRangeValuePattern IUIAutomationRangeValuePattern;
+#ifdef __cplusplus
+interface IUIAutomationRangeValuePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationScrollPattern_FWD_DEFINED__
+#define __IUIAutomationScrollPattern_FWD_DEFINED__
+typedef interface IUIAutomationScrollPattern IUIAutomationScrollPattern;
+#ifdef __cplusplus
+interface IUIAutomationScrollPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationScrollItemPattern_FWD_DEFINED__
+#define __IUIAutomationScrollItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationScrollItemPattern IUIAutomationScrollItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationScrollItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSelectionPattern_FWD_DEFINED__
+#define __IUIAutomationSelectionPattern_FWD_DEFINED__
+typedef interface IUIAutomationSelectionPattern IUIAutomationSelectionPattern;
+#ifdef __cplusplus
+interface IUIAutomationSelectionPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSelectionItemPattern_FWD_DEFINED__
+#define __IUIAutomationSelectionItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationSelectionItemPattern IUIAutomationSelectionItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationSelectionItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
+#define __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
+typedef interface IUIAutomationSynchronizedInputPattern IUIAutomationSynchronizedInputPattern;
+#ifdef __cplusplus
+interface IUIAutomationSynchronizedInputPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTablePattern_FWD_DEFINED__
+#define __IUIAutomationTablePattern_FWD_DEFINED__
+typedef interface IUIAutomationTablePattern IUIAutomationTablePattern;
+#ifdef __cplusplus
+interface IUIAutomationTablePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTableItemPattern_FWD_DEFINED__
+#define __IUIAutomationTableItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationTableItemPattern IUIAutomationTableItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationTableItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTogglePattern_FWD_DEFINED__
+#define __IUIAutomationTogglePattern_FWD_DEFINED__
+typedef interface IUIAutomationTogglePattern IUIAutomationTogglePattern;
+#ifdef __cplusplus
+interface IUIAutomationTogglePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTransformPattern_FWD_DEFINED__
+#define __IUIAutomationTransformPattern_FWD_DEFINED__
+typedef interface IUIAutomationTransformPattern IUIAutomationTransformPattern;
+#ifdef __cplusplus
+interface IUIAutomationTransformPattern;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IUIAutomationValuePattern_FWD_DEFINED__
 #define __IUIAutomationValuePattern_FWD_DEFINED__
 typedef interface IUIAutomationValuePattern IUIAutomationValuePattern;
@@ -154,11 +298,155 @@ interface IUIAutomationWindowPattern;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IUIAutomationTextRange_FWD_DEFINED__
+#define __IUIAutomationTextRange_FWD_DEFINED__
+typedef interface IUIAutomationTextRange IUIAutomationTextRange;
+#ifdef __cplusplus
+interface IUIAutomationTextRange;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextRange2_FWD_DEFINED__
+#define __IUIAutomationTextRange2_FWD_DEFINED__
+typedef interface IUIAutomationTextRange2 IUIAutomationTextRange2;
+#ifdef __cplusplus
+interface IUIAutomationTextRange2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextRangeArray_FWD_DEFINED__
+#define __IUIAutomationTextRangeArray_FWD_DEFINED__
+typedef interface IUIAutomationTextRangeArray IUIAutomationTextRangeArray;
+#ifdef __cplusplus
+interface IUIAutomationTextRangeArray;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextPattern_FWD_DEFINED__
+#define __IUIAutomationTextPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextPattern IUIAutomationTextPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextPattern2_FWD_DEFINED__
+#define __IUIAutomationTextPattern2_FWD_DEFINED__
+typedef interface IUIAutomationTextPattern2 IUIAutomationTextPattern2;
+#ifdef __cplusplus
+interface IUIAutomationTextPattern2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextEditPattern_FWD_DEFINED__
+#define __IUIAutomationTextEditPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextEditPattern IUIAutomationTextEditPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextEditPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
+#define __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
+typedef interface IUIAutomationCustomNavigationPattern IUIAutomationCustomNavigationPattern;
+#ifdef __cplusplus
+interface IUIAutomationCustomNavigationPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
+#define __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
+typedef interface IUIAutomationActiveTextPositionChangedEventHandler IUIAutomationActiveTextPositionChangedEventHandler;
+#ifdef __cplusplus
+interface IUIAutomationActiveTextPositionChangedEventHandler;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IUIAutomationLegacyIAccessiblePattern_FWD_DEFINED__
 #define __IUIAutomationLegacyIAccessiblePattern_FWD_DEFINED__
 typedef interface IUIAutomationLegacyIAccessiblePattern IUIAutomationLegacyIAccessiblePattern;
 #ifdef __cplusplus
 interface IUIAutomationLegacyIAccessiblePattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationItemContainerPattern_FWD_DEFINED__
+#define __IUIAutomationItemContainerPattern_FWD_DEFINED__
+typedef interface IUIAutomationItemContainerPattern IUIAutomationItemContainerPattern;
+#ifdef __cplusplus
+interface IUIAutomationItemContainerPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
+#define __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationVirtualizedItemPattern IUIAutomationVirtualizedItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationVirtualizedItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationAnnotationPattern_FWD_DEFINED__
+#define __IUIAutomationAnnotationPattern_FWD_DEFINED__
+typedef interface IUIAutomationAnnotationPattern IUIAutomationAnnotationPattern;
+#ifdef __cplusplus
+interface IUIAutomationAnnotationPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationStylesPattern_FWD_DEFINED__
+#define __IUIAutomationStylesPattern_FWD_DEFINED__
+typedef interface IUIAutomationStylesPattern IUIAutomationStylesPattern;
+#ifdef __cplusplus
+interface IUIAutomationStylesPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
+#define __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
+typedef interface IUIAutomationSpreadsheetPattern IUIAutomationSpreadsheetPattern;
+#ifdef __cplusplus
+interface IUIAutomationSpreadsheetPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
+#define __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
+typedef interface IUIAutomationSpreadsheetItemPattern IUIAutomationSpreadsheetItemPattern;
+#ifdef __cplusplus
+interface IUIAutomationSpreadsheetItemPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTransformPattern2_FWD_DEFINED__
+#define __IUIAutomationTransformPattern2_FWD_DEFINED__
+typedef interface IUIAutomationTransformPattern2 IUIAutomationTransformPattern2;
+#ifdef __cplusplus
+interface IUIAutomationTransformPattern2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationTextChildPattern_FWD_DEFINED__
+#define __IUIAutomationTextChildPattern_FWD_DEFINED__
+typedef interface IUIAutomationTextChildPattern IUIAutomationTextChildPattern;
+#ifdef __cplusplus
+interface IUIAutomationTextChildPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDragPattern_FWD_DEFINED__
+#define __IUIAutomationDragPattern_FWD_DEFINED__
+typedef interface IUIAutomationDragPattern IUIAutomationDragPattern;
+#ifdef __cplusplus
+interface IUIAutomationDragPattern;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationDropTargetPattern_FWD_DEFINED__
+#define __IUIAutomationDropTargetPattern_FWD_DEFINED__
+typedef interface IUIAutomationDropTargetPattern IUIAutomationDropTargetPattern;
+#ifdef __cplusplus
+interface IUIAutomationDropTargetPattern;
 #endif /* __cplusplus */
 #endif
 
@@ -239,6 +527,30 @@ interface IUIAutomationElement9;
 typedef interface IUIAutomationElementArray IUIAutomationElementArray;
 #ifdef __cplusplus
 interface IUIAutomationElementArray;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationProxyFactory_FWD_DEFINED__
+#define __IUIAutomationProxyFactory_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactory IUIAutomationProxyFactory;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactory;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
+#define __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactoryEntry IUIAutomationProxyFactoryEntry;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactoryEntry;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
+#define __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
+typedef interface IUIAutomationProxyFactoryMapping IUIAutomationProxyFactoryMapping;
+#ifdef __cplusplus
+interface IUIAutomationProxyFactoryMapping;
 #endif /* __cplusplus */
 #endif
 
@@ -500,6 +812,10 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 #define UIA_TextEdit_TextChangedEventId (20032)
 
 #define UIA_TextEdit_ConversionTargetChangedEventId (20033)
+
+#define UIA_ChangesEventId (20034)
+
+#define UIA_NotificationEventId (20035)
 
 #define UIA_RuntimeIdPropertyId (30000)
 
@@ -2357,149 +2673,2262 @@ static __WIDL_INLINE HRESULT IUIAutomationChangesEventHandler_HandleChangesEvent
 
 #endif  /* __IUIAutomationChangesEventHandler_INTERFACE_DEFINED__ */
 
-#ifndef __IUIAutomationNotificationEventHandler_FWD_DEFINED__
-#define __IUIAutomationNotificationEventHandler_FWD_DEFINED__
-typedef interface IUIAutomationNotificationEventHandler IUIAutomationNotificationEventHandler;
-#ifdef __cplusplus
-interface IUIAutomationNotificationEventHandler;
-#endif /* __cplusplus */
+/*****************************************************************************
+ * IUIAutomationNotificationEventHandler interface
+ */
+#ifndef __IUIAutomationNotificationEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationNotificationEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationNotificationEventHandler, 0xc7cb2637, 0xe6c2, 0x4d0c, 0x85,0xde, 0x49,0x48,0xc0,0x21,0x75,0xc7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c7cb2637-e6c2-4d0c-85de-4948c02175c7")
+IUIAutomationNotificationEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleNotificationEvent(
+        IUIAutomationElement *sender,
+        enum NotificationKind notificationKind,
+        enum NotificationProcessing notificationProcessing,
+        BSTR displayString,
+        BSTR activityId) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationNotificationEventHandler, 0xc7cb2637, 0xe6c2, 0x4d0c, 0x85,0xde, 0x49,0x48,0xc0,0x21,0x75,0xc7)
+#endif
+#else
+typedef struct IUIAutomationNotificationEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationNotificationEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationNotificationEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationNotificationEventHandler *This);
+
+    /*** IUIAutomationNotificationEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleNotificationEvent)(
+        IUIAutomationNotificationEventHandler *This,
+        IUIAutomationElement *sender,
+        enum NotificationKind notificationKind,
+        enum NotificationProcessing notificationProcessing,
+        BSTR displayString,
+        BSTR activityId);
+
+    END_INTERFACE
+} IUIAutomationNotificationEventHandlerVtbl;
+
+interface IUIAutomationNotificationEventHandler {
+    CONST_VTBL IUIAutomationNotificationEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationNotificationEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationNotificationEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationNotificationEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationNotificationEventHandler methods ***/
+#define IUIAutomationNotificationEventHandler_HandleNotificationEvent(This,sender,notificationKind,notificationProcessing,displayString,activityId) (This)->lpVtbl->HandleNotificationEvent(This,sender,notificationKind,notificationProcessing,displayString,activityId)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationNotificationEventHandler_QueryInterface(IUIAutomationNotificationEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationNotificationEventHandler_AddRef(IUIAutomationNotificationEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationNotificationEventHandler_Release(IUIAutomationNotificationEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationNotificationEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationNotificationEventHandler_HandleNotificationEvent(IUIAutomationNotificationEventHandler* This,IUIAutomationElement *sender,enum NotificationKind notificationKind,enum NotificationProcessing notificationProcessing,BSTR displayString,BSTR activityId) {
+    return This->lpVtbl->HandleNotificationEvent(This,sender,notificationKind,notificationProcessing,displayString,activityId);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationInvokePattern_FWD_DEFINED__
-#define __IUIAutomationInvokePattern_FWD_DEFINED__
-typedef interface IUIAutomationInvokePattern IUIAutomationInvokePattern;
-#ifdef __cplusplus
-interface IUIAutomationInvokePattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationDockPattern_FWD_DEFINED__
-#define __IUIAutomationDockPattern_FWD_DEFINED__
-typedef interface IUIAutomationDockPattern IUIAutomationDockPattern;
-#ifdef __cplusplus
-interface IUIAutomationDockPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationNotificationEventHandler_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationInvokePattern interface
+ */
+#ifndef __IUIAutomationInvokePattern_INTERFACE_DEFINED__
+#define __IUIAutomationInvokePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationInvokePattern, 0xfb377fbe, 0x8ea6, 0x46d5, 0x9c,0x73, 0x64,0x99,0x64,0x2d,0x30,0x59);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fb377fbe-8ea6-46d5-9c73-6499642d3059")
+IUIAutomationInvokePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Invoke(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationInvokePattern, 0xfb377fbe, 0x8ea6, 0x46d5, 0x9c,0x73, 0x64,0x99,0x64,0x2d,0x30,0x59)
+#endif
+#else
+typedef struct IUIAutomationInvokePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationInvokePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationInvokePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationInvokePattern *This);
+
+    /*** IUIAutomationInvokePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IUIAutomationInvokePattern *This);
+
+    END_INTERFACE
+} IUIAutomationInvokePatternVtbl;
+
+interface IUIAutomationInvokePattern {
+    CONST_VTBL IUIAutomationInvokePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationInvokePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationInvokePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationInvokePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationInvokePattern methods ***/
+#define IUIAutomationInvokePattern_Invoke(This) (This)->lpVtbl->Invoke(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationInvokePattern_QueryInterface(IUIAutomationInvokePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationInvokePattern_AddRef(IUIAutomationInvokePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationInvokePattern_Release(IUIAutomationInvokePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationInvokePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationInvokePattern_Invoke(IUIAutomationInvokePattern* This) {
+    return This->lpVtbl->Invoke(This);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
-#define __IUIAutomationExpandCollapsePattern_FWD_DEFINED__
-typedef interface IUIAutomationExpandCollapsePattern IUIAutomationExpandCollapsePattern;
-#ifdef __cplusplus
-interface IUIAutomationExpandCollapsePattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationGridPattern_FWD_DEFINED__
-#define __IUIAutomationGridPattern_FWD_DEFINED__
-typedef interface IUIAutomationGridPattern IUIAutomationGridPattern;
-#ifdef __cplusplus
-interface IUIAutomationGridPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationInvokePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationDockPattern interface
+ */
+#ifndef __IUIAutomationDockPattern_INTERFACE_DEFINED__
+#define __IUIAutomationDockPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationDockPattern, 0xfde5ef97, 0x1464, 0x48f6, 0x90,0xbf, 0x43,0xd0,0x94,0x8e,0x86,0xec);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fde5ef97-1464-48f6-90bf-43d0948e86ec")
+IUIAutomationDockPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetDockPosition(
+        enum DockPosition dockPos) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDockPosition(
+        enum DockPosition *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDockPosition(
+        enum DockPosition *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationDockPattern, 0xfde5ef97, 0x1464, 0x48f6, 0x90,0xbf, 0x43,0xd0,0x94,0x8e,0x86,0xec)
+#endif
+#else
+typedef struct IUIAutomationDockPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationDockPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationDockPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationDockPattern *This);
+
+    /*** IUIAutomationDockPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetDockPosition)(
+        IUIAutomationDockPattern *This,
+        enum DockPosition dockPos);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDockPosition)(
+        IUIAutomationDockPattern *This,
+        enum DockPosition *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDockPosition)(
+        IUIAutomationDockPattern *This,
+        enum DockPosition *retVal);
+
+    END_INTERFACE
+} IUIAutomationDockPatternVtbl;
+
+interface IUIAutomationDockPattern {
+    CONST_VTBL IUIAutomationDockPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationDockPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationDockPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationDockPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationDockPattern methods ***/
+#define IUIAutomationDockPattern_SetDockPosition(This,dockPos) (This)->lpVtbl->SetDockPosition(This,dockPos)
+#define IUIAutomationDockPattern_get_CurrentDockPosition(This,retVal) (This)->lpVtbl->get_CurrentDockPosition(This,retVal)
+#define IUIAutomationDockPattern_get_CachedDockPosition(This,retVal) (This)->lpVtbl->get_CachedDockPosition(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDockPattern_QueryInterface(IUIAutomationDockPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationDockPattern_AddRef(IUIAutomationDockPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationDockPattern_Release(IUIAutomationDockPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationDockPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDockPattern_SetDockPosition(IUIAutomationDockPattern* This,enum DockPosition dockPos) {
+    return This->lpVtbl->SetDockPosition(This,dockPos);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDockPattern_get_CurrentDockPosition(IUIAutomationDockPattern* This,enum DockPosition *retVal) {
+    return This->lpVtbl->get_CurrentDockPosition(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDockPattern_get_CachedDockPosition(IUIAutomationDockPattern* This,enum DockPosition *retVal) {
+    return This->lpVtbl->get_CachedDockPosition(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationGridItemPattern_FWD_DEFINED__
-#define __IUIAutomationGridItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationGridItemPattern IUIAutomationGridItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationGridItemPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationMultipleViewPattern_FWD_DEFINED__
-#define __IUIAutomationMultipleViewPattern_FWD_DEFINED__
-typedef interface IUIAutomationMultipleViewPattern IUIAutomationMultipleViewPattern;
-#ifdef __cplusplus
-interface IUIAutomationMultipleViewPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationDockPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationExpandCollapsePattern interface
+ */
+#ifndef __IUIAutomationExpandCollapsePattern_INTERFACE_DEFINED__
+#define __IUIAutomationExpandCollapsePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationExpandCollapsePattern, 0x619be086, 0x1f4e, 0x4ee4, 0xba,0xfa, 0x21,0x01,0x28,0x73,0x87,0x30);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("619be086-1f4e-4ee4-bafa-210128738730")
+IUIAutomationExpandCollapsePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Expand(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Collapse(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentExpandCollapseState(
+        enum ExpandCollapseState *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedExpandCollapseState(
+        enum ExpandCollapseState *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationExpandCollapsePattern, 0x619be086, 0x1f4e, 0x4ee4, 0xba,0xfa, 0x21,0x01,0x28,0x73,0x87,0x30)
+#endif
+#else
+typedef struct IUIAutomationExpandCollapsePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationExpandCollapsePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationExpandCollapsePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationExpandCollapsePattern *This);
+
+    /*** IUIAutomationExpandCollapsePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Expand)(
+        IUIAutomationExpandCollapsePattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *Collapse)(
+        IUIAutomationExpandCollapsePattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentExpandCollapseState)(
+        IUIAutomationExpandCollapsePattern *This,
+        enum ExpandCollapseState *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedExpandCollapseState)(
+        IUIAutomationExpandCollapsePattern *This,
+        enum ExpandCollapseState *retVal);
+
+    END_INTERFACE
+} IUIAutomationExpandCollapsePatternVtbl;
+
+interface IUIAutomationExpandCollapsePattern {
+    CONST_VTBL IUIAutomationExpandCollapsePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationExpandCollapsePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationExpandCollapsePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationExpandCollapsePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationExpandCollapsePattern methods ***/
+#define IUIAutomationExpandCollapsePattern_Expand(This) (This)->lpVtbl->Expand(This)
+#define IUIAutomationExpandCollapsePattern_Collapse(This) (This)->lpVtbl->Collapse(This)
+#define IUIAutomationExpandCollapsePattern_get_CurrentExpandCollapseState(This,retVal) (This)->lpVtbl->get_CurrentExpandCollapseState(This,retVal)
+#define IUIAutomationExpandCollapsePattern_get_CachedExpandCollapseState(This,retVal) (This)->lpVtbl->get_CachedExpandCollapseState(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationExpandCollapsePattern_QueryInterface(IUIAutomationExpandCollapsePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationExpandCollapsePattern_AddRef(IUIAutomationExpandCollapsePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationExpandCollapsePattern_Release(IUIAutomationExpandCollapsePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationExpandCollapsePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationExpandCollapsePattern_Expand(IUIAutomationExpandCollapsePattern* This) {
+    return This->lpVtbl->Expand(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationExpandCollapsePattern_Collapse(IUIAutomationExpandCollapsePattern* This) {
+    return This->lpVtbl->Collapse(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationExpandCollapsePattern_get_CurrentExpandCollapseState(IUIAutomationExpandCollapsePattern* This,enum ExpandCollapseState *retVal) {
+    return This->lpVtbl->get_CurrentExpandCollapseState(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationExpandCollapsePattern_get_CachedExpandCollapseState(IUIAutomationExpandCollapsePattern* This,enum ExpandCollapseState *retVal) {
+    return This->lpVtbl->get_CachedExpandCollapseState(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationObjectModelPattern_FWD_DEFINED__
-#define __IUIAutomationObjectModelPattern_FWD_DEFINED__
-typedef interface IUIAutomationObjectModelPattern IUIAutomationObjectModelPattern;
-#ifdef __cplusplus
-interface IUIAutomationObjectModelPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationRangeValuePattern_FWD_DEFINED__
-#define __IUIAutomationRangeValuePattern_FWD_DEFINED__
-typedef interface IUIAutomationRangeValuePattern IUIAutomationRangeValuePattern;
-#ifdef __cplusplus
-interface IUIAutomationRangeValuePattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationExpandCollapsePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationGridPattern interface
+ */
+#ifndef __IUIAutomationGridPattern_INTERFACE_DEFINED__
+#define __IUIAutomationGridPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationGridPattern, 0x414c3cdc, 0x856b, 0x4f5b, 0x85,0x38, 0x31,0x31,0xc6,0x30,0x25,0x50);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("414c3cdc-856b-4f5b-8538-3131c6302550")
+IUIAutomationGridPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetItem(
+        int row,
+        int column,
+        IUIAutomationElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentRowCount(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentColumnCount(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedRowCount(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedColumnCount(
+        int *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationGridPattern, 0x414c3cdc, 0x856b, 0x4f5b, 0x85,0x38, 0x31,0x31,0xc6,0x30,0x25,0x50)
+#endif
+#else
+typedef struct IUIAutomationGridPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationGridPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationGridPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationGridPattern *This);
+
+    /*** IUIAutomationGridPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetItem)(
+        IUIAutomationGridPattern *This,
+        int row,
+        int column,
+        IUIAutomationElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentRowCount)(
+        IUIAutomationGridPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentColumnCount)(
+        IUIAutomationGridPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedRowCount)(
+        IUIAutomationGridPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedColumnCount)(
+        IUIAutomationGridPattern *This,
+        int *retVal);
+
+    END_INTERFACE
+} IUIAutomationGridPatternVtbl;
+
+interface IUIAutomationGridPattern {
+    CONST_VTBL IUIAutomationGridPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationGridPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationGridPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationGridPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationGridPattern methods ***/
+#define IUIAutomationGridPattern_GetItem(This,row,column,element) (This)->lpVtbl->GetItem(This,row,column,element)
+#define IUIAutomationGridPattern_get_CurrentRowCount(This,retVal) (This)->lpVtbl->get_CurrentRowCount(This,retVal)
+#define IUIAutomationGridPattern_get_CurrentColumnCount(This,retVal) (This)->lpVtbl->get_CurrentColumnCount(This,retVal)
+#define IUIAutomationGridPattern_get_CachedRowCount(This,retVal) (This)->lpVtbl->get_CachedRowCount(This,retVal)
+#define IUIAutomationGridPattern_get_CachedColumnCount(This,retVal) (This)->lpVtbl->get_CachedColumnCount(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_QueryInterface(IUIAutomationGridPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationGridPattern_AddRef(IUIAutomationGridPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationGridPattern_Release(IUIAutomationGridPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationGridPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_GetItem(IUIAutomationGridPattern* This,int row,int column,IUIAutomationElement **element) {
+    return This->lpVtbl->GetItem(This,row,column,element);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_get_CurrentRowCount(IUIAutomationGridPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentRowCount(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_get_CurrentColumnCount(IUIAutomationGridPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentColumnCount(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_get_CachedRowCount(IUIAutomationGridPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedRowCount(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridPattern_get_CachedColumnCount(IUIAutomationGridPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedColumnCount(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationScrollPattern_FWD_DEFINED__
-#define __IUIAutomationScrollPattern_FWD_DEFINED__
-typedef interface IUIAutomationScrollPattern IUIAutomationScrollPattern;
-#ifdef __cplusplus
-interface IUIAutomationScrollPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationScrollItemPattern_FWD_DEFINED__
-#define __IUIAutomationScrollItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationScrollItemPattern IUIAutomationScrollItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationScrollItemPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationGridPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationGridItemPattern interface
+ */
+#ifndef __IUIAutomationGridItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationGridItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationGridItemPattern, 0x78f8ef57, 0x66c3, 0x4e09, 0xbd,0x7c, 0xe7,0x9b,0x20,0x04,0x89,0x4d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("78f8ef57-66c3-4e09-bd7c-e79b2004894d")
+IUIAutomationGridItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentContainingGrid(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentRow(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentColumn(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentRowSpan(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentColumnSpan(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedContainingGrid(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedRow(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedColumn(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedRowSpan(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedColumnSpan(
+        int *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationGridItemPattern, 0x78f8ef57, 0x66c3, 0x4e09, 0xbd,0x7c, 0xe7,0x9b,0x20,0x04,0x89,0x4d)
+#endif
+#else
+typedef struct IUIAutomationGridItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationGridItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationGridItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationGridItemPattern *This);
+
+    /*** IUIAutomationGridItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentContainingGrid)(
+        IUIAutomationGridItemPattern *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentRow)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentColumn)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentRowSpan)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentColumnSpan)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedContainingGrid)(
+        IUIAutomationGridItemPattern *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedRow)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedColumn)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedRowSpan)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedColumnSpan)(
+        IUIAutomationGridItemPattern *This,
+        int *retVal);
+
+    END_INTERFACE
+} IUIAutomationGridItemPatternVtbl;
+
+interface IUIAutomationGridItemPattern {
+    CONST_VTBL IUIAutomationGridItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationGridItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationGridItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationGridItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationGridItemPattern methods ***/
+#define IUIAutomationGridItemPattern_get_CurrentContainingGrid(This,retVal) (This)->lpVtbl->get_CurrentContainingGrid(This,retVal)
+#define IUIAutomationGridItemPattern_get_CurrentRow(This,retVal) (This)->lpVtbl->get_CurrentRow(This,retVal)
+#define IUIAutomationGridItemPattern_get_CurrentColumn(This,retVal) (This)->lpVtbl->get_CurrentColumn(This,retVal)
+#define IUIAutomationGridItemPattern_get_CurrentRowSpan(This,retVal) (This)->lpVtbl->get_CurrentRowSpan(This,retVal)
+#define IUIAutomationGridItemPattern_get_CurrentColumnSpan(This,retVal) (This)->lpVtbl->get_CurrentColumnSpan(This,retVal)
+#define IUIAutomationGridItemPattern_get_CachedContainingGrid(This,retVal) (This)->lpVtbl->get_CachedContainingGrid(This,retVal)
+#define IUIAutomationGridItemPattern_get_CachedRow(This,retVal) (This)->lpVtbl->get_CachedRow(This,retVal)
+#define IUIAutomationGridItemPattern_get_CachedColumn(This,retVal) (This)->lpVtbl->get_CachedColumn(This,retVal)
+#define IUIAutomationGridItemPattern_get_CachedRowSpan(This,retVal) (This)->lpVtbl->get_CachedRowSpan(This,retVal)
+#define IUIAutomationGridItemPattern_get_CachedColumnSpan(This,retVal) (This)->lpVtbl->get_CachedColumnSpan(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_QueryInterface(IUIAutomationGridItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationGridItemPattern_AddRef(IUIAutomationGridItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationGridItemPattern_Release(IUIAutomationGridItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationGridItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CurrentContainingGrid(IUIAutomationGridItemPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentContainingGrid(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CurrentRow(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentRow(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CurrentColumn(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentColumn(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CurrentRowSpan(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentRowSpan(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CurrentColumnSpan(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentColumnSpan(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CachedContainingGrid(IUIAutomationGridItemPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedContainingGrid(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CachedRow(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedRow(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CachedColumn(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedColumn(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CachedRowSpan(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedRowSpan(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationGridItemPattern_get_CachedColumnSpan(IUIAutomationGridItemPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedColumnSpan(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationSelectionPattern_FWD_DEFINED__
-#define __IUIAutomationSelectionPattern_FWD_DEFINED__
-typedef interface IUIAutomationSelectionPattern IUIAutomationSelectionPattern;
-#ifdef __cplusplus
-interface IUIAutomationSelectionPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationSelectionItemPattern_FWD_DEFINED__
-#define __IUIAutomationSelectionItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationSelectionItemPattern IUIAutomationSelectionItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationSelectionItemPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationGridItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationMultipleViewPattern interface
+ */
+#ifndef __IUIAutomationMultipleViewPattern_INTERFACE_DEFINED__
+#define __IUIAutomationMultipleViewPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationMultipleViewPattern, 0x8d253c91, 0x1dc5, 0x4bb5, 0xb1,0x8f, 0xad,0xe1,0x6f,0xa4,0x95,0xe8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8d253c91-1dc5-4bb5-b18f-ade16fa495e8")
+IUIAutomationMultipleViewPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetViewName(
+        int view,
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetCurrentView(
+        int view) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCurrentView(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSupportedViews(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCurrentView(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedSupportedViews(
+        SAFEARRAY **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationMultipleViewPattern, 0x8d253c91, 0x1dc5, 0x4bb5, 0xb1,0x8f, 0xad,0xe1,0x6f,0xa4,0x95,0xe8)
+#endif
+#else
+typedef struct IUIAutomationMultipleViewPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationMultipleViewPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationMultipleViewPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationMultipleViewPattern *This);
+
+    /*** IUIAutomationMultipleViewPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetViewName)(
+        IUIAutomationMultipleViewPattern *This,
+        int view,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *SetCurrentView)(
+        IUIAutomationMultipleViewPattern *This,
+        int view);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCurrentView)(
+        IUIAutomationMultipleViewPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSupportedViews)(
+        IUIAutomationMultipleViewPattern *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCurrentView)(
+        IUIAutomationMultipleViewPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedSupportedViews)(
+        IUIAutomationMultipleViewPattern *This,
+        SAFEARRAY **retVal);
+
+    END_INTERFACE
+} IUIAutomationMultipleViewPatternVtbl;
+
+interface IUIAutomationMultipleViewPattern {
+    CONST_VTBL IUIAutomationMultipleViewPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationMultipleViewPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationMultipleViewPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationMultipleViewPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationMultipleViewPattern methods ***/
+#define IUIAutomationMultipleViewPattern_GetViewName(This,view,name) (This)->lpVtbl->GetViewName(This,view,name)
+#define IUIAutomationMultipleViewPattern_SetCurrentView(This,view) (This)->lpVtbl->SetCurrentView(This,view)
+#define IUIAutomationMultipleViewPattern_get_CurrentCurrentView(This,retVal) (This)->lpVtbl->get_CurrentCurrentView(This,retVal)
+#define IUIAutomationMultipleViewPattern_GetCurrentSupportedViews(This,retVal) (This)->lpVtbl->GetCurrentSupportedViews(This,retVal)
+#define IUIAutomationMultipleViewPattern_get_CachedCurrentView(This,retVal) (This)->lpVtbl->get_CachedCurrentView(This,retVal)
+#define IUIAutomationMultipleViewPattern_GetCachedSupportedViews(This,retVal) (This)->lpVtbl->GetCachedSupportedViews(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_QueryInterface(IUIAutomationMultipleViewPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationMultipleViewPattern_AddRef(IUIAutomationMultipleViewPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationMultipleViewPattern_Release(IUIAutomationMultipleViewPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationMultipleViewPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_GetViewName(IUIAutomationMultipleViewPattern* This,int view,BSTR *name) {
+    return This->lpVtbl->GetViewName(This,view,name);
+}
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_SetCurrentView(IUIAutomationMultipleViewPattern* This,int view) {
+    return This->lpVtbl->SetCurrentView(This,view);
+}
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_get_CurrentCurrentView(IUIAutomationMultipleViewPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentCurrentView(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_GetCurrentSupportedViews(IUIAutomationMultipleViewPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->GetCurrentSupportedViews(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_get_CachedCurrentView(IUIAutomationMultipleViewPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedCurrentView(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationMultipleViewPattern_GetCachedSupportedViews(IUIAutomationMultipleViewPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->GetCachedSupportedViews(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
-#define __IUIAutomationSynchronizedInputPattern_FWD_DEFINED__
-typedef interface IUIAutomationSynchronizedInputPattern IUIAutomationSynchronizedInputPattern;
-#ifdef __cplusplus
-interface IUIAutomationSynchronizedInputPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationTablePattern_FWD_DEFINED__
-#define __IUIAutomationTablePattern_FWD_DEFINED__
-typedef interface IUIAutomationTablePattern IUIAutomationTablePattern;
-#ifdef __cplusplus
-interface IUIAutomationTablePattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationMultipleViewPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationObjectModelPattern interface
+ */
+#ifndef __IUIAutomationObjectModelPattern_INTERFACE_DEFINED__
+#define __IUIAutomationObjectModelPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationObjectModelPattern, 0x71c284b3, 0xc14d, 0x4d14, 0x98,0x1e, 0x19,0x75,0x1b,0x0d,0x75,0x6d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("71c284b3-c14d-4d14-981e-19751b0d756d")
+IUIAutomationObjectModelPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetUnderlyingObjectModel(
+        IUnknown **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationObjectModelPattern, 0x71c284b3, 0xc14d, 0x4d14, 0x98,0x1e, 0x19,0x75,0x1b,0x0d,0x75,0x6d)
+#endif
+#else
+typedef struct IUIAutomationObjectModelPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationObjectModelPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationObjectModelPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationObjectModelPattern *This);
+
+    /*** IUIAutomationObjectModelPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetUnderlyingObjectModel)(
+        IUIAutomationObjectModelPattern *This,
+        IUnknown **retVal);
+
+    END_INTERFACE
+} IUIAutomationObjectModelPatternVtbl;
+
+interface IUIAutomationObjectModelPattern {
+    CONST_VTBL IUIAutomationObjectModelPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationObjectModelPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationObjectModelPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationObjectModelPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationObjectModelPattern methods ***/
+#define IUIAutomationObjectModelPattern_GetUnderlyingObjectModel(This,retVal) (This)->lpVtbl->GetUnderlyingObjectModel(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationObjectModelPattern_QueryInterface(IUIAutomationObjectModelPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationObjectModelPattern_AddRef(IUIAutomationObjectModelPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationObjectModelPattern_Release(IUIAutomationObjectModelPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationObjectModelPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationObjectModelPattern_GetUnderlyingObjectModel(IUIAutomationObjectModelPattern* This,IUnknown **retVal) {
+    return This->lpVtbl->GetUnderlyingObjectModel(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTableItemPattern_FWD_DEFINED__
-#define __IUIAutomationTableItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationTableItemPattern IUIAutomationTableItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationTableItemPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationTogglePattern_FWD_DEFINED__
-#define __IUIAutomationTogglePattern_FWD_DEFINED__
-typedef interface IUIAutomationTogglePattern IUIAutomationTogglePattern;
-#ifdef __cplusplus
-interface IUIAutomationTogglePattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationObjectModelPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationRangeValuePattern interface
+ */
+#ifndef __IUIAutomationRangeValuePattern_INTERFACE_DEFINED__
+#define __IUIAutomationRangeValuePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationRangeValuePattern, 0x59213f4f, 0x7346, 0x49e5, 0xb1,0x20, 0x80,0x55,0x59,0x87,0xa1,0x48);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("59213f4f-7346-49e5-b120-80555987a148")
+IUIAutomationRangeValuePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetValue(
+        double val) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentValue(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsReadOnly(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentMaximum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentMinimum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentLargeChange(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentSmallChange(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedValue(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsReadOnly(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedMaximum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedMinimum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedLargeChange(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedSmallChange(
+        double *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationRangeValuePattern, 0x59213f4f, 0x7346, 0x49e5, 0xb1,0x20, 0x80,0x55,0x59,0x87,0xa1,0x48)
+#endif
+#else
+typedef struct IUIAutomationRangeValuePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationRangeValuePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationRangeValuePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationRangeValuePattern *This);
+
+    /*** IUIAutomationRangeValuePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetValue)(
+        IUIAutomationRangeValuePattern *This,
+        double val);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentValue)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsReadOnly)(
+        IUIAutomationRangeValuePattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentMaximum)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentMinimum)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentLargeChange)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSmallChange)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedValue)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsReadOnly)(
+        IUIAutomationRangeValuePattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedMaximum)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedMinimum)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedLargeChange)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSmallChange)(
+        IUIAutomationRangeValuePattern *This,
+        double *retVal);
+
+    END_INTERFACE
+} IUIAutomationRangeValuePatternVtbl;
+
+interface IUIAutomationRangeValuePattern {
+    CONST_VTBL IUIAutomationRangeValuePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationRangeValuePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationRangeValuePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationRangeValuePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationRangeValuePattern methods ***/
+#define IUIAutomationRangeValuePattern_SetValue(This,val) (This)->lpVtbl->SetValue(This,val)
+#define IUIAutomationRangeValuePattern_get_CurrentValue(This,retVal) (This)->lpVtbl->get_CurrentValue(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CurrentIsReadOnly(This,retVal) (This)->lpVtbl->get_CurrentIsReadOnly(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CurrentMaximum(This,retVal) (This)->lpVtbl->get_CurrentMaximum(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CurrentMinimum(This,retVal) (This)->lpVtbl->get_CurrentMinimum(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CurrentLargeChange(This,retVal) (This)->lpVtbl->get_CurrentLargeChange(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CurrentSmallChange(This,retVal) (This)->lpVtbl->get_CurrentSmallChange(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedValue(This,retVal) (This)->lpVtbl->get_CachedValue(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedIsReadOnly(This,retVal) (This)->lpVtbl->get_CachedIsReadOnly(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedMaximum(This,retVal) (This)->lpVtbl->get_CachedMaximum(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedMinimum(This,retVal) (This)->lpVtbl->get_CachedMinimum(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedLargeChange(This,retVal) (This)->lpVtbl->get_CachedLargeChange(This,retVal)
+#define IUIAutomationRangeValuePattern_get_CachedSmallChange(This,retVal) (This)->lpVtbl->get_CachedSmallChange(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_QueryInterface(IUIAutomationRangeValuePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationRangeValuePattern_AddRef(IUIAutomationRangeValuePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationRangeValuePattern_Release(IUIAutomationRangeValuePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationRangeValuePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_SetValue(IUIAutomationRangeValuePattern* This,double val) {
+    return This->lpVtbl->SetValue(This,val);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentValue(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentValue(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentIsReadOnly(IUIAutomationRangeValuePattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsReadOnly(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentMaximum(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentMaximum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentMinimum(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentMinimum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentLargeChange(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentLargeChange(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CurrentSmallChange(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentSmallChange(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedValue(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedValue(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedIsReadOnly(IUIAutomationRangeValuePattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsReadOnly(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedMaximum(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedMaximum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedMinimum(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedMinimum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedLargeChange(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedLargeChange(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationRangeValuePattern_get_CachedSmallChange(IUIAutomationRangeValuePattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedSmallChange(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTransformPattern_FWD_DEFINED__
-#define __IUIAutomationTransformPattern_FWD_DEFINED__
-typedef interface IUIAutomationTransformPattern IUIAutomationTransformPattern;
-#ifdef __cplusplus
-interface IUIAutomationTransformPattern;
-#endif /* __cplusplus */
 #endif
+
+
+#endif  /* __IUIAutomationRangeValuePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationScrollPattern interface
+ */
+#ifndef __IUIAutomationScrollPattern_INTERFACE_DEFINED__
+#define __IUIAutomationScrollPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationScrollPattern, 0x88f4d42a, 0xe881, 0x459d, 0xa7,0x7c, 0x73,0xbb,0xbb,0x7e,0x02,0xdc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("88f4d42a-e881-459d-a77c-73bbbb7e02dc")
+IUIAutomationScrollPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Scroll(
+        enum ScrollAmount horizontalAmount,
+        enum ScrollAmount verticalAmount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetScrollPercent(
+        double horizontalPercent,
+        double verticalPercent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHorizontalScrollPercent(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentVerticalScrollPercent(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHorizontalViewSize(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentVerticalViewSize(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentHorizontallyScrollable(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentVerticallyScrollable(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHorizontalScrollPercent(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedVerticalScrollPercent(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHorizontalViewSize(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedVerticalViewSize(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedHorizontallyScrollable(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedVerticallyScrollable(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationScrollPattern, 0x88f4d42a, 0xe881, 0x459d, 0xa7,0x7c, 0x73,0xbb,0xbb,0x7e,0x02,0xdc)
+#endif
+#else
+typedef struct IUIAutomationScrollPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationScrollPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationScrollPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationScrollPattern *This);
+
+    /*** IUIAutomationScrollPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Scroll)(
+        IUIAutomationScrollPattern *This,
+        enum ScrollAmount horizontalAmount,
+        enum ScrollAmount verticalAmount);
+
+    HRESULT (STDMETHODCALLTYPE *SetScrollPercent)(
+        IUIAutomationScrollPattern *This,
+        double horizontalPercent,
+        double verticalPercent);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHorizontalScrollPercent)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentVerticalScrollPercent)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHorizontalViewSize)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentVerticalViewSize)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentHorizontallyScrollable)(
+        IUIAutomationScrollPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentVerticallyScrollable)(
+        IUIAutomationScrollPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHorizontalScrollPercent)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedVerticalScrollPercent)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHorizontalViewSize)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedVerticalViewSize)(
+        IUIAutomationScrollPattern *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedHorizontallyScrollable)(
+        IUIAutomationScrollPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedVerticallyScrollable)(
+        IUIAutomationScrollPattern *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationScrollPatternVtbl;
+
+interface IUIAutomationScrollPattern {
+    CONST_VTBL IUIAutomationScrollPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationScrollPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationScrollPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationScrollPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationScrollPattern methods ***/
+#define IUIAutomationScrollPattern_Scroll(This,horizontalAmount,verticalAmount) (This)->lpVtbl->Scroll(This,horizontalAmount,verticalAmount)
+#define IUIAutomationScrollPattern_SetScrollPercent(This,horizontalPercent,verticalPercent) (This)->lpVtbl->SetScrollPercent(This,horizontalPercent,verticalPercent)
+#define IUIAutomationScrollPattern_get_CurrentHorizontalScrollPercent(This,retVal) (This)->lpVtbl->get_CurrentHorizontalScrollPercent(This,retVal)
+#define IUIAutomationScrollPattern_get_CurrentVerticalScrollPercent(This,retVal) (This)->lpVtbl->get_CurrentVerticalScrollPercent(This,retVal)
+#define IUIAutomationScrollPattern_get_CurrentHorizontalViewSize(This,retVal) (This)->lpVtbl->get_CurrentHorizontalViewSize(This,retVal)
+#define IUIAutomationScrollPattern_get_CurrentVerticalViewSize(This,retVal) (This)->lpVtbl->get_CurrentVerticalViewSize(This,retVal)
+#define IUIAutomationScrollPattern_get_CurrentHorizontallyScrollable(This,retVal) (This)->lpVtbl->get_CurrentHorizontallyScrollable(This,retVal)
+#define IUIAutomationScrollPattern_get_CurrentVerticallyScrollable(This,retVal) (This)->lpVtbl->get_CurrentVerticallyScrollable(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedHorizontalScrollPercent(This,retVal) (This)->lpVtbl->get_CachedHorizontalScrollPercent(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedVerticalScrollPercent(This,retVal) (This)->lpVtbl->get_CachedVerticalScrollPercent(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedHorizontalViewSize(This,retVal) (This)->lpVtbl->get_CachedHorizontalViewSize(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedVerticalViewSize(This,retVal) (This)->lpVtbl->get_CachedVerticalViewSize(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedHorizontallyScrollable(This,retVal) (This)->lpVtbl->get_CachedHorizontallyScrollable(This,retVal)
+#define IUIAutomationScrollPattern_get_CachedVerticallyScrollable(This,retVal) (This)->lpVtbl->get_CachedVerticallyScrollable(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_QueryInterface(IUIAutomationScrollPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationScrollPattern_AddRef(IUIAutomationScrollPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationScrollPattern_Release(IUIAutomationScrollPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationScrollPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_Scroll(IUIAutomationScrollPattern* This,enum ScrollAmount horizontalAmount,enum ScrollAmount verticalAmount) {
+    return This->lpVtbl->Scroll(This,horizontalAmount,verticalAmount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_SetScrollPercent(IUIAutomationScrollPattern* This,double horizontalPercent,double verticalPercent) {
+    return This->lpVtbl->SetScrollPercent(This,horizontalPercent,verticalPercent);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentHorizontalScrollPercent(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentHorizontalScrollPercent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentVerticalScrollPercent(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentVerticalScrollPercent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentHorizontalViewSize(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentHorizontalViewSize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentVerticalViewSize(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CurrentVerticalViewSize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentHorizontallyScrollable(IUIAutomationScrollPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentHorizontallyScrollable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CurrentVerticallyScrollable(IUIAutomationScrollPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentVerticallyScrollable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedHorizontalScrollPercent(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedHorizontalScrollPercent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedVerticalScrollPercent(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedVerticalScrollPercent(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedHorizontalViewSize(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedHorizontalViewSize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedVerticalViewSize(IUIAutomationScrollPattern* This,double *retVal) {
+    return This->lpVtbl->get_CachedVerticalViewSize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedHorizontallyScrollable(IUIAutomationScrollPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedHorizontallyScrollable(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationScrollPattern_get_CachedVerticallyScrollable(IUIAutomationScrollPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedVerticallyScrollable(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationScrollPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationScrollItemPattern interface
+ */
+#ifndef __IUIAutomationScrollItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationScrollItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationScrollItemPattern, 0xb488300f, 0xd015, 0x4f19, 0x9c,0x29, 0xbb,0x59,0x5e,0x36,0x45,0xef);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b488300f-d015-4f19-9c29-bb595e3645ef")
+IUIAutomationScrollItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE ScrollIntoView(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationScrollItemPattern, 0xb488300f, 0xd015, 0x4f19, 0x9c,0x29, 0xbb,0x59,0x5e,0x36,0x45,0xef)
+#endif
+#else
+typedef struct IUIAutomationScrollItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationScrollItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationScrollItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationScrollItemPattern *This);
+
+    /*** IUIAutomationScrollItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *ScrollIntoView)(
+        IUIAutomationScrollItemPattern *This);
+
+    END_INTERFACE
+} IUIAutomationScrollItemPatternVtbl;
+
+interface IUIAutomationScrollItemPattern {
+    CONST_VTBL IUIAutomationScrollItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationScrollItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationScrollItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationScrollItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationScrollItemPattern methods ***/
+#define IUIAutomationScrollItemPattern_ScrollIntoView(This) (This)->lpVtbl->ScrollIntoView(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationScrollItemPattern_QueryInterface(IUIAutomationScrollItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationScrollItemPattern_AddRef(IUIAutomationScrollItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationScrollItemPattern_Release(IUIAutomationScrollItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationScrollItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationScrollItemPattern_ScrollIntoView(IUIAutomationScrollItemPattern* This) {
+    return This->lpVtbl->ScrollIntoView(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationScrollItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationSelectionPattern interface
+ */
+#ifndef __IUIAutomationSelectionPattern_INTERFACE_DEFINED__
+#define __IUIAutomationSelectionPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationSelectionPattern, 0x5ed5202e, 0xb2ac, 0x47a6, 0xb6,0x38, 0x4b,0x0b,0xf1,0x40,0xd7,0x8e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("5ed5202e-b2ac-47a6-b638-4b0bf140d78e")
+IUIAutomationSelectionPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSelection(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanSelectMultiple(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsSelectionRequired(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedSelection(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanSelectMultiple(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsSelectionRequired(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationSelectionPattern, 0x5ed5202e, 0xb2ac, 0x47a6, 0xb6,0x38, 0x4b,0x0b,0xf1,0x40,0xd7,0x8e)
+#endif
+#else
+typedef struct IUIAutomationSelectionPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationSelectionPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationSelectionPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationSelectionPattern *This);
+
+    /*** IUIAutomationSelectionPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSelection)(
+        IUIAutomationSelectionPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanSelectMultiple)(
+        IUIAutomationSelectionPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsSelectionRequired)(
+        IUIAutomationSelectionPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedSelection)(
+        IUIAutomationSelectionPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanSelectMultiple)(
+        IUIAutomationSelectionPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsSelectionRequired)(
+        IUIAutomationSelectionPattern *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationSelectionPatternVtbl;
+
+interface IUIAutomationSelectionPattern {
+    CONST_VTBL IUIAutomationSelectionPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationSelectionPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationSelectionPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationSelectionPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationSelectionPattern methods ***/
+#define IUIAutomationSelectionPattern_GetCurrentSelection(This,retVal) (This)->lpVtbl->GetCurrentSelection(This,retVal)
+#define IUIAutomationSelectionPattern_get_CurrentCanSelectMultiple(This,retVal) (This)->lpVtbl->get_CurrentCanSelectMultiple(This,retVal)
+#define IUIAutomationSelectionPattern_get_CurrentIsSelectionRequired(This,retVal) (This)->lpVtbl->get_CurrentIsSelectionRequired(This,retVal)
+#define IUIAutomationSelectionPattern_GetCachedSelection(This,retVal) (This)->lpVtbl->GetCachedSelection(This,retVal)
+#define IUIAutomationSelectionPattern_get_CachedCanSelectMultiple(This,retVal) (This)->lpVtbl->get_CachedCanSelectMultiple(This,retVal)
+#define IUIAutomationSelectionPattern_get_CachedIsSelectionRequired(This,retVal) (This)->lpVtbl->get_CachedIsSelectionRequired(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_QueryInterface(IUIAutomationSelectionPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationSelectionPattern_AddRef(IUIAutomationSelectionPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationSelectionPattern_Release(IUIAutomationSelectionPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationSelectionPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_GetCurrentSelection(IUIAutomationSelectionPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentSelection(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_get_CurrentCanSelectMultiple(IUIAutomationSelectionPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanSelectMultiple(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_get_CurrentIsSelectionRequired(IUIAutomationSelectionPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsSelectionRequired(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_GetCachedSelection(IUIAutomationSelectionPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedSelection(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_get_CachedCanSelectMultiple(IUIAutomationSelectionPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanSelectMultiple(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionPattern_get_CachedIsSelectionRequired(IUIAutomationSelectionPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsSelectionRequired(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationSelectionPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationSelectionItemPattern interface
+ */
+#ifndef __IUIAutomationSelectionItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationSelectionItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationSelectionItemPattern, 0xa8efa66a, 0x0fda, 0x421a, 0x91,0x94, 0x38,0x02,0x1f,0x35,0x78,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a8efa66a-0fda-421a-9194-38021f3578ea")
+IUIAutomationSelectionItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Select(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddToSelection(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFromSelection(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsSelected(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentSelectionContainer(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsSelected(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedSelectionContainer(
+        IUIAutomationElement **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationSelectionItemPattern, 0xa8efa66a, 0x0fda, 0x421a, 0x91,0x94, 0x38,0x02,0x1f,0x35,0x78,0xea)
+#endif
+#else
+typedef struct IUIAutomationSelectionItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationSelectionItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationSelectionItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationSelectionItemPattern *This);
+
+    /*** IUIAutomationSelectionItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Select)(
+        IUIAutomationSelectionItemPattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *AddToSelection)(
+        IUIAutomationSelectionItemPattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFromSelection)(
+        IUIAutomationSelectionItemPattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsSelected)(
+        IUIAutomationSelectionItemPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSelectionContainer)(
+        IUIAutomationSelectionItemPattern *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsSelected)(
+        IUIAutomationSelectionItemPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedSelectionContainer)(
+        IUIAutomationSelectionItemPattern *This,
+        IUIAutomationElement **retVal);
+
+    END_INTERFACE
+} IUIAutomationSelectionItemPatternVtbl;
+
+interface IUIAutomationSelectionItemPattern {
+    CONST_VTBL IUIAutomationSelectionItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationSelectionItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationSelectionItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationSelectionItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationSelectionItemPattern methods ***/
+#define IUIAutomationSelectionItemPattern_Select(This) (This)->lpVtbl->Select(This)
+#define IUIAutomationSelectionItemPattern_AddToSelection(This) (This)->lpVtbl->AddToSelection(This)
+#define IUIAutomationSelectionItemPattern_RemoveFromSelection(This) (This)->lpVtbl->RemoveFromSelection(This)
+#define IUIAutomationSelectionItemPattern_get_CurrentIsSelected(This,retVal) (This)->lpVtbl->get_CurrentIsSelected(This,retVal)
+#define IUIAutomationSelectionItemPattern_get_CurrentSelectionContainer(This,retVal) (This)->lpVtbl->get_CurrentSelectionContainer(This,retVal)
+#define IUIAutomationSelectionItemPattern_get_CachedIsSelected(This,retVal) (This)->lpVtbl->get_CachedIsSelected(This,retVal)
+#define IUIAutomationSelectionItemPattern_get_CachedSelectionContainer(This,retVal) (This)->lpVtbl->get_CachedSelectionContainer(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_QueryInterface(IUIAutomationSelectionItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationSelectionItemPattern_AddRef(IUIAutomationSelectionItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationSelectionItemPattern_Release(IUIAutomationSelectionItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationSelectionItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_Select(IUIAutomationSelectionItemPattern* This) {
+    return This->lpVtbl->Select(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_AddToSelection(IUIAutomationSelectionItemPattern* This) {
+    return This->lpVtbl->AddToSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_RemoveFromSelection(IUIAutomationSelectionItemPattern* This) {
+    return This->lpVtbl->RemoveFromSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_get_CurrentIsSelected(IUIAutomationSelectionItemPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsSelected(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_get_CurrentSelectionContainer(IUIAutomationSelectionItemPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentSelectionContainer(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_get_CachedIsSelected(IUIAutomationSelectionItemPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsSelected(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSelectionItemPattern_get_CachedSelectionContainer(IUIAutomationSelectionItemPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedSelectionContainer(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationSelectionItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationSynchronizedInputPattern interface
+ */
+#ifndef __IUIAutomationSynchronizedInputPattern_INTERFACE_DEFINED__
+#define __IUIAutomationSynchronizedInputPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationSynchronizedInputPattern, 0x2233be0b, 0xafb7, 0x448b, 0x9f,0xda, 0x3b,0x37,0x8a,0xa5,0xea,0xe1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2233be0b-afb7-448b-9fda-3b378aa5eae1")
+IUIAutomationSynchronizedInputPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE StartListening(
+        enum SynchronizedInputType inputType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Cancel(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationSynchronizedInputPattern, 0x2233be0b, 0xafb7, 0x448b, 0x9f,0xda, 0x3b,0x37,0x8a,0xa5,0xea,0xe1)
+#endif
+#else
+typedef struct IUIAutomationSynchronizedInputPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationSynchronizedInputPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationSynchronizedInputPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationSynchronizedInputPattern *This);
+
+    /*** IUIAutomationSynchronizedInputPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *StartListening)(
+        IUIAutomationSynchronizedInputPattern *This,
+        enum SynchronizedInputType inputType);
+
+    HRESULT (STDMETHODCALLTYPE *Cancel)(
+        IUIAutomationSynchronizedInputPattern *This);
+
+    END_INTERFACE
+} IUIAutomationSynchronizedInputPatternVtbl;
+
+interface IUIAutomationSynchronizedInputPattern {
+    CONST_VTBL IUIAutomationSynchronizedInputPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationSynchronizedInputPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationSynchronizedInputPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationSynchronizedInputPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationSynchronizedInputPattern methods ***/
+#define IUIAutomationSynchronizedInputPattern_StartListening(This,inputType) (This)->lpVtbl->StartListening(This,inputType)
+#define IUIAutomationSynchronizedInputPattern_Cancel(This) (This)->lpVtbl->Cancel(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSynchronizedInputPattern_QueryInterface(IUIAutomationSynchronizedInputPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationSynchronizedInputPattern_AddRef(IUIAutomationSynchronizedInputPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationSynchronizedInputPattern_Release(IUIAutomationSynchronizedInputPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationSynchronizedInputPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSynchronizedInputPattern_StartListening(IUIAutomationSynchronizedInputPattern* This,enum SynchronizedInputType inputType) {
+    return This->lpVtbl->StartListening(This,inputType);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSynchronizedInputPattern_Cancel(IUIAutomationSynchronizedInputPattern* This) {
+    return This->lpVtbl->Cancel(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationSynchronizedInputPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTablePattern interface
+ */
+#ifndef __IUIAutomationTablePattern_INTERFACE_DEFINED__
+#define __IUIAutomationTablePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTablePattern, 0x620e691c, 0xea96, 0x4710, 0xa8,0x50, 0x75,0x4b,0x24,0xce,0x24,0x17);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("620e691c-ea96-4710-a850-754b24ce2417")
+IUIAutomationTablePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentRowHeaders(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentColumnHeaders(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentRowOrColumnMajor(
+        enum RowOrColumnMajor *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedRowHeaders(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedColumnHeaders(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedRowOrColumnMajor(
+        enum RowOrColumnMajor *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTablePattern, 0x620e691c, 0xea96, 0x4710, 0xa8,0x50, 0x75,0x4b,0x24,0xce,0x24,0x17)
+#endif
+#else
+typedef struct IUIAutomationTablePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTablePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTablePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTablePattern *This);
+
+    /*** IUIAutomationTablePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCurrentRowHeaders)(
+        IUIAutomationTablePattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentColumnHeaders)(
+        IUIAutomationTablePattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentRowOrColumnMajor)(
+        IUIAutomationTablePattern *This,
+        enum RowOrColumnMajor *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedRowHeaders)(
+        IUIAutomationTablePattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedColumnHeaders)(
+        IUIAutomationTablePattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedRowOrColumnMajor)(
+        IUIAutomationTablePattern *This,
+        enum RowOrColumnMajor *retVal);
+
+    END_INTERFACE
+} IUIAutomationTablePatternVtbl;
+
+interface IUIAutomationTablePattern {
+    CONST_VTBL IUIAutomationTablePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTablePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTablePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTablePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTablePattern methods ***/
+#define IUIAutomationTablePattern_GetCurrentRowHeaders(This,retVal) (This)->lpVtbl->GetCurrentRowHeaders(This,retVal)
+#define IUIAutomationTablePattern_GetCurrentColumnHeaders(This,retVal) (This)->lpVtbl->GetCurrentColumnHeaders(This,retVal)
+#define IUIAutomationTablePattern_get_CurrentRowOrColumnMajor(This,retVal) (This)->lpVtbl->get_CurrentRowOrColumnMajor(This,retVal)
+#define IUIAutomationTablePattern_GetCachedRowHeaders(This,retVal) (This)->lpVtbl->GetCachedRowHeaders(This,retVal)
+#define IUIAutomationTablePattern_GetCachedColumnHeaders(This,retVal) (This)->lpVtbl->GetCachedColumnHeaders(This,retVal)
+#define IUIAutomationTablePattern_get_CachedRowOrColumnMajor(This,retVal) (This)->lpVtbl->get_CachedRowOrColumnMajor(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_QueryInterface(IUIAutomationTablePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTablePattern_AddRef(IUIAutomationTablePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTablePattern_Release(IUIAutomationTablePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTablePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_GetCurrentRowHeaders(IUIAutomationTablePattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentRowHeaders(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_GetCurrentColumnHeaders(IUIAutomationTablePattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentColumnHeaders(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_get_CurrentRowOrColumnMajor(IUIAutomationTablePattern* This,enum RowOrColumnMajor *retVal) {
+    return This->lpVtbl->get_CurrentRowOrColumnMajor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_GetCachedRowHeaders(IUIAutomationTablePattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedRowHeaders(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_GetCachedColumnHeaders(IUIAutomationTablePattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedColumnHeaders(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTablePattern_get_CachedRowOrColumnMajor(IUIAutomationTablePattern* This,enum RowOrColumnMajor *retVal) {
+    return This->lpVtbl->get_CachedRowOrColumnMajor(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTablePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTableItemPattern interface
+ */
+#ifndef __IUIAutomationTableItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationTableItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTableItemPattern, 0x0b964eb3, 0xef2e, 0x4464, 0x9c,0x79, 0x61,0xd6,0x17,0x37,0xa2,0x7e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("0b964eb3-ef2e-4464-9c79-61d61737a27e")
+IUIAutomationTableItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentRowHeaderItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentColumnHeaderItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedRowHeaderItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedColumnHeaderItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTableItemPattern, 0x0b964eb3, 0xef2e, 0x4464, 0x9c,0x79, 0x61,0xd6,0x17,0x37,0xa2,0x7e)
+#endif
+#else
+typedef struct IUIAutomationTableItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTableItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTableItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTableItemPattern *This);
+
+    /*** IUIAutomationTableItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCurrentRowHeaderItems)(
+        IUIAutomationTableItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentColumnHeaderItems)(
+        IUIAutomationTableItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedRowHeaderItems)(
+        IUIAutomationTableItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedColumnHeaderItems)(
+        IUIAutomationTableItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    END_INTERFACE
+} IUIAutomationTableItemPatternVtbl;
+
+interface IUIAutomationTableItemPattern {
+    CONST_VTBL IUIAutomationTableItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTableItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTableItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTableItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTableItemPattern methods ***/
+#define IUIAutomationTableItemPattern_GetCurrentRowHeaderItems(This,retVal) (This)->lpVtbl->GetCurrentRowHeaderItems(This,retVal)
+#define IUIAutomationTableItemPattern_GetCurrentColumnHeaderItems(This,retVal) (This)->lpVtbl->GetCurrentColumnHeaderItems(This,retVal)
+#define IUIAutomationTableItemPattern_GetCachedRowHeaderItems(This,retVal) (This)->lpVtbl->GetCachedRowHeaderItems(This,retVal)
+#define IUIAutomationTableItemPattern_GetCachedColumnHeaderItems(This,retVal) (This)->lpVtbl->GetCachedColumnHeaderItems(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTableItemPattern_QueryInterface(IUIAutomationTableItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTableItemPattern_AddRef(IUIAutomationTableItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTableItemPattern_Release(IUIAutomationTableItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTableItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTableItemPattern_GetCurrentRowHeaderItems(IUIAutomationTableItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentRowHeaderItems(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTableItemPattern_GetCurrentColumnHeaderItems(IUIAutomationTableItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentColumnHeaderItems(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTableItemPattern_GetCachedRowHeaderItems(IUIAutomationTableItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedRowHeaderItems(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTableItemPattern_GetCachedColumnHeaderItems(IUIAutomationTableItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedColumnHeaderItems(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTableItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTogglePattern interface
+ */
+#ifndef __IUIAutomationTogglePattern_INTERFACE_DEFINED__
+#define __IUIAutomationTogglePattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTogglePattern, 0x94cf8058, 0x9b8d, 0x4ab9, 0x8b,0xfd, 0x4c,0xd0,0xa3,0x3c,0x8c,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("94cf8058-9b8d-4ab9-8bfd-4cd0a33c8c70")
+IUIAutomationTogglePattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Toggle(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentToggleState(
+        enum ToggleState *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedToggleState(
+        enum ToggleState *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTogglePattern, 0x94cf8058, 0x9b8d, 0x4ab9, 0x8b,0xfd, 0x4c,0xd0,0xa3,0x3c,0x8c,0x70)
+#endif
+#else
+typedef struct IUIAutomationTogglePatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTogglePattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTogglePattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTogglePattern *This);
+
+    /*** IUIAutomationTogglePattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Toggle)(
+        IUIAutomationTogglePattern *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentToggleState)(
+        IUIAutomationTogglePattern *This,
+        enum ToggleState *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedToggleState)(
+        IUIAutomationTogglePattern *This,
+        enum ToggleState *retVal);
+
+    END_INTERFACE
+} IUIAutomationTogglePatternVtbl;
+
+interface IUIAutomationTogglePattern {
+    CONST_VTBL IUIAutomationTogglePatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTogglePattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTogglePattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTogglePattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTogglePattern methods ***/
+#define IUIAutomationTogglePattern_Toggle(This) (This)->lpVtbl->Toggle(This)
+#define IUIAutomationTogglePattern_get_CurrentToggleState(This,retVal) (This)->lpVtbl->get_CurrentToggleState(This,retVal)
+#define IUIAutomationTogglePattern_get_CachedToggleState(This,retVal) (This)->lpVtbl->get_CachedToggleState(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTogglePattern_QueryInterface(IUIAutomationTogglePattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTogglePattern_AddRef(IUIAutomationTogglePattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTogglePattern_Release(IUIAutomationTogglePattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTogglePattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTogglePattern_Toggle(IUIAutomationTogglePattern* This) {
+    return This->lpVtbl->Toggle(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTogglePattern_get_CurrentToggleState(IUIAutomationTogglePattern* This,enum ToggleState *retVal) {
+    return This->lpVtbl->get_CurrentToggleState(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTogglePattern_get_CachedToggleState(IUIAutomationTogglePattern* This,enum ToggleState *retVal) {
+    return This->lpVtbl->get_CachedToggleState(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTogglePattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTransformPattern interface
+ */
+#ifndef __IUIAutomationTransformPattern_INTERFACE_DEFINED__
+#define __IUIAutomationTransformPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTransformPattern, 0xa9b55844, 0xa55d, 0x4ef0, 0x92,0x6d, 0x56,0x9c,0x16,0xff,0x89,0xbb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a9b55844-a55d-4ef0-926d-569c16ff89bb")
+IUIAutomationTransformPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Move(
+        double x,
+        double y) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Resize(
+        double width,
+        double height) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Rotate(
+        double degrees) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanMove(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanResize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanRotate(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanMove(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanResize(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanRotate(
+        WINBOOL *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTransformPattern, 0xa9b55844, 0xa55d, 0x4ef0, 0x92,0x6d, 0x56,0x9c,0x16,0xff,0x89,0xbb)
+#endif
+#else
+typedef struct IUIAutomationTransformPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTransformPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTransformPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTransformPattern *This);
+
+    /*** IUIAutomationTransformPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Move)(
+        IUIAutomationTransformPattern *This,
+        double x,
+        double y);
+
+    HRESULT (STDMETHODCALLTYPE *Resize)(
+        IUIAutomationTransformPattern *This,
+        double width,
+        double height);
+
+    HRESULT (STDMETHODCALLTYPE *Rotate)(
+        IUIAutomationTransformPattern *This,
+        double degrees);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanMove)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanResize)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanRotate)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanMove)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanResize)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanRotate)(
+        IUIAutomationTransformPattern *This,
+        WINBOOL *retVal);
+
+    END_INTERFACE
+} IUIAutomationTransformPatternVtbl;
+
+interface IUIAutomationTransformPattern {
+    CONST_VTBL IUIAutomationTransformPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTransformPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTransformPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTransformPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTransformPattern methods ***/
+#define IUIAutomationTransformPattern_Move(This,x,y) (This)->lpVtbl->Move(This,x,y)
+#define IUIAutomationTransformPattern_Resize(This,width,height) (This)->lpVtbl->Resize(This,width,height)
+#define IUIAutomationTransformPattern_Rotate(This,degrees) (This)->lpVtbl->Rotate(This,degrees)
+#define IUIAutomationTransformPattern_get_CurrentCanMove(This,retVal) (This)->lpVtbl->get_CurrentCanMove(This,retVal)
+#define IUIAutomationTransformPattern_get_CurrentCanResize(This,retVal) (This)->lpVtbl->get_CurrentCanResize(This,retVal)
+#define IUIAutomationTransformPattern_get_CurrentCanRotate(This,retVal) (This)->lpVtbl->get_CurrentCanRotate(This,retVal)
+#define IUIAutomationTransformPattern_get_CachedCanMove(This,retVal) (This)->lpVtbl->get_CachedCanMove(This,retVal)
+#define IUIAutomationTransformPattern_get_CachedCanResize(This,retVal) (This)->lpVtbl->get_CachedCanResize(This,retVal)
+#define IUIAutomationTransformPattern_get_CachedCanRotate(This,retVal) (This)->lpVtbl->get_CachedCanRotate(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_QueryInterface(IUIAutomationTransformPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTransformPattern_AddRef(IUIAutomationTransformPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTransformPattern_Release(IUIAutomationTransformPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTransformPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_Move(IUIAutomationTransformPattern* This,double x,double y) {
+    return This->lpVtbl->Move(This,x,y);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_Resize(IUIAutomationTransformPattern* This,double width,double height) {
+    return This->lpVtbl->Resize(This,width,height);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_Rotate(IUIAutomationTransformPattern* This,double degrees) {
+    return This->lpVtbl->Rotate(This,degrees);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CurrentCanMove(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanMove(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CurrentCanResize(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanResize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CurrentCanRotate(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanRotate(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CachedCanMove(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanMove(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CachedCanResize(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanResize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern_get_CachedCanRotate(IUIAutomationTransformPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanRotate(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTransformPattern_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IUIAutomationValuePattern interface
@@ -2854,69 +5283,1213 @@ static __WIDL_INLINE HRESULT IUIAutomationWindowPattern_get_CachedWindowInteract
 
 #endif  /* __IUIAutomationWindowPattern_INTERFACE_DEFINED__ */
 
-#ifndef __IUIAutomationTextRange_FWD_DEFINED__
-#define __IUIAutomationTextRange_FWD_DEFINED__
-typedef interface IUIAutomationTextRange IUIAutomationTextRange;
-#ifdef __cplusplus
-interface IUIAutomationTextRange;
-#endif /* __cplusplus */
+/*****************************************************************************
+ * IUIAutomationTextRange interface
+ */
+#ifndef __IUIAutomationTextRange_INTERFACE_DEFINED__
+#define __IUIAutomationTextRange_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextRange, 0xa543cc6a, 0xf4ae, 0x494b, 0x82,0x39, 0xc8,0x14,0x48,0x11,0x87,0xa8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a543cc6a-f4ae-494b-8239-c814481187a8")
+IUIAutomationTextRange : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IUIAutomationTextRange **clonedRange) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Compare(
+        IUIAutomationTextRange *range,
+        WINBOOL *areSame) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CompareEndpoints(
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint,
+        int *compValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ExpandToEnclosingUnit(
+        enum TextUnit textUnit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindAttribute(
+        TEXTATTRIBUTEID attr,
+        VARIANT val,
+        WINBOOL backward,
+        IUIAutomationTextRange **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindText(
+        BSTR text,
+        WINBOOL backward,
+        WINBOOL ignoreCase,
+        IUIAutomationTextRange **found) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeValue(
+        TEXTATTRIBUTEID attr,
+        VARIANT *value) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBoundingRectangles(
+        SAFEARRAY **boundingRects) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnclosingElement(
+        IUIAutomationElement **enclosingElement) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetText(
+        int maxLength,
+        BSTR *text) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Move(
+        enum TextUnit unit,
+        int count,
+        int *moved) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE MoveEndpointByUnit(
+        enum TextPatternRangeEndpoint endpoint,
+        enum TextUnit unit,
+        int count,
+        int *moved) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE MoveEndpointByRange(
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Select(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddToSelection(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFromSelection(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ScrollIntoView(
+        WINBOOL alignToTop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChildren(
+        IUIAutomationElementArray **children) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextRange, 0xa543cc6a, 0xf4ae, 0x494b, 0x82,0x39, 0xc8,0x14,0x48,0x11,0x87,0xa8)
+#endif
+#else
+typedef struct IUIAutomationTextRangeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextRange *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextRange *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextRange *This);
+
+    /*** IUIAutomationTextRange methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IUIAutomationTextRange *This,
+        IUIAutomationTextRange **clonedRange);
+
+    HRESULT (STDMETHODCALLTYPE *Compare)(
+        IUIAutomationTextRange *This,
+        IUIAutomationTextRange *range,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareEndpoints)(
+        IUIAutomationTextRange *This,
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint,
+        int *compValue);
+
+    HRESULT (STDMETHODCALLTYPE *ExpandToEnclosingUnit)(
+        IUIAutomationTextRange *This,
+        enum TextUnit textUnit);
+
+    HRESULT (STDMETHODCALLTYPE *FindAttribute)(
+        IUIAutomationTextRange *This,
+        TEXTATTRIBUTEID attr,
+        VARIANT val,
+        WINBOOL backward,
+        IUIAutomationTextRange **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindText)(
+        IUIAutomationTextRange *This,
+        BSTR text,
+        WINBOOL backward,
+        WINBOOL ignoreCase,
+        IUIAutomationTextRange **found);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeValue)(
+        IUIAutomationTextRange *This,
+        TEXTATTRIBUTEID attr,
+        VARIANT *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetBoundingRectangles)(
+        IUIAutomationTextRange *This,
+        SAFEARRAY **boundingRects);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnclosingElement)(
+        IUIAutomationTextRange *This,
+        IUIAutomationElement **enclosingElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetText)(
+        IUIAutomationTextRange *This,
+        int maxLength,
+        BSTR *text);
+
+    HRESULT (STDMETHODCALLTYPE *Move)(
+        IUIAutomationTextRange *This,
+        enum TextUnit unit,
+        int count,
+        int *moved);
+
+    HRESULT (STDMETHODCALLTYPE *MoveEndpointByUnit)(
+        IUIAutomationTextRange *This,
+        enum TextPatternRangeEndpoint endpoint,
+        enum TextUnit unit,
+        int count,
+        int *moved);
+
+    HRESULT (STDMETHODCALLTYPE *MoveEndpointByRange)(
+        IUIAutomationTextRange *This,
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint);
+
+    HRESULT (STDMETHODCALLTYPE *Select)(
+        IUIAutomationTextRange *This);
+
+    HRESULT (STDMETHODCALLTYPE *AddToSelection)(
+        IUIAutomationTextRange *This);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFromSelection)(
+        IUIAutomationTextRange *This);
+
+    HRESULT (STDMETHODCALLTYPE *ScrollIntoView)(
+        IUIAutomationTextRange *This,
+        WINBOOL alignToTop);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildren)(
+        IUIAutomationTextRange *This,
+        IUIAutomationElementArray **children);
+
+    END_INTERFACE
+} IUIAutomationTextRangeVtbl;
+
+interface IUIAutomationTextRange {
+    CONST_VTBL IUIAutomationTextRangeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextRange_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextRange_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextRange_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextRange methods ***/
+#define IUIAutomationTextRange_Clone(This,clonedRange) (This)->lpVtbl->Clone(This,clonedRange)
+#define IUIAutomationTextRange_Compare(This,range,areSame) (This)->lpVtbl->Compare(This,range,areSame)
+#define IUIAutomationTextRange_CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue) (This)->lpVtbl->CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue)
+#define IUIAutomationTextRange_ExpandToEnclosingUnit(This,textUnit) (This)->lpVtbl->ExpandToEnclosingUnit(This,textUnit)
+#define IUIAutomationTextRange_FindAttribute(This,attr,val,backward,found) (This)->lpVtbl->FindAttribute(This,attr,val,backward,found)
+#define IUIAutomationTextRange_FindText(This,text,backward,ignoreCase,found) (This)->lpVtbl->FindText(This,text,backward,ignoreCase,found)
+#define IUIAutomationTextRange_GetAttributeValue(This,attr,value) (This)->lpVtbl->GetAttributeValue(This,attr,value)
+#define IUIAutomationTextRange_GetBoundingRectangles(This,boundingRects) (This)->lpVtbl->GetBoundingRectangles(This,boundingRects)
+#define IUIAutomationTextRange_GetEnclosingElement(This,enclosingElement) (This)->lpVtbl->GetEnclosingElement(This,enclosingElement)
+#define IUIAutomationTextRange_GetText(This,maxLength,text) (This)->lpVtbl->GetText(This,maxLength,text)
+#define IUIAutomationTextRange_Move(This,unit,count,moved) (This)->lpVtbl->Move(This,unit,count,moved)
+#define IUIAutomationTextRange_MoveEndpointByUnit(This,endpoint,unit,count,moved) (This)->lpVtbl->MoveEndpointByUnit(This,endpoint,unit,count,moved)
+#define IUIAutomationTextRange_MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint) (This)->lpVtbl->MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint)
+#define IUIAutomationTextRange_Select(This) (This)->lpVtbl->Select(This)
+#define IUIAutomationTextRange_AddToSelection(This) (This)->lpVtbl->AddToSelection(This)
+#define IUIAutomationTextRange_RemoveFromSelection(This) (This)->lpVtbl->RemoveFromSelection(This)
+#define IUIAutomationTextRange_ScrollIntoView(This,alignToTop) (This)->lpVtbl->ScrollIntoView(This,alignToTop)
+#define IUIAutomationTextRange_GetChildren(This,children) (This)->lpVtbl->GetChildren(This,children)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_QueryInterface(IUIAutomationTextRange* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRange_AddRef(IUIAutomationTextRange* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRange_Release(IUIAutomationTextRange* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextRange methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_Clone(IUIAutomationTextRange* This,IUIAutomationTextRange **clonedRange) {
+    return This->lpVtbl->Clone(This,clonedRange);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_Compare(IUIAutomationTextRange* This,IUIAutomationTextRange *range,WINBOOL *areSame) {
+    return This->lpVtbl->Compare(This,range,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_CompareEndpoints(IUIAutomationTextRange* This,enum TextPatternRangeEndpoint srcEndPoint,IUIAutomationTextRange *range,enum TextPatternRangeEndpoint targetEndPoint,int *compValue) {
+    return This->lpVtbl->CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_ExpandToEnclosingUnit(IUIAutomationTextRange* This,enum TextUnit textUnit) {
+    return This->lpVtbl->ExpandToEnclosingUnit(This,textUnit);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_FindAttribute(IUIAutomationTextRange* This,TEXTATTRIBUTEID attr,VARIANT val,WINBOOL backward,IUIAutomationTextRange **found) {
+    return This->lpVtbl->FindAttribute(This,attr,val,backward,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_FindText(IUIAutomationTextRange* This,BSTR text,WINBOOL backward,WINBOOL ignoreCase,IUIAutomationTextRange **found) {
+    return This->lpVtbl->FindText(This,text,backward,ignoreCase,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_GetAttributeValue(IUIAutomationTextRange* This,TEXTATTRIBUTEID attr,VARIANT *value) {
+    return This->lpVtbl->GetAttributeValue(This,attr,value);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_GetBoundingRectangles(IUIAutomationTextRange* This,SAFEARRAY **boundingRects) {
+    return This->lpVtbl->GetBoundingRectangles(This,boundingRects);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_GetEnclosingElement(IUIAutomationTextRange* This,IUIAutomationElement **enclosingElement) {
+    return This->lpVtbl->GetEnclosingElement(This,enclosingElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_GetText(IUIAutomationTextRange* This,int maxLength,BSTR *text) {
+    return This->lpVtbl->GetText(This,maxLength,text);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_Move(IUIAutomationTextRange* This,enum TextUnit unit,int count,int *moved) {
+    return This->lpVtbl->Move(This,unit,count,moved);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_MoveEndpointByUnit(IUIAutomationTextRange* This,enum TextPatternRangeEndpoint endpoint,enum TextUnit unit,int count,int *moved) {
+    return This->lpVtbl->MoveEndpointByUnit(This,endpoint,unit,count,moved);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_MoveEndpointByRange(IUIAutomationTextRange* This,enum TextPatternRangeEndpoint srcEndPoint,IUIAutomationTextRange *range,enum TextPatternRangeEndpoint targetEndPoint) {
+    return This->lpVtbl->MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_Select(IUIAutomationTextRange* This) {
+    return This->lpVtbl->Select(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_AddToSelection(IUIAutomationTextRange* This) {
+    return This->lpVtbl->AddToSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_RemoveFromSelection(IUIAutomationTextRange* This) {
+    return This->lpVtbl->RemoveFromSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_ScrollIntoView(IUIAutomationTextRange* This,WINBOOL alignToTop) {
+    return This->lpVtbl->ScrollIntoView(This,alignToTop);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange_GetChildren(IUIAutomationTextRange* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetChildren(This,children);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTextRange2_FWD_DEFINED__
-#define __IUIAutomationTextRange2_FWD_DEFINED__
-typedef interface IUIAutomationTextRange2 IUIAutomationTextRange2;
-#ifdef __cplusplus
-interface IUIAutomationTextRange2;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationTextRangeArray_FWD_DEFINED__
-#define __IUIAutomationTextRangeArray_FWD_DEFINED__
-typedef interface IUIAutomationTextRangeArray IUIAutomationTextRangeArray;
-#ifdef __cplusplus
-interface IUIAutomationTextRangeArray;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationTextRange_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextRange2 interface
+ */
+#ifndef __IUIAutomationTextRange2_INTERFACE_DEFINED__
+#define __IUIAutomationTextRange2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextRange2, 0xbb9b40e0, 0x5e04, 0x46bd, 0x9b,0xe0, 0x4b,0x60,0x1b,0x9a,0xfa,0xd4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("bb9b40e0-5e04-46bd-9be0-4b601b9afad4")
+IUIAutomationTextRange2 : public IUIAutomationTextRange
+{
+    virtual HRESULT STDMETHODCALLTYPE ShowContextMenu(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextRange2, 0xbb9b40e0, 0x5e04, 0x46bd, 0x9b,0xe0, 0x4b,0x60,0x1b,0x9a,0xfa,0xd4)
+#endif
+#else
+typedef struct IUIAutomationTextRange2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextRange2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextRange2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextRange2 *This);
+
+    /*** IUIAutomationTextRange methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IUIAutomationTextRange2 *This,
+        IUIAutomationTextRange **clonedRange);
+
+    HRESULT (STDMETHODCALLTYPE *Compare)(
+        IUIAutomationTextRange2 *This,
+        IUIAutomationTextRange *range,
+        WINBOOL *areSame);
+
+    HRESULT (STDMETHODCALLTYPE *CompareEndpoints)(
+        IUIAutomationTextRange2 *This,
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint,
+        int *compValue);
+
+    HRESULT (STDMETHODCALLTYPE *ExpandToEnclosingUnit)(
+        IUIAutomationTextRange2 *This,
+        enum TextUnit textUnit);
+
+    HRESULT (STDMETHODCALLTYPE *FindAttribute)(
+        IUIAutomationTextRange2 *This,
+        TEXTATTRIBUTEID attr,
+        VARIANT val,
+        WINBOOL backward,
+        IUIAutomationTextRange **found);
+
+    HRESULT (STDMETHODCALLTYPE *FindText)(
+        IUIAutomationTextRange2 *This,
+        BSTR text,
+        WINBOOL backward,
+        WINBOOL ignoreCase,
+        IUIAutomationTextRange **found);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeValue)(
+        IUIAutomationTextRange2 *This,
+        TEXTATTRIBUTEID attr,
+        VARIANT *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetBoundingRectangles)(
+        IUIAutomationTextRange2 *This,
+        SAFEARRAY **boundingRects);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnclosingElement)(
+        IUIAutomationTextRange2 *This,
+        IUIAutomationElement **enclosingElement);
+
+    HRESULT (STDMETHODCALLTYPE *GetText)(
+        IUIAutomationTextRange2 *This,
+        int maxLength,
+        BSTR *text);
+
+    HRESULT (STDMETHODCALLTYPE *Move)(
+        IUIAutomationTextRange2 *This,
+        enum TextUnit unit,
+        int count,
+        int *moved);
+
+    HRESULT (STDMETHODCALLTYPE *MoveEndpointByUnit)(
+        IUIAutomationTextRange2 *This,
+        enum TextPatternRangeEndpoint endpoint,
+        enum TextUnit unit,
+        int count,
+        int *moved);
+
+    HRESULT (STDMETHODCALLTYPE *MoveEndpointByRange)(
+        IUIAutomationTextRange2 *This,
+        enum TextPatternRangeEndpoint srcEndPoint,
+        IUIAutomationTextRange *range,
+        enum TextPatternRangeEndpoint targetEndPoint);
+
+    HRESULT (STDMETHODCALLTYPE *Select)(
+        IUIAutomationTextRange2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *AddToSelection)(
+        IUIAutomationTextRange2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFromSelection)(
+        IUIAutomationTextRange2 *This);
+
+    HRESULT (STDMETHODCALLTYPE *ScrollIntoView)(
+        IUIAutomationTextRange2 *This,
+        WINBOOL alignToTop);
+
+    HRESULT (STDMETHODCALLTYPE *GetChildren)(
+        IUIAutomationTextRange2 *This,
+        IUIAutomationElementArray **children);
+
+    /*** IUIAutomationTextRange2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *ShowContextMenu)(
+        IUIAutomationTextRange2 *This);
+
+    END_INTERFACE
+} IUIAutomationTextRange2Vtbl;
+
+interface IUIAutomationTextRange2 {
+    CONST_VTBL IUIAutomationTextRange2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextRange2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextRange2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextRange2_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextRange methods ***/
+#define IUIAutomationTextRange2_Clone(This,clonedRange) (This)->lpVtbl->Clone(This,clonedRange)
+#define IUIAutomationTextRange2_Compare(This,range,areSame) (This)->lpVtbl->Compare(This,range,areSame)
+#define IUIAutomationTextRange2_CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue) (This)->lpVtbl->CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue)
+#define IUIAutomationTextRange2_ExpandToEnclosingUnit(This,textUnit) (This)->lpVtbl->ExpandToEnclosingUnit(This,textUnit)
+#define IUIAutomationTextRange2_FindAttribute(This,attr,val,backward,found) (This)->lpVtbl->FindAttribute(This,attr,val,backward,found)
+#define IUIAutomationTextRange2_FindText(This,text,backward,ignoreCase,found) (This)->lpVtbl->FindText(This,text,backward,ignoreCase,found)
+#define IUIAutomationTextRange2_GetAttributeValue(This,attr,value) (This)->lpVtbl->GetAttributeValue(This,attr,value)
+#define IUIAutomationTextRange2_GetBoundingRectangles(This,boundingRects) (This)->lpVtbl->GetBoundingRectangles(This,boundingRects)
+#define IUIAutomationTextRange2_GetEnclosingElement(This,enclosingElement) (This)->lpVtbl->GetEnclosingElement(This,enclosingElement)
+#define IUIAutomationTextRange2_GetText(This,maxLength,text) (This)->lpVtbl->GetText(This,maxLength,text)
+#define IUIAutomationTextRange2_Move(This,unit,count,moved) (This)->lpVtbl->Move(This,unit,count,moved)
+#define IUIAutomationTextRange2_MoveEndpointByUnit(This,endpoint,unit,count,moved) (This)->lpVtbl->MoveEndpointByUnit(This,endpoint,unit,count,moved)
+#define IUIAutomationTextRange2_MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint) (This)->lpVtbl->MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint)
+#define IUIAutomationTextRange2_Select(This) (This)->lpVtbl->Select(This)
+#define IUIAutomationTextRange2_AddToSelection(This) (This)->lpVtbl->AddToSelection(This)
+#define IUIAutomationTextRange2_RemoveFromSelection(This) (This)->lpVtbl->RemoveFromSelection(This)
+#define IUIAutomationTextRange2_ScrollIntoView(This,alignToTop) (This)->lpVtbl->ScrollIntoView(This,alignToTop)
+#define IUIAutomationTextRange2_GetChildren(This,children) (This)->lpVtbl->GetChildren(This,children)
+/*** IUIAutomationTextRange2 methods ***/
+#define IUIAutomationTextRange2_ShowContextMenu(This) (This)->lpVtbl->ShowContextMenu(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_QueryInterface(IUIAutomationTextRange2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRange2_AddRef(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRange2_Release(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextRange methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_Clone(IUIAutomationTextRange2* This,IUIAutomationTextRange **clonedRange) {
+    return This->lpVtbl->Clone(This,clonedRange);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_Compare(IUIAutomationTextRange2* This,IUIAutomationTextRange *range,WINBOOL *areSame) {
+    return This->lpVtbl->Compare(This,range,areSame);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_CompareEndpoints(IUIAutomationTextRange2* This,enum TextPatternRangeEndpoint srcEndPoint,IUIAutomationTextRange *range,enum TextPatternRangeEndpoint targetEndPoint,int *compValue) {
+    return This->lpVtbl->CompareEndpoints(This,srcEndPoint,range,targetEndPoint,compValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_ExpandToEnclosingUnit(IUIAutomationTextRange2* This,enum TextUnit textUnit) {
+    return This->lpVtbl->ExpandToEnclosingUnit(This,textUnit);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_FindAttribute(IUIAutomationTextRange2* This,TEXTATTRIBUTEID attr,VARIANT val,WINBOOL backward,IUIAutomationTextRange **found) {
+    return This->lpVtbl->FindAttribute(This,attr,val,backward,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_FindText(IUIAutomationTextRange2* This,BSTR text,WINBOOL backward,WINBOOL ignoreCase,IUIAutomationTextRange **found) {
+    return This->lpVtbl->FindText(This,text,backward,ignoreCase,found);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_GetAttributeValue(IUIAutomationTextRange2* This,TEXTATTRIBUTEID attr,VARIANT *value) {
+    return This->lpVtbl->GetAttributeValue(This,attr,value);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_GetBoundingRectangles(IUIAutomationTextRange2* This,SAFEARRAY **boundingRects) {
+    return This->lpVtbl->GetBoundingRectangles(This,boundingRects);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_GetEnclosingElement(IUIAutomationTextRange2* This,IUIAutomationElement **enclosingElement) {
+    return This->lpVtbl->GetEnclosingElement(This,enclosingElement);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_GetText(IUIAutomationTextRange2* This,int maxLength,BSTR *text) {
+    return This->lpVtbl->GetText(This,maxLength,text);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_Move(IUIAutomationTextRange2* This,enum TextUnit unit,int count,int *moved) {
+    return This->lpVtbl->Move(This,unit,count,moved);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_MoveEndpointByUnit(IUIAutomationTextRange2* This,enum TextPatternRangeEndpoint endpoint,enum TextUnit unit,int count,int *moved) {
+    return This->lpVtbl->MoveEndpointByUnit(This,endpoint,unit,count,moved);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_MoveEndpointByRange(IUIAutomationTextRange2* This,enum TextPatternRangeEndpoint srcEndPoint,IUIAutomationTextRange *range,enum TextPatternRangeEndpoint targetEndPoint) {
+    return This->lpVtbl->MoveEndpointByRange(This,srcEndPoint,range,targetEndPoint);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_Select(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->Select(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_AddToSelection(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->AddToSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_RemoveFromSelection(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->RemoveFromSelection(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_ScrollIntoView(IUIAutomationTextRange2* This,WINBOOL alignToTop) {
+    return This->lpVtbl->ScrollIntoView(This,alignToTop);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_GetChildren(IUIAutomationTextRange2* This,IUIAutomationElementArray **children) {
+    return This->lpVtbl->GetChildren(This,children);
+}
+/*** IUIAutomationTextRange2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRange2_ShowContextMenu(IUIAutomationTextRange2* This) {
+    return This->lpVtbl->ShowContextMenu(This);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTextPattern_FWD_DEFINED__
-#define __IUIAutomationTextPattern_FWD_DEFINED__
-typedef interface IUIAutomationTextPattern IUIAutomationTextPattern;
-#ifdef __cplusplus
-interface IUIAutomationTextPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationTextPattern2_FWD_DEFINED__
-#define __IUIAutomationTextPattern2_FWD_DEFINED__
-typedef interface IUIAutomationTextPattern2 IUIAutomationTextPattern2;
-#ifdef __cplusplus
-interface IUIAutomationTextPattern2;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationTextRange2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextRangeArray interface
+ */
+#ifndef __IUIAutomationTextRangeArray_INTERFACE_DEFINED__
+#define __IUIAutomationTextRangeArray_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextRangeArray, 0xce4ae76a, 0xe717, 0x4c98, 0x81,0xea, 0x47,0x37,0x1d,0x02,0x8e,0xb6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ce4ae76a-e717-4c98-81ea-47371d028eb6")
+IUIAutomationTextRangeArray : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Length(
+        int *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetElement(
+        int index,
+        IUIAutomationTextRange **element) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextRangeArray, 0xce4ae76a, 0xe717, 0x4c98, 0x81,0xea, 0x47,0x37,0x1d,0x02,0x8e,0xb6)
+#endif
+#else
+typedef struct IUIAutomationTextRangeArrayVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextRangeArray *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextRangeArray *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextRangeArray *This);
+
+    /*** IUIAutomationTextRangeArray methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Length)(
+        IUIAutomationTextRangeArray *This,
+        int *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetElement)(
+        IUIAutomationTextRangeArray *This,
+        int index,
+        IUIAutomationTextRange **element);
+
+    END_INTERFACE
+} IUIAutomationTextRangeArrayVtbl;
+
+interface IUIAutomationTextRangeArray {
+    CONST_VTBL IUIAutomationTextRangeArrayVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextRangeArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextRangeArray_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextRangeArray_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextRangeArray methods ***/
+#define IUIAutomationTextRangeArray_get_Length(This,length) (This)->lpVtbl->get_Length(This,length)
+#define IUIAutomationTextRangeArray_GetElement(This,index,element) (This)->lpVtbl->GetElement(This,index,element)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRangeArray_QueryInterface(IUIAutomationTextRangeArray* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRangeArray_AddRef(IUIAutomationTextRangeArray* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextRangeArray_Release(IUIAutomationTextRangeArray* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextRangeArray methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextRangeArray_get_Length(IUIAutomationTextRangeArray* This,int *length) {
+    return This->lpVtbl->get_Length(This,length);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextRangeArray_GetElement(IUIAutomationTextRangeArray* This,int index,IUIAutomationTextRange **element) {
+    return This->lpVtbl->GetElement(This,index,element);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTextEditPattern_FWD_DEFINED__
-#define __IUIAutomationTextEditPattern_FWD_DEFINED__
-typedef interface IUIAutomationTextEditPattern IUIAutomationTextEditPattern;
-#ifdef __cplusplus
-interface IUIAutomationTextEditPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
-#define __IUIAutomationCustomNavigationPattern_FWD_DEFINED__
-typedef interface IUIAutomationCustomNavigationPattern IUIAutomationCustomNavigationPattern;
-#ifdef __cplusplus
-interface IUIAutomationCustomNavigationPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationTextRangeArray_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextPattern interface
+ */
+#ifndef __IUIAutomationTextPattern_INTERFACE_DEFINED__
+#define __IUIAutomationTextPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextPattern, 0x32eba289, 0x3583, 0x42c9, 0x9c,0x59, 0x3b,0x6d,0x9a,0x1e,0x9b,0x6a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("32eba289-3583-42c9-9c59-3b6d9a1e9b6a")
+IUIAutomationTextPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RangeFromPoint(
+        POINT pt,
+        IUIAutomationTextRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RangeFromChild(
+        IUIAutomationElement *child,
+        IUIAutomationTextRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSelection(
+        IUIAutomationTextRangeArray **ranges) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetVisibleRanges(
+        IUIAutomationTextRangeArray **ranges) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_DocumentRange(
+        IUIAutomationTextRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_SupportedTextSelection(
+        enum SupportedTextSelection *supportedTextSelection) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextPattern, 0x32eba289, 0x3583, 0x42c9, 0x9c,0x59, 0x3b,0x6d,0x9a,0x1e,0x9b,0x6a)
+#endif
+#else
+typedef struct IUIAutomationTextPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextPattern *This);
+
+    /*** IUIAutomationTextPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *RangeFromPoint)(
+        IUIAutomationTextPattern *This,
+        POINT pt,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *RangeFromChild)(
+        IUIAutomationTextPattern *This,
+        IUIAutomationElement *child,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetSelection)(
+        IUIAutomationTextPattern *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetVisibleRanges)(
+        IUIAutomationTextPattern *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *get_DocumentRange)(
+        IUIAutomationTextPattern *This,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *get_SupportedTextSelection)(
+        IUIAutomationTextPattern *This,
+        enum SupportedTextSelection *supportedTextSelection);
+
+    END_INTERFACE
+} IUIAutomationTextPatternVtbl;
+
+interface IUIAutomationTextPattern {
+    CONST_VTBL IUIAutomationTextPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextPattern methods ***/
+#define IUIAutomationTextPattern_RangeFromPoint(This,pt,range) (This)->lpVtbl->RangeFromPoint(This,pt,range)
+#define IUIAutomationTextPattern_RangeFromChild(This,child,range) (This)->lpVtbl->RangeFromChild(This,child,range)
+#define IUIAutomationTextPattern_GetSelection(This,ranges) (This)->lpVtbl->GetSelection(This,ranges)
+#define IUIAutomationTextPattern_GetVisibleRanges(This,ranges) (This)->lpVtbl->GetVisibleRanges(This,ranges)
+#define IUIAutomationTextPattern_get_DocumentRange(This,range) (This)->lpVtbl->get_DocumentRange(This,range)
+#define IUIAutomationTextPattern_get_SupportedTextSelection(This,supportedTextSelection) (This)->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_QueryInterface(IUIAutomationTextPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextPattern_AddRef(IUIAutomationTextPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextPattern_Release(IUIAutomationTextPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_RangeFromPoint(IUIAutomationTextPattern* This,POINT pt,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromPoint(This,pt,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_RangeFromChild(IUIAutomationTextPattern* This,IUIAutomationElement *child,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromChild(This,child,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_GetSelection(IUIAutomationTextPattern* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetSelection(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_GetVisibleRanges(IUIAutomationTextPattern* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetVisibleRanges(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_get_DocumentRange(IUIAutomationTextPattern* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->get_DocumentRange(This,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern_get_SupportedTextSelection(IUIAutomationTextPattern* This,enum SupportedTextSelection *supportedTextSelection) {
+    return This->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
-#define __IUIAutomationActiveTextPositionChangedEventHandler_FWD_DEFINED__
-typedef interface IUIAutomationActiveTextPositionChangedEventHandler IUIAutomationActiveTextPositionChangedEventHandler;
-#ifdef __cplusplus
-interface IUIAutomationActiveTextPositionChangedEventHandler;
-#endif /* __cplusplus */
 #endif
+
+
+#endif  /* __IUIAutomationTextPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextPattern2 interface
+ */
+#ifndef __IUIAutomationTextPattern2_INTERFACE_DEFINED__
+#define __IUIAutomationTextPattern2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextPattern2, 0x506a921a, 0xfcc9, 0x409f, 0xb2,0x3b, 0x37,0xeb,0x74,0x10,0x68,0x72);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("506a921a-fcc9-409f-b23b-37eb74106872")
+IUIAutomationTextPattern2 : public IUIAutomationTextPattern
+{
+    virtual HRESULT STDMETHODCALLTYPE RangeFromAnnotation(
+        IUIAutomationElement *annotation,
+        IUIAutomationTextRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCaretRange(
+        WINBOOL *isActive,
+        IUIAutomationTextRange **range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextPattern2, 0x506a921a, 0xfcc9, 0x409f, 0xb2,0x3b, 0x37,0xeb,0x74,0x10,0x68,0x72)
+#endif
+#else
+typedef struct IUIAutomationTextPattern2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextPattern2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextPattern2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextPattern2 *This);
+
+    /*** IUIAutomationTextPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *RangeFromPoint)(
+        IUIAutomationTextPattern2 *This,
+        POINT pt,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *RangeFromChild)(
+        IUIAutomationTextPattern2 *This,
+        IUIAutomationElement *child,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetSelection)(
+        IUIAutomationTextPattern2 *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetVisibleRanges)(
+        IUIAutomationTextPattern2 *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *get_DocumentRange)(
+        IUIAutomationTextPattern2 *This,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *get_SupportedTextSelection)(
+        IUIAutomationTextPattern2 *This,
+        enum SupportedTextSelection *supportedTextSelection);
+
+    /*** IUIAutomationTextPattern2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *RangeFromAnnotation)(
+        IUIAutomationTextPattern2 *This,
+        IUIAutomationElement *annotation,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetCaretRange)(
+        IUIAutomationTextPattern2 *This,
+        WINBOOL *isActive,
+        IUIAutomationTextRange **range);
+
+    END_INTERFACE
+} IUIAutomationTextPattern2Vtbl;
+
+interface IUIAutomationTextPattern2 {
+    CONST_VTBL IUIAutomationTextPattern2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextPattern2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextPattern2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextPattern2_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextPattern methods ***/
+#define IUIAutomationTextPattern2_RangeFromPoint(This,pt,range) (This)->lpVtbl->RangeFromPoint(This,pt,range)
+#define IUIAutomationTextPattern2_RangeFromChild(This,child,range) (This)->lpVtbl->RangeFromChild(This,child,range)
+#define IUIAutomationTextPattern2_GetSelection(This,ranges) (This)->lpVtbl->GetSelection(This,ranges)
+#define IUIAutomationTextPattern2_GetVisibleRanges(This,ranges) (This)->lpVtbl->GetVisibleRanges(This,ranges)
+#define IUIAutomationTextPattern2_get_DocumentRange(This,range) (This)->lpVtbl->get_DocumentRange(This,range)
+#define IUIAutomationTextPattern2_get_SupportedTextSelection(This,supportedTextSelection) (This)->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection)
+/*** IUIAutomationTextPattern2 methods ***/
+#define IUIAutomationTextPattern2_RangeFromAnnotation(This,annotation,range) (This)->lpVtbl->RangeFromAnnotation(This,annotation,range)
+#define IUIAutomationTextPattern2_GetCaretRange(This,isActive,range) (This)->lpVtbl->GetCaretRange(This,isActive,range)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_QueryInterface(IUIAutomationTextPattern2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextPattern2_AddRef(IUIAutomationTextPattern2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextPattern2_Release(IUIAutomationTextPattern2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_RangeFromPoint(IUIAutomationTextPattern2* This,POINT pt,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromPoint(This,pt,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_RangeFromChild(IUIAutomationTextPattern2* This,IUIAutomationElement *child,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromChild(This,child,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_GetSelection(IUIAutomationTextPattern2* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetSelection(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_GetVisibleRanges(IUIAutomationTextPattern2* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetVisibleRanges(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_get_DocumentRange(IUIAutomationTextPattern2* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->get_DocumentRange(This,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_get_SupportedTextSelection(IUIAutomationTextPattern2* This,enum SupportedTextSelection *supportedTextSelection) {
+    return This->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection);
+}
+/*** IUIAutomationTextPattern2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_RangeFromAnnotation(IUIAutomationTextPattern2* This,IUIAutomationElement *annotation,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromAnnotation(This,annotation,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextPattern2_GetCaretRange(IUIAutomationTextPattern2* This,WINBOOL *isActive,IUIAutomationTextRange **range) {
+    return This->lpVtbl->GetCaretRange(This,isActive,range);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTextPattern2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextEditPattern interface
+ */
+#ifndef __IUIAutomationTextEditPattern_INTERFACE_DEFINED__
+#define __IUIAutomationTextEditPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextEditPattern, 0x17e21576, 0x996c, 0x4870, 0x99,0xd9, 0xbf,0xf3,0x23,0x38,0x0c,0x06);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("17e21576-996c-4870-99d9-bff323380c06")
+IUIAutomationTextEditPattern : public IUIAutomationTextPattern
+{
+    virtual HRESULT STDMETHODCALLTYPE GetActiveComposition(
+        IUIAutomationTextRange **range) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetConversionTarget(
+        IUIAutomationTextRange **range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextEditPattern, 0x17e21576, 0x996c, 0x4870, 0x99,0xd9, 0xbf,0xf3,0x23,0x38,0x0c,0x06)
+#endif
+#else
+typedef struct IUIAutomationTextEditPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextEditPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextEditPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextEditPattern *This);
+
+    /*** IUIAutomationTextPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *RangeFromPoint)(
+        IUIAutomationTextEditPattern *This,
+        POINT pt,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *RangeFromChild)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationElement *child,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetSelection)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetVisibleRanges)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationTextRangeArray **ranges);
+
+    HRESULT (STDMETHODCALLTYPE *get_DocumentRange)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *get_SupportedTextSelection)(
+        IUIAutomationTextEditPattern *This,
+        enum SupportedTextSelection *supportedTextSelection);
+
+    /*** IUIAutomationTextEditPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetActiveComposition)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationTextRange **range);
+
+    HRESULT (STDMETHODCALLTYPE *GetConversionTarget)(
+        IUIAutomationTextEditPattern *This,
+        IUIAutomationTextRange **range);
+
+    END_INTERFACE
+} IUIAutomationTextEditPatternVtbl;
+
+interface IUIAutomationTextEditPattern {
+    CONST_VTBL IUIAutomationTextEditPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextEditPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextEditPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextEditPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextPattern methods ***/
+#define IUIAutomationTextEditPattern_RangeFromPoint(This,pt,range) (This)->lpVtbl->RangeFromPoint(This,pt,range)
+#define IUIAutomationTextEditPattern_RangeFromChild(This,child,range) (This)->lpVtbl->RangeFromChild(This,child,range)
+#define IUIAutomationTextEditPattern_GetSelection(This,ranges) (This)->lpVtbl->GetSelection(This,ranges)
+#define IUIAutomationTextEditPattern_GetVisibleRanges(This,ranges) (This)->lpVtbl->GetVisibleRanges(This,ranges)
+#define IUIAutomationTextEditPattern_get_DocumentRange(This,range) (This)->lpVtbl->get_DocumentRange(This,range)
+#define IUIAutomationTextEditPattern_get_SupportedTextSelection(This,supportedTextSelection) (This)->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection)
+/*** IUIAutomationTextEditPattern methods ***/
+#define IUIAutomationTextEditPattern_GetActiveComposition(This,range) (This)->lpVtbl->GetActiveComposition(This,range)
+#define IUIAutomationTextEditPattern_GetConversionTarget(This,range) (This)->lpVtbl->GetConversionTarget(This,range)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_QueryInterface(IUIAutomationTextEditPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextEditPattern_AddRef(IUIAutomationTextEditPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextEditPattern_Release(IUIAutomationTextEditPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_RangeFromPoint(IUIAutomationTextEditPattern* This,POINT pt,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromPoint(This,pt,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_RangeFromChild(IUIAutomationTextEditPattern* This,IUIAutomationElement *child,IUIAutomationTextRange **range) {
+    return This->lpVtbl->RangeFromChild(This,child,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_GetSelection(IUIAutomationTextEditPattern* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetSelection(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_GetVisibleRanges(IUIAutomationTextEditPattern* This,IUIAutomationTextRangeArray **ranges) {
+    return This->lpVtbl->GetVisibleRanges(This,ranges);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_get_DocumentRange(IUIAutomationTextEditPattern* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->get_DocumentRange(This,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_get_SupportedTextSelection(IUIAutomationTextEditPattern* This,enum SupportedTextSelection *supportedTextSelection) {
+    return This->lpVtbl->get_SupportedTextSelection(This,supportedTextSelection);
+}
+/*** IUIAutomationTextEditPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_GetActiveComposition(IUIAutomationTextEditPattern* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->GetActiveComposition(This,range);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextEditPattern_GetConversionTarget(IUIAutomationTextEditPattern* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->GetConversionTarget(This,range);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTextEditPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationCustomNavigationPattern interface
+ */
+#ifndef __IUIAutomationCustomNavigationPattern_INTERFACE_DEFINED__
+#define __IUIAutomationCustomNavigationPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationCustomNavigationPattern, 0x01ea217a, 0x1766, 0x47ed, 0xa6,0xcc, 0xac,0xf4,0x92,0x85,0x4b,0x1f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("01ea217a-1766-47ed-a6cc-acf492854b1f")
+IUIAutomationCustomNavigationPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Navigate(
+        enum NavigateDirection direction,
+        IUIAutomationElement **pRetVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationCustomNavigationPattern, 0x01ea217a, 0x1766, 0x47ed, 0xa6,0xcc, 0xac,0xf4,0x92,0x85,0x4b,0x1f)
+#endif
+#else
+typedef struct IUIAutomationCustomNavigationPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationCustomNavigationPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationCustomNavigationPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationCustomNavigationPattern *This);
+
+    /*** IUIAutomationCustomNavigationPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Navigate)(
+        IUIAutomationCustomNavigationPattern *This,
+        enum NavigateDirection direction,
+        IUIAutomationElement **pRetVal);
+
+    END_INTERFACE
+} IUIAutomationCustomNavigationPatternVtbl;
+
+interface IUIAutomationCustomNavigationPattern {
+    CONST_VTBL IUIAutomationCustomNavigationPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationCustomNavigationPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationCustomNavigationPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationCustomNavigationPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationCustomNavigationPattern methods ***/
+#define IUIAutomationCustomNavigationPattern_Navigate(This,direction,pRetVal) (This)->lpVtbl->Navigate(This,direction,pRetVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationCustomNavigationPattern_QueryInterface(IUIAutomationCustomNavigationPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationCustomNavigationPattern_AddRef(IUIAutomationCustomNavigationPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationCustomNavigationPattern_Release(IUIAutomationCustomNavigationPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationCustomNavigationPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationCustomNavigationPattern_Navigate(IUIAutomationCustomNavigationPattern* This,enum NavigateDirection direction,IUIAutomationElement **pRetVal) {
+    return This->lpVtbl->Navigate(This,direction,pRetVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationCustomNavigationPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationActiveTextPositionChangedEventHandler interface
+ */
+#ifndef __IUIAutomationActiveTextPositionChangedEventHandler_INTERFACE_DEFINED__
+#define __IUIAutomationActiveTextPositionChangedEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationActiveTextPositionChangedEventHandler, 0xf97933b0, 0x8dae, 0x4496, 0x89,0x97, 0x5b,0xa0,0x15,0xfe,0x0d,0x82);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f97933b0-8dae-4496-8997-5ba015fe0d82")
+IUIAutomationActiveTextPositionChangedEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HandleActiveTextPositionChangedEvent(
+        IUIAutomationElement *sender,
+        IUIAutomationTextRange *range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationActiveTextPositionChangedEventHandler, 0xf97933b0, 0x8dae, 0x4496, 0x89,0x97, 0x5b,0xa0,0x15,0xfe,0x0d,0x82)
+#endif
+#else
+typedef struct IUIAutomationActiveTextPositionChangedEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationActiveTextPositionChangedEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationActiveTextPositionChangedEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationActiveTextPositionChangedEventHandler *This);
+
+    /*** IUIAutomationActiveTextPositionChangedEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *HandleActiveTextPositionChangedEvent)(
+        IUIAutomationActiveTextPositionChangedEventHandler *This,
+        IUIAutomationElement *sender,
+        IUIAutomationTextRange *range);
+
+    END_INTERFACE
+} IUIAutomationActiveTextPositionChangedEventHandlerVtbl;
+
+interface IUIAutomationActiveTextPositionChangedEventHandler {
+    CONST_VTBL IUIAutomationActiveTextPositionChangedEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationActiveTextPositionChangedEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationActiveTextPositionChangedEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationActiveTextPositionChangedEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationActiveTextPositionChangedEventHandler methods ***/
+#define IUIAutomationActiveTextPositionChangedEventHandler_HandleActiveTextPositionChangedEvent(This,sender,range) (This)->lpVtbl->HandleActiveTextPositionChangedEvent(This,sender,range)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationActiveTextPositionChangedEventHandler_QueryInterface(IUIAutomationActiveTextPositionChangedEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationActiveTextPositionChangedEventHandler_AddRef(IUIAutomationActiveTextPositionChangedEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationActiveTextPositionChangedEventHandler_Release(IUIAutomationActiveTextPositionChangedEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationActiveTextPositionChangedEventHandler methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationActiveTextPositionChangedEventHandler_HandleActiveTextPositionChangedEvent(IUIAutomationActiveTextPositionChangedEventHandler* This,IUIAutomationElement *sender,IUIAutomationTextRange *range) {
+    return This->lpVtbl->HandleActiveTextPositionChangedEvent(This,sender,range);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationActiveTextPositionChangedEventHandler_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IUIAutomationLegacyIAccessiblePattern interface
@@ -3247,85 +6820,1402 @@ static __WIDL_INLINE HRESULT IUIAutomationLegacyIAccessiblePattern_GetIAccessibl
 
 #endif  /* __IUIAutomationLegacyIAccessiblePattern_INTERFACE_DEFINED__ */
 
-#ifndef __IUIAutomationItemContainerPattern_FWD_DEFINED__
-#define __IUIAutomationItemContainerPattern_FWD_DEFINED__
-typedef interface IUIAutomationItemContainerPattern IUIAutomationItemContainerPattern;
-#ifdef __cplusplus
-interface IUIAutomationItemContainerPattern;
-#endif /* __cplusplus */
+/*****************************************************************************
+ * IUIAutomationItemContainerPattern interface
+ */
+#ifndef __IUIAutomationItemContainerPattern_INTERFACE_DEFINED__
+#define __IUIAutomationItemContainerPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationItemContainerPattern, 0xc690fdb2, 0x27a8, 0x423c, 0x81,0x2d, 0x42,0x97,0x73,0xc9,0x08,0x4e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c690fdb2-27a8-423c-812d-429773c9084e")
+IUIAutomationItemContainerPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE FindItemByProperty(
+        IUIAutomationElement *pStartAfter,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationElement **pFound) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationItemContainerPattern, 0xc690fdb2, 0x27a8, 0x423c, 0x81,0x2d, 0x42,0x97,0x73,0xc9,0x08,0x4e)
+#endif
+#else
+typedef struct IUIAutomationItemContainerPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationItemContainerPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationItemContainerPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationItemContainerPattern *This);
+
+    /*** IUIAutomationItemContainerPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *FindItemByProperty)(
+        IUIAutomationItemContainerPattern *This,
+        IUIAutomationElement *pStartAfter,
+        PROPERTYID propertyId,
+        VARIANT value,
+        IUIAutomationElement **pFound);
+
+    END_INTERFACE
+} IUIAutomationItemContainerPatternVtbl;
+
+interface IUIAutomationItemContainerPattern {
+    CONST_VTBL IUIAutomationItemContainerPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationItemContainerPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationItemContainerPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationItemContainerPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationItemContainerPattern methods ***/
+#define IUIAutomationItemContainerPattern_FindItemByProperty(This,pStartAfter,propertyId,value,pFound) (This)->lpVtbl->FindItemByProperty(This,pStartAfter,propertyId,value,pFound)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationItemContainerPattern_QueryInterface(IUIAutomationItemContainerPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationItemContainerPattern_AddRef(IUIAutomationItemContainerPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationItemContainerPattern_Release(IUIAutomationItemContainerPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationItemContainerPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationItemContainerPattern_FindItemByProperty(IUIAutomationItemContainerPattern* This,IUIAutomationElement *pStartAfter,PROPERTYID propertyId,VARIANT value,IUIAutomationElement **pFound) {
+    return This->lpVtbl->FindItemByProperty(This,pStartAfter,propertyId,value,pFound);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
-#define __IUIAutomationVirtualizedItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationVirtualizedItemPattern IUIAutomationVirtualizedItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationVirtualizedItemPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationAnnotationPattern_FWD_DEFINED__
-#define __IUIAutomationAnnotationPattern_FWD_DEFINED__
-typedef interface IUIAutomationAnnotationPattern IUIAutomationAnnotationPattern;
-#ifdef __cplusplus
-interface IUIAutomationAnnotationPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationItemContainerPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationVirtualizedItemPattern interface
+ */
+#ifndef __IUIAutomationVirtualizedItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationVirtualizedItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationVirtualizedItemPattern, 0x6ba3d7a6, 0x04cf, 0x4f11, 0x87,0x93, 0xa8,0xd1,0xcd,0xe9,0x96,0x9f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6ba3d7a6-04cf-4f11-8793-a8d1cde9969f")
+IUIAutomationVirtualizedItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Realize(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationVirtualizedItemPattern, 0x6ba3d7a6, 0x04cf, 0x4f11, 0x87,0x93, 0xa8,0xd1,0xcd,0xe9,0x96,0x9f)
+#endif
+#else
+typedef struct IUIAutomationVirtualizedItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationVirtualizedItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationVirtualizedItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationVirtualizedItemPattern *This);
+
+    /*** IUIAutomationVirtualizedItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Realize)(
+        IUIAutomationVirtualizedItemPattern *This);
+
+    END_INTERFACE
+} IUIAutomationVirtualizedItemPatternVtbl;
+
+interface IUIAutomationVirtualizedItemPattern {
+    CONST_VTBL IUIAutomationVirtualizedItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationVirtualizedItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationVirtualizedItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationVirtualizedItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationVirtualizedItemPattern methods ***/
+#define IUIAutomationVirtualizedItemPattern_Realize(This) (This)->lpVtbl->Realize(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationVirtualizedItemPattern_QueryInterface(IUIAutomationVirtualizedItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationVirtualizedItemPattern_AddRef(IUIAutomationVirtualizedItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationVirtualizedItemPattern_Release(IUIAutomationVirtualizedItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationVirtualizedItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationVirtualizedItemPattern_Realize(IUIAutomationVirtualizedItemPattern* This) {
+    return This->lpVtbl->Realize(This);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationStylesPattern_FWD_DEFINED__
-#define __IUIAutomationStylesPattern_FWD_DEFINED__
-typedef interface IUIAutomationStylesPattern IUIAutomationStylesPattern;
-#ifdef __cplusplus
-interface IUIAutomationStylesPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
-#define __IUIAutomationSpreadsheetPattern_FWD_DEFINED__
-typedef interface IUIAutomationSpreadsheetPattern IUIAutomationSpreadsheetPattern;
-#ifdef __cplusplus
-interface IUIAutomationSpreadsheetPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationVirtualizedItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationAnnotationPattern interface
+ */
+#ifndef __IUIAutomationAnnotationPattern_INTERFACE_DEFINED__
+#define __IUIAutomationAnnotationPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationAnnotationPattern, 0x9a175b21, 0x339e, 0x41b1, 0x8e,0x8b, 0x62,0x3f,0x6b,0x68,0x10,0x98);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9a175b21-339e-41b1-8e8b-623f6b681098")
+IUIAutomationAnnotationPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAnnotationTypeId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAnnotationTypeName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentAuthor(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDateTime(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentTarget(
+        IUIAutomationElement **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAnnotationTypeId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAnnotationTypeName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedAuthor(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDateTime(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedTarget(
+        IUIAutomationElement **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationAnnotationPattern, 0x9a175b21, 0x339e, 0x41b1, 0x8e,0x8b, 0x62,0x3f,0x6b,0x68,0x10,0x98)
+#endif
+#else
+typedef struct IUIAutomationAnnotationPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationAnnotationPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationAnnotationPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationAnnotationPattern *This);
+
+    /*** IUIAutomationAnnotationPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypeId)(
+        IUIAutomationAnnotationPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAnnotationTypeName)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentAuthor)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDateTime)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentTarget)(
+        IUIAutomationAnnotationPattern *This,
+        IUIAutomationElement **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypeId)(
+        IUIAutomationAnnotationPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAnnotationTypeName)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedAuthor)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDateTime)(
+        IUIAutomationAnnotationPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedTarget)(
+        IUIAutomationAnnotationPattern *This,
+        IUIAutomationElement **retVal);
+
+    END_INTERFACE
+} IUIAutomationAnnotationPatternVtbl;
+
+interface IUIAutomationAnnotationPattern {
+    CONST_VTBL IUIAutomationAnnotationPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationAnnotationPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationAnnotationPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationAnnotationPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationAnnotationPattern methods ***/
+#define IUIAutomationAnnotationPattern_get_CurrentAnnotationTypeId(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypeId(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CurrentAnnotationTypeName(This,retVal) (This)->lpVtbl->get_CurrentAnnotationTypeName(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CurrentAuthor(This,retVal) (This)->lpVtbl->get_CurrentAuthor(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CurrentDateTime(This,retVal) (This)->lpVtbl->get_CurrentDateTime(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CurrentTarget(This,retVal) (This)->lpVtbl->get_CurrentTarget(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CachedAnnotationTypeId(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypeId(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CachedAnnotationTypeName(This,retVal) (This)->lpVtbl->get_CachedAnnotationTypeName(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CachedAuthor(This,retVal) (This)->lpVtbl->get_CachedAuthor(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CachedDateTime(This,retVal) (This)->lpVtbl->get_CachedDateTime(This,retVal)
+#define IUIAutomationAnnotationPattern_get_CachedTarget(This,retVal) (This)->lpVtbl->get_CachedTarget(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_QueryInterface(IUIAutomationAnnotationPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationAnnotationPattern_AddRef(IUIAutomationAnnotationPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationAnnotationPattern_Release(IUIAutomationAnnotationPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationAnnotationPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CurrentAnnotationTypeId(IUIAutomationAnnotationPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypeId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CurrentAnnotationTypeName(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAnnotationTypeName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CurrentAuthor(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentAuthor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CurrentDateTime(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentDateTime(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CurrentTarget(IUIAutomationAnnotationPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CurrentTarget(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CachedAnnotationTypeId(IUIAutomationAnnotationPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypeId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CachedAnnotationTypeName(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAnnotationTypeName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CachedAuthor(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedAuthor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CachedDateTime(IUIAutomationAnnotationPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedDateTime(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationAnnotationPattern_get_CachedTarget(IUIAutomationAnnotationPattern* This,IUIAutomationElement **retVal) {
+    return This->lpVtbl->get_CachedTarget(This,retVal);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
-#define __IUIAutomationSpreadsheetItemPattern_FWD_DEFINED__
-typedef interface IUIAutomationSpreadsheetItemPattern IUIAutomationSpreadsheetItemPattern;
-#ifdef __cplusplus
-interface IUIAutomationSpreadsheetItemPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationTransformPattern2_FWD_DEFINED__
-#define __IUIAutomationTransformPattern2_FWD_DEFINED__
-typedef interface IUIAutomationTransformPattern2 IUIAutomationTransformPattern2;
-#ifdef __cplusplus
-interface IUIAutomationTransformPattern2;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationAnnotationPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationStylesPattern interface
+ */
+#ifndef __IUIAutomationStylesPattern_INTERFACE_DEFINED__
+#define __IUIAutomationStylesPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationStylesPattern, 0x85b5f0a2, 0xbd79, 0x484a, 0xad,0x2b, 0x38,0x8c,0x98,0x38,0xd5,0xfb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("85b5f0a2-bd79-484a-ad2b-388c9838d5fb")
+IUIAutomationStylesPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentStyleId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentStyleName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFillColor(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFillPatternStyle(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentShape(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFillPatternColor(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentExtendedProperties(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentExtendedPropertiesAsArray(
+        struct ExtendedProperty **propertyArray,
+        int *propertyCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedStyleId(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedStyleName(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFillColor(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFillPatternStyle(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedShape(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFillPatternColor(
+        int *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedExtendedProperties(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedExtendedPropertiesAsArray(
+        struct ExtendedProperty **propertyArray,
+        int *propertyCount) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationStylesPattern, 0x85b5f0a2, 0xbd79, 0x484a, 0xad,0x2b, 0x38,0x8c,0x98,0x38,0xd5,0xfb)
+#endif
+#else
+typedef struct IUIAutomationStylesPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationStylesPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationStylesPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationStylesPattern *This);
+
+    /*** IUIAutomationStylesPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentStyleId)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentStyleName)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFillColor)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFillPatternStyle)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentShape)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFillPatternColor)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentExtendedProperties)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentExtendedPropertiesAsArray)(
+        IUIAutomationStylesPattern *This,
+        struct ExtendedProperty **propertyArray,
+        int *propertyCount);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedStyleId)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedStyleName)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFillColor)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFillPatternStyle)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedShape)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFillPatternColor)(
+        IUIAutomationStylesPattern *This,
+        int *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedExtendedProperties)(
+        IUIAutomationStylesPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedExtendedPropertiesAsArray)(
+        IUIAutomationStylesPattern *This,
+        struct ExtendedProperty **propertyArray,
+        int *propertyCount);
+
+    END_INTERFACE
+} IUIAutomationStylesPatternVtbl;
+
+interface IUIAutomationStylesPattern {
+    CONST_VTBL IUIAutomationStylesPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationStylesPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationStylesPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationStylesPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationStylesPattern methods ***/
+#define IUIAutomationStylesPattern_get_CurrentStyleId(This,retVal) (This)->lpVtbl->get_CurrentStyleId(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentStyleName(This,retVal) (This)->lpVtbl->get_CurrentStyleName(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentFillColor(This,retVal) (This)->lpVtbl->get_CurrentFillColor(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentFillPatternStyle(This,retVal) (This)->lpVtbl->get_CurrentFillPatternStyle(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentShape(This,retVal) (This)->lpVtbl->get_CurrentShape(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentFillPatternColor(This,retVal) (This)->lpVtbl->get_CurrentFillPatternColor(This,retVal)
+#define IUIAutomationStylesPattern_get_CurrentExtendedProperties(This,retVal) (This)->lpVtbl->get_CurrentExtendedProperties(This,retVal)
+#define IUIAutomationStylesPattern_GetCurrentExtendedPropertiesAsArray(This,propertyArray,propertyCount) (This)->lpVtbl->GetCurrentExtendedPropertiesAsArray(This,propertyArray,propertyCount)
+#define IUIAutomationStylesPattern_get_CachedStyleId(This,retVal) (This)->lpVtbl->get_CachedStyleId(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedStyleName(This,retVal) (This)->lpVtbl->get_CachedStyleName(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedFillColor(This,retVal) (This)->lpVtbl->get_CachedFillColor(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedFillPatternStyle(This,retVal) (This)->lpVtbl->get_CachedFillPatternStyle(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedShape(This,retVal) (This)->lpVtbl->get_CachedShape(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedFillPatternColor(This,retVal) (This)->lpVtbl->get_CachedFillPatternColor(This,retVal)
+#define IUIAutomationStylesPattern_get_CachedExtendedProperties(This,retVal) (This)->lpVtbl->get_CachedExtendedProperties(This,retVal)
+#define IUIAutomationStylesPattern_GetCachedExtendedPropertiesAsArray(This,propertyArray,propertyCount) (This)->lpVtbl->GetCachedExtendedPropertiesAsArray(This,propertyArray,propertyCount)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_QueryInterface(IUIAutomationStylesPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationStylesPattern_AddRef(IUIAutomationStylesPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationStylesPattern_Release(IUIAutomationStylesPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationStylesPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentStyleId(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentStyleId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentStyleName(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentStyleName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentFillColor(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentFillColor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentFillPatternStyle(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFillPatternStyle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentShape(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentShape(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentFillPatternColor(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CurrentFillPatternColor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CurrentExtendedProperties(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentExtendedProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_GetCurrentExtendedPropertiesAsArray(IUIAutomationStylesPattern* This,struct ExtendedProperty **propertyArray,int *propertyCount) {
+    return This->lpVtbl->GetCurrentExtendedPropertiesAsArray(This,propertyArray,propertyCount);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedStyleId(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedStyleId(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedStyleName(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedStyleName(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedFillColor(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedFillColor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedFillPatternStyle(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFillPatternStyle(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedShape(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedShape(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedFillPatternColor(IUIAutomationStylesPattern* This,int *retVal) {
+    return This->lpVtbl->get_CachedFillPatternColor(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_get_CachedExtendedProperties(IUIAutomationStylesPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedExtendedProperties(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationStylesPattern_GetCachedExtendedPropertiesAsArray(IUIAutomationStylesPattern* This,struct ExtendedProperty **propertyArray,int *propertyCount) {
+    return This->lpVtbl->GetCachedExtendedPropertiesAsArray(This,propertyArray,propertyCount);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationTextChildPattern_FWD_DEFINED__
-#define __IUIAutomationTextChildPattern_FWD_DEFINED__
-typedef interface IUIAutomationTextChildPattern IUIAutomationTextChildPattern;
-#ifdef __cplusplus
-interface IUIAutomationTextChildPattern;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationDragPattern_FWD_DEFINED__
-#define __IUIAutomationDragPattern_FWD_DEFINED__
-typedef interface IUIAutomationDragPattern IUIAutomationDragPattern;
-#ifdef __cplusplus
-interface IUIAutomationDragPattern;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationStylesPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationSpreadsheetPattern interface
+ */
+#ifndef __IUIAutomationSpreadsheetPattern_INTERFACE_DEFINED__
+#define __IUIAutomationSpreadsheetPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationSpreadsheetPattern, 0x7517a7c8, 0xfaae, 0x4de9, 0x9f,0x08, 0x29,0xb9,0x1e,0x85,0x95,0xc1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("7517a7c8-faae-4de9-9f08-29b91e8595c1")
+IUIAutomationSpreadsheetPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetItemByName(
+        BSTR name,
+        IUIAutomationElement **element) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationSpreadsheetPattern, 0x7517a7c8, 0xfaae, 0x4de9, 0x9f,0x08, 0x29,0xb9,0x1e,0x85,0x95,0xc1)
+#endif
+#else
+typedef struct IUIAutomationSpreadsheetPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationSpreadsheetPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationSpreadsheetPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationSpreadsheetPattern *This);
+
+    /*** IUIAutomationSpreadsheetPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetItemByName)(
+        IUIAutomationSpreadsheetPattern *This,
+        BSTR name,
+        IUIAutomationElement **element);
+
+    END_INTERFACE
+} IUIAutomationSpreadsheetPatternVtbl;
+
+interface IUIAutomationSpreadsheetPattern {
+    CONST_VTBL IUIAutomationSpreadsheetPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationSpreadsheetPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationSpreadsheetPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationSpreadsheetPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationSpreadsheetPattern methods ***/
+#define IUIAutomationSpreadsheetPattern_GetItemByName(This,name,element) (This)->lpVtbl->GetItemByName(This,name,element)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetPattern_QueryInterface(IUIAutomationSpreadsheetPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationSpreadsheetPattern_AddRef(IUIAutomationSpreadsheetPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationSpreadsheetPattern_Release(IUIAutomationSpreadsheetPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationSpreadsheetPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetPattern_GetItemByName(IUIAutomationSpreadsheetPattern* This,BSTR name,IUIAutomationElement **element) {
+    return This->lpVtbl->GetItemByName(This,name,element);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationDropTargetPattern_FWD_DEFINED__
-#define __IUIAutomationDropTargetPattern_FWD_DEFINED__
-typedef interface IUIAutomationDropTargetPattern IUIAutomationDropTargetPattern;
-#ifdef __cplusplus
-interface IUIAutomationDropTargetPattern;
-#endif /* __cplusplus */
 #endif
+
+
+#endif  /* __IUIAutomationSpreadsheetPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationSpreadsheetItemPattern interface
+ */
+#ifndef __IUIAutomationSpreadsheetItemPattern_INTERFACE_DEFINED__
+#define __IUIAutomationSpreadsheetItemPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationSpreadsheetItemPattern, 0x7d4fb86c, 0x8d34, 0x40e1, 0x8e,0x83, 0x62,0xc1,0x52,0x04,0xe3,0x35);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("7d4fb86c-8d34-40e1-8e83-62c15204e335")
+IUIAutomationSpreadsheetItemPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentFormula(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentAnnotationObjects(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentAnnotationTypes(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedFormula(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedAnnotationObjects(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedAnnotationTypes(
+        SAFEARRAY **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationSpreadsheetItemPattern, 0x7d4fb86c, 0x8d34, 0x40e1, 0x8e,0x83, 0x62,0xc1,0x52,0x04,0xe3,0x35)
+#endif
+#else
+typedef struct IUIAutomationSpreadsheetItemPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationSpreadsheetItemPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationSpreadsheetItemPattern *This);
+
+    /*** IUIAutomationSpreadsheetItemPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentFormula)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentAnnotationObjects)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentAnnotationTypes)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedFormula)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedAnnotationObjects)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedAnnotationTypes)(
+        IUIAutomationSpreadsheetItemPattern *This,
+        SAFEARRAY **retVal);
+
+    END_INTERFACE
+} IUIAutomationSpreadsheetItemPatternVtbl;
+
+interface IUIAutomationSpreadsheetItemPattern {
+    CONST_VTBL IUIAutomationSpreadsheetItemPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationSpreadsheetItemPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationSpreadsheetItemPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationSpreadsheetItemPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationSpreadsheetItemPattern methods ***/
+#define IUIAutomationSpreadsheetItemPattern_get_CurrentFormula(This,retVal) (This)->lpVtbl->get_CurrentFormula(This,retVal)
+#define IUIAutomationSpreadsheetItemPattern_GetCurrentAnnotationObjects(This,retVal) (This)->lpVtbl->GetCurrentAnnotationObjects(This,retVal)
+#define IUIAutomationSpreadsheetItemPattern_GetCurrentAnnotationTypes(This,retVal) (This)->lpVtbl->GetCurrentAnnotationTypes(This,retVal)
+#define IUIAutomationSpreadsheetItemPattern_get_CachedFormula(This,retVal) (This)->lpVtbl->get_CachedFormula(This,retVal)
+#define IUIAutomationSpreadsheetItemPattern_GetCachedAnnotationObjects(This,retVal) (This)->lpVtbl->GetCachedAnnotationObjects(This,retVal)
+#define IUIAutomationSpreadsheetItemPattern_GetCachedAnnotationTypes(This,retVal) (This)->lpVtbl->GetCachedAnnotationTypes(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_QueryInterface(IUIAutomationSpreadsheetItemPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationSpreadsheetItemPattern_AddRef(IUIAutomationSpreadsheetItemPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationSpreadsheetItemPattern_Release(IUIAutomationSpreadsheetItemPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationSpreadsheetItemPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_get_CurrentFormula(IUIAutomationSpreadsheetItemPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentFormula(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_GetCurrentAnnotationObjects(IUIAutomationSpreadsheetItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_GetCurrentAnnotationTypes(IUIAutomationSpreadsheetItemPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->GetCurrentAnnotationTypes(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_get_CachedFormula(IUIAutomationSpreadsheetItemPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedFormula(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_GetCachedAnnotationObjects(IUIAutomationSpreadsheetItemPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedAnnotationObjects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationSpreadsheetItemPattern_GetCachedAnnotationTypes(IUIAutomationSpreadsheetItemPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->GetCachedAnnotationTypes(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationSpreadsheetItemPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTransformPattern2 interface
+ */
+#ifndef __IUIAutomationTransformPattern2_INTERFACE_DEFINED__
+#define __IUIAutomationTransformPattern2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTransformPattern2, 0x6d74d017, 0x6ecb, 0x4381, 0xb3,0x8b, 0x3c,0x17,0xa4,0x8f,0xf1,0xc2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6d74d017-6ecb-4381-b38b-3c17a48ff1c2")
+IUIAutomationTransformPattern2 : public IUIAutomationTransformPattern
+{
+    virtual HRESULT STDMETHODCALLTYPE Zoom(
+        double zoomValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ZoomByUnit(
+        enum ZoomUnit zoomUnit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentCanZoom(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedCanZoom(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentZoomLevel(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedZoomLevel(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentZoomMinimum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedZoomMinimum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentZoomMaximum(
+        double *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedZoomMaximum(
+        double *retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTransformPattern2, 0x6d74d017, 0x6ecb, 0x4381, 0xb3,0x8b, 0x3c,0x17,0xa4,0x8f,0xf1,0xc2)
+#endif
+#else
+typedef struct IUIAutomationTransformPattern2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTransformPattern2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTransformPattern2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTransformPattern2 *This);
+
+    /*** IUIAutomationTransformPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *Move)(
+        IUIAutomationTransformPattern2 *This,
+        double x,
+        double y);
+
+    HRESULT (STDMETHODCALLTYPE *Resize)(
+        IUIAutomationTransformPattern2 *This,
+        double width,
+        double height);
+
+    HRESULT (STDMETHODCALLTYPE *Rotate)(
+        IUIAutomationTransformPattern2 *This,
+        double degrees);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanMove)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanResize)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanRotate)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanMove)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanResize)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanRotate)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    /*** IUIAutomationTransformPattern2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *Zoom)(
+        IUIAutomationTransformPattern2 *This,
+        double zoomValue);
+
+    HRESULT (STDMETHODCALLTYPE *ZoomByUnit)(
+        IUIAutomationTransformPattern2 *This,
+        enum ZoomUnit zoomUnit);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentCanZoom)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedCanZoom)(
+        IUIAutomationTransformPattern2 *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentZoomLevel)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedZoomLevel)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentZoomMinimum)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedZoomMinimum)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentZoomMaximum)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedZoomMaximum)(
+        IUIAutomationTransformPattern2 *This,
+        double *retVal);
+
+    END_INTERFACE
+} IUIAutomationTransformPattern2Vtbl;
+
+interface IUIAutomationTransformPattern2 {
+    CONST_VTBL IUIAutomationTransformPattern2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTransformPattern2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTransformPattern2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTransformPattern2_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTransformPattern methods ***/
+#define IUIAutomationTransformPattern2_Move(This,x,y) (This)->lpVtbl->Move(This,x,y)
+#define IUIAutomationTransformPattern2_Resize(This,width,height) (This)->lpVtbl->Resize(This,width,height)
+#define IUIAutomationTransformPattern2_Rotate(This,degrees) (This)->lpVtbl->Rotate(This,degrees)
+#define IUIAutomationTransformPattern2_get_CurrentCanMove(This,retVal) (This)->lpVtbl->get_CurrentCanMove(This,retVal)
+#define IUIAutomationTransformPattern2_get_CurrentCanResize(This,retVal) (This)->lpVtbl->get_CurrentCanResize(This,retVal)
+#define IUIAutomationTransformPattern2_get_CurrentCanRotate(This,retVal) (This)->lpVtbl->get_CurrentCanRotate(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedCanMove(This,retVal) (This)->lpVtbl->get_CachedCanMove(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedCanResize(This,retVal) (This)->lpVtbl->get_CachedCanResize(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedCanRotate(This,retVal) (This)->lpVtbl->get_CachedCanRotate(This,retVal)
+/*** IUIAutomationTransformPattern2 methods ***/
+#define IUIAutomationTransformPattern2_Zoom(This,zoomValue) (This)->lpVtbl->Zoom(This,zoomValue)
+#define IUIAutomationTransformPattern2_ZoomByUnit(This,zoomUnit) (This)->lpVtbl->ZoomByUnit(This,zoomUnit)
+#define IUIAutomationTransformPattern2_get_CurrentCanZoom(This,retVal) (This)->lpVtbl->get_CurrentCanZoom(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedCanZoom(This,retVal) (This)->lpVtbl->get_CachedCanZoom(This,retVal)
+#define IUIAutomationTransformPattern2_get_CurrentZoomLevel(This,retVal) (This)->lpVtbl->get_CurrentZoomLevel(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedZoomLevel(This,retVal) (This)->lpVtbl->get_CachedZoomLevel(This,retVal)
+#define IUIAutomationTransformPattern2_get_CurrentZoomMinimum(This,retVal) (This)->lpVtbl->get_CurrentZoomMinimum(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedZoomMinimum(This,retVal) (This)->lpVtbl->get_CachedZoomMinimum(This,retVal)
+#define IUIAutomationTransformPattern2_get_CurrentZoomMaximum(This,retVal) (This)->lpVtbl->get_CurrentZoomMaximum(This,retVal)
+#define IUIAutomationTransformPattern2_get_CachedZoomMaximum(This,retVal) (This)->lpVtbl->get_CachedZoomMaximum(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_QueryInterface(IUIAutomationTransformPattern2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTransformPattern2_AddRef(IUIAutomationTransformPattern2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTransformPattern2_Release(IUIAutomationTransformPattern2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTransformPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_Move(IUIAutomationTransformPattern2* This,double x,double y) {
+    return This->lpVtbl->Move(This,x,y);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_Resize(IUIAutomationTransformPattern2* This,double width,double height) {
+    return This->lpVtbl->Resize(This,width,height);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_Rotate(IUIAutomationTransformPattern2* This,double degrees) {
+    return This->lpVtbl->Rotate(This,degrees);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentCanMove(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanMove(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentCanResize(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanResize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentCanRotate(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanRotate(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedCanMove(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanMove(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedCanResize(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanResize(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedCanRotate(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanRotate(This,retVal);
+}
+/*** IUIAutomationTransformPattern2 methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_Zoom(IUIAutomationTransformPattern2* This,double zoomValue) {
+    return This->lpVtbl->Zoom(This,zoomValue);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_ZoomByUnit(IUIAutomationTransformPattern2* This,enum ZoomUnit zoomUnit) {
+    return This->lpVtbl->ZoomByUnit(This,zoomUnit);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentCanZoom(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentCanZoom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedCanZoom(IUIAutomationTransformPattern2* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedCanZoom(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentZoomLevel(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CurrentZoomLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedZoomLevel(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CachedZoomLevel(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentZoomMinimum(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CurrentZoomMinimum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedZoomMinimum(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CachedZoomMinimum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CurrentZoomMaximum(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CurrentZoomMaximum(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTransformPattern2_get_CachedZoomMaximum(IUIAutomationTransformPattern2* This,double *retVal) {
+    return This->lpVtbl->get_CachedZoomMaximum(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTransformPattern2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationTextChildPattern interface
+ */
+#ifndef __IUIAutomationTextChildPattern_INTERFACE_DEFINED__
+#define __IUIAutomationTextChildPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationTextChildPattern, 0x6552b038, 0xae05, 0x40c8, 0xab,0xfd, 0xaa,0x08,0x35,0x2a,0xab,0x86);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6552b038-ae05-40c8-abfd-aa08352aab86")
+IUIAutomationTextChildPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_TextContainer(
+        IUIAutomationElement **container) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_TextRange(
+        IUIAutomationTextRange **range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationTextChildPattern, 0x6552b038, 0xae05, 0x40c8, 0xab,0xfd, 0xaa,0x08,0x35,0x2a,0xab,0x86)
+#endif
+#else
+typedef struct IUIAutomationTextChildPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationTextChildPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationTextChildPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationTextChildPattern *This);
+
+    /*** IUIAutomationTextChildPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_TextContainer)(
+        IUIAutomationTextChildPattern *This,
+        IUIAutomationElement **container);
+
+    HRESULT (STDMETHODCALLTYPE *get_TextRange)(
+        IUIAutomationTextChildPattern *This,
+        IUIAutomationTextRange **range);
+
+    END_INTERFACE
+} IUIAutomationTextChildPatternVtbl;
+
+interface IUIAutomationTextChildPattern {
+    CONST_VTBL IUIAutomationTextChildPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationTextChildPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationTextChildPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationTextChildPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationTextChildPattern methods ***/
+#define IUIAutomationTextChildPattern_get_TextContainer(This,container) (This)->lpVtbl->get_TextContainer(This,container)
+#define IUIAutomationTextChildPattern_get_TextRange(This,range) (This)->lpVtbl->get_TextRange(This,range)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextChildPattern_QueryInterface(IUIAutomationTextChildPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextChildPattern_AddRef(IUIAutomationTextChildPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationTextChildPattern_Release(IUIAutomationTextChildPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationTextChildPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationTextChildPattern_get_TextContainer(IUIAutomationTextChildPattern* This,IUIAutomationElement **container) {
+    return This->lpVtbl->get_TextContainer(This,container);
+}
+static __WIDL_INLINE HRESULT IUIAutomationTextChildPattern_get_TextRange(IUIAutomationTextChildPattern* This,IUIAutomationTextRange **range) {
+    return This->lpVtbl->get_TextRange(This,range);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationTextChildPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationDragPattern interface
+ */
+#ifndef __IUIAutomationDragPattern_INTERFACE_DEFINED__
+#define __IUIAutomationDragPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationDragPattern, 0x1dc7b570, 0x1f54, 0x4bad, 0xbc,0xda, 0xd3,0x6a,0x72,0x2f,0xb7,0xbd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1dc7b570-1f54-4bad-bcda-d36a722fb7bd")
+IUIAutomationDragPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentIsGrabbed(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedIsGrabbed(
+        WINBOOL *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDropEffect(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDropEffect(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDropEffects(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDropEffects(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentGrabbedItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCachedGrabbedItems(
+        IUIAutomationElementArray **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationDragPattern, 0x1dc7b570, 0x1f54, 0x4bad, 0xbc,0xda, 0xd3,0x6a,0x72,0x2f,0xb7,0xbd)
+#endif
+#else
+typedef struct IUIAutomationDragPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationDragPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationDragPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationDragPattern *This);
+
+    /*** IUIAutomationDragPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentIsGrabbed)(
+        IUIAutomationDragPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedIsGrabbed)(
+        IUIAutomationDragPattern *This,
+        WINBOOL *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDropEffect)(
+        IUIAutomationDragPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDropEffect)(
+        IUIAutomationDragPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDropEffects)(
+        IUIAutomationDragPattern *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDropEffects)(
+        IUIAutomationDragPattern *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentGrabbedItems)(
+        IUIAutomationDragPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *GetCachedGrabbedItems)(
+        IUIAutomationDragPattern *This,
+        IUIAutomationElementArray **retVal);
+
+    END_INTERFACE
+} IUIAutomationDragPatternVtbl;
+
+interface IUIAutomationDragPattern {
+    CONST_VTBL IUIAutomationDragPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationDragPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationDragPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationDragPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationDragPattern methods ***/
+#define IUIAutomationDragPattern_get_CurrentIsGrabbed(This,retVal) (This)->lpVtbl->get_CurrentIsGrabbed(This,retVal)
+#define IUIAutomationDragPattern_get_CachedIsGrabbed(This,retVal) (This)->lpVtbl->get_CachedIsGrabbed(This,retVal)
+#define IUIAutomationDragPattern_get_CurrentDropEffect(This,retVal) (This)->lpVtbl->get_CurrentDropEffect(This,retVal)
+#define IUIAutomationDragPattern_get_CachedDropEffect(This,retVal) (This)->lpVtbl->get_CachedDropEffect(This,retVal)
+#define IUIAutomationDragPattern_get_CurrentDropEffects(This,retVal) (This)->lpVtbl->get_CurrentDropEffects(This,retVal)
+#define IUIAutomationDragPattern_get_CachedDropEffects(This,retVal) (This)->lpVtbl->get_CachedDropEffects(This,retVal)
+#define IUIAutomationDragPattern_GetCurrentGrabbedItems(This,retVal) (This)->lpVtbl->GetCurrentGrabbedItems(This,retVal)
+#define IUIAutomationDragPattern_GetCachedGrabbedItems(This,retVal) (This)->lpVtbl->GetCachedGrabbedItems(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_QueryInterface(IUIAutomationDragPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationDragPattern_AddRef(IUIAutomationDragPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationDragPattern_Release(IUIAutomationDragPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationDragPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CurrentIsGrabbed(IUIAutomationDragPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CurrentIsGrabbed(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CachedIsGrabbed(IUIAutomationDragPattern* This,WINBOOL *retVal) {
+    return This->lpVtbl->get_CachedIsGrabbed(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CurrentDropEffect(IUIAutomationDragPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentDropEffect(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CachedDropEffect(IUIAutomationDragPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedDropEffect(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CurrentDropEffects(IUIAutomationDragPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentDropEffects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_get_CachedDropEffects(IUIAutomationDragPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedDropEffects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_GetCurrentGrabbedItems(IUIAutomationDragPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCurrentGrabbedItems(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDragPattern_GetCachedGrabbedItems(IUIAutomationDragPattern* This,IUIAutomationElementArray **retVal) {
+    return This->lpVtbl->GetCachedGrabbedItems(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationDragPattern_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationDropTargetPattern interface
+ */
+#ifndef __IUIAutomationDropTargetPattern_INTERFACE_DEFINED__
+#define __IUIAutomationDropTargetPattern_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationDropTargetPattern, 0x69a095f7, 0xeee4, 0x430e, 0xa4,0x6b, 0xfb,0x73,0xb1,0xae,0x39,0xa5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("69a095f7-eee4-430e-a46b-fb73b1ae39a5")
+IUIAutomationDropTargetPattern : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDropTargetEffect(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDropTargetEffect(
+        BSTR *retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentDropTargetEffects(
+        SAFEARRAY **retVal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CachedDropTargetEffects(
+        SAFEARRAY **retVal) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationDropTargetPattern, 0x69a095f7, 0xeee4, 0x430e, 0xa4,0x6b, 0xfb,0x73,0xb1,0xae,0x39,0xa5)
+#endif
+#else
+typedef struct IUIAutomationDropTargetPatternVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationDropTargetPattern *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationDropTargetPattern *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationDropTargetPattern *This);
+
+    /*** IUIAutomationDropTargetPattern methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDropTargetEffect)(
+        IUIAutomationDropTargetPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDropTargetEffect)(
+        IUIAutomationDropTargetPattern *This,
+        BSTR *retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentDropTargetEffects)(
+        IUIAutomationDropTargetPattern *This,
+        SAFEARRAY **retVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CachedDropTargetEffects)(
+        IUIAutomationDropTargetPattern *This,
+        SAFEARRAY **retVal);
+
+    END_INTERFACE
+} IUIAutomationDropTargetPatternVtbl;
+
+interface IUIAutomationDropTargetPattern {
+    CONST_VTBL IUIAutomationDropTargetPatternVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationDropTargetPattern_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationDropTargetPattern_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationDropTargetPattern_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationDropTargetPattern methods ***/
+#define IUIAutomationDropTargetPattern_get_CurrentDropTargetEffect(This,retVal) (This)->lpVtbl->get_CurrentDropTargetEffect(This,retVal)
+#define IUIAutomationDropTargetPattern_get_CachedDropTargetEffect(This,retVal) (This)->lpVtbl->get_CachedDropTargetEffect(This,retVal)
+#define IUIAutomationDropTargetPattern_get_CurrentDropTargetEffects(This,retVal) (This)->lpVtbl->get_CurrentDropTargetEffects(This,retVal)
+#define IUIAutomationDropTargetPattern_get_CachedDropTargetEffects(This,retVal) (This)->lpVtbl->get_CachedDropTargetEffects(This,retVal)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDropTargetPattern_QueryInterface(IUIAutomationDropTargetPattern* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationDropTargetPattern_AddRef(IUIAutomationDropTargetPattern* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationDropTargetPattern_Release(IUIAutomationDropTargetPattern* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationDropTargetPattern methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationDropTargetPattern_get_CurrentDropTargetEffect(IUIAutomationDropTargetPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CurrentDropTargetEffect(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDropTargetPattern_get_CachedDropTargetEffect(IUIAutomationDropTargetPattern* This,BSTR *retVal) {
+    return This->lpVtbl->get_CachedDropTargetEffect(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDropTargetPattern_get_CurrentDropTargetEffects(IUIAutomationDropTargetPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CurrentDropTargetEffects(This,retVal);
+}
+static __WIDL_INLINE HRESULT IUIAutomationDropTargetPattern_get_CachedDropTargetEffects(IUIAutomationDropTargetPattern* This,SAFEARRAY **retVal) {
+    return This->lpVtbl->get_CachedDropTargetEffects(This,retVal);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationDropTargetPattern_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IUIAutomationElement interface
@@ -12099,29 +16989,485 @@ static __WIDL_INLINE HRESULT IUIAutomationElementArray_GetElement(IUIAutomationE
 
 #endif  /* __IUIAutomationElementArray_INTERFACE_DEFINED__ */
 
-#ifndef __IUIAutomationProxyFactory_FWD_DEFINED__
-#define __IUIAutomationProxyFactory_FWD_DEFINED__
-typedef interface IUIAutomationProxyFactory IUIAutomationProxyFactory;
-#ifdef __cplusplus
-interface IUIAutomationProxyFactory;
-#endif /* __cplusplus */
+/*****************************************************************************
+ * IUIAutomationProxyFactory interface
+ */
+#ifndef __IUIAutomationProxyFactory_INTERFACE_DEFINED__
+#define __IUIAutomationProxyFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationProxyFactory, 0x85b94ecd, 0x849d, 0x42b6, 0xb9,0x4d, 0xd6,0xdb,0x23,0xfd,0xf5,0xa4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("85b94ecd-849d-42b6-b94d-d6db23fdf5a4")
+IUIAutomationProxyFactory : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateProvider(
+        UIA_HWND hwnd,
+        LONG idObject,
+        LONG idChild,
+        IRawElementProviderSimple **provider) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ProxyFactoryId(
+        BSTR *factoryId) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationProxyFactory, 0x85b94ecd, 0x849d, 0x42b6, 0xb9,0x4d, 0xd6,0xdb,0x23,0xfd,0xf5,0xa4)
+#endif
+#else
+typedef struct IUIAutomationProxyFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationProxyFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationProxyFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationProxyFactory *This);
+
+    /*** IUIAutomationProxyFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateProvider)(
+        IUIAutomationProxyFactory *This,
+        UIA_HWND hwnd,
+        LONG idObject,
+        LONG idChild,
+        IRawElementProviderSimple **provider);
+
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactoryId)(
+        IUIAutomationProxyFactory *This,
+        BSTR *factoryId);
+
+    END_INTERFACE
+} IUIAutomationProxyFactoryVtbl;
+
+interface IUIAutomationProxyFactory {
+    CONST_VTBL IUIAutomationProxyFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationProxyFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationProxyFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationProxyFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationProxyFactory methods ***/
+#define IUIAutomationProxyFactory_CreateProvider(This,hwnd,idObject,idChild,provider) (This)->lpVtbl->CreateProvider(This,hwnd,idObject,idChild,provider)
+#define IUIAutomationProxyFactory_get_ProxyFactoryId(This,factoryId) (This)->lpVtbl->get_ProxyFactoryId(This,factoryId)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactory_QueryInterface(IUIAutomationProxyFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactory_AddRef(IUIAutomationProxyFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactory_Release(IUIAutomationProxyFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationProxyFactory methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactory_CreateProvider(IUIAutomationProxyFactory* This,UIA_HWND hwnd,LONG idObject,LONG idChild,IRawElementProviderSimple **provider) {
+    return This->lpVtbl->CreateProvider(This,hwnd,idObject,idChild,provider);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactory_get_ProxyFactoryId(IUIAutomationProxyFactory* This,BSTR *factoryId) {
+    return This->lpVtbl->get_ProxyFactoryId(This,factoryId);
+}
+#endif
 #endif
 
-#ifndef __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
-#define __IUIAutomationProxyFactoryEntry_FWD_DEFINED__
-typedef interface IUIAutomationProxyFactoryEntry IUIAutomationProxyFactoryEntry;
-#ifdef __cplusplus
-interface IUIAutomationProxyFactoryEntry;
-#endif /* __cplusplus */
 #endif
 
-#ifndef __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
-#define __IUIAutomationProxyFactoryMapping_FWD_DEFINED__
-typedef interface IUIAutomationProxyFactoryMapping IUIAutomationProxyFactoryMapping;
-#ifdef __cplusplus
-interface IUIAutomationProxyFactoryMapping;
-#endif /* __cplusplus */
+
+#endif  /* __IUIAutomationProxyFactory_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationProxyFactoryEntry interface
+ */
+#ifndef __IUIAutomationProxyFactoryEntry_INTERFACE_DEFINED__
+#define __IUIAutomationProxyFactoryEntry_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationProxyFactoryEntry, 0xd50e472e, 0xb64b, 0x490c, 0xbc,0xa1, 0xd3,0x06,0x96,0xf9,0xf2,0x89);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d50e472e-b64b-490c-bca1-d30696f9f289")
+IUIAutomationProxyFactoryEntry : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_ProxyFactory(
+        IUIAutomationProxyFactory **factory) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ClassName(
+        BSTR *className) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ImageName(
+        BSTR *imageName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_AllowSubstringMatch(
+        WINBOOL *allowSubstringMatch) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CanCheckBaseClass(
+        WINBOOL *canCheckBaseClass) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_NeedsAdviseEvents(
+        WINBOOL *adviseEvents) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ClassName(
+        LPCWSTR className) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ImageName(
+        LPCWSTR imageName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_AllowSubstringMatch(
+        WINBOOL allowSubstringMatch) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_CanCheckBaseClass(
+        WINBOOL canCheckBaseClass) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_NeedsAdviseEvents(
+        WINBOOL adviseEvents) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetWinEventsForAutomationEvent(
+        EVENTID eventId,
+        PROPERTYID propertyId,
+        SAFEARRAY *winEvents) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetWinEventsForAutomationEvent(
+        EVENTID eventId,
+        PROPERTYID propertyId,
+        SAFEARRAY **winEvents) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationProxyFactoryEntry, 0xd50e472e, 0xb64b, 0x490c, 0xbc,0xa1, 0xd3,0x06,0x96,0xf9,0xf2,0x89)
 #endif
+#else
+typedef struct IUIAutomationProxyFactoryEntryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationProxyFactoryEntry *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationProxyFactoryEntry *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationProxyFactoryEntry *This);
+
+    /*** IUIAutomationProxyFactoryEntry methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_ProxyFactory)(
+        IUIAutomationProxyFactoryEntry *This,
+        IUIAutomationProxyFactory **factory);
+
+    HRESULT (STDMETHODCALLTYPE *get_ClassName)(
+        IUIAutomationProxyFactoryEntry *This,
+        BSTR *className);
+
+    HRESULT (STDMETHODCALLTYPE *get_ImageName)(
+        IUIAutomationProxyFactoryEntry *This,
+        BSTR *imageName);
+
+    HRESULT (STDMETHODCALLTYPE *get_AllowSubstringMatch)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL *allowSubstringMatch);
+
+    HRESULT (STDMETHODCALLTYPE *get_CanCheckBaseClass)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL *canCheckBaseClass);
+
+    HRESULT (STDMETHODCALLTYPE *get_NeedsAdviseEvents)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL *adviseEvents);
+
+    HRESULT (STDMETHODCALLTYPE *put_ClassName)(
+        IUIAutomationProxyFactoryEntry *This,
+        LPCWSTR className);
+
+    HRESULT (STDMETHODCALLTYPE *put_ImageName)(
+        IUIAutomationProxyFactoryEntry *This,
+        LPCWSTR imageName);
+
+    HRESULT (STDMETHODCALLTYPE *put_AllowSubstringMatch)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL allowSubstringMatch);
+
+    HRESULT (STDMETHODCALLTYPE *put_CanCheckBaseClass)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL canCheckBaseClass);
+
+    HRESULT (STDMETHODCALLTYPE *put_NeedsAdviseEvents)(
+        IUIAutomationProxyFactoryEntry *This,
+        WINBOOL adviseEvents);
+
+    HRESULT (STDMETHODCALLTYPE *SetWinEventsForAutomationEvent)(
+        IUIAutomationProxyFactoryEntry *This,
+        EVENTID eventId,
+        PROPERTYID propertyId,
+        SAFEARRAY *winEvents);
+
+    HRESULT (STDMETHODCALLTYPE *GetWinEventsForAutomationEvent)(
+        IUIAutomationProxyFactoryEntry *This,
+        EVENTID eventId,
+        PROPERTYID propertyId,
+        SAFEARRAY **winEvents);
+
+    END_INTERFACE
+} IUIAutomationProxyFactoryEntryVtbl;
+
+interface IUIAutomationProxyFactoryEntry {
+    CONST_VTBL IUIAutomationProxyFactoryEntryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationProxyFactoryEntry_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationProxyFactoryEntry_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationProxyFactoryEntry_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationProxyFactoryEntry methods ***/
+#define IUIAutomationProxyFactoryEntry_get_ProxyFactory(This,factory) (This)->lpVtbl->get_ProxyFactory(This,factory)
+#define IUIAutomationProxyFactoryEntry_get_ClassName(This,className) (This)->lpVtbl->get_ClassName(This,className)
+#define IUIAutomationProxyFactoryEntry_get_ImageName(This,imageName) (This)->lpVtbl->get_ImageName(This,imageName)
+#define IUIAutomationProxyFactoryEntry_get_AllowSubstringMatch(This,allowSubstringMatch) (This)->lpVtbl->get_AllowSubstringMatch(This,allowSubstringMatch)
+#define IUIAutomationProxyFactoryEntry_get_CanCheckBaseClass(This,canCheckBaseClass) (This)->lpVtbl->get_CanCheckBaseClass(This,canCheckBaseClass)
+#define IUIAutomationProxyFactoryEntry_get_NeedsAdviseEvents(This,adviseEvents) (This)->lpVtbl->get_NeedsAdviseEvents(This,adviseEvents)
+#define IUIAutomationProxyFactoryEntry_put_ClassName(This,className) (This)->lpVtbl->put_ClassName(This,className)
+#define IUIAutomationProxyFactoryEntry_put_ImageName(This,imageName) (This)->lpVtbl->put_ImageName(This,imageName)
+#define IUIAutomationProxyFactoryEntry_put_AllowSubstringMatch(This,allowSubstringMatch) (This)->lpVtbl->put_AllowSubstringMatch(This,allowSubstringMatch)
+#define IUIAutomationProxyFactoryEntry_put_CanCheckBaseClass(This,canCheckBaseClass) (This)->lpVtbl->put_CanCheckBaseClass(This,canCheckBaseClass)
+#define IUIAutomationProxyFactoryEntry_put_NeedsAdviseEvents(This,adviseEvents) (This)->lpVtbl->put_NeedsAdviseEvents(This,adviseEvents)
+#define IUIAutomationProxyFactoryEntry_SetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents) (This)->lpVtbl->SetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents)
+#define IUIAutomationProxyFactoryEntry_GetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents) (This)->lpVtbl->GetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_QueryInterface(IUIAutomationProxyFactoryEntry* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactoryEntry_AddRef(IUIAutomationProxyFactoryEntry* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactoryEntry_Release(IUIAutomationProxyFactoryEntry* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationProxyFactoryEntry methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_ProxyFactory(IUIAutomationProxyFactoryEntry* This,IUIAutomationProxyFactory **factory) {
+    return This->lpVtbl->get_ProxyFactory(This,factory);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_ClassName(IUIAutomationProxyFactoryEntry* This,BSTR *className) {
+    return This->lpVtbl->get_ClassName(This,className);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_ImageName(IUIAutomationProxyFactoryEntry* This,BSTR *imageName) {
+    return This->lpVtbl->get_ImageName(This,imageName);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_AllowSubstringMatch(IUIAutomationProxyFactoryEntry* This,WINBOOL *allowSubstringMatch) {
+    return This->lpVtbl->get_AllowSubstringMatch(This,allowSubstringMatch);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_CanCheckBaseClass(IUIAutomationProxyFactoryEntry* This,WINBOOL *canCheckBaseClass) {
+    return This->lpVtbl->get_CanCheckBaseClass(This,canCheckBaseClass);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_get_NeedsAdviseEvents(IUIAutomationProxyFactoryEntry* This,WINBOOL *adviseEvents) {
+    return This->lpVtbl->get_NeedsAdviseEvents(This,adviseEvents);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_put_ClassName(IUIAutomationProxyFactoryEntry* This,LPCWSTR className) {
+    return This->lpVtbl->put_ClassName(This,className);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_put_ImageName(IUIAutomationProxyFactoryEntry* This,LPCWSTR imageName) {
+    return This->lpVtbl->put_ImageName(This,imageName);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_put_AllowSubstringMatch(IUIAutomationProxyFactoryEntry* This,WINBOOL allowSubstringMatch) {
+    return This->lpVtbl->put_AllowSubstringMatch(This,allowSubstringMatch);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_put_CanCheckBaseClass(IUIAutomationProxyFactoryEntry* This,WINBOOL canCheckBaseClass) {
+    return This->lpVtbl->put_CanCheckBaseClass(This,canCheckBaseClass);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_put_NeedsAdviseEvents(IUIAutomationProxyFactoryEntry* This,WINBOOL adviseEvents) {
+    return This->lpVtbl->put_NeedsAdviseEvents(This,adviseEvents);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_SetWinEventsForAutomationEvent(IUIAutomationProxyFactoryEntry* This,EVENTID eventId,PROPERTYID propertyId,SAFEARRAY *winEvents) {
+    return This->lpVtbl->SetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryEntry_GetWinEventsForAutomationEvent(IUIAutomationProxyFactoryEntry* This,EVENTID eventId,PROPERTYID propertyId,SAFEARRAY **winEvents) {
+    return This->lpVtbl->GetWinEventsForAutomationEvent(This,eventId,propertyId,winEvents);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationProxyFactoryEntry_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IUIAutomationProxyFactoryMapping interface
+ */
+#ifndef __IUIAutomationProxyFactoryMapping_INTERFACE_DEFINED__
+#define __IUIAutomationProxyFactoryMapping_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IUIAutomationProxyFactoryMapping, 0x09e31e18, 0x872d, 0x4873, 0x93,0xd1, 0x1e,0x54,0x1e,0xc1,0x33,0xfd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("09e31e18-872d-4873-93d1-1e541ec133fd")
+IUIAutomationProxyFactoryMapping : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Count(
+        UINT *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTable(
+        SAFEARRAY **table) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEntry(
+        UINT index,
+        IUIAutomationProxyFactoryEntry **entry) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTable(
+        SAFEARRAY *factoryList) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE InsertEntries(
+        UINT before,
+        SAFEARRAY *factoryList) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE InsertEntry(
+        UINT before,
+        IUIAutomationProxyFactoryEntry *factory) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveEntry(
+        UINT index) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearTable(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RestoreDefaultTable(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUIAutomationProxyFactoryMapping, 0x09e31e18, 0x872d, 0x4873, 0x93,0xd1, 0x1e,0x54,0x1e,0xc1,0x33,0xfd)
+#endif
+#else
+typedef struct IUIAutomationProxyFactoryMappingVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUIAutomationProxyFactoryMapping *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUIAutomationProxyFactoryMapping *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUIAutomationProxyFactoryMapping *This);
+
+    /*** IUIAutomationProxyFactoryMapping methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Count)(
+        IUIAutomationProxyFactoryMapping *This,
+        UINT *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetTable)(
+        IUIAutomationProxyFactoryMapping *This,
+        SAFEARRAY **table);
+
+    HRESULT (STDMETHODCALLTYPE *GetEntry)(
+        IUIAutomationProxyFactoryMapping *This,
+        UINT index,
+        IUIAutomationProxyFactoryEntry **entry);
+
+    HRESULT (STDMETHODCALLTYPE *SetTable)(
+        IUIAutomationProxyFactoryMapping *This,
+        SAFEARRAY *factoryList);
+
+    HRESULT (STDMETHODCALLTYPE *InsertEntries)(
+        IUIAutomationProxyFactoryMapping *This,
+        UINT before,
+        SAFEARRAY *factoryList);
+
+    HRESULT (STDMETHODCALLTYPE *InsertEntry)(
+        IUIAutomationProxyFactoryMapping *This,
+        UINT before,
+        IUIAutomationProxyFactoryEntry *factory);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveEntry)(
+        IUIAutomationProxyFactoryMapping *This,
+        UINT index);
+
+    HRESULT (STDMETHODCALLTYPE *ClearTable)(
+        IUIAutomationProxyFactoryMapping *This);
+
+    HRESULT (STDMETHODCALLTYPE *RestoreDefaultTable)(
+        IUIAutomationProxyFactoryMapping *This);
+
+    END_INTERFACE
+} IUIAutomationProxyFactoryMappingVtbl;
+
+interface IUIAutomationProxyFactoryMapping {
+    CONST_VTBL IUIAutomationProxyFactoryMappingVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IUIAutomationProxyFactoryMapping_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IUIAutomationProxyFactoryMapping_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IUIAutomationProxyFactoryMapping_Release(This) (This)->lpVtbl->Release(This)
+/*** IUIAutomationProxyFactoryMapping methods ***/
+#define IUIAutomationProxyFactoryMapping_get_Count(This,count) (This)->lpVtbl->get_Count(This,count)
+#define IUIAutomationProxyFactoryMapping_GetTable(This,table) (This)->lpVtbl->GetTable(This,table)
+#define IUIAutomationProxyFactoryMapping_GetEntry(This,index,entry) (This)->lpVtbl->GetEntry(This,index,entry)
+#define IUIAutomationProxyFactoryMapping_SetTable(This,factoryList) (This)->lpVtbl->SetTable(This,factoryList)
+#define IUIAutomationProxyFactoryMapping_InsertEntries(This,before,factoryList) (This)->lpVtbl->InsertEntries(This,before,factoryList)
+#define IUIAutomationProxyFactoryMapping_InsertEntry(This,before,factory) (This)->lpVtbl->InsertEntry(This,before,factory)
+#define IUIAutomationProxyFactoryMapping_RemoveEntry(This,index) (This)->lpVtbl->RemoveEntry(This,index)
+#define IUIAutomationProxyFactoryMapping_ClearTable(This) (This)->lpVtbl->ClearTable(This)
+#define IUIAutomationProxyFactoryMapping_RestoreDefaultTable(This) (This)->lpVtbl->RestoreDefaultTable(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_QueryInterface(IUIAutomationProxyFactoryMapping* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactoryMapping_AddRef(IUIAutomationProxyFactoryMapping* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IUIAutomationProxyFactoryMapping_Release(IUIAutomationProxyFactoryMapping* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUIAutomationProxyFactoryMapping methods ***/
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_get_Count(IUIAutomationProxyFactoryMapping* This,UINT *count) {
+    return This->lpVtbl->get_Count(This,count);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_GetTable(IUIAutomationProxyFactoryMapping* This,SAFEARRAY **table) {
+    return This->lpVtbl->GetTable(This,table);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_GetEntry(IUIAutomationProxyFactoryMapping* This,UINT index,IUIAutomationProxyFactoryEntry **entry) {
+    return This->lpVtbl->GetEntry(This,index,entry);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_SetTable(IUIAutomationProxyFactoryMapping* This,SAFEARRAY *factoryList) {
+    return This->lpVtbl->SetTable(This,factoryList);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_InsertEntries(IUIAutomationProxyFactoryMapping* This,UINT before,SAFEARRAY *factoryList) {
+    return This->lpVtbl->InsertEntries(This,before,factoryList);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_InsertEntry(IUIAutomationProxyFactoryMapping* This,UINT before,IUIAutomationProxyFactoryEntry *factory) {
+    return This->lpVtbl->InsertEntry(This,before,factory);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_RemoveEntry(IUIAutomationProxyFactoryMapping* This,UINT index) {
+    return This->lpVtbl->RemoveEntry(This,index);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_ClearTable(IUIAutomationProxyFactoryMapping* This) {
+    return This->lpVtbl->ClearTable(This);
+}
+static __WIDL_INLINE HRESULT IUIAutomationProxyFactoryMapping_RestoreDefaultTable(IUIAutomationProxyFactoryMapping* This) {
+    return This->lpVtbl->RestoreDefaultTable(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IUIAutomationProxyFactoryMapping_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IUIAutomationEventHandlerGroup interface

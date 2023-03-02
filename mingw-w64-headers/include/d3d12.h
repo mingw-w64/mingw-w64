@@ -194,6 +194,30 @@ interface ID3D12VersionedRootSignatureDeserializer;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ID3D12Tools_FWD_DEFINED__
+#define __ID3D12Tools_FWD_DEFINED__
+typedef interface ID3D12Tools ID3D12Tools;
+#ifdef __cplusplus
+interface ID3D12Tools;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ID3D12DeviceRemovedExtendedDataSettings_FWD_DEFINED__
+#define __ID3D12DeviceRemovedExtendedDataSettings_FWD_DEFINED__
+typedef interface ID3D12DeviceRemovedExtendedDataSettings ID3D12DeviceRemovedExtendedDataSettings;
+#ifdef __cplusplus
+interface ID3D12DeviceRemovedExtendedDataSettings;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ID3D12SDKConfiguration_FWD_DEFINED__
+#define __ID3D12SDKConfiguration_FWD_DEFINED__
+typedef interface ID3D12SDKConfiguration ID3D12SDKConfiguration;
+#ifdef __cplusplus
+interface ID3D12SDKConfiguration;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -279,6 +303,8 @@ extern "C" {
 #define D3D12_DEFAULT_RESOURCE_PLACEMENT_ALIGNMENT (65536)
 
 #define D3D12_RAW_UAV_SRV_BYTE_ALIGNMENT (16)
+
+#define D3D12_SDK_VERSION (4)
 
 #define D3D12_SMALL_MSAA_RESOURCE_PLACEMENT_ALIGNMENT (65536)
 
@@ -7789,6 +7815,283 @@ typedef HRESULT (__stdcall *PFN_D3D12_GET_DEBUG_INTERFACE)(REFIID iid,void **deb
 HRESULT __stdcall  D3D12GetDebugInterface(REFIID iid,void **debug);
 
 HRESULT __stdcall  D3D12EnableExperimentalFeatures(UINT feature_count,const IID *iids,void *configurations,UINT *configurations_sizes);
+
+DEFINE_GUID(CLSID_D3D12Debug,                     0xf2352aeb, 0xdd84, 0x49fe, 0xb9, 0x7b, 0xa9, 0xdc, 0xfd, 0xcc, 0x1b, 0x4f);
+DEFINE_GUID(CLSID_D3D12Tools,                     0xe38216b1, 0x3c8c, 0x4833, 0xaa, 0x09, 0x0a, 0x06, 0xb6, 0x5d, 0x96, 0xc8);
+DEFINE_GUID(CLSID_D3D12DeviceRemovedExtendedData, 0x4a75bbc4, 0x9ff4, 0x4ad8, 0x9f, 0x18, 0xab, 0xae, 0x84, 0xdc, 0x5f, 0xf2);
+DEFINE_GUID(CLSID_D3D12SDKConfiguration,          0x7cda6aca, 0xa03e, 0x49c8, 0x94, 0x58, 0x03, 0x34, 0xd2, 0x0e, 0x07, 0xce);
+typedef enum D3D12_DRED_ENABLEMENT {
+    D3D12_DRED_ENABLEMENT_SYSTEM_CONTROLLED = 0,
+    D3D12_DRED_ENABLEMENT_FORCED_OFF = 1,
+    D3D12_DRED_ENABLEMENT_FORCED_ON = 2
+} D3D12_DRED_ENABLEMENT;
+typedef HRESULT (__stdcall *PFN_D3D12_GET_INTERFACE)(REFCLSID clsid,REFIID iid,void **debug);
+HRESULT __stdcall  D3D12GetInterface(REFCLSID clsid,REFIID iid,void **debug);
+
+/*****************************************************************************
+ * ID3D12Tools interface
+ */
+#ifndef __ID3D12Tools_INTERFACE_DEFINED__
+#define __ID3D12Tools_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12Tools, 0x7071e1f0, 0xe84b, 0x4b33, 0x97,0x4f, 0x12,0xfa,0x49,0xde,0x65,0xc5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("7071e1f0-e84b-4b33-974f-12fa49de65c5")
+ID3D12Tools : public IUnknown
+{
+    virtual void STDMETHODCALLTYPE EnableShaderInstrumentation(
+        WINBOOL enable) = 0;
+
+    virtual WINBOOL STDMETHODCALLTYPE ShaderInstrumentationEnabled(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12Tools, 0x7071e1f0, 0xe84b, 0x4b33, 0x97,0x4f, 0x12,0xfa,0x49,0xde,0x65,0xc5)
+#endif
+#else
+typedef struct ID3D12ToolsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12Tools *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12Tools *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12Tools *This);
+
+    /*** ID3D12Tools methods ***/
+    void (STDMETHODCALLTYPE *EnableShaderInstrumentation)(
+        ID3D12Tools *This,
+        WINBOOL enable);
+
+    WINBOOL (STDMETHODCALLTYPE *ShaderInstrumentationEnabled)(
+        ID3D12Tools *This);
+
+    END_INTERFACE
+} ID3D12ToolsVtbl;
+
+interface ID3D12Tools {
+    CONST_VTBL ID3D12ToolsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12Tools_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12Tools_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12Tools_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12Tools methods ***/
+#define ID3D12Tools_EnableShaderInstrumentation(This,enable) (This)->lpVtbl->EnableShaderInstrumentation(This,enable)
+#define ID3D12Tools_ShaderInstrumentationEnabled(This) (This)->lpVtbl->ShaderInstrumentationEnabled(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12Tools_QueryInterface(ID3D12Tools* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12Tools_AddRef(ID3D12Tools* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12Tools_Release(ID3D12Tools* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12Tools methods ***/
+static __WIDL_INLINE void ID3D12Tools_EnableShaderInstrumentation(ID3D12Tools* This,WINBOOL enable) {
+    This->lpVtbl->EnableShaderInstrumentation(This,enable);
+}
+static __WIDL_INLINE WINBOOL ID3D12Tools_ShaderInstrumentationEnabled(ID3D12Tools* This) {
+    return This->lpVtbl->ShaderInstrumentationEnabled(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12Tools_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D12DeviceRemovedExtendedDataSettings interface
+ */
+#ifndef __ID3D12DeviceRemovedExtendedDataSettings_INTERFACE_DEFINED__
+#define __ID3D12DeviceRemovedExtendedDataSettings_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedDataSettings, 0x82bc481c, 0x6b9b, 0x4030, 0xae,0xdb, 0x7e,0xe3,0xd1,0xdf,0x1e,0x63);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("82bc481c-6b9b-4030-aedb-7ee3d1df1e63")
+ID3D12DeviceRemovedExtendedDataSettings : public IUnknown
+{
+    virtual void STDMETHODCALLTYPE SetAutoBreadcrumbsEnablement(
+        D3D12_DRED_ENABLEMENT enablement) = 0;
+
+    virtual void STDMETHODCALLTYPE SetPageFaultEnablement(
+        D3D12_DRED_ENABLEMENT enablement) = 0;
+
+    virtual void STDMETHODCALLTYPE SetWatsonDumpEnablement(
+        D3D12_DRED_ENABLEMENT enablement) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12DeviceRemovedExtendedDataSettings, 0x82bc481c, 0x6b9b, 0x4030, 0xae,0xdb, 0x7e,0xe3,0xd1,0xdf,0x1e,0x63)
+#endif
+#else
+typedef struct ID3D12DeviceRemovedExtendedDataSettingsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12DeviceRemovedExtendedDataSettings *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12DeviceRemovedExtendedDataSettings *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12DeviceRemovedExtendedDataSettings *This);
+
+    /*** ID3D12DeviceRemovedExtendedDataSettings methods ***/
+    void (STDMETHODCALLTYPE *SetAutoBreadcrumbsEnablement)(
+        ID3D12DeviceRemovedExtendedDataSettings *This,
+        D3D12_DRED_ENABLEMENT enablement);
+
+    void (STDMETHODCALLTYPE *SetPageFaultEnablement)(
+        ID3D12DeviceRemovedExtendedDataSettings *This,
+        D3D12_DRED_ENABLEMENT enablement);
+
+    void (STDMETHODCALLTYPE *SetWatsonDumpEnablement)(
+        ID3D12DeviceRemovedExtendedDataSettings *This,
+        D3D12_DRED_ENABLEMENT enablement);
+
+    END_INTERFACE
+} ID3D12DeviceRemovedExtendedDataSettingsVtbl;
+
+interface ID3D12DeviceRemovedExtendedDataSettings {
+    CONST_VTBL ID3D12DeviceRemovedExtendedDataSettingsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12DeviceRemovedExtendedDataSettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12DeviceRemovedExtendedDataSettings_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12DeviceRemovedExtendedDataSettings_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12DeviceRemovedExtendedDataSettings methods ***/
+#define ID3D12DeviceRemovedExtendedDataSettings_SetAutoBreadcrumbsEnablement(This,enablement) (This)->lpVtbl->SetAutoBreadcrumbsEnablement(This,enablement)
+#define ID3D12DeviceRemovedExtendedDataSettings_SetPageFaultEnablement(This,enablement) (This)->lpVtbl->SetPageFaultEnablement(This,enablement)
+#define ID3D12DeviceRemovedExtendedDataSettings_SetWatsonDumpEnablement(This,enablement) (This)->lpVtbl->SetWatsonDumpEnablement(This,enablement)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12DeviceRemovedExtendedDataSettings_QueryInterface(ID3D12DeviceRemovedExtendedDataSettings* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12DeviceRemovedExtendedDataSettings_AddRef(ID3D12DeviceRemovedExtendedDataSettings* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12DeviceRemovedExtendedDataSettings_Release(ID3D12DeviceRemovedExtendedDataSettings* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12DeviceRemovedExtendedDataSettings methods ***/
+static __WIDL_INLINE void ID3D12DeviceRemovedExtendedDataSettings_SetAutoBreadcrumbsEnablement(ID3D12DeviceRemovedExtendedDataSettings* This,D3D12_DRED_ENABLEMENT enablement) {
+    This->lpVtbl->SetAutoBreadcrumbsEnablement(This,enablement);
+}
+static __WIDL_INLINE void ID3D12DeviceRemovedExtendedDataSettings_SetPageFaultEnablement(ID3D12DeviceRemovedExtendedDataSettings* This,D3D12_DRED_ENABLEMENT enablement) {
+    This->lpVtbl->SetPageFaultEnablement(This,enablement);
+}
+static __WIDL_INLINE void ID3D12DeviceRemovedExtendedDataSettings_SetWatsonDumpEnablement(ID3D12DeviceRemovedExtendedDataSettings* This,D3D12_DRED_ENABLEMENT enablement) {
+    This->lpVtbl->SetWatsonDumpEnablement(This,enablement);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12DeviceRemovedExtendedDataSettings_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D12SDKConfiguration interface
+ */
+#ifndef __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+#define __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12SDKConfiguration, 0xe9eb5314, 0x33aa, 0x42b2, 0xa7,0x18, 0xd7,0x7f,0x58,0xb1,0xf1,0xc7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e9eb5314-33aa-42b2-a718-d77f58b1f1c7")
+ID3D12SDKConfiguration : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetSDKVersion(
+        UINT version,
+        const char *path) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12SDKConfiguration, 0xe9eb5314, 0x33aa, 0x42b2, 0xa7,0x18, 0xd7,0x7f,0x58,0xb1,0xf1,0xc7)
+#endif
+#else
+typedef struct ID3D12SDKConfigurationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12SDKConfiguration *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12SDKConfiguration *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12SDKConfiguration *This);
+
+    /*** ID3D12SDKConfiguration methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetSDKVersion)(
+        ID3D12SDKConfiguration *This,
+        UINT version,
+        const char *path);
+
+    END_INTERFACE
+} ID3D12SDKConfigurationVtbl;
+
+interface ID3D12SDKConfiguration {
+    CONST_VTBL ID3D12SDKConfigurationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12SDKConfiguration_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12SDKConfiguration_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12SDKConfiguration_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12SDKConfiguration methods ***/
+#define ID3D12SDKConfiguration_SetSDKVersion(This,version,path) (This)->lpVtbl->SetSDKVersion(This,version,path)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12SDKConfiguration_QueryInterface(ID3D12SDKConfiguration* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12SDKConfiguration_AddRef(ID3D12SDKConfiguration* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12SDKConfiguration_Release(ID3D12SDKConfiguration* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12SDKConfiguration methods ***/
+static __WIDL_INLINE HRESULT ID3D12SDKConfiguration_SetSDKVersion(ID3D12SDKConfiguration* This,UINT version,const char *path) {
+    return This->lpVtbl->SetSDKVersion(This,version,path);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12SDKConfiguration_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
