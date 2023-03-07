@@ -225,12 +225,12 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #  ifndef _INC_SETJMPEX
 #    if defined(_X86_) || defined(__i386__)
 #      define setjmp(BUF) _setjmp3((BUF), NULL)
-#    elif ((defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) && (!defined(__SEH__) || !__has_builtin(__builtin_sponentry)))
+#    elif ((defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) && (!defined(__SEH__) || !__has_builtin(__builtin_sponentry) || defined(__USE_MINGW_SETJMP_NON_SEH)))
 #      define setjmp(BUF) __mingw_setjmp((BUF))
 #      define longjmp __mingw_longjmp
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
   __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_buf _Buf,int _Value);
-#    elif defined(__SEH__)
+#    elif defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH)
 #     if defined(__aarch64__) || defined(_ARM64_) || defined(__arm__) || defined(_ARM_)
 #      define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
 #     elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
