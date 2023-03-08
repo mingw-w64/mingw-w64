@@ -139,6 +139,8 @@ extern "C" {
     UCHAR ClientFlags;
     SECURITY_IMPERSONATION_LEVEL ImpersonationLevel;
 
+    HANDLE ClientToken;
+
   } SECPKG_CLIENT_INFO,*PSECPKG_CLIENT_INFO;
 
 #define SECPKG_CLIENT_PROCESS_TERMINATED 0x01
