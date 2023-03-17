@@ -212,10 +212,16 @@ typedef struct _DXVAHD_BLT_STATE_CONSTRICTION_DATA {
 } DXVAHD_BLT_STATE_CONSTRICTION_DATA;
 
 typedef struct _DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
-  UINT Usage  :1;
-  UINT RGB_Range  :1;
-  UINT YCbCr_Matrix  :1;
-  UINT YCbCr_xvYCC  :1;
+  union {
+    struct {
+      UINT Usage  :1;
+      UINT RGB_Range  :1;
+      UINT YCbCr_Matrix  :1;
+      UINT YCbCr_xvYCC  :1;
+      UINT Reserved : 28;
+    };
+    UINT Value;
+  };
 } DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA;
 
 typedef struct _DXVAHD_BLT_STATE_PRIVATE_DATA {
@@ -308,10 +314,15 @@ typedef struct _DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
 } DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA;
 
 typedef struct _DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
-  UINT Type  :1;
-  UINT RGB_Range  :1;
-  UINT YCbCr_Matrix  :1;
-  UINT YCbCr_xvYCC  :1;
+  union {
+    struct {
+      UINT Type  :1;
+      UINT RGB_Range  :1;
+      UINT YCbCr_Matrix  :1;
+      UINT YCbCr_xvYCC  :1;
+    };
+    UINT Value;
+  };
 } DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA;
 
 typedef struct _DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
