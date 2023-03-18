@@ -259,10 +259,16 @@ typedef struct _DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     SIZE Size;
 } DXVAHD_BLT_STATE_CONSTRICTION_DATA;
 typedef struct _DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
-    UINT Usage : 1;
-    UINT RGB_Range : 1;
-    UINT YCbCr_Matrix : 1;
-    UINT YCbCr_xvYCC : 1;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            UINT Usage : 1;
+            UINT RGB_Range : 1;
+            UINT YCbCr_Matrix : 1;
+            UINT YCbCr_xvYCC : 1;
+            UINT Reserved : 28;
+        } __C89_NAMELESSSTRUCTNAME;
+        UINT Value;
+    } __C89_NAMELESSUNIONNAME;
 } DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA;
 typedef struct _DXVAHD_BLT_STATE_PRIVATE_DATA {
     GUID Guid;
@@ -340,10 +346,15 @@ typedef struct _DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     DXVAHD_FRAME_FORMAT FrameFormat;
 } DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA;
 typedef struct _DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
-    UINT Type : 1;
-    UINT RGB_Range : 1;
-    UINT YCbCr_Matrix : 1;
-    UINT YCbCr_xvYCC : 1;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            UINT Type : 1;
+            UINT RGB_Range : 1;
+            UINT YCbCr_Matrix : 1;
+            UINT YCbCr_xvYCC : 1;
+        } __C89_NAMELESSSTRUCTNAME;
+        UINT Value;
+    } __C89_NAMELESSUNIONNAME;
 } DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA;
 typedef struct _DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     WINBOOL Enable;

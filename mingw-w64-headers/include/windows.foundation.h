@@ -58,6 +58,21 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler ABI::Windows::Foundation::IDeferralCompletedHandler
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IDeferralCompletedHandler;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CFoundation_CIStringable_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIStringable_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CFoundation_CIStringable __x_ABI_CWindows_CFoundation_CIStringable;
@@ -82,6 +97,36 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             interface IClosable;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferral_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferral_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIDeferral __x_ABI_CWindows_CFoundation_CIDeferral;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIDeferral ABI::Windows::Foundation::IDeferral
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IDeferral;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferralFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferralFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIDeferralFactory __x_ABI_CWindows_CFoundation_CIDeferralFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory ABI::Windows::Foundation::IDeferralFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IDeferralFactory;
         }
     }
 }
@@ -147,6 +192,21 @@ namespace ABI {
 }
 #endif /* __cplusplus */
 #endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CDeferral_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CDeferral_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            class Deferral;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CDeferral __x_ABI_CWindows_CFoundation_CDeferral;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CFoundation_CDeferral_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CFoundation_CMemoryBuffer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CMemoryBuffer_FWD_DEFINED__
@@ -655,6 +715,36 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferral_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferral_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIDeferral __x_ABI_CWindows_CFoundation_CIDeferral;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIDeferral ABI::Windows::Foundation::IDeferral
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IDeferral;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferralFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferralFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIDeferralFactory __x_ABI_CWindows_CFoundation_CIDeferralFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory ABI::Windows::Foundation::IDeferralFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IDeferralFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CFoundation_CIMemoryBuffer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIMemoryBuffer_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CFoundation_CIMemoryBuffer __x_ABI_CWindows_CFoundation_CIMemoryBuffer;
@@ -906,6 +996,100 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIAsyncActionCompleted
 #endif
 
 #endif  /* ____x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeferralCompletedHandler interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler, 0xed32a372, 0xf3c8, 0x4faa, 0x9c,0xfb, 0x47,0x01,0x48,0xda,0x38,0x88);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("ed32a372-f3c8-4faa-9cfb-470148da3888")
+            IDeferralCompletedHandler : public IUnknown
+            {
+                virtual HRESULT STDMETHODCALLTYPE Invoke(
+                    ) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler, 0xed32a372, 0xf3c8, 0x4faa, 0x9c,0xfb, 0x47,0x01,0x48,0xda,0x38,0x88)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *This);
+
+    /*** IDeferralCompletedHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *This);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandlerVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IDeferralCompletedHandler methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Invoke(This) (This)->lpVtbl->Invoke(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_QueryInterface(__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_AddRef(__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Release(__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDeferralCompletedHandler methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Invoke(__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler* This) {
+    return This->lpVtbl->Invoke(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IDeferralCompletedHandler IID___x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler
+#define IDeferralCompletedHandlerVtbl __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandlerVtbl
+#define IDeferralCompletedHandler __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler
+#define IDeferralCompletedHandler_QueryInterface __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_QueryInterface
+#define IDeferralCompletedHandler_AddRef __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_AddRef
+#define IDeferralCompletedHandler_Release __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Release
+#define IDeferralCompletedHandler_Invoke __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
 
 #if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
@@ -1385,6 +1569,259 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIClosable_Close(__x_A
 #endif
 
 #endif  /* ____x_ABI_CWindows_CFoundation_CIClosable_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeferral interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferral_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferral_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIDeferral, 0xd6269732, 0x3b7f, 0x46a7, 0xb4,0x0b, 0x4f,0xdc,0xa2,0xa2,0xc6,0x93);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("d6269732-3b7f-46a7-b40b-4fdca2a2c693")
+            IDeferral : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE Complete(
+                    ) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIDeferral, 0xd6269732, 0x3b7f, 0x46a7, 0xb4,0x0b, 0x4f,0xdc,0xa2,0xa2,0xc6,0x93)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIDeferralVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeferral methods ***/
+    HRESULT (STDMETHODCALLTYPE *Complete)(
+        __x_ABI_CWindows_CFoundation_CIDeferral *This);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIDeferralVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIDeferral {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIDeferralVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferral_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIDeferral_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIDeferral_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferral_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIDeferral_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIDeferral_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeferral methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferral_Complete(This) (This)->lpVtbl->Complete(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferral_QueryInterface(__x_ABI_CWindows_CFoundation_CIDeferral* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferral_AddRef(__x_ABI_CWindows_CFoundation_CIDeferral* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferral_Release(__x_ABI_CWindows_CFoundation_CIDeferral* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferral_GetIids(__x_ABI_CWindows_CFoundation_CIDeferral* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferral_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIDeferral* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferral_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIDeferral* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeferral methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferral_Complete(__x_ABI_CWindows_CFoundation_CIDeferral* This) {
+    return This->lpVtbl->Complete(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IDeferral IID___x_ABI_CWindows_CFoundation_CIDeferral
+#define IDeferralVtbl __x_ABI_CWindows_CFoundation_CIDeferralVtbl
+#define IDeferral __x_ABI_CWindows_CFoundation_CIDeferral
+#define IDeferral_QueryInterface __x_ABI_CWindows_CFoundation_CIDeferral_QueryInterface
+#define IDeferral_AddRef __x_ABI_CWindows_CFoundation_CIDeferral_AddRef
+#define IDeferral_Release __x_ABI_CWindows_CFoundation_CIDeferral_Release
+#define IDeferral_GetIids __x_ABI_CWindows_CFoundation_CIDeferral_GetIids
+#define IDeferral_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIDeferral_GetRuntimeClassName
+#define IDeferral_GetTrustLevel __x_ABI_CWindows_CFoundation_CIDeferral_GetTrustLevel
+#define IDeferral_Complete __x_ABI_CWindows_CFoundation_CIDeferral_Complete
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIDeferral_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDeferralFactory interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIDeferralFactory_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIDeferralFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIDeferralFactory, 0x65a1ecc5, 0x3fb5, 0x4832, 0x8c,0xa9, 0xf0,0x61,0xb2,0x81,0xd1,0x3a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("65a1ecc5-3fb5-4832-8ca9-f061b281d13a")
+            IDeferralFactory : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE Create(
+                    ABI::Windows::Foundation::IDeferralCompletedHandler *handler,
+                    ABI::Windows::Foundation::IDeferral **result) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIDeferralFactory, 0x65a1ecc5, 0x3fb5, 0x4832, 0x8c,0xa9, 0xf0,0x61,0xb2,0x81,0xd1,0x3a)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIDeferralFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This,
+        TrustLevel *trustLevel);
+
+    /*** IDeferralFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *Create)(
+        __x_ABI_CWindows_CFoundation_CIDeferralFactory *This,
+        __x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *handler,
+        __x_ABI_CWindows_CFoundation_CIDeferral **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIDeferralFactoryVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIDeferralFactory {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIDeferralFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDeferralFactory methods ***/
+#define __x_ABI_CWindows_CFoundation_CIDeferralFactory_Create(This,handler,result) (This)->lpVtbl->Create(This,handler,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralFactory_QueryInterface(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferralFactory_AddRef(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIDeferralFactory_Release(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetIids(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDeferralFactory methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIDeferralFactory_Create(__x_ABI_CWindows_CFoundation_CIDeferralFactory* This,__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler *handler,__x_ABI_CWindows_CFoundation_CIDeferral **result) {
+    return This->lpVtbl->Create(This,handler,result);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IDeferralFactory IID___x_ABI_CWindows_CFoundation_CIDeferralFactory
+#define IDeferralFactoryVtbl __x_ABI_CWindows_CFoundation_CIDeferralFactoryVtbl
+#define IDeferralFactory __x_ABI_CWindows_CFoundation_CIDeferralFactory
+#define IDeferralFactory_QueryInterface __x_ABI_CWindows_CFoundation_CIDeferralFactory_QueryInterface
+#define IDeferralFactory_AddRef __x_ABI_CWindows_CFoundation_CIDeferralFactory_AddRef
+#define IDeferralFactory_Release __x_ABI_CWindows_CFoundation_CIDeferralFactory_Release
+#define IDeferralFactory_GetIids __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetIids
+#define IDeferralFactory_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetRuntimeClassName
+#define IDeferralFactory_GetTrustLevel __x_ABI_CWindows_CFoundation_CIDeferralFactory_GetTrustLevel
+#define IDeferralFactory_Create __x_ABI_CWindows_CFoundation_CIDeferralFactory_Create
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIDeferralFactory_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -1941,6 +2378,22 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIMemoryBufferReferenc
 
 #endif  /* ____x_ABI_CWindows_CFoundation_CIMemoryBufferReference_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Foundation.Deferral
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Foundation_Deferral_DEFINED
+#define RUNTIMECLASS_Windows_Foundation_Deferral_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Foundation_Deferral[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','D','e','f','e','r','r','a','l',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_Deferral[] = L"Windows.Foundation.Deferral";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_Deferral[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','D','e','f','e','r','r','a','l',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Foundation_Deferral_DEFINED */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
 
 /*
  * Class Windows.Foundation.MemoryBuffer
