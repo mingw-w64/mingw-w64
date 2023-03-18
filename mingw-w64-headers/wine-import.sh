@@ -189,6 +189,7 @@ for f in \
 	ivectorchangedeventargs \
 	mediaobj \
 	mfreadwrite \
+	mftransform \
 	mmdeviceapi \
 	mmstream \
 	mscoree \
