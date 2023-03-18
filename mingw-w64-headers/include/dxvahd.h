@@ -352,6 +352,7 @@ typedef struct _DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
             UINT RGB_Range : 1;
             UINT YCbCr_Matrix : 1;
             UINT YCbCr_xvYCC : 1;
+            UINT Reserved : 28;
         } __C89_NAMELESSSTRUCTNAME;
         UINT Value;
     } __C89_NAMELESSUNIONNAME;
