@@ -3,6 +3,12 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#ifndef _POWRPROF_H_
+#define _POWRPROF_H_
+
+#include <powerbase.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -104,7 +110,6 @@ extern "C" {
   BOOLEAN WINAPI DeletePwrScheme(UINT);
   BOOLEAN WINAPI GetActivePwrScheme(PUINT);
   BOOLEAN WINAPI SetActivePwrScheme(UINT,PGLOBAL_POWER_POLICY,PPOWER_POLICY);
-  BOOLEAN WINAPI GetPwrCapabilities(PSYSTEM_POWER_CAPABILITIES);
   BOOLEAN WINAPI IsPwrSuspendAllowed(VOID);
   BOOLEAN WINAPI IsPwrHibernateAllowed(VOID);
   BOOLEAN WINAPI IsPwrShutdownAllowed(VOID);
@@ -516,17 +521,8 @@ DWORD WINAPI PowerWriteValueUnitsSpecifier(
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
-#ifndef NT_SUCCESS
-#define NTSTATUS LONG
-#define _OVERRIDE_NTSTATUS_
-#endif
-
-  NTSTATUS WINAPI CallNtPowerInformation(POWER_INFORMATION_LEVEL,PVOID,ULONG,PVOID,ULONG);
-
-#ifdef _OVERRIDE_NTSTATUS_
-#undef NTSTATUS
-#endif
-
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* _POWRPROF_H_ */
