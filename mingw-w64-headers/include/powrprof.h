@@ -8,6 +8,7 @@
 #define _POWRPROF_H_
 
 #include <powerbase.h>
+#include <powersetting.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -220,11 +221,6 @@ DWORD WINAPI PowerEnumerate(
   DWORD *BufferSize
 );
 
-DWORD WINAPI PowerGetActiveScheme(
-  HKEY UserRootPowerKey,
-  GUID **ActivePolicyGuid
-);
-
 DWORD WINAPI PowerImportPowerScheme(
   HKEY RootPowerKey,
   LPCWSTR ImportFileNamePath,
@@ -237,16 +233,6 @@ DWORD WINAPI PowerReadACDefaultIndex(
   const GUID *SubGroupOfPowerSettingsGuid,
   const GUID *PowerSettingGuid,
   LPDWORD AcDefaultIndex
-);
-
-DWORD WINAPI PowerReadACValue(
-  HKEY RootPowerKey,
-  const GUID *SchemeGuid,
-  const GUID *SubGroupOfPowerSettingsGuid,
-  const GUID *PowerSettingGuid,
-  PULONG Type,
-  LPBYTE Buffer,
-  LPDWORD BufferSize
 );
 
 DWORD WINAPI PowerReadACValueIndex(
@@ -263,16 +249,6 @@ DWORD WINAPI PowerReadDCDefaultIndex(
   const GUID *SubGroupOfPowerSettingsGuid,
   const GUID *PowerSettingGuid,
   LPDWORD DcDefaultIndex
-);
-
-DWORD WINAPI PowerReadDCValue(
-  HKEY RootPowerKey,
-  const GUID *SchemeGuid,
-  const GUID *SubGroupOfPowerSettingsGuid,
-  const GUID *PowerSettingGuid,
-  PULONG Type,
-  PUCHAR Buffer,
-  LPDWORD BufferSize
 );
 
 DWORD WINAPI PowerReadDCValueIndex(
@@ -385,11 +361,6 @@ DWORD WINAPI PowerRestoreIndividualDefaultPowerScheme(
   const GUID *SchemeGuid
 );
 
-DWORD WINAPI PowerSetActiveScheme(
-  HKEY UserRootPowerKey,
-  const GUID *SchemeGuid
-);
-
 DWORD WINAPI PowerSettingAccessCheck(
   POWER_DATA_ACCESSOR AccessFlags,
   const GUID *PowerGuid
@@ -403,28 +374,12 @@ DWORD WINAPI PowerWriteACDefaultIndex(
   DWORD DefaultAcIndex
 );
 
-DWORD WINAPI PowerWriteACValueIndex(
-  HKEY RootPowerKey,
-  const GUID *SchemeGuid,
-  const GUID *SubGroupOfPowerSettingsGuid,
-  const GUID *PowerSettingGuid,
-  DWORD AcValueIndex
-);
-
 DWORD WINAPI PowerWriteDCDefaultIndex(
   HKEY RootSystemPowerKey,
   const GUID *SchemePersonalityGuid,
   const GUID *SubGroupOfPowerSettingsGuid,
   const GUID *PowerSettingGuid,
   DWORD DefaultDcIndex
-);
-
-DWORD WINAPI PowerWriteDCValueIndex(
-  HKEY RootPowerKey,
-  const GUID *SchemeGuid,
-  const GUID *SubGroupOfPowerSettingsGuid,
-  const GUID *PowerSettingGuid,
-  DWORD DcValueIndex
 );
 
 DWORD WINAPI PowerWriteDescription(
