@@ -580,7 +580,7 @@ src_libmingwex=\
   misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \
-  misc/basename.c        misc/btowc.c               misc/delay-f.c          misc/delay-n.c         \
+  misc/btowc.c               misc/delay-f.c          misc/delay-n.c         \
   misc/delayimp.c        misc/dirent.c          \
   misc/dirname.c \
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
