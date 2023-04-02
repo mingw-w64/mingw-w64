@@ -67,8 +67,8 @@ typedef struct pe_image {
   size_t optional_hdr_pos;
   size_t section_list;
   size_t section_list_sz; /* Each section entry has 40 bytes size.  */
-  int is_64bit : 1;
-  int is_bigendian : 1;
+  unsigned int is_64bit : 1;
+  unsigned int is_bigendian : 1;
 } pe_image;
 
 pe_image *peimg_create (file_image *pimg);
