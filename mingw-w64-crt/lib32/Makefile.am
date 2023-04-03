@@ -177,6 +177,7 @@ lib32_DATA += %reldir%/libmfplay.a
 lib32_DATA += %reldir%/libmfreadwrite.a
 lib32_DATA += %reldir%/libmfsensorgroup.a
 lib32_DATA += %reldir%/libmgmtapi.a
+lib32_DATA += %reldir%/libmi.a
 lib32_DATA += %reldir%/libmincore.a
 lib32_DATA += %reldir%/libmmdevapi.a
 lib32_DATA += %reldir%/libmpr.a
