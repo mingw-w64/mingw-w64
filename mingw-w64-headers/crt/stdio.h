@@ -146,7 +146,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #endif
 #endif
 
+/* used with _set_output_format which is not present in ucrt */
+#ifndef _UCRT
 #define _TWO_DIGIT_EXPONENT 0x1
+#endif
 
 #if __MINGW_FORTIFY_LEVEL > 0
 __mingw_bos_declare;
