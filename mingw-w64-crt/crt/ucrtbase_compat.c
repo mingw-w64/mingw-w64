@@ -104,6 +104,7 @@ int __cdecl (*__MINGW_IMP_SYMBOL(at_quick_exit))(void (__cdecl *)(void)) = at_qu
 
 void __cdecl _amsg_exit(int ret) {
   fprintf(stderr, "runtime error %d\n", ret);
+  _exit(255);
 }
 
 unsigned int __cdecl _get_output_format(void)
