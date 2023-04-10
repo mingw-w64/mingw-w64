@@ -208,6 +208,7 @@ for f in \
 	rtworkq \
 	spatialaudioclient \
 	taskschd \
+	textstor \
 	thumbcache \
 	uiautomationclient \
 	uiautomationcore \
@@ -228,18 +229,18 @@ for f in \
 	windows.gaming.input.forcefeedback \
 	windows.gaming.ui \
 	windows.globalization \
-        windows.graphics.capture \
-        windows.graphics.directx \
-        windows.graphics.directx.direct3d11 \
-        windows.graphics.effects \
-        windows.graphics.holographic \
+	windows.graphics.capture \
+	windows.graphics.directx \
+	windows.graphics.directx.direct3d11 \
+	windows.graphics.effects \
+	windows.graphics.holographic \
 	windows.media \
 	windows.media.closedcaptioning \
 	windows.media.devices \
 	windows.media.speechrecognition \
 	windows.media.speechsynthesis \
-        windows.perception.spatial \
-        windows.perception.spatial.surfaces \
+	windows.perception.spatial \
+	windows.perception.spatial.surfaces \
 	windows.security.credentials \
 	windows.security.cryptography \
 	windows.storage.streams \
@@ -249,8 +250,8 @@ for f in \
 	windows.system.threading \
 	windows.system.userprofile \
 	windows.ui \
-        windows.ui.composition \
-        windows.ui.core \
+	windows.ui.composition \
+	windows.ui.core \
 	windows.ui.viewmanagement \
 	wmdrmsdk \
 	wmp \
