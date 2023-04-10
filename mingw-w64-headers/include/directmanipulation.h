@@ -122,6 +122,14 @@ interface IDirectManipulationCompositor2;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IDirectManipulationInteractionEventHandler_FWD_DEFINED__
+#define __IDirectManipulationInteractionEventHandler_FWD_DEFINED__
+typedef interface IDirectManipulationInteractionEventHandler IDirectManipulationInteractionEventHandler;
+#ifdef __cplusplus
+interface IDirectManipulationInteractionEventHandler;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __DirectManipulationManager_FWD_DEFINED__
 #define __DirectManipulationManager_FWD_DEFINED__
 #ifdef __cplusplus
@@ -264,6 +272,15 @@ typedef enum DIRECTMANIPULATION_INPUT_MODE {
     DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC = 0,
     DIRECTMANIPULATION_INPUT_MODE_MANUAL = 1
 } DIRECTMANIPULATION_INPUT_MODE;
+typedef enum DIRECTMANIPULATION_INTERACTION_TYPE {
+    DIRECTMANIPULATION_INTERACTION_BEGIN = 0,
+    DIRECTMANIPULATION_INTERACTION_TYPE_MANIPULATION = 1,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_TAP = 2,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_HOLD = 3,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_CROSS_SLIDE = 4,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_PINCH_ZOOM = 5,
+    DIRECTMANIPULATION_INTERACTION_END = 100
+} DIRECTMANIPULATION_INTERACTION_TYPE;
 /*****************************************************************************
  * IDirectManipulationFrameInfoProvider interface
  */
@@ -2256,6 +2273,85 @@ static __WIDL_INLINE HRESULT IDirectManipulationCompositor2_AddContentWithCrossP
 
 
 #endif  /* __IDirectManipulationCompositor2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDirectManipulationInteractionEventHandler interface
+ */
+#ifndef __IDirectManipulationInteractionEventHandler_INTERFACE_DEFINED__
+#define __IDirectManipulationInteractionEventHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDirectManipulationInteractionEventHandler, 0xe43f45b8, 0x42b4, 0x403e, 0xb1,0xf2, 0x27,0x3b,0x8f,0x51,0x08,0x30);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e43f45b8-42b4-403e-b1f2-273b8f510830")
+IDirectManipulationInteractionEventHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnInteraction(
+        IDirectManipulationViewport2 *viewport,
+        DIRECTMANIPULATION_INTERACTION_TYPE interaction) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectManipulationInteractionEventHandler, 0xe43f45b8, 0x42b4, 0x403e, 0xb1,0xf2, 0x27,0x3b,0x8f,0x51,0x08,0x30)
+#endif
+#else
+typedef struct IDirectManipulationInteractionEventHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDirectManipulationInteractionEventHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDirectManipulationInteractionEventHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDirectManipulationInteractionEventHandler *This);
+
+    /*** IDirectManipulationInteractionEventHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnInteraction)(
+        IDirectManipulationInteractionEventHandler *This,
+        IDirectManipulationViewport2 *viewport,
+        DIRECTMANIPULATION_INTERACTION_TYPE interaction);
+
+    END_INTERFACE
+} IDirectManipulationInteractionEventHandlerVtbl;
+
+interface IDirectManipulationInteractionEventHandler {
+    CONST_VTBL IDirectManipulationInteractionEventHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDirectManipulationInteractionEventHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDirectManipulationInteractionEventHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDirectManipulationInteractionEventHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IDirectManipulationInteractionEventHandler methods ***/
+#define IDirectManipulationInteractionEventHandler_OnInteraction(This,viewport,interaction) (This)->lpVtbl->OnInteraction(This,viewport,interaction)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IDirectManipulationInteractionEventHandler_QueryInterface(IDirectManipulationInteractionEventHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IDirectManipulationInteractionEventHandler_AddRef(IDirectManipulationInteractionEventHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IDirectManipulationInteractionEventHandler_Release(IDirectManipulationInteractionEventHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectManipulationInteractionEventHandler methods ***/
+static __WIDL_INLINE HRESULT IDirectManipulationInteractionEventHandler_OnInteraction(IDirectManipulationInteractionEventHandler* This,IDirectManipulationViewport2 *viewport,DIRECTMANIPULATION_INTERACTION_TYPE interaction) {
+    return This->lpVtbl->OnInteraction(This,viewport,interaction);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IDirectManipulationInteractionEventHandler_INTERFACE_DEFINED__ */
 
 #ifndef __DirectManipulation_LIBRARY_DEFINED__
 #define __DirectManipulation_LIBRARY_DEFINED__

@@ -589,11 +589,18 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.gaming.input.forcefeedback.idl \
 @HAVE_WIDL_TRUE@  include/windows.gaming.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.globalization.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.capture.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.directx.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.directx.direct3d11.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.effects.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.holographic.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.closedcaptioning.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.devices.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechrecognition.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
+@HAVE_WIDL_TRUE@  include/windows.perception.spatial.idl \
+@HAVE_WIDL_TRUE@  include/windows.perception.spatial.surfaces.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
@@ -604,6 +611,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.userprofile.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.composition.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
 @HAVE_WIDL_TRUE@  include/windowscontracts.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \

@@ -5482,6 +5482,7 @@ ID3D12CommandQueue : public ID3D12Pageable
         UINT region_count,
         const D3D12_TILED_RESOURCE_COORDINATE *region_start_coordinates,
         const D3D12_TILE_REGION_SIZE *region_sizes,
+        ID3D12Heap *heap,
         UINT range_count,
         const D3D12_TILE_RANGE_FLAGS *range_flags,
         UINT *heap_range_offsets,
@@ -5597,6 +5598,7 @@ typedef struct ID3D12CommandQueueVtbl {
         UINT region_count,
         const D3D12_TILED_RESOURCE_COORDINATE *region_start_coordinates,
         const D3D12_TILE_REGION_SIZE *region_sizes,
+        ID3D12Heap *heap,
         UINT range_count,
         const D3D12_TILE_RANGE_FLAGS *range_flags,
         UINT *heap_range_offsets,
@@ -5676,7 +5678,7 @@ interface ID3D12CommandQueue {
 /*** ID3D12DeviceChild methods ***/
 #define ID3D12CommandQueue_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
 /*** ID3D12CommandQueue methods ***/
-#define ID3D12CommandQueue_UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,range_count,range_flags,heap_range_offsets,range_tile_counts,flags) (This)->lpVtbl->UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,range_count,range_flags,heap_range_offsets,range_tile_counts,flags)
+#define ID3D12CommandQueue_UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,heap,range_count,range_flags,heap_range_offsets,range_tile_counts,flags) (This)->lpVtbl->UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,heap,range_count,range_flags,heap_range_offsets,range_tile_counts,flags)
 #define ID3D12CommandQueue_CopyTileMappings(This,dst_resource,dst_region_start_coordinate,src_resource,src_region_start_coordinate,region_size,flags) (This)->lpVtbl->CopyTileMappings(This,dst_resource,dst_region_start_coordinate,src_resource,src_region_start_coordinate,region_size,flags)
 #define ID3D12CommandQueue_ExecuteCommandLists(This,command_list_count,command_lists) (This)->lpVtbl->ExecuteCommandLists(This,command_list_count,command_lists)
 #define ID3D12CommandQueue_SetMarker(This,metadata,data,size) (This)->lpVtbl->SetMarker(This,metadata,data,size)
@@ -5716,8 +5718,8 @@ static __WIDL_INLINE HRESULT ID3D12CommandQueue_GetDevice(ID3D12CommandQueue* Th
     return This->lpVtbl->GetDevice(This,riid,device);
 }
 /*** ID3D12CommandQueue methods ***/
-static __WIDL_INLINE void ID3D12CommandQueue_UpdateTileMappings(ID3D12CommandQueue* This,ID3D12Resource *resource,UINT region_count,const D3D12_TILED_RESOURCE_COORDINATE *region_start_coordinates,const D3D12_TILE_REGION_SIZE *region_sizes,UINT range_count,const D3D12_TILE_RANGE_FLAGS *range_flags,UINT *heap_range_offsets,UINT *range_tile_counts,D3D12_TILE_MAPPING_FLAGS flags) {
-    This->lpVtbl->UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,range_count,range_flags,heap_range_offsets,range_tile_counts,flags);
+static __WIDL_INLINE void ID3D12CommandQueue_UpdateTileMappings(ID3D12CommandQueue* This,ID3D12Resource *resource,UINT region_count,const D3D12_TILED_RESOURCE_COORDINATE *region_start_coordinates,const D3D12_TILE_REGION_SIZE *region_sizes,ID3D12Heap *heap,UINT range_count,const D3D12_TILE_RANGE_FLAGS *range_flags,UINT *heap_range_offsets,UINT *range_tile_counts,D3D12_TILE_MAPPING_FLAGS flags) {
+    This->lpVtbl->UpdateTileMappings(This,resource,region_count,region_start_coordinates,region_sizes,heap,range_count,range_flags,heap_range_offsets,range_tile_counts,flags);
 }
 static __WIDL_INLINE void ID3D12CommandQueue_CopyTileMappings(ID3D12CommandQueue* This,ID3D12Resource *dst_resource,const D3D12_TILED_RESOURCE_COORDINATE *dst_region_start_coordinate,ID3D12Resource *src_resource,const D3D12_TILED_RESOURCE_COORDINATE *src_region_start_coordinate,const D3D12_TILE_REGION_SIZE *region_size,D3D12_TILE_MAPPING_FLAGS flags) {
     This->lpVtbl->CopyTileMappings(This,dst_resource,dst_region_start_coordinate,src_resource,src_region_start_coordinate,region_size,flags);

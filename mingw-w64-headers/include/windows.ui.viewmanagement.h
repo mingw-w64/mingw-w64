@@ -43,6 +43,23 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 ABI::Windows::UI::ViewManagement::IUISettings2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3;
@@ -94,6 +111,7 @@ typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISett
 #include <windows.foundation.h>
 #include <windows.devices.enumeration.h>
 #include <windows.ui.h>
+#include <windows.ui.core.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -128,6 +146,23 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 ABI::Windows::UI::ViewManagement::IUISettings2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3;
@@ -138,6 +173,57 @@ namespace ABI {
         namespace UI {
             namespace ViewManagement {
                 interface IUISettings3;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 ABI::Windows::UI::ViewManagement::IUISettings4
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings4;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 ABI::Windows::UI::ViewManagement::IUISettings5
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings5;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 ABI::Windows::UI::ViewManagement::IUISettings6
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings6;
             }
         }
     }
@@ -614,6 +700,160 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings_U
 #endif
 
 #endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IUISettings2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings2, 0xbad82401, 0x2721, 0x44f9, 0xbb,0x91, 0x2b,0xb2,0x28,0xbe,0x44,0x2f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("bad82401-2721-44f9-bb91-2bb228be442f")
+                IUISettings2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_TextScaleFactor(
+                        DOUBLE *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE add_TextScaleFactorChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,IInspectable* > *handler,
+                        EventRegistrationToken *cookie) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_TextScaleFactorChanged(
+                        EventRegistrationToken cookie) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2, 0xbad82401, 0x2721, 0x44f9, 0xbb,0x91, 0x2b,0xb2,0x28,0xbe,0x44,0x2f)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IUISettings2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_TextScaleFactor)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *add_TextScaleFactorChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable *handler,
+        EventRegistrationToken *cookie);
+
+    HRESULT (STDMETHODCALLTYPE *remove_TextScaleFactorChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 *This,
+        EventRegistrationToken cookie);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUISettings2 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_get_TextScaleFactor(This,value) (This)->lpVtbl->get_TextScaleFactor(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_add_TextScaleFactorChanged(This,handler,cookie) (This)->lpVtbl->add_TextScaleFactorChanged(This,handler,cookie)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_remove_TextScaleFactorChanged(This,cookie) (This)->lpVtbl->remove_TextScaleFactorChanged(This,cookie)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUISettings2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_get_TextScaleFactor(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,DOUBLE *value) {
+    return This->lpVtbl->get_TextScaleFactor(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_add_TextScaleFactorChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable *handler,EventRegistrationToken *cookie) {
+    return This->lpVtbl->add_TextScaleFactorChanged(This,handler,cookie);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_remove_TextScaleFactorChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings2* This,EventRegistrationToken cookie) {
+    return This->lpVtbl->remove_TextScaleFactorChanged(This,cookie);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettings2 IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings2
+#define IUISettings2Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2Vtbl
+#define IUISettings2 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2
+#define IUISettings2_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_QueryInterface
+#define IUISettings2_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_AddRef
+#define IUISettings2_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_Release
+#define IUISettings2_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetIids
+#define IUISettings2_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetRuntimeClassName
+#define IUISettings2_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_GetTrustLevel
+#define IUISettings2_get_TextScaleFactor __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_get_TextScaleFactor
+#define IUISettings2_add_TextScaleFactorChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_add_TextScaleFactorChanged
+#define IUISettings2_remove_TextScaleFactorChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_remove_TextScaleFactorChanged
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings2_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************

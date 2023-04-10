@@ -287,11 +287,18 @@ IDL_SRCS = \
   include/windows.gaming.input.forcefeedback.idl \
   include/windows.gaming.ui.idl \
   include/windows.globalization.idl \
+  include/windows.graphics.capture.idl \
+  include/windows.graphics.directx.idl \
+  include/windows.graphics.directx.direct3d11.idl \
+  include/windows.graphics.effects.idl \
+  include/windows.graphics.holographic.idl \
   include/windows.media.idl \
   include/windows.media.closedcaptioning.idl \
   include/windows.media.devices.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
+  include/windows.perception.spatial.idl \
+  include/windows.perception.spatial.surfaces.idl \
   include/windows.security.credentials.idl \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
@@ -302,6 +309,8 @@ IDL_SRCS = \
   include/windows.system.threading.idl \
   include/windows.system.userprofile.idl \
   include/windows.ui.idl \
+  include/windows.ui.composition.idl \
+  include/windows.ui.core.idl \
   include/windows.ui.viewmanagement.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \

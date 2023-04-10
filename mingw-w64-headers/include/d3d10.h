@@ -678,6 +678,12 @@ extern "C" {
 #define MAKE_D3D10_STATUS(code)                    MAKE_HRESULT( 0, _FACD3D10, code)
 #define D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS  MAKE_D3D10_HRESULT(1)
 #define D3D10_ERROR_FILE_NOT_FOUND                 MAKE_D3D10_HRESULT(2)
+#if defined(__cplusplus) && !defined(D3D10_NO_HELPERS)
+inline unsigned int D3D10CalcSubresource(unsigned int level, unsigned int layer, unsigned int level_count)
+{
+    return layer * level_count + level;
+}
+#endif
 typedef enum D3D10_BLEND {
     D3D10_BLEND_ZERO = 1,
     D3D10_BLEND_ONE = 2,
