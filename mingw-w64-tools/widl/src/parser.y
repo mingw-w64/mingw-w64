@@ -45,12 +45,8 @@ struct _import_t
 };
 
 static str_list_t *append_str(str_list_t *list, char *str);
-static attr_list_t *append_attr_list(attr_list_t *new_list, attr_list_t *old_list);
 static decl_spec_t *make_decl_spec(type_t *type, decl_spec_t *left, decl_spec_t *right,
         enum storage_class stgclass, enum type_qualifier qual, enum function_specifier func_specifier);
-static attr_t *make_attr(enum attr_type type);
-static attr_t *make_attrv(enum attr_type type, unsigned int val);
-static attr_t *make_custom_attr(struct uuid *id, expr_t *pval);
 static expr_list_t *append_expr(expr_list_t *list, expr_t *expr);
 static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, declarator_t *decl, int top);
 static var_list_t *set_var_types(attr_list_t *attrs, decl_spec_t *decl_spec, declarator_list_t *decls);
@@ -61,10 +57,10 @@ static type_t *make_safearray(type_t *type);
 static typelib_t *make_library(const char *name, const attr_list_t *attrs);
 static void append_array(declarator_t *decl, expr_t *expr);
 static void append_chain_type(declarator_t *decl, type_t *type, enum type_qualifier qual);
-static void append_chain_callconv(type_t *chain, char *callconv);
+static void append_chain_callconv( struct location where, type_t *chain, char *callconv );
 static warning_list_t *append_warning(warning_list_t *, int);
 
-static type_t *reg_typedefs(decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs);
+static type_t *reg_typedefs( struct location where, decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs );
 static type_t *find_type_or_error(struct namespace *parent, const char *name);
 static struct namespace *find_namespace_or_error(struct namespace *namespace, const char *name);
 
@@ -76,18 +72,8 @@ static void push_parameters_namespace(const char *name);
 static void pop_parameters_namespace(const char *name);
 
 static statement_list_t *append_parameterized_type_stmts(statement_list_t *stmts);
-static void check_arg_attrs(const var_t *arg);
 static void check_statements(const statement_list_t *stmts, int is_inside_library);
 static void check_all_user_types(const statement_list_t *stmts);
-static attr_list_t *check_function_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_typedef_attrs(attr_list_t *attrs);
-static attr_list_t *check_enum_attrs(attr_list_t *attrs);
-static attr_list_t *check_enum_member_attrs(attr_list_t *attrs);
-static attr_list_t *check_struct_attrs(attr_list_t *attrs);
-static attr_list_t *check_union_attrs(attr_list_t *attrs);
-static attr_list_t *check_field_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_library_attrs(const char *name, attr_list_t *attrs);
-const char *get_attr_display_name(enum attr_type type);
 static void add_explicit_handle_if_necessary(const type_t *iface, var_t *func);
 
 static void check_async_uuid(type_t *iface);
@@ -107,7 +93,6 @@ static statement_t *make_statement_parameterized_type(type_t *type, typeref_list
 static statement_t *make_statement_delegate(type_t *ret, var_list_t *args);
 static statement_list_t *append_statement(statement_list_t *list, statement_t *stmt);
 static statement_list_t *append_statements(statement_list_t *, statement_list_t *);
-static attr_list_t *append_attribs(attr_list_t *, attr_list_t *);
 
 static struct namespace global_namespace = {
     NULL, NULL, LIST_INIT(global_namespace.entry), LIST_INIT(global_namespace.children)
@@ -121,7 +106,30 @@ static typelib_t *current_typelib;
 
 %}
 
+%code requires
+{
+
+#define PARSER_LTYPE struct location
+
+}
+
+%code provides
+{
+
+int parser_lex( PARSER_STYPE *yylval, PARSER_LTYPE *yylloc );
+void push_import( const char *fname, PARSER_LTYPE *yylloc );
+void pop_import( PARSER_LTYPE *yylloc );
+
+# define YYLLOC_DEFAULT( cur, rhs, n ) \
+        do { if (n) init_location( &(cur), &YYRHSLOC( rhs, 1 ), &YYRHSLOC( rhs, n ) ); \
+             else init_location( &(cur), &YYRHSLOC( rhs, 0 ), NULL ); } while(0)
+
+}
+
 %define api.prefix {parser_}
+%define api.pure full
+%define parse.error verbose
+%locations
 
 %union {
 	attr_t *attr;
@@ -158,6 +166,10 @@ static typelib_t *current_typelib;
 %token <num> aNUM aHEXNUM
 %token <dbl> aDOUBLE
 %token <str> aSTRING aWSTRING aSQSTRING
+%token <str> tCDECL
+%token <str> tFASTCALL
+%token <str> tPASCAL
+%token <str> tSTDCALL
 %token <uuid> aUUID
 %token aEOF aACF
 %token SHL SHR
@@ -173,7 +185,8 @@ static typelib_t *current_typelib;
 %token tAPICONTRACT
 %token tAPPOBJECT tASYNC tASYNCUUID
 %token tAUTOHANDLE tBINDABLE tBOOLEAN tBROADCAST tBYTE tBYTECOUNT
-%token tCALLAS tCALLBACK tCASE tCDECL tCHAR tCOCLASS tCODE tCOMMSTATUS
+%token tCALLAS tCALLBACK tCASE tCHAR tCOCLASS tCODE tCOMMSTATUS
+%token tCOMPOSABLE
 %token tCONST tCONTEXTHANDLE tCONTEXTHANDLENOSERIALIZE
 %token tCONTEXTHANDLESERIALIZE
 %token tCONTRACT
@@ -195,7 +208,7 @@ static typelib_t *current_typelib;
 %token tEXCLUSIVETO
 %token tEXPLICITHANDLE tEXTERN
 %token tFALSE
-%token tFASTCALL tFAULTSTATUS
+%token tFAULTSTATUS
 %token tFLAGS
 %token tFLOAT tFORCEALLOCATE
 %token tHANDLE
@@ -232,11 +245,12 @@ static typelib_t *current_typelib;
 %token tOPTIMIZE tOPTIONAL
 %token tOUT
 %token tOVERLOAD
-%token tPARTIALIGNORE tPASCAL
+%token tPARTIALIGNORE
 %token tPOINTERDEFAULT
 %token tPRAGMA_WARNING
 %token tPROGID tPROPERTIES
 %token tPROPGET tPROPPUT tPROPPUTREF
+%token tPROTECTED
 %token tPROXY tPTR
 %token tPUBLIC
 %token tRANGE
@@ -255,7 +269,6 @@ static typelib_t *current_typelib;
 %token tSOURCE
 %token tSTANDARD
 %token tSTATIC
-%token tSTDCALL
 %token tSTRICTCONTEXTHANDLE
 %token tSTRING tSTRUCT
 %token tSWITCH tSWITCHIS tSWITCHTYPE
@@ -273,6 +286,7 @@ static typelib_t *current_typelib;
 %token tWCHAR tWIREMARSHAL
 %token tAPARTMENT tNEUTRAL tSINGLE tFREE tBOTH
 
+%type <attr> access_attr
 %type <attr> attribute acf_attribute
 %type <attr_list> m_attributes attributes attrib_list
 %type <attr_list> acf_attributes acf_attribute_list
@@ -283,6 +297,7 @@ static typelib_t *current_typelib;
 %type <expr> contract_req
 %type <expr> static_attr
 %type <expr> activatable_attr
+%type <expr> composable_attr
 %type <type> delegatedef
 %type <stgclass> storage_cls_spec
 %type <type_qualifier> type_qualifier m_type_qual_list
@@ -321,8 +336,7 @@ static typelib_t *current_typelib;
 %type <num> pointer_type threading_type marshaling_behavior version
 %type <str> libraryhdr callconv cppquote importlib import
 %type <str> typename m_typename
-%type <uuid> uuid_string
-%type <import> import_start
+%type <str> import_start
 %type <typelib> library_start librarydef
 %type <statement> statement typedef pragma_warning
 %type <stmt_list> gbl_statements imp_statements int_statements
@@ -347,8 +361,6 @@ static typelib_t *current_typelib;
 %right '!' '~' CAST PPTR POS NEG ADDRESSOF tSIZEOF
 %left '.' MEMBERPTR '[' ']'
 
-%define parse.error verbose
-
 %%
 
 input: gbl_statements m_acf			{ $1 = append_parameterized_type_stmts($1);
@@ -366,9 +378,13 @@ input: gbl_statements m_acf			{ $1 = append_parameterized_type_stmts($1);
 						}
 	;
 
-m_acf: /* empty */ | aACF acf_statements
+m_acf
+	: %empty
+	| aACF acf_statements
+	;
 
-decl_statements:				{ $$ = NULL; }
+decl_statements
+	: %empty				{ $$ = NULL; }
 	| decl_statements tINTERFACE qualified_type '<' parameterized_type_args '>' ';'
 						{ parameterized_type_stmts = append_statement(parameterized_type_stmts, make_statement_parameterized_type($3, $5));
 						  $$ = append_statement($1, make_statement_reference(type_parameterized_type_specialize_declare($3, $5)));
@@ -376,15 +392,20 @@ decl_statements:				{ $$ = NULL; }
 	;
 
 decl_block: tDECLARE '{' decl_statements '}' { $$ = $3; }
+	;
 
-imp_decl_statements:				{ $$ = NULL; }
+imp_decl_statements
+	: %empty				{ $$ = NULL; }
 	| imp_decl_statements tINTERFACE qualified_type '<' parameterized_type_args '>' ';'
 						{ $$ = append_statement($1, make_statement_reference(type_parameterized_type_specialize_declare($3, $5))); }
 	;
 
-imp_decl_block: tDECLARE '{' imp_decl_statements '}' { $$ = $3; }
+imp_decl_block
+	: tDECLARE '{' imp_decl_statements '}'	{ $$ = $3; }
+	;
 
-gbl_statements:					{ $$ = NULL; }
+gbl_statements
+	: %empty				{ $$ = NULL; }
 	| gbl_statements namespacedef '{' { push_namespaces($2); } gbl_statements '}'
 						{ pop_namespaces($2); $$ = append_statements($1, $5); }
 	| gbl_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
@@ -409,7 +430,8 @@ gbl_statements:					{ $$ = NULL; }
 	| gbl_statements decl_block		{ $$ = append_statements($1, $2); }
 	;
 
-imp_statements:					{ $$ = NULL; }
+imp_statements
+	: %empty				{ $$ = NULL; }
 	| imp_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
 	| imp_statements dispinterface ';'	{ $$ = append_statement($1, make_statement_reference($2)); }
 	| imp_statements namespacedef '{' { push_namespaces($2); } imp_statements '}'
@@ -433,11 +455,13 @@ imp_statements:					{ $$ = NULL; }
 	| imp_statements imp_decl_block		{ $$ = append_statements($1, $2); }
 	;
 
-int_statements:					{ $$ = NULL; }
+int_statements
+	: %empty				{ $$ = NULL; }
 	| int_statements statement		{ $$ = append_statement($1, $2); }
 	;
 
-semicolon_opt:
+semicolon_opt
+	: %empty
 	| ';'
 	;
 
@@ -485,17 +509,10 @@ typedecl:
 
 cppquote: tCPPQUOTE '(' aSTRING ')'		{ $$ = $3; }
 	;
-import_start: tIMPORT aSTRING ';'		{ $$ = xmalloc(sizeof(struct _import_t));
-						  $$->name = $2;
-						  $$->import_performed = do_import($2);
-						  if (!$$->import_performed) yychar = aEOF;
-						}
-	;
 
-import: import_start imp_statements aEOF	{ $$ = $1->name;
-						  if ($1->import_performed) pop_import();
-						  free($1);
-						}
+import_start: tIMPORT aSTRING ';'		{ $$ = $2; push_import( $2, &yylloc ); }
+	;
+import: import_start imp_statements aEOF	{ pop_import( &yylloc ); }
 	;
 
 importlib: tIMPORTLIB '(' aSTRING ')'
@@ -512,7 +529,8 @@ librarydef: library_start imp_statements '}'
 	    semicolon_opt			{ $$ = $1; $$->stmts = $2; }
 	;
 
-m_args:						{ $$ = NULL; }
+m_args
+	: %empty				{ $$ = NULL; }
 	| args
 	;
 
@@ -545,7 +563,8 @@ array:	  '[' expr ']'				{ $$ = $2;
 	| '[' ']'				{ $$ = make_expr(EXPR_VOID); }
 	;
 
-m_attributes:					{ $$ = NULL; }
+m_attributes
+	: %empty				{ $$ = NULL; }
 	| attributes
 	;
 
@@ -573,16 +592,20 @@ contract_ver:
 	| aNUM '.' aNUM				{ $$ = MAKEVERSION($3, $1); }
 	;
 
-contract_req: decl_spec ',' contract_ver	{ if ($1->type->type_type != TYPE_APICONTRACT)
+contract_req
+	: decl_spec ',' contract_ver		{ if ($1->type->type_type != TYPE_APICONTRACT)
 						      error_loc("type %s is not an apicontract\n", $1->type->name);
 						  $$ = make_exprl(EXPR_NUM, $3);
 						  $$ = make_exprt(EXPR_GTREQL, declare_var(NULL, $1, make_declarator(NULL), 0), $$);
 						}
+	;
 
-static_attr: decl_spec ',' contract_req		{ if ($1->type->type_type != TYPE_INTERFACE)
+static_attr
+	: decl_spec ',' contract_req		{ if ($1->type->type_type != TYPE_INTERFACE)
 						      error_loc("type %s is not an interface\n", $1->type->name);
 						  $$ = make_exprt(EXPR_MEMBER, declare_var(NULL, $1, make_declarator(NULL), 0), $3);
 						}
+	;
 
 activatable_attr:
 	  decl_spec ',' contract_req		{ if ($1->type->type_type != TYPE_INTERFACE)
@@ -590,154 +613,172 @@ activatable_attr:
 						  $$ = make_exprt(EXPR_MEMBER, declare_var(NULL, $1, make_declarator(NULL), 0), $3);
 						}
 	| contract_req				{ $$ = $1; } /* activatable on the default activation factory */
-
-attribute:					{ $$ = NULL; }
-	| tACTIVATABLE '(' activatable_attr ')'	{ $$ = make_attrp(ATTR_ACTIVATABLE, $3); }
-	| tAGGREGATABLE				{ $$ = make_attr(ATTR_AGGREGATABLE); }
-	| tANNOTATION '(' aSTRING ')'		{ $$ = make_attrp(ATTR_ANNOTATION, $3); }
-	| tAPPOBJECT				{ $$ = make_attr(ATTR_APPOBJECT); }
-	| tASYNC				{ $$ = make_attr(ATTR_ASYNC); }
-	| tAUTOHANDLE				{ $$ = make_attr(ATTR_AUTO_HANDLE); }
-	| tBINDABLE				{ $$ = make_attr(ATTR_BINDABLE); }
-	| tBROADCAST				{ $$ = make_attr(ATTR_BROADCAST); }
-	| tCALLAS '(' ident ')'			{ $$ = make_attrp(ATTR_CALLAS, $3); }
-	| tCASE '(' expr_list_int_const ')'	{ $$ = make_attrp(ATTR_CASE, $3); }
-	| tCODE					{ $$ = make_attr(ATTR_CODE); }
-	| tCOMMSTATUS				{ $$ = make_attr(ATTR_COMMSTATUS); }
-	| tCONTEXTHANDLE			{ $$ = make_attrv(ATTR_CONTEXTHANDLE, 0); }
-	| tCONTEXTHANDLENOSERIALIZE		{ $$ = make_attrv(ATTR_CONTEXTHANDLE, 0); /* RPC_CONTEXT_HANDLE_DONT_SERIALIZE */ }
-	| tCONTEXTHANDLESERIALIZE		{ $$ = make_attrv(ATTR_CONTEXTHANDLE, 0); /* RPC_CONTEXT_HANDLE_SERIALIZE */ }
-	| tCONTRACT '(' contract_req ')'	{ $$ = make_attrp(ATTR_CONTRACT, $3); }
-	| tCONTRACTVERSION '(' contract_ver ')'	{ $$ = make_attrv(ATTR_CONTRACTVERSION, $3); }
-	| tCONTROL				{ $$ = make_attr(ATTR_CONTROL); }
-	| tCUSTOM '(' uuid_string ',' expr_const ')' { $$ = make_custom_attr($3, $5); }
-	| tDECODE				{ $$ = make_attr(ATTR_DECODE); }
-	| tDEFAULT				{ $$ = make_attr(ATTR_DEFAULT); }
-	| tDEFAULTBIND				{ $$ = make_attr(ATTR_DEFAULTBIND); }
-	| tDEFAULTCOLLELEM			{ $$ = make_attr(ATTR_DEFAULTCOLLELEM); }
-	| tDEFAULTVALUE '(' expr_const ')'	{ $$ = make_attrp(ATTR_DEFAULTVALUE, $3); }
-	| tDEFAULTVTABLE			{ $$ = make_attr(ATTR_DEFAULTVTABLE); }
-	| tDISABLECONSISTENCYCHECK		{ $$ = make_attr(ATTR_DISABLECONSISTENCYCHECK); }
-	| tDISPLAYBIND				{ $$ = make_attr(ATTR_DISPLAYBIND); }
-	| tDLLNAME '(' aSTRING ')'		{ $$ = make_attrp(ATTR_DLLNAME, $3); }
-	| tDUAL					{ $$ = make_attr(ATTR_DUAL); }
-	| tENABLEALLOCATE			{ $$ = make_attr(ATTR_ENABLEALLOCATE); }
-	| tENCODE				{ $$ = make_attr(ATTR_ENCODE); }
-	| tENDPOINT '(' str_list ')'		{ $$ = make_attrp(ATTR_ENDPOINT, $3); }
-	| tENTRY '(' expr_const ')'		{ $$ = make_attrp(ATTR_ENTRY, $3); }
-	| tEVENTADD				{ $$ = make_attr(ATTR_EVENTADD); }
-	| tEVENTREMOVE				{ $$ = make_attr(ATTR_EVENTREMOVE); }
-	| tEXCLUSIVETO '(' decl_spec ')'	{ if ($3->type->type_type != TYPE_RUNTIMECLASS)
-						      error_loc("type %s is not a runtimeclass\n", $3->type->name);
-						  $$ = make_attrp(ATTR_EXCLUSIVETO, $3->type); }
-	| tEXPLICITHANDLE			{ $$ = make_attr(ATTR_EXPLICIT_HANDLE); }
-	| tFAULTSTATUS				{ $$ = make_attr(ATTR_FAULTSTATUS); }
-	| tFLAGS				{ $$ = make_attr(ATTR_FLAGS); }
-	| tFORCEALLOCATE			{ $$ = make_attr(ATTR_FORCEALLOCATE); }
-	| tHANDLE				{ $$ = make_attr(ATTR_HANDLE); }
-	| tHELPCONTEXT '(' expr_int_const ')'	{ $$ = make_attrp(ATTR_HELPCONTEXT, $3); }
-	| tHELPFILE '(' aSTRING ')'		{ $$ = make_attrp(ATTR_HELPFILE, $3); }
-	| tHELPSTRING '(' aSTRING ')'		{ $$ = make_attrp(ATTR_HELPSTRING, $3); }
-	| tHELPSTRINGCONTEXT '(' expr_int_const ')'	{ $$ = make_attrp(ATTR_HELPSTRINGCONTEXT, $3); }
-	| tHELPSTRINGDLL '(' aSTRING ')'	{ $$ = make_attrp(ATTR_HELPSTRINGDLL, $3); }
-	| tHIDDEN				{ $$ = make_attr(ATTR_HIDDEN); }
-	| tID '(' expr_int_const ')'		{ $$ = make_attrp(ATTR_ID, $3); }
-	| tIDEMPOTENT				{ $$ = make_attr(ATTR_IDEMPOTENT); }
-	| tIGNORE				{ $$ = make_attr(ATTR_IGNORE); }
-	| tIIDIS '(' expr ')'			{ $$ = make_attrp(ATTR_IIDIS, $3); }
-	| tIMMEDIATEBIND			{ $$ = make_attr(ATTR_IMMEDIATEBIND); }
-	| tIMPLICITHANDLE '(' arg ')'		{ $$ = make_attrp(ATTR_IMPLICIT_HANDLE, $3); }
-	| tIN					{ $$ = make_attr(ATTR_IN); }
-	| tINPUTSYNC				{ $$ = make_attr(ATTR_INPUTSYNC); }
-	| tLENGTHIS '(' m_exprs ')'		{ $$ = make_attrp(ATTR_LENGTHIS, $3); }
-	| tLCID	'(' expr_int_const ')'		{ $$ = make_attrp(ATTR_LIBLCID, $3); }
-	| tLCID					{ $$ = make_attr(ATTR_PARAMLCID); }
-	| tLICENSED				{ $$ = make_attr(ATTR_LICENSED); }
-	| tLOCAL				{ $$ = make_attr(ATTR_LOCAL); }
-	| tMARSHALINGBEHAVIOR '(' marshaling_behavior ')'
-						{ $$ = make_attrv(ATTR_MARSHALING_BEHAVIOR, $3); }
-	| tMAYBE				{ $$ = make_attr(ATTR_MAYBE); }
-	| tMESSAGE				{ $$ = make_attr(ATTR_MESSAGE); }
-	| tNOCODE				{ $$ = make_attr(ATTR_NOCODE); }
-	| tNONBROWSABLE				{ $$ = make_attr(ATTR_NONBROWSABLE); }
-	| tNONCREATABLE				{ $$ = make_attr(ATTR_NONCREATABLE); }
-	| tNONEXTENSIBLE			{ $$ = make_attr(ATTR_NONEXTENSIBLE); }
-	| tNOTIFY				{ $$ = make_attr(ATTR_NOTIFY); }
-	| tNOTIFYFLAG				{ $$ = make_attr(ATTR_NOTIFYFLAG); }
-	| tOBJECT				{ $$ = make_attr(ATTR_OBJECT); }
-	| tODL					{ $$ = make_attr(ATTR_ODL); }
-	| tOLEAUTOMATION			{ $$ = make_attr(ATTR_OLEAUTOMATION); }
-	| tOPTIMIZE '(' aSTRING ')'		{ $$ = make_attrp(ATTR_OPTIMIZE, $3); }
-	| tOPTIONAL                             { $$ = make_attr(ATTR_OPTIONAL); }
-	| tOUT					{ $$ = make_attr(ATTR_OUT); }
-	| tOVERLOAD '(' aSTRING ')'		{ $$ = make_attrp(ATTR_OVERLOAD, $3); }
-	| tPARTIALIGNORE			{ $$ = make_attr(ATTR_PARTIALIGNORE); }
-	| tPOINTERDEFAULT '(' pointer_type ')'	{ $$ = make_attrv(ATTR_POINTERDEFAULT, $3); }
-	| tPROGID '(' aSTRING ')'		{ $$ = make_attrp(ATTR_PROGID, $3); }
-	| tPROPGET				{ $$ = make_attr(ATTR_PROPGET); }
-	| tPROPPUT				{ $$ = make_attr(ATTR_PROPPUT); }
-	| tPROPPUTREF				{ $$ = make_attr(ATTR_PROPPUTREF); }
-	| tPROXY				{ $$ = make_attr(ATTR_PROXY); }
-	| tPUBLIC				{ $$ = make_attr(ATTR_PUBLIC); }
-	| tRANGE '(' expr_int_const ',' expr_int_const ')'
-						{ expr_list_t *list = append_expr( NULL, $3 );
-						  list = append_expr( list, $5 );
-						  $$ = make_attrp(ATTR_RANGE, list); }
-	| tREADONLY				{ $$ = make_attr(ATTR_READONLY); }
-	| tREPRESENTAS '(' type ')'		{ $$ = make_attrp(ATTR_REPRESENTAS, $3); }
-	| tREQUESTEDIT				{ $$ = make_attr(ATTR_REQUESTEDIT); }
-	| tRESTRICTED				{ $$ = make_attr(ATTR_RESTRICTED); }
-	| tRETVAL				{ $$ = make_attr(ATTR_RETVAL); }
-	| tSIZEIS '(' m_exprs ')'		{ $$ = make_attrp(ATTR_SIZEIS, $3); }
-	| tSOURCE				{ $$ = make_attr(ATTR_SOURCE); }
-	| tSTATIC '(' static_attr ')'		{ $$ = make_attrp(ATTR_STATIC, $3); }
-	| tSTRICTCONTEXTHANDLE                  { $$ = make_attr(ATTR_STRICTCONTEXTHANDLE); }
-	| tSTRING				{ $$ = make_attr(ATTR_STRING); }
-	| tSWITCHIS '(' expr ')'		{ $$ = make_attrp(ATTR_SWITCHIS, $3); }
-	| tSWITCHTYPE '(' type ')'		{ $$ = make_attrp(ATTR_SWITCHTYPE, $3); }
-	| tTRANSMITAS '(' type ')'		{ $$ = make_attrp(ATTR_TRANSMITAS, $3); }
-	| tTHREADING '(' threading_type ')'	{ $$ = make_attrv(ATTR_THREADING, $3); }
-	| tUIDEFAULT				{ $$ = make_attr(ATTR_UIDEFAULT); }
-	| tUSESGETLASTERROR			{ $$ = make_attr(ATTR_USESGETLASTERROR); }
-	| tUSERMARSHAL '(' type ')'		{ $$ = make_attrp(ATTR_USERMARSHAL, $3); }
-	| tUUID '(' uuid_string ')'		{ $$ = make_attrp(ATTR_UUID, $3); }
-	| tASYNCUUID '(' uuid_string ')'	{ $$ = make_attrp(ATTR_ASYNCUUID, $3); }
-	| tV1ENUM				{ $$ = make_attr(ATTR_V1ENUM); }
-	| tVARARG				{ $$ = make_attr(ATTR_VARARG); }
-	| tVERSION '(' version ')'		{ $$ = make_attrv(ATTR_VERSION, $3); }
-	| tVIPROGID '(' aSTRING ')'		{ $$ = make_attrp(ATTR_VIPROGID, $3); }
-	| tWIREMARSHAL '(' type ')'		{ $$ = make_attrp(ATTR_WIREMARSHAL, $3); }
-	| pointer_type				{ $$ = make_attrv(ATTR_POINTERTYPE, $1); }
 	;
 
-uuid_string:
-	  aUUID
-	| aSTRING				{ if (!is_valid_uuid($1))
-						    error_loc("invalid UUID: %s\n", $1);
-						  $$ = parse_uuid($1); }
+access_attr
+        : tPUBLIC                               { $$ = attr_int( @$, ATTR_PUBLIC, 0 ); }
+        | tPROTECTED                            { $$ = attr_int( @$, ATTR_PROTECTED, 0 ); }
         ;
 
-callconv: tCDECL				{ $$ = xstrdup("__cdecl"); }
-	| tFASTCALL				{ $$ = xstrdup("__fastcall"); }
-	| tPASCAL				{ $$ = xstrdup("__pascal"); }
-	| tSTDCALL				{ $$ = xstrdup("__stdcall"); }
+composable_attr
+        : decl_spec ',' access_attr ',' contract_req
+                                                { if ($1->type->type_type != TYPE_INTERFACE)
+                                                      error_loc( "type %s is not an interface\n", $1->type->name );
+                                                  $$ = make_exprt( EXPR_MEMBER, declare_var( append_attr( NULL, $3 ), $1, make_declarator( NULL ), 0 ), $5 );
+                                                }
+        ;
+
+attribute
+        : %empty                                { $$ = NULL; }
+        | tACTIVATABLE '(' activatable_attr ')' { $$ = attr_ptr( @$, ATTR_ACTIVATABLE, $3 ); }
+        | tAGGREGATABLE                         { $$ = attr_int( @$, ATTR_AGGREGATABLE, 0 ); }
+        | tANNOTATION '(' aSTRING ')'           { $$ = attr_ptr( @$, ATTR_ANNOTATION, $3 ); }
+        | tAPPOBJECT                            { $$ = attr_int( @$, ATTR_APPOBJECT, 0 ); }
+        | tASYNC                                { $$ = attr_int( @$, ATTR_ASYNC, 0 ); }
+        | tAUTOHANDLE                           { $$ = attr_int( @$, ATTR_AUTO_HANDLE, 0 ); }
+        | tBINDABLE                             { $$ = attr_int( @$, ATTR_BINDABLE, 0 ); }
+        | tBROADCAST                            { $$ = attr_int( @$, ATTR_BROADCAST, 0 ); }
+        | tCALLAS '(' ident ')'                 { $$ = attr_ptr( @$, ATTR_CALLAS, $3 ); }
+        | tCASE '(' expr_list_int_const ')'     { $$ = attr_ptr( @$, ATTR_CASE, $3 ); }
+        | tCODE                                 { $$ = attr_int( @$, ATTR_CODE, 0 ); }
+        | tCOMPOSABLE '(' composable_attr ')'   { $$ = attr_ptr( @$, ATTR_COMPOSABLE, $3 ); }
+        | tCOMMSTATUS                           { $$ = attr_int( @$, ATTR_COMMSTATUS, 0 ); }
+        | tCONTEXTHANDLE                        { $$ = attr_int( @$, ATTR_CONTEXTHANDLE, 0 ); }
+        | tCONTEXTHANDLENOSERIALIZE             { $$ = attr_int( @$, ATTR_CONTEXTHANDLE, 0 ); /* RPC_CONTEXT_HANDLE_DONT_SERIALIZE */ }
+        | tCONTEXTHANDLESERIALIZE               { $$ = attr_int( @$, ATTR_CONTEXTHANDLE, 0 ); /* RPC_CONTEXT_HANDLE_SERIALIZE */ }
+        | tCONTRACT '(' contract_req ')'        { $$ = attr_ptr( @$, ATTR_CONTRACT, $3 ); }
+        | tCONTRACTVERSION '(' contract_ver ')' { $$ = attr_int( @$, ATTR_CONTRACTVERSION, $3 ); }
+        | tCONTROL                              { $$ = attr_int( @$, ATTR_CONTROL, 0 ); }
+        | tCUSTOM '(' aUUID ',' expr_const ')'  { attr_custdata_t *data = xmalloc( sizeof(*data) );
+                                                  data->id = *$3; data->pval = $5;
+                                                  $$ = attr_ptr( @$, ATTR_CUSTOM, data );
+                                                }
+        | tDECODE                               { $$ = attr_int( @$, ATTR_DECODE, 0 ); }
+        | tDEFAULT                              { $$ = attr_int( @$, ATTR_DEFAULT, 0 ); }
+        | tDEFAULTBIND                          { $$ = attr_int( @$, ATTR_DEFAULTBIND, 0 ); }
+        | tDEFAULTCOLLELEM                      { $$ = attr_int( @$, ATTR_DEFAULTCOLLELEM, 0 ); }
+        | tDEFAULTVALUE '(' expr_const ')'      { $$ = attr_ptr( @$, ATTR_DEFAULTVALUE, $3 ); }
+        | tDEFAULTVTABLE                        { $$ = attr_int( @$, ATTR_DEFAULTVTABLE, 0 ); }
+        | tDISABLECONSISTENCYCHECK              { $$ = attr_int( @$, ATTR_DISABLECONSISTENCYCHECK, 0 ); }
+        | tDISPLAYBIND                          { $$ = attr_int( @$, ATTR_DISPLAYBIND, 0 ); }
+        | tDLLNAME '(' aSTRING ')'              { $$ = attr_ptr( @$, ATTR_DLLNAME, $3 ); }
+        | tDUAL                                 { $$ = attr_int( @$, ATTR_DUAL, 0 ); }
+        | tENABLEALLOCATE                       { $$ = attr_int( @$, ATTR_ENABLEALLOCATE, 0 ); }
+        | tENCODE                               { $$ = attr_int( @$, ATTR_ENCODE, 0 ); }
+        | tENDPOINT '(' str_list ')'            { $$ = attr_ptr( @$, ATTR_ENDPOINT, $3 ); }
+        | tENTRY '(' expr_const ')'             { $$ = attr_ptr( @$, ATTR_ENTRY, $3 ); }
+        | tEVENTADD                             { $$ = attr_int( @$, ATTR_EVENTADD, 0 ); }
+        | tEVENTREMOVE                          { $$ = attr_int( @$, ATTR_EVENTREMOVE, 0 ); }
+        | tEXCLUSIVETO '(' decl_spec ')'        { if ($3->type->type_type != TYPE_RUNTIMECLASS)
+                                                      error_loc( "type %s is not a runtimeclass\n", $3->type->name );
+                                                  $$ = attr_ptr( @$, ATTR_EXCLUSIVETO, $3->type );
+                                                }
+        | tEXPLICITHANDLE                       { $$ = attr_int( @$, ATTR_EXPLICIT_HANDLE, 0 ); }
+        | tFAULTSTATUS                          { $$ = attr_int( @$, ATTR_FAULTSTATUS, 0 ); }
+        | tFLAGS                                { $$ = attr_int( @$, ATTR_FLAGS, 0 ); }
+        | tFORCEALLOCATE                        { $$ = attr_int( @$, ATTR_FORCEALLOCATE, 0 ); }
+        | tHANDLE                               { $$ = attr_int( @$, ATTR_HANDLE, 0 ); }
+        | tHELPCONTEXT '(' expr_int_const ')'   { $$ = attr_ptr( @$, ATTR_HELPCONTEXT, $3 ); }
+        | tHELPFILE '(' aSTRING ')'             { $$ = attr_ptr( @$, ATTR_HELPFILE, $3 ); }
+        | tHELPSTRING '(' aSTRING ')'           { $$ = attr_ptr( @$, ATTR_HELPSTRING, $3 ); }
+        | tHELPSTRINGCONTEXT '(' expr_int_const ')'
+                                                { $$ = attr_ptr( @$, ATTR_HELPSTRINGCONTEXT, $3 ); }
+        | tHELPSTRINGDLL '(' aSTRING ')'        { $$ = attr_ptr( @$, ATTR_HELPSTRINGDLL, $3 ); }
+        | tHIDDEN                               { $$ = attr_int( @$, ATTR_HIDDEN, 0 ); }
+        | tID '(' expr_int_const ')'            { $$ = attr_ptr( @$, ATTR_ID, $3 ); }
+        | tIDEMPOTENT                           { $$ = attr_int( @$, ATTR_IDEMPOTENT, 0 ); }
+        | tIGNORE                               { $$ = attr_int( @$, ATTR_IGNORE, 0 ); }
+        | tIIDIS '(' expr ')'                   { $$ = attr_ptr( @$, ATTR_IIDIS, $3 ); }
+        | tIMMEDIATEBIND                        { $$ = attr_int( @$, ATTR_IMMEDIATEBIND, 0 ); }
+        | tIMPLICITHANDLE '(' arg ')'           { $$ = attr_ptr( @$, ATTR_IMPLICIT_HANDLE, $3 ); }
+        | tIN                                   { $$ = attr_int( @$, ATTR_IN, 0 ); }
+        | tINPUTSYNC                            { $$ = attr_int( @$, ATTR_INPUTSYNC, 0 ); }
+        | tLENGTHIS '(' m_exprs ')'             { $$ = attr_ptr( @$, ATTR_LENGTHIS, $3 ); }
+        | tLCID '(' expr_int_const ')'          { $$ = attr_ptr( @$, ATTR_LIBLCID, $3 ); }
+        | tLCID                                 { $$ = attr_int( @$, ATTR_PARAMLCID, 0 ); }
+        | tLICENSED                             { $$ = attr_int( @$, ATTR_LICENSED, 0 ); }
+        | tLOCAL                                { $$ = attr_int( @$, ATTR_LOCAL, 0 ); }
+        | tMARSHALINGBEHAVIOR '(' marshaling_behavior ')'
+                                                { $$ = attr_int( @$, ATTR_MARSHALING_BEHAVIOR, $3 ); }
+        | tMAYBE                                { $$ = attr_int( @$, ATTR_MAYBE, 0 ); }
+        | tMESSAGE                              { $$ = attr_int( @$, ATTR_MESSAGE, 0 ); }
+        | tNOCODE                               { $$ = attr_int( @$, ATTR_NOCODE, 0 ); }
+        | tNONBROWSABLE                         { $$ = attr_int( @$, ATTR_NONBROWSABLE, 0 ); }
+        | tNONCREATABLE                         { $$ = attr_int( @$, ATTR_NONCREATABLE, 0 ); }
+        | tNONEXTENSIBLE                        { $$ = attr_int( @$, ATTR_NONEXTENSIBLE, 0 ); }
+        | tNOTIFY                               { $$ = attr_int( @$, ATTR_NOTIFY, 0 ); }
+        | tNOTIFYFLAG                           { $$ = attr_int( @$, ATTR_NOTIFYFLAG, 0 ); }
+        | tOBJECT                               { $$ = attr_int( @$, ATTR_OBJECT, 0 ); }
+        | tODL                                  { $$ = attr_int( @$, ATTR_ODL, 0 ); }
+        | tOLEAUTOMATION                        { $$ = attr_int( @$, ATTR_OLEAUTOMATION, 0 ); }
+        | tOPTIMIZE '(' aSTRING ')'             { $$ = attr_ptr( @$, ATTR_OPTIMIZE, $3 ); }
+        | tOPTIONAL                             { $$ = attr_int( @$, ATTR_OPTIONAL, 0 ); }
+        | tOUT                                  { $$ = attr_int( @$, ATTR_OUT, 0 ); }
+        | tOVERLOAD '(' aSTRING ')'             { $$ = attr_ptr( @$, ATTR_OVERLOAD, $3 ); }
+        | tPARTIALIGNORE                        { $$ = attr_int( @$, ATTR_PARTIALIGNORE, 0 ); }
+        | tPOINTERDEFAULT '(' pointer_type ')'  { $$ = attr_int( @$, ATTR_POINTERDEFAULT, $3 ); }
+        | tPROGID '(' aSTRING ')'               { $$ = attr_ptr( @$, ATTR_PROGID, $3 ); }
+        | tPROPGET                              { $$ = attr_int( @$, ATTR_PROPGET, 0 ); }
+        | tPROPPUT                              { $$ = attr_int( @$, ATTR_PROPPUT, 0 ); }
+        | tPROPPUTREF                           { $$ = attr_int( @$, ATTR_PROPPUTREF, 0 ); }
+        | tPROTECTED                            { $$ = attr_int( @$, ATTR_PROTECTED, 0 ); }
+        | tPROXY                                { $$ = attr_int( @$, ATTR_PROXY, 0 ); }
+        | tPUBLIC                               { $$ = attr_int( @$, ATTR_PUBLIC, 0 ); }
+        | tRANGE '(' expr_int_const ',' expr_int_const ')'
+                                                { expr_list_t *list = append_expr( NULL, $3 );
+                                                  list = append_expr( list, $5 );
+                                                  $$ = attr_ptr( @$, ATTR_RANGE, list );
+                                                }
+        | tREADONLY                             { $$ = attr_int( @$, ATTR_READONLY, 0 ); }
+        | tREPRESENTAS '(' type ')'             { $$ = attr_ptr( @$, ATTR_REPRESENTAS, $3 ); }
+        | tREQUESTEDIT                          { $$ = attr_int( @$, ATTR_REQUESTEDIT, 0 ); }
+        | tRESTRICTED                           { $$ = attr_int( @$, ATTR_RESTRICTED, 0 ); }
+        | tRETVAL                               { $$ = attr_int( @$, ATTR_RETVAL, 0 ); }
+        | tSIZEIS '(' m_exprs ')'               { $$ = attr_ptr( @$, ATTR_SIZEIS, $3 ); }
+        | tSOURCE                               { $$ = attr_int( @$, ATTR_SOURCE, 0 ); }
+        | tSTATIC '(' static_attr ')'           { $$ = attr_ptr( @$, ATTR_STATIC, $3 ); }
+        | tSTRICTCONTEXTHANDLE                  { $$ = attr_int( @$, ATTR_STRICTCONTEXTHANDLE, 0 ); }
+        | tSTRING                               { $$ = attr_int( @$, ATTR_STRING, 0 ); }
+        | tSWITCHIS '(' expr ')'                { $$ = attr_ptr( @$, ATTR_SWITCHIS, $3 ); }
+        | tSWITCHTYPE '(' type ')'              { $$ = attr_ptr( @$, ATTR_SWITCHTYPE, $3 ); }
+        | tTRANSMITAS '(' type ')'              { $$ = attr_ptr( @$, ATTR_TRANSMITAS, $3 ); }
+        | tTHREADING '(' threading_type ')'     { $$ = attr_int( @$, ATTR_THREADING, $3 ); }
+        | tUIDEFAULT                            { $$ = attr_int( @$, ATTR_UIDEFAULT, 0 ); }
+        | tUSESGETLASTERROR                     { $$ = attr_int( @$, ATTR_USESGETLASTERROR, 0 ); }
+        | tUSERMARSHAL '(' type ')'             { $$ = attr_ptr( @$, ATTR_USERMARSHAL, $3 ); }
+        | tUUID '(' aUUID ')'                   { $$ = attr_ptr( @$, ATTR_UUID, $3 ); }
+        | tASYNCUUID '(' aUUID ')'              { $$ = attr_ptr( @$, ATTR_ASYNCUUID, $3 ); }
+        | tV1ENUM                               { $$ = attr_int( @$, ATTR_V1ENUM, 0 ); }
+        | tVARARG                               { $$ = attr_int( @$, ATTR_VARARG, 0 ); }
+        | tVERSION '(' version ')'              { $$ = attr_int( @$, ATTR_VERSION, $3 ); }
+        | tVIPROGID '(' aSTRING ')'             { $$ = attr_ptr( @$, ATTR_VIPROGID, $3 ); }
+        | tWIREMARSHAL '(' type ')'             { $$ = attr_ptr( @$, ATTR_WIREMARSHAL, $3 ); }
+        | pointer_type                          { $$ = attr_int( @$, ATTR_POINTERTYPE, $1 ); }
+        ;
+
+callconv: tCDECL
+	| tFASTCALL
+	| tPASCAL
+	| tSTDCALL
 	;
 
-cases:						{ $$ = NULL; }
+cases
+	: %empty				{ $$ = NULL; }
 	| cases case				{ $$ = append_var( $1, $2 ); }
 	;
 
-case:	  tCASE expr_int_const ':' union_field	{ attr_t *a = make_attrp(ATTR_CASE, append_expr( NULL, $2 ));
-						  $$ = $4; if (!$$) $$ = make_var(NULL);
-						  $$->attrs = append_attr( $$->attrs, a );
-						}
-	| tDEFAULT ':' union_field		{ attr_t *a = make_attr(ATTR_DEFAULT);
-						  $$ = $3; if (!$$) $$ = make_var(NULL);
-						  $$->attrs = append_attr( $$->attrs, a );
-						}
-	;
+case    : tCASE expr_int_const ':' union_field  { attr_t *a = attr_ptr( @$, ATTR_CASE, append_expr( NULL, $2 ) );
+                                                  $$ = $4; if (!$$) $$ = make_var( NULL );
+                                                  $$->attrs = append_attr( $$->attrs, a );
+                                                }
+        | tDEFAULT ':' union_field              { attr_t *a = attr_int( @$, ATTR_DEFAULT, 0 );
+                                                  $$ = $3; if (!$$) $$ = make_var( NULL );
+                                                  $$->attrs = append_attr( $$->attrs, a );
+                                                }
+        ;
 
-enums:						{ $$ = NULL; }
+enums
+	: %empty				{ $$ = NULL; }
 	| enum_list ','				{ $$ = $1; }
 	| enum_list
 	;
@@ -779,7 +820,8 @@ m_exprs:  m_expr                                { $$ = append_expr( NULL, $1 ); 
 	| m_exprs ',' m_expr                    { $$ = append_expr( $1, $3 ); }
 	;
 
-m_expr:						{ $$ = make_expr(EXPR_VOID); }
+m_expr
+	: %empty				{ $$ = make_expr(EXPR_VOID); }
 	| expr
 	;
 
@@ -844,7 +886,8 @@ expr_const: expr				{ $$ = $1;
 						}
 	;
 
-fields:						{ $$ = NULL; }
+fields
+	: %empty				{ $$ = NULL; }
 	| fields field				{ $$ = append_var_list($1, $2); }
 	;
 
@@ -864,7 +907,8 @@ ne_union_field:
 	| attributes ';'			{ $$ = make_var(NULL); $$->attrs = $1; }
         ;
 
-ne_union_fields:				{ $$ = NULL; }
+ne_union_fields
+	: %empty				{ $$ = NULL; }
 	| ne_union_fields ne_union_field	{ $$ = append_var( $1, $2 ); }
 	;
 
@@ -900,11 +944,13 @@ declaration:
 						}
 	;
 
-m_ident:					{ $$ = NULL; }
+m_ident
+	: %empty				{ $$ = NULL; }
 	| ident
 	;
 
-m_typename:					{ $$ = NULL; }
+m_typename
+	: %empty				{ $$ = NULL; }
 	| typename
 	;
 
@@ -915,20 +961,21 @@ typename: aIDENTIFIER
 ident:	  typename				{ $$ = make_var($1); }
 	;
 
-base_type: tBYTE				{ $$ = find_type_or_error(NULL, $<str>1); }
-	| tWCHAR				{ $$ = find_type_or_error(NULL, $<str>1); }
+base_type: tBYTE				{ $$ = find_type_or_error( NULL, "byte" ); }
+	| tWCHAR				{ $$ = find_type_or_error( NULL, "wchar_t" ); }
 	| int_std
 	| tSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), -1); }
 	| tUNSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), 1); }
 	| tUNSIGNED				{ $$ = type_new_int(TYPE_BASIC_INT, 1); }
-	| tFLOAT				{ $$ = find_type_or_error(NULL, $<str>1); }
-	| tDOUBLE				{ $$ = find_type_or_error(NULL, $<str>1); }
-	| tBOOLEAN				{ $$ = find_type_or_error(NULL, $<str>1); }
-	| tERRORSTATUST				{ $$ = find_type_or_error(NULL, $<str>1); }
-	| tHANDLET				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tFLOAT				{ $$ = find_type_or_error( NULL, "float" ); }
+	| tDOUBLE				{ $$ = find_type_or_error( NULL, "double" ); }
+	| tBOOLEAN				{ $$ = find_type_or_error( NULL, "boolean" ); }
+	| tERRORSTATUST				{ $$ = find_type_or_error( NULL, "error_status_t" ); }
+	| tHANDLET				{ $$ = find_type_or_error( NULL, "handle_t" ); }
 	;
 
-m_int:
+m_int
+	: %empty
 	| tINT
 	;
 
@@ -981,8 +1028,9 @@ coclassdef: attributes coclass '{' class_interfaces '}' semicolon_opt
 runtimeclass: tRUNTIMECLASS typename		{ $$ = type_runtimeclass_declare($2, current_namespace); }
 	;
 
-runtimeclass_def: attributes runtimeclass '{' class_interfaces '}' semicolon_opt
-						{ $$ = type_runtimeclass_define($2, $1, $4); }
+runtimeclass_def: attributes runtimeclass inherit '{' class_interfaces '}' semicolon_opt
+						{ if ($3 && type_get_type($3) != TYPE_RUNTIMECLASS) error_loc("%s is not a runtimeclass\n", $3->name);
+						  $$ = type_runtimeclass_define($2, $1, $5); }
 	;
 
 apicontract: tAPICONTRACT typename		{ $$ = type_apicontract_declare($2, current_namespace); }
@@ -996,7 +1044,8 @@ namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = append_str( NULL, $2 ); }
 	| namespacedef '.' aIDENTIFIER		{ $$ = append_str( $1, $3 ); }
 	;
 
-class_interfaces:				{ $$ = NULL; }
+class_interfaces
+	: %empty				{ $$ = NULL; }
 	| class_interfaces class_interface	{ $$ = append_typeref( $1, $2 ); }
 	;
 
@@ -1008,8 +1057,8 @@ class_interface:
 dispinterface: tDISPINTERFACE typename		{ $$ = type_dispinterface_declare($2); }
 	;
 
-dispattributes: attributes			{ $$ = append_attr($1, make_attr(ATTR_DISPINTERFACE)); }
-	;
+dispattributes: attributes                      { $$ = append_attr( $1, attr_int( @$, ATTR_DISPINTERFACE, 0 ) ); }
+        ;
 
 dispint_props: tPROPERTIES ':'			{ $$ = NULL; }
 	| dispint_props s_field ';'		{ $$ = append_var( $1, $2 ); }
@@ -1026,7 +1075,8 @@ dispinterfacedef:
 						{ $$ = type_dispinterface_define_from_iface($2, $1, $4); }
 	;
 
-inherit:					{ $$ = NULL; }
+inherit
+	: %empty				{ $$ = NULL; }
 	| ':' qualified_type                    { $$ = $2; }
 	| ':' parameterized_type		{ $$ = $2; }
 	;
@@ -1062,8 +1112,10 @@ required_types:
 	| parameterized_type			{ $$ = append_typeref(NULL, make_typeref($1)); }
 	| required_types ',' qualified_type	{ $$ = append_typeref($1, make_typeref($3)); }
 	| required_types ',' parameterized_type	{ $$ = append_typeref($1, make_typeref($3)); }
+	;
 
-requires:					{ $$ = NULL; }
+requires
+	: %empty				{ $$ = NULL; }
 	| tREQUIRES required_types		{ $$ = $2; }
 	;
 
@@ -1114,7 +1166,8 @@ type_qualifier:
 	  tCONST				{ $$ = TYPE_QUALIFIER_CONST; }
 	;
 
-m_type_qual_list:				{ $$ = 0; }
+m_type_qual_list
+	: %empty				{ $$ = 0; }
 	| m_type_qual_list type_qualifier	{ $$ = $1 | $2; }
 	;
 
@@ -1129,7 +1182,8 @@ unqualified_decl_spec: unqualified_type m_decl_spec_no_type
 						{ $$ = make_decl_spec($2, $1, $3, STG_NONE, 0, 0); }
 	;
 
-m_decl_spec_no_type:				{ $$ = NULL; }
+m_decl_spec_no_type
+	: %empty				{ $$ = NULL; }
 	| decl_spec_no_type
 	;
 
@@ -1142,7 +1196,7 @@ decl_spec_no_type:
 declarator:
 	  '*' m_type_qual_list declarator %prec PPTR
 						{ $$ = $3; append_chain_type($$, type_new_pointer(NULL), $2); }
-	| callconv declarator			{ $$ = $2; append_chain_callconv($$->type, $1); }
+	| callconv declarator			{ $$ = $2; append_chain_callconv( @$, $$->type, $1 ); }
 	| direct_declarator
 	;
 
@@ -1157,7 +1211,7 @@ direct_declarator:
 abstract_declarator:
 	  '*' m_type_qual_list m_abstract_declarator %prec PPTR
 						{ $$ = $3; append_chain_type($$, type_new_pointer(NULL), $2); }
-	| callconv m_abstract_declarator	{ $$ = $2; append_chain_callconv($$->type, $1); }
+	| callconv m_abstract_declarator	{ $$ = $2; append_chain_callconv( @$, $$->type, $1 ); }
 	| abstract_direct_declarator
 	;
 
@@ -1165,11 +1219,12 @@ abstract_declarator:
 abstract_declarator_no_direct:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
 						{ $$ = $3; append_chain_type($$, type_new_pointer(NULL), $2); }
-	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv($$->type, $1); }
+	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv( @$, $$->type, $1 ); }
 	;
 
 /* abstract declarator or empty */
-m_abstract_declarator: 				{ $$ = make_declarator(NULL); }
+m_abstract_declarator
+	: %empty 				{ $$ = make_declarator(NULL); }
 	| abstract_declarator
 	;
 
@@ -1192,7 +1247,7 @@ abstract_direct_declarator:
 any_declarator:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
 						{ $$ = $3; append_chain_type($$, type_new_pointer(NULL), $2); }
-	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv($$->type, $1); }
+	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv( @$, $$->type, $1 ); }
 	| any_direct_declarator
 	;
 
@@ -1200,11 +1255,12 @@ any_declarator:
 any_declarator_no_direct:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
 						{ $$ = $3; append_chain_type($$, type_new_pointer(NULL), $2); }
-	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv($$->type, $1); }
+	| callconv m_any_declarator		{ $$ = $2; append_chain_callconv( @$, $$->type, $1 ); }
 	;
 
 /* abstract or non-abstract declarator or empty */
-m_any_declarator: 				{ $$ = make_declarator(NULL); }
+m_any_declarator
+	: %empty 				{ $$ = make_declarator(NULL); }
 	| any_declarator
 	;
 
@@ -1231,7 +1287,8 @@ declarator_list:
 	| declarator_list ',' declarator	{ $$ = append_declarator( $1, $3 ); }
 	;
 
-m_bitfield:					{ $$ = NULL; }
+m_bitfield
+	: %empty				{ $$ = NULL; }
 	| ':' expr_const			{ $$ = $2; }
 	;
 
@@ -1291,7 +1348,7 @@ type:
 
 typedef: m_attributes tTYPEDEF m_attributes decl_spec declarator_list
 						{ $1 = append_attribs($1, $3);
-						  reg_typedefs($4, $5, check_typedef_attrs($1));
+						  reg_typedefs( @$, $4, $5, check_typedef_attrs( $1 ) );
 						  $$ = make_statement_typedef($5, !$4->type->defined);
 						}
 	;
@@ -1310,12 +1367,12 @@ version:
 	;
 
 acf_statements
-        : /* empty */
+        : %empty
         | acf_interface acf_statements
 	;
 
 acf_int_statements
-        : /* empty */
+        : %empty
         | acf_int_statement acf_int_statements
 	;
 
@@ -1336,8 +1393,8 @@ acf_interface
 	;
 
 acf_attributes
-        : /* empty */                           { $$ = NULL; };
-        | '[' acf_attribute_list ']'            { $$ = $2; };
+        : %empty                                { $$ = NULL; }
+        | '[' acf_attribute_list ']'            { $$ = $2; }
 	;
 
 acf_attribute_list
@@ -1346,12 +1403,12 @@ acf_attribute_list
 	;
 
 acf_attribute
-	: tALLOCATE '(' allocate_option_list ')'
-						{ $$ = make_attrv(ATTR_ALLOCATE, $3); }
-        | tENCODE                               { $$ = make_attr(ATTR_ENCODE); }
-        | tDECODE                               { $$ = make_attr(ATTR_DECODE); }
-        | tEXPLICITHANDLE                       { $$ = make_attr(ATTR_EXPLICIT_HANDLE); }
-	;
+        : tALLOCATE '(' allocate_option_list ')'
+                                                { $$ = attr_int( @$, ATTR_ALLOCATE, $3 ); }
+        | tENCODE                               { $$ = attr_int( @$, ATTR_ENCODE, 0 ); }
+        | tDECODE                               { $$ = attr_int( @$, ATTR_DECODE, 0 ); }
+        | tEXPLICITHANDLE                       { $$ = attr_int( @$, ATTR_EXPLICIT_HANDLE, 0 ); }
+        ;
 
 allocate_option_list
 	: allocate_option			{ $$ = $1; }
@@ -1407,55 +1464,6 @@ static str_list_t *append_str(str_list_t *list, char *str)
     return list;
 }
 
-static attr_list_t *move_attr(attr_list_t *dst, attr_list_t *src, enum attr_type type)
-{
-  attr_t *attr;
-  if (!src) return dst;
-  LIST_FOR_EACH_ENTRY(attr, src, attr_t, entry)
-    if (attr->type == type)
-    {
-      list_remove(&attr->entry);
-      return append_attr(dst, attr);
-    }
-  return dst;
-}
-
-static attr_list_t *append_attr_list(attr_list_t *new_list, attr_list_t *old_list)
-{
-  struct list *entry;
-
-  if (!old_list) return new_list;
-
-  while ((entry = list_head(old_list)))
-  {
-    attr_t *attr = LIST_ENTRY(entry, attr_t, entry);
-    list_remove(entry);
-    new_list = append_attr(new_list, attr);
-  }
-  return new_list;
-}
-
-typedef int (*map_attrs_filter_t)(attr_list_t*,const attr_t*);
-
-static attr_list_t *map_attrs(const attr_list_t *list, map_attrs_filter_t filter)
-{
-  attr_list_t *new_list;
-  const attr_t *attr;
-  attr_t *new_attr;
-
-  if (!list) return NULL;
-
-  new_list = xmalloc( sizeof(*list) );
-  list_init( new_list );
-  LIST_FOR_EACH_ENTRY(attr, list, const attr_t, entry)
-  {
-    if (filter && !filter(new_list, attr)) continue;
-    new_attr = xmalloc(sizeof(*new_attr));
-    *new_attr = *attr;
-    list_add_tail(new_list, &new_attr->entry);
-  }
-  return new_list;
-}
 
 static decl_spec_t *make_decl_spec(type_t *type, decl_spec_t *left, decl_spec_t *right,
         enum storage_class stgclass, enum type_qualifier qual, enum function_specifier func_specifier)
@@ -1501,41 +1509,6 @@ static decl_spec_t *make_decl_spec(type_t *type, decl_spec_t *left, decl_spec_t 
   declspec->func_specifier |= func_specifier;
 
   return declspec;
-}
-
-static attr_t *make_attr(enum attr_type type)
-{
-  attr_t *a = xmalloc(sizeof(attr_t));
-  a->type = type;
-  a->u.ival = 0;
-  return a;
-}
-
-static attr_t *make_attrv(enum attr_type type, unsigned int val)
-{
-  attr_t *a = xmalloc(sizeof(attr_t));
-  a->type = type;
-  a->u.ival = val;
-  return a;
-}
-
-attr_t *make_attrp(enum attr_type type, void *val)
-{
-  attr_t *a = xmalloc(sizeof(attr_t));
-  a->type = type;
-  a->u.pval = val;
-  return a;
-}
-
-static attr_t *make_custom_attr(struct uuid *id, expr_t *pval)
-{
-  attr_t *a = xmalloc(sizeof(attr_t));
-  attr_custdata_t *cstdata = xmalloc(sizeof(attr_custdata_t));
-  a->type = ATTR_CUSTOM;
-  cstdata->id = *id;
-  cstdata->pval = pval;
-  a->u.pval = cstdata;
-  return a;
 }
 
 static expr_list_t *append_expr(expr_list_t *list, expr_t *expr)
@@ -1689,12 +1662,12 @@ static void append_chain_type(declarator_t *decl, type_t *type, enum type_qualif
         type->attrs = move_attr(type->attrs, chain_type->attrs, ATTR_CALLCONV);
 }
 
-static void append_chain_callconv(type_t *chain, char *callconv)
+static void append_chain_callconv( struct location where, type_t *chain, char *callconv )
 {
     type_t *chain_end;
 
     if (chain && (chain_end = get_chain_end(chain)))
-        chain_end->attrs = append_attr(chain_end->attrs, make_attrp(ATTR_CALLCONV, callconv));
+        chain_end->attrs = append_attr( chain_end->attrs, attr_ptr( where, ATTR_CALLCONV, callconv ) );
     else
         error_loc("calling convention applied to non-function type\n");
 }
@@ -1759,9 +1732,7 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, declarator
     {
       if (ptr_attr && ptr_attr != FC_UP &&
           type_get_type(type_pointer_get_ref_type(ptr)) == TYPE_INTERFACE)
-          warning_loc_info(&v->loc_info,
-                           "%s: pointer attribute applied to interface "
-                           "pointer type has no effect\n", v->name);
+          warning_at( &v->where, "%s: pointer attribute applied to interface pointer type has no effect\n", v->name );
       if (!ptr_attr && top)
       {
         /* FIXME: this is a horrible hack to cope with the issue that we
@@ -1940,7 +1911,7 @@ var_t *make_var(char *name)
   init_declspec(&v->declspec, NULL);
   v->attrs = NULL;
   v->eval = NULL;
-  init_loc_info(&v->loc_info);
+  init_location( &v->where, NULL, NULL );
   v->declonly = FALSE;
   return v;
 }
@@ -1952,7 +1923,7 @@ static var_t *copy_var(var_t *src, char *name, map_attrs_filter_t attr_filter)
   v->declspec = src->declspec;
   v->attrs = map_attrs(src->attrs, attr_filter);
   v->eval = src->eval;
-  v->loc_info = src->loc_info;
+  v->where = src->where;
   return v;
 }
 
@@ -2117,13 +2088,13 @@ type_t *reg_type(type_t *type, const char *name, struct namespace *namespace, in
   return type;
 }
 
-static type_t *reg_typedefs(decl_spec_t *decl_spec, declarator_list_t *decls, attr_list_t *attrs)
+static type_t *reg_typedefs( struct location where, decl_spec_t *decl_spec, declarator_list_t *decls, attr_list_t *attrs )
 {
   declarator_t *decl;
   type_t *type = decl_spec->type;
 
   if (is_attr(attrs, ATTR_UUID) && !is_attr(attrs, ATTR_PUBLIC))
-    attrs = append_attr( attrs, make_attr(ATTR_PUBLIC) );
+    attrs = append_attr( attrs, attr_int( where, ATTR_PUBLIC, 0 ) );
 
   /* We must generate names for tagless enum, struct or union.
      Typedef-ing a tagless enum, struct or union means we want the typedef
@@ -2137,7 +2108,7 @@ static type_t *reg_typedefs(decl_spec_t *decl_spec, declarator_list_t *decls, at
     {
       type->name = gen_name();
       if (!is_attr(attrs, ATTR_PUBLIC))
-        attrs = append_attr(attrs, make_attr(ATTR_PUBLIC));
+        attrs = append_attr( attrs, attr_int( where, ATTR_PUBLIC, 0 ) );
     }
 
     /* replace existing attributes when generating a typelib */
@@ -2163,10 +2134,9 @@ static type_t *reg_typedefs(decl_spec_t *decl_spec, declarator_list_t *decls, at
        * FIXME: We may consider string separated type tables for each input
        *        for cleaner solution.
        */
-      if (cur && input_name == cur->loc_info.input_name)
-          error_loc("%s: redefinition error; original definition was at %s:%d\n",
-                    cur->name, cur->loc_info.input_name,
-                    cur->loc_info.line_number);
+      if (cur && input_name == cur->where.input_name)
+          error_loc( "%s: redefinition error; original definition was at %s:%d\n",
+                     cur->name, cur->where.input_name, cur->where.first_line );
 
       name = declare_var(attrs, decl_spec, decl, 0);
       cur = type_new_alias(&name->declspec, name->name);
@@ -2300,380 +2270,6 @@ char *gen_name(void)
   return strmake("__WIDL_%s_generated_name_%08lX", file_id, n++);
 }
 
-struct allowed_attr
-{
-    unsigned int dce_compatible : 1;
-    unsigned int acf : 1;
-    unsigned int multiple : 1;
-
-    unsigned int on_interface : 1;
-    unsigned int on_function : 1;
-    unsigned int on_arg : 1;
-    unsigned int on_type : 1;
-    unsigned int on_enum : 1;
-    unsigned int on_enum_member : 1;
-    unsigned int on_struct : 2;
-    unsigned int on_union : 1;
-    unsigned int on_field : 1;
-    unsigned int on_library : 1;
-    unsigned int on_dispinterface : 1;
-    unsigned int on_module : 1;
-    unsigned int on_coclass : 1;
-    unsigned int on_apicontract : 1;
-    unsigned int on_runtimeclass : 1;
-    const char *display_name;
-};
-
-struct allowed_attr allowed_attr[] =
-{
-    /* attr                        { D ACF M   I Fn ARG T En Enm St Un Fi L  DI M  C AC  R  <display name> } */
-    /* ATTR_ACTIVATABLE */         { 0, 0, 1,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "activatable" },
-    /* ATTR_AGGREGATABLE */        { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "aggregatable" },
-    /* ATTR_ALLOCATE */            { 0, 1, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "allocate" },
-    /* ATTR_ANNOTATION */          { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "annotation" },
-    /* ATTR_APPOBJECT */           { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "appobject" },
-    /* ATTR_ASYNC */               { 0, 1, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "async" },
-    /* ATTR_ASYNCUUID */           { 1, 0, 0,  1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, "async_uuid" },
-    /* ATTR_AUTO_HANDLE */         { 1, 1, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "auto_handle" },
-    /* ATTR_BINDABLE */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "bindable" },
-    /* ATTR_BROADCAST */           { 1, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "broadcast" },
-    /* ATTR_CALLAS */              { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "call_as" },
-    /* ATTR_CALLCONV */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL },
-    /* ATTR_CASE */                { 1, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "case" },
-    /* ATTR_CODE */                { 0, 1, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "code" },
-    /* ATTR_COMMSTATUS */          { 0, 0, 0,  0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "comm_status" },
-    /* ATTR_CONTEXTHANDLE */       { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "context_handle" },
-    /* ATTR_CONTRACT */            { 0, 0, 0,  1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, "contract" },
-    /* ATTR_CONTRACTVERSION */     { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, "contractversion" },
-    /* ATTR_CONTROL */             { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, "control" },
-    /* ATTR_CUSTOM */              { 0, 0, 1,  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, "custom" },
-    /* ATTR_DECODE */              { 0, 0, 0,  1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "decode" },
-    /* ATTR_DEFAULT */             { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, "default" },
-    /* ATTR_DEFAULTBIND */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "defaultbind" },
-    /* ATTR_DEFAULTCOLLELEM */     { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "defaultcollelem" },
-    /* ATTR_DEFAULTVALUE */        { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "defaultvalue" },
-    /* ATTR_DEFAULTVTABLE */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "defaultvtable" },
- /* ATTR_DISABLECONSISTENCYCHECK */{ 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "disable_consistency_check" },
-    /* ATTR_DISPINTERFACE */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, NULL },
-    /* ATTR_DISPLAYBIND */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "displaybind" },
-    /* ATTR_DLLNAME */             { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, "dllname" },
-    /* ATTR_DUAL */                { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "dual" },
-    /* ATTR_ENABLEALLOCATE */      { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "enable_allocate" },
-    /* ATTR_ENCODE */              { 0, 0, 0,  1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "encode" },
-    /* ATTR_ENDPOINT */            { 1, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "endpoint" },
-    /* ATTR_ENTRY */               { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "entry" },
-    /* ATTR_EVENTADD */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "eventadd" },
-    /* ATTR_EVENTREMOVE */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "eventremove" },
-    /* ATTR_EXCLUSIVETO */         { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "exclusive_to" },
-    /* ATTR_EXPLICIT_HANDLE */     { 1, 1, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "explicit_handle" },
-    /* ATTR_FAULTSTATUS */         { 0, 0, 0,  0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "fault_status" },
-    /* ATTR_FLAGS */               { 0, 0, 0,  0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "flags" },
-    /* ATTR_FORCEALLOCATE */       { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "force_allocate" },
-    /* ATTR_HANDLE */              { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "handle" },
-    /* ATTR_HELPCONTEXT */         { 0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, "helpcontext" },
-    /* ATTR_HELPFILE */            { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, "helpfile" },
-    /* ATTR_HELPSTRING */          { 0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, "helpstring" },
-    /* ATTR_HELPSTRINGCONTEXT */   { 0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, "helpstringcontext" },
-    /* ATTR_HELPSTRINGDLL */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, "helpstringdll" },
-    /* ATTR_HIDDEN */              { 0, 0, 0,  1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, "hidden" },
-    /* ATTR_ID */                  { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, "id" },
-    /* ATTR_IDEMPOTENT */          { 1, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "idempotent" },
-    /* ATTR_IGNORE */              { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "ignore" },
-    /* ATTR_IIDIS */               { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "iid_is" },
-    /* ATTR_IMMEDIATEBIND */       { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "immediatebind" },
-    /* ATTR_IMPLICIT_HANDLE */     { 1, 1, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "implicit_handle" },
-    /* ATTR_IN */                  { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "in" },
-    /* ATTR_INPUTSYNC */           { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "inputsync" },
-    /* ATTR_LENGTHIS */            { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "length_is" },
-    /* ATTR_LIBLCID */             { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, "lcid" },
-    /* ATTR_LICENSED */            { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "licensed" },
-    /* ATTR_LOCAL */               { 1, 0, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "local" },
-    /* ATTR_MARSHALING_BEHAVIOR */ { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "marshaling_behavior" },
-    /* ATTR_MAYBE */               { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "maybe" },
-    /* ATTR_MESSAGE */             { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "message" },
-    /* ATTR_NOCODE */              { 0, 1, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "nocode" },
-    /* ATTR_NONBROWSABLE */        { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "nonbrowsable" },
-    /* ATTR_NONCREATABLE */        { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "noncreatable" },
-    /* ATTR_NONEXTENSIBLE */       { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "nonextensible" },
-    /* ATTR_NOTIFY */              { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "notify" },
-    /* ATTR_NOTIFYFLAG */          { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "notify_flag" },
-    /* ATTR_OBJECT */              { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "object" },
-    /* ATTR_ODL */                 { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, "odl" },
-    /* ATTR_OLEAUTOMATION */       { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "oleautomation" },
-    /* ATTR_OPTIMIZE */            { 0, 0, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "optimize" },
-    /* ATTR_OPTIONAL */            { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "optional" },
-    /* ATTR_OUT */                 { 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "out" },
-    /* ATTR_OVERLOAD */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "overload" },
-    /* ATTR_PARAMLCID */           { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "lcid" },
-    /* ATTR_PARTIALIGNORE */       { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "partial_ignore" },
-    /* ATTR_POINTERDEFAULT */      { 1, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "pointer_default" },
-    /* ATTR_POINTERTYPE */         { 1, 0, 0,  0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "ref, unique or ptr" },
-    /* ATTR_PROGID */              { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "progid" },
-    /* ATTR_PROPGET */             { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "propget" },
-    /* ATTR_PROPPUT */             { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "propput" },
-    /* ATTR_PROPPUTREF */          { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "propputref" },
-    /* ATTR_PROXY */               { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "proxy" },
-    /* ATTR_PUBLIC */              { 0, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "public" },
-    /* ATTR_RANGE */               { 0, 0, 0,  0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "range" },
-    /* ATTR_READONLY */            { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "readonly" },
-    /* ATTR_REPRESENTAS */         { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "represent_as" },
-    /* ATTR_REQUESTEDIT */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "requestedit" },
-    /* ATTR_RESTRICTED */          { 0, 0, 0,  1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, "restricted" },
-    /* ATTR_RETVAL */              { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "retval" },
-    /* ATTR_SIZEIS */              { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "size_is" },
-    /* ATTR_SOURCE */              { 0, 0, 0,  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, "source" },
-    /* ATTR_STATIC */              { 0, 0, 1,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "static" },
-    /* ATTR_STRICTCONTEXTHANDLE */ { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "strict_context_handle" },
-    /* ATTR_STRING */              { 1, 0, 0,  0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "string" },
-    /* ATTR_SWITCHIS */            { 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "switch_is" },
-    /* ATTR_SWITCHTYPE */          { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, "switch_type" },
-    /* ATTR_THREADING */           { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, "threading" },
-    /* ATTR_TRANSMITAS */          { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "transmit_as" },
-    /* ATTR_UIDEFAULT */           { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "uidefault" },
-    /* ATTR_USESGETLASTERROR */    { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "usesgetlasterror" },
-    /* ATTR_USERMARSHAL */         { 0, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "user_marshal" },
-    /* ATTR_UUID */                { 1, 0, 0,  1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, "uuid" },
-    /* ATTR_V1ENUM */              { 0, 0, 0,  0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "v1_enum" },
-    /* ATTR_VARARG */              { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "vararg" },
-    /* ATTR_VERSION */             { 1, 0, 0,  1, 0, 0, 1, 1, 0, 2, 0, 0, 1, 0, 1, 1, 0, 1, "version" },
-    /* ATTR_VIPROGID */            { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "vi_progid" },
-    /* ATTR_WIREMARSHAL */         { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "wire_marshal" },
-};
-
-attr_list_t *append_attr(attr_list_t *list, attr_t *attr)
-{
-    attr_t *attr_existing;
-    if (!attr) return list;
-    if (!list)
-    {
-        list = xmalloc( sizeof(*list) );
-        list_init( list );
-    }
-    if (!allowed_attr[attr->type].multiple)
-    {
-        LIST_FOR_EACH_ENTRY(attr_existing, list, attr_t, entry)
-            if (attr_existing->type == attr->type)
-            {
-                parser_warning("duplicate attribute %s\n", get_attr_display_name(attr->type));
-                /* use the last attribute, like MIDL does */
-                list_remove(&attr_existing->entry);
-                break;
-            }
-    }
-    list_add_tail( list, &attr->entry );
-    return list;
-}
-
-const char *get_attr_display_name(enum attr_type type)
-{
-    return allowed_attr[type].display_name;
-}
-
-attr_list_t *check_interface_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_interface)
-      error_loc("inapplicable attribute %s for interface %s\n",
-                allowed_attr[attr->type].display_name, name);
-    if (attr->type == ATTR_IMPLICIT_HANDLE)
-    {
-        const var_t *var = attr->u.pval;
-        if (type_get_type( var->declspec.type) == TYPE_BASIC &&
-            type_basic_get_type( var->declspec.type ) == TYPE_BASIC_HANDLE)
-            continue;
-        if (is_aliaschain_attr( var->declspec.type, ATTR_HANDLE ))
-            continue;
-      error_loc("attribute %s requires a handle type in interface %s\n",
-                allowed_attr[attr->type].display_name, name);
-    }
-  }
-  return attrs;
-}
-
-static attr_list_t *check_function_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_function)
-      error_loc("inapplicable attribute %s for function %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-static void check_arg_attrs(const var_t *arg)
-{
-  const attr_t *attr;
-
-  if (arg->attrs)
-  {
-    LIST_FOR_EACH_ENTRY(attr, arg->attrs, const attr_t, entry)
-    {
-      if (!allowed_attr[attr->type].on_arg)
-        error_loc("inapplicable attribute %s for argument %s\n",
-                  allowed_attr[attr->type].display_name, arg->name);
-    }
-  }
-}
-
-static attr_list_t *check_typedef_attrs(attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_type)
-      error_loc("inapplicable attribute %s for typedef\n",
-                allowed_attr[attr->type].display_name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_enum_attrs(attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_enum)
-      error_loc("inapplicable attribute %s for enum\n",
-                allowed_attr[attr->type].display_name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_enum_member_attrs(attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_enum_member)
-      error_loc("inapplicable attribute %s for enum member\n",
-                allowed_attr[attr->type].display_name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_struct_attrs(attr_list_t *attrs)
-{
-  int mask = winrt_mode ? 3 : 1;
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!(allowed_attr[attr->type].on_struct & mask))
-      error_loc("inapplicable attribute %s for struct\n",
-                allowed_attr[attr->type].display_name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_union_attrs(attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_union)
-      error_loc("inapplicable attribute %s for union\n",
-                allowed_attr[attr->type].display_name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_field_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_field)
-      error_loc("inapplicable attribute %s for field %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-static attr_list_t *check_library_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_library)
-      error_loc("inapplicable attribute %s for library %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-attr_list_t *check_dispiface_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_dispinterface)
-      error_loc("inapplicable attribute %s for dispinterface %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-attr_list_t *check_module_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_module)
-      error_loc("inapplicable attribute %s for module %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-attr_list_t *check_coclass_attrs(const char *name, attr_list_t *attrs)
-{
-  const attr_t *attr;
-  if (!attrs) return attrs;
-  LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-  {
-    if (!allowed_attr[attr->type].on_coclass)
-      error_loc("inapplicable attribute %s for coclass %s\n",
-                allowed_attr[attr->type].display_name, name);
-  }
-  return attrs;
-}
-
-attr_list_t *check_runtimeclass_attrs(const char *name, attr_list_t *attrs)
-{
-    const attr_t *attr;
-    if (!attrs) return attrs;
-    LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-        if (!allowed_attr[attr->type].on_runtimeclass)
-            error_loc("inapplicable attribute %s for runtimeclass %s\n",
-                      allowed_attr[attr->type].display_name, name);
-    return attrs;
-}
-
-attr_list_t *check_apicontract_attrs(const char *name, attr_list_t *attrs)
-{
-    const attr_t *attr;
-    if (!attrs) return attrs;
-    LIST_FOR_EACH_ENTRY(attr, attrs, const attr_t, entry)
-        if (!allowed_attr[attr->type].on_apicontract)
-            error_loc("inapplicable attribute %s for apicontract %s\n",
-                      allowed_attr[attr->type].display_name, name);
-    return attrs;
-}
-
 static int is_allowed_conf_type(const type_t *type)
 {
     switch (type_get_type(type))
@@ -2747,8 +2343,7 @@ static void check_conformance_expr_list(const char *attr_name, const var_t *arg,
         {
             const type_t *expr_type = expr_resolve_type(&expr_loc, container_type, dim);
             if (!is_allowed_conf_type(expr_type))
-                error_loc_info(&arg->loc_info, "expression must resolve to integral type <= 32bits for attribute %s\n",
-                               attr_name);
+                error_at( &arg->where, "expression must resolve to integral type <= 32bits for attribute %s\n", attr_name );
         }
     }
 }
@@ -2790,9 +2385,7 @@ static void check_field_common(const type_t *container_type,
 
     if (is_attr(arg->attrs, ATTR_LENGTHIS) &&
         (is_attr(arg->attrs, ATTR_STRING) || is_aliaschain_attr(arg->declspec.type, ATTR_STRING)))
-        error_loc_info(&arg->loc_info,
-                       "string and length_is specified for argument %s are mutually exclusive attributes\n",
-                       arg->name);
+        error_at( &arg->where, "string and length_is specified for argument %s are mutually exclusive attributes\n", arg->name );
 
     if (is_attr(arg->attrs, ATTR_SIZEIS))
     {
@@ -2815,7 +2408,7 @@ static void check_field_common(const type_t *container_type,
             expr_loc.attr = "iid_is";
             expr_type = expr_resolve_type(&expr_loc, container_type, expr);
             if (!expr_type || !is_ptr_guid_type(expr_type))
-                error_loc_info(&arg->loc_info, "expression must resolve to pointer to GUID type for attribute iid_is\n");
+                error_at( &arg->where, "expression must resolve to pointer to GUID type for attribute iid_is\n" );
         }
     }
     if (is_attr(arg->attrs, ATTR_SWITCHIS))
@@ -2829,8 +2422,7 @@ static void check_field_common(const type_t *container_type,
             expr_loc.attr = "switch_is";
             expr_type = expr_resolve_type(&expr_loc, container_type, expr);
             if (!expr_type || !is_allowed_conf_type(expr_type))
-                error_loc_info(&arg->loc_info, "expression must resolve to integral type <= 32bits for attribute %s\n",
-                               expr_loc.attr);
+                error_at( &arg->where, "expression must resolve to integral type <= 32bits for attribute %s\n", expr_loc.attr );
         }
     }
 
@@ -2870,17 +2462,14 @@ static void check_field_common(const type_t *container_type,
             default:
                 break;
             }
-            error_loc_info(&arg->loc_info, "%s \'%s\' of %s \'%s\' %s\n",
-                           var_type, arg->name, container_type_name, container_name, reason);
+            error_at( &arg->where, "%s \'%s\' of %s \'%s\' %s\n", var_type, arg->name, container_type_name, container_name, reason );
             break;
         }
         case TGT_CTXT_HANDLE:
         case TGT_CTXT_HANDLE_POINTER:
             if (type_get_type(container_type) != TYPE_FUNCTION)
-                error_loc_info(&arg->loc_info,
-                               "%s \'%s\' of %s \'%s\' cannot be a context handle\n",
-                               var_type, arg->name, container_type_name,
-                               container_name);
+                error_at( &arg->where, "%s \'%s\' of %s \'%s\' cannot be a context handle\n",
+                          var_type, arg->name, container_type_name, container_name );
             break;
         case TGT_STRING:
         {
@@ -2888,7 +2477,7 @@ static void check_field_common(const type_t *container_type,
             while (is_ptr(t))
                 t = type_pointer_get_ref_type(t);
             if (is_aliaschain_attr(t, ATTR_RANGE))
-                warning_loc_info(&arg->loc_info, "%s: range not verified for a string of ranged types\n", arg->name);
+                warning_at( &arg->where, "%s: range not verified for a string of ranged types\n", arg->name );
             break;
         }
         case TGT_POINTER:
@@ -2902,9 +2491,7 @@ static void check_field_common(const type_t *container_type,
         case TGT_ENUM:
             type = type_get_real_type(type);
             if (!type_is_complete(type))
-            {
-                error_loc_info(&arg->loc_info, "undefined type declaration \"enum %s\"\n", type->name);
-            }
+                error_at( &arg->where, "undefined type declaration \"enum %s\"\n", type->name );
         case TGT_USER_TYPE:
         case TGT_IFACE_POINTER:
         case TGT_BASIC:
@@ -2932,14 +2519,14 @@ static void check_remoting_fields(const var_t *var, type_t *type)
         if (type_is_complete(type))
             fields = type_struct_get_fields(type);
         else
-            error_loc_info(&var->loc_info, "undefined type declaration \"struct %s\"\n", type->name);
+            error_at( &var->where, "undefined type declaration \"struct %s\"\n", type->name );
     }
     else if (type_get_type(type) == TYPE_UNION || type_get_type(type) == TYPE_ENCAPSULATED_UNION)
     {
         if (type_is_complete(type))
             fields = type_union_get_cases(type);
         else
-            error_loc_info(&var->loc_info, "undefined type declaration \"union %s\"\n", type->name);
+            error_at( &var->where, "undefined type declaration \"union %s\"\n", type->name );
     }
 
     if (fields) LIST_FOR_EACH_ENTRY( field, fields, const var_t, entry )
@@ -2971,10 +2558,10 @@ static void check_remoting_args(const var_t *func)
             case TGT_UNION:
             case TGT_CTXT_HANDLE:
             case TGT_USER_TYPE:
-                error_loc_info(&arg->loc_info, "out parameter \'%s\' of function \'%s\' is not a pointer\n", arg->name, funcname);
+                error_at( &arg->where, "out parameter \'%s\' of function \'%s\' is not a pointer\n", arg->name, funcname );
                 break;
             case TGT_IFACE_POINTER:
-                error_loc_info(&arg->loc_info, "out interface pointer \'%s\' of function \'%s\' is not a double pointer\n", arg->name, funcname);
+                error_at( &arg->where, "out interface pointer \'%s\' of function \'%s\' is not a double pointer\n", arg->name, funcname );
                 break;
             case TGT_STRING:
                 if (is_array(type))
@@ -2985,7 +2572,7 @@ static void check_remoting_args(const var_t *func)
                     if (!type_array_has_conformance(type) && type_array_get_dim(type)) break;
                 }
                 if (is_attr( arg->attrs, ATTR_IN )) break;
-                error_loc_info(&arg->loc_info, "out parameter \'%s\' of function \'%s\' cannot be an unsized string\n", arg->name, funcname);
+                error_at( &arg->where, "out parameter \'%s\' of function \'%s\' cannot be an unsized string\n", arg->name, funcname );
                 break;
             case TGT_INVALID:
                 /* already error'd before we get here */
@@ -3022,7 +2609,7 @@ static void add_explicit_handle_if_necessary(const type_t *iface, var_t *func)
          * "[in] handle_t IDL_handle" as the first parameter to the
          * function */
         var_t *idl_handle = make_var(xstrdup("IDL_handle"));
-        idl_handle->attrs = append_attr(NULL, make_attr(ATTR_IN));
+        idl_handle->attrs = append_attr( NULL, attr_int( iface->where, ATTR_IN, 0 ) );
         idl_handle->declspec.type = find_type_or_error(NULL, "handle_t");
         type_function_add_head_arg(func->declspec.type, idl_handle);
     }
@@ -3048,7 +2635,7 @@ static void check_functions(const type_t *iface, int is_inside_library)
                 if (is_attr(func->attrs, ATTR_PROPGET) != is_attr(func_iter->attrs, ATTR_PROPGET)) continue;
                 if (is_attr(func->attrs, ATTR_PROPPUT) != is_attr(func_iter->attrs, ATTR_PROPPUT)) continue;
                 if (is_attr(func->attrs, ATTR_PROPPUTREF) != is_attr(func_iter->attrs, ATTR_PROPPUTREF)) continue;
-                error_loc_info(&func->loc_info, "duplicated function \'%s\'\n", func->name);
+                error_at( &func->where, "duplicated function \'%s\'\n", func->name );
             }
         }
     }
@@ -3078,7 +2665,7 @@ static int async_iface_attrs(attr_list_t *attrs, const attr_t *attr)
     case ATTR_UUID:
         return 0;
     case ATTR_ASYNCUUID:
-        append_attr(attrs, make_attrp(ATTR_UUID, attr->u.pval));
+        append_attr( attrs, attr_ptr( attr->where, ATTR_UUID, attr->u.pval ) );
         return 0;
     default:
         return 1;
@@ -3221,23 +2808,6 @@ static void check_all_user_types(const statement_list_t *stmts)
   }
 }
 
-int is_valid_uuid(const char *s)
-{
-  int i;
-
-  for (i = 0; i < 36; ++i)
-    if (i == 8 || i == 13 || i == 18 || i == 23)
-    {
-      if (s[i] != '-')
-        return FALSE;
-    }
-    else
-      if (!isxdigit(s[i]))
-        return FALSE;
-
-  return s[i] == '\0';
-}
-
 static statement_t *make_statement(enum statement_type type)
 {
     statement_t *stmt = xmalloc(sizeof(*stmt));
@@ -3366,14 +2936,6 @@ static statement_list_t *append_statements(statement_list_t *l1, statement_list_
     return l1;
 }
 
-static attr_list_t *append_attribs(attr_list_t *l1, attr_list_t *l2)
-{
-    if (!l2) return l1;
-    if (!l1 || l1 == l2) return l2;
-    list_move_tail (l1, l2);
-    return l1;
-}
-
 static statement_list_t *append_statement(statement_list_t *list, statement_t *stmt)
 {
     if (!stmt) return list;
@@ -3384,13 +2946,6 @@ static statement_list_t *append_statement(statement_list_t *list, statement_t *s
     }
     list_add_tail( list, &stmt->entry );
     return list;
-}
-
-void init_loc_info(loc_info_t *i)
-{
-    i->input_name = input_name ? input_name : "stdin";
-    i->line_number = line_number;
-    i->near_text = parser_text;
 }
 
 type_t *find_parameterized_type(type_t *type, typeref_list_t *params)

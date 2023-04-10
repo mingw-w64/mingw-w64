@@ -1,6 +1,7 @@
 bin_PROGRAMS = widl
 
 widl_SOURCES = src/widl.h \
+  src/attribute.c \
   src/expr.h \
   src/hash.h \
   src/header.h \

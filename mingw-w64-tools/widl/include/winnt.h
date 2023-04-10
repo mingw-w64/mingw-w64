@@ -118,6 +118,8 @@ extern "C" {
 #define DECLSPEC_SELECTANY __declspec(selectany)
 #elif defined(__MINGW32__)
 #define DECLSPEC_SELECTANY __attribute__((selectany))
+#elif defined(__GNUC__)
+#define DECLSPEC_SELECTANY __attribute__((weak))
 #else
 #define DECLSPEC_SELECTANY
 #endif
@@ -1072,6 +1074,10 @@ typedef enum _HEAP_INFORMATION_CLASS {
 #define PF_AVX_INSTRUCTIONS_AVAILABLE           39
 #define PF_AVX2_INSTRUCTIONS_AVAILABLE          40
 #define PF_AVX512F_INSTRUCTIONS_AVAILABLE       41
+#define PF_ERMS_AVAILABLE                       42
+#define PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE    43
+#define PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE 44
+#define PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE 45
 
 
 /* Execution state flags */
@@ -6495,6 +6501,13 @@ typedef enum _PROCESS_MITIGATION_POLICY
     MaxProcessMitigationPolicy
 } PROCESS_MITIGATION_POLICY, *PPROCESS_MITIGATION_POLICY;
 
+typedef enum _FIRMWARE_TYPE
+{
+    FirmwareTypeUnknown,
+    FirmwareTypeBios,
+    FirmwareTypeUefi,
+    FirmwareTypeMax
+} FIRMWARE_TYPE, *PFIRMWARE_TYPE;
 
 /* Intrinsic functions */
 

@@ -141,8 +141,6 @@ static struct strarray dlldirs;
 static char *output_name;
 static const char *sysroot = "";
 
-int line_number = 1;
-
 static FILE *idfile;
 
 unsigned int pointer_size = 0;
@@ -702,7 +700,6 @@ int main(int argc,char *argv[])
   int i;
   int ret = 0;
   struct strarray files;
-  char *input;
 
   init_signals( exit_on_signal );
   init_argv0_dir( argv[0] );
@@ -829,43 +826,13 @@ int main(int argc,char *argv[])
   wpp_add_cmdline_define("_WIN32=1");
 
   atexit(rm_tempfile);
-  input = input_name;
-  if (!no_preprocess)
-  {
-    chat("Starting preprocess\n");
-
-    if (!preprocess_only)
-    {
-        FILE *output;
-        char *name = make_temp_file( header_name, NULL );
-
-        if (!(output = fopen(name, "wt")))
-            error("Could not open fd %s for writing\n", name);
-
-        ret = wpp_parse( input_name, output );
-        fclose( output );
-        input = name;
-    }
-    else
-    {
-        ret = wpp_parse( input_name, stdout );
-    }
-
-    if(ret) exit(1);
-    if(preprocess_only) exit(0);
-  }
-
-  if(!(parser_in = fopen(input, "r"))) {
-    fprintf(stderr, "Could not open %s for input\n", input);
-    return 1;
-  }
+  if (preprocess_only) exit( wpp_parse( input_name, stdout ) );
+  parser_in = open_input_file( input_name );
 
   header_token = make_token(header_name);
 
   init_types();
   ret = parser_parse();
-
-  fclose(parser_in);
 
   if(ret) {
     exit(1);
@@ -880,7 +847,6 @@ int main(int argc,char *argv[])
 
 static void rm_tempfile(void)
 {
-  abort_import();
   if (do_header)
     unlink(header_name);
   if (local_stubs_name)
@@ -898,4 +864,37 @@ static void rm_tempfile(void)
   if (do_typelib)
     unlink(typelib_name);
   remove_temp_files();
+}
+
+char *find_input_file( const char *name, const char *parent )
+{
+    char *path;
+
+    /* don't search for a file name with a path in the include directories, for compatibility with MIDL */
+    if (strchr( name, '/' ) || strchr( name, '\\' )) path = xstrdup( name );
+    else if (!(path = wpp_find_include( name, parent ))) error_loc( "Unable to open include file %s\n", name );
+
+    return path;
+}
+
+FILE *open_input_file( const char *path )
+{
+    FILE *file;
+    char *name;
+    int ret;
+
+    if (no_preprocess)
+    {
+        if (!(file = fopen( path, "r" ))) error_loc( "Unable to open %s\n", path );
+        return file;
+    }
+
+    name = make_temp_file( "widl", NULL );
+    if (!(file = fopen( name, "wt" ))) error_loc( "Could not open %s for writing\n", name );
+    ret = wpp_parse( path, file );
+    fclose( file );
+    if (ret) exit( 1 );
+
+    if (!(file = fopen( name, "r" ))) error_loc( "Unable to open %s\n", name );
+    return file;
 }
