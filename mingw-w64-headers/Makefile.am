@@ -310,6 +310,7 @@ IDL_SRCS = \
   include/windows.system.userprofile.idl \
   include/windows.ui.idl \
   include/windows.ui.composition.idl \
+  include/windows.ui.composition.interop.idl \
   include/windows.ui.core.idl \
   include/windows.ui.viewmanagement.idl \
   include/windowscontracts.idl \

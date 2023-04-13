@@ -612,6 +612,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.system.userprofile.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.composition.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
 @HAVE_WIDL_TRUE@  include/windowscontracts.idl \

@@ -251,6 +251,7 @@ for f in \
 	windows.system.userprofile \
 	windows.ui \
 	windows.ui.composition \
+	windows.ui.composition.interop \
 	windows.ui.core \
 	windows.ui.viewmanagement \
 	wmdrmsdk \
