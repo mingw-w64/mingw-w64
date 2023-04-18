@@ -8498,6 +8498,19 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       } DUMMYUNIONNAME;
     } IMAGE_ARM_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
 
+    typedef enum ARM64_FNPDATA_FLAGS {
+      PdataRefToFullXdata = 0,
+      PdataPackedUnwindFunction = 1,
+      PdataPackedUnwindFragment = 2,
+    } ARM64_FNPDATA_FLAGS;
+
+    typedef enum ARM64_FNPDATA_CR {
+      PdataCrUnchained = 0,
+      PdataCrUnchainedSavedLr = 1,
+      PdataCrChainedWithPac = 2,
+      PdataCrChained = 3,
+    } ARM64_FNPDATA_CR;
+
     typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
       DWORD BeginAddress;
       __C89_NAMELESS union {
@@ -8513,6 +8526,18 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
 	} DUMMYSTRUCTNAME;
       } DUMMYUNIONNAME;
     } IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+
+    typedef union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
+      DWORD HeaderData;
+      __C89_NAMELESS struct {
+        DWORD FunctionLength : 18;
+        DWORD Version : 2;
+        DWORD ExceptionDataPresent : 1;
+        DWORD EpilogInHeader : 1;
+        DWORD EpilogCount : 5;
+        DWORD CodeWords : 5;
+      } DUMMYSTRUCTNAME;
+    } IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA;
 
     typedef struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
       DWORD BeginAddress;
