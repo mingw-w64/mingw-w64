@@ -368,6 +368,55 @@ AC_MSG_RESULT([$enable_tests_unicode])
 #AC_FUNC_VPRINTF
 #AC_CHECK_FUNCS([alarm atexit btowc fesetround floor ftruncate gettimeofday isascii localeconv mbrlen memmove memset pow rint setlocale sqrt strcasecmp strchr strncasecmp strtoull strtoumax])
 
+# Check for __ImageBase linker symbol.
+AC_MSG_CHECKING([whether the linker provides __ImageBase symbol])
+# Run this test manually instead of wrapping it in AC_LINK_IFELSE; when
+# bootstrapping an environment, an earlier linking test will have failed,
+# which both causes autoconf to refuse to run any linker test at all,
+# and even if $ac_no_link is overridden, the linker test iteslf will explicitly
+# check that the linker actually produced output in the given output file.
+# If $ac_exeext is empty, as it is when the earlier linker test failed, gcc
+# will behave differently depending on version. If run with "gcc conftest.c
+# -o conftest", old versions will produce explicitly a file named "conftest",
+# while modern GCC versions will produce "conftest.exe". AC_LINK_IFELSE will
+# explicitly look for the output file named "conftest$ac_exeext", which isn't
+# found, and the test fails even though linking succeeded.
+#
+# Therefore, just do a manual test; run the linking command and check the return
+# code whether it was successful or not.
+#
+# This test uses both mainCRTStartup and main functions, to let lld deduce
+# entry point and subsystem automatically without having to manually specify,
+# anything. And as long as main() is provided, we need to implicitly provide
+# __main as well, since the compiler injects a call to it.
+
+cat <<_ACEOF >conftest.$ac_ext
+extern unsigned char __ImageBase[[]];
+void __main(void) {
+}
+int main(void) {
+  return __ImageBase[[0]];
+}
+int mainCRTStartup(void) {
+  return main();
+}
+_ACEOF
+
+echo "$as_me:$LINENO: $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext" >&AS_MESSAGE_LOG_FD
+# Doing the link test with -nosdlib, to avoid trying to link in any libraries
+# which might not exist yet at this point.
+if $CC conftest.$ac_ext $LDFLAGS -nostdlib -o conftest$ac_exeext >&AS_MESSAGE_LOG_FD 2>&1; then
+  ld_provides_imagebase=yes
+else
+  ld_provides_imagebase=no
+fi
+rm -f conftest$ac_exeext conftest.$ac_ext
+AC_MSG_RESULT([$ld_provides_imagebase])
+AS_CASE([$ld_provides_imagebase],
+  [no],[AS_VAR_SET([IMAGEBASE_CFLAGS],["-D__ImageBase=__MINGW_LSYMBOL\(_image_base__\)"])],
+  [AS_VAR_SET([IMAGEBASE_CFLAGS])])
+AC_SUBST([IMAGEBASE_CFLAGS])
+
 AC_CHECK_HEADER([_mingw_mac.h], [], [AC_MSG_ERROR([Please check if the mingw-w64 header set and the build/host option are set properly.])])
 
 #Warnings and errors, default level is 3

@@ -14,9 +14,6 @@
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
-#if defined(__GNUC__)
-#define __ImageBase __MINGW_LSYMBOL(_image_base__)
-#endif
 extern IMAGE_DOS_HEADER __ImageBase;
 
 int _tmain (int, _TCHAR **, _TCHAR **);
