@@ -230,6 +230,7 @@ for f in \
 	windows.gaming.ui \
 	windows.globalization \
 	windows.graphics.capture \
+	windows.graphics.capture.interop \
 	windows.graphics.directx \
 	windows.graphics.directx.direct3d11 \
 	windows.graphics.effects \

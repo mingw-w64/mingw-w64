@@ -288,6 +288,7 @@ IDL_SRCS = \
   include/windows.gaming.ui.idl \
   include/windows.globalization.idl \
   include/windows.graphics.capture.idl \
+  include/windows.graphics.capture.interop.idl \
   include/windows.graphics.directx.idl \
   include/windows.graphics.directx.direct3d11.idl \
   include/windows.graphics.effects.idl \
