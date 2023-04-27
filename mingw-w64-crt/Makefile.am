@@ -174,10 +174,6 @@ src_msvcrt_common=\
   misc/mbsinit.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
-  misc/uchar_c16rtomb.c \
-  misc/uchar_c32rtomb.c \
-  misc/uchar_mbrtoc16.c \
-  misc/uchar_mbrtoc32.c \
   misc/wcrtomb.c \
   stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
