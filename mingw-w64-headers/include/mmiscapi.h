@@ -20,24 +20,12 @@ extern "C" {
 
 #ifndef MMNODRV
 
-#ifdef _WIN32
 typedef struct DRVCONFIGINFOEX {
   DWORD dwDCISize;
   LPCWSTR lpszDCISectionName;
   LPCWSTR lpszDCIAliasName;
   DWORD dnDevNode;
 } DRVCONFIGINFOEX, *PDRVCONFIGINFOEX, *NPDRVCONFIGINFOEX, *LPDRVCONFIGINFOEX;
-
-#else
-typedef struct DRVCONFIGINFOEX {
-  DWORD dwDCISize;
-  LPCSTR lpszDCISectionName;
-  LPCSTR lpszDCIAliasName;
-  DWORD dnDevNode;
-} DRVCONFIGINFOEX, *PDRVCONFIGINFOEX, *NPDRVCONFIGINFOEX, *LPDRVCONFIGINFOEX;
-#endif
-
-#if (WINVER < 0x030a) || defined(_WIN32)
 
 #ifndef DRV_LOAD
 
@@ -56,25 +44,15 @@ typedef struct DRVCONFIGINFOEX {
 #define DRV_RESERVED 0x0800
 #define DRV_USER 0x4000
 
-#ifdef _WIN32
 typedef struct tagDRVCONFIGINFO {
   DWORD dwDCISize;
   LPCWSTR lpszDCISectionName;
   LPCWSTR lpszDCIAliasName;
 } DRVCONFIGINFO, *PDRVCONFIGINFO, *NPDRVCONFIGINFO, *LPDRVCONFIGINFO;
-#else
-typedef struct tagDRVCONFIGINFO {
-  DWORD dwDCISize;
-  LPCSTR lpszDCISectionName;
-  LPCSTR lpszDCIAliasName;
-} DRVCONFIGINFO, *PDRVCONFIGINFO, *NPDRVCONFIGINFO, *LPDRVCONFIGINFO;
-#endif
 
 #define DRVCNF_CANCEL 0x0000
 #define DRVCNF_OK 0x0001
 #define DRVCNF_RESTART 0x0002
-
-#ifdef _WIN32
 
 typedef LRESULT (CALLBACK* DRIVERPROC)(DWORD_PTR, HDRVR, UINT, LPARAM, LPARAM);
 
@@ -84,23 +62,11 @@ WINMMAPI LRESULT WINAPI SendDriverMessage(HDRVR hDriver, UINT message, LPARAM lP
 WINMMAPI HMODULE WINAPI DrvGetModuleHandle(HDRVR hDriver);
 WINMMAPI HMODULE WINAPI GetDriverModuleHandle(HDRVR hDriver);
 WINMMAPI LRESULT WINAPI DefDriverProc(DWORD_PTR dwDriverIdentifier, HDRVR hdrvr, UINT uMsg, LPARAM lParam1, LPARAM lParam2);
-#else
-LRESULT WINAPI DrvClose(HDRVR hdrvr, LPARAM lParam1, LPARAM lParam2);
-HDRVR WINAPI DrvOpen(LPCSTR szDriverName, LPCSTR szSectionName, LPARAM lParam2);
-LRESULT WINAPI DrvSendMessage(HDRVR hdrvr, UINT uMsg, LPARAM lParam1, LPARAM lParam2);
-HINSTANCE WINAPI DrvGetModuleHandle(HDRVR hdrvr);
-LRESULT WINAPI DrvDefDriverProc(DWORD dwDriverIdentifier, HDRVR hdrvr, UINT uMsg, LPARAM lParam1, LPARAM lParam2);
-#define DefDriverProc DrvDefDriverProc
-#endif
-#endif
 #endif
 
-#if (WINVER >= 0x030a)
 #define DRV_CANCEL DRVCNF_CANCEL
 #define DRV_OK DRVCNF_OK
 #define DRV_RESTART DRVCNF_RESTART
-
-#endif /* ifdef WINVER >= 0x030a */
 
 #define DRV_MCI_FIRST DRV_RESERVED
 #define DRV_MCI_LAST (DRV_RESERVED + 0xFFF)
@@ -214,9 +180,7 @@ typedef const MMCKINFO *LPCMMCKINFO;
 #define MMIOM_CLOSE 4
 #define MMIOM_WRITEFLUSH 5
 
-#if (WINVER >= 0x030a)
 #define MMIOM_RENAME 6
-#endif
 
 #define MMIOM_USER 0x8000
 
@@ -236,8 +200,6 @@ typedef const MMCKINFO *LPCMMCKINFO;
 
 #define mmioFOURCC(ch0, ch1, ch2, ch3) MAKEFOURCC(ch0, ch1, ch2, ch3)
 
-#ifdef _WIN32
-
 WINMMAPI FOURCC WINAPI mmioStringToFOURCCA(LPCSTR sz, UINT uFlags);
 WINMMAPI FOURCC WINAPI mmioStringToFOURCCW(LPCWSTR sz, UINT uFlags);
 #define mmioStringToFOURCC __MINGW_NAME_AW(mmioStringToFOURCC)
@@ -253,15 +215,6 @@ WINMMAPI HMMIO WINAPI mmioOpenW(LPWSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD 
 WINMMAPI MMRESULT WINAPI mmioRenameA(LPCSTR pszFileName, LPCSTR pszNewFileName, LPCMMIOINFO pmmioinfo, DWORD fdwRename);
 WINMMAPI MMRESULT WINAPI mmioRenameW(LPCWSTR pszFileName, LPCWSTR pszNewFileName, LPCMMIOINFO pmmioinfo, DWORD fdwRename);
 #define mmioRename __MINGW_NAME_AW(mmioRename)
-
-#else
-FOURCC WINAPI mmioStringToFOURCC(LPCSTR sz, UINT uFlags);
-LPMMIOPROC WINAPI mmioInstallIOProc(FOURCC fccIOProc, LPMMIOPROC pIOProc, DWORD dwFlags);
-HMMIO WINAPI mmioOpen(LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen);
-#if (WINVER >= 0x030a)
-MMRESULT WINAPI mmioRename( LPCSTR pszFileName, LPCSTR pszNewFileName, const MMIOINFO *pmmioinfo, DWORD fdwRename);
-#endif
-#endif
 
 WINMMAPI MMRESULT WINAPI mmioClose(HMMIO hmmio, UINT fuClose);
 WINMMAPI LONG WINAPI mmioRead(HMMIO hmmio, HPSTR pch, LONG cch);
