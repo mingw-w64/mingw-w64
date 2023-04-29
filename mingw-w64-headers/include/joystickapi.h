@@ -106,8 +106,6 @@ extern "C" {
 #define JOYCAPS_POV4DIR 0x0020
 #define JOYCAPS_POVCTS 0x0040
 
-#ifdef _WIN32
-
 typedef struct tagJOYCAPSA {
   WORD wMid;
   WORD wPid;
@@ -121,7 +119,6 @@ typedef struct tagJOYCAPSA {
   UINT wNumButtons;
   UINT wPeriodMin;
   UINT wPeriodMax;
-#if (WINVER >= 0x0400)
   UINT wRmin;
   UINT wRmax;
   UINT wUmin;
@@ -134,7 +131,6 @@ typedef struct tagJOYCAPSA {
   UINT wMaxButtons;
   CHAR szRegKey[MAXPNAMELEN];
   CHAR szOEMVxD[MAX_JOYSTICKOEMVXDNAME];
-#endif
 } JOYCAPSA, *PJOYCAPSA, *NPJOYCAPSA, *LPJOYCAPSA;
 
 typedef struct tagJOYCAPSW {
@@ -150,7 +146,6 @@ typedef struct tagJOYCAPSW {
   UINT wNumButtons;
   UINT wPeriodMin;
   UINT wPeriodMax;
-#if (WINVER >= 0x0400)
   UINT wRmin;
   UINT wRmax;
   UINT wUmin;
@@ -163,7 +158,6 @@ typedef struct tagJOYCAPSW {
   UINT wMaxButtons;
   WCHAR szRegKey[MAXPNAMELEN];
   WCHAR szOEMVxD[MAX_JOYSTICKOEMVXDNAME];
-#endif
 } JOYCAPSW, *PJOYCAPSW, *NPJOYCAPSW, *LPJOYCAPSW;
 
 __MINGW_TYPEDEF_AW(JOYCAPS)
@@ -236,37 +230,6 @@ __MINGW_TYPEDEF_AW(PJOYCAPS2)
 __MINGW_TYPEDEF_AW(NPJOYCAPS2)
 __MINGW_TYPEDEF_AW(LPJOYCAPS2)
 
-#else
-typedef struct joycaps_tag {
-  WORD wMid;
-  WORD wPid;
-  char szPname[MAXPNAMELEN];
-  UINT wXmin;
-  UINT wXmax;
-  UINT wYmin;
-  UINT wYmax;
-  UINT wZmin;
-  UINT wZmax;
-  UINT wNumButtons;
-  UINT wPeriodMin;
-  UINT wPeriodMax;
-#if (WINVER >= 0x0400)
-  UINT wRmin;
-  UINT wRmax;
-  UINT wUmin;
-  UINT wUmax;
-  UINT wVmin;
-  UINT wVmax;
-  UINT wCaps;
-  UINT wMaxAxes;
-  UINT wNumAxes;
-  UINT wMaxButtons;
-  char szRegKey[MAXPNAMELEN];
-  char szOEMVxD[MAX_JOYSTICKOEMVXDNAME];
-#endif
-} JOYCAPS, *PJOYCAPS, *NPJOYCAPS, *LPJOYCAPS;
-#endif
-
 typedef struct joyinfo_tag {
   UINT wXpos;
   UINT wYpos;
@@ -274,7 +237,6 @@ typedef struct joyinfo_tag {
   UINT wButtons;
 } JOYINFO, *PJOYINFO, *NPJOYINFO, *LPJOYINFO;
 
-#if (WINVER >= 0x0400)
 typedef struct joyinfoex_tag {
   DWORD dwSize;
   DWORD dwFlags;
@@ -290,21 +252,14 @@ typedef struct joyinfoex_tag {
   DWORD dwReserved1;
   DWORD dwReserved2;
 } JOYINFOEX, *PJOYINFOEX, *NPJOYINFOEX, *LPJOYINFOEX;
-#endif
 
-#if (WINVER >= 0x0400)
 WINMMAPI MMRESULT WINAPI joyGetPosEx(UINT uJoyID, LPJOYINFOEX pji);
-#endif /* WINVER >= 0x0400 */
 
 WINMMAPI UINT WINAPI joyGetNumDevs(void);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI joyGetDevCapsA(UINT_PTR uJoyID, LPJOYCAPSA pjc, UINT cbjc);
 WINMMAPI MMRESULT WINAPI joyGetDevCapsW(UINT_PTR uJoyID, LPJOYCAPSW pjc, UINT cbjc);
 #define joyGetDevCaps __MINGW_NAME_AW(joyGetDevCaps)
-#else
-MMRESULT WINAPI joyGetDevCaps(UINT uJoyID, LPJOYCAPS pjc, UINT cbjc);
-#endif
 
 WINMMAPI MMRESULT WINAPI joyGetPos(UINT uJoyID, LPJOYINFO pji);
 WINMMAPI MMRESULT WINAPI joyGetThreshold(UINT uJoyID, LPUINT puThreshold);
@@ -312,9 +267,7 @@ WINMMAPI MMRESULT WINAPI joyReleaseCapture(UINT uJoyID);
 WINMMAPI MMRESULT WINAPI joySetCapture(HWND hwnd, UINT uJoyID, UINT uPeriod, WINBOOL fChanged);
 WINMMAPI MMRESULT WINAPI joySetThreshold(UINT uJoyID, UINT uThreshold);
 
-#if (WINVER >= 0x0400)
 WINMMAPI MMRESULT WINAPI joyConfigChanged(DWORD dwFlags);
-#endif
 
 #endif  /* ifndef MMNOJOY */
 

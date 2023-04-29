@@ -52,12 +52,10 @@ typedef WAVECALLBACK *LPWAVECALLBACK;
 
 #define WAVE_FORMAT_QUERY 0x0001
 #define WAVE_ALLOWSYNC 0x0002
-#if (WINVER >= 0x0400)
 #define WAVE_MAPPED 0x0004
 #define WAVE_FORMAT_DIRECT 0x0008
 #define WAVE_FORMAT_DIRECT_QUERY (WAVE_FORMAT_QUERY | WAVE_FORMAT_DIRECT)
 #define WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE 0x0010
-#endif /* (WINVER >= 0x0400) */
 
 typedef struct wavehdr_tag {
   LPSTR lpData;
@@ -75,8 +73,6 @@ typedef struct wavehdr_tag {
 #define WHDR_BEGINLOOP 0x00000004
 #define WHDR_ENDLOOP 0x00000008
 #define WHDR_INQUEUE 0x00000010
-
-#ifdef _WIN32
 
 typedef struct tagWAVEOUTCAPSA {
   WORD wMid;
@@ -138,26 +134,12 @@ __MINGW_TYPEDEF_AW(PWAVEOUTCAPS2)
 __MINGW_TYPEDEF_AW(NPWAVEOUTCAPS2)
 __MINGW_TYPEDEF_AW(LPWAVEOUTCAPS2)
 
-#else
-typedef struct waveoutcaps_tag {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-  DWORD dwFormats;
-  WORD wChannels;
-  DWORD dwSupport;
-} WAVEOUTCAPS, *PWAVEOUTCAPS, *NPWAVEOUTCAPS, *LPWAVEOUTCAPS;
-#endif
-
 #define WAVECAPS_PITCH 0x0001
 #define WAVECAPS_PLAYBACKRATE 0x0002
 #define WAVECAPS_VOLUME 0x0004
 #define WAVECAPS_LRVOLUME 0x0008
 #define WAVECAPS_SYNC 0x0010
 #define WAVECAPS_SAMPLEACCURATE 0x0020
-
-#ifdef _WIN32
 
 typedef struct tagWAVEINCAPSA {
   WORD wMid;
@@ -214,17 +196,6 @@ __MINGW_TYPEDEF_AW(WAVEINCAPS2)
 __MINGW_TYPEDEF_AW(PWAVEINCAPS2)
 __MINGW_TYPEDEF_AW(NPWAVEINCAPS2)
 __MINGW_TYPEDEF_AW(LPWAVEINCAPS2)
-
-#else
-typedef struct waveincaps_tag {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-  DWORD dwFormats;
-  WORD wChannels;
-} WAVEINCAPS, *PWAVEINCAPS, *NPWAVEINCAPS, *LPWAVEINCAPS;
-#endif
 
 #define WAVE_INVALIDFORMAT 0x00000000
 #define WAVE_FORMAT_1M08 0x00000001
@@ -289,29 +260,15 @@ typedef const WAVEFORMATEX *LPCWAVEFORMATEX;
 
 WINMMAPI UINT WINAPI waveOutGetNumDevs(void);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveOutGetDevCapsA(UINT_PTR uDeviceID, LPWAVEOUTCAPSA pwoc, UINT cbwoc);
 WINMMAPI MMRESULT WINAPI waveOutGetDevCapsW(UINT_PTR uDeviceID, LPWAVEOUTCAPSW pwoc, UINT cbwoc);
 #define waveOutGetDevCaps __MINGW_NAME_AW(waveOutGetDevCaps)
-#else
-WINMMAPI MMRESULT WINAPI waveOutGetDevCaps(UINT uDeviceID, LPWAVEOUTCAPS pwoc, UINT cbwoc);
-#endif
 
-#if (WINVER >= 0x0400)
 WINMMAPI MMRESULT WINAPI waveOutGetVolume(HWAVEOUT hwo, LPDWORD pdwVolume);
 WINMMAPI MMRESULT WINAPI waveOutSetVolume(HWAVEOUT hwo, DWORD dwVolume);
-#else
-WINMMAPI MMRESULT WINAPI waveOutGetVolume(UINT uId, LPDWORD pdwVolume);
-WINMMAPI MMRESULT WINAPI waveOutSetVolume(UINT uId, DWORD dwVolume);
-#endif
-
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveOutGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
 WINMMAPI MMRESULT WINAPI waveOutGetErrorTextW(MMRESULT mmrError, LPWSTR pszText, UINT cchText);
 #define waveOutGetErrorText __MINGW_NAME_AW(waveOutGetErrorText)
-#else
-MMRESULT WINAPI waveOutGetErrorText(MMRESULT mmrError, LPSTR pszText, UINT cchText);
-#endif
 
 WINMMAPI MMRESULT WINAPI waveOutOpen(LPHWAVEOUT phwo, UINT uDeviceID, LPCWAVEFORMATEX pwfx, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI waveOutClose(HWAVEOUT hwo);
@@ -329,31 +286,17 @@ WINMMAPI MMRESULT WINAPI waveOutGetPlaybackRate(HWAVEOUT hwo, LPDWORD pdwRate);
 WINMMAPI MMRESULT WINAPI waveOutSetPlaybackRate(HWAVEOUT hwo, DWORD dwRate);
 WINMMAPI MMRESULT WINAPI waveOutGetID(HWAVEOUT hwo, LPUINT puDeviceID);
 
-#if (WINVER >= 0x030a)
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveOutMessage(HWAVEOUT hwo, UINT uMsg, DWORD_PTR dw1, DWORD_PTR dw2);
-#else
-DWORD WINAPI waveOutMessage(HWAVEOUT hwo, UINT uMsg, DWORD dw1, DWORD dw2);
-#endif
-#endif /* ifdef WINVER >= 0x030a */
 
 WINMMAPI UINT WINAPI waveInGetNumDevs(void);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveInGetDevCapsA(UINT_PTR uDeviceID, LPWAVEINCAPSA pwic, UINT cbwic);
 WINMMAPI MMRESULT WINAPI waveInGetDevCapsW(UINT_PTR uDeviceID, LPWAVEINCAPSW pwic, UINT cbwic);
 #define waveInGetDevCaps __MINGW_NAME_AW(waveInGetDevCaps)
-#else
-MMRESULT WINAPI waveInGetDevCaps(UINT uDeviceID, LPWAVEINCAPS pwic, UINT cbwic);
-#endif
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveInGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
 WINMMAPI MMRESULT WINAPI waveInGetErrorTextW(MMRESULT mmrError, LPWSTR pszText, UINT cchText);
 #define waveInGetErrorText __MINGW_NAME_AW(waveInGetErrorText)
-#else
-MMRESULT WINAPI waveInGetErrorText(MMRESULT mmrError, LPSTR pszText, UINT cchText);
-#endif
 
 WINMMAPI MMRESULT WINAPI waveInOpen(LPHWAVEIN phwi, UINT uDeviceID, LPCWAVEFORMATEX pwfx, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI waveInClose(HWAVEIN hwi);
@@ -366,13 +309,7 @@ WINMMAPI MMRESULT WINAPI waveInReset(HWAVEIN hwi);
 WINMMAPI MMRESULT WINAPI waveInGetPosition(HWAVEIN hwi, LPMMTIME pmmt, UINT cbmmt);
 WINMMAPI MMRESULT WINAPI waveInGetID(HWAVEIN hwi, LPUINT puDeviceID);
 
-#if (WINVER >= 0x030a)
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI waveInMessage(HWAVEIN hwi, UINT uMsg, DWORD_PTR dw1, DWORD_PTR dw2);
-#else
-DWORD WINAPI waveInMessage(HWAVEIN hwi, UINT uMsg, DWORD dw1, DWORD dw2);
-#endif
-#endif /* ifdef WINVER >= 0x030a */
 
 #endif  /* ifndef MMNOWAVE */
 
@@ -414,24 +351,18 @@ typedef WORD *LPKEYARRAY;
 #define MOM_CLOSE MM_MOM_CLOSE
 #define MOM_DONE MM_MOM_DONE
 
-#if (WINVER >= 0x0400)
 #define MIM_MOREDATA MM_MIM_MOREDATA
 #define MOM_POSITIONCB MM_MOM_POSITIONCB
-#endif /* WINVER >= 0x0400 */
 
 #define MIDIMAPPER ((UINT)-1)
 #define MIDI_MAPPER ((UINT)-1)
 
-#if (WINVER >= 0x0400)
 #define MIDI_IO_STATUS __MSABI_LONG(0x00000020)
-#endif /* WINVER >= 0x0400 */
 
 #define MIDI_CACHE_ALL 1
 #define MIDI_CACHE_BESTFIT 2
 #define MIDI_CACHE_QUERY 3
 #define MIDI_UNCACHE 4
-
-#ifdef _WIN32
 
 typedef struct tagMIDIOUTCAPSA {
   WORD wMid;
@@ -497,20 +428,6 @@ __MINGW_TYPEDEF_AW(PMIDIOUTCAPS2)
 __MINGW_TYPEDEF_AW(NPMIDIOUTCAPS2)
 __MINGW_TYPEDEF_AW(LPMIDIOUTCAPS2)
 
-#else
-typedef struct midioutcaps_tag {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-  WORD wTechnology;
-  WORD wVoices;
-  WORD wNotes;
-  WORD wChannelMask;
-  DWORD dwSupport;
-} MIDIOUTCAPS, *PMIDIOUTCAPS, *NPMIDIOUTCAPS, *LPMIDIOUTCAPS;
-#endif
-
 #define MOD_MIDIPORT 1
 #define MOD_SYNTH 2
 #define MOD_SQSYNTH 3
@@ -522,20 +439,14 @@ typedef struct midioutcaps_tag {
 #define MIDICAPS_VOLUME 0x0001
 #define MIDICAPS_LRVOLUME 0x0002
 #define MIDICAPS_CACHE 0x0004
-#if(WINVER >= 0x0400)
 #define MIDICAPS_STREAM 0x0008
-#endif /* WINVER >= 0x0400 */
-
-#ifdef _WIN32
 
 typedef struct tagMIDIINCAPSA {
   WORD wMid;
   WORD wPid;
   MMVERSION vDriverVersion;
   CHAR szPname[MAXPNAMELEN];
-#if (WINVER >= 0x0400)
   DWORD dwSupport;
-#endif
 } MIDIINCAPSA, *PMIDIINCAPSA, *NPMIDIINCAPSA, *LPMIDIINCAPSA;
 
 typedef struct tagMIDIINCAPSW {
@@ -543,9 +454,7 @@ typedef struct tagMIDIINCAPSW {
   WORD wPid;
   MMVERSION vDriverVersion;
   WCHAR szPname[MAXPNAMELEN];
-#if (WINVER >= 0x0400)
   DWORD dwSupport;
-#endif
 } MIDIINCAPSW, *PMIDIINCAPSW, *NPMIDIINCAPSW, *LPMIDIINCAPSW;
 
 __MINGW_TYPEDEF_AW(MIDIINCAPS)
@@ -558,9 +467,7 @@ typedef struct tagMIDIINCAPS2A {
   WORD wPid;
   MMVERSION vDriverVersion;
   CHAR szPname[MAXPNAMELEN];
-#if (WINVER >= 0x0400)
   DWORD dwSupport;
-#endif
   GUID ManufacturerGuid;
   GUID ProductGuid;
   GUID NameGuid;
@@ -571,9 +478,7 @@ typedef struct tagMIDIINCAPS2W {
   WORD wPid;
   MMVERSION vDriverVersion;
   WCHAR szPname[MAXPNAMELEN];
-#if (WINVER >= 0x0400)
   DWORD dwSupport;
-#endif
   GUID ManufacturerGuid;
   GUID ProductGuid;
   GUID NameGuid;
@@ -584,18 +489,6 @@ __MINGW_TYPEDEF_AW(PMIDIINCAPS2)
 __MINGW_TYPEDEF_AW(NPMIDIINCAPS2)
 __MINGW_TYPEDEF_AW(LPMIDIINCAPS2)
 
-#else
-typedef struct midiincaps_tag {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-#if (WINVER >= 0x0400)
-  DWORD dwSupport;
-#endif
-} MIDIINCAPS, *PMIDIINCAPS, *NPMIDIINCAPS, *LPMIDIINCAPS;
-#endif
-
 typedef struct midihdr_tag {
   LPSTR lpData;
   DWORD dwBufferLength;
@@ -604,13 +497,10 @@ typedef struct midihdr_tag {
   DWORD dwFlags;
   struct midihdr_tag far *lpNext;
   DWORD_PTR reserved;
-#if (WINVER >= 0x0400)
   DWORD dwOffset;
   DWORD_PTR dwReserved[8];
-#endif
 } MIDIHDR, *PMIDIHDR, *NPMIDIHDR, *LPMIDIHDR;
 
-#if (WINVER >= 0x0400)
 typedef struct midievent_tag {
   DWORD dwDeltaTime;
   DWORD dwStreamID;
@@ -623,14 +513,11 @@ typedef struct midistrmbuffver_tag {
   DWORD dwMid;
   DWORD dwOEMVersion;
 } MIDISTRMBUFFVER;
-#endif /* WINVER >= 0x0400 */
 
 #define MHDR_DONE 0x00000001
 #define MHDR_PREPARED 0x00000002
 #define MHDR_INQUEUE 0x00000004
 #define MHDR_ISSTRM 0x00000008
-
-#if (WINVER >= 0x0400)
 
 #define MEVT_F_SHORT __MSABI_LONG(0x00000000)
 #define MEVT_F_LONG __MSABI_LONG(0x80000000)
@@ -665,11 +552,7 @@ typedef struct midiproptempo_tag {
   DWORD dwTempo;
 } MIDIPROPTEMPO, *LPMIDIPROPTEMPO;
 
-#endif /* WINVER >= 0x0400 */
-
 WINMMAPI UINT WINAPI midiOutGetNumDevs(void);
-#if (WINVER >= 0x0400)
-
 WINMMAPI MMRESULT WINAPI midiStreamOpen(LPHMIDISTRM phms, LPUINT puDeviceID, DWORD cMidi, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI midiStreamClose(HMIDISTRM hms);
 WINMMAPI MMRESULT WINAPI midiStreamProperty(HMIDISTRM hms, LPBYTE lppropdata, DWORD dwProperty);
@@ -679,35 +562,18 @@ WINMMAPI MMRESULT WINAPI midiStreamPause(HMIDISTRM hms);
 WINMMAPI MMRESULT WINAPI midiStreamRestart(HMIDISTRM hms);
 WINMMAPI MMRESULT WINAPI midiStreamStop(HMIDISTRM hms);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiConnect(HMIDI hmi, HMIDIOUT hmo, LPVOID pReserved);
 WINMMAPI MMRESULT WINAPI midiDisconnect(HMIDI hmi, HMIDIOUT hmo, LPVOID pReserved);
-#endif
-#endif /* WINVER >= 0x0400 */
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiOutGetDevCapsA(UINT_PTR uDeviceID, LPMIDIOUTCAPSA pmoc, UINT cbmoc);
 WINMMAPI MMRESULT WINAPI midiOutGetDevCapsW(UINT_PTR uDeviceID, LPMIDIOUTCAPSW pmoc, UINT cbmoc);
 #define midiOutGetDevCaps __MINGW_NAME_AW(midiOutGetDevCaps)
-#else
-MMRESULT WINAPI midiOutGetDevCaps(UINT uDeviceID, LPMIDIOUTCAPS pmoc, UINT cbmoc);
-#endif
 
-#if (WINVER >= 0x0400)
 WINMMAPI MMRESULT WINAPI midiOutGetVolume(HMIDIOUT hmo, LPDWORD pdwVolume);
 WINMMAPI MMRESULT WINAPI midiOutSetVolume(HMIDIOUT hmo, DWORD dwVolume);
-#else
-WINMMAPI MMRESULT WINAPI midiOutGetVolume(UINT uId, LPDWORD pdwVolume);
-WINMMAPI MMRESULT WINAPI midiOutSetVolume(UINT uId, DWORD dwVolume);
-#endif
-
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiOutGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
 WINMMAPI MMRESULT WINAPI midiOutGetErrorTextW(MMRESULT mmrError, LPWSTR pszText, UINT cchText);
 #define midiOutGetErrorText __MINGW_NAME_AW(midiOutGetErrorText)
-#else
-WINMMAPI MMRESULT WINAPI midiOutGetErrorText(MMRESULT mmrError, LPSTR pszText, UINT cchText);
-#endif
 
 WINMMAPI MMRESULT WINAPI midiOutOpen(LPHMIDIOUT phmo, UINT uDeviceID, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI midiOutClose(HMIDIOUT hmo);
@@ -720,17 +586,10 @@ WINMMAPI MMRESULT WINAPI midiOutCachePatches(HMIDIOUT hmo, UINT uBank, LPWORD pw
 WINMMAPI MMRESULT WINAPI midiOutCacheDrumPatches(HMIDIOUT hmo, UINT uPatch, LPWORD pwkya, UINT fuCache);
 WINMMAPI MMRESULT WINAPI midiOutGetID(HMIDIOUT hmo, LPUINT puDeviceID);
 
-#if (WINVER >= 0x030a)
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiOutMessage(HMIDIOUT hmo, UINT uMsg, DWORD_PTR dw1, DWORD_PTR dw2);
-#else
-DWORD WINAPI midiOutMessage(HMIDIOUT hmo, UINT uMsg, DWORD dw1, DWORD dw2);
-#endif
-#endif /* ifdef WINVER >= 0x030a */
 
 WINMMAPI UINT WINAPI midiInGetNumDevs(void);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiInGetDevCapsA(UINT_PTR uDeviceID, LPMIDIINCAPSA pmic, UINT cbmic);
 WINMMAPI MMRESULT WINAPI midiInGetDevCapsW(UINT_PTR uDeviceID, LPMIDIINCAPSW pmic, UINT cbmic);
 #define midiInGetDevCaps __MINGW_NAME_AW(midiInGetDevCaps)
@@ -738,10 +597,6 @@ WINMMAPI MMRESULT WINAPI midiInGetDevCapsW(UINT_PTR uDeviceID, LPMIDIINCAPSW pmi
 WINMMAPI MMRESULT WINAPI midiInGetErrorTextA(MMRESULT mmrError, LPSTR pszText, UINT cchText);
 WINMMAPI MMRESULT WINAPI midiInGetErrorTextW(MMRESULT mmrError, LPWSTR pszText, UINT cchText);
 #define midiInGetErrorText __MINGW_NAME_AW(midiInGetErrorText)
-#else
-MMRESULT WINAPI midiInGetDevCaps(UINT uDeviceID, LPMIDIINCAPS pmic, UINT cbmic);
-WINMMAPI MMRESULT WINAPI midiInGetErrorText(MMRESULT mmrError, _Out_writes_(cchText) LPSTR pszText, UINT cchText);
-#endif
 
 WINMMAPI MMRESULT WINAPI midiInOpen(LPHMIDIIN phmi, UINT uDeviceID, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI midiInClose(HMIDIIN hmi);
@@ -753,21 +608,12 @@ WINMMAPI MMRESULT WINAPI midiInStop(HMIDIIN hmi);
 WINMMAPI MMRESULT WINAPI midiInReset(HMIDIIN hmi);
 WINMMAPI MMRESULT WINAPI midiInGetID(HMIDIIN hmi, LPUINT puDeviceID);
 
-#if (WINVER >= 0x030a)
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI midiInMessage(HMIDIIN hmi, UINT uMsg, DWORD_PTR dw1, DWORD_PTR dw2);
-#else
-DWORD WINAPI midiInMessage(HMIDIIN hmi, UINT uMsg, DWORD dw1, DWORD dw2);
-#endif
-#endif /* ifdef WINVER >= 0x030a */
-
 #endif  /* ifndef MMNOMIDI */
 
 #ifndef MMNOAUX
 
 #define AUX_MAPPER ((UINT)-1)
-
-#ifdef _WIN32
 
 typedef struct tagAUXCAPSA {
   WORD wMid;
@@ -825,17 +671,6 @@ __MINGW_TYPEDEF_AW(PAUXCAPS2)
 __MINGW_TYPEDEF_AW(NPAUXCAPS2)
 __MINGW_TYPEDEF_AW(LPAUXCAPS2)
 
-#else
-typedef struct auxcaps_tag {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-  WORD wTechnology;
-  DWORD dwSupport;
-} AUXCAPS, *PAUXCAPS, *NPAUXCAPS, *LPAUXCAPS;
-#endif
-
 #define AUXCAPS_CDAUDIO 1
 #define AUXCAPS_AUXIN 2
 
@@ -844,24 +679,14 @@ typedef struct auxcaps_tag {
 
 WINMMAPI UINT WINAPI auxGetNumDevs(void);
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI auxGetDevCapsA(UINT_PTR uDeviceID, LPAUXCAPSA pac, UINT cbac);
 WINMMAPI MMRESULT WINAPI auxGetDevCapsW(UINT_PTR uDeviceID, LPAUXCAPSW pac, UINT cbac);
 #define auxGetDevCaps __MINGW_NAME_AW(auxGetDevCaps)
-#else
-MMRESULT WINAPI auxGetDevCaps(UINT uDeviceID, LPAUXCAPS pac, UINT cbac);
-#endif
 
 WINMMAPI MMRESULT WINAPI auxSetVolume(UINT uDeviceID, DWORD dwVolume);
 WINMMAPI MMRESULT WINAPI auxGetVolume(UINT uDeviceID, LPDWORD pdwVolume);
 
-#if (WINVER >= 0x030a)
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI auxOutMessage(UINT uDeviceID, UINT uMsg, DWORD_PTR dw1, DWORD_PTR dw2);
-#else
-DWORD WINAPI auxOutMessage(UINT uDeviceID, UINT uMsg, DWORD dw1, DWORD dw2);
-#endif
-#endif /* ifdef WINVER >= 0x030a */
 
 #endif  /* ifndef MMNOAUX */
 
@@ -895,8 +720,6 @@ typedef HMIXER *LPHMIXER;
 #define MIXER_OBJECTF_AUX __MSABI_LONG(0x50000000)
 
 WINMMAPI UINT WINAPI mixerGetNumDevs(void);
-
-#ifdef _WIN32
 
 typedef struct tagMIXERCAPSA {
   WORD wMid;
@@ -948,30 +771,13 @@ __MINGW_TYPEDEF_AW(MIXERCAPS2)
 __MINGW_TYPEDEF_AW(PMIXERCAPS2)
 __MINGW_TYPEDEF_AW(LPMIXERCAPS2)
 
-#else
-typedef struct tMIXERCAPS {
-  WORD wMid;
-  WORD wPid;
-  VERSION vDriverVersion;
-  char szPname[MAXPNAMELEN];
-  DWORD fdwSupport;
-  DWORD cDestinations;
-} MIXERCAPS, *PMIXERCAPS, *LPMIXERCAPS;
-#endif
-
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI mixerGetDevCapsA(UINT_PTR uMxId, LPMIXERCAPSA pmxcaps, UINT cbmxcaps);
 WINMMAPI MMRESULT WINAPI mixerGetDevCapsW(UINT_PTR uMxId, LPMIXERCAPSW pmxcaps, UINT cbmxcaps);
 #define mixerGetDevCaps __MINGW_NAME_AW(mixerGetDevCaps)
-#else
-MMRESULT WINAPI mixerGetDevCaps(UINT uMxId, LPMIXERCAPS pmxcaps, UINT cbmxcaps);
-#endif
 
 WINMMAPI MMRESULT WINAPI mixerOpen(LPHMIXER phmx, UINT uMxId, DWORD_PTR dwCallback, DWORD_PTR dwInstance, DWORD fdwOpen);
 WINMMAPI MMRESULT WINAPI mixerClose(HMIXER hmx);
 WINMMAPI DWORD WINAPI mixerMessage(HMIXER hmx, UINT uMsg, DWORD_PTR dwParam1, DWORD_PTR dwParam2);
-
-#ifdef _WIN32
 
 typedef struct tagMIXERLINEA {
   DWORD cbStruct;
@@ -1023,31 +829,6 @@ __MINGW_TYPEDEF_AW(MIXERLINE)
 __MINGW_TYPEDEF_AW(PMIXERLINE)
 __MINGW_TYPEDEF_AW(LPMIXERLINE)
 
-#else
-typedef struct tMIXERLINE {
-  DWORD cbStruct;
-  DWORD dwDestination;
-  DWORD dwSource;
-  DWORD dwLineID;
-  DWORD fdwLine;
-  DWORD dwUser;
-  DWORD dwComponentType;
-  DWORD cChannels;
-  DWORD cConnections;
-  DWORD cControls;
-  char szShortName[MIXER_SHORT_NAME_CHARS];
-  char szName[MIXER_LONG_NAME_CHARS];
-  struct {
-    DWORD dwType;
-    DWORD dwDeviceID;
-    WORD wMid;
-    WORD wPid;
-    VERSION vDriverVersion;
-    char szPname[MAXPNAMELEN];
-  } Target;
-} MIXERLINE, *PMIXERLINE, *LPMIXERLINE;
-#endif
-
 #define MIXERLINE_LINEF_ACTIVE __MSABI_LONG(0x00000001)
 #define MIXERLINE_LINEF_DISCONNECTED __MSABI_LONG(0x00008000)
 #define MIXERLINE_LINEF_SOURCE __MSABI_LONG(0x80000000)
@@ -1085,13 +866,9 @@ typedef struct tMIXERLINE {
 #define MIXERLINE_TARGETTYPE_MIDIIN 4
 #define MIXERLINE_TARGETTYPE_AUX 5
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI mixerGetLineInfoA(HMIXEROBJ hmxobj, LPMIXERLINEA pmxl, DWORD fdwInfo);
 WINMMAPI MMRESULT WINAPI mixerGetLineInfoW(HMIXEROBJ hmxobj, LPMIXERLINEW pmxl, DWORD fdwInfo);
 #define mixerGetLineInfo __MINGW_NAME_AW(mixerGetLineInfo)
-#else
-MMRESULT WINAPI mixerGetLineInfo(HMIXEROBJ hmxobj, LPMIXERLINE pmxl, DWORD fdwInfo);
-#endif
 
 #define MIXER_GETLINEINFOF_DESTINATION __MSABI_LONG(0x00000000)
 #define MIXER_GETLINEINFOF_SOURCE __MSABI_LONG(0x00000001)
@@ -1102,8 +879,6 @@ MMRESULT WINAPI mixerGetLineInfo(HMIXEROBJ hmxobj, LPMIXERLINE pmxl, DWORD fdwIn
 #define MIXER_GETLINEINFOF_QUERYMASK __MSABI_LONG(0x0000000F)
 
 WINMMAPI MMRESULT WINAPI mixerGetID(HMIXEROBJ hmxobj, UINT *puMxId, DWORD fdwId);
-
-#ifdef _WIN32
 
 typedef struct tagMIXERCONTROLA {
   DWORD cbStruct;
@@ -1160,34 +935,6 @@ typedef struct tagMIXERCONTROLW {
 __MINGW_TYPEDEF_AW(MIXERCONTROL)
 __MINGW_TYPEDEF_AW(PMIXERCONTROL)
 __MINGW_TYPEDEF_AW(LPMIXERCONTROL)
-
-#else
-typedef struct tMIXERCONTROL {
-  DWORD cbStruct;
-  DWORD dwControlID;
-  DWORD dwControlType;
-  DWORD fdwControl;
-  DWORD cMultipleItems;
-  char szShortName[MIXER_SHORT_NAME_CHARS];
-  char szName[MIXER_LONG_NAME_CHARS];
-  union {
-    __C89_NAMELESS struct {
-      LONG lMinimum;
-      LONG lMaximum;
-    };
-    __C89_NAMELESS struct {
-      DWORD dwMinimum;
-      DWORD dwMaximum;
-    };
-    DWORD dwReserved[6];
-  } Bounds;
-  union {
-    DWORD cSteps;
-    DWORD cbCustomData;
-    DWORD dwReserved[6];
-  } Metrics;
-} MIXERCONTROL, *PMIXERCONTROL, *LPMIXERCONTROL;
-#endif
 
 #define MIXERCONTROL_CONTROLF_UNIFORM __MSABI_LONG(0x00000001)
 #define MIXERCONTROL_CONTROLF_MULTIPLE __MSABI_LONG(0x00000002)
@@ -1256,8 +1003,6 @@ typedef struct tMIXERCONTROL {
 #define MIXERCONTROL_CONTROLTYPE_MICROTIME (MIXERCONTROL_CT_CLASS_TIME | MIXERCONTROL_CT_SC_TIME_MICROSECS | MIXERCONTROL_CT_UNITS_UNSIGNED)
 #define MIXERCONTROL_CONTROLTYPE_MILLITIME (MIXERCONTROL_CT_CLASS_TIME | MIXERCONTROL_CT_SC_TIME_MILLISECS | MIXERCONTROL_CT_UNITS_UNSIGNED)
 
-#ifdef _WIN32
-
 typedef struct tagMIXERLINECONTROLSA {
   DWORD cbStruct;
   DWORD dwLineID;
@@ -1286,28 +1031,9 @@ __MINGW_TYPEDEF_AW(MIXERLINECONTROLS)
 __MINGW_TYPEDEF_AW(PMIXERLINECONTROLS)
 __MINGW_TYPEDEF_AW(LPMIXERLINECONTROLS)
 
-#else
-typedef struct tMIXERLINECONTROLS {
-  DWORD cbStruct;
-  DWORD dwLineID;
-  __C89_NAMELESS union {
-    DWORD dwControlID;
-    DWORD dwControlType;
-  };
-  DWORD cControls;
-  DWORD cbmxctrl;
-  LPMIXERCONTROL  pamxctrl;
-} MIXERLINECONTROLS, *PMIXERLINECONTROLS, *LPMIXERLINECONTROLS;
-#endif
-
-#ifdef _WIN32
-
 WINMMAPI MMRESULT WINAPI mixerGetLineControlsA(HMIXEROBJ hmxobj, LPMIXERLINECONTROLSA pmxlc, DWORD fdwControls);
 WINMMAPI MMRESULT WINAPI mixerGetLineControlsW(HMIXEROBJ hmxobj, LPMIXERLINECONTROLSW pmxlc, DWORD fdwControls);
 #define mixerGetLineControls __MINGW_NAME_AW(mixerGetLineControls)
-#else
-MMRESULT WINAPI mixerGetLineControls(HMIXEROBJ hmxobj, LPMIXERLINECONTROLS pmxlc, DWORD fdwControls);
-#endif
 
 #define MIXER_GETLINECONTROLSF_ALL __MSABI_LONG(0x00000000)
 #define MIXER_GETLINECONTROLSF_ONEBYID __MSABI_LONG(0x00000001)
@@ -1327,8 +1053,6 @@ typedef struct tMIXERCONTROLDETAILS {
   LPVOID paDetails;
 } MIXERCONTROLDETAILS, *PMIXERCONTROLDETAILS, *LPMIXERCONTROLDETAILS;
 
-#ifdef _WIN32
-
 typedef struct tagMIXERCONTROLDETAILS_LISTTEXTA {
   DWORD dwParam1;
   DWORD dwParam2;
@@ -1345,14 +1069,6 @@ __MINGW_TYPEDEF_AW(MIXERCONTROLDETAILS_LISTTEXT)
 __MINGW_TYPEDEF_AW(PMIXERCONTROLDETAILS_LISTTEXT)
 __MINGW_TYPEDEF_AW(LPMIXERCONTROLDETAILS_LISTTEXT)
 
-#else
-typedef struct tMIXERCONTROLDETAILS_LISTTEXT {
-  DWORD dwParam1;
-  DWORD dwParam2;
-  char szName[MIXER_LONG_NAME_CHARS];
-} MIXERCONTROLDETAILS_LISTTEXT, *PMIXERCONTROLDETAILS_LISTTEXT, *LPMIXERCONTROLDETAILS_LISTTEXT;
-#endif
-
 typedef struct tMIXERCONTROLDETAILS_BOOLEAN {
   LONG fValue;
 } MIXERCONTROLDETAILS_BOOLEAN, *PMIXERCONTROLDETAILS_BOOLEAN, *LPMIXERCONTROLDETAILS_BOOLEAN;
@@ -1365,13 +1081,9 @@ typedef struct tMIXERCONTROLDETAILS_UNSIGNED {
   DWORD dwValue;
 } MIXERCONTROLDETAILS_UNSIGNED, *PMIXERCONTROLDETAILS_UNSIGNED, *LPMIXERCONTROLDETAILS_UNSIGNED;
 
-#ifdef _WIN32
 WINMMAPI MMRESULT WINAPI mixerGetControlDetailsA(HMIXEROBJ hmxobj, LPMIXERCONTROLDETAILS pmxcd, DWORD fdwDetails);
 WINMMAPI MMRESULT WINAPI mixerGetControlDetailsW(HMIXEROBJ hmxobj, LPMIXERCONTROLDETAILS pmxcd, DWORD fdwDetails);
 #define mixerGetControlDetails __MINGW_NAME_AW(mixerGetControlDetails)
-#else
-MMRESULT WINAPI mixerGetControlDetails(HMIXEROBJ hmxobj, LPMIXERCONTROLDETAILS pmxcd, DWORD fdwDetails);
-#endif
 
 #define MIXER_GETCONTROLDETAILSF_VALUE __MSABI_LONG(0x00000000)
 #define MIXER_GETCONTROLDETAILSF_LISTTEXT __MSABI_LONG(0x00000001)

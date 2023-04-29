@@ -20,15 +20,9 @@ extern "C" {
 
 #ifndef MMNOSOUND
 
-#ifdef _WIN32
-
 WINMMAPI WINBOOL WINAPI sndPlaySoundA(LPCSTR pszSound, UINT fuSound);
 WINMMAPI WINBOOL WINAPI sndPlaySoundW(LPCWSTR pszSound, UINT fuSound);
 #define sndPlaySound __MINGW_NAME_AW(sndPlaySound)
-
-#else
-DLOAD_RET(FALSE) WINBOOL WINAPI sndPlaySound(LPCSTR pszSound, UINT fuSound);
-#endif
 
 #define SND_SYNC 0x0000
 #define SND_ASYNC 0x0001
@@ -43,17 +37,14 @@ DLOAD_RET(FALSE) WINBOOL WINAPI sndPlaySound(LPCSTR pszSound, UINT fuSound);
 #define SND_FILENAME __MSABI_LONG(0x00020000)
 #define SND_RESOURCE __MSABI_LONG(0x00040004)
 
-#if(WINVER >= 0x0400)
 #define SND_PURGE 0x0040
 #define SND_APPLICATION 0x0080
-#endif
 #define SND_SENTRY __MSABI_LONG(0x00080000)
 #define SND_RING __MSABI_LONG(0x00100000)
 #define SND_SYSTEM __MSABI_LONG(0x00200000)
 
 #define SND_ALIAS_START 0
 
-#ifdef _WIN32
 #define sndAlias(ch0, ch1) (SND_ALIAS_START + (DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8))
 
 #define SND_ALIAS_SYSTEMASTERISK sndAlias('S', '*')
@@ -68,10 +59,6 @@ DLOAD_RET(FALSE) WINBOOL WINAPI sndPlaySound(LPCSTR pszSound, UINT fuSound);
 WINMMAPI WINBOOL WINAPI PlaySoundA(LPCSTR pszSound, HMODULE hmod, DWORD fdwSound);
 WINMMAPI WINBOOL WINAPI PlaySoundW(LPCWSTR pszSound, HMODULE hmod, DWORD fdwSound);
 #define PlaySound __MINGW_NAME_AW(PlaySound)
-
-#else
-DLOAD_RET(FALSE) WINBOOL WINAPI PlaySound(LPCSTR pszSound, HMODULE hmod, DWORD fdwSound);
-#endif
 
 #endif /* MMNOSOUND */
 
