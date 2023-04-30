@@ -590,6 +590,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.gaming.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.globalization.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.capture.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.capture.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.directx.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.directx.direct3d11.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.effects.idl \
