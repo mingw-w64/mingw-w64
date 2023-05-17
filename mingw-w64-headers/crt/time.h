@@ -160,8 +160,10 @@ extern "C" {
   _CRTIMP size_t __cdecl _strftime_l(char * __restrict__ _Buf,size_t _Max_size,const char * __restrict__ _Format,const struct tm * __restrict__ _Tm,_locale_t _Locale);
   _CRTIMP char *__cdecl _strdate(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _SECIMP errno_t __cdecl _strdate_s (char *_Buf,size_t _SizeInBytes);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(errno_t, _strdate_s, char, _Str)
   _CRTIMP char *__cdecl _strtime(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _SECIMP errno_t __cdecl _strtime_s (char *_Buf ,size_t _SizeInBytes);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(errno_t, _strtime_s, char, _Str)
   _CRTIMP __time32_t __cdecl _time32(__time32_t *_Time);
 #ifdef _UCRT
   _CRTIMP int __cdecl _timespec32_get(struct _timespec32 *_Ts, int _Base);
