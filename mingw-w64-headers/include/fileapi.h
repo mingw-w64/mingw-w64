@@ -32,7 +32,7 @@ WINBASEAPI DWORD WINAPI GetFileAttributesW (LPCWSTR lpFileName);
 #define GetFileAttributes __MINGW_NAME_AW(GetFileAttributes)
 WINBASEAPI DWORD WINAPI SetFilePointer (HANDLE hFile, LONG lDistanceToMove, PLONG lpDistanceToMoveHigh, DWORD dwMoveMethod);
 #endif
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= _WIN32_WINNT_WIN10
   typedef struct _BY_HANDLE_FILE_INFORMATION {
     DWORD dwFileAttributes;
     FILETIME ftCreationTime;
