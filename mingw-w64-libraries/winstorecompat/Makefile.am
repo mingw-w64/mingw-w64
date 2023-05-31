@@ -49,7 +49,6 @@ libwinstorecompat_a_SOURCES = \
   $(NULL)
 
 libwindowsappcompat_a_SOURCES = \
-  src/GetModuleHandle.c \
   src/LoadLibraryW.c \
   src/CreateFileW.c \
   src/UnhandledExceptionFilter.c \
