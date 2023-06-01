@@ -10,9 +10,11 @@ OpenFileMappingW
 ReadProcessMemory
 UnmapViewOfFile
 VirtualAlloc
+VirtualAllocEx
 VirtualFree
 VirtualFreeEx
 VirtualProtect
+VirtualProtectEx
 VirtualQuery
 VirtualQueryEx
 WriteProcessMemory

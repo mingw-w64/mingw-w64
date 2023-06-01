@@ -16,12 +16,15 @@ CreateMutexW
 CreateSemaphoreExW
 CreateWaitableTimerExW
 DeleteCriticalSection
+DeleteSynchronizationBarrier
 EnterCriticalSection
+EnterSynchronizationBarrier
 InitializeConditionVariable
 InitializeCriticalSection
 InitializeCriticalSectionAndSpinCount
 InitializeCriticalSectionEx
 InitializeSRWLock
+InitializeSynchronizationBarrier
 InitOnceBeginInitialize
 InitOnceComplete
 InitOnceExecuteOnce

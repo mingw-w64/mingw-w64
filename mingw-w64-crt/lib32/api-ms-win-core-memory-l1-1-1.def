@@ -18,10 +18,12 @@ SetProcessWorkingSetSizeEx@16
 UnmapViewOfFile@4
 UnmapViewOfFileEx@8
 VirtualAlloc@16
+VirtualAllocEx@20
 VirtualFree@12
 VirtualFreeEx@16
 VirtualLock@8
 VirtualProtect@16
+VirtualProtectEx@20
 VirtualQuery@12
 VirtualQueryEx@16
 VirtualUnlock@8

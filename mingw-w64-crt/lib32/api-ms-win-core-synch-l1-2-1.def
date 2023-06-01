@@ -18,12 +18,15 @@ CreateSemaphoreW@16
 CreateWaitableTimerExW@16
 CreateWaitableTimerW@12
 DeleteCriticalSection@4
+DeleteSynchronizationBarrier@4
 EnterCriticalSection@4
+EnterSynchronizationBarrier@8
 InitializeConditionVariable@4
 InitializeCriticalSection@4
 InitializeCriticalSectionAndSpinCount@8
 InitializeCriticalSectionEx@12
 InitializeSRWLock@4
+InitializeSynchronizationBarrier@12
 InitOnceBeginInitialize@16
 InitOnceComplete@12
 InitOnceExecuteOnce@16

@@ -85,7 +85,6 @@ _getws_s
 _isatty
 isatty == _isatty
 _kbhit
-kbhit == _kbhit
 _locking
 _lseek
 lseek == _lseek
@@ -97,10 +96,8 @@ _open
 open == _open
 _open_osfhandle
 _pclose
-pclose == _pclose
 _pipe
 _popen
-popen == _popen
 _putc_nolock
 _putw
 putw == _putw
@@ -137,7 +134,6 @@ _wmktemp
 _wmktemp_s
 _wopen
 _wpopen
-wpopen == _wpopen
 _write
 write == _write
 _wsopen
@@ -179,6 +175,7 @@ getwc
 getwchar
 putc
 putchar
+putenv
 puts
 putwc
 putwchar

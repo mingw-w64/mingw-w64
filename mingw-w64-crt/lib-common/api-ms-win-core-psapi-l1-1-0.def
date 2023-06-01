@@ -7,4 +7,6 @@ K32GetModuleBaseNameW
 K32GetModuleFileNameExW
 K32GetModuleInformation
 K32GetProcessMemoryInfo
+K32QueryWorkingSet
+K32QueryWorkingSetEx
 QueryFullProcessImageNameW

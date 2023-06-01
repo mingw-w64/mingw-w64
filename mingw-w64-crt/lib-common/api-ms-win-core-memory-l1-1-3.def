@@ -23,11 +23,13 @@ SetProcessWorkingSetSizeEx
 UnmapViewOfFile
 UnmapViewOfFileEx
 VirtualAlloc
+VirtualAllocEx
 VirtualAllocFromApp
 VirtualFree
 VirtualFreeEx
 VirtualLock
 VirtualProtect
+VirtualProtectEx
 VirtualProtectFromApp
 VirtualQuery
 VirtualQueryEx

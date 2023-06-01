@@ -8,6 +8,8 @@ GetDynamicTimeZoneInformation@4
 GetDynamicTimeZoneInformationEffectiveYears@12
 GetTimeZoneInformation@4
 GetTimeZoneInformationForYear@12
+SetDynamicTimeZoneInformation@4
+SetTimeZoneInformation@4
 SystemTimeToFileTime@8
 SystemTimeToTzSpecificLocalTime@12
 SystemTimeToTzSpecificLocalTimeEx@12

@@ -2,6 +2,7 @@ LIBRARY api-ms-win-core-errorhandling-l1-1-0
 
 EXPORTS
 
+GetErrorMode
 GetLastError
 RaiseException
 SetErrorMode

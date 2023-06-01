@@ -3,4 +3,6 @@ LIBRARY api-ms-win-core-file-ansi-l2-1-0
 EXPORTS
 
 CopyFileExA
+CreateDirectoryExA
+MoveFileWithProgressA
 ReplaceFileA

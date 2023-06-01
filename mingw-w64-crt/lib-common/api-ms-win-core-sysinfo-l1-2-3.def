@@ -20,6 +20,8 @@ GetSystemTime
 GetSystemTimeAdjustment
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
+GetSystemWindowsDirectoryA
+GetSystemWindowsDirectoryW
 GetTickCount
 GetTickCount64
 GetVersion

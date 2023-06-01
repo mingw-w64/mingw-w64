@@ -4,4 +4,6 @@ EXPORTS
 
 Beep@8
 DecodePointer@4
+DecodeSystemPointer@4
 EncodePointer@4
+EncodeSystemPointer@4

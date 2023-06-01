@@ -18,6 +18,7 @@ GetStdHandle@4
 SearchPathW@24
 SetCurrentDirectoryA@4
 SetCurrentDirectoryW@4
+SetEnvironmentStringsW@4
 SetEnvironmentVariableA@8
 SetEnvironmentVariableW@8
 SetStdHandle@8

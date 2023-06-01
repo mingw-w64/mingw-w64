@@ -5,9 +5,12 @@ EXPORTS
 CopyFile2@12
 CopyFileExW@24
 CopyFileW@12
+CreateDirectoryExW@12
 CreateHardLinkW@12
 CreateSymbolicLinkW@12
 GetFileInformationByHandleEx@16
 MoveFileExW@12
+MoveFileWithProgressW@20
 ReadDirectoryChangesW@32
+ReOpenFile@16
 ReplaceFileW@24

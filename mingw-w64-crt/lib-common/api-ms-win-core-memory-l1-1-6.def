@@ -26,11 +26,13 @@ UnmapViewOfFile2
 UnmapViewOfFileEx
 VirtualAlloc
 VirtualAlloc2FromApp
+VirtualAllocEx
 VirtualAllocFromApp
 VirtualFree
 VirtualFreeEx
 VirtualLock
 VirtualProtect
+VirtualProtectEx
 VirtualProtectFromApp
 VirtualQuery
 VirtualQueryEx

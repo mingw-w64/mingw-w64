@@ -4,6 +4,7 @@ EXPORTS
 
 RtlCaptureContext@4
 RtlCaptureStackBackTrace@16
+RtlCompareMemory@12
 RtlLookupFunctionEntry
 RtlPcToFileHeader@8
 RtlRaiseException@4

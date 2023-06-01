@@ -2,6 +2,8 @@ LIBRARY api-ms-win-ro-typeresolution-l1-1-1
 
 EXPORTS
 
+RoCreateNonAgilePropertySet@4
+RoCreatePropertySetSerializer@4
 RoGetMetaDataFile@20
 RoIsApiContractMajorVersionPresent@12
 RoIsApiContractPresent@16

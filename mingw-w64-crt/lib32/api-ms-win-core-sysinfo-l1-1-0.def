@@ -14,6 +14,8 @@ GetSystemInfo@4
 GetSystemTime@4
 GetSystemTimeAdjustment@12
 GetSystemTimeAsFileTime@4
+GetSystemWindowsDirectoryA@8
+GetSystemWindowsDirectoryW@8
 GetTickCount@0
 GetTickCount64@0
 GetTimeZoneInformation@4

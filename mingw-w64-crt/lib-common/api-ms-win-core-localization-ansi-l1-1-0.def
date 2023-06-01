@@ -4,4 +4,7 @@ EXPORTS
 
 EnumUILanguagesA
 FoldStringA
+GetCalendarInfoA
 GetStringTypeExA
+SetCalendarInfoA
+SetLocaleInfoA

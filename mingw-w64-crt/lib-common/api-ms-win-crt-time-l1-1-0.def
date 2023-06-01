@@ -12,21 +12,21 @@ _ctime64
 _ctime64_s
 _difftime32
 _difftime64
-_ftime == _ftime64
+_ftime == _ftime32
 _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
-_futime == _futime64
+_futime == _futime32
 _futime32
 _futime64
 _get_daylight
 _get_dstbias
 _get_timezone
 _get_tzname
-_getsystime
 _Getdays
 _Getmonths
+_getsystime
 _Gettnames
 _gmtime32
 _gmtime32_s
@@ -51,10 +51,8 @@ _time32
 _time64
 _timespec32_get
 _timespec64_get
-; This is wrapped in the compat code.
-_tzset DATA
-_utime == _utime64
-utime == _utime64
+_tzset
+_utime == _utime32
 _utime32
 _utime64
 _W_Getdays
@@ -72,7 +70,7 @@ _wstrdate
 _wstrdate_s
 _wstrtime
 _wstrtime_s
-_wutime == _wutime64
+_wutime == _wutime32
 _wutime32
 _wutime64
 asctime
@@ -80,10 +78,3 @@ asctime_s
 clock
 strftime
 wcsftime
-; These functions may satisfy configure scripts.
-ctime == _ctime64
-gmtime == _gmtime64
-localtime == _localtime64
-mktime == _mktime64
-time == _time64
-timespec_get == _timespec64_get

@@ -10,6 +10,8 @@ GetTimeZoneInformation
 GetTimeZoneInformationForYear
 LocalFileTimeToLocalSystemTime
 LocalSystemTimeToLocalFileTime
+SetDynamicTimeZoneInformation
+SetTimeZoneInformation
 SystemTimeToFileTime
 SystemTimeToTzSpecificLocalTime
 SystemTimeToTzSpecificLocalTimeEx

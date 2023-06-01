@@ -5,6 +5,7 @@ EXPORTS
 AddVectoredExceptionHandler@8
 FatalAppExitA@8
 FatalAppExitW@8
+GetErrorMode@0
 GetLastError@0
 GetThreadErrorMode@0
 RaiseException@16
