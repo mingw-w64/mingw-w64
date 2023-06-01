@@ -37,11 +37,6 @@ extern "C" {
   typedef FARPROC ENUMRESLANGPROCW;
 #endif
 
-#ifndef RC_INVOKED
-  typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXA) (DWORD dwFlags, LPCSTR lpModuleName, HMODULE *phModule);
-  typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXW) (DWORD dwFlags, LPCWSTR lpModuleName, HMODULE *phModule);
-#endif
-
   typedef PVOID DLL_DIRECTORY_COOKIE, *PDLL_DIRECTORY_COOKIE;
 
 #define FIND_RESOURCE_DIRECTORY_TYPES (0x0100)
@@ -92,31 +87,21 @@ extern "C" {
 
   WINBASEAPI WINBOOL WINAPI EnumResourceNamesW(HMODULE hModule, LPCWSTR lpType, ENUMRESNAMEPROCW lpEnumFunc, LONG_PTR lParam);
   WINBASEAPI HRSRC WINAPI FindResourceW(HMODULE hModule, LPCWSTR lpName, LPCWSTR lpType);
-  WINBASEAPI HRSRC WINAPI FindResourceExW (HMODULE hModule, LPCWSTR lpType, LPCWSTR lpName, WORD wLanguage);
   WINBASEAPI WINBOOL WINAPI FreeResource (HGLOBAL hResData);
-  WINBASEAPI HMODULE WINAPI LoadLibraryExA (LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags);
-  WINBASEAPI HMODULE WINAPI LoadLibraryExW (LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags);
   WINBASEAPI HGLOBAL WINAPI LoadResource (HMODULE hModule, HRSRC hResInfo);
   WINUSERAPI int WINAPI LoadStringA (HINSTANCE hInstance, UINT uID, LPSTR lpBuffer, int cchBufferMax);
   WINUSERAPI int WINAPI LoadStringW (HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int cchBufferMax);
   WINBASEAPI LPVOID WINAPI LockResource (HGLOBAL hResData);
-  WINBASEAPI DWORD WINAPI SizeofResource (HMODULE hModule, HRSRC hResInfo);
   WINBASEAPI DLL_DIRECTORY_COOKIE WINAPI AddDllDirectory (PCWSTR NewDirectory);
   WINBASEAPI WINBOOL WINAPI RemoveDllDirectory (DLL_DIRECTORY_COOKIE Cookie);
   WINBASEAPI WINBOOL WINAPI SetDefaultDllDirectories (DWORD DirectoryFlags);
-  WINBASEAPI WINBOOL WINAPI GetModuleHandleExA (DWORD dwFlags, LPCSTR lpModuleName, HMODULE *phModule);
-  WINBASEAPI WINBOOL WINAPI GetModuleHandleExW (DWORD dwFlags, LPCWSTR lpModuleName, HMODULE *phModule);
 
 #ifdef UNICODE
 #define EnumResourceNames EnumResourceNamesW
 #define FindResource FindResourceW
-#define FindResourceEx FindResourceExW
 #endif
 
-#define PGET_MODULE_HANDLE_EX __MINGW_NAME_AW(PGET_MODULE_HANDLE_EX)
 #define LoadString __MINGW_NAME_AW(LoadString)
-#define GetModuleHandleEx __MINGW_NAME_AW(GetModuleHandleEx)
-#define LoadLibraryEx __MINGW_NAME_AW(LoadLibraryEx)
 
 #define EnumResourceLanguages __MINGW_NAME_AW(EnumResourceLanguages)
   WINBASEAPI WINBOOL WINAPI EnumResourceLanguagesA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,ENUMRESLANGPROCA lpEnumFunc,LONG_PTR lParam);
@@ -138,11 +123,8 @@ extern "C" {
 #endif
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
-WINBASEAPI HMODULE WINAPI GetModuleHandleA (LPCSTR lpModuleName);
-WINBASEAPI HMODULE WINAPI GetModuleHandleW (LPCWSTR lpModuleName);
 WINBASEAPI HMODULE WINAPI LoadLibraryA(LPCSTR lpLibFileName);
 WINBASEAPI HMODULE WINAPI LoadLibraryW(LPCWSTR lpLibFileName);
-#define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
 #define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
 #endif
 
@@ -176,6 +158,32 @@ typedef const REDIRECTION_DESCRIPTOR *PCREDIRECTION_DESCRIPTOR;
 #if WINVER >= 0x0601
   WINBASEAPI int WINAPI FindStringOrdinal (DWORD dwFindStringOrdinalFlags, LPCWSTR lpStringSource, int cchSource, LPCWSTR lpStringValue, int cchValue, WINBOOL bIgnoreCase);
 #endif
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || NTDDI_VERSION >= NTDDI_WIN10_19H1
+  WINBASEAPI HRSRC WINAPI FindResourceExW (HMODULE hModule, LPCWSTR lpType, LPCWSTR lpName, WORD wLanguage);
+  WINBASEAPI HMODULE WINAPI GetModuleHandleA (LPCSTR lpModuleName);
+  WINBASEAPI HMODULE WINAPI GetModuleHandleW (LPCWSTR lpModuleName);
+  WINBASEAPI WINBOOL WINAPI GetModuleHandleExA (DWORD dwFlags, LPCSTR lpModuleName, HMODULE *phModule);
+  WINBASEAPI WINBOOL WINAPI GetModuleHandleExW (DWORD dwFlags, LPCWSTR lpModuleName, HMODULE *phModule);
+  WINBASEAPI HMODULE WINAPI LoadLibraryExA (LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags);
+  WINBASEAPI HMODULE WINAPI LoadLibraryExW (LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags);
+  WINBASEAPI DWORD WINAPI SizeofResource (HMODULE hModule, HRSRC hResInfo);
+
+#ifdef UNICODE
+#define FindResourceEx FindResourceExW
+#endif
+
+#define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
+#define GetModuleHandleEx __MINGW_NAME_AW(GetModuleHandleEx)
+#define LoadLibraryEx __MINGW_NAME_AW(LoadLibraryEx)
+
+#ifndef RC_INVOKED
+  typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXA) (DWORD dwFlags, LPCSTR lpModuleName, HMODULE *phModule);
+  typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXW) (DWORD dwFlags, LPCWSTR lpModuleName, HMODULE *phModule);
+#endif
+
+#define PGET_MODULE_HANDLE_EX __MINGW_NAME_AW(PGET_MODULE_HANDLE_EX)
 #endif
 
 #ifdef __cplusplus
