@@ -89,8 +89,6 @@ extern "C" {
   WINBASEAPI HRSRC WINAPI FindResourceW(HMODULE hModule, LPCWSTR lpName, LPCWSTR lpType);
   WINBASEAPI WINBOOL WINAPI FreeResource (HGLOBAL hResData);
   WINBASEAPI HGLOBAL WINAPI LoadResource (HMODULE hModule, HRSRC hResInfo);
-  WINUSERAPI int WINAPI LoadStringA (HINSTANCE hInstance, UINT uID, LPSTR lpBuffer, int cchBufferMax);
-  WINUSERAPI int WINAPI LoadStringW (HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int cchBufferMax);
   WINBASEAPI LPVOID WINAPI LockResource (HGLOBAL hResData);
   WINBASEAPI DLL_DIRECTORY_COOKIE WINAPI AddDllDirectory (PCWSTR NewDirectory);
   WINBASEAPI WINBOOL WINAPI RemoveDllDirectory (DLL_DIRECTORY_COOKIE Cookie);
@@ -100,8 +98,6 @@ extern "C" {
 #define EnumResourceNames EnumResourceNamesW
 #define FindResource FindResourceW
 #endif
-
-#define LoadString __MINGW_NAME_AW(LoadString)
 
 #define EnumResourceLanguages __MINGW_NAME_AW(EnumResourceLanguages)
   WINBASEAPI WINBOOL WINAPI EnumResourceLanguagesA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,ENUMRESLANGPROCA lpEnumFunc,LONG_PTR lParam);
@@ -184,6 +180,13 @@ typedef const REDIRECTION_DESCRIPTOR *PCREDIRECTION_DESCRIPTOR;
 #endif
 
 #define PGET_MODULE_HANDLE_EX __MINGW_NAME_AW(PGET_MODULE_HANDLE_EX)
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || NTDDI_VERSION >= NTDDI_WIN10_VB
+  WINUSERAPI int WINAPI LoadStringA (HINSTANCE hInstance, UINT uID, LPSTR lpBuffer, int cchBufferMax);
+  WINUSERAPI int WINAPI LoadStringW (HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int cchBufferMax);
+
+#define LoadString __MINGW_NAME_AW(LoadString)
 #endif
 
 #ifdef __cplusplus
