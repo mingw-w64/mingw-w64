@@ -10,7 +10,7 @@ CoCreateGuid@4
 CoCreateInstance@20
 CoCreateInstanceEx@24
 CoCreateInstanceFromApp@24
-CoDecrementMTAUsage
+CoDecrementMTAUsage@4
 CoDisconnectObject@8
 CoFreeUnusedLibraries@0
 CoFreeUnusedLibrariesEx@8
@@ -23,7 +23,7 @@ CoGetMalloc@8
 CoGetMarshalSizeMax@24
 CoGetObjectContext@8
 CoGetStandardMarshal@24
-CoIncrementMTAUsage
+CoIncrementMTAUsage@4
 CoInitializeEx@8
 CoInitializeSecurity@36
 CoLockObjectExternal@12
@@ -44,7 +44,7 @@ CoTaskMemRealloc@8
 CoUninitialize@0
 CoUnmarshalInterface@12
 CoWaitForMultipleHandles@20
-CoWaitForMultipleObjects
+CoWaitForMultipleObjects@20
 CreateStreamOnHGlobal@12
 FreePropVariantArray@8
 GetHGlobalFromStream@8

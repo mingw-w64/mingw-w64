@@ -8,11 +8,11 @@ EscapeCommFunction@8
 GetCommConfig@12
 GetCommMask@8
 GetCommModemStatus@8
-GetCommPorts@
+GetCommPorts@12
 GetCommProperties@8
 GetCommState@8
 GetCommTimeouts@8
-OpenCommPort@
+OpenCommPort@12
 PurgeComm@8
 SetCommBreak@4
 SetCommConfig@12

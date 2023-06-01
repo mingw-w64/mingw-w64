@@ -9,7 +9,7 @@ CheckGamingPrivilegeWithUIForUser@28
 ProcessPendingGameUI@4
 ShowChangeFriendRelationshipUI@12
 ShowChangeFriendRelationshipUIForUser@16
-ShowCustomizeUserProfileUI@
+ShowCustomizeUserProfileUI@8
 ShowCustomizeUserProfileUIForUser@12
 ShowFindFriendsUI@8
 ShowFindFriendsUIForUser@12

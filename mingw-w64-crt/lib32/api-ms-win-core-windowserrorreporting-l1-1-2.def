@@ -9,7 +9,7 @@ WerRegisterExcludedMemoryBlock@8
 WerRegisterFile@12
 WerRegisterMemoryBlock@8
 WerUnregisterAdditionalProcess@4
-WerUnregisterAppLocalDump@
+WerUnregisterAppLocalDump@0
 WerUnregisterCustomMetadata@4
 WerUnregisterExcludedMemoryBlock@4
 WerUnregisterFile@4
