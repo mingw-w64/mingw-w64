@@ -2201,6 +2201,7 @@ endif
 		%/libapi-ms-win-core-fibers-l1-1-1.a \
 		%/libapi-ms-win-core-fibers-l2-1-1.a \
 		%/libapi-ms-win-core-file-ansi-l2-1-0.a \
+		%/libapi-ms-win-core-file-l1-2-0.a \
 		%/libapi-ms-win-core-file-l1-2-1.a \
 		%/libapi-ms-win-core-file-l1-2-2.a \
 		%/libapi-ms-win-core-file-l2-1-0.a \
