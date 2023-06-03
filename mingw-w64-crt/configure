@@ -1513,7 +1513,7 @@ Optional Packages:
   --with-genlib=PATH      Whether to build import libraries via the genlib
                           tool (default: no)
   --with-default-msvcrt=LIB
-                          Lib to provide as libmsvcrt.a (default: msvcrt-os)
+                          Lib to provide as libmsvcrt.a (default: ucrt)
 
 Some influential environment variables:
   CC          C compiler command
@@ -2068,9 +2068,7 @@ struct stat;
 /* Most of the following tests are stolen from RCS 5.7 src/conf.sh.  */
 struct buf { int x; };
 struct buf * (*rcsopen) (struct buf *, struct stat *, int);
-static char *e (p, i)
-     char **p;
-     int i;
+static char *e (char **p, int i)
 {
   return p[i];
 }
@@ -2121,6 +2119,7 @@ extern int puts (const char *);
 extern int printf (const char *, ...);
 extern int dprintf (int, const char *, ...);
 extern void *malloc (size_t);
+extern void free (void *);
 
 // Check varargs macros.  These examples are taken from C99 6.10.3.5.
 // dprintf is used instead of fprintf to avoid needing to declare
@@ -6787,7 +6786,7 @@ if test ${with_default_msvcrt+y}
 then :
   withval=$with_default_msvcrt;
 else $as_nop
-  with_default_msvcrt=msvcrt-os
+  with_default_msvcrt=ucrt
 fi
 
 if test "$with_default_msvcrt" = "msvcrt"; then

@@ -144,9 +144,9 @@ AC_SUBST([DEFAULT_WIN32_WINNT])
 AC_MSG_CHECKING([default msvcrt])
 AC_ARG_WITH([default-msvcrt],
   [AS_HELP_STRING([--with-default-msvcrt=LIB],
-    [Default msvcrt to target (default: msvcrt)])],
+    [Default msvcrt to target (default: ucrt)])],
   [],
-  [with_default_msvcrt=msvcrt])
+  [with_default_msvcrt=ucrt])
 case $with_default_msvcrt in
 msvcrt10*)
   default_msvcrt_version=0x100
@@ -178,11 +178,11 @@ msvcr110*)
 msvcr120*)
   default_msvcrt_version=0xC00
   ;;
-ucrt*)
-  default_msvcrt_version=0xE00
-  ;;
-msvcrt|*)
+msvcrt*)
   default_msvcrt_version=0x700
+  ;;
+ucrt*|*)
+  default_msvcrt_version=0xE00
   ;;
 esac
 AC_MSG_RESULT([$with_default_msvcrt ($default_msvcrt_version)])

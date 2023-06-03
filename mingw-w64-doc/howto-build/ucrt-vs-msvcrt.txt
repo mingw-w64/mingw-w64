@@ -1,0 +1,58 @@
+== Summary ==
+
+Starting from mingw-w64 version 12 and onwards, UCRT (Universal C Runtime) will
+be the default CRT runtime, unless specified otherwise during the minwgw-64
+build process. We believe that this configuration is the best choice for the
+majority of users. While we encourage users to consider switching to UCRT, we
+understand that it may not always be desirable, especially for compatibility
+reasons. Therefore, all previously supported configurations will continue to
+be supported. Users who wish to continue using msvcrt.dll can easily do so by
+adding the --with-default-msvcrt=msvcrt argument to both the
+mingw-w64-headers and mingw-w64-crt configure scripts.
+
+
+== Background ==
+
+mingw-w64 provides C runtime libraries that directly or indirectly utilize
+Microsoft DLLs at runtime. Over the years, Microsoft has released various
+versions of these DLLs, some of which were designed for specific MSVC versions
+while others aimed for backward compatibility. When building the mingw-w64
+toolchain, users can specify a version of the runtime DLL using the
+--with-default-msvcrt= configure option. The most commonly used versions are
+ucrt (utilizing ucrtbase.dll) and msvcrt (utilizing msvcrt.dll).
+
+The implementation of msvcrt.dll dates back to the Windows 9x era. While it has
+been extended for a period, it eventually became frozen in favor of providing
+separate DLLs for future MSVC versions. Although msvcrt.dll continues to be
+shipped with modern Windows versions, it remains compatible with the version
+from the 1990s. msvcrt.dll is known to deviate from standard behavior in many
+aspects. mingw-w64 includes compatibility wrappers and extensions to improve
+standard compatibility, but there are limitations to what can be practically
+achieved.
+
+On the other hand, ucrtbase.dll was introduced with MSVC 14 and is currently
+included with all Windows versions supported by Microsoft. It is also available
+as a redistributable package for older versions of Windows. ucrtbase.dll aims to
+replace MSVC version-specific DLLs and has been used by all MSVC versions since
+its introduction. It offers a more modern approach compared to msvcrt.dll and
+provides better standard compatibility out of the box, reducing overhead on the
+mingw-w64 side.
+
+
+== Compatibility ==
+
+When switching between toolchains that use different runtime libraries, it is
+generally advised not to mix static libraries, unless certain exceptions apply.
+If in doubt, it is recommended to rebuild all static libraries when switching
+the toolchain's runtime DLL.
+
+Dynamic libraries are less likely to be affected. If the CRT is not part of the
+ABI of a library you intend to use, meaning it does not involve passing FILE
+structs or similar types between modules or depending on the CRT allocator of
+other modules, it should remain unaffected. Otherwise, a compatible build of
+that library will be required.
+
+
+== See Also ==
+
+"MSVCRT vs UCRT": https://www.msys2.org/docs/environments/

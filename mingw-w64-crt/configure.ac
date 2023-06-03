@@ -267,9 +267,9 @@ AC_MSG_RESULT([$enable_delay_import_libs])
 AC_MSG_CHECKING([what to provide as libmsvcrt.a])
 AC_ARG_WITH([default-msvcrt],
   [AS_HELP_STRING([--with-default-msvcrt=LIB],
-    [Lib to provide as libmsvcrt.a (default: msvcrt-os)])],
+    [Lib to provide as libmsvcrt.a (default: ucrt)])],
   [],
-  [with_default_msvcrt=msvcrt-os])
+  [with_default_msvcrt=ucrt])
 if test "$with_default_msvcrt" = "msvcrt"; then
   with_default_msvcrt=msvcrt-os
 fi

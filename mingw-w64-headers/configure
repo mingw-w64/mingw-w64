@@ -1387,7 +1387,7 @@ Optional Packages:
   --with-default-win32-winnt=VER
                           Default value of _WIN32_WINNT (default: 0xa00)
   --with-default-msvcrt=LIB
-                          Default msvcrt to target (default: msvcrt)
+                          Default msvcrt to target (default: ucrt)
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
 _ACEOF
@@ -3002,7 +3002,7 @@ if test ${with_default_msvcrt+y}
 then :
   withval=$with_default_msvcrt;
 else $as_nop
-  with_default_msvcrt=msvcrt
+  with_default_msvcrt=ucrt
 fi
 
 case $with_default_msvcrt in
@@ -3036,11 +3036,11 @@ msvcr110*)
 msvcr120*)
   default_msvcrt_version=0xC00
   ;;
-ucrt*)
-  default_msvcrt_version=0xE00
-  ;;
-msvcrt|*)
+msvcrt*)
   default_msvcrt_version=0x700
+  ;;
+ucrt*|*)
+  default_msvcrt_version=0xE00
   ;;
 esac
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $with_default_msvcrt ($default_msvcrt_version)" >&5
