@@ -685,7 +685,7 @@ GetPackageFamilyName@12
 GetPackageFullName@12
 GetPackageId@12
 GetPackageInfo@20
-GetPackagePath@24
+GetPackagePath@16
 GetPackagePathByFullName@12
 GetPackagesByPackageFamily@20
 GetPhysicallyInstalledSystemMemory@4
