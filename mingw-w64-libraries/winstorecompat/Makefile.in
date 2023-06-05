@@ -136,8 +136,6 @@ libwindowsappcompat_a_AR = $(AR) $(ARFLAGS)
 libwindowsappcompat_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am_libwindowsappcompat_a_OBJECTS =  \
-	src/libwindowsappcompat_a-beginthread.$(OBJEXT) \
-	src/libwindowsappcompat_a-GetModuleHandle.$(OBJEXT) \
 	src/libwindowsappcompat_a-LoadLibraryW.$(OBJEXT) \
 	src/libwindowsappcompat_a-CreateFileW.$(OBJEXT) \
 	src/libwindowsappcompat_a-UnhandledExceptionFilter.$(OBJEXT) \
@@ -232,7 +230,6 @@ am__depfiles_remade = src/$(DEPDIR)/CreateEventW.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-Crypto.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-GetFileSize.Po \
-	src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-GetStartupInfo.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-GetUserName.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-LoadLibraryW.Po \
@@ -245,7 +242,6 @@ am__depfiles_remade = src/$(DEPDIR)/CreateEventW.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po \
-	src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-getenv.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-getpid.Po
 am__mv = mv -f
@@ -459,8 +455,6 @@ libwinstorecompat_a_SOURCES = \
   $(NULL)
 
 libwindowsappcompat_a_SOURCES = \
-  src/beginthread.c \
-  src/GetModuleHandle.c \
   src/LoadLibraryW.c \
   src/CreateFileW.c \
   src/UnhandledExceptionFilter.c \
@@ -556,10 +550,6 @@ src/$(am__dirstamp):
 src/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) src/$(DEPDIR)
 	@: > src/$(DEPDIR)/$(am__dirstamp)
-src/libwindowsappcompat_a-beginthread.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/libwindowsappcompat_a-GetModuleHandle.$(OBJEXT):  \
-	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 src/libwindowsappcompat_a-LoadLibraryW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libwindowsappcompat_a-CreateFileW.$(OBJEXT): src/$(am__dirstamp) \
@@ -736,7 +726,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-Crypto.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-GetFileSize.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-GetStartupInfo.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-GetUserName.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-LoadLibraryW.Po@am__quote@ # am--include-marker
@@ -749,7 +738,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-getenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-getpid.Po@am__quote@ # am--include-marker
 
@@ -774,34 +762,6 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-src/libwindowsappcompat_a-beginthread.o: src/beginthread.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-beginthread.o -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Tpo -c -o src/libwindowsappcompat_a-beginthread.o `test -f 'src/beginthread.c' || echo '$(srcdir)/'`src/beginthread.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Tpo src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/beginthread.c' object='src/libwindowsappcompat_a-beginthread.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-beginthread.o `test -f 'src/beginthread.c' || echo '$(srcdir)/'`src/beginthread.c
-
-src/libwindowsappcompat_a-beginthread.obj: src/beginthread.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-beginthread.obj -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Tpo -c -o src/libwindowsappcompat_a-beginthread.obj `if test -f 'src/beginthread.c'; then $(CYGPATH_W) 'src/beginthread.c'; else $(CYGPATH_W) '$(srcdir)/src/beginthread.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Tpo src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/beginthread.c' object='src/libwindowsappcompat_a-beginthread.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-beginthread.obj `if test -f 'src/beginthread.c'; then $(CYGPATH_W) 'src/beginthread.c'; else $(CYGPATH_W) '$(srcdir)/src/beginthread.c'; fi`
-
-src/libwindowsappcompat_a-GetModuleHandle.o: src/GetModuleHandle.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-GetModuleHandle.o -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Tpo -c -o src/libwindowsappcompat_a-GetModuleHandle.o `test -f 'src/GetModuleHandle.c' || echo '$(srcdir)/'`src/GetModuleHandle.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Tpo src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/GetModuleHandle.c' object='src/libwindowsappcompat_a-GetModuleHandle.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-GetModuleHandle.o `test -f 'src/GetModuleHandle.c' || echo '$(srcdir)/'`src/GetModuleHandle.c
-
-src/libwindowsappcompat_a-GetModuleHandle.obj: src/GetModuleHandle.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-GetModuleHandle.obj -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Tpo -c -o src/libwindowsappcompat_a-GetModuleHandle.obj `if test -f 'src/GetModuleHandle.c'; then $(CYGPATH_W) 'src/GetModuleHandle.c'; else $(CYGPATH_W) '$(srcdir)/src/GetModuleHandle.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Tpo src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/GetModuleHandle.c' object='src/libwindowsappcompat_a-GetModuleHandle.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -c -o src/libwindowsappcompat_a-GetModuleHandle.obj `if test -f 'src/GetModuleHandle.c'; then $(CYGPATH_W) 'src/GetModuleHandle.c'; else $(CYGPATH_W) '$(srcdir)/src/GetModuleHandle.c'; fi`
 
 src/libwindowsappcompat_a-LoadLibraryW.o: src/LoadLibraryW.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libwindowsappcompat_a_CFLAGS) $(CFLAGS) -MT src/libwindowsappcompat_a-LoadLibraryW.o -MD -MP -MF src/$(DEPDIR)/libwindowsappcompat_a-LoadLibraryW.Tpo -c -o src/libwindowsappcompat_a-LoadLibraryW.o `test -f 'src/LoadLibraryW.c' || echo '$(srcdir)/'`src/LoadLibraryW.c
@@ -1374,7 +1334,6 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-Crypto.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetFileSize.Po
-	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetStartupInfo.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetUserName.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-LoadLibraryW.Po
@@ -1387,7 +1346,6 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po
-	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-getenv.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-getpid.Po
 	-rm -f Makefile
@@ -1481,7 +1439,6 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-Crypto.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetFileSize.Po
-	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetModuleHandle.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetStartupInfo.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-GetUserName.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-LoadLibraryW.Po
@@ -1494,7 +1451,6 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-SystemFunction036.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-UnhandledExceptionFilter.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-VirtualProtect.Po
-	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-beginthread.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-getenv.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-getpid.Po
 	-rm -f Makefile
