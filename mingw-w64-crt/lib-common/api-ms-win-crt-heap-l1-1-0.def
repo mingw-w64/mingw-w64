@@ -18,13 +18,13 @@ _get_heap_handle
 _heapchk
 _heapmin
 _heapwalk
+heapwalk == _heapwalk
 _malloc_base
 _msize
 _query_new_handler
 _query_new_mode
 _realloc_base
 _recalloc
-_resetstkoflw
 _set_new_mode
 calloc
 free

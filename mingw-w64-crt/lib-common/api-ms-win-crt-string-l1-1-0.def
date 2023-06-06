@@ -51,7 +51,10 @@ _strcoll_l
 _strdup
 strdup == _strdup
 _stricmp
+_strcmpi == _stricmp
+strcmpi == _stricmp
 stricmp == _stricmp
+strcasecmp == _stricmp
 _stricmp_l
 _stricoll
 stricoll == _stricoll
@@ -64,6 +67,8 @@ _strlwr_s_l
 _strncoll
 _strncoll_l
 _strnicmp
+strnicmp == _strnicmp
+strncasecmp == _strnicmp
 _strnicmp_l
 _strnicoll
 _strnicoll_l
@@ -92,6 +97,7 @@ _wcsdup
 wcsdup == _wcsdup
 _wcsicmp
 wcsicmp == _wcsicmp
+wcscmpi == _wcsicmp
 _wcsicmp_l
 _wcsicoll
 wcsicoll == _wcsicoll
@@ -169,7 +175,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
-strnlen
+; strnlen replaced by emu
 strpbrk
 strspn
 strtok
@@ -193,7 +199,8 @@ wcsncat_s
 wcsncmp
 wcsncpy
 wcsncpy_s
-wcsnlen
+; We provide replacement implementation in libmingwex
+wcsnlen DATA
 wcspbrk
 wcsspn
 wcstok

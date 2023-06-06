@@ -70,7 +70,8 @@ _mbbtombc
 _mbbtombc_l
 _mbbtype
 _mbbtype_l
-_mbcasemap
+; DATA added manually
+_mbcasemap DATA
 _mbccpy
 _mbccpy_l
 _mbccpy_s

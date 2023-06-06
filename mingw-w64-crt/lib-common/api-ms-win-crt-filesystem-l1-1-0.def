@@ -3,7 +3,8 @@ LIBRARY api-ms-win-crt-filesystem-l1-1-0
 EXPORTS
 
 _access
-access == _access
+; access is provided as an alias for __mingw_access
+; access == _access
 _access_s
 _chdir
 chdir == _chdir
@@ -11,12 +12,12 @@ _chdrive
 _chmod
 chmod == _chmod
 _findclose
-_findfirst == _findfirst32
+_findfirst == _findfirst64
 _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
-_findnext == _findnext32
+_findnext == _findnext64
 _findnext32
 _findnext32i64
 _findnext64
@@ -26,9 +27,6 @@ _fstat32i64
 _fstat64
 _fstat64i32
 _fullpath
-_getcwd
-getcwd == _getcwd
-_getdcwd
 _getdiskfree
 _getdrive
 _getdrives
@@ -64,8 +62,6 @@ _wfindnext32i64
 _wfindnext64
 _wfindnext64i32
 _wfullpath
-_wgetcwd
-_wgetdcwd
 _wmakepath
 _wmakepath_s
 _wmkdir
