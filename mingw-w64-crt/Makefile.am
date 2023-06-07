@@ -2066,6 +2066,7 @@ endif
 		%/libapi-ms-win-core-file-l2-1-2.a \
 		%/libapi-ms-win-core-firmware-l1-1-0.a \
 		%/libapi-ms-win-core-handle-l1-1-0.a \
+		%/libapi-ms-win-core-heap-l1-1-0.a \
 		%/libapi-ms-win-core-heap-l1-2-0.a \
 		%/libapi-ms-win-core-interlocked-l1-1-0.a \
 		%/libapi-ms-win-core-interlocked-l1-2-0.a \
