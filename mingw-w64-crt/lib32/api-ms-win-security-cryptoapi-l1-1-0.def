@@ -4,6 +4,7 @@ EXPORTS
 
 ; Implemented in windowsappcompat
 ;CryptAcquireContextA@20
+; Implemented in windowsappcompat
 ;CryptAcquireContextW@20
 CryptCreateHash@20
 CryptDecrypt@24
@@ -16,6 +17,7 @@ CryptEnumProvidersA@24
 CryptEnumProvidersW@24
 CryptExportKey@24
 CryptGenKey@16
+; Implemented in windowsappcompat
 ;CryptGenRandom@12
 CryptGetDefaultProviderA@20
 CryptGetDefaultProviderW@20
@@ -25,6 +27,7 @@ CryptGetProvParam@20
 CryptGetUserKey@12
 CryptHashData@16
 CryptImportKey@24
+; Implemented in windowsappcompat
 ;CryptReleaseContext@8
 CryptSetHashParam@16
 CryptSetKeyParam@16

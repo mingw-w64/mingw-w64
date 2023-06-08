@@ -2,8 +2,10 @@ LIBRARY api-ms-win-security-cryptoapi-l1-1-0
 
 EXPORTS
 
-CryptAcquireContextA
-CryptAcquireContextW
+; Implemented in windowsappcompat
+;CryptAcquireContextA
+; Implemented in windowsappcompat
+;CryptAcquireContextW
 CryptCreateHash
 CryptDecrypt
 CryptDeriveKey
@@ -15,7 +17,8 @@ CryptEnumProvidersA
 CryptEnumProvidersW
 CryptExportKey
 CryptGenKey
-CryptGenRandom
+; Implemented in windowsappcompat
+;CryptGenRandom
 CryptGetDefaultProviderA
 CryptGetDefaultProviderW
 CryptGetHashParam
@@ -24,7 +27,8 @@ CryptGetProvParam
 CryptGetUserKey
 CryptHashData
 CryptImportKey
-CryptReleaseContext
+; Implemented in windowsappcompat
+;CryptReleaseContext
 CryptSetHashParam
 CryptSetKeyParam
 CryptSetProviderW
