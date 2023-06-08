@@ -388,48 +388,15 @@ extern "C" {
   extern WINSCARDAPI LONG WINAPI SCardDlgExtendedError(void);
 
 #if (_WIN32_WINNT >= 0x0600)
-LONG WINAPI SCardGetTransmitCount(
-  SCARDHANDLE hCard,
-  LPDWORD pcTransmitCount
-);
 
-LONG WINAPI SCardReadCacheA(
-  SCARDCONTEXT hContext,
-  UUID *CardIdentifier,
-  DWORD FreshnessCounter,
-  LPSTR LookupName,
-  PBYTE Data,
-  DWORD *DataLen
-);
-
-LONG WINAPI SCardReadCacheW(
-  SCARDCONTEXT hContext,
-  UUID *CardIdentifier,
-  DWORD FreshnessCounter,
-  LPWSTR LookupName,
-  PBYTE Data,
-  DWORD *DataLen
-);
+  extern WINSCARDAPI LONG WINAPI SCardGetTransmitCount(SCARDHANDLE hCard,LPDWORD pcTransmitCount);
+  extern WINSCARDAPI LONG WINAPI SCardReadCacheA(SCARDCONTEXT hContext,UUID *CardIdentifier,DWORD FreshnessCounter,LPSTR LookupName,PBYTE Data,DWORD *DataLen);
+  extern WINSCARDAPI LONG WINAPI SCardReadCacheW(SCARDCONTEXT hContext,UUID *CardIdentifier,DWORD FreshnessCounter,LPWSTR LookupName,PBYTE Data,DWORD *DataLen);
 
 #define SCardReadCache __MINGW_NAME_AW(SCardReadCache)
 
-LONG WINAPI SCardWriteCacheA(
-  SCARDCONTEXT hContext,
-  UUID *CardIdentifier,
-  DWORD FreshnessCounter,
-  LPSTR LookupName,
-  PBYTE Data,
-  DWORD DataLen
-);
-
-LONG WINAPI SCardWriteCacheW(
-  SCARDCONTEXT hContext,
-  UUID *CardIdentifier,
-  DWORD FreshnessCounter,
-  LPWSTR LookupName,
-  PBYTE Data,
-  DWORD DataLen
-);
+  extern WINSCARDAPI LONG WINAPI SCardWriteCacheA(SCARDCONTEXT hContext,UUID *CardIdentifier,DWORD FreshnessCounter,LPSTR LookupName,PBYTE Data,DWORD DataLen);
+  extern WINSCARDAPI LONG WINAPI SCardWriteCacheW(SCARDCONTEXT hContext,UUID *CardIdentifier,DWORD FreshnessCounter,LPWSTR LookupName,PBYTE Data,DWORD DataLen);
 
 #define SCardWriteCache __MINGW_NAME_AW(SCardWriteCache)
 
