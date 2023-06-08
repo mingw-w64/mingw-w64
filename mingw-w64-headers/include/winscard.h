@@ -14,6 +14,8 @@
 #include "SCardErr.h"
 #endif
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -436,4 +438,7 @@ LONG WINAPI SCardWriteCacheW(
 #ifdef __cplusplus
 }
 #endif
+
+#endif
+
 #endif
