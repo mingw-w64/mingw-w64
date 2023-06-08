@@ -9,8 +9,6 @@ RoClearError@0
 RoFailFastWithErrorContext@4
 RoGetErrorReportingFlags@4
 RoGetMatchingRestrictedErrorInfo@8
-RoInspectCapturedStackBackTrace@24
-RoInspectThreadErrorInfo@20
 RoOriginateError@8
 RoOriginateErrorW@12
 RoOriginateLanguageException@12
