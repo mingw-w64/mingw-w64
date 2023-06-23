@@ -785,22 +785,17 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CryptReleaseContext (HCRYPTPROV hProv, DWORD dwFlags);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-#define CryptEnumProviders __MINGW_NAME_AW(CryptEnumProviders)
 #define CryptEnumProviderTypes __MINGW_NAME_AW(CryptEnumProviderTypes)
 #define CryptSetProvider __MINGW_NAME_AW(CryptSetProvider)
 #define CryptSetProviderEx __MINGW_NAME_AW(CryptSetProviderEx)
 
   WINIMPM WINBOOL WINAPI CryptHashSessionKey (HCRYPTHASH hHash, HCRYPTKEY hKey, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptSetProviderA (LPCSTR pszProvName, DWORD dwProvType);
-  WINIMPM WINBOOL WINAPI CryptSetProviderW (LPCWSTR pszProvName, DWORD dwProvType);
   WINIMPM WINBOOL WINAPI CryptSetProviderExA (LPCSTR pszProvName, DWORD dwProvType, DWORD *pdwReserved, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptSetProviderExW (LPCWSTR pszProvName, DWORD dwProvType, DWORD *pdwReserved, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptEnumProviderTypesA (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPSTR szTypeName, DWORD *pcbTypeName);
   WINIMPM WINBOOL WINAPI CryptEnumProviderTypesW (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPWSTR szTypeName, DWORD *pcbTypeName);
-  WINIMPM WINBOOL WINAPI CryptEnumProvidersA (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPSTR szProvName, DWORD *pcbProvName);
-  WINIMPM WINBOOL WINAPI CryptEnumProvidersW (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPWSTR szProvName, DWORD *pcbProvName);
   WINIMPM WINBOOL WINAPI CryptContextAddRef (HCRYPTPROV hProv, DWORD *pdwReserved, DWORD dwFlags);
-  WINIMPM WINBOOL WINAPI CryptDuplicateKey (HCRYPTKEY hKey, DWORD *pdwReserved, DWORD dwFlags, HCRYPTKEY *phKey);
   WINIMPM WINBOOL WINAPI CryptDuplicateHash (HCRYPTHASH hHash, DWORD *pdwReserved, DWORD dwFlags, HCRYPTHASH *phHash);
 #if NTDDI_VERSION >= NTDDI_WS03
   WINBOOL __cdecl GetEncSChannel (BYTE **pData, DWORD *dwDecSize);
@@ -843,6 +838,15 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CryptVerifySignatureW (HCRYPTHASH hHash, CONST BYTE *pbSignature, DWORD dwSigLen, HCRYPTKEY hPubKey, LPCWSTR szDescription, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptGetDefaultProviderA (DWORD dwProvType, DWORD *pdwReserved, DWORD dwFlags, LPSTR pszProvName, DWORD *pcbProvName);
   WINIMPM WINBOOL WINAPI CryptGetDefaultProviderW (DWORD dwProvType, DWORD *pdwReserved, DWORD dwFlags, LPWSTR pszProvName, DWORD *pcbProvName);
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || NTDDI_VERSION >= NTDDI_WIN10_19H1
+  WINIMPM WINBOOL WINAPI CryptDuplicateKey (HCRYPTKEY hKey, DWORD *pdwReserved, DWORD dwFlags, HCRYPTKEY *phKey);
+  WINIMPM WINBOOL WINAPI CryptEnumProvidersA (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPSTR szProvName, DWORD *pcbProvName);
+  WINIMPM WINBOOL WINAPI CryptEnumProvidersW (DWORD dwIndex, DWORD *pdwReserved, DWORD dwFlags, DWORD *pdwProvType, LPWSTR szProvName, DWORD *pcbProvName);
+  WINIMPM WINBOOL WINAPI CryptSetProviderW (LPCWSTR pszProvName, DWORD dwProvType);
+
+#define CryptEnumProviders __MINGW_NAME_AW(CryptEnumProviders)
 #endif
 
 #ifndef _DDK_DRIVER_
