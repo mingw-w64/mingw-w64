@@ -57,7 +57,6 @@ libwindowsappcompat_a_SOURCES = \
   src/GetFileSize.c \
   src/SHGetFolderPathW.c \
   src/QueueTimer.c \
-  src/Crypto.c \
   src/GetStartupInfo.c \
   src/EnumProcessModules.c \
   src/RtlAddFunctionTable.c \
