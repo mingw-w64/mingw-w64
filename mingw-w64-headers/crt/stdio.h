@@ -56,7 +56,11 @@ extern "C" {
 #define _wP_tmpdir L"\\"
 #endif
 
+#ifdef _UCRT
+#define L_tmpnam 260
+#else
 #define L_tmpnam (sizeof(_P_tmpdir) + 12)
+#endif
 
 #ifdef _POSIX_
 #define L_ctermid 9
