@@ -2186,150 +2186,149 @@ endif
 	$(RANLIB) $@
 
 %/libwindowsapp.a: lib-common/windowsapp.mri \
+		%/libapi-ms-win-appmodel-runtime-l1-1-0.a \
+		%/libapi-ms-win-appmodel-runtime-l1-1-1.a \
+		%/libapi-ms-win-core-com-l1-1-0.a \
 		%/libapi-ms-win-core-com-l1-1-1.a \
 		%/libapi-ms-win-core-com-l2-1-1.a \
 		%/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
 		%/libapi-ms-win-core-comm-l1-1-0.a \
+		%/libapi-ms-win-core-comm-l1-1-1.a \
+		%/libapi-ms-win-core-comm-l1-1-2.a \
 		%/libapi-ms-win-core-console-l1-1-0.a \
+		%/libapi-ms-win-core-console-l1-2-0.a \
+		%/libapi-ms-win-core-console-l2-1-0.a \
+		%/libapi-ms-win-core-console-l2-2-0.a \
+		%/libapi-ms-win-core-console-l3-2-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-1.a \
 		%/libapi-ms-win-core-datetime-l1-1-2.a \
+		%/libapi-ms-win-core-debug-l1-1-0.a \
 		%/libapi-ms-win-core-debug-l1-1-1.a \
 		%/libapi-ms-win-core-delayload-l1-1-1.a \
+		%/libapi-ms-win-core-enclave-l1-1-0.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-0.a \
 		%/libapi-ms-win-core-errorhandling-l1-1-1.a \
 		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
+		%/libapi-ms-win-core-featurestaging-l1-1-0.a \
+		%/libapi-ms-win-core-featurestaging-l1-1-1.a \
 		%/libapi-ms-win-core-fibers-l1-1-1.a \
 		%/libapi-ms-win-core-fibers-l2-1-1.a \
+		%/libapi-ms-win-core-file-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-file-ansi-l2-1-0.a \
+		%/libapi-ms-win-core-file-fromapp-l1-1-0.a \
+		%/libapi-ms-win-core-file-l1-1-0.a \
 		%/libapi-ms-win-core-file-l1-2-0.a \
 		%/libapi-ms-win-core-file-l1-2-1.a \
 		%/libapi-ms-win-core-file-l1-2-2.a \
 		%/libapi-ms-win-core-file-l2-1-0.a \
 		%/libapi-ms-win-core-file-l2-1-1.a \
+		%/libapi-ms-win-core-file-l2-1-2.a \
+		%/libapi-ms-win-core-firmware-l1-1-0.a \
 		%/libapi-ms-win-core-handle-l1-1-0.a \
 		%/libapi-ms-win-core-heap-l1-1-0.a \
 		%/libapi-ms-win-core-heap-l1-2-0.a \
+		%/libapi-ms-win-core-heap-l2-1-0.a \
+		%/libapi-ms-win-core-heap-obsolete-l1-1-0.a \
+		%/libapi-ms-win-core-interlocked-l1-1-0.a \
 		%/libapi-ms-win-core-interlocked-l1-2-0.a \
 		%/libapi-ms-win-core-io-l1-1-0.a \
 		%/libapi-ms-win-core-io-l1-1-1.a \
+		%/libapi-ms-win-core-kernel32-legacy-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-0.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-1.a \
 		%/libapi-ms-win-core-largeinteger-l1-1-0.a \
 		%/libapi-ms-win-core-libraryloader-l1-2-0.a \
+		%/libapi-ms-win-core-libraryloader-l1-2-1.a \
 		%/libapi-ms-win-core-libraryloader-l2-1-0.a \
 		%/libapi-ms-win-core-localization-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-localization-l1-2-0.a \
 		%/libapi-ms-win-core-localization-l1-2-1.a \
 		%/libapi-ms-win-core-localization-l1-2-2.a \
 		%/libapi-ms-win-core-localization-l2-1-0.a \
+		%/libapi-ms-win-core-localization-obsolete-l1-2-0.a \
+		%/libapi-ms-win-core-memory-l1-1-0.a \
+		%/libapi-ms-win-core-memory-l1-1-1.a \
 		%/libapi-ms-win-core-memory-l1-1-2.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-memory-l1-1-5.a \
+		%/libapi-ms-win-core-memory-l1-1-6.a \
+		%/libapi-ms-win-core-memory-l1-1-7.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
 		%/libapi-ms-win-core-namedpipe-l1-1-0.a \
 		%/libapi-ms-win-core-namedpipe-l1-2-1.a \
 		%/libapi-ms-win-core-namedpipe-l1-2-2.a \
+		%/libapi-ms-win-core-namespace-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-namespace-l1-1-0.a \
 		%/libapi-ms-win-core-normalization-l1-1-0.a \
+		%/libapi-ms-win-core-path-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
 		%/libapi-ms-win-core-processthreads-l1-1-2.a \
 		%/libapi-ms-win-core-processthreads-l1-1-3.a \
-		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-processtopology-obsolete-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
+		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-psapi-l1-1-0.a \
+		%/libapi-ms-win-core-psm-appnotify-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-1.a \
+		%/libapi-ms-win-core-realtime-l1-1-2.a \
 		%/libapi-ms-win-core-registry-l1-1-0.a \
 		%/libapi-ms-win-core-registry-l2-1-0.a \
 		%/libapi-ms-win-core-rtlsupport-l1-2-0.a \
+		%/libapi-ms-win-core-slapi-l1-1-0.a \
 		%/libapi-ms-win-core-string-l1-1-0.a \
 		%/libapi-ms-win-core-synch-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-synch-l1-1-0.a \
 		%/libapi-ms-win-core-synch-l1-2-0.a \
 		%/libapi-ms-win-core-synch-l1-2-1.a \
+		%/libapi-ms-win-core-sysinfo-l1-1-0.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-0.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-1.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-3.a \
 		%/libapi-ms-win-core-threadpool-l1-2-0.a \
 		%/libapi-ms-win-core-timezone-l1-1-0.a \
+		%/libapi-ms-win-core-timezone-l1-1-1.a \
+		%/libapi-ms-win-core-url-l1-1-0.a \
 		%/libapi-ms-win-core-util-l1-1-0.a \
+		%/libapi-ms-win-core-versionansi-l1-1-0.a \
+		%/libapi-ms-win-core-version-l1-1-0.a \
 		%/libapi-ms-win-core-windowsceip-l1-1-0.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
+		%/libapi-ms-win-core-windowserrorreporting-l1-1-1.a \
+		%/libapi-ms-win-core-windowserrorreporting-l1-1-2.a \
 		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-registration-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-robuffer-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
+		%/libapi-ms-win-core-wow64-l1-1-0.a \
+		%/libapi-ms-win-core-wow64-l1-1-1.a \
 		%/libapi-ms-win-core-xstate-l2-1-0.a \
+		%/libapi-ms-win-devices-config-l1-1-1.a \
+		%/libapi-ms-win-devices-config-l1-1-2.a \
 		%/libapi-ms-win-eventing-classicprovider-l1-1-0.a \
 		%/libapi-ms-win-eventing-consumer-l1-1-0.a \
 		%/libapi-ms-win-eventing-controller-l1-1-0.a \
 		%/libapi-ms-win-eventing-legacy-l1-1-0.a \
 		%/libapi-ms-win-eventing-provider-l1-1-0.a \
-		%/libapi-ms-win-gaming-tcui-l1-1-0.a \
-		%/libapi-ms-win-ro-typeresolution-l1-1-0.a \
-		%/libapi-ms-win-security-cryptoapi-l1-1-0.a \
-		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
-		%/libapi-ms-win-appmodel-runtime-l1-1-1.a \
-		%/libapi-ms-win-appmodel-runtime-l1-1-0.a \
-		%/libapi-ms-win-core-com-l1-1-0.a \
-		%/libapi-ms-win-core-comm-l1-1-1.a \
-		%/libapi-ms-win-core-comm-l1-1-2.a \
-		%/libapi-ms-win-core-console-l1-2-0.a \
-		%/libapi-ms-win-core-console-l2-1-0.a \
-		%/libapi-ms-win-core-console-l2-2-0.a \
-		%/libapi-ms-win-core-console-l3-2-0.a \
-		%/libapi-ms-win-core-debug-l1-1-0.a \
-		%/libapi-ms-win-core-enclave-l1-1-0.a \
-		%/libapi-ms-win-core-errorhandling-l1-1-0.a \
-		%/libapi-ms-win-core-featurestaging-l1-1-0.a \
-		%/libapi-ms-win-core-featurestaging-l1-1-1.a \
-		%/libapi-ms-win-core-file-ansi-l1-1-0.a \
-		%/libapi-ms-win-core-file-fromapp-l1-1-0.a \
-		%/libapi-ms-win-core-file-l1-1-0.a \
-		%/libapi-ms-win-core-file-l2-1-2.a \
-		%/libapi-ms-win-core-firmware-l1-1-0.a \
-		%/libapi-ms-win-core-heap-l2-1-0.a \
-		%/libapi-ms-win-core-heap-obsolete-l1-1-0.a \
-		%/libapi-ms-win-core-interlocked-l1-1-0.a \
-		%/libapi-ms-win-core-kernel32-legacy-ansi-l1-1-0.a \
-		%/libapi-ms-win-core-libraryloader-l1-2-1.a \
-		%/libapi-ms-win-core-localization-l1-2-0.a \
-		%/libapi-ms-win-core-localization-obsolete-l1-2-0.a \
-		%/libapi-ms-win-core-memory-l1-1-0.a \
-		%/libapi-ms-win-core-memory-l1-1-1.a \
-		%/libapi-ms-win-core-memory-l1-1-5.a \
-		%/libapi-ms-win-core-memory-l1-1-6.a \
-		%/libapi-ms-win-core-memory-l1-1-7.a \
-		%/libapi-ms-win-core-namespace-ansi-l1-1-0.a \
-		%/libapi-ms-win-core-namespace-l1-1-0.a \
-		%/libapi-ms-win-core-path-l1-1-0.a \
-		%/libapi-ms-win-core-processtopology-obsolete-l1-1-0.a \
-		%/libapi-ms-win-core-psapi-l1-1-0.a \
-		%/libapi-ms-win-core-psm-appnotify-l1-1-0.a \
-		%/libapi-ms-win-core-realtime-l1-1-2.a \
-		%/libapi-ms-win-core-slapi-l1-1-0.a \
-		%/libapi-ms-win-core-synch-l1-1-0.a \
-		%/libapi-ms-win-core-sysinfo-l1-1-0.a \
-		%/libapi-ms-win-core-sysinfo-l1-2-0.a \
-		%/libapi-ms-win-core-timezone-l1-1-1.a \
-		%/libapi-ms-win-core-url-l1-1-0.a \
-		%/libapi-ms-win-core-version-l1-1-0.a \
-		%/libapi-ms-win-core-versionansi-l1-1-0.a \
-		%/libapi-ms-win-core-windowserrorreporting-l1-1-1.a \
-		%/libapi-ms-win-core-windowserrorreporting-l1-1-2.a \
-		%/libapi-ms-win-core-wow64-l1-1-0.a \
-		%/libapi-ms-win-core-wow64-l1-1-1.a \
-		%/libapi-ms-win-devices-config-l1-1-1.a \
-		%/libapi-ms-win-devices-config-l1-1-2.a \
 		%/libapi-ms-win-gaming-deviceinformation-l1-1-0.a \
 		%/libapi-ms-win-gaming-expandedresources-l1-1-0.a \
+		%/libapi-ms-win-gaming-tcui-l1-1-0.a \
 		%/libapi-ms-win-gaming-tcui-l1-1-2.a \
 		%/libapi-ms-win-gaming-tcui-l1-1-3.a \
 		%/libapi-ms-win-gaming-tcui-l1-1-4.a \
+		%/libapi-ms-win-ro-typeresolution-l1-1-0.a \
 		%/libapi-ms-win-ro-typeresolution-l1-1-1.a \
 		%/libapi-ms-win-security-base-l1-1-0.a \
 		%/libapi-ms-win-security-base-l1-2-0.a \
 		%/libapi-ms-win-security-base-l1-2-1.a \
+		%/libapi-ms-win-security-cryptoapi-l1-1-0.a \
 		%/libapi-ms-win-security-isolatedcontainer-l1-1-0.a \
 		%/libapi-ms-win-security-lsalookup-ansi-l2-1-0.a \
 		%/libapi-ms-win-security-lsalookup-l2-1-0.a \
@@ -2338,7 +2337,8 @@ endif
 		%/libapi-ms-win-security-sddl-ansi-l1-1-0.a \
 		%/libapi-ms-win-security-sddl-l1-1-0.a \
 		%/libapi-ms-win-security-systemfunctions-l1-1-0.a \
-		%/libapi-ms-win-shcore-obsolete-l1-1-0.a
+		%/libapi-ms-win-shcore-obsolete-l1-1-0.a \
+		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
