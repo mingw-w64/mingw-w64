@@ -10,6 +10,7 @@ GetLargePageMinimum
 GetProcessWorkingSetSizeEx
 GetWriteWatch
 MapViewOfFile
+MapViewOfFile3
 MapViewOfFile3FromApp
 MapViewOfFileEx
 MapViewOfFileFromApp
@@ -25,6 +26,7 @@ UnmapViewOfFile
 UnmapViewOfFile2
 UnmapViewOfFileEx
 VirtualAlloc
+VirtualAlloc2
 VirtualAlloc2FromApp
 VirtualAllocEx
 VirtualAllocFromApp
