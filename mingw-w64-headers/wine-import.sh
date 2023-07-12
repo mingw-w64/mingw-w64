@@ -43,6 +43,7 @@ import_idl() {
 }
 
 # headers
+# Reverted: propkeydef.h, rpcsal.h
 for f in \
 	amaudio.h \
 	audevcod.h \
@@ -114,10 +115,8 @@ for f in \
 	mscat.h \
 	msxml2did.h \
 	msxml6did.h \
-	propkeydef.h \
 	propkey.h \
 	propvarutil.h \
-	rpcsal.h \
 	t2embapi.h \
 	uiautomationcoreapi.h \
 	uiautomation.h \
