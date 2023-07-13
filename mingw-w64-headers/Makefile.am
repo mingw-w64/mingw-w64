@@ -275,9 +275,12 @@ IDL_SRCS = \
   include/wsdxml.idl \
   include/wsmandisp.idl \
   include/wtypesbase.idl \
+  include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
+  include/windows.devices.geolocation.idl \
   include/windows.devices.haptics.idl \
   include/windows.devices.power.idl \
+  include/windows.devices.radios.idl \
   include/windows.foundation.idl \
   include/windows.foundation.collections.idl \
   include/windows.foundation.metadata.idl \
@@ -298,6 +301,8 @@ IDL_SRCS = \
   include/windows.media.devices.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
+  include/windows.networking.connectivity.idl \
+  include/windows.networking.idl \
   include/windows.perception.spatial.idl \
   include/windows.perception.spatial.surfaces.idl \
   include/windows.security.credentials.idl \

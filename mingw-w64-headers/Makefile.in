@@ -577,9 +577,12 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wsdxml.idl \
 @HAVE_WIDL_TRUE@  include/wsmandisp.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.enumeration.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.geolocation.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.haptics.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.power.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.radios.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.collections.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.metadata.idl \
@@ -600,6 +603,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.media.devices.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechrecognition.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
+@HAVE_WIDL_TRUE@  include/windows.networking.connectivity.idl \
+@HAVE_WIDL_TRUE@  include/windows.networking.idl \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.idl \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.surfaces.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
