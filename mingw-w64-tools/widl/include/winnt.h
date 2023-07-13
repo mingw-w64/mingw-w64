@@ -2483,6 +2483,8 @@ static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 #define IO_REPARSE_TAG_ONEDRIVE         __MSABI_LONG(0x80000021)
 #define IO_REPARSE_TAG_GVFS_TOMBSTONE   __MSABI_LONG(0xA0000022)
 
+#define IsReparseTagNameSurrogate(x)    ((x) & 0x20000000)
+
 /*
  * File formats definitions
  */
@@ -3541,7 +3543,8 @@ typedef enum IMPORT_OBJECT_NAME_TYPE
     IMPORT_OBJECT_ORDINAL = 0,
     IMPORT_OBJECT_NAME = 1,
     IMPORT_OBJECT_NAME_NO_PREFIX = 2,
-    IMPORT_OBJECT_NAME_UNDECORATE = 3
+    IMPORT_OBJECT_NAME_UNDECORATE = 3,
+    IMPORT_OBJECT_NAME_EXPORTAS = 4
 } IMPORT_OBJECT_NAME_TYPE;
 
 typedef struct _ANON_OBJECT_HEADER
@@ -7186,13 +7189,13 @@ static FORCEINLINE unsigned char InterlockedCompareExchange128( volatile __int64
 
 #endif
 
-#define InterlockedDecrementSizeT(a) InterlockeDecrement64((LONGLONG *)(a))
+#define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONGLONG *)(a))
 #define InterlockedExchangeAddSizeT(a, b) InterlockedExchangeAdd64((LONGLONG *)(a), (b))
 #define InterlockedIncrementSizeT(a) InterlockedIncrement64((LONGLONG *)(a))
 
 #else /* _WIN64 */
 
-#define InterlockedDecrementSizeT(a) InterlockeDecrement((LONG *)(a))
+#define InterlockedDecrementSizeT(a) InterlockedDecrement((LONG *)(a))
 #define InterlockedExchangeAddSizeT(a, b) InterlockedExchangeAdd((LONG *)(a), (b))
 #define InterlockedIncrementSizeT(a) InterlockedIncrement((LONG *)(a))
 
