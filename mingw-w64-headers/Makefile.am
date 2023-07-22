@@ -93,6 +93,14 @@ IDL_SRCS = \
   include/credentialprovider.idl \
   include/ctfutb.idl \
   include/ctxtcall.idl \
+  include/d2d1.idl \
+  include/d2d1_1.idl \
+  include/d2d1_2.idl \
+  include/d2d1_3.idl \
+  include/d2d1effectauthor.idl \
+  include/d2d1effects.idl \
+  include/d2d1effects_1.idl \
+  include/d2d1effects_2.idl \
   include/d3d10.idl \
   include/d3d10_1.idl \
   include/d3d10sdklayers.idl \
