@@ -22,6 +22,8 @@ typedef enum _QOS_SHAPING {
   QOSUseNonConformantMarkings   = 2 
 } QOS_SHAPING, *PQOS_SHAPING;
 
+#define QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH 0xffffffff
+
 typedef enum _QOS_FLOWRATE_REASON {
   QOSFlowRateNotApplicable           = 0,
   QOSFlowRateContentChange           = 1,
@@ -83,6 +85,9 @@ typedef struct _QOS_VERSION {
   USHORT MajorVersion;
   USHORT MinorVersion;
 } QOS_VERSION, *PQOS_VERSION;
+
+#define QOS_QUERYFLOW_FRESH 0x00000001
+#define QOS_NON_ADAPTIVE_FLOW 0x00000002
 
 WINBOOL WINAPI QOSAddSocketToFlow(
   HANDLE QOSHandle,
