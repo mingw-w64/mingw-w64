@@ -193,6 +193,111 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriEscapeStatics __x_ABI_CWindows_CFoundation_CIUriEscapeStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics ABI::Windows::Foundation::IUriEscapeStatics
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriEscapeStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass __x_ABI_CWindows_CFoundation_CIUriRuntimeClass;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass ABI::Windows::Foundation::IUriRuntimeClass
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClass;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory ABI::Windows::Foundation::IUriRuntimeClassFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClassFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri ABI::Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClassWithAbsoluteCanonicalUri;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::IWwwFormUrlDecoderEntry
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderEntry;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClass
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderRuntimeClass;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderRuntimeClassFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CFoundation_CDeferral_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CDeferral_FWD_DEFINED__
 #ifdef __cplusplus
@@ -222,6 +327,51 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CFoundation_CMemoryBuffer __x_ABI_CWindows_CFoundation_CMemoryBuffer;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CFoundation_CMemoryBuffer_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CFoundation_CUri_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CUri_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            class Uri;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CUri __x_ABI_CWindows_CFoundation_CUri;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CFoundation_CUri_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoder_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoder_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            class WwwFormUrlDecoder;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CWwwFormUrlDecoder __x_ABI_CWindows_CFoundation_CWwwFormUrlDecoder;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoder_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoderEntry_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            class WwwFormUrlDecoderEntry;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CWwwFormUrlDecoderEntry __x_ABI_CWindows_CFoundation_CWwwFormUrlDecoderEntry;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CFoundation_CWwwFormUrlDecoderEntry_FWD_DEFINED__ */
 
 #ifndef ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
 #define ____FIKeyValuePair_2_HSTRING_IInspectable_FWD_DEFINED__
@@ -303,6 +453,22 @@ typedef interface __FIIterable_1_IInspectable __FIIterable_1_IInspectable;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CFoundation__CUri_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CUri_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CFoundation__CUri __FIIterable_1_Windows__CFoundation__CUri;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CFoundation__CUri ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::Uri* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterator_1_HSTRING_FWD_DEFINED__
 #define ____FIIterator_1_HSTRING_FWD_DEFINED__
 typedef interface __FIIterator_1_HSTRING __FIIterator_1_HSTRING;
@@ -319,6 +485,22 @@ typedef interface __FIIterator_1_IInspectable __FIIterator_1_IInspectable;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CFoundation__CUri_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CUri_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CFoundation__CUri __FIIterator_1_Windows__CFoundation__CUri;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CFoundation__CUri ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Uri* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_HSTRING_FWD_DEFINED__
 #define ____FIVectorView_1_HSTRING_FWD_DEFINED__
 typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
@@ -332,6 +514,14 @@ typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
 typedef interface __FIVectorView_1_IInspectable __FIVectorView_1_IInspectable;
 #ifdef __cplusplus
 #define __FIVectorView_1_IInspectable ABI::Windows::Foundation::Collections::IVectorView<IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
 #endif /* __cplusplus */
 #endif
 
@@ -821,6 +1011,111 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriEscapeStatics __x_ABI_CWindows_CFoundation_CIUriEscapeStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics ABI::Windows::Foundation::IUriEscapeStatics
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriEscapeStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass __x_ABI_CWindows_CFoundation_CIUriRuntimeClass;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass ABI::Windows::Foundation::IUriRuntimeClass
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClass;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory ABI::Windows::Foundation::IUriRuntimeClassFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClassFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri ABI::Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IUriRuntimeClassWithAbsoluteCanonicalUri;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::IWwwFormUrlDecoderEntry
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderEntry;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClass
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderRuntimeClass;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IWwwFormUrlDecoderRuntimeClassFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterable_1_HSTRING_FWD_DEFINED__
 #define ____FIIterable_1_HSTRING_FWD_DEFINED__
 typedef interface __FIIterable_1_HSTRING __FIIterable_1_HSTRING;
@@ -834,6 +1129,22 @@ typedef interface __FIIterable_1_HSTRING __FIIterable_1_HSTRING;
 typedef interface __FIIterable_1_IInspectable __FIIterable_1_IInspectable;
 #ifdef __cplusplus
 #define __FIIterable_1_IInspectable ABI::Windows::Foundation::Collections::IIterable<IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CFoundation__CUri_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CUri_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CFoundation__CUri __FIIterable_1_Windows__CFoundation__CUri;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CFoundation__CUri ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::Uri* >
 #endif /* __cplusplus */
 #endif
 
@@ -853,6 +1164,22 @@ typedef interface __FIIterator_1_IInspectable __FIIterator_1_IInspectable;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CFoundation__CUri_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CUri_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CFoundation__CUri __FIIterator_1_Windows__CFoundation__CUri;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CFoundation__CUri ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Uri* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_HSTRING_FWD_DEFINED__
 #define ____FIVectorView_1_HSTRING_FWD_DEFINED__
 typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
@@ -866,6 +1193,14 @@ typedef interface __FIVectorView_1_HSTRING __FIVectorView_1_HSTRING;
 typedef interface __FIVectorView_1_IInspectable __FIVectorView_1_IInspectable;
 #ifdef __cplusplus
 #define __FIVectorView_1_IInspectable ABI::Windows::Foundation::Collections::IVectorView<IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
 #endif /* __cplusplus */
 #endif
 
@@ -2411,6 +2746,1146 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIMemoryBufferReferenc
 #endif  /* ____x_ABI_CWindows_CFoundation_CIMemoryBufferReference_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * IUriEscapeStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIUriEscapeStatics, 0xc1d432ba, 0xc824, 0x4452, 0xa7,0xfd, 0x51,0x2b,0xc3,0xbb,0xe9,0xa1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("c1d432ba-c824-4452-a7fd-512bc3bbe9a1")
+            IUriEscapeStatics : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE UnescapeComponent(
+                    HSTRING to_unescape,
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE EscapeComponent(
+                    HSTRING to_escape,
+                    HSTRING *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics, 0xc1d432ba, 0xc824, 0x4452, 0xa7,0xfd, 0x51,0x2b,0xc3,0xbb,0xe9,0xa1)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIUriEscapeStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IUriEscapeStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *UnescapeComponent)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        HSTRING to_unescape,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *EscapeComponent)(
+        __x_ABI_CWindows_CFoundation_CIUriEscapeStatics *This,
+        HSTRING to_escape,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIUriEscapeStaticsVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIUriEscapeStatics {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIUriEscapeStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUriEscapeStatics methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_UnescapeComponent(This,to_unescape,value) (This)->lpVtbl->UnescapeComponent(This,to_unescape,value)
+#define __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_EscapeComponent(This,to_escape,value) (This)->lpVtbl->EscapeComponent(This,to_escape,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_QueryInterface(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_AddRef(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_Release(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetIids(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUriEscapeStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_UnescapeComponent(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,HSTRING to_unescape,HSTRING *value) {
+    return This->lpVtbl->UnescapeComponent(This,to_unescape,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_EscapeComponent(__x_ABI_CWindows_CFoundation_CIUriEscapeStatics* This,HSTRING to_escape,HSTRING *value) {
+    return This->lpVtbl->EscapeComponent(This,to_escape,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IUriEscapeStatics IID___x_ABI_CWindows_CFoundation_CIUriEscapeStatics
+#define IUriEscapeStaticsVtbl __x_ABI_CWindows_CFoundation_CIUriEscapeStaticsVtbl
+#define IUriEscapeStatics __x_ABI_CWindows_CFoundation_CIUriEscapeStatics
+#define IUriEscapeStatics_QueryInterface __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_QueryInterface
+#define IUriEscapeStatics_AddRef __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_AddRef
+#define IUriEscapeStatics_Release __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_Release
+#define IUriEscapeStatics_GetIids __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetIids
+#define IUriEscapeStatics_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetRuntimeClassName
+#define IUriEscapeStatics_GetTrustLevel __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_GetTrustLevel
+#define IUriEscapeStatics_UnescapeComponent __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_UnescapeComponent
+#define IUriEscapeStatics_EscapeComponent __x_ABI_CWindows_CFoundation_CIUriEscapeStatics_EscapeComponent
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IUriRuntimeClass interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClass, 0x9e365e57, 0x48b2, 0x4160, 0x95,0x6f, 0xc7,0x38,0x51,0x20,0xbb,0xfc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("9e365e57-48b2-4160-956f-c7385120bbfc")
+            IUriRuntimeClass : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_AbsoluteUri(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_DisplayUri(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Domain(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Extension(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Fragment(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Host(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Password(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Path(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Query(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_QueryParsed(
+                    ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClass **decoder) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_RawUri(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_SchemeName(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_UserName(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Port(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Suspicious(
+                    boolean *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE Equals(
+                    ABI::Windows::Foundation::IUriRuntimeClass *uri,
+                    boolean *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CombineUri(
+                    HSTRING relative_uri,
+                    ABI::Windows::Foundation::IUriRuntimeClass **instance) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass, 0x9e365e57, 0x48b2, 0x4160, 0x95,0x6f, 0xc7,0x38,0x51,0x20,0xbb,0xfc)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIUriRuntimeClassVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        TrustLevel *trustLevel);
+
+    /*** IUriRuntimeClass methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AbsoluteUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_DisplayUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Domain)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Extension)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Fragment)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Host)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Password)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Path)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Query)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_QueryParsed)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass **decoder);
+
+    HRESULT (STDMETHODCALLTYPE *get_RawUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_SchemeName)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_UserName)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Port)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Suspicious)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *Equals)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *uri,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *CombineUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *This,
+        HSTRING relative_uri,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIUriRuntimeClassVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIUriRuntimeClassVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUriRuntimeClass methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_AbsoluteUri(This,value) (This)->lpVtbl->get_AbsoluteUri(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_DisplayUri(This,value) (This)->lpVtbl->get_DisplayUri(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Domain(This,value) (This)->lpVtbl->get_Domain(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Extension(This,value) (This)->lpVtbl->get_Extension(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Fragment(This,value) (This)->lpVtbl->get_Fragment(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Host(This,value) (This)->lpVtbl->get_Host(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Password(This,value) (This)->lpVtbl->get_Password(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Path(This,value) (This)->lpVtbl->get_Path(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Query(This,value) (This)->lpVtbl->get_Query(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_QueryParsed(This,decoder) (This)->lpVtbl->get_QueryParsed(This,decoder)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_RawUri(This,value) (This)->lpVtbl->get_RawUri(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_SchemeName(This,value) (This)->lpVtbl->get_SchemeName(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_UserName(This,value) (This)->lpVtbl->get_UserName(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Port(This,value) (This)->lpVtbl->get_Port(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Suspicious(This,value) (This)->lpVtbl->get_Suspicious(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Equals(This,uri,value) (This)->lpVtbl->Equals(This,uri,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_CombineUri(This,relative_uri,instance) (This)->lpVtbl->CombineUri(This,relative_uri,instance)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_QueryInterface(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_AddRef(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Release(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetIids(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUriRuntimeClass methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_AbsoluteUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_AbsoluteUri(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_DisplayUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_DisplayUri(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Domain(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Domain(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Extension(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Extension(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Fragment(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Fragment(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Host(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Host(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Password(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Password(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Path(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Path(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Query(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_Query(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_QueryParsed(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass **decoder) {
+    return This->lpVtbl->get_QueryParsed(This,decoder);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_RawUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_RawUri(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_SchemeName(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_SchemeName(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_UserName(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING *value) {
+    return This->lpVtbl->get_UserName(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Port(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,INT32 *value) {
+    return This->lpVtbl->get_Port(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Suspicious(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,boolean *value) {
+    return This->lpVtbl->get_Suspicious(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Equals(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass *uri,boolean *value) {
+    return This->lpVtbl->Equals(This,uri,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_CombineUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClass* This,HSTRING relative_uri,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance) {
+    return This->lpVtbl->CombineUri(This,relative_uri,instance);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IUriRuntimeClass IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClass
+#define IUriRuntimeClassVtbl __x_ABI_CWindows_CFoundation_CIUriRuntimeClassVtbl
+#define IUriRuntimeClass __x_ABI_CWindows_CFoundation_CIUriRuntimeClass
+#define IUriRuntimeClass_QueryInterface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_QueryInterface
+#define IUriRuntimeClass_AddRef __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_AddRef
+#define IUriRuntimeClass_Release __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Release
+#define IUriRuntimeClass_GetIids __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetIids
+#define IUriRuntimeClass_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetRuntimeClassName
+#define IUriRuntimeClass_GetTrustLevel __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_GetTrustLevel
+#define IUriRuntimeClass_get_AbsoluteUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_AbsoluteUri
+#define IUriRuntimeClass_get_DisplayUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_DisplayUri
+#define IUriRuntimeClass_get_Domain __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Domain
+#define IUriRuntimeClass_get_Extension __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Extension
+#define IUriRuntimeClass_get_Fragment __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Fragment
+#define IUriRuntimeClass_get_Host __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Host
+#define IUriRuntimeClass_get_Password __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Password
+#define IUriRuntimeClass_get_Path __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Path
+#define IUriRuntimeClass_get_Query __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Query
+#define IUriRuntimeClass_get_QueryParsed __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_QueryParsed
+#define IUriRuntimeClass_get_RawUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_RawUri
+#define IUriRuntimeClass_get_SchemeName __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_SchemeName
+#define IUriRuntimeClass_get_UserName __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_UserName
+#define IUriRuntimeClass_get_Port __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Port
+#define IUriRuntimeClass_get_Suspicious __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_get_Suspicious
+#define IUriRuntimeClass_Equals __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_Equals
+#define IUriRuntimeClass_CombineUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClass_CombineUri
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IUriRuntimeClassFactory interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory, 0x44a9796f, 0x723e, 0x4fdf, 0xa2,0x18, 0x03,0x3e,0x75,0xb0,0xc0,0x84);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("44a9796f-723e-4fdf-a218-033e75b0c084")
+            IUriRuntimeClassFactory : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE CreateUri(
+                    HSTRING uri,
+                    ABI::Windows::Foundation::IUriRuntimeClass **instance) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateWithRelativeUri(
+                    HSTRING base_uri,
+                    HSTRING relative_uri,
+                    ABI::Windows::Foundation::IUriRuntimeClass **instance) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory, 0x44a9796f, 0x723e, 0x4fdf, 0xa2,0x18, 0x03,0x3e,0x75,0xb0,0xc0,0x84)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        TrustLevel *trustLevel);
+
+    /*** IUriRuntimeClassFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        HSTRING uri,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance);
+
+    HRESULT (STDMETHODCALLTYPE *CreateWithRelativeUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory *This,
+        HSTRING base_uri,
+        HSTRING relative_uri,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactoryVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUriRuntimeClassFactory methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateUri(This,uri,instance) (This)->lpVtbl->CreateUri(This,uri,instance)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateWithRelativeUri(This,base_uri,relative_uri,instance) (This)->lpVtbl->CreateWithRelativeUri(This,base_uri,relative_uri,instance)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_QueryInterface(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_AddRef(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_Release(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetIids(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUriRuntimeClassFactory methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,HSTRING uri,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance) {
+    return This->lpVtbl->CreateUri(This,uri,instance);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateWithRelativeUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory* This,HSTRING base_uri,HSTRING relative_uri,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass **instance) {
+    return This->lpVtbl->CreateWithRelativeUri(This,base_uri,relative_uri,instance);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IUriRuntimeClassFactory IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory
+#define IUriRuntimeClassFactoryVtbl __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactoryVtbl
+#define IUriRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory
+#define IUriRuntimeClassFactory_QueryInterface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_QueryInterface
+#define IUriRuntimeClassFactory_AddRef __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_AddRef
+#define IUriRuntimeClassFactory_Release __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_Release
+#define IUriRuntimeClassFactory_GetIids __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetIids
+#define IUriRuntimeClassFactory_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetRuntimeClassName
+#define IUriRuntimeClassFactory_GetTrustLevel __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_GetTrustLevel
+#define IUriRuntimeClassFactory_CreateUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateUri
+#define IUriRuntimeClassFactory_CreateWithRelativeUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_CreateWithRelativeUri
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassFactory_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IUriRuntimeClassWithAbsoluteCanonicalUri interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri, 0x758d9661, 0x221c, 0x480f, 0xa3,0x39, 0x50,0x65,0x66,0x73,0xf4,0x6f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("758d9661-221c-480f-a339-50656673f46f")
+            IUriRuntimeClassWithAbsoluteCanonicalUri : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_AbsoluteCanonicalUri(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_DisplayIri(
+                    HSTRING *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri, 0x758d9661, 0x221c, 0x480f, 0xa3,0x39, 0x50,0x65,0x66,0x73,0xf4,0x6f)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUriVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        TrustLevel *trustLevel);
+
+    /*** IUriRuntimeClassWithAbsoluteCanonicalUri methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AbsoluteCanonicalUri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_DisplayIri)(
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUriVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUriVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUriRuntimeClassWithAbsoluteCanonicalUri methods ***/
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_AbsoluteCanonicalUri(This,value) (This)->lpVtbl->get_AbsoluteCanonicalUri(This,value)
+#define __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_DisplayIri(This,value) (This)->lpVtbl->get_DisplayIri(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_QueryInterface(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_AddRef(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_Release(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetIids(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUriRuntimeClassWithAbsoluteCanonicalUri methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_AbsoluteCanonicalUri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,HSTRING *value) {
+    return This->lpVtbl->get_AbsoluteCanonicalUri(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_DisplayIri(__x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri* This,HSTRING *value) {
+    return This->lpVtbl->get_DisplayIri(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IUriRuntimeClassWithAbsoluteCanonicalUri IID___x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri
+#define IUriRuntimeClassWithAbsoluteCanonicalUriVtbl __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUriVtbl
+#define IUriRuntimeClassWithAbsoluteCanonicalUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_QueryInterface __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_QueryInterface
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_AddRef __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_AddRef
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_Release __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_Release
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_GetIids __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetIids
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetRuntimeClassName
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_GetTrustLevel __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_GetTrustLevel
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_get_AbsoluteCanonicalUri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_AbsoluteCanonicalUri
+#define IUriRuntimeClassWithAbsoluteCanonicalUri_get_DisplayIri __x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_get_DisplayIri
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIUriRuntimeClassWithAbsoluteCanonicalUri_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IWwwFormUrlDecoderEntry interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry, 0x125e7431, 0xf678, 0x4e8e, 0xb6,0x70, 0x20,0xa9,0xb0,0x6c,0x51,0x2d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("125e7431-f678-4e8e-b670-20a9b06c512d")
+            IWwwFormUrlDecoderEntry : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_Name(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Value(
+                    HSTRING *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry, 0x125e7431, 0xf678, 0x4e8e, 0xb6,0x70, 0x20,0xa9,0xb0,0x6c,0x51,0x2d)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        TrustLevel *trustLevel);
+
+    /*** IWwwFormUrlDecoderEntry methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Name)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntryVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IWwwFormUrlDecoderEntry methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Name(This,value) (This)->lpVtbl->get_Name(This,value)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_QueryInterface(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_AddRef(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_Release(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetIids(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IWwwFormUrlDecoderEntry methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Name(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,HSTRING *value) {
+    return This->lpVtbl->get_Name(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Value(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry* This,HSTRING *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IWwwFormUrlDecoderEntry IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry
+#define IWwwFormUrlDecoderEntryVtbl __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntryVtbl
+#define IWwwFormUrlDecoderEntry __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry
+#define IWwwFormUrlDecoderEntry_QueryInterface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_QueryInterface
+#define IWwwFormUrlDecoderEntry_AddRef __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_AddRef
+#define IWwwFormUrlDecoderEntry_Release __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_Release
+#define IWwwFormUrlDecoderEntry_GetIids __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetIids
+#define IWwwFormUrlDecoderEntry_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetRuntimeClassName
+#define IWwwFormUrlDecoderEntry_GetTrustLevel __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_GetTrustLevel
+#define IWwwFormUrlDecoderEntry_get_Name __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Name
+#define IWwwFormUrlDecoderEntry_get_Value __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IWwwFormUrlDecoderRuntimeClass interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass, 0xd45a0451, 0xf225, 0x4542, 0x92,0x96, 0x0e,0x1d,0xf5,0xd2,0x54,0xdf);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("d45a0451-f225-4542-9296-0e1df5d254df")
+            IWwwFormUrlDecoderRuntimeClass : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE GetFirstValueByName(
+                    HSTRING name,
+                    HSTRING *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass, 0xd45a0451, 0xf225, 0x4542, 0x92,0x96, 0x0e,0x1d,0xf5,0xd2,0x54,0xdf)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This,
+        TrustLevel *trustLevel);
+
+    /*** IWwwFormUrlDecoderRuntimeClass methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetFirstValueByName)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass *This,
+        HSTRING name,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IWwwFormUrlDecoderRuntimeClass methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetFirstValueByName(This,name,value) (This)->lpVtbl->GetFirstValueByName(This,name,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_QueryInterface(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_AddRef(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_Release(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetIids(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IWwwFormUrlDecoderRuntimeClass methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetFirstValueByName(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass* This,HSTRING name,HSTRING *value) {
+    return This->lpVtbl->GetFirstValueByName(This,name,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IWwwFormUrlDecoderRuntimeClass IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass
+#define IWwwFormUrlDecoderRuntimeClassVtbl __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassVtbl
+#define IWwwFormUrlDecoderRuntimeClass __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass
+#define IWwwFormUrlDecoderRuntimeClass_QueryInterface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_QueryInterface
+#define IWwwFormUrlDecoderRuntimeClass_AddRef __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_AddRef
+#define IWwwFormUrlDecoderRuntimeClass_Release __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_Release
+#define IWwwFormUrlDecoderRuntimeClass_GetIids __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetIids
+#define IWwwFormUrlDecoderRuntimeClass_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetRuntimeClassName
+#define IWwwFormUrlDecoderRuntimeClass_GetTrustLevel __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetTrustLevel
+#define IWwwFormUrlDecoderRuntimeClass_GetFirstValueByName __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_GetFirstValueByName
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IWwwFormUrlDecoderRuntimeClassFactory interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory, 0x5b8c6b3d, 0x24ae, 0x41b5, 0xa1,0xbf, 0xf0,0xc3,0xd5,0x44,0x84,0x5b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("5b8c6b3d-24ae-41b5-a1bf-f0c3d544845b")
+            IWwwFormUrlDecoderRuntimeClassFactory : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE CreateWwwFormUrlDecoder(
+                    HSTRING query,
+                    ABI::Windows::Foundation::IWwwFormUrlDecoderRuntimeClass **instance) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory, 0x5b8c6b3d, 0x24ae, 0x41b5, 0xa1,0xbf, 0xf0,0xc3,0xd5,0x44,0x84,0x5b)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This,
+        TrustLevel *trustLevel);
+
+    /*** IWwwFormUrlDecoderRuntimeClassFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateWwwFormUrlDecoder)(
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory *This,
+        HSTRING query,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass **instance);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactoryVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IWwwFormUrlDecoderRuntimeClassFactory methods ***/
+#define __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_CreateWwwFormUrlDecoder(This,query,instance) (This)->lpVtbl->CreateWwwFormUrlDecoder(This,query,instance)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_QueryInterface(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_AddRef(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_Release(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetIids(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IWwwFormUrlDecoderRuntimeClassFactory methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_CreateWwwFormUrlDecoder(__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory* This,HSTRING query,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClass **instance) {
+    return This->lpVtbl->CreateWwwFormUrlDecoder(This,query,instance);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IWwwFormUrlDecoderRuntimeClassFactory IID___x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory
+#define IWwwFormUrlDecoderRuntimeClassFactoryVtbl __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactoryVtbl
+#define IWwwFormUrlDecoderRuntimeClassFactory __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory
+#define IWwwFormUrlDecoderRuntimeClassFactory_QueryInterface __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_QueryInterface
+#define IWwwFormUrlDecoderRuntimeClassFactory_AddRef __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_AddRef
+#define IWwwFormUrlDecoderRuntimeClassFactory_Release __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_Release
+#define IWwwFormUrlDecoderRuntimeClassFactory_GetIids __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetIids
+#define IWwwFormUrlDecoderRuntimeClassFactory_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetRuntimeClassName
+#define IWwwFormUrlDecoderRuntimeClassFactory_GetTrustLevel __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_GetTrustLevel
+#define IWwwFormUrlDecoderRuntimeClassFactory_CreateWwwFormUrlDecoder __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_CreateWwwFormUrlDecoder
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderRuntimeClassFactory_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Foundation.Deferral
  */
@@ -2441,6 +3916,54 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_MemoryBuffer[] = 
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_MemoryBuffer[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','M','e','m','o','r','y','B','u','f','f','e','r',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Foundation_MemoryBuffer_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Foundation.Uri
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Foundation_Uri_DEFINED
+#define RUNTIMECLASS_Windows_Foundation_Uri_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Foundation_Uri[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','U','r','i',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_Uri[] = L"Windows.Foundation.Uri";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_Uri[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','U','r','i',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Foundation_Uri_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Foundation.WwwFormUrlDecoder
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoder_DEFINED
+#define RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoder_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoder[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','W','w','w','F','o','r','m','U','r','l','D','e','c','o','d','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoder[] = L"Windows.Foundation.WwwFormUrlDecoder";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoder[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','W','w','w','F','o','r','m','U','r','l','D','e','c','o','d','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoder_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Foundation.WwwFormUrlDecoderEntry
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoderEntry_DEFINED
+#define RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoderEntry_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoderEntry[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','W','w','w','F','o','r','m','U','r','l','D','e','c','o','d','e','r','E','n','t','r','y',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoderEntry[] = L"Windows.Foundation.WwwFormUrlDecoderEntry";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_WwwFormUrlDecoderEntry[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','W','w','w','F','o','r','m','U','r','l','D','e','c','o','d','e','r','E','n','t','r','y',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Foundation_WwwFormUrlDecoderEntry_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -3798,6 +5321,254 @@ static __WIDL_INLINE HRESULT __FIIterable_1_IInspectable_First(__FIIterable_1_II
 #endif  /* ____FIIterable_1_IInspectable_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0x876be83b, 0x7218, 0x5bfb, 0xa1,0x69, 0x83,0x15,0x2e,0xf7,0xe1,0x46);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("876be83b-7218-5bfb-a169-83152ef7e146")
+                IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > : IIterable_impl<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0x876be83b, 0x7218, 0x5bfb, 0xa1,0x69, 0x83,0x15,0x2e,0xf7,0xe1,0x46)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl;
+
+interface __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry {
+    CONST_VTBL __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+#define __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_First(__FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_IWwwFormUrlDecoderEntry IID___FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IIterable_IWwwFormUrlDecoderEntryVtbl __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl
+#define IIterable_IWwwFormUrlDecoderEntry __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IIterable_IWwwFormUrlDecoderEntry_QueryInterface __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface
+#define IIterable_IWwwFormUrlDecoderEntry_AddRef __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef
+#define IIterable_IWwwFormUrlDecoderEntry_Release __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release
+#define IIterable_IWwwFormUrlDecoderEntry_GetIids __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids
+#define IIterable_IWwwFormUrlDecoderEntry_GetRuntimeClassName __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName
+#define IIterable_IWwwFormUrlDecoderEntry_GetTrustLevel __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel
+#define IIterable_IWwwFormUrlDecoderEntry_First __FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Foundation::Uri* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CFoundation__CUri, 0xb0d63b78, 0x78ad, 0x5e31, 0xb6,0xd8, 0xe3,0x2a,0x0e,0x16,0xc4,0x47);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("b0d63b78-78ad-5e31-b6d8-e32a0e16c447")
+                IIterable<ABI::Windows::Foundation::Uri* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Foundation::Uri*, ABI::Windows::Foundation::IUriRuntimeClass* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CFoundation__CUri, 0xb0d63b78, 0x78ad, 0x5e31, 0xb6,0xd8, 0xe3,0x2a,0x0e,0x16,0xc4,0x47)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CFoundation__CUriVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CFoundation__CUri *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CFoundation__CUri *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CFoundation__CUri *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CFoundation__CUri *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CFoundation__CUri *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CFoundation__CUri *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Foundation::Uri* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CFoundation__CUri *This,
+        __FIIterator_1_Windows__CFoundation__CUri **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CFoundation__CUriVtbl;
+
+interface __FIIterable_1_Windows__CFoundation__CUri {
+    CONST_VTBL __FIIterable_1_Windows__CFoundation__CUriVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CFoundation__CUri_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CFoundation__CUri_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CFoundation__CUri_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CFoundation__CUri_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CFoundation__CUri_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CFoundation__CUri_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Foundation::Uri* > methods ***/
+#define __FIIterable_1_Windows__CFoundation__CUri_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CUri_QueryInterface(__FIIterable_1_Windows__CFoundation__CUri* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CFoundation__CUri_AddRef(__FIIterable_1_Windows__CFoundation__CUri* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CFoundation__CUri_Release(__FIIterable_1_Windows__CFoundation__CUri* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CUri_GetIids(__FIIterable_1_Windows__CFoundation__CUri* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CUri_GetRuntimeClassName(__FIIterable_1_Windows__CFoundation__CUri* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CUri_GetTrustLevel(__FIIterable_1_Windows__CFoundation__CUri* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Foundation::Uri* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CFoundation__CUri_First(__FIIterable_1_Windows__CFoundation__CUri* This,__FIIterator_1_Windows__CFoundation__CUri **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_Uri IID___FIIterable_1_Windows__CFoundation__CUri
+#define IIterable_UriVtbl __FIIterable_1_Windows__CFoundation__CUriVtbl
+#define IIterable_Uri __FIIterable_1_Windows__CFoundation__CUri
+#define IIterable_Uri_QueryInterface __FIIterable_1_Windows__CFoundation__CUri_QueryInterface
+#define IIterable_Uri_AddRef __FIIterable_1_Windows__CFoundation__CUri_AddRef
+#define IIterable_Uri_Release __FIIterable_1_Windows__CFoundation__CUri_Release
+#define IIterable_Uri_GetIids __FIIterable_1_Windows__CFoundation__CUri_GetIids
+#define IIterable_Uri_GetRuntimeClassName __FIIterable_1_Windows__CFoundation__CUri_GetRuntimeClassName
+#define IIterable_Uri_GetTrustLevel __FIIterable_1_Windows__CFoundation__CUri_GetTrustLevel
+#define IIterable_Uri_First __FIIterable_1_Windows__CFoundation__CUri_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IIterator<HSTRING > interface
  */
 #ifndef ____FIIterator_1_HSTRING_INTERFACE_DEFINED__
@@ -4102,6 +5873,312 @@ static __WIDL_INLINE HRESULT __FIIterator_1_IInspectable_GetMany(__FIIterator_1_
 #endif
 
 #endif  /* ____FIIterator_1_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0x32e54295, 0x373c, 0x50cb, 0x80,0xa1, 0x46,0x8a,0x99,0x0c,0xa7,0x80);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("32e54295-373c-50cb-80a1-468a990ca780")
+                IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > : IIterator_impl<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0x32e54295, 0x373c, 0x50cb, 0x80,0xa1, 0x46,0x8a,0x99,0x0c,0xa7,0x80)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl;
+
+interface __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry {
+    CONST_VTBL __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Current(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_HasCurrent(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,WINBOOL *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_MoveNext(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,WINBOOL *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany(__FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,UINT32 items_size,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_IWwwFormUrlDecoderEntry IID___FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IIterator_IWwwFormUrlDecoderEntryVtbl __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl
+#define IIterator_IWwwFormUrlDecoderEntry __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IIterator_IWwwFormUrlDecoderEntry_QueryInterface __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface
+#define IIterator_IWwwFormUrlDecoderEntry_AddRef __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef
+#define IIterator_IWwwFormUrlDecoderEntry_Release __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release
+#define IIterator_IWwwFormUrlDecoderEntry_GetIids __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids
+#define IIterator_IWwwFormUrlDecoderEntry_GetRuntimeClassName __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName
+#define IIterator_IWwwFormUrlDecoderEntry_GetTrustLevel __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel
+#define IIterator_IWwwFormUrlDecoderEntry_get_Current __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Current
+#define IIterator_IWwwFormUrlDecoderEntry_get_HasCurrent __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_HasCurrent
+#define IIterator_IWwwFormUrlDecoderEntry_MoveNext __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_MoveNext
+#define IIterator_IWwwFormUrlDecoderEntry_GetMany __FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Foundation::Uri* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CFoundation__CUri, 0x1c157d0f, 0x5efe, 0x5cec, 0xbb,0xd6, 0x0c,0x6c,0xe9,0xaf,0x07,0xa5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("1c157d0f-5efe-5cec-bbd6-0c6ce9af07a5")
+                IIterator<ABI::Windows::Foundation::Uri* > : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Foundation::Uri*, ABI::Windows::Foundation::IUriRuntimeClass* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CFoundation__CUri, 0x1c157d0f, 0x5efe, 0x5cec, 0xbb,0xd6, 0x0c,0x6c,0xe9,0xaf,0x07,0xa5)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CFoundation__CUriVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CFoundation__CUri *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CFoundation__CUri *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Foundation::Uri* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        WINBOOL *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CFoundation__CUri *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CFoundation__CUriVtbl;
+
+interface __FIIterator_1_Windows__CFoundation__CUri {
+    CONST_VTBL __FIIterator_1_Windows__CFoundation__CUriVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CFoundation__CUri_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CFoundation__CUri_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CFoundation__CUri_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CFoundation__CUri_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CFoundation__CUri_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CFoundation__CUri_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Foundation::Uri* > methods ***/
+#define __FIIterator_1_Windows__CFoundation__CUri_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CFoundation__CUri_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CFoundation__CUri_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CFoundation__CUri_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_QueryInterface(__FIIterator_1_Windows__CFoundation__CUri* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CFoundation__CUri_AddRef(__FIIterator_1_Windows__CFoundation__CUri* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CFoundation__CUri_Release(__FIIterator_1_Windows__CFoundation__CUri* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_GetIids(__FIIterator_1_Windows__CFoundation__CUri* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_GetRuntimeClassName(__FIIterator_1_Windows__CFoundation__CUri* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_GetTrustLevel(__FIIterator_1_Windows__CFoundation__CUri* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Foundation::Uri* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_get_Current(__FIIterator_1_Windows__CFoundation__CUri* This,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_get_HasCurrent(__FIIterator_1_Windows__CFoundation__CUri* This,WINBOOL *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_MoveNext(__FIIterator_1_Windows__CFoundation__CUri* This,WINBOOL *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CFoundation__CUri_GetMany(__FIIterator_1_Windows__CFoundation__CUri* This,UINT32 items_size,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_Uri IID___FIIterator_1_Windows__CFoundation__CUri
+#define IIterator_UriVtbl __FIIterator_1_Windows__CFoundation__CUriVtbl
+#define IIterator_Uri __FIIterator_1_Windows__CFoundation__CUri
+#define IIterator_Uri_QueryInterface __FIIterator_1_Windows__CFoundation__CUri_QueryInterface
+#define IIterator_Uri_AddRef __FIIterator_1_Windows__CFoundation__CUri_AddRef
+#define IIterator_Uri_Release __FIIterator_1_Windows__CFoundation__CUri_Release
+#define IIterator_Uri_GetIids __FIIterator_1_Windows__CFoundation__CUri_GetIids
+#define IIterator_Uri_GetRuntimeClassName __FIIterator_1_Windows__CFoundation__CUri_GetRuntimeClassName
+#define IIterator_Uri_GetTrustLevel __FIIterator_1_Windows__CFoundation__CUri_GetTrustLevel
+#define IIterator_Uri_get_Current __FIIterator_1_Windows__CFoundation__CUri_get_Current
+#define IIterator_Uri_get_HasCurrent __FIIterator_1_Windows__CFoundation__CUri_get_HasCurrent
+#define IIterator_Uri_MoveNext __FIIterator_1_Windows__CFoundation__CUri_MoveNext
+#define IIterator_Uri_GetMany __FIIterator_1_Windows__CFoundation__CUri_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVectorView<HSTRING > interface
@@ -4416,6 +6493,163 @@ static __WIDL_INLINE HRESULT __FIVectorView_1_IInspectable_GetMany(__FIVectorVie
 #endif
 
 #endif  /* ____FIVectorView_1_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0xb1f00d3b, 0x1f06, 0x5117, 0x93,0xea, 0x2a,0x0d,0x79,0x11,0x67,0x01);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("b1f00d3b-1f06-5117-93ea-2a0d79116701")
+                IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > : IVectorView_impl<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry, 0xb1f00d3b, 0x1f06, 0x5117, 0x93,0xea, 0x2a,0x0d,0x79,0x11,0x67,0x01)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        UINT32 index,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl;
+
+interface __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry {
+    CONST_VTBL __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Foundation::IWwwFormUrlDecoderEntry* > methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetAt(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,UINT32 index,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Size(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_IndexOf(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany(__FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CFoundation_CIWwwFormUrlDecoderEntry **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_IWwwFormUrlDecoderEntry IID___FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IVectorView_IWwwFormUrlDecoderEntryVtbl __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntryVtbl
+#define IVectorView_IWwwFormUrlDecoderEntry __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry
+#define IVectorView_IWwwFormUrlDecoderEntry_QueryInterface __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_QueryInterface
+#define IVectorView_IWwwFormUrlDecoderEntry_AddRef __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_AddRef
+#define IVectorView_IWwwFormUrlDecoderEntry_Release __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_Release
+#define IVectorView_IWwwFormUrlDecoderEntry_GetIids __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetIids
+#define IVectorView_IWwwFormUrlDecoderEntry_GetRuntimeClassName __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetRuntimeClassName
+#define IVectorView_IWwwFormUrlDecoderEntry_GetTrustLevel __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetTrustLevel
+#define IVectorView_IWwwFormUrlDecoderEntry_GetAt __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetAt
+#define IVectorView_IWwwFormUrlDecoderEntry_get_Size __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_get_Size
+#define IVectorView_IWwwFormUrlDecoderEntry_IndexOf __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_IndexOf
+#define IVectorView_IWwwFormUrlDecoderEntry_GetMany __FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CFoundation__CIWwwFormUrlDecoderEntry_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVector<HSTRING > interface

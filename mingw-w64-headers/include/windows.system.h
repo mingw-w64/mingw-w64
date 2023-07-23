@@ -291,6 +291,10 @@ extern "C" {
 typedef enum __x_ABI_CWindows_CSystem_CDispatcherQueuePriority __x_ABI_CWindows_CSystem_CDispatcherQueuePriority;
 #endif /* __cplusplus */
 
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CSystem_CProcessorArchitecture __x_ABI_CWindows_CSystem_CProcessorArchitecture;
+#endif /* __cplusplus */
+
 #ifndef ____x_ABI_CWindows_CSystem_CIDispatcherQueue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIDispatcherQueue_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CIDispatcherQueue __x_ABI_CWindows_CSystem_CIDispatcherQueue;
@@ -483,6 +487,49 @@ enum __x_ABI_CWindows_CSystem_CDispatcherQueuePriority {
 #endif
 
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            enum ProcessorArchitecture {
+                ProcessorArchitecture_X86 = 0,
+                ProcessorArchitecture_Arm = 5,
+                ProcessorArchitecture_X64 = 9,
+                ProcessorArchitecture_Neutral = 11,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+                ProcessorArchitecture_Arm64 = 12,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+                ProcessorArchitecture_X86OnArm64 = 14,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+                ProcessorArchitecture_Unknown = 65535
+            };
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CSystem_CProcessorArchitecture {
+    ProcessorArchitecture_X86 = 0,
+    ProcessorArchitecture_Arm = 5,
+    ProcessorArchitecture_X64 = 9,
+    ProcessorArchitecture_Neutral = 11,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+    ProcessorArchitecture_Arm64 = 12,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+    ProcessorArchitecture_X86OnArm64 = 14,
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+    ProcessorArchitecture_Unknown = 65535
+};
+#ifdef WIDL_using_Windows_System
+#define ProcessorArchitecture __x_ABI_CWindows_CSystem_CProcessorArchitecture
+#endif /* WIDL_using_Windows_System */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 /*****************************************************************************
  * IDispatcherQueueHandler interface
  */
