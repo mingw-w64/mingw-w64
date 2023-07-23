@@ -14,6 +14,8 @@
 extern "C" {
 #endif
 
+typedef ULONG QOS_FLOWID, *PQOS_FLOWID;
+
 typedef enum _QOS_SHAPING {
   QOSShapeOnly                  = 0,
   QOSShapeAndMark               = 1,
@@ -26,7 +28,7 @@ typedef enum _QOS_FLOWRATE_REASON {
   QOSFlowRateCongestion              = 2,
   QOSFlowRateHigherContentEncoding   = 3,
   QOSFlowRateUserCaused              = 4 
-} QOS_FLOWRATE_REASON, PQOS_FLOWRATE_REASON;
+} QOS_FLOWRATE_REASON, *PQOS_FLOWRATE_REASON;
 
 typedef enum _QOS_NOTIFY_FLOW {
   QOSNotifyCongested     = 0,
@@ -141,8 +143,6 @@ WINBOOL WINAPI QOSRemoveSocketFromFlow(
 #define QOSSetTrafficType 0
 #define QOSSetOutgoingRate 1
 #define QOSSetOutgoingDSCPValue 2
-
-typedef UINT32 QOS_FLOWID;
 
 WINBOOL WINAPI QOSSetFlow(
   HANDLE QOSHandle,
