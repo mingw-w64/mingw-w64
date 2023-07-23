@@ -234,8 +234,8 @@ for f in \
     import_idl $f.idl include
 done
 
-# Import all d2d1 and winrt IDLs
-for f in $WINE_DIR/include/d2d1*.idl $WINE_DIR/include/windows.*.idl; do
+# Import all winrt IDLs
+for f in $WINE_DIR/include/windows.*.idl; do
     import_idl $(basename $f) include
 done
 
