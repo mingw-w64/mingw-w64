@@ -9,10 +9,6 @@
 
 #ifndef D2D_USE_C_DEFINITIONS
 
-#ifndef D2D1FORCEINLINE
-#define D2D1FORCEINLINE FORCEINLINE
-#endif
-
 namespace D2D1 {
     template<> struct TypeTraits<INT32> {
         typedef D2D1_POINT_2L Point;
