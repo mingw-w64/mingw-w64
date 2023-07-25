@@ -28,9 +28,6 @@
 #define UDP_NOCHECKSUM 1
 #define UDP_CHECKSUM_COVERAGE 20
 
-#define TCP_EXPEDITED_1122 0x0002
-
-
 #include <ws2ipdef.h>
 
 
