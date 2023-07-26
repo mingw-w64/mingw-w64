@@ -43,6 +43,7 @@ AppXGetOSMaxVersionTested@8
 ApplicationRecoveryFinished@4
 ApplicationRecoveryInProgress@4
 AreFileApisANSI@0
+AreShortNamesEnabled@8
 AssignProcessToJobObject@8
 AttachConsole@4
 BackupRead@28
@@ -775,6 +776,8 @@ GetTempFileNameA@16
 GetTempFileNameW@16
 GetTempPathA@8
 GetTempPathW@8
+GetTempPath2A@8
+GetTempPath2W@8
 GetThreadContext@8
 GetThreadDescription@8
 GetThreadErrorMode@0
