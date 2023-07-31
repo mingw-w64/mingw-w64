@@ -222,7 +222,7 @@ extern "C" {
 #define __MACHINEX86X_NOX64 __MACHINEZ
 #endif
 
-#if !(defined(_X86_) && !defined(__x86_64)) || __ia64__
+#if !(defined(_X86_) || defined(__x86_64)) || defined(__ia64__)
 #undef __MACHINEX86X_NOIA64
 #define __MACHINEX86X_NOIA64 __MACHINEZ
 #endif
