@@ -213,6 +213,11 @@ extern "C" {
 #endif
 
 #if !(defined(_X86_) || defined(__x86_64))
+#undef __MACHINEI
+#define __MACHINEI __MACHINEZ
+#endif
+
+#if !(defined(_X86_) || defined(__x86_64))
 #undef __MACHINEX86X
 #define __MACHINEX86X __MACHINEZ
 #endif
