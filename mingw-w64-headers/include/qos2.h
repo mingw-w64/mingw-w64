@@ -145,10 +145,6 @@ WINBOOL WINAPI QOSRemoveSocketFromFlow(
   DWORD Flags
 );
 
-#define QOSSetTrafficType 0
-#define QOSSetOutgoingRate 1
-#define QOSSetOutgoingDSCPValue 2
-
 WINBOOL WINAPI QOSSetFlow(
   HANDLE QOSHandle,
   QOS_FLOWID FlowId,
