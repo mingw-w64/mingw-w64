@@ -545,6 +545,14 @@ GetModuleBaseRoutine,PTRANSLATE_ADDRESS_ROUTINE TranslateAddress);
     PCHAR FileName;
     DWORD Address;
   } IMAGEHLP_LINE,*PIMAGEHLP_LINE;
+
+  typedef struct _IMAGEHLP_LINEW {
+    DWORD SizeOfStruct;
+    PVOID Key;
+    DWORD LineNumber;
+    PWSTR FileName;
+    DWORD Address;
+  } IMAGEHLP_LINEW,*PIMAGEHLP_LINEW;
 #endif
 
   typedef struct _SOURCEFILE {
