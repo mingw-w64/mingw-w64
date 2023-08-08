@@ -5,10 +5,6 @@
  */
 
 
-#ifndef PROPKEYDEF_H
-#define PROPKEYDEF_H
-
-
 /* This file provides macros and procedures relevant to the PROPERTYKEY structure defined in wtypes.h. */
 
 
@@ -21,9 +17,7 @@
 #endif
 
 /* See the definitions of PROPERTYKEY in wtypes.h, and GUID in guiddef.h. "l" is short for "long", "w" for "word", "b" for "byte", and "pid" for "property identifier". */
-#if defined(DEFINE_PROPERTYKEY)
 #undef DEFINE_PROPERTYKEY
-#endif
 #if   defined(INITGUID) &&  defined(__cplusplus)
 #define DEFINE_PROPERTYKEY(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8,pid) EXTERN_C const PROPERTYKEY DECLSPEC_SELECTANY name = {{l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}},pid}
 #elif defined(INITGUID) && !defined(__cplusplus)
@@ -59,6 +53,3 @@ extern "C++"
 }
 #endif
 #endif
-
-
-#endif /* PROPKEYDEF_H */
