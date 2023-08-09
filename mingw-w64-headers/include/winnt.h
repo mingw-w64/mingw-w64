@@ -8933,6 +8933,24 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #define HEAP_MAXIMUM_TAG 0x0FFF
 #define HEAP_PSEUDO_TAG_FLAG 0x8000
 #define HEAP_TAG_SHIFT 18
+
+    PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
+
+#if !defined (__CRT__NO_INLINE) && !defined (__WIDL__)
+    __CRT_INLINE PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
+      volatile char *vptr =(volatile char *)ptr;
+#ifdef __x86_64
+      __stosb((PBYTE)((DWORD64)vptr),0,cnt);
+#else
+      while(cnt) {
+	*vptr++ = 0;
+	cnt--;
+      }
+#endif /* __x86_64 */
+      return ptr;
+    }
+#endif /* !__CRT__NO_INLINE // !__WIDL__ */
+
 /* Let this macro fail for non-desktop mode.  AFAIU this should be better an inline-function ... */
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #define HEAP_MAKE_TAG_FLAGS(b,o) ((DWORD)((b) + ((o) << 18)))
@@ -8987,23 +9005,6 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #define RtlCopyMemory(Destination,Source,Length) memcpy((Destination),(Source),(Length))
 #define RtlFillMemory(Destination,Length,Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination,Length) memset((Destination),0,(Length))
-
-    PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
-
-#if !defined (__CRT__NO_INLINE) && !defined (__WIDL__)
-    __CRT_INLINE PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
-      volatile char *vptr =(volatile char *)ptr;
-#ifdef __x86_64
-      __stosb((PBYTE)((DWORD64)vptr),0,cnt);
-#else
-      while(cnt) {
-	*vptr++ = 0;
-	cnt--;
-      }
-#endif /* __x86_64 */
-      return ptr;
-    }
-#endif /* !__CRT__NO_INLINE // !__WIDL__ */
 
     typedef struct _MESSAGE_RESOURCE_ENTRY {
       WORD Length;
