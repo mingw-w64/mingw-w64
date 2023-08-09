@@ -6,6 +6,7 @@
 LIBRARY "wer.dll"
 EXPORTS
 WerAddExcludedApplication@8
+WerFreeString@4
 WerRemoveExcludedApplication@8
 WerReportAddDump@28
 WerReportAddFile@16
@@ -14,6 +15,17 @@ WerReportCreate@16
 WerReportSetParameter@16
 WerReportSetUIOption@12
 WerReportSubmit@16
+WerStoreClose@4
+WerStoreGetFirstReportKey@8
+WerStoreGetNextReportKey@8
+WerStoreGetReportCount@8
+WerStoreGetSizeOnDisk@8
+WerStoreOpen@8
+WerStorePurge@0
+WerStoreQueryReportMetadataV1@12
+WerStoreQueryReportMetadataV2@12
+WerStoreQueryReportMetadataV3@12
+WerStoreUploadReport@16
 WerSysprepCleanup@0
 WerSysprepGeneralize@0
 WerSysprepSpecialize@0
