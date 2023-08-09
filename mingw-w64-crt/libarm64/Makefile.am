@@ -324,6 +324,7 @@ libarm64_DATA += %reldir%/libwebauthn.a
 libarm64_DATA += %reldir%/libwebclnt.a
 libarm64_DATA += %reldir%/libwebsocket.a
 libarm64_DATA += %reldir%/libwecapi.a
+libarm64_DATA += %reldir%/libwer.a
 libarm64_DATA += %reldir%/libwevtapi.a
 libarm64_DATA += %reldir%/libwiashext.a
 libarm64_DATA += %reldir%/libwimgapi.a
