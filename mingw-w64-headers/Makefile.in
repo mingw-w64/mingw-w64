@@ -630,6 +630,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \
 @HAVE_WIDL_TRUE@  include/wtypes.idl \
 @HAVE_WIDL_TRUE@  include/wuapi.idl \
+@HAVE_WIDL_TRUE@  include/xamlom.idl \
 @HAVE_WIDL_TRUE@  include/xapo.idl \
 @HAVE_WIDL_TRUE@  include/xaudio2.idl \
 @HAVE_WIDL_TRUE@  include/xaudio2fx.idl \

@@ -225,6 +225,7 @@ for f in \
 	wmsecure \
 	wpcapi \
 	wuapi \
+	xamlom \
 	xapo \
 	xaudio2 \
 	xaudio2fx \
