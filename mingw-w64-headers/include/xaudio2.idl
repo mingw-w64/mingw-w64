@@ -555,7 +555,7 @@ interface IXAudio2 : IUnknown
 #endif
         [in, defaultvalue(NULL)] const XAUDIO2_EFFECT_CHAIN* pEffectChain
 #if XAUDIO2_VER >= 8
-        , AUDIO_STREAM_CATEGORY category
+        , [in, defaultvalue(AudioCategory_GameEffects)] AUDIO_STREAM_CATEGORY category
 #endif
         );
 
@@ -570,6 +570,18 @@ interface IXAudio2 : IUnknown
     [local] void SetDebugConfiguration(
         [in] const XAUDIO2_DEBUG_CONFIGURATION* pDebugConfiguration,
         [in, defaultvalue(NULL)] void* pReserved);
+}
+
+[
+    object,
+    local,
+    uuid(84ac29bb-d619-44d2-b197-e4acf7df3ed6)
+]
+interface IXAudio2Extension : IUnknown
+{
+    void GetProcessingQuantum(UINT32 *quantum_numerator, UINT32 *quantum_denominator);
+
+    void GetProcessor(XAUDIO2_PROCESSOR *processor);
 }
 
 const UINT32 XAUDIO2_DEBUG_ENGINE           = 0x00000001;

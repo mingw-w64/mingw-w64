@@ -281,6 +281,7 @@ IDL_SRCS = \
   include/windows.devices.haptics.idl \
   include/windows.devices.power.idl \
   include/windows.devices.radios.idl \
+  include/windows.devices.usb.idl \
   include/windows.foundation.idl \
   include/windows.foundation.collections.idl \
   include/windows.foundation.metadata.idl \
@@ -307,6 +308,7 @@ IDL_SRCS = \
   include/windows.perception.spatial.surfaces.idl \
   include/windows.security.credentials.idl \
   include/windows.security.cryptography.idl \
+  include/windows.security.isolation.idl \
   include/windows.storage.idl \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
@@ -319,6 +321,7 @@ IDL_SRCS = \
   include/windows.ui.composition.interop.idl \
   include/windows.ui.core.idl \
   include/windows.ui.viewmanagement.idl \
+  include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \

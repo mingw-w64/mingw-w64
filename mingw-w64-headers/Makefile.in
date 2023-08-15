@@ -583,6 +583,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.devices.haptics.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.power.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.radios.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.usb.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.collections.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.metadata.idl \
@@ -609,6 +610,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.surfaces.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
+@HAVE_WIDL_TRUE@  include/windows.security.isolation.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.idl \
@@ -621,6 +623,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
 @HAVE_WIDL_TRUE@  include/windowscontracts.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
 @HAVE_WIDL_TRUE@  include/wmdrmsdk.idl \
