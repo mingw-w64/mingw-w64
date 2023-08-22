@@ -275,6 +275,7 @@ IDL_SRCS = \
   include/wsdxml.idl \
   include/wsmandisp.idl \
   include/wtypesbase.idl \
+  include/windows.applicationmodel.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
   include/windows.devices.geolocation.idl \
@@ -310,6 +311,8 @@ IDL_SRCS = \
   include/windows.security.cryptography.idl \
   include/windows.security.isolation.idl \
   include/windows.storage.idl \
+  include/windows.storage.fileproperties.idl \
+  include/windows.storage.search.idl \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
   include/windows.system.power.idl \

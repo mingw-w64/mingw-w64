@@ -577,6 +577,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wsdxml.idl \
 @HAVE_WIDL_TRUE@  include/wsmandisp.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.enumeration.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.geolocation.idl \
@@ -612,6 +613,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.isolation.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
+@HAVE_WIDL_TRUE@  include/windows.storage.fileproperties.idl \
+@HAVE_WIDL_TRUE@  include/windows.storage.search.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.power.idl \

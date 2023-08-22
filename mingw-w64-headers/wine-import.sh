@@ -29,6 +29,7 @@ import_header() {
     sed -i 's/\bBOOL    /WINBOOL /g' $dstfile
     sed -i 's/\bBOOL\b/WINBOOL/g' $dstfile
     sed -i 's/DECLSPEC_HIDDEN//g' $dstfile
+    sed -i 's/\b__WINE_ALLOC_SIZE([0-9]) //g' $dstfile
 }
 
 import_idl() {
