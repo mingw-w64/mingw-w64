@@ -23,22 +23,35 @@
 import "windows.foundation.idl";
 import "windows.storage.idl";
 import "windows.system.idl";
+import "windows.applicationmodel.core.idl";
+
+namespace Windows.ApplicationModel.Core {
+    runtimeclass AppListEntry;
+}
 
 namespace Windows.ApplicationModel {
     typedef struct PackageVersion PackageVersion;
 
+    interface IAppDisplayInfo;
     interface IPackage;
+    interface IPackage3;
+    interface IPackageStatus;
     interface IPackageId;
     interface IPackageIdWithMetadata;
     interface IPackageStatics;
 
+    runtimeclass AppDisplayInfo;
     runtimeclass Package;
     runtimeclass PackageId;
+    runtimeclass PackageStatus;
 
     declare {
         interface Windows.Foundation.Collections.IIterable<Windows.ApplicationModel.Package *>;
         interface Windows.Foundation.Collections.IIterator<Windows.ApplicationModel.Package *>;
         interface Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Package *>;
+        interface Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Core.AppListEntry *>;
+        interface Windows.Foundation.IAsyncOperation<Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Core.AppListEntry *> *>;
+        interface Windows.Foundation.AsyncOperationCompletedHandler<Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Core.AppListEntry *> *>;
     }
 
     [
@@ -54,6 +67,18 @@ namespace Windows.ApplicationModel {
 
     [
         contract(Windows.Foundation.UniversalApiContract, 1.0),
+        exclusiveto(Windows.ApplicationModel.AppDisplayInfo),
+        uuid(1aeb1103-e4d4-41aa-a4f6-c4a276e79eac)
+    ]
+    interface IAppDisplayInfo : IInspectable
+    {
+        [propget] HRESULT DisplayName([out, retval] HSTRING *value);
+        [propget] HRESULT Description([out, retval] HSTRING *value);
+        HRESULT GetLogo([in] Windows.Foundation.Size size, [out, retval] Windows.Storage.Streams.RandomAccessStreamReference **value);
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
         exclusiveto(Windows.ApplicationModel.Package),
         uuid(163c792f-bd75-413c-bf23-b1fe7b95d825)
     ]
@@ -63,6 +88,39 @@ namespace Windows.ApplicationModel {
         [propget] HRESULT InstalledLocation([out, retval] Windows.Storage.StorageFolder **value);
         [propget] HRESULT IsFramework([out, retval] boolean *value);
         [propget] HRESULT Dependencies([out, retval] Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Package *> **value);
+    }
+
+    [
+        exclusiveto(Windows.ApplicationModel.Package),
+        uuid(5f738b61-f86a-4917-93d1-f1ee9d3b35d9),
+        version(0x0a000000)
+    ]
+    interface IPackage3 : IInspectable
+    {
+        [propget] HRESULT Status([out, retval] Windows.ApplicationModel.PackageStatus **value);
+        [propget] HRESULT InstalledDate([out, retval] Windows.Foundation.DateTime *value);
+        HRESULT GetAppListEntriesAsync([out, retval] Windows.Foundation.IAsyncOperation<Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Core.AppListEntry *> *> **operation);
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        exclusiveto(Windows.ApplicationModel.PackageStatus),
+        uuid(5fe74f71-a365-4c09-a02d-046d525ea1da)
+    ]
+    interface IPackageStatus : IInspectable
+    {
+        HRESULT VerifyIsOK([out, retval] boolean *value);
+        [propget] HRESULT NotAvailable([out, retval] boolean *value);
+        [propget] HRESULT PackageOffline([out, retval] boolean *value);
+        [propget] HRESULT DataOffline([out, retval] boolean *value);
+        [propget] HRESULT Disabled([out, retval] boolean *value);
+        [propget] HRESULT NeedsRemediation([out, retval] boolean *value);
+        [propget] HRESULT LicenseIssue([out, retval] boolean *value);
+        [propget] HRESULT Modified([out, retval] boolean *value);
+        [propget] HRESULT Tampered([out, retval] boolean *value);
+        [propget] HRESULT DependencyIssue([out, retval] boolean *value);
+        [propget] HRESULT Servicing([out, retval] boolean *value);
+        [propget] HRESULT DeploymentInProgress([out, retval] boolean *value);
     }
 
     [
@@ -106,6 +164,16 @@ namespace Windows.ApplicationModel {
     [
         contract(Windows.Foundation.UniversalApiContract, 1.0),
         marshaling_behavior(agile),
+        threading(both)
+    ]
+    runtimeclass AppDisplayInfo
+    {
+        [default] interface Windows.ApplicationModel.IAppDisplayInfo;
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        marshaling_behavior(agile),
         static(Windows.ApplicationModel.IPackageStatics, Windows.Foundation.UniversalApiContract, 1.0),
         threading(both)
     ]
@@ -120,6 +188,16 @@ namespace Windows.ApplicationModel {
         [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.ApplicationModel.IPackage6;
         [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.ApplicationModel.IPackage7;
         [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IPackage8;
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        marshaling_behavior(agile)
+    ]
+    runtimeclass PackageStatus
+    {
+        [default] interface Windows.ApplicationModel.IPackageStatus;
+        [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.ApplicationModel.IPackageStatus2;
     }
 
     [

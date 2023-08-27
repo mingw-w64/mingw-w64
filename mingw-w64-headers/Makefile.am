@@ -275,6 +275,7 @@ IDL_SRCS = \
   include/wsdxml.idl \
   include/wsmandisp.idl \
   include/wtypesbase.idl \
+  include/windows.applicationmodel.core.idl \
   include/windows.applicationmodel.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
@@ -298,6 +299,7 @@ IDL_SRCS = \
   include/windows.graphics.directx.direct3d11.idl \
   include/windows.graphics.effects.idl \
   include/windows.graphics.holographic.idl \
+  include/windows.management.deployment.idl \
   include/windows.media.idl \
   include/windows.media.closedcaptioning.idl \
   include/windows.media.devices.idl \
