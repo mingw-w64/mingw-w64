@@ -4257,6 +4257,8 @@ typedef struct {
 #ifndef __DDRAW_INCLUDED__
 #define DDPF_FOURCC __MSABI_LONG(0x00000004)
 
+#ifndef _DDPIXELFORMAT_DEFINED
+#define _DDPIXELFORMAT_DEFINED
 typedef struct _DDPIXELFORMAT
 {
   DWORD dwSize;
@@ -4292,6 +4294,8 @@ typedef struct _DDPIXELFORMAT
     DWORD dwYUVZBitMask;
   };
 } DDPIXELFORMAT,*LPDDPIXELFORMAT;
+#endif /* _DDPIXELFORMAT_DEFINED */
+
 #endif /* __DDRAW_INCLUDED__ */
 
 #ifndef __DVP_INCLUDED__
