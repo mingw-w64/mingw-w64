@@ -82,6 +82,10 @@ typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windo
 extern "C" {
 #endif
 
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CMedia_CAudioProcessing __x_ABI_CWindows_CMedia_CAudioProcessing;
+#endif /* __cplusplus */
+
 #ifndef ____x_ABI_CWindows_CMedia_CIMediaControl_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CIMediaControl_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CIMediaControl __x_ABI_CWindows_CMedia_CIMediaControl;
@@ -144,6 +148,31 @@ typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windo
 #endif /* __cplusplus */
 #endif
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            enum AudioProcessing {
+                AudioProcessing_Default = 0,
+                AudioProcessing_Raw = 1
+            };
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CMedia_CAudioProcessing {
+    AudioProcessing_Default = 0,
+    AudioProcessing_Raw = 1
+};
+#ifdef WIDL_using_Windows_Media
+#define AudioProcessing __x_ABI_CWindows_CMedia_CAudioProcessing
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 /*****************************************************************************
  * IMediaMarker interface
  */

@@ -643,7 +643,7 @@ enum TreeScope {
     TreeScope_Descendants = 0x4,
     TreeScope_Parent = 0x8,
     TreeScope_Ancestors = 0x10,
-    TreeScope_SubTree = (TreeScope_Element | TreeScope_Children) | TreeScope_Descendants
+    TreeScope_Subtree = (TreeScope_Element | TreeScope_Children) | TreeScope_Descendants
 };
 enum PropertyConditionFlags {
     PropertyConditionFlags_None = 0x0,

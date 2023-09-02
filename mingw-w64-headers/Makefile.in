@@ -602,9 +602,12 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.graphics.effects.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.holographic.idl \
 @HAVE_WIDL_TRUE@  include/windows.management.deployment.idl \
-@HAVE_WIDL_TRUE@  include/windows.media.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.capture.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.closedcaptioning.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.devices.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.effects.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.render.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechrecognition.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.connectivity.idl \

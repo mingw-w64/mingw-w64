@@ -300,9 +300,12 @@ IDL_SRCS = \
   include/windows.graphics.effects.idl \
   include/windows.graphics.holographic.idl \
   include/windows.management.deployment.idl \
-  include/windows.media.idl \
+  include/windows.media.capture.idl \
   include/windows.media.closedcaptioning.idl \
   include/windows.media.devices.idl \
+  include/windows.media.effects.idl \
+  include/windows.media.idl \
+  include/windows.media.render.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
   include/windows.networking.connectivity.idl \
