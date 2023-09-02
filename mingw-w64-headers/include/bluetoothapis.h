@@ -109,7 +109,7 @@ typedef struct _BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
 #define BLUETOOTH_MAX_SERVICE_NAME_SIZE 256
 #define BLUETOOTH_DEVICE_NAME_SIZE 256
 typedef struct _BLUETOOTH_LOCAL_SERVICE_INFO {
-  BOOL              Enabled;
+  WINBOOL           Enabled;
   BLUETOOTH_ADDRESS btAddr;
   WCHAR             szName[BLUETOOTH_MAX_SERVICE_NAME_SIZE];
   WCHAR             szDeviceString[BLUETOOTH_DEVICE_NAME_SIZE];
@@ -157,12 +157,12 @@ typedef struct _BLUETOOTH_SELECT_DEVICE_PARAMS {
   BLUETOOTH_COD_PAIRS    *prgClassOfDevices;
   LPWSTR                 pszInfo;
   HWND                   hwndParent;
-  BOOL                   fForceAuthentication;
-  BOOL                   fShowAuthenticated;
-  BOOL                   fShowRemembered;
-  BOOL                   fShowUnknown;
-  BOOL                   fAddNewDeviceWizard;
-  BOOL                   fSkipServicesPage;
+  WINBOOL                fForceAuthentication;
+  WINBOOL                fShowAuthenticated;
+  WINBOOL                fShowRemembered;
+  WINBOOL                fShowUnknown;
+  WINBOOL                fAddNewDeviceWizard;
+  WINBOOL                fSkipServicesPage;
   PFN_DEVICE_CALLBACK    pfnDeviceCallback;
   LPVOID                 pvParam;
   DWORD                  cNumDevices;
