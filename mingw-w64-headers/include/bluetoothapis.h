@@ -86,13 +86,13 @@ typedef enum _BLUETOOTH_IO_CAPABILITY {
 } BLUETOOTH_IO_CAPABILITY;
 
 typedef enum _BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-  MITMProtectionNotRequired                 = 0x00,
-  MITMProtectionRequired                    = 0x01,
-  MITMProtectionNotRequiredBonding          = 0x02,
-  MITMProtectionRequiredBonding             = 0x03,
-  MITMProtectionNotRequiredGeneralBonding   = 0x04,
-  MITMProtectionRequiredGeneralBonding      = 0x05,
-  MITMProtectionNotDefined                  = 0xff
+  BLUETOOTH_MITM_ProtectionNotRequired               = 0x0,
+  BLUETOOTH_MITM_ProtectionRequired                  = 0x1,
+  BLUETOOTH_MITM_ProtectionNotRequiredBonding        = 0x2,
+  BLUETOOTH_MITM_ProtectionRequiredBonding           = 0x3,
+  BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding = 0x4,
+  BLUETOOTH_MITM_ProtectionRequiredGeneralBonding    = 0x5,
+  BLUETOOTH_MITM_ProtectionNotDefined                = 0xff
 } BLUETOOTH_AUTHENTICATION_REQUIREMENTS;
 
 typedef struct _BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
@@ -146,10 +146,10 @@ typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
   UCHAR                           negativeResponse;
 } BLUETOOTH_AUTHENTICATE_RESPONSE, *PBLUETOOTH_AUTHENTICATE_RESPONSE;
 
-typedef WINBOOL (*PFN_DEVICE_CALLBACK)(LPVOID pvParam,PBLUETOOTH_DEVICE_INFO pDevice);
-typedef WINBOOL (*CALLBACK PFN_AUTHENTICATION_CALLBACK_EX)(LPVOID pvParam,PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS pAuthCallbackParams);
-typedef WINBOOL (*PFN_AUTHENTICATION_CALLBACK)(LPVOID pvParam,PBLUETOOTH_DEVICE_INFO pDevice);
-typedef WINBOOL (*PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK)(ULONG uAttribId,LPBYTE pValueStream,ULONG cbStreamSize,LPVOID pvParam);
+typedef WINBOOL (CALLBACK *PFN_DEVICE_CALLBACK)(LPVOID pvParam,const BLUETOOTH_DEVICE_INFO *pDevice);
+typedef WINBOOL (CALLBACK *PFN_AUTHENTICATION_CALLBACK_EX)(LPVOID pvParam,PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS pAuthCallbackParams);
+typedef WINBOOL (CALLBACK *PFN_AUTHENTICATION_CALLBACK)(LPVOID pvParam,PBLUETOOTH_DEVICE_INFO pDevice);
+typedef WINBOOL (CALLBACK *PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK)(ULONG uAttribId,LPBYTE pValueStream,ULONG cbStreamSize,LPVOID pvParam);
 
 typedef struct _BLUETOOTH_SELECT_DEVICE_PARAMS {
   DWORD                  dwSize;
@@ -176,12 +176,12 @@ DWORD WINAPI BluetoothAuthenticateMultipleDevices(
     BLUETOOTH_DEVICE_INFO *pbtdi
 );
 
-HRESULT WINAPI BluetoothAuthenticateDeviceEx(
+DWORD WINAPI BluetoothAuthenticateDeviceEx(
   HWND hwndParentIn,
   HANDLE hRadioIn,
   BLUETOOTH_DEVICE_INFO *pbtdiInout,
   PBLUETOOTH_OOB_DATA_INFO pbtOobData,
-  BLUETOOTH_AUTHENTICATION_REQUIREMENTS authenticationRequirement
+  AUTHENTICATION_REQUIREMENTS authenticationRequirement
 );
 
 WINBOOL WINAPI BluetoothDisplayDeviceProperties(
@@ -201,7 +201,7 @@ WINBOOL WINAPI BluetoothEnableIncomingConnections(
 
 DWORD WINAPI BluetoothEnumerateInstalledServices(
     HANDLE hRadio,
-    BLUETOOTH_DEVICE_INFO *pbtdi,
+    const BLUETOOTH_DEVICE_INFO *pbtdi,
     DWORD *pcServices,
     GUID *pGuidServices
 );
@@ -211,12 +211,12 @@ WINBOOL WINAPI BluetoothFindDeviceClose(
 );
 
 HBLUETOOTH_DEVICE_FIND WINAPI BluetoothFindFirstDevice(
-    BLUETOOTH_DEVICE_SEARCH_PARAMS *pbtsp,
+    const BLUETOOTH_DEVICE_SEARCH_PARAMS *pbtsp,
     BLUETOOTH_DEVICE_INFO *pbtdi
 );
 
 HBLUETOOTH_RADIO_FIND WINAPI BluetoothFindFirstRadio(
-  BLUETOOTH_FIND_RADIO_PARAMS *pbtfrp,
+  const BLUETOOTH_FIND_RADIO_PARAMS *pbtfrp,
   HANDLE *phRadio
 );
 
@@ -253,13 +253,13 @@ WINBOOL WINAPI BluetoothIsConnectable(
 );
 
 DWORD WINAPI BluetoothRegisterForAuthentication(
-    BLUETOOTH_DEVICE_INFO *pbtdi,
+    const BLUETOOTH_DEVICE_INFO *pbtdi,
     HBLUETOOTH_AUTHENTICATION_REGISTRATION *phRegHandle,
     PFN_AUTHENTICATION_CALLBACK pfnCallback,
     PVOID pvParam
 );
 
-HRESULT WINAPI BluetoothRegisterForAuthenticationEx(
+DWORD WINAPI BluetoothRegisterForAuthenticationEx(
   const BLUETOOTH_DEVICE_INFO *pbtdiln,
   HBLUETOOTH_AUTHENTICATION_REGISTRATION *phRegHandleOut,
   PFN_AUTHENTICATION_CALLBACK_EX pfnCallbackIn,
@@ -267,7 +267,7 @@ HRESULT WINAPI BluetoothRegisterForAuthenticationEx(
 );
 
 DWORD WINAPI BluetoothRemoveDevice(
-    BLUETOOTH_ADDRESS *pAddress
+    const BLUETOOTH_ADDRESS *pAddress
 );
 
 WINBOOL WINAPI BluetoothSdpEnumAttributes(
@@ -300,7 +300,7 @@ DWORD BluetoothSdpGetElementData(
 DWORD BluetoothSdpGetString(
   LPBYTE pRecordStream,
   ULONG cbRecordLength,
-  PSDP_STRING_TYPE_DATA pStringData,
+  const PSDP_STRING_TYPE_DATA pStringData,
   USHORT usStringOffset,
   PWCHAR pszString,
   PULONG pcchStringLength
@@ -316,11 +316,11 @@ WINBOOL WINAPI BluetoothSelectDevicesFree(
 
 DWORD WINAPI BluetoothSendAuthenticationResponse(
     HANDLE hRadio,
-    BLUETOOTH_DEVICE_INFO *pbtdi,
+    const BLUETOOTH_DEVICE_INFO *pbtdi,
     LPWSTR pszPasskey
 );
 
-HRESULT WINAPI BluetoothSendAuthenticationResponseEx(
+DWORD WINAPI BluetoothSendAuthenticationResponseEx(
   HANDLE hRadioIn,
   PBLUETOOTH_AUTHENTICATE_RESPONSE pauthResponse
 );
@@ -334,8 +334,8 @@ DWORD WINAPI BluetoothSetLocalServiceInfo(
 
 DWORD WINAPI BluetoothSetServiceState(
     HANDLE hRadio,
-    BLUETOOTH_DEVICE_INFO *pbtdi,
-    GUID *pGuidService,
+    const BLUETOOTH_DEVICE_INFO *pbtdi,
+    const GUID *pGuidService,
     DWORD dwServiceFlags
 );
 
@@ -344,7 +344,7 @@ WINBOOL WINAPI BluetoothUnregisterAuthentication(
 );
 
 DWORD WINAPI BluetoothUpdateDeviceRecord(
-    BLUETOOTH_DEVICE_INFO *pbtdi
+    const BLUETOOTH_DEVICE_INFO *pbtdi
 );
 
 #ifdef __cplusplus
