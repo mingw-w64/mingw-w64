@@ -26,6 +26,23 @@
 
 /* Forward declarations */
 
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager ABI::Windows::Media::Effects::IAudioCaptureEffectsManager
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioCaptureEffectsManager;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioEffect __x_ABI_CWindows_CMedia_CEffects_CIAudioEffect;
@@ -43,6 +60,74 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics ABI::Windows::Media::Effects::IAudioEffectsManagerStatics
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioEffectsManagerStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager ABI::Windows::Media::Effects::IAudioRenderEffectsManager
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioRenderEffectsManager;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 ABI::Windows::Media::Effects::IAudioRenderEffectsManager2
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioRenderEffectsManager2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CAudioCaptureEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CAudioCaptureEffectsManager_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                class AudioCaptureEffectsManager;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CAudioCaptureEffectsManager __x_ABI_CWindows_CMedia_CEffects_CAudioCaptureEffectsManager;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CEffects_CAudioCaptureEffectsManager_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CMedia_CEffects_CAudioEffect_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CEffects_CAudioEffect_FWD_DEFINED__
 #ifdef __cplusplus
@@ -59,6 +144,40 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CMedia_CEffects_CAudioEffect __x_ABI_CWindows_CMedia_CEffects_CAudioEffect;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CMedia_CEffects_CAudioEffect_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CAudioEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CAudioEffectsManager_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                class AudioEffectsManager;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CAudioEffectsManager __x_ABI_CWindows_CMedia_CEffects_CAudioEffectsManager;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CEffects_CAudioEffectsManager_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CAudioRenderEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CAudioRenderEffectsManager_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                class AudioRenderEffectsManager;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CAudioRenderEffectsManager __x_ABI_CWindows_CMedia_CEffects_CAudioRenderEffectsManager;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CEffects_CAudioRenderEffectsManager_FWD_DEFINED__ */
 
 #ifndef ____FIIterable_1_Windows__CMedia__CEffects__CAudioEffect_FWD_DEFINED__
 #define ____FIIterable_1_Windows__CMedia__CEffects__CAudioEffect_FWD_DEFINED__
@@ -84,10 +203,30 @@ typedef interface __FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect __FIV
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
 #include <windows.foundation.h>
+#include <windows.media.h>
+#include <windows.media.capture.h>
+#include <windows.media.render.h>
+#include <windows.storage.streams.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -96,6 +235,23 @@ extern "C" {
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CMedia_CEffects_CAudioEffectType __x_ABI_CWindows_CMedia_CEffects_CAudioEffectType;
 #endif /* __cplusplus */
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager ABI::Windows::Media::Effects::IAudioCaptureEffectsManager
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioCaptureEffectsManager;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
 
 #ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_FWD_DEFINED__
@@ -107,6 +263,57 @@ namespace ABI {
         namespace Media {
             namespace Effects {
                 interface IAudioEffect;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics ABI::Windows::Media::Effects::IAudioEffectsManagerStatics
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioEffectsManagerStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager ABI::Windows::Media::Effects::IAudioRenderEffectsManager
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioRenderEffectsManager;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 ABI::Windows::Media::Effects::IAudioRenderEffectsManager2
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                interface IAudioRenderEffectsManager2;
             }
         }
     }
@@ -209,6 +416,160 @@ enum __x_ABI_CWindows_CMedia_CEffects_CAudioEffectType {
 #endif
 
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+/*****************************************************************************
+ * IAudioCaptureEffectsManager interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager, 0x8f85c271, 0x038d, 0x4393, 0x82,0x98, 0x54,0x01,0x10,0x60,0x8e,0xef);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                MIDL_INTERFACE("8f85c271-038d-4393-8298-540110608eef")
+                IAudioCaptureEffectsManager : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE add_AudioCaptureEffectsChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AudioCaptureEffectsChanged(
+                        EventRegistrationToken token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetAudioCaptureEffects(
+                        ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::Effects::AudioEffect* > **effects) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager, 0x8f85c271, 0x038d, 0x4393, 0x82,0x98, 0x54,0x01,0x10,0x60,0x8e,0xef)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManagerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        TrustLevel *trustLevel);
+
+    /*** IAudioCaptureEffectsManager methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_AudioCaptureEffectsChanged)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AudioCaptureEffectsChanged)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *GetAudioCaptureEffects)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *This,
+        __FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect **effects);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManagerVtbl;
+
+interface __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManagerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAudioCaptureEffectsManager methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged(This,handler,token) (This)->lpVtbl->add_AudioCaptureEffectsChanged(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_remove_AudioCaptureEffectsChanged(This,token) (This)->lpVtbl->remove_AudioCaptureEffectsChanged(This,token)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetAudioCaptureEffects(This,effects) (This)->lpVtbl->GetAudioCaptureEffects(This,effects)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_QueryInterface(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_AddRef(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_Release(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetIids(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetTrustLevel(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAudioCaptureEffectsManager methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_AudioCaptureEffectsChanged(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_remove_AudioCaptureEffectsChanged(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_AudioCaptureEffectsChanged(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetAudioCaptureEffects(__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager* This,__FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect **effects) {
+    return This->lpVtbl->GetAudioCaptureEffects(This,effects);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_Effects
+#define IID_IAudioCaptureEffectsManager IID___x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager
+#define IAudioCaptureEffectsManagerVtbl __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManagerVtbl
+#define IAudioCaptureEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager
+#define IAudioCaptureEffectsManager_QueryInterface __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_QueryInterface
+#define IAudioCaptureEffectsManager_AddRef __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_AddRef
+#define IAudioCaptureEffectsManager_Release __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_Release
+#define IAudioCaptureEffectsManager_GetIids __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetIids
+#define IAudioCaptureEffectsManager_GetRuntimeClassName __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetRuntimeClassName
+#define IAudioCaptureEffectsManager_GetTrustLevel __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetTrustLevel
+#define IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged
+#define IAudioCaptureEffectsManager_remove_AudioCaptureEffectsChanged __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_remove_AudioCaptureEffectsChanged
+#define IAudioCaptureEffectsManager_GetAudioCaptureEffects __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_GetAudioCaptureEffects
+#endif /* WIDL_using_Windows_Media_Effects */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*****************************************************************************
  * IAudioEffect interface
  */
@@ -337,6 +698,511 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_get_
 #endif  /* ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffect_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * IAudioEffectsManagerStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics, 0x66406c04, 0x86fa, 0x47cc, 0xa3,0x15, 0xf4,0x89,0xd8,0xc3,0xfe,0x10);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                MIDL_INTERFACE("66406c04-86fa-47cc-a315-f489d8c3fe10")
+                IAudioEffectsManagerStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE CreateAudioRenderEffectsManager(
+                        HSTRING device_id,
+                        enum AudioRenderCategory category,
+                        ABI::Windows::Media::Effects::IAudioRenderEffectsManager **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateAudioRenderEffectsManagerWithMode(
+                        HSTRING device_id,
+                        enum AudioRenderCategory category,
+                        enum AudioProcessing mode,
+                        ABI::Windows::Media::Effects::IAudioRenderEffectsManager **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateAudioCaptureEffectsManager(
+                        HSTRING device_id,
+                        enum MediaCategory category,
+                        ABI::Windows::Media::Effects::IAudioCaptureEffectsManager **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateAudioCaptureEffectsManagerWithMode(
+                        HSTRING device_id,
+                        enum MediaCategory category,
+                        enum AudioProcessing mode,
+                        ABI::Windows::Media::Effects::IAudioCaptureEffectsManager **value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics, 0x66406c04, 0x86fa, 0x47cc, 0xa3,0x15, 0xf4,0x89,0xd8,0xc3,0xfe,0x10)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IAudioEffectsManagerStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateAudioRenderEffectsManager)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        HSTRING device_id,
+        enum __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory category,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAudioRenderEffectsManagerWithMode)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        HSTRING device_id,
+        enum __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory category,
+        enum __x_ABI_CWindows_CMedia_CAudioProcessing mode,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAudioCaptureEffectsManager)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        HSTRING device_id,
+        enum __x_ABI_CWindows_CMedia_CCapture_CMediaCategory category,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager **value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateAudioCaptureEffectsManagerWithMode)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics *This,
+        HSTRING device_id,
+        enum __x_ABI_CWindows_CMedia_CCapture_CMediaCategory category,
+        enum __x_ABI_CWindows_CMedia_CAudioProcessing mode,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStaticsVtbl;
+
+interface __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAudioEffectsManagerStatics methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManager(This,device_id,category,value) (This)->lpVtbl->CreateAudioRenderEffectsManager(This,device_id,category,value)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManagerWithMode(This,device_id,category,mode,value) (This)->lpVtbl->CreateAudioRenderEffectsManagerWithMode(This,device_id,category,mode,value)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManager(This,device_id,category,value) (This)->lpVtbl->CreateAudioCaptureEffectsManager(This,device_id,category,value)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManagerWithMode(This,device_id,category,mode,value) (This)->lpVtbl->CreateAudioCaptureEffectsManagerWithMode(This,device_id,category,mode,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_QueryInterface(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_AddRef(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_Release(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetIids(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetTrustLevel(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAudioEffectsManagerStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManager(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,HSTRING device_id,enum __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory category,__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager **value) {
+    return This->lpVtbl->CreateAudioRenderEffectsManager(This,device_id,category,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManagerWithMode(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,HSTRING device_id,enum __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory category,enum __x_ABI_CWindows_CMedia_CAudioProcessing mode,__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager **value) {
+    return This->lpVtbl->CreateAudioRenderEffectsManagerWithMode(This,device_id,category,mode,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManager(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,HSTRING device_id,enum __x_ABI_CWindows_CMedia_CCapture_CMediaCategory category,__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager **value) {
+    return This->lpVtbl->CreateAudioCaptureEffectsManager(This,device_id,category,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManagerWithMode(__x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics* This,HSTRING device_id,enum __x_ABI_CWindows_CMedia_CCapture_CMediaCategory category,enum __x_ABI_CWindows_CMedia_CAudioProcessing mode,__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager **value) {
+    return This->lpVtbl->CreateAudioCaptureEffectsManagerWithMode(This,device_id,category,mode,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_Effects
+#define IID_IAudioEffectsManagerStatics IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics
+#define IAudioEffectsManagerStaticsVtbl __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStaticsVtbl
+#define IAudioEffectsManagerStatics __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics
+#define IAudioEffectsManagerStatics_QueryInterface __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_QueryInterface
+#define IAudioEffectsManagerStatics_AddRef __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_AddRef
+#define IAudioEffectsManagerStatics_Release __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_Release
+#define IAudioEffectsManagerStatics_GetIids __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetIids
+#define IAudioEffectsManagerStatics_GetRuntimeClassName __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetRuntimeClassName
+#define IAudioEffectsManagerStatics_GetTrustLevel __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_GetTrustLevel
+#define IAudioEffectsManagerStatics_CreateAudioRenderEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManager
+#define IAudioEffectsManagerStatics_CreateAudioRenderEffectsManagerWithMode __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioRenderEffectsManagerWithMode
+#define IAudioEffectsManagerStatics_CreateAudioCaptureEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManager
+#define IAudioEffectsManagerStatics_CreateAudioCaptureEffectsManagerWithMode __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_CreateAudioCaptureEffectsManagerWithMode
+#endif /* WIDL_using_Windows_Media_Effects */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CEffects_CIAudioEffectsManagerStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IAudioRenderEffectsManager interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager, 0x4dc98966, 0x8751, 0x42b2, 0xbf,0xcb, 0x39,0xca,0x78,0x64,0xbd,0x47);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                MIDL_INTERFACE("4dc98966-8751-42b2-bfcb-39ca7864bd47")
+                IAudioRenderEffectsManager : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE add_AudioRenderEffectsChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AudioRenderEffectsChanged(
+                        EventRegistrationToken token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetAudioRenderEffects(
+                        ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Media::Effects::AudioEffect* > **effects) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager, 0x4dc98966, 0x8751, 0x42b2, 0xbf,0xcb, 0x39,0xca,0x78,0x64,0xbd,0x47)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManagerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        TrustLevel *trustLevel);
+
+    /*** IAudioRenderEffectsManager methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_AudioRenderEffectsChanged)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AudioRenderEffectsChanged)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *GetAudioRenderEffects)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *This,
+        __FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect **effects);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManagerVtbl;
+
+interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManagerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAudioRenderEffectsManager methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_add_AudioRenderEffectsChanged(This,handler,token) (This)->lpVtbl->add_AudioRenderEffectsChanged(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_remove_AudioRenderEffectsChanged(This,token) (This)->lpVtbl->remove_AudioRenderEffectsChanged(This,token)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetAudioRenderEffects(This,effects) (This)->lpVtbl->GetAudioRenderEffects(This,effects)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_QueryInterface(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_AddRef(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_Release(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetIids(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetTrustLevel(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAudioRenderEffectsManager methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_add_AudioRenderEffectsChanged(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_AudioRenderEffectsChanged(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_remove_AudioRenderEffectsChanged(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_AudioRenderEffectsChanged(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetAudioRenderEffects(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager* This,__FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect **effects) {
+    return This->lpVtbl->GetAudioRenderEffects(This,effects);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_Effects
+#define IID_IAudioRenderEffectsManager IID___x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager
+#define IAudioRenderEffectsManagerVtbl __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManagerVtbl
+#define IAudioRenderEffectsManager __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager
+#define IAudioRenderEffectsManager_QueryInterface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_QueryInterface
+#define IAudioRenderEffectsManager_AddRef __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_AddRef
+#define IAudioRenderEffectsManager_Release __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_Release
+#define IAudioRenderEffectsManager_GetIids __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetIids
+#define IAudioRenderEffectsManager_GetRuntimeClassName __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetRuntimeClassName
+#define IAudioRenderEffectsManager_GetTrustLevel __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetTrustLevel
+#define IAudioRenderEffectsManager_add_AudioRenderEffectsChanged __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_add_AudioRenderEffectsChanged
+#define IAudioRenderEffectsManager_remove_AudioRenderEffectsChanged __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_remove_AudioRenderEffectsChanged
+#define IAudioRenderEffectsManager_GetAudioRenderEffects __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_GetAudioRenderEffects
+#endif /* WIDL_using_Windows_Media_Effects */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IAudioRenderEffectsManager2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2, 0xa844cd09, 0x5ecc, 0x44b3, 0xbb,0x4e, 0x1d,0xb0,0x72,0x87,0x13,0x9c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            namespace Effects {
+                MIDL_INTERFACE("a844cd09-5ecc-44b3-bb4e-1db07287139c")
+                IAudioRenderEffectsManager2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_EffectsProviderThumbnail(
+                        ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_EffectsProviderSettingsLabel(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE ShowSettingsUI(
+                        ) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2, 0xa844cd09, 0x5ecc, 0x44b3, 0xbb,0x4e, 0x1d,0xb0,0x72,0x87,0x13,0x9c)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IAudioRenderEffectsManager2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_EffectsProviderThumbnail)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_EffectsProviderSettingsLabel)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *ShowSettingsUI)(
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 *This);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2Vtbl;
+
+interface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2 {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAudioRenderEffectsManager2 methods ***/
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderThumbnail(This,value) (This)->lpVtbl->get_EffectsProviderThumbnail(This,value)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderSettingsLabel(This,value) (This)->lpVtbl->get_EffectsProviderSettingsLabel(This,value)
+#define __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_ShowSettingsUI(This) (This)->lpVtbl->ShowSettingsUI(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_QueryInterface(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_AddRef(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_Release(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetIids(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetTrustLevel(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAudioRenderEffectsManager2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderThumbnail(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType **value) {
+    return This->lpVtbl->get_EffectsProviderThumbnail(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderSettingsLabel(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This,HSTRING *value) {
+    return This->lpVtbl->get_EffectsProviderSettingsLabel(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_ShowSettingsUI(__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2* This) {
+    return This->lpVtbl->ShowSettingsUI(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Media_Effects
+#define IID_IAudioRenderEffectsManager2 IID___x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2
+#define IAudioRenderEffectsManager2Vtbl __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2Vtbl
+#define IAudioRenderEffectsManager2 __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2
+#define IAudioRenderEffectsManager2_QueryInterface __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_QueryInterface
+#define IAudioRenderEffectsManager2_AddRef __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_AddRef
+#define IAudioRenderEffectsManager2_Release __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_Release
+#define IAudioRenderEffectsManager2_GetIids __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetIids
+#define IAudioRenderEffectsManager2_GetRuntimeClassName __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetRuntimeClassName
+#define IAudioRenderEffectsManager2_GetTrustLevel __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_GetTrustLevel
+#define IAudioRenderEffectsManager2_get_EffectsProviderThumbnail __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderThumbnail
+#define IAudioRenderEffectsManager2_get_EffectsProviderSettingsLabel __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_get_EffectsProviderSettingsLabel
+#define IAudioRenderEffectsManager2_ShowSettingsUI __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_ShowSettingsUI
+#endif /* WIDL_using_Windows_Media_Effects */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.Effects.AudioCaptureEffectsManager
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_Effects_AudioCaptureEffectsManager_DEFINED
+#define RUNTIMECLASS_Windows_Media_Effects_AudioCaptureEffectsManager_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_Effects_AudioCaptureEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','C','a','p','t','u','r','e','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioCaptureEffectsManager[] = L"Windows.Media.Effects.AudioCaptureEffectsManager";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioCaptureEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','C','a','p','t','u','r','e','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_Effects_AudioCaptureEffectsManager_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Media.Effects.AudioEffect
  */
@@ -351,6 +1217,38 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioEffect[] 
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioEffect[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','E','f','f','e','c','t',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Media_Effects_AudioEffect_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.Effects.AudioEffectsManager
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_Effects_AudioEffectsManager_DEFINED
+#define RUNTIMECLASS_Windows_Media_Effects_AudioEffectsManager_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_Effects_AudioEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioEffectsManager[] = L"Windows.Media.Effects.AudioEffectsManager";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_Effects_AudioEffectsManager_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.Effects.AudioRenderEffectsManager
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_Effects_AudioRenderEffectsManager_DEFINED
+#define RUNTIMECLASS_Windows_Media_Effects_AudioRenderEffectsManager_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_Effects_AudioRenderEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','R','e','n','d','e','r','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioRenderEffectsManager[] = L"Windows.Media.Effects.AudioRenderEffectsManager";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_Effects_AudioRenderEffectsManager[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','E','f','f','e','c','t','s','.','A','u','d','i','o','R','e','n','d','e','r','E','f','f','e','c','t','s','M','a','n','a','g','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_Effects_AudioRenderEffectsManager_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -787,8 +1685,196 @@ static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CMedia__CEffects__CAudioE
 
 #endif  /* ____FIVectorView_1_Windows__CMedia__CEffects__CAudioEffect_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable, 0xa1c5e803, 0xa275, 0x5bb1, 0x9d,0x44, 0x2a,0xc8,0xae,0x9f,0xfb,0x89);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("a1c5e803-a275-5bb1-9d44-2ac8ae9ffb89")
+            ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*, ABI::Windows::Media::Effects::IAudioCaptureEffectsManager* >, IInspectable* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable, 0xa1c5e803, 0xa275, 0x5bb1, 0x9d,0x44, 0x2a,0xc8,0xae,0x9f,0xfb,0x89)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable *This,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *sender,
+        IInspectable *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectableVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_AddRef(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Release(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioCaptureEffectsManager*,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Invoke(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable* This,__x_ABI_CWindows_CMedia_CEffects_CIAudioCaptureEffectsManager *sender,IInspectable *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_AudioCaptureEffectsManager_IInspectable IID___FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectableVtbl __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectableVtbl
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectable __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectable_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_QueryInterface
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectable_AddRef __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_AddRef
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectable_Release __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Release
+#define ITypedEventHandler_AudioCaptureEffectsManager_IInspectable_Invoke __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioCaptureEffectsManager_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable, 0x4be29c7e, 0x449c, 0x576e, 0xa7,0xb8, 0x3a,0x40,0xf2,0xf0,0x1d,0xc8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("4be29c7e-449c-576e-a7b8-3a40f2f01dc8")
+            ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::Effects::AudioRenderEffectsManager*, ABI::Windows::Media::Effects::IAudioRenderEffectsManager* >, IInspectable* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable, 0x4be29c7e, 0x449c, 0x576e, 0xa7,0xb8, 0x3a,0x40,0xf2,0xf0,0x1d,0xc8)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable *This,
+        __x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *sender,
+        IInspectable *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectableVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_AddRef(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Release(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::Effects::AudioRenderEffectsManager*,IInspectable* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Invoke(__FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable* This,__x_ABI_CWindows_CMedia_CEffects_CIAudioRenderEffectsManager *sender,IInspectable *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_AudioRenderEffectsManager_IInspectable IID___FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectableVtbl __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectableVtbl
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectable __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectable_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_QueryInterface
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectable_AddRef __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_AddRef
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectable_Release __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Release
+#define ITypedEventHandler_AudioRenderEffectsManager_IInspectable_Invoke __FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CEffects__CAudioRenderEffectsManager_IInspectable_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER HSTRING_UserSize     (ULONG *, ULONG, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserMarshal  (ULONG *, unsigned char *, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserUnmarshal(ULONG *, unsigned char *, HSTRING *);
+void            __RPC_USER HSTRING_UserFree     (ULONG *, HSTRING *);
 
 /* End additional prototypes */
 
