@@ -19,3 +19,15 @@ FDIIsCabinet
 FDICopy
 FDIDestroy
 FDITruncateCabinet
+CreateCompressor@12
+SetCompressorInformation@16
+QueryCompressorInformation@16
+Compress@24
+ResetCompressor@4
+CloseCompressor@4
+CreateDecompressor@12
+SetDecompressorInformation@16
+QueryDecompressorInformation@16
+Decompress@24
+ResetDecompressor@4
+CloseDecompressor@4
