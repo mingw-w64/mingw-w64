@@ -890,6 +890,12 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   {
     return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _File, _Format, _Locale, _ArgList);
   }
+
+  __mingw_ovr int __cdecl _vwscanf_l(const wchar_t *_Format, _locale_t _Locale, va_list _ArgList)
+  {
+    return _vfwscanf_l(stdin, _Format, _Locale, _ArgList);
+  }
+
   __mingw_ovr int __cdecl _fwscanf_l(FILE *_File, const wchar_t *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
