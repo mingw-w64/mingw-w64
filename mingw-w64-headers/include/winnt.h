@@ -48,6 +48,13 @@ extern "C" {
 #endif
 #endif /* _ARM64_ */
 
+#if defined(__arm64ec__) && \
+  !(defined(_X86_) || defined(__i386__) || defined(_IA64_) || defined (__arm__) || defined(__aarch64__))
+#if !defined(_ARM64EC_)
+#define _ARM64EC_
+#endif
+#endif /* _ARM64EC_ */
+
 #if defined(__ia64__) && \
   !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__arm__) || defined(__aarch64__))
 #if !defined(_IA64_)

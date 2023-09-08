@@ -88,6 +88,13 @@
 #  endif
 #endif
 
+#if defined(__arm64ec__) && !defined(_M_ARM64EC)
+#  define _M_ARM64EC 1
+#  ifndef _ARM64EC_
+#    define _ARM64EC_ 1
+#  endif
+#endif
+
 #ifndef _X86_
    /* MS does not prefix symbols by underscores for 64-bit.  */
 #  ifndef __MINGW_USE_UNDERSCORE_PREFIX
