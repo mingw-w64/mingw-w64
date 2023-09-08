@@ -154,7 +154,6 @@ for f in \
 	d3d11_3 \
 	d3d11_4 \
 	d3d11sdklayers \
-	d3d12 \
 	d3d12sdklayers \
 	d3d12shader \
 	d3dcommon \
