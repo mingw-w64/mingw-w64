@@ -1100,6 +1100,9 @@ src_libmingwexarm64=\
   math/arm64/rint.c         math/arm64/rintf.c \
   math/arm-common/ldexpl.c
 
+if ARM64EC
+src_libmingwexarm64+=crt/chpe.S
+endif
 
 # These intrinsics are target independent:
 src_intrincs= \

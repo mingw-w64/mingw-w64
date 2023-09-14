@@ -7,7 +7,7 @@
 /*
 This assembly source file defines the `_load_config_used` structure, which is
 purely data. The main purpose is to include the metadata necessary for enabling
-Control Flow Guard (CFGuard).
+Control Flow Guard (CFGuard) and ARM64EC.
 
 Many of the symbols referenced here are supplied by the linker. This file has
 been constructed with LLVM/LLD in mind.
@@ -105,7 +105,11 @@ SYM(_load_config_used):
 	PTR	CFGSYM(__guard_longjmp_table) /* GuardLongJumpTargetTable */
 	PTR	CFGSYM(__guard_longjmp_count) /* GuardLongJumpTargetCount */
 	PTR	0 /* DynamicValueRelocTable */
+#if defined(__arm64ec__)
+	PTR	SYM(__chpe_metadata) /* CHPEMetadataPointer */
+#else
 	PTR	0 /* CHPEMetadataPointer */
+#endif
 	PTR	0 /* GuardRFFailureRoutine */
 	PTR	0 /* GuardRFFailureRoutineFunctionPointer */
 	.long	0 /* DynamicValueRelocTableOffset */
