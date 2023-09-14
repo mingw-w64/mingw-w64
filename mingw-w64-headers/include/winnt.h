@@ -2091,24 +2091,6 @@ extern "C" {
 #define UNW_FLAG_EHANDLER   0x1
 #define UNW_FLAG_UHANDLER   0x2
 
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    DWORD ImageBase;
-    PRUNTIME_FUNCTION FunctionEntry;
-  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
-  typedef struct _UNWIND_HISTORY_TABLE {
-    DWORD Count;
-    BYTE  LocalHint;
-    BYTE  GlobalHint;
-    BYTE  Search;
-    BYTE  Once;
-    DWORD LowAddress;
-    DWORD HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
   struct _DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
@@ -2122,7 +2104,7 @@ extern "C" {
     PCONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     ULONG ScopeIndex;
     BOOLEAN ControlPcIsUnwound;
     PBYTE NonVolatileRegisters;
@@ -2327,24 +2309,6 @@ extern "C" {
 #define UNW_FLAG_EHANDLER   0x1
 #define UNW_FLAG_UHANDLER   0x2
 
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    DWORD64 ImageBase;
-    PRUNTIME_FUNCTION FunctionEntry;
-  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
-  typedef struct _UNWIND_HISTORY_TABLE {
-    DWORD   Count;
-    BYTE    LocalHint;
-    BYTE    GlobalHint;
-    BYTE    Search;
-    BYTE    Once;
-    DWORD64 LowAddress;
-    DWORD64 HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
   struct _DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
@@ -2358,7 +2322,7 @@ extern "C" {
     PCONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     ULONG ScopeIndex;
     BOOLEAN ControlPcIsUnwound;
     PBYTE NonVolatileRegisters;
@@ -2964,29 +2928,9 @@ __buildmemorybarrier()
 
 #ifdef __x86_64__
 
-    /* http://msdn.microsoft.com/en-us/library/ms680597(VS.85).aspx */
-
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    ULONG64 ImageBase;
-    PRUNTIME_FUNCTION FunctionEntry;
-  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
 #define UNWIND_HISTORY_TABLE_NONE    0
 #define UNWIND_HISTORY_TABLE_GLOBAL  1
 #define UNWIND_HISTORY_TABLE_LOCAL   2
-
-  typedef struct _UNWIND_HISTORY_TABLE {
-    ULONG Count;
-    BYTE  LocalHint;
-    BYTE  GlobalHint;
-    BYTE  Search;
-    BYTE  Once;
-    ULONG64 LowAddress;
-    ULONG64 HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
 
   /* http://msdn.microsoft.com/en-us/library/b6sf5kbd(VS.80).aspx */
 
@@ -3004,7 +2948,7 @@ __buildmemorybarrier()
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
     /* http://www.nynaeve.net/?p=99 */
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     ULONG ScopeIndex;
     ULONG Fill0;
   };
@@ -8938,6 +8882,27 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       IMAGE_DATA_DIRECTORY ManagedNativeHeader;
     } IMAGE_COR20_HEADER,*PIMAGE_COR20_HEADER;
 #endif
+
+#ifndef __i386__
+
+#define UNWIND_HISTORY_TABLE_SIZE 12
+
+  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    ULONG_PTR ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+  typedef struct _UNWIND_HISTORY_TABLE {
+    DWORD     Count;
+    BYTE      LocalHint;
+    BYTE      GlobalHint;
+    BYTE      Search;
+    BYTE      Once;
+    ULONG_PTR LowAddress;
+    ULONG_PTR HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+#endif /* !__i386__ */
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
     NTSYSAPI WORD NTAPI RtlCaptureStackBackTrace (DWORD FramesToSkip, DWORD FramesToCapture, PVOID *BackTrace, PDWORD BackTraceHash);
