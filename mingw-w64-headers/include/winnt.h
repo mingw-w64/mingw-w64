@@ -1589,7 +1589,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 
 #ifdef _AMD64_
 
-#if defined(__x86_64) && !defined(RC_INVOKED)
+#if defined(__x86_64) && !defined(__arm64ec__) && !defined(RC_INVOKED)
 
 #ifdef __cplusplus
   extern "C" {
@@ -1789,7 +1789,7 @@ extern "C" {
 #ifdef __cplusplus
   }
 #endif
-#endif /* defined(__x86_64) && !defined(RC_INVOKED) */
+#endif /* defined(__x86_64) && !defined(__arm64ec__) && !defined(RC_INVOKED) */
 
 #define EXCEPTION_READ_FAULT 0
 #define EXCEPTION_WRITE_FAULT 1
@@ -2154,9 +2154,9 @@ extern "C" {
 #endif /* _ARM_ */
 
 
-#ifdef _ARM64_
+#if defined(_ARM64_) || defined(_ARM64EC_)
 
-#if defined(__aarch64__) && !defined(RC_INVOKED)
+#if (defined(__aarch64__) || defined(__arm64ec__)) && !defined(RC_INVOKED)
 
 #ifdef __cplusplus
   extern "C" {
@@ -2226,7 +2226,7 @@ extern "C" {
 #ifdef __cplusplus
   }
 #endif
-#endif /* defined(__aarch64__) && !defined(RC_INVOKED) */
+#endif /* (defined(__aarch64__) || defined(__arm64ec__)) && !defined(RC_INVOKED) */
 
 #define EXCEPTION_READ_FAULT    0
 #define EXCEPTION_WRITE_FAULT   1
@@ -9120,7 +9120,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #if !defined (__CRT__NO_INLINE) && !defined (__WIDL__)
     __CRT_INLINE PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
       volatile char *vptr =(volatile char *)ptr;
-#ifdef __x86_64
+#if defined(__x86_64__) && !defined(__arm64ec__)
       __stosb((PBYTE)((DWORD64)vptr),0,cnt);
 #else
       while(cnt) {
