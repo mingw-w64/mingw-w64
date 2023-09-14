@@ -1290,18 +1290,18 @@ const UINT D3D12_FILTER_REDUCTION_TYPE_SHIFT = 7;
 
 cpp_quote("#define D3D12_ENCODE_BASIC_FILTER(min, mag, mip, reduction) \\")
 cpp_quote("    ((D3D12_FILTER) ( \\")
-cpp_quote("    (((min) & D3D12_FILTER_TYPE_MASK) << D3D12_MIN_FILTER_SHIFT) | \\")
-cpp_quote("    (((mag) & D3D12_FILTER_TYPE_MASK) << D3D12_MAG_FILTER_SHIFT) | \\")
-cpp_quote("    (((mip) & D3D12_FILTER_TYPE_MASK) << D3D12_MIP_FILTER_SHIFT) | \\")
-cpp_quote("    (((reduction) & D3D12_FILTER_REDUCTION_TYPE_MASK) << D3D12_FILTER_REDUCTION_TYPE_SHIFT)))")
+cpp_quote("    (((min) & D3D12_FILTER_TYPE_MASK) << D3D12_MIN_FILTER_SHIFT) \\")
+cpp_quote("    | (((mag) & D3D12_FILTER_TYPE_MASK) << D3D12_MAG_FILTER_SHIFT) \\")
+cpp_quote("    | (((mip) & D3D12_FILTER_TYPE_MASK) << D3D12_MIP_FILTER_SHIFT) \\")
+cpp_quote("    | (((reduction) & D3D12_FILTER_REDUCTION_TYPE_MASK) << D3D12_FILTER_REDUCTION_TYPE_SHIFT)))")
 
 cpp_quote("#define D3D12_ENCODE_ANISOTROPIC_FILTER(reduction) \\")
 cpp_quote("    ((D3D12_FILTER) ( \\")
-cpp_quote("     D3D12_ANISOTROPIC_FILTERING_BIT | \\")
-cpp_quote("     D3D12_ENCODE_BASIC_FILTER(D3D12_FILTER_TYPE_LINEAR, \\")
-cpp_quote("                               D3D12_FILTER_TYPE_LINEAR, \\")
-cpp_quote("                               D3D12_FILTER_TYPE_LINEAR, \\")
-cpp_quote("                               reduction))) ")
+cpp_quote("     D3D12_ANISOTROPIC_FILTERING_BIT \\")
+cpp_quote("     | D3D12_ENCODE_BASIC_FILTER(D3D12_FILTER_TYPE_LINEAR, \\")
+cpp_quote("                                 D3D12_FILTER_TYPE_LINEAR, \\")
+cpp_quote("                                 D3D12_FILTER_TYPE_LINEAR, \\")
+cpp_quote("                                 reduction)))")
 
 cpp_quote("#define D3D12_DECODE_MAG_FILTER(filter) \\")
 cpp_quote("    ((D3D12_FILTER_TYPE)(((filter) >> D3D12_MAG_FILTER_SHIFT) & D3D12_FILTER_TYPE_MASK))")
@@ -3464,7 +3464,7 @@ interface ID3D12Device4 : ID3D12Device3
 
     D3D12_RESOURCE_ALLOCATION_INFO GetResourceAllocationInfo1(
             UINT visible_mask,
-            UINT num_resource_descs,
+            UINT resource_descs_count,
             const D3D12_RESOURCE_DESC *resource_descs,
             D3D12_RESOURCE_ALLOCATION_INFO1 *resource_allocation_info1);
 }
@@ -4005,7 +4005,7 @@ interface ID3D12Device5 : ID3D12Device4
     void RemoveDevice();
 
     HRESULT EnumerateMetaCommands(
-            UINT *num_meta_commands,
+            UINT *meta_commands_count,
             D3D12_META_COMMAND_DESC *descs);
 
     HRESULT EnumerateMetaCommandParameters(
@@ -4178,7 +4178,7 @@ typedef enum D3D12_DRED_ALLOCATION_TYPE
     D3D12_DRED_ALLOCATION_TYPE_VIDEO_EXTENSION_COMMAND = 0x2f,
     D3D12_DRED_ALLOCATION_TYPE_VIDEO_ENCODER = 0x30,
     D3D12_DRED_ALLOCATION_TYPE_VIDEO_ENCODER_HEAP = 0x31,
-    D3D12_DRED_ALLOCATION_TYPE_INVALID = 0xFFFFFFFF
+    D3D12_DRED_ALLOCATION_TYPE_INVALID = 0xffffffff,
 } D3D12_DRED_ALLOCATION_TYPE;
 
 typedef struct D3D12_DRED_ALLOCATION_NODE
@@ -4363,10 +4363,10 @@ typedef enum D3D12_MEASUREMENTS_ACTION
 interface ID3D12Device6 : ID3D12Device5
 {
     HRESULT SetBackgroundProcessingMode(
-            D3D12_BACKGROUND_PROCESSING_MODE Mode,
-            D3D12_MEASUREMENTS_ACTION MeasurementsAction,
-            HANDLE hEventToSignalUponCompletion,
-            BOOL*pbFurtherMeasurementsDesired);
+            D3D12_BACKGROUND_PROCESSING_MODE mode,
+            D3D12_MEASUREMENTS_ACTION action,
+            HANDLE event,
+            BOOL *further_measurements_desired);
 }
 
 cpp_quote("DEFINE_GUID(D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED, 0x62b0084e, 0xc70e, 0x4daa, 0xa1, 0x09, 0x30, 0xff, 0x8d, 0x5a, 0x04, 0x82);")
@@ -4430,7 +4430,7 @@ interface ID3D12Device8 : ID3D12Device7
 {
     D3D12_RESOURCE_ALLOCATION_INFO GetResourceAllocationInfo2(
             UINT visible_mask,
-            UINT num_resource_descs,
+            UINT resource_descs_count,
             const D3D12_RESOURCE_DESC1 *resource_descs,
             D3D12_RESOURCE_ALLOCATION_INFO1 *resource_allocation_info1);
 
@@ -4454,15 +4454,15 @@ interface ID3D12Device8 : ID3D12Device7
     void CreateSamplerFeedbackUnorderedAccessView(
             ID3D12Resource *targeted_resource,
             ID3D12Resource *feedback_resource,
-            D3D12_CPU_DESCRIPTOR_HANDLE dest_descriptor);
+            D3D12_CPU_DESCRIPTOR_HANDLE dst_descriptor);
 
     void GetCopyableFootprints1(
             const D3D12_RESOURCE_DESC1 *resource_desc,
             UINT first_subresource,
-            UINT num_subresources,
+            UINT subresources_count,
             UINT64 base_offset,
             D3D12_PLACED_SUBRESOURCE_FOOTPRINT *layouts,
-            UINT *num_rows,
+            UINT *rows_count,
             UINT64 *row_size_in_bytes,
             UINT64 *total_bytes);
 }
@@ -4618,7 +4618,7 @@ typedef struct D3D12_DISPATCH_RAYS_DESC
 interface ID3D12GraphicsCommandList4 : ID3D12GraphicsCommandList3
 {
     void BeginRenderPass(
-            UINT num_render_targets,
+            UINT render_targets_count,
             const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,
             const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,
             D3D12_RENDER_PASS_FLAGS flags);
@@ -4637,17 +4637,17 @@ interface ID3D12GraphicsCommandList4 : ID3D12GraphicsCommandList3
 
     void BuildRaytracingAccelerationStructure(
             const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,
-            UINT num_postbuild_info_descs,
+            UINT postbuild_info_descs_count,
             const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs);
 
     void EmitRaytracingAccelerationStructurePostbuildInfo(
             const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,
-            UINT num_source_acceleration_structures,
-            const D3D12_GPU_VIRTUAL_ADDRESS *source_acceleration_structure_data);
+            UINT src_acceleration_structures_count,
+            const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data);
 
     void CopyRaytracingAccelerationStructure(
-            D3D12_GPU_VIRTUAL_ADDRESS dest_acceleration_structure_data,
-            D3D12_GPU_VIRTUAL_ADDRESS source_acceleration_structure_data,
+            D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,
+            D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,
             D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode);
 
     void SetPipelineState1(ID3D12StateObject *state_object);
@@ -4925,7 +4925,7 @@ interface ID3D12Device10 : ID3D12Device9
             D3D12_BARRIER_LAYOUT initial_layout,
             const D3D12_CLEAR_VALUE *optimized_clear_value,
             ID3D12ProtectedResourceSession *protected_session,
-            UINT32 num_castable_formats,
+            UINT32 castable_formats_count,
             DXGI_FORMAT *castable_formats,
             REFIID riid_resource,
             void **resource);
@@ -4936,7 +4936,7 @@ interface ID3D12Device10 : ID3D12Device9
             const D3D12_RESOURCE_DESC1 *desc,
             D3D12_BARRIER_LAYOUT initial_layout,
             const D3D12_CLEAR_VALUE *optimized_clear_value,
-            UINT32 num_castable_formats,
+            UINT32 castable_formats_count,
             DXGI_FORMAT *castable_formats,
             REFIID riid,
             void **resource);
@@ -4946,7 +4946,7 @@ interface ID3D12Device10 : ID3D12Device9
             D3D12_BARRIER_LAYOUT initial_layout,
             const D3D12_CLEAR_VALUE *optimized_clear_value,
             ID3D12ProtectedResourceSession *protected_session,
-            UINT32 num_castable_formats,
+            UINT32 castable_formats_count,
             DXGI_FORMAT *castable_formats,
             REFIID riid,
             void **resource);
