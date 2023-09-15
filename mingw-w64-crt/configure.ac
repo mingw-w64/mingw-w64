@@ -156,7 +156,7 @@ AC_ARG_ENABLE([libarm64],
     [Build the WinARM64 libraries])],
   [],
   [AS_CASE([$host_cpu],
-    [aarch64*],[enable_libarm64=yes],
+    [aarch64* | arm64*],[enable_libarm64=yes],
     [*],[enable_libarm64=no])
   ])
 AC_MSG_RESULT([$enable_libarm64])
@@ -181,7 +181,7 @@ AS_CASE([$host_cpu],
     libx8632suffx=lib
     libarm64suffx=libarm64
     libarm32suffx=libarm32],
-  [aarch64*],[
+  [aarch64* | arm64*],[
     libx8664suffx=libx8664
     libx8632suffx=libx8632
     libarm64suffx=lib
@@ -209,6 +209,8 @@ AC_SUBST([LIBX8664SUFFIXDIR],[$libx8664suffx])
 AC_SUBST([LIBX8632SUFFIXDIR],[$libx8632suffx])
 AC_SUBST([LIBARM64SUFFIXDIR],[$libarm64suffx])
 AC_SUBST([LIBARM32SUFFIXDIR],[$libarm32suffx])
+
+AM_CONDITIONAL([ARM64EC],[test $host_cpu = arm64ec])
 
 # Checks for features.
 
@@ -377,6 +379,10 @@ AC_MSG_CHECKING([whether the linker provides __ImageBase symbol])
 
 cat <<_ACEOF >conftest.$ac_ext
 extern unsigned char __ImageBase[[]];
+
+// Define a dummy call helper to satisfy the linker on ARM64EC
+void *__os_arm64x_dispatch_ret = 0;
+
 void __main(void) {
 }
 int main(void) {
