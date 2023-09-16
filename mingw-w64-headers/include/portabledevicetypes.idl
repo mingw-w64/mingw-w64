@@ -8,9 +8,47 @@ import "oaidl.idl";
 import "ocidl.idl";
 import "propsys.idl";
 
+typedef enum tagWPD_STREAM_UNITS {
+    WPD_STREAM_UNITS_BYTES = 0x0,
+    WPD_STREAM_UNITS_FRAMES = 0x1,
+    WPD_STREAM_UNITS_ROWS = 0x2,
+    WPD_STREAM_UNITS_MILLISECONDS = 0x4,
+    WPD_STREAM_UNITS_MICROSECONDS = 0x8,
+} WPD_STREAM_UNITS;
+
+interface IWpdSerializer;
+interface IPortableDeviceValues;
 interface IPortableDeviceKeyCollection;
 interface IPortableDevicePropVariantCollection;
 interface IPortableDeviceValuesCollection;
+
+[
+   object,
+   uuid(b32f4002-bb27-45ff-af4f-06631c1e8dad),
+   pointer_default(unique)
+]
+interface IWpdSerializer : IUnknown
+{
+   HRESULT GetIPortableDeviceValuesFromBuffer(
+      [in, size_is(input_buffer_length)] BYTE *buffer,
+      [in] DWORD input_buffer_length,
+      [out] IPortableDeviceValues **params);
+
+   HRESULT WriteIPortableDeviceValuesToBuffer(
+      [in] DWORD output_buffer_length,
+      [in] IPortableDeviceValues *results,
+      [out, size_is(output_buffer_length), length_is(*bytes_written)] BYTE *buffer,
+      [out] DWORD *bytes_written);
+
+   HRESULT GetBufferFromIPortableDeviceValues(
+      [in] IPortableDeviceValues *source,
+      [out, size_is(, *buffer_size)] BYTE **buffer,
+      [out] DWORD *buffer_size);
+
+   HRESULT GetSerializedSize(
+      [in] IPortableDeviceValues *source,
+      [out] DWORD *size);
+}
 
 [
     uuid(6848f6f2-3155-4f86-b6f5-263eeeab3143),
@@ -220,16 +258,49 @@ interface IPortableDeviceValuesCollection : IUnknown
     HRESULT Clear();
     HRESULT RemoveAt([in] const DWORD dwIndex);
 }
-
 [
-    uuid(2b00ba2f-e750-4beb-9235-97142ede1d3e)
+    uuid(2b00ba2f-e750-4beb-9235-97142ede1d3e),
+    version(1.0)
 ]
 library PortableDeviceTypesLib
 {
     [
+        uuid(0b91a74b-ad7c-4a9d-b563-29eef9167172)
+    ]
+    coclass WpdSerializer
+    {
+        [default] interface IWpdSerializer;
+    }
+
+    [
         uuid(0c15d503-d017-47ce-9016-7b3f978721cc)
     ]
-    coclass PortableDeviceValues {
-        interface IPortableDeviceValues;
+    coclass PortableDeviceValues
+    {
+        [default] interface IPortableDeviceValues;
+    }
+
+    [
+        uuid(de2d022d-2480-43be-97f0-d1fa2cf98f4f)
+    ]
+    coclass PortableDeviceKeyCollection
+    {
+        [default] interface IPortableDeviceKeyCollection;
+    }
+
+    [
+        uuid(08a99e2f-6d6d-4b80-af5a-baf2bcbe4cb9)
+    ]
+    coclass PortableDevicePropVariantCollection
+    {
+        [default] interface IPortableDevicePropVariantCollection;
+    }
+
+    [
+        uuid(3882134d-14cf-4220-9cb4-435f86d83f60)
+    ]
+    coclass PortableDeviceValuesCollection
+    {
+        [default] interface IPortableDeviceValuesCollection;
     }
 }
