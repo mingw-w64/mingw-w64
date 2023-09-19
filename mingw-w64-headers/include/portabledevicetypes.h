@@ -26,6 +26,14 @@
 
 /* Forward declarations */
 
+#ifndef __IWpdSerializer_FWD_DEFINED__
+#define __IWpdSerializer_FWD_DEFINED__
+typedef interface IWpdSerializer IWpdSerializer;
+#ifdef __cplusplus
+interface IWpdSerializer;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IPortableDeviceValues_FWD_DEFINED__
 #define __IPortableDeviceValues_FWD_DEFINED__
 typedef interface IPortableDeviceValues IPortableDeviceValues;
@@ -58,6 +66,15 @@ interface IPortableDeviceValuesCollection;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __WpdSerializer_FWD_DEFINED__
+#define __WpdSerializer_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class WpdSerializer WpdSerializer;
+#else
+typedef struct WpdSerializer WpdSerializer;
+#endif /* defined __cplusplus */
+#endif /* defined __WpdSerializer_FWD_DEFINED__ */
+
 #ifndef __PortableDeviceValues_FWD_DEFINED__
 #define __PortableDeviceValues_FWD_DEFINED__
 #ifdef __cplusplus
@@ -67,6 +84,33 @@ typedef struct PortableDeviceValues PortableDeviceValues;
 #endif /* defined __cplusplus */
 #endif /* defined __PortableDeviceValues_FWD_DEFINED__ */
 
+#ifndef __PortableDeviceKeyCollection_FWD_DEFINED__
+#define __PortableDeviceKeyCollection_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class PortableDeviceKeyCollection PortableDeviceKeyCollection;
+#else
+typedef struct PortableDeviceKeyCollection PortableDeviceKeyCollection;
+#endif /* defined __cplusplus */
+#endif /* defined __PortableDeviceKeyCollection_FWD_DEFINED__ */
+
+#ifndef __PortableDevicePropVariantCollection_FWD_DEFINED__
+#define __PortableDevicePropVariantCollection_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class PortableDevicePropVariantCollection PortableDevicePropVariantCollection;
+#else
+typedef struct PortableDevicePropVariantCollection PortableDevicePropVariantCollection;
+#endif /* defined __cplusplus */
+#endif /* defined __PortableDevicePropVariantCollection_FWD_DEFINED__ */
+
+#ifndef __PortableDeviceValuesCollection_FWD_DEFINED__
+#define __PortableDeviceValuesCollection_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class PortableDeviceValuesCollection PortableDeviceValuesCollection;
+#else
+typedef struct PortableDeviceValuesCollection PortableDeviceValuesCollection;
+#endif /* defined __cplusplus */
+#endif /* defined __PortableDeviceValuesCollection_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -75,6 +119,29 @@ typedef struct PortableDeviceValues PortableDeviceValues;
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+typedef enum tagWPD_STREAM_UNITS {
+    WPD_STREAM_UNITS_BYTES = 0x0,
+    WPD_STREAM_UNITS_FRAMES = 0x1,
+    WPD_STREAM_UNITS_ROWS = 0x2,
+    WPD_STREAM_UNITS_MILLISECONDS = 0x4,
+    WPD_STREAM_UNITS_MICROSECONDS = 0x8
+} WPD_STREAM_UNITS;
+#ifndef __IWpdSerializer_FWD_DEFINED__
+#define __IWpdSerializer_FWD_DEFINED__
+typedef interface IWpdSerializer IWpdSerializer;
+#ifdef __cplusplus
+interface IWpdSerializer;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IPortableDeviceValues_FWD_DEFINED__
+#define __IPortableDeviceValues_FWD_DEFINED__
+typedef interface IPortableDeviceValues IPortableDeviceValues;
+#ifdef __cplusplus
+interface IPortableDeviceValues;
+#endif /* __cplusplus */
 #endif
 
 #ifndef __IPortableDeviceKeyCollection_FWD_DEFINED__
@@ -100,6 +167,132 @@ typedef interface IPortableDeviceValuesCollection IPortableDeviceValuesCollectio
 interface IPortableDeviceValuesCollection;
 #endif /* __cplusplus */
 #endif
+
+/*****************************************************************************
+ * IWpdSerializer interface
+ */
+#ifndef __IWpdSerializer_INTERFACE_DEFINED__
+#define __IWpdSerializer_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWpdSerializer, 0xb32f4002, 0xbb27, 0x45ff, 0xaf,0x4f, 0x06,0x63,0x1c,0x1e,0x8d,0xad);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b32f4002-bb27-45ff-af4f-06631c1e8dad")
+IWpdSerializer : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetIPortableDeviceValuesFromBuffer(
+        BYTE *buffer,
+        DWORD input_buffer_length,
+        IPortableDeviceValues **params) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteIPortableDeviceValuesToBuffer(
+        DWORD output_buffer_length,
+        IPortableDeviceValues *results,
+        BYTE *buffer,
+        DWORD *bytes_written) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBufferFromIPortableDeviceValues(
+        IPortableDeviceValues *source,
+        BYTE **buffer,
+        DWORD *buffer_size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSerializedSize(
+        IPortableDeviceValues *source,
+        DWORD *size) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWpdSerializer, 0xb32f4002, 0xbb27, 0x45ff, 0xaf,0x4f, 0x06,0x63,0x1c,0x1e,0x8d,0xad)
+#endif
+#else
+typedef struct IWpdSerializerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWpdSerializer *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWpdSerializer *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWpdSerializer *This);
+
+    /*** IWpdSerializer methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIPortableDeviceValuesFromBuffer)(
+        IWpdSerializer *This,
+        BYTE *buffer,
+        DWORD input_buffer_length,
+        IPortableDeviceValues **params);
+
+    HRESULT (STDMETHODCALLTYPE *WriteIPortableDeviceValuesToBuffer)(
+        IWpdSerializer *This,
+        DWORD output_buffer_length,
+        IPortableDeviceValues *results,
+        BYTE *buffer,
+        DWORD *bytes_written);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferFromIPortableDeviceValues)(
+        IWpdSerializer *This,
+        IPortableDeviceValues *source,
+        BYTE **buffer,
+        DWORD *buffer_size);
+
+    HRESULT (STDMETHODCALLTYPE *GetSerializedSize)(
+        IWpdSerializer *This,
+        IPortableDeviceValues *source,
+        DWORD *size);
+
+    END_INTERFACE
+} IWpdSerializerVtbl;
+
+interface IWpdSerializer {
+    CONST_VTBL IWpdSerializerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWpdSerializer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWpdSerializer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWpdSerializer_Release(This) (This)->lpVtbl->Release(This)
+/*** IWpdSerializer methods ***/
+#define IWpdSerializer_GetIPortableDeviceValuesFromBuffer(This,buffer,input_buffer_length,params) (This)->lpVtbl->GetIPortableDeviceValuesFromBuffer(This,buffer,input_buffer_length,params)
+#define IWpdSerializer_WriteIPortableDeviceValuesToBuffer(This,output_buffer_length,results,buffer,bytes_written) (This)->lpVtbl->WriteIPortableDeviceValuesToBuffer(This,output_buffer_length,results,buffer,bytes_written)
+#define IWpdSerializer_GetBufferFromIPortableDeviceValues(This,source,buffer,buffer_size) (This)->lpVtbl->GetBufferFromIPortableDeviceValues(This,source,buffer,buffer_size)
+#define IWpdSerializer_GetSerializedSize(This,source,size) (This)->lpVtbl->GetSerializedSize(This,source,size)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IWpdSerializer_QueryInterface(IWpdSerializer* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IWpdSerializer_AddRef(IWpdSerializer* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IWpdSerializer_Release(IWpdSerializer* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWpdSerializer methods ***/
+static __WIDL_INLINE HRESULT IWpdSerializer_GetIPortableDeviceValuesFromBuffer(IWpdSerializer* This,BYTE *buffer,DWORD input_buffer_length,IPortableDeviceValues **params) {
+    return This->lpVtbl->GetIPortableDeviceValuesFromBuffer(This,buffer,input_buffer_length,params);
+}
+static __WIDL_INLINE HRESULT IWpdSerializer_WriteIPortableDeviceValuesToBuffer(IWpdSerializer* This,DWORD output_buffer_length,IPortableDeviceValues *results,BYTE *buffer,DWORD *bytes_written) {
+    return This->lpVtbl->WriteIPortableDeviceValuesToBuffer(This,output_buffer_length,results,buffer,bytes_written);
+}
+static __WIDL_INLINE HRESULT IWpdSerializer_GetBufferFromIPortableDeviceValues(IWpdSerializer* This,IPortableDeviceValues *source,BYTE **buffer,DWORD *buffer_size) {
+    return This->lpVtbl->GetBufferFromIPortableDeviceValues(This,source,buffer,buffer_size);
+}
+static __WIDL_INLINE HRESULT IWpdSerializer_GetSerializedSize(IWpdSerializer* This,IPortableDeviceValues *source,DWORD *size) {
+    return This->lpVtbl->GetSerializedSize(This,source,size);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWpdSerializer_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IPortableDeviceValues interface
@@ -1076,6 +1269,19 @@ static __WIDL_INLINE HRESULT IPortableDeviceValuesCollection_RemoveAt(IPortableD
 DEFINE_GUID(LIBID_PortableDeviceTypesLib, 0x2b00ba2f, 0xe750, 0x4beb, 0x92,0x35, 0x97,0x14,0x2e,0xde,0x1d,0x3e);
 
 /*****************************************************************************
+ * WpdSerializer coclass
+ */
+
+DEFINE_GUID(CLSID_WpdSerializer, 0x0b91a74b, 0xad7c, 0x4a9d, 0xb5,0x63, 0x29,0xee,0xf9,0x16,0x71,0x72);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("0b91a74b-ad7c-4a9d-b563-29eef9167172") WpdSerializer;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(WpdSerializer, 0x0b91a74b, 0xad7c, 0x4a9d, 0xb5,0x63, 0x29,0xee,0xf9,0x16,0x71,0x72)
+#endif
+#endif
+
+/*****************************************************************************
  * PortableDeviceValues coclass
  */
 
@@ -1085,6 +1291,45 @@ DEFINE_GUID(CLSID_PortableDeviceValues, 0x0c15d503, 0xd017, 0x47ce, 0x90,0x16, 0
 class DECLSPEC_UUID("0c15d503-d017-47ce-9016-7b3f978721cc") PortableDeviceValues;
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(PortableDeviceValues, 0x0c15d503, 0xd017, 0x47ce, 0x90,0x16, 0x7b,0x3f,0x97,0x87,0x21,0xcc)
+#endif
+#endif
+
+/*****************************************************************************
+ * PortableDeviceKeyCollection coclass
+ */
+
+DEFINE_GUID(CLSID_PortableDeviceKeyCollection, 0xde2d022d, 0x2480, 0x43be, 0x97,0xf0, 0xd1,0xfa,0x2c,0xf9,0x8f,0x4f);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("de2d022d-2480-43be-97f0-d1fa2cf98f4f") PortableDeviceKeyCollection;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(PortableDeviceKeyCollection, 0xde2d022d, 0x2480, 0x43be, 0x97,0xf0, 0xd1,0xfa,0x2c,0xf9,0x8f,0x4f)
+#endif
+#endif
+
+/*****************************************************************************
+ * PortableDevicePropVariantCollection coclass
+ */
+
+DEFINE_GUID(CLSID_PortableDevicePropVariantCollection, 0x08a99e2f, 0x6d6d, 0x4b80, 0xaf,0x5a, 0xba,0xf2,0xbc,0xbe,0x4c,0xb9);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("08a99e2f-6d6d-4b80-af5a-baf2bcbe4cb9") PortableDevicePropVariantCollection;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(PortableDevicePropVariantCollection, 0x08a99e2f, 0x6d6d, 0x4b80, 0xaf,0x5a, 0xba,0xf2,0xbc,0xbe,0x4c,0xb9)
+#endif
+#endif
+
+/*****************************************************************************
+ * PortableDeviceValuesCollection coclass
+ */
+
+DEFINE_GUID(CLSID_PortableDeviceValuesCollection, 0x3882134d, 0x14cf, 0x4220, 0x9c,0xb4, 0x43,0x5f,0x86,0xd8,0x3f,0x60);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("3882134d-14cf-4220-9cb4-435f86d83f60") PortableDeviceValuesCollection;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(PortableDeviceValuesCollection, 0x3882134d, 0x14cf, 0x4220, 0x9c,0xb4, 0x43,0x5f,0x86,0xd8,0x3f,0x60)
 #endif
 #endif
 
