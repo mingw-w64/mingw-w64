@@ -466,6 +466,38 @@ interface ID3D12Tools;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ID3D12SDKConfiguration_FWD_DEFINED__
+#define __ID3D12SDKConfiguration_FWD_DEFINED__
+typedef interface ID3D12SDKConfiguration ID3D12SDKConfiguration;
+#ifdef __cplusplus
+interface ID3D12SDKConfiguration;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ID3D12GraphicsCommandList5_FWD_DEFINED__
+#define __ID3D12GraphicsCommandList5_FWD_DEFINED__
+typedef interface ID3D12GraphicsCommandList5 ID3D12GraphicsCommandList5;
+#ifdef __cplusplus
+interface ID3D12GraphicsCommandList5;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ID3D12GraphicsCommandList6_FWD_DEFINED__
+#define __ID3D12GraphicsCommandList6_FWD_DEFINED__
+typedef interface ID3D12GraphicsCommandList6 ID3D12GraphicsCommandList6;
+#ifdef __cplusplus
+interface ID3D12GraphicsCommandList6;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ID3D12GraphicsCommandList7_FWD_DEFINED__
+#define __ID3D12GraphicsCommandList7_FWD_DEFINED__
+typedef interface ID3D12GraphicsCommandList7 ID3D12GraphicsCommandList7;
+#ifdef __cplusplus
+interface ID3D12GraphicsCommandList7;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -21569,6 +21601,2684 @@ static __WIDL_INLINE WINBOOL ID3D12Tools_ShaderInstrumentationEnabled(ID3D12Tool
 
 #endif  /* __ID3D12Tools_INTERFACE_DEFINED__ */
 
+DEFINE_GUID(CLSID_D3D12Debug,                     0xf2352aeb, 0xdd84, 0x49fe, 0xb9, 0x7b, 0xa9, 0xdc, 0xfd, 0xcc, 0x1b, 0x4f);
+DEFINE_GUID(CLSID_D3D12Tools,                     0xe38216b1, 0x3c8c, 0x4833, 0xaa, 0x09, 0x0a, 0x06, 0xb6, 0x5d, 0x96, 0xc8);
+DEFINE_GUID(CLSID_D3D12DeviceRemovedExtendedData, 0x4a75bbc4, 0x9ff4, 0x4ad8, 0x9f, 0x18, 0xab, 0xae, 0x84, 0xdc, 0x5f, 0xf2);
+DEFINE_GUID(CLSID_D3D12SDKConfiguration,          0x7cda6aca, 0xa03e, 0x49c8, 0x94, 0x58, 0x03, 0x34, 0xd2, 0x0e, 0x07, 0xce);
+/*****************************************************************************
+ * ID3D12SDKConfiguration interface
+ */
+#ifndef __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+#define __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12SDKConfiguration, 0xe9eb5314, 0x33aa, 0x42b2, 0xa7,0x18, 0xd7,0x7f,0x58,0xb1,0xf1,0xc7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e9eb5314-33aa-42b2-a718-d77f58b1f1c7")
+ID3D12SDKConfiguration : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetSDKVersion(
+        UINT version,
+        const char *path) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12SDKConfiguration, 0xe9eb5314, 0x33aa, 0x42b2, 0xa7,0x18, 0xd7,0x7f,0x58,0xb1,0xf1,0xc7)
+#endif
+#else
+typedef struct ID3D12SDKConfigurationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12SDKConfiguration *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12SDKConfiguration *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12SDKConfiguration *This);
+
+    /*** ID3D12SDKConfiguration methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetSDKVersion)(
+        ID3D12SDKConfiguration *This,
+        UINT version,
+        const char *path);
+
+    END_INTERFACE
+} ID3D12SDKConfigurationVtbl;
+
+interface ID3D12SDKConfiguration {
+    CONST_VTBL ID3D12SDKConfigurationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12SDKConfiguration_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12SDKConfiguration_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12SDKConfiguration_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12SDKConfiguration methods ***/
+#define ID3D12SDKConfiguration_SetSDKVersion(This,version,path) (This)->lpVtbl->SetSDKVersion(This,version,path)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12SDKConfiguration_QueryInterface(ID3D12SDKConfiguration* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12SDKConfiguration_AddRef(ID3D12SDKConfiguration* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12SDKConfiguration_Release(ID3D12SDKConfiguration* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12SDKConfiguration methods ***/
+static __WIDL_INLINE HRESULT ID3D12SDKConfiguration_SetSDKVersion(ID3D12SDKConfiguration* This,UINT version,const char *path) {
+    return This->lpVtbl->SetSDKVersion(This,version,path);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12SDKConfiguration_INTERFACE_DEFINED__ */
+
+typedef enum D3D12_AXIS_SHADING_RATE {
+    D3D12_AXIS_SHADING_RATE_1X = 0x0,
+    D3D12_AXIS_SHADING_RATE_2X = 0x1,
+    D3D12_AXIS_SHADING_RATE_4X = 0x2
+} D3D12_AXIS_SHADING_RATE;
+typedef enum D3D12_SHADING_RATE {
+    D3D12_SHADING_RATE_1X1 = 0x0,
+    D3D12_SHADING_RATE_1X2 = 0x1,
+    D3D12_SHADING_RATE_2X1 = 0x4,
+    D3D12_SHADING_RATE_2X2 = 0x5,
+    D3D12_SHADING_RATE_2X4 = 0x6,
+    D3D12_SHADING_RATE_4X2 = 0x9,
+    D3D12_SHADING_RATE_4X4 = 0xa
+} D3D12_SHADING_RATE;
+typedef enum D3D12_SHADING_RATE_COMBINER {
+    D3D12_SHADING_RATE_COMBINER_PASSTHROUGH = 0x0,
+    D3D12_SHADING_RATE_COMBINER_OVERRIDE = 0x1,
+    D3D12_SHADING_RATE_COMBINER_MIN = 0x2,
+    D3D12_SHADING_RATE_COMBINER_MAX = 0x3,
+    D3D12_SHADING_RATE_COMBINER_SUM = 0x4
+} D3D12_SHADING_RATE_COMBINER;
+/*****************************************************************************
+ * ID3D12GraphicsCommandList5 interface
+ */
+#ifndef __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
+#define __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12GraphicsCommandList5, 0x55050859, 0x4024, 0x474c, 0x87,0xf5, 0x64,0x72,0xea,0xee,0x44,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("55050859-4024-474c-87f5-6472eaee44ea")
+ID3D12GraphicsCommandList5 : public ID3D12GraphicsCommandList4
+{
+    virtual void STDMETHODCALLTYPE RSSetShadingRate(
+        D3D12_SHADING_RATE base_shading_rate,
+        const D3D12_SHADING_RATE_COMBINER *combiners) = 0;
+
+    virtual void STDMETHODCALLTYPE RSSetShadingRateImage(
+        ID3D12Resource *shading_rate_image) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12GraphicsCommandList5, 0x55050859, 0x4024, 0x474c, 0x87,0xf5, 0x64,0x72,0xea,0xee,0x44,0xea)
+#endif
+#else
+typedef struct ID3D12GraphicsCommandList5Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12GraphicsCommandList5 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12GraphicsCommandList5 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12GraphicsCommandList5 *This);
+
+    /*** ID3D12Object methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D12GraphicsCommandList5 *This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D12GraphicsCommandList5 *This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D12GraphicsCommandList5 *This,
+        REFGUID guid,
+        const IUnknown *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        ID3D12GraphicsCommandList5 *This,
+        const WCHAR *name);
+
+    /*** ID3D12DeviceChild methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        ID3D12GraphicsCommandList5 *This,
+        REFIID riid,
+        void **device);
+
+    /*** ID3D12CommandList methods ***/
+    D3D12_COMMAND_LIST_TYPE (STDMETHODCALLTYPE *GetType)(
+        ID3D12GraphicsCommandList5 *This);
+
+    /*** ID3D12GraphicsCommandList methods ***/
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        ID3D12GraphicsCommandList5 *This);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12CommandAllocator *allocator,
+        ID3D12PipelineState *initial_state);
+
+    void (STDMETHODCALLTYPE *ClearState)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *DrawInstanced)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT vertex_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *DrawIndexedInstanced)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT index_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        INT base_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *Dispatch)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT x,
+        UINT u,
+        UINT z);
+
+    void (STDMETHODCALLTYPE *CopyBufferRegion)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT64 byte_count);
+
+    void (STDMETHODCALLTYPE *CopyTextureRegion)(
+        ID3D12GraphicsCommandList5 *This,
+        const D3D12_TEXTURE_COPY_LOCATION *dst,
+        UINT dst_x,
+        UINT dst_y,
+        UINT dst_z,
+        const D3D12_TEXTURE_COPY_LOCATION *src,
+        const D3D12_BOX *src_box);
+
+    void (STDMETHODCALLTYPE *CopyResource)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_resource,
+        ID3D12Resource *src_resource);
+
+    void (STDMETHODCALLTYPE *CopyTiles)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *tiled_resource,
+        const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,
+        const D3D12_TILE_REGION_SIZE *tile_region_size,
+        ID3D12Resource *buffer,
+        UINT64 buffer_offset,
+        D3D12_TILE_COPY_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *ResolveSubresource)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource,
+        DXGI_FORMAT format);
+
+    void (STDMETHODCALLTYPE *IASetPrimitiveTopology)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_PRIMITIVE_TOPOLOGY primitive_topology);
+
+    void (STDMETHODCALLTYPE *RSSetViewports)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT viewport_count,
+        const D3D12_VIEWPORT *viewports);
+
+    void (STDMETHODCALLTYPE *RSSetScissorRects)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *OMSetBlendFactor)(
+        ID3D12GraphicsCommandList5 *This,
+        const FLOAT blend_factor[4]);
+
+    void (STDMETHODCALLTYPE *OMSetStencilRef)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT stencil_ref);
+
+    void (STDMETHODCALLTYPE *SetPipelineState)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *ResourceBarrier)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT barrier_count,
+        const D3D12_RESOURCE_BARRIER *barriers);
+
+    void (STDMETHODCALLTYPE *ExecuteBundle)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12GraphicsCommandList *command_list);
+
+    void (STDMETHODCALLTYPE *SetDescriptorHeaps)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT heap_count,
+        ID3D12DescriptorHeap *const *heaps);
+
+    void (STDMETHODCALLTYPE *SetComputeRootSignature)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootSignature)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetComputeRootDescriptorTable)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootDescriptorTable)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstant)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstant)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstants)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstants)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRootConstantBufferView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootConstantBufferView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootShaderResourceView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootShaderResourceView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *IASetIndexBuffer)(
+        ID3D12GraphicsCommandList5 *This,
+        const D3D12_INDEX_BUFFER_VIEW *view);
+
+    void (STDMETHODCALLTYPE *IASetVertexBuffers)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_VERTEX_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *SOSetTargets)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *OMSetRenderTargets)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT render_target_descriptor_count,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,
+        WINBOOL single_descriptor_handle,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor);
+
+    void (STDMETHODCALLTYPE *ClearDepthStencilView)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE dsv,
+        D3D12_CLEAR_FLAGS flags,
+        FLOAT depth,
+        UINT8 stencil,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearRenderTargetView)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE rtv,
+        const FLOAT color[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewUint)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const UINT values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewFloat)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const float values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *DiscardResource)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *resource,
+        const D3D12_DISCARD_REGION *region);
+
+    void (STDMETHODCALLTYPE *BeginQuery)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *EndQuery)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *ResolveQueryData)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT start_index,
+        UINT query_count,
+        ID3D12Resource *dst_buffer,
+        UINT64 aligned_dst_buffer_offset);
+
+    void (STDMETHODCALLTYPE *SetPredication)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *buffer,
+        UINT64 aligned_buffer_offset,
+        D3D12_PREDICATION_OP operation);
+
+    void (STDMETHODCALLTYPE *SetMarker)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *BeginEvent)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *EndEvent)(
+        ID3D12GraphicsCommandList5 *This);
+
+    void (STDMETHODCALLTYPE *ExecuteIndirect)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12CommandSignature *command_signature,
+        UINT max_command_count,
+        ID3D12Resource *arg_buffer,
+        UINT64 arg_buffer_offset,
+        ID3D12Resource *count_buffer,
+        UINT64 count_buffer_offset);
+
+    /*** ID3D12GraphicsCommandList1 methods ***/
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT64)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *OMSetDepthBounds)(
+        ID3D12GraphicsCommandList5 *This,
+        FLOAT min,
+        FLOAT max);
+
+    void (STDMETHODCALLTYPE *SetSamplePositions)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT sample_count,
+        UINT pixel_count,
+        D3D12_SAMPLE_POSITION *sample_positions);
+
+    void (STDMETHODCALLTYPE *ResolveSubresourceRegion)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource_idx,
+        UINT dst_x,
+        UINT dst_y,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource_idx,
+        D3D12_RECT *src_rect,
+        DXGI_FORMAT format,
+        D3D12_RESOLVE_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetViewInstanceMask)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT mask);
+
+    /*** ID3D12GraphicsCommandList2 methods ***/
+    void (STDMETHODCALLTYPE *WriteBufferImmediate)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT count,
+        const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,
+        const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes);
+
+    /*** ID3D12GraphicsCommandList3 methods ***/
+    void (STDMETHODCALLTYPE *SetProtectedResourceSession)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12ProtectedResourceSession *protected_resource_session);
+
+    /*** ID3D12GraphicsCommandList4 methods ***/
+    void (STDMETHODCALLTYPE *BeginRenderPass)(
+        ID3D12GraphicsCommandList5 *This,
+        UINT render_targets_count,
+        const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,
+        const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,
+        D3D12_RENDER_PASS_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *EndRenderPass)(
+        ID3D12GraphicsCommandList5 *This);
+
+    void (STDMETHODCALLTYPE *InitializeMetaCommand)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *initialization_parameters_data,
+        SIZE_T initialization_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *ExecuteMetaCommand)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *execution_parameters_data,
+        SIZE_T execution_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *BuildRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList5 *This,
+        const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,
+        UINT postbuild_info_descs_count,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs);
+
+    void (STDMETHODCALLTYPE *EmitRaytracingAccelerationStructurePostbuildInfo)(
+        ID3D12GraphicsCommandList5 *This,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,
+        UINT src_acceleration_structures_count,
+        const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data);
+
+    void (STDMETHODCALLTYPE *CopyRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,
+        D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,
+        D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetPipelineState1)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12StateObject *state_object);
+
+    void (STDMETHODCALLTYPE *DispatchRays)(
+        ID3D12GraphicsCommandList5 *This,
+        const D3D12_DISPATCH_RAYS_DESC *desc);
+
+    /*** ID3D12GraphicsCommandList5 methods ***/
+    void (STDMETHODCALLTYPE *RSSetShadingRate)(
+        ID3D12GraphicsCommandList5 *This,
+        D3D12_SHADING_RATE base_shading_rate,
+        const D3D12_SHADING_RATE_COMBINER *combiners);
+
+    void (STDMETHODCALLTYPE *RSSetShadingRateImage)(
+        ID3D12GraphicsCommandList5 *This,
+        ID3D12Resource *shading_rate_image);
+
+    END_INTERFACE
+} ID3D12GraphicsCommandList5Vtbl;
+
+interface ID3D12GraphicsCommandList5 {
+    CONST_VTBL ID3D12GraphicsCommandList5Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12GraphicsCommandList5_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12GraphicsCommandList5_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12GraphicsCommandList5_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12Object methods ***/
+#define ID3D12GraphicsCommandList5_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList5_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList5_SetPrivateDataInterface(This,guid,data) (This)->lpVtbl->SetPrivateDataInterface(This,guid,data)
+#define ID3D12GraphicsCommandList5_SetName(This,name) (This)->lpVtbl->SetName(This,name)
+/*** ID3D12DeviceChild methods ***/
+#define ID3D12GraphicsCommandList5_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** ID3D12CommandList methods ***/
+#define ID3D12GraphicsCommandList5_GetType(This) (This)->lpVtbl->GetType(This)
+/*** ID3D12GraphicsCommandList methods ***/
+#define ID3D12GraphicsCommandList5_Close(This) (This)->lpVtbl->Close(This)
+#define ID3D12GraphicsCommandList5_Reset(This,allocator,initial_state) (This)->lpVtbl->Reset(This,allocator,initial_state)
+#define ID3D12GraphicsCommandList5_ClearState(This,pipeline_state) (This)->lpVtbl->ClearState(This,pipeline_state)
+#define ID3D12GraphicsCommandList5_DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location) (This)->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList5_DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location) (This)->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList5_Dispatch(This,x,u,z) (This)->lpVtbl->Dispatch(This,x,u,z)
+#define ID3D12GraphicsCommandList5_CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count) (This)->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count)
+#define ID3D12GraphicsCommandList5_CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box) (This)->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box)
+#define ID3D12GraphicsCommandList5_CopyResource(This,dst_resource,src_resource) (This)->lpVtbl->CopyResource(This,dst_resource,src_resource)
+#define ID3D12GraphicsCommandList5_CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags) (This)->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags)
+#define ID3D12GraphicsCommandList5_ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format) (This)->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format)
+#define ID3D12GraphicsCommandList5_IASetPrimitiveTopology(This,primitive_topology) (This)->lpVtbl->IASetPrimitiveTopology(This,primitive_topology)
+#define ID3D12GraphicsCommandList5_RSSetViewports(This,viewport_count,viewports) (This)->lpVtbl->RSSetViewports(This,viewport_count,viewports)
+#define ID3D12GraphicsCommandList5_RSSetScissorRects(This,rect_count,rects) (This)->lpVtbl->RSSetScissorRects(This,rect_count,rects)
+#define ID3D12GraphicsCommandList5_OMSetBlendFactor(This,blend_factor) (This)->lpVtbl->OMSetBlendFactor(This,blend_factor)
+#define ID3D12GraphicsCommandList5_OMSetStencilRef(This,stencil_ref) (This)->lpVtbl->OMSetStencilRef(This,stencil_ref)
+#define ID3D12GraphicsCommandList5_SetPipelineState(This,pipeline_state) (This)->lpVtbl->SetPipelineState(This,pipeline_state)
+#define ID3D12GraphicsCommandList5_ResourceBarrier(This,barrier_count,barriers) (This)->lpVtbl->ResourceBarrier(This,barrier_count,barriers)
+#define ID3D12GraphicsCommandList5_ExecuteBundle(This,command_list) (This)->lpVtbl->ExecuteBundle(This,command_list)
+#define ID3D12GraphicsCommandList5_SetDescriptorHeaps(This,heap_count,heaps) (This)->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps)
+#define ID3D12GraphicsCommandList5_SetComputeRootSignature(This,root_signature) (This)->lpVtbl->SetComputeRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList5_SetGraphicsRootSignature(This,root_signature) (This)->lpVtbl->SetGraphicsRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList5_SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList5_SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList5_SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList5_SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList5_SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList5_SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList5_SetComputeRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_SetGraphicsRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_SetComputeRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_SetGraphicsRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_SetComputeRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList5_IASetIndexBuffer(This,view) (This)->lpVtbl->IASetIndexBuffer(This,view)
+#define ID3D12GraphicsCommandList5_IASetVertexBuffers(This,start_slot,view_count,views) (This)->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList5_SOSetTargets(This,start_slot,view_count,views) (This)->lpVtbl->SOSetTargets(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList5_OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor) (This)->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor)
+#define ID3D12GraphicsCommandList5_ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects) (This)->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects)
+#define ID3D12GraphicsCommandList5_ClearRenderTargetView(This,rtv,color,rect_count,rects) (This)->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects)
+#define ID3D12GraphicsCommandList5_ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList5_ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList5_DiscardResource(This,resource,region) (This)->lpVtbl->DiscardResource(This,resource,region)
+#define ID3D12GraphicsCommandList5_BeginQuery(This,heap,type,index) (This)->lpVtbl->BeginQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList5_EndQuery(This,heap,type,index) (This)->lpVtbl->EndQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList5_ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset) (This)->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset)
+#define ID3D12GraphicsCommandList5_SetPredication(This,buffer,aligned_buffer_offset,operation) (This)->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation)
+#define ID3D12GraphicsCommandList5_SetMarker(This,metadata,data,size) (This)->lpVtbl->SetMarker(This,metadata,data,size)
+#define ID3D12GraphicsCommandList5_BeginEvent(This,metadata,data,size) (This)->lpVtbl->BeginEvent(This,metadata,data,size)
+#define ID3D12GraphicsCommandList5_EndEvent(This) (This)->lpVtbl->EndEvent(This)
+#define ID3D12GraphicsCommandList5_ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset) (This)->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset)
+/*** ID3D12GraphicsCommandList1 methods ***/
+#define ID3D12GraphicsCommandList5_AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList5_AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList5_OMSetDepthBounds(This,min,max) (This)->lpVtbl->OMSetDepthBounds(This,min,max)
+#define ID3D12GraphicsCommandList5_SetSamplePositions(This,sample_count,pixel_count,sample_positions) (This)->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions)
+#define ID3D12GraphicsCommandList5_ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode) (This)->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode)
+#define ID3D12GraphicsCommandList5_SetViewInstanceMask(This,mask) (This)->lpVtbl->SetViewInstanceMask(This,mask)
+/*** ID3D12GraphicsCommandList2 methods ***/
+#define ID3D12GraphicsCommandList5_WriteBufferImmediate(This,count,parameters,modes) (This)->lpVtbl->WriteBufferImmediate(This,count,parameters,modes)
+/*** ID3D12GraphicsCommandList3 methods ***/
+#define ID3D12GraphicsCommandList5_SetProtectedResourceSession(This,protected_resource_session) (This)->lpVtbl->SetProtectedResourceSession(This,protected_resource_session)
+/*** ID3D12GraphicsCommandList4 methods ***/
+#define ID3D12GraphicsCommandList5_BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags) (This)->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags)
+#define ID3D12GraphicsCommandList5_EndRenderPass(This) (This)->lpVtbl->EndRenderPass(This)
+#define ID3D12GraphicsCommandList5_InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes) (This)->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList5_ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes) (This)->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList5_BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs) (This)->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs)
+#define ID3D12GraphicsCommandList5_EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data) (This)->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data)
+#define ID3D12GraphicsCommandList5_CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode) (This)->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode)
+#define ID3D12GraphicsCommandList5_SetPipelineState1(This,state_object) (This)->lpVtbl->SetPipelineState1(This,state_object)
+#define ID3D12GraphicsCommandList5_DispatchRays(This,desc) (This)->lpVtbl->DispatchRays(This,desc)
+/*** ID3D12GraphicsCommandList5 methods ***/
+#define ID3D12GraphicsCommandList5_RSSetShadingRate(This,base_shading_rate,combiners) (This)->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners)
+#define ID3D12GraphicsCommandList5_RSSetShadingRateImage(This,shading_rate_image) (This)->lpVtbl->RSSetShadingRateImage(This,shading_rate_image)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_QueryInterface(ID3D12GraphicsCommandList5* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList5_AddRef(ID3D12GraphicsCommandList5* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList5_Release(ID3D12GraphicsCommandList5* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12Object methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_GetPrivateData(ID3D12GraphicsCommandList5* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_SetPrivateData(ID3D12GraphicsCommandList5* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_SetPrivateDataInterface(ID3D12GraphicsCommandList5* This,REFGUID guid,const IUnknown *data) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_SetName(ID3D12GraphicsCommandList5* This,const WCHAR *name) {
+    return This->lpVtbl->SetName(This,name);
+}
+/*** ID3D12DeviceChild methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_GetDevice(ID3D12GraphicsCommandList5* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** ID3D12CommandList methods ***/
+static __WIDL_INLINE D3D12_COMMAND_LIST_TYPE ID3D12GraphicsCommandList5_GetType(ID3D12GraphicsCommandList5* This) {
+    return This->lpVtbl->GetType(This);
+}
+/*** ID3D12GraphicsCommandList methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_Close(ID3D12GraphicsCommandList5* This) {
+    return This->lpVtbl->Close(This);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList5_Reset(ID3D12GraphicsCommandList5* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
+    return This->lpVtbl->Reset(This,allocator,initial_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ClearState(ID3D12GraphicsCommandList5* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_DrawInstanced(ID3D12GraphicsCommandList5* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_DrawIndexedInstanced(ID3D12GraphicsCommandList5* This,UINT index_count_per_instance,UINT instance_count,UINT start_vertex_location,INT base_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_Dispatch(ID3D12GraphicsCommandList5* This,UINT x,UINT u,UINT z) {
+    This->lpVtbl->Dispatch(This,x,u,z);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_CopyBufferRegion(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT64 byte_count) {
+    This->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_CopyTextureRegion(ID3D12GraphicsCommandList5* This,const D3D12_TEXTURE_COPY_LOCATION *dst,UINT dst_x,UINT dst_y,UINT dst_z,const D3D12_TEXTURE_COPY_LOCATION *src,const D3D12_BOX *src_box) {
+    This->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_CopyResource(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_resource,ID3D12Resource *src_resource) {
+    This->lpVtbl->CopyResource(This,dst_resource,src_resource);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_CopyTiles(ID3D12GraphicsCommandList5* This,ID3D12Resource *tiled_resource,const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,const D3D12_TILE_REGION_SIZE *tile_region_size,ID3D12Resource *buffer,UINT64 buffer_offset,D3D12_TILE_COPY_FLAGS flags) {
+    This->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ResolveSubresource(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_resource,UINT dst_sub_resource,ID3D12Resource *src_resource,UINT src_sub_resource,DXGI_FORMAT format) {
+    This->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_IASetPrimitiveTopology(ID3D12GraphicsCommandList5* This,D3D12_PRIMITIVE_TOPOLOGY primitive_topology) {
+    This->lpVtbl->IASetPrimitiveTopology(This,primitive_topology);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_RSSetViewports(ID3D12GraphicsCommandList5* This,UINT viewport_count,const D3D12_VIEWPORT *viewports) {
+    This->lpVtbl->RSSetViewports(This,viewport_count,viewports);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_RSSetScissorRects(ID3D12GraphicsCommandList5* This,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->RSSetScissorRects(This,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_OMSetBlendFactor(ID3D12GraphicsCommandList5* This,const FLOAT blend_factor[4]) {
+    This->lpVtbl->OMSetBlendFactor(This,blend_factor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_OMSetStencilRef(ID3D12GraphicsCommandList5* This,UINT stencil_ref) {
+    This->lpVtbl->OMSetStencilRef(This,stencil_ref);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetPipelineState(ID3D12GraphicsCommandList5* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->SetPipelineState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ResourceBarrier(ID3D12GraphicsCommandList5* This,UINT barrier_count,const D3D12_RESOURCE_BARRIER *barriers) {
+    This->lpVtbl->ResourceBarrier(This,barrier_count,barriers);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ExecuteBundle(ID3D12GraphicsCommandList5* This,ID3D12GraphicsCommandList *command_list) {
+    This->lpVtbl->ExecuteBundle(This,command_list);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetDescriptorHeaps(ID3D12GraphicsCommandList5* This,UINT heap_count,ID3D12DescriptorHeap *const *heaps) {
+    This->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRootSignature(ID3D12GraphicsCommandList5* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetComputeRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRootSignature(ID3D12GraphicsCommandList5* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetGraphicsRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRootDescriptorTable(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRootDescriptorTable(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRoot32BitConstant(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRoot32BitConstant(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRoot32BitConstants(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRoot32BitConstants(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRootConstantBufferView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRootConstantBufferView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRootShaderResourceView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRootShaderResourceView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetComputeRootUnorderedAccessView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetGraphicsRootUnorderedAccessView(ID3D12GraphicsCommandList5* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_IASetIndexBuffer(ID3D12GraphicsCommandList5* This,const D3D12_INDEX_BUFFER_VIEW *view) {
+    This->lpVtbl->IASetIndexBuffer(This,view);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_IASetVertexBuffers(ID3D12GraphicsCommandList5* This,UINT start_slot,UINT view_count,const D3D12_VERTEX_BUFFER_VIEW *views) {
+    This->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SOSetTargets(ID3D12GraphicsCommandList5* This,UINT start_slot,UINT view_count,const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views) {
+    This->lpVtbl->SOSetTargets(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_OMSetRenderTargets(ID3D12GraphicsCommandList5* This,UINT render_target_descriptor_count,const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,WINBOOL single_descriptor_handle,const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor) {
+    This->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ClearDepthStencilView(ID3D12GraphicsCommandList5* This,D3D12_CPU_DESCRIPTOR_HANDLE dsv,D3D12_CLEAR_FLAGS flags,FLOAT depth,UINT8 stencil,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ClearRenderTargetView(ID3D12GraphicsCommandList5* This,D3D12_CPU_DESCRIPTOR_HANDLE rtv,const FLOAT color[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ClearUnorderedAccessViewUint(ID3D12GraphicsCommandList5* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const UINT values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ClearUnorderedAccessViewFloat(ID3D12GraphicsCommandList5* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const float values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_DiscardResource(ID3D12GraphicsCommandList5* This,ID3D12Resource *resource,const D3D12_DISCARD_REGION *region) {
+    This->lpVtbl->DiscardResource(This,resource,region);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_BeginQuery(ID3D12GraphicsCommandList5* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->BeginQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_EndQuery(ID3D12GraphicsCommandList5* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->EndQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ResolveQueryData(ID3D12GraphicsCommandList5* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT start_index,UINT query_count,ID3D12Resource *dst_buffer,UINT64 aligned_dst_buffer_offset) {
+    This->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetPredication(ID3D12GraphicsCommandList5* This,ID3D12Resource *buffer,UINT64 aligned_buffer_offset,D3D12_PREDICATION_OP operation) {
+    This->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetMarker(ID3D12GraphicsCommandList5* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->SetMarker(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_BeginEvent(ID3D12GraphicsCommandList5* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->BeginEvent(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_EndEvent(ID3D12GraphicsCommandList5* This) {
+    This->lpVtbl->EndEvent(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ExecuteIndirect(ID3D12GraphicsCommandList5* This,ID3D12CommandSignature *command_signature,UINT max_command_count,ID3D12Resource *arg_buffer,UINT64 arg_buffer_offset,ID3D12Resource *count_buffer,UINT64 count_buffer_offset) {
+    This->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset);
+}
+/*** ID3D12GraphicsCommandList1 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_AtomicCopyBufferUINT(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_AtomicCopyBufferUINT64(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_OMSetDepthBounds(ID3D12GraphicsCommandList5* This,FLOAT min,FLOAT max) {
+    This->lpVtbl->OMSetDepthBounds(This,min,max);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetSamplePositions(ID3D12GraphicsCommandList5* This,UINT sample_count,UINT pixel_count,D3D12_SAMPLE_POSITION *sample_positions) {
+    This->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ResolveSubresourceRegion(ID3D12GraphicsCommandList5* This,ID3D12Resource *dst_resource,UINT dst_sub_resource_idx,UINT dst_x,UINT dst_y,ID3D12Resource *src_resource,UINT src_sub_resource_idx,D3D12_RECT *src_rect,DXGI_FORMAT format,D3D12_RESOLVE_MODE mode) {
+    This->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetViewInstanceMask(ID3D12GraphicsCommandList5* This,UINT mask) {
+    This->lpVtbl->SetViewInstanceMask(This,mask);
+}
+/*** ID3D12GraphicsCommandList2 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_WriteBufferImmediate(ID3D12GraphicsCommandList5* This,UINT count,const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes) {
+    This->lpVtbl->WriteBufferImmediate(This,count,parameters,modes);
+}
+/*** ID3D12GraphicsCommandList3 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetProtectedResourceSession(ID3D12GraphicsCommandList5* This,ID3D12ProtectedResourceSession *protected_resource_session) {
+    This->lpVtbl->SetProtectedResourceSession(This,protected_resource_session);
+}
+/*** ID3D12GraphicsCommandList4 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_BeginRenderPass(ID3D12GraphicsCommandList5* This,UINT render_targets_count,const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,D3D12_RENDER_PASS_FLAGS flags) {
+    This->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_EndRenderPass(ID3D12GraphicsCommandList5* This) {
+    This->lpVtbl->EndRenderPass(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_InitializeMetaCommand(ID3D12GraphicsCommandList5* This,ID3D12MetaCommand *meta_command,const void *initialization_parameters_data,SIZE_T initialization_parameters_data_size_in_bytes) {
+    This->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_ExecuteMetaCommand(ID3D12GraphicsCommandList5* This,ID3D12MetaCommand *meta_command,const void *execution_parameters_data,SIZE_T execution_parameters_data_size_in_bytes) {
+    This->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_BuildRaytracingAccelerationStructure(ID3D12GraphicsCommandList5* This,const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,UINT postbuild_info_descs_count,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs) {
+    This->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_EmitRaytracingAccelerationStructurePostbuildInfo(ID3D12GraphicsCommandList5* This,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,UINT src_acceleration_structures_count,const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data) {
+    This->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_CopyRaytracingAccelerationStructure(ID3D12GraphicsCommandList5* This,D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode) {
+    This->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_SetPipelineState1(ID3D12GraphicsCommandList5* This,ID3D12StateObject *state_object) {
+    This->lpVtbl->SetPipelineState1(This,state_object);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_DispatchRays(ID3D12GraphicsCommandList5* This,const D3D12_DISPATCH_RAYS_DESC *desc) {
+    This->lpVtbl->DispatchRays(This,desc);
+}
+/*** ID3D12GraphicsCommandList5 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_RSSetShadingRate(ID3D12GraphicsCommandList5* This,D3D12_SHADING_RATE base_shading_rate,const D3D12_SHADING_RATE_COMBINER *combiners) {
+    This->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList5_RSSetShadingRateImage(ID3D12GraphicsCommandList5* This,ID3D12Resource *shading_rate_image) {
+    This->lpVtbl->RSSetShadingRateImage(This,shading_rate_image);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__ */
+
+#define D3D12_SHADING_RATE_X_AXIS_SHIFT (2)
+
+#define D3D12_SHADING_RATE_VALID_MASK (3)
+
+#define D3D12_MAKE_COARSE_SHADING_RATE(x, y) ((x) << D3D12_SHADING_RATE_X_AXIS_SHIFT | (y))
+#define D3D12_GET_COARSE_SHADING_RATE_X_AXIS(val) (((val) >> D3D12_SHADING_RATE_X_AXIS_SHIFT) & D3D12_SHADING_RATE_VALID_MASK)
+#define D3D12_GET_COARSE_SHADING_RATE_Y_AXIS(val) ((val) & D3D12_SHADING_RATE_VALID_MASK)
+typedef struct D3D12_DISPATCH_MESH_ARGUMENTS {
+    UINT ThreadGroupCountX;
+    UINT ThreadGroupCountY;
+    UINT ThreadGroupCountZ;
+} D3D12_DISPATCH_MESH_ARGUMENTS;
+/*****************************************************************************
+ * ID3D12GraphicsCommandList6 interface
+ */
+#ifndef __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
+#define __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12GraphicsCommandList6, 0xc3827890, 0xe548, 0x4cfa, 0x96,0xcf, 0x56,0x89,0xa9,0x37,0x0f,0x80);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c3827890-e548-4cfa-96cf-5689a9370f80")
+ID3D12GraphicsCommandList6 : public ID3D12GraphicsCommandList5
+{
+    virtual void STDMETHODCALLTYPE DispatchMesh(
+        UINT thread_group_count_x,
+        UINT thread_group_count_y,
+        UINT thread_group_count_z) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12GraphicsCommandList6, 0xc3827890, 0xe548, 0x4cfa, 0x96,0xcf, 0x56,0x89,0xa9,0x37,0x0f,0x80)
+#endif
+#else
+typedef struct ID3D12GraphicsCommandList6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12GraphicsCommandList6 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12GraphicsCommandList6 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12GraphicsCommandList6 *This);
+
+    /*** ID3D12Object methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D12GraphicsCommandList6 *This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D12GraphicsCommandList6 *This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D12GraphicsCommandList6 *This,
+        REFGUID guid,
+        const IUnknown *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        ID3D12GraphicsCommandList6 *This,
+        const WCHAR *name);
+
+    /*** ID3D12DeviceChild methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        ID3D12GraphicsCommandList6 *This,
+        REFIID riid,
+        void **device);
+
+    /*** ID3D12CommandList methods ***/
+    D3D12_COMMAND_LIST_TYPE (STDMETHODCALLTYPE *GetType)(
+        ID3D12GraphicsCommandList6 *This);
+
+    /*** ID3D12GraphicsCommandList methods ***/
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        ID3D12GraphicsCommandList6 *This);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12CommandAllocator *allocator,
+        ID3D12PipelineState *initial_state);
+
+    void (STDMETHODCALLTYPE *ClearState)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *DrawInstanced)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT vertex_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *DrawIndexedInstanced)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT index_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        INT base_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *Dispatch)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT x,
+        UINT u,
+        UINT z);
+
+    void (STDMETHODCALLTYPE *CopyBufferRegion)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT64 byte_count);
+
+    void (STDMETHODCALLTYPE *CopyTextureRegion)(
+        ID3D12GraphicsCommandList6 *This,
+        const D3D12_TEXTURE_COPY_LOCATION *dst,
+        UINT dst_x,
+        UINT dst_y,
+        UINT dst_z,
+        const D3D12_TEXTURE_COPY_LOCATION *src,
+        const D3D12_BOX *src_box);
+
+    void (STDMETHODCALLTYPE *CopyResource)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_resource,
+        ID3D12Resource *src_resource);
+
+    void (STDMETHODCALLTYPE *CopyTiles)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *tiled_resource,
+        const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,
+        const D3D12_TILE_REGION_SIZE *tile_region_size,
+        ID3D12Resource *buffer,
+        UINT64 buffer_offset,
+        D3D12_TILE_COPY_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *ResolveSubresource)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource,
+        DXGI_FORMAT format);
+
+    void (STDMETHODCALLTYPE *IASetPrimitiveTopology)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_PRIMITIVE_TOPOLOGY primitive_topology);
+
+    void (STDMETHODCALLTYPE *RSSetViewports)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT viewport_count,
+        const D3D12_VIEWPORT *viewports);
+
+    void (STDMETHODCALLTYPE *RSSetScissorRects)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *OMSetBlendFactor)(
+        ID3D12GraphicsCommandList6 *This,
+        const FLOAT blend_factor[4]);
+
+    void (STDMETHODCALLTYPE *OMSetStencilRef)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT stencil_ref);
+
+    void (STDMETHODCALLTYPE *SetPipelineState)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *ResourceBarrier)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT barrier_count,
+        const D3D12_RESOURCE_BARRIER *barriers);
+
+    void (STDMETHODCALLTYPE *ExecuteBundle)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12GraphicsCommandList *command_list);
+
+    void (STDMETHODCALLTYPE *SetDescriptorHeaps)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT heap_count,
+        ID3D12DescriptorHeap *const *heaps);
+
+    void (STDMETHODCALLTYPE *SetComputeRootSignature)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootSignature)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetComputeRootDescriptorTable)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootDescriptorTable)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstant)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstant)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstants)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstants)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRootConstantBufferView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootConstantBufferView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootShaderResourceView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootShaderResourceView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *IASetIndexBuffer)(
+        ID3D12GraphicsCommandList6 *This,
+        const D3D12_INDEX_BUFFER_VIEW *view);
+
+    void (STDMETHODCALLTYPE *IASetVertexBuffers)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_VERTEX_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *SOSetTargets)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *OMSetRenderTargets)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT render_target_descriptor_count,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,
+        WINBOOL single_descriptor_handle,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor);
+
+    void (STDMETHODCALLTYPE *ClearDepthStencilView)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE dsv,
+        D3D12_CLEAR_FLAGS flags,
+        FLOAT depth,
+        UINT8 stencil,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearRenderTargetView)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE rtv,
+        const FLOAT color[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewUint)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const UINT values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewFloat)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const float values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *DiscardResource)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *resource,
+        const D3D12_DISCARD_REGION *region);
+
+    void (STDMETHODCALLTYPE *BeginQuery)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *EndQuery)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *ResolveQueryData)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT start_index,
+        UINT query_count,
+        ID3D12Resource *dst_buffer,
+        UINT64 aligned_dst_buffer_offset);
+
+    void (STDMETHODCALLTYPE *SetPredication)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *buffer,
+        UINT64 aligned_buffer_offset,
+        D3D12_PREDICATION_OP operation);
+
+    void (STDMETHODCALLTYPE *SetMarker)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *BeginEvent)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *EndEvent)(
+        ID3D12GraphicsCommandList6 *This);
+
+    void (STDMETHODCALLTYPE *ExecuteIndirect)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12CommandSignature *command_signature,
+        UINT max_command_count,
+        ID3D12Resource *arg_buffer,
+        UINT64 arg_buffer_offset,
+        ID3D12Resource *count_buffer,
+        UINT64 count_buffer_offset);
+
+    /*** ID3D12GraphicsCommandList1 methods ***/
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT64)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *OMSetDepthBounds)(
+        ID3D12GraphicsCommandList6 *This,
+        FLOAT min,
+        FLOAT max);
+
+    void (STDMETHODCALLTYPE *SetSamplePositions)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT sample_count,
+        UINT pixel_count,
+        D3D12_SAMPLE_POSITION *sample_positions);
+
+    void (STDMETHODCALLTYPE *ResolveSubresourceRegion)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource_idx,
+        UINT dst_x,
+        UINT dst_y,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource_idx,
+        D3D12_RECT *src_rect,
+        DXGI_FORMAT format,
+        D3D12_RESOLVE_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetViewInstanceMask)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT mask);
+
+    /*** ID3D12GraphicsCommandList2 methods ***/
+    void (STDMETHODCALLTYPE *WriteBufferImmediate)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT count,
+        const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,
+        const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes);
+
+    /*** ID3D12GraphicsCommandList3 methods ***/
+    void (STDMETHODCALLTYPE *SetProtectedResourceSession)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12ProtectedResourceSession *protected_resource_session);
+
+    /*** ID3D12GraphicsCommandList4 methods ***/
+    void (STDMETHODCALLTYPE *BeginRenderPass)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT render_targets_count,
+        const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,
+        const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,
+        D3D12_RENDER_PASS_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *EndRenderPass)(
+        ID3D12GraphicsCommandList6 *This);
+
+    void (STDMETHODCALLTYPE *InitializeMetaCommand)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *initialization_parameters_data,
+        SIZE_T initialization_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *ExecuteMetaCommand)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *execution_parameters_data,
+        SIZE_T execution_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *BuildRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList6 *This,
+        const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,
+        UINT postbuild_info_descs_count,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs);
+
+    void (STDMETHODCALLTYPE *EmitRaytracingAccelerationStructurePostbuildInfo)(
+        ID3D12GraphicsCommandList6 *This,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,
+        UINT src_acceleration_structures_count,
+        const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data);
+
+    void (STDMETHODCALLTYPE *CopyRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,
+        D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,
+        D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetPipelineState1)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12StateObject *state_object);
+
+    void (STDMETHODCALLTYPE *DispatchRays)(
+        ID3D12GraphicsCommandList6 *This,
+        const D3D12_DISPATCH_RAYS_DESC *desc);
+
+    /*** ID3D12GraphicsCommandList5 methods ***/
+    void (STDMETHODCALLTYPE *RSSetShadingRate)(
+        ID3D12GraphicsCommandList6 *This,
+        D3D12_SHADING_RATE base_shading_rate,
+        const D3D12_SHADING_RATE_COMBINER *combiners);
+
+    void (STDMETHODCALLTYPE *RSSetShadingRateImage)(
+        ID3D12GraphicsCommandList6 *This,
+        ID3D12Resource *shading_rate_image);
+
+    /*** ID3D12GraphicsCommandList6 methods ***/
+    void (STDMETHODCALLTYPE *DispatchMesh)(
+        ID3D12GraphicsCommandList6 *This,
+        UINT thread_group_count_x,
+        UINT thread_group_count_y,
+        UINT thread_group_count_z);
+
+    END_INTERFACE
+} ID3D12GraphicsCommandList6Vtbl;
+
+interface ID3D12GraphicsCommandList6 {
+    CONST_VTBL ID3D12GraphicsCommandList6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12GraphicsCommandList6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12GraphicsCommandList6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12GraphicsCommandList6_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12Object methods ***/
+#define ID3D12GraphicsCommandList6_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList6_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList6_SetPrivateDataInterface(This,guid,data) (This)->lpVtbl->SetPrivateDataInterface(This,guid,data)
+#define ID3D12GraphicsCommandList6_SetName(This,name) (This)->lpVtbl->SetName(This,name)
+/*** ID3D12DeviceChild methods ***/
+#define ID3D12GraphicsCommandList6_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** ID3D12CommandList methods ***/
+#define ID3D12GraphicsCommandList6_GetType(This) (This)->lpVtbl->GetType(This)
+/*** ID3D12GraphicsCommandList methods ***/
+#define ID3D12GraphicsCommandList6_Close(This) (This)->lpVtbl->Close(This)
+#define ID3D12GraphicsCommandList6_Reset(This,allocator,initial_state) (This)->lpVtbl->Reset(This,allocator,initial_state)
+#define ID3D12GraphicsCommandList6_ClearState(This,pipeline_state) (This)->lpVtbl->ClearState(This,pipeline_state)
+#define ID3D12GraphicsCommandList6_DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location) (This)->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList6_DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location) (This)->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList6_Dispatch(This,x,u,z) (This)->lpVtbl->Dispatch(This,x,u,z)
+#define ID3D12GraphicsCommandList6_CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count) (This)->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count)
+#define ID3D12GraphicsCommandList6_CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box) (This)->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box)
+#define ID3D12GraphicsCommandList6_CopyResource(This,dst_resource,src_resource) (This)->lpVtbl->CopyResource(This,dst_resource,src_resource)
+#define ID3D12GraphicsCommandList6_CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags) (This)->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags)
+#define ID3D12GraphicsCommandList6_ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format) (This)->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format)
+#define ID3D12GraphicsCommandList6_IASetPrimitiveTopology(This,primitive_topology) (This)->lpVtbl->IASetPrimitiveTopology(This,primitive_topology)
+#define ID3D12GraphicsCommandList6_RSSetViewports(This,viewport_count,viewports) (This)->lpVtbl->RSSetViewports(This,viewport_count,viewports)
+#define ID3D12GraphicsCommandList6_RSSetScissorRects(This,rect_count,rects) (This)->lpVtbl->RSSetScissorRects(This,rect_count,rects)
+#define ID3D12GraphicsCommandList6_OMSetBlendFactor(This,blend_factor) (This)->lpVtbl->OMSetBlendFactor(This,blend_factor)
+#define ID3D12GraphicsCommandList6_OMSetStencilRef(This,stencil_ref) (This)->lpVtbl->OMSetStencilRef(This,stencil_ref)
+#define ID3D12GraphicsCommandList6_SetPipelineState(This,pipeline_state) (This)->lpVtbl->SetPipelineState(This,pipeline_state)
+#define ID3D12GraphicsCommandList6_ResourceBarrier(This,barrier_count,barriers) (This)->lpVtbl->ResourceBarrier(This,barrier_count,barriers)
+#define ID3D12GraphicsCommandList6_ExecuteBundle(This,command_list) (This)->lpVtbl->ExecuteBundle(This,command_list)
+#define ID3D12GraphicsCommandList6_SetDescriptorHeaps(This,heap_count,heaps) (This)->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps)
+#define ID3D12GraphicsCommandList6_SetComputeRootSignature(This,root_signature) (This)->lpVtbl->SetComputeRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList6_SetGraphicsRootSignature(This,root_signature) (This)->lpVtbl->SetGraphicsRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList6_SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList6_SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList6_SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList6_SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList6_SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList6_SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList6_SetComputeRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_SetGraphicsRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_SetComputeRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_SetGraphicsRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_SetComputeRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList6_IASetIndexBuffer(This,view) (This)->lpVtbl->IASetIndexBuffer(This,view)
+#define ID3D12GraphicsCommandList6_IASetVertexBuffers(This,start_slot,view_count,views) (This)->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList6_SOSetTargets(This,start_slot,view_count,views) (This)->lpVtbl->SOSetTargets(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList6_OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor) (This)->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor)
+#define ID3D12GraphicsCommandList6_ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects) (This)->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects)
+#define ID3D12GraphicsCommandList6_ClearRenderTargetView(This,rtv,color,rect_count,rects) (This)->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects)
+#define ID3D12GraphicsCommandList6_ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList6_ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList6_DiscardResource(This,resource,region) (This)->lpVtbl->DiscardResource(This,resource,region)
+#define ID3D12GraphicsCommandList6_BeginQuery(This,heap,type,index) (This)->lpVtbl->BeginQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList6_EndQuery(This,heap,type,index) (This)->lpVtbl->EndQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList6_ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset) (This)->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset)
+#define ID3D12GraphicsCommandList6_SetPredication(This,buffer,aligned_buffer_offset,operation) (This)->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation)
+#define ID3D12GraphicsCommandList6_SetMarker(This,metadata,data,size) (This)->lpVtbl->SetMarker(This,metadata,data,size)
+#define ID3D12GraphicsCommandList6_BeginEvent(This,metadata,data,size) (This)->lpVtbl->BeginEvent(This,metadata,data,size)
+#define ID3D12GraphicsCommandList6_EndEvent(This) (This)->lpVtbl->EndEvent(This)
+#define ID3D12GraphicsCommandList6_ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset) (This)->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset)
+/*** ID3D12GraphicsCommandList1 methods ***/
+#define ID3D12GraphicsCommandList6_AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList6_AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList6_OMSetDepthBounds(This,min,max) (This)->lpVtbl->OMSetDepthBounds(This,min,max)
+#define ID3D12GraphicsCommandList6_SetSamplePositions(This,sample_count,pixel_count,sample_positions) (This)->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions)
+#define ID3D12GraphicsCommandList6_ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode) (This)->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode)
+#define ID3D12GraphicsCommandList6_SetViewInstanceMask(This,mask) (This)->lpVtbl->SetViewInstanceMask(This,mask)
+/*** ID3D12GraphicsCommandList2 methods ***/
+#define ID3D12GraphicsCommandList6_WriteBufferImmediate(This,count,parameters,modes) (This)->lpVtbl->WriteBufferImmediate(This,count,parameters,modes)
+/*** ID3D12GraphicsCommandList3 methods ***/
+#define ID3D12GraphicsCommandList6_SetProtectedResourceSession(This,protected_resource_session) (This)->lpVtbl->SetProtectedResourceSession(This,protected_resource_session)
+/*** ID3D12GraphicsCommandList4 methods ***/
+#define ID3D12GraphicsCommandList6_BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags) (This)->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags)
+#define ID3D12GraphicsCommandList6_EndRenderPass(This) (This)->lpVtbl->EndRenderPass(This)
+#define ID3D12GraphicsCommandList6_InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes) (This)->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList6_ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes) (This)->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList6_BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs) (This)->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs)
+#define ID3D12GraphicsCommandList6_EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data) (This)->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data)
+#define ID3D12GraphicsCommandList6_CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode) (This)->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode)
+#define ID3D12GraphicsCommandList6_SetPipelineState1(This,state_object) (This)->lpVtbl->SetPipelineState1(This,state_object)
+#define ID3D12GraphicsCommandList6_DispatchRays(This,desc) (This)->lpVtbl->DispatchRays(This,desc)
+/*** ID3D12GraphicsCommandList5 methods ***/
+#define ID3D12GraphicsCommandList6_RSSetShadingRate(This,base_shading_rate,combiners) (This)->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners)
+#define ID3D12GraphicsCommandList6_RSSetShadingRateImage(This,shading_rate_image) (This)->lpVtbl->RSSetShadingRateImage(This,shading_rate_image)
+/*** ID3D12GraphicsCommandList6 methods ***/
+#define ID3D12GraphicsCommandList6_DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z) (This)->lpVtbl->DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_QueryInterface(ID3D12GraphicsCommandList6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList6_AddRef(ID3D12GraphicsCommandList6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList6_Release(ID3D12GraphicsCommandList6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12Object methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_GetPrivateData(ID3D12GraphicsCommandList6* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_SetPrivateData(ID3D12GraphicsCommandList6* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_SetPrivateDataInterface(ID3D12GraphicsCommandList6* This,REFGUID guid,const IUnknown *data) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_SetName(ID3D12GraphicsCommandList6* This,const WCHAR *name) {
+    return This->lpVtbl->SetName(This,name);
+}
+/*** ID3D12DeviceChild methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_GetDevice(ID3D12GraphicsCommandList6* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** ID3D12CommandList methods ***/
+static __WIDL_INLINE D3D12_COMMAND_LIST_TYPE ID3D12GraphicsCommandList6_GetType(ID3D12GraphicsCommandList6* This) {
+    return This->lpVtbl->GetType(This);
+}
+/*** ID3D12GraphicsCommandList methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_Close(ID3D12GraphicsCommandList6* This) {
+    return This->lpVtbl->Close(This);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList6_Reset(ID3D12GraphicsCommandList6* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
+    return This->lpVtbl->Reset(This,allocator,initial_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ClearState(ID3D12GraphicsCommandList6* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_DrawInstanced(ID3D12GraphicsCommandList6* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_DrawIndexedInstanced(ID3D12GraphicsCommandList6* This,UINT index_count_per_instance,UINT instance_count,UINT start_vertex_location,INT base_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_Dispatch(ID3D12GraphicsCommandList6* This,UINT x,UINT u,UINT z) {
+    This->lpVtbl->Dispatch(This,x,u,z);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_CopyBufferRegion(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT64 byte_count) {
+    This->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_CopyTextureRegion(ID3D12GraphicsCommandList6* This,const D3D12_TEXTURE_COPY_LOCATION *dst,UINT dst_x,UINT dst_y,UINT dst_z,const D3D12_TEXTURE_COPY_LOCATION *src,const D3D12_BOX *src_box) {
+    This->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_CopyResource(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_resource,ID3D12Resource *src_resource) {
+    This->lpVtbl->CopyResource(This,dst_resource,src_resource);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_CopyTiles(ID3D12GraphicsCommandList6* This,ID3D12Resource *tiled_resource,const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,const D3D12_TILE_REGION_SIZE *tile_region_size,ID3D12Resource *buffer,UINT64 buffer_offset,D3D12_TILE_COPY_FLAGS flags) {
+    This->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ResolveSubresource(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_resource,UINT dst_sub_resource,ID3D12Resource *src_resource,UINT src_sub_resource,DXGI_FORMAT format) {
+    This->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_IASetPrimitiveTopology(ID3D12GraphicsCommandList6* This,D3D12_PRIMITIVE_TOPOLOGY primitive_topology) {
+    This->lpVtbl->IASetPrimitiveTopology(This,primitive_topology);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_RSSetViewports(ID3D12GraphicsCommandList6* This,UINT viewport_count,const D3D12_VIEWPORT *viewports) {
+    This->lpVtbl->RSSetViewports(This,viewport_count,viewports);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_RSSetScissorRects(ID3D12GraphicsCommandList6* This,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->RSSetScissorRects(This,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_OMSetBlendFactor(ID3D12GraphicsCommandList6* This,const FLOAT blend_factor[4]) {
+    This->lpVtbl->OMSetBlendFactor(This,blend_factor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_OMSetStencilRef(ID3D12GraphicsCommandList6* This,UINT stencil_ref) {
+    This->lpVtbl->OMSetStencilRef(This,stencil_ref);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetPipelineState(ID3D12GraphicsCommandList6* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->SetPipelineState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ResourceBarrier(ID3D12GraphicsCommandList6* This,UINT barrier_count,const D3D12_RESOURCE_BARRIER *barriers) {
+    This->lpVtbl->ResourceBarrier(This,barrier_count,barriers);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ExecuteBundle(ID3D12GraphicsCommandList6* This,ID3D12GraphicsCommandList *command_list) {
+    This->lpVtbl->ExecuteBundle(This,command_list);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetDescriptorHeaps(ID3D12GraphicsCommandList6* This,UINT heap_count,ID3D12DescriptorHeap *const *heaps) {
+    This->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRootSignature(ID3D12GraphicsCommandList6* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetComputeRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRootSignature(ID3D12GraphicsCommandList6* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetGraphicsRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRootDescriptorTable(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRootDescriptorTable(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRoot32BitConstant(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRoot32BitConstant(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRoot32BitConstants(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRoot32BitConstants(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRootConstantBufferView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRootConstantBufferView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRootShaderResourceView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRootShaderResourceView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetComputeRootUnorderedAccessView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetGraphicsRootUnorderedAccessView(ID3D12GraphicsCommandList6* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_IASetIndexBuffer(ID3D12GraphicsCommandList6* This,const D3D12_INDEX_BUFFER_VIEW *view) {
+    This->lpVtbl->IASetIndexBuffer(This,view);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_IASetVertexBuffers(ID3D12GraphicsCommandList6* This,UINT start_slot,UINT view_count,const D3D12_VERTEX_BUFFER_VIEW *views) {
+    This->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SOSetTargets(ID3D12GraphicsCommandList6* This,UINT start_slot,UINT view_count,const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views) {
+    This->lpVtbl->SOSetTargets(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_OMSetRenderTargets(ID3D12GraphicsCommandList6* This,UINT render_target_descriptor_count,const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,WINBOOL single_descriptor_handle,const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor) {
+    This->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ClearDepthStencilView(ID3D12GraphicsCommandList6* This,D3D12_CPU_DESCRIPTOR_HANDLE dsv,D3D12_CLEAR_FLAGS flags,FLOAT depth,UINT8 stencil,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ClearRenderTargetView(ID3D12GraphicsCommandList6* This,D3D12_CPU_DESCRIPTOR_HANDLE rtv,const FLOAT color[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ClearUnorderedAccessViewUint(ID3D12GraphicsCommandList6* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const UINT values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ClearUnorderedAccessViewFloat(ID3D12GraphicsCommandList6* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const float values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_DiscardResource(ID3D12GraphicsCommandList6* This,ID3D12Resource *resource,const D3D12_DISCARD_REGION *region) {
+    This->lpVtbl->DiscardResource(This,resource,region);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_BeginQuery(ID3D12GraphicsCommandList6* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->BeginQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_EndQuery(ID3D12GraphicsCommandList6* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->EndQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ResolveQueryData(ID3D12GraphicsCommandList6* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT start_index,UINT query_count,ID3D12Resource *dst_buffer,UINT64 aligned_dst_buffer_offset) {
+    This->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetPredication(ID3D12GraphicsCommandList6* This,ID3D12Resource *buffer,UINT64 aligned_buffer_offset,D3D12_PREDICATION_OP operation) {
+    This->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetMarker(ID3D12GraphicsCommandList6* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->SetMarker(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_BeginEvent(ID3D12GraphicsCommandList6* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->BeginEvent(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_EndEvent(ID3D12GraphicsCommandList6* This) {
+    This->lpVtbl->EndEvent(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ExecuteIndirect(ID3D12GraphicsCommandList6* This,ID3D12CommandSignature *command_signature,UINT max_command_count,ID3D12Resource *arg_buffer,UINT64 arg_buffer_offset,ID3D12Resource *count_buffer,UINT64 count_buffer_offset) {
+    This->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset);
+}
+/*** ID3D12GraphicsCommandList1 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_AtomicCopyBufferUINT(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_AtomicCopyBufferUINT64(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_OMSetDepthBounds(ID3D12GraphicsCommandList6* This,FLOAT min,FLOAT max) {
+    This->lpVtbl->OMSetDepthBounds(This,min,max);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetSamplePositions(ID3D12GraphicsCommandList6* This,UINT sample_count,UINT pixel_count,D3D12_SAMPLE_POSITION *sample_positions) {
+    This->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ResolveSubresourceRegion(ID3D12GraphicsCommandList6* This,ID3D12Resource *dst_resource,UINT dst_sub_resource_idx,UINT dst_x,UINT dst_y,ID3D12Resource *src_resource,UINT src_sub_resource_idx,D3D12_RECT *src_rect,DXGI_FORMAT format,D3D12_RESOLVE_MODE mode) {
+    This->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetViewInstanceMask(ID3D12GraphicsCommandList6* This,UINT mask) {
+    This->lpVtbl->SetViewInstanceMask(This,mask);
+}
+/*** ID3D12GraphicsCommandList2 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_WriteBufferImmediate(ID3D12GraphicsCommandList6* This,UINT count,const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes) {
+    This->lpVtbl->WriteBufferImmediate(This,count,parameters,modes);
+}
+/*** ID3D12GraphicsCommandList3 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetProtectedResourceSession(ID3D12GraphicsCommandList6* This,ID3D12ProtectedResourceSession *protected_resource_session) {
+    This->lpVtbl->SetProtectedResourceSession(This,protected_resource_session);
+}
+/*** ID3D12GraphicsCommandList4 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_BeginRenderPass(ID3D12GraphicsCommandList6* This,UINT render_targets_count,const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,D3D12_RENDER_PASS_FLAGS flags) {
+    This->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_EndRenderPass(ID3D12GraphicsCommandList6* This) {
+    This->lpVtbl->EndRenderPass(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_InitializeMetaCommand(ID3D12GraphicsCommandList6* This,ID3D12MetaCommand *meta_command,const void *initialization_parameters_data,SIZE_T initialization_parameters_data_size_in_bytes) {
+    This->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_ExecuteMetaCommand(ID3D12GraphicsCommandList6* This,ID3D12MetaCommand *meta_command,const void *execution_parameters_data,SIZE_T execution_parameters_data_size_in_bytes) {
+    This->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_BuildRaytracingAccelerationStructure(ID3D12GraphicsCommandList6* This,const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,UINT postbuild_info_descs_count,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs) {
+    This->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_EmitRaytracingAccelerationStructurePostbuildInfo(ID3D12GraphicsCommandList6* This,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,UINT src_acceleration_structures_count,const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data) {
+    This->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_CopyRaytracingAccelerationStructure(ID3D12GraphicsCommandList6* This,D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode) {
+    This->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_SetPipelineState1(ID3D12GraphicsCommandList6* This,ID3D12StateObject *state_object) {
+    This->lpVtbl->SetPipelineState1(This,state_object);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_DispatchRays(ID3D12GraphicsCommandList6* This,const D3D12_DISPATCH_RAYS_DESC *desc) {
+    This->lpVtbl->DispatchRays(This,desc);
+}
+/*** ID3D12GraphicsCommandList5 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_RSSetShadingRate(ID3D12GraphicsCommandList6* This,D3D12_SHADING_RATE base_shading_rate,const D3D12_SHADING_RATE_COMBINER *combiners) {
+    This->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_RSSetShadingRateImage(ID3D12GraphicsCommandList6* This,ID3D12Resource *shading_rate_image) {
+    This->lpVtbl->RSSetShadingRateImage(This,shading_rate_image);
+}
+/*** ID3D12GraphicsCommandList6 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList6_DispatchMesh(ID3D12GraphicsCommandList6* This,UINT thread_group_count_x,UINT thread_group_count_y,UINT thread_group_count_z) {
+    This->lpVtbl->DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D12GraphicsCommandList7 interface
+ */
+#ifndef __ID3D12GraphicsCommandList7_INTERFACE_DEFINED__
+#define __ID3D12GraphicsCommandList7_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D12GraphicsCommandList7, 0xdd171223, 0x8b61, 0x4769, 0x90,0xe3, 0x16,0x0c,0xcd,0xe4,0xe2,0xc1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("dd171223-8b61-4769-90e3-160ccde4e2c1")
+ID3D12GraphicsCommandList7 : public ID3D12GraphicsCommandList6
+{
+    virtual void STDMETHODCALLTYPE Barrier(
+        UINT32 barrier_groups_count,
+        const D3D12_BARRIER_GROUP *barrier_groups) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D12GraphicsCommandList7, 0xdd171223, 0x8b61, 0x4769, 0x90,0xe3, 0x16,0x0c,0xcd,0xe4,0xe2,0xc1)
+#endif
+#else
+typedef struct ID3D12GraphicsCommandList7Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D12GraphicsCommandList7 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D12GraphicsCommandList7 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D12GraphicsCommandList7 *This);
+
+    /*** ID3D12Object methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D12GraphicsCommandList7 *This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D12GraphicsCommandList7 *This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D12GraphicsCommandList7 *This,
+        REFGUID guid,
+        const IUnknown *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        ID3D12GraphicsCommandList7 *This,
+        const WCHAR *name);
+
+    /*** ID3D12DeviceChild methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        ID3D12GraphicsCommandList7 *This,
+        REFIID riid,
+        void **device);
+
+    /*** ID3D12CommandList methods ***/
+    D3D12_COMMAND_LIST_TYPE (STDMETHODCALLTYPE *GetType)(
+        ID3D12GraphicsCommandList7 *This);
+
+    /*** ID3D12GraphicsCommandList methods ***/
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        ID3D12GraphicsCommandList7 *This);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12CommandAllocator *allocator,
+        ID3D12PipelineState *initial_state);
+
+    void (STDMETHODCALLTYPE *ClearState)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *DrawInstanced)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT vertex_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *DrawIndexedInstanced)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT index_count_per_instance,
+        UINT instance_count,
+        UINT start_vertex_location,
+        INT base_vertex_location,
+        UINT start_instance_location);
+
+    void (STDMETHODCALLTYPE *Dispatch)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT x,
+        UINT u,
+        UINT z);
+
+    void (STDMETHODCALLTYPE *CopyBufferRegion)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT64 byte_count);
+
+    void (STDMETHODCALLTYPE *CopyTextureRegion)(
+        ID3D12GraphicsCommandList7 *This,
+        const D3D12_TEXTURE_COPY_LOCATION *dst,
+        UINT dst_x,
+        UINT dst_y,
+        UINT dst_z,
+        const D3D12_TEXTURE_COPY_LOCATION *src,
+        const D3D12_BOX *src_box);
+
+    void (STDMETHODCALLTYPE *CopyResource)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_resource,
+        ID3D12Resource *src_resource);
+
+    void (STDMETHODCALLTYPE *CopyTiles)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *tiled_resource,
+        const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,
+        const D3D12_TILE_REGION_SIZE *tile_region_size,
+        ID3D12Resource *buffer,
+        UINT64 buffer_offset,
+        D3D12_TILE_COPY_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *ResolveSubresource)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource,
+        DXGI_FORMAT format);
+
+    void (STDMETHODCALLTYPE *IASetPrimitiveTopology)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_PRIMITIVE_TOPOLOGY primitive_topology);
+
+    void (STDMETHODCALLTYPE *RSSetViewports)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT viewport_count,
+        const D3D12_VIEWPORT *viewports);
+
+    void (STDMETHODCALLTYPE *RSSetScissorRects)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *OMSetBlendFactor)(
+        ID3D12GraphicsCommandList7 *This,
+        const FLOAT blend_factor[4]);
+
+    void (STDMETHODCALLTYPE *OMSetStencilRef)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT stencil_ref);
+
+    void (STDMETHODCALLTYPE *SetPipelineState)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12PipelineState *pipeline_state);
+
+    void (STDMETHODCALLTYPE *ResourceBarrier)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT barrier_count,
+        const D3D12_RESOURCE_BARRIER *barriers);
+
+    void (STDMETHODCALLTYPE *ExecuteBundle)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12GraphicsCommandList *command_list);
+
+    void (STDMETHODCALLTYPE *SetDescriptorHeaps)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT heap_count,
+        ID3D12DescriptorHeap *const *heaps);
+
+    void (STDMETHODCALLTYPE *SetComputeRootSignature)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootSignature)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12RootSignature *root_signature);
+
+    void (STDMETHODCALLTYPE *SetComputeRootDescriptorTable)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootDescriptorTable)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstant)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstant)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        UINT data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRoot32BitConstants)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRoot32BitConstants)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        UINT constant_count,
+        const void *data,
+        UINT dst_offset);
+
+    void (STDMETHODCALLTYPE *SetComputeRootConstantBufferView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootConstantBufferView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootShaderResourceView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootShaderResourceView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetComputeRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *SetGraphicsRootUnorderedAccessView)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT root_parameter_index,
+        D3D12_GPU_VIRTUAL_ADDRESS address);
+
+    void (STDMETHODCALLTYPE *IASetIndexBuffer)(
+        ID3D12GraphicsCommandList7 *This,
+        const D3D12_INDEX_BUFFER_VIEW *view);
+
+    void (STDMETHODCALLTYPE *IASetVertexBuffers)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_VERTEX_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *SOSetTargets)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT start_slot,
+        UINT view_count,
+        const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views);
+
+    void (STDMETHODCALLTYPE *OMSetRenderTargets)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT render_target_descriptor_count,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,
+        WINBOOL single_descriptor_handle,
+        const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor);
+
+    void (STDMETHODCALLTYPE *ClearDepthStencilView)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE dsv,
+        D3D12_CLEAR_FLAGS flags,
+        FLOAT depth,
+        UINT8 stencil,
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearRenderTargetView)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_CPU_DESCRIPTOR_HANDLE rtv,
+        const FLOAT color[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewUint)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const UINT values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewFloat)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,
+        D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,
+        ID3D12Resource *resource,
+        const float values[4],
+        UINT rect_count,
+        const D3D12_RECT *rects);
+
+    void (STDMETHODCALLTYPE *DiscardResource)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *resource,
+        const D3D12_DISCARD_REGION *region);
+
+    void (STDMETHODCALLTYPE *BeginQuery)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *EndQuery)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT index);
+
+    void (STDMETHODCALLTYPE *ResolveQueryData)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12QueryHeap *heap,
+        D3D12_QUERY_TYPE type,
+        UINT start_index,
+        UINT query_count,
+        ID3D12Resource *dst_buffer,
+        UINT64 aligned_dst_buffer_offset);
+
+    void (STDMETHODCALLTYPE *SetPredication)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *buffer,
+        UINT64 aligned_buffer_offset,
+        D3D12_PREDICATION_OP operation);
+
+    void (STDMETHODCALLTYPE *SetMarker)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *BeginEvent)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT metadata,
+        const void *data,
+        UINT size);
+
+    void (STDMETHODCALLTYPE *EndEvent)(
+        ID3D12GraphicsCommandList7 *This);
+
+    void (STDMETHODCALLTYPE *ExecuteIndirect)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12CommandSignature *command_signature,
+        UINT max_command_count,
+        ID3D12Resource *arg_buffer,
+        UINT64 arg_buffer_offset,
+        ID3D12Resource *count_buffer,
+        UINT64 count_buffer_offset);
+
+    /*** ID3D12GraphicsCommandList1 methods ***/
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *AtomicCopyBufferUINT64)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_buffer,
+        UINT64 dst_offset,
+        ID3D12Resource *src_buffer,
+        UINT64 src_offset,
+        UINT dependent_resource_count,
+        ID3D12Resource *const *dependent_resources,
+        const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges);
+
+    void (STDMETHODCALLTYPE *OMSetDepthBounds)(
+        ID3D12GraphicsCommandList7 *This,
+        FLOAT min,
+        FLOAT max);
+
+    void (STDMETHODCALLTYPE *SetSamplePositions)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT sample_count,
+        UINT pixel_count,
+        D3D12_SAMPLE_POSITION *sample_positions);
+
+    void (STDMETHODCALLTYPE *ResolveSubresourceRegion)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *dst_resource,
+        UINT dst_sub_resource_idx,
+        UINT dst_x,
+        UINT dst_y,
+        ID3D12Resource *src_resource,
+        UINT src_sub_resource_idx,
+        D3D12_RECT *src_rect,
+        DXGI_FORMAT format,
+        D3D12_RESOLVE_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetViewInstanceMask)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT mask);
+
+    /*** ID3D12GraphicsCommandList2 methods ***/
+    void (STDMETHODCALLTYPE *WriteBufferImmediate)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT count,
+        const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,
+        const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes);
+
+    /*** ID3D12GraphicsCommandList3 methods ***/
+    void (STDMETHODCALLTYPE *SetProtectedResourceSession)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12ProtectedResourceSession *protected_resource_session);
+
+    /*** ID3D12GraphicsCommandList4 methods ***/
+    void (STDMETHODCALLTYPE *BeginRenderPass)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT render_targets_count,
+        const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,
+        const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,
+        D3D12_RENDER_PASS_FLAGS flags);
+
+    void (STDMETHODCALLTYPE *EndRenderPass)(
+        ID3D12GraphicsCommandList7 *This);
+
+    void (STDMETHODCALLTYPE *InitializeMetaCommand)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *initialization_parameters_data,
+        SIZE_T initialization_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *ExecuteMetaCommand)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12MetaCommand *meta_command,
+        const void *execution_parameters_data,
+        SIZE_T execution_parameters_data_size_in_bytes);
+
+    void (STDMETHODCALLTYPE *BuildRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList7 *This,
+        const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,
+        UINT postbuild_info_descs_count,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs);
+
+    void (STDMETHODCALLTYPE *EmitRaytracingAccelerationStructurePostbuildInfo)(
+        ID3D12GraphicsCommandList7 *This,
+        const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,
+        UINT src_acceleration_structures_count,
+        const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data);
+
+    void (STDMETHODCALLTYPE *CopyRaytracingAccelerationStructure)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,
+        D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,
+        D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode);
+
+    void (STDMETHODCALLTYPE *SetPipelineState1)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12StateObject *state_object);
+
+    void (STDMETHODCALLTYPE *DispatchRays)(
+        ID3D12GraphicsCommandList7 *This,
+        const D3D12_DISPATCH_RAYS_DESC *desc);
+
+    /*** ID3D12GraphicsCommandList5 methods ***/
+    void (STDMETHODCALLTYPE *RSSetShadingRate)(
+        ID3D12GraphicsCommandList7 *This,
+        D3D12_SHADING_RATE base_shading_rate,
+        const D3D12_SHADING_RATE_COMBINER *combiners);
+
+    void (STDMETHODCALLTYPE *RSSetShadingRateImage)(
+        ID3D12GraphicsCommandList7 *This,
+        ID3D12Resource *shading_rate_image);
+
+    /*** ID3D12GraphicsCommandList6 methods ***/
+    void (STDMETHODCALLTYPE *DispatchMesh)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT thread_group_count_x,
+        UINT thread_group_count_y,
+        UINT thread_group_count_z);
+
+    /*** ID3D12GraphicsCommandList7 methods ***/
+    void (STDMETHODCALLTYPE *Barrier)(
+        ID3D12GraphicsCommandList7 *This,
+        UINT32 barrier_groups_count,
+        const D3D12_BARRIER_GROUP *barrier_groups);
+
+    END_INTERFACE
+} ID3D12GraphicsCommandList7Vtbl;
+
+interface ID3D12GraphicsCommandList7 {
+    CONST_VTBL ID3D12GraphicsCommandList7Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D12GraphicsCommandList7_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D12GraphicsCommandList7_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D12GraphicsCommandList7_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D12Object methods ***/
+#define ID3D12GraphicsCommandList7_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList7_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define ID3D12GraphicsCommandList7_SetPrivateDataInterface(This,guid,data) (This)->lpVtbl->SetPrivateDataInterface(This,guid,data)
+#define ID3D12GraphicsCommandList7_SetName(This,name) (This)->lpVtbl->SetName(This,name)
+/*** ID3D12DeviceChild methods ***/
+#define ID3D12GraphicsCommandList7_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** ID3D12CommandList methods ***/
+#define ID3D12GraphicsCommandList7_GetType(This) (This)->lpVtbl->GetType(This)
+/*** ID3D12GraphicsCommandList methods ***/
+#define ID3D12GraphicsCommandList7_Close(This) (This)->lpVtbl->Close(This)
+#define ID3D12GraphicsCommandList7_Reset(This,allocator,initial_state) (This)->lpVtbl->Reset(This,allocator,initial_state)
+#define ID3D12GraphicsCommandList7_ClearState(This,pipeline_state) (This)->lpVtbl->ClearState(This,pipeline_state)
+#define ID3D12GraphicsCommandList7_DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location) (This)->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList7_DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location) (This)->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location)
+#define ID3D12GraphicsCommandList7_Dispatch(This,x,u,z) (This)->lpVtbl->Dispatch(This,x,u,z)
+#define ID3D12GraphicsCommandList7_CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count) (This)->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count)
+#define ID3D12GraphicsCommandList7_CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box) (This)->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box)
+#define ID3D12GraphicsCommandList7_CopyResource(This,dst_resource,src_resource) (This)->lpVtbl->CopyResource(This,dst_resource,src_resource)
+#define ID3D12GraphicsCommandList7_CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags) (This)->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags)
+#define ID3D12GraphicsCommandList7_ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format) (This)->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format)
+#define ID3D12GraphicsCommandList7_IASetPrimitiveTopology(This,primitive_topology) (This)->lpVtbl->IASetPrimitiveTopology(This,primitive_topology)
+#define ID3D12GraphicsCommandList7_RSSetViewports(This,viewport_count,viewports) (This)->lpVtbl->RSSetViewports(This,viewport_count,viewports)
+#define ID3D12GraphicsCommandList7_RSSetScissorRects(This,rect_count,rects) (This)->lpVtbl->RSSetScissorRects(This,rect_count,rects)
+#define ID3D12GraphicsCommandList7_OMSetBlendFactor(This,blend_factor) (This)->lpVtbl->OMSetBlendFactor(This,blend_factor)
+#define ID3D12GraphicsCommandList7_OMSetStencilRef(This,stencil_ref) (This)->lpVtbl->OMSetStencilRef(This,stencil_ref)
+#define ID3D12GraphicsCommandList7_SetPipelineState(This,pipeline_state) (This)->lpVtbl->SetPipelineState(This,pipeline_state)
+#define ID3D12GraphicsCommandList7_ResourceBarrier(This,barrier_count,barriers) (This)->lpVtbl->ResourceBarrier(This,barrier_count,barriers)
+#define ID3D12GraphicsCommandList7_ExecuteBundle(This,command_list) (This)->lpVtbl->ExecuteBundle(This,command_list)
+#define ID3D12GraphicsCommandList7_SetDescriptorHeaps(This,heap_count,heaps) (This)->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps)
+#define ID3D12GraphicsCommandList7_SetComputeRootSignature(This,root_signature) (This)->lpVtbl->SetComputeRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList7_SetGraphicsRootSignature(This,root_signature) (This)->lpVtbl->SetGraphicsRootSignature(This,root_signature)
+#define ID3D12GraphicsCommandList7_SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList7_SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor) (This)->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor)
+#define ID3D12GraphicsCommandList7_SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList7_SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset)
+#define ID3D12GraphicsCommandList7_SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList7_SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset) (This)->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset)
+#define ID3D12GraphicsCommandList7_SetComputeRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_SetGraphicsRootConstantBufferView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_SetComputeRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_SetGraphicsRootShaderResourceView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_SetComputeRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address) (This)->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address)
+#define ID3D12GraphicsCommandList7_IASetIndexBuffer(This,view) (This)->lpVtbl->IASetIndexBuffer(This,view)
+#define ID3D12GraphicsCommandList7_IASetVertexBuffers(This,start_slot,view_count,views) (This)->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList7_SOSetTargets(This,start_slot,view_count,views) (This)->lpVtbl->SOSetTargets(This,start_slot,view_count,views)
+#define ID3D12GraphicsCommandList7_OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor) (This)->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor)
+#define ID3D12GraphicsCommandList7_ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects) (This)->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects)
+#define ID3D12GraphicsCommandList7_ClearRenderTargetView(This,rtv,color,rect_count,rects) (This)->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects)
+#define ID3D12GraphicsCommandList7_ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList7_ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects) (This)->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects)
+#define ID3D12GraphicsCommandList7_DiscardResource(This,resource,region) (This)->lpVtbl->DiscardResource(This,resource,region)
+#define ID3D12GraphicsCommandList7_BeginQuery(This,heap,type,index) (This)->lpVtbl->BeginQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList7_EndQuery(This,heap,type,index) (This)->lpVtbl->EndQuery(This,heap,type,index)
+#define ID3D12GraphicsCommandList7_ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset) (This)->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset)
+#define ID3D12GraphicsCommandList7_SetPredication(This,buffer,aligned_buffer_offset,operation) (This)->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation)
+#define ID3D12GraphicsCommandList7_SetMarker(This,metadata,data,size) (This)->lpVtbl->SetMarker(This,metadata,data,size)
+#define ID3D12GraphicsCommandList7_BeginEvent(This,metadata,data,size) (This)->lpVtbl->BeginEvent(This,metadata,data,size)
+#define ID3D12GraphicsCommandList7_EndEvent(This) (This)->lpVtbl->EndEvent(This)
+#define ID3D12GraphicsCommandList7_ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset) (This)->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset)
+/*** ID3D12GraphicsCommandList1 methods ***/
+#define ID3D12GraphicsCommandList7_AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList7_AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges) (This)->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges)
+#define ID3D12GraphicsCommandList7_OMSetDepthBounds(This,min,max) (This)->lpVtbl->OMSetDepthBounds(This,min,max)
+#define ID3D12GraphicsCommandList7_SetSamplePositions(This,sample_count,pixel_count,sample_positions) (This)->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions)
+#define ID3D12GraphicsCommandList7_ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode) (This)->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode)
+#define ID3D12GraphicsCommandList7_SetViewInstanceMask(This,mask) (This)->lpVtbl->SetViewInstanceMask(This,mask)
+/*** ID3D12GraphicsCommandList2 methods ***/
+#define ID3D12GraphicsCommandList7_WriteBufferImmediate(This,count,parameters,modes) (This)->lpVtbl->WriteBufferImmediate(This,count,parameters,modes)
+/*** ID3D12GraphicsCommandList3 methods ***/
+#define ID3D12GraphicsCommandList7_SetProtectedResourceSession(This,protected_resource_session) (This)->lpVtbl->SetProtectedResourceSession(This,protected_resource_session)
+/*** ID3D12GraphicsCommandList4 methods ***/
+#define ID3D12GraphicsCommandList7_BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags) (This)->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags)
+#define ID3D12GraphicsCommandList7_EndRenderPass(This) (This)->lpVtbl->EndRenderPass(This)
+#define ID3D12GraphicsCommandList7_InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes) (This)->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList7_ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes) (This)->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes)
+#define ID3D12GraphicsCommandList7_BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs) (This)->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs)
+#define ID3D12GraphicsCommandList7_EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data) (This)->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data)
+#define ID3D12GraphicsCommandList7_CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode) (This)->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode)
+#define ID3D12GraphicsCommandList7_SetPipelineState1(This,state_object) (This)->lpVtbl->SetPipelineState1(This,state_object)
+#define ID3D12GraphicsCommandList7_DispatchRays(This,desc) (This)->lpVtbl->DispatchRays(This,desc)
+/*** ID3D12GraphicsCommandList5 methods ***/
+#define ID3D12GraphicsCommandList7_RSSetShadingRate(This,base_shading_rate,combiners) (This)->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners)
+#define ID3D12GraphicsCommandList7_RSSetShadingRateImage(This,shading_rate_image) (This)->lpVtbl->RSSetShadingRateImage(This,shading_rate_image)
+/*** ID3D12GraphicsCommandList6 methods ***/
+#define ID3D12GraphicsCommandList7_DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z) (This)->lpVtbl->DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z)
+/*** ID3D12GraphicsCommandList7 methods ***/
+#define ID3D12GraphicsCommandList7_Barrier(This,barrier_groups_count,barrier_groups) (This)->lpVtbl->Barrier(This,barrier_groups_count,barrier_groups)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_QueryInterface(ID3D12GraphicsCommandList7* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList7_AddRef(ID3D12GraphicsCommandList7* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ID3D12GraphicsCommandList7_Release(ID3D12GraphicsCommandList7* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D12Object methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_GetPrivateData(ID3D12GraphicsCommandList7* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_SetPrivateData(ID3D12GraphicsCommandList7* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_SetPrivateDataInterface(ID3D12GraphicsCommandList7* This,REFGUID guid,const IUnknown *data) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,data);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_SetName(ID3D12GraphicsCommandList7* This,const WCHAR *name) {
+    return This->lpVtbl->SetName(This,name);
+}
+/*** ID3D12DeviceChild methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_GetDevice(ID3D12GraphicsCommandList7* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** ID3D12CommandList methods ***/
+static __WIDL_INLINE D3D12_COMMAND_LIST_TYPE ID3D12GraphicsCommandList7_GetType(ID3D12GraphicsCommandList7* This) {
+    return This->lpVtbl->GetType(This);
+}
+/*** ID3D12GraphicsCommandList methods ***/
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_Close(ID3D12GraphicsCommandList7* This) {
+    return This->lpVtbl->Close(This);
+}
+static __WIDL_INLINE HRESULT ID3D12GraphicsCommandList7_Reset(ID3D12GraphicsCommandList7* This,ID3D12CommandAllocator *allocator,ID3D12PipelineState *initial_state) {
+    return This->lpVtbl->Reset(This,allocator,initial_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ClearState(ID3D12GraphicsCommandList7* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->ClearState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_DrawInstanced(ID3D12GraphicsCommandList7* This,UINT vertex_count_per_instance,UINT instance_count,UINT start_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawInstanced(This,vertex_count_per_instance,instance_count,start_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_DrawIndexedInstanced(ID3D12GraphicsCommandList7* This,UINT index_count_per_instance,UINT instance_count,UINT start_vertex_location,INT base_vertex_location,UINT start_instance_location) {
+    This->lpVtbl->DrawIndexedInstanced(This,index_count_per_instance,instance_count,start_vertex_location,base_vertex_location,start_instance_location);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_Dispatch(ID3D12GraphicsCommandList7* This,UINT x,UINT u,UINT z) {
+    This->lpVtbl->Dispatch(This,x,u,z);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_CopyBufferRegion(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT64 byte_count) {
+    This->lpVtbl->CopyBufferRegion(This,dst_buffer,dst_offset,src_buffer,src_offset,byte_count);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_CopyTextureRegion(ID3D12GraphicsCommandList7* This,const D3D12_TEXTURE_COPY_LOCATION *dst,UINT dst_x,UINT dst_y,UINT dst_z,const D3D12_TEXTURE_COPY_LOCATION *src,const D3D12_BOX *src_box) {
+    This->lpVtbl->CopyTextureRegion(This,dst,dst_x,dst_y,dst_z,src,src_box);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_CopyResource(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_resource,ID3D12Resource *src_resource) {
+    This->lpVtbl->CopyResource(This,dst_resource,src_resource);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_CopyTiles(ID3D12GraphicsCommandList7* This,ID3D12Resource *tiled_resource,const D3D12_TILED_RESOURCE_COORDINATE *tile_region_start_coordinate,const D3D12_TILE_REGION_SIZE *tile_region_size,ID3D12Resource *buffer,UINT64 buffer_offset,D3D12_TILE_COPY_FLAGS flags) {
+    This->lpVtbl->CopyTiles(This,tiled_resource,tile_region_start_coordinate,tile_region_size,buffer,buffer_offset,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ResolveSubresource(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_resource,UINT dst_sub_resource,ID3D12Resource *src_resource,UINT src_sub_resource,DXGI_FORMAT format) {
+    This->lpVtbl->ResolveSubresource(This,dst_resource,dst_sub_resource,src_resource,src_sub_resource,format);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_IASetPrimitiveTopology(ID3D12GraphicsCommandList7* This,D3D12_PRIMITIVE_TOPOLOGY primitive_topology) {
+    This->lpVtbl->IASetPrimitiveTopology(This,primitive_topology);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_RSSetViewports(ID3D12GraphicsCommandList7* This,UINT viewport_count,const D3D12_VIEWPORT *viewports) {
+    This->lpVtbl->RSSetViewports(This,viewport_count,viewports);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_RSSetScissorRects(ID3D12GraphicsCommandList7* This,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->RSSetScissorRects(This,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_OMSetBlendFactor(ID3D12GraphicsCommandList7* This,const FLOAT blend_factor[4]) {
+    This->lpVtbl->OMSetBlendFactor(This,blend_factor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_OMSetStencilRef(ID3D12GraphicsCommandList7* This,UINT stencil_ref) {
+    This->lpVtbl->OMSetStencilRef(This,stencil_ref);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetPipelineState(ID3D12GraphicsCommandList7* This,ID3D12PipelineState *pipeline_state) {
+    This->lpVtbl->SetPipelineState(This,pipeline_state);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ResourceBarrier(ID3D12GraphicsCommandList7* This,UINT barrier_count,const D3D12_RESOURCE_BARRIER *barriers) {
+    This->lpVtbl->ResourceBarrier(This,barrier_count,barriers);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ExecuteBundle(ID3D12GraphicsCommandList7* This,ID3D12GraphicsCommandList *command_list) {
+    This->lpVtbl->ExecuteBundle(This,command_list);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetDescriptorHeaps(ID3D12GraphicsCommandList7* This,UINT heap_count,ID3D12DescriptorHeap *const *heaps) {
+    This->lpVtbl->SetDescriptorHeaps(This,heap_count,heaps);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRootSignature(ID3D12GraphicsCommandList7* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetComputeRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRootSignature(ID3D12GraphicsCommandList7* This,ID3D12RootSignature *root_signature) {
+    This->lpVtbl->SetGraphicsRootSignature(This,root_signature);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRootDescriptorTable(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetComputeRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRootDescriptorTable(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_DESCRIPTOR_HANDLE base_descriptor) {
+    This->lpVtbl->SetGraphicsRootDescriptorTable(This,root_parameter_index,base_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRoot32BitConstant(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRoot32BitConstant(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,UINT data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstant(This,root_parameter_index,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRoot32BitConstants(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetComputeRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRoot32BitConstants(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,UINT constant_count,const void *data,UINT dst_offset) {
+    This->lpVtbl->SetGraphicsRoot32BitConstants(This,root_parameter_index,constant_count,data,dst_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRootConstantBufferView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRootConstantBufferView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootConstantBufferView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRootShaderResourceView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRootShaderResourceView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootShaderResourceView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetComputeRootUnorderedAccessView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetComputeRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetGraphicsRootUnorderedAccessView(ID3D12GraphicsCommandList7* This,UINT root_parameter_index,D3D12_GPU_VIRTUAL_ADDRESS address) {
+    This->lpVtbl->SetGraphicsRootUnorderedAccessView(This,root_parameter_index,address);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_IASetIndexBuffer(ID3D12GraphicsCommandList7* This,const D3D12_INDEX_BUFFER_VIEW *view) {
+    This->lpVtbl->IASetIndexBuffer(This,view);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_IASetVertexBuffers(ID3D12GraphicsCommandList7* This,UINT start_slot,UINT view_count,const D3D12_VERTEX_BUFFER_VIEW *views) {
+    This->lpVtbl->IASetVertexBuffers(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SOSetTargets(ID3D12GraphicsCommandList7* This,UINT start_slot,UINT view_count,const D3D12_STREAM_OUTPUT_BUFFER_VIEW *views) {
+    This->lpVtbl->SOSetTargets(This,start_slot,view_count,views);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_OMSetRenderTargets(ID3D12GraphicsCommandList7* This,UINT render_target_descriptor_count,const D3D12_CPU_DESCRIPTOR_HANDLE *render_target_descriptors,WINBOOL single_descriptor_handle,const D3D12_CPU_DESCRIPTOR_HANDLE *depth_stencil_descriptor) {
+    This->lpVtbl->OMSetRenderTargets(This,render_target_descriptor_count,render_target_descriptors,single_descriptor_handle,depth_stencil_descriptor);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ClearDepthStencilView(ID3D12GraphicsCommandList7* This,D3D12_CPU_DESCRIPTOR_HANDLE dsv,D3D12_CLEAR_FLAGS flags,FLOAT depth,UINT8 stencil,UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearDepthStencilView(This,dsv,flags,depth,stencil,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ClearRenderTargetView(ID3D12GraphicsCommandList7* This,D3D12_CPU_DESCRIPTOR_HANDLE rtv,const FLOAT color[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearRenderTargetView(This,rtv,color,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ClearUnorderedAccessViewUint(ID3D12GraphicsCommandList7* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const UINT values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewUint(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ClearUnorderedAccessViewFloat(ID3D12GraphicsCommandList7* This,D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle,D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle,ID3D12Resource *resource,const float values[4],UINT rect_count,const D3D12_RECT *rects) {
+    This->lpVtbl->ClearUnorderedAccessViewFloat(This,gpu_handle,cpu_handle,resource,values,rect_count,rects);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_DiscardResource(ID3D12GraphicsCommandList7* This,ID3D12Resource *resource,const D3D12_DISCARD_REGION *region) {
+    This->lpVtbl->DiscardResource(This,resource,region);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_BeginQuery(ID3D12GraphicsCommandList7* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->BeginQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_EndQuery(ID3D12GraphicsCommandList7* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT index) {
+    This->lpVtbl->EndQuery(This,heap,type,index);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ResolveQueryData(ID3D12GraphicsCommandList7* This,ID3D12QueryHeap *heap,D3D12_QUERY_TYPE type,UINT start_index,UINT query_count,ID3D12Resource *dst_buffer,UINT64 aligned_dst_buffer_offset) {
+    This->lpVtbl->ResolveQueryData(This,heap,type,start_index,query_count,dst_buffer,aligned_dst_buffer_offset);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetPredication(ID3D12GraphicsCommandList7* This,ID3D12Resource *buffer,UINT64 aligned_buffer_offset,D3D12_PREDICATION_OP operation) {
+    This->lpVtbl->SetPredication(This,buffer,aligned_buffer_offset,operation);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetMarker(ID3D12GraphicsCommandList7* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->SetMarker(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_BeginEvent(ID3D12GraphicsCommandList7* This,UINT metadata,const void *data,UINT size) {
+    This->lpVtbl->BeginEvent(This,metadata,data,size);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_EndEvent(ID3D12GraphicsCommandList7* This) {
+    This->lpVtbl->EndEvent(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ExecuteIndirect(ID3D12GraphicsCommandList7* This,ID3D12CommandSignature *command_signature,UINT max_command_count,ID3D12Resource *arg_buffer,UINT64 arg_buffer_offset,ID3D12Resource *count_buffer,UINT64 count_buffer_offset) {
+    This->lpVtbl->ExecuteIndirect(This,command_signature,max_command_count,arg_buffer,arg_buffer_offset,count_buffer,count_buffer_offset);
+}
+/*** ID3D12GraphicsCommandList1 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_AtomicCopyBufferUINT(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_AtomicCopyBufferUINT64(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_buffer,UINT64 dst_offset,ID3D12Resource *src_buffer,UINT64 src_offset,UINT dependent_resource_count,ID3D12Resource *const *dependent_resources,const D3D12_SUBRESOURCE_RANGE_UINT64 *dependent_sub_resource_ranges) {
+    This->lpVtbl->AtomicCopyBufferUINT64(This,dst_buffer,dst_offset,src_buffer,src_offset,dependent_resource_count,dependent_resources,dependent_sub_resource_ranges);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_OMSetDepthBounds(ID3D12GraphicsCommandList7* This,FLOAT min,FLOAT max) {
+    This->lpVtbl->OMSetDepthBounds(This,min,max);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetSamplePositions(ID3D12GraphicsCommandList7* This,UINT sample_count,UINT pixel_count,D3D12_SAMPLE_POSITION *sample_positions) {
+    This->lpVtbl->SetSamplePositions(This,sample_count,pixel_count,sample_positions);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ResolveSubresourceRegion(ID3D12GraphicsCommandList7* This,ID3D12Resource *dst_resource,UINT dst_sub_resource_idx,UINT dst_x,UINT dst_y,ID3D12Resource *src_resource,UINT src_sub_resource_idx,D3D12_RECT *src_rect,DXGI_FORMAT format,D3D12_RESOLVE_MODE mode) {
+    This->lpVtbl->ResolveSubresourceRegion(This,dst_resource,dst_sub_resource_idx,dst_x,dst_y,src_resource,src_sub_resource_idx,src_rect,format,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetViewInstanceMask(ID3D12GraphicsCommandList7* This,UINT mask) {
+    This->lpVtbl->SetViewInstanceMask(This,mask);
+}
+/*** ID3D12GraphicsCommandList2 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_WriteBufferImmediate(ID3D12GraphicsCommandList7* This,UINT count,const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER *parameters,const D3D12_WRITEBUFFERIMMEDIATE_MODE *modes) {
+    This->lpVtbl->WriteBufferImmediate(This,count,parameters,modes);
+}
+/*** ID3D12GraphicsCommandList3 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetProtectedResourceSession(ID3D12GraphicsCommandList7* This,ID3D12ProtectedResourceSession *protected_resource_session) {
+    This->lpVtbl->SetProtectedResourceSession(This,protected_resource_session);
+}
+/*** ID3D12GraphicsCommandList4 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_BeginRenderPass(ID3D12GraphicsCommandList7* This,UINT render_targets_count,const D3D12_RENDER_PASS_RENDER_TARGET_DESC *render_targets,const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC *depth_stencil,D3D12_RENDER_PASS_FLAGS flags) {
+    This->lpVtbl->BeginRenderPass(This,render_targets_count,render_targets,depth_stencil,flags);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_EndRenderPass(ID3D12GraphicsCommandList7* This) {
+    This->lpVtbl->EndRenderPass(This);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_InitializeMetaCommand(ID3D12GraphicsCommandList7* This,ID3D12MetaCommand *meta_command,const void *initialization_parameters_data,SIZE_T initialization_parameters_data_size_in_bytes) {
+    This->lpVtbl->InitializeMetaCommand(This,meta_command,initialization_parameters_data,initialization_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_ExecuteMetaCommand(ID3D12GraphicsCommandList7* This,ID3D12MetaCommand *meta_command,const void *execution_parameters_data,SIZE_T execution_parameters_data_size_in_bytes) {
+    This->lpVtbl->ExecuteMetaCommand(This,meta_command,execution_parameters_data,execution_parameters_data_size_in_bytes);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_BuildRaytracingAccelerationStructure(ID3D12GraphicsCommandList7* This,const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC *desc,UINT postbuild_info_descs_count,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *postbuild_info_descs) {
+    This->lpVtbl->BuildRaytracingAccelerationStructure(This,desc,postbuild_info_descs_count,postbuild_info_descs);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_EmitRaytracingAccelerationStructurePostbuildInfo(ID3D12GraphicsCommandList7* This,const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC *desc,UINT src_acceleration_structures_count,const D3D12_GPU_VIRTUAL_ADDRESS *src_acceleration_structure_data) {
+    This->lpVtbl->EmitRaytracingAccelerationStructurePostbuildInfo(This,desc,src_acceleration_structures_count,src_acceleration_structure_data);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_CopyRaytracingAccelerationStructure(ID3D12GraphicsCommandList7* This,D3D12_GPU_VIRTUAL_ADDRESS dst_acceleration_structure_data,D3D12_GPU_VIRTUAL_ADDRESS src_acceleration_structure_data,D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE mode) {
+    This->lpVtbl->CopyRaytracingAccelerationStructure(This,dst_acceleration_structure_data,src_acceleration_structure_data,mode);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_SetPipelineState1(ID3D12GraphicsCommandList7* This,ID3D12StateObject *state_object) {
+    This->lpVtbl->SetPipelineState1(This,state_object);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_DispatchRays(ID3D12GraphicsCommandList7* This,const D3D12_DISPATCH_RAYS_DESC *desc) {
+    This->lpVtbl->DispatchRays(This,desc);
+}
+/*** ID3D12GraphicsCommandList5 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_RSSetShadingRate(ID3D12GraphicsCommandList7* This,D3D12_SHADING_RATE base_shading_rate,const D3D12_SHADING_RATE_COMBINER *combiners) {
+    This->lpVtbl->RSSetShadingRate(This,base_shading_rate,combiners);
+}
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_RSSetShadingRateImage(ID3D12GraphicsCommandList7* This,ID3D12Resource *shading_rate_image) {
+    This->lpVtbl->RSSetShadingRateImage(This,shading_rate_image);
+}
+/*** ID3D12GraphicsCommandList6 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_DispatchMesh(ID3D12GraphicsCommandList7* This,UINT thread_group_count_x,UINT thread_group_count_y,UINT thread_group_count_z) {
+    This->lpVtbl->DispatchMesh(This,thread_group_count_x,thread_group_count_y,thread_group_count_z);
+}
+/*** ID3D12GraphicsCommandList7 methods ***/
+static __WIDL_INLINE void ID3D12GraphicsCommandList7_Barrier(ID3D12GraphicsCommandList7* This,UINT32 barrier_groups_count,const D3D12_BARRIER_GROUP *barrier_groups) {
+    This->lpVtbl->Barrier(This,barrier_groups_count,barrier_groups);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D12GraphicsCommandList7_INTERFACE_DEFINED__ */
+
 typedef HRESULT (__stdcall *PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER)(const void *data,SIZE_T data_size,REFIID iid,void **deserializer);
 HRESULT __stdcall  D3D12CreateRootSignatureDeserializer(const void *data,SIZE_T data_size,REFIID iid,void **deserializer);
 
@@ -21588,6 +24298,12 @@ typedef HRESULT (__stdcall *PFN_D3D12_GET_DEBUG_INTERFACE)(REFIID iid,void **deb
 HRESULT __stdcall  D3D12GetDebugInterface(REFIID iid,void **debug);
 
 HRESULT __stdcall  D3D12EnableExperimentalFeatures(UINT feature_count,const IID *iids,void *configurations,UINT *configurations_sizes);
+
+static const UUID D3D12ExperimentalShaderModels = { 0x76f5573e, 0xf13a, 0x40f5, { 0xb2, 0x97, 0x81, 0xce, 0x9e, 0x18, 0x93, 0x3f } };
+static const UUID D3D12TiledResourceTier4 = { 0xc9c4725f, 0xa81a, 0x4f56, { 0x8c, 0x5b, 0xc5, 0x10, 0x39, 0xd6, 0x94, 0xfb } };
+static const UUID D3D12MetaCommand = { 0xc734c97e, 0x8077, 0x48c8, { 0x9f, 0xdc, 0xd9, 0xd1, 0xdd, 0x31, 0xdd, 0x77 } };
+typedef HRESULT (__stdcall *PFN_D3D12_GET_INTERFACE)(REFCLSID clsid,REFIID iid,void **debug);
+HRESULT __stdcall  D3D12GetInterface(REFCLSID clsid,REFIID iid,void **debug);
 
 /* Begin additional prototypes for all interfaces */
 
