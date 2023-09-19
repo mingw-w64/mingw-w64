@@ -355,6 +355,7 @@ lib32_DATA += %reldir%/libxapofx1_4.a
 lib32_DATA += %reldir%/libxapofx1_5.a
 lib32_DATA += %reldir%/libxapofxd1_5.a
 lib32_DATA += %reldir%/libxaudio2_8.a
+lib32_DATA += %reldir%/libxaudio2_9.a
 lib32_DATA += %reldir%/libxinput1_1.a
 lib32_DATA += %reldir%/libxinput1_2.a
 lib32_DATA += %reldir%/libxinput1_3.a

@@ -1017,6 +1017,7 @@ libarm32_DATA += %reldir%/libwwanprotdim.a
 libarm32_DATA += %reldir%/libwwansvc.a
 libarm32_DATA += %reldir%/libwwapi.a
 libarm32_DATA += %reldir%/libxaudio2_8.a
+libarm32_DATA += %reldir%/libxaudio2_9.a
 libarm32_DATA += %reldir%/libxinput1_4.a
 libarm32_DATA += %reldir%/libxmllite.a
 libarm32_DATA += %reldir%/libxpsprint.a
