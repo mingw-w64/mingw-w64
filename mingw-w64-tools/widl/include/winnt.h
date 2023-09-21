@@ -155,6 +155,16 @@ extern "C" {
 # endif
 #endif
 
+#ifndef DECLSPEC_NOINLINE
+# if defined(_MSC_VER) && (_MSC_VER >= 1300)
+#  define DECLSPEC_NOINLINE  __declspec(noinline)
+# elif defined(__GNUC__)
+#  define DECLSPEC_NOINLINE __attribute__((noinline))
+# else
+#  define DECLSPEC_NOINLINE
+# endif
+#endif
+
 #ifndef DECLSPEC_DEPRECATED
 # if defined(_MSC_VER) && (_MSC_VER >= 1300) && !defined(MIDL_PASS)
 #  define DECLSPEC_DEPRECATED __declspec(deprecated)
@@ -1901,6 +1911,10 @@ NTSYSAPI void WINAPI RtlCaptureContext(CONTEXT*);
 #define WOW64_SIZE_OF_80387_REGISTERS 80
 #define WOW64_MAXIMUM_SUPPORTED_EXTENSION 512
 
+#ifdef __x86_64__
+NTSYSAPI BOOLEAN NTAPI RtlIsEcCode(const void*);
+#endif
+
 /* Exception definitions */
 
 #define EXCEPTION_READ_FAULT    0
@@ -2051,6 +2065,9 @@ typedef void (CALLBACK *PTERMINATION_HANDLER)(BOOLEAN,DWORD64);
 #define UNW_FLAG_UHANDLER  2
 
 #endif /* __aarch64__ */
+
+NTSYSAPI void    NTAPI RtlRaiseException(struct _EXCEPTION_RECORD*);
+NTSYSAPI void    NTAPI RtlUnwind(void*,void*,struct _EXCEPTION_RECORD*,void*);
 
 #if defined(__x86_64__) || defined(__arm__) || defined(__aarch64__)
 
@@ -2267,8 +2284,15 @@ NTSYSAPI PVOID   WINAPI RtlVirtualUnwind(DWORD,ULONG_PTR,ULONG_PTR,RUNTIME_FUNCT
 #define WT_TRANSFER_IMPERSONATION      0x0100
 
 
-#define EXCEPTION_CONTINUABLE        0
+#define EXCEPTION_CONTINUABLE        0x00
 #define EXCEPTION_NONCONTINUABLE     0x01
+#define EXCEPTION_UNWINDING          0x02
+#define EXCEPTION_EXIT_UNWIND        0x04
+#define EXCEPTION_STACK_INVALID      0x08
+#define EXCEPTION_NESTED_CALL        0x10
+#define EXCEPTION_TARGET_UNWIND      0x20
+#define EXCEPTION_COLLIDED_UNWIND    0x40
+#define EXCEPTION_SOFTWARE_ORIGINATE 0x80
 
 /*
  * The exception record used by Win32 to give additional information
@@ -6693,6 +6717,7 @@ typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_WAIT,
 
 
 NTSYSAPI BOOLEAN NTAPI RtlGetProductInfo(DWORD,DWORD,DWORD,DWORD,PDWORD);
+NTSYSAPI void*   NTAPI RtlPcToFileHeader(void*,void**);
 
 typedef enum _RTL_UMS_THREAD_INFO_CLASS
 {
