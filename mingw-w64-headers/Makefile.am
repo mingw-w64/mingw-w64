@@ -200,6 +200,7 @@ IDL_SRCS = \
   include/objidlbase.idl \
   include/oleidl.idl \
   include/optary.idl \
+  include/portabledeviceapi.idl \
   include/portabledevicetypes.idl \
   include/propidl.idl \
   include/propsys.idl \
