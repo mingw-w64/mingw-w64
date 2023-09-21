@@ -4982,6 +4982,106 @@ interface ID3D12Tools : IUnknown
     BOOL ShaderInstrumentationEnabled();
 }
 
+cpp_quote("DEFINE_GUID(CLSID_D3D12Debug,                     0xf2352aeb, 0xdd84, 0x49fe, 0xb9, 0x7b, 0xa9, 0xdc, 0xfd, 0xcc, 0x1b, 0x4f);")
+cpp_quote("DEFINE_GUID(CLSID_D3D12Tools,                     0xe38216b1, 0x3c8c, 0x4833, 0xaa, 0x09, 0x0a, 0x06, 0xb6, 0x5d, 0x96, 0xc8);")
+cpp_quote("DEFINE_GUID(CLSID_D3D12DeviceRemovedExtendedData, 0x4a75bbc4, 0x9ff4, 0x4ad8, 0x9f, 0x18, 0xab, 0xae, 0x84, 0xdc, 0x5f, 0xf2);")
+cpp_quote("DEFINE_GUID(CLSID_D3D12SDKConfiguration,          0x7cda6aca, 0xa03e, 0x49c8, 0x94, 0x58, 0x03, 0x34, 0xd2, 0x0e, 0x07, 0xce);")
+
+[
+    uuid(e9eb5314-33aa-42b2-a718-d77f58b1f1c7),
+    object,
+    local,
+    pointer_default(unique)
+]
+interface ID3D12SDKConfiguration : IUnknown
+{
+    HRESULT SetSDKVersion(UINT version, const char *path);
+}
+
+typedef enum D3D12_AXIS_SHADING_RATE
+{
+    D3D12_AXIS_SHADING_RATE_1X = 0x0,
+    D3D12_AXIS_SHADING_RATE_2X = 0x1,
+    D3D12_AXIS_SHADING_RATE_4X = 0x2,
+} D3D12_AXIS_SHADING_RATE;
+
+typedef enum D3D12_SHADING_RATE
+{
+    D3D12_SHADING_RATE_1X1 = 0x0,
+    D3D12_SHADING_RATE_1X2 = 0x1,
+    D3D12_SHADING_RATE_2X1 = 0x4,
+    D3D12_SHADING_RATE_2X2 = 0x5,
+    D3D12_SHADING_RATE_2X4 = 0x6,
+    D3D12_SHADING_RATE_4X2 = 0x9,
+    D3D12_SHADING_RATE_4X4 = 0xa,
+} D3D12_SHADING_RATE;
+
+typedef enum D3D12_SHADING_RATE_COMBINER
+{
+    D3D12_SHADING_RATE_COMBINER_PASSTHROUGH = 0x0,
+    D3D12_SHADING_RATE_COMBINER_OVERRIDE = 0x1,
+    D3D12_SHADING_RATE_COMBINER_MIN = 0x2,
+    D3D12_SHADING_RATE_COMBINER_MAX = 0x3,
+    D3D12_SHADING_RATE_COMBINER_SUM = 0x4,
+} D3D12_SHADING_RATE_COMBINER;
+
+[
+    uuid(55050859-4024-474c-87f5-6472eaee44ea),
+    object,
+    local,
+    pointer_default(unique)
+]
+interface ID3D12GraphicsCommandList5 : ID3D12GraphicsCommandList4
+{
+    void RSSetShadingRate(
+            D3D12_SHADING_RATE base_shading_rate,
+            const D3D12_SHADING_RATE_COMBINER *combiners);
+
+    void RSSetShadingRateImage(
+            ID3D12Resource *shading_rate_image);
+}
+
+const UINT D3D12_SHADING_RATE_X_AXIS_SHIFT = 2;
+const UINT D3D12_SHADING_RATE_VALID_MASK = 3;
+
+cpp_quote("#define D3D12_MAKE_COARSE_SHADING_RATE(x, y) ((x) << D3D12_SHADING_RATE_X_AXIS_SHIFT | (y))")
+cpp_quote("#define D3D12_GET_COARSE_SHADING_RATE_X_AXIS(val) (((val) >> D3D12_SHADING_RATE_X_AXIS_SHIFT) & D3D12_SHADING_RATE_VALID_MASK)")
+cpp_quote("#define D3D12_GET_COARSE_SHADING_RATE_Y_AXIS(val) ((val) & D3D12_SHADING_RATE_VALID_MASK)")
+
+typedef struct D3D12_DISPATCH_MESH_ARGUMENTS
+{
+    UINT ThreadGroupCountX;
+    UINT ThreadGroupCountY;
+    UINT ThreadGroupCountZ;
+} D3D12_DISPATCH_MESH_ARGUMENTS;
+
+[
+    uuid(c3827890-e548-4cfa-96cf-5689a9370f80),
+    object,
+    local,
+    pointer_default(unique)
+]
+interface ID3D12GraphicsCommandList6 : ID3D12GraphicsCommandList5
+{
+    void DispatchMesh(
+            UINT thread_group_count_x,
+            UINT thread_group_count_y,
+            UINT thread_group_count_z);
+}
+
+[
+    uuid(dd171223-8b61-4769-90e3-160ccde4e2c1),
+    object,
+    local,
+    pointer_default(unique)
+]
+interface ID3D12GraphicsCommandList7 : ID3D12GraphicsCommandList6
+{
+    void Barrier(
+            UINT32 barrier_groups_count,
+            const D3D12_BARRIER_GROUP *barrier_groups);
+};
+
 typedef HRESULT (__stdcall *PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER)(
         const void *data, SIZE_T data_size, REFIID iid, void **deserializer);
 
@@ -5021,3 +5121,11 @@ typedef HRESULT (__stdcall *PFN_D3D12_GET_DEBUG_INTERFACE)(REFIID iid, void **de
 
 [local] HRESULT __stdcall D3D12EnableExperimentalFeatures(UINT feature_count,
         const IID *iids, void *configurations, UINT *configurations_sizes);
+
+cpp_quote("static const UUID D3D12ExperimentalShaderModels = { 0x76f5573e, 0xf13a, 0x40f5, { 0xb2, 0x97, 0x81, 0xce, 0x9e, 0x18, 0x93, 0x3f } };")
+cpp_quote("static const UUID D3D12TiledResourceTier4 = { 0xc9c4725f, 0xa81a, 0x4f56, { 0x8c, 0x5b, 0xc5, 0x10, 0x39, 0xd6, 0x94, 0xfb } };")
+cpp_quote("static const UUID D3D12MetaCommand = { 0xc734c97e, 0x8077, 0x48c8, { 0x9f, 0xdc, 0xd9, 0xd1, 0xdd, 0x31, 0xdd, 0x77 } };")
+
+typedef HRESULT (__stdcall *PFN_D3D12_GET_INTERFACE)(REFCLSID clsid, REFIID iid, void **debug);
+
+[local] HRESULT __stdcall D3D12GetInterface(REFCLSID clsid, REFIID iid, void **debug);
