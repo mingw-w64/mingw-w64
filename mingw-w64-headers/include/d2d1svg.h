@@ -422,7 +422,16 @@ __CRT_UUID_DECL(ID2D1SvgElement, 0xac7b67a6, 0x183e, 0x49c1, 0xa8, 0x23, 0x0e, 0
 interface ID2D1SvgDocument : public ID2D1Resource
 {
   STDMETHOD(SetViewportSize)(D2D1_SIZE_F viewport_size) PURE;
+#ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS
   STDMETHOD_(D2D1_SIZE_F, GetViewportSize)() const PURE;
+#else
+  virtual D2D1_SIZE_F* STDMETHODCALLTYPE GetViewportSize(D2D1_SIZE_F*) const = 0;
+  D2D1_SIZE_F STDMETHODCALLTYPE GetViewportSize() const {
+    D2D1_SIZE_F __ret;
+    GetViewportSize(&__ret);
+    return __ret;
+  }
+#endif
   STDMETHOD(SetRoot)(ID2D1SvgElement *root) PURE;
   STDMETHOD_(void, GetRoot)(ID2D1SvgElement **root) PURE;
   STDMETHOD(FindElementById)(PCWSTR id, ID2D1SvgElement **svg_element) PURE;

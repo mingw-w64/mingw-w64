@@ -188,7 +188,16 @@ __CRT_UUID_DECL(ID2D1InkStyle, 0xbae8b344, 0x23fc, 0x4071, 0x8c, 0xb5, 0xd0, 0x5
 interface ID2D1Ink : public ID2D1Resource
 {
   STDMETHOD_(void, SetStartPoint)(const D2D1_INK_POINT *start_point) PURE;
+#ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS
   STDMETHOD_(D2D1_INK_POINT, GetStartPoint)() const PURE;
+#else
+  virtual D2D1_INK_POINT* STDMETHODCALLTYPE GetStartPoint(D2D1_INK_POINT*) const = 0;
+  D2D1_INK_POINT STDMETHODCALLTYPE GetStartPoint() const {
+    D2D1_INK_POINT __ret;
+    GetStartPoint(&__ret);
+    return __ret;
+  }
+#endif
   STDMETHOD(AddSegments)(const D2D1_INK_BEZIER_SEGMENT *segments, UINT32 segments_count) PURE;
   STDMETHOD(RemoveSegmentsAtEnd)(UINT32 segments_count) PURE;
   STDMETHOD(SetSegments)(UINT32 start_segment, const D2D1_INK_BEZIER_SEGMENT *segments, UINT32 segments_count) PURE;
