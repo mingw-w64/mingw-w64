@@ -156,6 +156,7 @@ IDL_SRCS = \
   include/icftypes.idl \
   include/icodecapi.idl \
   include/iketypes.idl \
+  include/inputpaneinterop.idl \
   include/inputscope.idl \
   include/inspectable.idl \
   include/ivectorchangedeventargs.idl \
