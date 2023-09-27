@@ -157,6 +157,7 @@ for f in \
 	d3d12 \
 	d3d12sdklayers \
 	d3d12shader \
+	d3d12video \
 	d3dcommon \
 	dcommon \
 	ddstream \
