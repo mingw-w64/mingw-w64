@@ -13,7 +13,7 @@
 
 #define __MINGW64_VERSION_MAJOR 5
 #define __MINGW64_VERSION_MINOR 0
-#define __MINGW64_VERSION_BUGFIX 4
+#define __MINGW64_VERSION_BUGFIX 5
 
 /* This macro holds an monotonic increasing value, which indicates
    a specific fix/patch is present on trunk.  This value isn't related to
