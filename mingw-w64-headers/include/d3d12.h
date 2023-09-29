@@ -24279,6 +24279,9 @@ static __WIDL_INLINE void ID3D12GraphicsCommandList7_Barrier(ID3D12GraphicsComma
 
 #endif  /* __ID3D12GraphicsCommandList7_INTERFACE_DEFINED__ */
 
+#ifndef D3D12_IGNORE_SDK_LAYERS
+#include "d3d12sdklayers.h"
+#endif
 typedef HRESULT (__stdcall *PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER)(const void *data,SIZE_T data_size,REFIID iid,void **deserializer);
 HRESULT __stdcall  D3D12CreateRootSignatureDeserializer(const void *data,SIZE_T data_size,REFIID iid,void **deserializer);
 
