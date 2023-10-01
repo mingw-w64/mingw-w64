@@ -283,6 +283,7 @@ lib32_DATA += %reldir%/libtbs.a
 lib32_DATA += %reldir%/libtdh.a
 lib32_DATA += %reldir%/libtdi.a
 lib32_DATA += %reldir%/libtxfw32.a
+lib32_DATA += %reldir%/libuiautomationcore.a
 lib32_DATA += %reldir%/liburl.a
 lib32_DATA += %reldir%/liburlmon.a
 lib32_DATA += %reldir%/libusbcamd.a

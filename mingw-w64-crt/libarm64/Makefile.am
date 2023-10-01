@@ -303,6 +303,7 @@ libarm64_DATA += %reldir%/libtdh.a
 libarm64_DATA += %reldir%/libtraffic.a
 libarm64_DATA += %reldir%/libtsbyuv.a
 libarm64_DATA += %reldir%/libtxfw32.a
+libarm64_DATA += %reldir%/libuiautomationcore.a
 libarm64_DATA += %reldir%/libumdmxfrm.a
 libarm64_DATA += %reldir%/libunimdmat.a
 libarm64_DATA += %reldir%/libuniplat.a

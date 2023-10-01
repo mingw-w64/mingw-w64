@@ -601,6 +601,7 @@ lib64_DATA += %reldir%/libtsd32.a
 lib64_DATA += %reldir%/libtsoc.a
 lib64_DATA += %reldir%/libudhisapi.a
 lib64_DATA += %reldir%/libufat.a
+lib64_DATA += %reldir%/libuiautomationcore.a
 lib64_DATA += %reldir%/libumandlg.a
 lib64_DATA += %reldir%/libumdmxfrm.a
 lib64_DATA += %reldir%/libumpnpmgr.a
