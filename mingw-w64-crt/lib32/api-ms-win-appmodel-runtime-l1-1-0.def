@@ -2,6 +2,7 @@ LIBRARY api-ms-win-appmodel-runtime-l1-1-0
 
 EXPORTS
 
+CreateDeviceAccessInstance@12
 ClosePackageInfo@4
 GetApplicationUserModelId@12
 GetCurrentApplicationUserModelId@8
