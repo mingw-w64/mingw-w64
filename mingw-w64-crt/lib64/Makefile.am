@@ -110,6 +110,7 @@ lib64_DATA += %reldir%/libdevobj.a
 lib64_DATA += %reldir%/libdevrtl.a
 lib64_DATA += %reldir%/libdhcpcsvc.a
 lib64_DATA += %reldir%/libdhcpsapi.a
+lib64_DATA += %reldir%/libdiagnosticdataquery.a
 lib64_DATA += %reldir%/libdigest.a
 lib64_DATA += %reldir%/libdimsntfy.a
 lib64_DATA += %reldir%/libdimsroam.a

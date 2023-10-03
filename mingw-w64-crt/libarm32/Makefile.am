@@ -166,6 +166,7 @@ libarm32_DATA += %reldir%/libdhcpcsvc6.a
 libarm32_DATA += %reldir%/libdhcpcsvc.a
 libarm32_DATA += %reldir%/libdhcpqec.a
 libarm32_DATA += %reldir%/libdhcpsapi.a
+libarm32_DATA += %reldir%/libdiagnosticdataquery.a
 libarm32_DATA += %reldir%/libdiagperf.a
 libarm32_DATA += %reldir%/libdimsroam.a
 #libarm32_DATA += %reldir%/libdinput.a    # Handled by custom rule

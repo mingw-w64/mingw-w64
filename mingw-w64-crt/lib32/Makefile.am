@@ -105,6 +105,7 @@ lib32_DATA += %reldir%/libdfscli.a
 lib32_DATA += %reldir%/libdhcpcsvc.a
 lib32_DATA += %reldir%/libdhcpcsvc6.a
 lib32_DATA += %reldir%/libdhcpsapi.a
+lib32_DATA += %reldir%/libdiagnosticdataquery.a
 #lib32_DATA += %reldir%/libdinput.a   # Handled by custom rule
 #lib32_DATA += %reldir%/libdinput8.a  # Handled by custom rule
 lib32_DATA += %reldir%/libdismapi.a

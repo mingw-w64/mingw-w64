@@ -72,6 +72,7 @@ libarm64_DATA += %reldir%/libdevrtl.a
 libarm64_DATA += %reldir%/libdfscli.a
 libarm64_DATA += %reldir%/libdhcpcsvc.a
 libarm64_DATA += %reldir%/libdhcpsapi.a
+libarm64_DATA += %reldir%/libdiagnosticdataquery.a
 libarm64_DATA += %reldir%/libdimsroam.a
 #libarm64_DATA += %reldir%/libdinput.a    # Handled by custom rule
 #libarm64_DATA += %reldir%/libdinput8.a   # Handled by custom rule
