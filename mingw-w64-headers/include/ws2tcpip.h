@@ -262,6 +262,7 @@ WCHAR *gai_strerrorW(int);
 #include <mstcpip.h>
 
 #if (_WIN32_WINNT >= 0x0600)
+#define ADDRINFOEX __MINGW_NAME_AW(ADDRINFOEX)
 #define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
 #define GetAddrInfoEx __MINGW_NAME_AW(GetAddrInfoEx)
 #define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
@@ -294,7 +295,11 @@ WCHAR *gai_strerrorW(int);
     struct addrinfoexW *ai_next;
   } ADDRINFOEXW, *PADDRINFOEXW;
 
-typedef PVOID LPLOOKUPSERVICE_COMPLETION_ROUTINE; /*reserved*/
+  typedef void (CALLBACK * LPLOOKUPSERVICE_COMPLETION_ROUTINE)(
+    DWORD dwError,
+    DWORD dwBytes,
+    LPWSAOVERLAPPED lpOverlapped
+  );
 
 WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExA(PCSTR pName, PCSTR pServiceName, DWORD dwNameSpace,
 					      LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,
