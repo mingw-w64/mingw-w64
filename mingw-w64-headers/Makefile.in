@@ -618,6 +618,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.idl \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.surfaces.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
+@HAVE_WIDL_TRUE@  include/windows.security.credentials.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.isolation.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \

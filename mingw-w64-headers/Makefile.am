@@ -316,6 +316,7 @@ IDL_SRCS = \
   include/windows.perception.spatial.idl \
   include/windows.perception.spatial.surfaces.idl \
   include/windows.security.credentials.idl \
+  include/windows.security.credentials.ui.idl \
   include/windows.security.cryptography.idl \
   include/windows.security.isolation.idl \
   include/windows.storage.idl \
