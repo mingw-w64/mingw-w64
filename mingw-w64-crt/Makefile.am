@@ -2195,6 +2195,7 @@ endif
 		%/libcryptbase.a \
 		%/libcryptnet.a \
 		%/libdnsapi.a \
+		%/libdsparse.a \
 		%/libiphlpapi.a \
 		%/libmpr.a \
 		%/libmswsock.a \
