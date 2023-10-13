@@ -15,8 +15,6 @@ GetEnvironmentStringsW@0
 GetEnvironmentVariableA@12
 GetEnvironmentVariableW@12
 GetStdHandle@4
-NeedCurrentDirectoryForExePathA@4
-NeedCurrentDirectoryForExePathW@4
 SearchPathA@24
 SearchPathW@24
 SetCurrentDirectoryA@4
