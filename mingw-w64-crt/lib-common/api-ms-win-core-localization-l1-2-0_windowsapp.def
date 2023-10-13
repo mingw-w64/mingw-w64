@@ -58,6 +58,5 @@ SetProcessPreferredUILanguages
 SetThreadLocale
 SetThreadPreferredUILanguages
 SetThreadUILanguage
-SetUserGeoID
 VerLanguageNameA
 VerLanguageNameW

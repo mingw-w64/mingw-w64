@@ -3,14 +3,10 @@ LIBRARY api-ms-win-core-localization-l2-1-0
 EXPORTS
 
 EnumCalendarInfoExEx
-EnumCalendarInfoExW
 EnumCalendarInfoW
 EnumDateFormatsExEx
-EnumDateFormatsExW
-EnumDateFormatsW
 EnumSystemCodePagesW
 EnumTimeFormatsEx
-EnumTimeFormatsW
 GetCurrencyFormatEx
 GetCurrencyFormatW
 GetNumberFormatEx
