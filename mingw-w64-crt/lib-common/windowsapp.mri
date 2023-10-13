@@ -197,7 +197,7 @@ ADDLIB libapi-ms-win-security-sddl-l1-1-0.a
 ADDLIB libapi-ms-win-security-systemfunctions-l1-1-0.a
 ADDLIB libapi-ms-win-service-core-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-service-management-l1-1-0_windowsapp.a
-ADDLIB libapi-ms-win-service-winsvc-l1-1-0.a
+ADDLIB libapi-ms-win-service-winsvc-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-shcore-obsolete-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-stream-winrt-l1-1-0.a
 SAVE
