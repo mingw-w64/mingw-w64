@@ -4,12 +4,6 @@ EXPORTS
 
 AddDllDirectory
 DisableThreadLibraryCalls
-EnumResourceLanguagesExA
-EnumResourceLanguagesExW
-EnumResourceNamesExA
-EnumResourceNamesExW
-EnumResourceTypesExA
-EnumResourceTypesExW
 FindResourceExW
 FindStringOrdinal
 FreeLibrary
