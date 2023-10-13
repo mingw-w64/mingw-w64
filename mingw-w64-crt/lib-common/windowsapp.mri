@@ -145,8 +145,8 @@ ADDLIB libapi-ms-win-core-windowsceip-l1-1-0.a
 ADDLIB libapi-ms-win-core-windowserrorreporting-l1-1-0.a
 ADDLIB libapi-ms-win-core-windowserrorreporting-l1-1-1.a
 ADDLIB libapi-ms-win-core-windowserrorreporting-l1-1-2.a
-ADDLIB libapi-ms-win-core-winrt-error-l1-1-0.a
-ADDLIB libapi-ms-win-core-winrt-error-l1-1-1.a
+ADDLIB libapi-ms-win-core-winrt-error-l1-1-0_windowsapp.a
+ADDLIB libapi-ms-win-core-winrt-error-l1-1-1_windowsapp.a
 ADDLIB libapi-ms-win-core-winrt-l1-1-0.a
 ADDLIB libapi-ms-win-core-winrt-registration-l1-1-0.a
 ADDLIB libapi-ms-win-core-winrt-robuffer-l1-1-0.a

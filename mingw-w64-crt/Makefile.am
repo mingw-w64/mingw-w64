@@ -2384,8 +2384,8 @@ endif
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-1.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-2.a \
-		%/libapi-ms-win-core-winrt-error-l1-1-0.a \
-		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-0_windowsapp.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-registration-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-robuffer-l1-1-0.a \

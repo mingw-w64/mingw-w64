@@ -8,7 +8,6 @@ RoFailFastWithErrorContext
 RoGetErrorReportingFlags
 RoOriginateError
 RoOriginateErrorW
-RoResolveRestrictedErrorInfoReference
 RoSetErrorReportingFlags
 RoTransformError
 RoTransformErrorW
