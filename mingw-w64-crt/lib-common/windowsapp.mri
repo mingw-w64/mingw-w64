@@ -175,7 +175,7 @@ ADDLIB libapi-ms-win-gaming-tcui-l1-1-4.a
 ADDLIB libapi-ms-win-mm-time-l1-1-0.a
 ADDLIB libapi-ms-win-ntuser-sysparams-l1-1-0.a
 ADDLIB libapi-ms-win-power-base-l1-1-0_windowsapp.a
-ADDLIB libapi-ms-win-power-setting-l1-1-0.a
+ADDLIB libapi-ms-win-power-setting-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-ro-typeresolution-l1-1-0.a
 ADDLIB libapi-ms-win-ro-typeresolution-l1-1-1.a
 ADDLIB libapi-ms-win-security-appcontainer-l1-1-0.a
