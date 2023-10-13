@@ -2368,7 +2368,7 @@ endif
 		%/libapi-ms-win-core-sysinfo-l1-2-3_windowsapp.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-5.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-6.a \
-		%/libapi-ms-win-core-systemtopology-l1-1-0.a \
+		%/libapi-ms-win-core-systemtopology-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-threadpool-l1-2-0.a \
 		%/libapi-ms-win-core-threadpool-legacy-l1-1-0.a \
 		%/libapi-ms-win-core-timezone-l1-1-0.a \
