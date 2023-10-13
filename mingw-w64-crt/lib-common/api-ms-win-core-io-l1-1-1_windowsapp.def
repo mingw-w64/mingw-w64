@@ -4,7 +4,6 @@ EXPORTS
 
 CancelIo
 CancelIoEx
-CancelSynchronousIo
 CreateIoCompletionPort
 DeviceIoControl
 GetOverlappedResult
