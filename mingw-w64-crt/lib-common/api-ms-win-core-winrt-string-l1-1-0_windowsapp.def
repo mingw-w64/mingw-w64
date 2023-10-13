@@ -19,7 +19,6 @@ WindowsDeleteStringBuffer
 WindowsDuplicateString
 WindowsGetStringLen
 WindowsGetStringRawBuffer
-WindowsInspectString
 WindowsIsStringEmpty
 WindowsPreallocateStringBuffer
 WindowsPromoteStringBuffer
