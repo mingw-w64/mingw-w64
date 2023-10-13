@@ -2393,7 +2393,7 @@ endif
 		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
 		%/libapi-ms-win-core-wow64-l1-1-0.a \
 		%/libapi-ms-win-core-wow64-l1-1-1.a \
-		%/libapi-ms-win-core-xstate-l2-1-0.a \
+		%/libapi-ms-win-core-xstate-l2-1-0_windowsapp.a \
 		%/libapi-ms-win-devices-config-l1-1-1.a \
 		%/libapi-ms-win-devices-config-l1-1-2.a \
 		%/libapi-ms-win-devices-query-l1-1-0.a \
