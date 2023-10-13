@@ -1,4 +1,4 @@
-LIBRARY api-ms-win-core-sysinfo-l1-2-0
+LIBRARY api-ms-win-core-sysinfo-l1-2-1
 
 EXPORTS
 
@@ -9,7 +9,7 @@ GetLocalTime@4
 GetLogicalProcessorInformation@8
 GetLogicalProcessorInformationEx@12
 GetNativeSystemInfo@4
-GetOsSafeBootMode@4
+GetPhysicallyInstalledSystemMemory@4
 GetProductInfo@20
 GetSystemDirectoryA@8
 GetSystemDirectoryW@8
@@ -29,7 +29,6 @@ GetVersionExW@4
 GetWindowsDirectoryA@8
 GetWindowsDirectoryW@8
 GlobalMemoryStatusEx@4
-SetComputerNameExW@8
 SetLocalTime@4
 SetSystemTime@4
 VerSetConditionMask@16

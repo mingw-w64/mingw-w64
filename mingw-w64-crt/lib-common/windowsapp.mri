@@ -124,9 +124,9 @@ ADDLIB libapi-ms-win-core-synch-l1-1-0.a
 ADDLIB libapi-ms-win-core-synch-l1-2-0.a
 ADDLIB libapi-ms-win-core-synch-l1-2-1.a
 ADDLIB libapi-ms-win-core-sysinfo-l1-1-0.a
-ADDLIB libapi-ms-win-core-sysinfo-l1-2-0.a
-ADDLIB libapi-ms-win-core-sysinfo-l1-2-1.a
-ADDLIB libapi-ms-win-core-sysinfo-l1-2-3.a
+ADDLIB libapi-ms-win-core-sysinfo-l1-2-0_windowsapp.a
+ADDLIB libapi-ms-win-core-sysinfo-l1-2-1_windowsapp.a
+ADDLIB libapi-ms-win-core-sysinfo-l1-2-3_windowsapp.a
 ADDLIB libapi-ms-win-core-sysinfo-l1-2-5.a
 ADDLIB libapi-ms-win-core-sysinfo-l1-2-6.a
 ADDLIB libapi-ms-win-core-systemtopology-l1-1-0.a

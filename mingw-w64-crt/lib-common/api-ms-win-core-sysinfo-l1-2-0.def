@@ -9,6 +9,7 @@ GetLocalTime
 GetLogicalProcessorInformation
 GetLogicalProcessorInformationEx
 GetNativeSystemInfo
+GetOsSafeBootMode
 GetProductInfo
 GetSystemDirectoryA
 GetSystemDirectoryW
@@ -28,6 +29,7 @@ GetVersionExW
 GetWindowsDirectoryA
 GetWindowsDirectoryW
 GlobalMemoryStatusEx
+SetComputerNameExW
 SetLocalTime
 SetSystemTime
 VerSetConditionMask

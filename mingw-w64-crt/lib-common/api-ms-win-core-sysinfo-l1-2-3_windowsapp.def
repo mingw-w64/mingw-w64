@@ -10,7 +10,6 @@ GetLocalTime
 GetLogicalProcessorInformation
 GetLogicalProcessorInformationEx
 GetNativeSystemInfo
-GetOsManufacturingMode
 GetPhysicallyInstalledSystemMemory
 GetProductInfo
 GetSystemDirectoryA
@@ -31,9 +30,6 @@ GetVersionExW
 GetWindowsDirectoryA
 GetWindowsDirectoryW
 GlobalMemoryStatusEx
-SetComputerNameA
-SetComputerNameExA
-SetComputerNameW
 SetLocalTime
 SetSystemTime
 VerSetConditionMask

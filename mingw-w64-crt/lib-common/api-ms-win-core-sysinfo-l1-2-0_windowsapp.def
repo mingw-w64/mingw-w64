@@ -1,17 +1,14 @@
-LIBRARY api-ms-win-core-sysinfo-l1-2-3
+LIBRARY api-ms-win-core-sysinfo-l1-2-0
 
 EXPORTS
 
 EnumSystemFirmwareTables
 GetComputerNameExA
 GetComputerNameExW
-GetIntegratedDisplaySize
 GetLocalTime
 GetLogicalProcessorInformation
 GetLogicalProcessorInformationEx
 GetNativeSystemInfo
-GetOsManufacturingMode
-GetPhysicallyInstalledSystemMemory
 GetProductInfo
 GetSystemDirectoryA
 GetSystemDirectoryW
@@ -31,9 +28,6 @@ GetVersionExW
 GetWindowsDirectoryA
 GetWindowsDirectoryW
 GlobalMemoryStatusEx
-SetComputerNameA
-SetComputerNameExA
-SetComputerNameW
 SetLocalTime
 SetSystemTime
 VerSetConditionMask

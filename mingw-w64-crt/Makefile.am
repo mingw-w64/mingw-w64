@@ -2363,9 +2363,9 @@ endif
 		%/libapi-ms-win-core-synch-l1-2-0.a \
 		%/libapi-ms-win-core-synch-l1-2-1.a \
 		%/libapi-ms-win-core-sysinfo-l1-1-0.a \
-		%/libapi-ms-win-core-sysinfo-l1-2-0.a \
-		%/libapi-ms-win-core-sysinfo-l1-2-1.a \
-		%/libapi-ms-win-core-sysinfo-l1-2-3.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-0_windowsapp.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-1_windowsapp.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-3_windowsapp.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-5.a \
 		%/libapi-ms-win-core-sysinfo-l1-2-6.a \
 		%/libapi-ms-win-core-systemtopology-l1-1-0.a \
