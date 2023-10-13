@@ -35,13 +35,10 @@ GetSystemTimes@12
 GetThreadContext@8
 GetThreadId@4
 GetThreadIdealProcessorEx@8
-GetThreadInformation@16
-GetThreadIOPendingFlag@8
 GetThreadPriority@4
 GetThreadPriorityBoost@8
 GetThreadTimes@20
 InitializeProcThreadAttributeList@16
-IsProcessCritical@8
 IsProcessorFeaturePresent@4
 OpenProcess@12
 OpenProcessToken@12
@@ -49,7 +46,6 @@ OpenThread@12
 OpenThreadToken@16
 ProcessIdToSessionId@8
 QueryProcessAffinityUpdateMode@8
-QueryProtectedPolicy@8
 QueueUserAPC@12
 ResumeThread@4
 SetPriorityClass@8
@@ -57,7 +53,6 @@ SetProcessAffinityUpdateMode@8
 SetProcessMitigationPolicy@12
 SetProcessPriorityBoost@8
 SetProcessShutdownParameters@8
-SetProtectedPolicy@12
 SetThreadContext@8
 SetThreadIdealProcessorEx@12
 SetThreadInformation@16

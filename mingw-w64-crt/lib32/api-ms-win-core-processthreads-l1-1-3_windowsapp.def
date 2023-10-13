@@ -1,8 +1,9 @@
-LIBRARY api-ms-win-core-processthreads-l1-1-2
+LIBRARY api-ms-win-core-processthreads-l1-1-3
 
 EXPORTS
 
 CreateProcessA@40
+CreateProcessAsUserA@44
 CreateProcessAsUserW@44
 CreateProcessW@40
 CreateRemoteThread@28
@@ -23,25 +24,27 @@ GetCurrentThreadStackLimits@8
 GetExitCodeProcess@8
 GetExitCodeThread@8
 GetPriorityClass@4
+GetProcessDefaultCpuSets@16
 GetProcessHandleCount@8
 GetProcessId@4
 GetProcessIdOfThread@4
+GetProcessInformation@16
 GetProcessMitigationPolicy@16
 GetProcessPriorityBoost@8
 GetProcessTimes@20
 GetProcessVersion@4
 GetStartupInfoW@4
+GetSystemCpuSetInformation@20
 GetSystemTimes@12
 GetThreadContext@8
+GetThreadDescription@8
 GetThreadId@4
 GetThreadIdealProcessorEx@8
-GetThreadInformation@16
-GetThreadIOPendingFlag@8
 GetThreadPriority@4
 GetThreadPriorityBoost@8
+GetThreadSelectedCpuSets@16
 GetThreadTimes@20
 InitializeProcThreadAttributeList@16
-IsProcessCritical@8
 IsProcessorFeaturePresent@4
 OpenProcess@12
 OpenProcessToken@12
@@ -49,20 +52,23 @@ OpenThread@12
 OpenThreadToken@16
 ProcessIdToSessionId@8
 QueryProcessAffinityUpdateMode@8
-QueryProtectedPolicy@8
 QueueUserAPC@12
 ResumeThread@4
 SetPriorityClass@8
 SetProcessAffinityUpdateMode@8
+SetProcessDefaultCpuSets@12
+SetProcessInformation@16
 SetProcessMitigationPolicy@12
 SetProcessPriorityBoost@8
 SetProcessShutdownParameters@8
-SetProtectedPolicy@12
 SetThreadContext@8
+SetThreadDescription@8
+SetThreadIdealProcessor@8
 SetThreadIdealProcessorEx@12
 SetThreadInformation@16
 SetThreadPriority@8
 SetThreadPriorityBoost@8
+SetThreadSelectedCpuSets@12
 SetThreadStackGuarantee@4
 SetThreadToken@8
 SuspendThread@4

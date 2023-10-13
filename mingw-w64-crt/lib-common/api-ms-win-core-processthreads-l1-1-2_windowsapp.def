@@ -1,9 +1,8 @@
-LIBRARY api-ms-win-core-processthreads-l1-1-3
+LIBRARY api-ms-win-core-processthreads-l1-1-2
 
 EXPORTS
 
 CreateProcessA
-CreateProcessAsUserA
 CreateProcessAsUserW
 CreateProcessW
 CreateRemoteThread
@@ -24,26 +23,20 @@ GetCurrentThreadStackLimits
 GetExitCodeProcess
 GetExitCodeThread
 GetPriorityClass
-GetProcessDefaultCpuSets
 GetProcessHandleCount
 GetProcessId
 GetProcessIdOfThread
-GetProcessInformation
 GetProcessMitigationPolicy
 GetProcessPriorityBoost
-GetProcessShutdownParameters
 GetProcessTimes
 GetProcessVersion
 GetStartupInfoW
-GetSystemCpuSetInformation
 GetSystemTimes
 GetThreadContext
-GetThreadDescription
 GetThreadId
 GetThreadIdealProcessorEx
 GetThreadPriority
 GetThreadPriorityBoost
-GetThreadSelectedCpuSets
 GetThreadTimes
 InitializeProcThreadAttributeList
 IsProcessorFeaturePresent
@@ -57,19 +50,14 @@ QueueUserAPC
 ResumeThread
 SetPriorityClass
 SetProcessAffinityUpdateMode
-SetProcessDefaultCpuSets
-SetProcessInformation
 SetProcessMitigationPolicy
 SetProcessPriorityBoost
 SetProcessShutdownParameters
 SetThreadContext
-SetThreadDescription
-SetThreadIdealProcessor
 SetThreadIdealProcessorEx
 SetThreadInformation
 SetThreadPriority
 SetThreadPriorityBoost
-SetThreadSelectedCpuSets
 SetThreadStackGuarantee
 SetThreadToken
 SuspendThread

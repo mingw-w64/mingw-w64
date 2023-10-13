@@ -31,7 +31,6 @@ GetProcessIdOfThread
 GetProcessInformation
 GetProcessMitigationPolicy
 GetProcessPriorityBoost
-GetProcessShutdownParameters
 GetProcessTimes
 GetProcessVersion
 GetStartupInfoW

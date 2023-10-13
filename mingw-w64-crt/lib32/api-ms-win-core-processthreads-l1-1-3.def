@@ -29,6 +29,7 @@ GetProcessHandleCount@8
 GetProcessId@4
 GetProcessIdOfThread@4
 GetProcessInformation@16
+GetProcessShutdownParameters@8
 GetProcessMitigationPolicy@16
 GetProcessPriorityBoost@8
 GetProcessTimes@20
