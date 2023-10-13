@@ -5,11 +5,5 @@ EXPORTS
 ControlTraceW
 EnableTraceEx2
 EnumerateTraceGuidsEx
-EventAccessControl
-EventAccessQuery
-EventAccessRemove
-QueryAllTracesW
 StartTraceW
 StopTraceW
-TraceQueryInformation
-TraceSetInformation
