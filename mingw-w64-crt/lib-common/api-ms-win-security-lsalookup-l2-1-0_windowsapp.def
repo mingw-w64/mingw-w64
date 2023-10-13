@@ -7,4 +7,3 @@ LookupAccountSidW
 LookupPrivilegeDisplayNameW
 LookupPrivilegeNameW
 LookupPrivilegeValueW
-LsaEnumerateTrustedDomains

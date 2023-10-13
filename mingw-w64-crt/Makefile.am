@@ -2427,7 +2427,7 @@ endif
 		%/libapi-ms-win-security-cryptoapi-l1-1-0.a \
 		%/libapi-ms-win-security-isolatedcontainer-l1-1-0.a \
 		%/libapi-ms-win-security-lsalookup-ansi-l2-1-0.a \
-		%/libapi-ms-win-security-lsalookup-l2-1-0.a \
+		%/libapi-ms-win-security-lsalookup-l2-1-0_windowsapp.a \
 		%/libapi-ms-win-security-lsapolicy-l1-1-0.a \
 		%/libapi-ms-win-security-provider-ansi-l1-1-0.a \
 		%/libapi-ms-win-security-provider-l1-1-0.a \
