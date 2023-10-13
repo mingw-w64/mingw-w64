@@ -2336,7 +2336,7 @@ endif
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
 		%/libapi-ms-win-core-processthreads-l1-1-2_windowsapp.a \
 		%/libapi-ms-win-core-processthreads-l1-1-3_windowsapp.a \
-		%/libapi-ms-win-core-processtopology-l1-1-0.a \
+		%/libapi-ms-win-core-processtopology-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-processtopology-obsolete-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
 		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
