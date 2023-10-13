@@ -1,7 +1,8 @@
-LIBRARY api-ms-win-core-file-l1-2-1
+LIBRARY api-ms-win-core-file-l1-2-2
 
 EXPORTS
 
+AreFileApisANSI
 CompareFileTime
 CreateDirectoryA
 CreateDirectoryW
@@ -27,8 +28,6 @@ FindNextFileW
 FindNextVolumeW
 FindVolumeClose
 FlushFileBuffers
-GetCompressedFileSizeA
-GetCompressedFileSizeW
 GetDiskFreeSpaceA
 GetDiskFreeSpaceExA
 GetDiskFreeSpaceExW
@@ -53,8 +52,11 @@ GetLogicalDriveStringsW
 GetLongPathNameA
 GetLongPathNameW
 GetShortPathNameW
+GetTempFileNameA
 GetTempFileNameW
+GetTempPathA
 GetTempPathW
+GetVolumeInformationA
 GetVolumeInformationByHandleW
 GetVolumeInformationW
 GetVolumeNameForVolumeMountPointW
@@ -72,7 +74,6 @@ SetEndOfFile
 SetFileAttributesA
 SetFileAttributesW
 SetFileInformationByHandle
-SetFileIoOverlappedRange
 SetFilePointer
 SetFilePointerEx
 SetFileTime

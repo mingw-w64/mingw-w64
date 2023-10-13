@@ -6,7 +6,6 @@ CopyFile2
 CopyFileExW
 CopyFileW
 CreateDirectoryExW
-CreateHardLinkA
 CreateHardLinkW
 CreateSymbolicLinkW
 GetFileInformationByHandleEx

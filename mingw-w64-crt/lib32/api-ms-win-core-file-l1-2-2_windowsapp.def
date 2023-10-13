@@ -20,15 +20,11 @@ FindFirstChangeNotificationW@12
 FindFirstFileA@8
 FindFirstFileExA@24
 FindFirstFileExW@24
-FindFirstFileNameW@16
 FindFirstFileW@8
-FindFirstStreamW@16
 FindFirstVolumeW@8
 FindNextChangeNotification@4
 FindNextFileA@8
-FindNextFileNameW@12
 FindNextFileW@8
-FindNextStreamW@8
 FindNextVolumeW@12
 FindVolumeClose@4
 FlushFileBuffers@4
@@ -75,8 +71,6 @@ ReadFileScatter@20
 RemoveDirectoryA@4
 RemoveDirectoryW@4
 SetEndOfFile@4
-SetFileApisToANSI@0
-SetFileApisToOEM@0
 SetFileAttributesA@8
 SetFileAttributesW@8
 SetFileInformationByHandle@16

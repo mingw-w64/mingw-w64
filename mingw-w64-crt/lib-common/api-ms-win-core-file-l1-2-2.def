@@ -20,11 +20,15 @@ FindFirstChangeNotificationW
 FindFirstFileA
 FindFirstFileExA
 FindFirstFileExW
+FindFirstFileNameW
 FindFirstFileW
+FindFirstStreamW
 FindFirstVolumeW
 FindNextChangeNotification
 FindNextFileA
+FindNextFileNameW
 FindNextFileW
+FindNextStreamW
 FindNextVolumeW
 FindVolumeClose
 FlushFileBuffers
@@ -71,6 +75,8 @@ ReadFileScatter
 RemoveDirectoryA
 RemoveDirectoryW
 SetEndOfFile
+SetFileApisToANSI
+SetFileApisToOEM
 SetFileAttributesA
 SetFileAttributesW
 SetFileInformationByHandle

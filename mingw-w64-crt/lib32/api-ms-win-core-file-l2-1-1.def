@@ -10,6 +10,7 @@ CreateSymbolicLinkW@12
 GetFileInformationByHandleEx@16
 MoveFileExW@12
 MoveFileWithProgressW@20
+OpenFileById@24
 ReadDirectoryChangesW@32
 ReOpenFile@16
 ReplaceFileW@24

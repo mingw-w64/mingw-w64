@@ -1,18 +1,17 @@
-LIBRARY api-ms-win-core-file-l1-2-2
+LIBRARY api-ms-win-core-file-l1-1-0
 
 EXPORTS
 
-AreFileApisANSI@0
 CompareFileTime@8
 CreateDirectoryA@8
 CreateDirectoryW@8
-CreateFile2@20
 CreateFileA@28
 CreateFileW@28
 DeleteFileA@4
 DeleteFileW@4
 DeleteVolumeMountPointW@4
 FileTimeToLocalFileTime@8
+FileTimeToSystemTime@8
 FindClose@4
 FindCloseChangeNotification@4
 FindFirstChangeNotificationA@12
@@ -20,15 +19,11 @@ FindFirstChangeNotificationW@12
 FindFirstFileA@8
 FindFirstFileExA@24
 FindFirstFileExW@24
-FindFirstFileNameW@16
 FindFirstFileW@8
-FindFirstStreamW@16
 FindFirstVolumeW@8
 FindNextChangeNotification@4
 FindNextFileA@8
-FindNextFileNameW@12
 FindNextFileW@8
-FindNextStreamW@8
 FindNextVolumeW@12
 FindVolumeClose@4
 FlushFileBuffers@4
@@ -56,15 +51,9 @@ GetLogicalDriveStringsW@8
 GetLongPathNameA@12
 GetLongPathNameW@12
 GetShortPathNameW@12
-GetTempFileNameA@16
 GetTempFileNameW@16
-GetTempPathA@8
-GetTempPathW@8
-GetVolumeInformationA@32
 GetVolumeInformationByHandleW@32
 GetVolumeInformationW@32
-GetVolumeNameForVolumeMountPointW@12
-GetVolumePathNamesForVolumeNameW@16
 GetVolumePathNameW@12
 LocalFileTimeToFileTime@8
 LockFile@20
@@ -75,8 +64,6 @@ ReadFileScatter@20
 RemoveDirectoryA@4
 RemoveDirectoryW@4
 SetEndOfFile@4
-SetFileApisToANSI@0
-SetFileApisToOEM@0
 SetFileAttributesA@8
 SetFileAttributesW@8
 SetFileInformationByHandle@16

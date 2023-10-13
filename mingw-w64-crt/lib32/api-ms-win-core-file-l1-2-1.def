@@ -27,6 +27,8 @@ FindNextFileW@8
 FindNextVolumeW@12
 FindVolumeClose@4
 FlushFileBuffers@4
+GetCompressedFileSizeA@8
+GetCompressedFileSizeW@8
 GetDiskFreeSpaceA@20
 GetDiskFreeSpaceExA@16
 GetDiskFreeSpaceExW@16
@@ -70,6 +72,7 @@ SetEndOfFile@4
 SetFileAttributesA@8
 SetFileAttributesW@8
 SetFileInformationByHandle@16
+SetFileIoOverlappedRange@12
 SetFilePointer@16
 SetFilePointerEx@20
 SetFileTime@16

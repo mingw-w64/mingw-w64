@@ -1,17 +1,17 @@
-LIBRARY api-ms-win-core-file-l1-2-1
+LIBRARY api-ms-win-core-file-l1-1-0
 
 EXPORTS
 
 CompareFileTime
 CreateDirectoryA
 CreateDirectoryW
-CreateFile2
 CreateFileA
 CreateFileW
 DeleteFileA
 DeleteFileW
 DeleteVolumeMountPointW
 FileTimeToLocalFileTime
+FileTimeToSystemTime
 FindClose
 FindCloseChangeNotification
 FindFirstChangeNotificationA
@@ -27,8 +27,6 @@ FindNextFileW
 FindNextVolumeW
 FindVolumeClose
 FlushFileBuffers
-GetCompressedFileSizeA
-GetCompressedFileSizeW
 GetDiskFreeSpaceA
 GetDiskFreeSpaceExA
 GetDiskFreeSpaceExW
@@ -54,11 +52,8 @@ GetLongPathNameA
 GetLongPathNameW
 GetShortPathNameW
 GetTempFileNameW
-GetTempPathW
 GetVolumeInformationByHandleW
 GetVolumeInformationW
-GetVolumeNameForVolumeMountPointW
-GetVolumePathNamesForVolumeNameW
 GetVolumePathNameW
 LocalFileTimeToFileTime
 LockFile
@@ -72,7 +67,6 @@ SetEndOfFile
 SetFileAttributesA
 SetFileAttributesW
 SetFileInformationByHandle
-SetFileIoOverlappedRange
 SetFilePointer
 SetFilePointerEx
 SetFileTime

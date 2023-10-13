@@ -7,6 +7,7 @@ CreateDirectoryA
 CreateDirectoryW
 CreateFileA
 CreateFileW
+DefineDosDeviceW
 DeleteFileA
 DeleteFileW
 DeleteVolumeMountPointW
@@ -58,6 +59,7 @@ GetVolumePathNameW
 LocalFileTimeToFileTime
 LockFile
 LockFileEx
+QueryDosDeviceW
 ReadFile
 ReadFileEx
 ReadFileScatter
