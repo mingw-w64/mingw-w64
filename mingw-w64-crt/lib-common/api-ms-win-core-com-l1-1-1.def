@@ -29,6 +29,7 @@ CoInitializeSecurity
 CoLockObjectExternal
 CoMarshalInterface
 CoMarshalInterThreadInterfaceInStream
+CoRegisterActivationFilter
 CoRegisterClassObject
 CoRegisterPSClsid
 CoReleaseMarshalData
