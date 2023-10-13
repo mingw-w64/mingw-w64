@@ -139,8 +139,8 @@ ADDLIB libapi-ms-win-core-url-l1-1-0.a
 ADDLIB libapi-ms-win-core-util-l1-1-0.a
 ADDLIB libapi-ms-win-core-versionansi-l1-1-0.a
 ADDLIB libapi-ms-win-core-versionansi-l1-1-1.a
-ADDLIB libapi-ms-win-core-version-l1-1-0.a
-ADDLIB libapi-ms-win-core-version-l1-1-1.a
+ADDLIB libapi-ms-win-core-version-l1-1-0_windowsapp.a
+ADDLIB libapi-ms-win-core-version-l1-1-1_windowsapp.a
 ADDLIB libapi-ms-win-core-windowsceip-l1-1-0.a
 ADDLIB libapi-ms-win-core-windowserrorreporting-l1-1-0.a
 ADDLIB libapi-ms-win-core-windowserrorreporting-l1-1-1.a

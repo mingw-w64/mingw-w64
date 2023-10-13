@@ -4,5 +4,4 @@ EXPORTS
 
 GetFileVersionInfoExW
 GetFileVersionInfoSizeExW
-VerFindFileW
 VerQueryValueW

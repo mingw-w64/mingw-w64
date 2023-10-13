@@ -2378,8 +2378,8 @@ endif
 		%/libapi-ms-win-core-util-l1-1-0.a \
 		%/libapi-ms-win-core-versionansi-l1-1-0.a \
 		%/libapi-ms-win-core-versionansi-l1-1-1.a \
-		%/libapi-ms-win-core-version-l1-1-0.a \
-		%/libapi-ms-win-core-version-l1-1-1.a \
+		%/libapi-ms-win-core-version-l1-1-0_windowsapp.a \
+		%/libapi-ms-win-core-version-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-windowsceip-l1-1-0.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-1.a \
