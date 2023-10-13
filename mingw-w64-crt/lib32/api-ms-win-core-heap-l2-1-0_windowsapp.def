@@ -6,6 +6,4 @@ GlobalAlloc@8
 GlobalFree@4
 LocalAlloc@8
 LocalFree@4
-LocalLock@4
 LocalReAlloc@12
-LocalUnlock@4
