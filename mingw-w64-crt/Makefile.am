@@ -2264,9 +2264,9 @@ endif
 		%/libapi-ms-win-core-delayload-l1-1-1.a \
 		%/libapi-ms-win-core-enclave-l1-1-0.a \
 		%/libapi-ms-win-core-errorhandling-l1-1-0.a \
-		%/libapi-ms-win-core-errorhandling-l1-1-1.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-errorhandling-l1-1-2.a \
-		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-3_windowsapp.a \
 		%/libapi-ms-win-core-featurestaging-l1-1-0.a \
 		%/libapi-ms-win-core-featurestaging-l1-1-1.a \
 		%/libapi-ms-win-core-fibers-l1-1-0.a \

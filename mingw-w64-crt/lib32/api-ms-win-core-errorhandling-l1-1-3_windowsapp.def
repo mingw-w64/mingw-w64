@@ -15,5 +15,4 @@ SetErrorMode@4
 SetLastError@4
 SetThreadErrorMode@8
 SetUnhandledExceptionFilter@4
-TerminateProcessOnMemoryExhaustion@4
 UnhandledExceptionFilter@4

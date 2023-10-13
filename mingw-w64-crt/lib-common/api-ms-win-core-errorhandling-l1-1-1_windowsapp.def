@@ -1,19 +1,13 @@
-LIBRARY api-ms-win-core-errorhandling-l1-1-3
+LIBRARY api-ms-win-core-errorhandling-l1-1-1
 
 EXPORTS
 
 AddVectoredExceptionHandler
-FatalAppExitA
-FatalAppExitW
 GetErrorMode
 GetLastError
-GetThreadErrorMode
 RaiseException
-RaiseFailFastException
 RemoveVectoredExceptionHandler
 SetErrorMode
 SetLastError
-SetThreadErrorMode
 SetUnhandledExceptionFilter
-TerminateProcessOnMemoryExhaustion
 UnhandledExceptionFilter
