@@ -2340,7 +2340,7 @@ endif
 		%/libapi-ms-win-core-processtopology-obsolete-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
 		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
-		%/libapi-ms-win-core-psapi-l1-1-0.a \
+		%/libapi-ms-win-core-psapi-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-psm-appnotify-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-1.a \
