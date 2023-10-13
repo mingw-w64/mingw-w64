@@ -1,41 +1,39 @@
-LIBRARY api-ms-win-core-memory-l1-1-2
+LIBRARY api-ms-win-core-memory-l1-1-5
 
 EXPORTS
 
-AllocateUserPhysicalPages
-AllocateUserPhysicalPagesNuma
 CreateFileMappingFromApp
 CreateFileMappingW
 DiscardVirtualMemory
 FlushViewOfFile
-FreeUserPhysicalPages
 GetLargePageMinimum
-GetMemoryErrorHandlingCapabilities
 GetProcessWorkingSetSizeEx
 GetWriteWatch
-MapUserPhysicalPages
 MapViewOfFile
 MapViewOfFileEx
 MapViewOfFileFromApp
 OfferVirtualMemory
+OpenFileMappingFromApp
 OpenFileMappingW
 ReadProcessMemory
 ReclaimVirtualMemory
-RegisterBadMemoryNotification
 ResetWriteWatch
+SetProcessValidCallTargets
 SetProcessWorkingSetSizeEx
 UnmapViewOfFile
+UnmapViewOfFile2
 UnmapViewOfFileEx
-UnregisterBadMemoryNotification
 VirtualAlloc
 VirtualAllocEx
-VirtualAllocExNuma
+VirtualAllocFromApp
 VirtualFree
 VirtualFreeEx
 VirtualLock
 VirtualProtect
 VirtualProtectEx
+VirtualProtectFromApp
 VirtualQuery
 VirtualQueryEx
 VirtualUnlock
+VirtualUnlockEx
 WriteProcessMemory

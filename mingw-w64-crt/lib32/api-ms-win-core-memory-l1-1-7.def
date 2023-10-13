@@ -2,6 +2,7 @@ LIBRARY api-ms-win-core-memory-l1-1-7
 
 EXPORTS
 
+CreateFileMapping2@40
 CreateFileMappingFromApp@24
 CreateFileMappingW@24
 DiscardVirtualMemory@8

@@ -12,6 +12,7 @@ GetWriteWatch
 MapViewOfFile
 MapViewOfFileEx
 MapViewOfFileFromApp
+MapViewOfFileNuma2
 OfferVirtualMemory
 OpenFileMappingFromApp
 OpenFileMappingW

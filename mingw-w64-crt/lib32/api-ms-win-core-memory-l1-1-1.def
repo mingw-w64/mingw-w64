@@ -3,18 +3,24 @@ LIBRARY api-ms-win-core-memory-l1-1-1
 EXPORTS
 
 CreateFileMappingFromApp@24
+CreateFileMappingNumaW@28
 CreateFileMappingW@24
+CreateMemoryResourceNotification@4
 FlushViewOfFile@8
 GetLargePageMinimum@0
 GetProcessWorkingSetSizeEx@16
+GetSystemFileCacheSize@12
 GetWriteWatch@24
 MapViewOfFile@20
 MapViewOfFileEx@24
 MapViewOfFileFromApp@20
 OpenFileMappingW@12
+PrefetchVirtualMemory@16
+QueryMemoryResourceNotification@8
 ReadProcessMemory@20
 ResetWriteWatch@8
 SetProcessWorkingSetSizeEx@16
+SetSystemFileCacheSize@12
 UnmapViewOfFile@4
 UnmapViewOfFileEx@8
 VirtualAlloc@16

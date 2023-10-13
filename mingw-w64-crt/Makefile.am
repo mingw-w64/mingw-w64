@@ -2311,12 +2311,12 @@ endif
 		%/libapi-ms-win-core-localization-l2-1-0_windowsapp.a \
 		%/libapi-ms-win-core-localization-obsolete-l1-2-0.a \
 		%/libapi-ms-win-core-memory-l1-1-0.a \
-		%/libapi-ms-win-core-memory-l1-1-1.a \
-		%/libapi-ms-win-core-memory-l1-1-2.a \
+		%/libapi-ms-win-core-memory-l1-1-1_windowsapp.a \
+		%/libapi-ms-win-core-memory-l1-1-2_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
-		%/libapi-ms-win-core-memory-l1-1-5.a \
+		%/libapi-ms-win-core-memory-l1-1-5_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-6.a \
-		%/libapi-ms-win-core-memory-l1-1-7.a \
+		%/libapi-ms-win-core-memory-l1-1-7_windowsapp.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
 		%/libapi-ms-win-core-namedpipe-l1-1-0.a \

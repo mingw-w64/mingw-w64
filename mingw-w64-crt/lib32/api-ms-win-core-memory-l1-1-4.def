@@ -15,6 +15,7 @@ MapViewOfFileFromApp@20
 OfferVirtualMemory@12
 OpenFileMappingFromApp@12
 OpenFileMappingW@12
+QueryVirtualMemoryInformation@24
 ReadProcessMemory@20
 ReclaimVirtualMemory@8
 ResetWriteWatch@8
