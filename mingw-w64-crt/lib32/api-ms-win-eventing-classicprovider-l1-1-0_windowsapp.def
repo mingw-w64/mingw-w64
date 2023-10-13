@@ -6,7 +6,5 @@ GetTraceEnableFlags@8
 GetTraceEnableLevel@8
 GetTraceLoggerHandle@4
 RegisterTraceGuidsW@32
-TraceEvent@12
 TraceMessage
-TraceMessageVa@24
 UnregisterTraceGuids@8
