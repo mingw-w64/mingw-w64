@@ -6,10 +6,13 @@ AddAccessAllowedAce
 AddAccessAllowedAceEx
 AddAce
 AddMandatoryAce
+AddResourceAttributeAce
+AddScopedPolicyIDAce
 AdjustTokenGroups
 AdjustTokenPrivileges
 AllocateAndInitializeSid
 AllocateLocallyUniqueId
+CheckTokenCapability
 CheckTokenMembership
 CheckTokenMembershipEx
 CopySid
@@ -22,6 +25,8 @@ EqualSid
 FreeSid
 GetAce
 GetAclInformation
+GetAppContainerAce
+GetCachedSigningLevel
 GetFileSecurityW
 GetKernelObjectSecurity
 GetLengthSid
@@ -49,6 +54,7 @@ IsWellKnownSid
 MakeAbsoluteSD
 MakeSelfRelativeSD
 RevertToSelf
+SetCachedSigningLevel
 SetFileSecurityW
 SetKernelObjectSecurity
 SetSecurityDescriptorControl
