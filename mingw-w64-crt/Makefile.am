@@ -2212,6 +2212,20 @@ endif
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
 
+%/libmincore_downlevel.a: lib-common/mincore_downlevel.mri \
+		%/libapi-ms-win-downlevel-advapi32-l1-1-0.a \
+		%/libapi-ms-win-downlevel-advapi32-l2-1-0.a \
+		%/libapi-ms-win-downlevel-normaliz-l1-1-0.a \
+		%/libapi-ms-win-downlevel-ole32-l1-1-0.a \
+		%/libapi-ms-win-downlevel-shell32-l1-1-0.a \
+		%/libapi-ms-win-downlevel-shlwapi-l1-1-0.a \
+		%/libapi-ms-win-downlevel-shlwapi-l2-1-0.a \
+		%/libapi-ms-win-downlevel-user32-l1-1-0.a \
+		%/libapi-ms-win-downlevel-version-l1-1-0.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
 %/libpathcch.a: lib-common/pathcch.mri \
 		%/libapi-ms-win-core-path-l1-1-0.a
 	rm -f $@

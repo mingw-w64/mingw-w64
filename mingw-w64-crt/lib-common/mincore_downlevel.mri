@@ -1,0 +1,12 @@
+CREATE libmincore_downlevel.a
+ADDLIB libapi-ms-win-downlevel-advapi32-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-advapi32-l2-1-0.a
+ADDLIB libapi-ms-win-downlevel-normaliz-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-ole32-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-shell32-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-shlwapi-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-shlwapi-l2-1-0.a
+ADDLIB libapi-ms-win-downlevel-user32-l1-1-0.a
+ADDLIB libapi-ms-win-downlevel-version-l1-1-0.a
+SAVE
+END

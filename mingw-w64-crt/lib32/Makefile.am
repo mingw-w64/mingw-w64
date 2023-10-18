@@ -180,6 +180,7 @@ lib32_DATA += %reldir%/libmfsensorgroup.a
 lib32_DATA += %reldir%/libmgmtapi.a
 lib32_DATA += %reldir%/libmi.a
 lib32_DATA += %reldir%/libmincore.a
+lib32_DATA += %reldir%/libmincore_downlevel.a
 lib32_DATA += %reldir%/libmmdevapi.a
 lib32_DATA += %reldir%/libmpr.a
 lib32_DATA += %reldir%/libmprapi.a
