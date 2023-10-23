@@ -74,6 +74,19 @@ SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
 
   return EXCEPTION_CONTINUE_SEARCH;
 }
+
+static PVOID (*AddVectoredExceptionHandlerFuncPtr) (ULONG, PVECTORED_EXCEPTION_HANDLER);
+static ULONG (*RemoveVectoredExceptionHandlerFuncPtr) (PVOID);
+
+static void __attribute__((constructor))
+ctor (void)
+{
+  HMODULE module = LoadLibrary("kernel32.dll");
+  if (module == NULL) return;
+
+  AddVectoredExceptionHandlerFuncPtr = (__typeof__(AddVectoredExceptionHandlerFuncPtr)) GetProcAddress(module, "AddVectoredExceptionHandler");
+  RemoveVectoredExceptionHandlerFuncPtr = (__typeof__(RemoveVectoredExceptionHandlerFuncPtr)) GetProcAddress(module, "RemoveVectoredExceptionHandler");
+}
 #endif
 
 typedef struct _THREADNAME_INFO
@@ -434,7 +447,8 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 #if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
       if (lpreserved == NULL && SetThreadName_VEH_handle != NULL)
         {
-          RemoveVectoredExceptionHandler (SetThreadName_VEH_handle);
+          if (RemoveVectoredExceptionHandlerFuncPtr != NULL)
+            RemoveVectoredExceptionHandlerFuncPtr (SetThreadName_VEH_handle);
           SetThreadName_VEH_handle = NULL;
         }
 #endif
@@ -443,7 +457,10 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   else if (dwReason == DLL_PROCESS_ATTACH)
     {
 #if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
-      SetThreadName_VEH_handle = AddVectoredExceptionHandler (1, &SetThreadName_VEH);
+      if (AddVectoredExceptionHandlerFuncPtr != NULL)
+        SetThreadName_VEH_handle = AddVectoredExceptionHandlerFuncPtr (1, &SetThreadName_VEH);
+      else
+        SetThreadName_VEH_handle = NULL;
       /* Can't do anything on error anyway, check for NULL later */
 #endif
     }
