@@ -2444,6 +2444,7 @@ endif
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-1.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-2.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-3.a \
+		%/libapi-ms-win-core-kernel32-legacy-l1-1-4.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-5.a \
 		%/libapi-ms-win-core-largeinteger-l1-1-0.a \
 		%/libapi-ms-win-core-libraryloader-l1-2-0.a \
