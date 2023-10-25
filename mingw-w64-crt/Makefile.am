@@ -2272,6 +2272,7 @@ endif
 		%/libapi-ms-win-core-shutdown-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-shutdown-l1-1-0.a \
 		%/libapi-ms-win-core-shutdown-l1-1-1.a \
+		%/libapi-ms-win-core-sidebyside-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-string-l1-1-0.a \
 		%/libapi-ms-win-core-string-l2-1-0.a \
 		%/libapi-ms-win-core-string-l2-1-1.a \
