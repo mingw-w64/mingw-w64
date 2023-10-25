@@ -2380,6 +2380,7 @@ endif
 		%/libapi-ms-win-core-apiquery-l2-1-0.a \
 		%/libapi-ms-win-core-atoms-l1-1-0.a \
 		%/libapi-ms-win-core-backgroundtask-l1-1-0.a \
+		%/libapi-ms-win-core-calendar-l1-1-0.a \
 		%/libapi-ms-win-core-com-l1-1-0.a \
 		%/libapi-ms-win-core-com-l1-1-1.a \
 		%/libapi-ms-win-core-com-l1-1-2.a \
