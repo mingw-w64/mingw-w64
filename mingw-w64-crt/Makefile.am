@@ -2568,6 +2568,7 @@ endif
 		%/libapi-ms-win-devices-config-l1-1-1.a \
 		%/libapi-ms-win-devices-config-l1-1-2.a \
 		%/libapi-ms-win-devices-query-l1-1-0.a \
+		%/libapi-ms-win-devices-query-l1-1-1.a \
 		%/libapi-ms-win-devices-swdevice-l1-1-0.a \
 		%/libapi-ms-win-devices-swdevice-l1-1-1.a \
 		%/libapi-ms-win-eventing-classicprovider-l1-1-0.a \
