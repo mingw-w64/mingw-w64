@@ -73,7 +73,7 @@ ADDLIB libapi-ms-win-core-memory-l1-1-1_windowsapp.a
 ADDLIB libapi-ms-win-core-memory-l1-1-2_windowsapp.a
 ADDLIB libapi-ms-win-core-memory-l1-1-3.a
 ADDLIB libapi-ms-win-core-memory-l1-1-5_windowsapp.a
-ADDLIB libapi-ms-win-core-memory-l1-1-6.a
+ADDLIB libapi-ms-win-core-memory-l1-1-6_windowsapp.a
 ADDLIB libapi-ms-win-core-memory-l1-1-7_windowsapp.a
 ADDLIB libapi-ms-win-core-namedpipe-ansi-l1-1-0.a
 ADDLIB libapi-ms-win-core-namedpipe-ansi-l1-1-1.a

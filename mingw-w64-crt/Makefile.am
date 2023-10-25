@@ -2731,7 +2731,7 @@ endif
 		%/libapi-ms-win-core-memory-l1-1-2_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
 		%/libapi-ms-win-core-memory-l1-1-5_windowsapp.a \
-		%/libapi-ms-win-core-memory-l1-1-6.a \
+		%/libapi-ms-win-core-memory-l1-1-6_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-7_windowsapp.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
