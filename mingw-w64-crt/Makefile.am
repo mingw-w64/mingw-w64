@@ -2623,6 +2623,7 @@ endif
 		%/libapi-ms-win-shcore-obsolete-l1-1-0.a \
 		%/libapi-ms-win-shcore-path-l1-1-0.a \
 		%/libapi-ms-win-shcore-registry-l1-1-0.a \
+		%/libapi-ms-win-shcore-registry-l1-1-1.a \
 		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
 		%/libauthz.a \
 		%/libbcrypt.a \
