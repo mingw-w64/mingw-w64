@@ -14,7 +14,6 @@ HeapQueryInformation
 HeapReAlloc
 HeapSetInformation
 HeapSize
-HeapSummary
 HeapUnlock
 HeapValidate
 HeapWalk
