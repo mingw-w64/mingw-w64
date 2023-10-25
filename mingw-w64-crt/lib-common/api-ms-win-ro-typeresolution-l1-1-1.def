@@ -4,8 +4,5 @@ EXPORTS
 
 RoCreateNonAgilePropertySet
 RoCreatePropertySetSerializer
-RoGetMetaDataFile
 RoIsApiContractMajorVersionPresent
 RoIsApiContractPresent
-RoParseTypeName
-RoResolveNamespace
