@@ -2401,6 +2401,7 @@ endif
 		%/libapi-ms-win-core-debug-l1-1-0.a \
 		%/libapi-ms-win-core-debug-l1-1-1.a \
 		%/libapi-ms-win-core-debug-l1-1-2.a \
+		%/libapi-ms-win-core-debug-minidump-l1-1-0.a \
 		%/libapi-ms-win-core-delayload-l1-1-0.a \
 		%/libapi-ms-win-core-delayload-l1-1-1.a \
 		%/libapi-ms-win-core-enclave-l1-1-0.a \
