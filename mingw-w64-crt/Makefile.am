@@ -2610,6 +2610,7 @@ endif
 		%/libapi-ms-win-security-sddl-ansi-l1-1-0.a \
 		%/libapi-ms-win-security-sddl-l1-1-0.a \
 		%/libapi-ms-win-security-systemfunctions-l1-1-0.a \
+		%/libapi-ms-win-service-core-ansi-l1-1-0.a \
 		%/libapi-ms-win-service-core-l1-1-0.a \
 		%/libapi-ms-win-service-core-l1-1-1.a \
 		%/libapi-ms-win-service-core-l1-1-2.a \
