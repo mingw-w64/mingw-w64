@@ -246,7 +246,7 @@ ADDLIB libapi-ms-win-shcore-obsolete-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-path-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-registry-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-registry-l1-1-1.a
-; FIXME libapi-ms-win-shcore-scaling-l1-1-0.a
+ADDLIB libapi-ms-win-shcore-scaling-l1-1-0.a
 ; FIXME libapi-ms-win-shcore-scaling-l1-1-1.a
 ; FIXME libapi-ms-win-shcore-scaling-l1-1-2.a
 ; FIXME libapi-ms-win-shcore-stream-l1-1-0.a
