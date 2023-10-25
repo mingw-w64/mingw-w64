@@ -2,19 +2,6 @@ LIBRARY api-ms-win-core-rtlsupport-l1-2-0
 
 EXPORTS
 
-RtlAddFunctionTable
 RtlAddGrowableFunctionTable
-RtlCaptureContext
-RtlCaptureStackBackTrace
-RtlCompareMemory
-RtlDeleteFunctionTable
 RtlDeleteGrowableFunctionTable
-RtlInstallFunctionTableCallback
 RtlGrowFunctionTable
-RtlLookupFunctionEntry
-RtlPcToFileHeader
-RtlRaiseException
-RtlRestoreContext
-RtlUnwind
-RtlUnwindEx
-RtlVirtualUnwind
