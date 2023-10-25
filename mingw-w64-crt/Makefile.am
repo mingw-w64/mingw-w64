@@ -2578,6 +2578,7 @@ endif
 		%/libapi-ms-win-eventing-legacy-l1-1-0.a \
 		%/libapi-ms-win-eventing-obsolete-l1-1-0.a \
 		%/libapi-ms-win-eventing-provider-l1-1-0.a \
+		%/libapi-ms-win-eventing-tdh-l1-1-0.a \
 		%/libapi-ms-win-gaming-deviceinformation-l1-1-0.a \
 		%/libapi-ms-win-mm-time-l1-1-0.a \
 		%/libapi-ms-win-power-base-l1-1-0.a \
