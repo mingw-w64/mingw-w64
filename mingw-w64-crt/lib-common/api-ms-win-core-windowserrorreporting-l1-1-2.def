@@ -2,15 +2,5 @@ LIBRARY api-ms-win-core-windowserrorreporting-l1-1-2
 
 EXPORTS
 
-WerRegisterAdditionalProcess
 WerRegisterAppLocalDump
-WerRegisterCustomMetadata
-WerRegisterExcludedMemoryBlock
-WerRegisterFile
-WerRegisterMemoryBlock
-WerUnregisterAdditionalProcess
 WerUnregisterAppLocalDump
-WerUnregisterCustomMetadata
-WerUnregisterExcludedMemoryBlock
-WerUnregisterFile
-WerUnregisterMemoryBlock
