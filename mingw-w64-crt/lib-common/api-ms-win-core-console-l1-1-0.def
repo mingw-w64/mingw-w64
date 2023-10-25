@@ -7,7 +7,6 @@ GetConsoleCP
 GetConsoleMode
 GetConsoleOutputCP
 GetNumberOfConsoleInputEvents
-PeekConsoleInputA
 ReadConsoleA
 ReadConsoleInputA
 ReadConsoleInputW

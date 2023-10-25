@@ -2,20 +2,16 @@ LIBRARY api-ms-win-core-console-l2-1-0
 
 EXPORTS
 
-AttachConsole
 CreateConsoleScreenBuffer
 FillConsoleOutputAttribute
 FillConsoleOutputCharacterA
 FillConsoleOutputCharacterW
 FlushConsoleInputBuffer
-FreeConsole
 GenerateConsoleCtrlEvent
 GetConsoleCursorInfo
 GetConsoleScreenBufferInfo
 GetConsoleScreenBufferInfoEx
-GetConsoleTitleW
 GetLargestConsoleWindowSize
-PeekConsoleInputW
 ReadConsoleOutputA
 ReadConsoleOutputAttribute
 ReadConsoleOutputCharacterA
@@ -31,7 +27,6 @@ SetConsoleOutputCP
 SetConsoleScreenBufferInfoEx
 SetConsoleScreenBufferSize
 SetConsoleTextAttribute
-SetConsoleTitleW
 SetConsoleWindowInfo
 WriteConsoleInputA
 WriteConsoleInputW
