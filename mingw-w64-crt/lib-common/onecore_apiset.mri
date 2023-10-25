@@ -205,7 +205,7 @@ ADDLIB libapi-ms-win-eventing-tdh-l1-1-1.a
 ADDLIB libapi-ms-win-gaming-deviceinformation-l1-1-0.a
 ADDLIB libapi-ms-win-mm-time-l1-1-0.a
 ADDLIB libapi-ms-win-oobe-notification-l1-1-0.a
-; FIXME libapi-ms-win-perf-legacy-l1-1-0.a
+ADDLIB libapi-ms-win-perf-legacy-l1-1-0.a
 ADDLIB libapi-ms-win-power-base-l1-1-0.a
 ; FIXME libapi-ms-win-power-limitsmanagement-l1-1-0.a
 ADDLIB libapi-ms-win-power-setting-l1-1-0.a
