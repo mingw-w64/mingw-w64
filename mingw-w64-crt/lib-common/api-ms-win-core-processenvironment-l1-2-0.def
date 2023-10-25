@@ -2,27 +2,6 @@ LIBRARY api-ms-win-core-processenvironment-l1-2-0
 
 EXPORTS
 
-ExpandEnvironmentStringsA
-ExpandEnvironmentStringsW
-FreeEnvironmentStringsA
-FreeEnvironmentStringsW
-GetCommandLineA
-GetCommandLineW
-GetCurrentDirectoryA
-GetCurrentDirectoryW
-GetEnvironmentStrings
-GetEnvironmentStringsW
-GetEnvironmentVariableA
-GetEnvironmentVariableW
-GetStdHandle
 NeedCurrentDirectoryForExePathA
 NeedCurrentDirectoryForExePathW
 SearchPathA
-SearchPathW
-SetCurrentDirectoryA
-SetCurrentDirectoryW
-SetEnvironmentStringsW
-SetEnvironmentVariableA
-SetEnvironmentVariableW
-SetStdHandle
-SetStdHandleEx
