@@ -12,7 +12,6 @@ DeleteFileA
 DeleteFileW
 DeleteVolumeMountPointW
 FileTimeToLocalFileTime
-FileTimeToSystemTime
 FindClose
 FindCloseChangeNotification
 FindFirstChangeNotificationA
