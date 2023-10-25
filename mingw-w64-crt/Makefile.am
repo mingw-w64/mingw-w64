@@ -2550,6 +2550,7 @@ endif
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-1.a \
 		%/libapi-ms-win-core-windowserrorreporting-l1-1-2.a \
+		%/libapi-ms-win-core-windowserrorreporting-l1-1-3.a \
 		%/libapi-ms-win-core-winrt-error-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
