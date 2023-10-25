@@ -2,7 +2,4 @@ LIBRARY api-ms-win-core-version-l1-1-1
 
 EXPORTS
 
-GetFileVersionInfoExW@20
-GetFileVersionInfoSizeExW@12
 GetFileVersionInfoW@16
-VerQueryValueW@16
