@@ -2269,6 +2269,7 @@ endif
 		%/libapi-ms-win-core-rtlsupport-l1-1-0.a \
 		%/libapi-ms-win-core-rtlsupport-l1-2-0.a \
 		%/libapi-ms-win-core-rtlsupport-l1-2-1.a \
+		%/libapi-ms-win-core-shutdown-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-shutdown-l1-1-0.a \
 		%/libapi-ms-win-core-shutdown-l1-1-1.a \
 		%/libapi-ms-win-core-string-l1-1-0.a \
