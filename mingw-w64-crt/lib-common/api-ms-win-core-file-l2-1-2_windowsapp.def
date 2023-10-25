@@ -2,15 +2,4 @@ LIBRARY api-ms-win-core-file-l2-1-2
 
 EXPORTS
 
-CopyFile2
-CopyFileExW
 CopyFileW
-CreateDirectoryExW
-CreateHardLinkW
-CreateSymbolicLinkW
-GetFileInformationByHandleEx
-MoveFileExW
-MoveFileWithProgressW
-ReadDirectoryChangesW
-ReOpenFile
-ReplaceFileW
