@@ -5,7 +5,5 @@ EXPORTS
 CompareStringA@24
 EnumUILanguagesW@12
 GetStringTypeA@20
-GetSystemDefaultLocaleName@8
 GetSystemDefaultUILanguage@0
 GetUserDefaultUILanguage@0
-LCIDToLocaleName@16
