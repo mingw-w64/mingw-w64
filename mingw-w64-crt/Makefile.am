@@ -2627,6 +2627,7 @@ endif
 		%/libapi-ms-win-shcore-scaling-l1-1-0.a \
 		%/libapi-ms-win-shcore-scaling-l1-1-1.a \
 		%/libapi-ms-win-shcore-scaling-l1-1-2.a \
+		%/libapi-ms-win-shcore-stream-l1-1-0.a \
 		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
 		%/libauthz.a \
 		%/libbcrypt.a \
