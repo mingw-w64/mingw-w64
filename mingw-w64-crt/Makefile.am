@@ -2582,6 +2582,7 @@ endif
 		%/libapi-ms-win-eventing-tdh-l1-1-1.a \
 		%/libapi-ms-win-gaming-deviceinformation-l1-1-0.a \
 		%/libapi-ms-win-mm-time-l1-1-0.a \
+		%/libapi-ms-win-oobe-notification-l1-1-0.a \
 		%/libapi-ms-win-power-base-l1-1-0.a \
 		%/libapi-ms-win-power-setting-l1-1-0.a \
 		%/libapi-ms-win-power-setting-l1-1-1.a \
