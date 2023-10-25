@@ -1,5 +1,5 @@
 CREATE libonecore_apiset.a
-; FIXME libapi-ms-win-core-apiquery-l2-1-0.a
+ADDLIB libapi-ms-win-core-apiquery-l2-1-0.a
 ADDLIB libapi-ms-win-core-atoms-l1-1-0.a
 ; FIXME libapi-ms-win-core-backgroundtask-l1-1-0.a
 ; FIXME libapi-ms-win-core-calendar-l1-1-0.a
