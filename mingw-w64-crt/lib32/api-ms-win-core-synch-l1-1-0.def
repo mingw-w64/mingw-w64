@@ -25,7 +25,6 @@ LeaveCriticalSection@4
 OpenEventA@12
 OpenEventW@12
 OpenMutexW@12
-OpenProcess@12
 OpenSemaphoreW@12
 OpenWaitableTimerW@12
 ReleaseMutex@4

@@ -25,7 +25,6 @@ LeaveCriticalSection
 OpenEventA
 OpenEventW
 OpenMutexW
-OpenProcess
 OpenSemaphoreW
 OpenWaitableTimerW
 ReleaseMutex
