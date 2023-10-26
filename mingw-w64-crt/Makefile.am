@@ -580,6 +580,7 @@ src_msvcr80_64=\
 
 src_crtdll=\
   crt/crtdll_compat.c \
+  math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
   misc/__p___argv.c \
