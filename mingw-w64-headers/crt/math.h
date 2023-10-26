@@ -678,19 +678,19 @@ __mingw_choose_expr (                                         \
 
 /* 7.12.5 Hyperbolic functions: Double in C89  */
   extern float __cdecl sinhf(float _X);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float sinhf(float _X) { return ((float)sinh((double)_X)); }
 #endif
   extern long double __cdecl sinhl(long double);
 
   extern float __cdecl coshf(float _X);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float coshf(float _X) { return ((float)cosh((double)_X)); }
 #endif
   extern long double __cdecl coshl(long double);
 
   extern float __cdecl tanhf(float _X);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float tanhf(float _X) { return ((float)tanh((double)_X)); }
 #endif
   extern long double __cdecl tanhl(long double);
@@ -714,7 +714,7 @@ __mingw_choose_expr (                                         \
 /* Exponentials and logarithms  */
 /* 7.12.6.1 Double in C89 */
   extern float __cdecl expf(float _X);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float expf(float _X) { return ((float)exp((double)_X)); }
 #endif
   extern long double __cdecl expl(long double);
@@ -732,7 +732,7 @@ __mingw_choose_expr (                                         \
 
 /* 7.12.6.4 Double in C89 */
   extern float frexpf(float _X,int *_Y);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
 #endif
   extern long double __cdecl frexpl(long double,int *);
@@ -746,7 +746,7 @@ __mingw_choose_expr (                                         \
 
 /* 7.12.6.6  Double in C89 */
   extern float __cdecl ldexpf(float _X,int _Y);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp ((double)x, expn); }
 #endif
   extern long double __cdecl ldexpl (long double, int);
@@ -880,14 +880,14 @@ __mingw_choose_expr (                                         \
 /* 7.12.7.3  */
   extern double __cdecl hypot (double, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005; /* in libmoldname.a */
   extern float __cdecl hypotf (float x, float y);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float __cdecl hypotf (float x, float y) { return (float) hypot ((double)x, (double)y);}
 #endif
   extern long double __cdecl hypotl (long double, long double);
 
 /* 7.12.7.4 The pow functions. Double in C89 */
   extern float __cdecl powf(float _X,float _Y);
-#ifndef __CRT__NO_INLINE
+#if !defined(__CRT__NO_INLINE) && !defined(_UCRT)
   __CRT_INLINE float powf(float _X,float _Y) { return ((float)pow((double)_X,(double)_Y)); }
 #endif
   extern long double __cdecl powl (long double, long double);
