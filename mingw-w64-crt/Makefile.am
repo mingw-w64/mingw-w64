@@ -216,7 +216,6 @@ src_msvcrt_common_add_x86=\
   math/x86/floor.S \
   math/x86/fmod.c \
   math/x86/ilogb.S math/x86/ilogbf.S \
-  math/x86/ldexp.c \
   math/x86/log.c \
   math/x86/log1p.S math/x86/log1pf.S \
   math/x86/log2.S math/x86/log2f.S \
@@ -226,7 +225,6 @@ src_msvcrt_common_add_x86=\
   math/x86/remainder.S math/x86/remainderf.S \
   math/x86/remquo.S math/x86/remquof.S \
   math/x86/rint.c math/x86/rintf.c \
-  math/x86/scalbn.S math/x86/scalbnf.S \
   math/x86/sin.c \
   math/x86/trunc.S math/x86/truncf.S \
   \
@@ -786,10 +784,13 @@ src_libmingwex_x86=\
   math/x86/exp2l.S          math/x86/exp.def.h        math/x86/expl.c           math/x86/expm1.def.h      math/x86/expm1l.c         \
   math/x86/fastmath.h       math/x86/floorl.S         \
   math/x86/fmodl.c          math/x86/fucom.c          \
-  math/x86/ilogbl.S         math/x86/internal_logl.S  math/x86/ldexpl.c         \
+  math/x86/ilogbl.S         math/x86/internal_logl.S  \
+  math/x86/ldexp.c          math/x86/ldexpl.c         \
   math/x86/log.def.h        math/x86/log10l.S         math/x86/log1pl.S         math/x86/log2l.S          \
   math/x86/logbl.c          math/x86/logl.c           math/x86/nearbyintl.S     math/x86/pow.def.h        math/x86/powl.c           \
-  math/x86/remainderl.S     math/x86/remquol.S        math/x86/scalbnl.S        math/x86/sin.def.h        \
+  math/x86/remainderl.S     math/x86/remquol.S        \
+  math/x86/scalbn.S         math/x86/scalbnf.S        math/x86/scalbnl.S        \
+  math/x86/sin.def.h        \
   math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanl.S
 
 
