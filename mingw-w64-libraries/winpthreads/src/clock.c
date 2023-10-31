@@ -37,9 +37,11 @@ static GetSystemTimeAsFileTime_t GetSystemTimeAsFileTime_p /* = 0 */;
 static GetSystemTimeAsFileTime_t try_load_GetSystemPreciseTimeAsFileTime()
 {
     /* Use GetSystemTimePreciseAsFileTime() if available (Windows 8 or later) */
-    GetSystemTimeAsFileTime_t get_time = (GetSystemTimeAsFileTime_t)(intptr_t)GetProcAddress(
-        GetModuleHandle ("kernel32.dll"),
-        "GetSystemTimePreciseAsFileTime"); /* <1us precision on Windows 10 */
+    HMODULE mod = GetModuleHandle("kernel32.dll");
+    GetSystemTimeAsFileTime_t get_time = NULL;
+    if (mod)
+        get_time = (GetSystemTimeAsFileTime_t)(intptr_t)GetProcAddress(mod,
+            "GetSystemTimePreciseAsFileTime"); /* <1us precision on Windows 10 */
     if (get_time == NULL)
         get_time = GetSystemTimeAsFileTime; /* >15ms precision on Windows 10 */
     __atomic_store_n(&GetSystemTimeAsFileTime_p, get_time, __ATOMIC_RELAXED);

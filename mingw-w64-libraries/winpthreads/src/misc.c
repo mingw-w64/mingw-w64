@@ -28,7 +28,9 @@ static ULONGLONG (*GetTickCount64FuncPtr) (VOID);
 
 static void __attribute__((constructor)) ctor (void)
 {
-  GetTickCount64FuncPtr = (__typeof__(GetTickCount64FuncPtr)) GetProcAddress(GetModuleHandle("kernel32.dll"), "GetTickCount64");
+  HMODULE mod = GetModuleHandle("kernel32.dll");
+  if (mod)
+    GetTickCount64FuncPtr = (__typeof__(GetTickCount64FuncPtr)) GetProcAddress(mod, "GetTickCount64");
 }
 
 unsigned long long _pthread_time_in_ms(void)
