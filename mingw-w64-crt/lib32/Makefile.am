@@ -367,3 +367,4 @@ lib32_DATA += %reldir%/libxinput1_4.a
 lib32_DATA += %reldir%/libxinput9_1_0.a
 lib32_DATA += %reldir%/libxmllite.a
 lib32_DATA += %reldir%/libwindowsapp.a
+lib32_DATA += %reldir%/libwindowscoreheadless_apiset.a
