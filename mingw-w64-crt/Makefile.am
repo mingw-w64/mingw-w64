@@ -2203,7 +2203,6 @@ endif
 		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
 		%/libapi-ms-win-core-fibers-l1-1-0.a \
 		%/libapi-ms-win-core-fibers-l1-1-1.a \
-		%/libapi-ms-win-core-file-ansi-l2-1-0.a \
 		%/libapi-ms-win-core-file-l1-1-0.a \
 		%/libapi-ms-win-core-file-l1-2-0.a \
 		%/libapi-ms-win-core-file-l1-2-1.a \
@@ -2240,8 +2239,6 @@ endif
 		%/libapi-ms-win-core-memory-l1-1-5.a \
 		%/libapi-ms-win-core-memory-l1-1-6.a \
 		%/libapi-ms-win-core-memory-l1-1-7.a \
-		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
-		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
 		%/libapi-ms-win-core-namedpipe-l1-1-0.a \
 		%/libapi-ms-win-core-namedpipe-l1-2-1.a \
 		%/libapi-ms-win-core-namedpipe-l1-2-2.a \
@@ -2256,7 +2253,6 @@ endif
 		%/libapi-ms-win-core-processthreads-l1-1-3.a \
 		%/libapi-ms-win-core-processthreads-l1-1-4.a \
 		%/libapi-ms-win-core-processtopology-l1-1-0.a \
-		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
 		%/libapi-ms-win-core-psapi-l1-1-0.a \
 		%/libapi-ms-win-core-quirks-l1-1-0.a \
