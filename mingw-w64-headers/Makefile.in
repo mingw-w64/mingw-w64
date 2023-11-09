@@ -397,7 +397,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/ctxtcall.idl \
 @HAVE_WIDL_TRUE@  include/d3d10.idl \
 @HAVE_WIDL_TRUE@  include/d3d10_1.idl \
+@HAVE_WIDL_TRUE@  include/d3d10effect.idl \
 @HAVE_WIDL_TRUE@  include/d3d10sdklayers.idl \
+@HAVE_WIDL_TRUE@  include/d3d10shader.idl \
 @HAVE_WIDL_TRUE@  include/d3d11.idl \
 @HAVE_WIDL_TRUE@  include/d3d11_1.idl \
 @HAVE_WIDL_TRUE@  include/d3d11_2.idl \

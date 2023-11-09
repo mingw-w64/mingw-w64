@@ -95,7 +95,9 @@ IDL_SRCS = \
   include/ctxtcall.idl \
   include/d3d10.idl \
   include/d3d10_1.idl \
+  include/d3d10effect.idl \
   include/d3d10sdklayers.idl \
+  include/d3d10shader.idl \
   include/d3d11.idl \
   include/d3d11_1.idl \
   include/d3d11_2.idl \
