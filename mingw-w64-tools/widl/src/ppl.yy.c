@@ -277,6 +277,7 @@
 /* First, we deal with  platform-specific or compiler-specific issues. */
 
 /* begin standard C headers. */
+
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
@@ -293,8 +294,8 @@
 
 #if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-/* C99 says to define __STDC_LIMIT_MACROS before including stdint.h,
- * if you want the limit (max/min) macros for int types. 
+/* C++ systems might need __STDC_LIMIT_MACROS defined before including
+ * <stdint.h>, if you want the limit (max/min) macros for int types.
  */
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
@@ -1564,13 +1565,13 @@ static struct list pp_includelogiclist = LIST_INIT( pp_includelogiclist );
 		result = fread(buf, 1, max_size, pp_status.file);	     \
 	}
 
-#line 1567 "tools/wrc/ppl.yy.c"
+#line 1568 "tools/wrc/ppl.yy.c"
 /*
  **************************************************************************
  * The scanner starts here
  **************************************************************************
  */
-#line 1573 "tools/wrc/ppl.yy.c"
+#line 1574 "tools/wrc/ppl.yy.c"
 
 #define INITIAL 0
 #define pp_pp 1
@@ -1835,7 +1836,7 @@ YY_DECL
 	/*
 	 * Detect the leading # of a preprocessor directive.
 	 */
-#line 1838 "tools/wrc/ppl.yy.c"
+#line 1839 "tools/wrc/ppl.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -2925,7 +2926,7 @@ YY_RULE_SETUP
 #line 739 "tools/wrc/ppl.l"
 ECHO;
 	YY_BREAK
-#line 2928 "tools/wrc/ppl.yy.c"
+#line 2929 "tools/wrc/ppl.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
