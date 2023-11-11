@@ -2377,6 +2377,32 @@ endif
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
 
+%/libnanosrv.a: lib-common/nanosrv.mri \
+		%/libclfsw32.a \
+		%/libclusapi.a \
+		%/libcryptxml.a \
+		%/libdbgeng.a \
+		%/libdbghelp.a \
+		%/libesent.a \
+		%/libfaultrep.a \
+		%/libfwpuclnt.a \
+		%/libhttpapi.a \
+		%/libiscsidsc.a \
+		%/libktmw32.a \
+		%/libmprapi.a \
+		%/libntdsapi.a \
+		%/libpdh.a \
+		%/libsnmpapi.a \
+		%/libtbs.a \
+		%/libvirtdisk.a \
+		%/libvssapi.a \
+		%/libwer.a \
+		%/libwevtapi.a \
+		%/libwintrust.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
 %/libonecore_apiset.a: lib-common/onecore_apiset.mri \
 		%/libapi-ms-win-core-apiquery-l2-1-0.a \
 		%/libapi-ms-win-core-atoms-l1-1-0.a \

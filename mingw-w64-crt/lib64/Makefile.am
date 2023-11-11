@@ -395,6 +395,7 @@ lib64_DATA += %reldir%/libmtxdm.a
 lib64_DATA += %reldir%/libmtxex.a
 lib64_DATA += %reldir%/libmtxoci.a
 lib64_DATA += %reldir%/libmydocs.a
+lib64_DATA += %reldir%/libnanosrv.a
 lib64_DATA += %reldir%/libncobjapi.a
 lib64_DATA += %reldir%/libncxpnt.a
 lib64_DATA += %reldir%/libnddeapi.a

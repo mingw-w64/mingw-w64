@@ -1,0 +1,24 @@
+CREATE libnanosrv.a
+ADDLIB libclfsw32.a
+ADDLIB libclusapi.a
+ADDLIB libcryptxml.a
+ADDLIB libdbgeng.a
+ADDLIB libdbghelp.a
+ADDLIB libesent.a
+ADDLIB libfaultrep.a
+ADDLIB libfwpuclnt.a
+ADDLIB libhttpapi.a
+ADDLIB libiscsidsc.a
+ADDLIB libktmw32.a
+ADDLIB libmprapi.a
+ADDLIB libntdsapi.a
+ADDLIB libpdh.a
+ADDLIB libsnmpapi.a
+ADDLIB libtbs.a
+ADDLIB libvirtdisk.a
+ADDLIB libvssapi.a
+ADDLIB libwer.a
+ADDLIB libwevtapi.a
+ADDLIB libwintrust.a
+SAVE
+END
