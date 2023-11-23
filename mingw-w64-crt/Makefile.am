@@ -2403,6 +2403,105 @@ endif
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
 
+%/libonecore.a: lib-common/onecore.mri \
+		%/libapi-ms-win-core-backgroundtask-l1-1-0.a \
+		%/libapi-ms-win-core-calendar-l1-1-0.a \
+		%/libapi-ms-win-core-comm-l1-1-1.a \
+		%/libapi-ms-win-core-comm-l1-1-2.a \
+		%/libapi-ms-win-core-debug-minidump-l1-1-0.a \
+		%/libapi-ms-win-core-enclave-l1-1-1.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
+		%/libapi-ms-win-core-featurestaging-l1-1-0.a \
+		%/libapi-ms-win-core-featurestaging-l1-1-1.a \
+		%/libapi-ms-win-core-handle-l1-1-0.a \
+		%/libapi-ms-win-core-libraryloader-l2-1-0.a \
+		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-memory-l1-1-4.a \
+		%/libapi-ms-win-core-memory-l1-1-5.a \
+		%/libapi-ms-win-core-memory-l1-1-6.a \
+		%/libapi-ms-win-core-memory-l1-1-7.a \
+		%/libapi-ms-win-core-path-l1-1-0.a \
+		%/libapi-ms-win-core-quirks-l1-1-0.a \
+		%/libapi-ms-win-core-quirks-l1-1-1.a \
+		%/libapi-ms-win-core-realtime-l1-1-1.a \
+		%/libapi-ms-win-core-realtime-l1-1-2.a \
+		%/libapi-ms-win-core-rtlsupport-l1-1-0.a \
+		%/libapi-ms-win-core-rtlsupport-l1-2-0.a \
+		%/libapi-ms-win-core-state-helpers-l1-1-0.a \
+		%/libapi-ms-win-core-synch-l1-2-0.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-0.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-3.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-4.a \
+		%/libapi-ms-win-core-util-l1-1-1.a \
+		%/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
+		%/libapi-ms-win-core-winrt-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-registration-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-robuffer-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-string-l1-1-1.a \
+		%/libapi-ms-win-core-wow64-l1-1-1.a \
+		%/libapi-ms-win-devices-config-l1-1-1.a \
+		%/libapi-ms-win-devices-query-l1-1-0.a \
+		%/libapi-ms-win-devices-query-l1-1-1.a \
+		%/libapi-ms-win-devices-swdevice-l1-1-0.a \
+		%/libapi-ms-win-devices-swdevice-l1-1-1.a \
+		%/libapi-ms-win-gaming-deviceinformation-l1-1-0.a \
+		%/libapi-ms-win-power-base-l1-1-0.a \
+		%/libapi-ms-win-power-limitsmanagement-l1-1-0.a \
+		%/libapi-ms-win-power-setting-l1-1-0.a \
+		%/libapi-ms-win-power-setting-l1-1-1.a \
+		%/libapi-ms-win-ro-typeresolution-l1-1-0.a \
+		%/libapi-ms-win-ro-typeresolution-l1-1-1.a \
+		%/libapi-ms-win-security-base-l1-2-2.a \
+		%/libapi-ms-win-security-isolatedcontainer-l1-1-0.a \
+		%/libapi-ms-win-security-isolatedcontainer-l1-1-1.a \
+		%/libapi-ms-win-service-core-l1-1-3.a \
+		%/libapi-ms-win-service-core-l1-1-4.a \
+		%/libapi-ms-win-shcore-scaling-l1-1-0.a \
+		%/libapi-ms-win-shcore-scaling-l1-1-1.a \
+		%/libapi-ms-win-shcore-scaling-l1-1-2.a \
+		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
+		%/libauthz.a \
+		%/libbcrypt.a \
+		%/libcabinet.a \
+		%/libcomdlg32.a \
+		%/libcrypt32.a \
+		%/libcryptnet.a \
+		%/libdfscli.a \
+		%/libdhcpcsvc.a \
+		%/libdhcpcsvc6.a \
+		%/libdiagnosticdataquery.a \
+		%/libdnsapi.a \
+		%/libdsrole.a \
+		%/libfltlib.a \
+		%/libfontsub.a \
+		%/libiphlpapi.a \
+		%/liblogoncli.a \
+		%/libmpr.a \
+		%/libmswsock.a \
+		%/libnetutils.a \
+		%/liboleaut32.a \
+		%/libpsapi.a \
+		%/librpcrt4.a \
+		%/libsamcli.a \
+		%/libschedcli.a \
+		%/libshlwapi.a \
+		%/libsrvcli.a \
+		%/libsspicli.a \
+		%/libuserenv.a \
+		%/libversion.a \
+		%/libwebsocket.a \
+		%/libwkscli.a \
+		%/libwldap32.a \
+		%/libws2_32.a \
+		%/libxmllite.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
 %/libonecore_apiset.a: lib-common/onecore_apiset.mri \
 		%/libapi-ms-win-core-apiquery-l2-1-0.a \
 		%/libapi-ms-win-core-atoms-l1-1-0.a \

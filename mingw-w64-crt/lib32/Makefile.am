@@ -227,6 +227,7 @@ lib32_DATA += %reldir%/libolepro32.a
 lib32_DATA += %reldir%/libolesvr32.a
 lib32_DATA += %reldir%/libolethk32.a
 lib32_DATA += %reldir%/libonecore_apiset.a
+lib32_DATA += %reldir%/libonecore.a
 lib32_DATA += %reldir%/libopends60.a
 lib32_DATA += %reldir%/libopengl32.a
 lib32_DATA += %reldir%/libp2p.a
