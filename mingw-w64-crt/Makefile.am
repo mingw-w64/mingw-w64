@@ -3299,6 +3299,7 @@ endif
 		%/liblogoncli.a \
 		%/libmmdevapi.a \
 		%/libmpr.a \
+		%/libmsajapi.a \
 		%/libmscms.a \
 		%/libmswsock.a \
 		%/libncrypt.a \

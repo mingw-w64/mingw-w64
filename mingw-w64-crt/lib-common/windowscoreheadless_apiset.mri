@@ -283,6 +283,7 @@ ADDLIB libiphlpapi.a
 ADDLIB liblogoncli.a
 ADDLIB libmmdevapi.a
 ADDLIB libmpr.a
+ADDLIB libmsajapi.a
 ADDLIB libmscms.a
 ADDLIB libmswsock.a
 ADDLIB libncrypt.a
