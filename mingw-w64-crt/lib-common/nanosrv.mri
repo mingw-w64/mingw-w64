@@ -17,6 +17,7 @@ ADDLIB libsnmpapi.a
 ADDLIB libtbs.a
 ADDLIB libvirtdisk.a
 ADDLIB libvssapi.a
+ADDLIB libwebservices.a
 ADDLIB libwer.a
 ADDLIB libwevtapi.a
 ADDLIB libwintrust.a

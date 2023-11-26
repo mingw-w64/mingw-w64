@@ -2396,6 +2396,7 @@ endif
 		%/libtbs.a \
 		%/libvirtdisk.a \
 		%/libvssapi.a \
+		%/libwebservices.a \
 		%/libwer.a \
 		%/libwevtapi.a \
 		%/libwintrust.a
