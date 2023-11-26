@@ -416,6 +416,7 @@ libarm32_DATA += %reldir%/libmrmcorer.a
 libarm32_DATA += %reldir%/libmrt100.a
 libarm32_DATA += %reldir%/libmsacm32.a
 libarm32_DATA += %reldir%/libmsafd.a
+libarm32_DATA += %reldir%/libmsajapi.a
 libarm32_DATA += %reldir%/libmsasn1.a
 libarm32_DATA += %reldir%/libmsauserext.a
 libarm32_DATA += %reldir%/libmscat32.a

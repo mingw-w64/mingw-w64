@@ -343,6 +343,7 @@ lib64_DATA += %reldir%/libmsacm32.a
 lib64_DATA += %reldir%/libmsadcs.a
 lib64_DATA += %reldir%/libmsado15.a
 lib64_DATA += %reldir%/libmsafd.a
+lib64_DATA += %reldir%/libmsajapi.a
 lib64_DATA += %reldir%/libmsasn1.a
 lib64_DATA += %reldir%/libmscat32.a
 lib64_DATA += %reldir%/libmscms.a

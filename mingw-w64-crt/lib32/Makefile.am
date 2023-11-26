@@ -187,6 +187,7 @@ lib32_DATA += %reldir%/libmpr.a
 lib32_DATA += %reldir%/libmprapi.a
 lib32_DATA += %reldir%/libmqrt.a
 lib32_DATA += %reldir%/libmsacm32.a
+lib32_DATA += %reldir%/libmsajapi.a
 lib32_DATA += %reldir%/libmscms.a
 lib32_DATA += %reldir%/libmsctf.a
 lib32_DATA += %reldir%/libmsctfmonitor.a
