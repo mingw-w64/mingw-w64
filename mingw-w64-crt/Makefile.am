@@ -3012,7 +3012,8 @@ endif
 		%/libapi-ms-win-service-management-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-service-winsvc-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-shcore-obsolete-l1-1-0.a \
-		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a
+		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
+		%/libicu.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
