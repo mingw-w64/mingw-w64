@@ -269,6 +269,7 @@ ADDLIB libapi-ms-win-shell-shdirectory-l1-1-0.a
 ADDLIB libauthz.a
 ADDLIB libbcrypt.a
 ADDLIB libcabinet.a
+ADDLIB libchakrart.a
 ADDLIB libcrypt32.a
 ADDLIB libcryptbase.a
 ADDLIB libcryptnet.a

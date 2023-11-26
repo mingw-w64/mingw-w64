@@ -3286,6 +3286,7 @@ endif
 		%/libauthz.a \
 		%/libbcrypt.a \
 		%/libcabinet.a \
+		%/libchakrart.a \
 		%/libcrypt32.a \
 		%/libcryptbase.a \
 		%/libcryptnet.a \
