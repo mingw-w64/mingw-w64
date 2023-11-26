@@ -17,6 +17,7 @@ lib32_DATA += %reldir%/libbthprops.a
 lib32_DATA += %reldir%/libcabinet.a
 lib32_DATA += %reldir%/libcap.a
 lib32_DATA += %reldir%/libcfgmgr32.a
+lib32_DATA += %reldir%/libchakrart.a
 lib32_DATA += %reldir%/libclasspnp.a
 lib32_DATA += %reldir%/libclfsw32.a
 lib32_DATA += %reldir%/libclusapi.a

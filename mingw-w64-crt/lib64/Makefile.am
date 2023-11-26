@@ -49,6 +49,7 @@ lib64_DATA += %reldir%/libcdm.a
 lib64_DATA += %reldir%/libcertcli.a
 lib64_DATA += %reldir%/libcfgbkend.a
 lib64_DATA += %reldir%/libcfgmgr32.a
+lib64_DATA += %reldir%/libchakrart.a
 lib64_DATA += %reldir%/libchtskdic.a
 lib64_DATA += %reldir%/libcimwin32.a
 lib64_DATA += %reldir%/libCINTIME.a

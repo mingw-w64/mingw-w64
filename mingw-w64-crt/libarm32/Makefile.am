@@ -81,6 +81,7 @@ libarm32_DATA += %reldir%/libcertpoleng.a
 libarm32_DATA += %reldir%/libcertprop.a
 libarm32_DATA += %reldir%/libcfgbkend.a
 libarm32_DATA += %reldir%/libcfgmgr32.a
+libarm32_DATA += %reldir%/libchakrart.a
 libarm32_DATA += %reldir%/libchartv.a
 libarm32_DATA += %reldir%/libchkwudrv.a
 libarm32_DATA += %reldir%/libchxreadingstringime.a
