@@ -3314,6 +3314,7 @@ endif
 		%/libsspicli.a \
 		%/libuserenv.a \
 		%/libwebauthn.a \
+		%/libwebservices.a \
 		%/libwebsocket.a \
 		%/libwindowscodecs.a \
 		%/libwinhttp.a \

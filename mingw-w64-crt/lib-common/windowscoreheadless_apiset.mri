@@ -297,6 +297,7 @@ ADDLIB libsrvcli.a
 ADDLIB libsspicli.a
 ADDLIB libuserenv.a
 ADDLIB libwebauthn.a
+ADDLIB libwebservices.a
 ADDLIB libwebsocket.a
 ADDLIB libwindowscodecs.a
 ADDLIB libwinhttp.a
