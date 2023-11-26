@@ -103,6 +103,7 @@ libarm64_DATA += %reldir%/libeapphost.a
 libarm64_DATA += %reldir%/libeappprxy.a
 libarm64_DATA += %reldir%/libefsadu.a
 libarm64_DATA += %reldir%/libelscore.a
+libarm64_DATA += %reldir%/libesent.a
 libarm64_DATA += %reldir%/libesentprf.a
 libarm64_DATA += %reldir%/libevr.a
 libarm64_DATA += %reldir%/libfdeploy.a

@@ -15,6 +15,9 @@ JetAttachDatabase
 JetAttachDatabase2
 JetAttachDatabase2A
 JetAttachDatabase2W
+JetAttachDatabase3
+JetAttachDatabase3A
+JetAttachDatabase3W
 JetAttachDatabaseA
 JetAttachDatabaseW
 JetAttachDatabaseWithStreaming
@@ -57,11 +60,15 @@ JetCreateDatabase
 JetCreateDatabase2
 JetCreateDatabase2A
 JetCreateDatabase2W
+JetCreateDatabase3
+JetCreateDatabase3A
+JetCreateDatabase3W
 JetCreateDatabaseA
 JetCreateDatabaseW
 JetCreateDatabaseWithStreaming
 JetCreateDatabaseWithStreamingA
 JetCreateDatabaseWithStreamingW
+JetCreateEncryptionKey
 JetCreateIndex
 JetCreateIndex2
 JetCreateIndex2A
@@ -88,6 +95,8 @@ JetCreateTableColumnIndex3A
 JetCreateTableColumnIndex3W
 JetCreateTableColumnIndex4A
 JetCreateTableColumnIndex4W
+JetCreateTableColumnIndex5A
+JetCreateTableColumnIndex5W
 JetCreateTableColumnIndexA
 JetCreateTableColumnIndexW
 JetCreateTableW
@@ -225,6 +234,7 @@ JetGotoSecondaryIndexBookmark
 JetGrowDatabase
 JetIdle
 JetIndexRecordCount
+JetIndexRecordCount2
 JetInit
 JetInit2
 JetInit3
@@ -275,6 +285,8 @@ JetPatchDatabasePagesA
 JetPatchDatabasePagesW
 JetPrepareToCommitTransaction
 JetPrepareUpdate
+JetPrereadColumnsByReference
+JetPrereadIndexRange
 JetPrereadIndexRanges
 JetPrereadKeys
 JetPrereadTablesW
@@ -303,6 +315,8 @@ JetRestoreInstanceA
 JetRestoreInstanceW
 JetRestoreW
 JetRetrieveColumn
+JetRetrieveColumnByReference
+JetRetrieveColumnFromRecordStream
 JetRetrieveColumns
 JetRetrieveKey
 JetRetrieveTaggedColumnList
@@ -338,6 +352,9 @@ JetSetSessionParameter
 JetSetSystemParameter
 JetSetSystemParameterA
 JetSetSystemParameterW
+JetSetTableInfo
+JetSetTableInfoA
+JetSetTableInfoW
 JetSetTableSequential
 JetSnapshotStart
 JetSnapshotStartA
@@ -348,6 +365,7 @@ JetStopBackupInstance
 JetStopService
 JetStopServiceInstance
 JetStopServiceInstance2
+JetStreamRecords
 JetTerm
 JetTerm2
 JetTestHook
