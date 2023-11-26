@@ -129,6 +129,7 @@ libarm64_DATA += %reldir%/libiassvcs.a
 libarm64_DATA += %reldir%/libicm32.a
 libarm64_DATA += %reldir%/libicmp.a
 libarm64_DATA += %reldir%/libicmui.a
+libarm64_DATA += %reldir%/libicu.a
 libarm64_DATA += %reldir%/libiernonce.a
 libarm64_DATA += %reldir%/libimagehlp.a
 libarm64_DATA += %reldir%/libimgutil.a

@@ -308,6 +308,7 @@ libarm32_DATA += %reldir%/libicfupgd.a
 libarm32_DATA += %reldir%/libicm32.a
 libarm32_DATA += %reldir%/libicmp.a
 libarm32_DATA += %reldir%/libicmui.a
+libarm32_DATA += %reldir%/libicu.a
 libarm32_DATA += %reldir%/libidndl.a
 libarm32_DATA += %reldir%/libieadvpack.a
 libarm32_DATA += %reldir%/libiedkcs32.a

@@ -212,6 +212,7 @@ lib64_DATA += %reldir%/libicfgnt5.a
 lib64_DATA += %reldir%/libicm32.a
 lib64_DATA += %reldir%/libicmp.a
 lib64_DATA += %reldir%/libicmui.a
+lib64_DATA += %reldir%/libicu.a
 lib64_DATA += %reldir%/libicwconn.a
 lib64_DATA += %reldir%/libicwdial.a
 lib64_DATA += %reldir%/libicwdl.a

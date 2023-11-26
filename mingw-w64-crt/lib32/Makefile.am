@@ -155,6 +155,7 @@ lib32_DATA += %reldir%/libhidparse.a
 lib32_DATA += %reldir%/libhtmlhelp.a
 lib32_DATA += %reldir%/libhttpapi.a
 lib32_DATA += %reldir%/libicmui.a
+lib32_DATA += %reldir%/libicu.a
 lib32_DATA += %reldir%/libigmpagnt.a
 lib32_DATA += %reldir%/libimagehlp.a
 lib32_DATA += %reldir%/libimm32.a
