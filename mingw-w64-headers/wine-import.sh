@@ -189,6 +189,7 @@ for f in \
 	icftypes \
 	ivectorchangedeventargs \
 	mediaobj \
+	mfmediaengine \
 	mfreadwrite \
 	mftransform \
 	mmdeviceapi \
