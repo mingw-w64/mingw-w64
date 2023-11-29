@@ -341,12 +341,12 @@ interface IMFVideoRendererEffectControl;
 /* Headers for imported files */
 
 #include <mfobjects.h>
+#include <mftransform.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <mftransform.h>
 #include <windef.h>
 typedef enum MFSESSION_SETTOPOLOGY_FLAGS {
     MFSESSION_SETTOPOLOGY_IMMEDIATE = 0x1,

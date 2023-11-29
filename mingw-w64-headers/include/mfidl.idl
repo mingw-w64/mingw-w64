@@ -5,8 +5,7 @@
  */
 
 import "mfobjects.idl";
-
-cpp_quote("#include <mftransform.h>") // FIXME: import "mftransform.idl";
+import "mftransform.idl";
 
 cpp_quote("#include <windef.h>")
 
