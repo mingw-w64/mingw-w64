@@ -474,6 +474,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mfd3d12.idl \
 @HAVE_WIDL_TRUE@  include/mfidl.idl \
 @HAVE_WIDL_TRUE@  include/mfmediacapture.idl \
+@HAVE_WIDL_TRUE@  include/mfmediaengine.idl \
 @HAVE_WIDL_TRUE@  include/mfobjects.idl \
 @HAVE_WIDL_TRUE@  include/mfplay.idl \
 @HAVE_WIDL_TRUE@  include/mfreadwrite.idl \
@@ -622,6 +623,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
+@HAVE_WIDL_TRUE@  include/windows.security.exchangeactivesyncprovisioning.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.isolation.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.fileproperties.idl \
@@ -629,6 +631,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.power.idl \
+@HAVE_WIDL_TRUE@  include/windows.system.profile.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.profile.systemmanufacturers.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.userprofile.idl \

@@ -321,6 +321,7 @@ IDL_SRCS = \
   include/windows.security.credentials.idl \
   include/windows.security.credentials.ui.idl \
   include/windows.security.cryptography.idl \
+  include/windows.security.exchangeactivesyncprovisioning.idl \
   include/windows.security.isolation.idl \
   include/windows.storage.idl \
   include/windows.storage.fileproperties.idl \
@@ -328,6 +329,7 @@ IDL_SRCS = \
   include/windows.storage.streams.idl \
   include/windows.system.idl \
   include/windows.system.power.idl \
+  include/windows.system.profile.idl \
   include/windows.system.profile.systemmanufacturers.idl \
   include/windows.system.threading.idl \
   include/windows.system.userprofile.idl \
