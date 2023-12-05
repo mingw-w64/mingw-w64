@@ -303,6 +303,7 @@ ADDLIB libwebauthn.a
 ADDLIB libwebservices.a
 ADDLIB libwebsocket.a
 ADDLIB libwindows.ai.machinelearning.a
+ADDLIB libwindows.data.pdf.a
 ADDLIB libwindowscodecs.a
 ADDLIB libwinhttp.a
 ADDLIB libwkscli.a
