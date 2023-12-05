@@ -198,5 +198,6 @@ ADDLIB libapi-ms-win-service-winsvc-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-shcore-obsolete-l1-1-0.a
 ADDLIB libapi-ms-win-shcore-stream-winrt-l1-1-0.a
 ADDLIB libicu.a
+ADDLIB libwindows.ai.machinelearning.a
 SAVE
 END
