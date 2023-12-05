@@ -301,6 +301,7 @@ ADDLIB libuserenv.a
 ADDLIB libwebauthn.a
 ADDLIB libwebservices.a
 ADDLIB libwebsocket.a
+ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindowscodecs.a
 ADDLIB libwinhttp.a
 ADDLIB libwkscli.a

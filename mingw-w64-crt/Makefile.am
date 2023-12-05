@@ -3319,6 +3319,7 @@ endif
 		%/libwebauthn.a \
 		%/libwebservices.a \
 		%/libwebsocket.a \
+		%/libwindows.ai.machinelearning.a \
 		%/libwindowscodecs.a \
 		%/libwinhttp.a \
 		%/libwkscli.a \
