@@ -268,6 +268,7 @@ libarm64_DATA += %reldir%/libregsvc.a
 libarm64_DATA += %reldir%/libresutils.a
 libarm64_DATA += %reldir%/libriched20.a
 libarm64_DATA += %reldir%/librnr20.a
+libarm64_DATA += %reldir%/librometadata.a
 libarm64_DATA += %reldir%/librpcns4.a
 libarm64_DATA += %reldir%/librpcrt4.a
 libarm64_DATA += %reldir%/librpcss.a

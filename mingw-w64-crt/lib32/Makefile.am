@@ -259,6 +259,7 @@ lib32_DATA += %reldir%/librapi.a
 lib32_DATA += %reldir%/librasapi32.a
 lib32_DATA += %reldir%/librasdlg.a
 lib32_DATA += %reldir%/libresutil.a
+lib32_DATA += %reldir%/librometadata.a
 lib32_DATA += %reldir%/librpcdce4.a
 lib32_DATA += %reldir%/librpcdiag.a
 lib32_DATA += %reldir%/librpchttp.a

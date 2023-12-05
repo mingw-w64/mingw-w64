@@ -524,6 +524,7 @@ lib64_DATA += %reldir%/libregsvc.a
 lib64_DATA += %reldir%/libresutils.a
 lib64_DATA += %reldir%/libriched20.a
 lib64_DATA += %reldir%/librnr20.a
+lib64_DATA += %reldir%/librometadata.a
 lib64_DATA += %reldir%/libroutetab.a
 lib64_DATA += %reldir%/librpcns4.a
 lib64_DATA += %reldir%/librpcref.a
