@@ -3298,6 +3298,7 @@ endif
 		%/libdwrite.a \
 		%/libfltlib.a \
 		%/libhid.a \
+		%/libhrtfapo.a \
 		%/libiphlpapi.a \
 		%/liblogoncli.a \
 		%/libmmdevapi.a \

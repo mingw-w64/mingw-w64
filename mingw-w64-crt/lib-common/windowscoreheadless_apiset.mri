@@ -280,6 +280,7 @@ ADDLIB libdsrole.a
 ADDLIB libdwrite.a
 ADDLIB libfltlib.a
 ADDLIB libhid.a
+ADDLIB libhrtfapo.a
 ADDLIB libiphlpapi.a
 ADDLIB liblogoncli.a
 ADDLIB libmmdevapi.a
