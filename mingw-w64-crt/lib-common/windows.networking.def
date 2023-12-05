@@ -5,5 +5,4 @@
 ;
 LIBRARY "Windows.Networking.dll"
 EXPORTS
-ord_1 @1
 SetSocketMediaStreamingMode

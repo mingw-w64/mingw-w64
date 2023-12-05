@@ -347,6 +347,7 @@ libarm64_DATA += %reldir%/libwiashext.a
 libarm64_DATA += %reldir%/libwimgapi.a
 libarm64_DATA += %reldir%/libwindows.ai.machinelearning.a
 libarm64_DATA += %reldir%/libwindows.data.pdf.a
+libarm64_DATA += %reldir%/libwindows.networking.a
 libarm64_DATA += %reldir%/libwindowsapp.a
 libarm64_DATA += %reldir%/libwindowscoreheadless_apiset.a
 libarm64_DATA += %reldir%/libwinhttp.a

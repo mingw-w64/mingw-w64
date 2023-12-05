@@ -671,6 +671,7 @@ lib64_DATA += %reldir%/libwiaservc.a
 lib64_DATA += %reldir%/libwiashext.a
 lib64_DATA += %reldir%/libwindows.ai.machinelearning.a
 lib64_DATA += %reldir%/libwindows.data.pdf.a
+lib64_DATA += %reldir%/libwindows.networking.a
 lib64_DATA += %reldir%/libwinfax.a
 lib64_DATA += %reldir%/libwinhvemulation.a
 lib64_DATA += %reldir%/libwinhvplatform.a
