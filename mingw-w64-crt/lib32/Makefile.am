@@ -334,6 +334,7 @@ lib32_DATA += %reldir%/libwimgapi.a
 lib32_DATA += %reldir%/libwin32k.a
 lib32_DATA += %reldir%/libwin32spl.a
 lib32_DATA += %reldir%/libwindows.ai.machinelearning.a
+lib32_DATA += %reldir%/libwindows.data.pdf.a
 lib32_DATA += %reldir%/libwinhttp.a
 lib32_DATA += %reldir%/libwininet.a
 lib32_DATA += %reldir%/libwinmm.a
