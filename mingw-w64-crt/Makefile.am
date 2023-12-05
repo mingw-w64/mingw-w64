@@ -3326,6 +3326,7 @@ endif
 		%/libwebsocket.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
+		%/libwindows.networking.a \
 		%/libwindowscodecs.a \
 		%/libwinhttp.a \
 		%/libwkscli.a \

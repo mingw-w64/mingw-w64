@@ -304,6 +304,7 @@ ADDLIB libwebservices.a
 ADDLIB libwebsocket.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
+ADDLIB libwindows.networking.a
 ADDLIB libwindowscodecs.a
 ADDLIB libwinhttp.a
 ADDLIB libwkscli.a
