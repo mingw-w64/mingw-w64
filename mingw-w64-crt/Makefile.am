@@ -3313,6 +3313,7 @@ endif
 		%/libncrypt.a \
 		%/libnetutils.a \
 		%/libpowrprof.a \
+		%/libprofapi.a \
 		%/libpropsys.a \
 		%/librometadata.a \
 		%/librpcrt4.a \

@@ -291,6 +291,7 @@ ADDLIB libmswsock.a
 ADDLIB libncrypt.a
 ADDLIB libnetutils.a
 ADDLIB libpowrprof.a
+ADDLIB libprofapi.a
 ADDLIB libpropsys.a
 ADDLIB librometadata.a
 ADDLIB librpcrt4.a
