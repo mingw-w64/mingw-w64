@@ -199,6 +199,7 @@ lib64_DATA += %reldir%/libhnetcfg.a
 lib64_DATA += %reldir%/libhnetwiz.a
 lib64_DATA += %reldir%/libhostmib.a
 lib64_DATA += %reldir%/libhotplug.a
+lib64_DATA += %reldir%/libhrtfapo.a
 lib64_DATA += %reldir%/libhtmlhelp.a
 lib64_DATA += %reldir%/libhtrn_jis.a
 lib64_DATA += %reldir%/libhttpapi.a
