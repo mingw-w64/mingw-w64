@@ -164,6 +164,7 @@ lib32_DATA += %reldir%/libicu.a
 lib32_DATA += %reldir%/libigmpagnt.a
 lib32_DATA += %reldir%/libimagehlp.a
 lib32_DATA += %reldir%/libimm32.a
+lib32_DATA += %reldir%/libinkobjcore.a
 lib32_DATA += %reldir%/libiphlpapi.a
 lib32_DATA += %reldir%/libiscsidsc.a
 #lib32_DATA += %reldir%/libkernel32.a  # Handled by custom rule

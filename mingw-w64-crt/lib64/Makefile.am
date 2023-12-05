@@ -255,6 +255,7 @@ lib64_DATA += %reldir%/libinfoadmn.a
 lib64_DATA += %reldir%/libinfocomm.a
 lib64_DATA += %reldir%/libinfoctrs.a
 lib64_DATA += %reldir%/libinfosoft.a
+lib64_DATA += %reldir%/libinkobjcore.a
 lib64_DATA += %reldir%/libinitpki.a
 lib64_DATA += %reldir%/libinput.a
 lib64_DATA += %reldir%/libinseng.a

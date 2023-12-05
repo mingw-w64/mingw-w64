@@ -142,6 +142,7 @@ libarm64_DATA += %reldir%/libimgutil.a
 libarm64_DATA += %reldir%/libimm32.a
 libarm64_DATA += %reldir%/libinetcomm.a
 libarm64_DATA += %reldir%/libinetmib1.a
+libarm64_DATA += %reldir%/libinkobjcore.a
 libarm64_DATA += %reldir%/libinput.a
 libarm64_DATA += %reldir%/libinseng.a
 libarm64_DATA += %reldir%/libiphlpapi.a

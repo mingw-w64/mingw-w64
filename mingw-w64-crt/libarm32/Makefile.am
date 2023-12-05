@@ -330,6 +330,7 @@ libarm32_DATA += %reldir%/libimgutil.a
 libarm32_DATA += %reldir%/libimm32.a
 libarm32_DATA += %reldir%/libinetcomm.a
 libarm32_DATA += %reldir%/libinetmib1.a
+libarm32_DATA += %reldir%/libinkobjcore.a
 libarm32_DATA += %reldir%/libinput.a
 libarm32_DATA += %reldir%/libinseng.a
 libarm32_DATA += %reldir%/libiphlpapi.a
