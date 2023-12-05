@@ -79,6 +79,7 @@ ADDLIB libmpr.a
 ADDLIB libmswsock.a
 ADDLIB libnetutils.a
 ADDLIB liboleaut32.a
+ADDLIB libprofapi.a
 ADDLIB libpsapi.a
 ADDLIB librpcrt4.a
 ADDLIB libsamcli.a

@@ -2486,6 +2486,7 @@ endif
 		%/libmswsock.a \
 		%/libnetutils.a \
 		%/liboleaut32.a \
+		%/libprofapi.a \
 		%/libpsapi.a \
 		%/librpcrt4.a \
 		%/libsamcli.a \
