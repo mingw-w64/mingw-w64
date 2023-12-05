@@ -3017,7 +3017,8 @@ endif
 		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
 		%/libicu.a \
 		%/librometadata.a \
-		%/libwindows.ai.machinelearning.a
+		%/libwindows.ai.machinelearning.a \
+		%/libwindows.data.pdf.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
