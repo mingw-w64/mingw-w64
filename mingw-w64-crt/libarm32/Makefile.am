@@ -213,6 +213,7 @@ libarm32_DATA += %reldir%/libdwmapi.a
 libarm32_DATA += %reldir%/libdwmcore.a
 libarm32_DATA += %reldir%/libdwmredir.a
 libarm32_DATA += %reldir%/libdwrite.a
+libarm32_DATA += %reldir%/libdxcore.a
 libarm32_DATA += %reldir%/libdxgi.a
 libarm32_DATA += %reldir%/libdxgwdi.a
 libarm32_DATA += %reldir%/libdxva2.a

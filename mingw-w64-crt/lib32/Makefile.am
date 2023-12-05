@@ -127,6 +127,7 @@ lib32_DATA += %reldir%/libdssec.a
 lib32_DATA += %reldir%/libdwmapi.a
 lib32_DATA += %reldir%/libdwrite.a
 lib32_DATA += %reldir%/libdxapi.a
+lib32_DATA += %reldir%/libdxcore.a
 lib32_DATA += %reldir%/libdxgi.a
 lib32_DATA += %reldir%/libdxva2.a
 lib32_DATA += %reldir%/libeappcfg.a

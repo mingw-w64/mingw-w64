@@ -146,6 +146,7 @@ lib64_DATA += %reldir%/libdssec.a
 lib64_DATA += %reldir%/libdssenh.a
 lib64_DATA += %reldir%/libdsuiext.a
 lib64_DATA += %reldir%/libduser.a
+lib64_DATA += %reldir%/libdxcore.a
 lib64_DATA += %reldir%/libefsadu.a
 lib64_DATA += %reldir%/libes.a
 lib64_DATA += %reldir%/libesent.a
