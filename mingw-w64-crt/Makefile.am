@@ -2383,6 +2383,7 @@ endif
 		%/libcryptxml.a \
 		%/libdbgeng.a \
 		%/libdbghelp.a \
+		%/libdnsperf.a \
 		%/libesent.a \
 		%/libfaultrep.a \
 		%/libfwpuclnt.a \
