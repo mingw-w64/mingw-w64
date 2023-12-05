@@ -117,6 +117,7 @@ lib64_DATA += %reldir%/libdimsntfy.a
 lib64_DATA += %reldir%/libdimsroam.a
 #lib64_DATA += %reldir%/libdinput.a   # Handled by custom rule
 #lib64_DATA += %reldir%/libdinput8.a  # Handled by custom rule
+lib64_DATA += %reldir%/libdirectml.a
 lib64_DATA += %reldir%/libdiskcopy.a
 lib64_DATA += %reldir%/libdismapi.a
 lib64_DATA += %reldir%/libdmconfig.a

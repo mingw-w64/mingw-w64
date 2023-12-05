@@ -172,6 +172,7 @@ libarm32_DATA += %reldir%/libdiagperf.a
 libarm32_DATA += %reldir%/libdimsroam.a
 #libarm32_DATA += %reldir%/libdinput.a    # Handled by custom rule
 #libarm32_DATA += %reldir%/libdinput8.a   # Handled by custom rule
+libarm32_DATA += %reldir%/libdirectml.a
 libarm32_DATA += %reldir%/libdiskcopy.a
 libarm32_DATA += %reldir%/libdismapi.a
 libarm32_DATA += %reldir%/libdispci.a

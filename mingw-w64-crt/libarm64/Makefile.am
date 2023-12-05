@@ -78,6 +78,7 @@ libarm64_DATA += %reldir%/libdiagnosticdataquery.a
 libarm64_DATA += %reldir%/libdimsroam.a
 #libarm64_DATA += %reldir%/libdinput.a    # Handled by custom rule
 #libarm64_DATA += %reldir%/libdinput8.a   # Handled by custom rule
+libarm64_DATA += %reldir%/libdirectml.a
 libarm64_DATA += %reldir%/libdiskcopy.a
 libarm64_DATA += %reldir%/libdismapi.a
 libarm64_DATA += %reldir%/libdmutil.a
