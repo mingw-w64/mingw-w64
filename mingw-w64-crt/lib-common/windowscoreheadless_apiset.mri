@@ -311,6 +311,7 @@ ADDLIB libwinhttp.a
 ADDLIB libwkscli.a
 ADDLIB libwlanapi.a
 ADDLIB libwldap32.a
+ADDLIB libwpprecorderum.a
 ADDLIB libxaudio2_9.a
 ADDLIB libxmllite.a
 SAVE

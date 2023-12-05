@@ -3336,6 +3336,7 @@ endif
 		%/libwkscli.a \
 		%/libwlanapi.a \
 		%/libwldap32.a \
+		%/libwpprecorderum.a \
 		%/libxaudio2_9.a \
 		%/libxmllite.a
 	rm -f $@
