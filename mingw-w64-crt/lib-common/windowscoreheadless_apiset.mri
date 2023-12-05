@@ -292,6 +292,7 @@ ADDLIB libncrypt.a
 ADDLIB libnetutils.a
 ADDLIB libpowrprof.a
 ADDLIB libpropsys.a
+ADDLIB librometadata.a
 ADDLIB librpcrt4.a
 ADDLIB libsamcli.a
 ADDLIB libschedcli.a

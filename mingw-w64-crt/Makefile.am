@@ -3311,6 +3311,7 @@ endif
 		%/libnetutils.a \
 		%/libpowrprof.a \
 		%/libpropsys.a \
+		%/librometadata.a \
 		%/librpcrt4.a \
 		%/libsamcli.a \
 		%/libschedcli.a \
