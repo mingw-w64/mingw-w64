@@ -82,6 +82,7 @@ libarm64_DATA += %reldir%/libdiskcopy.a
 libarm64_DATA += %reldir%/libdismapi.a
 libarm64_DATA += %reldir%/libdmutil.a
 libarm64_DATA += %reldir%/libdnsapi.a
+libarm64_DATA += %reldir%/libdnsperf.a
 libarm64_DATA += %reldir%/libdnsrslvr.a
 libarm64_DATA += %reldir%/libdrprov.a
 libarm64_DATA += %reldir%/libdsauth.a

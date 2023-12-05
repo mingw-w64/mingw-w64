@@ -112,6 +112,7 @@ lib32_DATA += %reldir%/libdiagnosticdataquery.a
 lib32_DATA += %reldir%/libdismapi.a
 lib32_DATA += %reldir%/libdlcapi.a
 lib32_DATA += %reldir%/libdnsapi.a
+lib32_DATA += %reldir%/libdnsperf.a
 lib32_DATA += %reldir%/libdpapi.a
 lib32_DATA += %reldir%/libdplayx.a
 lib32_DATA += %reldir%/libdpnaddr.a

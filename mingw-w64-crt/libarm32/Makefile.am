@@ -180,6 +180,7 @@ libarm32_DATA += %reldir%/libdmdskmgr.a
 libarm32_DATA += %reldir%/libdmutil.a
 libarm32_DATA += %reldir%/libdmvdsitf.a
 libarm32_DATA += %reldir%/libdnsapi.a
+libarm32_DATA += %reldir%/libdnsperf.a
 libarm32_DATA += %reldir%/libdnsrslvr.a
 libarm32_DATA += %reldir%/libdot3api.a
 libarm32_DATA += %reldir%/libdot3dlg.a

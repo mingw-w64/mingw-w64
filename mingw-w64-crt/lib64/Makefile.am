@@ -125,6 +125,7 @@ lib64_DATA += %reldir%/libdmivcitf.a
 lib64_DATA += %reldir%/libdmutil.a
 lib64_DATA += %reldir%/libdmvdsitf.a
 lib64_DATA += %reldir%/libdnsapi.a
+lib64_DATA += %reldir%/libdnsperf.a
 lib64_DATA += %reldir%/libdnsrslvr.a
 lib64_DATA += %reldir%/libdpapi.a
 lib64_DATA += %reldir%/libdpnaddr.a
