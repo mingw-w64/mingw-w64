@@ -2499,6 +2499,7 @@ endif
 		%/libwebsocket.a \
 		%/libwkscli.a \
 		%/libwldap32.a \
+		%/libwpprecorderum.a \
 		%/libws2_32.a \
 		%/libxmllite.a
 	rm -f $@
