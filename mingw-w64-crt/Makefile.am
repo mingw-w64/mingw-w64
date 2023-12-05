@@ -2776,6 +2776,7 @@ endif
 		%/libnetutils.a \
 		%/liboleaut32.a \
 		%/libpowrprof.a \
+		%/libprofapi.a \
 		%/librpcrt4.a \
 		%/libsamcli.a \
 		%/libschedcli.a \
