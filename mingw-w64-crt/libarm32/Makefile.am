@@ -923,6 +923,7 @@ libarm32_DATA += %reldir%/libwinbrand.a
 libarm32_DATA += %reldir%/libwindowsapp.a
 libarm32_DATA += %reldir%/libwindowscodecsext.a
 libarm32_DATA += %reldir%/libwindowscoreheadless_apiset.a
+libarm32_DATA += %reldir%/libwindows.ai.machinelearning.a
 libarm32_DATA += %reldir%/libwindows.data.pdf.a
 libarm32_DATA += %reldir%/libwindows.globalization.fontgroups.a
 libarm32_DATA += %reldir%/libwindows.networking.connectivity.a
