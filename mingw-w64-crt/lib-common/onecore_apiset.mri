@@ -284,6 +284,7 @@ ADDLIB libwebsocket.a
 ADDLIB libwinhttp.a
 ADDLIB libwkscli.a
 ADDLIB libwldap32.a
+ADDLIB libwpprecorderum.a
 ADDLIB libws2_32.a
 ADDLIB libxmllite.a
 SAVE
