@@ -3018,7 +3018,8 @@ endif
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
-		%/libwindows.data.pdf.a
+		%/libwindows.data.pdf.a \
+		%/libwindows.networking.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
