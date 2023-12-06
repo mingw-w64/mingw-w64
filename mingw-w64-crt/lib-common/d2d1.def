@@ -10,6 +10,7 @@ D2D1ConvertColorSpace
 D2D1CreateDevice
 D2D1CreateDeviceContext
 D2D1CreateFactory
+D2D1GetGradientMeshInteriorPointsFromCoonsPatch
 D2D1InvertMatrix
 D2D1IsMatrixInvertible
 D2D1MakeRotateMatrix
