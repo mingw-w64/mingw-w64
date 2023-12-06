@@ -841,6 +841,7 @@ lib64_DATA += %reldir%/libxinput1_2.a
 lib64_DATA += %reldir%/libxinput1_3.a
 lib64_DATA += %reldir%/libxinput1_4.a
 lib64_DATA += %reldir%/libxinput9_1_0.a
+lib64_DATA += %reldir%/libxinputuap.a
 lib64_DATA += %reldir%/libxaudio2_8.a
 lib64_DATA += %reldir%/libxaudio2_9.a
 lib64_DATA += %reldir%/libd3dcompiler_46.a
