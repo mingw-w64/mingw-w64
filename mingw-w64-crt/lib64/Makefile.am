@@ -78,6 +78,7 @@ lib64_DATA += %reldir%/libcomsnap.a
 lib64_DATA += %reldir%/libcomsvcs.a
 lib64_DATA += %reldir%/libcomuid.a
 lib64_DATA += %reldir%/libconsole.a
+lib64_DATA += %reldir%/libcoremessaging.a
 lib64_DATA += %reldir%/libcorpol.a
 lib64_DATA += %reldir%/libcredui.a
 #lib64_DATA += %reldir%/libcrtdll.a     # Specialized for W32API conditional

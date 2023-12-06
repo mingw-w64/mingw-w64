@@ -25,6 +25,7 @@ lib32_DATA += %reldir%/libcmutil.a
 lib32_DATA += %reldir%/libcomctl32.a
 lib32_DATA += %reldir%/libcomdlg32.a
 lib32_DATA += %reldir%/libconnect.a
+lib32_DATA += %reldir%/libcoremessaging.a
 lib32_DATA += %reldir%/libcredui.a
 #lib32_DATA += %reldir%/libcrtdll.a     # Specialized for W32API conditional
 lib32_DATA += %reldir%/libcrypt32.a

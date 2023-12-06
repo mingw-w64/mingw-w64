@@ -41,6 +41,7 @@ libarm64_DATA += %reldir%/libcomsnap.a
 libarm64_DATA += %reldir%/libcomuid.a
 libarm64_DATA += %reldir%/libconnect.a
 libarm64_DATA += %reldir%/libconsole.a
+libarm64_DATA += %reldir%/libcoremessaging.a
 libarm64_DATA += %reldir%/libcredui.a
 libarm64_DATA += %reldir%/libcrypt32.a
 libarm64_DATA += %reldir%/libcryptbase.a

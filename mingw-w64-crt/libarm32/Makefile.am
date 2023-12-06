@@ -109,6 +109,7 @@ libarm32_DATA += %reldir%/libcomuid.a
 libarm32_DATA += %reldir%/libconnect.a
 libarm32_DATA += %reldir%/libconnectedaccountstate.a
 libarm32_DATA += %reldir%/libconsole.a
+libarm32_DATA += %reldir%/libcoremessaging.a
 libarm32_DATA += %reldir%/libcredssp.a
 libarm32_DATA += %reldir%/libcredui.a
 libarm32_DATA += %reldir%/libcrypt32.a
