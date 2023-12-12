@@ -12,6 +12,7 @@ CreateCompressor
 CreateDecompressor
 Decompress
 DeleteExtractedFiles
+DllGetVersion
 Extract
 FCIAddFile
 FCICreate
