@@ -2964,7 +2964,7 @@ endif
 		%/libapi-ms-win-core-timezone-l1-1-0.a \
 		%/libapi-ms-win-core-timezone-l1-1-1.a \
 		%/libapi-ms-win-core-toolhelp-l1-1-0_windowsapp.a \
-		%/libapi-ms-win-core-url-l1-1-0.a \
+		%/libapi-ms-win-core-url-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-util-l1-1-0.a \
 		%/libapi-ms-win-core-versionansi-l1-1-0.a \
 		%/libapi-ms-win-core-versionansi-l1-1-1.a \
