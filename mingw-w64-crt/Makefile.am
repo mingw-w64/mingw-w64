@@ -2864,7 +2864,7 @@ endif
 		%/libapi-ms-win-core-featurestaging-l1-1-1.a \
 		%/libapi-ms-win-core-fibers-l1-1-0.a \
 		%/libapi-ms-win-core-fibers-l1-1-1.a \
-		%/libapi-ms-win-core-fibers-l2-1-0.a \
+		%/libapi-ms-win-core-fibers-l2-1-0_windowsapp.a \
 		%/libapi-ms-win-core-fibers-l2-1-1.a \
 		%/libapi-ms-win-core-file-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-file-ansi-l2-1-0.a \
