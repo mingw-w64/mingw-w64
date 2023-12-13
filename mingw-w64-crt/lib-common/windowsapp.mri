@@ -181,7 +181,7 @@ ADDLIB libapi-ms-win-security-base-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-security-base-l1-2-0_windowsapp.a
 ADDLIB libapi-ms-win-security-base-l1-2-1.a
 ADDLIB libapi-ms-win-security-base-l1-2-2.a
-ADDLIB libapi-ms-win-security-cpwl-l1-1-0.a
+ADDLIB libapi-ms-win-security-cpwl-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-security-cryptoapi-l1-1-0.a
 ADDLIB libapi-ms-win-security-isolatedcontainer-l1-1-0.a
 ADDLIB libapi-ms-win-security-lsalookup-ansi-l2-1-0.a
