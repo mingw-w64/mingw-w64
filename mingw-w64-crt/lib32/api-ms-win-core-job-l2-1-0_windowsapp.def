@@ -4,7 +4,4 @@ EXPORTS
 
 AssignProcessToJobObject@8
 CreateJobObjectW@8
-OpenJobObjectW@12
-QueryInformationJobObject@20
 SetInformationJobObject@16
-TerminateJobObject@8
