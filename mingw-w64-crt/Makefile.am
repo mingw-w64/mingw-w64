@@ -2345,16 +2345,24 @@ endif
 		%/libcryptbase.a \
 		%/libcryptnet.a \
 		%/libdnsapi.a \
+		%/libdfscli.a \
 		%/libdsparse.a \
+		%/libdsrole.a \
 		%/libiphlpapi.a \
+		%/liblogoncli.a \
 		%/libmpr.a \
 		%/libmswsock.a \
 		%/libncrypt.a \
+		%/libnetutils.a \
 		%/liboleaut32.a \
 		%/librpcrt4.a \
+		%/libsamcli.a \
+		%/libschedcli.a \
+		%/libsrvcli.a \
 		%/libsspicli.a \
 		%/libuserenv.a \
 		%/libwinhttp.a \
+		%/libwkscli.a \
 		%/libwldap32.a \
 		%/libwebsocket.a \
 		%/libws2_32.a

@@ -165,26 +165,26 @@ ADDLIB libcabinet.a
 ADDLIB libcrypt32.a
 ADDLIB libcryptbase.a
 ADDLIB libcryptnet.a
-; FIXME libdfscli.a
+ADDLIB libdfscli.a
 ADDLIB libdnsapi.a
 ADDLIB libdsparse.a
-; FIXME libdsrole.a
+ADDLIB libdsrole.a
 ADDLIB libiphlpapi.a
-; FIXME liblogoncli.a
+ADDLIB liblogoncli.a
 ADDLIB libmpr.a
 ADDLIB libmswsock.a
 ADDLIB libncrypt.a
-; FIXME libnetutils.a
+ADDLIB libnetutils.a
 ADDLIB liboleaut32.a
 ADDLIB librpcrt4.a
-; FIXME libsamcli.a
-; FIXME libschedcli.a
-; FIXME libsrvcli.a
+ADDLIB libsamcli.a
+ADDLIB libschedcli.a
+ADDLIB libsrvcli.a
 ADDLIB libsspicli.a
 ADDLIB libuserenv.a
 ADDLIB libwebsocket.a
 ADDLIB libwinhttp.a
-; FIXME libwkscli.a
+ADDLIB libwkscli.a
 ADDLIB libwldap32.a
 ADDLIB libws2_32.a
 SAVE
