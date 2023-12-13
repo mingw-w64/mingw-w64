@@ -4,3 +4,11 @@ EXPORTS
 
 DevCloseObjectQuery
 DevCreateObjectQuery
+DevCreateObjectQueryFromId
+DevCreateObjectQueryFromIds
+DevFindProperty
+DevFreeObjectProperties
+DevFreeObjects
+DevGetObjectProperties
+DevGetObjects
+DevSetObjectProperties

@@ -154,7 +154,7 @@ ADDLIB libapi-ms-win-core-wow64-l1-1-1_windowsapp.a
 ADDLIB libapi-ms-win-core-xstate-l2-1-0_windowsapp.a
 ADDLIB libapi-ms-win-devices-config-l1-1-1_windowsapp.a
 ADDLIB libapi-ms-win-devices-config-l1-1-2_windowsapp.a
-ADDLIB libapi-ms-win-devices-query-l1-1-0.a
+ADDLIB libapi-ms-win-devices-query-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-eventing-classicprovider-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-eventing-consumer-l1-1-0.a
 ADDLIB libapi-ms-win-eventing-controller-l1-1-0_windowsapp.a
