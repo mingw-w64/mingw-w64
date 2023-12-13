@@ -2884,7 +2884,7 @@ endif
 		%/libapi-ms-win-core-io-l1-1-0.a \
 		%/libapi-ms-win-core-io-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-job-l2-1-0_windowsapp.a \
-		%/libapi-ms-win-core-kernel32-legacy-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-kernel32-legacy-ansi-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-0.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-1.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-2.a \
