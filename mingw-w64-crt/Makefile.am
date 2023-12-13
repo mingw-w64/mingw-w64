@@ -3008,7 +3008,7 @@ endif
 		%/libapi-ms-win-ro-typeresolution-l1-1-0.a \
 		%/libapi-ms-win-ro-typeresolution-l1-1-1.a \
 		%/libapi-ms-win-security-appcontainer-l1-1-0.a \
-		%/libapi-ms-win-security-base-ansi-l1-1-0.a \
+		%/libapi-ms-win-security-base-ansi-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-security-base-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-security-base-l1-2-0_windowsapp.a \
 		%/libapi-ms-win-security-base-l1-2-1.a \
