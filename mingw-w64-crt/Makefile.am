@@ -2899,7 +2899,7 @@ endif
 		%/libapi-ms-win-core-localization-l1-2-1.a \
 		%/libapi-ms-win-core-localization-l1-2-2.a \
 		%/libapi-ms-win-core-localization-l2-1-0_windowsapp.a \
-		%/libapi-ms-win-core-localization-obsolete-l1-2-0.a \
+		%/libapi-ms-win-core-localization-obsolete-l1-2-0_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-0.a \
 		%/libapi-ms-win-core-memory-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-memory-l1-1-2_windowsapp.a \
