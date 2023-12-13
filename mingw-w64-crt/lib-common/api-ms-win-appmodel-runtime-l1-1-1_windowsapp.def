@@ -9,7 +9,6 @@ GetPackageApplicationIds
 GetPackageFamilyNameFromToken
 GetPackageFullNameFromToken
 GetPackagePathByFullName
-GetStagedPackageOrigin
 GetStagedPackagePathByFullName
 OpenPackageInfoByFullNameForUser
 ParseApplicationUserModelId

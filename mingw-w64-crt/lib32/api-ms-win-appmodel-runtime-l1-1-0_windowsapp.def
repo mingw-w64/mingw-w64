@@ -23,15 +23,3 @@ PackageFamilyNameFromId@12
 PackageFullNameFromId@12
 PackageIdFromFullName@16
 PackageNameAndPublisherIdFromFamilyName@20
-ProcessTrackerInsertOrWait@8
-ProcessTrackerRemove@4
-TokenBindingDeleteAllBindings@0
-TokenBindingDeleteBinding@4
-TokenBindingGenerateBinding@40
-TokenBindingGenerateID@16
-TokenBindingGenerateIDForUri@12
-TokenBindingGenerateMessage@20
-TokenBindingGetHighestSupportedVersion@8
-TokenBindingGetKeyTypesClient@4
-TokenBindingGetKeyTypesServer@4
-TokenBindingVerifyMessage@24

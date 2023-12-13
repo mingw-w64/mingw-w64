@@ -9,7 +9,6 @@ GetPackageApplicationIds@16
 GetPackageFamilyNameFromToken@12
 GetPackageFullNameFromToken@12
 GetPackagePathByFullName@12
-GetStagedPackageOrigin@8
 GetStagedPackagePathByFullName@12
 OpenPackageInfoByFullNameForUser@16
 ParseApplicationUserModelId@20
