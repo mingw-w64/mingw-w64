@@ -1,4 +1,5 @@
 CREATE libnanosrv.a
+ADDLIB libapi-ms-win-net-isolation-l1-1-0.a
 ADDLIB libclfsw32.a
 ADDLIB libclusapi.a
 ADDLIB libcryptxml.a
