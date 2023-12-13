@@ -3001,7 +3001,7 @@ endif
 		%/libapi-ms-win-gaming-tcui-l1-1-2.a \
 		%/libapi-ms-win-gaming-tcui-l1-1-3.a \
 		%/libapi-ms-win-gaming-tcui-l1-1-4.a \
-		%/libapi-ms-win-mm-time-l1-1-0.a \
+		%/libapi-ms-win-mm-time-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-ntuser-sysparams-l1-1-0.a \
 		%/libapi-ms-win-power-base-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-power-setting-l1-1-0_windowsapp.a \
