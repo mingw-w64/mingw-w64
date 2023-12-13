@@ -2386,6 +2386,7 @@ endif
 
 %/libnanosrv.a: lib-common/nanosrv.mri \
 		%/libapi-ms-win-net-isolation-l1-1-0.a \
+		%/libapi-ms-win-net-isolation-l1-1-1.a \
 		%/libclfsw32.a \
 		%/libclusapi.a \
 		%/libcryptxml.a \
