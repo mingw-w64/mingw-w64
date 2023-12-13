@@ -2,5 +2,4 @@ LIBRARY api-ms-win-core-versionansi-l1-1-1
 
 EXPORTS
 
-GetFileVersionInfoA
-GetFileVersionInfoSizeA
+GetFileVersionInfoA@16
