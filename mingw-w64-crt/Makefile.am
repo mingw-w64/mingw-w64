@@ -2835,7 +2835,7 @@ endif
 		%/libapi-ms-win-appmodel-runtime-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-appmodel-runtime-l1-1-2.a \
 		%/libapi-ms-win-appmodel-runtime-l1-1-3.a \
-		%/libapi-ms-win-core-atoms-l1-1-0.a \
+		%/libapi-ms-win-core-atoms-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-com-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-com-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-com-l2-1-1.a \

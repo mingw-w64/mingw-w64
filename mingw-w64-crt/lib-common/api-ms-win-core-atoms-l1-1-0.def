@@ -9,3 +9,13 @@ FindAtomA
 FindAtomW
 GetAtomNameA
 GetAtomNameW
+GlobalAddAtomA
+GlobalAddAtomExA
+GlobalAddAtomExW
+GlobalAddAtomW
+GlobalDeleteAtom
+GlobalFindAtomA
+GlobalFindAtomW
+GlobalGetAtomNameA
+GlobalGetAtomNameW
+InitAtomTable
