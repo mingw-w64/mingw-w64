@@ -2,8 +2,16 @@ LIBRARY api-ms-win-security-lsapolicy-l1-1-0
 
 EXPORTS
 
+LsaAddAccountRights
 LsaClose
+LsaEnumerateAccountRights
+LsaEnumerateAccountsWithUserRight
 LsaFreeMemory
 LsaLookupNames2
 LsaLookupSids
+LsaLookupSids2
 LsaOpenPolicy
+LsaQueryInformationPolicy
+LsaRemoveAccountRights
+LsaRetrievePrivateData
+LsaSetInformationPolicy
