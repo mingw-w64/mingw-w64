@@ -62,7 +62,7 @@ ADDLIB libapi-ms-win-core-libraryloader-l1-2-0_windowsapp.a
 ADDLIB libapi-ms-win-core-libraryloader-l1-2-1.a
 ADDLIB libapi-ms-win-core-libraryloader-l1-2-2.a
 ADDLIB libapi-ms-win-core-libraryloader-l2-1-0.a
-ADDLIB libapi-ms-win-core-localization-ansi-l1-1-0.a
+ADDLIB libapi-ms-win-core-localization-ansi-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-core-localization-l1-2-0_windowsapp.a
 ADDLIB libapi-ms-win-core-localization-l1-2-1.a
 ADDLIB libapi-ms-win-core-localization-l1-2-2.a

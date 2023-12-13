@@ -2894,7 +2894,7 @@ endif
 		%/libapi-ms-win-core-libraryloader-l1-2-1.a \
 		%/libapi-ms-win-core-libraryloader-l1-2-2.a \
 		%/libapi-ms-win-core-libraryloader-l2-1-0.a \
-		%/libapi-ms-win-core-localization-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-localization-ansi-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-localization-l1-2-0_windowsapp.a \
 		%/libapi-ms-win-core-localization-l1-2-1.a \
 		%/libapi-ms-win-core-localization-l1-2-2.a \
