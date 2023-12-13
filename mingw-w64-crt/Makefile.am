@@ -2916,8 +2916,8 @@ endif
 		%/libapi-ms-win-core-namespace-l1-1-0.a \
 		%/libapi-ms-win-core-normalization-l1-1-0.a \
 		%/libapi-ms-win-core-path-l1-1-0.a \
-		%/libapi-ms-win-core-privateprofile-l1-1-0.a \
-		%/libapi-ms-win-core-privateprofile-l1-1-1.a \
+		%/libapi-ms-win-core-privateprofile-l1-1-0_windowsapp.a \
+		%/libapi-ms-win-core-privateprofile-l1-1-1_windowsapp.a \
 		%/libapi-ms-win-core-processenvironment-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0_windowsapp.a \
