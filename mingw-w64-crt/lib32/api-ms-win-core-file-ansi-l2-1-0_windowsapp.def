@@ -4,6 +4,5 @@ EXPORTS
 
 CopyFileExA@24
 CreateDirectoryExA@12
-CreateSymbolicLinkA@12
 MoveFileWithProgressA@20
 ReplaceFileA@24
