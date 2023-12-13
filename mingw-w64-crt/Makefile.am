@@ -2990,7 +2990,7 @@ endif
 		%/libapi-ms-win-eventing-classicprovider-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-eventing-consumer-l1-1-0.a \
 		%/libapi-ms-win-eventing-controller-l1-1-0_windowsapp.a \
-		%/libapi-ms-win-eventing-legacy-l1-1-0.a \
+		%/libapi-ms-win-eventing-legacy-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-eventing-obsolete-l1-1-0.a \
 		%/libapi-ms-win-eventing-provider-l1-1-0.a \
 		%/libapi-ms-win-eventlog-legacy-l1-1-0.a \
