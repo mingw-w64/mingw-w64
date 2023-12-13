@@ -2945,7 +2945,7 @@ endif
 		%/libapi-ms-win-core-slapi-l1-1-0.a \
 		%/libapi-ms-win-core-string-l1-1-0.a \
 		%/libapi-ms-win-core-string-l2-1-0_windowsapp.a \
-		%/libapi-ms-win-core-string-obsolete-l1-1-0.a \
+		%/libapi-ms-win-core-string-obsolete-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-core-string-obsolete-l1-1-1.a \
 		%/libapi-ms-win-core-stringansi-l1-1-0.a \
 		%/libapi-ms-win-core-synch-ansi-l1-1-0.a \

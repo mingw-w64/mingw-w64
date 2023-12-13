@@ -7,7 +7,6 @@ lstrcmpA
 lstrcmpiA
 lstrcmpiW
 lstrcmpW
-lstrcpynA
 lstrcpynW
 lstrcpyW
 lstrlenA
