@@ -3,5 +3,3 @@ LIBRARY api-ms-win-eventing-obsolete-l1-1-0
 EXPORTS
 
 RegisterTraceGuidsA
-RemoveTraceCallback
-SetTraceCallback
