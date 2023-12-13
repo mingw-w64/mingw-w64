@@ -3014,7 +3014,7 @@ endif
 		%/libapi-ms-win-security-base-l1-2-1.a \
 		%/libapi-ms-win-security-base-l1-2-2.a \
 		%/libapi-ms-win-security-cpwl-l1-1-0_windowsapp.a \
-		%/libapi-ms-win-security-cryptoapi-l1-1-0.a \
+		%/libapi-ms-win-security-cryptoapi-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-security-isolatedcontainer-l1-1-0.a \
 		%/libapi-ms-win-security-lsalookup-ansi-l2-1-0.a \
 		%/libapi-ms-win-security-lsalookup-l2-1-0_windowsapp.a \
