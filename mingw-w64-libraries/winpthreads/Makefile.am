@@ -7,9 +7,8 @@ ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
 
 include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h include/pthread_signal.h
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1 -D__USE_MINGW_ANSI_STDIO=0
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)/fakelib -Wc,-no-pthread
-EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
+libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
+libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0
 libwinpthread_la_SOURCES = \
   src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
   src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
@@ -17,13 +16,17 @@ libwinpthread_la_SOURCES = \
 
 if MSVC
 AM_CFLAGS += -nologo
-endif
+else
+libwinpthread_la_CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
+libwinpthread_la_LDFLAGS += -L$(builddir)/fakelib -Wc,-no-pthread
+EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 
 # Break circular dep on bootstrap
 noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 fakelib_libgcc_s_a_SOURCES =
 fakelib_libgcc_eh_a_SOURCES =
+endif
 
 lib_LIBRARIES = 
 
