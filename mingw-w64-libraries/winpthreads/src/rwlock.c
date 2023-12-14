@@ -47,7 +47,11 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_unref(volatile pthread_rwlock_t
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref(pthread_rwlock_t *rwl, int f )
 {
     int r = 0;
-    INIT_RWLOCK(rwl);
+    if (STATIC_RWL_INITIALIZER(*rwl)) {
+        r = rwlock_static_init(rwl);
+        if (r != 0 && r != EBUSY)
+            return r;
+    }
     pthread_spin_lock(&rwl_global);
 
     if (!rwl || !*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;

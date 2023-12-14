@@ -26,9 +26,6 @@
 #define LIFE_RWLOCK 0xBAB1F0ED
 #define DEAD_RWLOCK 0xDEADB0EF
 
-#define INIT_RWLOCK(rwl)  { int r; \
-    if (STATIC_RWL_INITIALIZER(*rwl)) { if ((r = rwlock_static_init(rwl))) { if (r != EBUSY) return r; }}}
-
 #define STATIC_RWL_INITIALIZER(x)		((pthread_rwlock_t)(x) == ((pthread_rwlock_t)PTHREAD_RWLOCK_INITIALIZER))
 
 typedef struct rwlock_t rwlock_t;
