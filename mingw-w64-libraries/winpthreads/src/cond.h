@@ -25,10 +25,12 @@
 
 #include <windows.h>
 
-#define CHECK_COND(c)  { \
-    if (!(c) || !*c || (*c == PTHREAD_COND_INITIALIZER) \
-        || ( ((cond_t *)(*c))->valid != (unsigned int)LIFE_COND ) ) \
-        return EINVAL; }
+#define CHECK_COND(c)                                                   \
+    do {                                                                \
+        if (!(c) || !*c || (*c == PTHREAD_COND_INITIALIZER)             \
+            || ( ((cond_t *)(*c))->valid != (unsigned int)LIFE_COND ) ) \
+            return EINVAL;                                              \
+    } while (0)
 
 #define LIFE_COND 0xC0BAB1FD
 #define DEAD_COND 0xC0DEADBF
