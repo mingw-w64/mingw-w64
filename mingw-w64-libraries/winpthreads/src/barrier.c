@@ -139,7 +139,7 @@ pthread_barrier_init (pthread_barrier_t *b_, const void *attr,
     if (!count || !b_)
       return EINVAL;
 
-    if (!(b = (pthread_barrier_t)calloc(1,sizeof(*b))))
+    if ((b = (pthread_barrier_t)calloc(1,sizeof(*b))) == NULL)
        return ENOMEM;
     if (!attr || *((int **)attr) == NULL)
       b->share = PTHREAD_PROCESS_PRIVATE;
@@ -185,7 +185,7 @@ int pthread_barrier_wait(pthread_barrier_t *b_)
 
   b = (barrier_t *)*b_;
 
-  if ((r = pthread_mutex_lock(&b->m))) return  barrier_unref(b_,EINVAL);
+  if ((r = pthread_mutex_lock(&b->m)) != 0) return  barrier_unref(b_,EINVAL);
   sel = b->sel;
   InterlockedDecrement((long*)&b->total);
   if (b->total == 0)
@@ -209,7 +209,7 @@ int pthread_barrierattr_init(void **attr)
 {
   int *p;
 
-  if (!(p = (int *) calloc (1, sizeof (int))))
+  if ((p = (int *) calloc (1, sizeof (int))) == NULL)
     return ENOMEM;
 
   *p = PTHREAD_PROCESS_PRIVATE;

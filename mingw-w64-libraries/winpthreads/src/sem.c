@@ -52,7 +52,7 @@ sem_init (sem_t *sem, int pshared, unsigned int value)
   if (pshared != PTHREAD_PROCESS_PRIVATE)
     return sem_result (EPERM);
 
-  if (!(sv = (sem_t) calloc (1,sizeof (*sv))))
+  if ((sv = (sem_t) calloc (1,sizeof (*sv))) == NULL)
     return sem_result (ENOMEM);
 
   sv->value = value;

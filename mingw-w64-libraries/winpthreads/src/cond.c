@@ -202,9 +202,9 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
   if (a && *a == PTHREAD_PROCESS_SHARED)
     return ENOSYS;
 
-  if ( !(_c = calloc(1,sizeof(*_c))) ) {
-      return ENOMEM; 
-  }
+  if ((_c = calloc(1, sizeof(*_c))) == NULL)
+    return ENOMEM;
+
   _c->valid  = DEAD_COND;
   _c->busy = 0;
   _c->waiters_count_ = 0;
