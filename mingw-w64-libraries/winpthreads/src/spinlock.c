@@ -21,10 +21,9 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#include <windows.h>
 #include "pthread.h"
-
-#define likely(cond) __builtin_expect((cond) != 0, 1)
-#define unlikely(cond) __builtin_expect((cond) != 0, 0)
+#include "misc.h"
 
 /* We use the pthread_spinlock_t itself as a lock:
    -1 is free, 0 is locked.

@@ -88,9 +88,6 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
   }
 }
 
-#define likely(cond) __builtin_expect((cond) != 0, 1)
-#define unlikely(cond) __builtin_expect((cond) != 0, 0)
-
 /* Return the implementation part of a mutex, creating it if necessary.
    Return NULL on out-of-memory error. */
 static inline mutex_impl_t *
