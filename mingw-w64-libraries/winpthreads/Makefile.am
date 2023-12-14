@@ -16,6 +16,7 @@ libwinpthread_la_SOURCES = \
 
 if MSVC
 AM_CFLAGS += -nologo
+libwinpthread_la_CPPFLAGS += -D_CRT_NONSTDC_NO_WARNINGS
 else
 libwinpthread_la_CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
 libwinpthread_la_LDFLAGS += -L$(builddir)/fakelib -Wc,-no-pthread
