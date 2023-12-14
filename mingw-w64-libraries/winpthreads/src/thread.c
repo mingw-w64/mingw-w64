@@ -423,7 +423,7 @@ replace_spin_keys (pthread_spinlock_t *old, pthread_spinlock_t new)
 }
 
 /* Hook for TLS-based deregistration/registration of thread.  */
-static BOOL WINAPI
+static void WINAPI
 __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   _pthread_v *t = NULL;
@@ -490,7 +490,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	      push_pthread_mem (t);
 	      t = NULL;
 	      TlsSetValue (_pthread_tls, t);
-	      return TRUE;
+	      return;
 	    }
 	  pthread_mutex_destroy(&t->p_clock);
 	  replace_spin_keys (&t->spin_keys, new_spin_keys);
@@ -504,14 +504,13 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	}
     }
-  return TRUE;
 }
 
 /* TLS-runtime section variable.  */
 #ifdef _MSC_VER
 #pragma section(".CRT$XLF", shared)
 #endif
-PIMAGE_TLS_CALLBACK WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF"))) __xl_f  = (PIMAGE_TLS_CALLBACK) __dyn_tls_pthread;
+PIMAGE_TLS_CALLBACK WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF"))) __xl_f  = __dyn_tls_pthread;
 #ifdef _MSC_VER
 #pragma data_seg()
 #endif
