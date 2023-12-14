@@ -90,8 +90,12 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@COPY_STATIC_TRUE@am__append_1 = libpthread.a
-@COPY_SHARED_TRUE@am__append_2 = libpthread.dll.a
+@MSVC_TRUE@am__append_1 = -nologo
+@MSVC_TRUE@am__append_2 = -D_CRT_NONSTDC_NO_WARNINGS
+@MSVC_FALSE@am__append_3 = -D__USE_MINGW_ANSI_STDIO=0
+@MSVC_FALSE@am__append_4 = -L$(builddir)/fakelib -Wc,-no-pthread
+@COPY_STATIC_TRUE@am__append_5 = libpthread.a
+@COPY_SHARED_TRUE@am__append_6 = libpthread.dll.a
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -146,9 +150,12 @@ am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
 fakelib_libgcc_a_AR = $(AR) $(ARFLAGS)
 fakelib_libgcc_a_LIBADD =
+am__fakelib_libgcc_a_SOURCES_DIST = src/libgcc/dll_dependency.S \
+	src/libgcc/dll_math.c
 am__dirstamp = $(am__leading_dot)dirstamp
-am_fakelib_libgcc_a_OBJECTS = src/libgcc/dll_dependency.$(OBJEXT) \
-	src/libgcc/dll_math.$(OBJEXT)
+@MSVC_FALSE@am_fakelib_libgcc_a_OBJECTS =  \
+@MSVC_FALSE@	src/libgcc/dll_dependency.$(OBJEXT) \
+@MSVC_FALSE@	src/libgcc/dll_math.$(OBJEXT)
 fakelib_libgcc_a_OBJECTS = $(am_fakelib_libgcc_a_OBJECTS)
 fakelib_libgcc_eh_a_AR = $(AR) $(ARFLAGS)
 fakelib_libgcc_eh_a_LIBADD =
@@ -243,7 +250,7 @@ am__v_CCLD_1 =
 SOURCES = $(fakelib_libgcc_a_SOURCES) $(fakelib_libgcc_eh_a_SOURCES) \
 	$(fakelib_libgcc_s_a_SOURCES) $(libpthread_a_SOURCES) \
 	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
-DIST_SOURCES = $(fakelib_libgcc_a_SOURCES) \
+DIST_SOURCES = $(am__fakelib_libgcc_a_SOURCES_DIST) \
 	$(fakelib_libgcc_eh_a_SOURCES) $(fakelib_libgcc_s_a_SOURCES) \
 	$(libpthread_a_SOURCES) $(libpthread_dll_a_SOURCES) \
 	$(libwinpthread_la_SOURCES)
@@ -471,25 +478,27 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = . tests
-AM_CFLAGS = -Wall -DWIN32_LEAN_AND_MEAN
+AM_CFLAGS = -Wall -DWIN32_LEAN_AND_MEAN $(am__append_1)
 ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
 include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h include/pthread_signal.h
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1 -D__USE_MINGW_ANSI_STDIO=0
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)/fakelib -Wc,-no-pthread
-EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
+libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD \
+	-DWINPTHREAD_DBG=1 $(am__append_2) $(am__append_3)
+libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 \
+	$(am__append_4)
 libwinpthread_la_SOURCES = \
   src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
   src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
   src/winpthread_internal.h  src/clock.c src/nanosleep.c src/version.rc
 
+@MSVC_FALSE@EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 
 # Break circular dep on bootstrap
-noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
-fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
-fakelib_libgcc_s_a_SOURCES = 
-fakelib_libgcc_eh_a_SOURCES = 
-lib_LIBRARIES = $(am__append_1) $(am__append_2)
+@MSVC_FALSE@noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
+@MSVC_FALSE@fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
+@MSVC_FALSE@fakelib_libgcc_s_a_SOURCES = 
+@MSVC_FALSE@fakelib_libgcc_eh_a_SOURCES = 
+lib_LIBRARIES = $(am__append_5) $(am__append_6)
 @COPY_STATIC_TRUE@libpthread_a_SOURCES = 
 @COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
 #FIXME: Use cp kludge until a better method presents itself
