@@ -34,7 +34,7 @@
             return EINVAL;                                              \
     } while (0)
 
-#include "../include/semaphore.h"
+#include "semaphore.h"
 
 typedef struct barrier_t barrier_t;
 struct barrier_t

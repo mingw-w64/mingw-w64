@@ -20,8 +20,8 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#include <windows.h>
 #include "pthread.h"
-#include "windows.h"
 #include "misc.h"
 
 static ULONGLONG (*GetTickCount64FuncPtr) (VOID);
