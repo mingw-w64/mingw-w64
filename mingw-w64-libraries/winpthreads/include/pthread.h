@@ -208,16 +208,22 @@ struct _pthread_cleanup
     _pthread_cleanup *next;
 };
 
-#define pthread_cleanup_push(F, A)\
-{\
-    const _pthread_cleanup _pthread_cup = {(F), (A), *pthread_getclean()};\
-    __sync_synchronize();\
-    *pthread_getclean() = (_pthread_cleanup *) &_pthread_cup;\
-    __sync_synchronize()
+#define pthread_cleanup_push(F, A)                                      \
+    do {                                                                \
+        const _pthread_cleanup _pthread_cup =                           \
+            { (F), (A), *pthread_getclean() };                          \
+        __sync_synchronize();                                           \
+        *pthread_getclean() = (_pthread_cleanup *) &_pthread_cup;       \
+        __sync_synchronize();                                           \
+        do {                                                            \
+            do {} while (0)
 
 /* Note that if async cancelling is used, then there is a race here */
-#define pthread_cleanup_pop(E)\
-    (*pthread_getclean() = _pthread_cup.next, ((E) ? (_pthread_cup.func((pthread_once_t *)_pthread_cup.arg)) : (void)0));}
+#define pthread_cleanup_pop(E)                                          \
+        } while (0);                                                    \
+        *pthread_getclean() = _pthread_cup.next;                        \
+        if ((E)) _pthread_cup.func((pthread_once_t *)_pthread_cup.arg); \
+    } while (0)
 
 #ifndef SCHED_OTHER
 /* Some POSIX realtime extensions, mostly stubbed */
