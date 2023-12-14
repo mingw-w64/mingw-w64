@@ -21,8 +21,11 @@ AM_PROG_AR
 
 AS_CASE([$CC],
   [*cl|*cl.exe],
-    [RC="$am_aux_dir/windres-rc rc.exe"]])
+    [RC="$am_aux_dir/windres-rc rc.exe"
+     msvc=true],
+  [msvc=false]])
 AC_SUBST([RCFLAGS])
+AM_CONDITIONAL([MSVC], [test x$msvc = xtrue])
 
 # Libtool 2.4 should check them correctly
 # AC_CHECK_TOOLS([AR],[ar],[:])
