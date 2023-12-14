@@ -12,13 +12,17 @@
 *.lo
 *.la
 *.gch
+*.obj
+*.res
 
 # Specialized files
 autom4te.cache
+config.cache
 Makefile
 libtool
 config.status
 config.h
+confdefs.h
 stamp-h1
 
 # Autotools test results
