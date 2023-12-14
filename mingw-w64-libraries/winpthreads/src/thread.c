@@ -507,13 +507,34 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 }
 
 /* TLS-runtime section variable.  */
-#ifdef _MSC_VER
-#pragma section(".CRT$XLF", shared)
+
+#if defined(_MSC_VER)
+/* Force a reference to _tls_used to make the linker create the TLS
+ * directory if it's not already there.  (e.g. if __declspec(thread)
+ * is not used).
+ * Force a reference to __xl_f to prevent whole program optimization
+ * from discarding the variable. */
+
+/* On x86, symbols are prefixed with an underscore. */
+# if defined(_M_IX86)
+#   pragma comment(linker, "/include:__tls_used")
+#   pragma comment(linker, "/include:___xl_f")
+# else
+#   pragma comment(linker, "/include:_tls_used")
+#   pragma comment(linker, "/include:__xl_f")
+# endif
+
+/* .CRT$XLA to .CRT$XLZ is an array of PIMAGE_TLS_CALLBACK
+ * pointers. Pick an arbitrary location for our callback.
+ *
+ * See VC\...\crt\src\vcruntime\tlssup.cpp for reference. */
+
+# pragma section(".CRT$XLF", long, read)
 #endif
-PIMAGE_TLS_CALLBACK WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF"))) __xl_f  = __dyn_tls_pthread;
-#ifdef _MSC_VER
-#pragma data_seg()
-#endif
+
+extern const PIMAGE_TLS_CALLBACK WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF"))) __xl_f;
+const PIMAGE_TLS_CALLBACK WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF"))) __xl_f  = __dyn_tls_pthread;
+
 
 #ifdef WINPTHREAD_DBG
 static int print_state = 0;
