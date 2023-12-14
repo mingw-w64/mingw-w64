@@ -119,4 +119,10 @@ unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **ha
 #define unlikely(cond) (cond)
 #endif
 
+#if defined(__GNUC__) || defined(__clang__)
+#define UNREACHABLE() __builtin_unreachable()
+#elif defined(_MSC_VER)
+#define UNREACHABLE() __assume(0)
+#endif
+
 #endif
