@@ -411,24 +411,11 @@ replace_spin_keys (pthread_spinlock_t *old, pthread_spinlock_t new)
 
   if (EPERM == pthread_spin_destroy (old))
     {
-#define THREADERR "Error cleaning up spin_keys for thread "
-#define THREADERR_LEN ((sizeof (THREADERR) / sizeof (*THREADERR)) - 1)
-#define THREADID_LEN THREADERR_LEN + 66 + 1 + 1
-      int i;
-      char thread_id[THREADID_LEN] = THREADERR;
-      _ultoa ((unsigned long) GetCurrentThreadId (), &thread_id[THREADERR_LEN], 10);
-      for (i = THREADERR_LEN; thread_id[i] != '\0' && i < THREADID_LEN - 1; i++)
-        {
-        }
-      if (i < THREADID_LEN - 1)
-        {
-          thread_id[i] = '\n';
-          thread_id[i + 1] = '\0';
-        }
+#define THREADERR "Error cleaning up spin_keys for thread %lu.\n"
+      char threaderr[sizeof(THREADERR) + 8] = { 0 };
+      snprintf(threaderr, sizeof(threaderr), THREADERR, GetCurrentThreadId());
 #undef THREADERR
-#undef THREADERR_LEN
-#undef THREADID_LEN
-      OutputDebugStringA (thread_id);
+      OutputDebugStringA (threaderr);
       abort ();
     }
 
