@@ -19,6 +19,11 @@ AC_PROG_CC
 AM_PROG_AS
 AM_PROG_AR
 
+AS_CASE([$CC],
+  [*cl|*cl.exe],
+    [RC="$am_aux_dir/windres-rc rc.exe"]])
+AC_SUBST([RCFLAGS])
+
 # Libtool 2.4 should check them correctly
 # AC_CHECK_TOOLS([AR],[ar],[:])
 
@@ -49,8 +54,6 @@ AC_TYPE_SIZE_T
 #AC_FUNC_REALLOC
 # mingw-w64 should already have them
 #AC_CHECK_FUNCS([ftime gettimeofday memset])
-
-AC_SUBST([RCFLAGS])
 
 AC_CONFIG_FILES([Makefile tests/Makefile])
 AC_OUTPUT
