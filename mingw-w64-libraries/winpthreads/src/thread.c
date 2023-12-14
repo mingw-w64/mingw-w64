@@ -368,10 +368,9 @@ pop_pthread_mem (void)
 static void
 free_pthread_mem (void)
 {
+#if 0
   _pthread_v *t;
 
-  if (1)
-  return;  
   pthread_mutex_lock (&mtx_pthr_locked);
   t = pthr_root;
   while (t != NULL)
@@ -401,6 +400,8 @@ free_pthread_mem (void)
     pthr_root = t;
   }
   pthread_mutex_unlock (&mtx_pthr_locked);
+#endif
+  return;
 }
 
 static void

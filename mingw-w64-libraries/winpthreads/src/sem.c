@@ -254,7 +254,7 @@ sem_timedwait (sem_t *sem, const struct timespec *t)
 int
 sem_post (sem_t *sem)
 {
-  _sem_t *sv;;
+  _sem_t *sv;
 
   if (sem_std_enter (sem, &sv, 0) != 0)
     return -1;
@@ -280,7 +280,7 @@ int
 sem_post_multiple (sem_t *sem, int count)
 {
   int waiters_count;
-  _sem_t *sv;;
+  _sem_t *sv;
 
   if (count <= 0)
     return sem_result (EINVAL);
