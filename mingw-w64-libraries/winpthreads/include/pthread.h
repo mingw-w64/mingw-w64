@@ -442,7 +442,8 @@ int                        WINPTHREAD_API pthread_rwlockattr_setpshared(pthread_
 #define SEM_NSEMS_MAX                           1024
 
 /* Wrap cancellation points.  */
-#ifdef __WINPTRHEAD_ENABLE_WRAP_API
+#if defined(__WINPTHREAD_ENABLE_WRAP_API) \
+    || defined(__WINPTRHEAD_ENABLE_WRAP_API) /* historical typo */
 #define accept(...) (pthread_testcancel(), accept(__VA_ARGS__))
 #define aio_suspend(...) (pthread_testcancel(), aio_suspend(__VA_ARGS__))
 #define clock_nanosleep(...) (pthread_testcancel(), clock_nanosleep(__VA_ARGS__))
