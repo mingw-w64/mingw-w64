@@ -67,11 +67,11 @@ void cond_print(volatile pthread_cond_t *c, char *txt)
     if (!print_state) return;
     cond_t *c_ = (cond_t *)*c;
     if (c_ == NULL) {
-        fprintf(fo,"C%p %d %s\n",(void *)*c,(int)GetCurrentThreadId(),txt);
+        fprintf(fo,"C%p %lu %s\n",(void *)*c,GetCurrentThreadId(),txt);
     } else {
-        fprintf(fo,"C%p %d V=%0X w=%ld %s\n",
+        fprintf(fo,"C%p %lu V=%0X w=%ld %s\n",
             (void *)*c,
-            (int)GetCurrentThreadId(), 
+            GetCurrentThreadId(),
             (int)c_->valid, 
             c_->waiters_count_,
             txt

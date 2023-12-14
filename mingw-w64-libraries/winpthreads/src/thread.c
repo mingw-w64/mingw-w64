@@ -549,13 +549,13 @@ thread_print (volatile pthread_t t, char *txt)
     if (!print_state)
       return;
     if (!t)
-      printf("T%p %d %s\n",NULL,(int)GetCurrentThreadId(),txt);
+      printf("T%p %lu %s\n",NULL,GetCurrentThreadId(),txt);
     else
       {
-	printf("T%p %d V=%0X H=%p %s\n",
-	    __pth_gpointer_locked (t), 
-	    (int)GetCurrentThreadId(), 
-	    (int) (__pth_gpointer_locked (t))->valid, 
+	printf("T%p %lu V=%0X H=%p %s\n",
+	    (void *) __pth_gpointer_locked (t),
+	    GetCurrentThreadId(),
+	    (__pth_gpointer_locked (t))->valid,
 	    (__pth_gpointer_locked (t))->h,
 	    txt
 	    );
@@ -627,7 +627,7 @@ leaveOnceObject (collect_once_t *c)
 	}
     }
   else
-    fprintf(stderr, "%p not found?!?!\n", c);
+    fprintf(stderr, "%p not found?!?!\n", (void *) c);
   pthread_spin_unlock (&once_global);
 }
 
@@ -658,7 +658,7 @@ _pthread_once_raw (pthread_once_t *o, void (*func)(void))
       *o = 1;
     }
   else if (*o != 1)
-    fprintf (stderr," once %p is %d\n", o, (int) *o);
+    fprintf (stderr," once %p is %ld\n", (void *) o, (long) *o);
   pthread_mutex_unlock(&co->m);
   leaveOnceObject(co);
 
@@ -783,7 +783,7 @@ pthread_once (pthread_once_t *o, void (*func)(void))
       *o = 1;
     }
   else if (*o != 1)
-    fprintf (stderr," once %p is %d\n", o, (int) *o);
+    fprintf (stderr," once %p is %ld\n", (void *) o, (long) *o);
   pthread_mutex_unlock(&co->m);
   leaveOnceObject(co);
 
