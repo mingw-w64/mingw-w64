@@ -8763,7 +8763,7 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
     NTSYSAPI WORD NTAPI RtlCaptureStackBackTrace (DWORD FramesToSkip, DWORD FramesToCapture, PVOID *BackTrace, PDWORD BackTraceHash);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-    NTSYSAPI VOID NTAPI RtlCaptureContext (PCONTEXT ContextRecord);
+    NTSYSAPI VOID NTAPI __attribute__((__returns_twice__)) RtlCaptureContext (PCONTEXT ContextRecord);
     NTSYSAPI SIZE_T NTAPI RtlCompareMemory (const VOID *Source1, const VOID *Source2, SIZE_T Length);
 #if defined (__x86_64__)
 #if _WIN32_WINNT >= 0x0602
