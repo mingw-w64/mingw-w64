@@ -8774,7 +8774,7 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
     NTSYSAPI BOOLEAN __cdecl RtlAddFunctionTable (PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress);
     NTSYSAPI BOOLEAN __cdecl RtlDeleteFunctionTable (PRUNTIME_FUNCTION FunctionTable);
     NTSYSAPI BOOLEAN __cdecl RtlInstallFunctionTableCallback (DWORD64 TableIdentifier, DWORD64 BaseAddress, DWORD Length, PGET_RUNTIME_FUNCTION_CALLBACK Callback, PVOID Context, PCWSTR OutOfProcessCallbackDll);
-    NTSYSAPI VOID __cdecl RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
+    NTSYSAPI VOID __cdecl __MINGW_ATTRIB_NORETURN RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
 #endif
 #if defined (__arm__)
 #if _WIN32_WINNT >= 0x0602
