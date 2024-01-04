@@ -231,6 +231,7 @@ ADDLIB libpowrprof_windowsapp.a
 ADDLIB libpropsys_windowsapp.a
 ADDLIB libpsapi_windowsapp.a
 ADDLIB librometadata.a
+ADDLIB librpcrt4_windowsapp.a
 ADDLIB libuiautomationcore_windowsapp.a
 ADDLIB liburlmon_windowsapp.a
 ADDLIB libwebauthn_windowsapp.a

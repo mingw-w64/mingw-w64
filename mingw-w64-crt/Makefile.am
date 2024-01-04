@@ -3420,6 +3420,7 @@ endif
 		%/libpropsys_windowsapp.a \
 		%/libpsapi_windowsapp.a \
 		%/librometadata.a \
+		%/librpcrt4_windowsapp.a \
 		%/libuiautomationcore_windowsapp.a \
 		%/liburlmon_windowsapp.a \
 		%/libwebauthn_windowsapp.a \
