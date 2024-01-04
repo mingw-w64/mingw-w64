@@ -1,0 +1,9 @@
+LIBRARY wkscli
+
+EXPORTS
+
+NetGetJoinInformation@12
+NetUseAdd@16
+NetUseDel@12
+NetWkstaGetInfo@12
+NetWkstaUserGetInfo@12
