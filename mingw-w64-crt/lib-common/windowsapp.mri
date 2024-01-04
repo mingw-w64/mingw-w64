@@ -219,6 +219,7 @@ ADDLIB libiphlpapi_windowsapp.a
 ADDLIB libmfplat_windowsapp.a
 ADDLIB libmfsensorgroup_windowsapp.a
 ADDLIB libmf_windowsapp.a
+ADDLIB libmmdevapi_windowsapp.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
