@@ -225,6 +225,7 @@ ADDLIB libmsajapi_windowsapp.a
 ADDLIB libmscms_windowsapp.a
 ADDLIB libmswsock_windowsapp.a
 ADDLIB libncrypt_windowsapp.a
+ADDLIB libnetutils_windowsapp.a
 ADDLIB libntdll_windowsapp.a
 ADDLIB liboleaut32_windowsapp.a
 ADDLIB libpowrprof_windowsapp.a

@@ -3414,6 +3414,7 @@ endif
 		%/libmscms_windowsapp.a \
 		%/libmswsock_windowsapp.a \
 		%/libncrypt_windowsapp.a \
+		%/libnetutils_windowsapp.a \
 		%/libntdll_windowsapp.a \
 		%/liboleaut32_windowsapp.a \
 		%/libpowrprof_windowsapp.a \
