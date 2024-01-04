@@ -77,6 +77,7 @@ ADDLIB libfltlib.a
 ADDLIB libfontsub.a
 ADDLIB libgdi32_onecore.a
 ADDLIB libiphlpapi.a
+ADDLIB libkernel32_onecore.a
 ADDLIB liblogoncli.a
 ADDLIB libmpr.a
 ADDLIB libmswsock.a

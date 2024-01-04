@@ -2495,6 +2495,7 @@ endif
 		%/libfontsub.a \
 		%/libgdi32_onecore.a \
 		%/libiphlpapi.a \
+		%/libkernel32_onecore.a \
 		%/liblogoncli.a \
 		%/libmpr.a \
 		%/libmswsock.a \
