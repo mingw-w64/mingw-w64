@@ -1,0 +1,7 @@
+LIBRARY mpr
+
+EXPORTS
+
+WNetAddConnection2A
+WNetCancelConnection2A
+WNetUseConnectionA
