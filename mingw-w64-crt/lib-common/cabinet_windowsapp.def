@@ -1,0 +1,20 @@
+LIBRARY cabinet
+
+EXPORTS
+
+CloseCompressor
+CloseDecompressor
+Compress
+CreateCompressor
+CreateDecompressor
+Decompress
+FDICopy
+FDICreate
+FDIDestroy
+FDIIsCabinet
+QueryCompressorInformation
+QueryDecompressorInformation
+ResetCompressor
+ResetDecompressor
+SetCompressorInformation
+SetDecompressorInformation
