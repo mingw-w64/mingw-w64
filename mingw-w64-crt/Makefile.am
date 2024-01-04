@@ -3404,6 +3404,7 @@ endif
 		%/libhrtfapo_windowsapp.a \
 		%/libicu.a \
 		%/libinkobjcore_windowsapp.a \
+		%/libiphlpapi_windowsapp.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \

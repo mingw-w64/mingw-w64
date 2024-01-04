@@ -215,6 +215,7 @@ ADDLIB libhid_windowsapp.a
 ADDLIB libhrtfapo_windowsapp.a
 ADDLIB libicu.a
 ADDLIB libinkobjcore_windowsapp.a
+ADDLIB libiphlpapi_windowsapp.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
