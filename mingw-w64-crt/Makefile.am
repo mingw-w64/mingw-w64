@@ -2528,6 +2528,7 @@ endif
 		%/libwldap32.a \
 		%/libwpprecorderum.a \
 		%/libws2_32.a \
+		%/libwtsapi32_onecore.a \
 		%/libxmllite.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
