@@ -3429,7 +3429,8 @@ endif
 		%/libwindowscodecs_windowsapp.a \
 		%/libwinhttp_windowsapp.a \
 		%/libwintrust_windowsapp.a \
-		%/libwlanapi_windowsapp.a
+		%/libwlanapi_windowsapp.a \
+		%/libws2_32_windowsapp.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
