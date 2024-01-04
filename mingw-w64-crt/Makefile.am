@@ -2493,6 +2493,7 @@ endif
 		%/libdsrole.a \
 		%/libfltlib.a \
 		%/libfontsub.a \
+		%/libgdi32_onecore.a \
 		%/libiphlpapi.a \
 		%/liblogoncli.a \
 		%/libmpr.a \

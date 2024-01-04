@@ -75,6 +75,7 @@ ADDLIB libdnsapi.a
 ADDLIB libdsrole.a
 ADDLIB libfltlib.a
 ADDLIB libfontsub.a
+ADDLIB libgdi32_onecore.a
 ADDLIB libiphlpapi.a
 ADDLIB liblogoncli.a
 ADDLIB libmpr.a
