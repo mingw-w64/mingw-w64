@@ -3427,7 +3427,8 @@ endif
 		%/libwindows.data.pdf.a \
 		%/libwindows.networking.a \
 		%/libwindowscodecs_windowsapp.a \
-		%/libwinhttp_windowsapp.a
+		%/libwinhttp_windowsapp.a \
+		%/libwintrust_windowsapp.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
