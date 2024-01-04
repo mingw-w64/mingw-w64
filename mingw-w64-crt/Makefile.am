@@ -3410,6 +3410,7 @@ endif
 		%/libmf_windowsapp.a \
 		%/libmmdevapi_windowsapp.a \
 		%/libmpr_windowsapp.a \
+		%/libmsajapi_windowsapp.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
