@@ -1,0 +1,10 @@
+LIBRARY hid
+
+EXPORTS
+
+HidP_GetScaledUsageValue
+HidP_GetSpecificValueCaps
+HidP_GetUsages
+HidP_GetUsageValue
+HidP_GetUsageValueArray
+HidP_MaxUsageListLength
