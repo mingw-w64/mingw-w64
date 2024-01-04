@@ -1,0 +1,6 @@
+LIBRARY urlmon
+
+EXPORTS
+
+UrlMkGetSessionOption@20
+UrlMkSetSessionOption@16
