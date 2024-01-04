@@ -238,5 +238,6 @@ ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
 ADDLIB libwindows.networking.a
 ADDLIB libwindowscodecs_windowsapp.a
+ADDLIB libwinhttp_windowsapp.a
 SAVE
 END
