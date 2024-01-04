@@ -3422,6 +3422,7 @@ endif
 		%/libuiautomationcore_windowsapp.a \
 		%/liburlmon_windowsapp.a \
 		%/libwebauthn_windowsapp.a \
+		%/libwebservices_windowsapp.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
 		%/libwindows.networking.a

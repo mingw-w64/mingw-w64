@@ -233,6 +233,7 @@ ADDLIB librometadata.a
 ADDLIB libuiautomationcore_windowsapp.a
 ADDLIB liburlmon_windowsapp.a
 ADDLIB libwebauthn_windowsapp.a
+ADDLIB libwebservices_windowsapp.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
 ADDLIB libwindows.networking.a
