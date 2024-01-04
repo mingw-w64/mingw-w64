@@ -237,5 +237,6 @@ ADDLIB libwebservices_windowsapp.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
 ADDLIB libwindows.networking.a
+ADDLIB libwindowscodecs_windowsapp.a
 SAVE
 END

@@ -3425,7 +3425,8 @@ endif
 		%/libwebservices_windowsapp.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
-		%/libwindows.networking.a
+		%/libwindows.networking.a \
+		%/libwindowscodecs_windowsapp.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
