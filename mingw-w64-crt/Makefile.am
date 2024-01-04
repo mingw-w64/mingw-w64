@@ -2513,6 +2513,7 @@ endif
 		%/libschedcli.a \
 		%/libsecur32_onecore.a \
 		%/libsetupapi_onecore.a \
+		%/libshell32_onecore.a \
 		%/libshlwapi.a \
 		%/libsrvcli.a \
 		%/libsspicli.a \

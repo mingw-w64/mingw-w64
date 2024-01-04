@@ -95,6 +95,7 @@ ADDLIB libsamcli.a
 ADDLIB libschedcli.a
 ADDLIB libsecur32_onecore.a
 ADDLIB libsetupapi_onecore.a
+ADDLIB libshell32_onecore.a
 ADDLIB libshlwapi.a
 ADDLIB libsrvcli.a
 ADDLIB libsspicli.a
