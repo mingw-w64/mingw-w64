@@ -2517,6 +2517,7 @@ endif
 		%/libshlwapi.a \
 		%/libsrvcli.a \
 		%/libsspicli.a \
+		%/libtdh_onecore.a \
 		%/libuserenv.a \
 		%/libversion.a \
 		%/libwebsocket.a \

@@ -99,6 +99,7 @@ ADDLIB libshell32_onecore.a
 ADDLIB libshlwapi.a
 ADDLIB libsrvcli.a
 ADDLIB libsspicli.a
+ADDLIB libtdh_onecore.a
 ADDLIB libuserenv.a
 ADDLIB libversion.a
 ADDLIB libwebsocket.a
