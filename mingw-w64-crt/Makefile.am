@@ -3412,6 +3412,7 @@ endif
 		%/libmpr_windowsapp.a \
 		%/libmsajapi_windowsapp.a \
 		%/libmscms_windowsapp.a \
+		%/libmswsock_windowsapp.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
