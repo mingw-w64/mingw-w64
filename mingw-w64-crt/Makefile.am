@@ -3394,6 +3394,7 @@ endif
 		%/libdiagnosticdataquery_windowsapp.a \
 		%/libdirectml_windowsapp.a \
 		%/libdnsapi_windowsapp.a \
+		%/libdxgi_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \

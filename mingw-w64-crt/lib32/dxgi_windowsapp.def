@@ -1,0 +1,6 @@
+LIBRARY dxgi
+
+EXPORTS
+
+CreateDXGIFactory1@8
+CreateDXGIFactory2@12

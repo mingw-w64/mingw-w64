@@ -209,6 +209,7 @@ ADDLIB libdhcpcsvc_windowsapp.a
 ADDLIB libdiagnosticdataquery_windowsapp.a
 ADDLIB libdirectml_windowsapp.a
 ADDLIB libdnsapi_windowsapp.a
+ADDLIB libdxgi_windowsapp.a
 ADDLIB libicu.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
