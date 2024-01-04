@@ -3417,6 +3417,7 @@ endif
 		%/libntdll_windowsapp.a \
 		%/libpowrprof_windowsapp.a \
 		%/libpropsys_windowsapp.a \
+		%/libpsapi_windowsapp.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \

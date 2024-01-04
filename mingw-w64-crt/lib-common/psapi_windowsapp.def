@@ -1,0 +1,10 @@
+LIBRARY psapi
+
+EXPORTS
+
+GetModuleBaseNameA
+GetModuleBaseNameW
+GetModuleFileNameExA
+GetModuleFileNameExW
+GetModuleInformation
+GetProcessMemoryInfo
