@@ -2505,6 +2505,7 @@ endif
 		%/libntdll_onecore.a \
 		%/libole32_onecore.a \
 		%/liboleaut32.a \
+		%/libpowrprof_onecore.a \
 		%/libprofapi.a \
 		%/libpsapi.a \
 		%/librpcrt4.a \

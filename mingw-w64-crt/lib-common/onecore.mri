@@ -87,6 +87,7 @@ ADDLIB libnormaliz_onecore.a
 ADDLIB libntdll_onecore.a
 ADDLIB libole32_onecore.a
 ADDLIB liboleaut32.a
+ADDLIB libpowrprof_onecore.a
 ADDLIB libprofapi.a
 ADDLIB libpsapi.a
 ADDLIB librpcrt4.a
