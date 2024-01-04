@@ -3415,6 +3415,7 @@ endif
 		%/libmswsock_windowsapp.a \
 		%/libncrypt_windowsapp.a \
 		%/libntdll_windowsapp.a \
+		%/liboleaut32_windowsapp.a \
 		%/libpowrprof_windowsapp.a \
 		%/libpropsys_windowsapp.a \
 		%/libpsapi_windowsapp.a \
