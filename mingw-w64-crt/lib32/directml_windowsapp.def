@@ -1,0 +1,5 @@
+LIBRARY directml
+
+EXPORTS
+
+DMLCreateDevice@16
