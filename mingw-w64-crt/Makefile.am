@@ -3430,7 +3430,8 @@ endif
 		%/libwinhttp_windowsapp.a \
 		%/libwintrust_windowsapp.a \
 		%/libwlanapi_windowsapp.a \
-		%/libws2_32_windowsapp.a
+		%/libws2_32_windowsapp.a \
+		%/libxaudio2_9_windowsapp.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@

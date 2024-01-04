@@ -242,5 +242,6 @@ ADDLIB libwinhttp_windowsapp.a
 ADDLIB libwintrust_windowsapp.a
 ADDLIB libwlanapi_windowsapp.a
 ADDLIB libws2_32_windowsapp.a
+ADDLIB libxaudio2_9_windowsapp.a
 SAVE
 END
