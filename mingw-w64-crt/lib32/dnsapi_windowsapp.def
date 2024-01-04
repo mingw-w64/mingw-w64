@@ -1,0 +1,7 @@
+LIBRARY dnsapi
+
+EXPORTS
+
+DnsFree@8
+DnsQuery_W@24
+DnsRecordListFree@8

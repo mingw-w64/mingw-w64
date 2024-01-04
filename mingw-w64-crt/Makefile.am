@@ -3392,6 +3392,7 @@ endif
 		%/libdhcpcsvc_windowsapp.a \
 		%/libdiagnosticdataquery_windowsapp.a \
 		%/libdirectml_windowsapp.a \
+		%/libdnsapi_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
