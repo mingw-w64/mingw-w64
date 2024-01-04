@@ -2499,6 +2499,7 @@ endif
 		%/liblogoncli.a \
 		%/libmpr.a \
 		%/libmswsock.a \
+		%/libncrypt_onecore.a \
 		%/libnetutils.a \
 		%/liboleaut32.a \
 		%/libprofapi.a \

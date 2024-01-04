@@ -81,6 +81,7 @@ ADDLIB libkernel32_onecore.a
 ADDLIB liblogoncli.a
 ADDLIB libmpr.a
 ADDLIB libmswsock.a
+ADDLIB libncrypt_onecore.a
 ADDLIB libnetutils.a
 ADDLIB liboleaut32.a
 ADDLIB libprofapi.a
