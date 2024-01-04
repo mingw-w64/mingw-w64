@@ -1,0 +1,20 @@
+LIBRARY mf
+
+EXPORTS
+
+MFCreateAggregateSource@8
+MFCreateASFContentInfo@4
+MFCreateASFIndexer@4
+MFCreateASFIndexerByteStream@16
+MFCreateASFSplitter@4
+MFCreateAudioRendererActivate@4
+MFCreateEncryptedMediaExtensionsStoreActivate@16
+MFCreatePMPMediaSession@16
+MFCreatePresentationClock@4
+MFCreateProtectedEnvironmentAccess@4
+MFCreateTopology@4
+MFCreateTopologyNode@8
+MFGetLocalId@12
+MFGetService@16
+MFGetSystemId@4
+MFLoadSignedLibrary@8
