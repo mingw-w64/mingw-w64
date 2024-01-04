@@ -2417,6 +2417,7 @@ endif
 	$(RANLIB) $@
 
 %/libonecore.a: lib-common/onecore.mri \
+		%/libadvapi32_onecore.a \
 		%/libapi-ms-win-core-backgroundtask-l1-1-0.a \
 		%/libapi-ms-win-core-calendar-l1-1-0.a \
 		%/libapi-ms-win-core-comm-l1-1-1.a \

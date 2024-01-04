@@ -1,4 +1,5 @@
 CREATE libonecore.a
+ADDLIB libadvapi32_onecore.a
 ADDLIB libapi-ms-win-core-backgroundtask-l1-1-0.a
 ADDLIB libapi-ms-win-core-calendar-l1-1-0.a
 ADDLIB libapi-ms-win-core-comm-l1-1-1.a
