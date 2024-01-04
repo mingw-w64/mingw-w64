@@ -3389,6 +3389,7 @@ endif
 		%/libbcrypt_windowsapp.a \
 		%/libcabinet_windowsapp.a \
 		%/libchakrart_windowsapp.a \
+		%/libcoremessaging_windowsapp.a \
 		%/libcrypt32_windowsapp.a \
 		%/libd3d11_windowsapp.a \
 		%/libd3d12_windowsapp.a \

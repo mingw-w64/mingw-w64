@@ -200,6 +200,7 @@ ADDLIB libapi-ms-win-shcore-stream-winrt-l1-1-0.a
 ADDLIB libbcrypt_windowsapp.a
 ADDLIB libcabinet_windowsapp.a
 ADDLIB libchakrart_windowsapp.a
+ADDLIB libcoremessaging_windowsapp.a
 ADDLIB libcrypt32_windowsapp.a
 ADDLIB libd3d11_windowsapp.a
 ADDLIB libd3d12_windowsapp.a
