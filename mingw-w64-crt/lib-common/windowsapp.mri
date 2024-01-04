@@ -234,6 +234,7 @@ ADDLIB libpsapi_windowsapp.a
 ADDLIB librometadata.a
 ADDLIB librpcrt4_windowsapp.a
 ADDLIB libsrvcli_windowsapp.a
+ADDLIB libsspicli_windowsapp.a
 ADDLIB libuiautomationcore_windowsapp.a
 ADDLIB liburlmon_windowsapp.a
 ADDLIB libwebauthn_windowsapp.a
