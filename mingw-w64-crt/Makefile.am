@@ -3396,6 +3396,7 @@ endif
 		%/libdirectml_windowsapp.a \
 		%/libdnsapi_windowsapp.a \
 		%/libdxgi_windowsapp.a \
+		%/libesent_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
