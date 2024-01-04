@@ -1,0 +1,13 @@
+LIBRARY webauthn
+
+EXPORTS
+
+WebAuthNAuthenticatorGetAssertion@20
+WebAuthNAuthenticatorMakeCredential@28
+WebAuthNCancelCurrentOperation@4
+WebAuthNFreeAssertion@4
+WebAuthNFreeCredentialAttestation@4
+WebAuthNGetCancellationId@4
+WebAuthNGetErrorName@4
+WebAuthNGetW3CExceptionDOMError@4
+WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable@4
