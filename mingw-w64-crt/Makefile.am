@@ -3422,6 +3422,7 @@ endif
 		%/libpsapi_windowsapp.a \
 		%/librometadata.a \
 		%/librpcrt4_windowsapp.a \
+		%/libsrvcli_windowsapp.a \
 		%/libuiautomationcore_windowsapp.a \
 		%/liburlmon_windowsapp.a \
 		%/libwebauthn_windowsapp.a \
