@@ -104,6 +104,7 @@ ADDLIB libuser32_onecore.a
 ADDLIB libuserenv.a
 ADDLIB libversion.a
 ADDLIB libwebsocket.a
+ADDLIB libwinhttp_onecore.a
 ADDLIB libwkscli.a
 ADDLIB libwldap32.a
 ADDLIB libwpprecorderum.a

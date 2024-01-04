@@ -2522,6 +2522,7 @@ endif
 		%/libuserenv.a \
 		%/libversion.a \
 		%/libwebsocket.a \
+		%/libwinhttp_onecore.a \
 		%/libwkscli.a \
 		%/libwldap32.a \
 		%/libwpprecorderum.a \
