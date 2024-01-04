@@ -2481,6 +2481,7 @@ endif
 		%/libauthz.a \
 		%/libbcrypt.a \
 		%/libcabinet.a \
+		%/libcomctl32_onecore.a \
 		%/libcomdlg32.a \
 		%/libcrypt32.a \
 		%/libcryptnet.a \

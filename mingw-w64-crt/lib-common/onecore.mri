@@ -63,6 +63,7 @@ ADDLIB libapi-ms-win-shcore-stream-winrt-l1-1-0.a
 ADDLIB libauthz.a
 ADDLIB libbcrypt.a
 ADDLIB libcabinet.a
+ADDLIB libcomctl32_onecore.a
 ADDLIB libcomdlg32.a
 ADDLIB libcrypt32.a
 ADDLIB libcryptnet.a
