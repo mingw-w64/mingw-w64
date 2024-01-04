@@ -3382,6 +3382,7 @@ endif
 		%/libcrypt32_windowsapp.a \
 		%/libd3d11_windowsapp.a \
 		%/libd3d12_windowsapp.a \
+		%/libd3dcompiler_47_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
