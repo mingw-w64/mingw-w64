@@ -206,6 +206,7 @@ ADDLIB libd3d12_windowsapp.a
 ADDLIB libd3dcompiler_47_windowsapp.a
 ADDLIB libdhcpcsvc6_windowsapp.a
 ADDLIB libdhcpcsvc_windowsapp.a
+ADDLIB libdiagnosticdataquery_windowsapp.a
 ADDLIB libicu.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
