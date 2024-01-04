@@ -3370,6 +3370,7 @@ endif
 		%/libapi-ms-win-service-winsvc-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-shcore-obsolete-l1-1-0_windowsapp.a \
 		%/libapi-ms-win-shcore-stream-winrt-l1-1-0.a \
+		%/libbcrypt_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \

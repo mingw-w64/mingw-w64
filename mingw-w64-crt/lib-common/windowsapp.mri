@@ -197,6 +197,7 @@ ADDLIB libapi-ms-win-service-management-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-service-winsvc-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-shcore-obsolete-l1-1-0_windowsapp.a
 ADDLIB libapi-ms-win-shcore-stream-winrt-l1-1-0.a
+ADDLIB libbcrypt_windowsapp.a
 ADDLIB libicu.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
