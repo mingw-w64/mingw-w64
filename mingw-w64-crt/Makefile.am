@@ -2523,6 +2523,7 @@ endif
 		%/libversion.a \
 		%/libwebsocket.a \
 		%/libwinhttp_onecore.a \
+		%/libwinmm_onecore.a \
 		%/libwkscli.a \
 		%/libwldap32.a \
 		%/libwpprecorderum.a \
