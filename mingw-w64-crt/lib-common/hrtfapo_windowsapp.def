@@ -1,0 +1,5 @@
+LIBRARY hrtfapo
+
+EXPORTS
+
+CreateHrtfApo

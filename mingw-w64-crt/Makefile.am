@@ -3400,6 +3400,7 @@ endif
 		%/libdxgi_windowsapp.a \
 		%/libesent_windowsapp.a \
 		%/libhid_windowsapp.a \
+		%/libhrtfapo_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \

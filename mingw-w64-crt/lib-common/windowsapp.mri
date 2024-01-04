@@ -212,6 +212,7 @@ ADDLIB libdnsapi_windowsapp.a
 ADDLIB libdxgi_windowsapp.a
 ADDLIB libesent_windowsapp.a
 ADDLIB libhid_windowsapp.a
+ADDLIB libhrtfapo_windowsapp.a
 ADDLIB libicu.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
