@@ -3378,6 +3378,7 @@ endif
 		%/libcabinet_windowsapp.a \
 		%/libchakrart_windowsapp.a \
 		%/libcrypt32_windowsapp.a \
+		%/libd3d11_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \

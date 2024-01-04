@@ -201,6 +201,7 @@ ADDLIB libbcrypt_windowsapp.a
 ADDLIB libcabinet_windowsapp.a
 ADDLIB libchakrart_windowsapp.a
 ADDLIB libcrypt32_windowsapp.a
+ADDLIB libd3d11_windowsapp.a
 ADDLIB libicu.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
