@@ -1,0 +1,7 @@
+LIBRARY dhcpcsvc
+
+EXPORTS
+
+DhcpCApiCleanup
+DhcpCApiInitialize
+DhcpRequestParams

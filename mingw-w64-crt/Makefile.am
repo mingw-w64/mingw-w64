@@ -3386,6 +3386,7 @@ endif
 		%/libd3d12_windowsapp.a \
 		%/libd3dcompiler_47_windowsapp.a \
 		%/libdhcpcsvc6_windowsapp.a \
+		%/libdhcpcsvc_windowsapp.a \
 		%/libicu.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
