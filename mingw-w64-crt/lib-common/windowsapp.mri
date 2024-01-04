@@ -222,6 +222,7 @@ ADDLIB libmf_windowsapp.a
 ADDLIB libmmdevapi_windowsapp.a
 ADDLIB libmpr_windowsapp.a
 ADDLIB libmsajapi_windowsapp.a
+ADDLIB libmscms_windowsapp.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a
