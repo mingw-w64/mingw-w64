@@ -226,6 +226,7 @@ ADDLIB libmscms_windowsapp.a
 ADDLIB libmswsock_windowsapp.a
 ADDLIB libncrypt_windowsapp.a
 ADDLIB libntdll_windowsapp.a
+ADDLIB libpowrprof_windowsapp.a
 ADDLIB librometadata.a
 ADDLIB libwindows.ai.machinelearning.a
 ADDLIB libwindows.data.pdf.a

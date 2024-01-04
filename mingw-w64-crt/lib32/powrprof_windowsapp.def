@@ -1,0 +1,6 @@
+LIBRARY powrprof
+
+EXPORTS
+
+PowerEnumerate@28
+PowerReadFriendlyName@24
