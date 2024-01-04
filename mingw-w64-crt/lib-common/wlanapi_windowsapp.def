@@ -1,0 +1,23 @@
+LIBRARY wlanapi
+
+EXPORTS
+
+WlanConnect
+WlanDisconnect
+WlanGetInterfaceCapability
+WlanGetNetworkBssList
+WlanHostedNetworkForceStart
+WlanHostedNetworkForceStop
+WlanHostedNetworkInitSettings
+WlanHostedNetworkQueryProperty
+WlanHostedNetworkQuerySecondaryKey
+WlanHostedNetworkQueryStatus
+WlanHostedNetworkRefreshSecuritySettings
+WlanHostedNetworkSetProperty
+WlanHostedNetworkSetSecondaryKey
+WlanHostedNetworkStartUsing
+WlanHostedNetworkStopUsing
+WlanRegisterNotification
+WlanRegisterVirtualStationNotification
+WlanScan
+WlanSetInterface
