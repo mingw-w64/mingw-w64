@@ -1,0 +1,11 @@
+LIBRARY uiautomationcore
+
+EXPORTS
+
+UiaHasServerSideProvider
+UiaIAccessibleFromProvider
+UiaProviderForNonClient
+UiaProviderFromIAccessible
+UiaRaiseActiveTextPositionChangedEvent
+UiaRaiseAsyncContentLoadedEvent
+UiaRaiseNotificationEvent

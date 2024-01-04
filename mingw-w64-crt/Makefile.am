@@ -3419,6 +3419,7 @@ endif
 		%/libpropsys_windowsapp.a \
 		%/libpsapi_windowsapp.a \
 		%/librometadata.a \
+		%/libuiautomationcore_windowsapp.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
 		%/libwindows.networking.a
