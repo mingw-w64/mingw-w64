@@ -2503,6 +2503,7 @@ endif
 		%/libnetutils.a \
 		%/libnormaliz_onecore.a \
 		%/libntdll_onecore.a \
+		%/libole32_onecore.a \
 		%/liboleaut32.a \
 		%/libprofapi.a \
 		%/libpsapi.a \

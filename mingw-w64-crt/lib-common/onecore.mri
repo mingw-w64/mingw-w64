@@ -85,6 +85,7 @@ ADDLIB libncrypt_onecore.a
 ADDLIB libnetutils.a
 ADDLIB libnormaliz_onecore.a
 ADDLIB libntdll_onecore.a
+ADDLIB libole32_onecore.a
 ADDLIB liboleaut32.a
 ADDLIB libprofapi.a
 ADDLIB libpsapi.a
