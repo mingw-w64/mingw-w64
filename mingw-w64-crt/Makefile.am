@@ -3414,6 +3414,7 @@ endif
 		%/libmscms_windowsapp.a \
 		%/libmswsock_windowsapp.a \
 		%/libncrypt_windowsapp.a \
+		%/libntdll_windowsapp.a \
 		%/librometadata.a \
 		%/libwindows.ai.machinelearning.a \
 		%/libwindows.data.pdf.a \
