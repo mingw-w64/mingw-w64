@@ -1,0 +1,22 @@
+LIBRARY propsys
+
+EXPORTS
+
+InitPropVariantFromCLSID
+InitPropVariantFromFileTime
+InitVariantFromBuffer
+PropVariantChangeType
+PropVariantCompareEx
+PropVariantToBoolean
+PropVariantToBSTR
+PropVariantToGUID
+PropVariantToStringAlloc
+PropVariantToStringWithDefault
+PropVariantToVariant
+PropVariantToWinRTPropertyValue
+PSCreateAdapterFromPropertyStore
+PSCreateMemoryPropertyStore
+PSCreatePropertyStoreFromObject
+VariantToGUID
+VariantToPropVariant
+WinRTPropertyValueToPropVariant
