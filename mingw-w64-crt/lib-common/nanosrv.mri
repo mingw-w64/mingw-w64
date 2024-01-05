@@ -24,5 +24,6 @@ ADDLIB libwebservices.a
 ADDLIB libwer.a
 ADDLIB libwevtapi.a
 ADDLIB libwintrust.a
+ADDLIB libwsmsvc.a
 SAVE
 END

@@ -2409,7 +2409,8 @@ endif
 		%/libwebservices.a \
 		%/libwer.a \
 		%/libwevtapi.a \
-		%/libwintrust.a
+		%/libwintrust.a \
+		%/libwsmsvc.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
