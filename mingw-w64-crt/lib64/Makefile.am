@@ -468,6 +468,7 @@ lib64_DATA += %reldir%/liboledlg.a
 lib64_DATA += %reldir%/libolesvr32.a
 lib64_DATA += %reldir%/libonecore_apiset.a
 lib64_DATA += %reldir%/libonecore.a
+lib64_DATA += %reldir%/libonecoreuap_apiset.a
 lib64_DATA += %reldir%/libopends60.a
 lib64_DATA += %reldir%/libopengl32.a
 lib64_DATA += %reldir%/libosuninst.a

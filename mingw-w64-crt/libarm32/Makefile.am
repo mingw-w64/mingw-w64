@@ -549,6 +549,7 @@ libarm32_DATA += %reldir%/liboledlg.a
 libarm32_DATA += %reldir%/libondemandconnroutehelper.a
 libarm32_DATA += %reldir%/libonecore_apiset.a
 libarm32_DATA += %reldir%/libonecore.a
+libarm32_DATA += %reldir%/libonecoreuap_apiset.a
 libarm32_DATA += %reldir%/libonex.a
 libarm32_DATA += %reldir%/libonexui.a
 libarm32_DATA += %reldir%/liboobefldr.a
