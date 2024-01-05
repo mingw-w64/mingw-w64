@@ -2396,6 +2396,7 @@ endif
 		%/libesent.a \
 		%/libfaultrep.a \
 		%/libfwpuclnt.a \
+		%/libhbaapi.a \
 		%/libhttpapi.a \
 		%/libiscsidsc.a \
 		%/libktmw32.a \

@@ -10,6 +10,7 @@ ADDLIB libdnsperf.a
 ADDLIB libesent.a
 ADDLIB libfaultrep.a
 ADDLIB libfwpuclnt.a
+ADDLIB libhbaapi.a
 ADDLIB libhttpapi.a
 ADDLIB libiscsidsc.a
 ADDLIB libktmw32.a
