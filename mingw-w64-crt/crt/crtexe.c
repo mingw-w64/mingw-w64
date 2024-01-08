@@ -50,10 +50,10 @@ extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
 static int __cdecl check_managed_app (void);
 
-extern _CRTALLOC(".CRT$XIA") _PIFV __xi_a[];
-extern _CRTALLOC(".CRT$XIZ") _PIFV __xi_z[];
-extern _CRTALLOC(".CRT$XCA") _PVFV __xc_a[];
-extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
+extern _PIFV __xi_a[];
+extern _PIFV __xi_z[];
+extern _PVFV __xc_a[];
+extern _PVFV __xc_z[];
 
 
 /* TLS initialization hook.  */
