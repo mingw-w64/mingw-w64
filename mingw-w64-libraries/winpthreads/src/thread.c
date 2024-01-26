@@ -81,7 +81,7 @@ static ULONG (*RemoveVectoredExceptionHandlerFuncPtr) (PVOID);
 static void __attribute__((constructor))
 ctor (void)
 {
-  HMODULE module = GetModuleHandle("kernel32.dll");
+  HMODULE module = GetModuleHandleA("kernel32.dll");
   if (module) {
     AddVectoredExceptionHandlerFuncPtr = (__typeof__(AddVectoredExceptionHandlerFuncPtr)) GetProcAddress(module, "AddVectoredExceptionHandler");
     RemoveVectoredExceptionHandlerFuncPtr = (__typeof__(RemoveVectoredExceptionHandlerFuncPtr)) GetProcAddress(module, "RemoveVectoredExceptionHandler");

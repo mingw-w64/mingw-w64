@@ -32,7 +32,7 @@ __attribute__((constructor))
 #endif
 static void winpthreads_init(void)
 {
-    HMODULE mod = GetModuleHandle("kernel32.dll");
+    HMODULE mod = GetModuleHandleA("kernel32.dll");
     if (mod)
     {
         _pthread_get_tick_count_64 =
