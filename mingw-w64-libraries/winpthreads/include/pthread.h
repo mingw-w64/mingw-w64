@@ -307,7 +307,7 @@ unsigned  WINPTHREAD_API _pthread_get_state(const pthread_attr_t *attr, unsigned
 int       WINPTHREAD_API _pthread_set_state(pthread_attr_t *attr, unsigned flag, unsigned val);
 int       WINPTHREAD_API pthread_setcancelstate(int state, int *oldstate);
 int       WINPTHREAD_API pthread_setcanceltype(int type, int *oldtype);
-int       WINPTHREAD_API pthread_create_wrapper(void *args);
+unsigned  WINPTHREAD_API __stdcall pthread_create_wrapper(void *args);
 int       WINPTHREAD_API pthread_create(pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *), void *arg);
 int       WINPTHREAD_API pthread_join(pthread_t t, void **res);
 int       WINPTHREAD_API pthread_detach(pthread_t t);

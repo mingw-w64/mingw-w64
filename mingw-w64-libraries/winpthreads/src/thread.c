@@ -1524,7 +1524,7 @@ void _fpreset (void);
 __attribute__((force_align_arg_pointer))
 #  endif
 #endif
-int
+unsigned __stdcall
 pthread_create_wrapper (void *args)
 {
   unsigned rslt = 0;
@@ -1665,7 +1665,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   /* Make sure tv->h has value of INVALID_HANDLE_VALUE */
   _ReadWriteBarrier();
 
-  thrd = (HANDLE) _beginthreadex(NULL, ssize, (unsigned int (__stdcall *)(void *))pthread_create_wrapper, tv, 0x4/*CREATE_SUSPEND*/, NULL);
+  thrd = (HANDLE) _beginthreadex(NULL, ssize, pthread_create_wrapper, tv, 0x4/*CREATE_SUSPEND*/, NULL);
   if (thrd == INVALID_HANDLE_VALUE)
     thrd = 0;
   /* Failed */
