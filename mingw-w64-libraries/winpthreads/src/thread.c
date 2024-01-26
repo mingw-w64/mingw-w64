@@ -1607,8 +1607,11 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   HANDLE thrd = NULL;
   int redo = 0;
   struct _pthread_v *tv;
-  size_t ssize = 0;
+  unsigned int ssize = 0;
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
+
+  if (attr && attr->s_size > UINT_MAX)
+    return EINVAL;
 
   if ((tv = pop_pthread_mem ()) == NULL)
     return EAGAIN;
@@ -1649,7 +1652,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
     {
       int inh = 0;
       tv->p_state = attr->p_state;
-      ssize = attr->s_size;
+      ssize = (unsigned int)attr->s_size;
       pthread_attr_getinheritsched (attr, &inh);
       if (inh)
 	{
