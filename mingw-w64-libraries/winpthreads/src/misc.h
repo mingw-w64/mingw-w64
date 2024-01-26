@@ -101,10 +101,6 @@ static WINPTHREADS_INLINE unsigned long dwMilliSecs(unsigned long long ms)
   return (unsigned long) ms;
 }
 
-#ifndef _ReadWriteBarrier
-#define _ReadWriteBarrier   __sync_synchronize
-#endif
-
 unsigned long long _pthread_time_in_ms(void);
 unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts);
 unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts);

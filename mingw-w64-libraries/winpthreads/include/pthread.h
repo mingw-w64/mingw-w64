@@ -212,9 +212,9 @@ struct _pthread_cleanup
     do {                                                                \
         const _pthread_cleanup _pthread_cup =                           \
             { (F), (A), *pthread_getclean() };                          \
-        __sync_synchronize();                                           \
+        MemoryBarrier();                                                \
         *pthread_getclean() = (_pthread_cleanup *) &_pthread_cup;       \
-        __sync_synchronize();                                           \
+        MemoryBarrier();                                                \
         do {                                                            \
             do {} while (0)
 
