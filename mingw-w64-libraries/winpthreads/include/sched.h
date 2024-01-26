@@ -63,11 +63,11 @@ extern "C" {
 #  endif
 #endif
 
-int WINPTHREAD_SCHED_API sched_yield(void);
-int WINPTHREAD_SCHED_API sched_get_priority_min(int pol);
-int WINPTHREAD_SCHED_API sched_get_priority_max(int pol);
-int WINPTHREAD_SCHED_API sched_getscheduler(pid_t pid);
-int WINPTHREAD_SCHED_API sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
+WINPTHREAD_SCHED_API int sched_yield(void);
+WINPTHREAD_SCHED_API int sched_get_priority_min(int pol);
+WINPTHREAD_SCHED_API int sched_get_priority_max(int pol);
+WINPTHREAD_SCHED_API int sched_getscheduler(pid_t pid);
+WINPTHREAD_SCHED_API int sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
 
 #ifdef __cplusplus
 }

@@ -55,28 +55,28 @@ typedef void		*sem_t;
 
 #define SEM_FAILED 		NULL
 
-int WINPTHREAD_SEMA_API sem_init(sem_t * sem, int pshared, unsigned int value);
+WINPTHREAD_SEMA_API int sem_init(sem_t * sem, int pshared, unsigned int value);
 
-int WINPTHREAD_SEMA_API sem_destroy(sem_t *sem);
+WINPTHREAD_SEMA_API int sem_destroy(sem_t *sem);
 
-int WINPTHREAD_SEMA_API sem_trywait(sem_t *sem);
+WINPTHREAD_SEMA_API int sem_trywait(sem_t *sem);
 
-int WINPTHREAD_SEMA_API sem_wait(sem_t *sem);
+WINPTHREAD_SEMA_API int sem_wait(sem_t *sem);
 
-int WINPTHREAD_SEMA_API sem_timedwait(sem_t * sem, const struct timespec *t);
+WINPTHREAD_SEMA_API int sem_timedwait(sem_t * sem, const struct timespec *t);
 
-int WINPTHREAD_SEMA_API sem_post(sem_t *sem);
+WINPTHREAD_SEMA_API int sem_post(sem_t *sem);
 
-int WINPTHREAD_SEMA_API sem_post_multiple(sem_t *sem, int count);
+WINPTHREAD_SEMA_API int sem_post_multiple(sem_t *sem, int count);
 
 /* yes, it returns a semaphore (or SEM_FAILED) */
-sem_t * WINPTHREAD_SEMA_API sem_open(const char * name, int oflag, mode_t mode, unsigned int value);
+WINPTHREAD_SEMA_API sem_t * sem_open(const char * name, int oflag, mode_t mode, unsigned int value);
 
-int WINPTHREAD_SEMA_API sem_close(sem_t * sem);
+WINPTHREAD_SEMA_API int sem_close(sem_t * sem);
 
-int WINPTHREAD_SEMA_API sem_unlink(const char * name);
+WINPTHREAD_SEMA_API int sem_unlink(const char * name);
 
-int WINPTHREAD_SEMA_API sem_getvalue(sem_t * sem, int * sval);
+WINPTHREAD_SEMA_API int sem_getvalue(sem_t * sem, int * sval);
 
 #ifdef __cplusplus
 }

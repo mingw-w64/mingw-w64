@@ -162,10 +162,10 @@ extern "C" {
 #define PTHREAD_MUTEX_ERRORCHECK_NP	PTHREAD_MUTEX_ERRORCHECK
 #define PTHREAD_MUTEX_RECURSIVE_NP	PTHREAD_MUTEX_RECURSIVE
 
-void * WINPTHREAD_API pthread_timechange_handler_np(void * dummy);
-int    WINPTHREAD_API pthread_delay_np (const struct timespec *interval);
-int    WINPTHREAD_API pthread_num_processors_np(void);
-int    WINPTHREAD_API pthread_set_num_processors_np(int n);
+WINPTHREAD_API void * pthread_timechange_handler_np(void * dummy);
+WINPTHREAD_API int    pthread_delay_np (const struct timespec *interval);
+WINPTHREAD_API int    pthread_num_processors_np(void);
+WINPTHREAD_API int    pthread_set_num_processors_np(int n);
 
 #define PTHREAD_BARRIER_SERIAL_THREAD 1
 
@@ -237,11 +237,11 @@ struct sched_param {
   int sched_priority;
 };
 
-int WINPTHREAD_API sched_yield(void);
-int WINPTHREAD_API sched_get_priority_min(int pol);
-int WINPTHREAD_API sched_get_priority_max(int pol);
-int WINPTHREAD_API sched_getscheduler(pid_t pid);
-int WINPTHREAD_API sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
+WINPTHREAD_API int sched_yield(void);
+WINPTHREAD_API int sched_get_priority_min(int pol);
+WINPTHREAD_API int sched_get_priority_max(int pol);
+WINPTHREAD_API int sched_getscheduler(pid_t pid);
+WINPTHREAD_API int sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
 
 #endif
 
@@ -254,12 +254,12 @@ struct pthread_attr_t
     struct sched_param param;
 };
 
-int WINPTHREAD_API pthread_attr_setschedparam(pthread_attr_t *attr, const struct sched_param *param);
-int WINPTHREAD_API pthread_attr_getschedparam(const pthread_attr_t *attr, struct sched_param *param);
-int WINPTHREAD_API pthread_getschedparam(pthread_t thread, int *pol, struct sched_param *param);
-int WINPTHREAD_API pthread_setschedparam(pthread_t thread, int pol, const struct sched_param *param);
-int WINPTHREAD_API pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol);
-int WINPTHREAD_API pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol);
+WINPTHREAD_API int pthread_attr_setschedparam(pthread_attr_t *attr, const struct sched_param *param);
+WINPTHREAD_API int pthread_attr_getschedparam(const pthread_attr_t *attr, struct sched_param *param);
+WINPTHREAD_API int pthread_getschedparam(pthread_t thread, int *pol, struct sched_param *param);
+WINPTHREAD_API int pthread_setschedparam(pthread_t thread, int pol, const struct sched_param *param);
+WINPTHREAD_API int pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol);
+WINPTHREAD_API int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol);
 
 /* synchronization objects */
 typedef intptr_t pthread_spinlock_t;
@@ -285,134 +285,134 @@ typedef void	*pthread_barrier_t;
 #define PTHREAD_RWLOCK_INITIALIZER			(pthread_rwlock_t)GENERIC_INITIALIZER
 #define PTHREAD_SPINLOCK_INITIALIZER			(pthread_spinlock_t)GENERIC_INITIALIZER
 
-extern void WINPTHREAD_API (**_pthread_key_dest)(void *);
-int         WINPTHREAD_API pthread_key_create(pthread_key_t *key, void (* dest)(void *));
-int         WINPTHREAD_API pthread_key_delete(pthread_key_t key);
-void *      WINPTHREAD_API pthread_getspecific(pthread_key_t key);
-int         WINPTHREAD_API pthread_setspecific(pthread_key_t key, const void *value);
+WINPTHREAD_API extern void (**_pthread_key_dest)(void *);
+WINPTHREAD_API int         pthread_key_create(pthread_key_t *key, void (* dest)(void *));
+WINPTHREAD_API int         pthread_key_delete(pthread_key_t key);
+WINPTHREAD_API void *      pthread_getspecific(pthread_key_t key);
+WINPTHREAD_API int         pthread_setspecific(pthread_key_t key, const void *value);
 
-pthread_t WINPTHREAD_API pthread_self(void);
-int       WINPTHREAD_API pthread_once(pthread_once_t *o, void (*func)(void));
-void      WINPTHREAD_API pthread_testcancel(void);
-int       WINPTHREAD_API pthread_equal(pthread_t t1, pthread_t t2);
-void      WINPTHREAD_API pthread_tls_init(void);
-void      WINPTHREAD_API _pthread_cleanup_dest(pthread_t t);
-int       WINPTHREAD_API pthread_get_concurrency(int *val);
-int       WINPTHREAD_API pthread_set_concurrency(int val);
-void      WINPTHREAD_API pthread_exit(void *res);
-void      WINPTHREAD_API _pthread_invoke_cancel(void);
-int       WINPTHREAD_API pthread_cancel(pthread_t t);
-int       WINPTHREAD_API pthread_kill(pthread_t t, int sig);
-unsigned  WINPTHREAD_API _pthread_get_state(const pthread_attr_t *attr, unsigned flag);
-int       WINPTHREAD_API _pthread_set_state(pthread_attr_t *attr, unsigned flag, unsigned val);
-int       WINPTHREAD_API pthread_setcancelstate(int state, int *oldstate);
-int       WINPTHREAD_API pthread_setcanceltype(int type, int *oldtype);
-unsigned  WINPTHREAD_API __stdcall pthread_create_wrapper(void *args);
-int       WINPTHREAD_API pthread_create(pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *), void *arg);
-int       WINPTHREAD_API pthread_join(pthread_t t, void **res);
-int       WINPTHREAD_API pthread_detach(pthread_t t);
-int       WINPTHREAD_API pthread_setname_np(pthread_t thread, const char *name);
-int       WINPTHREAD_API pthread_getname_np(pthread_t thread, char *name, size_t len);
+WINPTHREAD_API pthread_t pthread_self(void);
+WINPTHREAD_API int       pthread_once(pthread_once_t *o, void (*func)(void));
+WINPTHREAD_API void      pthread_testcancel(void);
+WINPTHREAD_API int       pthread_equal(pthread_t t1, pthread_t t2);
+WINPTHREAD_API void      pthread_tls_init(void);
+WINPTHREAD_API void      _pthread_cleanup_dest(pthread_t t);
+WINPTHREAD_API int       pthread_get_concurrency(int *val);
+WINPTHREAD_API int       pthread_set_concurrency(int val);
+WINPTHREAD_API void      pthread_exit(void *res);
+WINPTHREAD_API void      _pthread_invoke_cancel(void);
+WINPTHREAD_API int       pthread_cancel(pthread_t t);
+WINPTHREAD_API int       pthread_kill(pthread_t t, int sig);
+WINPTHREAD_API unsigned  _pthread_get_state(const pthread_attr_t *attr, unsigned flag);
+WINPTHREAD_API int       _pthread_set_state(pthread_attr_t *attr, unsigned flag, unsigned val);
+WINPTHREAD_API int       pthread_setcancelstate(int state, int *oldstate);
+WINPTHREAD_API int       pthread_setcanceltype(int type, int *oldtype);
+WINPTHREAD_API unsigned  __stdcall pthread_create_wrapper(void *args);
+WINPTHREAD_API int       pthread_create(pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *), void *arg);
+WINPTHREAD_API int       pthread_join(pthread_t t, void **res);
+WINPTHREAD_API int       pthread_detach(pthread_t t);
+WINPTHREAD_API int       pthread_setname_np(pthread_t thread, const char *name);
+WINPTHREAD_API int       pthread_getname_np(pthread_t thread, char *name, size_t len);
 
 
-int WINPTHREAD_API pthread_rwlock_init(pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *attr);
-int WINPTHREAD_API pthread_rwlock_wrlock(pthread_rwlock_t *l);
-int WINPTHREAD_API pthread_rwlock_timedwrlock(pthread_rwlock_t *rwlock, const struct timespec *ts);
-int WINPTHREAD_API pthread_rwlock_rdlock(pthread_rwlock_t *l);
-int WINPTHREAD_API pthread_rwlock_timedrdlock(pthread_rwlock_t *l, const struct timespec *ts);
-int WINPTHREAD_API pthread_rwlock_unlock(pthread_rwlock_t *l);
-int WINPTHREAD_API pthread_rwlock_tryrdlock(pthread_rwlock_t *l);
-int WINPTHREAD_API pthread_rwlock_trywrlock(pthread_rwlock_t *l);
-int WINPTHREAD_API pthread_rwlock_destroy (pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_init(pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *attr);
+WINPTHREAD_API int pthread_rwlock_wrlock(pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_timedwrlock(pthread_rwlock_t *rwlock, const struct timespec *ts);
+WINPTHREAD_API int pthread_rwlock_rdlock(pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_timedrdlock(pthread_rwlock_t *l, const struct timespec *ts);
+WINPTHREAD_API int pthread_rwlock_unlock(pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_tryrdlock(pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_trywrlock(pthread_rwlock_t *l);
+WINPTHREAD_API int pthread_rwlock_destroy (pthread_rwlock_t *l);
 
-int WINPTHREAD_API pthread_cond_init(pthread_cond_t *cv, const pthread_condattr_t *a);
-int WINPTHREAD_API pthread_cond_destroy(pthread_cond_t *cv);
-int WINPTHREAD_API pthread_cond_signal (pthread_cond_t *cv);
-int WINPTHREAD_API pthread_cond_broadcast (pthread_cond_t *cv);
-int WINPTHREAD_API pthread_cond_wait (pthread_cond_t *cv, pthread_mutex_t *external_mutex);
-int WINPTHREAD_API pthread_cond_timedwait(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
-int WINPTHREAD_API pthread_cond_timedwait_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
+WINPTHREAD_API int pthread_cond_init(pthread_cond_t *cv, const pthread_condattr_t *a);
+WINPTHREAD_API int pthread_cond_destroy(pthread_cond_t *cv);
+WINPTHREAD_API int pthread_cond_signal (pthread_cond_t *cv);
+WINPTHREAD_API int pthread_cond_broadcast (pthread_cond_t *cv);
+WINPTHREAD_API int pthread_cond_wait (pthread_cond_t *cv, pthread_mutex_t *external_mutex);
+WINPTHREAD_API int pthread_cond_timedwait(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
+WINPTHREAD_API int pthread_cond_timedwait_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
 
-int WINPTHREAD_API pthread_mutex_lock(pthread_mutex_t *m);
-int WINPTHREAD_API pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts);
-int WINPTHREAD_API pthread_mutex_unlock(pthread_mutex_t *m);
-int WINPTHREAD_API pthread_mutex_trylock(pthread_mutex_t *m);
-int WINPTHREAD_API pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a);
-int WINPTHREAD_API pthread_mutex_destroy(pthread_mutex_t *m);
+WINPTHREAD_API int pthread_mutex_lock(pthread_mutex_t *m);
+WINPTHREAD_API int pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts);
+WINPTHREAD_API int pthread_mutex_unlock(pthread_mutex_t *m);
+WINPTHREAD_API int pthread_mutex_trylock(pthread_mutex_t *m);
+WINPTHREAD_API int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a);
+WINPTHREAD_API int pthread_mutex_destroy(pthread_mutex_t *m);
 
-int WINPTHREAD_API pthread_barrier_destroy(pthread_barrier_t *b);
-int WINPTHREAD_API pthread_barrier_init(pthread_barrier_t *b, const void *attr, unsigned int count);
-int WINPTHREAD_API pthread_barrier_wait(pthread_barrier_t *b);
+WINPTHREAD_API int pthread_barrier_destroy(pthread_barrier_t *b);
+WINPTHREAD_API int pthread_barrier_init(pthread_barrier_t *b, const void *attr, unsigned int count);
+WINPTHREAD_API int pthread_barrier_wait(pthread_barrier_t *b);
 
-int WINPTHREAD_API pthread_spin_init(pthread_spinlock_t *l, int pshared);
-int WINPTHREAD_API pthread_spin_destroy(pthread_spinlock_t *l);
+WINPTHREAD_API int pthread_spin_init(pthread_spinlock_t *l, int pshared);
+WINPTHREAD_API int pthread_spin_destroy(pthread_spinlock_t *l);
 /* No-fair spinlock due to lack of knowledge of thread number.  */
-int WINPTHREAD_API pthread_spin_lock(pthread_spinlock_t *l);
-int WINPTHREAD_API pthread_spin_trylock(pthread_spinlock_t *l);
-int WINPTHREAD_API pthread_spin_unlock(pthread_spinlock_t *l);
+WINPTHREAD_API int pthread_spin_lock(pthread_spinlock_t *l);
+WINPTHREAD_API int pthread_spin_trylock(pthread_spinlock_t *l);
+WINPTHREAD_API int pthread_spin_unlock(pthread_spinlock_t *l);
 
-int WINPTHREAD_API pthread_attr_init(pthread_attr_t *attr);
-int WINPTHREAD_API pthread_attr_destroy(pthread_attr_t *attr);
-int WINPTHREAD_API pthread_attr_setdetachstate(pthread_attr_t *a, int flag);
-int WINPTHREAD_API pthread_attr_getdetachstate(const pthread_attr_t *a, int *flag);
-int WINPTHREAD_API pthread_attr_setinheritsched(pthread_attr_t *a, int flag);
-int WINPTHREAD_API pthread_attr_getinheritsched(const pthread_attr_t *a, int *flag);
-int WINPTHREAD_API pthread_attr_setscope(pthread_attr_t *a, int flag);
-int WINPTHREAD_API pthread_attr_getscope(const pthread_attr_t *a, int *flag);
-int WINPTHREAD_API pthread_attr_getstack(const pthread_attr_t *attr, void **stack, size_t *size);
-int WINPTHREAD_API pthread_attr_setstack(pthread_attr_t *attr, void *stack, size_t size);
-int WINPTHREAD_API pthread_attr_getstackaddr(const pthread_attr_t *attr, void **stack);
-int WINPTHREAD_API pthread_attr_setstackaddr(pthread_attr_t *attr, void *stack);
-int WINPTHREAD_API pthread_attr_getstacksize(const pthread_attr_t *attr, size_t *size);
-int WINPTHREAD_API pthread_attr_setstacksize(pthread_attr_t *attr, size_t size);
+WINPTHREAD_API int pthread_attr_init(pthread_attr_t *attr);
+WINPTHREAD_API int pthread_attr_destroy(pthread_attr_t *attr);
+WINPTHREAD_API int pthread_attr_setdetachstate(pthread_attr_t *a, int flag);
+WINPTHREAD_API int pthread_attr_getdetachstate(const pthread_attr_t *a, int *flag);
+WINPTHREAD_API int pthread_attr_setinheritsched(pthread_attr_t *a, int flag);
+WINPTHREAD_API int pthread_attr_getinheritsched(const pthread_attr_t *a, int *flag);
+WINPTHREAD_API int pthread_attr_setscope(pthread_attr_t *a, int flag);
+WINPTHREAD_API int pthread_attr_getscope(const pthread_attr_t *a, int *flag);
+WINPTHREAD_API int pthread_attr_getstack(const pthread_attr_t *attr, void **stack, size_t *size);
+WINPTHREAD_API int pthread_attr_setstack(pthread_attr_t *attr, void *stack, size_t size);
+WINPTHREAD_API int pthread_attr_getstackaddr(const pthread_attr_t *attr, void **stack);
+WINPTHREAD_API int pthread_attr_setstackaddr(pthread_attr_t *attr, void *stack);
+WINPTHREAD_API int pthread_attr_getstacksize(const pthread_attr_t *attr, size_t *size);
+WINPTHREAD_API int pthread_attr_setstacksize(pthread_attr_t *attr, size_t size);
 
-int WINPTHREAD_API pthread_mutexattr_init(pthread_mutexattr_t *a);
-int WINPTHREAD_API pthread_mutexattr_destroy(pthread_mutexattr_t *a);
-int WINPTHREAD_API pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *type);
-int WINPTHREAD_API pthread_mutexattr_settype(pthread_mutexattr_t *a, int type);
-int WINPTHREAD_API pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *type);
-int WINPTHREAD_API pthread_mutexattr_setpshared(pthread_mutexattr_t * a, int type);
-int WINPTHREAD_API pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *type);
-int WINPTHREAD_API pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int type);
-int WINPTHREAD_API pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int * prio);
-int WINPTHREAD_API pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int prio);
-int WINPTHREAD_API pthread_getconcurrency(void);
-int WINPTHREAD_API pthread_setconcurrency(int new_level);
+WINPTHREAD_API int pthread_mutexattr_init(pthread_mutexattr_t *a);
+WINPTHREAD_API int pthread_mutexattr_destroy(pthread_mutexattr_t *a);
+WINPTHREAD_API int pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *type);
+WINPTHREAD_API int pthread_mutexattr_settype(pthread_mutexattr_t *a, int type);
+WINPTHREAD_API int pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *type);
+WINPTHREAD_API int pthread_mutexattr_setpshared(pthread_mutexattr_t * a, int type);
+WINPTHREAD_API int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *type);
+WINPTHREAD_API int pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int type);
+WINPTHREAD_API int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int * prio);
+WINPTHREAD_API int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int prio);
+WINPTHREAD_API int pthread_getconcurrency(void);
+WINPTHREAD_API int pthread_setconcurrency(int new_level);
 
-int WINPTHREAD_API pthread_condattr_destroy(pthread_condattr_t *a);
-int WINPTHREAD_API pthread_condattr_init(pthread_condattr_t *a);
-int WINPTHREAD_API pthread_condattr_getpshared(const pthread_condattr_t *a, int *s);
-int WINPTHREAD_API pthread_condattr_setpshared(pthread_condattr_t *a, int s);
+WINPTHREAD_API int pthread_condattr_destroy(pthread_condattr_t *a);
+WINPTHREAD_API int pthread_condattr_init(pthread_condattr_t *a);
+WINPTHREAD_API int pthread_condattr_getpshared(const pthread_condattr_t *a, int *s);
+WINPTHREAD_API int pthread_condattr_setpshared(pthread_condattr_t *a, int s);
 
 #ifndef __clockid_t_defined
 typedef int clockid_t;
 #define __clockid_t_defined 1
 #endif  /* __clockid_t_defined */
 
-int WINPTHREAD_API pthread_condattr_getclock (const pthread_condattr_t *attr,
+WINPTHREAD_API int pthread_condattr_getclock (const pthread_condattr_t *attr,
        clockid_t *clock_id);
-int WINPTHREAD_API pthread_condattr_setclock(pthread_condattr_t *attr,
+WINPTHREAD_API int pthread_condattr_setclock(pthread_condattr_t *attr,
        clockid_t clock_id);
-int WINPTHREAD_API __pthread_clock_nanosleep(clockid_t clock_id, int flags, const struct timespec *rqtp, struct timespec *rmtp);
+WINPTHREAD_API int __pthread_clock_nanosleep(clockid_t clock_id, int flags, const struct timespec *rqtp, struct timespec *rmtp);
 
-int WINPTHREAD_API pthread_barrierattr_init(void **attr);
-int WINPTHREAD_API pthread_barrierattr_destroy(void **attr);
-int WINPTHREAD_API pthread_barrierattr_setpshared(void **attr, int s);
-int WINPTHREAD_API pthread_barrierattr_getpshared(void **attr, int *s);
+WINPTHREAD_API int pthread_barrierattr_init(void **attr);
+WINPTHREAD_API int pthread_barrierattr_destroy(void **attr);
+WINPTHREAD_API int pthread_barrierattr_setpshared(void **attr, int s);
+WINPTHREAD_API int pthread_barrierattr_getpshared(void **attr, int *s);
 
 /* Private extensions for analysis and internal use.  */
-struct _pthread_cleanup ** WINPTHREAD_API pthread_getclean (void);
-void *                     WINPTHREAD_API pthread_gethandle (pthread_t t);
-void *                     WINPTHREAD_API pthread_getevent (void);
+WINPTHREAD_API struct _pthread_cleanup ** pthread_getclean (void);
+WINPTHREAD_API void * pthread_gethandle (pthread_t t);
+WINPTHREAD_API void * pthread_getevent (void);
 
-unsigned long long         WINPTHREAD_API _pthread_rel_time_in_ms(const struct timespec *ts);
-unsigned long long         WINPTHREAD_API _pthread_time_in_ms(void);
-unsigned long long         WINPTHREAD_API _pthread_time_in_ms_from_timespec(const struct timespec *ts);
-int                        WINPTHREAD_API _pthread_tryjoin (pthread_t t, void **res);
-int                        WINPTHREAD_API pthread_rwlockattr_destroy(pthread_rwlockattr_t *a);
-int                        WINPTHREAD_API pthread_rwlockattr_getpshared(pthread_rwlockattr_t *a, int *s);
-int                        WINPTHREAD_API pthread_rwlockattr_init(pthread_rwlockattr_t *a);
-int                        WINPTHREAD_API pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
+WINPTHREAD_API unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts);
+WINPTHREAD_API unsigned long long _pthread_time_in_ms(void);
+WINPTHREAD_API unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts);
+WINPTHREAD_API int _pthread_tryjoin (pthread_t t, void **res);
+WINPTHREAD_API int pthread_rwlockattr_destroy(pthread_rwlockattr_t *a);
+WINPTHREAD_API int pthread_rwlockattr_getpshared(pthread_rwlockattr_t *a, int *s);
+WINPTHREAD_API int pthread_rwlockattr_init(pthread_rwlockattr_t *a);
+WINPTHREAD_API int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 
 #ifndef SIG_BLOCK
 #define SIG_BLOCK 0
