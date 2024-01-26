@@ -101,16 +101,8 @@ static WINPTHREADS_INLINE unsigned long dwMilliSecs(unsigned long long ms)
   return (unsigned long) ms;
 }
 
-#ifndef _mm_pause
-#define _mm_pause() do { __asm__ __volatile__("pause"); } while (0)
-#endif
-
 #ifndef _ReadWriteBarrier
 #define _ReadWriteBarrier   __sync_synchronize
-#endif
-
-#ifndef YieldProcessor
-#define YieldProcessor      _mm_pause
 #endif
 
 unsigned long long _pthread_time_in_ms(void);
