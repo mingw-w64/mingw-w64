@@ -79,7 +79,7 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
   new_mi->event = NULL;
   new_mi->rec_lock = 0;
   new_mi->owner = (DWORD)-1;
-  if (__sync_bool_compare_and_swap(m, (pthread_mutex_t)mi, (pthread_mutex_t)new_mi)) {
+  if (InterlockedCompareExchangePointer((PVOID volatile *)m, new_mi, mi) == mi) {
     return new_mi;
   } else {
     /* Someone created the struct before us. */
@@ -112,8 +112,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
   mutex_impl_t *mi = mutex_impl(m);
   if (mi == NULL)
     return ENOMEM;
-
-  mutex_state_t old_state = __sync_lock_test_and_set(&mi->state, Locked);
+  mutex_state_t old_state = InterlockedExchange((long *)&mi->state, Locked);
   if (unlikely(old_state != Unlocked)) {
     /* The mutex is already locked. */
 
@@ -124,7 +123,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
            recursively.  We could rewrite by doing compare-and-swap instead of
            test-and-set the first time, but it would lead to more code
            duplication and add a conditional branch to the critical path. */
-        __sync_bool_compare_and_swap(&mi->state, Locked, old_state);
+        InterlockedCompareExchange((long *)&mi->state, old_state, Locked);
         if (mi->type == Recursive) {
           mi->rec_lock++;
           return 0;
@@ -147,7 +146,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
           return ENOMEM;    /* Probably accurate enough. */
         }
       }
-      if (!__sync_bool_compare_and_swap(&mi->event, NULL, ev)) {
+      if (InterlockedCompareExchangePointer(&mi->event, ev, NULL) != NULL) {
         /* Someone created the event before us. */
         CloseHandle(ev);
       }
@@ -155,7 +154,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
 
     /* At this point, mi->event is non-NULL. */
 
-    while (__sync_lock_test_and_set(&mi->state, Waiting) != Unlocked) {
+    while (InterlockedExchange((long *)&mi->state, Waiting) != Unlocked) {
       /* For timed locking attempts, it is possible (although unlikely)
          that we are woken up but someone else grabs the lock before us,
          and we have to go back to sleep again. In that case, the total
@@ -219,7 +218,7 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
     }
     mi->owner = (DWORD)-1;
   }
-  if (unlikely(__sync_lock_test_and_set(&mi->state, Unlocked) == Waiting)) {
+  if (unlikely(InterlockedExchange((long *)&mi->state, Unlocked) == Waiting)) {
     if (!SetEvent(mi->event))
       return EPERM;
   }
@@ -232,7 +231,7 @@ int pthread_mutex_trylock(pthread_mutex_t *m)
   if (mi == NULL)
     return ENOMEM;
 
-  if (__sync_bool_compare_and_swap(&mi->state, Unlocked, Locked)) {
+  if (InterlockedCompareExchange((long *)&mi->state, Locked, Unlocked) == Unlocked) {
     if (mi->type != Normal)
       mi->owner = GetCurrentThreadId();
     return 0;
