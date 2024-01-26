@@ -107,6 +107,8 @@ unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts);
 unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
+extern void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME);
+
 #if defined(__GNUC__) || defined(__clang__)
 #define likely(cond) __builtin_expect((cond) != 0, 1)
 #define unlikely(cond) __builtin_expect((cond) != 0, 0)
