@@ -2023,7 +2023,7 @@ void __cpuid(int CPUInfo[4], int InfoType) {
 #define __INTRINSIC_DEFINED___cpuid
 #endif /* __INTRINSIC_PROLOG */
 
-#if (!defined(__GNUC__) || __GNUC__ < 11) && (!defined(__clang__) || __clang_major__ < 18)
+#if (!defined(__GNUC__) || __GNUC__ < 11) && (!defined(__clang__) || __clang_major__ < 19)
 #if __INTRINSIC_PROLOG(__cpuidex)
 void __cpuidex(int CPUInfo[4], int, int);
 #if !__has_builtin(__cpuidex)
