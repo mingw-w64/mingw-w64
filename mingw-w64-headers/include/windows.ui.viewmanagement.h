@@ -77,6 +77,108 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane __x_ABI_CWindows_CUI_CViewManagement_CIInputPane;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane ABI::Windows::UI::ViewManagement::IInputPane
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPane;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 ABI::Windows::UI::ViewManagement::IInputPane2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPane2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl ABI::Windows::UI::ViewManagement::IInputPaneControl
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneControl;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs ABI::Windows::UI::ViewManagement::IInputPaneVisibilityEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneVisibilityEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics ABI::Windows::UI::ViewManagement::IInputPaneStatics
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 ABI::Windows::UI::ViewManagement::IInputPaneStatics2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneStatics2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CUISettings_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CUISettings_FWD_DEFINED__
 #ifdef __cplusplus
@@ -94,11 +196,53 @@ typedef struct __x_ABI_CWindows_CUI_CViewManagement_CUISettings __x_ABI_CWindows
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CUISettings_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CInputPane_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CInputPane_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                class InputPane;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CInputPane __x_ABI_CWindows_CUI_CViewManagement_CInputPane;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CInputPane_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                class InputPaneVisibilityEventArgs;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArgs __x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArgs_FWD_DEFINED__ */
+
 #ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable_FWD_DEFINED__
 #define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable_FWD_DEFINED__
 typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable;
 #ifdef __cplusplus
 #define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* >
 #endif /* __cplusplus */
 #endif
 
@@ -224,6 +368,108 @@ namespace ABI {
         namespace UI {
             namespace ViewManagement {
                 interface IUISettings6;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane __x_ABI_CWindows_CUI_CViewManagement_CIInputPane;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane ABI::Windows::UI::ViewManagement::IInputPane
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPane;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 ABI::Windows::UI::ViewManagement::IInputPane2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPane2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl ABI::Windows::UI::ViewManagement::IInputPaneControl
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneControl;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs ABI::Windows::UI::ViewManagement::IInputPaneVisibilityEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneVisibilityEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics ABI::Windows::UI::ViewManagement::IInputPaneStatics
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 ABI::Windows::UI::ViewManagement::IInputPaneStatics2
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IInputPaneStatics2;
             }
         }
     }
@@ -1012,6 +1258,876 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_
 #endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * IInputPane interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPane, 0x640ada70, 0x06f3, 0x4c87, 0xa6,0x78, 0x98,0x29,0xc9,0x12,0x7c,0x28);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("640ada70-06f3-4c87-a678-9829c9127c28")
+                IInputPane : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE add_Showing(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_Showing(
+                        EventRegistrationToken token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE add_Hiding(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_Hiding(
+                        EventRegistrationToken token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_OccludedRect(
+                        struct Rect *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane, 0x640ada70, 0x06f3, 0x4c87, 0xa6,0x78, 0x98,0x29,0xc9,0x12,0x7c,0x28)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPane methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_Showing)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_Showing)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *add_Hiding)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_Hiding)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *get_OccludedRect)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *This,
+        struct __x_ABI_CWindows_CFoundation_CRect *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPane methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Showing(This,handler,token) (This)->lpVtbl->add_Showing(This,handler,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Showing(This,token) (This)->lpVtbl->remove_Showing(This,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Hiding(This,handler,token) (This)->lpVtbl->add_Hiding(This,handler,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Hiding(This,token) (This)->lpVtbl->remove_Hiding(This,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_get_OccludedRect(This,value) (This)->lpVtbl->get_OccludedRect(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPane methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Showing(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_Showing(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Showing(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_Showing(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Hiding(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_Hiding(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Hiding(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_Hiding(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_get_OccludedRect(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane* This,struct __x_ABI_CWindows_CFoundation_CRect *value) {
+    return This->lpVtbl->get_OccludedRect(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPane IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPane
+#define IInputPaneVtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVtbl
+#define IInputPane __x_ABI_CWindows_CUI_CViewManagement_CIInputPane
+#define IInputPane_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_QueryInterface
+#define IInputPane_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_AddRef
+#define IInputPane_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_Release
+#define IInputPane_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetIids
+#define IInputPane_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetRuntimeClassName
+#define IInputPane_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_GetTrustLevel
+#define IInputPane_add_Showing __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Showing
+#define IInputPane_remove_Showing __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Showing
+#define IInputPane_add_Hiding __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_add_Hiding
+#define IInputPane_remove_Hiding __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_remove_Hiding
+#define IInputPane_get_OccludedRect __x_ABI_CWindows_CUI_CViewManagement_CIInputPane_get_OccludedRect
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IInputPane2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPane2, 0x8a6b3f26, 0x7090, 0x4793, 0x94,0x4c, 0xc3,0xf2,0xcd,0xe2,0x62,0x76);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("8a6b3f26-7090-4793-944c-c3f2cde26276")
+                IInputPane2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE TryShow(
+                        boolean *result) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE TryHide(
+                        boolean *result) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2, 0x8a6b3f26, 0x7090, 0x4793, 0x94,0x4c, 0xc3,0xf2,0xcd,0xe2,0x62,0x76)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPane2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *TryShow)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        boolean *result);
+
+    HRESULT (STDMETHODCALLTYPE *TryHide)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 *This,
+        boolean *result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPane2 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryShow(This,result) (This)->lpVtbl->TryShow(This,result)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryHide(This,result) (This)->lpVtbl->TryHide(This,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPane2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryShow(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,boolean *result) {
+    return This->lpVtbl->TryShow(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryHide(__x_ABI_CWindows_CUI_CViewManagement_CIInputPane2* This,boolean *result) {
+    return This->lpVtbl->TryHide(This,result);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPane2 IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPane2
+#define IInputPane2Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2Vtbl
+#define IInputPane2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2
+#define IInputPane2_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_QueryInterface
+#define IInputPane2_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_AddRef
+#define IInputPane2_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_Release
+#define IInputPane2_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetIids
+#define IInputPane2_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetRuntimeClassName
+#define IInputPane2_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_GetTrustLevel
+#define IInputPane2_TryShow __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryShow
+#define IInputPane2_TryHide __x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_TryHide
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPane2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IInputPaneControl interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl, 0x088bb24f, 0x962f, 0x489d, 0xaa,0x6e, 0xc6,0xbe,0x1a,0x0a,0x6e,0x52);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("088bb24f-962f-489d-aa6e-c6be1a0a6e52")
+                IInputPaneControl : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Visible(
+                        boolean *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Visible(
+                        boolean value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl, 0x088bb24f, 0x962f, 0x489d, 0xaa,0x6e, 0xc6,0xbe,0x1a,0x0a,0x6e,0x52)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPaneControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Visible)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Visible)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl *This,
+        boolean value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControlVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPaneControl methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_get_Visible(This,value) (This)->lpVtbl->get_Visible(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_put_Visible(This,value) (This)->lpVtbl->put_Visible(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPaneControl methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_get_Visible(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,boolean *value) {
+    return This->lpVtbl->get_Visible(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_put_Visible(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl* This,boolean value) {
+    return This->lpVtbl->put_Visible(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPaneControl IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl
+#define IInputPaneControlVtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControlVtbl
+#define IInputPaneControl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl
+#define IInputPaneControl_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_QueryInterface
+#define IInputPaneControl_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_AddRef
+#define IInputPaneControl_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_Release
+#define IInputPaneControl_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetIids
+#define IInputPaneControl_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetRuntimeClassName
+#define IInputPaneControl_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_GetTrustLevel
+#define IInputPaneControl_get_Visible __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_get_Visible
+#define IInputPaneControl_put_Visible __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_put_Visible
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneControl_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IInputPaneVisibilityEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs, 0xd243e016, 0xd907, 0x4fcc, 0xbb,0x8d, 0xf7,0x7b,0xaa,0x50,0x28,0xf1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("d243e016-d907-4fcc-bb8d-f77baa5028f1")
+                IInputPaneVisibilityEventArgs : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_OccludedRect(
+                        struct Rect *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_EnsuredFocusedElementInView(
+                        boolean value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_EnsuredFocusedElementInView(
+                        boolean *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs, 0xd243e016, 0xd907, 0x4fcc, 0xbb,0x8d, 0xf7,0x7b,0xaa,0x50,0x28,0xf1)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPaneVisibilityEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_OccludedRect)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        struct __x_ABI_CWindows_CFoundation_CRect *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_EnsuredFocusedElementInView)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        boolean value);
+
+    HRESULT (STDMETHODCALLTYPE *get_EnsuredFocusedElementInView)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *This,
+        boolean *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPaneVisibilityEventArgs methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_OccludedRect(This,value) (This)->lpVtbl->get_OccludedRect(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_put_EnsuredFocusedElementInView(This,value) (This)->lpVtbl->put_EnsuredFocusedElementInView(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_EnsuredFocusedElementInView(This,value) (This)->lpVtbl->get_EnsuredFocusedElementInView(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPaneVisibilityEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_OccludedRect(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,struct __x_ABI_CWindows_CFoundation_CRect *value) {
+    return This->lpVtbl->get_OccludedRect(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_put_EnsuredFocusedElementInView(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,boolean value) {
+    return This->lpVtbl->put_EnsuredFocusedElementInView(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_EnsuredFocusedElementInView(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs* This,boolean *value) {
+    return This->lpVtbl->get_EnsuredFocusedElementInView(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPaneVisibilityEventArgs IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs
+#define IInputPaneVisibilityEventArgsVtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgsVtbl
+#define IInputPaneVisibilityEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs
+#define IInputPaneVisibilityEventArgs_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_QueryInterface
+#define IInputPaneVisibilityEventArgs_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_AddRef
+#define IInputPaneVisibilityEventArgs_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_Release
+#define IInputPaneVisibilityEventArgs_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetIids
+#define IInputPaneVisibilityEventArgs_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetRuntimeClassName
+#define IInputPaneVisibilityEventArgs_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_GetTrustLevel
+#define IInputPaneVisibilityEventArgs_get_OccludedRect __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_OccludedRect
+#define IInputPaneVisibilityEventArgs_put_EnsuredFocusedElementInView __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_put_EnsuredFocusedElementInView
+#define IInputPaneVisibilityEventArgs_get_EnsuredFocusedElementInView __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_get_EnsuredFocusedElementInView
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IInputPaneStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics, 0x95f4af3a, 0xef47, 0x424a, 0x97,0x41, 0xfd,0x28,0x15,0xeb,0xa2,0xbd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("95f4af3a-ef47-424a-9741-fd2815eba2bd")
+                IInputPaneStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetForCurrentView(
+                        ABI::Windows::UI::ViewManagement::IInputPane **input_pane) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics, 0x95f4af3a, 0xef47, 0x424a, 0x97,0x41, 0xfd,0x28,0x15,0xeb,0xa2,0xbd)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPaneStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetForCurrentView)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics *This,
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane **input_pane);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStaticsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPaneStatics methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetForCurrentView(This,input_pane) (This)->lpVtbl->GetForCurrentView(This,input_pane)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPaneStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetForCurrentView(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics* This,__x_ABI_CWindows_CUI_CViewManagement_CIInputPane **input_pane) {
+    return This->lpVtbl->GetForCurrentView(This,input_pane);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPaneStatics IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics
+#define IInputPaneStaticsVtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStaticsVtbl
+#define IInputPaneStatics __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics
+#define IInputPaneStatics_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_QueryInterface
+#define IInputPaneStatics_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_AddRef
+#define IInputPaneStatics_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_Release
+#define IInputPaneStatics_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetIids
+#define IInputPaneStatics_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetRuntimeClassName
+#define IInputPaneStatics_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetTrustLevel
+#define IInputPaneStatics_GetForCurrentView __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_GetForCurrentView
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IInputPaneStatics2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2, 0x1b63529b, 0xd9ec, 0x4531, 0x84,0x45, 0x71,0xba,0xb9,0xfb,0x82,0x8e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("1b63529b-d9ec-4531-8445-71bab9fb828e")
+                IInputPaneStatics2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetForUIContext(
+                        ABI::Windows::UI::IUIContext *context,
+                        ABI::Windows::UI::ViewManagement::IInputPane **result) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2, 0x1b63529b, 0xd9ec, 0x4531, 0x84,0x45, 0x71,0xba,0xb9,0xfb,0x82,0x8e)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IInputPaneStatics2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetForUIContext)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 *This,
+        __x_ABI_CWindows_CUI_CIUIContext *context,
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IInputPaneStatics2 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetForUIContext(This,context,result) (This)->lpVtbl->GetForUIContext(This,context,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_Release(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IInputPaneStatics2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetForUIContext(__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2* This,__x_ABI_CWindows_CUI_CIUIContext *context,__x_ABI_CWindows_CUI_CViewManagement_CIInputPane **result) {
+    return This->lpVtbl->GetForUIContext(This,context,result);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IInputPaneStatics2 IID___x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2
+#define IInputPaneStatics2Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2Vtbl
+#define IInputPaneStatics2 __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2
+#define IInputPaneStatics2_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_QueryInterface
+#define IInputPaneStatics2_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_AddRef
+#define IInputPaneStatics2_Release __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_Release
+#define IInputPaneStatics2_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetIids
+#define IInputPaneStatics2_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetRuntimeClassName
+#define IInputPaneStatics2_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetTrustLevel
+#define IInputPaneStatics2_GetForUIContext __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_GetForUIContext
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIInputPaneStatics2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+
 /*
  * Class Windows.UI.ViewManagement.UISettings
  */
@@ -1026,6 +2142,38 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettings
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettings[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_UI_ViewManagement_UISettings_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.UI.ViewManagement.InputPane
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_UI_ViewManagement_InputPane_DEFINED
+#define RUNTIMECLASS_Windows_UI_ViewManagement_InputPane_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPane[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','I','n','p','u','t','P','a','n','e',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPane[] = L"Windows.UI.ViewManagement.InputPane";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPane[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','I','n','p','u','t','P','a','n','e',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_UI_ViewManagement_InputPane_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.UI.ViewManagement.InputPaneVisibilityEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','I','n','p','u','t','P','a','n','e','V','i','s','i','b','i','l','i','t','y','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs[] = L"Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','I','n','p','u','t','P','a','n','e','V','i','s','i','b','i','l','i','t','y','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_UI_ViewManagement_InputPaneVisibilityEventArgs_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -1119,6 +2267,98 @@ static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManageme
 #endif
 
 #endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs, 0xb813d684, 0xd953, 0x5a8a, 0x9b,0x30, 0x78,0xb7,0x9f,0xb9,0x14,0x7b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("b813d684-d953-5a8a-9b30-78b79fb9147b")
+            ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::InputPane*, ABI::Windows::UI::ViewManagement::IInputPane* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs*, ABI::Windows::UI::ViewManagement::IInputPaneVisibilityEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs, 0xb813d684, 0xd953, 0x5a8a, 0x9b,0x30, 0x78,0xb7,0x9f,0xb9,0x14,0x7b)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs *This,
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPane *sender,
+        __x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_AddRef(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Release(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Invoke(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs* This,__x_ABI_CWindows_CUI_CViewManagement_CIInputPane *sender,__x_ABI_CWindows_CUI_CViewManagement_CIInputPaneVisibilityEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgsVtbl __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgsVtbl
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_QueryInterface
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs_AddRef __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_AddRef
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs_Release __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Release
+#define ITypedEventHandler_InputPane_InputPaneVisibilityEventArgs_Invoke __FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CInputPane_Windows__CUI__CViewManagement__CInputPaneVisibilityEventArgs_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

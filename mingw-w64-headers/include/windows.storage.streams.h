@@ -128,6 +128,23 @@ typedef struct __x_ABI_CWindows_CStorage_CStreams_CRandomAccessStream __x_ABI_CW
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CRandomAccessStream_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CInMemoryRandomAccessStream_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CInMemoryRandomAccessStream_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                class InMemoryRandomAccessStream;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CInMemoryRandomAccessStream __x_ABI_CWindows_CStorage_CStreams_CInMemoryRandomAccessStream;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CInMemoryRandomAccessStream_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__
 #ifdef __cplusplus
@@ -1267,6 +1284,22 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_RandomAccess
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_RandomAccessStream[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','R','a','n','d','o','m','A','c','c','e','s','s','S','t','r','e','a','m',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Storage_Streams_RandomAccessStream_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.Streams.InMemoryRandomAccessStream
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_Streams_InMemoryRandomAccessStream_DEFINED
+#define RUNTIMECLASS_Windows_Storage_Streams_InMemoryRandomAccessStream_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_Streams_InMemoryRandomAccessStream[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','I','n','M','e','m','o','r','y','R','a','n','d','o','m','A','c','c','e','s','s','S','t','r','e','a','m',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_InMemoryRandomAccessStream[] = L"Windows.Storage.Streams.InMemoryRandomAccessStream";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_InMemoryRandomAccessStream[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','I','n','M','e','m','o','r','y','R','a','n','d','o','m','A','c','c','e','s','s','S','t','r','e','a','m',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_Streams_InMemoryRandomAccessStream_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*

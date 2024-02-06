@@ -94,11 +94,35 @@ typedef struct __x_ABI_CWindows_CDevices_CHaptics_CSimpleHapticsController __x_A
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CDevices_CHaptics_CSimpleHapticsController_FWD_DEFINED__ */
 
+#ifndef ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
 #ifdef __cplusplus
 #define __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
 #endif /* __cplusplus */
 #endif
 
@@ -153,11 +177,35 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
 #ifdef __cplusplus
 #define __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+#define ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_FWD_DEFINED__
+typedef interface __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController;
+#ifdef __cplusplus
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* >
 #endif /* __cplusplus */
 #endif
 
@@ -601,6 +649,283 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Devices_Haptics_Simpl
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000 */
 
 /*****************************************************************************
+ * IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0x3c501ba4, 0xeda4, 0x5238, 0xbd,0xb7, 0xd1,0x0b,0xa3,0x50,0xcd,0x83);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("3c501ba4-eda4-5238-bdb7-d10ba350cd83")
+                IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* > : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Haptics::SimpleHapticsController*, ABI::Windows::Devices::Haptics::ISimpleHapticsController* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0x3c501ba4, 0xeda4, 0x5238, 0xbd,0xb7, 0xd1,0x0b,0xa3,0x50,0xcd,0x83)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl;
+
+interface __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController {
+    CONST_VTBL __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Current(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_HasCurrent(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,boolean *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_MoveNext(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,boolean *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany(__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 items_size,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_SimpleHapticsController IID___FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IIterator_SimpleHapticsControllerVtbl __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl
+#define IIterator_SimpleHapticsController __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IIterator_SimpleHapticsController_QueryInterface __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface
+#define IIterator_SimpleHapticsController_AddRef __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef
+#define IIterator_SimpleHapticsController_Release __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release
+#define IIterator_SimpleHapticsController_GetIids __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids
+#define IIterator_SimpleHapticsController_GetRuntimeClassName __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName
+#define IIterator_SimpleHapticsController_GetTrustLevel __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel
+#define IIterator_SimpleHapticsController_get_Current __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Current
+#define IIterator_SimpleHapticsController_get_HasCurrent __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_HasCurrent
+#define IIterator_SimpleHapticsController_MoveNext __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_MoveNext
+#define IIterator_SimpleHapticsController_GetMany __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0xb50da692, 0x4a2b, 0x5c8a, 0x8e,0x14, 0x04,0x39,0xc0,0xb1,0xdb,0xa4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("b50da692-4a2b-5c8a-8e14-0439c0b1dba4")
+                IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Haptics::SimpleHapticsController*, ABI::Windows::Devices::Haptics::ISimpleHapticsController* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0xb50da692, 0x4a2b, 0x5c8a, 0x8e,0x14, 0x04,0x39,0xc0,0xb1,0xdb,0xa4)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        __FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl;
+
+interface __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController {
+    CONST_VTBL __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+#define __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_First(__FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,__FIIterator_1_Windows__CDevices__CHaptics__CSimpleHapticsController **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_SimpleHapticsController IID___FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IIterable_SimpleHapticsControllerVtbl __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl
+#define IIterable_SimpleHapticsController __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IIterable_SimpleHapticsController_QueryInterface __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface
+#define IIterable_SimpleHapticsController_AddRef __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef
+#define IIterable_SimpleHapticsController_Release __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release
+#define IIterable_SimpleHapticsController_GetIids __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids
+#define IIterable_SimpleHapticsController_GetRuntimeClassName __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName
+#define IIterable_SimpleHapticsController_GetTrustLevel __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel
+#define IIterable_SimpleHapticsController_First __FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IVectorView<ABI::Windows::Devices::Haptics::SimpleHapticsController* > interface
  */
 #ifndef ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
@@ -756,6 +1081,236 @@ static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CDevices__CHaptics__CSimp
 #endif
 
 #endif  /* ____FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* > interface
+ */
+#ifndef ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+#define ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0xdd88b8e7, 0x6821, 0x56fc, 0xb1,0xe7, 0x9c,0xa4,0xa7,0x85,0x5a,0xe0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("dd88b8e7-6821-56fc-b1e7-9ca4a7855ae0")
+                IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* > : IVector_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Devices::Haptics::SimpleHapticsController*, ABI::Windows::Devices::Haptics::ISimpleHapticsController* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController, 0xdd88b8e7, 0x6821, 0x56fc, 0xb1,0xe7, 0x9c,0xa4,0xa7,0x85,0x5a,0xe0)
+#endif
+#else
+typedef struct __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        TrustLevel *trustLevel);
+
+    /*** IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 index,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetView)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        __FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController **value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *SetAt)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 index,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value);
+
+    HRESULT (STDMETHODCALLTYPE *InsertAt)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 index,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAt)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 index);
+
+    HRESULT (STDMETHODCALLTYPE *Append)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAtEnd)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *ReplaceAll)(
+        __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController *This,
+        UINT32 count,
+        __x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items);
+
+    END_INTERFACE
+} __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl;
+
+interface __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController {
+    CONST_VTBL __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetView(This,value) (This)->lpVtbl->GetView(This,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_SetAt(This,index,value) (This)->lpVtbl->SetAt(This,index,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_InsertAt(This,index,value) (This)->lpVtbl->InsertAt(This,index,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAt(This,index) (This)->lpVtbl->RemoveAt(This,index)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Append(This,value) (This)->lpVtbl->Append(This,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAtEnd(This) (This)->lpVtbl->RemoveAtEnd(This)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Clear(This) (This)->lpVtbl->Clear(This)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#define __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_ReplaceAll(This,count,items) (This)->lpVtbl->ReplaceAll(This,count,items)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVector<ABI::Windows::Devices::Haptics::SimpleHapticsController* > methods ***/
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetAt(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 index,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Size(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetView(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,__FIVectorView_1_Windows__CDevices__CHaptics__CSimpleHapticsController **value) {
+    return This->lpVtbl->GetView(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_IndexOf(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_SetAt(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 index,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value) {
+    return This->lpVtbl->SetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_InsertAt(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 index,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value) {
+    return This->lpVtbl->InsertAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAt(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 index) {
+    return This->lpVtbl->RemoveAt(This,index);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Append(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController *value) {
+    return This->lpVtbl->Append(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAtEnd(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->RemoveAtEnd(This);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Clear(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This) {
+    return This->lpVtbl->Clear(This);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+static __WIDL_INLINE HRESULT __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_ReplaceAll(__FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController* This,UINT32 count,__x_ABI_CWindows_CDevices_CHaptics_CISimpleHapticsController **items) {
+    return This->lpVtbl->ReplaceAll(This,count,items);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVector_SimpleHapticsController IID___FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IVector_SimpleHapticsControllerVtbl __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsControllerVtbl
+#define IVector_SimpleHapticsController __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController
+#define IVector_SimpleHapticsController_QueryInterface __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_QueryInterface
+#define IVector_SimpleHapticsController_AddRef __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_AddRef
+#define IVector_SimpleHapticsController_Release __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Release
+#define IVector_SimpleHapticsController_GetIids __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetIids
+#define IVector_SimpleHapticsController_GetRuntimeClassName __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetRuntimeClassName
+#define IVector_SimpleHapticsController_GetTrustLevel __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetTrustLevel
+#define IVector_SimpleHapticsController_GetAt __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetAt
+#define IVector_SimpleHapticsController_get_Size __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_get_Size
+#define IVector_SimpleHapticsController_GetView __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetView
+#define IVector_SimpleHapticsController_IndexOf __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_IndexOf
+#define IVector_SimpleHapticsController_SetAt __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_SetAt
+#define IVector_SimpleHapticsController_InsertAt __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_InsertAt
+#define IVector_SimpleHapticsController_RemoveAt __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAt
+#define IVector_SimpleHapticsController_Append __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Append
+#define IVector_SimpleHapticsController_RemoveAtEnd __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_RemoveAtEnd
+#define IVector_SimpleHapticsController_Clear __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_Clear
+#define IVector_SimpleHapticsController_GetMany __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_GetMany
+#define IVector_SimpleHapticsController_ReplaceAll __FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_ReplaceAll
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVector_1_Windows__CDevices__CHaptics__CSimpleHapticsController_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVectorView<ABI::Windows::Devices::Haptics::SimpleHapticsControllerFeedback* > interface
