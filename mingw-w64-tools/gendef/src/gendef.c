@@ -196,7 +196,6 @@ show_usage (void)
                    "  By default, the output files are named after their DLL counterparts\n"
                    "  gendef MYDLL.DLL     Produces MYDLL.def\n"
                    "  gendef - MYDLL.DLL   Prints the exports to stdout\n");
-  fprintf (stderr, "\nBuilt on %s\n", __DATE__);
   fprintf (stderr, "\nReport bugs to <mingw-w64-public@lists.sourceforge.net>\n");
   exit (0);
 }
