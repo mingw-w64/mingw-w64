@@ -308,7 +308,8 @@
 #  define __has_builtin(x) 0
 #endif
 
-#if _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 && __MINGW_GNUC_PREREQ(4, 1)
+#if defined(__MINGW32__) && _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 \
+    && __MINGW_GNUC_PREREQ(4, 1)
 #  if _FORTIFY_SOURCE > 3
 #    warning Using _FORTIFY_SOURCE=3 (levels > 3 are not supported)
 #  endif
