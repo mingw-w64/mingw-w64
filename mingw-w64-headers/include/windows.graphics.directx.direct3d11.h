@@ -45,6 +45,49 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace DirectX {
+                namespace Direct3D11 {
+                    interface IDirect3DSurface;
+                }
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -106,6 +149,49 @@ namespace ABI {
         }
     }
 }
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace DirectX {
+                namespace Direct3D11 {
+                    interface IDirect3DSurface;
+                }
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
 #endif /* __cplusplus */
 #endif
 
@@ -299,6 +385,570 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CID
 
 #endif  /* ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DDevice_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDirect3DSurface interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface, 0x0bf4a146, 0x13c1, 0x4694, 0xbe,0xe3, 0x7a,0xbf,0x15,0xea,0xf5,0x86);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace DirectX {
+                namespace Direct3D11 {
+                    MIDL_INTERFACE("0bf4a146-13c1-4694-bee3-7abf15eaf586")
+                    IDirect3DSurface : public IInspectable
+                    {
+                        virtual HRESULT STDMETHODCALLTYPE get_Description(
+                            struct Direct3DSurfaceDescription *value) = 0;
+
+                    };
+                }
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface, 0x0bf4a146, 0x13c1, 0x4694, 0xbe,0xe3, 0x7a,0xbf,0x15,0xea,0xf5,0x86)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This,
+        TrustLevel *trustLevel);
+
+    /*** IDirect3DSurface methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Description)(
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *This,
+        struct __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DSurfaceDescription *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl;
+
+interface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface {
+    CONST_VTBL __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDirect3DSurface methods ***/
+#define __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_get_Description(This,value) (This)->lpVtbl->get_Description(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_QueryInterface(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_AddRef(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_Release(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetIids(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetRuntimeClassName(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetTrustLevel(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDirect3DSurface methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_get_Description(__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface* This,struct __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CDirect3DSurfaceDescription *value) {
+    return This->lpVtbl->get_Description(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Graphics_DirectX_Direct3D11
+#define IID_IDirect3DSurface IID___x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface
+#define IDirect3DSurfaceVtbl __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl
+#define IDirect3DSurface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface
+#define IDirect3DSurface_QueryInterface __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_QueryInterface
+#define IDirect3DSurface_AddRef __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_AddRef
+#define IDirect3DSurface_Release __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_Release
+#define IDirect3DSurface_GetIids __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetIids
+#define IDirect3DSurface_GetRuntimeClassName __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetRuntimeClassName
+#define IDirect3DSurface_GetTrustLevel __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_GetTrustLevel
+#define IDirect3DSurface_get_Description __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_get_Description
+#endif /* WIDL_using_Windows_Graphics_DirectX_Direct3D11 */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0xcc63bf9c, 0xe16a, 0x5a75, 0xa5,0xaa, 0x2b,0x53,0xf9,0x75,0xb0,0xb0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("cc63bf9c-e16a-5a75-a5aa-2b53f975b0b0")
+                IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > : IIterable_impl<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0xcc63bf9c, 0xe16a, 0x5a75, 0xa5,0xaa, 0x2b,0x53,0xf9,0x75,0xb0,0xb0)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl;
+
+interface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface {
+    CONST_VTBL __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+#define __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_First(__FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_IDirect3DSurface IID___FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IIterable_IDirect3DSurfaceVtbl __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl
+#define IIterable_IDirect3DSurface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IIterable_IDirect3DSurface_QueryInterface __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface
+#define IIterable_IDirect3DSurface_AddRef __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef
+#define IIterable_IDirect3DSurface_Release __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release
+#define IIterable_IDirect3DSurface_GetIids __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids
+#define IIterable_IDirect3DSurface_GetRuntimeClassName __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName
+#define IIterable_IDirect3DSurface_GetTrustLevel __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel
+#define IIterable_IDirect3DSurface_First __FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0xbdfb6d0b, 0xe785, 0x5d5a, 0xab,0xd2, 0xfe,0x1b,0x18,0xc4,0x32,0x57);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("bdfb6d0b-e785-5d5a-abd2-fe1b18c43257")
+                IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > : IIterator_impl<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0xbdfb6d0b, 0xe785, 0x5d5a, 0xab,0xd2, 0xfe,0x1b,0x18,0xc4,0x32,0x57)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl;
+
+interface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface {
+    CONST_VTBL __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Current(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_HasCurrent(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,boolean *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_MoveNext(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,boolean *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany(__FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,UINT32 items_size,__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_IDirect3DSurface IID___FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IIterator_IDirect3DSurfaceVtbl __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl
+#define IIterator_IDirect3DSurface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IIterator_IDirect3DSurface_QueryInterface __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface
+#define IIterator_IDirect3DSurface_AddRef __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef
+#define IIterator_IDirect3DSurface_Release __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release
+#define IIterator_IDirect3DSurface_GetIids __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids
+#define IIterator_IDirect3DSurface_GetRuntimeClassName __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName
+#define IIterator_IDirect3DSurface_GetTrustLevel __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel
+#define IIterator_IDirect3DSurface_get_Current __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Current
+#define IIterator_IDirect3DSurface_get_HasCurrent __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_HasCurrent
+#define IIterator_IDirect3DSurface_MoveNext __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_MoveNext
+#define IIterator_IDirect3DSurface_GetMany __FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0x1a81ec3e, 0x5afb, 0x5e10, 0x92,0xbb, 0xc8,0x43,0xfe,0xc7,0x08,0x87);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("1a81ec3e-5afb-5e10-92bb-c843fec70887")
+                IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > : IVectorView_impl<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface, 0x1a81ec3e, 0x5afb, 0x5e10, 0x92,0xbb, 0xc8,0x43,0xfe,0xc7,0x08,0x87)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        UINT32 index,
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl;
+
+interface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface {
+    CONST_VTBL __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface* > methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetAt(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,UINT32 index,__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Size(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_IndexOf(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany(__FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_IDirect3DSurface IID___FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IVectorView_IDirect3DSurfaceVtbl __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurfaceVtbl
+#define IVectorView_IDirect3DSurface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface
+#define IVectorView_IDirect3DSurface_QueryInterface __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_QueryInterface
+#define IVectorView_IDirect3DSurface_AddRef __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_AddRef
+#define IVectorView_IDirect3DSurface_Release __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_Release
+#define IVectorView_IDirect3DSurface_GetIids __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetIids
+#define IVectorView_IDirect3DSurface_GetRuntimeClassName __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetRuntimeClassName
+#define IVectorView_IDirect3DSurface_GetTrustLevel __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetTrustLevel
+#define IVectorView_IDirect3DSurface_GetAt __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetAt
+#define IVectorView_IDirect3DSurface_get_Size __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_get_Size
+#define IVectorView_IDirect3DSurface_IndexOf __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_IndexOf
+#define IVectorView_IDirect3DSurface_GetMany __FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CGraphics__CDirectX__CDirect3D11__CIDirect3DSurface_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

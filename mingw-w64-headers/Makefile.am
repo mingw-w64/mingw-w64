@@ -305,11 +305,13 @@ IDL_SRCS = \
   include/windows.graphics.directx.direct3d11.idl \
   include/windows.graphics.effects.idl \
   include/windows.graphics.holographic.idl \
+  include/windows.graphics.imaging.idl \
   include/windows.management.deployment.idl \
   include/windows.media.capture.idl \
   include/windows.media.closedcaptioning.idl \
   include/windows.media.devices.idl \
   include/windows.media.effects.idl \
+  include/windows.media.faceanalysis.idl \
   include/windows.media.idl \
   include/windows.media.render.idl \
   include/windows.media.speechrecognition.idl \
@@ -318,6 +320,7 @@ IDL_SRCS = \
   include/windows.networking.idl \
   include/windows.perception.spatial.idl \
   include/windows.perception.spatial.surfaces.idl \
+  include/windows.security.authentication.onlineid.idl \
   include/windows.security.credentials.idl \
   include/windows.security.credentials.ui.idl \
   include/windows.security.cryptography.idl \
