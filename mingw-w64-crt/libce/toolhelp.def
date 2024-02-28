@@ -2,7 +2,6 @@ LIBRARY  TOOLHELP.DLL
 EXPORTS
 CloseToolhelp32Snapshot
 CreateToolhelp32Snapshot
-DllMain
 Heap32First
 Heap32ListFirst
 Heap32ListNext
