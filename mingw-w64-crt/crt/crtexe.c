@@ -146,7 +146,7 @@ static int __tmainCRTStartup (void);
 
 int WinMainCRTStartup (void);
 
-__attribute__((used)) /* required due to bug in gcc / ld */
+__attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int WinMainCRTStartup (void)
 {
   int ret = 255;
@@ -177,7 +177,7 @@ int mainCRTStartup (void);
 int __mingw_init_ehandler (void);
 #endif
 
-__attribute__((used)) /* required due to bug in gcc / ld */
+__attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int mainCRTStartup (void)
 {
   int ret = 255;
