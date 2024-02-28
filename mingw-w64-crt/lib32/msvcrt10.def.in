@@ -972,9 +972,11 @@ _fputwchar
 _fsopen
 _fstat
 _ftime
+_ftime32 == _ftime
 _ftol
 _fullpath
 _futime
+_futime32 == _futime
 _gcvt
 _get_osfhandle
 _getch
@@ -1090,6 +1092,7 @@ _umask
 _ungetch
 _unlink
 _utime
+_utime32 == _utime
 _vsnprintf
 _vsnwprintf
 _wcsdup
@@ -1127,7 +1130,9 @@ clock
 cos
 cosh
 ctime
+_ctime32 == ctime
 difftime
+_difftime32 == difftime
 div
 exit
 exp
@@ -1163,6 +1168,7 @@ getchar
 getenv
 gets
 gmtime
+_gmtime32 == gmtime
 isalnum
 isalpha
 iscntrl
@@ -1193,6 +1199,7 @@ ldexp
 ldiv
 localeconv
 localtime
+_localtime32 == localtime
 log
 log10
 longjmp
@@ -1206,6 +1213,7 @@ memcpy
 memmove
 memset
 mktime
+_mktime32 == mktime
 modf
 perror
 pow
@@ -1258,6 +1266,7 @@ system
 tan
 tanh
 time
+_time32 == time
 tmpfile
 tmpnam
 tolower
