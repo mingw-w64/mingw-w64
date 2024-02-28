@@ -4,22 +4,27 @@
 ;* This file is part of the mingw-runtime package.
 ;* No warranty is given; refer to the file DISCLAIMER.PD within the package.
 ;
-; Exports from crtdll.dll from Windows 95 SYSTEM directory. Hopefully this
-; should also work with the crtdll provided with Windows NT.
+; Exports from crtdll.dll from Windows 95 SYSTEM directory.  Matches also
+; crtdll.dll provided with Windows 98, Windows Me and Windows NT 3.50.
+; It is compatible also with new Windows NT versions (e.g. Windows 10).
+;
+; Windows NT 3.1 misses following symbols:
+; _set_new_handler __dllonexit _heapchk _heapmin _heapset _heapwalk _ismb*
+; _mb* (except _mbstrlen) _strdec _strinc _strncnt _strnextc _strninc _strspnp
+; _wtoi _wtol
+;
+; Win32s 1.30c on Windows 3.1 misses following symbols:
+; __argc_dll __argv_dll _environ_dll _pgmptr_dll
+;
+; Win32s on Windows 3.1, Windows NT 3.51 and new Windows NT versions contains
+; additional symbols defined at the end of file.
 ;
 ; NOTE: The crtdll is OBSOLETE and msvcrt should be used instead.  The msvcrt
 ; is available for free download from Microsoft Corporation and will work on
 ; Windows 95.  Support for the crtdll is deprecated and this file may be
 ; deleted in future versions.
 ;
-; These three functions appear to be name mangled in some way, so GCC is
-; probably not going to be able to use them in any case.
-;
-;    ??2@YAPAXI@Z
-;    ??3@YAXPAX@Z
-;    ?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
-;
-; These are functions for which I have not yet written prototypes or
+; These are symbols for which I have not yet written prototypes or
 ; otherwise set up (they are still included below though unlike those
 ; first three).
 ;
@@ -40,142 +45,37 @@
 ;    _CItan
 ;    _CItanh
 ;    __dllonexit
-;    __mb_cur_max_dll
-;    __threadhandle
-;    __threadid
-;    _abnormal_termination
 ;    _acmdln_dll
 ;    _aexit_rtn_dll
 ;    _amsg_exit
-;    _commit
 ;    _commode_dll
 ;    _cpumode_dll
 ;    _ctype
-;    _expand
-;    _fcloseall
-;    _filbuf
 ;    _fileinfo_dll
-;    _flsbuf
-;    _flushall
 ;    _fmode_dll
-;    _fpieee_flt
-;    _fsopen
 ;    _ftol
-;    _getdiskfree
-;    _getdllprocaddr
-;    _getdrive
-;    _getdrives
-;    _getsystime
 ;    _initterm
-;    _ismbbalnum
-;    _ismbbalpha
-;    _ismbbgraph
-;    _ismbbkalnum
-;    _ismbbkana
-;    _ismbbkpunct
-;    _ismbblead
-;    _ismbbprint
-;    _ismbbpunct
-;    _ismbbtrail
-;    _ismbcalpha
-;    _ismbcdigit
-;    _ismbchira
-;    _ismbckata
-;    _ismbcl0
-;    _ismbcl1
-;    _ismbcl2
-;    _ismbclegal
-;    _ismbclower
-;    _ismbcprint
-;    _ismbcspace
-;    _ismbcsymbol
-;    _ismbcupper
-;    _ismbslead
-;    _ismbstrail
-;    _lfind
-;    _loaddll
-;    _lrotl
-;    _lrotr
-;    _lsearch
-;    _makepath
-;    _matherr
-;    _mbbtombc
-;    _mbbtype
-;    _mbccpy
-;    _mbcjistojms
-;    _mbcjmstojis
-;    _mbclen
-;    _mbctohira
-;    _mbctokata
-;    _mbctolower
-;    _mbctombb
-;    _mbctoupper
-;    _mbctype
-;    _mbsbtype
-;    _mbscat
-;    _mbscmp
-;    _mbscpy
-;    _mbscspn
-;    _mbsdec
-;    _mbsdup
-;    _mbsicmp
-;    _mbsinc
-;    _mbslen
-;    _mbslwr
-;    _mbsnbcat
-;    _mbsnbcmp
-;    _mbsnbcnt
-;    _mbsnbcpy
-;    _mbsnbicmp
-;    _mbsnbset
-;    _mbsnccnt
-;    _mbsncmp
-;    _mbsncpy
-;    _mbsnextc
-;    _mbsnicmp
-;    _mbsninc
-;    _mbsnset
-;    _mbspbrk
-;    _mbsrchr
-;    _mbsrev
-;    _mbsset
-;    _mbsspn
-;    _mbsspnp
-;    _mbsstr
-;    _mbstrlen
-;    _mbsupr
-;    _onexit
 ;    _osversion_dll
-;    _pctype_dll
 ;    _purecall
-;    _pwctype_dll
-;    _rmtmp
-;    _rotl
-;    _rotr
-;    _setsystime
-;    _snprintf
-;    _snwprintf
-;    _splitpath
-;    _strdate
 ;    _strdec
 ;    _strinc
 ;    _strncnt
 ;    _strnextc
 ;    _strninc
 ;    _strspnp
-;    _strtime
-;    _tempnam
-;    _ultoa
-;    _unloaddll
-;    _vsnprintf
-;    _vsnwprintf
-;    _wtoi
-;    _wtol
 ;
 LIBRARY "crtdll.dll"
 EXPORTS
 
 #include "msvcrt-common.def.in"
+
+; crtdll.dll contains 3 mangled C++ symbols
+; void *__cdecl operator new(unsigned int)
+??2@YAPAXI@Z
+; void __cdecl operator delete(void *)
+??3@YAXPAX@Z
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
+?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
 
 _CIacos
 _CIasin
@@ -728,3 +628,9 @@ wcsxfrm
 wctomb
 wprintf
 wscanf
+
+; crtdll.dll from Win32s (Windows 3.1) and crtdll.dll on Windows NT 3.51 (and new)
+; contains 3 additional symbols which are not available in the Windows 95, 98 or ME.
+_itow
+_ltow
+_ultow
