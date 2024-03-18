@@ -181,6 +181,7 @@ for f in \
 	dxgiformat \
 	dxgitype \
 	dxva2api \
+	dyngraph \
 	endpointvolume \
 	eventtoken \
 	evr9 \
