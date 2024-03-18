@@ -586,6 +586,46 @@ interface IAMPluginControl;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IPinConnection_FWD_DEFINED__
+#define __IPinConnection_FWD_DEFINED__
+typedef interface IPinConnection IPinConnection;
+#ifdef __cplusplus
+interface IPinConnection;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IPinFlowControl_FWD_DEFINED__
+#define __IPinFlowControl_FWD_DEFINED__
+typedef interface IPinFlowControl IPinFlowControl;
+#ifdef __cplusplus
+interface IPinFlowControl;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IGraphConfig_FWD_DEFINED__
+#define __IGraphConfig_FWD_DEFINED__
+typedef interface IGraphConfig IGraphConfig;
+#ifdef __cplusplus
+interface IGraphConfig;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IGraphConfigCallback_FWD_DEFINED__
+#define __IGraphConfigCallback_FWD_DEFINED__
+typedef interface IGraphConfigCallback IGraphConfigCallback;
+#ifdef __cplusplus
+interface IGraphConfigCallback;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IFilterChain_FWD_DEFINED__
+#define __IFilterChain_FWD_DEFINED__
+typedef interface IFilterChain IFilterChain;
+#ifdef __cplusplus
+interface IFilterChain;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -11039,6 +11079,638 @@ static __WIDL_INLINE HRESULT IAMPluginControl_IsLegacyDisabled(IAMPluginControl*
 #endif  /* __IAMPluginControl_INTERFACE_DEFINED__ */
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
+#ifndef __IPinConnection_FWD_DEFINED__
+#define __IPinConnection_FWD_DEFINED__
+typedef interface IPinConnection IPinConnection;
+#ifdef __cplusplus
+interface IPinConnection;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IPinFlowControl_FWD_DEFINED__
+#define __IPinFlowControl_FWD_DEFINED__
+typedef interface IPinFlowControl IPinFlowControl;
+#ifdef __cplusplus
+interface IPinFlowControl;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IGraphConfig_FWD_DEFINED__
+#define __IGraphConfig_FWD_DEFINED__
+typedef interface IGraphConfig IGraphConfig;
+#ifdef __cplusplus
+interface IGraphConfig;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IGraphConfigCallback_FWD_DEFINED__
+#define __IGraphConfigCallback_FWD_DEFINED__
+typedef interface IGraphConfigCallback IGraphConfigCallback;
+#ifdef __cplusplus
+interface IGraphConfigCallback;
+#endif /* __cplusplus */
+#endif
+
+/*****************************************************************************
+ * IPinConnection interface
+ */
+#ifndef __IPinConnection_INTERFACE_DEFINED__
+#define __IPinConnection_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IPinConnection, 0x4a9a62d3, 0x27d4, 0x403d, 0x91,0xe9, 0x89,0xf5,0x40,0xe5,0x55,0x34);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4a9a62d3-27d4-403d-91e9-89f540e55534")
+IPinConnection : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE DynamicQueryAccept(
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NotifyEndOfStream(
+        HANDLE hNotifyEvent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsEndPin(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DynamicDisconnect(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPinConnection, 0x4a9a62d3, 0x27d4, 0x403d, 0x91,0xe9, 0x89,0xf5,0x40,0xe5,0x55,0x34)
+#endif
+#else
+typedef struct IPinConnectionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPinConnection *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPinConnection *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPinConnection *This);
+
+    /*** IPinConnection methods ***/
+    HRESULT (STDMETHODCALLTYPE *DynamicQueryAccept)(
+        IPinConnection *This,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyEndOfStream)(
+        IPinConnection *This,
+        HANDLE hNotifyEvent);
+
+    HRESULT (STDMETHODCALLTYPE *IsEndPin)(
+        IPinConnection *This);
+
+    HRESULT (STDMETHODCALLTYPE *DynamicDisconnect)(
+        IPinConnection *This);
+
+    END_INTERFACE
+} IPinConnectionVtbl;
+
+interface IPinConnection {
+    CONST_VTBL IPinConnectionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IPinConnection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPinConnection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPinConnection_Release(This) (This)->lpVtbl->Release(This)
+/*** IPinConnection methods ***/
+#define IPinConnection_DynamicQueryAccept(This,pmt) (This)->lpVtbl->DynamicQueryAccept(This,pmt)
+#define IPinConnection_NotifyEndOfStream(This,hNotifyEvent) (This)->lpVtbl->NotifyEndOfStream(This,hNotifyEvent)
+#define IPinConnection_IsEndPin(This) (This)->lpVtbl->IsEndPin(This)
+#define IPinConnection_DynamicDisconnect(This) (This)->lpVtbl->DynamicDisconnect(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IPinConnection_QueryInterface(IPinConnection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IPinConnection_AddRef(IPinConnection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IPinConnection_Release(IPinConnection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPinConnection methods ***/
+static __WIDL_INLINE HRESULT IPinConnection_DynamicQueryAccept(IPinConnection* This,const AM_MEDIA_TYPE *pmt) {
+    return This->lpVtbl->DynamicQueryAccept(This,pmt);
+}
+static __WIDL_INLINE HRESULT IPinConnection_NotifyEndOfStream(IPinConnection* This,HANDLE hNotifyEvent) {
+    return This->lpVtbl->NotifyEndOfStream(This,hNotifyEvent);
+}
+static __WIDL_INLINE HRESULT IPinConnection_IsEndPin(IPinConnection* This) {
+    return This->lpVtbl->IsEndPin(This);
+}
+static __WIDL_INLINE HRESULT IPinConnection_DynamicDisconnect(IPinConnection* This) {
+    return This->lpVtbl->DynamicDisconnect(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IPinConnection_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IPinFlowControl interface
+ */
+#ifndef __IPinFlowControl_INTERFACE_DEFINED__
+#define __IPinFlowControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IPinFlowControl, 0xc56e9858, 0xdbf3, 0x4f6b, 0x81,0x19, 0x38,0x4a,0xf2,0x06,0x0d,0xeb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c56e9858-dbf3-4f6b-8119-384af2060deb")
+IPinFlowControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Block(
+        DWORD dwBlockFlags,
+        HANDLE hEvent) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPinFlowControl, 0xc56e9858, 0xdbf3, 0x4f6b, 0x81,0x19, 0x38,0x4a,0xf2,0x06,0x0d,0xeb)
+#endif
+#else
+typedef struct IPinFlowControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPinFlowControl *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPinFlowControl *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPinFlowControl *This);
+
+    /*** IPinFlowControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *Block)(
+        IPinFlowControl *This,
+        DWORD dwBlockFlags,
+        HANDLE hEvent);
+
+    END_INTERFACE
+} IPinFlowControlVtbl;
+
+interface IPinFlowControl {
+    CONST_VTBL IPinFlowControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IPinFlowControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPinFlowControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPinFlowControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IPinFlowControl methods ***/
+#define IPinFlowControl_Block(This,dwBlockFlags,hEvent) (This)->lpVtbl->Block(This,dwBlockFlags,hEvent)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IPinFlowControl_QueryInterface(IPinFlowControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IPinFlowControl_AddRef(IPinFlowControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IPinFlowControl_Release(IPinFlowControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPinFlowControl methods ***/
+static __WIDL_INLINE HRESULT IPinFlowControl_Block(IPinFlowControl* This,DWORD dwBlockFlags,HANDLE hEvent) {
+    return This->lpVtbl->Block(This,dwBlockFlags,hEvent);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IPinFlowControl_INTERFACE_DEFINED__ */
+
+enum _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
+    AM_PIN_FLOW_CONTROL_BLOCK = 0x1
+};
+typedef enum _AM_GRAPH_CONFIG_RECONNECT_FLAGS {
+    AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT = 0x1,
+    AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS = 0x2,
+    AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS = 0x4
+} AM_GRAPH_CONFIG_RECONNECT_FLAGS;
+enum _REM_FILTER_FLAGS {
+    REMFILTERF_LEAVECONNECTED = 0x1
+};
+typedef enum _AM_FILTER_FLAGS {
+    AM_FILTER_FLAGS_REMOVABLE = 0x1
+} AM_FILTER_FLAGS;
+/*****************************************************************************
+ * IGraphConfig interface
+ */
+#ifndef __IGraphConfig_INTERFACE_DEFINED__
+#define __IGraphConfig_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IGraphConfig, 0x03a1eb8e, 0x32bf, 0x4245, 0x85,0x02, 0x11,0x4d,0x08,0xa9,0xcb,0x88);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("03a1eb8e-32bf-4245-8502-114d08a9cb88")
+IGraphConfig : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Reconnect(
+        IPin *pOutputPin,
+        IPin *pInputPin,
+        const AM_MEDIA_TYPE *pmtFirstConnection,
+        IBaseFilter *pUsingFilter,
+        HANDLE hAbortEvent,
+        DWORD dwFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reconfigure(
+        IGraphConfigCallback *pCallback,
+        PVOID pvContext,
+        DWORD dwFlags,
+        HANDLE hAbortEvent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddFilterToCache(
+        IBaseFilter *pFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumCacheFilter(
+        IEnumFilters **pEnum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFilterFromCache(
+        IBaseFilter *pFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStartTime(
+        REFERENCE_TIME *prtStart) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PushThroughData(
+        IPin *pOutputPin,
+        IPinConnection *pConnection,
+        HANDLE hEventAbort) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFilterFlags(
+        IBaseFilter *pFilter,
+        DWORD dwFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFilterFlags(
+        IBaseFilter *pFilter,
+        DWORD *pdwFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFilterEx(
+        IBaseFilter *pFilter,
+        DWORD Flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGraphConfig, 0x03a1eb8e, 0x32bf, 0x4245, 0x85,0x02, 0x11,0x4d,0x08,0xa9,0xcb,0x88)
+#endif
+#else
+typedef struct IGraphConfigVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IGraphConfig *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IGraphConfig *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IGraphConfig *This);
+
+    /*** IGraphConfig methods ***/
+    HRESULT (STDMETHODCALLTYPE *Reconnect)(
+        IGraphConfig *This,
+        IPin *pOutputPin,
+        IPin *pInputPin,
+        const AM_MEDIA_TYPE *pmtFirstConnection,
+        IBaseFilter *pUsingFilter,
+        HANDLE hAbortEvent,
+        DWORD dwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *Reconfigure)(
+        IGraphConfig *This,
+        IGraphConfigCallback *pCallback,
+        PVOID pvContext,
+        DWORD dwFlags,
+        HANDLE hAbortEvent);
+
+    HRESULT (STDMETHODCALLTYPE *AddFilterToCache)(
+        IGraphConfig *This,
+        IBaseFilter *pFilter);
+
+    HRESULT (STDMETHODCALLTYPE *EnumCacheFilter)(
+        IGraphConfig *This,
+        IEnumFilters **pEnum);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFilterFromCache)(
+        IGraphConfig *This,
+        IBaseFilter *pFilter);
+
+    HRESULT (STDMETHODCALLTYPE *GetStartTime)(
+        IGraphConfig *This,
+        REFERENCE_TIME *prtStart);
+
+    HRESULT (STDMETHODCALLTYPE *PushThroughData)(
+        IGraphConfig *This,
+        IPin *pOutputPin,
+        IPinConnection *pConnection,
+        HANDLE hEventAbort);
+
+    HRESULT (STDMETHODCALLTYPE *SetFilterFlags)(
+        IGraphConfig *This,
+        IBaseFilter *pFilter,
+        DWORD dwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *GetFilterFlags)(
+        IGraphConfig *This,
+        IBaseFilter *pFilter,
+        DWORD *pdwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFilterEx)(
+        IGraphConfig *This,
+        IBaseFilter *pFilter,
+        DWORD Flags);
+
+    END_INTERFACE
+} IGraphConfigVtbl;
+
+interface IGraphConfig {
+    CONST_VTBL IGraphConfigVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IGraphConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IGraphConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IGraphConfig_Release(This) (This)->lpVtbl->Release(This)
+/*** IGraphConfig methods ***/
+#define IGraphConfig_Reconnect(This,pOutputPin,pInputPin,pmtFirstConnection,pUsingFilter,hAbortEvent,dwFlags) (This)->lpVtbl->Reconnect(This,pOutputPin,pInputPin,pmtFirstConnection,pUsingFilter,hAbortEvent,dwFlags)
+#define IGraphConfig_Reconfigure(This,pCallback,pvContext,dwFlags,hAbortEvent) (This)->lpVtbl->Reconfigure(This,pCallback,pvContext,dwFlags,hAbortEvent)
+#define IGraphConfig_AddFilterToCache(This,pFilter) (This)->lpVtbl->AddFilterToCache(This,pFilter)
+#define IGraphConfig_EnumCacheFilter(This,pEnum) (This)->lpVtbl->EnumCacheFilter(This,pEnum)
+#define IGraphConfig_RemoveFilterFromCache(This,pFilter) (This)->lpVtbl->RemoveFilterFromCache(This,pFilter)
+#define IGraphConfig_GetStartTime(This,prtStart) (This)->lpVtbl->GetStartTime(This,prtStart)
+#define IGraphConfig_PushThroughData(This,pOutputPin,pConnection,hEventAbort) (This)->lpVtbl->PushThroughData(This,pOutputPin,pConnection,hEventAbort)
+#define IGraphConfig_SetFilterFlags(This,pFilter,dwFlags) (This)->lpVtbl->SetFilterFlags(This,pFilter,dwFlags)
+#define IGraphConfig_GetFilterFlags(This,pFilter,pdwFlags) (This)->lpVtbl->GetFilterFlags(This,pFilter,pdwFlags)
+#define IGraphConfig_RemoveFilterEx(This,pFilter,Flags) (This)->lpVtbl->RemoveFilterEx(This,pFilter,Flags)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IGraphConfig_QueryInterface(IGraphConfig* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IGraphConfig_AddRef(IGraphConfig* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IGraphConfig_Release(IGraphConfig* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IGraphConfig methods ***/
+static __WIDL_INLINE HRESULT IGraphConfig_Reconnect(IGraphConfig* This,IPin *pOutputPin,IPin *pInputPin,const AM_MEDIA_TYPE *pmtFirstConnection,IBaseFilter *pUsingFilter,HANDLE hAbortEvent,DWORD dwFlags) {
+    return This->lpVtbl->Reconnect(This,pOutputPin,pInputPin,pmtFirstConnection,pUsingFilter,hAbortEvent,dwFlags);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_Reconfigure(IGraphConfig* This,IGraphConfigCallback *pCallback,PVOID pvContext,DWORD dwFlags,HANDLE hAbortEvent) {
+    return This->lpVtbl->Reconfigure(This,pCallback,pvContext,dwFlags,hAbortEvent);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_AddFilterToCache(IGraphConfig* This,IBaseFilter *pFilter) {
+    return This->lpVtbl->AddFilterToCache(This,pFilter);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_EnumCacheFilter(IGraphConfig* This,IEnumFilters **pEnum) {
+    return This->lpVtbl->EnumCacheFilter(This,pEnum);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_RemoveFilterFromCache(IGraphConfig* This,IBaseFilter *pFilter) {
+    return This->lpVtbl->RemoveFilterFromCache(This,pFilter);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_GetStartTime(IGraphConfig* This,REFERENCE_TIME *prtStart) {
+    return This->lpVtbl->GetStartTime(This,prtStart);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_PushThroughData(IGraphConfig* This,IPin *pOutputPin,IPinConnection *pConnection,HANDLE hEventAbort) {
+    return This->lpVtbl->PushThroughData(This,pOutputPin,pConnection,hEventAbort);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_SetFilterFlags(IGraphConfig* This,IBaseFilter *pFilter,DWORD dwFlags) {
+    return This->lpVtbl->SetFilterFlags(This,pFilter,dwFlags);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_GetFilterFlags(IGraphConfig* This,IBaseFilter *pFilter,DWORD *pdwFlags) {
+    return This->lpVtbl->GetFilterFlags(This,pFilter,pdwFlags);
+}
+static __WIDL_INLINE HRESULT IGraphConfig_RemoveFilterEx(IGraphConfig* This,IBaseFilter *pFilter,DWORD Flags) {
+    return This->lpVtbl->RemoveFilterEx(This,pFilter,Flags);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IGraphConfig_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IGraphConfigCallback interface
+ */
+#ifndef __IGraphConfigCallback_INTERFACE_DEFINED__
+#define __IGraphConfigCallback_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IGraphConfigCallback, 0xade0fd60, 0xd19d, 0x11d2, 0xab,0xf6, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ade0fd60-d19d-11d2-abf6-00a0c905f375")
+IGraphConfigCallback : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Reconfigure(
+        PVOID pvContext,
+        DWORD dwFlags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGraphConfigCallback, 0xade0fd60, 0xd19d, 0x11d2, 0xab,0xf6, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IGraphConfigCallbackVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IGraphConfigCallback *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IGraphConfigCallback *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IGraphConfigCallback *This);
+
+    /*** IGraphConfigCallback methods ***/
+    HRESULT (STDMETHODCALLTYPE *Reconfigure)(
+        IGraphConfigCallback *This,
+        PVOID pvContext,
+        DWORD dwFlags);
+
+    END_INTERFACE
+} IGraphConfigCallbackVtbl;
+
+interface IGraphConfigCallback {
+    CONST_VTBL IGraphConfigCallbackVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IGraphConfigCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IGraphConfigCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IGraphConfigCallback_Release(This) (This)->lpVtbl->Release(This)
+/*** IGraphConfigCallback methods ***/
+#define IGraphConfigCallback_Reconfigure(This,pvContext,dwFlags) (This)->lpVtbl->Reconfigure(This,pvContext,dwFlags)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IGraphConfigCallback_QueryInterface(IGraphConfigCallback* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IGraphConfigCallback_AddRef(IGraphConfigCallback* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IGraphConfigCallback_Release(IGraphConfigCallback* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IGraphConfigCallback methods ***/
+static __WIDL_INLINE HRESULT IGraphConfigCallback_Reconfigure(IGraphConfigCallback* This,PVOID pvContext,DWORD dwFlags) {
+    return This->lpVtbl->Reconfigure(This,pvContext,dwFlags);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IGraphConfigCallback_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IFilterChain interface
+ */
+#ifndef __IFilterChain_INTERFACE_DEFINED__
+#define __IFilterChain_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFilterChain, 0xdcfbdcf6, 0x0dc2, 0x45f5, 0x9a,0xb2, 0x7c,0x33,0x0e,0xa0,0x9c,0x29);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("dcfbdcf6-0dc2-45f5-9ab2-7c330ea09c29")
+IFilterChain : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE StartChain(
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PauseChain(
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE StopChain(
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveChain(
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterChain, 0xdcfbdcf6, 0x0dc2, 0x45f5, 0x9a,0xb2, 0x7c,0x33,0x0e,0xa0,0x9c,0x29)
+#endif
+#else
+typedef struct IFilterChainVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterChain *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterChain *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterChain *This);
+
+    /*** IFilterChain methods ***/
+    HRESULT (STDMETHODCALLTYPE *StartChain)(
+        IFilterChain *This,
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter);
+
+    HRESULT (STDMETHODCALLTYPE *PauseChain)(
+        IFilterChain *This,
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter);
+
+    HRESULT (STDMETHODCALLTYPE *StopChain)(
+        IFilterChain *This,
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveChain)(
+        IFilterChain *This,
+        IBaseFilter *pStartFilter,
+        IBaseFilter *pEndFilter);
+
+    END_INTERFACE
+} IFilterChainVtbl;
+
+interface IFilterChain {
+    CONST_VTBL IFilterChainVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IFilterChain_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterChain_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterChain_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterChain methods ***/
+#define IFilterChain_StartChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->StartChain(This,pStartFilter,pEndFilter)
+#define IFilterChain_PauseChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->PauseChain(This,pStartFilter,pEndFilter)
+#define IFilterChain_StopChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->StopChain(This,pStartFilter,pEndFilter)
+#define IFilterChain_RemoveChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->RemoveChain(This,pStartFilter,pEndFilter)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IFilterChain_QueryInterface(IFilterChain* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IFilterChain_AddRef(IFilterChain* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IFilterChain_Release(IFilterChain* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IFilterChain methods ***/
+static __WIDL_INLINE HRESULT IFilterChain_StartChain(IFilterChain* This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) {
+    return This->lpVtbl->StartChain(This,pStartFilter,pEndFilter);
+}
+static __WIDL_INLINE HRESULT IFilterChain_PauseChain(IFilterChain* This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) {
+    return This->lpVtbl->PauseChain(This,pStartFilter,pEndFilter);
+}
+static __WIDL_INLINE HRESULT IFilterChain_StopChain(IFilterChain* This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) {
+    return This->lpVtbl->StopChain(This,pStartFilter,pEndFilter);
+}
+static __WIDL_INLINE HRESULT IFilterChain_RemoveChain(IFilterChain* This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) {
+    return This->lpVtbl->RemoveChain(This,pStartFilter,pEndFilter);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IFilterChain_INTERFACE_DEFINED__ */
+
 #ifndef __IReferenceClock2_FWD_DEFINED__
 #define __IReferenceClock2_FWD_DEFINED__
 typedef struct IReferenceClock2 IReferenceClock2;
@@ -11286,31 +11958,6 @@ typedef struct IDDrawExclModeVideo IDDrawExclModeVideo;
 #ifndef __IDDrawExclModeVideoCallback_FWD_DEFINED__
 #define __IDDrawExclModeVideoCallback_FWD_DEFINED__
 typedef struct IDDrawExclModeVideoCallback IDDrawExclModeVideoCallback;
-#endif
-
-#ifndef __IPinConnection_FWD_DEFINED__
-#define __IPinConnection_FWD_DEFINED__
-typedef struct IPinConnection IPinConnection;
-#endif
-
-#ifndef __IPinFlowControl_FWD_DEFINED__
-#define __IPinFlowControl_FWD_DEFINED__
-typedef struct IPinFlowControl IPinFlowControl;
-#endif
-
-#ifndef __IGraphConfig_FWD_DEFINED__
-#define __IGraphConfig_FWD_DEFINED__
-typedef struct IGraphConfig IGraphConfig;
-#endif
-
-#ifndef __IGraphConfigCallback_FWD_DEFINED__
-#define __IGraphConfigCallback_FWD_DEFINED__
-typedef struct IGraphConfigCallback IGraphConfigCallback;
-#endif
-
-#ifndef __IFilterChain_FWD_DEFINED__
-#define __IFilterChain_FWD_DEFINED__
-typedef struct IFilterChain IFilterChain;
 #endif
 
 #ifndef __IVMRImagePresenter_FWD_DEFINED__
@@ -15002,256 +15649,6 @@ __CRT_UUID_DECL(IMpeg2Demultiplexer,0x436eee9c,0x264f,0x4242,0x90,0xe1,0x4e,0x33
   void __RPC_STUB IDDrawExclModeVideoCallback_OnUpdateColorKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IDDrawExclModeVideoCallback_OnUpdateSize_Proxy(IDDrawExclModeVideoCallback *This,DWORD dwWidth,DWORD dwHeight,DWORD dwARWidth,DWORD dwARHeight);
   void __RPC_STUB IDDrawExclModeVideoCallback_OnUpdateSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0392_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0392_v0_0_s_ifspec;
-#ifndef __IPinConnection_INTERFACE_DEFINED__
-#define __IPinConnection_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IPinConnection;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPinConnection : public IUnknown {
-  public:
-    virtual HRESULT WINAPI DynamicQueryAccept(const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI NotifyEndOfStream(HANDLE hNotifyEvent) = 0;
-    virtual HRESULT WINAPI IsEndPin(void) = 0;
-    virtual HRESULT WINAPI DynamicDisconnect(void) = 0;
-  };
-#else
-  typedef struct IPinConnectionVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPinConnection *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPinConnection *This);
-      ULONG (WINAPI *Release)(IPinConnection *This);
-      HRESULT (WINAPI *DynamicQueryAccept)(IPinConnection *This,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *NotifyEndOfStream)(IPinConnection *This,HANDLE hNotifyEvent);
-      HRESULT (WINAPI *IsEndPin)(IPinConnection *This);
-      HRESULT (WINAPI *DynamicDisconnect)(IPinConnection *This);
-    END_INTERFACE
-  } IPinConnectionVtbl;
-  struct IPinConnection {
-    CONST_VTBL struct IPinConnectionVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IPinConnection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IPinConnection_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IPinConnection_Release(This) (This)->lpVtbl->Release(This)
-#define IPinConnection_DynamicQueryAccept(This,pmt) (This)->lpVtbl->DynamicQueryAccept(This,pmt)
-#define IPinConnection_NotifyEndOfStream(This,hNotifyEvent) (This)->lpVtbl->NotifyEndOfStream(This,hNotifyEvent)
-#define IPinConnection_IsEndPin(This) (This)->lpVtbl->IsEndPin(This)
-#define IPinConnection_DynamicDisconnect(This) (This)->lpVtbl->DynamicDisconnect(This)
-#endif
-#endif
-  HRESULT WINAPI IPinConnection_DynamicQueryAccept_Proxy(IPinConnection *This,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IPinConnection_DynamicQueryAccept_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPinConnection_NotifyEndOfStream_Proxy(IPinConnection *This,HANDLE hNotifyEvent);
-  void __RPC_STUB IPinConnection_NotifyEndOfStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPinConnection_IsEndPin_Proxy(IPinConnection *This);
-  void __RPC_STUB IPinConnection_IsEndPin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPinConnection_DynamicDisconnect_Proxy(IPinConnection *This);
-  void __RPC_STUB IPinConnection_DynamicDisconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IPinFlowControl_INTERFACE_DEFINED__
-#define __IPinFlowControl_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IPinFlowControl;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPinFlowControl : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Block(DWORD dwBlockFlags,HANDLE hEvent) = 0;
-  };
-#else
-  typedef struct IPinFlowControlVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPinFlowControl *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPinFlowControl *This);
-      ULONG (WINAPI *Release)(IPinFlowControl *This);
-      HRESULT (WINAPI *Block)(IPinFlowControl *This,DWORD dwBlockFlags,HANDLE hEvent);
-    END_INTERFACE
-  } IPinFlowControlVtbl;
-  struct IPinFlowControl {
-    CONST_VTBL struct IPinFlowControlVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IPinFlowControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IPinFlowControl_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IPinFlowControl_Release(This) (This)->lpVtbl->Release(This)
-#define IPinFlowControl_Block(This,dwBlockFlags,hEvent) (This)->lpVtbl->Block(This,dwBlockFlags,hEvent)
-#endif
-#endif
-  HRESULT WINAPI IPinFlowControl_Block_Proxy(IPinFlowControl *This,DWORD dwBlockFlags,HANDLE hEvent);
-  void __RPC_STUB IPinFlowControl_Block_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  enum _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
-    AM_PIN_FLOW_CONTROL_BLOCK = 0x1
-  };
-  typedef enum _AM_GRAPH_CONFIG_RECONNECT_FLAGS {
-    AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT = 0x1,AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS = 0x2,
-    AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS = 0x4
-  } AM_GRAPH_CONFIG_RECONNECT_FLAGS;
-
-  enum _REM_FILTER_FLAGS {
-    REMFILTERF_LEAVECONNECTED = 0x1
-  };
-
-  typedef enum _AM_FILTER_FLAGS {
-    AM_FILTER_FLAGS_REMOVABLE = 0x1
-  } AM_FILTER_FLAGS;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0394_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0394_v0_0_s_ifspec;
-#ifndef __IGraphConfig_INTERFACE_DEFINED__
-#define __IGraphConfig_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IGraphConfig;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IGraphConfig : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Reconnect(IPin *pOutputPin,IPin *pInputPin,const AM_MEDIA_TYPE *pmtFirstConnection,IBaseFilter *pUsingFilter,HANDLE hAbortEvent,DWORD dwFlags) = 0;
-    virtual HRESULT WINAPI Reconfigure(IGraphConfigCallback *pCallback,PVOID pvContext,DWORD dwFlags,HANDLE hAbortEvent) = 0;
-    virtual HRESULT WINAPI AddFilterToCache(IBaseFilter *pFilter) = 0;
-    virtual HRESULT WINAPI EnumCacheFilter(IEnumFilters **pEnum) = 0;
-    virtual HRESULT WINAPI RemoveFilterFromCache(IBaseFilter *pFilter) = 0;
-    virtual HRESULT WINAPI GetStartTime(REFERENCE_TIME *prtStart) = 0;
-    virtual HRESULT WINAPI PushThroughData(IPin *pOutputPin,IPinConnection *pConnection,HANDLE hEventAbort) = 0;
-    virtual HRESULT WINAPI SetFilterFlags(IBaseFilter *pFilter,DWORD dwFlags) = 0;
-    virtual HRESULT WINAPI GetFilterFlags(IBaseFilter *pFilter,DWORD *pdwFlags) = 0;
-    virtual HRESULT WINAPI RemoveFilterEx(IBaseFilter *pFilter,DWORD Flags) = 0;
-  };
-#else
-  typedef struct IGraphConfigVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IGraphConfig *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IGraphConfig *This);
-      ULONG (WINAPI *Release)(IGraphConfig *This);
-      HRESULT (WINAPI *Reconnect)(IGraphConfig *This,IPin *pOutputPin,IPin *pInputPin,const AM_MEDIA_TYPE *pmtFirstConnection,IBaseFilter *pUsingFilter,HANDLE hAbortEvent,DWORD dwFlags);
-      HRESULT (WINAPI *Reconfigure)(IGraphConfig *This,IGraphConfigCallback *pCallback,PVOID pvContext,DWORD dwFlags,HANDLE hAbortEvent);
-      HRESULT (WINAPI *AddFilterToCache)(IGraphConfig *This,IBaseFilter *pFilter);
-      HRESULT (WINAPI *EnumCacheFilter)(IGraphConfig *This,IEnumFilters **pEnum);
-      HRESULT (WINAPI *RemoveFilterFromCache)(IGraphConfig *This,IBaseFilter *pFilter);
-      HRESULT (WINAPI *GetStartTime)(IGraphConfig *This,REFERENCE_TIME *prtStart);
-      HRESULT (WINAPI *PushThroughData)(IGraphConfig *This,IPin *pOutputPin,IPinConnection *pConnection,HANDLE hEventAbort);
-      HRESULT (WINAPI *SetFilterFlags)(IGraphConfig *This,IBaseFilter *pFilter,DWORD dwFlags);
-      HRESULT (WINAPI *GetFilterFlags)(IGraphConfig *This,IBaseFilter *pFilter,DWORD *pdwFlags);
-      HRESULT (WINAPI *RemoveFilterEx)(IGraphConfig *This,IBaseFilter *pFilter,DWORD Flags);
-    END_INTERFACE
-  } IGraphConfigVtbl;
-  struct IGraphConfig {
-    CONST_VTBL struct IGraphConfigVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IGraphConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IGraphConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IGraphConfig_Release(This) (This)->lpVtbl->Release(This)
-#define IGraphConfig_Reconnect(This,pOutputPin,pInputPin,pmtFirstConnection,pUsingFilter,hAbortEvent,dwFlags) (This)->lpVtbl->Reconnect(This,pOutputPin,pInputPin,pmtFirstConnection,pUsingFilter,hAbortEvent,dwFlags)
-#define IGraphConfig_Reconfigure(This,pCallback,pvContext,dwFlags,hAbortEvent) (This)->lpVtbl->Reconfigure(This,pCallback,pvContext,dwFlags,hAbortEvent)
-#define IGraphConfig_AddFilterToCache(This,pFilter) (This)->lpVtbl->AddFilterToCache(This,pFilter)
-#define IGraphConfig_EnumCacheFilter(This,pEnum) (This)->lpVtbl->EnumCacheFilter(This,pEnum)
-#define IGraphConfig_RemoveFilterFromCache(This,pFilter) (This)->lpVtbl->RemoveFilterFromCache(This,pFilter)
-#define IGraphConfig_GetStartTime(This,prtStart) (This)->lpVtbl->GetStartTime(This,prtStart)
-#define IGraphConfig_PushThroughData(This,pOutputPin,pConnection,hEventAbort) (This)->lpVtbl->PushThroughData(This,pOutputPin,pConnection,hEventAbort)
-#define IGraphConfig_SetFilterFlags(This,pFilter,dwFlags) (This)->lpVtbl->SetFilterFlags(This,pFilter,dwFlags)
-#define IGraphConfig_GetFilterFlags(This,pFilter,pdwFlags) (This)->lpVtbl->GetFilterFlags(This,pFilter,pdwFlags)
-#define IGraphConfig_RemoveFilterEx(This,pFilter,Flags) (This)->lpVtbl->RemoveFilterEx(This,pFilter,Flags)
-#endif
-#endif
-  HRESULT WINAPI IGraphConfig_Reconnect_Proxy(IGraphConfig *This,IPin *pOutputPin,IPin *pInputPin,const AM_MEDIA_TYPE *pmtFirstConnection,IBaseFilter *pUsingFilter,HANDLE hAbortEvent,DWORD dwFlags);
-  void __RPC_STUB IGraphConfig_Reconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_Reconfigure_Proxy(IGraphConfig *This,IGraphConfigCallback *pCallback,PVOID pvContext,DWORD dwFlags,HANDLE hAbortEvent);
-  void __RPC_STUB IGraphConfig_Reconfigure_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_AddFilterToCache_Proxy(IGraphConfig *This,IBaseFilter *pFilter);
-  void __RPC_STUB IGraphConfig_AddFilterToCache_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_EnumCacheFilter_Proxy(IGraphConfig *This,IEnumFilters **pEnum);
-  void __RPC_STUB IGraphConfig_EnumCacheFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_RemoveFilterFromCache_Proxy(IGraphConfig *This,IBaseFilter *pFilter);
-  void __RPC_STUB IGraphConfig_RemoveFilterFromCache_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_GetStartTime_Proxy(IGraphConfig *This,REFERENCE_TIME *prtStart);
-  void __RPC_STUB IGraphConfig_GetStartTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_PushThroughData_Proxy(IGraphConfig *This,IPin *pOutputPin,IPinConnection *pConnection,HANDLE hEventAbort);
-  void __RPC_STUB IGraphConfig_PushThroughData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_SetFilterFlags_Proxy(IGraphConfig *This,IBaseFilter *pFilter,DWORD dwFlags);
-  void __RPC_STUB IGraphConfig_SetFilterFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_GetFilterFlags_Proxy(IGraphConfig *This,IBaseFilter *pFilter,DWORD *pdwFlags);
-  void __RPC_STUB IGraphConfig_GetFilterFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphConfig_RemoveFilterEx_Proxy(IGraphConfig *This,IBaseFilter *pFilter,DWORD Flags);
-  void __RPC_STUB IGraphConfig_RemoveFilterEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IGraphConfigCallback_INTERFACE_DEFINED__
-#define __IGraphConfigCallback_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IGraphConfigCallback;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IGraphConfigCallback : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Reconfigure(PVOID pvContext,DWORD dwFlags) = 0;
-  };
-#else
-  typedef struct IGraphConfigCallbackVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IGraphConfigCallback *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IGraphConfigCallback *This);
-      ULONG (WINAPI *Release)(IGraphConfigCallback *This);
-      HRESULT (WINAPI *Reconfigure)(IGraphConfigCallback *This,PVOID pvContext,DWORD dwFlags);
-    END_INTERFACE
-  } IGraphConfigCallbackVtbl;
-  struct IGraphConfigCallback {
-    CONST_VTBL struct IGraphConfigCallbackVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IGraphConfigCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IGraphConfigCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IGraphConfigCallback_Release(This) (This)->lpVtbl->Release(This)
-#define IGraphConfigCallback_Reconfigure(This,pvContext,dwFlags) (This)->lpVtbl->Reconfigure(This,pvContext,dwFlags)
-#endif
-#endif
-  HRESULT WINAPI IGraphConfigCallback_Reconfigure_Proxy(IGraphConfigCallback *This,PVOID pvContext,DWORD dwFlags);
-  void __RPC_STUB IGraphConfigCallback_Reconfigure_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IFilterChain_INTERFACE_DEFINED__
-#define __IFilterChain_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFilterChain;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterChain : public IUnknown {
-  public:
-    virtual HRESULT WINAPI StartChain(IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) = 0;
-    virtual HRESULT WINAPI PauseChain(IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) = 0;
-    virtual HRESULT WINAPI StopChain(IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) = 0;
-    virtual HRESULT WINAPI RemoveChain(IBaseFilter *pStartFilter,IBaseFilter *pEndFilter) = 0;
-  };
-#else
-  typedef struct IFilterChainVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterChain *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterChain *This);
-      ULONG (WINAPI *Release)(IFilterChain *This);
-      HRESULT (WINAPI *StartChain)(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-      HRESULT (WINAPI *PauseChain)(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-      HRESULT (WINAPI *StopChain)(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-      HRESULT (WINAPI *RemoveChain)(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-    END_INTERFACE
-  } IFilterChainVtbl;
-  struct IFilterChain {
-    CONST_VTBL struct IFilterChainVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterChain_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterChain_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterChain_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterChain_StartChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->StartChain(This,pStartFilter,pEndFilter)
-#define IFilterChain_PauseChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->PauseChain(This,pStartFilter,pEndFilter)
-#define IFilterChain_StopChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->StopChain(This,pStartFilter,pEndFilter)
-#define IFilterChain_RemoveChain(This,pStartFilter,pEndFilter) (This)->lpVtbl->RemoveChain(This,pStartFilter,pEndFilter)
-#endif
-#endif
-  HRESULT WINAPI IFilterChain_StartChain_Proxy(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-  void __RPC_STUB IFilterChain_StartChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterChain_PauseChain_Proxy(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-  void __RPC_STUB IFilterChain_PauseChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterChain_StopChain_Proxy(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-  void __RPC_STUB IFilterChain_StopChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterChain_RemoveChain_Proxy(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
-  void __RPC_STUB IFilterChain_RemoveChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
   typedef enum __MIDL___MIDL_itf_strmif_0397_0002 {
