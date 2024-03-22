@@ -34,6 +34,7 @@ widl_SOURCES = src/widl.h \
   src/widl.c \
   src/wpp_private.h \
   src/wpp.c \
+  src/write_sltg.c \
   src/write_msft.c \
   src/pathtools.c \
   include/pshpack1.h \

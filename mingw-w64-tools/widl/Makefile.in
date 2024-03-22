@@ -117,8 +117,8 @@ am_widl_OBJECTS = src/widl-attribute.$(OBJEXT) \
 	src/widl-server.$(OBJEXT) src/widl-typegen.$(OBJEXT) \
 	src/widl-typelib.$(OBJEXT) src/widl-typetree.$(OBJEXT) \
 	src/widl-utils.$(OBJEXT) src/widl-widl.$(OBJEXT) \
-	src/widl-wpp.$(OBJEXT) src/widl-write_msft.$(OBJEXT) \
-	src/widl-pathtools.$(OBJEXT)
+	src/widl-wpp.$(OBJEXT) src/widl-write_sltg.$(OBJEXT) \
+	src/widl-write_msft.$(OBJEXT) src/widl-pathtools.$(OBJEXT)
 widl_OBJECTS = $(am_widl_OBJECTS)
 widl_LDADD = $(LDADD)
 widl_LINK = $(CCLD) $(widl_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
@@ -150,6 +150,7 @@ am__depfiles_remade = src/$(DEPDIR)/widl-attribute.Po \
 	src/$(DEPDIR)/widl-typetree.Po src/$(DEPDIR)/widl-utils.Po \
 	src/$(DEPDIR)/widl-widl.Po src/$(DEPDIR)/widl-wpp.Po \
 	src/$(DEPDIR)/widl-write_msft.Po \
+	src/$(DEPDIR)/widl-write_sltg.Po \
 	src/port/$(DEPDIR)/widl-getopt.Po \
 	src/port/$(DEPDIR)/widl-port.Po
 am__mv = mv -f
@@ -360,6 +361,7 @@ widl_SOURCES = src/widl.h \
   src/widl.c \
   src/wpp_private.h \
   src/wpp.c \
+  src/write_sltg.c \
   src/write_msft.c \
   src/pathtools.c \
   include/pshpack1.h \
@@ -531,6 +533,8 @@ src/widl-widl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-wpp.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/widl-write_sltg.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-write_msft.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-pathtools.$(OBJEXT): src/$(am__dirstamp) \
@@ -568,6 +572,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-widl.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-wpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-write_msft.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-write_sltg.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-getopt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-port.Po@am__quote@ # am--include-marker
 
@@ -872,6 +877,20 @@ src/widl-wpp.obj: src/wpp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/wpp.c' object='src/widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-wpp.obj `if test -f 'src/wpp.c'; then $(CYGPATH_W) 'src/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp.c'; fi`
+
+src/widl-write_sltg.o: src/write_sltg.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_sltg.o -MD -MP -MF src/$(DEPDIR)/widl-write_sltg.Tpo -c -o src/widl-write_sltg.o `test -f 'src/write_sltg.c' || echo '$(srcdir)/'`src/write_sltg.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-write_sltg.Tpo src/$(DEPDIR)/widl-write_sltg.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/write_sltg.c' object='src/widl-write_sltg.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_sltg.o `test -f 'src/write_sltg.c' || echo '$(srcdir)/'`src/write_sltg.c
+
+src/widl-write_sltg.obj: src/write_sltg.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_sltg.obj -MD -MP -MF src/$(DEPDIR)/widl-write_sltg.Tpo -c -o src/widl-write_sltg.obj `if test -f 'src/write_sltg.c'; then $(CYGPATH_W) 'src/write_sltg.c'; else $(CYGPATH_W) '$(srcdir)/src/write_sltg.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-write_sltg.Tpo src/$(DEPDIR)/widl-write_sltg.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/write_sltg.c' object='src/widl-write_sltg.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_sltg.obj `if test -f 'src/write_sltg.c'; then $(CYGPATH_W) 'src/write_sltg.c'; else $(CYGPATH_W) '$(srcdir)/src/write_sltg.c'; fi`
 
 src/widl-write_msft.o: src/write_msft.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.o -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
@@ -1198,6 +1217,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/widl-widl.Po
 	-rm -f src/$(DEPDIR)/widl-wpp.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
+	-rm -f src/$(DEPDIR)/widl-write_sltg.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
 	-rm -f Makefile
@@ -1267,6 +1287,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/widl-widl.Po
 	-rm -f src/$(DEPDIR)/widl-wpp.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
+	-rm -f src/$(DEPDIR)/widl-write_sltg.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
 	-rm -f Makefile

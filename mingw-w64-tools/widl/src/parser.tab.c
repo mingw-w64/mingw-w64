@@ -522,7 +522,7 @@ int parser_parse (void);
 
 int parser_lex( PARSER_STYPE *yylval, PARSER_LTYPE *yylloc );
 void push_import( const char *fname, PARSER_LTYPE *yylloc );
-void pop_import( PARSER_LTYPE *yylloc );
+PARSER_LTYPE pop_import(void);
 
 # define YYLLOC_DEFAULT( cur, rhs, n ) \
         do { if (n) init_location( &(cur), &YYRHSLOC( rhs, 1 ), &YYRHSLOC( rhs, n ) ); \
@@ -3982,7 +3982,7 @@ yyreduce:
 
   case 72: /* import: import_start imp_statements aEOF  */
 #line 518 "tools/widl/parser.y"
-                                                { pop_import( &yylloc ); }
+                                                { yyloc = pop_import(); }
 #line 3987 "tools/widl/parser.tab.c"
     break;
 
