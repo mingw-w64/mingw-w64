@@ -371,7 +371,6 @@ F_X86_ANY(___unguarded_readlc_active_add_func)
 __argc DATA
 __argv DATA
 __badioinfo DATA
-F_I386(__buffer_overrun)
 __crtCompareStringA
 __crtCompareStringW
 __crtGetLocaleInfoW
@@ -389,7 +388,6 @@ __iob_func
 __isascii
 __iscsym
 __iscsymf
-F_I386(__lc_clike)
 F_X86_ANY(__lc_codepage DATA)
 F_X86_ANY(__lc_collate_cp DATA)
 __lc_handle DATA
@@ -430,9 +428,7 @@ __pctype_func
 __pioinfo DATA
 __pwctype_func
 __pxcptinfoptrs
-F_I386(__security_error_handler)
 __set_app_type
-F_I386(__set_buffer_overrun_handler)
 F_X86_ANY(__setlc_active DATA)
 __setusermatherr
 F_ARM_ANY(__strncnt)
@@ -536,7 +532,6 @@ _cprintf_p_l
 ; _cprintf_s_l likewise.
 _cputs
 _cputws
-F_I386(_CRT_RTC_INIT)
 _creat
 F_ARM_ANY(_create_locale)
 F_ARM32(_crtAssertBusy)
@@ -1050,12 +1045,9 @@ F_ARM_ANY(_set_errno)
 _set_error_mode
 F_ARM_ANY(_set_fileinfo)
 F_ARM_ANY(_set_fmode)
-; Does not seem to present even on Win7 msvcrt
-;_set_purecall_handler
 F_X86_ANY(_set_sbh_threshold)
 ; _set_output_format provided by emu
 F_I386(_set_SSE2_enable)
-F_I386(_set_security_error_handler)
 F_X86_ANY(_seterrormode)
 _setjmp
 F_I386(_setjmp3)
