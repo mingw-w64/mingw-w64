@@ -124,7 +124,7 @@ _CItanh
 #endif
 
 #ifdef DEF_X64
-$I10_OUTPUT
+; $I10_OUTPUT is available in Windows XP x64, but was removed in Windows Vista x64
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
 ; GCC = __ZN17__non_rtti_objectC2ERKS_
 ??0__non_rtti_object@@QEAA@AEBV0@@Z
