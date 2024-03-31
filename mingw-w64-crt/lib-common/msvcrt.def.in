@@ -1308,7 +1308,7 @@ _wcsnset_s
 _wcsrev
 _wcsset
 _wcsset_s
-F_ARM_ANY(_wcstod_l)
+_wcstod_l
 _wcstoi64
 _wcstoi64_l
 _wcstol_l
