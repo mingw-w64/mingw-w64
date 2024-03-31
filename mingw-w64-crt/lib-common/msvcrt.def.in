@@ -5,6 +5,106 @@ EXPORTS
 #include "msvcrt-common.def.in"
 
 #ifdef DEF_I386
+; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
+??0__non_rtti_object@@QAE@ABV0@@Z ; has WINAPI (@4)
+; public: __thiscall __non_rtti_object::__non_rtti_object(char const *)
+??0__non_rtti_object@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall bad_cast::bad_cast(char const *const &)
+??0bad_cast@@QAE@ABQBD@Z ; has WINAPI (@4)
+; public: __thiscall bad_cast::bad_cast(class bad_cast const &)
+??0bad_cast@@QAE@ABV0@@Z ; has WINAPI (@4)
+; public: __thiscall bad_typeid::bad_typeid(class bad_typeid const &)
+??0bad_typeid@@QAE@ABV0@@Z ; has WINAPI (@4)
+; public: __thiscall bad_typeid::bad_typeid(char const *)
+??0bad_typeid@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall exception::exception(char const *const &)
+??0exception@@QAE@ABQBD@Z ; has WINAPI (@4)
+; public: __thiscall exception::exception(class exception const &)
+??0exception@@QAE@ABV0@@Z ; has WINAPI (@4)
+; public: __thiscall exception::exception(void)
+??0exception@@QAE@XZ
+; public: virtual __thiscall __non_rtti_object::~__non_rtti_object(void)
+??1__non_rtti_object@@UAE@XZ
+; public: virtual __thiscall bad_cast::~bad_cast(void)
+??1bad_cast@@UAE@XZ
+; public: virtual __thiscall bad_typeid::~bad_typeid(void)
+??1bad_typeid@@UAE@XZ
+; public: virtual __thiscall exception::~exception(void)
+??1exception@@UAE@XZ
+; public: virtual __thiscall type_info::~type_info(void)
+??1type_info@@UAE@XZ
+; void *__cdecl operator new(unsigned int)
+??2@YAPAXI@Z
+; void __cdecl operator delete(void *)
+??3@YAXPAX@Z
+; public: class __non_rtti_object &__thiscall __non_rtti_object::operator =(class __non_rtti_object const &)
+??4__non_rtti_object@@QAEAAV0@ABV0@@Z ; has WINAPI (@4)
+; public: class bad_cast &__thiscall bad_cast::operator =(class bad_cast const &)
+??4bad_cast@@QAEAAV0@ABV0@@Z ; has WINAPI (@4)
+; public: class bad_typeid &__thiscall bad_typeid::operator =(class bad_typeid const &)
+??4bad_typeid@@QAEAAV0@ABV0@@Z ; has WINAPI (@4)
+; public: class exception &__thiscall exception::operator =(class exception const &)
+??4exception@@QAEAAV0@ABV0@@Z ; has WINAPI (@4)
+; public: int __thiscall type_info::operator ==(class type_info const &)const
+??8type_info@@QBEHABV0@@Z ; has WINAPI (@4)
+; public: int __thiscall type_info::operator !=(class type_info const &)const
+??9type_info@@QBEHABV0@@Z ; has WINAPI (@4)
+; const __non_rtti_object::$vftable
+??_7__non_rtti_object@@6B@ DATA
+; const bad_cast::$vftable
+??_7bad_cast@@6B@ DATA
+; const bad_typeid::$vftable
+??_7bad_typeid@@6B@ DATA
+; const exception::$vftable
+??_7exception@@6B@ DATA
+; public: virtual void *__thiscall __non_rtti_object::__vecDelDtor(unsigned int)
+??_E__non_rtti_object@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall bad_cast::__vecDelDtor(unsigned int)
+??_Ebad_cast@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall bad_typeid::__vecDelDtor(unsigned int)
+??_Ebad_typeid@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall exception::__vecDelDtor(unsigned int)
+??_Eexception@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall __non_rtti_object::__delDtor(unsigned int)
+??_G__non_rtti_object@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall bad_cast::__delDtor(unsigned int)
+??_Gbad_cast@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall bad_typeid::__delDtor(unsigned int)
+??_Gbad_typeid@@UAEPAXI@Z ; has WINAPI (@4)
+; public: virtual void *__thiscall exception::__delDtor(unsigned int)
+??_Gexception@@UAEPAXI@Z ; has WINAPI (@4)
+; int(__cdecl *)(unsigned int)__cdecl _query_new_handler(void)
+?_query_new_handler@@YAP6AHI@ZXZ
+; int __cdecl _query_new_mode(void)
+?_query_new_mode@@YAHXZ
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
+?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
+; int __cdecl _set_new_mode(int)
+?_set_new_mode@@YAHH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *))
+?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
+; public: int __thiscall type_info::before(class type_info const &)const
+?before@type_info@@QBEHABV1@@Z ; has WINAPI (@4)
+; public: char const *__thiscall type_info::name(void)const
+?name@type_info@@QBEPBDXZ
+; public: char const *__thiscall type_info::raw_name(void)const
+?raw_name@type_info@@QBEPBDXZ
+; void(__cdecl *)(void)__cdecl set_new_handler(void(__cdecl *)(void))
+?set_new_handler@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_terminate(void(__cdecl *)(void))
+?set_terminate@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
+?set_unexpected@@YAP6AXXZP6AXXZ@Z
+; void __cdecl terminate(void)
+?terminate@@YAXXZ
+; void __cdecl unexpected(void)
+?unexpected@@YAXXZ
+; public: virtual char const *__thiscall exception::what(void)const
+?what@exception@@UBEPBDXZ
+$I10_OUTPUT
+#endif
+
+#ifdef DEF_I386
 _CIacos
 _CIasin
 _CIatan
@@ -226,6 +326,7 @@ _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportMode
 #endif
+
 F_I386(_CxxThrowException@8)
 F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
