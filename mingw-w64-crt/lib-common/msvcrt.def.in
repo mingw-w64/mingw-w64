@@ -1703,7 +1703,7 @@ wcsncmp
 wcsncpy
 wcsncpy_s
 ; We provide replacement implementation in libmingwex
-wcsnlen DATA
+F_ARM_ANY(wcsnlen)
 wcspbrk
 wcsrchr
 F_ARM_ANY(wcsrtombs)
