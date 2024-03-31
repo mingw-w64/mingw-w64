@@ -180,13 +180,13 @@ $I10_OUTPUT
 ; public: int __cdecl type_info::operator!=(class type_info const & __ptr64)const  __ptr64
 ??9type_info@@QEBAHAEBV0@@Z
 ; const  __non_rtti_object::`vftable'
-??_7__non_rtti_object@@6B@
+??_7__non_rtti_object@@6B@ DATA
 ; const  bad_cast::`vftable'
-??_7bad_cast@@6B@
+??_7bad_cast@@6B@ DATA
 ; const  bad_typeid::`vftable'
-??_7bad_typeid@@6B@
+??_7bad_typeid@@6B@ DATA
 ; const  exception::`vftable'
-??_7exception@@6B@
+??_7exception@@6B@ DATA
 ; public: void __cdecl bad_cast::`default constructor closure'(void) __ptr64
 ??_Fbad_cast@@QEAAXXZ
 ; public: void __cdecl bad_typeid::`default constructor closure'(void) __ptr64
