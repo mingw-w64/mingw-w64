@@ -1666,14 +1666,15 @@ _dstbias DATA
 ; They are available also in all Windows 9x OS system versions of msvcrt40.dll
 ; But they are not available in any Windows NT-based OS system versions of msvcrt40.dll
 ; In Windows NT-based OS system versions of msvcrt40.dll these symbols exists without @SIZE suffix
-_CxxThrowException@8
-__CxxLongjmpUnwind@4
-_adj_fdiv_m16i@4
-_adj_fdiv_m32@4
-_adj_fdiv_m32i@4
-_adj_fdiv_m64@8
-_adj_fdivr_m16i@4
-_adj_fdivr_m32@4
-_adj_fdivr_m32i@4
-_adj_fdivr_m64@8
-_seh_longjmp_unwind@4
+; So disable them as they are not available in the usable form in the OS system versions
+; _CxxThrowException@8
+; __CxxLongjmpUnwind@4
+; _adj_fdiv_m16i@4
+; _adj_fdiv_m32@4
+; _adj_fdiv_m32i@4
+; _adj_fdiv_m64@8
+; _adj_fdivr_m16i@4
+; _adj_fdivr_m32@4
+; _adj_fdivr_m32i@4
+; _adj_fdivr_m64@8
+; _seh_longjmp_unwind@4
