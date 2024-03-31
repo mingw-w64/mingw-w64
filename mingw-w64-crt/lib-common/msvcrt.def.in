@@ -349,7 +349,7 @@ F_I386(__CxxDetectRethrow)
 F_I386(__CxxExceptionFilter)
 F_X86_ANY(__CxxFrameHandler)
 F_ARM_ANY(__CxxFrameHandler3)
-F_I386(__CxxLongjmpUnwind)
+F_I386(__CxxLongjmpUnwind@4)
 F_I386(__CxxQueryExceptionSize)
 F_I386(__CxxRegisterExceptionObject)
 F_I386(__CxxUnregisterExceptionObject)
@@ -457,15 +457,15 @@ _access
 ; _access_s Replaced by emu
 _acmdln DATA
 #ifdef DEF_I386
-_adj_fdiv_m16i
-_adj_fdiv_m32
-_adj_fdiv_m32i
-_adj_fdiv_m64
+_adj_fdiv_m16i@4
+_adj_fdiv_m32@4
+_adj_fdiv_m32i@4
+_adj_fdiv_m64@8
 _adj_fdiv_r
-_adj_fdivr_m16i
-_adj_fdivr_m32
-_adj_fdivr_m32i
-_adj_fdivr_m64
+_adj_fdivr_m16i@4
+_adj_fdivr_m32@4
+_adj_fdivr_m32i@4
+_adj_fdivr_m64@8
 _adj_fpatan
 _adj_fprem
 _adj_fprem1
@@ -1043,7 +1043,7 @@ _scwprintf_l
 _scwprintf_p_l
 _searchenv
 _searchenv_s
-F_I386(_seh_longjmp_unwind)
+F_I386(_seh_longjmp_unwind@4)
 _set_controlfp
 _set_doserrno
 F_ARM_ANY(_set_errno)
