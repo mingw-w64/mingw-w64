@@ -101,6 +101,10 @@ EXPORTS
 ?unexpected@@YAXXZ
 ; public: virtual char const *__thiscall exception::what(void)const
 ?what@exception@@UBEPBDXZ
+; void *__cdecl operator new[](unsigned int)
+??_U@YAPAXI@Z
+; void __cdecl operator delete[](void *)
+??_V@YAXPAX@Z
 $I10_OUTPUT
 #endif
 
