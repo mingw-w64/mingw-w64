@@ -492,14 +492,8 @@ EXPORTS
 ?bitalloc@ios@@SAJXZ
 ; protected: int __thiscall streambuf::blen(void)const 
 ?blen@streambuf@@IBEHXZ
-; class ostream_withassign cerr
-?cerr@@3Vostream_withassign@@A DATA
-; class istream_withassign cin
-?cin@@3Vistream_withassign@@A DATA
 ; public: void __thiscall ios::clear(int)
 ?clear@ios@@QAEXH@Z ; has WINAPI (@4)
-; class ostream_withassign clog
-?clog@@3Vostream_withassign@@A DATA
 ; public: class filebuf *__thiscall filebuf::close(void)
 ?close@filebuf@@QAEPAV1@XZ
 ; public: void __thiscall fstream::close(void)
@@ -512,8 +506,6 @@ EXPORTS
 ?clrlock@ios@@QAAXXZ
 ; public: void __thiscall streambuf::clrlock(void)
 ?clrlock@streambuf@@QAEXXZ
-; class ostream_withassign cout
-?cout@@3Vostream_withassign@@A DATA
 ; public: void __thiscall streambuf::dbp(void)
 ?dbp@streambuf@@QAEXXZ
 ; class ios &__cdecl dec(class ios &)
@@ -905,18 +897,14 @@ _XcptFilter
 __CxxFrameHandler
 __CxxLongjmpUnwind@4
 __STRINGTOLD
-__argc DATA
-__argv DATA
 __dllonexit
 __doserrno
 __fpecode
 __getmainargs
-__initenv DATA
 __isascii
 __iscsym
 __iscsymf
 __lconv_init
-__mb_cur_max DATA
 __p___argc
 __p___argv
 __p___initenv
@@ -947,27 +935,9 @@ __pxcptinfoptrs
 __threadhandle
 __threadid
 __toascii
-__wargv DATA
 __wgetmainargs
-__winitenv DATA
 _abnormal_termination
 _access
-_acmdln DATA
-_adj_fdiv_m16i@4
-_adj_fdiv_m32@4
-_adj_fdiv_m32i@4
-_adj_fdiv_m64@8
-_adj_fdiv_r
-_adj_fdivr_m16i@4
-_adj_fdivr_m32@4
-_adj_fdivr_m32i@4
-_adj_fdivr_m64@8
-_adj_fpatan
-_adj_fprem
-_adj_fprem1
-_adj_fptan
-_adjust_fdiv DATA
-_aexit_rtn DATA
 _amsg_exit
 _assert
 _atodbl
@@ -987,7 +957,6 @@ _chsize
 _clearfp
 _close
 _commit
-_commode DATA
 _control87
 _controlfp
 _copysign
@@ -997,13 +966,11 @@ _creat
 _cscanf
 _ctype DATA
 _cwait
-_daylight DATA
 _dup
 _dup2
 _ecvt
 _endthread
 _endthreadex
-_environ DATA
 _eof
 _errno
 _except_handler2
@@ -1033,7 +1000,6 @@ _findnext
 _finite
 _flsbuf
 _flushall
-_fmode DATA
 _fpclass
 _fpieee_flt
 _fpreset
@@ -1071,7 +1037,6 @@ _heapused
 _heapwalk
 _hypot
 _initterm
-_iob DATA
 _isatty
 _isctype
 _ismbbalnum
@@ -1135,7 +1100,6 @@ _mbctokata
 _mbctolower
 _mbctombb
 _mbctoupper
-_mbctype DATA
 _mbsbtype
 _mbscat
 _mbschr
@@ -1189,10 +1153,7 @@ _nextafter
 _onexit
 _open
 _open_osfhandle
-_osver DATA
 _pclose
-_pctype DATA
-_pgmptr DATA
 _pipe
 _popen
 _purecall
@@ -1200,16 +1161,11 @@ _putch
 _putenv
 _putw
 _putws
-_pwctype DATA
 _read
 _rmdir
 _rmtmp
 _rotl
 _rotr
-_safe_fdiv
-_safe_fdivr
-_safe_fprem
-_safe_fprem1
 _scalb
 _searchenv
 __seh_longjmp_unwind@4@4
@@ -1287,10 +1243,8 @@ _tcstok
 _tcsupr
 _tell
 _tempnam
-_timezone DATA
 _tolower
 _toupper
-_tzname DATA
 _tzset
 _ultoa
 _ultow
@@ -1306,7 +1260,6 @@ _waccess
 _wasctime
 _wchdir
 _wchmod
-_wcmdln DATA
 _wcreat
 _wcsdup
 _wcsicmp
@@ -1321,7 +1274,6 @@ _wcsset
 _wcsupr
 _wctime
 _wctime32 == _wctime
-_wenviron DATA
 _wexecl
 _wexecle
 _wexeclp
@@ -1340,15 +1292,11 @@ _wfullpath
 _wgetcwd
 _wgetdcwd
 _wgetenv
-_winmajor DATA
-_winminor DATA
-_winver DATA
 _wmakepath
 _wmkdir
 _wmktemp
 _wopen
 _wperror
-_wpgmptr DATA
 _wpopen
 _wputenv
 _wremove
@@ -1582,3 +1530,60 @@ wcsxfrm
 wctomb
 wprintf
 wscanf
+
+; These symbols are not available in Win32s version of msvcrt20.dll
+; class ostream_withassign cerr
+?cerr@@3Vostream_withassign@@A DATA
+; class istream_withassign cin
+?cin@@3Vistream_withassign@@A DATA
+; class ostream_withassign clog
+?clog@@3Vostream_withassign@@A DATA
+; class ostream_withassign cout
+?cout@@3Vostream_withassign@@A DATA
+__argc DATA
+__argv DATA
+__initenv DATA
+__mb_cur_max DATA
+__wargv DATA
+__winitenv DATA
+_acmdln DATA
+_aexit_rtn DATA
+_commode DATA
+_daylight DATA
+_environ DATA
+_fmode DATA
+_iob DATA
+_mbctype DATA
+_osver DATA
+_pctype DATA
+_pgmptr DATA
+_pwctype DATA
+_timezone DATA
+_tzname DATA
+_wcmdln DATA
+_wenviron DATA
+_winmajor DATA
+_winminor DATA
+_winver DATA
+_wpgmptr DATA
+
+; These symbols are not available in the original Microsoft Visual C++ 2.0 version of msvcrt20.dll
+; They were added in Microsoft Visual C++ 2.1 Upgrade version of msvcrt20.dll and are present also in all OS system version of msvcrt20.dll
+_adj_fdiv_m16i@4
+_adj_fdiv_m32@4
+_adj_fdiv_m32i@4
+_adj_fdiv_m64@8
+_adj_fdiv_r
+_adj_fdivr_m16i@4
+_adj_fdivr_m32@4
+_adj_fdivr_m32i@4
+_adj_fdivr_m64@8
+_adj_fpatan
+_adj_fprem
+_adj_fprem1
+_adj_fptan
+_adjust_fdiv DATA
+_safe_fdiv
+_safe_fdivr
+_safe_fprem
+_safe_fprem1
