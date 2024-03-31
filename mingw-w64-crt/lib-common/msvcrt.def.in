@@ -369,12 +369,14 @@ _XcptFilter
 F_ARM_ANY(__AdjustPointer)
 F_NON_I386(__C_specific_handler)
 __CppXcptFilter
+F_X86_ANY(__CxxCallUnwindDelDtor)
 F_I386(__CxxCallUnwindDtor)
 F_I386(__CxxCallUnwindVecDtor)
 F_I386(__CxxDetectRethrow)
 F_I386(__CxxExceptionFilter)
 F_X86_ANY(__CxxFrameHandler)
-F_ARM_ANY(__CxxFrameHandler3)
+__CxxFrameHandler2
+__CxxFrameHandler3
 F_I386(__CxxLongjmpUnwind@4)
 F_I386(__CxxQueryExceptionSize)
 F_I386(__CxxRegisterExceptionObject)
@@ -403,10 +405,10 @@ __crtGetLocaleInfoW
 __crtGetStringTypeW
 __crtLCMapStringA
 __crtLCMapStringW
-F_ARM_ANY(__daylight)
+__daylight
 __dllonexit
 __doserrno
-F_ARM_ANY(__dstbias)
+__dstbias
 __fpecode
 __getmainargs
 F_X86_ANY(__initenv DATA)
@@ -418,6 +420,29 @@ F_X86_ANY(__lc_codepage DATA)
 F_X86_ANY(__lc_collate_cp DATA)
 __lc_handle DATA
 __lconv_init
+#ifdef DEF_I386
+__libm_sse2_acos
+__libm_sse2_acosf
+__libm_sse2_asin
+__libm_sse2_asinf
+__libm_sse2_atan
+__libm_sse2_atan2
+__libm_sse2_atanf
+__libm_sse2_cos
+__libm_sse2_cosf
+__libm_sse2_exp
+__libm_sse2_expf
+__libm_sse2_log
+__libm_sse2_log10
+__libm_sse2_log10f
+__libm_sse2_logf
+__libm_sse2_pow
+__libm_sse2_powf
+__libm_sse2_sin
+__libm_sse2_sinf
+__libm_sse2_tan
+__libm_sse2_tanf
+#endif
 __mb_cur_max DATA
 #ifdef DEF_I386
 __p___argc
@@ -457,7 +482,7 @@ __pxcptinfoptrs
 __set_app_type
 F_X86_ANY(__setlc_active DATA)
 __setusermatherr
-F_ARM_ANY(__strncnt)
+__strncnt
 F_X86_ANY(__threadhandle)
 F_X86_ANY(__threadid)
 __toascii
@@ -467,8 +492,8 @@ __unDNameEx
 F_X86_ANY(__unguarded_readlc_active DATA)
 __wargv DATA
 __wcserror
-F_NON_I386(__wcserror_s)
-F_ARM_ANY(__wcsncnt)
+__wcserror_s
+__wcsncnt
 __wgetmainargs
 F_X86_ANY(__winitenv DATA)
 F_I386(_abnormal_termination)
@@ -496,15 +521,15 @@ _adjust_fdiv DATA
 #endif
 _aexit_rtn DATA
 _aligned_free
-F_ARM_ANY(_aligned_free_dbg)
+_aligned_free_dbg
 _aligned_malloc
-F_ARM_ANY(_aligned_malloc_dbg)
+_aligned_malloc_dbg
 _aligned_offset_malloc
-F_ARM_ANY(_aligned_offset_malloc_dbg)
+_aligned_offset_malloc_dbg
 _aligned_offset_realloc
-F_ARM_ANY(_aligned_offset_realloc_dbg)
+_aligned_offset_realloc_dbg
 _aligned_realloc
-F_ARM_ANY(_aligned_realloc_dbg)
+_aligned_realloc_dbg
 _amsg_exit
 _assert
 _atodbl
@@ -518,14 +543,14 @@ _atoll_l == _atoi64_l
 _atoi_l
 _atol_l
 _atoldbl
-F_NON_I386(_atoldbl_l)
+_atoldbl_l
 F_X86_ANY(_beep)
 _beginthread
 _beginthreadex
 _c_exit
 _cabs DATA
 _callnewh
-F_ARM_ANY(_calloc_dbg)
+_calloc_dbg
 _cexit
 _cgets
 ; _cgets_s replaced by emu
@@ -539,8 +564,8 @@ _chmod
 F_I386(_chkesp)
 _chsize
 ; _chsize_s replaced by emu
-F_ARM_ANY(_chvalidator)
-F_ARM_ANY(_chvalidator_l)
+_chvalidator
+_chvalidator_l
 _clearfp
 _close
 _commit
@@ -560,9 +585,9 @@ _cputs
 _cputws
 _creat
 F_ARM_ANY(_create_locale)
-F_ARM32(_crtAssertBusy)
-F_ARM32(_crtBreakAlloc)
-F_ARM32(_crtDbgFlag)
+_crtAssertBusy
+_crtBreakAlloc
+_crtDbgFlag
 _cscanf
 _cscanf_l
 _cscanf_s
@@ -599,6 +624,7 @@ _eof
 _errno
 F_I386(_except_handler2)
 F_I386(_except_handler3)
+F_I386(_except_handler4_common)
 _execl
 _execle
 _execlp
@@ -609,7 +635,7 @@ _execvp
 _execvpe
 _exit
 _expand
-F_ARM_ANY(_expand_dbg)
+_expand_dbg
 _fcloseall
 _fcvt
 _fcvt_s
@@ -650,12 +676,13 @@ _fprintf_p_l
 _fprintf_s_l
 _fputchar
 _fputwchar
-F_ARM_ANY(_free_dbg)
+_free_dbg
 F_ARM_ANY(_free_locale)
-F_ARM_ANY(_freea)
-F_NON_I386(_fscanf_l)
-F_NON_I386(_fscanf_s_l)
-F_ARM_ANY(_fseeki64)
+_freea
+_freea_s
+_fscanf_l
+_fscanf_s_l
+_fseeki64
 _fsopen
 _fstat
 F32(_fstat32 == _fstat)
@@ -671,8 +698,11 @@ _ftime64_s
 F32(_ftime_s == _ftime32_s)
 F64(_ftime_s == _ftime64_s)
 F_I386(_ftol)
+F_I386(_ftol2)
+F_I386(_ftol2_sse)
+F_I386(_ftol2_sse_excpt)
 _fullpath
-F_ARM_ANY(_fullpath_dbg)
+_fullpath_dbg
 _futime
 F_I386(_futime32 == _futime)
 F_NON_I386(_futime32)
@@ -687,15 +717,22 @@ _gcvt
 _gcvt_s
 F_ARM_ANY(_get_current_locale)
 _get_doserrno
-F_ARM_ANY(_get_environ)
-F_ARM_ANY(_get_errno)
-F_ARM_ANY(_get_fileinfo)
-F_ARM_ANY(_get_fmode)
+_get_environ
+_get_errno
+_get_fileinfo
+_get_fmode
 F_X86_ANY(_get_heap_handle)
 _get_osfhandle
+F_X86_ANY(_get_osplatform)
+F_X86_ANY(_get_osver)
 ;_get_output_format provided by emu
+_get_pgmptr
 F_X86_ANY(_get_sbh_threshold)
-F_ARM_ANY(_get_wenviron)
+_get_wenviron
+F_X86_ANY(_get_winmajor)
+F_X86_ANY(_get_winminor)
+F_X86_ANY(_get_winver)
+_get_wpgmptr
 _getch
 _getche
 _getcwd
@@ -730,11 +767,11 @@ _i64toa_s
 _i64tow
 _i64tow_s
 _initterm
-F_ARM_ANY(_initterm_e)
+_initterm_e
 F_I386(_inp)
 F_I386(_inpd)
 F_I386(_inpw)
-F_ARM_ANY(_invalid_parameter)
+_invalid_parameter
 _iob DATA
 _isalnum_l
 _isalpha_l
@@ -832,9 +869,10 @@ _jn
 _kbhit
 _lfind
 F_X86_ANY(_loaddll)
-F_NON_I386(_lfind_s)
+_lfind_s
 F_X64(_local_unwind)
 F_I386(_local_unwind2)
+F_I386(_local_unwind4)
 _localtime32 F_I386(== localtime)
 ; _localtime32_s replaced by emu
 _localtime64
@@ -847,16 +885,16 @@ F_I386(_longjmpex)
 _lrotl
 _lrotr
 _lsearch
-F_NON_I386(_lsearch_s)
+_lsearch_s
 _lseek
 _lseeki64
 _ltoa
-F_NON_I386(_ltoa_s)
+_ltoa_s
 _ltow
-F_NON_I386(_ltow_s)
+_ltow_s
 _makepath
 _makepath_s
-F_ARM_ANY(_malloc_dbg)
+_malloc_dbg
 _mbbtombc
 _mbbtombc_l
 _mbbtype
@@ -1009,7 +1047,8 @@ F_I386(_mktime32 == mktime)
 F_ARM_ANY(_mktime32)
 _mktime64
 _msize
-F_ARM_ANY(_msize_dbg)
+F_NON_I386(_msize_dbg)
+F_I386(_msize_debug)
 _nextafter
 F_X64(_nextafterf)
 _onexit
@@ -1038,7 +1077,7 @@ _putwch
 _putws
 _pwctype DATA
 _read
-F_ARM_ANY(_realloc_dbg)
+_realloc_dbg
 _resetstkoflw
 _rmdir
 _rmtmp
@@ -1065,12 +1104,13 @@ _scwprintf_p_l
 _searchenv
 _searchenv_s
 F_I386(_seh_longjmp_unwind@4)
+F_I386(_seh_longjmp_unwind4@4)
 _set_controlfp
 _set_doserrno
 F_ARM_ANY(_set_errno)
 _set_error_mode
-F_ARM_ANY(_set_fileinfo)
-F_ARM_ANY(_set_fmode)
+_set_fileinfo
+_set_fmode
 F_X86_ANY(_set_sbh_threshold)
 ; _set_output_format provided by emu
 F_I386(_set_SSE2_enable)
@@ -1130,7 +1170,7 @@ _strcoll_l
 _strdate
 ; _strdate_s replaced by emu
 _strdup
-F_ARM_ANY(_strdup_dbg)
+_strdup_dbg
 _strerror
 _strerror_s
 _stricmp
@@ -1176,7 +1216,7 @@ _strupr_s_l
 _strxfrm_l
 _swab
 _swprintf == swprintf
-F_NON_I386(_swprintf_c)
+_swprintf_c
 _swprintf_c_l
 _swprintf_p_l
 _swprintf_s_l
@@ -1187,7 +1227,7 @@ _sys_nerr DATA
 _tell
 _telli64
 _tempnam
-F_ARM_ANY(_tempnam_dbg)
+_tempnam_dbg
 F_I386(_time32 == time)
 F_ARM_ANY(_time32)
 _time64
@@ -1285,7 +1325,7 @@ _wcmdln DATA
 _wcreat
 _wcscoll_l
 _wcsdup
-F_ARM_ANY(_wcsdup_dbg)
+_wcsdup_dbg
 _wcserror
 _wcserror_s
 _wcsftime_l
@@ -1359,7 +1399,7 @@ _wfreopen
 _wfreopen_s
 _wfsopen
 _wfullpath
-F_ARM_ANY(_wfullpath_dbg)
+_wfullpath_dbg
 _wgetcwd
 _wgetdcwd
 _wgetenv
@@ -1416,7 +1456,7 @@ _wstrtime
 ; _wstrtime_s replaced by emu
 _wsystem
 _wtempnam
-F_ARM_ANY(_wtempnam_dbg)
+_wtempnam_dbg
 _wtmpnam
 _wtmpnam_s
 _wtof
@@ -1571,7 +1611,7 @@ malloc
 mblen
 F_ARM_ANY(mbrlen)
 F_ARM_ANY(mbrtowc)
-F_ARM_ANY(mbsdup_dbg)
+mbsdup_dbg
 F_ARM_ANY(mbsrtowcs)
 mbsrtowcs_s
 mbstowcs
