@@ -113,6 +113,12 @@ EXPORTS
 ??_Fbad_cast@@QAEXXZ
 ; public: void __thiscall bad_typeid::__dflt_ctor_closure(void)
 ??_Fbad_typeid@@QAEXXZ
+; public: __thiscall exception::exception(char const *const &,int)
+??0exception@@QAE@ABQBDH@Z ; has WINAPI (@8)
+; void *__cdecl operator new(unsigned int,int,char const *,int)
+??2@YAPAXIHPBDH@Z
+; void *__cdecl operator new[](unsigned int,int,char const *,int)
+??_U@YAPAXIHPBDH@Z
 $I10_OUTPUT
 #endif
 
@@ -247,6 +253,14 @@ _CItanh
 ?unexpected@@YAXXZ
 ; public: virtual char const * __ptr64 __cdecl exception::what(void)const  __ptr64
 ?what@exception@@UEBAPEBDXZ
+; private: __thiscall bad_cast::bad_cast(char const *const *)
+??0bad_cast@@AAE@PBQBD@Z
+; public: __thiscall bad_cast::bad_cast(char const *const &)
+??0bad_cast@@QAE@ABQBD@Z
+; void *__ptr64 __cdecl operator new(unsigned __int64,int,char const *__ptr64,int)
+??2@YAPEAX_KHPEBDH@Z
+; void *__ptr64 __cdecl operator new[](unsigned __int64,int,char const *__ptr64,int)
+??_U@YAPEAX_KHPEBDH@Z
 #endif
 
 #ifdef DEF_ARM32
