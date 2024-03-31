@@ -105,6 +105,14 @@ EXPORTS
 ??_U@YAPAXI@Z
 ; void __cdecl operator delete[](void *)
 ??_V@YAXPAX@Z
+; private: __thiscall bad_cast::bad_cast(char const *const *)
+??0bad_cast@@AAE@PBQBD@Z ; has WINAPI (@4)
+; public: __thiscall bad_cast::bad_cast(char const *)
+??0bad_cast@@QAE@PBD@Z ; has WINAPI (@4)
+; public: void __thiscall bad_cast::__dflt_ctor_closure(void)
+??_Fbad_cast@@QAEXXZ
+; public: void __thiscall bad_typeid::__dflt_ctor_closure(void)
+??_Fbad_typeid@@QAEXXZ
 $I10_OUTPUT
 #endif
 
