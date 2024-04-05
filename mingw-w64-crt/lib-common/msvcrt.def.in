@@ -298,19 +298,6 @@ _CItanh
 ??_U@YAPAXI@Z
 ??_U@YAPAXIHPBDH@Z
 ??_V@YAXPAX@Z
-_CallMemberFunction0
-_CallMemberFunction1
-_CallMemberFunction2
-__ExceptionPtrAssign
-__ExceptionPtrCompare
-__ExceptionPtrCopy
-__ExceptionPtrCopyException
-__ExceptionPtrCreate
-__ExceptionPtrCurrentException
-__ExceptionPtrDestroy
-__ExceptionPtrRethrow
-__ExceptionPtrSwap
-__ExceptionPtrToBool
 ?_query_new_handler@@YAP6AHI@ZXZ
 ?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
 ?_set_new_mode@@YAHH@Z
@@ -351,6 +338,12 @@ _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportMode
 
+F_I386(_CallMemberFunction0@8)
+F_ARM32(_CallMemberFunction0)
+F_I386(_CallMemberFunction1@12)
+F_ARM32(_CallMemberFunction1)
+F_I386(_CallMemberFunction2@16)
+F_ARM32(_CallMemberFunction2)
 F_I386(_CxxThrowException@8)
 F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
@@ -359,12 +352,12 @@ _Getmonths
 _Gettnames
 _HUGE DATA
 _Strftime
-F_ARM_ANY(_W_Getdays)
-F_ARM_ANY(_W_Getmonths)
-F_ARM_ANY(_W_Gettnames)
-F_ARM_ANY(_Wcsftime)
+_W_Getdays
+_W_Getmonths
+_W_Gettnames
+_Wcsftime
 _XcptFilter
-F_ARM_ANY(__AdjustPointer)
+__AdjustPointer
 F_NON_I386(__C_specific_handler)
 __CppXcptFilter
 F_X86_ANY(__CxxCallUnwindDelDtor)
@@ -380,6 +373,16 @@ F_I386(__CxxQueryExceptionSize)
 F_I386(__CxxRegisterExceptionObject)
 F_I386(__CxxUnregisterExceptionObject)
 __DestructExceptionObject
+__ExceptionPtrAssign
+__ExceptionPtrCompare
+__ExceptionPtrCopy
+__ExceptionPtrCopyException
+__ExceptionPtrCreate
+__ExceptionPtrCurrentException
+__ExceptionPtrDestroy
+__ExceptionPtrRethrow
+__ExceptionPtrSwap
+__ExceptionPtrToBool
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
@@ -440,6 +443,17 @@ __libm_sse2_sin
 __libm_sse2_sinf
 __libm_sse2_tan
 __libm_sse2_tanf
+_libm_sse2_acos_precise
+_libm_sse2_asin_precise
+_libm_sse2_atan_precise
+_libm_sse2_cos_precise
+_libm_sse2_exp_precise
+_libm_sse2_log10_precise
+_libm_sse2_log_precise
+_libm_sse2_pow_precise
+_libm_sse2_sin_precise
+_libm_sse2_sqrt_precise
+_libm_sse2_tan_precise
 #endif
 __mb_cur_max DATA
 #ifdef DEF_I386
