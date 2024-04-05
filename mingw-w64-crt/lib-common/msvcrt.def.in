@@ -483,7 +483,7 @@ _getche
 _getcwd
 _getdcwd
 _getdiskfree
-_getdllprocaddr
+F_I386(_getdllprocaddr) ; _getdllprocaddr is available also in Windows XP x64, but was removed in Windows Vista x64
 _getdrive
 F_X86_ANY(_getdrives)
 _getmaxstdio
@@ -493,11 +493,11 @@ F_X86_ANY(_getsystime)
 _getw
 F_X86_ANY(_getws)
 F_I386(_global_unwind2)
-F_X86_ANY(_heapadd)
+F_I386(_heapadd) ; _heapadd is available also in Windows XP x64, but was removed in Windows Vista x64
 _heapchk
 _heapmin
 F_X86_ANY(_heapset)
-F_X86_ANY(_heapused)
+F_I386(_heapused) ; _heapused is available also in Windows XP x64, but was removed in Windows Vista x64
 _heapwalk
 _hypot
 _i64toa
@@ -546,7 +546,7 @@ _j1
 _jn
 _kbhit
 _lfind
-F_X86_ANY(_loaddll)
+F_I386(_loaddll) ; _loaddll is available also in Windows XP x64, but was removed in Windows Vista x64
 F_I386(_local_unwind2)
 _lock
 _locking
@@ -710,7 +710,7 @@ _ultow
 _umask
 _ungetch
 _unlink
-F_X86_ANY(_unloaddll)
+F_I386(_unloaddll) ; _unloaddll is available also in Windows XP x64, but was removed in Windows Vista x64
 _unlock
 _utime
 _vsnprintf
