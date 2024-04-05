@@ -442,6 +442,8 @@ src_msvcrt32=\
   misc/imaxabs.c \
   misc/lc_locale_func.c \
   misc/seterrno.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
   misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c

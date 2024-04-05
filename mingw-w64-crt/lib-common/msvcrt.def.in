@@ -1084,8 +1084,8 @@ _scwprintf
 F_I386(_set_SSE2_enable)
 _snscanf
 _snwscanf
-_strtoi64
-_strtoui64
+F_NON_I386(_strtoi64) ; i386 _strtoi64 replaced by emu
+F_NON_I386(_strtoui64) ; i386 _strtoui64 replaced by emu
 _ungetwch
 F_NON_I386(_vscprintf) ; i386 _vscprintf replaced by emu
 _vscwprintf
@@ -1804,10 +1804,10 @@ _strtoumax_l == _strtoui64_l
 atoll == _atoi64
 F_NON_I386(imaxabs == _abs64) ; i386 imaxabs alias provided by emu
 F_NON_I386(llabs == _abs64) ; i386 llabs alias provided by emu
-strtoimax == _strtoi64
-strtoll == _strtoi64
-strtoull == _strtoui64
-strtoumax == _strtoui64
+F_NON_I386(strtoimax == _strtoi64) ; i386 strtoimax alias provided by emu
+F_NON_I386(strtoll == _strtoi64) ; i386 strtoll alias provided by emu
+F_NON_I386(strtoull == _strtoui64) ; i386 strtoull alias provided by emu
+F_NON_I386(strtoumax == _strtoui64) ; i386 strtoumax alias provided by emu
 
 ; This is list of internal symbol aliases for printf/scanf functions used by mingw
 __ms_fprintf == fprintf
