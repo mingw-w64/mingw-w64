@@ -69,6 +69,8 @@ static void write_function_stub(const type_t *iface, const var_t *func, unsigned
     print_server("static void __finally_%s_%s(", iface->name, get_name(func));
     fprintf(server," struct __frame_%s_%s *__frame )\n{\n", iface->name, get_name(func));
 
+    if (interpreted_mode) print_server("NdrCorrelationFree(&__frame->_StubMsg);\n");
+
     indent++;
     write_remoting_arguments(server, indent, func, "__frame->", PASS_OUT, PHASE_FREE);
 
@@ -87,6 +89,7 @@ static void write_function_stub(const type_t *iface, const var_t *func, unsigned
     fprintf(server, "{\n");
     indent++;
     print_server("struct __frame_%s_%s __f, * const __frame = &__f;\n", iface->name, get_name(func));
+    if (interpreted_mode) print_server("ULONG _NdrCorrCache[256];\n");
     if (has_out_arg_or_return(func)) print_server("RPC_STATUS _Status;\n");
     fprintf(server, "\n");
 
@@ -113,6 +116,8 @@ static void write_function_stub(const type_t *iface, const var_t *func, unsigned
     print_server("RpcTryExcept\n");
     print_server("{\n");
     indent++;
+    if (interpreted_mode)
+        print_server("NdrCorrelationInitialize(&__frame->_StubMsg, _NdrCorrCache, sizeof(_NdrCorrCache), 0);\n" );
 
     if (has_full_pointer)
         write_full_pointer_init(server, indent, func, TRUE);
@@ -273,7 +278,7 @@ static void write_dispatchtable(type_t *iface)
     {
         var_t *func = stmt->u.var;
         if (is_interpreted_func( iface, func ))
-            print_server("%s,\n", get_stub_mode() == MODE_Oif ? "NdrServerCall2" : "NdrServerCall");
+            print_server("NdrServerCall2,\n");
         else
             print_server("%s_%s,\n", iface->name, get_name(func));
         method_count++;
@@ -380,7 +385,7 @@ static void write_stubdescriptor(type_t *iface, int expr_eval_routines)
     print_server("0,\n");
     print_server("__MIDL_TypeFormatString.Format,\n");
     print_server("1, /* -error bounds_check flag */\n");
-    print_server("0x%x, /* Ndr library version */\n", get_stub_mode() == MODE_Oif ? 0x50002 : 0x10001);
+    print_server("0x%x, /* Ndr library version */\n", interpreted_mode ? 0x50002 : 0x10001);
     print_server("0,\n");
     print_server("0x50200ca, /* MIDL Version 5.2.202 */\n");
     print_server("0,\n");

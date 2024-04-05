@@ -44,6 +44,7 @@
 
 static const type_t *current_structure;
 static const var_t *current_func;
+static const var_t *current_arg;
 static const type_t *current_iface;
 
 static struct list expr_eval_routines = LIST_INIT(expr_eval_routines);
@@ -78,6 +79,12 @@ static const unsigned short IsByValue = 0x0080;
 static const unsigned short IsSimpleRef = 0x0100;
 /* static const unsigned short IsDontCallFreeInst = 0x0200; */
 /* static const unsigned short SaveForAsyncFinish = 0x0400; */
+
+/* robust flags in correlation descriptors */
+static const unsigned short RobustEarly = 0x0001;
+/* static const unsigned short RobustSplit = 0x0002; */
+static const unsigned short RobustIsIIdIs = 0x0004;
+/* static const unsigned short RobustDontCheck = 0x0008; */
 
 static unsigned int field_memsize(const type_t *type, unsigned int *offset);
 static unsigned int fields_memsize(const var_list_t *fields, unsigned int *align);
@@ -1044,11 +1051,7 @@ static unsigned char get_parameter_fc( const var_t *var, int is_return, unsigned
     case TGT_BASIC:
         *flags |= IsBasetype;
         fc = get_basic_fc_signed( var->declspec.type );
-        if (fc == FC_BIND_PRIMITIVE)
-        {
-            buffer_size = 4;  /* actually 0 but avoids setting MustSize */
-            fc = FC_LONG;
-        }
+        if (fc == FC_BIND_PRIMITIVE) buffer_size = 4;  /* actually 0 but avoids setting MustSize */
         break;
     case TGT_ENUM:
         *flags |= IsBasetype;
@@ -1100,7 +1103,7 @@ static unsigned char get_parameter_fc( const var_t *var, int is_return, unsigned
             if (!is_string_type( var->attrs, ref ))
                 buffer_size = get_required_buffer_size_type( ref, NULL, NULL, TRUE, &alignment );
 
-            switch (typegen_detect_type( ref, NULL, TDT_ALL_TYPES ))
+            switch (typegen_detect_type( ref, var->attrs, TDT_ALL_TYPES ))
             {
             case TGT_BASIC:
                 *flags |= IsSimpleRef | IsBasetype;
@@ -1246,7 +1249,7 @@ static unsigned int write_new_procformatstring_type(FILE *file, int indent, cons
 }
 
 static unsigned int write_old_procformatstring_type(FILE *file, int indent, const var_t *var,
-                                                    int is_return, int is_interpreted)
+                                                    int is_return)
 {
     unsigned int size;
 
@@ -1285,7 +1288,7 @@ static unsigned int write_old_procformatstring_type(FILE *file, int indent, cons
     {
         unsigned short offset = var->typestring_offset;
 
-        if (!is_interpreted && is_array(var->declspec.type)
+        if (is_array(var->declspec.type)
                 && type_array_is_decl_as_ptr(var->declspec.type)
                 && type_array_get_ptr_tfsoff(var->declspec.type))
             offset = var->declspec.type->typestring_offset;
@@ -1310,8 +1313,6 @@ static unsigned int write_old_procformatstring_type(FILE *file, int indent, cons
 int is_interpreted_func( const type_t *iface, const var_t *func )
 {
     const char *str;
-    const var_t *var;
-    const var_list_t *args = type_function_get_args( func->declspec.type );
     const type_t *ret_type = type_function_get_rettype( func->declspec.type );
 
     if (type_get_type( ret_type ) == TYPE_BASIC)
@@ -1331,33 +1332,12 @@ int is_interpreted_func( const type_t *iface, const var_t *func )
             break;
         }
     }
-    if (get_stub_mode() != MODE_Oif && args)
-    {
-        LIST_FOR_EACH_ENTRY( var, args, const var_t, entry )
-            switch (type_get_type( var->declspec.type ))
-            {
-            case TYPE_BASIC:
-                switch (type_basic_get_type( var->declspec.type ))
-                {
-                /* floating point arguments are not supported in Oi mode */
-                case TYPE_BASIC_FLOAT:  return 0;
-                case TYPE_BASIC_DOUBLE: return 0;
-                default: break;
-                }
-                break;
-            /* unions passed by value are not supported in Oi mode */
-            case TYPE_UNION: return 0;
-            case TYPE_ENCAPSULATED_UNION: return 0;
-            default: break;
-            }
-    }
-
     if ((str = get_attrp( func->attrs, ATTR_OPTIMIZE ))) return !strcmp( str, "i" );
     if ((str = get_attrp( iface->attrs, ATTR_OPTIMIZE ))) return !strcmp( str, "i" );
-    return (get_stub_mode() != MODE_Os);
+    return interpreted_mode;
 }
 
-static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
+static void write_proc_func_interp( FILE *file, int indent, const type_t *iface,
                                     const var_t *func, unsigned int *offset,
                                     unsigned short num_proc )
 {
@@ -1365,20 +1345,25 @@ static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
     var_list_t *args = type_function_get_args( func->declspec.type );
     unsigned char explicit_fc, implicit_fc;
     unsigned char handle_flags;
+    var_t *retval = type_function_get_retval( func->declspec.type );
     const var_t *handle_var = get_func_handle_var( iface, func, &explicit_fc, &implicit_fc );
     unsigned char oi_flags = Oi_HAS_RPCFLAGS | Oi_USE_NEW_INIT_ROUTINES;
+    unsigned char oi2_flags = get_func_oi2_flags( func );
+    unsigned char ext_flags = 0x01; /* HasNewCorrDesc */
     unsigned int rpc_flags = get_rpc_flags( func->attrs );
     unsigned int nb_args = 0;
     unsigned int stack_size = 0;
+    unsigned int stack_offset = 0;
     unsigned short param_num = 0;
     unsigned short handle_stack_offset = 0;
     unsigned short handle_param_num = 0;
+    unsigned int size;
 
     if (is_full_pointer_function( func )) oi_flags |= Oi_FULL_PTR_USED;
     if (is_object( iface ))
     {
-        oi_flags |= Oi_OBJECT_PROC;
-        if (get_stub_mode() == MODE_Oif) oi_flags |= Oi_OBJ_USE_V2_INTERPRETER;
+        oi_flags |= Oi_OBJECT_PROC | Oi_OBJ_USE_V2_INTERPRETER;
+        stack_offset = pointer_size;
         stack_size += pointer_size;
     }
 
@@ -1393,7 +1378,7 @@ static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
         param_num++;
         nb_args++;
     }
-    if (!is_void( type_function_get_rettype( func->declspec.type )))
+    if (!is_void( retval->declspec.type ))
     {
         stack_size += pointer_size;
         nb_args++;
@@ -1419,6 +1404,7 @@ static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
             print_file( file, indent, "NdrFcShort(0x%hx),\t/* stack offset = %hu */\n",
                         handle_stack_offset, handle_stack_offset );
             *offset += 4;
+            nb_args--;
             break;
         case FC_BIND_GENERIC:
             handle_flags = type_memsize( handle_var->declspec.type );
@@ -1443,50 +1429,62 @@ static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
         }
     }
 
-    if (get_stub_mode() == MODE_Oif)
+    if (is_attr( func->attrs, ATTR_NOTIFY )) ext_flags |= 0x08;  /* HasNotify */
+    if (is_attr( func->attrs, ATTR_NOTIFYFLAG )) ext_flags |= 0x10;  /* HasNotify2 */
+    if (iface == type_iface_get_async_iface(iface)) oi2_flags |= 0x20;
+
+    size = get_function_buffer_size( func, PASS_IN );
+    print_file( file, indent, "NdrFcShort(0x%x),\t/* client buffer = %u */\n", size, size );
+    size = get_function_buffer_size( func, PASS_OUT );
+    print_file( file, indent, "NdrFcShort(0x%x),\t/* server buffer = %u */\n", size, size );
+    print_file( file, indent, "0x%02x,\n", oi2_flags );
+    print_file( file, indent, "0x%02x,\t/* %u params */\n", nb_args, nb_args );
+    print_file( file, indent, "0x%02x,\n", pointer_size == 8 ? 10 : 8 );
+    print_file( file, indent, "0x%02x,\n", ext_flags );
+    print_file( file, indent, "NdrFcShort(0x0),\n" );  /* server corr hint */
+    print_file( file, indent, "NdrFcShort(0x0),\n" );  /* client corr hint */
+    print_file( file, indent, "NdrFcShort(0x0),\n" );  /* FIXME: notify index */
+    *offset += 14;
+    if (pointer_size == 8)
     {
-        unsigned char oi2_flags = get_func_oi2_flags( func );
-        unsigned char ext_flags = 0;
-        unsigned int size;
+        unsigned short pos = 0, fpu_mask = 0;
 
-        if (is_attr( func->attrs, ATTR_NOTIFY )) ext_flags |= 0x08;  /* HasNotify */
-        if (is_attr( func->attrs, ATTR_NOTIFYFLAG )) ext_flags |= 0x10;  /* HasNotify2 */
-        if (iface == type_iface_get_async_iface(iface)) oi2_flags |= 0x20;
-
-        size = get_function_buffer_size( func, PASS_IN );
-        print_file( file, indent, "NdrFcShort(0x%x),\t/* client buffer = %u */\n", size, size );
-        size = get_function_buffer_size( func, PASS_OUT );
-        print_file( file, indent, "NdrFcShort(0x%x),\t/* server buffer = %u */\n", size, size );
-        print_file( file, indent, "0x%02x,\n", oi2_flags );
-        print_file( file, indent, "0x%02x,\t/* %u params */\n", nb_args, nb_args );
-        print_file( file, indent, "0x%02x,\n", pointer_size == 8 ? 10 : 8 );
-        print_file( file, indent, "0x%02x,\n", ext_flags );
-        print_file( file, indent, "NdrFcShort(0x0),\n" );  /* server corr hint */
-        print_file( file, indent, "NdrFcShort(0x0),\n" );  /* client corr hint */
-        print_file( file, indent, "NdrFcShort(0x0),\n" );  /* FIXME: notify index */
-        *offset += 14;
-        if (pointer_size == 8)
+        if (is_object( iface )) pos += 2;
+        if (args) LIST_FOR_EACH_ENTRY( var, args, var_t, entry )
         {
-            unsigned short pos = 0, fpu_mask = 0;
-
-            if (is_object( iface )) pos += 2;
-            if (args) LIST_FOR_EACH_ENTRY( var, args, var_t, entry )
+            if (type_get_type( var->declspec.type ) == TYPE_BASIC)
             {
-                if (type_get_type( var->declspec.type ) == TYPE_BASIC)
+                switch (type_basic_get_type( var->declspec.type ))
                 {
-                    switch (type_basic_get_type( var->declspec.type ))
-                    {
-                    case TYPE_BASIC_FLOAT:  fpu_mask |= 1 << pos; break;
-                    case TYPE_BASIC_DOUBLE: fpu_mask |= 2 << pos; break;
-                    default: break;
-                    }
+                case TYPE_BASIC_FLOAT:  fpu_mask |= 1 << pos; break;
+                case TYPE_BASIC_DOUBLE: fpu_mask |= 2 << pos; break;
+                default: break;
                 }
-                pos += 2;
-                if (pos >= 16) break;
             }
-            print_file( file, indent, "NdrFcShort(0x%x),\n", fpu_mask );  /* floating point mask */
-            *offset += 2;
+            pos += 2;
+            if (pos >= 16) break;
         }
+        print_file( file, indent, "NdrFcShort(0x%x),\n", fpu_mask );  /* floating point mask */
+        *offset += 2;
+    }
+
+    /* emit argument data */
+    if (args) LIST_FOR_EACH_ENTRY( var, args, var_t, entry )
+    {
+        if (explicit_fc == FC_BIND_PRIMITIVE && var == handle_var)
+        {
+            stack_offset += pointer_size;
+            continue;
+        }
+        print_file( file, 0, "/* %u (parameter %s) */\n", *offset, var->name );
+        *offset += write_new_procformatstring_type(file, indent, var, FALSE, &stack_offset);
+    }
+
+    /* emit return value data */
+    if (!is_void( retval->declspec.type ))
+    {
+        print_file( file, 0, "/* %u (return value) */\n", *offset );
+        *offset += write_new_procformatstring_type(file, indent, retval, TRUE, &stack_offset);
     }
 }
 
@@ -1494,12 +1492,13 @@ static void write_procformatstring_func( FILE *file, int indent, const type_t *i
                                          const var_t *func, unsigned int *offset,
                                          unsigned short num_proc )
 {
-    unsigned int stack_offset = is_object( iface ) ? pointer_size : 0;
-    int is_interpreted = is_interpreted_func( iface, func );
-    int is_new_style = is_interpreted && (get_stub_mode() == MODE_Oif);
-    var_t *retval = type_function_get_retval( func->declspec.type );
+    var_t *retval;
 
-    if (is_interpreted) write_proc_func_header( file, indent, iface, func, offset, num_proc );
+    if (is_interpreted_func( iface, func ))
+    {
+        write_proc_func_interp( file, indent, iface, func, offset, num_proc );
+        return;
+    }
 
     /* emit argument data */
     if (type_function_get_args(func->declspec.type))
@@ -1508,31 +1507,23 @@ static void write_procformatstring_func( FILE *file, int indent, const type_t *i
         LIST_FOR_EACH_ENTRY( var, type_function_get_args(func->declspec.type), const var_t, entry )
         {
             print_file( file, 0, "/* %u (parameter %s) */\n", *offset, var->name );
-            if (is_new_style)
-                *offset += write_new_procformatstring_type(file, indent, var, FALSE, &stack_offset);
-            else
-                *offset += write_old_procformatstring_type(file, indent, var, FALSE, is_interpreted);
+            *offset += write_old_procformatstring_type(file, indent, var, FALSE);
         }
     }
 
     /* emit return value data */
+    retval = type_function_get_retval( func->declspec.type );
     if (is_void(retval->declspec.type))
     {
-        if (!is_new_style)
-        {
-            print_file(file, 0, "/* %u (void) */\n", *offset);
-            print_file(file, indent, "0x5b,\t/* FC_END */\n");
-            print_file(file, indent, "0x5c,\t/* FC_PAD */\n");
-            *offset += 2;
-        }
+        print_file(file, 0, "/* %u (void) */\n", *offset);
+        print_file(file, indent, "0x5b,\t/* FC_END */\n");
+        print_file(file, indent, "0x5c,\t/* FC_PAD */\n");
+        *offset += 2;
     }
     else
     {
         print_file( file, 0, "/* %u (return value) */\n", *offset );
-        if (is_new_style)
-            *offset += write_new_procformatstring_type(file, indent, retval, TRUE, &stack_offset);
-        else
-            *offset += write_old_procformatstring_type(file, indent, retval, TRUE, is_interpreted);
+        *offset += write_old_procformatstring_type(file, indent, retval, TRUE);
     }
 }
 
@@ -1564,7 +1555,11 @@ static void write_iface_procformatstring(type_t *iface, FILE *file, int indent, 
     STATEMENTS_FOR_EACH_FUNC(stmt, type_iface_get_stmts(iface))
     {
         var_t *func = stmt->u.var;
-        if (is_local(func->attrs)) continue;
+        if (is_local(func->attrs))
+        {
+            if (!get_callas_source(iface, func)) count++;
+            continue;
+        }
         write_procformatstring_func( file, indent, iface, func, offset, count++ );
     }
 }
@@ -1626,10 +1621,45 @@ static int write_base_type(FILE *file, const type_t *type, unsigned int *typestr
     return 1;
 }
 
+static unsigned char get_correlation_type( const type_t *correlation_var )
+{
+    unsigned char fc;
+
+    switch (type_get_type(correlation_var))
+    {
+    case TYPE_BASIC:
+        fc = get_basic_fc(correlation_var);
+        switch (fc)
+        {
+        case FC_SMALL:
+        case FC_USMALL:
+        case FC_SHORT:
+        case FC_USHORT:
+        case FC_LONG:
+        case FC_ULONG:
+            return fc;
+        case FC_CHAR:
+            return FC_SMALL;
+        case FC_BYTE:
+            return FC_USMALL;
+        case FC_WCHAR:
+            return FC_SHORT;
+        }
+        break;
+    case TYPE_ENUM:
+        return (get_enum_fc(correlation_var) == FC_ENUM32) ? FC_LONG : FC_SHORT;
+    case TYPE_POINTER:
+        return (pointer_size == 8) ? FC_HYPER : FC_LONG;
+    default:
+        break;
+    }
+    return 0;
+}
+
 /* write conformance / variance descriptor */
 static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
                                            unsigned int baseoff, const type_t *type,
-                                           const expr_t *expr)
+                                           const expr_t *expr, unsigned short robust_flags)
 {
     unsigned char operator_type = 0;
     unsigned char conftype = FC_NORMAL_CONFORMANCE;
@@ -1641,8 +1671,10 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
     if (!expr)
     {
         print_file(file, 2, "NdrFcLong(0xffffffff),\t/* -1 */\n");
-        return 4;
+        robust_flags = 0;
+        goto done;
     }
+    robust_flags |= RobustEarly;
 
     if (expr->is_const)
     {
@@ -1655,8 +1687,7 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
                    FC_CONSTANT_CONFORMANCE, expr->cval);
         print_file(file, 2, "0x%x,\n", expr->cval >> 16);
         print_file(file, 2, "NdrFcShort(0x%hx),\n", (unsigned short)expr->cval);
-
-        return 4;
+        goto done;
     }
 
     if (!cont_type)  /* top-level conformance */
@@ -1719,7 +1750,7 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
     if (subexpr->type == EXPR_IDENTIFIER)
     {
         const type_t *correlation_variable = NULL;
-        unsigned char param_type = 0;
+        unsigned char param_type;
         unsigned int offset = 0;
         const var_t *var;
         struct expr_loc expr_loc;
@@ -1738,6 +1769,7 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
                     break;
                 }
                 offset += get_stack_size( var, NULL );
+                if (var == current_arg) robust_flags &= ~RobustEarly;
             }
         }
         else
@@ -1764,51 +1796,8 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
 
         offset -= baseoff;
 
-        if (type_get_type(correlation_variable) == TYPE_BASIC)
-        {
-            switch (get_basic_fc(correlation_variable))
-            {
-            case FC_CHAR:
-            case FC_SMALL:
-                param_type = FC_SMALL;
-                break;
-            case FC_BYTE:
-            case FC_USMALL:
-                param_type = FC_USMALL;
-                break;
-            case FC_WCHAR:
-            case FC_SHORT:
-                param_type = FC_SHORT;
-                break;
-            case FC_USHORT:
-                param_type = FC_USHORT;
-                break;
-            case FC_LONG:
-                param_type = FC_LONG;
-                break;
-            case FC_ULONG:
-                param_type = FC_ULONG;
-                break;
-            default:
-                error("write_conf_or_var_desc: conformance variable type not supported 0x%x\n",
-                      get_basic_fc(correlation_variable));
-            }
-        }
-        else if (type_get_type(correlation_variable) == TYPE_ENUM)
-        {
-            if (get_enum_fc(correlation_variable) == FC_ENUM32)
-                param_type = FC_LONG;
-            else
-                param_type = FC_SHORT;
-        }
-        else if (type_get_type(correlation_variable) == TYPE_POINTER)
-        {
-            if (pointer_size == 8)
-                param_type = FC_HYPER;
-            else
-                param_type = FC_LONG;
-        }
-        else
+        param_type = get_correlation_type( correlation_variable );
+        if (!param_type)
         {
             error("write_conf_or_var_desc: non-arithmetic type used as correlation variable %s\n",
                   subexpr->u.sval);
@@ -1852,6 +1841,7 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
             eval->expr = expr;
             list_add_tail (&expr_eval_routines, &eval->entry);
         }
+        robust_flags &= ~RobustEarly;
 
         if (callback_offset > USHRT_MAX)
             error("Maximum number of callback routines reached\n");
@@ -1866,7 +1856,10 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
         print_file(file, 2, "0x0,\n" );
         print_file(file, 2, "NdrFcShort(0x0),\n" );
     }
-    return 4;
+done:
+    if (!interpreted_mode) return 4;
+    print_file(file, 2, "NdrFcShort(0x%hx),\n", robust_flags);
+    return 6;
 }
 
 /* return size and start offset of a data field based on current offset */
@@ -2190,11 +2183,11 @@ static unsigned int write_nonsimple_pointer(FILE *file, const attr_list_t *attrs
         if (out_attr && !in_attr && pointer_type == FC_RP)
             flags |= FC_ALLOCED_ON_STACK;
     }
-    else if (get_stub_mode() == MODE_Oif)
+    else
     {
         if (context == TYPE_CONTEXT_TOPLEVELPARAM && is_ptr(type) && pointer_type == FC_RP)
         {
-            switch (typegen_detect_type(type_pointer_get_ref_type(type), NULL, TDT_ALL_TYPES))
+            switch (typegen_detect_type(type_pointer_get_ref_type(type), attrs, TDT_ALL_TYPES))
             {
             case TGT_STRING:
             case TGT_POINTER:
@@ -2274,7 +2267,7 @@ static unsigned int write_simple_pointer(FILE *file, const attr_list_t *attrs,
         if (out_attr && !in_attr && pointer_fc == FC_RP)
             flags |= FC_ALLOCED_ON_STACK;
     }
-    else if (get_stub_mode() == MODE_Oif)
+    else
     {
         if (context == TYPE_CONTEXT_TOPLEVELPARAM && fc == FC_ENUM16 && pointer_fc == FC_RP)
             flags |= FC_ALLOCED_ON_STACK;
@@ -2505,17 +2498,24 @@ static void write_descriptors(FILE *file, type_t *type, unsigned int *tfsoff)
         {
             short reloff;
             unsigned int absoff = ft->typestring_offset;
+            unsigned char fc;
+            const expr_t *switch_is = get_attrp(f->attrs, ATTR_SWITCHIS);
+            struct expr_loc expr_loc = { .v = f };
+
+            fc = get_correlation_type( expr_resolve_type( &expr_loc, current_structure, switch_is ));
+            if (!fc) fc = FC_LONG;
+
             if (is_attr(ft->attrs, ATTR_SWITCHTYPE))
                 absoff += 8; /* we already have a corr descr, skip it */
-            reloff = absoff - (*tfsoff + 6);
             print_file(file, 0, "/* %d */\n", *tfsoff);
             print_file(file, 2, "0x%x,\t/* FC_NON_ENCAPSULATED_UNION */\n", FC_NON_ENCAPSULATED_UNION);
-            print_file(file, 2, "0x%x,\t/* FIXME: always FC_LONG */\n", FC_LONG);
-            write_conf_or_var_desc(file, current_structure, offset, ft,
-                                   get_attrp(f->attrs, ATTR_SWITCHIS));
+            print_file(file, 2, "0x%x,\t/* %s */\n", fc, string_of_type(fc));
+
+            *tfsoff += 2 + write_conf_or_var_desc(file, current_structure, offset, ft, switch_is, 0);
+            reloff = absoff - *tfsoff;
             print_file(file, 2, "NdrFcShort(0x%hx),\t/* Offset= %hd (%u) */\n",
                        (unsigned short)reloff, reloff, absoff);
-            *tfsoff += 8;
+            *tfsoff += 2;
         }
         offset += size;
     }
@@ -2944,7 +2944,10 @@ static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
         elem_type = type_pointer_get_ref_type(type);
 
     if (type_get_type(elem_type) == TYPE_POINTER && is_array(type))
-        return write_array_tfs(file, attrs, type, name, typestring_offset);
+    {
+        write_array_tfs(file, attrs, type, name, typestring_offset);
+        return start_offset;
+    }
 
     if (type_get_type(elem_type) != TYPE_BASIC)
     {
@@ -2997,7 +3000,7 @@ static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
             (!type_array_is_decl_as_ptr(type) && current_structure
              ? type_memsize(current_structure)
              : 0),
-            type, type_array_get_conformance(type));
+            type, type_array_get_conformance(type), 0);
 
         update_tfsoff(type, start_offset, file);
         return start_offset;
@@ -3063,7 +3066,7 @@ static unsigned int write_array_tfs(FILE *file, const attr_list_t *attrs, type_t
         if (is_conformant_array(type))
             *typestring_offset
                 += write_conf_or_var_desc(file, current_structure, baseoff,
-                                          type, size_is);
+                                          type, size_is, 0);
 
         if (fc == FC_SMVARRAY || fc == FC_LGVARRAY)
         {
@@ -3087,8 +3090,7 @@ static unsigned int write_array_tfs(FILE *file, const attr_list_t *attrs, type_t
 
         if (length_is)
             *typestring_offset
-                += write_conf_or_var_desc(file, current_structure, baseoff,
-                                          type, length_is);
+                += write_conf_or_var_desc(file, current_structure, baseoff, type, length_is, 0);
 
         if (type_has_pointers(type_array_get_element_type(type)) &&
             (type_array_is_decl_as_ptr(type) || !current_structure))
@@ -3109,12 +3111,8 @@ static unsigned int write_array_tfs(FILE *file, const attr_list_t *attrs, type_t
         unsigned int dim = size_is ? 0 : type_array_get_dim(type);
         print_file(file, 2, "NdrFcShort(0x%hx),\t/* %u */\n", (unsigned short)dim, dim);
         *typestring_offset += 2;
-        *typestring_offset
-            += write_conf_or_var_desc(file, current_structure, baseoff,
-                                      type, size_is);
-        *typestring_offset
-            += write_conf_or_var_desc(file, current_structure, baseoff,
-                                      type, length_is);
+        *typestring_offset += write_conf_or_var_desc(file, current_structure, baseoff, type, size_is, 0);
+        *typestring_offset += write_conf_or_var_desc(file, current_structure, baseoff, type, length_is, 0);
 
         write_array_element_type(file, is_string_type(attrs, type) ? attrs : NULL, type, TRUE, typestring_offset);
         write_end(file, typestring_offset);
@@ -3164,25 +3162,12 @@ static void write_struct_members(FILE *file, const type_t *type,
 
         if (!is_conformant_array(ft) || type_array_is_decl_as_ptr(ft))
         {
-            if ((align - 1) & offset)
+            unsigned short aligned = ROUND_SIZE(offset, align);
+            if (aligned > offset)
             {
-                unsigned char fc = 0;
-                switch (align)
-                {
-                case 2:
-                    fc = FC_ALIGNM2;
-                    break;
-                case 4:
-                    fc = FC_ALIGNM4;
-                    break;
-                case 8:
-                    fc = FC_ALIGNM8;
-                    break;
-                default:
-                    error("write_struct_members: cannot align type %d\n", type_get_type(ft));
-                }
+                unsigned char fc = FC_STRUCTPAD1 + (aligned - offset) - 1;
                 print_file(file, 2, "0x%x,\t/* %s */\n", fc, string_of_type(fc));
-                offset = ROUND_SIZE(offset, align);
+                offset = aligned;
                 *typestring_offset += 1;
             }
             write_member_type(file, type, is_complex, field->attrs, field->declspec.type, corroff,
@@ -3480,7 +3465,7 @@ static unsigned int write_union_tfs(FILE *file, const attr_list_t *attrs,
         print_file(file, 2, "0x%x,\t/* Switch type= %s */\n",
                    fc, string_of_type(fc));
         *tfsoff += 2;
-        *tfsoff += write_conf_or_var_desc(file, current_structure, 0, st, switch_is );
+        *tfsoff += write_conf_or_var_desc(file, current_structure, 0, st, switch_is, 0);
         print_file(file, 2, "NdrFcShort(0x2),\t/* Offset= 2 (%u) */\n", *tfsoff + 2);
         *tfsoff += 2;
         print_file(file, 0, "/* %u */\n", *tfsoff);
@@ -3549,8 +3534,8 @@ static unsigned int write_ip_tfs(FILE *file, const attr_list_t *attrs, type_t *t
     {
         print_file(file, 2, "0x2f,  /* FC_IP */\n");
         print_file(file, 2, "0x5c,  /* FC_PAD */\n");
-        *typeformat_offset
-            += write_conf_or_var_desc(file, current_structure, 0, type, iid) + 2;
+        *typeformat_offset += 2 + write_conf_or_var_desc(file, current_structure, 0,
+                                                         type, iid, RobustIsIIdIs);
     }
     else
     {
@@ -3730,19 +3715,7 @@ static unsigned int write_type_tfs(FILE *file, const attr_list_t *attrs,
         else
             ref_context = context;
 
-        if (is_string_type(attrs, ref))
-        {
-            if (context != TYPE_CONTEXT_CONTAINER_NO_POINTERS)
-                write_pointer_tfs(file, attrs, type, *typeformat_offset + 4, context, typeformat_offset);
-
-            offset = write_type_tfs(file, attrs, ref, name, ref_context, typeformat_offset);
-            if (context == TYPE_CONTEXT_CONTAINER_NO_POINTERS)
-                return 0;
-            return offset;
-        }
-
-        offset = write_type_tfs( file, attrs, type_pointer_get_ref_type(type), name,
-                                 ref_context, typeformat_offset);
+        offset = write_type_tfs( file, attrs, ref, name, ref_context, typeformat_offset);
         if (context == TYPE_CONTEXT_CONTAINER_NO_POINTERS)
             return 0;
         return write_pointer_tfs(file, attrs, type, offset, context, typeformat_offset);
@@ -3773,24 +3746,28 @@ static void process_tfs_iface(type_t *iface, FILE *file, int indent, unsigned in
         {
         case STMT_DECLARATION:
         {
-            const var_t *func = stmt->u.var;
+            const var_t *func;
+            const var_list_t *args;
 
             if(stmt->u.var->declspec.stgclass != STG_NONE
                || type_get_type_detect_alias(stmt->u.var->declspec.type) != TYPE_FUNCTION)
                 continue;
 
-            current_func = func;
+            current_func = func = stmt->u.var;
             if (is_local(func->attrs)) continue;
 
-            var = type_function_get_retval(func->declspec.type);
+            current_arg = var = type_function_get_retval(func->declspec.type);
             if (!is_void(var->declspec.type))
                 var->typestring_offset = write_type_tfs( file, var->attrs, var->declspec.type, func->name,
                                                          TYPE_CONTEXT_RETVAL, offset);
 
-            if (type_function_get_args(func->declspec.type))
-                LIST_FOR_EACH_ENTRY( var, type_function_get_args(func->declspec.type), var_t, entry )
-                    var->typestring_offset = write_type_tfs( file, var->attrs, var->declspec.type, var->name,
-                                                             TYPE_CONTEXT_TOPLEVELPARAM, offset );
+            args = type_function_get_args(func->declspec.type);
+            if (args) LIST_FOR_EACH_ENTRY( var, args, var_t, entry )
+            {
+                current_arg = var;
+                var->typestring_offset = write_type_tfs( file, var->attrs, var->declspec.type, var->name,
+                                                         TYPE_CONTEXT_TOPLEVELPARAM, offset );
+            }
             break;
 
         }
@@ -5062,7 +5039,7 @@ void write_client_call_routine( FILE *file, const type_t *iface, const var_t *fu
 
     len = fprintf( file, "    %s%s( ",
                    has_ret ? "_RetVal = " : "",
-                   get_stub_mode() == MODE_Oif ? "NdrClientCall2" : "NdrClientCall" );
+                   interpreted_mode ? "NdrClientCall2" : "NdrClientCall" );
     fprintf( file, "&%s_StubDesc,", prefix );
     fprintf( file, "\n%*s&__MIDL_ProcFormatString.Format[%u]", len, "", proc_offset );
     if (needs_params)

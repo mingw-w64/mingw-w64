@@ -39,7 +39,6 @@ extern int pedantic;
 extern int do_everything;
 extern int do_header;
 extern int do_typelib;
-extern int do_old_typelib;
 extern int do_proxies;
 extern int do_client;
 extern int do_server;
@@ -47,7 +46,9 @@ extern int do_regscript;
 extern int do_idfile;
 extern int do_dlldata;
 extern int old_names;
+extern int old_typelib;
 extern int winrt_mode;
+extern int interpreted_mode;
 extern int use_abi_namespace;
 
 extern char *input_name;
@@ -72,13 +73,6 @@ extern unsigned int packing;
 extern unsigned int pointer_size;
 extern time_t now;
 
-enum stub_mode
-{
-    MODE_Os,  /* inline stubs */
-    MODE_Oi,  /* old-style interpreted stubs */
-    MODE_Oif  /* new-style fully interpreted stubs */
-};
-extern enum stub_mode get_stub_mode(void);
 extern int open_typelib( const char *name );
 
 extern void write_header(const statement_list_t *stmts);
