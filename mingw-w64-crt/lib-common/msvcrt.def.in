@@ -1276,7 +1276,7 @@ _freea
 _freea_s
 _fscanf_l
 _fscanf_s_l
-_fseeki64
+F_ARM_ANY(_fseeki64) ; i386 and x64 _fseeki64 replaced by emu
 _ftime32 F_I386(== _ftime) ; i386 _ftime32 replaced by alias
 _ftime32_s
 _ftime64_s
@@ -1294,7 +1294,7 @@ _fwscanf_s_l
 _gcvt_s
 _get_doserrno
 _get_environ
-_get_errno
+F_ARM_ANY(_get_errno) ; i386 and x64 _get_errno replaced by emu
 _get_fileinfo
 _get_fmode
 F_X86_ANY(_get_osplatform)
