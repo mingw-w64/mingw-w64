@@ -952,7 +952,7 @@ swscanf
 system
 tan
 tanh ; if we implement tanh, we can set it to DATA only.
-time F_NON_I386(== _time64)
+time
 tmpfile
 tmpnam
 tolower
@@ -1248,9 +1248,7 @@ _crtDbgFlag
 _cscanf_l
 _cscanf_s
 _cscanf_s_l
-; _ctime32 replaced by below aliases
-F_ARM_ANY(_ctime32)
-F_I386(_ctime32 == ctime)
+_ctime32 F_I386(== ctime) ; i386 _ctime32 replaced by alias
 ; _ctime32_s replaced by emu
 ; _ctime64_s replaced by emu
 _cwprintf_l
@@ -1262,7 +1260,7 @@ _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
 _difftime32 F_I386(== difftime) ; i386 _difftime32 replaced by alias
-_difftime64
+_difftime64 F_X64(== difftime) ; x64 _difftime64 replaced by alias
 _ecvt_s
 F_I386(_except_handler4_common)
 _expand_dbg
@@ -1462,11 +1460,9 @@ _mbtowc_l
 _mbsnlen
 _mbstrnlen
 _memicmp_l
-_mkgmtime32
+_mkgmtime32 F_I386(== _mkgmtime) ; i386 _mkgmtime32 replaced by alias
 ; _mktemp_s replaced by emu
-; _mktime32 replaced by below aliases
-F_I386(_mktime32 == mktime)
-F_ARM_ANY(_mktime32)
+_mktime32 F_I386(== mktime) ; i386 _mktime32 replaced by alias
 F_NON_I386(_msize_dbg)
 F_I386(_msize_debug)
 _printf_l
@@ -1542,9 +1538,7 @@ _swprintf_s_l
 _swscanf_l
 _swscanf_s_l
 _tempnam_dbg
-; _time32 replaced by below aliases
-F_I386(_time32 == time)
-F_ARM_ANY(_time32)
+_time32 F_I386(== time) ; i386 _time32 replaced by alias
 _tolower_l
 _toupper_l
 _towlower_l
@@ -1632,9 +1626,7 @@ _wcsupr_l
 _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
-; _wctime32 replaced by below aliases
-F_I386(_wctime32 == _wctime)
-F_ARM_ANY(_wctime32)
+_wctime32 F_I386(== _wctime) ; i386 _wctime32 replaced by alias
 ; _wctime32_s replaced by emu
 ; _wctime64_s replaced by emu
 _wctomb_l
