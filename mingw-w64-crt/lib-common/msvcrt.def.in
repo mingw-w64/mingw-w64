@@ -1187,7 +1187,7 @@ _CrtSetReportFile
 _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportMode
-F_X86_ANY(__CxxCallUnwindDelDtor)
+F_I386(__CxxCallUnwindDelDtor)
 __CxxFrameHandler3
 __daylight
 __dstbias
