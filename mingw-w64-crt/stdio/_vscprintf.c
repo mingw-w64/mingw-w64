@@ -54,7 +54,8 @@ static int __cdecl emu_vscprintf(const char * __restrict__ format, va_list argli
 
 #ifndef __LIBMSVCRT_OS__
 
-int (__cdecl *__MINGW_IMP_SYMBOL(_vscprintf))(const char * __restrict__, va_list) = emu_vscprintf;
+int __attribute__ ((alias ("emu_vscprintf"))) __cdecl _vscprintf (const char * __restrict__, va_list);
+int (__cdecl *__MINGW_IMP_SYMBOL(_vscprintf))(const char * __restrict__, va_list) = _vscprintf;
 
 #else
 
@@ -78,9 +79,9 @@ static int __cdecl init_vscprintf(const char * __restrict__ format, va_list argl
     return (__MINGW_IMP_SYMBOL(_vscprintf) = func)(format, arglist);
 }
 
-#endif
-
 int __cdecl _vscprintf(const char * __restrict__ format, va_list arglist)
 {
     return __MINGW_IMP_SYMBOL(_vscprintf)(format, arglist);
 }
+
+#endif

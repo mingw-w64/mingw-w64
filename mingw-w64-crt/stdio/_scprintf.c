@@ -22,17 +22,8 @@ static int __cdecl emu_scprintf(const char * __restrict__ format, ...)
 
 #ifndef __LIBMSVCRT_OS__
 
-int (__cdecl *__MINGW_IMP_SYMBOL(_scprintf))(const char * __restrict__, ...) = emu_scprintf;
-
-/* gcc does not provide an easy way to call another variadic function with reusing current arguments
- * this source file is used only on i386, so do this function redirect via inline i386 assembly */
-#define ASM_SYM(sym) __MINGW64_STRINGIFY(__MINGW_USYMBOL(sym))
-asm (
-".globl\t" ASM_SYM(_scprintf) "\n\t"
-".def\t" ASM_SYM(_scprintf) ";\t.scl\t2;\t.type\t32;\t.endef\n"
-ASM_SYM(_scprintf) ":\n\t"
-    "jmp\t*" ASM_SYM(__MINGW_IMP_SYMBOL(_scprintf))
-);
+int __attribute__ ((alias ("emu_scprintf"))) __cdecl _scprintf (const char * __restrict__, ...);
+int (__cdecl *__MINGW_IMP_SYMBOL(_scprintf))(const char * __restrict__, ...) = _scprintf;
 
 #else
 
