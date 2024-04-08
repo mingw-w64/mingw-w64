@@ -9,118 +9,147 @@ EXPORTS
 
 #include "msvcrt-common.def.in"
 
-$I10_OUTPUT
-; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
-; GCC = __ZN17__non_rtti_objectC2ERKS_
-??0__non_rtti_object@@QEAA@AEBV0@@Z
-; public: __cdecl __non_rtti_object::__non_rtti_object(char const * __ptr64) __ptr64
-; GCC = __ZN17__non_rtti_objectC1ERKS_
-??0__non_rtti_object@@QEAA@PEBD@Z
-; private: __cdecl bad_cast::bad_cast(char const * __ptr64 const * __ptr64) __ptr64
-??0bad_cast@@AEAA@PEBQEBD@Z
-; public: __cdecl bad_cast::bad_cast(char const * __ptr64 const & __ptr64) __ptr64
-??0bad_cast@@QEAA@AEBQEBD@Z
-; public: __cdecl bad_cast::bad_cast(class bad_cast const & __ptr64) __ptr64
-??0bad_cast@@QEAA@AEBV0@@Z
-; public: __cdecl bad_cast::bad_cast(char const * __ptr64) __ptr64
-??0bad_cast@@QEAA@PEBD@Z
-; public: __cdecl bad_typeid::bad_typeid(class bad_typeid const & __ptr64) __ptr64
-??0bad_typeid@@QEAA@AEBV0@@Z
-; public: __cdecl bad_typeid::bad_typeid(char const * __ptr64) __ptr64
-??0bad_typeid@@QEAA@PEBD@Z
-; public: __cdecl exception::exception(char const * __ptr64 const & __ptr64) __ptr64
-??0exception@@QEAA@AEBQEBD@Z
-; public: __cdecl exception::exception(char const * __ptr64 const & __ptr64,int) __ptr64
-??0exception@@QEAA@AEBQEBDH@Z
-; public: __cdecl exception::exception(class exception const & __ptr64) __ptr64
-??0exception@@QEAA@AEBV0@@Z
-; public: __cdecl exception::exception(void) __ptr64
-??0exception@@QEAA@XZ
-; public: virtual __cdecl __non_rtti_object::~__non_rtti_object(void) __ptr64
-??1__non_rtti_object@@UEAA@XZ
-; public: virtual __cdecl bad_cast::~bad_cast(void) __ptr64
-??1bad_cast@@UEAA@XZ
-; public: virtual __cdecl bad_typeid::~bad_typeid(void) __ptr64
-??1bad_typeid@@UEAA@XZ
-; public: virtual __cdecl exception::~exception(void) __ptr64
-??1exception@@UEAA@XZ
-; public: virtual __cdecl type_info::~type_info(void) __ptr64
+; public: __cdecl std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &__ptr64 )__ptr64
+??0__non_rtti_object@std@@QEAA@AEBV01@@Z
+; public: __cdecl std::__non_rtti_object::__non_rtti_object(char const *__ptr64)__ptr64
+??0__non_rtti_object@std@@QEAA@PEBD@Z
+; private: __cdecl std::bad_cast::bad_cast(char const *__ptr64 const *__ptr64)__ptr64
+??0bad_cast@std@@AEAA@PEBQEBD@Z
+; public: __cdecl std::bad_cast::bad_cast(class std::bad_cast const &__ptr64 )__ptr64
+??0bad_cast@std@@QEAA@AEBV01@@Z
+; public: __cdecl std::bad_cast::bad_cast(char const *__ptr64)__ptr64
+??0bad_cast@std@@QEAA@PEBD@Z
+; public: __cdecl std::bad_typeid::bad_typeid(class std::bad_typeid const &__ptr64 )__ptr64
+??0bad_typeid@std@@QEAA@AEBV01@@Z
+; public: __cdecl std::bad_typeid::bad_typeid(char const *__ptr64)__ptr64
+??0bad_typeid@std@@QEAA@PEBD@Z
+; public: __cdecl std::exception::exception(char const *__ptr64 const &__ptr64 )__ptr64
+??0exception@std@@QEAA@AEBQEBD@Z
+; public: __cdecl std::exception::exception(char const *__ptr64 const &__ptr64 ,int)__ptr64
+??0exception@std@@QEAA@AEBQEBDH@Z
+; public: __cdecl std::exception::exception(class std::exception const &__ptr64 )__ptr64
+??0exception@std@@QEAA@AEBV01@@Z
+; public: __cdecl std::exception::exception(void)__ptr64
+??0exception@std@@QEAA@XZ
+; public: virtual __cdecl std::__non_rtti_object::~__non_rtti_object(void)__ptr64
+??1__non_rtti_object@std@@UEAA@XZ
+; public: virtual __cdecl std::bad_cast::~bad_cast(void)__ptr64
+??1bad_cast@std@@UEAA@XZ
+; public: virtual __cdecl std::bad_typeid::~bad_typeid(void)__ptr64
+??1bad_typeid@std@@UEAA@XZ
+; public: virtual __cdecl std::exception::~exception(void)__ptr64
+??1exception@std@@UEAA@XZ
+; public: virtual __cdecl type_info::~type_info(void)__ptr64
 ??1type_info@@UEAA@XZ
-; void * __ptr64 __cdecl operator new(unsigned __int64)
-; GCC = __Znwy
+; void *__ptr64 __cdecl operator new(unsigned __int64)
 ??2@YAPEAX_K@Z
-; void __cdecl operator delete(void * __ptr64)
-; GCC = __ZdlPv
+; void *__ptr64 __cdecl operator new(unsigned __int64,int,char const *__ptr64,int)
+??2@YAPEAX_KHPEBDH@Z
+; void __cdecl operator delete(void *__ptr64)
 ??3@YAXPEAX@Z
-; public: class __non_rtti_object & __ptr64 __cdecl __non_rtti_object::operator=(class __non_rtti_object const & __ptr64) __ptr64
-??4__non_rtti_object@@QEAAAEAV0@AEBV0@@Z
-; public: class bad_cast & __ptr64 __cdecl bad_cast::operator=(class bad_cast const & __ptr64) __ptr64
-??4bad_cast@@QEAAAEAV0@AEBV0@@Z
-; public: class bad_typeid & __ptr64 __cdecl bad_typeid::operator=(class bad_typeid const & __ptr64) __ptr64
-??4bad_typeid@@QEAAAEAV0@AEBV0@@Z
-; public: class exception & __ptr64 __cdecl exception::operator=(class exception const & __ptr64) __ptr64
-??4exception@@QEAAAEAV0@AEBV0@@Z
-; public: int __cdecl type_info::operator==(class type_info const & __ptr64)const  __ptr64
-??8type_info@@QEBAHAEBV0@@Z
-; public: int __cdecl type_info::operator!=(class type_info const & __ptr64)const  __ptr64
-??9type_info@@QEBAHAEBV0@@Z
-; const  __non_rtti_object::`vftable'
-??_7__non_rtti_object@@6B@
-; const  bad_cast::`vftable'
-??_7bad_cast@@6B@
-; const  bad_typeid::`vftable'
-??_7bad_typeid@@6B@
-; const  exception::`vftable'
-??_7exception@@6B@
-; public: void __cdecl bad_cast::`default constructor closure'(void) __ptr64
-??_Fbad_cast@@QEAAXXZ
-; public: void __cdecl bad_typeid::`default constructor closure'(void) __ptr64
-??_Fbad_typeid@@QEAAXXZ
-; void * __ptr64 __cdecl operator new[](unsigned __int64)
-; GNU = __Znay
+; public: class std::__non_rtti_object &__ptr64 __cdecl std::__non_rtti_object::operator =(class std::__non_rtti_object const &__ptr64 )__ptr64
+??4__non_rtti_object@std@@QEAAAEAV01@AEBV01@@Z
+; public: class std::bad_cast &__ptr64 __cdecl std::bad_cast::operator =(class std::bad_cast const &__ptr64 )__ptr64
+??4bad_cast@std@@QEAAAEAV01@AEBV01@@Z
+; public: class std::bad_typeid &__ptr64 __cdecl std::bad_typeid::operator =(class std::bad_typeid const &__ptr64 )__ptr64
+??4bad_typeid@std@@QEAAAEAV01@AEBV01@@Z
+; public: class std::exception &__ptr64 __cdecl std::exception::operator =(class std::exception const &__ptr64 )__ptr64
+??4exception@std@@QEAAAEAV01@AEBV01@@Z
+; public: bool __cdecl type_info::operator ==(class type_info const &__ptr64 )const __ptr64
+??8type_info@@QEBA_NAEBV0@@Z
+; public: bool __cdecl type_info::operator !=(class type_info const &__ptr64 )const __ptr64
+??9type_info@@QEBA_NAEBV0@@Z
+; const std::__non_rtti_object::$vftable
+??_7__non_rtti_object@std@@6B@ DATA
+; const std::bad_cast::$vftable
+??_7bad_cast@std@@6B@ DATA
+; const std::bad_typeid::$vftable
+??_7bad_typeid@std@@6B@ DATA
+; const exception::$vftable
+??_7exception@@6B@ DATA
+; const std::exception::$vftable
+??_7exception@std@@6B@ DATA
+; public: void __cdecl std::bad_cast::__dflt_ctor_closure(void)__ptr64
+??_Fbad_cast@std@@QEAAXXZ
+; public: void __cdecl std::bad_typeid::__dflt_ctor_closure(void)__ptr64
+??_Fbad_typeid@std@@QEAAXXZ
+; void *__ptr64 __cdecl operator new[](unsigned __int64)
 ??_U@YAPEAX_K@Z
-; void __cdecl operator delete[](void * __ptr64)
-; GNU = __ZdaPv
+; void *__ptr64 __cdecl operator new[](unsigned __int64,int,char const *__ptr64,int)
+??_U@YAPEAX_KHPEBDH@Z
+; void __cdecl operator delete[](void *__ptr64)
 ??_V@YAXPEAX@Z
-__uncaught_exception
-; int (__cdecl*__cdecl _query_new_handler(void))(unsigned __int64)
-; GNU = __Z18_query_new_handlerv
+; private: static char const *__ptr64 __cdecl type_info::_Name_base(class type_info const *__ptr64,struct __type_info_node *__ptr64)
+?_Name_base@type_info@@CAPEBDPEBV1@PEAU__type_info_node@@@Z
+; private: static char const *__ptr64 __cdecl type_info::_Name_base_internal(class type_info const *__ptr64,struct __type_info_node *__ptr64)
+?_Name_base_internal@type_info@@CAPEBDPEBV1@PEAU__type_info_node@@@Z
+; private: static void __cdecl type_info::_Type_info_dtor(class type_info *__ptr64)
+?_Type_info_dtor@type_info@@CAXPEAV1@@Z
+; private: static void __cdecl type_info::_Type_info_dtor_internal(class type_info *__ptr64)
+?_Type_info_dtor_internal@type_info@@CAXPEAV1@@Z
+; int __cdecl _ValidateExecute(__int64(__cdecl *)(void))
+?_ValidateExecute@@YAHP6A_JXZ@Z
+; int __cdecl _ValidateRead(void const *__ptr64,unsigned int)
+?_ValidateRead@@YAHPEBXI@Z
+; int __cdecl _ValidateWrite(void *__ptr64,unsigned int)
+?_ValidateWrite@@YAHPEAXI@Z
+; void __cdecl _inconsistency(void)
+?_inconsistency@@YAXXZ
+; void __cdecl _invalid_parameter(unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned int,unsigned __int64)
+?_invalid_parameter@@YAXPEBG00I_K@Z
+; int __cdecl _is_exception_typeof(class type_info const &__ptr64 ,struct _EXCEPTION_POINTERS *__ptr64)
+?_is_exception_typeof@@YAHAEBVtype_info@@PEAU_EXCEPTION_POINTERS@@@Z
+; public: char const *__ptr64 __cdecl type_info::_name_internal_method(struct __type_info_node *__ptr64)const __ptr64
+?_name_internal_method@type_info@@QEBAPEBDPEAU__type_info_node@@@Z
+; int __cdecl _open(char const *__ptr64,int,int)
+?_open@@YAHPEBDHH@Z
+; int(__cdecl *)(unsigned __int64)__cdecl _query_new_handler(void)
 ?_query_new_handler@@YAP6AH_K@ZXZ
 ; int __cdecl _query_new_mode(void)
-; GNU = __Z15_query_new_modev
 ?_query_new_mode@@YAHXZ
-; int (__cdecl*__cdecl _set_new_handler(int (__cdecl*)(unsigned __int64)))(unsigned __int64)
-; GNU = __Z16_set_new_handlerPFiyE
+; int(__cdecl *)(unsigned __int64)__cdecl _set_new_handler(int)
+?_set_new_handler@@YAP6AH_K@ZH@Z
+; int(__cdecl *)(unsigned __int64)__cdecl _set_new_handler(int(__cdecl *)(unsigned __int64))
 ?_set_new_handler@@YAP6AH_K@ZP6AH0@Z@Z
 ; int __cdecl _set_new_mode(int)
-; GNU = __Z13_set_new_modei
 ?_set_new_mode@@YAHH@Z
-; void (__cdecl*__cdecl _set_se_translator(void (__cdecl*)(unsigned int,struct _EXCEPTION_POINTERS * __ptr64)))(unsigned int,struct _EXCEPTION_POINTERS * __ptr64)
-; GNU = __Z18_set_se_translatorPFvjP19_EXCEPTION_POINTERSE
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64)__cdecl _set_se_translator(int)
+?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64))
 ?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
-; public: int __cdecl type_info::before(class type_info const & __ptr64)const  __ptr64
+; int __cdecl _sopen(char const *__ptr64,int,int,int)
+?_sopen@@YAHPEBDHHH@Z
+; public: void __cdecl type_info::_type_info_dtor_internal_method(void)__ptr64
+?_type_info_dtor_internal_method@type_info@@QEAAXXZ
+; int __cdecl _wopen(wchar_t const *__ptr64,int,int)
+?_wopen@@YAHPEB_WHH@Z
+; int __cdecl _wsopen(wchar_t const *__ptr64,int,int,int)
+?_wsopen@@YAHPEB_WHHH@Z
+; public: int __cdecl type_info::before(class type_info const &__ptr64 )const __ptr64
 ?before@type_info@@QEBAHAEBV1@@Z
-; public: char const * __ptr64 __cdecl type_info::name(void)const  __ptr64
-?name@type_info@@QEBAPEBDXZ
-; public: char const * __ptr64 __cdecl type_info::raw_name(void)const  __ptr64
+; public: char const *__ptr64 __cdecl type_info::name(struct __type_info_node *__ptr64)const __ptr64
+?name@type_info@@QEBAPEBDPEAU__type_info_node@@@Z
+; public: char const *__ptr64 __cdecl type_info::raw_name(void)const __ptr64
 ?raw_name@type_info@@QEBAPEBDXZ
-; void (__cdecl*__cdecl set_new_handler(void (__cdecl*)(void)))(void)
-; GNU = __Z15set_new_handlerPFvvE
+; void(__cdecl *)(void)__cdecl set_new_handler(void(__cdecl *)(void))
 ?set_new_handler@@YAP6AXXZP6AXXZ@Z
-; void (__cdecl*__cdecl set_terminate(void (__cdecl*)(void)))(void)
-; GNU = __Z13set_terminatePFvvE
+; void(__cdecl *)(void)__cdecl set_terminate(int)
+?set_terminate@@YAP6AXXZH@Z
+; void(__cdecl *)(void)__cdecl set_terminate(void(__cdecl *)(void))
 ?set_terminate@@YAP6AXXZP6AXXZ@Z
-; void (__cdecl*__cdecl set_unexpected(void (__cdecl*)(void)))(void)
-; GNU = __Z14set_unexpectedPFvvE
+; void(__cdecl *)(void)__cdecl set_unexpected(int)
+?set_unexpected@@YAP6AXXZH@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
 ?set_unexpected@@YAP6AXXZP6AXXZ@Z
 ; void __cdecl terminate(void)
-; GNU = __Z9terminatev
 ?terminate@@YAXXZ
 ; void __cdecl unexpected(void)
-; GNU = __Z10unexpectedv
 ?unexpected@@YAXXZ
-; public: virtual char const * __ptr64 __cdecl exception::what(void)const  __ptr64
-?what@exception@@UEBAPEBDXZ
+; public: virtual char const *__ptr64 __cdecl std::exception::what(void)const __ptr64
+?what@exception@std@@UEBAPEBDXZ
+
+$I10_OUTPUT
+__uncaught_exception
 _CxxThrowException
 _Getdays
 _Getmonths
