@@ -3,6 +3,147 @@ EXPORTS
 
 #include "msvcrt-common.def.in"
 
+; public: __thiscall std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &)
+??0__non_rtti_object@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_cast::bad_cast(class std::bad_cast const &)
+??0bad_cast@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_cast::bad_cast(char const *)
+??0bad_cast@std@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_typeid::bad_typeid(class std::bad_typeid const &)
+??0bad_typeid@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_typeid::bad_typeid(char const *)
+??0bad_typeid@std@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(char const *const &)
+??0exception@std@@QAE@ABQBD@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(char const *const &,int)
+??0exception@std@@QAE@ABQBDH@Z ; has WINAPI (@8)
+; public: __thiscall std::exception::exception(class std::exception const &)
+??0exception@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(void)
+??0exception@std@@QAE@XZ
+; public: virtual __thiscall std::__non_rtti_object::~__non_rtti_object(void)
+??1__non_rtti_object@std@@UAE@XZ
+; public: virtual __thiscall std::bad_cast::~bad_cast(void)
+??1bad_cast@std@@UAE@XZ
+; public: virtual __thiscall std::bad_typeid::~bad_typeid(void)
+??1bad_typeid@std@@UAE@XZ
+; public: virtual __thiscall std::exception::~exception(void)
+??1exception@std@@UAE@XZ
+; public: virtual __thiscall type_info::~type_info(void)
+??1type_info@@UAE@XZ
+; void *__cdecl operator new(unsigned int)
+??2@YAPAXI@Z
+; void *__cdecl operator new(unsigned int,int,char const *,int)
+??2@YAPAXIHPBDH@Z
+; void __cdecl operator delete(void *)
+??3@YAXPAX@Z
+; public: class std::__non_rtti_object &__thiscall std::__non_rtti_object::operator =(class std::__non_rtti_object const &)
+??4__non_rtti_object@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::bad_cast &__thiscall std::bad_cast::operator =(class std::bad_cast const &)
+??4bad_cast@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::bad_typeid &__thiscall std::bad_typeid::operator =(class std::bad_typeid const &)
+??4bad_typeid@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::exception &__thiscall std::exception::operator =(class std::exception const &)
+??4exception@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: bool __thiscall type_info::operator ==(class type_info const &)const
+??8type_info@@QBE_NABV0@@Z ; has WINAPI (@4)
+; public: bool __thiscall type_info::operator !=(class type_info const &)const
+??9type_info@@QBE_NABV0@@Z ; has WINAPI (@4)
+; const std::__non_rtti_object::$vftable
+??_7__non_rtti_object@std@@6B@ DATA
+; const std::bad_cast::$vftable
+??_7bad_cast@std@@6B@ DATA
+; const std::bad_typeid::$vftable
+??_7bad_typeid@std@@6B@ DATA
+; const exception::$vftable
+??_7exception@@6B@ DATA
+; const std::exception::$vftable
+??_7exception@std@@6B@ DATA
+; public: void __thiscall std::bad_cast::__dflt_ctor_closure(void)
+??_Fbad_cast@std@@QAEXXZ
+; public: void __thiscall std::bad_typeid::__dflt_ctor_closure(void)
+??_Fbad_typeid@std@@QAEXXZ
+; void *__cdecl operator new[](unsigned int)
+??_U@YAPAXI@Z
+; void *__cdecl operator new[](unsigned int,int,char const *,int)
+??_U@YAPAXIHPBDH@Z
+; void __cdecl operator delete[](void *)
+??_V@YAXPAX@Z
+; private: static char const *__cdecl type_info::_Name_base(class type_info const *,struct __type_info_node *)
+?_Name_base@type_info@@CAPBDPBV1@PAU__type_info_node@@@Z
+; private: static char const *__cdecl type_info::_Name_base_internal(class type_info const *,struct __type_info_node *)
+?_Name_base_internal@type_info@@CAPBDPBV1@PAU__type_info_node@@@Z
+; private: static void __cdecl type_info::_Type_info_dtor(class type_info *)
+?_Type_info_dtor@type_info@@CAXPAV1@@Z
+; private: static void __cdecl type_info::_Type_info_dtor_internal(class type_info *)
+?_Type_info_dtor_internal@type_info@@CAXPAV1@@Z
+; int __cdecl _ValidateExecute(int(__stdcall *)(void))
+?_ValidateExecute@@YAHP6GHXZ@Z
+; int __cdecl _ValidateRead(void const *,unsigned int)
+?_ValidateRead@@YAHPBXI@Z
+; int __cdecl _ValidateWrite(void *,unsigned int)
+?_ValidateWrite@@YAHPAXI@Z
+; void __cdecl _inconsistency(void)
+?_inconsistency@@YAXXZ
+; void __cdecl _invalid_parameter(unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned int)
+?_invalid_parameter@@YAXPBG00II@Z
+; int __cdecl _is_exception_typeof(class type_info const &,struct _EXCEPTION_POINTERS *)
+?_is_exception_typeof@@YAHABVtype_info@@PAU_EXCEPTION_POINTERS@@@Z
+; public: char const *__thiscall type_info::_name_internal_method(struct __type_info_node *)const
+?_name_internal_method@type_info@@QBEPBDPAU__type_info_node@@@Z ; has WINAPI (@4)
+; int __cdecl _open(char const *,int,int)
+?_open@@YAHPBDHH@Z
+; int(__cdecl *)(unsigned int)__cdecl _query_new_handler(void)
+?_query_new_handler@@YAP6AHI@ZXZ
+; int __cdecl _query_new_mode(void)
+?_query_new_mode@@YAHXZ
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int)
+?_set_new_handler@@YAP6AHI@ZH@Z
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
+?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
+; int __cdecl _set_new_mode(int)
+?_set_new_mode@@YAHH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(int)
+?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *))
+?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
+; int __cdecl _sopen(char const *,int,int,int)
+?_sopen@@YAHPBDHHH@Z
+; public: void __thiscall type_info::_type_info_dtor_internal_method(void)
+?_type_info_dtor_internal_method@type_info@@QAEXXZ
+; int __cdecl _wopen(wchar_t const *,int,int)
+?_wopen@@YAHPB_WHH@Z
+; int __cdecl _wsopen(wchar_t const *,int,int,int)
+?_wsopen@@YAHPB_WHHH@Z
+; public: int __thiscall type_info::before(class type_info const &)const
+?before@type_info@@QBEHABV1@@Z ; has WINAPI (@4)
+; public: char const *__thiscall type_info::name(struct __type_info_node *)const
+?name@type_info@@QBEPBDPAU__type_info_node@@@Z ; has WINAPI (@4)
+; public: char const *__thiscall type_info::raw_name(void)const
+?raw_name@type_info@@QBEPBDXZ
+; void(__cdecl *)(void)__cdecl set_new_handler(void(__cdecl *)(void))
+?set_new_handler@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_terminate(int)
+?set_terminate@@YAP6AXXZH@Z
+; void(__cdecl *)(void)__cdecl set_terminate(void(__cdecl *)(void))
+?set_terminate@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(int)
+?set_unexpected@@YAP6AXXZH@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
+?set_unexpected@@YAP6AXXZP6AXXZ@Z
+; int __cdecl swprintf(unsigned short *,unsigned int,unsigned short const *,...)
+?swprintf@@YAHPAGIPBGZZ
+; int __cdecl swprintf(wchar_t *,unsigned int,wchar_t const *,...)
+?swprintf@@YAHPA_WIPB_WZZ
+; void __cdecl terminate(void)
+?terminate@@YAXXZ
+; void __cdecl unexpected(void)
+?unexpected@@YAXXZ
+; int __cdecl vswprintf(wchar_t *,unsigned int,wchar_t const *,char *)
+?vswprintf@@YAHPA_WIPB_WPAD@Z
+; public: virtual char const *__thiscall std::exception::what(void)const
+?what@exception@std@@UBEPBDXZ
+
 _CIacos
 _CIasin
 _CIatan
