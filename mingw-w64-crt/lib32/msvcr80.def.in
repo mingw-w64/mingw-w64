@@ -173,7 +173,7 @@ _HUGE DATA
 _Strftime
 _XcptFilter
 __CxxFrameHandler
-__CxxLongjmpUnwind
+__CxxLongjmpUnwind@4
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
@@ -239,15 +239,15 @@ __winitenv DATA
 _abnormal_termination
 _access
 _acmdln DATA
-_adj_fdiv_m16i
-_adj_fdiv_m32
-_adj_fdiv_m32i
-_adj_fdiv_m64
+_adj_fdiv_m16i@4
+_adj_fdiv_m32@4
+_adj_fdiv_m32i@4
+_adj_fdiv_m64@8
 _adj_fdiv_r
-_adj_fdivr_m16i
-_adj_fdivr_m32
-_adj_fdivr_m32i
-_adj_fdivr_m64
+_adj_fdivr_m16i@4
+_adj_fdivr_m32@4
+_adj_fdivr_m32i@4
+_adj_fdivr_m64@8
 _adj_fpatan
 _adj_fprem
 _adj_fprem1
@@ -522,7 +522,7 @@ _safe_fprem
 _safe_fprem1
 _scalb
 _searchenv
-_seh_longjmp_unwind
+_seh_longjmp_unwind@4
 _set_error_mode
 _set_invalid_parameter_handler
 _set_sbh_threshold
