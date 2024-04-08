@@ -842,8 +842,8 @@ _mktime32
 modf
 modff
 perror
-;pow
-;powf
+pow DATA
+powf DATA
 printf
 __ms_printf == printf
 putc
