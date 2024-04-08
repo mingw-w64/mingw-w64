@@ -940,7 +940,7 @@ _ftime64
 _futime64
 _gmtime64
 _localtime64
-_mbcasemap
+_mbcasemap DATA
 _mktime64
 _osplatform	DATA
 _time64
@@ -956,7 +956,7 @@ __CxxQueryExceptionSize
 __CxxRegisterExceptionObject
 __CxxUnregisterExceptionObject
 __DestructExceptionObject
-__lc_clike
+__lc_clike DATA
 __uncaught_exception
 __wcserror
 _aligned_free
