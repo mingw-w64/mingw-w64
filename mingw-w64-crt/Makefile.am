@@ -571,9 +571,6 @@ src_msvcrtarm64=\
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
-src_msvcr80_32=\
-  misc/imaxabs.c
-
 src_msvcr80_64=\
   misc/__p___argv.c \
   misc/__p__acmdln.c \
@@ -1204,7 +1201,7 @@ lib32_libmsvcr70_extra_a_SOURCES = $(src_msvcr70)
 lib32_libmsvcr70_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr71_extra_a_SOURCES = $(src_msvcr71)
 lib32_libmsvcr71_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-lib32_libmsvcr80_extra_a_SOURCES = $(src_msvcr80) $(src_msvcr80_32)
+lib32_libmsvcr80_extra_a_SOURCES = $(src_msvcr80)
 lib32_libmsvcr80_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr90_extra_a_SOURCES = $(src_msvcr90)
 lib32_libmsvcr90_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
