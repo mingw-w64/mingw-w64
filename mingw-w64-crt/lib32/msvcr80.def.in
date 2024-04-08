@@ -208,7 +208,6 @@ __p__commode
 __p__daylight
 __p__dstbias
 __p__environ
-__p__fileinfo
 __p__fmode
 __p__iob
 __p__mbctype
@@ -285,7 +284,6 @@ _cprintf
 _cputs
 _creat
 _cscanf
-_ctype DATA
 _cwait
 _daylight DATA
 _difftime32
@@ -317,7 +315,6 @@ _fdopen
 _fgetchar
 _fgetwchar
 _filbuf
-_fileinfo DATA
 _filelength
 _filelengthi64
 _fileno
@@ -346,10 +343,10 @@ _fstati64 == _fstat32i64
 _fstat32i64
 _fstat64
 _fstat64i32
-_ftime
+_ftime == _ftime32
 _ftol
 _fullpath
-_futime
+_futime == _futime32
 _gcvt
 _get_osfhandle
 _get_sbh_threshold
@@ -449,14 +446,11 @@ _mbctombb
 _mbctoupper
 _mbctype DATA
 _mbsbtype
-_mbscat
 _mbschr
 _mbscmp
 _mbscoll
-_mbscpy
 _mbscspn
 _mbsdec
-_mbsdup
 _mbsicmp
 _mbsicoll
 _mbsinc
@@ -559,7 +553,7 @@ _stat32i64
 _stat64
 _stat64i32
 _statusfp
-_strcmpi
+_strcmpi == _stricmp
 _strdate
 _strdup
 _strerror
@@ -596,7 +590,7 @@ _unlink
 _unloaddll
 _unlock
 _unlock_file
-_utime
+_utime == _utime32
 _vsnprintf
 _vsnwprintf
 _waccess
@@ -686,7 +680,7 @@ _wtoi
 _wtoi64
 _wtol
 _wunlink
-_wutime
+_wutime == _wutime32
 _y0
 _y1
 _yn
@@ -735,7 +729,7 @@ cos DATA
 cosh
 _ctime32
 ctime == _ctime32
-difftime
+difftime == _difftime32
 div
 exit
 exp DATA
@@ -882,8 +876,6 @@ strtok
 strtol
 strtoul
 strxfrm
-swprintf
-__ms_swprintf == swprintf
 swscanf
 __ms_swscanf == swscanf
 system
@@ -908,8 +900,6 @@ vprintf
 __ms_vprintf == vprintf
 vsprintf
 __ms_vsprintf == vsprintf
-vswprintf
-__ms_vswprintf == vswprintf
 vwprintf
 __ms_vwprintf == vwprintf
 wcscat
@@ -960,7 +950,6 @@ _wfindfirst64
 _wfindnext64
 _wutime64
 ; msvcr70.dll amd later
-__buffer_overrun
 __CxxDetectRethrow
 __CxxExceptionFilter
 __CxxQueryExceptionSize
@@ -968,8 +957,6 @@ __CxxRegisterExceptionObject
 __CxxUnregisterExceptionObject
 __DestructExceptionObject
 __lc_clike
-__security_error_handler
-__set_buffer_overrun_handler
 __uncaught_exception
 __wcserror
 _aligned_free
@@ -988,7 +975,6 @@ _putwch
 _resetstkoflw
 _scprintf
 _scwprintf
-_set_security_error_handler
 _snscanf
 _snwscanf
 _strtoi64
@@ -1004,7 +990,6 @@ _wassert
 _wcserror
 _wcstoi64
 _wcstoui64
-_wctype
 _wtof
 ___lc_codepage_func
 ___lc_collate_cp_func
@@ -1428,6 +1413,7 @@ _strupr_s
 _strupr_s_l
 _strxfrm_l
 _swprintf
+__ms_swprintf == _swprintf
 _swprintf_c
 _swprintf_p
 _swprintf_p_l
@@ -1487,6 +1473,7 @@ _vsprintf_p
 _vsprintf_p_l
 _vsprintf_s_l
 _vswprintf
+__ms_vswprintf == _vswprintf
 _vswprintf_c
 _vswprintf_c_l
 _vswprintf_l

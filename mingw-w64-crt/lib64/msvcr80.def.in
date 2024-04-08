@@ -259,7 +259,6 @@ _creat
 _cscanf
 _ctime64
 ctime == _ctime64
-_ctype
 _cwait
 _cwprintf
 _cwscanf
@@ -291,7 +290,6 @@ _fdopen
 _fgetchar
 _fgetwchar
 _filbuf
-_fileinfo DATA
 _filelength
 _filelengthi64
 _fileno
@@ -323,10 +321,10 @@ _fstati64 == _fstat64
 _fstat64
 _fstat32i64
 _fstat64i32
-_ftime
+_ftime == _ftime64
 _ftime64
 _fullpath
-_futime
+_futime == _futime64
 _futime64
 _gcvt
 _get_heap_handle
@@ -432,14 +430,11 @@ _mbctombb
 _mbctoupper
 _mbctype DATA
 _mbsbtype
-_mbscat
 _mbschr
 _mbscmp
 _mbscoll
-_mbscpy
 _mbscspn
 _mbsdec
-_mbsdup
 _mbsicmp
 _mbsicoll
 _mbsinc
@@ -547,7 +542,7 @@ _stat64
 _stat32i64
 _stat64i32
 _statusfp
-_strcmpi
+_strcmpi == _stricmp
 _strdate
 _strdup
 _strerror
@@ -593,7 +588,7 @@ _unlink
 _unloaddll
 _unlock
 _unlock_file
-_utime
+_utime == _utime64
 _utime64
 _vscprintf
 _vscwprintf
@@ -695,7 +690,7 @@ _wtoi
 _wtoi64
 _wtol
 _wunlink
-_wutime
+_wutime == _wutime64
 _wutime64
 _y0
 _y1
@@ -750,7 +745,7 @@ cosf
 cosh
 coshf
 _ctime32
-difftime
+difftime == _difftime64
 div
 exit
 exp DATA
@@ -904,8 +899,6 @@ strtok
 strtol
 strtoul
 strxfrm
-swprintf
-__ms_swprintf == swprintf
 swscanf
 __ms_swscanf == swscanf
 system
@@ -929,8 +922,6 @@ vprintf
 __ms_vprintf == vprintf
 vsprintf
 __ms_vsprintf == vsprintf
-vswprintf
-__ms_vswprintf == vswprintf
 vwprintf
 __ms_vwprintf == vwprintf
 wcscat
@@ -1374,6 +1365,7 @@ _strupr_s
 _strupr_s_l
 _strxfrm_l
 _swprintf
+__ms_swprintf == _swprintf
 _swprintf_c
 _swprintf_p
 _swprintf_p_l
@@ -1433,6 +1425,7 @@ _vsprintf_p
 _vsprintf_p_l
 _vsprintf_s_l
 _vswprintf
+__ms_vswprintf == _vswprintf
 _vswprintf_c
 _vswprintf_c_l
 _vswprintf_l
