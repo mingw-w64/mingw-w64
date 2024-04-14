@@ -218,54 +218,99 @@ EXPORTS
 ?what@exception@@UEBAPEBDXZ
 #endif
 
-; List of ARM32 C++ mangled symbols
-; TODO: Verify if this list is correct and contains all symbols from the first ARM32 version of msvcrt.dll
+; List of ARM32 C++ mangled symbols which matches the first ARM32 version of msvcrt.dll (Windows RT 8.0)
 #ifdef DEF_ARM32
+; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAA@ABV0@@Z
+; public: __cdecl __non_rtti_object::__non_rtti_object(char const *)
 ??0__non_rtti_object@@QAA@PBD@Z
+; private: __cdecl bad_cast::bad_cast(char const *const *)
 ??0bad_cast@@AAA@PBQBD@Z
+; public: __cdecl bad_cast::bad_cast(class bad_cast const &)
 ??0bad_cast@@QAA@ABV0@@Z
+; public: __cdecl bad_cast::bad_cast(char const *)
 ??0bad_cast@@QAA@PBD@Z
+; public: __cdecl bad_typeid::bad_typeid(class bad_typeid const &)
 ??0bad_typeid@@QAA@ABV0@@Z
+; public: __cdecl bad_typeid::bad_typeid(char const *)
 ??0bad_typeid@@QAA@PBD@Z
+; public: __cdecl exception::exception(char const *const &)
 ??0exception@@QAA@ABQBD@Z
+; public: __cdecl exception::exception(char const *const &,int)
 ??0exception@@QAA@ABQBDH@Z
+; public: __cdecl exception::exception(class exception const &)
 ??0exception@@QAA@ABV0@@Z
+; public: __cdecl exception::exception(void)
 ??0exception@@QAA@XZ
+; public: virtual __cdecl __non_rtti_object::~__non_rtti_object(void)
 ??1__non_rtti_object@@UAA@XZ
+; public: virtual __cdecl bad_cast::~bad_cast(void)
 ??1bad_cast@@UAA@XZ
+; public: virtual __cdecl bad_typeid::~bad_typeid(void)
 ??1bad_typeid@@UAA@XZ
+; public: virtual __cdecl exception::~exception(void)
 ??1exception@@UAA@XZ
+; public: virtual __cdecl type_info::~type_info(void)
 ??1type_info@@UAA@XZ
+; void *__cdecl operator new(unsigned int)
 ??2@YAPAXI@Z
+; void *__cdecl operator new(unsigned int,int,char const *,int)
 ??2@YAPAXIHPBDH@Z
+; void __cdecl operator delete(void *)
 ??3@YAXPAX@Z
+; public: class __non_rtti_object &__cdecl __non_rtti_object::operator =(class __non_rtti_object const &)
 ??4__non_rtti_object@@QAAAAV0@ABV0@@Z
+; public: class bad_cast &__cdecl bad_cast::operator =(class bad_cast const &)
 ??4bad_cast@@QAAAAV0@ABV0@@Z
+; public: class bad_typeid &__cdecl bad_typeid::operator =(class bad_typeid const &)
 ??4bad_typeid@@QAAAAV0@ABV0@@Z
+; public: class exception &__cdecl exception::operator =(class exception const &)
 ??4exception@@QAAAAV0@ABV0@@Z
+; public: int __cdecl type_info::operator ==(class type_info const &)const
 ??8type_info@@QBAHABV0@@Z
+; public: int __cdecl type_info::operator !=(class type_info const &)const
 ??9type_info@@QBAHABV0@@Z
+; const __non_rtti_object::$vftable
 ??_7__non_rtti_object@@6B@ DATA
+; const bad_cast::$vftable
 ??_7bad_cast@@6B@ DATA
+; const bad_typeid::$vftable
 ??_7bad_typeid@@6B@ DATA
+; const exception::$vftable
 ??_7exception@@6B@ DATA
+; public: void __cdecl bad_cast::__dflt_ctor_closure(void)
 ??_Fbad_cast@@QAAXXZ
+; public: void __cdecl bad_typeid::__dflt_ctor_closure(void)
 ??_Fbad_typeid@@QAAXXZ
+; void *__cdecl operator new[](unsigned int)
 ??_U@YAPAXI@Z
+; void *__cdecl operator new[](unsigned int,int,char const *,int)
 ??_U@YAPAXIHPBDH@Z
+; void __cdecl operator delete[](void *)
 ??_V@YAXPAX@Z
+; int(__cdecl *)(unsigned int)__cdecl _query_new_handler(void)
 ?_query_new_handler@@YAP6AHI@ZXZ
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
 ?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
+; int __cdecl _set_new_mode(int)
 ?_set_new_mode@@YAHH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *))
 ?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
+; public: int __cdecl type_info::before(class type_info const &)const
 ?before@type_info@@QBAHABV1@@Z
+; public: char const *__cdecl type_info::name(void)const
 ?name@type_info@@QBAPBDXZ
+; public: char const *__cdecl type_info::raw_name(void)const
 ?raw_name@type_info@@QBAPBDXZ
+; void(__cdecl *)(void)__cdecl set_terminate(void(__cdecl *)(void))
 ?set_terminate@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
 ?set_unexpected@@YAP6AXXZP6AXXZ@Z
+; void __cdecl terminate(void)
 ?terminate@@YAXXZ
+; void __cdecl unexpected(void)
 ?unexpected@@YAXXZ
+; public: virtual char const *__cdecl exception::what(void)const
 ?what@exception@@UBAPBDXZ
 #endif
 
@@ -1097,7 +1142,7 @@ _wtof
 ; These symbols were added in Windows Server 2003 OS system version of msvcrt.dll
 ; They are not available in 32-bit Windows XP but are available in 32-bit Windows Vista
 F_I386(__CxxCallUnwindVecDtor)
-__CxxFrameHandler2
+F_X86_ANY(__CxxFrameHandler2)
 ___lc_collate_cp_func
 __pwctype_func
 F_NON_I386(_abs64) ; i386 _abs64 replaced by emu
@@ -1271,7 +1316,7 @@ _fprintf_p_l
 _fprintf_s_l
 _free_dbg
 _freea
-_freea_s
+F_X86_ANY(_freea_s)
 _fscanf_l
 _fscanf_s_l
 F_ARM_ANY(_fseeki64) ; i386 and x64 _fseeki64 replaced by emu
@@ -1298,12 +1343,12 @@ _get_fmode
 F_X86_ANY(_get_osplatform)
 F_X86_ANY(_get_osver)
 ; _get_output_format replaced by emu
-_get_pgmptr
+F_X86_ANY(_get_pgmptr)
 _get_wenviron
 F_X86_ANY(_get_winmajor)
 F_X86_ANY(_get_winminor)
 F_X86_ANY(_get_winver)
-_get_wpgmptr
+F_X86_ANY(_get_wpgmptr)
 _gmtime32 F_I386(== gmtime) ; i386 _gmtime32 replaced by alias
 ; _gmtime32_s replaced by emu
 ; _gmtime64_s replaced by emu
@@ -1720,6 +1765,7 @@ wprintf_s
 wscanf_s
 
 ; These symbols were added in Windows 8 OS system version of msvcrt.dll
+F_ARM_ANY(__jump_unwind)
 F_ARM_ANY(_create_locale) ; i386 and x64 _create_locale replaced by emu
 F_ARM_ANY(_free_locale) ; i386 and x64 _free_locale replaced by emu
 F_ARM_ANY(_get_current_locale) ; i386 and x64 _get_current_locale replaced by emu
