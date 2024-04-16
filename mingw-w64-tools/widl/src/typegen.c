@@ -417,29 +417,62 @@ static int get_padding(const var_list_t *fields)
     return ROUNDING(offset, salign);
 }
 
-static unsigned int get_stack_size( const var_t *var, int *by_value )
+static unsigned int get_stack_size( const var_t *var, unsigned int *stack_align, int *by_value )
 {
-    unsigned int stack_size;
+    unsigned int stack_size, align = 0;
     int by_val;
 
     switch (typegen_detect_type( var->declspec.type, var->attrs, TDT_ALL_TYPES ))
     {
     case TGT_BASIC:
+        if (target.cpu == CPU_ARM)
+        {
+            switch (type_basic_get_type( var->declspec.type ))
+            {
+            case TYPE_BASIC_FLOAT:
+            case TYPE_BASIC_DOUBLE:
+            case TYPE_BASIC_INT64:
+            case TYPE_BASIC_HYPER:
+                align = 8;
+                break;
+            default:
+                break;
+            }
+        }
+        /* fall through */
     case TGT_ENUM:
     case TGT_RANGE:
     case TGT_STRUCT:
     case TGT_UNION:
     case TGT_USER_TYPE:
-        stack_size = type_memsize( var->declspec.type );
-        by_val = (pointer_size < 8 || stack_size <= pointer_size); /* FIXME: should be platform-specific */
+        stack_size = type_memsize_and_alignment( var->declspec.type, &align );
+        switch (target.cpu)
+        {
+        case CPU_x86_64:
+            by_val = (stack_size == 1 || stack_size == 2 || stack_size == 4 || stack_size == 8);
+            break;
+        case CPU_ARM64:
+            by_val = (stack_size <= 2 * pointer_size);
+            break;
+        case CPU_ARM:
+            by_val = 1;
+            break;
+        default:
+            align = pointer_size;
+            by_val = 1;
+            break;
+        }
         break;
     default:
         by_val = 0;
         break;
     }
-    if (!by_val) stack_size = pointer_size;
+    if (align < pointer_size) align = pointer_size;
+    if (!by_val) stack_size = align = pointer_size;
+
     if (by_value) *by_value = by_val;
-    return ROUND_SIZE( stack_size, pointer_size );
+    if (stack_align) *stack_align = align;
+    return ROUND_SIZE( stack_size, align );
 }
 
 static unsigned char get_contexthandle_flags( const type_t *iface, const attr_list_t *attrs,
@@ -1024,7 +1057,8 @@ int decl_indirect(const type_t *t)
 }
 
 static unsigned char get_parameter_fc( const var_t *var, int is_return, unsigned short *flags,
-                                       unsigned int *stack_size, unsigned int *typestring_offset )
+                                       unsigned int *stack_size, unsigned int *stack_align,
+                                       unsigned int *typestring_offset )
 {
     unsigned int alignment, server_size = 0, buffer_size = 0;
     unsigned char fc = 0;
@@ -1036,7 +1070,7 @@ static unsigned char get_parameter_fc( const var_t *var, int is_return, unsigned
     else if (!is_in && !is_out) is_in = TRUE;
 
     *flags = 0;
-    *stack_size = get_stack_size( var, &is_byval );
+    *stack_size = get_stack_size( var, stack_align, &is_byval );
     *typestring_offset = var->typestring_offset;
 
     if (is_in)     *flags |= IsIn;
@@ -1192,11 +1226,11 @@ static unsigned char get_func_oi2_flags( const var_t *func )
     var_t *retval = type_function_get_retval( func->declspec.type );
     unsigned char oi2_flags = 0x40;  /* HasExtensions */
     unsigned short flags;
-    unsigned int stack_size, typestring_offset;
+    unsigned int stack_size, stack_align, typestring_offset;
 
     if (args) LIST_FOR_EACH_ENTRY( var, args, const var_t, entry )
     {
-        get_parameter_fc( var, 0, &flags, &stack_size, &typestring_offset );
+        get_parameter_fc( var, 0, &flags, &stack_size, &stack_align, &typestring_offset );
         if (flags & MustSize)
         {
             if (flags & IsIn) oi2_flags |= 0x02; /* ClientMustSize */
@@ -1207,7 +1241,7 @@ static unsigned char get_func_oi2_flags( const var_t *func )
     if (!is_void( retval->declspec.type ))
     {
         oi2_flags |= 0x04;  /* HasRet */
-        get_parameter_fc( retval, 1, &flags, &stack_size, &typestring_offset );
+        get_parameter_fc( retval, 1, &flags, &stack_size, &stack_align, &typestring_offset );
         if (flags & MustSize) oi2_flags |= 0x01;  /* ServerMustSize */
     }
     return oi2_flags;
@@ -1217,10 +1251,11 @@ static unsigned int write_new_procformatstring_type(FILE *file, int indent, cons
                                                     int is_return, unsigned int *stack_offset)
 {
     char buffer[128];
-    unsigned int stack_size, typestring_offset;
+    unsigned int stack_size, stack_align, typestring_offset;
     unsigned short flags;
-    unsigned char fc = get_parameter_fc( var, is_return, &flags, &stack_size, &typestring_offset );
+    unsigned char fc = get_parameter_fc( var, is_return, &flags, &stack_size, &stack_align, &typestring_offset );
 
+    *stack_offset = ROUND_SIZE( *stack_offset, stack_align );
     strcpy( buffer, "/* flags:" );
     if (flags & MustSize) strcat( buffer, " must size," );
     if (flags & MustFree) strcat( buffer, " must free," );
@@ -1244,7 +1279,7 @@ static unsigned int write_new_procformatstring_type(FILE *file, int indent, cons
     else
         print_file( file, indent, "NdrFcShort(0x%x),	/* type offset = %u */\n",
                     typestring_offset, typestring_offset );
-    *stack_offset += max( stack_size, pointer_size );
+    *stack_offset += stack_size;
     return 6;
 }
 
@@ -1302,7 +1337,7 @@ static unsigned int write_old_procformatstring_type(FILE *file, int indent, cons
         else
             print_file(file, indent, "0x4d,    /* FC_IN_PARAM */\n");
 
-        size = get_stack_size( var, NULL );
+        size = get_stack_size( var, NULL, NULL );
         print_file(file, indent, "0x%02x,\n", size / pointer_size );
         print_file(file, indent, "NdrFcShort(0x%x),	/* type offset = %u */\n", offset, offset);
         size = 4; /* includes param type prefix */
@@ -1354,6 +1389,7 @@ static void write_proc_func_interp( FILE *file, int indent, const type_t *iface,
     unsigned int nb_args = 0;
     unsigned int stack_size = 0;
     unsigned int stack_offset = 0;
+    unsigned int stack_align;
     unsigned short param_num = 0;
     unsigned short handle_stack_offset = 0;
     unsigned short handle_param_num = 0;
@@ -1374,7 +1410,9 @@ static void write_proc_func_interp( FILE *file, int indent, const type_t *iface,
             handle_stack_offset = stack_size;
             handle_param_num = param_num;
         }
-        stack_size += get_stack_size( var, NULL );
+        size = get_stack_size( var, &stack_align, NULL );
+        stack_size = ROUND_SIZE( stack_size, stack_align );
+        stack_size += size;
         param_num++;
         nb_args++;
     }
@@ -1762,13 +1800,15 @@ static unsigned int write_conf_or_var_desc(FILE *file, const type_t *cont_type,
             if (is_object( iface )) offset += pointer_size;
             if (args) LIST_FOR_EACH_ENTRY( var, args, const var_t, entry )
             {
+                unsigned int align, size = get_stack_size( var, &align, NULL );
+                offset = ROUND_SIZE( offset, align );
                 if (var->name && !strcmp(var->name, subexpr->u.sval))
                 {
                     expr_loc.v = var;
                     correlation_variable = var->declspec.type;
                     break;
                 }
-                offset += get_stack_size( var, NULL );
+                offset += size;
                 if (var == current_arg) robust_flags &= ~RobustEarly;
             }
         }
@@ -5023,7 +5063,7 @@ void write_client_call_routine( FILE *file, const type_t *iface, const var_t *fu
     int len, needs_params = 0;
 
     /* we need a param structure if we have more than one arg */
-    if (pointer_size == 4 && args) needs_params = is_object( iface ) || list_count( args ) > 1;
+    if (target.cpu == CPU_i386 && args) needs_params = is_object( iface ) || list_count( args ) > 1;
 
     print_file( file, 0, "{\n");
     if (needs_params)
@@ -5046,7 +5086,7 @@ void write_client_call_routine( FILE *file, const type_t *iface, const var_t *fu
     {
         fprintf( file, ",\n%*s&__params", len, "" );
     }
-    else if (pointer_size == 8)
+    else if (target.cpu != CPU_i386)
     {
         if (is_object( iface )) fprintf( file, ",\n%*sThis", len, "" );
         if (args)
@@ -5067,7 +5107,7 @@ void write_client_call_routine( FILE *file, const type_t *iface, const var_t *fu
     {
         print_file( file, 1, "return (" );
         write_type_decl_left(file, rettype);
-        fprintf( file, ")%s;\n", pointer_size == 8 ? "_RetVal.Simple" : "*(LONG_PTR *)&_RetVal" );
+        fprintf( file, ")%s;\n", target.cpu != CPU_i386 ? "_RetVal.Simple" : "*(LONG_PTR *)&_RetVal" );
     }
     print_file( file, 0, "}\n\n");
 }
