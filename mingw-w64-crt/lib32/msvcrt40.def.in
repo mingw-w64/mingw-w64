@@ -1651,6 +1651,7 @@ _wpgmptr DATA
 
 ; These symbols are not available in the original Microsoft Visual C++ 4.0 version of msvcrt40.dll
 ; They were added in Microsoft Visual C++ 4.1 Upgrade version of msvcrt40.dll and are available also in all OS system versions of msvcrt40.dll
+__p__dstbias
 _getmaxstdio
 _inp
 _inpd
@@ -1658,8 +1659,7 @@ _inpw
 _outp
 _outpd
 _outpw
-; Following two symbols were not added into Win32s version of msvcrt40.dll
-__p__dstbias
+; Following symbol was not added into Win32s version of msvcrt40.dll
 _dstbias DATA
 
 ; These symbols are available in all Microsoft Visual C++ 4.x versions of msvcrt40.dll
