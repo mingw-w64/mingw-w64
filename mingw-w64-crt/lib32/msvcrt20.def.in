@@ -1569,15 +1569,15 @@ _wpgmptr DATA
 
 ; These symbols are not available in the original Microsoft Visual C++ 2.0 version of msvcrt20.dll
 ; They were added in Microsoft Visual C++ 2.1 Upgrade version of msvcrt20.dll and are present also in all OS system version of msvcrt20.dll
-_adj_fdiv_m16i@4
-_adj_fdiv_m32@4
-_adj_fdiv_m32i@4
-_adj_fdiv_m64@8
+_adj_fdiv_m16i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdiv_m32 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdiv_m32i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdiv_m64 ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
 _adj_fdiv_r
-_adj_fdivr_m16i@4
-_adj_fdivr_m32@4
-_adj_fdivr_m32i@4
-_adj_fdivr_m64@8
+_adj_fdivr_m16i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdivr_m32 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdivr_m32i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_adj_fdivr_m64 ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
 _adj_fpatan
 _adj_fprem
 _adj_fprem1
