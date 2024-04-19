@@ -471,8 +471,8 @@ F_X86_ANY(_dstbias DATA)
 _dup
 _dup2
 _ecvt
-_endthread ; In Windows XP and Windows XP SP1 OS system version of msvcrt.dll this symbol has name _endthread@4, in all other versions (including XP SP3) it has standard name
-_endthreadex ; In Windows XP and Windows XP SP1 OS system version of msvcrt.dll this symbol has name _endthreadex@4, in all other versions (including XP SP3) it has standard name
+_endthread
+_endthreadex
 F_X86_ANY(_environ DATA)
 _eof
 _errno
