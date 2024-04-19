@@ -989,10 +989,12 @@ _CIsinh
 _CIsqrt
 _CItan
 _CItanh
+_CxxThrowException@8
 _EH_prolog
 _HUGE DATA
 _XcptFilter
 __CxxFrameHandler
+__CxxLongjmpUnwind@4
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
@@ -1041,7 +1043,15 @@ __unDName
 __wgetmainargs
 _abnormal_termination
 _access
+_adj_fdiv_m16i@4
+_adj_fdiv_m32@4
+_adj_fdiv_m32i@4
+_adj_fdiv_m64@8
 _adj_fdiv_r
+_adj_fdivr_m16i@4
+_adj_fdivr_m32@4
+_adj_fdivr_m32i@4
+_adj_fdivr_m64@8
 _adj_fpatan
 _adj_fprem
 _adj_fprem1
@@ -1285,6 +1295,7 @@ _safe_fprem
 _safe_fprem1
 _scalb
 _searchenv
+_seh_longjmp_unwind@4
 _set_error_mode
 _seterrormode
 _setjmp
@@ -1661,20 +1672,3 @@ _outpd
 _outpw
 ; Following symbol was not added into Win32s version of msvcrt40.dll
 _dstbias DATA
-
-; These symbols are available in all Microsoft Visual C++ 4.x versions of msvcrt40.dll
-; They are available also in all Windows 9x OS system versions of msvcrt40.dll
-; But they are not available in any Windows NT-based OS system versions of msvcrt40.dll
-; In Windows NT-based OS system versions of msvcrt40.dll these symbols exists without @SIZE suffix
-; So disable them as they are not available in the usable form in the OS system versions
-; _CxxThrowException@8
-; __CxxLongjmpUnwind@4
-; _adj_fdiv_m16i@4
-; _adj_fdiv_m32@4
-; _adj_fdiv_m32i@4
-; _adj_fdiv_m64@8
-; _adj_fdivr_m16i@4
-; _adj_fdivr_m32@4
-; _adj_fdivr_m32i@4
-; _adj_fdivr_m64@8
-; _seh_longjmp_unwind@4
