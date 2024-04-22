@@ -6,6 +6,8 @@
 LIBRARY "MSVCR110.dll"
 EXPORTS
 
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))
@@ -862,9 +864,7 @@ _atof_l
 _atoflt
 _atoflt_l
 _atoi64
-atoll == _atoi64
 _atoi64_l
-_atoll_l == _atoi64_l
 _atoi_l
 _atol_l
 _atoldbl

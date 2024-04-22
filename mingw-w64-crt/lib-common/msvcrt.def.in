@@ -3,6 +3,8 @@ EXPORTS
 
 #define PRE_C95_SWPRINTF
 #define NO_STRCMPI_ALIAS
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
 #include "func.def.in"
 #include "msvcrt-common.def.in"
 
@@ -1844,12 +1846,10 @@ F32(_wstat32 == _wstat)
 F64(_wstat64i32 == _wstat)
 
 ; This is list of some symbols added in msvcr120.dll which can be defined as aliases to some msvcrt.dll symbols
-_atoll_l == _atoi64_l
 _strtoimax_l == _strtoi64_l
 _strtoll_l == _strtoi64_l
 _strtoull_l == _strtoui64_l
 _strtoumax_l == _strtoui64_l
-atoll == _atoi64
 F_NON_I386(imaxabs == _abs64) ; i386 imaxabs alias provided by emu
 F_NON_I386(llabs == _abs64) ; i386 llabs alias provided by emu
 F_NON_I386(strtoimax == _strtoi64) ; i386 strtoimax alias provided by emu

@@ -164,6 +164,14 @@ ADD_UNDERSCORE(vsnprintf_s)
 _strcmpi == _stricmp
 #endif
 
+#ifdef WITH_ATOLL_ALIAS
+atoll == _atoi64
+#endif
+
+#ifdef WITH_ATOLL_L_ALIAS
+_atoll_l == _atoi64_l
+#endif
+
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
 #ifndef UCRTBASE
 __ms_fprintf == fprintf

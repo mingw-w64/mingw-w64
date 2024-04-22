@@ -8,6 +8,7 @@ EXPORTS
 
 #define PRE_C95_SWPRINTF
 #define NO_STRCMPI_ALIAS
+#define WITH_ATOLL_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
@@ -258,7 +259,6 @@ _amsg_exit
 _assert
 _atodbl
 _atoi64
-atoll == _atoi64
 _atoldbl
 _beep
 _beginthread
