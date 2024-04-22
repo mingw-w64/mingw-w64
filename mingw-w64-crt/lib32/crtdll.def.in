@@ -68,6 +68,7 @@ LIBRARY "crtdll.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
+#define NO_STRCMPI_ALIAS
 #include "msvcrt-common.def.in"
 
 ; crtdll.dll contains 3 mangled C++ symbols

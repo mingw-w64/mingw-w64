@@ -8,6 +8,9 @@ EXPORTS
 
 #include "func.def.in"
 #define NO_GETPID_ALIAS
+#ifdef DEF_ARM32
+#define NO_STRCMPI_ALIAS
+#endif
 #include "msvcrt-common.def.in"
 
 #ifdef DEF_X64

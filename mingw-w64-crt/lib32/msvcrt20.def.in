@@ -7,6 +7,7 @@ LIBRARY "MSVCRT20.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
+#define NO_STRCMPI_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall Iostream_init::Iostream_init(class ios &,int)

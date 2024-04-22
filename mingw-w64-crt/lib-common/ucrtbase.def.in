@@ -1944,7 +1944,6 @@ _stat64
 _stat64i32
 _statusfp
 F_I386(_statusfp2)
-_strcmpi == _stricmp
 _strcoll_l
 _strdate
 _strdate_s
