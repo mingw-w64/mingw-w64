@@ -6,6 +6,7 @@
 LIBRARY "MSVCR70.dll"
 EXPORTS
 
+#define PRE_C95_SWPRINTF
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)

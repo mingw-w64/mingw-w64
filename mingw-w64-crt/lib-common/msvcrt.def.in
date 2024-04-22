@@ -1,6 +1,7 @@
 LIBRARY "msvcrt.dll"
 EXPORTS
 
+#define PRE_C95_SWPRINTF
 #include "func.def.in"
 #include "msvcrt-common.def.in"
 
@@ -1854,26 +1855,6 @@ F_NON_I386(strtoimax == _strtoi64) ; i386 strtoimax alias provided by emu
 F_NON_I386(strtoll == _strtoi64) ; i386 strtoll alias provided by emu
 F_NON_I386(strtoull == _strtoui64) ; i386 strtoull alias provided by emu
 F_NON_I386(strtoumax == _strtoui64) ; i386 strtoumax alias provided by emu
-
-; This is list of internal symbol aliases for printf/scanf functions used by mingw
-__ms_fprintf == fprintf
-__ms_fscanf == fscanf
-__ms_fwprintf == fwprintf
-__ms_fwscanf == fwscanf
-__ms_printf == printf
-__ms_scanf == scanf
-__ms_sprintf == sprintf
-__ms_sscanf == sscanf
-__ms_swprintf == swprintf
-__ms_swscanf == swscanf
-__ms_vfprintf == vfprintf
-__ms_vfwprintf == vfwprintf
-__ms_vprintf == vprintf
-__ms_vsprintf == vsprintf
-__ms_vswprintf == vswprintf
-__ms_vwprintf == vwprintf
-__ms_wprintf == wprintf
-__ms_wscanf == wscanf
 
 ; This is list of additional symbol aliases not available in any CRT library
 ; FIXME: check if these really are needed

@@ -6,6 +6,7 @@
 LIBRARY "MSVCRT40.dll"
 EXPORTS
 
+#define PRE_C95_SWPRINTF
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall Iostream_init::Iostream_init(class ios &,int)
