@@ -179,6 +179,10 @@ imaxabs == _abs64
 imaxabs == llabs
 #endif
 
+#ifdef WITH_IMAXDIV_ALIAS
+imaxdiv == lldiv
+#endif
+
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
 #ifndef UCRTBASE
 __ms_fprintf == fprintf

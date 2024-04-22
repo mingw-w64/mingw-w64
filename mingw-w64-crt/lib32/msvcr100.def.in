@@ -9,6 +9,7 @@ EXPORTS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_IMAXABS_ALIAS
+#define WITH_IMAXDIV_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))
@@ -1779,7 +1780,6 @@ ldexp DATA
 ldiv
 llabs
 lldiv
-imaxdiv == lldiv
 localeconv
 log DATA
 ; If we implement log10, we can set it to DATA only.
