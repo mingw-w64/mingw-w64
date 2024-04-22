@@ -418,7 +418,6 @@ _fdopen
 _fflush_nolock
 _fgetchar
 _fgetwc_nolock
-_getwc_nolock == _fgetwc_nolock
 _fgetwchar
 _filbuf
 _filelength
