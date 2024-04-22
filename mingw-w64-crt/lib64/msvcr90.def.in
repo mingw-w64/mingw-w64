@@ -509,7 +509,6 @@ _get_tzname
 _get_unexpected
 _get_wpgmptr
 _getc_nolock
-_fgetc_nolock == _getc_nolock
 _getch
 _getch_nolock
 _getche
