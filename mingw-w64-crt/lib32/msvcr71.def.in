@@ -9,6 +9,7 @@ EXPORTS
 #define PRE_C95_SWPRINTF
 #define NO_STRCMPI_ALIAS
 #define WITH_ATOLL_ALIAS
+#define WITH_STRTO64_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
@@ -584,11 +585,7 @@ _strrev
 _strset
 _strtime
 _strtoi64
-strtoll == _strtoi64
-strtoimax == _strtoi64
 _strtoui64
-strtoull == _strtoui64
-strtoumax == _strtoui64
 _strupr
 _swab
 _sys_errlist DATA

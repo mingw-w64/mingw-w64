@@ -183,6 +183,20 @@ imaxabs == llabs
 imaxdiv == lldiv
 #endif
 
+#ifdef WITH_STRTO64_ALIAS
+strtoll == _strtoi64
+strtoull == _strtoui64
+strtoimax == _strtoi64
+strtoumax == _strtoui64
+#endif
+
+#ifdef WITH_STRTO64_L_ALIAS
+_strtoll_l == _strtoi64_l
+_strtoull_l == _strtoui64_l
+_strtoimax_l == _strtoi64_l
+_strtoumax_l == _strtoui64_l
+#endif
+
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
 #ifndef UCRTBASE
 __ms_fprintf == fprintf
