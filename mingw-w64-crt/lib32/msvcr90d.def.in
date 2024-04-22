@@ -8,6 +8,7 @@ EXPORTS
 
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
+#define WITH_LLABS_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &)
@@ -374,8 +375,6 @@ __wgetmainargs
 __winitenv DATA
 _abnormal_termination
 _abs64
-llabs == _abs64
-imaxabs == _abs64
 _access
 _access_s
 _acmdln DATA

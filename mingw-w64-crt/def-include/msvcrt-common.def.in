@@ -172,6 +172,13 @@ atoll == _atoi64
 _atoll_l == _atoi64_l
 #endif
 
+#ifdef WITH_LLABS_ALIAS
+llabs == _abs64
+imaxabs == _abs64
+#elif defined(WITH_IMAXABS_ALIAS)
+imaxabs == llabs
+#endif
+
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
 #ifndef UCRTBASE
 __ms_fprintf == fprintf

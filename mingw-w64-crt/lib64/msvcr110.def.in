@@ -8,6 +8,7 @@ EXPORTS
 
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
+#define WITH_IMAXABS_ALIAS
 #include "msvcrt-common.def.in"
 
 $I10_OUTPUT
@@ -1857,7 +1858,6 @@ labs
 ldexp
 ldiv
 llabs
-imaxabs == llabs
 lldiv
 imaxdiv == lldiv
 localeconv

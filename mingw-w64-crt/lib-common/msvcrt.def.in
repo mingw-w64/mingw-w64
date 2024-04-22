@@ -5,6 +5,10 @@ EXPORTS
 #define NO_STRCMPI_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
+#ifndef DEF_I386
+; i386 llabs and imaxabs alias provided by emu
+#define WITH_LLABS_ALIAS
+#endif
 #include "func.def.in"
 #include "msvcrt-common.def.in"
 
@@ -1850,8 +1854,6 @@ _strtoimax_l == _strtoi64_l
 _strtoll_l == _strtoi64_l
 _strtoull_l == _strtoui64_l
 _strtoumax_l == _strtoui64_l
-F_NON_I386(imaxabs == _abs64) ; i386 imaxabs alias provided by emu
-F_NON_I386(llabs == _abs64) ; i386 llabs alias provided by emu
 F_NON_I386(strtoimax == _strtoi64) ; i386 strtoimax alias provided by emu
 F_NON_I386(strtoll == _strtoi64) ; i386 strtoll alias provided by emu
 F_NON_I386(strtoull == _strtoui64) ; i386 strtoull alias provided by emu

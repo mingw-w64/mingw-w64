@@ -8,6 +8,7 @@ EXPORTS
 
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
+#define WITH_IMAXABS_ALIAS
 #include "msvcrt-common.def.in"
 
 ; public: __thiscall Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))
@@ -1777,7 +1778,6 @@ labs
 ldexp DATA
 ldiv
 llabs
-imaxabs == llabs
 lldiv
 imaxdiv == lldiv
 localeconv
