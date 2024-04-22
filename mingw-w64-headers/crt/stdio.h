@@ -1240,16 +1240,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, __format, NULL, __local_argv);
   }
 
-  __mingw_static_ovr
-  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
+  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   __mingw_ovr
   int __cdecl wprintf(const wchar_t * __restrict__ _Format,...)
   {
@@ -1344,16 +1335,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     __builtin_va_end(__ap);
     return __ret;
   }
-  __mingw_static_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-  int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION, _Dest, _Count, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
+  int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #if __USE_MINGW_ANSI_STDIO == 0
