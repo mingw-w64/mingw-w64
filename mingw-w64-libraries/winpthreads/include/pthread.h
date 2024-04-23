@@ -208,13 +208,22 @@ struct _pthread_cleanup
     _pthread_cleanup *next;
 };
 
+/* Using MemoryBarrier() requires including Windows headers. User code
+ * may want to use pthread_cleanup_push without including Windows headers
+ * first, thus prefer GCC specific intrinsics where possible. */
+#ifdef __GNUC__
+#define __pthread_MemoryBarrier() __sync_synchronize()
+#else
+#define __pthread_MemoryBarrier() MemoryBarrier()
+#endif
+
 #define pthread_cleanup_push(F, A)                                      \
     do {                                                                \
         const _pthread_cleanup _pthread_cup =                           \
             { (F), (A), *pthread_getclean() };                          \
-        MemoryBarrier();                                                \
+        __pthread_MemoryBarrier();                                      \
         *pthread_getclean() = (_pthread_cleanup *) &_pthread_cup;       \
-        MemoryBarrier();                                                \
+        __pthread_MemoryBarrier();                                      \
         do {                                                            \
             do {} while (0)
 
