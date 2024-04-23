@@ -661,16 +661,16 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
 #ifdef _UCRT
-  __mingw_static_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
+  __mingw_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
     return fseek(_File, _Offset, _Origin);
   }
-  __mingw_static_ovr int fseeko64(FILE *_File, _off64_t _Offset, int _Origin) {
+  __mingw_ovr int fseeko64(FILE *_File, _off64_t _Offset, int _Origin) {
     return _fseeki64(_File, _Offset, _Origin);
   }
-  __mingw_static_ovr _off_t ftello(FILE *_File) {
+  __mingw_ovr _off_t ftello(FILE *_File) {
     return ftell(_File);
   }
-  __mingw_static_ovr _off64_t ftello64(FILE *_File) {
+  __mingw_ovr _off64_t ftello64(FILE *_File) {
     return _ftelli64(_File);
   }
 #else
