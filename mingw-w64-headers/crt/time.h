@@ -241,33 +241,33 @@ extern "C" {
 #ifndef RC_INVOKED
 
 #ifdef _USE_32BIT_TIME_T
-static __inline time_t __CRTDECL time(time_t *_Time) { return _time32(_Time); }
+__mingw_ovr time_t __CRTDECL time(time_t *_Time) { return _time32(_Time); }
 #ifdef _UCRT
-static __inline int __CRTDECL timespec_get(struct timespec* _Ts, int _Base) { return _timespec32_get((struct _timespec32*)_Ts, _Base); }
+__mingw_ovr int __CRTDECL timespec_get(struct timespec* _Ts, int _Base) { return _timespec32_get((struct _timespec32*)_Ts, _Base); }
 #endif
-static __inline double __CRTDECL difftime(time_t _Time1,time_t _Time2)  { return _difftime32(_Time1,_Time2); }
-static __inline struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime32(_Time); }
-static __inline errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
-static __inline struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-static __inline errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
-static __inline char *__CRTDECL ctime(const time_t *_Time) { return _ctime32(_Time); }
-static __inline errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
-static __inline time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-static __inline time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
+__mingw_ovr double __CRTDECL difftime(time_t _Time1,time_t _Time2)  { return _difftime32(_Time1,_Time2); }
+__mingw_ovr struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime32(_Time); }
+__mingw_ovr errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
+__mingw_ovr struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime32(_Time); }
+__mingw_ovr errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
+__mingw_ovr char *__CRTDECL ctime(const time_t *_Time) { return _ctime32(_Time); }
+__mingw_ovr errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
+__mingw_ovr time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime32(_Tm); }
+__mingw_ovr time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 #else
-static __inline time_t __CRTDECL time(time_t *_Time) { return _time64(_Time); }
+__mingw_ovr time_t __CRTDECL time(time_t *_Time) { return _time64(_Time); }
 #ifdef _UCRT
-static __inline int __CRTDECL timespec_get(struct timespec* _Ts, int _Base) { return _timespec64_get((struct _timespec64*)_Ts, _Base); }
+__mingw_ovr int __CRTDECL timespec_get(struct timespec* _Ts, int _Base) { return _timespec64_get((struct _timespec64*)_Ts, _Base); }
 #endif
-static __inline double __CRTDECL difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
-static __inline struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime64(_Time); }
-static __inline errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
-static __inline struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime64(_Time); }
-static __inline errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
-static __inline char *__CRTDECL ctime(const time_t *_Time) { return _ctime64(_Time); }
-static __inline errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
-static __inline time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime64(_Tm); }
-static __inline time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
+__mingw_ovr double __CRTDECL difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
+__mingw_ovr struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime64(_Time); }
+__mingw_ovr errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
+__mingw_ovr struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime64(_Time); }
+__mingw_ovr errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
+__mingw_ovr char *__CRTDECL ctime(const time_t *_Time) { return _ctime64(_Time); }
+__mingw_ovr errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
+__mingw_ovr time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime64(_Tm); }
+__mingw_ovr time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 #endif
 
 #endif /* !RC_INVOKED */

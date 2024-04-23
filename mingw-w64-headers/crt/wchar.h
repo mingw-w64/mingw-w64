@@ -1439,7 +1439,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl fwide(FILE *stream,int mode);
 #if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
   /* With UCRT, mbsinit is only available as inline. */
-  __mingw_static_ovr int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || _P->_Wchar == 0); }
+  __mingw_ovr int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || _P->_Wchar == 0); }
 #else
   int __cdecl mbsinit(const mbstate_t *ps);
 #endif
