@@ -516,26 +516,17 @@ int fwscanf(FILE *__stream, const wchar_t *__format, ...)
 }
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vswscanf (const wchar_t *__source, const wchar_t *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vswscanf( __source, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vswscanf);
 
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
 int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
-{
-  return __mingw_vfwscanf( stdin, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vwscanf);
 
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vfwscanf( __stream, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vfwscanf);
 #endif /* __NO_ISOCEXT */
 
 
@@ -562,19 +553,13 @@ int wprintf (const wchar_t *__format, ...)
   return __retval;
 }
 
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vfwprintf (FILE *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vfwprintf( __stream, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vfwprintf);
 
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
 int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vfwprintf( stdout, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vwprintf);
 
 /*#ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 __mingw_ovr
@@ -588,12 +573,9 @@ int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
   return __retval;
 }
 
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
 int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
-}
+__MINGW_ASM_CALL(__mingw_vsnwprintf);
 /* #endif */ /* __NO_ISOCEXT */
 #else /* !__USE_MINGW_ANSI_STDIO */
 
