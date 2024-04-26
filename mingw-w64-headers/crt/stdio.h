@@ -576,25 +576,17 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   __MINGW_MS_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __ms_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
 
-  __mingw_ovr
   __MINGW_MS_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
   int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
-  {
-    return __ms_vfscanf (__stream, __format, __local_argv);
-  }
+  __MINGW_ASM_CALL(__ms_vfscanf);
 
-  __mingw_ovr
   __MINGW_MS_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
   int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv)
-  {
-    return __ms_vsscanf( __source, __format, __local_argv );
-  }
-  __mingw_ovr
+  __MINGW_ASM_CALL(__ms_vsscanf);
+
   __MINGW_MS_SCANF(1, 0) __MINGW_ATTRIB_NONNULL(1)
   int vscanf(const char *__format,  __builtin_va_list __local_argv)
-  {
-    return __ms_vscanf (__format, __local_argv);
-  }
+  __MINGW_ASM_CALL(__ms_vscanf);
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
@@ -1260,25 +1252,17 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl __ms_vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
   int __cdecl __ms_vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
 
-  __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
   int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
-  {
-    return __ms_vfwscanf (__stream, __format, __local_argv);
-  }
+  __MINGW_ASM_CALL(__ms_vfwscanf);
 
-  __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
   int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
-  {
-    return __ms_vswscanf( __source, __format, __local_argv );
-  }
-  __mingw_ovr
+  __MINGW_ASM_CALL(__ms_vswscanf);
+
   __MINGW_ATTRIB_NONNULL(1)
   int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
-  {
-    return __ms_vwscanf (__format, __local_argv);
-  }
+  __MINGW_ASM_CALL(__ms_vwscanf);
 
 #endif /* __NO_ISOCEXT */
 
