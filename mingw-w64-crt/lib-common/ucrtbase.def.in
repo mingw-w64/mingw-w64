@@ -327,13 +327,13 @@ _filelength
 _filelengthi64
 _fileno
 _findclose
-F32(_findfirst == _findfirst64)
+F32(_findfirst == _findfirst32)
 F64(_findfirst == _findfirst64i32)
 _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
-F32(_findnext == _findnext64)
+F32(_findnext == _findnext32)
 F64(_findnext == _findnext64i32)
 _findnext32
 _findnext32i64
@@ -366,14 +366,16 @@ _fstat64i32
 _ftell_nolock
 _ftelli64
 _ftelli64_nolock
-_ftime == _ftime64
+F32(_ftime == _ftime32)
+F64(_ftime == _ftime64)
 _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
 F_I386(_ftol)
 _fullpath
-_futime == _futime64
+F32(_futime == _futime32)
+F64(_futime == _futime64)
 _futime32
 _futime64
 _fwrite_nolock
@@ -2028,7 +2030,8 @@ _unlink
 _unloaddll
 _unlock_file
 _unlock_locales
-_utime == _utime64
+F32(_utime == _utime32)
+F64(_utime == _utime64)
 _utime32
 _utime64
 _waccess
@@ -2172,7 +2175,8 @@ _wtol_l
 _wtoll
 _wtoll_l
 _wunlink
-_wutime == _wutime64
+F32(_wutime == _wutime32)
+F64(_wutime == _wutime64)
 _wutime32
 _wutime64
 _y0
@@ -2606,7 +2610,8 @@ truncl F_X86_ANY(DATA)
 unexpected
 ungetc
 ungetwc
-utime == _utime64
+F32(utime == _utime32)
+F64(utime == _utime64)
 wcrtomb
 wcrtomb_s
 wcscat
@@ -2655,9 +2660,15 @@ wctype
 wmemcpy_s
 wmemmove_s
 ; These functions may satisfy configure scripts.
-ctime == _ctime64
-gmtime == _gmtime64
-localtime == _localtime64
-mktime == _mktime64
-time == _time64
-timespec_get == _timespec64_get
+F32(ctime == _ctime32)
+F64(ctime == _ctime64)
+F32(gmtime == _gmtime32)
+F64(gmtime == _gmtime64)
+F32(localtime == _localtime32)
+F64(localtime == _localtime64)
+F32(mktime == _mktime32)
+F64(mktime == _mktime64)
+F32(time == _time32)
+F64(time == _time64)
+F32(timespec_get == _timespec32_get)
+F64(timespec_get == _timespec64_get)
