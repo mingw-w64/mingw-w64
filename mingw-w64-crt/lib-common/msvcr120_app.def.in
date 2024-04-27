@@ -1669,8 +1669,8 @@ _stat64
 F_X86_ANY(_stat64i32)
 F_I386(_stat == _stat32)
 F_I386(_stati64 == _stat32i64)
-F_X64(_stat = _stat64i32)
-F_X64(_stati64 = _stat64)
+F_X64(_stat == _stat64i32)
+F_X64(_stati64 == _stat64)
 F_ARM32(_stati64)
 _statusfp
 F_I386(_statusfp2)
