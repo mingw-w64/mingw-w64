@@ -2,6 +2,8 @@ LIBRARY api-ms-win-crt-filesystem-l1-1-0
 
 EXPORTS
 
+#include "func.def.in"
+
 _access
 ; access is provided as an alias for __mingw_access
 ; access == _access
@@ -12,12 +14,14 @@ _chdrive
 _chmod
 chmod == _chmod
 _findclose
-_findfirst == _findfirst64
+F32(_findfirst == _findfirst64)
+F64(_findfirst == _findfirst64i32)
 _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
-_findnext == _findnext64
+F32(_findnext == _findnext64)
+F64(_findnext == _findnext64i32)
 _findnext32
 _findnext32i64
 _findnext64

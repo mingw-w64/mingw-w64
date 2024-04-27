@@ -1114,6 +1114,7 @@ processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/m
 				  lib32/msvcr80.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def lib32/msvcr110.def lib32/msvcr120.def lib32/msvcr120d.def \
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
+				  lib32/api-ms-win-crt-filesystem-l1-1-0.def \
 				  lib32/vcruntime140_app.def
 
 endif
@@ -1490,6 +1491,7 @@ processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr90.def lib64/msv
 				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def lib64/ole32.def \
 				  lib64/oleaut32.def lib64/user32.def lib64/ws2_32.def \
 				  lib64/api-ms-win-crt-math-l1-1-0.def lib64/api-ms-win-crt-private-l1-1-0.def lib64/api-ms-win-crt-runtime-l1-1-0.def \
+				  lib64/api-ms-win-crt-filesystem-l1-1-0.def \
 				  lib64/vcruntime140_app.def
 
 endif
@@ -1832,6 +1834,7 @@ processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def 
 				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
+				  libarm32/api-ms-win-crt-filesystem-l1-1-0.def \
 				  libarm32/vcruntime140_app.def
 
 endif
@@ -2126,6 +2129,7 @@ processed_defs += libarm64/msvcrt.def libarm64/ucrtbase.def \
 				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/oleaut32.def \
 				  libarm64/user32.def libarm64/ws2_32.def \
 				  libarm64/api-ms-win-crt-math-l1-1-0.def libarm64/api-ms-win-crt-private-l1-1-0.def libarm64/api-ms-win-crt-runtime-l1-1-0.def \
+				  libarm64/api-ms-win-crt-filesystem-l1-1-0.def \
 				  libarm64/vcruntime140_app.def
 
 endif

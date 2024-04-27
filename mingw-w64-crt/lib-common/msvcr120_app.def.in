@@ -1111,7 +1111,7 @@ F_I386(_findfirst == _findfirst32)
 F_X86_ANY(_findfirst32i64)
 _findfirst64
 F_X86_ANY(_findfirst64i32)
-F_X64(_findfirst == _findfirst64)
+F_X64(_findfirst == _findfirst64i32)
 F_ARM32(_findfirsti64)
 F_ARM32(_findnext)
 F_X86_ANY(_findnext32)
@@ -1119,7 +1119,7 @@ F_I386(_findnext == _findnext32)
 F_X86_ANY(_findnext32i64)
 _findnext64
 F_X86_ANY(_findnext64i32)
-F_X64(_findnext == _findnext64)
+F_X64(_findnext == _findnext64i32)
 F_ARM32(_findnexti64)
 _finite
 F_NON_I386(_finitef)
@@ -1912,7 +1912,7 @@ F_I386(_wfindfirst == _wfindfirst32)
 F_X86_ANY(_wfindfirst32i64)
 _wfindfirst64
 F_X86_ANY(_wfindfirst64i32)
-F_X64(_wfindfirst == _wfindfirst64)
+F_X64(_wfindfirst == _wfindfirst64i32)
 F_ARM32(_wfindfirsti64)
 F_ARM32(_wfindnext)
 F_X86_ANY(_wfindnext32)
@@ -1920,7 +1920,7 @@ F_I386(_wfindnext == _wfindnext32)
 F_X86_ANY(_wfindnext32i64)
 _wfindnext64
 F_X86_ANY(_wfindnext64i32)
-F_X64(_wfindnext == _wfindnext64)
+F_X64(_wfindnext == _wfindnext64i32)
 F_ARM32(_wfindnexti64)
 _wfopen
 _wfopen_s

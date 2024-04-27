@@ -951,12 +951,12 @@ _findclose
 _findfirst32
 _findfirst32i64
 _findfirst64
-_findfirst == _findfirst64
+_findfirst == _findfirst64i32
 _findfirst64i32
 _findnext32
 _findnext32i64
 _findnext64
-_findnext == _findnext64
+_findnext == _findnext64i32
 _findnext64i32
 _finite
 _finitef
