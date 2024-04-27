@@ -1295,7 +1295,7 @@ _wfindfirst32i64
 _wfindfirst64
 _wfindfirst64i32
 _wfindnext32
-_wfindnext = _wfindnext32
+_wfindnext == _wfindnext32
 _wfindnext32i64
 _wfindnext64
 _wfindnext64i32
