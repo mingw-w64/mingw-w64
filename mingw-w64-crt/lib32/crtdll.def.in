@@ -68,6 +68,9 @@ LIBRARY "crtdll.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_WIDE_FIXED_SIZE
+#define NO_I64_FIXED_SIZE
 #define NO_STRCMPI_ALIAS
 #include "msvcrt-common.def.in"
 
@@ -199,11 +202,9 @@ _fputwchar
 _fsopen
 _fstat
 _ftime
-_ftime32 == _ftime
 _ftol
 _fullpath
 _futime
-_futime32 == _futime
 _gcvt
 _get_osfhandle
 _getch
@@ -409,7 +410,6 @@ _ungetch
 _unlink
 _unloaddll
 _utime
-_utime32 == _utime
 _vsnprintf
 _vsnwprintf
 _wcsdup
@@ -452,9 +452,7 @@ clock
 cos DATA
 cosh
 ctime DATA
-_ctime32 == ctime
 difftime
-_difftime32 == difftime
 div
 exit
 exp DATA
@@ -490,7 +488,6 @@ getchar
 getenv
 gets
 gmtime DATA
-_gmtime32 == gmtime
 is_wctype
 isalnum
 isalpha
@@ -522,7 +519,6 @@ ldexp DATA
 ldiv
 localeconv
 localtime DATA
-_localtime32 == localtime
 log
 log10
 longjmp
@@ -536,7 +532,6 @@ memcpy
 memmove
 memset
 mktime DATA
-_mktime32 == mktime
 modf
 perror
 pow
@@ -589,7 +584,6 @@ system
 tan
 tanh
 time DATA
-_time32 == time
 tmpfile
 tmpnam
 tolower

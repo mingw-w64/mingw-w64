@@ -7,6 +7,7 @@ LIBRARY "MSVCR71.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
 #define NO_STRCMPI_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_STRTO64_ALIAS
@@ -345,12 +346,10 @@ _fstat
 _fstat64
 _fstati64
 _ftime
-_ftime32 == _ftime
 _ftime64
 _ftol
 _fullpath
 _futime
-_futime32 == _futime
 _futime64
 _gcvt
 _get_heap_handle
@@ -610,7 +609,6 @@ _unlink
 _unloaddll
 _unlock
 _utime
-_utime32 == _utime
 _utime64
 _vscprintf
 _vscwprintf
@@ -637,7 +635,6 @@ _wcstoi64
 _wcstoui64
 _wcsupr
 _wctime
-_wctime32 == _wctime
 _wctime64
 _wctype DATA
 _wenviron DATA
@@ -704,7 +701,6 @@ _wtoi64
 _wtol
 _wunlink
 _wutime
-_wutime32 == _wutime
 _wutime64
 _y0
 _y1
@@ -728,9 +724,7 @@ clock
 cos
 cosh
 ctime
-_ctime32 == ctime
 difftime
-_difftime32 == difftime
 div
 exit
 exp
@@ -770,7 +764,6 @@ gets
 getwc
 getwchar
 gmtime
-_gmtime32 == gmtime
 is_wctype
 isalnum
 isalpha
@@ -802,7 +795,6 @@ ldexp
 ldiv
 localeconv
 localtime
-_localtime32 == localtime
 log
 log10
 longjmp
@@ -816,7 +808,6 @@ memcpy
 memmove
 memset
 mktime
-_mktime32 == mktime
 modf
 perror
 pow
@@ -871,7 +862,6 @@ system
 tan
 tanh
 time
-_time32 == time
 tmpfile
 tmpnam
 tolower

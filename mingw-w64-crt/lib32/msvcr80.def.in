@@ -419,7 +419,6 @@ _cscanf_l
 _cscanf_s
 _cscanf_s_l
 _ctime32
-ctime == _ctime32
 _ctime32_s
 _ctime64
 _ctime64_s
@@ -437,7 +436,6 @@ _cwscanf_s_l
 _daylight DATA
 _decode_pointer
 _difftime32
-difftime == _difftime32
 _difftime64
 _dosmaperr
 _dstbias DATA
@@ -481,12 +479,10 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst32
-_findfirst == _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
 _findnext32
-_findnext == _findnext32
 _findnext32i64
 _findnext64
 _findnext64i32
@@ -516,23 +512,19 @@ _fseeki64
 _fseeki64_nolock
 _fsopen
 _fstat32
-_fstat == _fstat32
 _fstat32i64
-_fstati64 == _fstat32i64
 _fstat64
 _fstat64i32
 _ftell_nolock
 _ftelli64
 _ftelli64_nolock
 _ftime32
-_ftime == _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
 _ftol
 _fullpath
 _futime32
-_futime == _futime32
 _futime64
 _fwprintf_l
 _fwprintf_p
@@ -593,7 +585,6 @@ _getws
 _getws_s
 _global_unwind2
 _gmtime32
-gmtime == _gmtime32
 _gmtime32_s
 _gmtime64
 _gmtime64_s
@@ -721,7 +712,6 @@ _loaddll
 _local_unwind2
 _local_unwind4
 _localtime32
-localtime == _localtime32
 _localtime32_s
 _localtime64
 _localtime64_s
@@ -884,12 +874,10 @@ _memicmp
 _memicmp_l
 _mkdir
 _mkgmtime32
-_mkgmtime == _mkgmtime32
 _mkgmtime64
 _mktemp
 _mktemp_s
 _mktime32
-mktime == _mktime32
 _mktime64
 _msize
 _nextafter
@@ -1009,9 +997,7 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _stat32
-_stat == _stat32
 _stat32i64
-_stati64 == _stat32i64
 _stat64
 _stat64i32
 _statusfp
@@ -1070,7 +1056,6 @@ _tell
 _telli64
 _tempnam
 _time32
-time == _time32
 _time64
 _timezone DATA
 _tolower
@@ -1102,7 +1087,6 @@ _unloaddll
 _unlock
 _unlock_file
 _utime32
-_utime == _utime32
 _utime64
 _vcprintf
 _vcprintf_l
@@ -1209,7 +1193,6 @@ _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
 _wctime32
-_wctime == _wctime32
 _wctime32_s
 _wctime64
 _wctime64_s
@@ -1228,12 +1211,10 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst32
-_wfindfirst == _wfindfirst32
 _wfindfirst32i64
 _wfindfirst64
 _wfindfirst64i32
 _wfindnext32
-_wfindnext == _wfindnext32
 _wfindnext32i64
 _wfindnext64
 _wfindnext64i32
@@ -1288,9 +1269,7 @@ _wspawnvpe
 _wsplitpath
 _wsplitpath_s
 _wstat32
-_wstat == _wstat32
 _wstat32i64
-_wstati64 == _wstat32i64
 _wstat64
 _wstat64i32
 _wstrdate
@@ -1311,7 +1290,6 @@ _wtol
 _wtol_l
 _wunlink
 _wutime32
-_wutime == _wutime32
 _wutime64
 _y0
 _y1

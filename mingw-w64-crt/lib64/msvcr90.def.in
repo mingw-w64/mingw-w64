@@ -370,7 +370,6 @@ _cscanf_s_l
 _ctime32
 _ctime32_s
 _ctime64
-ctime == _ctime64
 _ctime64_s
 _cwait
 _cwprintf
@@ -426,12 +425,10 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst32
-_findfirst == _findfirst64i32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
 _findnext32
-_findnext == _findnext64i32
 _findnext32i64
 _findnext64
 _findnext64i32
@@ -464,8 +461,6 @@ _fseeki64
 _fseeki64_nolock
 _fsopen
 _fstat32
-_fstat == _fstat64i32
-_fstati64 == _fstat64
 _fstat32i64
 _fstat64
 _fstat64i32
@@ -476,7 +471,6 @@ _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
-_ftime == _ftime64
 _fullpath
 _futime32
 _futime64
@@ -534,7 +528,6 @@ _getwche_nolock
 _getws
 _getws_s
 _gmtime32
-gmtime == _gmtime64
 _gmtime32_s
 _gmtime64
 _gmtime64_s
@@ -661,7 +654,6 @@ _local_unwind
 _localtime32
 _localtime32_s
 _localtime64
-localtime == _localtime64
 _localtime64_s
 _lock
 _lock_file
@@ -823,12 +815,10 @@ _memicmp_l
 _mkdir
 _mkgmtime32
 _mkgmtime64
-_mkgmtime == _mkgmtime64
 _mktemp
 _mktemp_s
 _mktime32
 _mktime64
-mktime == _mktime64
 _msize
 _nextafter
 _nextafterf
@@ -937,8 +927,6 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _stat32
-_stat == _stat64i32
-_stati64 == _stat64
 _stat32i64
 _stat64
 _stat64i32
@@ -999,7 +987,6 @@ _telli64
 _tempnam
 _time32
 _time64
-time == _time64
 _timezone DATA
 _tolower
 _tolower_l
@@ -1138,7 +1125,6 @@ _wcsxfrm_l
 _wctime32
 _wctime32_s
 _wctime64
-_wctime == _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
@@ -1157,12 +1143,10 @@ _wfdopen
 _wfindfirst32
 _wfindfirst32i64
 _wfindfirst64
-_wfindfirst == _wfindfirst64i32
 _wfindfirst64i32
 _wfindnext32
 _wfindnext32i64
 _wfindnext64
-_wfindnext == _wfindnext64i32
 _wfindnext64i32
 _wfopen
 _wfopen_s
@@ -1212,8 +1196,6 @@ _wspawnvpe
 _wsplitpath
 _wsplitpath_s
 _wstat32
-_wstat == _wstat64i32
-_wstati64 == _wstat64
 _wstat32i64
 _wstat64
 _wstat64i32

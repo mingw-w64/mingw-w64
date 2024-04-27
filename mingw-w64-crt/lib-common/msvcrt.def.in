@@ -2,6 +2,9 @@ LIBRARY "msvcrt.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_FIXED_SIZE_64_ALIAS
+#define NO_TIME_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
@@ -1831,26 +1834,6 @@ F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 ; All symbols defined below this line are not available in any version of msvcrt.dll library   ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-; This is list of some symbols added in msvcr80.dll which can be defined as aliases to some msvcrt.dll symbols
-F32(_findfirst32 == _findfirst)
-F32(_findfirst32i64 == _findfirsti64)
-F64(_findfirst64i32 == _findfirst)
-F32(_findnext32 == _findnext)
-F32(_findnext32i64 == _findnexti64)
-F64(_findnext64i32 == _findnext)
-F32(_fstat32 == _fstat)
-F64(_fstat64i32 == _fstat)
-F32(_stat32 == _stat)
-F64(_stat64i32 == _stat)
-F32(_wfindfirst32 == _wfindfirst)
-F32(_wfindfirst32i64 == _wfindfirsti64)
-F64(_wfindfirst64i32 == _wfindfirst)
-F32(_wfindnext32 == _wfindnext)
-F32(_wfindnext32i64 == _wfindnexti64)
-F64(_wfindnext64i32 == _wfindnext)
-F32(_wstat32 == _wstat)
-F64(_wstat64i32 == _wstat)
 
 ; This is list of additional symbol aliases not available in any CRT library
 ; FIXME: check if these really are needed
