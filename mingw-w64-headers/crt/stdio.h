@@ -362,9 +362,11 @@ int printf (const char *__format, ...)
   return __retval;
 }
 
-#if __MINGW_FORTIFY_VA_ARG
+__MINGW_GNU_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
+int sprintf (char *__stream, const char *__format, ...)
+__MINGW_ASM_CALL(__mingw_sprintf);
 
-int sprintf (char *__stream, const char *__format, ...) __MINGW_ASM_CALL(__mingw_sprintf);
+#if __MINGW_FORTIFY_VA_ARG
 
 __mingw_bos_extern_ovr
 __MINGW_GNU_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
@@ -377,19 +379,6 @@ int sprintf (char *__stream, const char *__format, ...)
     return __retval;
   }
   return __mingw_sprintf( __stream, __format, __builtin_va_arg_pack() );
-}
-
-#else /* !__MINGW_FORTIFY_VA_ARG */
-
-__mingw_ovr
-__MINGW_GNU_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
-int sprintf (char *__stream, const char *__format, ...)
-{
-  int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_vsprintf( __stream, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
 }
 
 #endif /* __MINGW_FORTIFY_VA_ARG */
@@ -418,9 +407,11 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 }
 /* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 
-#if __MINGW_FORTIFY_VA_ARG
+__MINGW_GNU_PRINTF(3, 4) __MINGW_ATTRIB_NONNULL(3)
+int snprintf (char *__stream, size_t __n, const char *__format, ...)
+__MINGW_ASM_CALL(__mingw_snprintf);
 
-int snprintf (char *__stream, size_t __n, const char *__format, ...) __MINGW_ASM_CALL(__mingw_snprintf);
+#if __MINGW_FORTIFY_VA_ARG
 
 __mingw_bos_extern_ovr
 __MINGW_GNU_PRINTF(3, 4) __MINGW_ATTRIB_NONNULL(3)
@@ -428,19 +419,6 @@ int snprintf (char *__stream, size_t __n, const char *__format, ...)
 {
   __mingw_bos_ptr_chk_warn(__stream, __n, 1);
   return __mingw_snprintf( __stream, __n, __format, __builtin_va_arg_pack() );
-}
-
-#else /* !__MINGW_FORTIFY_VA_ARG */
-
-__mingw_ovr
-__MINGW_GNU_PRINTF(3, 4) __MINGW_ATTRIB_NONNULL(3)
-int snprintf (char *__stream, size_t __n, const char *__format, ...)
-{
-  int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_vsnprintf( __stream, __n, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
 }
 
 #endif /* __MINGW_FORTIFY_VA_ARG */
@@ -1097,9 +1075,11 @@ __MINGW_ASM_CALL(__mingw_vwprintf);
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 
-#if __MINGW_FORTIFY_VA_ARG
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
+__MINGW_ASM_CALL(__mingw_snwprintf);
 
-int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...) __MINGW_ASM_CALL(__mingw_snwprintf);
+#if __MINGW_FORTIFY_VA_ARG
 
 __mingw_bos_extern_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
@@ -1107,19 +1087,6 @@ int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {
   __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t), 1);
   return __mingw_snwprintf( __stream, __n, __format, __builtin_va_arg_pack() );
-}
-
-#else /* !__MINGW_FORTIFY_VA_ARG */
-
-__mingw_ovr
-/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
-{
-  int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
 }
 
 #endif /* __MINGW_FORTIFY_VA_ARG */
