@@ -58,6 +58,6 @@ widl_SOURCES = src/widl.h \
   include/winnt.rh
 
 widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DBIN_TO_INCLUDEDIR=\""@BIN_TO_INCLUDEDIR@"\" -DBIN_TO_DLLDIR=\""@BIN_TO_INCLUDEDIR@"\" -DDLLDIR="\"@prefix@/lib\""
-widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
+widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)

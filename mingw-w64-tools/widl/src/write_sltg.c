@@ -354,28 +354,37 @@ static void init_library(struct sltg_typelib *sltg)
     }
 }
 
-static void add_block(struct sltg_typelib *sltg, void *data, int length, const char *name)
+static void add_block_index(struct sltg_typelib *sltg, void *data, int length, int index)
 {
-    chat("add_block: %p,%d,\"%s\"\n", data, length, name);
-
     sltg->blocks = xrealloc(sltg->blocks, sizeof(sltg->blocks[0]) * (sltg->block_count + 1));
     sltg->blocks[sltg->block_count].length = length;
     sltg->blocks[sltg->block_count].data = data;
-    sltg->blocks[sltg->block_count].index_string = add_index(&sltg->index, name);
+    sltg->blocks[sltg->block_count].index_string = index;
     sltg->block_count++;
 }
 
-static void add_library_block(struct sltg_typelib *typelib)
+static void add_block(struct sltg_typelib *sltg, void *data, int size, const char *name)
+{
+    struct sltg_block *block = xmalloc(sizeof(*block));
+    int index;
+
+    chat("add_block: %p,%d,\"%s\"\n", data, size, name);
+
+    index = add_index(&sltg->index, name);
+
+    add_block_index(sltg, data, size, index);
+}
+
+static void *create_library_block(struct sltg_typelib *typelib, int *size, int *index)
 {
     void *block;
     short *p;
-    int size;
 
-    size = sizeof(short) * 9 + sizeof(int) * 3 + sizeof(GUID);
-    if (typelib->library.helpstring) size += strlen(typelib->library.helpstring);
-    if (typelib->library.helpfile) size += strlen(typelib->library.helpfile);
+    *size = sizeof(short) * 9 + sizeof(int) * 3 + sizeof(GUID);
+    if (typelib->library.helpstring) *size += strlen(typelib->library.helpstring);
+    if (typelib->library.helpfile) *size += strlen(typelib->library.helpfile);
 
-    block = xmalloc(size);
+    block = xmalloc(*size);
     p = block;
     *p++ = 0x51cc; /* magic */
     *p++ = 3; /* res02 */
@@ -408,7 +417,9 @@ static void add_library_block(struct sltg_typelib *typelib)
     p += 2;
     *(GUID *)p = typelib->library.uuid;
 
-    add_block(typelib, block, size, "dir");
+    *index = add_index(&typelib->index, "dir");
+
+    return block;
 }
 
 static const char *new_index_name(void)
@@ -685,8 +696,8 @@ static int local_href(struct sltg_hrefmap *hrefmap, int typelib_href)
     return href << 2;
 }
 
-static short write_var_desc(struct sltg_typelib *typelib, struct sltg_data *data, type_t *type, short flags,
-                            short base_offset, int *size_instance, struct sltg_hrefmap *hrefmap)
+static short write_var_desc(struct sltg_typelib *typelib, struct sltg_data *data, type_t *type, short param_flags,
+                            short flags, short base_offset, int *size_instance, struct sltg_hrefmap *hrefmap)
 {
     short vt, vt_flags, desc_offset;
 
@@ -756,7 +767,6 @@ static short write_var_desc(struct sltg_typelib *typelib, struct sltg_data *data
             size_instance = NULL; /* don't account for element size */
         }
 
-
         append_data(data, array, size);
 
         desc_offset = data->size;
@@ -779,19 +789,19 @@ static short write_var_desc(struct sltg_typelib *typelib, struct sltg_data *data
 
         if (is_ptr(ref))
         {
-            chat("write_var_desc: vt VT_PTR | 0x0400\n");
-            vt = VT_PTR | 0x0400;
+            chat("write_var_desc: vt VT_PTR | 0x0400 | %04x\n",  param_flags);
+            vt = VT_PTR | 0x0400 | param_flags;
             append_data(data, &vt, sizeof(vt));
-            write_var_desc(typelib, data, ref, 0, base_offset, size_instance, hrefmap);
+            write_var_desc(typelib, data, ref, 0, 0, base_offset, size_instance, hrefmap);
         }
         else
-            write_var_desc(typelib, data, ref, 0x0e00, base_offset, size_instance, hrefmap);
+            write_var_desc(typelib, data, ref, param_flags, 0x0e00, base_offset, size_instance, hrefmap);
         return desc_offset;
     }
 
     chat("write_var_desc: vt %d, flags %04x\n", vt, flags);
 
-    vt_flags = vt | flags;
+    vt_flags = vt | flags | param_flags;
     append_data(data, &vt_flags, sizeof(vt_flags));
 
     if (vt == VT_USERDEFINED)
@@ -917,7 +927,8 @@ static void add_structure_typeinfo(struct sltg_typelib *typelib, type_t *type)
             init_sltg_data(&var_data[i]);
 
             base_offset = var_data_size + (i + 1) * sizeof(struct sltg_variable);
-            type_desc_offset[i] = write_var_desc(typelib, &var_data[i], var->declspec.type, 0, base_offset, &size_instance, &hrefmap);
+            type_desc_offset[i] = write_var_desc(typelib, &var_data[i], var->declspec.type, 0, 0,
+                                                 base_offset, &size_instance, &hrefmap);
             dump_var_desc(var_data[i].data, var_data[i].size);
 
             if (var_data[i].size > sizeof(short))
@@ -1020,11 +1031,9 @@ static importinfo_t *find_importinfo(typelib_t *typelib, const char *name)
 
 static int get_func_flags(const var_t *func, int *dispid, int *invokekind, int *helpcontext, const char **helpstring)
 {
-    static int dispid_base = 0x60000000;
     const attr_t *attr;
     int flags;
 
-    *dispid = dispid_base++;
     *invokekind = 1 /* INVOKE_FUNC */;
     *helpcontext = -2;
     *helpstring = NULL;
@@ -1101,24 +1110,65 @@ static int get_func_flags(const var_t *func, int *dispid, int *invokekind, int *
     return flags;
 }
 
+static int get_param_flags(const var_t *param)
+{
+    const attr_t *attr;
+    int flags, in, out;
+
+    if (!param->attrs) return 0;
+
+    flags = 0;
+    in = out = 0;
+
+    LIST_FOR_EACH_ENTRY(attr, param->attrs, const attr_t, entry)
+    {
+        switch(attr->type)
+        {
+        case ATTR_IN:
+            in++;
+            break;
+        case ATTR_OUT:
+            out++;
+            break;
+        case ATTR_PARAMLCID:
+            flags |= 0x2000;
+            break;
+        case ATTR_RETVAL:
+            flags |= 0x80;
+            break;
+        default:
+            chat("unhandled param attr %d\n", attr->type);
+            break;
+        }
+    }
+
+    if (out)
+        flags |= in ? 0x8000 : 0x4000;
+    else if (!in)
+        flags |= 0xc000;
+
+    return flags;
+}
+
+
 static int add_func_desc(struct sltg_typelib *typelib, struct sltg_data *data, var_t *func,
-                         int idx, short base_offset, struct sltg_hrefmap *hrefmap)
+                         int idx, int dispid, short base_offset, struct sltg_hrefmap *hrefmap)
 {
     struct sltg_data ret_data, *arg_data;
     int arg_count = 0, arg_data_size, optional = 0, defaults = 0, old_size;
-    int funcflags = 0, dispid, invokekind = 1 /* INVOKE_FUNC */, helpcontext;
+    int funcflags = 0, invokekind = 1 /* INVOKE_FUNC */, helpcontext;
     const char *helpstring;
     const var_t *arg;
     short ret_desc_offset, *arg_desc_offset, arg_offset;
     struct sltg_function func_desc;
 
-    chat("add_func_desc: %s, idx %#x\n", func->name, idx);
+    chat("add_func_desc: %s, idx %#x, dispid %#x\n", func->name, idx, dispid);
 
     old_size = data->size;
 
     init_sltg_data(&ret_data);
     ret_desc_offset = write_var_desc(typelib, &ret_data, type_function_get_rettype(func->declspec.type),
-                                     0, base_offset, NULL, hrefmap);
+                                     0, 0, base_offset, NULL, hrefmap);
     dump_var_desc(ret_data.data, ret_data.size);
 
     arg_data_size = 0;
@@ -1144,13 +1194,16 @@ static int add_func_desc(struct sltg_typelib *typelib, struct sltg_data *data, v
         LIST_FOR_EACH_ENTRY(arg, type_function_get_args(func->declspec.type), const var_t, entry)
         {
             const attr_t *attr;
+            short param_flags = get_param_flags(arg);
 
             chat("add_func_desc: arg[%d] %p (%s), type %p (%s)\n",
                  i, arg, arg->name, arg->declspec.type, arg->declspec.type->name);
 
             init_sltg_data(&arg_data[i]);
 
-            arg_desc_offset[i] = write_var_desc(typelib, &arg_data[i], arg->declspec.type, 0, arg_offset, NULL, hrefmap);
+
+            arg_desc_offset[i] = write_var_desc(typelib, &arg_data[i], arg->declspec.type, param_flags, 0,
+                                                arg_offset, NULL, hrefmap);
             dump_var_desc(arg_data[i].data, arg_data[i].size);
 
             if (arg_data[i].size > sizeof(short))
@@ -1231,7 +1284,6 @@ static int add_func_desc(struct sltg_typelib *typelib, struct sltg_data *data, v
             short name, type_offset;
 
             name = base_offset != -1 ? add_name(&typelib->name_table, arg->name) : -1;
-            append_data(data, &name, sizeof(name));
 
             if (arg_data[i].size > sizeof(short))
             {
@@ -1239,8 +1291,12 @@ static int add_func_desc(struct sltg_typelib *typelib, struct sltg_data *data, v
                 arg_offset += arg_data[i].size;
             }
             else
+            {
+                name |= 1;
                 type_offset = *(short *)arg_data[i].data;
+            }
 
+            append_data(data, &name, sizeof(name));
             append_data(data, &type_offset, sizeof(type_offset));
 
             if (base_offset != -1)
@@ -1293,6 +1349,7 @@ static void add_interface_typeinfo(struct sltg_typelib *typelib, type_t *iface)
     struct sltg_tail tail;
     int member_offset, base_offset, func_data_size, i;
     int func_count, inherited_func_count = 0;
+    int dispid, inherit_level = 0;
 
     if (iface->typelib_idx != -1) return;
 
@@ -1333,6 +1390,7 @@ static void add_interface_typeinfo(struct sltg_typelib *typelib, type_t *iface)
 
         while (inherit)
         {
+            inherit_level++;
             inherited_func_count += list_count(type_iface_get_stmts(inherit));
             inherit = type_iface_get_inherit(inherit);
         }
@@ -1348,7 +1406,7 @@ static void add_interface_typeinfo(struct sltg_typelib *typelib, type_t *iface)
 
     STATEMENTS_FOR_EACH_FUNC(stmt_func, type_iface_get_stmts(iface))
     {
-        add_func_desc(typelib, &data, stmt_func->u.var, -1, -1, &hrefmap);
+        add_func_desc(typelib, &data, stmt_func->u.var, -1, -1, -1, &hrefmap);
     }
 
     func_data_size = data.size;
@@ -1383,13 +1441,16 @@ static void add_interface_typeinfo(struct sltg_typelib *typelib, type_t *iface)
         write_impl_href(&data, inherit_href);
 
     i = 0;
+    dispid = 0x60000000 | (inherit_level << 16);
 
     STATEMENTS_FOR_EACH_FUNC(stmt_func, type_iface_get_stmts(iface))
     {
-        if (i == func_count - 1) i |= 0x80000000;
+        int idx = inherited_func_count + i;
+
+        if (i == func_count - 1) idx |= 0x80000000;
 
         base_offset += add_func_desc(typelib, &data, stmt_func->u.var,
-                                     inherited_func_count + i, base_offset, &hrefmap);
+                                     idx, dispid + i, base_offset, &hrefmap);
         i++;
     }
 
@@ -1556,8 +1617,10 @@ static void sltg_write_header(struct sltg_typelib *sltg, int *library_block_star
 
     /* library block length includes helpstrings and name table */
     entry.length = sltg->blocks[sltg->block_count - 1].length + 0x40 /* pad after library block */ +
-                   sizeof(sltg->typeinfo_count) + sltg->typeinfo_size + 4 /* library block offset */ + 6 /* dummy help strings */ +
-                   12 /* name table header */ + 0x200 /* name table hash */ + sltg->name_table.size;
+                   sizeof(sltg->typeinfo_count) + sltg->typeinfo_size + 4 /* library block size */ + 6 /* dummy help strings */ +
+                   12 /* name table header */ + 0x200 /* name table hash */ +
+                   sizeof(sltg->name_table.size) + sltg->name_table.size +
+                   4 /* 0x01ffff01 */ + 4 /* 0 */;
     entry.index_string = sltg->blocks[sltg->block_count - 1].index_string;
     entry.next = 0;
     chat("sltg_write_header: writing library block entry %d: length %#x, index_string %#x, next %#x\n",
@@ -1684,6 +1747,8 @@ int create_sltg_typelib(typelib_t *typelib)
 {
     struct sltg_typelib sltg;
     const statement_t *stmt;
+    void *library_block;
+    int library_block_size, library_block_index;
 
     if (pointer_size != 4)
         error("Only 32-bit platform is supported\n");
@@ -1700,11 +1765,13 @@ int create_sltg_typelib(typelib_t *typelib)
     init_name_table(&sltg.name_table);
     init_library(&sltg);
 
-    add_library_block(&sltg);
+    library_block = create_library_block(&sltg, &library_block_size, &library_block_index);
 
     if (typelib->stmts)
         LIST_FOR_EACH_ENTRY(stmt, typelib->stmts, const statement_t, entry)
             add_statement(&sltg, stmt);
+
+    add_block_index(&sltg, library_block, library_block_size, library_block_index);
 
     save_all_changes(&sltg);
 
