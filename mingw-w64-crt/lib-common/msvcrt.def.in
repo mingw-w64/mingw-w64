@@ -1739,7 +1739,7 @@ swscanf_s
 F_ARM_ANY(tanhf) ; i386 tanhf provided by emu and x64 tanhf replaced by emu
 tmpfile_s
 tmpnam_s
-F_ARM_ANY(utime) ; i386 and x64 utime replaced by alias in msvcrt-common.def.in
+F_ARM_ANY(utime) ; i386 and x64 utime replaced by alias in crt-aliases.def.in
 vfprintf_s
 vfwprintf_s
 vprintf_s
@@ -1835,7 +1835,7 @@ F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 ; i386 strtoll, strtoull, strtoimax and strtoumax alias provided by emu
 #define WITH_STRTO64_ALIAS
 #endif
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"
 
 ; This is list of additional symbol aliases not available in any CRT library
 ; FIXME: check if these really are needed

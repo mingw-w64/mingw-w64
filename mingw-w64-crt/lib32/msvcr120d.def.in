@@ -2364,4 +2364,4 @@ wprintf_s
 wscanf
 wscanf_s
 
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

@@ -1299,4 +1299,4 @@ wscanf
 #define NO_WIDE_FIXED_SIZE
 #define NO_I64_FIXED_SIZE
 #define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

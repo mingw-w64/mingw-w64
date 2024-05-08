@@ -1663,4 +1663,4 @@ _dstbias DATA
 #define PRE_C95_SWPRINTF
 #define FIXED_SIZE_SYMBOLS
 #define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

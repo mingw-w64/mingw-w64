@@ -2502,4 +2502,4 @@ wscanf_s
 #define NO_STRCMPI_ALIAS
 #define FIXED_SIZE_SYMBOLS
 #endif
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

@@ -898,4 +898,4 @@ wscanf
 #define NO_STRCMPI_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_STRTO64_ALIAS
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

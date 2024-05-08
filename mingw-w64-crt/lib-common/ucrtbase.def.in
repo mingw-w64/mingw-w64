@@ -2630,4 +2630,4 @@ wmemcpy_s
 wmemmove_s
 
 #define UCRTBASE
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"

@@ -1500,4 +1500,4 @@ fread_s
 #define WITH_LLABS_ALIAS
 #define WITH_STRTO64_ALIAS
 #define WITH_STRTO64_L_ALIAS
-#include "msvcrt-common.def.in"
+#include "crt-aliases.def.in"
