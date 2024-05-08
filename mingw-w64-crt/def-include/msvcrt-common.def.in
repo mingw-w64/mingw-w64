@@ -1,31 +1,35 @@
 #include "func.def.in"
 
 #define ADD_UNDERSCORE(symbol) symbol == _ ## symbol
+#define ADD_UNDERSCORE_DATA(symbol) symbol DATA == _ ## symbol
 #define ADD_DOUBLE_UNDERSCORE(symbol) symbol == __ ## symbol
 
-ADD_DOUBLE_UNDERSCORE(iscsymf)
-ADD_DOUBLE_UNDERSCORE(iscsym)
-ADD_DOUBLE_UNDERSCORE(isascii)
-ADD_DOUBLE_UNDERSCORE(toascii)
-
-wcscmpi == _wcsicmp
-strcasecmp == _stricmp
-strncasecmp == _strnicmp
-
+; This is list of symbol aliases from the Visual C++ 1.0 oldnames.lib library
+; FIXME: some of these symbol aliases are commented, check and document why
 #ifdef UCRTBASE
 ; access is provided as an alias for __mingw_access
 #else
 ADD_UNDERSCORE(access)
 #endif
+; ADD_UNDERSCORE(cgets)
 ADD_UNDERSCORE(chdir)
 ADD_UNDERSCORE(chmod)
 ADD_UNDERSCORE(chsize)
 ADD_UNDERSCORE(close)
+; ADD_UNDERSCORE(cprintf)
+; ADD_UNDERSCORE(cputs)
 ADD_UNDERSCORE(creat)
+; ADD_UNDERSCORE(cscanf)
 ADD_UNDERSCORE(cwait)
+#ifndef UCRTBASE
+ADD_UNDERSCORE_DATA(daylight)
+#endif
 ADD_UNDERSCORE(dup)
 ADD_UNDERSCORE(dup2)
 ADD_UNDERSCORE(ecvt)
+#ifndef UCRTBASE
+; ADD_UNDERSCORE_DATA(environ)
+#endif
 ADD_UNDERSCORE(eof)
 ADD_UNDERSCORE(execl)
 ADD_UNDERSCORE(execle)
@@ -39,15 +43,15 @@ ADD_UNDERSCORE(fcloseall)
 ADD_UNDERSCORE(fcvt)
 ADD_UNDERSCORE(fdopen)
 ADD_UNDERSCORE(fgetchar)
-ADD_UNDERSCORE(fgetwchar)
 ADD_UNDERSCORE(filelength)
 ADD_UNDERSCORE(fileno)
-; Alias fpreset is set in CRT_fp10.c and CRT_fp8.c.
-; ADD_UNDERSCORE(fpreset)
+; ADD_UNDERSCORE(flushall)
 ADD_UNDERSCORE(fputchar)
-ADD_UNDERSCORE(fputwchar)
 ; ADD_UNDERSCORE(fstat)
 ; ADD_UNDERSCORE(ftime)
+#ifndef UCRTBASE
+; ADD_UNDERSCORE_DATA(HUGE)
+#endif
 ADD_UNDERSCORE(gcvt)
 ADD_UNDERSCORE(getch)
 ADD_UNDERSCORE(getche)
@@ -60,11 +64,11 @@ ADD_UNDERSCORE(getpid)
 F_X86_ANY(ADD_UNDERSCORE(getpid))
 #endif
 ADD_UNDERSCORE(getw)
-ADD_UNDERSCORE(heapwalk)
 ADD_UNDERSCORE(isatty)
 ADD_UNDERSCORE(itoa)
 ADD_UNDERSCORE(kbhit)
 ADD_UNDERSCORE(lfind)
+; ADD_UNDERSCORE(locking)
 ADD_UNDERSCORE(lsearch)
 ADD_UNDERSCORE(lseek)
 ADD_UNDERSCORE(ltoa)
@@ -72,16 +76,14 @@ ADD_UNDERSCORE(memccpy)
 ADD_UNDERSCORE(memicmp)
 ADD_UNDERSCORE(mkdir)
 ADD_UNDERSCORE(mktemp)
+; ADD_UNDERSCORE(onexit)
 ADD_UNDERSCORE(open)
-ADD_UNDERSCORE(pclose)
-ADD_UNDERSCORE(popen)
 ADD_UNDERSCORE(putch)
 ADD_UNDERSCORE(putenv)
 ADD_UNDERSCORE(putw)
 ADD_UNDERSCORE(read)
 ADD_UNDERSCORE(rmdir)
 ADD_UNDERSCORE(rmtmp)
-ADD_UNDERSCORE(searchenv)
 ADD_UNDERSCORE(setmode)
 ADD_UNDERSCORE(sopen)
 ADD_UNDERSCORE(spawnl)
@@ -98,7 +100,6 @@ ADD_UNDERSCORE(strcmpi)
 #endif
 ADD_UNDERSCORE(strdup)
 ADD_UNDERSCORE(stricmp)
-ADD_UNDERSCORE(stricoll)
 ADD_UNDERSCORE(strlwr)
 ADD_UNDERSCORE(strnicmp)
 ADD_UNDERSCORE(strnset)
@@ -106,11 +107,18 @@ ADD_UNDERSCORE(strrev)
 ADD_UNDERSCORE(strset)
 ADD_UNDERSCORE(strupr)
 ADD_UNDERSCORE(swab)
+#ifndef UCRTBASE
+; ADD_UNDERSCORE_DATA(sys_errlist)
+; ADD_UNDERSCORE_DATA(sys_nerr)
+#endif
 ADD_UNDERSCORE(tell)
 ADD_UNDERSCORE(tempnam)
 #ifndef UCRTBASE
+ADD_UNDERSCORE_DATA(timezone)
+ADD_UNDERSCORE_DATA(tzname)
 ADD_UNDERSCORE(tzset)
 #endif
+; ADD_UNDERSCORE(ultoa)
 ADD_UNDERSCORE(umask)
 ADD_UNDERSCORE(ungetch)
 ADD_UNDERSCORE(unlink)
@@ -120,6 +128,12 @@ ADD_UNDERSCORE(utime)
 F32(utime == _utime32)
 F64(utime == _utime64)
 #endif
+ADD_UNDERSCORE(write)
+
+; This is list of symbol aliases added in the Visual C++ 2.0 oldnames.lib library
+; All these symbols with leading underscore are present also in pre-2.0 CRT versions: crtdll.dll and msvcrt10.dll
+; ADD_UNDERSCORE(control87)
+; ADD_UNDERSCORE(fpreset) ; Alias fpreset is set in CRT_fp10.c and CRT_fp8.c
 ADD_UNDERSCORE(wcsdup)
 ADD_UNDERSCORE(wcsicmp)
 ADD_UNDERSCORE(wcsicoll)
@@ -129,32 +143,32 @@ ADD_UNDERSCORE(wcsnset)
 ADD_UNDERSCORE(wcsrev)
 ADD_UNDERSCORE(wcsset)
 ADD_UNDERSCORE(wcsupr)
-ADD_UNDERSCORE(wpopen)
-ADD_UNDERSCORE(write)
-; non-ANSI functions declared in math.h
+
+; This is list of symbol aliases added in the Visual C++ 4.0 oldnames.lib library
+; All these symbols with leading underscore are present also in pre-4.0 CRT versions: crtdll.dll, msvcrt10.dll and msvcrt20.dll
+; ADD_UNDERSCORE(cabs)
+ADD_UNDERSCORE(hypot)
 ADD_UNDERSCORE(j0)
 ADD_UNDERSCORE(j1)
 ADD_UNDERSCORE(jn)
 ADD_UNDERSCORE(y0)
 ADD_UNDERSCORE(y1)
 ADD_UNDERSCORE(yn)
-ADD_UNDERSCORE(chgsign)
-; ADD_UNDERSCORE(scalb)
-ADD_UNDERSCORE(finite)
-ADD_UNDERSCORE(fpclass)
-; C99 functions
-; ADD_UNDERSCORE(cabs)
-ADD_UNDERSCORE(hypot)
+
+; This is list of symbol aliases for C99 functions
 ; ADD_UNDERSCORE(logb)
 ADD_UNDERSCORE(nextafter)
 
-#ifndef UCRTBASE
-daylight DATA == _daylight
-timezone DATA == _timezone
-tzname DATA == _tzname
+; This is list of symbol aliases for POSIX functions
+ADD_DOUBLE_UNDERSCORE(isascii)
+ADD_DOUBLE_UNDERSCORE(toascii)
+ADD_UNDERSCORE(pclose)
+ADD_UNDERSCORE(popen)
+; ADD_UNDERSCORE(scalb)
 
-ADD_UNDERSCORE(vsnprintf_s)
-#endif
+; This is list of symbol aliases for GNU functions which are not part of POSIX or ISO C
+strcasecmp == _stricmp
+strncasecmp == _strnicmp
 
 ; This is list of various symbol aliases which are needed for compatibility
 ; Some symbols in some version of CRT library were added and some other symbols were removed or renamed
@@ -380,3 +394,30 @@ __ms_vwprintf == vwprintf
 __ms_wprintf == wprintf
 __ms_wscanf == wscanf
 #endif
+
+; This is list of additional symbol aliases not available in any library as neither native symbols nor aliases
+; FIXME: check if these really are needed
+
+; Origin of the symbol wcscmpi is unknown. This symbol is not present in
+; crtdll.dll and neither in any msvcr* version. The only source of wcscmpi is
+; wcstr.h header file from the Microsoft Visual C++ 1.0 (32-bit for NT) and
+; Microsoft Windows NT 3.1 SDK where wcscmpi and _wcscmpi are defined as
+; macros which expand to _wcsicmp. So the raw wcscmpi is not linkable symbol
+; even in the old Visual C++ versions.
+wcscmpi == _wcsicmp
+
+; Origin of these symbols is unknown too.
+ADD_UNDERSCORE(chgsign)
+ADD_UNDERSCORE(fgetwchar)
+ADD_UNDERSCORE(finite)
+ADD_UNDERSCORE(fpclass)
+ADD_UNDERSCORE(fputwchar)
+ADD_UNDERSCORE(heapwalk)
+ADD_DOUBLE_UNDERSCORE(iscsymf)
+ADD_DOUBLE_UNDERSCORE(iscsym)
+ADD_UNDERSCORE(searchenv)
+ADD_UNDERSCORE(stricoll)
+#ifndef UCRTBASE
+ADD_UNDERSCORE(vsnprintf_s)
+#endif
+ADD_UNDERSCORE(wpopen)
