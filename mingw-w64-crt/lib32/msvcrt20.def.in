@@ -5,13 +5,7 @@
 ;
 LIBRARY "MSVCRT20.dll"
 EXPORTS
-
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_I64_FIXED_SIZE
-#define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
-
+#include "func.def.in"
 ; public: __thiscall Iostream_init::Iostream_init(class ios &,int)
 ??0Iostream_init@@QAE@AAVios@@H@Z ; has WINAPI (@8)
 ; public: __thiscall Iostream_init::Iostream_init(void)
@@ -1580,3 +1574,10 @@ _safe_fdiv
 _safe_fdivr
 _safe_fprem
 _safe_fprem1
+
+; Include symbol aliases for compatibility with msvcrt.dll
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_I64_FIXED_SIZE
+#define NO_STRCMPI_ALIAS
+#include "msvcrt-common.def.in"

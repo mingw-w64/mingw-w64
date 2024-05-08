@@ -5,15 +5,6 @@
 ;
 LIBRARY "msvcr100.dll"
 EXPORTS
-
-#define WITH_ATOLL_ALIAS
-#define WITH_ATOLL_L_ALIAS
-#define WITH_IMAXABS_ALIAS
-#define WITH_IMAXDIV_ALIAS
-#define WITH_STRTO64_ALIAS
-#define WITH_STRTO64_L_ALIAS
-#include "msvcrt-common.def.in"
-
 $I10_OUTPUT
 ; public: __cdecl Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))__ptr64 
 ??0?$_SpinWait@$00@details@Concurrency@@QEAA@P6AXXZ@Z
@@ -1871,3 +1862,11 @@ wprintf
 wprintf_s
 wscanf
 wscanf_s
+
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
+#define WITH_IMAXABS_ALIAS
+#define WITH_IMAXDIV_ALIAS
+#define WITH_STRTO64_ALIAS
+#define WITH_STRTO64_L_ALIAS
+#include "msvcrt-common.def.in"

@@ -5,15 +5,7 @@
 ;
 LIBRARY "msvcr100.dll"
 EXPORTS
-
-#define WITH_ATOLL_ALIAS
-#define WITH_ATOLL_L_ALIAS
-#define WITH_IMAXABS_ALIAS
-#define WITH_IMAXDIV_ALIAS
-#define WITH_STRTO64_ALIAS
-#define WITH_STRTO64_L_ALIAS
-#include "msvcrt-common.def.in"
-
+#include "func.def.in"
 ; public: __thiscall Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))
 ??0?$_SpinWait@$00@details@Concurrency@@QAE@P6AXXZ@Z ; has WINAPI (@4)
 ; public: __thiscall Concurrency::details::<0x0ULL>::<0x0ULL>(void(__cdecl *)(void))
@@ -1908,3 +1900,11 @@ wprintf
 wprintf_s
 wscanf
 wscanf_s
+
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
+#define WITH_IMAXABS_ALIAS
+#define WITH_IMAXDIV_ALIAS
+#define WITH_STRTO64_ALIAS
+#define WITH_STRTO64_L_ALIAS
+#include "msvcrt-common.def.in"

@@ -1,13 +1,6 @@
 LIBRARY "MSVCR80.dll"
 EXPORTS
 
-#define WITH_ATOLL_ALIAS
-#define WITH_ATOLL_L_ALIAS
-#define WITH_LLABS_ALIAS
-#define WITH_STRTO64_ALIAS
-#define WITH_STRTO64_L_ALIAS
-#include "msvcrt-common.def.in"
-
 ; C++ mangled symbols
 ; public: __cdecl std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &__ptr64 )__ptr64
 ??0__non_rtti_object@std@@QEAA@AEBV01@@Z
@@ -1500,3 +1493,11 @@ _aligned_offset_recalloc
 _aligned_recalloc
 _fread_nolock_s
 fread_s
+
+; Include symbol aliases for compatibility with msvcrt.dll
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
+#define WITH_LLABS_ALIAS
+#define WITH_STRTO64_ALIAS
+#define WITH_STRTO64_L_ALIAS
+#include "msvcrt-common.def.in"

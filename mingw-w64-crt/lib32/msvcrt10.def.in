@@ -5,14 +5,6 @@
 ;
 LIBRARY "MSVCRT10.dll"
 EXPORTS
-
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_WIDE_FIXED_SIZE
-#define NO_I64_FIXED_SIZE
-#define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
-
 ; public: __thiscall Iostream_init::Iostream_init(class ios &,int)
 ??0Iostream_init@@QAE@AAVios@@H@Z ; has WINAPI (@8)
 ; public: __thiscall Iostream_init::Iostream_init(void)
@@ -1301,3 +1293,10 @@ wcsxfrm
 wctomb
 wprintf
 wscanf
+
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_WIDE_FIXED_SIZE
+#define NO_I64_FIXED_SIZE
+#define NO_STRCMPI_ALIAS
+#include "msvcrt-common.def.in"

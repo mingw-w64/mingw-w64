@@ -1,22 +1,7 @@
 LIBRARY "msvcrt.dll"
 EXPORTS
 
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_FIXED_SIZE_64_ALIAS
-#define NO_TIME_ALIAS
-#define NO_STRCMPI_ALIAS
-#define WITH_ATOLL_ALIAS
-#define WITH_ATOLL_L_ALIAS
-#define WITH_STRTO64_L_ALIAS
-#ifndef DEF_I386
-; i386 llabs and imaxabs alias provided by emu
-#define WITH_LLABS_ALIAS
-; i386 strtoll, strtoull, strtoimax and strtoumax alias provided by emu
-#define WITH_STRTO64_ALIAS
-#endif
 #include "func.def.in"
-#include "msvcrt-common.def.in"
 
 ; List of I386 C++ mangled symbols which matches the first I386 version of msvcrt.dll (Microsoft Visual C++ 4.2)
 #ifdef DEF_I386
@@ -1834,6 +1819,23 @@ F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 ; All symbols defined below this line are not available in any version of msvcrt.dll library   ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+; This includes list of some symbol alises for compatibility with C99 and POSIX functions and symbols from other msvcr* libraries
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_FIXED_SIZE_64_ALIAS
+#define NO_TIME_ALIAS
+#define NO_STRCMPI_ALIAS
+#define WITH_ATOLL_ALIAS
+#define WITH_ATOLL_L_ALIAS
+#define WITH_STRTO64_L_ALIAS
+#ifndef DEF_I386
+; i386 llabs and imaxabs alias provided by emu
+#define WITH_LLABS_ALIAS
+; i386 strtoll, strtoull, strtoimax and strtoumax alias provided by emu
+#define WITH_STRTO64_ALIAS
+#endif
+#include "msvcrt-common.def.in"
 
 ; This is list of additional symbol aliases not available in any CRT library
 ; FIXME: check if these really are needed

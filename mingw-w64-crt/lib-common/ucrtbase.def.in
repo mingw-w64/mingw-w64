@@ -2,8 +2,6 @@ LIBRARY "ucrtbase.dll"
 EXPORTS
 
 #include "func.def.in"
-#define UCRTBASE
-#include "msvcrt-common.def.in"
 
 #ifdef DEF_I386
 _CIacos
@@ -2645,6 +2643,10 @@ wctrans
 wctype
 wmemcpy_s
 wmemmove_s
+
+#define UCRTBASE
+#include "msvcrt-common.def.in"
+
 ; These functions may satisfy configure scripts.
 F32(timespec_get == _timespec32_get)
 F64(timespec_get == _timespec64_get)

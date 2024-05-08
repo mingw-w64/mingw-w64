@@ -67,13 +67,6 @@
 LIBRARY "CRTDLL.dll"
 EXPORTS
 
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_WIDE_FIXED_SIZE
-#define NO_I64_FIXED_SIZE
-#define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
-
 ; crtdll.dll contains 3 mangled C++ symbols
 ; void *__cdecl operator new(unsigned int)
 ??2@YAPAXI@Z
@@ -628,3 +621,11 @@ wscanf
 _itow
 _ltow
 _ultow
+
+; include symbol aliases for compatibility with msvcrt.dll
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_WIDE_FIXED_SIZE
+#define NO_I64_FIXED_SIZE
+#define NO_STRCMPI_ALIAS
+#include "msvcrt-common.def.in"

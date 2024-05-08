@@ -5,12 +5,6 @@
 ;
 LIBRARY "MSVCRT40.dll"
 EXPORTS
-
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_STRCMPI_ALIAS
-#include "msvcrt-common.def.in"
-
 ; public: __thiscall Iostream_init::Iostream_init(class ios &,int)
 ??0Iostream_init@@QAE@AAVios@@H@Z ; has WINAPI (@8)
 ; public: __thiscall Iostream_init::Iostream_init(void)
@@ -1664,3 +1658,9 @@ _outpd
 _outpw
 ; Following symbol was not added into Win32s version of msvcrt40.dll
 _dstbias DATA
+
+; Include symbol aliases for compatibility with msvcrt.dll
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_STRCMPI_ALIAS
+#include "msvcrt-common.def.in"

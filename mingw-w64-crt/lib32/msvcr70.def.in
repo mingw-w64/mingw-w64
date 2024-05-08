@@ -5,14 +5,6 @@
 ;
 LIBRARY "MSVCR70.dll"
 EXPORTS
-
-#define PRE_C95_SWPRINTF
-#define FIXED_SIZE_SYMBOLS
-#define NO_STRCMPI_ALIAS
-#define WITH_ATOLL_ALIAS
-#define WITH_STRTO64_ALIAS
-#include "msvcrt-common.def.in"
-
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAE@ABV0@@Z ; has WINAPI (@4)
 ; public: __thiscall __non_rtti_object::__non_rtti_object(char const *)
@@ -906,3 +898,10 @@ wcsxfrm
 wctomb
 wprintf
 wscanf
+
+#define PRE_C95_SWPRINTF
+#define FIXED_SIZE_SYMBOLS
+#define NO_STRCMPI_ALIAS
+#define WITH_ATOLL_ALIAS
+#define WITH_STRTO64_ALIAS
+#include "msvcrt-common.def.in"
