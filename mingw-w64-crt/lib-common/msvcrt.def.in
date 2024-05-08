@@ -1152,6 +1152,7 @@ F_NON_I386(_rotr64) ; i386 _rotr64 replaced by emu
 _wctype
 
 ; These symbols were added in Windows Server 2003 SP1 and Windows XP x64 OS system version of msvcrt.dll
+; This is the first X64 version of msvcrt.dll, all symbols in this section and also above this section are present in all X64 versions of msvcrt.dll
 #ifdef DEF_I386
 ; public: __thiscall exception::exception(char const *const &,int)
 ??0exception@@QAE@ABQBDH@Z ; has WINAPI (@8)
@@ -1764,6 +1765,7 @@ wprintf_s
 wscanf_s
 
 ; These symbols were added in Windows 8 OS system version of msvcrt.dll
+; This is the first ARM32 version of msvcrt.dll, all symbols in this section and also above this section are present in all ARM32 versions of msvcrt.dll
 F_ARM_ANY(__jump_unwind)
 F_ARM_ANY(_create_locale) ; i386 and x64 _create_locale replaced by emu
 F_ARM_ANY(_free_locale) ; i386 and x64 _free_locale replaced by emu
