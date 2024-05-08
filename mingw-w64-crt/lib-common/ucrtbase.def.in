@@ -2631,7 +2631,3 @@ wmemmove_s
 
 #define UCRTBASE
 #include "msvcrt-common.def.in"
-
-; These functions may satisfy configure scripts.
-F32(timespec_get == _timespec32_get)
-F64(timespec_get == _timespec64_get)

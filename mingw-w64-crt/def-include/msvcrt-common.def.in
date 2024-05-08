@@ -222,6 +222,12 @@ sinl == sin
 tanl == tan
 #endif
 
+; This is list of symbol aliases for C11 functions
+#ifdef UCRTBASE
+F32(timespec_get == _timespec32_get)
+F64(timespec_get == _timespec64_get)
+#endif
+
 ; This is list of symbol aliases for POSIX functions
 ADD_DOUBLE_UNDERSCORE(isascii)
 ADD_DOUBLE_UNDERSCORE(toascii)
