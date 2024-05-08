@@ -1843,18 +1843,3 @@ F32(_ftime_s == _ftime32_s)
 F64(_ftime_s == _ftime64_s)
 snwprintf == _snwprintf
 vsnwprintf == _vsnwprintf
-
-; This is list of ARM long double symbols defined as alias to regular double symbols as on ARM, long double is equal to regular double
-F_ARM_ANY(acosl == acos)
-F_ARM_ANY(asinl == asin)
-F_ARM_ANY(atan2l == atan2)
-F_ARM_ANY(atanl == atan)
-F_ARM_ANY(ceill == ceil)
-F_ARM_ANY(cosl == cos)
-F_ARM_ANY(expl == exp)
-F_ARM_ANY(floorl == floor)
-F_ARM_ANY(fmodl == fmod)
-F_ARM_ANY(log10l == log10)
-F_ARM_ANY(logl == log)
-F_ARM_ANY(sinl == sin)
-F_ARM_ANY(tanl == tan)

@@ -200,6 +200,28 @@ ADD_UNDERSCORE(yn)
 ; ADD_UNDERSCORE(logb)
 ADD_UNDERSCORE(nextafter)
 
+#if defined(DEF_ARM32) || defined(DEF_ARM64)
+; This is list of symbol aliases for C99 ARM long double functions
+; They are defined as aliases to regular double symbols as on ARM, long double is equal to regular double
+acosl == acos
+asinl == asin
+atan2l == atan2
+atanl == atan
+ceill == ceil
+cosl == cos
+expl == exp
+floorl == floor
+fmodl == fmod
+log10l == log10
+logl == log
+; FIXME: Why is powl alias defined only for UCRT?
+#ifdef UCRTBASE
+powl == pow
+#endif
+sinl == sin
+tanl == tan
+#endif
+
 ; This is list of symbol aliases for POSIX functions
 ADD_DOUBLE_UNDERSCORE(isascii)
 ADD_DOUBLE_UNDERSCORE(toascii)
