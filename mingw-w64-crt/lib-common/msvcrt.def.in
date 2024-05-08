@@ -3,8 +3,8 @@ EXPORTS
 
 #include "func.def.in"
 
-; List of I386 C++ mangled symbols which matches the first I386 version of msvcrt.dll (Microsoft Visual C++ 4.2)
 #ifdef DEF_I386
+; List of I386 C++ mangled symbols which matches the first I386 version of msvcrt.dll (Microsoft Visual C++ 4.2)
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAE@ABV0@@Z ; has WINAPI (@4)
 ; public: __thiscall __non_rtti_object::__non_rtti_object(char const *)
@@ -103,8 +103,8 @@ EXPORTS
 ?what@exception@@UBEPBDXZ
 #endif
 
-; List of X64 C++ mangled symbols which matches the first X64 version of msvcrt.dll (Windows Server 2003 SP1 / Windows XP x64)
 #ifdef DEF_X64
+; List of X64 C++ mangled symbols which matches the first X64 version of msvcrt.dll (Windows Server 2003 SP1 / Windows XP x64)
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
 ; GCC = __ZN17__non_rtti_objectC2ERKS_
 ??0__non_rtti_object@@QEAA@AEBV0@@Z
@@ -217,8 +217,8 @@ EXPORTS
 ?what@exception@@UEBAPEBDXZ
 #endif
 
-; List of ARM32 C++ mangled symbols which matches the first ARM32 version of msvcrt.dll (Windows RT 8.0)
 #ifdef DEF_ARM32
+; List of ARM32 C++ mangled symbols which matches the first ARM32 version of msvcrt.dll (Windows RT 8.0)
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAA@ABV0@@Z
 ; public: __cdecl __non_rtti_object::__non_rtti_object(char const *)
@@ -313,8 +313,10 @@ EXPORTS
 ?what@exception@@UBAPBDXZ
 #endif
 
+#ifdef DEF_ARM64
 ; List of ARM64 C++ mangled symbols
 ; TODO: Fill this list with all symbols from the first ARM64 version of msvcrt.dll
+#endif
 
 
 ; This is list of symbols available in the original Microsoft Visual C++ 4.2 version of msvcrt.dll
