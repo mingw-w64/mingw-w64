@@ -463,7 +463,7 @@ _cprintf
 _cputs
 _creat
 _cscanf
-_ctype F_I386(DATA)
+_ctype DATA
 _cwait
 _daylight DATA
 F_X86_ANY(_dstbias DATA)
@@ -1039,7 +1039,7 @@ wscanf
 ; These symbols were added in Microsoft Visual C++ 5.0 SP1 and Windows 98 First Edition OS system versions of msvcrt.dll
 ; They are not available in Microsoft Visual C++ 4.2, nor in 5.0 and neither in Windows NT 4.0 OS system version
 F_I386(__p__mbcasemap)
-_mbcasemap F_NON_I386(DATA)
+_mbcasemap DATA
 
 ; These symbols were added in Microsoft Visual C++ 6.0 and Windows 98 Second Edition OS system versions of msvcrt.dll
 F_X86_ANY(__lc_collate_cp DATA)
