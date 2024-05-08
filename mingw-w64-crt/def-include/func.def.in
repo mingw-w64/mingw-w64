@@ -55,3 +55,8 @@
 #ifndef F_NON_I386
 #define F_NON_I386(x)
 #endif
+
+#if defined(DEF_I386)
+// for __cdecl and __stdcall only
+#define DECORATED_EXPORT(symbol) symbol == _ ## symbol
+#endif

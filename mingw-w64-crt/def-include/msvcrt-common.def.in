@@ -3,9 +3,6 @@
 #define ADD_UNDERSCORE(symbol) symbol == _ ## symbol
 #define ADD_DOUBLE_UNDERSCORE(symbol) symbol == __ ## symbol
 
-// for __cdecl and __stdcall only
-#define DECORATED_EXPORT(symbol) symbol == _ ## symbol
-
 ADD_DOUBLE_UNDERSCORE(iscsymf)
 ADD_DOUBLE_UNDERSCORE(iscsym)
 ADD_DOUBLE_UNDERSCORE(isascii)
