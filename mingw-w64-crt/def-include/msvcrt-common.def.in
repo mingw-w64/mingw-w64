@@ -128,7 +128,7 @@ ADD_UNDERSCORE(tzset)
 ADD_UNDERSCORE(umask)
 ADD_UNDERSCORE(ungetch)
 ADD_UNDERSCORE(unlink)
-#ifndef UCRTBASE
+#ifdef FIXED_SIZE_SYMBOLS
 ADD_UNDERSCORE(utime)
 #else
 F32(utime == _utime32)
