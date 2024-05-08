@@ -571,13 +571,6 @@ src_msvcrtarm64=\
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
-src_msvcr80_64=\
-  misc/__p___argv.c \
-  misc/__p__acmdln.c \
-  misc/__p__commode.c \
-  misc/__p__fmode.c \
-  misc/__p__wcmdln.c
-
 src_crtdll=\
   crt/crtdll_compat.c \
   math/x86/_copysignf.c \
@@ -1543,7 +1536,7 @@ lib64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common64)
 lib64_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcrt_extra_a_SOURCES = $(src_msvcrt64)
 lib64_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
-lib64_libmsvcr80_extra_a_SOURCES = $(src_msvcr80) $(src_msvcr80_64)
+lib64_libmsvcr80_extra_a_SOURCES = $(src_msvcr80)
 lib64_libmsvcr80_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcr90_extra_a_SOURCES = $(src_msvcr90)
 lib64_libmsvcr90_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
