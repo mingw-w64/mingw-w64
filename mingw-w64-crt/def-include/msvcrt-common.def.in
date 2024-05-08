@@ -95,8 +95,14 @@ ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
 ; ADD_UNDERSCORE(stat)
-#ifndef UCRTBASE
+#ifdef NO_STRCMPI_ALIAS
+; Symbol _strcmpi is natively present and defined in the library def file
+; So define strcmpi as an alias to _strcmpi
 ADD_UNDERSCORE(strcmpi)
+#else
+; Symbol _strcmpi is not present in the library, it provides only _stricmp symbol
+; So define strcmpi as an alias to _stricmp
+strcmpi == _stricmp
 #endif
 ADD_UNDERSCORE(strdup)
 ADD_UNDERSCORE(stricmp)

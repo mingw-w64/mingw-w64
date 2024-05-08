@@ -2538,7 +2538,6 @@ strcat
 strcat_s
 strchr
 strcmp
-strcmpi == _stricmp
 strcoll
 strcpy
 strcpy_s
