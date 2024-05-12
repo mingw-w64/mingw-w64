@@ -64,7 +64,7 @@
 ;    _strninc
 ;    _strspnp
 ;
-LIBRARY "crtdll.dll"
+LIBRARY "CRTDLL.dll"
 EXPORTS
 
 #define PRE_C95_SWPRINTF
@@ -451,7 +451,7 @@ clearerr
 clock
 cos DATA
 cosh
-ctime DATA
+ctime
 difftime
 div
 exit
@@ -487,7 +487,7 @@ getc
 getchar
 getenv
 gets
-gmtime DATA
+gmtime
 is_wctype
 isalnum
 isalpha
@@ -518,7 +518,7 @@ labs
 ldexp DATA
 ldiv
 localeconv
-localtime DATA
+localtime
 log
 log10
 longjmp
@@ -531,7 +531,7 @@ memcmp
 memcpy
 memmove
 memset
-mktime DATA
+mktime
 modf
 perror
 pow
@@ -583,7 +583,7 @@ swscanf
 system
 tan
 tanh
-time DATA
+time
 tmpfile
 tmpnam
 tolower
