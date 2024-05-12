@@ -12,6 +12,8 @@ _ctime32
 _ctime32_s
 _ctime64
 _ctime64_s
+F32(difftime == _difftime32)
+F64(difftime == _difftime64)
 _difftime32
 _difftime64
 F32(_ftime == _ftime32)
@@ -40,6 +42,8 @@ _localtime32
 _localtime32_s
 _localtime64
 _localtime64_s
+F32(_mkgmtime == _mkgmtime32)
+F64(_mkgmtime == _mkgmtime64)
 _mkgmtime32
 _mkgmtime64
 _mktime32
@@ -70,6 +74,8 @@ _wasctime
 _wasctime_s
 _Wcsftime
 _wcsftime_l
+F32(_wctime == _wctime32)
+F64(_wctime == _wctime64)
 _wctime32
 _wctime32_s
 _wctime64
