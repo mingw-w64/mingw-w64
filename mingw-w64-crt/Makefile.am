@@ -445,6 +445,7 @@ src_msvcrt32=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  stdio/_fstat64i32.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c
 
@@ -471,6 +472,7 @@ src_msvcrtarm32=\
   misc/__p__wcmdln.c \
   misc/_getpid.c \
   misc/initenv.c \
+  stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
@@ -653,12 +655,14 @@ src_msvcr70=\
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
+  stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 
 src_msvcr71=\
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
+  stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 
 src_msvcr80=\
@@ -745,7 +749,7 @@ src_libmingwex=\
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         stdio/strtok_r.c          stdio/scanf.S \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
-  stdio/_fstat64i32.c      stdio/_ftime.c       \
+  stdio/_ftime.c       \
   stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/fgetpos64.c       \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c         stdio/fsetpos64.c         stdio/ftello.c          \
