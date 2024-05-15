@@ -158,12 +158,14 @@ extern "C" {
     FileIdExtdDirectoryInfo,
     FileIdExtdDirectoryRestartInfo,
 #endif
-#if _WIN32_WINNT >= 0x0A000002
+#if NTDDI_VERSION >= 0x0A000002
     FileDispositionInfoEx,
     FileRenameInfoEx,
 #endif
+#if NTDDI_VERSION >= 0x0A000007
     FileCaseSensitiveInfo,
     FileNormalizedNameInfo,
+#endif
     MaximumFileInfoByHandleClass
   } FILE_INFO_BY_HANDLE_CLASS, *PFILE_INFO_BY_HANDLE_CLASS;
 #endif
