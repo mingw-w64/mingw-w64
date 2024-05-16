@@ -281,16 +281,16 @@
   __attribute__((__format__(__scanf__, __format,__args)))
 #else
 #define __MINGW_MS_PRINTF(__format,__args) \
-  __attribute__((__format__(ms_printf, __format,__args)))
+  __attribute__((__format__(__ms_printf__, __format,__args)))
 
 #define __MINGW_MS_SCANF(__format,__args) \
-  __attribute__((__format__(ms_scanf,  __format,__args)))
+  __attribute__((__format__(__ms_scanf__,  __format,__args)))
 
 #define __MINGW_GNU_PRINTF(__format,__args) \
-  __attribute__((__format__(gnu_printf,__format,__args)))
+  __attribute__((__format__(__gnu_printf__,__format,__args)))
 
 #define __MINGW_GNU_SCANF(__format,__args) \
-  __attribute__((__format__(gnu_scanf, __format,__args)))
+  __attribute__((__format__(__gnu_scanf__, __format,__args)))
 #endif /* !__clang__ */
 
 #undef __mingw_ovr

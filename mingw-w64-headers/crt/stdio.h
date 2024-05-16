@@ -255,14 +255,14 @@ extern
 #undef __MINGW_SCANF_FORMAT
 
 #if defined(__clang__)
-#define __MINGW_PRINTF_FORMAT printf
-#define __MINGW_SCANF_FORMAT  scanf
+#define __MINGW_PRINTF_FORMAT __printf__
+#define __MINGW_SCANF_FORMAT  __scanf__
 #elif defined(_UCRT) || __USE_MINGW_ANSI_STDIO
-#define __MINGW_PRINTF_FORMAT gnu_printf
-#define __MINGW_SCANF_FORMAT  gnu_scanf
+#define __MINGW_PRINTF_FORMAT __gnu_printf__
+#define __MINGW_SCANF_FORMAT  __gnu_scanf__
 #else
-#define __MINGW_PRINTF_FORMAT ms_printf
-#define __MINGW_SCANF_FORMAT  ms_scanf
+#define __MINGW_PRINTF_FORMAT __ms_printf__
+#define __MINGW_SCANF_FORMAT  __ms_scanf__
 #endif
 
 #if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
