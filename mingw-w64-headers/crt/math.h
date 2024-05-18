@@ -1217,28 +1217,28 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   extern int __cdecl __signbitd128 (_Decimal128);
 
 #ifndef __CRT__NO_INLINE
-  __CRT_INLINE __cdecl __isnand32(_Decimal32 x){
+  __CRT_INLINE int __cdecl __isnand32(_Decimal32 x){
     return __builtin_isnand32(x);
   }
 
-  __CRT_INLINE __cdecl __isnand64(_Decimal64 x){
+  __CRT_INLINE int __cdecl __isnand64(_Decimal64 x){
     return __builtin_isnand64(x);
   }
 
-  __CRT_INLINE __cdecl __isnand128(_Decimal128 x){
+  __CRT_INLINE int __cdecl __isnand128(_Decimal128 x){
     return __builtin_isnand128(x);
   }
 
   __CRT_INLINE int __cdecl __signbitd32 (_Decimal32 x){
-    return __buintin_signbitd32(x);
+    return __builtin_signbitd32(x);
   }
 
   __CRT_INLINE int __cdecl __signbitd64 (_Decimal64 x){
-    return __buintin_signbitd64(x);
+    return __builtin_signbitd64(x);
   }
 
   __CRT_INLINE int __cdecl __signbitd128 (_Decimal128 x){
-    return __buintin_signbitd128(x);
+    return __builtin_signbitd128(x);
   }
 
 #endif

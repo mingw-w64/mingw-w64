@@ -47,5 +47,5 @@
 #include "dfp_internal.h"
 
 int __cdecl __signbitd128 (_Decimal128 x){
-  return __buintin_signbitd128(x);
+  return __builtin_signbitd128(x);
 }
