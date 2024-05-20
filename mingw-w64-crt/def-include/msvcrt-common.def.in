@@ -2,6 +2,7 @@
 
 #define ADD_UNDERSCORE(symbol) symbol == _ ## symbol
 #define ADD_UNDERSCORE_DATA(symbol) symbol DATA == _ ## symbol
+#define ADD_UNDERSCORE_DATA_DLL(symbol) symbol DATA == _ ## symbol ## _dll
 #define ADD_DOUBLE_UNDERSCORE(symbol) symbol == __ ## symbol
 
 ; This is list of symbol aliases from the Visual C++ 1.0 oldnames.lib library
@@ -21,13 +22,21 @@ ADD_UNDERSCORE(close)
 ADD_UNDERSCORE(creat)
 ; ADD_UNDERSCORE(cscanf)
 ADD_UNDERSCORE(cwait)
-#ifndef UCRTBASE
+#if defined(UCRTBASE)
+; daylight variable is provided by ucrtbase_compat.c
+#elif defined(CRTDLL)
+ADD_UNDERSCORE_DATA_DLL(daylight)
+#else
 ADD_UNDERSCORE_DATA(daylight)
 #endif
 ADD_UNDERSCORE(dup)
 ADD_UNDERSCORE(dup2)
 ADD_UNDERSCORE(ecvt)
-#ifndef UCRTBASE
+#if defined(UCRTBASE)
+; _environ variable is not available in ucrtbase.dll and there is no replacement for it
+#elif defined(CRTDLL)
+; ADD_UNDERSCORE_DATA_DLL(environ)
+#else
 ; ADD_UNDERSCORE_DATA(environ)
 #endif
 ADD_UNDERSCORE(eof)
@@ -49,7 +58,11 @@ ADD_UNDERSCORE(fileno)
 ADD_UNDERSCORE(fputchar)
 ; ADD_UNDERSCORE(fstat)
 ; ADD_UNDERSCORE(ftime)
-#ifndef UCRTBASE
+#if defined(UCRTBASE)
+; _HUGE variable is not available in ucrtbase.dll and there is no replacement for it
+#elif defined(CRTDLL)
+; ADD_UNDERSCORE_DATA_DLL(HUGE)
+#else
 ; ADD_UNDERSCORE_DATA(HUGE)
 #endif
 ADD_UNDERSCORE(gcvt)
@@ -113,15 +126,37 @@ ADD_UNDERSCORE(strrev)
 ADD_UNDERSCORE(strset)
 ADD_UNDERSCORE(strupr)
 ADD_UNDERSCORE(swab)
-#ifndef UCRTBASE
+#if defined(UCRTBASE)
+; _sys_errlist variable is not available in ucrtbase.dll and there is no replacement for it
+#else
+// sys_errlist variable is without _dll suffix in crtdll.dll
 ; ADD_UNDERSCORE_DATA(sys_errlist)
+#endif
+#if defined(UCRTBASE)
+; _sys_nerr variable is not available in ucrtbase.dll and there is no replacement for it
+#elif defined(CRTDLL)
+; ADD_UNDERSCORE_DATA_DLL(sys_nerr)
+#else
 ; ADD_UNDERSCORE_DATA(sys_nerr)
 #endif
 ADD_UNDERSCORE(tell)
 ADD_UNDERSCORE(tempnam)
-#ifndef UCRTBASE
+#if defined(UCRTBASE)
+; timezone variable is provided by ucrtbase_compat.c
+#elif defined(CRTDLL)
+ADD_UNDERSCORE_DATA_DLL(timezone)
+#else
 ADD_UNDERSCORE_DATA(timezone)
+#endif
+#if defined(UCRTBASE)
+; tzname variable is provided by ucrtbase_compat.c
+#else
+// tzname variable is without _dll suffix in crtdll.dll
 ADD_UNDERSCORE_DATA(tzname)
+#endif
+#if defined(UCRTBASE)
+; tzset function is provided by ucrtbase_compat.c
+#else
 ADD_UNDERSCORE(tzset)
 #endif
 ; ADD_UNDERSCORE(ultoa)
