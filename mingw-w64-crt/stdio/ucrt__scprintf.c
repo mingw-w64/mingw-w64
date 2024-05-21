@@ -6,10 +6,8 @@
 
 #undef __MSVCRT_VERSION__
 #define _UCRT
-#define _scprintf real__scprintf
 #include <stdio.h>
 #include <stdarg.h>
-#undef _scprintf
 
 int __cdecl _scprintf(const char * __restrict__ _Format, ...)
 {

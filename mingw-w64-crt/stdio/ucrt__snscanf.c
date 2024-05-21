@@ -6,10 +6,8 @@
 
 #undef __MSVCRT_VERSION__
 #define _UCRT
-#define _snscanf real__snscanf
 #include <stdio.h>
 #include <stdarg.h>
-#undef _snscanf
 
 int __cdecl _snscanf(const char * __restrict__ _Src, size_t _MaxCount, const char * __restrict__ _Format, ...)
 {

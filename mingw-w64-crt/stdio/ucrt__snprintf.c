@@ -6,10 +6,8 @@
 
 #undef __MSVCRT_VERSION__
 #define _UCRT
-#define _snprintf real__snprintf
 #include <stdio.h>
 #include <stdarg.h>
-#undef _snprintf
 
 int __cdecl _snprintf(char * __restrict__ _Dest, size_t _Count, const char * __restrict__ _Format, ...)
 {
