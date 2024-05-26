@@ -598,6 +598,7 @@ src_crtdll=\
   stdio/mingw_lock.c
 
 src_msvcrt10=\
+  crt/crtdll_getmainargs.c \
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
   misc/__p___argv.c \

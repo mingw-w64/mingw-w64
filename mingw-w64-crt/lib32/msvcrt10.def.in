@@ -888,7 +888,7 @@ __argv DATA
 __dllonexit
 __doserrno
 __fpecode
-__getmainargs
+__GetMainArgs == __getmainargs ; msvcrt10.dll's __getmainargs has same API as crtdll.dll's __GetMainArgs, real __getmainargs provided by emu
 __isascii
 __iscsym
 __iscsymf
