@@ -898,7 +898,7 @@ __STRINGTOLD
 __dllonexit
 __doserrno
 __fpecode
-__getmainargs
+__msvcrt20_getmainargs == __getmainargs ; msvcrt20.dll's __getmainargs is incompatible with mingw-w64's __getmainargs, real __getmainargs provided by emu
 __isascii
 __iscsym
 __iscsymf
@@ -933,7 +933,7 @@ __pxcptinfoptrs
 __threadhandle
 __threadid
 __toascii
-__wgetmainargs
+__msvcrt20_wgetmainargs == __wgetmainargs ; msvcrt20.dll's __wgetmainargs is incompatible with mingw-w64's __wgetmainargs, real __wgetmainargs provided by emu
 _abnormal_termination
 _access
 _amsg_exit

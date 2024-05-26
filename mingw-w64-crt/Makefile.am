@@ -621,6 +621,8 @@ src_msvcrt10=\
   stdio/mingw_lock.c
 
 src_msvcrt20=\
+  crt/msvcrt20_getmainargs.c \
+  crt/msvcrt20_wgetmainargs.c \
   misc/___mb_cur_max_func.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
