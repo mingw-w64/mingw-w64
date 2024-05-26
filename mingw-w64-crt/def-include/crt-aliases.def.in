@@ -56,7 +56,12 @@ ADD_UNDERSCORE(filelength)
 ADD_UNDERSCORE(fileno)
 ; ADD_UNDERSCORE(flushall)
 ADD_UNDERSCORE(fputchar)
-; ADD_UNDERSCORE(fstat)
+#ifdef FIXED_SIZE_SYMBOLS
+ADD_UNDERSCORE(fstat)
+#else
+F32(fstat == _fstat32)
+F64(fstat == _fstat64i32)
+#endif
 ; ADD_UNDERSCORE(ftime)
 #if defined(UCRTBASE)
 ; _HUGE variable is not available in ucrtbase.dll and there is no replacement for it

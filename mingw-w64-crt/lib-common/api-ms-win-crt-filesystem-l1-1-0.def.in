@@ -30,6 +30,8 @@ _findnext32
 _findnext32i64
 _findnext64
 _findnext64i32
+F32(fstat == _fstat32)
+F64(fstat == _fstat64i32)
 F32(_fstat == _fstat32)
 F64(_fstat == _fstat64i32)
 F32(_fstati64 == _fstat32i64)
