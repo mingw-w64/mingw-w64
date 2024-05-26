@@ -1107,7 +1107,7 @@ lib32_LIBRARIES += lib32/libmingwthrd.a
 lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
-processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/msvcrt40.def lib32/msvcrt.def lib32/msvcr70.def lib32/msvcr71.def \
+processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/msvcrt40.def lib32/msvcr40d.def lib32/msvcrt.def lib32/msvcr70.def lib32/msvcr71.def \
 				  lib32/msvcr80.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def lib32/msvcr110.def lib32/msvcr120.def lib32/msvcr120d.def \
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
@@ -1135,6 +1135,10 @@ lib32/libmsvcrt20.a: lib32/msvcrt20.mri lib32/libmsvcrt20_def.a lib32/libmsvcrt_
 
 lib32_DATA += lib32/libmsvcrt40.a
 lib32/libmsvcrt40.a: lib32/msvcrt40.mri lib32/libmsvcrt40_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt40_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+lib32_DATA += lib32/libmsvcr40d.a
+lib32/libmsvcr40d.a: lib32/msvcr40d.mri lib32/libmsvcr40d_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt40_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr70.a
