@@ -112,7 +112,7 @@ ADD_UNDERSCORE(spawnv)
 ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
-; ADD_UNDERSCORE(stat)
+; stat is provided by mingw to workaround trailing slash issue in _stat
 #ifdef NO_STRCMPI_ALIAS
 ; Symbol _strcmpi is natively present and defined in the library def file
 ; So define strcmpi as an alias to _strcmpi
