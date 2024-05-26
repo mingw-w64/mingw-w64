@@ -32,4 +32,5 @@ imaxdiv_t (__cdecl *__MINGW_IMP_SYMBOL(imaxdiv))(intmax_t, intmax_t) = imaxdiv;
 lldiv_t __attribute__ ((alias ("imaxdiv")))
 __cdecl
 lldiv (long long, long long); 
-lldiv_t (__cdecl *__MINGW_IMP_SYMBOL(lldiv))(long long, long long) = lldiv;
+extern lldiv_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(imaxdiv)))))
+(__cdecl *__MINGW_IMP_SYMBOL(lldiv))(long long, long long);

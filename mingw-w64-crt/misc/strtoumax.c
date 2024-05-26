@@ -113,9 +113,11 @@ uintmax_t (__cdecl *__MINGW_IMP_SYMBOL(strtoumax))(const char* __restrict__, cha
 unsigned long long __attribute__ ((alias ("strtoumax")))
 __cdecl
 strtoull (const char* __restrict__ nptr, char ** __restrict__ endptr, int base);
-unsigned long long (__cdecl *__MINGW_IMP_SYMBOL(strtoull))(const char* __restrict__, char ** __restrict__, int) = strtoull;
+extern unsigned long long __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(strtoumax)))))
+(__cdecl *__MINGW_IMP_SYMBOL(strtoull))(const char* __restrict__, char ** __restrict__, int);
 
 unsigned __int64 __attribute__ ((alias ("strtoumax")))
 __cdecl
 _strtoui64 (const char* __restrict__ nptr, char ** __restrict__ endptr, int base);
-unsigned __int64 (__cdecl *__MINGW_IMP_SYMBOL(_strtoui64))(const char* __restrict__, char ** __restrict__, int) = _strtoui64;
+extern unsigned __int64 __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(strtoumax)))))
+(__cdecl *__MINGW_IMP_SYMBOL(_strtoui64))(const char* __restrict__, char ** __restrict__, int);
