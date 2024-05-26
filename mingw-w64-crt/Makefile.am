@@ -574,7 +574,7 @@ src_msvcrtarm64=\
   stdio/gets.c
 
 src_crtdll=\
-  crt/crtdll_compat.c \
+  crt/crtdll_getmainargs.c \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
