@@ -45,6 +45,7 @@ static int __MINGW_ATTRIB_NONNULL(1)
 }
 
 size_t
+__cdecl
 wcrtomb (char *dst, wchar_t wc, mbstate_t * __UNUSED_PARAM (ps))
 {
   char byte_bucket [MB_LEN_MAX];
@@ -53,7 +54,9 @@ wcrtomb (char *dst, wchar_t wc, mbstate_t * __UNUSED_PARAM (ps))
 			       MB_CUR_MAX);
 }
 
-size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
+size_t
+__cdecl
+wcsrtombs (char *dst, const wchar_t **src, size_t len,
 		  mbstate_t * __UNUSED_PARAM (ps))
 {
   int ret = 0;

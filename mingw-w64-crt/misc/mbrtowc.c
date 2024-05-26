@@ -93,6 +93,7 @@ __mbrtowc_cp (wchar_t * __restrict__ pwc, const char * __restrict__ s,
 }
 
 size_t
+__cdecl
 mbrtowc (wchar_t * __restrict__ pwc, const char * __restrict__ s,
 	 size_t n, mbstate_t* __restrict__ ps)
 {
@@ -106,6 +107,7 @@ mbrtowc (wchar_t * __restrict__ pwc, const char * __restrict__ s,
 
 
 size_t
+__cdecl
 mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
 	   size_t len, mbstate_t* __restrict__ ps)
 {
@@ -146,6 +148,7 @@ mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
 }
 
 size_t
+__cdecl
 mbrlen (const char * __restrict__ s, size_t n,
 	mbstate_t * __restrict__ ps)
 {
