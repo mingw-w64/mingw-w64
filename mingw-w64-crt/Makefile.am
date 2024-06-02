@@ -1114,7 +1114,8 @@ lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/msvcrt40.def lib32/msvcr40d.def \
 				  lib32/msvcrt.def lib32/msvcrtd.def lib32/msvcr70.def lib32/msvcr70d.def lib32/msvcr71.def lib32/msvcr71d.def \
-				  lib32/msvcr80.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def lib32/msvcr110.def lib32/msvcr120.def lib32/msvcr120d.def \
+				  lib32/msvcr80.def lib32/msvcr80d.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def \
+				  lib32/msvcr110.def lib32/msvcr120.def lib32/msvcr120d.def \
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
 				  lib32/api-ms-win-crt-filesystem-l1-1-0.def lib32/api-ms-win-crt-time-l1-1-0.def \
@@ -1169,6 +1170,10 @@ lib32/libmsvcr71d.a: lib32/msvcr71d.mri lib32/libmsvcr71d_def.a lib32/libmsvcrt_
 
 lib32_DATA += lib32/libmsvcr80.a
 lib32/libmsvcr80.a: lib-common/msvcr80.mri lib32/libmsvcr80_def.a lib32/libmsvcrt_common.a lib32/libmsvcr80_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+lib32_DATA += lib32/libmsvcr80d.a
+lib32/libmsvcr80d.a: lib-common/msvcr80d.mri lib32/libmsvcr80d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr80_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr90.a
@@ -1504,7 +1509,7 @@ lib64_LIBRARIES += lib64/libmingwthrd.a
 lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
-processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr90.def lib64/msvcr90d.def \
+processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr80d.def lib64/msvcr90.def lib64/msvcr90d.def \
 				  lib64/msvcr100.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
 				  lib64/msvcr120_app.def lib64/msvcp120_app.def lib64/ucrtbase.def \
 				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def lib64/ole32.def \
@@ -1522,6 +1527,10 @@ lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcp120_app.a
 
 lib64_DATA += lib64/libmsvcr80.a
 lib64/libmsvcr80.a: lib-common/msvcr80.mri lib64/libmsvcr80_def.a lib64/libmsvcrt_common.a lib64/libmsvcr80_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+lib64_DATA += lib64/libmsvcr80d.a
+lib64/libmsvcr80d.a: lib-common/msvcr80d.mri lib64/libmsvcr80d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr80_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr90.a
