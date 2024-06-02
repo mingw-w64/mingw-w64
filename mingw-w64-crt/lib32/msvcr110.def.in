@@ -555,7 +555,6 @@ EXPORTS
 ?__ExceptionPtrSwap@@YAXPAX0@Z
 ; bool __cdecl __ExceptionPtrToBool(void const *)
 ?__ExceptionPtrToBool@@YA_NPBX@Z
-__uncaught_exception
 ; void __cdecl _inconsistency(void)
 ?_inconsistency@@YAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
 ; void __cdecl _invalid_parameter(unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned int)
@@ -664,6 +663,8 @@ __uncaught_exception
 ?wait_for_multiple@event@Concurrency@@SAIPAPAV12@I_NI@Z
 ; public: virtual char const *__thiscall std::exception::what(void)const 
 ?what@exception@std@@UBEPBDXZ
+
+__uncaught_exception
 $I10_OUTPUT
 _CIacos
 _CIasin

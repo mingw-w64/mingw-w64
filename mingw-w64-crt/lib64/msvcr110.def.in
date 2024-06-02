@@ -556,7 +556,6 @@ $I10_OUTPUT
 ?__ExceptionPtrSwap@@YAXPEAX0@Z
 ; bool __cdecl __ExceptionPtrToBool(void const *__ptr64)
 ?__ExceptionPtrToBool@@YA_NPEBX@Z
-__uncaught_exception
 ; void __cdecl _inconsistency(void)
 ?_inconsistency@@YAXXZ
 ; void __cdecl _invalid_parameter(unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned int,unsigned __int64)
@@ -659,6 +658,8 @@ __uncaught_exception
 ?wait_for_multiple@event@Concurrency@@SA_KPEAPEAV12@_K_NI@Z
 ; public: virtual char const *__ptr64 __cdecl std::exception::what(void)const __ptr64 
 ?what@exception@std@@UEBAPEBDXZ
+
+__uncaught_exception
 _CRT_RTC_INIT
 _CRT_RTC_INITW
 _CreateFrameInfo

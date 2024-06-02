@@ -90,7 +90,6 @@ $I10_OUTPUT
 ?_ValidateRead@@YAHPEBXI@Z
 ; int __cdecl _ValidateWrite(void *__ptr64,unsigned int)
 ?_ValidateWrite@@YAHPEAXI@Z
-__uncaught_exception
 ; void __cdecl _inconsistency(void)
 ?_inconsistency@@YAXXZ
 ; void __cdecl _invalid_parameter(unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned int,unsigned __int64)
@@ -145,6 +144,8 @@ __uncaught_exception
 ?unexpected@@YAXXZ
 ; public: virtual char const *__ptr64 __cdecl std::exception::what(void)const __ptr64 
 ?what@exception@std@@UEBAPEBDXZ
+
+__uncaught_exception
 _CRT_RTC_INIT
 _CRT_RTC_INITW
 _CreateFrameInfo

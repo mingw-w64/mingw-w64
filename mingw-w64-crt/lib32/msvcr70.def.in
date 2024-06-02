@@ -85,7 +85,6 @@ EXPORTS
 ??_U@YAPAXI@Z
 ; void __cdecl operator delete[](void *)
 ??_V@YAXPAX@Z
-__uncaught_exception
 ; int(__cdecl *)(unsigned int)__cdecl _query_new_handler(void)
 ?_query_new_handler@@YAP6AHI@ZXZ
 ; int __cdecl _query_new_mode(void)
@@ -114,6 +113,8 @@ __uncaught_exception
 ?unexpected@@YAXXZ ; has WINAPI (@4)
 ; public: virtual char const *__thiscall exception::what(void)const 
 ?what@exception@@UBEPBDXZ
+
+__uncaught_exception
 $I10_OUTPUT
 _CIacos
 _CIasin

@@ -92,7 +92,6 @@ EXPORTS
 ?_ValidateRead@@YAHPBXI@Z
 ; int __cdecl _ValidateWrite(void *,unsigned int)
 ?_ValidateWrite@@YAHPAXI@Z
-__uncaught_exception
 ; void __cdecl _inconsistency(void)
 ?_inconsistency@@YAXXZ
 ; void __cdecl _invalid_parameter(unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned int)
@@ -155,6 +154,8 @@ __uncaught_exception
 ?vswprintf@@YAHPA_WIPB_WPAD@Z
 ; public: virtual char const *__thiscall std::exception::what(void)const 
 ?what@exception@std@@UBEPBDXZ
+
+__uncaught_exception
 $I10_OUTPUT
 _CIacos
 _CIasin
