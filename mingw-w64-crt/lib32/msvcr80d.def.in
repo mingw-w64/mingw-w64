@@ -276,8 +276,8 @@ __daylight
 __dllonexit
 __doserrno
 __dstbias
-DECORATED_EXPORT(__fls_getvalue@4)
-DECORATED_EXPORT(__fls_setvalue@8)
+STDCALL_DECORATED_EXPORT(__fls_getvalue@4)
+STDCALL_DECORATED_EXPORT(__fls_setvalue@8)
 __fpecode
 __free_locale
 __get_app_type

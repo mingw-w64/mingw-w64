@@ -1164,7 +1164,7 @@ _rotl
 _rotr
 _scalb
 _searchenv
-DECORATED_EXPORT(_seh_longjmp_unwind@4)
+STDCALL_DECORATED_EXPORT(_seh_longjmp_unwind@4)
 _seterrormode
 _setjmp
 _setjmp3

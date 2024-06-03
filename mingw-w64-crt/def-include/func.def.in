@@ -62,8 +62,7 @@
 #endif
 
 #if defined(DEF_I386)
-// for __cdecl and __stdcall only
-#define DECORATED_EXPORT(symbol) symbol == _ ## symbol
+#define STDCALL_DECORATED_EXPORT(symbol) symbol == _ ## symbol
 #endif
 
 #endif // FUNC_DEF_IN
