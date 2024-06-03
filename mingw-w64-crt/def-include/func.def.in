@@ -63,6 +63,7 @@
 
 #if defined(DEF_I386)
 #define STDCALL_DECORATED_EXPORT(symbol) symbol == _ ## symbol
+#define FASTCALL_DECORATED_EXPORT(symbol) symbol == symbol
 #endif
 
 #endif // FUNC_DEF_IN

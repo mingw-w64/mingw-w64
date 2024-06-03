@@ -160,9 +160,9 @@ EXPORTS
 
 ; Symbols from the original Microsoft Visual C++ 2005 version of msvcr80d.dll
 __uncaught_exception
-@_calloc_crt@8
-@_malloc_crt@4
-@_realloc_crt@8
+FASTCALL_DECORATED_EXPORT(@_calloc_crt@8)
+FASTCALL_DECORATED_EXPORT(@_malloc_crt@4)
+FASTCALL_DECORATED_EXPORT(@_realloc_crt@8)
 $I10_OUTPUT
 _CIacos
 _CIasin
