@@ -152,20 +152,10 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _doserrno (*__doserrno())
   errno_t __cdecl _set_doserrno(unsigned long _Value);
   errno_t __cdecl _get_doserrno(unsigned long *_Value);
-#ifdef _MSVCRT_
-  extern char *_sys_errlist[];
-  extern int _sys_nerr;
-#else
-#ifdef _UCRT
   _CRTIMP char **__cdecl __sys_errlist(void);
   _CRTIMP int *__cdecl __sys_nerr(void);
 #define _sys_nerr (*__sys_nerr())
 #define _sys_errlist (__sys_errlist())
-#else
-  extern __declspec(dllimport) char *_sys_errlist[1];
-  extern __declspec(dllimport) int _sys_nerr;
-#endif /* !_UCRT */
-#endif
 
   /* We have a fallback definition of __p___argv and __p__fmode for
      msvcrt versions that lack it. */

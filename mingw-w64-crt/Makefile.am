@@ -294,6 +294,8 @@ src_msvcrt_commonarm64=\
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -598,6 +600,8 @@ src_crtdll=\
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__set_app_type.c \
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -628,6 +632,8 @@ src_msvcrt10=\
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__set_app_type.c \
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -650,6 +656,8 @@ src_msvcrt20=\
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__set_app_type.c \
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -668,6 +676,8 @@ src_msvcrt40=\
   misc/___mb_cur_max_func.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -682,6 +692,8 @@ src_msvcrt40=\
   stdio/mingw_lock.c
 
 src_msvcr70=\
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -689,6 +701,8 @@ src_msvcr70=\
   stdio/mingw_lock.c
 
 src_msvcr71=\
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
