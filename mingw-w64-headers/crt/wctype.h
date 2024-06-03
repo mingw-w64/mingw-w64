@@ -67,14 +67,9 @@ extern "C" {
 #endif
 #endif
 
+  _CRTIMP const wctype_t * __cdecl __pwctype_func(void);
 #ifndef _pwctype
-#ifdef _MSVCRT_
-  extern const unsigned short *_pwctype;
-#else
-  extern const unsigned short ** __MINGW_IMP_SYMBOL(_pwctype);
-#define _pwctype (* __MINGW_IMP_SYMBOL(_pwctype))
-#define __pwctype_func() (* __MINGW_IMP_SYMBOL(_pwctype))
-#endif
+#define _pwctype (__pwctype_func())
 #endif
 #endif
 #endif

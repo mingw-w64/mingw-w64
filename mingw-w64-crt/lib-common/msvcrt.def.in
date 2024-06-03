@@ -1145,7 +1145,7 @@ _wtof
 F_I386(__CxxCallUnwindVecDtor)
 F_X86_ANY(__CxxFrameHandler2)
 ___lc_collate_cp_func
-__pwctype_func
+F_NON_I386(__pwctype_func) ; i386 __pwctype_func replaced by emu
 F_NON_I386(_abs64) ; i386 _abs64 replaced by emu
 _mkgmtime
 _mkgmtime64
