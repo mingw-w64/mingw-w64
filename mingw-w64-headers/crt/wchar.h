@@ -154,28 +154,11 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
-#ifdef _MSVCRT_
-#define __pctype_func() (_pctype)
-#else
-#ifdef _UCRT
   _CRTIMP const unsigned short* __pctype_func(void);
-#else
-#define __pctype_func() (* __MINGW_IMP_SYMBOL(_pctype))
-#endif
-#endif
 #endif
 
 #ifndef _pctype
-#ifdef _MSVCRT_
-  extern const unsigned short *_pctype;
-#else
-#ifdef _UCRT
 #define _pctype (__pctype_func())
-#else
-  extern const unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
-#define _pctype (* __MINGW_IMP_SYMBOL(_pctype))
-#endif
-#endif
 #endif
 #endif
 #endif

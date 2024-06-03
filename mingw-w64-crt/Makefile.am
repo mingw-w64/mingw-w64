@@ -436,6 +436,7 @@ src_msvcrt32=\
   $(src_msvcrt) \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
+  misc/__pctype_func.c \
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
@@ -584,6 +585,8 @@ src_crtdll=\
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
+  misc/__p__pctype.c \
+  misc/__pctype_func.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
@@ -610,6 +613,8 @@ src_msvcrt10=\
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
+  misc/__p__pctype.c \
+  misc/__pctype_func.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
@@ -630,6 +635,7 @@ src_msvcrt20=\
   crt/msvcrt20_getmainargs.c \
   crt/msvcrt20_wgetmainargs.c \
   misc/___mb_cur_max_func.c \
+  misc/__pctype_func.c \
   misc/__set_app_type.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
@@ -647,6 +653,7 @@ src_msvcrt20=\
 
 src_msvcrt40=\
   misc/___mb_cur_max_func.c \
+  misc/__pctype_func.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \

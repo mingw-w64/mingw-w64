@@ -1110,7 +1110,7 @@ __crtCompareStringW
 __crtGetStringTypeW
 __crtLCMapStringW
 F_NON_I386(__iob_func) ; i386 __iob_func replaced by alias
-__pctype_func
+F_NON_I386(__pctype_func) ; i386 __pctype_func replaced by emu
 __wcserror
 _aligned_free
 _aligned_malloc
