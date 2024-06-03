@@ -252,6 +252,10 @@ strncasecmp == _strnicmp
 _strcmpi == _stricmp
 #endif
 
+#ifdef WITH_IOB_FUNC_ALIAS
+__iob_func == __p__iob
+#endif
+
 #ifdef WITH_ATOLL_ALIAS
 atoll == _atoi64
 #endif

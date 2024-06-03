@@ -1109,7 +1109,7 @@ F_X86_ANY(___unguarded_readlc_active_add_func)
 __crtCompareStringW
 __crtGetStringTypeW
 __crtLCMapStringW
-__iob_func
+F_NON_I386(__iob_func) ; i386 __iob_func replaced by alias
 __pctype_func
 __wcserror
 _aligned_free
@@ -1830,6 +1830,10 @@ F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 #define NO_FIXED_SIZE_64_ALIAS
 #define NO_TIME_ALIAS
 #define NO_STRCMPI_ALIAS
+#ifdef DEF_I386
+; i386 __iob_func replaced by alias
+#define WITH_IOB_FUNC_ALIAS
+#endif
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_STRTO64_L_ALIAS

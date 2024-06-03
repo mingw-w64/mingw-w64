@@ -100,19 +100,8 @@ extern "C" {
 
 _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #ifndef _STDIO_DEFINED
-#ifdef _WIN64
   _CRTIMP FILE *__cdecl __iob_func(void);
-#define _iob  __iob_func()
-#else
-#ifdef _MSVCRT_
-extern FILE _iob[];	/* A pointer to an array of FILE */
-#define __iob_func()	(_iob)
-#else
-extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
-#define __iob_func()	(* __MINGW_IMP_SYMBOL(_iob))
 #define _iob __iob_func()
-#endif
-#endif
 #endif
 
 #ifndef _FPOS_T_DEFINED

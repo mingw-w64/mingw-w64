@@ -1580,4 +1580,5 @@ _safe_fprem1
 #define FIXED_SIZE_SYMBOLS
 #define NO_I64_FIXED_SIZE
 #define NO_STRCMPI_ALIAS
+#define WITH_IOB_FUNC_ALIAS
 #include "crt-aliases.def.in"
