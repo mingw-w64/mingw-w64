@@ -26,7 +26,7 @@ extern "C" {
 #define __pctype_func()	(_pctype)
 #else
 #ifdef _UCRT
-  _CRTIMP unsigned short* __pctype_func(void);
+  _CRTIMP const unsigned short* __pctype_func(void);
 #else
 #define __pctype_func()	(* __MINGW_IMP_SYMBOL(_pctype))
 #endif
@@ -35,12 +35,12 @@ extern "C" {
 
 #ifndef _pctype
 #ifdef _MSVCRT_
-  extern unsigned short *_pctype;
+  extern const unsigned short *_pctype;
 #else
 #ifdef _UCRT
 #define _pctype (__pctype_func())
 #else
-  extern unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
+  extern const unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
 #define _pctype (* __MINGW_IMP_SYMBOL(_pctype))
 #endif
 #endif
@@ -54,21 +54,21 @@ extern "C" {
 #ifndef _CTYPE_DISABLE_MACROS
 #if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
 #ifdef _MSVCRT_
-  extern unsigned short *_wctype;
+  extern const unsigned short *_wctype;
 #else
-  extern unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
+  extern const unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
 #define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
 #endif
 #endif
 #ifdef _MSVCRT_
 #define __pwctype_func() (_pwctype)
 #ifndef _pwctype
-  extern unsigned short *_pwctype;
+  extern const unsigned short *_pwctype;
 #endif
 #else
 #define __pwctype_func() (* __MINGW_IMP_SYMBOL(_pwctype))
 #ifndef _pwctype
-  extern unsigned short ** __MINGW_IMP_SYMBOL(_pwctype);
+  extern const unsigned short ** __MINGW_IMP_SYMBOL(_pwctype);
 #define _pwctype (* __MINGW_IMP_SYMBOL(_pwctype))
 #endif
 #endif
