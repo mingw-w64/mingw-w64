@@ -167,12 +167,8 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define _CRT_WCTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
 #if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
-#ifdef _MSVCRT_
-  extern const unsigned short *_wctype;
-#else
   extern const unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
 #define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
-#endif
 #endif
 
   _CRTIMP const wctype_t * __cdecl __pwctype_func(void);
