@@ -1,3 +1,6 @@
+#ifndef FUNC_DEF_IN
+#define FUNC_DEF_IN
+
 // F32         - function available on all 32 bit architectures
 // F64         - function available on all 64 bit architectures
 // F_X86_ANY   - function available on i386 and x86_64
@@ -26,6 +29,8 @@
 #define F_ARM64(x) x
 #define F_ARM_ANY(x) x
 #define F_NON_I386(x) x
+#else
+#error No DEF_<ARCH> is defined
 #endif
 
 #ifndef F32
@@ -60,3 +65,5 @@
 // for __cdecl and __stdcall only
 #define DECORATED_EXPORT(symbol) symbol == _ ## symbol
 #endif
+
+#endif // FUNC_DEF_IN
