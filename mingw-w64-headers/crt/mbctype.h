@@ -19,12 +19,8 @@ extern "C" {
 #endif
 
 #ifndef _mbcasemap
-#ifdef _MSVCRT_
-  extern unsigned char *_mbcasemap;
-#else
-  extern unsigned char ** __MINGW_IMP_SYMBOL(_mbcasemap);
-#define _mbcasemap (* __MINGW_IMP_SYMBOL(_mbcasemap))
-#endif
+  _CRTIMP unsigned char * __cdecl __p__mbcasemap(void);
+#define _mbcasemap (__p__mbcasemap())
 #endif
 
   extern pthreadmbcinfo __ptmbcinfo;

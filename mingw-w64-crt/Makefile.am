@@ -458,6 +458,7 @@ src_msvcrt64=\
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
+  misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
   misc/__p__wcmdln.c \
   misc/_create_locale.c \
@@ -472,6 +473,7 @@ src_msvcrtarm32=\
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
+  misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
@@ -571,6 +573,7 @@ src_msvcrtarm64=\
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
+  misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
