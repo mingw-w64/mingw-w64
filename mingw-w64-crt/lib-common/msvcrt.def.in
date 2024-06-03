@@ -1151,7 +1151,7 @@ _mkgmtime
 _mkgmtime64
 F_NON_I386(_rotl64) ; i386 _rotl64 replaced by emu
 F_NON_I386(_rotr64) ; i386 _rotr64 replaced by emu
-_wctype
+_wctype DATA
 
 ; These symbols were added in Windows Server 2003 SP1 and Windows XP x64 OS system version of msvcrt.dll
 ; This is the first X64 version of msvcrt.dll, all symbols in this section and also above this section are present in all X64 versions of msvcrt.dll

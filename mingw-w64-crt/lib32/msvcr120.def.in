@@ -1735,7 +1735,7 @@ _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
-_wctype@2524
+_wctype DATA
 _wdupenv_s
 _wenviron DATA
 _wexecl

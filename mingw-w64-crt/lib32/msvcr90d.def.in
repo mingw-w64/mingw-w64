@@ -1256,7 +1256,7 @@ _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
-_wctype@50371
+_wctype DATA
 _wdupenv_s
 _wdupenv_s_dbg
 _wenviron DATA

@@ -1863,9 +1863,7 @@ _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
-F_X64(_wctype DATA)
-F_I386(_wctype@50371)
-F_ARM32(_wctype)
+_wctype DATA
 F_X86_ANY(_wenviron DATA)
 F_ARM32(_wexecl)
 F_ARM32(_wexecle)

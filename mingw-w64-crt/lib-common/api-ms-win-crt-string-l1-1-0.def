@@ -128,7 +128,7 @@ _wcsupr_l
 _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
-_wctype
+_wctype DATA
 is_wctype
 isalnum
 isalpha
