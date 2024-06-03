@@ -6,12 +6,12 @@
 
 #include <_mingw.h>
 
-extern int* __MINGW_IMP_SYMBOL(__mb_cur_max);
+_CRTIMP int* __cdecl __p___mb_cur_max(void);
 
 int __cdecl ___mb_cur_max_func(void);
 int __cdecl ___mb_cur_max_func(void)
 {
-    return *__MINGW_IMP_SYMBOL(__mb_cur_max);
+    return *__p___mb_cur_max();
 }
 
 typedef int __cdecl (*_f___mb_cur_max_func)(void);

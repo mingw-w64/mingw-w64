@@ -580,6 +580,7 @@ src_crtdll=\
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
   misc/__p___argv.c \
+  misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
@@ -605,6 +606,7 @@ src_msvcrt10=\
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
   misc/__p___argv.c \
+  misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
