@@ -214,9 +214,9 @@ extern "C" {
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
 #ifndef _USE_32BIT_TIME_T
-  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN __MINGW_ASM_CALL(_wctime64);
+  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ASM_CALL(_wctime64) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #else
-  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN __MINGW_ASM_CALL(_wctime32);
+  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ASM_CALL(_wctime32) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
 #endif
 
