@@ -353,6 +353,7 @@ libarm64_DATA += %reldir%/libwindows.networking.a
 libarm64_DATA += %reldir%/libwindowsapp.a
 libarm64_DATA += %reldir%/libwindowscoreheadless_apiset.a
 libarm64_DATA += %reldir%/libwinhttp.a
+libarm64_DATA += %reldir%/libwinhvplatform.a
 libarm64_DATA += %reldir%/libwininet.a
 libarm64_DATA += %reldir%/libwinmm.a
 libarm64_DATA += %reldir%/libwinrnr.a
