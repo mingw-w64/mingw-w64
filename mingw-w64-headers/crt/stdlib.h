@@ -157,18 +157,12 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _sys_nerr (*__sys_nerr())
 #define _sys_errlist (__sys_errlist())
 
-  /* We have a fallback definition of __p___argv and __p__fmode for
-     msvcrt versions that lack it. */
   _CRTIMP char ***__cdecl __p___argv(void);
   _CRTIMP int *__cdecl __p__fmode(void);
-#if (defined(_X86_) && !defined(__x86_64)) || defined(_UCRT)
   _CRTIMP int *__cdecl __p___argc(void);
   _CRTIMP wchar_t ***__cdecl __p___wargv(void);
-  _CRTIMP char ***__cdecl __p__environ(void);
-  _CRTIMP wchar_t ***__cdecl __p__wenviron(void);
   _CRTIMP char **__cdecl __p__pgmptr(void);
   _CRTIMP wchar_t **__cdecl __p__wpgmptr(void);
-#endif
 
   errno_t __cdecl _get_pgmptr(char **_Value);
   errno_t __cdecl _get_wpgmptr(wchar_t **_Value);
@@ -178,57 +172,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #ifndef _fmode
 #define _fmode (* __p__fmode())
 #endif
-
-#ifdef _MSVCRT_
-
-#ifndef __argc
-  extern int __argc;
-#endif
-#ifndef __argv
-  extern char **__argv;
-#endif
-#ifndef __wargv
-  extern wchar_t **__wargv;
-#endif
-
-#ifndef _POSIX_
-#ifndef _environ
-  extern char **_environ;
-#endif
-#ifndef _wenviron
-  extern wchar_t **_wenviron;
-#endif
-#endif /* !_POSIX_ */
-
-#ifndef _pgmptr
-  extern char *_pgmptr;
-#endif
-
-#ifndef _wpgmptr
-  extern wchar_t *_wpgmptr;
-#endif
-
-#ifndef _osplatform
-  extern unsigned int _osplatform;
-#endif
-
-#ifndef _osver
-  extern unsigned int _osver;
-#endif
-
-#ifndef _winver
-  extern unsigned int _winver;
-#endif
-
-#ifndef _winmajor
-  extern unsigned int _winmajor;
-#endif
-
-#ifndef _winminor
-  extern unsigned int _winminor;
-#endif
-
-#elif defined(_UCRT)
 
 #ifndef __argc
 #define __argc (* __p___argc())
@@ -240,16 +183,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define __wargv (* __p___wargv())
 #endif
 
-#ifndef _POSIX_
-#ifndef _environ
-#define _environ (* __p__environ())
-#endif
-
-#ifndef _wenviron
-#define _wenviron (* __p__wenviron())
-#endif
-#endif /* !_POSIX_ */
-
 #ifndef _pgmptr
 #define _pgmptr (* __p__pgmptr())
 #endif
@@ -258,23 +191,8 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _wpgmptr (* __p__wpgmptr())
 #endif
 
-#else /* _UCRT */
-
-#ifndef __argc
-  extern int * __MINGW_IMP_SYMBOL(__argc);
-#define __argc (* __MINGW_IMP_SYMBOL(__argc))
-#endif
-#ifndef __argv
-  extern char *** __MINGW_IMP_SYMBOL(__argv);
-#define __argv	(* __p___argv())
-#endif
-#ifndef __wargv
-  extern wchar_t *** __MINGW_IMP_SYMBOL(__wargv);
-#define __wargv (* __MINGW_IMP_SYMBOL(__wargv))
-#endif
-
 #ifndef _POSIX_
-#if (defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__))
+#if (defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) && !defined(_UCRT)
   /* The plain msvcrt.dll for arm/aarch64 (and msvcr120_app.dll for arm) lacks
    * _environ/_wenviron, but has these functions instead. */
   _CRTIMP void __cdecl _get_environ(char ***);
@@ -299,28 +217,19 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #ifndef _wenviron
 #define _wenviron (__get_wenviron_ptr())
 #endif
-#else /* ARM/ARM64 */
+#else /* UCRT or non-ARM/ARM64 msvcrt */
+  _CRTIMP char ***__cdecl __p__environ(void);
+  _CRTIMP wchar_t ***__cdecl __p__wenviron(void);
+
 #ifndef _environ
-  extern char *** __MINGW_IMP_SYMBOL(_environ);
-#define _environ (* __MINGW_IMP_SYMBOL(_environ))
+#define _environ (* __p__environ())
 #endif
 
 #ifndef _wenviron
-  extern wchar_t *** __MINGW_IMP_SYMBOL(_wenviron);
-#define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
+#define _wenviron (* __p__wenviron())
 #endif
-#endif /* !ARM/ARM64 */
+#endif
 #endif /* !_POSIX_ */
-
-#ifndef _pgmptr
-  extern char ** __MINGW_IMP_SYMBOL(_pgmptr);
-#define _pgmptr	(* __MINGW_IMP_SYMBOL(_pgmptr))
-#endif
-
-#ifndef _wpgmptr
-  extern wchar_t ** __MINGW_IMP_SYMBOL(_wpgmptr);
-#define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
-#endif
 
 #ifndef _osplatform
   extern unsigned int * __MINGW_IMP_SYMBOL(_osplatform);
@@ -346,8 +255,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   extern unsigned int * __MINGW_IMP_SYMBOL(_winminor);
 #define _winminor (* __MINGW_IMP_SYMBOL(_winminor))
 #endif
-
-#endif /* !_MSVCRT_ && !_UCRT */
 
   errno_t __cdecl _get_osplatform(unsigned int *_Value);
   errno_t __cdecl _get_osver(unsigned int *_Value);
