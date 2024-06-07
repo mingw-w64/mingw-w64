@@ -465,6 +465,7 @@ src_msvcrt64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pgmptr.c \
   misc/__p__wcmdln.c \
   misc/__p__wenviron.c \
   misc/_create_locale.c \
@@ -483,6 +484,7 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pgmptr.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
   misc/initenv.c \
@@ -585,6 +587,7 @@ src_msvcrtarm64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pgmptr.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
   misc/initenv.c \
@@ -605,6 +608,7 @@ src_crtdll=\
   misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__mbctype.c \
+  misc/__p__pgmptr.c \
   misc/__p__pctype.c \
   misc/__p__pwctype.c \
   misc/__pctype_func.c \
@@ -640,6 +644,7 @@ src_msvcrt10=\
   misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__pctype.c \
+  misc/__p__pgmptr.c \
   misc/__p__pwctype.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
