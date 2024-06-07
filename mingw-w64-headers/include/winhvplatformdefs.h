@@ -1385,7 +1385,9 @@ C_ASSERT(sizeof(WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER) == sizeof(UINT64)
 
 typedef enum WHV_X64_PENDING_EVENT_TYPE {
     WHvX64PendingEventException = 0,
-    WHvX64PendingEventExtInt = 5
+    WHvX64PendingEventExtInt = 5,
+    WHvX64PendingEventSvmNestedExit = 7,
+    WHvX64PendingEventVmxNestedExit = 8
 } WHV_X64_PENDING_EVENT_TYPE;
 
 typedef union WHV_X64_PENDING_EXCEPTION_EVENT {
