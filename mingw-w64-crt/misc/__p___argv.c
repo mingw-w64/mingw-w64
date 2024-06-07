@@ -4,8 +4,11 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <stdlib.h>
+#include <_mingw.h>
 
+extern char ***__MINGW_IMP_SYMBOL(__argv);
+
+char ***__cdecl __p___argv(void);
 char ***__cdecl __p___argv(void)
 {
     return __MINGW_IMP_SYMBOL(__argv);
