@@ -456,6 +456,7 @@ src_msvcrt32=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
 src_msvcrt64=\
   $(src_msvcrt) \
+  misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
@@ -471,6 +472,7 @@ src_msvcrt64=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
   $(src_msvcrt) \
+  misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
@@ -571,6 +573,7 @@ src_msvcrtarm64=\
   math/arm64/nearbyintl.S \
   math/arm64/trunc.S \
   math/arm64/truncf.S \
+  misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
@@ -589,6 +592,7 @@ src_crtdll=\
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
+  misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
@@ -622,6 +626,7 @@ src_msvcrt10=\
   crt/msvcrt10_ismbblead.c \
   misc/___mb_cur_max_func.c \
   misc/__initenv.c \
+  misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
