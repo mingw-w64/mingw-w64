@@ -461,6 +461,7 @@ src_msvcrt64=\
   misc/__p___wargv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
+  misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
@@ -600,6 +601,7 @@ src_crtdll=\
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
+  misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__mbctype.c \
   misc/__p__pctype.c \
@@ -634,6 +636,7 @@ src_msvcrt10=\
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
+  misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__pctype.c \
   misc/__p__pwctype.c \
