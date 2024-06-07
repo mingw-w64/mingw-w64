@@ -458,6 +458,7 @@ src_msvcrt64=\
   $(src_msvcrt) \
   misc/__p___argc.c \
   misc/__p___argv.c \
+  misc/__p___wargv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
@@ -474,6 +475,7 @@ src_msvcrtarm32=\
   $(src_msvcrt) \
   misc/__p___argc.c \
   misc/__p___argv.c \
+  misc/__p___wargv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
@@ -575,6 +577,7 @@ src_msvcrtarm64=\
   math/arm64/truncf.S \
   misc/__p___argc.c \
   misc/__p___argv.c \
+  misc/__p___wargv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
