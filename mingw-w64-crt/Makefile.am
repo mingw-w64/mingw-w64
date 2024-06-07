@@ -466,6 +466,7 @@ src_msvcrt64=\
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
   misc/__p__wcmdln.c \
+  misc/__p__wenviron.c \
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
