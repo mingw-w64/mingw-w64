@@ -120,7 +120,8 @@ C_ASSERT(sizeof(WHV_EXTENDED_VM_EXITS) == sizeof(UINT64));
 typedef enum WHV_PROCESSOR_VENDOR {
     WHvProcessorVendorAmd = 0x0000,
     WHvProcessorVendorIntel = 0x0001,
-    WHvProcessorVendorHygon = 0x0002
+    WHvProcessorVendorHygon = 0x0002,
+    WHvProcessorVendorArm = 0x0010
 } WHV_PROCESSOR_VENDOR;
 
 typedef union WHV_PROCESSOR_FEATURES {
