@@ -1424,6 +1424,117 @@ typedef union WHV_X64_PENDING_EXT_INT_EVENT {
 
 C_ASSERT(sizeof(WHV_X64_PENDING_EXT_INT_EVENT) == sizeof(WHV_UINT128));
 
+typedef union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
+    __C89_NAMELESS struct {
+        UINT64 EventPending : 1;
+        UINT64 EventType : 4;
+        UINT64 Reserved0 : 3;
+        UINT64 InstructionBytesValid : 1;
+        UINT64 Reserved1 : 55;
+        UINT64 ExitCode;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0;
+
+typedef union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
+    __C89_NAMELESS struct {
+        UINT64 ExitInfo1;
+        UINT64 ExitInfo2;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1;
+
+typedef union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
+    __C89_NAMELESS struct {
+        UINT64 NextRip;
+        UINT8 InstructionBytesFetchedCount;
+        UINT8 InstructionBytes[7];
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2;
+
+typedef union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
+    __C89_NAMELESS struct {
+        UINT8 InstructionBytes[8];
+        UINT64 Reserved2;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3;
+
+C_ASSERT(sizeof(WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0) == 16);
+C_ASSERT(sizeof(WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1) == 16);
+C_ASSERT(sizeof(WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2) == 16);
+C_ASSERT(sizeof(WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3) == 16);
+
+typedef union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
+    __C89_NAMELESS struct {
+        UINT32 EventPending : 1;
+        UINT32 EventType : 4;
+        UINT32 Reserved0 : 27;
+        UINT32 ExitReason;
+        UINT64 ExitQualification;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0;
+
+typedef union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
+    __C89_NAMELESS struct {
+        UINT32 InstructionLength;
+        UINT32 InstructionInfo;
+        UINT32 ExitInterruptionInfo;
+        UINT32 ExitExceptionErrorCode;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1;
+
+typedef union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
+    __C89_NAMELESS struct {
+        UINT64 GuestLinearAddress;
+        UINT64 GuestPhysicalAddress;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2;
+
+C_ASSERT(sizeof(WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0) == 16);
+C_ASSERT(sizeof(WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1) == 16);
+C_ASSERT(sizeof(WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2) == 16);
+
+typedef union WHV_X64_NESTED_INVEPT_REGISTER {
+    __C89_NAMELESS struct {
+        UINT8 Type;
+        UINT8 Reserved[7];
+        UINT64 Eptp;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_NESTED_INVEPT_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_NESTED_INVEPT_REGISTER) == 16);
+
+typedef union WHV_X64_NESTED_INVVPID_REGISTER {
+    __C89_NAMELESS struct {
+        UINT8 Type;
+        UINT8 Reserved[3];
+        UINT32 Vpid;
+        UINT64 LinearAddress;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_NESTED_INVVPID_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_NESTED_INVVPID_REGISTER) == 16);
+
+typedef union WHV_X64_NESTED_GUEST_STATE {
+    __C89_NAMELESS struct {
+        UINT64 NestedVirtActive : 1;
+        UINT64 NestedGuestMode : 1;
+        UINT64 VmEntryPending : 1;
+        UINT64 Reserved0 : 61;
+        UINT64 Reserved1;
+    };
+    WHV_UINT128 AsUINT128;
+} WHV_X64_NESTED_GUEST_STATE;
+
+C_ASSERT(sizeof(WHV_X64_NESTED_GUEST_STATE) == 16);
+
 typedef union WHV_INTERNAL_ACTIVITY_REGISTER {
     __C89_NAMELESS struct {
         UINT64 StartupSuspend : 1;
@@ -1464,6 +1575,9 @@ typedef union WHV_REGISTER_VALUE {
     UINT32 Reg32;
     UINT16 Reg16;
     UINT8 Reg8;
+    WHV_INTERNAL_ACTIVITY_REGISTER InternalActivity;
+    WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER DeliverabilityNotifications;
+#if defined(__x86_64__)
     WHV_X64_FP_REGISTER Fp;
     WHV_X64_FP_CONTROL_STATUS_REGISTER FpControlStatus;
     WHV_X64_XMM_CONTROL_STATUS_REGISTER XmmControlStatus;
@@ -1471,11 +1585,20 @@ typedef union WHV_REGISTER_VALUE {
     WHV_X64_TABLE_REGISTER Table;
     WHV_X64_INTERRUPT_STATE_REGISTER InterruptState;
     WHV_X64_PENDING_INTERRUPTION_REGISTER PendingInterruption;
-    WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER DeliverabilityNotifications;
     WHV_X64_PENDING_EXCEPTION_EVENT ExceptionEvent;
     WHV_X64_PENDING_EXT_INT_EVENT ExtIntEvent;
-    WHV_INTERNAL_ACTIVITY_REGISTER InternalActivity;
     WHV_X64_PENDING_DEBUG_EXCEPTION PendingDebugException;
+    WHV_X64_NESTED_GUEST_STATE NestedState;
+    WHV_X64_NESTED_INVEPT_REGISTER InvEpt;
+    WHV_X64_NESTED_INVVPID_REGISTER InvVpid;
+    WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 SvmNestedExit0;
+    WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 SvmNestedExit1;
+    WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 SvmNestedExit2;
+    WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 SvmNestedExit3;
+    WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 VmxNestedExit0;
+    WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 VmxNestedExit1;
+    WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 VmxNestedExit2;
+#endif
 } WHV_REGISTER_VALUE;
 
 C_ASSERT(sizeof(WHV_REGISTER_VALUE) == 16);
