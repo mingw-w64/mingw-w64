@@ -7,23 +7,51 @@
 #define _WINHVAPIDEFS_H_
 
 typedef enum WHV_CAPABILITY_CODE {
-    WHvCapabilityCodeHypervisorPresent = 0x00000000,
-    WHvCapabilityCodeFeatures = 0x00000001,
-    WHvCapabilityCodeExtendedVmExits = 0x00000002,
-    WHvCapabilityCodeExceptionExitBitmap = 0x00000003,
-    WHvCapabilityCodeX64MsrExitBitmap = 0x00000004,
-    WHvCapabilityCodeGpaRangePopulateFlags = 0x00000005,
-    WHvCapabilityCodeSchedulerFeatures = 0x00000006,
-    WHvCapabilityCodeProcessorVendor = 0x00001000,
-    WHvCapabilityCodeProcessorFeatures = 0x00001001,
-    WHvCapabilityCodeProcessorClFlushSize = 0x00001002,
-    WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003,
-    WHvCapabilityCodeProcessorClockFrequency = 0x00001004,
-    WHvCapabilityCodeInterruptClockFrequency = 0x00001005,
-    WHvCapabilityCodeProcessorFeaturesBanks = 0x00001006,
-    WHvCapabilityCodeProcessorFrequencyCap = 0x00001007,
-    WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008,
-    WHvCapabilityCodeProcessorPerfmonFeatures = 0x00001009
+    WHvCapabilityCodeHypervisorPresent = 0x00000000
+    ,WHvCapabilityCodeFeatures = 0x00000001
+    ,WHvCapabilityCodeExtendedVmExits = 0x00000002
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeExceptionExitBitmap = 0x00000003
+    ,WHvCapabilityCodeX64MsrExitBitmap = 0x00000004
+#endif
+    ,WHvCapabilityCodeGpaRangePopulateFlags = 0x00000005
+    ,WHvCapabilityCodeSchedulerFeatures = 0x00000006
+    ,WHvCapabilityCodeProcessorVendor = 0x00001000
+    ,WHvCapabilityCodeProcessorFeatures = 0x00001001
+    ,WHvCapabilityCodeProcessorClFlushSize = 0x00001002
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003
+#endif
+    ,WHvCapabilityCodeProcessorClockFrequency = 0x00001004
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeInterruptClockFrequency = 0x00001005
+#endif
+    ,WHvCapabilityCodeProcessorFeaturesBanks = 0x00001006
+    ,WHvCapabilityCodeProcessorFrequencyCap = 0x00001007
+    ,WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeProcessorPerfmonFeatures = 0x00001009
+#endif
+    ,WHvCapabilityCodePhysicalAddressWidth = 0x0000100A
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeVmxBasic = 0x00002000
+    ,WHvCapabilityCodeVmxPinbasedCtls = 0x00002001
+    ,WHvCapabilityCodeVmxProcbasedCtls = 0x00002002
+    ,WHvCapabilityCodeVmxExitCtls = 0x00002003
+    ,WHvCapabilityCodeVmxEntryCtls = 0x00002004
+    ,WHvCapabilityCodeVmxMisc = 0x00002005
+    ,WHvCapabilityCodeVmxCr0Fixed0 = 0x00002006
+    ,WHvCapabilityCodeVmxCr0Fixed1 = 0x00002007
+    ,WHvCapabilityCodeVmxCr4Fixed0 = 0x00002008
+    ,WHvCapabilityCodeVmxCr4Fixed1 = 0x00002009
+    ,WHvCapabilityCodeVmxVmcsEnum = 0x0000200A
+    ,WHvCapabilityCodeVmxProcbasedCtls2 = 0x0000200B
+    ,WHvCapabilityCodeVmxEptVpidCap = 0x0000200C
+    ,WHvCapabilityCodeVmxTruePinbasedCtls = 0x0000200D
+    ,WHvCapabilityCodeVmxTrueProcbasedCtls = 0x0000200E
+    ,WHvCapabilityCodeVmxTrueExitCtls = 0x0000200F
+    ,WHvCapabilityCodeVmxTrueEntryCtls = 0x00002010
+#endif
 } WHV_CAPABILITY_CODE;
 
 typedef union WHV_CAPABILITY_FEATURES {
