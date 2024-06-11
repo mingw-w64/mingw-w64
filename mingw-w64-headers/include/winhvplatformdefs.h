@@ -83,20 +83,32 @@ C_ASSERT(sizeof(WHV_CAPABILITY_FEATURES) == sizeof(UINT64));
 
 typedef union WHV_EXTENDED_VM_EXITS {
     __C89_NAMELESS struct {
+#if defined(__x86_64__)
         UINT64 X64CpuidExit : 1;
         UINT64 X64MsrExit : 1;
         UINT64 ExceptionExit : 1;
         UINT64 X64RdtscExit : 1;
         UINT64 X64ApicSmiExitTrap : 1;
+#else
+        UINT64 ReservedArm0 : 5;
+#endif
         UINT64 HypercallExit : 1;
+#if defined(__x86_64__)
         UINT64 X64ApicInitSipiExitTrap : 1;
         UINT64 X64ApicWriteLint0ExitTrap : 1;
         UINT64 X64ApicWriteLint1ExitTrap : 1;
         UINT64 X64ApicWriteSvrExitTrap : 1;
+#else
+        UINT64 ReservedArm1 : 4;
+#endif
         UINT64 UnknownSynicConnection : 1;
         UINT64 RetargetUnknownVpciDevice : 1;
+#if defined(__x86_64__)
         UINT64 X64ApicWriteLdrExitTrap : 1;
         UINT64 X64ApicWriteDfrExitTrap : 1;
+#else
+        UINT64 ReservedArm2 : 2;
+#endif
         UINT64 GpaAccessFaultExit : 1;
         UINT64 Reserved : 49;
     };
