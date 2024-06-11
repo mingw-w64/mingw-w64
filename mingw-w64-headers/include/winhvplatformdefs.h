@@ -57,11 +57,19 @@ typedef enum WHV_CAPABILITY_CODE {
 typedef union WHV_CAPABILITY_FEATURES {
     __C89_NAMELESS struct {
         UINT64 PartialUnmap : 1;
+#if defined(__x86_64__)
         UINT64 LocalApicEmulation : 1;
         UINT64 Xsave : 1;
+#else
+        UINT64 ReservedArm0 : 2;
+#endif
         UINT64 DirtyPageTracking : 1;
         UINT64 SpeculationControl : 1;
+#if defined(__x86_64__)
         UINT64 ApicRemoteRead : 1;
+#else
+        UINT64 ReservedArm1 : 1;
+#endif
         UINT64 IdleSuspend : 1;
         UINT64 VirtualPciDeviceSupport : 1;
         UINT64 IommuSupport : 1;
