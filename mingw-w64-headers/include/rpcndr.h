@@ -4,14 +4,14 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #ifndef __RPCNDR_H_VERSION__
-#define __RPCNDR_H_VERSION__ (475)
+#define __RPCNDR_H_VERSION__ (501)
 #endif
 
 #ifndef __RPCNDR_H__
 #define __RPCNDR_H__
 
 #ifdef __REQUIRED_RPCNDR_H_VERSION__
-#if (475 < __REQUIRED_RPCNDR_H_VERSION__)
+#if (__RPCNDR_H_VERSION__ < __REQUIRED_RPCNDR_H_VERSION__)
 #error incorrect <rpcndr.h> version. Use the header that matches with the MIDL compiler.
 #endif
 #endif
