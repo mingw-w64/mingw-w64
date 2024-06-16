@@ -638,6 +638,8 @@ src_crtdll=\
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
+  stdio/fgetpos.c \
+  stdio/fsetpos.c \
   stdio/iob_func.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
@@ -677,6 +679,8 @@ src_msvcrt10=\
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
+  stdio/fgetpos.c \
+  stdio/fsetpos.c \
   stdio/iob_func.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
@@ -705,6 +709,8 @@ src_msvcrt20=\
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
+  stdio/fgetpos.c \
+  stdio/fsetpos.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 

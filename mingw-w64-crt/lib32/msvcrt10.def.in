@@ -1134,7 +1134,7 @@ feof
 ferror
 fflush
 fgetc
-fgetpos
+fgetpos32 == fgetpos ; rename fgetpos as it is not 64-bit
 fgets
 fgetwc
 floor
@@ -1150,7 +1150,7 @@ freopen
 frexp
 fscanf
 fseek
-fsetpos
+fsetpos32 == fsetpos ; rename fsetpos as it is not 64-bit
 ftell
 fwprintf
 fwrite
