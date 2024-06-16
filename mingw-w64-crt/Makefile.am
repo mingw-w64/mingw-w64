@@ -629,6 +629,7 @@ src_crtdll=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
+  misc/purecall.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -666,6 +667,7 @@ src_msvcrt10=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
+  misc/purecall.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -692,6 +694,7 @@ src_msvcrt20=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
+  misc/purecall.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -713,6 +716,7 @@ src_msvcrt40=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
+  misc/purecall.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
