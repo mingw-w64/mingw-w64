@@ -514,6 +514,21 @@ typedef unsigned __LONG32 error_status_t;
 
   typedef MIDL_STUBLESS_PROXY_INFO *PMIDL_STUBLESS_PROXY_INFO;
 
+  typedef struct _MIDL_METHOD_PROPERTY {
+    unsigned __LONG32 Id;
+    ULONG_PTR Value;
+  } MIDL_METHOD_PROPERTY, *PMIDL_METHOD_PROPERTY;
+
+  typedef struct _MIDL_METHOD_PROPERTY_MAP {
+    unsigned __LONG32 Count;
+    const MIDL_METHOD_PROPERTY *Properties;
+  } MIDL_METHOD_PROPERTY_MAP, *PMIDL_METHOD_PROPERTY_MAP;
+
+  typedef struct _MIDL_INTERFACE_METHOD_PROPERTIES {
+    unsigned short MethodCount;
+    const MIDL_METHOD_PROPERTY_MAP *const *MethodProperties;
+  } MIDL_INTERFACE_METHOD_PROPERTIES;
+
   struct _MIDL_SYNTAX_INFO {
     RPC_SYNTAX_IDENTIFIER TransferSyntax;
     RPC_DISPATCH_TABLE *DispatchTable;
@@ -521,7 +536,7 @@ typedef unsigned __LONG32 error_status_t;
     const unsigned short *FmtStringOffset;
     PFORMAT_STRING TypeString;
     const void *aUserMarshalQuadruple;
-    ULONG_PTR pReserved1;
+    const MIDL_INTERFACE_METHOD_PROPERTIES *pMethodProperties;
     ULONG_PTR pReserved2;
   };
 
