@@ -635,6 +635,7 @@ src_crtdll=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -676,6 +677,7 @@ src_msvcrt10=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -706,6 +708,7 @@ src_msvcrt20=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
