@@ -1344,7 +1344,7 @@ _get_fileinfo
 _get_fmode
 F_X86_ANY(_get_osplatform)
 F_X86_ANY(_get_osver)
-; _get_output_format replaced by emu
+F_ARM_ANY(_get_output_format) ; i386 and x64 _get_output_format replaced by emu
 F_X86_ANY(_get_pgmptr)
 _get_wenviron
 F_X86_ANY(_get_winmajor)
@@ -1531,7 +1531,7 @@ _set_doserrno
 F_ARM_ANY(_set_errno) ; i386 and x64 _set_errno replaced by emu
 _set_fileinfo
 _set_fmode
-; _set_output_format replaced by emu
+F_ARM_ANY(_set_output_format) ; i386 and x64 _set_output_format replaced by emu
 _snprintf_c
 _snprintf_c_l
 _snprintf_l

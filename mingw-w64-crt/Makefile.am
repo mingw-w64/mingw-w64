@@ -299,7 +299,6 @@ src_msvcrt=\
   misc/_configthreadlocale.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
-  misc/output_format.c \
   misc/purecall.c \
   secapi/_access_s.c \
   secapi/_cgets_s.c \
@@ -447,6 +446,7 @@ src_msvcrt32=\
   misc/_get_current_locale.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -474,6 +474,7 @@ src_msvcrt64=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/output_format.c \
   misc/seterrno.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
@@ -627,6 +628,7 @@ src_crtdll=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -663,6 +665,7 @@ src_msvcrt10=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -688,6 +691,7 @@ src_msvcrt20=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -708,6 +712,7 @@ src_msvcrt40=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -724,6 +729,7 @@ src_msvcr70=\
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
+  misc/output_format.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 
@@ -734,6 +740,7 @@ src_msvcr71=\
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
+  misc/output_format.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 
