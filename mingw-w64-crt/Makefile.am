@@ -641,6 +641,7 @@ src_crtdll=\
   stdio/atoll.c \
   stdio/fgetpos.c \
   stdio/fsetpos.c \
+  stdio/fseeki64.c \
   stdio/iob_func.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
@@ -683,6 +684,7 @@ src_msvcrt10=\
   stdio/atoll.c \
   stdio/fgetpos.c \
   stdio/fsetpos.c \
+  stdio/fseeki64.c \
   stdio/iob_func.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
@@ -714,6 +716,7 @@ src_msvcrt20=\
   stdio/atoll.c \
   stdio/fgetpos.c \
   stdio/fsetpos.c \
+  stdio/fseeki64.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -737,6 +740,7 @@ src_msvcrt40=\
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
+  stdio/fseeki64.c \
   stdio/mingw_dummy__lock.c \
   stdio/mingw_lock.c
 
@@ -751,6 +755,7 @@ src_msvcr70=\
   misc/seterrno.c \
   misc/wassert.c \
   stdio/_fstat64i32.c \
+  stdio/fseeki64.c \
   stdio/mingw_lock.c
 
 src_msvcr71=\
@@ -764,6 +769,7 @@ src_msvcr71=\
   misc/seterrno.c \
   misc/wassert.c \
   stdio/_fstat64i32.c \
+  stdio/fseeki64.c \
   stdio/mingw_lock.c
 
 src_msvcr80=\
