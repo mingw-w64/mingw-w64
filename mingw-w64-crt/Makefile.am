@@ -475,7 +475,8 @@ src_msvcrt64=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/output_format.c \
-  misc/seterrno.c
+  misc/seterrno.c \
+  misc/wassert.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
@@ -633,6 +634,7 @@ src_crtdll=\
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
+  misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -671,6 +673,7 @@ src_msvcrt10=\
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
+  misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -698,6 +701,7 @@ src_msvcrt20=\
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
+  misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -720,6 +724,7 @@ src_msvcrt40=\
   misc/seterrno.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
+  misc/wassert.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -734,6 +739,7 @@ src_msvcr70=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
+  misc/wassert.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 
@@ -745,6 +751,7 @@ src_msvcr71=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
+  misc/wassert.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
 

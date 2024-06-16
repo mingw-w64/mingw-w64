@@ -1648,7 +1648,7 @@ _vwprintf_p_l
 _vwprintf_s_l
 ; _waccess_s replaced by emu
 ; _wasctime_s replaced by emu
-F_NON_I386(_wassert) ; i386 _wassert replaced by emu
+F_ARM_ANY(_wassert) ; i386 and x64 _wassert replaced by emu
 _wcscoll_l
 _wcsdup_dbg
 _wcserror_s
