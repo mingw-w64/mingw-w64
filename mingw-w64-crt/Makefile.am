@@ -739,6 +739,7 @@ src_msvcr70=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
+  misc/seterrno.c \
   misc/wassert.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
@@ -751,6 +752,7 @@ src_msvcr71=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
+  misc/seterrno.c \
   misc/wassert.c \
   stdio/_fstat64i32.c \
   stdio/mingw_lock.c
