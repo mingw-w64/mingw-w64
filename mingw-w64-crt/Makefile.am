@@ -621,6 +621,7 @@ src_crtdll=\
   misc/__set_app_type.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -656,6 +657,7 @@ src_msvcrt10=\
   misc/__set_app_type.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -680,6 +682,7 @@ src_msvcrt20=\
   misc/__set_app_type.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -700,6 +703,7 @@ src_msvcrt40=\
   misc/__pwctype_func.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -716,6 +720,7 @@ src_msvcrt40=\
 src_msvcr70=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -725,6 +730,7 @@ src_msvcr70=\
 src_msvcr71=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
