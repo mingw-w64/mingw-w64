@@ -24,3 +24,6 @@ int __cdecl fsetpos(FILE *__restrict__ _File, const fpos_t *__restrict__ _Pos)
   return fsetpos32(_File, &pos32);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(fsetpos))(FILE *__restrict__ _File, const fpos_t *__restrict__ _Pos) = fsetpos;
+
+int __attribute__ ((alias ("fsetpos"))) __cdecl fsetpos64 (FILE *__restrict__ _File, const fpos_t *__restrict__ _Pos);
+extern int (__cdecl * __attribute__((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(fsetpos))))) __MINGW_IMP_SYMBOL(fsetpos64))(FILE *__restrict__ _File, const fpos_t *__restrict__ _Pos);

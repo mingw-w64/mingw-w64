@@ -242,6 +242,13 @@ ADD_UNDERSCORE(pclose)
 ADD_UNDERSCORE(popen)
 ; ADD_UNDERSCORE(scalb)
 
+; This is list of symbol aliases for Large File Specification (extension to Single UNIX Specification)
+#ifndef NO_FPOS64_ALIASES
+; fgetpos and fsetpos are already 64-bit
+fgetpos64 == fgetpos
+fsetpos64 == fsetpos
+#endif
+
 ; This is list of symbol aliases for GNU functions which are not part of POSIX or ISO C
 strcasecmp == _stricmp
 strncasecmp == _strnicmp

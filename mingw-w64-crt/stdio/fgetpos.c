@@ -18,3 +18,6 @@ int __cdecl fgetpos(FILE *__restrict__ _File, fpos_t *__restrict__ _Pos)
   return ret;
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(fgetpos))(FILE *__restrict__ _File, fpos_t *__restrict__ _Pos) = fgetpos;
+
+int __attribute__ ((alias ("fgetpos"))) __cdecl fgetpos64 (FILE *__restrict__ _File, fpos_t *__restrict__ _Pos);
+extern int (__cdecl * __attribute__((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(fgetpos))))) __MINGW_IMP_SYMBOL(fgetpos64))(FILE *__restrict__ _File, fpos_t *__restrict__ _Pos);
