@@ -447,6 +447,11 @@ typedef unsigned __LONG32 error_status_t;
     CS_TAG_GETTING_ROUTINE *pTagGettingRoutines;
   } NDR_CS_ROUTINES;
 
+  typedef struct _NDR_EXPR_DESC {
+    const unsigned short *pOffset;
+    PFORMAT_STRING pFormatExpr;
+  } NDR_EXPR_DESC;
+
   typedef struct _MIDL_STUB_DESC {
     void *RpcInterfaceInformation;
     void *(__RPC_API *pfnAllocate)(size_t);
@@ -470,8 +475,8 @@ typedef unsigned __LONG32 error_status_t;
     const NDR_NOTIFY_ROUTINE *NotifyRoutineTable;
     ULONG_PTR mFlags;
     const NDR_CS_ROUTINES *CsRoutineTables;
-    void *Reserved4;
-    ULONG_PTR Reserved5;
+    void *ProxyServerInfo;
+    const NDR_EXPR_DESC *pExprInfo;
   } MIDL_STUB_DESC;
 
   typedef const MIDL_STUB_DESC *PMIDL_STUB_DESC;
