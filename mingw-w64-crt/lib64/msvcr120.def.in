@@ -2058,6 +2058,7 @@ nanl
 nearbyint
 nearbyintf
 nearbyintl
+nextafter
 nextafterf
 nextafterl
 nexttoward
