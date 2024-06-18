@@ -5,6 +5,7 @@
 ;
 LIBRARY "MSVCR110.dll"
 EXPORTS
+#include "func.def.in"
 ; public: __thiscall Concurrency::details::<0x1ULL>::<0x1ULL>(void(__cdecl *)(void))
 ??0?$_SpinWait@$00@details@Concurrency@@QAE@P6AXXZ@Z ; has WINAPI (@4)
 ; public: __thiscall Concurrency::details::<0x0ULL>::<0x0ULL>(void(__cdecl *)(void))
@@ -2033,6 +2034,25 @@ wprintf
 wprintf_s
 wscanf
 wscanf_s
+
+; These symbols are not available in the original Microsoft Visual C++ 2012 version of msvcr110.dll
+; They were added in Microsoft Visual C++ 2012 Update 1 of msvcr110.dll
+__crtCompareStringEx
+STDCALL_DECORATED_EXPORT(__crtCreateSemaphoreExW@24)
+__crtCreateSymbolicLinkW
+__crtEnumSystemLocalesEx
+__crtFlsAlloc
+__crtFlsFree
+__crtFlsGetValue
+__crtFlsSetValue
+__crtGetDateFormatEx
+__crtGetLocaleInfoEx
+__crtGetTimeFormatEx
+__crtGetUserDefaultLocaleName
+__crtInitializeCriticalSectionEx
+__crtIsValidLocaleName
+__crtLCMapStringEx
+__crtSetThreadStackGuarantee
 
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS

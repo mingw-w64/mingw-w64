@@ -1988,6 +1988,25 @@ wprintf_s
 wscanf
 wscanf_s
 
+; These symbols are not available in the original Microsoft Visual C++ 2012 version of msvcr110.dll
+; They were added in Microsoft Visual C++ 2012 Update 1 of msvcr110.dll
+__crtCompareStringEx
+__crtCreateSemaphoreExW
+__crtCreateSymbolicLinkW
+__crtEnumSystemLocalesEx
+__crtFlsAlloc
+__crtFlsFree
+__crtFlsGetValue
+__crtFlsSetValue
+__crtGetDateFormatEx
+__crtGetLocaleInfoEx
+__crtGetTimeFormatEx
+__crtGetUserDefaultLocaleName
+__crtInitializeCriticalSectionEx
+__crtIsValidLocaleName
+__crtLCMapStringEx
+__crtSetThreadStackGuarantee
+
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_IMAXABS_ALIAS
