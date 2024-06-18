@@ -815,7 +815,8 @@ F_X86_ANY(__GetPlatformExceptionInfo)
 F_I386(_NLG_Dispatch2@4)
 F_I386(_NLG_Return@12)
 F_X64(__NLG_Dispatch2)
-F_X86_ANY(__NLG_Return2)
+F_I386(_NLG_Return2)
+F_X64(__NLG_Return2)
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
