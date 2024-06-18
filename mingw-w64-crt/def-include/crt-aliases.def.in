@@ -203,7 +203,9 @@ ADD_UNDERSCORE(yn)
 
 ; This is list of symbol aliases for C99 functions
 ; ADD_UNDERSCORE(logb)
+#ifdef WITH_NEXTAFTER_ALIAS
 ADD_UNDERSCORE(nextafter)
+#endif
 
 #if defined(DEF_ARM32) || defined(DEF_ARM64)
 ; This is list of symbol aliases for C99 ARM long double functions

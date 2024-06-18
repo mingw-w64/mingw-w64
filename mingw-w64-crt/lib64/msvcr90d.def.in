@@ -1546,6 +1546,7 @@ wprintf_s
 wscanf
 wscanf_s
 
+#define WITH_NEXTAFTER_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_LLABS_ALIAS

@@ -1567,6 +1567,7 @@ _fread_nolock_s
 fread_s
 
 ; Include symbol aliases for compatibility with msvcrt.dll
+#define WITH_NEXTAFTER_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_LLABS_ALIAS

@@ -2050,6 +2050,7 @@ __crtIsValidLocaleName
 __crtLCMapStringEx
 __crtSetThreadStackGuarantee
 
+#define WITH_NEXTAFTER_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_IMAXABS_ALIAS

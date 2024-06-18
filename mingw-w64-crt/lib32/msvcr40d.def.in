@@ -1698,5 +1698,6 @@ _dstbias DATA
 #define PRE_C95_SWPRINTF
 #define FIXED_SIZE_SYMBOLS
 #define NO_STRCMPI_ALIAS
+#define WITH_NEXTAFTER_ALIAS
 #define WITH_IOB_FUNC_ALIAS
 #include "crt-aliases.def.in"
