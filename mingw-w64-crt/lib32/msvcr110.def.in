@@ -824,8 +824,8 @@ __strncnt
 __swprintf_l
 __sys_errlist
 __sys_nerr
-__threadhandle@0
-__threadid@0
+__threadhandle
+__threadid
 __timezone
 __toascii
 __tzname
@@ -1055,10 +1055,10 @@ _getdcwd
 _getdiskfree
 _getdllprocaddr
 _getdrive
-_getdrives@0
+_getdrives
 _getmaxstdio
 _getmbcp
-_getpid@0
+_getpid
 _getptd
 _getsystime
 _getw
@@ -1573,7 +1573,7 @@ _ungetwc_nolock
 _ungetwch
 _ungetwch_nolock
 _unlink
-_unloaddll@0
+_unloaddll
 _unlock
 _unlock_file
 _utime32
