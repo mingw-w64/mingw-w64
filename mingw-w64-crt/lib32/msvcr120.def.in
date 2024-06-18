@@ -1834,18 +1834,18 @@ abs
 acos
 acosh
 acoshf
-acoshl
+; acoshl ; Can't use long double functions from the CRT on x86
 asctime
 asctime_s
 asin
 asinh
 asinhf
-asinhl
+; asinhl ; Can't use long double functions from the CRT on x86
 atan
 atan2
 atanh
 atanhf
-atanhl
+; atanhl ; Can't use long double functions from the CRT on x86
 atexit
 atof
 atoi
@@ -1856,106 +1856,106 @@ bsearch_s
 btowc
 cabs
 cabsf
-cabsl
+; cabsl ; Can't use long double functions from the CRT on x86
 cacos
 cacosf
 cacosh
 cacoshf
-cacoshl
-cacosl
+; cacoshl ; Can't use long double functions from the CRT on x86
+; cacosl ; Can't use long double functions from the CRT on x86
 calloc
 carg
 cargf
-cargl
+; cargl ; Can't use long double functions from the CRT on x86
 casin
 casinf
 casinh
 casinhf
-casinhl
-casinl
+; casinhl ; Can't use long double functions from the CRT on x86
+; casinl ; Can't use long double functions from the CRT on x86
 catan
 catanf
 catanh
 catanhf
-catanhl
-catanl
+; catanhl ; Can't use long double functions from the CRT on x86
+; catanl ; Can't use long double functions from the CRT on x86
 cbrt
 cbrtf
-cbrtl
+; cbrtl ; Can't use long double functions from the CRT on x86
 ccos
 ccosf
 ccosh
 ccoshf
-ccoshl
-ccosl
+; ccoshl ; Can't use long double functions from the CRT on x86
+; ccosl ; Can't use long double functions from the CRT on x86
 ceil
 cexp
 cexpf
-cexpl
+; cexpl ; Can't use long double functions from the CRT on x86
 cimag
 cimagf
-cimagl
+; cimagl ; Can't use long double functions from the CRT on x86
 clearerr
 clearerr_s
 clock
 clog
 clog10
 clog10f
-clog10l
+; clog10l ; Can't use long double functions from the CRT on x86
 clogf
-clogl
+; clogl ; Can't use long double functions from the CRT on x86
 conj
 conjf
-conjl
+; conjl ; Can't use long double functions from the CRT on x86
 copysign
 copysignf
-copysignl
+; copysignl ; Can't use long double functions from the CRT on x86
 cos
 cosh
 cpow
 cpowf
-cpowl
+; cpowl ; Can't use long double functions from the CRT on x86
 cproj
 cprojf
-cprojl
+; cprojl ; Can't use long double functions from the CRT on x86
 creal
 crealf
-creall
+; creall ; Can't use long double functions from the CRT on x86
 csin
 csinf
 csinh
 csinhf
-csinhl
-csinl
+; csinhl ; Can't use long double functions from the CRT on x86
+; csinl ; Can't use long double functions from the CRT on x86
 csqrt
 csqrtf
-csqrtl
+; csqrtl ; Can't use long double functions from the CRT on x86
 ctan
 ctanf
 ctanh
 ctanhf
-ctanhl
-ctanl
+; ctanhl ; Can't use long double functions from the CRT on x86
+; ctanl ; Can't use long double functions from the CRT on x86
 div
 erf
 erfc
 erfcf
-erfcl
+; erfcl ; Can't use long double functions from the CRT on x86
 erff
-erfl
+; erfl ; Can't use long double functions from the CRT on x86
 exit
 exp
 exp2
 exp2f
-exp2l
+; exp2l ; Can't use long double functions from the CRT on x86
 expm1
 expm1f
-expm1l
+; expm1l ; Can't use long double functions from the CRT on x86
 fabs
 fclose
 fdim
 fdimf
-fdiml
+; fdiml ; Can't use long double functions from the CRT on x86
 feclearexcept
 fegetenv
 fegetexceptflag
@@ -1978,13 +1978,13 @@ fgetws
 floor
 fma
 fmaf
-fmal
+; fmal ; Can't use long double functions from the CRT on x86
 fmax
 fmaxf
-fmaxl
+; fmaxl ; Can't use long double functions from the CRT on x86
 fmin
 fminf
-fminl
+; fminl ; Can't use long double functions from the CRT on x86
 fmod
 fopen
 fopen_s
@@ -2020,7 +2020,7 @@ getwc
 getwchar
 ilogb
 ilogbf
-ilogbl
+; ilogbl ; Can't use long double functions from the CRT on x86
 imaxabs
 imaxdiv
 is_wctype
@@ -2056,34 +2056,34 @@ ldexp
 ldiv
 lgamma
 lgammaf
-lgammal
+; lgammal ; Can't use long double functions from the CRT on x86
 llabs
 lldiv
 llrint
 llrintf
-llrintl
+; llrintl ; Can't use long double functions from the CRT on x86
 llround
 llroundf
-llroundl
+; llroundl ; Can't use long double functions from the CRT on x86
 localeconv
 log
 log10
 log1p
 log1pf
-log1pl
+; log1pl ; Can't use long double functions from the CRT on x86
 log2
 log2f
-log2l
+; log2l ; Can't use long double functions from the CRT on x86
 logb
 logbf
-logbl
+; logbl ; Can't use long double functions from the CRT on x86
 longjmp
 lrint
 lrintf
-lrintl
+; lrintl ; Can't use long double functions from the CRT on x86
 lround
 lroundf
-lroundl
+; lroundl ; Can't use long double functions from the CRT on x86
 malloc
 mblen
 mbrlen
@@ -2103,16 +2103,16 @@ memset
 modf
 nan
 nanf
-nanl
+; nanl ; Can't use long double functions from the CRT on x86
 nearbyint
 nearbyintf
-nearbyintl
+; nearbyintl ; Can't use long double functions from the CRT on x86
 nextafter
 nextafterf
-nextafterl
-nexttoward
-nexttowardf
-nexttowardl
+; nextafterl ; Can't use long double functions from the CRT on x86
+; nexttoward ; Can't use long double functions from the CRT on x86
+; nexttowardf ; Can't use long double functions from the CRT on x86
+; nexttowardl ; Can't use long double functions from the CRT on x86
 norm
 normf
 norml
@@ -2133,25 +2133,25 @@ rand_s
 realloc
 remainder
 remainderf
-remainderl
+; remainderl ; Can't use long double functions from the CRT on x86
 remove
 remquo
 remquof
-remquol
+; remquol ; Can't use long double functions from the CRT on x86
 rename
 rewind
 rint
 rintf
-rintl
+; rintl ; Can't use long double functions from the CRT on x86
 round
 roundf
-roundl
+; roundl ; Can't use long double functions from the CRT on x86
 scalbln
 scalblnf
-scalblnl
+; scalblnl ; Can't use long double functions from the CRT on x86
 scalbn
 scalbnf
-scalbnl
+; scalbnl ; Can't use long double functions from the CRT on x86
 scanf
 scanf_s
 setbuf
@@ -2194,7 +2194,7 @@ strtoimax
 strtok
 strtok_s
 strtol
-strtold
+; strtold ; Can't use long double functions from the CRT on x86
 strtoll
 strtoul
 strtoull
@@ -2208,7 +2208,7 @@ tan
 tanh
 tgamma
 tgammaf
-tgammal
+; tgammal ; Can't use long double functions from the CRT on x86
 tmpfile
 tmpfile_s
 tmpnam
@@ -2220,7 +2220,7 @@ towlower
 towupper
 trunc
 truncf
-truncl
+; truncl ; Can't use long double functions from the CRT on x86
 ungetc
 ungetwc
 vfprintf
@@ -2278,7 +2278,7 @@ wcstoimax
 wcstok
 wcstok_s
 wcstol
-wcstold
+; wcstold ; Can't use long double functions from the CRT on x86
 wcstoll
 wcstombs
 wcstombs_s

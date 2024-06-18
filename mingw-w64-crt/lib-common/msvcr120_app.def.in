@@ -1976,21 +1976,21 @@ acos
 F_NON_I386(acosf)
 F_X86_ANY(acosh)
 F_X86_ANY(acoshf)
-F_X86_ANY(acoshl)
+; F_X86_ANY(acoshl) ; Can't use long double functions from the CRT on x86
 asctime
 asctime_s
 asin
 F_NON_I386(asinf)
 F_X86_ANY(asinh)
 F_X86_ANY(asinhf)
-F_X86_ANY(asinhl)
+; F_X86_ANY(asinhl) ; Can't use long double functions from the CRT on x86
 atan
 atan2
 F_NON_I386(atan2f)
 F_NON_I386(atanf)
 F_X86_ANY(atanh)
 F_X86_ANY(atanhf)
-F_X86_ANY(atanhl)
+; F_X86_ANY(atanhl) ; Can't use long double functions from the CRT on x86
 atexit
 atof
 atoi
@@ -2002,50 +2002,50 @@ btowc
 #if defined(DEF_I386) || defined(DEF_X64)
 cabs
 cabsf
-cabsl
+; cabsl ; Can't use long double functions from the CRT on x86
 cacos
 cacosf
 cacosh
 cacoshf
-cacoshl
-cacosl
+; cacoshl ; Can't use long double functions from the CRT on x86
+; cacosl ; Can't use long double functions from the CRT on x86
 #endif
 calloc
 #if defined(DEF_I386) || defined(DEF_X64)
 carg
 cargf
-cargl
+; cargl ; Can't use long double functions from the CRT on x86
 casin
 casinf
 casinh
 casinhf
-casinhl
-casinl
+; casinhl ; Can't use long double functions from the CRT on x86
+; casinl ; Can't use long double functions from the CRT on x86
 catan
 catanf
 catanh
 catanhf
-catanhl
-catanl
+; catanhl ; Can't use long double functions from the CRT on x86
+; catanl ; Can't use long double functions from the CRT on x86
 cbrt
 cbrtf
-cbrtl
+; cbrtl ; Can't use long double functions from the CRT on x86
 ccos
 ccosf
 ccosh
 ccoshf
-ccoshl
-ccosl
+; ccoshl ; Can't use long double functions from the CRT on x86
+; ccosl ; Can't use long double functions from the CRT on x86
 #endif
 ceil
 F_NON_I386(ceilf)
 #if defined(DEF_I386) || defined(DEF_X64)
 cexp
 cexpf
-cexpl
+; cexpl ; Can't use long double functions from the CRT on x86
 cimag
 cimagf
-cimagl
+; cimagl ; Can't use long double functions from the CRT on x86
 #endif
 clearerr
 clearerr_s
@@ -2054,15 +2054,15 @@ clock
 clog
 clog10
 clog10f
-clog10l
+; clog10l ; Can't use long double functions from the CRT on x86
 clogf
-clogl
+; clogl ; Can't use long double functions from the CRT on x86
 conj
 conjf
-conjl
+; conjl ; Can't use long double functions from the CRT on x86
 copysign
 copysignf
-copysignl
+; copysignl ; Can't use long double functions from the CRT on x86
 #endif
 cos
 F_NON_I386(cosf)
@@ -2071,28 +2071,28 @@ F_NON_I386(coshf)
 #if defined(DEF_I386) || defined(DEF_X64)
 cpow
 cpowf
-cpowl
+; cpowl ; Can't use long double functions from the CRT on x86
 cproj
 cprojf
-cprojl
+; cprojl ; Can't use long double functions from the CRT on x86
 creal
 crealf
-creall
+; creall ; Can't use long double functions from the CRT on x86
 csin
 csinf
 csinh
 csinhf
-csinhl
-csinl
+; csinhl ; Can't use long double functions from the CRT on x86
+; csinl ; Can't use long double functions from the CRT on x86
 csqrt
 csqrtf
-csqrtl
+; csqrtl ; Can't use long double functions from the CRT on x86
 ctan
 ctanf
 ctanh
 ctanhf
-ctanhl
-ctanl
+; ctanhl ; Can't use long double functions from the CRT on x86
+; ctanl ; Can't use long double functions from the CRT on x86
 #endif
 F_ARM32(ctime)
 F_ARM32(difftime)
@@ -2101,26 +2101,26 @@ div
 erf
 erfc
 erfcf
-erfcl
+; erfcl ; Can't use long double functions from the CRT on x86
 erff
-erfl
+; erfl ; Can't use long double functions from the CRT on x86
 #endif
 exit
 exp
 exp2
 exp2f
-F_X86_ANY(exp2l)
+; F_X86_ANY(exp2l) ; Can't use long double functions from the CRT on x86
 F_NON_I386(expf)
 F_X86_ANY(expm1)
 F_X86_ANY(expm1f)
-F_X86_ANY(expm1l)
+; F_X86_ANY(expm1l) ; Can't use long double functions from the CRT on x86
 fabs
 F_ARM32(fabsf)
 fclose
 #if defined(DEF_I386) || defined(DEF_X64)
 fdim
 fdimf
-fdiml
+; fdiml ; Can't use long double functions from the CRT on x86
 feclearexcept
 fegetenv
 fegetexceptflag
@@ -2148,13 +2148,13 @@ F_NON_I386(floorf)
 #if defined(DEF_I386) || defined(DEF_X64)
 fma
 fmaf
-fmal
+; fmal ; Can't use long double functions from the CRT on x86
 fmax
 fmaxf
-fmaxl
+; fmaxl ; Can't use long double functions from the CRT on x86
 fmin
 fminf
-fminl
+; fminl ; Can't use long double functions from the CRT on x86
 #endif
 fmod
 F_NON_I386(fmodf)
@@ -2193,7 +2193,7 @@ getwchar
 #if defined(DEF_I386) || defined(DEF_X64)
 ilogb
 ilogbf
-ilogbl
+; ilogbl ; Can't use long double functions from the CRT on x86
 imaxabs
 imaxdiv
 #endif
@@ -2232,15 +2232,15 @@ ldiv
 #if defined(DEF_I386) || defined(DEF_X64)
 lgamma
 lgammaf
-lgammal
+; lgammal ; Can't use long double functions from the CRT on x86
 llabs
 lldiv
 llrint
 llrintf
-llrintl
+; llrintl ; Can't use long double functions from the CRT on x86
 llround
 llroundf
-llroundl
+; llroundl ; Can't use long double functions from the CRT on x86
 #endif
 localeconv
 F_ARM32(localtime)
@@ -2249,22 +2249,22 @@ log10
 F_NON_I386(log10f)
 F_X86_ANY(log1p)
 F_X86_ANY(log1pf)
-F_X86_ANY(log1pl)
+; F_X86_ANY(log1pl) ; Can't use long double functions from the CRT on x86
 log2
 log2f
-F_X86_ANY(log2l)
+; F_X86_ANY(log2l) ; Can't use long double functions from the CRT on x86
 F_X86_ANY(logb)
 F_X86_ANY(logbf)
-F_X86_ANY(logbl)
+; F_X86_ANY(logbl) ; Can't use long double functions from the CRT on x86
 F_NON_I386(logf)
 longjmp
 #if defined(DEF_I386) || defined(DEF_X64)
 lrint
 lrintf
-lrintl
+; lrintl ; Can't use long double functions from the CRT on x86
 lround
 lroundf
-lroundl
+; lroundl ; Can't use long double functions from the CRT on x86
 #endif
 malloc
 mblen
@@ -2289,16 +2289,16 @@ F_NON_I386(modff)
 #if defined(DEF_I386) || defined(DEF_X64)
 nan
 nanf
-nanl
+; nanl ; Can't use long double functions from the CRT on x86
 nearbyint
 nearbyintf
-nearbyintl
+; nearbyintl ; Can't use long double functions from the CRT on x86
 nextafter
 nextafterf
-nextafterl
-nexttoward
-nexttowardf
-nexttowardl
+; nextafterl ; Can't use long double functions from the CRT on x86
+; nexttoward ; Can't use long double functions from the CRT on x86
+; nexttowardf ; Can't use long double functions from the CRT on x86
+; nexttowardl ; Can't use long double functions from the CRT on x86
 norm
 normf
 norml
@@ -2321,26 +2321,26 @@ rand_s
 realloc
 F_X86_ANY(remainder)
 F_X86_ANY(remainderf)
-F_X86_ANY(remainderl)
+; F_X86_ANY(remainderl) ; Can't use long double functions from the CRT on x86
 remove
 F_X86_ANY(remquo)
 F_X86_ANY(remquof)
-F_X86_ANY(remquol)
+; F_X86_ANY(remquol) ; Can't use long double functions from the CRT on x86
 rename
 rewind
 #if defined(DEF_I386) || defined(DEF_X64)
 rint
 rintf
-rintl
+; rintl ; Can't use long double functions from the CRT on x86
 round
 roundf
-roundl
+; roundl ; Can't use long double functions from the CRT on x86
 scalbln
 scalblnf
-scalblnl
+; scalblnl ; Can't use long double functions from the CRT on x86
 scalbn
 scalbnf
-scalbnl
+; scalbnl ; Can't use long double functions from the CRT on x86
 #endif
 scanf
 scanf_s
@@ -2388,7 +2388,7 @@ F_X86_ANY(strtoimax)
 strtok
 strtok_s
 strtol
-F_X86_ANY(strtold)
+; F_X86_ANY(strtold) ; Can't use long double functions from the CRT on x86
 F_X86_ANY(strtoll)
 strtoul
 F_X86_ANY(strtoull)
@@ -2405,7 +2405,7 @@ tanh
 F_NON_I386(tanhf)
 F_X86_ANY(tgamma)
 F_X86_ANY(tgammaf)
-F_X86_ANY(tgammal)
+; F_X86_ANY(tgammal) ; Can't use long double functions from the CRT on x86
 F_ARM32(time)
 tmpfile
 tmpfile_s
@@ -2418,7 +2418,7 @@ towlower
 towupper
 F_X86_ANY(trunc)
 F_X86_ANY(truncf)
-F_X86_ANY(truncl)
+; F_X86_ANY(truncl) ; Can't use long double functions from the CRT on x86
 ungetc
 ungetwc
 F_ARM32(utime)
@@ -2476,7 +2476,7 @@ F_X86_ANY(wcstoimax)
 wcstok
 wcstok_s
 wcstol
-F_X86_ANY(wcstold)
+; F_X86_ANY(wcstold) ; Can't use long double functions from the CRT on x86
 F_X86_ANY(wcstoll)
 wcstombs
 wcstombs_s
