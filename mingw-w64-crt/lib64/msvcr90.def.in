@@ -5,7 +5,6 @@
 ;
 LIBRARY "msvcr90.dll"
 EXPORTS
-$I10_OUTPUT
 ; public: __cdecl std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &__ptr64 )__ptr64 
 ??0__non_rtti_object@std@@QEAA@AEBV01@@Z
 ; public: __cdecl std::__non_rtti_object::__non_rtti_object(char const *__ptr64)__ptr64 
@@ -145,6 +144,7 @@ $I10_OUTPUT
 ; public: virtual char const *__ptr64 __cdecl std::exception::what(void)const __ptr64 
 ?what@exception@std@@UEBAPEBDXZ
 
+$I10_OUTPUT
 __uncaught_exception
 _CRT_RTC_INIT
 _CRT_RTC_INITW
