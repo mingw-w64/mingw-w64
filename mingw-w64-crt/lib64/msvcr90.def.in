@@ -263,7 +263,7 @@ __pctype_func
 __pioinfo DATA
 __pwctype_func
 __pxcptinfoptrs
-__report_gsfailure DATA
+__report_gsfailure
 __set_app_type
 __set_flsgetvalue
 __setlc_active DATA
@@ -317,9 +317,9 @@ _atoldbl_l
 _beep
 _beginthread
 _beginthreadex
-_byteswap_uint64 DATA
-_byteswap_ulong DATA
-_byteswap_ushort DATA
+_byteswap_uint64
+_byteswap_ulong
+_byteswap_ushort
 _c_exit
 _cabs DATA
 _callnewh
@@ -481,7 +481,7 @@ _get_current_locale
 _get_daylight
 _get_doserrno
 _get_dstbias
-_get_errno DATA
+_get_errno
 _get_fmode
 _get_heap_handle
 _get_invalid_parameter_handler
@@ -845,9 +845,9 @@ _resetstkoflw
 _rmdir
 _rmtmp
 _rotl
-_rotl64 DATA
+_rotl64
 _rotr
-_rotr64 DATA
+_rotr64
 _scalb
 _scalbf
 _scanf_l
@@ -866,7 +866,7 @@ _set_abort_behavior
 _set_amblksiz
 _set_controlfp
 _set_doserrno
-_set_errno DATA
+_set_errno
 _set_error_mode
 _set_fmode
 _set_invalid_parameter_handler
@@ -1232,7 +1232,7 @@ atoi
 atol
 bsearch
 bsearch_s
-btowc DATA
+btowc
 calloc
 ceil DATA
 ceilf DATA
@@ -1330,9 +1330,9 @@ logf DATA
 longjmp
 malloc
 mblen
-mbrlen DATA
-mbrtowc DATA
-mbsrtowcs DATA
+mbrlen
+mbrtowc
+mbsrtowcs
 mbsrtowcs_s
 mbstowcs
 mbstowcs_s
@@ -1400,7 +1400,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
-strnlen DATA
+strnlen
 strpbrk
 strrchr
 strspn
@@ -1440,7 +1440,7 @@ vsprintf_s
 vswprintf_s
 vwprintf
 vwprintf_s
-wcrtomb DATA
+wcrtomb
 wcrtomb_s
 wcscat
 wcscat_s
@@ -1457,10 +1457,10 @@ wcsncat_s
 wcsncmp
 wcsncpy
 wcsncpy_s
-wcsnlen DATA
+wcsnlen
 wcspbrk
 wcsrchr
-wcsrtombs DATA
+wcsrtombs
 wcsrtombs_s
 wcsspn
 wcsstr
@@ -1472,7 +1472,7 @@ wcstombs
 wcstombs_s
 wcstoul
 wcsxfrm
-wctob DATA
+wctob
 wctomb
 wctomb_s
 wprintf
