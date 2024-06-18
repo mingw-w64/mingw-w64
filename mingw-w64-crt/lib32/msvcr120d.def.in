@@ -386,7 +386,7 @@ EXPORTS
 ; private: void __thiscall Concurrency::details::_StructuredTaskCollection::_CleanupToken(void)
 ?_CleanupToken@_StructuredTaskCollection@details@Concurrency@@AAEXXZ
 ; void __cdecl Concurrency::details::_ConcRT_CoreAssert(char const *,char const *,int)
-?_ConcRT_CoreAssert@details@Concurrency@@YAXPBD0H@Z ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_ConcRT_CoreAssert@details@Concurrency@@YAXPBD0H@Z
 ; void __cdecl Concurrency::details::_ConcRT_Trace(int,wchar_t const *,...)
 ?_ConcRT_Trace@details@Concurrency@@YAXHPB_WZZ
 ; public: bool __thiscall Concurrency::details::_Cancellation_beacon::_Confirm_cancel(void)
@@ -679,7 +679,7 @@ _CRT_RTC_INITW
 _Cbuild
 _CreateFrameInfo
 _CrtCheckMemory
-_CrtDbgBreak ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_CrtDbgBreak
 _CrtDbgReport
 _CrtDbgReportW
 _CrtDoForAllClientObjects
@@ -1306,7 +1306,7 @@ _lock
 _lock_file
 _locking
 _logb
-_longjmpex ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_longjmpex
 _lrotl
 _lrotr
 _lsearch

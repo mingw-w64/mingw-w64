@@ -284,11 +284,11 @@ EXPORTS
 ; void *__cdecl Concurrency::Alloc(unsigned int)
 ?Alloc@Concurrency@@YAPAXI@Z
 ; public: static void __cdecl Concurrency::Context::Block(void)
-?Block@Context@Concurrency@@SAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?Block@Context@Concurrency@@SAXXZ
 ; unsigned int __cdecl Concurrency::details::platform::CaptureCallstack(void **,unsigned int,unsigned int)
 ?CaptureCallstack@platform@details@Concurrency@@YAIPAPAXII@Z
 ; public: static void __cdecl Concurrency::CurrentScheduler::Create(class Concurrency::SchedulerPolicy const &)
-?Create@CurrentScheduler@Concurrency@@SAXABVSchedulerPolicy@2@@Z ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?Create@CurrentScheduler@Concurrency@@SAXABVSchedulerPolicy@2@@Z
 ; public: static class Concurrency::Scheduler *__cdecl Concurrency::Scheduler::Create(class Concurrency::SchedulerPolicy const &)
 ?Create@Scheduler@Concurrency@@SAPAV12@ABVSchedulerPolicy@2@@Z
 ; struct Concurrency::IResourceManager *__cdecl Concurrency::CreateResourceManager(void)
@@ -296,7 +296,7 @@ EXPORTS
 ; public: static class Concurrency::ScheduleGroup *__cdecl Concurrency::CurrentScheduler::CreateScheduleGroup(class Concurrency::location &)
 ?CreateScheduleGroup@CurrentScheduler@Concurrency@@SAPAVScheduleGroup@2@AAVlocation@2@@Z
 ; public: static class Concurrency::ScheduleGroup *__cdecl Concurrency::CurrentScheduler::CreateScheduleGroup(void)
-?CreateScheduleGroup@CurrentScheduler@Concurrency@@SAPAVScheduleGroup@2@XZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?CreateScheduleGroup@CurrentScheduler@Concurrency@@SAPAVScheduleGroup@2@XZ
 ; public: static class Concurrency::Context *__cdecl Concurrency::Context::CurrentContext(void)
 ?CurrentContext@Context@Concurrency@@SAPAV12@XZ
 ; public: static void __cdecl Concurrency::CurrentScheduler::Detach(void)
@@ -360,7 +360,7 @@ EXPORTS
 ; public: static unsigned int __cdecl Concurrency::Context::VirtualProcessorId(void)
 ?VirtualProcessorId@Context@Concurrency@@SAIXZ
 ; public: static void __cdecl Concurrency::Context::Yield(void)
-?Yield@Context@Concurrency@@SAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?Yield@Context@Concurrency@@SAXXZ
 ; private: void __thiscall Concurrency::details::_StructuredTaskCollection::_Abort(void)
 ?_Abort@_StructuredTaskCollection@details@Concurrency@@AAEXXZ
 ; public: void __thiscall Concurrency::details::_NonReentrantBlockingLock::_Acquire(void)
@@ -386,7 +386,7 @@ EXPORTS
 ; private: void __thiscall Concurrency::details::_StructuredTaskCollection::_CleanupToken(void)
 ?_CleanupToken@_StructuredTaskCollection@details@Concurrency@@AAEXXZ
 ; void __cdecl Concurrency::details::_ConcRT_CoreAssert(char const *,char const *,int)
-?_ConcRT_CoreAssert@details@Concurrency@@YAXPBD0H@Z ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_ConcRT_CoreAssert@details@Concurrency@@YAXPBD0H@Z
 ; void __cdecl Concurrency::details::_ConcRT_Trace(int,wchar_t const *,...)
 ?_ConcRT_Trace@details@Concurrency@@YAXHPB_WZZ
 ; public: bool __thiscall Concurrency::details::_Cancellation_beacon::_Confirm_cancel(void)
@@ -400,7 +400,7 @@ EXPORTS
 ; private: virtual void __thiscall Concurrency::details::_AsyncTaskCollection::_Destroy(void)
 ?_Destroy@_AsyncTaskCollection@details@Concurrency@@EAEXXZ
 ; protected: void __thiscall Concurrency::details::<0x1ULL>::_DoYield(void)
-?_DoYield@?$_SpinWait@$00@details@Concurrency@@IAEXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_DoYield@?$_SpinWait@$00@details@Concurrency@@IAEXXZ
 ; protected: void __thiscall Concurrency::details::<0x0ULL>::_DoYield(void)
 ?_DoYield@?$_SpinWait@$0A@@details@Concurrency@@IAEXXZ
 ; public: static class Concurrency::details::_Scheduler __cdecl Concurrency::details::_CurrentScheduler::_Get(void)
@@ -412,7 +412,7 @@ EXPORTS
 ; private: static unsigned int &__cdecl Concurrency::details::_StackGuard::_GetCurrentInlineDepth(void)
 ?_GetCurrentInlineDepth@_StackGuard@details@Concurrency@@CAAAIXZ
 ; public: static unsigned int __cdecl Concurrency::details::_CurrentScheduler::_GetNumberOfVirtualProcessors(void)
-?_GetNumberOfVirtualProcessors@_CurrentScheduler@details@Concurrency@@SAIXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_GetNumberOfVirtualProcessors@_CurrentScheduler@details@Concurrency@@SAIXZ
 ; public: class Concurrency::Scheduler *__thiscall Concurrency::details::_Scheduler::_GetScheduler(void)
 ?_GetScheduler@_Scheduler@details@Concurrency@@QAEPAVScheduler@3@XZ
 ; public: static unsigned int __cdecl Concurrency::details::_CurrentScheduler::_Id(void)
@@ -422,7 +422,7 @@ EXPORTS
 ; public: bool __thiscall Concurrency::details::_TaskCollection::_IsCanceling(void)
 ?_IsCanceling@_TaskCollection@details@Concurrency@@QAE_NXZ
 ; public: bool __thiscall Concurrency::details::_Context::_IsSynchronouslyBlocked(void)const 
-?_IsSynchronouslyBlocked@_Context@details@Concurrency@@QBE_NXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_IsSynchronouslyBlocked@_Context@details@Concurrency@@QBE_NXZ
 ; private: static char const *__cdecl type_info::_Name_base(class type_info const *,struct __type_info_node *)
 ?_Name_base@type_info@@CAPBDPBV1@PAU__type_info_node@@@Z
 ; private: static char const *__cdecl type_info::_Name_base_internal(class type_info const *,struct __type_info_node *)
@@ -436,7 +436,7 @@ EXPORTS
 ; public: static void __cdecl Concurrency::details::_Context::_Oversubscribe(bool)
 ?_Oversubscribe@_Context@details@Concurrency@@SAX_N@Z
 ; public: unsigned int __thiscall Concurrency::details::_Scheduler::_Reference(void)
-?_Reference@_Scheduler@details@Concurrency@@QAEIXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_Reference@_Scheduler@details@Concurrency@@QAEIXZ
 ; public: void __thiscall Concurrency::details::_NonReentrantBlockingLock::_Release(void)
 ?_Release@_NonReentrantBlockingLock@details@Concurrency@@QAEXXZ
 ; public: void __thiscall Concurrency::details::_NonReentrantPPLLock::_Release(void)
@@ -448,7 +448,7 @@ EXPORTS
 ; public: void __thiscall Concurrency::details::_ReentrantPPLLock::_Release(void)
 ?_Release@_ReentrantPPLLock@details@Concurrency@@QAEXXZ
 ; public: unsigned int __thiscall Concurrency::details::_Scheduler::_Release(void)
-?_Release@_Scheduler@details@Concurrency@@QAEIXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_Release@_Scheduler@details@Concurrency@@QAEIXZ
 ; public: void __thiscall Concurrency::details::_ReaderWriterLock::_ReleaseRead(void)
 ?_ReleaseRead@_ReaderWriterLock@details@Concurrency@@QAEXXZ
 ; public: void __thiscall Concurrency::details::_ReaderWriterLock::_ReleaseWrite(void)
@@ -488,7 +488,7 @@ EXPORTS
 ; public: bool __thiscall Concurrency::details::<0x0ULL>::_SpinOnce(void)
 ?_SpinOnce@?$_SpinWait@$0A@@details@Concurrency@@QAE_NXZ
 ; public: static void __cdecl Concurrency::Context::_SpinYield(void)
-?_SpinYield@Context@Concurrency@@SAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_SpinYield@Context@Concurrency@@SAXXZ
 ; protected: void __thiscall Concurrency::details::_Timer::_Start(void)
 ?_Start@_Timer@details@Concurrency@@IAEXXZ
 ; protected: void __thiscall Concurrency::details::_Timer::_Stop(void)
@@ -522,7 +522,7 @@ EXPORTS
 ; public: static unsigned int __cdecl Concurrency::details::_SpinCount::_Value(void)
 ?_Value@_SpinCount@details@Concurrency@@SAIXZ
 ; public: static void __cdecl Concurrency::details::_Context::_Yield(void)
-?_Yield@_Context@details@Concurrency@@SAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_Yield@_Context@details@Concurrency@@SAXXZ
 ; void __cdecl __ExceptionPtrAssign(void *,void const *)
 ?__ExceptionPtrAssign@@YAXPAXPBX@Z
 ; bool __cdecl __ExceptionPtrCompare(void const *,void const *)
@@ -544,9 +544,9 @@ EXPORTS
 ; bool __cdecl __ExceptionPtrToBool(void const *)
 ?__ExceptionPtrToBool@@YA_NPBX@Z
 ; void __cdecl _inconsistency(void)
-?_inconsistency@@YAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_inconsistency@@YAXXZ
 ; void __cdecl _invalid_parameter(unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned int)
-?_invalid_parameter@@YAXPBG00II@Z ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?_invalid_parameter@@YAXPBG00II@Z
 ; int __cdecl _is_exception_typeof(class type_info const &,struct _EXCEPTION_POINTERS *)
 ?_is_exception_typeof@@YAHABVtype_info@@PAU_EXCEPTION_POINTERS@@@Z
 ; public: char const *__thiscall type_info::_name_internal_method(struct __type_info_node *)const 
@@ -622,7 +622,7 @@ EXPORTS
 ; int __cdecl swprintf(wchar_t *,unsigned int,wchar_t const *,...)
 ?swprintf@@YAHPA_WIPB_WZZ
 ; void __cdecl terminate(void)
-?terminate@@YAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?terminate@@YAXXZ
 ; public: bool __thiscall Concurrency::critical_section::try_lock(void)
 ?try_lock@critical_section@Concurrency@@QAE_NXZ
 ; public: bool __thiscall Concurrency::reader_writer_lock::try_lock(void)
@@ -632,7 +632,7 @@ EXPORTS
 ; public: bool __thiscall Concurrency::reader_writer_lock::try_lock_read(void)
 ?try_lock_read@reader_writer_lock@Concurrency@@QAE_NXZ
 ; void __cdecl unexpected(void)
-?unexpected@@YAXXZ ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+?unexpected@@YAXXZ
 ; public: void __thiscall Concurrency::critical_section::unlock(void)
 ?unlock@critical_section@Concurrency@@QAEXXZ
 ; public: void __thiscall Concurrency::reader_writer_lock::unlock(void)
@@ -864,7 +864,7 @@ _aligned_offset_realloc
 _aligned_offset_recalloc
 _aligned_realloc
 _aligned_recalloc
-_amsg_exit ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_amsg_exit
 _assert
 _atodbl
 _atodbl_l
@@ -955,8 +955,8 @@ _dup2
 _dupenv_s
 _ecvt
 _ecvt_s
-_endthread ; Check!!! Couldn't determine function argument count. Function doesn't return. 
-_endthreadex ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_endthread
+_endthreadex
 _environ DATA
 _eof
 _errno
@@ -1114,9 +1114,9 @@ _initterm_e
 _inp
 _inpd
 _inpw
-_invalid_parameter ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_invalid_parameter
 _invalid_parameter_noinfo
-_invalid_parameter_noinfo_noreturn ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_invalid_parameter_noinfo_noreturn
 _invoke_watson
 _iob DATA
 _isalnum_l
@@ -1249,7 +1249,7 @@ _lock
 _lock_file
 _locking
 _logb
-_longjmpex ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_longjmpex
 _lrotl
 _lrotr
 _lsearch
@@ -1426,7 +1426,7 @@ _printf_l
 _printf_p
 _printf_p_l
 _printf_s_l
-_purecall ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_purecall
 _putch
 _putch_nolock
 _putenv
@@ -1829,7 +1829,7 @@ _wutime64
 _y0
 _y1
 _yn
-abort ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+abort
 abs
 acos
 acosh
