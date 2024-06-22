@@ -1762,7 +1762,9 @@ F_ARM_ANY(__jump_unwind)
 F_ARM_ANY(_create_locale) ; i386 and x64 _create_locale replaced by emu
 F_ARM_ANY(_free_locale) ; i386 and x64 _free_locale replaced by emu
 F_ARM_ANY(_get_current_locale) ; i386 and x64 _get_current_locale replaced by emu
+F_ARM_ANY(_memcpy_strict_align)
 _wcstod_l
+F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 
 ; These symbols were added in Windows 8.1 OS system version of msvcrt.dll
 F_I386(_CallMemberFunction0@8)
@@ -1800,11 +1802,6 @@ F_I386(_libm_sse2_tan_precise)
 
 ; These symbols were added in Windows 10 OS system version of msvcrt.dll
 ; TODO: fill them
-
-; This is list of some symbols not available on X86 but are available in some ARM version of msvcrt.dll
-; TODO: move them to appropriate OS system version section (version in which they were introduced)
-F_ARM_ANY(_memcpy_strict_align)
-F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This is end of the list of symbols available in the Windows OS system versions of msvcrt.dll ;
