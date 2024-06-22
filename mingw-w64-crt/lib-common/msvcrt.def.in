@@ -314,8 +314,105 @@ EXPORTS
 #endif
 
 #ifdef DEF_ARM64
-; List of ARM64 C++ mangled symbols
-; TODO: Fill this list with all symbols from the first ARM64 version of msvcrt.dll
+; List of ARM64 C++ mangled symbols which matches the first ARM64 version of msvcrt.dll (Windows 10 Fall Creators Update)
+; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const &__ptr64 )__ptr64
+??0__non_rtti_object@@QEAA@AEBV0@@Z
+; public: __cdecl __non_rtti_object::__non_rtti_object(char const *__ptr64)__ptr64
+??0__non_rtti_object@@QEAA@PEBD@Z
+; private: __thiscall bad_cast::bad_cast(char const *const *)
+??0bad_cast@@AAE@PBQBD@Z
+; private: __cdecl bad_cast::bad_cast(char const *__ptr64 const *__ptr64)__ptr64
+??0bad_cast@@AEAA@PEBQEBD@Z
+; public: __thiscall bad_cast::bad_cast(char const *const &)
+??0bad_cast@@QAE@ABQBD@Z
+; public: __cdecl bad_cast::bad_cast(char const *__ptr64 const &__ptr64 )__ptr64
+??0bad_cast@@QEAA@AEBQEBD@Z
+; public: __cdecl bad_cast::bad_cast(class bad_cast const &__ptr64 )__ptr64
+??0bad_cast@@QEAA@AEBV0@@Z
+; public: __cdecl bad_cast::bad_cast(char const *__ptr64)__ptr64
+??0bad_cast@@QEAA@PEBD@Z
+; public: __cdecl bad_typeid::bad_typeid(class bad_typeid const &__ptr64 )__ptr64
+??0bad_typeid@@QEAA@AEBV0@@Z
+; public: __cdecl bad_typeid::bad_typeid(char const *__ptr64)__ptr64
+??0bad_typeid@@QEAA@PEBD@Z
+; public: __cdecl exception::exception(char const *__ptr64 const &__ptr64 )__ptr64
+??0exception@@QEAA@AEBQEBD@Z
+; public: __cdecl exception::exception(char const *__ptr64 const &__ptr64 ,int)__ptr64
+??0exception@@QEAA@AEBQEBDH@Z
+; public: __cdecl exception::exception(class exception const &__ptr64 )__ptr64
+??0exception@@QEAA@AEBV0@@Z
+; public: __cdecl exception::exception(void)__ptr64
+??0exception@@QEAA@XZ
+; public: virtual __cdecl __non_rtti_object::~__non_rtti_object(void)__ptr64
+??1__non_rtti_object@@UEAA@XZ
+; public: virtual __cdecl bad_cast::~bad_cast(void)__ptr64
+??1bad_cast@@UEAA@XZ
+; public: virtual __cdecl bad_typeid::~bad_typeid(void)__ptr64
+??1bad_typeid@@UEAA@XZ
+; public: virtual __cdecl exception::~exception(void)__ptr64
+??1exception@@UEAA@XZ
+; public: virtual __cdecl type_info::~type_info(void)__ptr64
+??1type_info@@UEAA@XZ
+; void *__ptr64 __cdecl operator new(unsigned __int64)
+??2@YAPEAX_K@Z
+; void *__ptr64 __cdecl operator new(unsigned __int64,int,char const *__ptr64,int)
+??2@YAPEAX_KHPEBDH@Z
+; void __cdecl operator delete(void *__ptr64)
+??3@YAXPEAX@Z
+; public: class __non_rtti_object &__ptr64 __cdecl __non_rtti_object::operator =(class __non_rtti_object const &__ptr64 )__ptr64
+??4__non_rtti_object@@QEAAAEAV0@AEBV0@@Z
+; public: class bad_cast &__ptr64 __cdecl bad_cast::operator =(class bad_cast const &__ptr64 )__ptr64
+??4bad_cast@@QEAAAEAV0@AEBV0@@Z
+; public: class bad_typeid &__ptr64 __cdecl bad_typeid::operator =(class bad_typeid const &__ptr64 )__ptr64
+??4bad_typeid@@QEAAAEAV0@AEBV0@@Z
+; public: class exception &__ptr64 __cdecl exception::operator =(class exception const &__ptr64 )__ptr64
+??4exception@@QEAAAEAV0@AEBV0@@Z
+; public: int __cdecl type_info::operator ==(class type_info const &__ptr64 )const __ptr64
+??8type_info@@QEBAHAEBV0@@Z
+; public: int __cdecl type_info::operator !=(class type_info const &__ptr64 )const __ptr64
+??9type_info@@QEBAHAEBV0@@Z
+; const __non_rtti_object::$vftable
+??_7__non_rtti_object@@6B@ DATA
+; const bad_cast::$vftable
+??_7bad_cast@@6B@ DATA
+; const bad_typeid::$vftable
+??_7bad_typeid@@6B@ DATA
+; const exception::$vftable
+??_7exception@@6B@ DATA
+; public: void __cdecl bad_cast::__dflt_ctor_closure(void)__ptr64
+??_Fbad_cast@@QEAAXXZ
+; public: void __cdecl bad_typeid::__dflt_ctor_closure(void)__ptr64
+??_Fbad_typeid@@QEAAXXZ
+; void *__ptr64 __cdecl operator new[](unsigned __int64)
+??_U@YAPEAX_K@Z
+; void *__ptr64 __cdecl operator new[](unsigned __int64,int,char const *__ptr64,int)
+??_U@YAPEAX_KHPEBDH@Z
+; void __cdecl operator delete[](void *__ptr64)
+??_V@YAXPEAX@Z
+; int(__cdecl *)(unsigned __int64)__cdecl _query_new_handler(void)
+?_query_new_handler@@YAP6AH_K@ZXZ
+; int(__cdecl *)(unsigned __int64)__cdecl _set_new_handler(int(__cdecl *)(unsigned __int64))
+?_set_new_handler@@YAP6AH_K@ZP6AH0@Z@Z
+; int __cdecl _set_new_mode(int)
+?_set_new_mode@@YAHH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64))
+?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
+; public: int __cdecl type_info::before(class type_info const &__ptr64 )const __ptr64
+?before@type_info@@QEBAHAEBV1@@Z
+; public: char const *__ptr64 __cdecl type_info::name(void)const __ptr64
+?name@type_info@@QEBAPEBDXZ
+; public: char const *__ptr64 __cdecl type_info::raw_name(void)const __ptr64
+?raw_name@type_info@@QEBAPEBDXZ
+; void(__cdecl *)(void)__cdecl set_terminate(void(__cdecl *)(void))
+?set_terminate@@YAP6AXXZP6AXXZ@Z
+; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
+?set_unexpected@@YAP6AXXZP6AXXZ@Z
+; void __cdecl terminate(void)
+?terminate@@YAXXZ
+; void __cdecl unexpected(void)
+?unexpected@@YAXXZ
+; public: virtual char const *__ptr64 __cdecl exception::what(void)const __ptr64
+?what@exception@@UEBAPEBDXZ
 #endif
 
 
@@ -693,7 +790,7 @@ F_I386(_seh_longjmp_unwind@4)
 _set_error_mode
 F_X86_ANY(_set_sbh_threshold)
 F_X86_ANY(_seterrormode)
-_setjmp
+F_NON_ARM64(_setjmp)
 F_I386(_setjmp3)
 F_X86_ANY(_setmaxstdio)
 _setmbcp
@@ -1159,7 +1256,7 @@ F_NON_I386(_finitef)
 F_X64(_fpclassf)
 F_NON_I386(_hypotf)
 F_X64(_isnanf)
-F_X64(_local_unwind)
+F64(_local_unwind)
 F_NON_I386(_logbf)
 F_X64(_nextafterf)
 F_X64(_scalbf)
@@ -1178,7 +1275,7 @@ F_NON_I386(log10f F_X86_ANY(DATA)) ; i386 log10f provided by emu
 F_NON_I386(logf F_X86_ANY(DATA)) ; i386 logf provided by emu
 F_NON_I386(modff DATA) ; i386 modff provided by emu
 F_NON_I386(powf DATA) ; i386 powf provided by emu
-F_NON_I386(setjmp)
+F_NON_I386(F_NON_ARM64(setjmp))
 F_NON_I386(sinf F_X86_ANY(DATA)) ; i386 sinf provided by emu
 F_NON_I386(sinhf DATA) ; i386 sinhf provided by emu
 F_NON_I386(sqrtf DATA) ; i386 sqrtf provided by emu
@@ -1758,7 +1855,7 @@ wscanf_s
 
 ; These symbols were added in Windows 8 OS system version of msvcrt.dll
 ; This is the first ARM32 version of msvcrt.dll, all symbols in this section and also above this section are present in all ARM32 versions of msvcrt.dll
-F_ARM_ANY(__jump_unwind)
+F_ARM32(__jump_unwind)
 F_ARM_ANY(_create_locale) ; i386 and x64 _create_locale replaced by emu
 F_ARM_ANY(_free_locale) ; i386 and x64 _free_locale replaced by emu
 F_ARM_ANY(_get_current_locale) ; i386 and x64 _get_current_locale replaced by emu
