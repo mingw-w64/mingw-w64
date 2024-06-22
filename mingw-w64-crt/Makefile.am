@@ -300,6 +300,15 @@ src_msvcrt=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/purecall.c \
+  secapi/_vscprintf_p.c \
+  secapi/_vscwprintf_p.c \
+  secapi/_vswprintf_p.c \
+  secapi/wmemcpy_s.c \
+  secapi/wmemmove_s.c \
+  stdio/fseeki64.c \
+  stdio/mingw_lock.c
+
+src_msvcrt_add_x86=\
   secapi/_access_s.c \
   secapi/_cgets_s.c \
   secapi/_cgetws_s.c \
@@ -324,27 +333,20 @@ src_msvcrt=\
   secapi/_vcprintf_s_l.c \
   secapi/_vcwprintf_s.c \
   secapi/_vcwprintf_s_l.c \
-  secapi/_vscprintf_p.c \
-  secapi/_vscwprintf_p.c \
-  secapi/_vswprintf_p.c \
   secapi/_waccess_s.c \
   secapi/_wasctime_s.c \
   secapi/_wctime32_s.c \
   secapi/_wctime64_s.c \
-  secapi/_wstrtime_s.c \
   secapi/_wmktemp_s.c \
   secapi/_wstrdate_s.c \
+  secapi/_wstrtime_s.c \
   secapi/asctime_s.c \
   secapi/memcpy_s.c \
   secapi/memmove_s.c \
   secapi/rand_s.c \
   secapi/sprintf_s.c \
   secapi/strerror_s.c \
-  secapi/vsprintf_s.c \
-  secapi/wmemcpy_s.c \
-  secapi/wmemmove_s.c \
-  stdio/fseeki64.c \
-  stdio/mingw_lock.c
+  secapi/vsprintf_s.c
 
 # Files included in libucrt*.a
 src_ucrtbase=\
@@ -437,6 +439,7 @@ src_ucrtbasearm64=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_32
 src_msvcrt32=\
   $(src_msvcrt) \
+  $(src_msvcrt_add_x86) \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__pctype_func.c \
@@ -458,6 +461,7 @@ src_msvcrt32=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
 src_msvcrt64=\
   $(src_msvcrt) \
+  $(src_msvcrt_add_x86) \
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \

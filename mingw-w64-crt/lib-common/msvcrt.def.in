@@ -1351,7 +1351,7 @@ F_I386(__libm_sse2_tanf)
 __strncnt
 __wcserror_s
 __wcsncnt
-; _access_s replaced by emu
+F_ARM_ANY(_access_s) ; i386 and x64 _access_s replaced by emu
 _aligned_free_dbg
 _aligned_malloc_dbg
 _aligned_offset_malloc_dbg
@@ -1365,17 +1365,17 @@ _atoi_l
 _atol_l
 _atoldbl_l
 _calloc_dbg
-; _cgets_s replaced by emu
-; _cgetws_s replaced by emu
-; _chsize_s replaced by emu
+F_ARM_ANY(_cgets_s) ; i386 and x64 _cgets_s replaced by emu
+F_ARM_ANY(_cgetws_s) ; i386 and x64 _cgetws_s replaced by emu
+F_ARM_ANY(_chsize_s) ; i386 and x64 _chsize_s replaced by emu
 _chvalidator
 _chvalidator_l
-; _controlfp_s replaced by emu
+F_ARM_ANY(_controlfp_s) ; i386 and x64 _controlfp_s replaced by emu
 _cprintf_l
 _cprintf_p
 _cprintf_p_l
-; _cprintf_s replaced by emu
-; _cprintf_s_l replaced by emu
+F_ARM_ANY(_cprintf_s) ; i386 and x64 _cprintf_s replaced by emu
+F_ARM_ANY(_cprintf_s_l) ; i386 and x64 _cprintf_s_l replaced by emu
 _crtAssertBusy
 _crtBreakAlloc
 _crtDbgFlag
@@ -1383,13 +1383,13 @@ _cscanf_l
 _cscanf_s
 _cscanf_s_l
 _ctime32 F_I386(== ctime) ; i386 _ctime32 replaced by alias
-; _ctime32_s replaced by emu
-; _ctime64_s replaced by emu
+F_ARM_ANY(_ctime32_s) ; i386 and x64 _ctime32_s replaced by emu
+F_ARM_ANY(_ctime64_s) ; i386 and x64 _ctime64_s replaced by emu
 _cwprintf_l
 _cwprintf_p
 _cwprintf_p_l
-; _cwprintf_s replaced by emu
-; _cwprintf_s_l replaced by emu
+F_ARM_ANY(_cwprintf_s) ; i386 and x64 _cwprintf_s replaced by emu
+F_ARM_ANY(_cwprintf_s_l) ; i386 and x64 _cwprintf_s_l replaced by emu
 _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
@@ -1439,8 +1439,8 @@ F_X86_ANY(_get_winminor)
 F_X86_ANY(_get_winver)
 F_X86_ANY(_get_wpgmptr)
 _gmtime32 F_I386(== gmtime) ; i386 _gmtime32 replaced by alias
-; _gmtime32_s replaced by emu
-; _gmtime64_s replaced by emu
+F_ARM_ANY(_gmtime32_s) ; i386 and x64 _gmtime32_s replaced by emu
+F_ARM_ANY(_gmtime64_s) ; i386 and x64 _gmtime64_s replaced by emu
 _i64toa_s
 _i64tow_s
 _initterm_e
@@ -1503,8 +1503,8 @@ _itow_s
 _lfind_s
 F_I386(_local_unwind4)
 _localtime32 F_I386(== localtime) ; i386 _localtime32 replaced by alias
-; _localtime32_s replaced by emu
-; _localtime64_s replaced by emu
+F_ARM_ANY(_localtime32_s) ; i386 and x64 _localtime32_s replaced by emu
+F_ARM_ANY(_localtime64_s) ; i386 and x64 _localtime64_s replaced by emu
 _lsearch_s
 _ltoa_s
 _ltow_s
@@ -1595,7 +1595,7 @@ _mbsnlen
 _mbstrnlen
 _memicmp_l
 _mkgmtime32 F_I386(== _mkgmtime) ; i386 _mkgmtime32 replaced by alias
-; _mktemp_s replaced by emu
+F_ARM_ANY(_mktemp_s) ; i386 and x64 _mktemp_s replaced by emu
 _mktime32 F_I386(== mktime) ; i386 _mktime32 replaced by alias
 F_NON_I386(_msize_dbg)
 F_I386(_msize_debug)
@@ -1633,7 +1633,7 @@ _snwprintf_s_l
 _snwscanf_l
 _snwscanf_s
 _snwscanf_s_l
-; _sopen_s replaced by emu
+F_ARM_ANY(_sopen_s) ; i386 and x64 _sopen_s replaced by emu
 _splitpath_s
 _sprintf_l
 _sprintf_p_l
@@ -1641,7 +1641,7 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _strcoll_l
-; _strdate_s replaced by emu
+F_ARM_ANY(_strdate_s) ; i386 and x64 _strdate_s replaced by emu
 _strdup_dbg
 _strerror_s
 _stricmp_l
@@ -1654,7 +1654,7 @@ _strnicmp_l
 _strnicoll_l
 _strnset_s
 _strset_s
-; _strtime_s replaced by emu
+F_ARM_ANY(_strtime_s) ; i386 and x64 _strtime_s replaced by emu
 _strtod_l
 _strtoi64_l
 _strtol_l
@@ -1681,20 +1681,20 @@ _ui64toa_s
 _ui64tow_s
 _ultoa_s
 _ultow_s
-; _umask_s replaced by emu
+F_ARM_ANY(_umask_s) ; i386 and x64 _umask_s replaced by emu
 _utime32 F_I386(== _utime) ; i386 _utime32 replaced by alias
 _vcprintf
 _vcprintf_l
 _vcprintf_p
 _vcprintf_p_l
-; _vcprintf_s replaced by emu
-; _vcprintf_s_l replaced by emu
+F_ARM_ANY(_vcprintf_s) ; i386 and x64 _vcprintf_s replaced by emu
+F_ARM_ANY(_vcprintf_s_l) ; i386 and x64 _vcprintf_s_l replaced by emu
 _vcwprintf
 _vcwprintf_l
 _vcwprintf_p
 _vcwprintf_p_l
-; _vcwprintf_s replaced by emu
-; _vcwprintf_s_l replaced by emu
+F_ARM_ANY(_vcwprintf_s) ; i386 and x64 _vcwprintf_s replaced by emu
+F_ARM_ANY(_vcwprintf_s_l) ; i386 and x64 _vcwprintf_s_l replaced by emu
 _vfprintf_l
 _vfprintf_p
 _vfprintf_p_l
@@ -1733,8 +1733,8 @@ _vwprintf_l
 _vwprintf_p
 _vwprintf_p_l
 _vwprintf_s_l
-; _waccess_s replaced by emu
-; _wasctime_s replaced by emu
+F_ARM_ANY(_waccess_s) ; i386 and x64 _waccess_s replaced by emu
+F_ARM_ANY(_wasctime_s) ; i386 and x64 _wasctime_s replaced by emu
 F_ARM_ANY(_wassert) ; i386 and x64 _wassert replaced by emu
 _wcscoll_l
 _wcsdup_dbg
@@ -1761,8 +1761,8 @@ _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
 _wctime32 F_I386(== _wctime) ; i386 _wctime32 replaced by alias
-; _wctime32_s replaced by emu
-; _wctime64_s replaced by emu
+F_ARM_ANY(_wctime32_s) ; i386 and x64 _wctime32_s replaced by emu
+F_ARM_ANY(_wctime64_s) ; i386 and x64 _wctime64_s replaced by emu
 _wctomb_l
 _wctomb_s_l
 _wfopen_s
@@ -1771,7 +1771,7 @@ _wfullpath_dbg
 _wgetenv_s
 _winput_s
 _wmakepath_s
-; _wmktemp_s replaced by emu
+F_ARM_ANY(_wmktemp_s) ; i386 and x64 _wmktemp_s replaced by emu
 _woutput_s
 _wprintf_l
 _wprintf_p
@@ -1783,8 +1783,8 @@ _wscanf_s_l
 _wsearchenv_s
 _wsopen_s
 _wsplitpath_s
-; _wstrdate_s replaced by emu
-; _wstrtime_s replaced by emu
+F_ARM_ANY(_wstrdate_s) ; i386 and x64 _wstrdate_s replaced by emu
+F_ARM_ANY(_wstrtime_s) ; i386 and x64 _wstrtime_s replaced by emu
 _wtempnam_dbg
 _wtmpnam_s
 _wtof_l
@@ -1792,7 +1792,7 @@ _wtoi64_l
 _wtoi_l
 _wtol_l
 _wutime32 F_I386(== _wutime) ; i386 _wutime32 replaced by alias
-; asctime_s replaced by emu
+F_ARM_ANY(asctime_s) ; i386 and x64 asctime_s replaced by emu
 bsearch_s
 F_ARM_ANY(btowc) ; i386 and x64 btowc replaced by emu
 clearerr_s
@@ -1809,20 +1809,20 @@ mbsdup_dbg
 F_ARM_ANY(mbsrtowcs) ; i386 and x64 mbsrtowcs replaced by emu
 mbsrtowcs_s
 mbstowcs_s
-; memcpy_s replaced by emu
-; memmove_s replaced by emu
+F_ARM_ANY(memcpy_s) ; i386 and x64 memcpy_s replaced by emu
+F_ARM_ANY(memmove_s) ; i386 and x64 memmove_s replaced by emu
 printf_s
 qsort_s
-; rand_s replaced by emu
+F_ARM_ANY(rand_s) ; i386 and x64 rand_s replaced by emu
 scanf_s
-; sprintf_s replaced by emu
+F_ARM_ANY(sprintf_s) ; i386 and x64 sprintf_s replaced by emu
 sscanf_s
 strcat_s
 strcpy_s
-; strerror_s replaced by emu
+F_ARM_ANY(strerror_s) ; i386 and x64 strerror_s replaced by emu
 strncat_s
 strncpy_s
-; strnlen replaced by emu
+F_ARM_ANY(strnlen) ; i386 and x64 strnlen replaced by emu
 strtok_s
 swprintf_s
 swscanf_s
@@ -1833,8 +1833,8 @@ F_ARM_ANY(utime) ; i386 and x64 utime replaced by alias in crt-aliases.def.in
 vfprintf_s
 vfwprintf_s
 vprintf_s
-; vsnprintf replaced by emu
-; vsprintf_s replaced by emu
+; vsnprintf replaced by emu, in msvcrt.dll it is alias to _vsnprintf, which is not C99 compatible
+F_ARM_ANY(vsprintf_s) ; i386 and x64 vsprintf_s replaced by emu
 vswprintf_s
 vwprintf_s
 F_ARM_ANY(wcrtomb) ; i386 and x64 wcrtomb replaced by emu
