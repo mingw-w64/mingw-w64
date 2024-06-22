@@ -600,8 +600,7 @@ _flsbuf
 _flushall
 _fmode DATA
 _fpclass
-F_I386(_fpieee_flt)
-F_ARM_ANY(_fpieee_flt)
+F_NON_X64(_fpieee_flt)
 _fpreset DATA
 _fputchar
 _fputwchar
