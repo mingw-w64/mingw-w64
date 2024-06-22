@@ -1897,9 +1897,6 @@ F_I386(_libm_sse2_sin_precise)
 F_I386(_libm_sse2_sqrt_precise)
 F_I386(_libm_sse2_tan_precise)
 
-; These symbols were added in Windows 10 OS system version of msvcrt.dll
-; TODO: fill them
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This is end of the list of symbols available in the Windows OS system versions of msvcrt.dll ;
 ; All symbols defined below this line are not available in any version of msvcrt.dll library   ;
