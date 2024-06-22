@@ -460,7 +460,7 @@ __dllonexit
 __doserrno
 __fpecode
 __getmainargs
-F_X86_ANY(__initenv DATA)
+F_X86_ANY(__initenv DATA) ; arm32 and arm64 __initenv provided by emu
 __isascii
 __iscsym
 __iscsymf
@@ -468,34 +468,34 @@ F_X86_ANY(__lc_codepage DATA)
 __lc_handle DATA
 __lconv_init
 __mb_cur_max DATA
-F_I386(__p___argc)
-F_I386(__p___argv)
+F_I386(__p___argc) ; x64, arm32 and arm64 __p___argc provided by emu
+F_I386(__p___argv) ; x64, arm32 and arm64 __p___argv provided by emu
 F_I386(__p___initenv)
-F_I386(__p___mb_cur_max)
-F_I386(__p___wargv)
+F_I386(__p___mb_cur_max) ; x64, arm32 and arm64 __p___mb_cur_max provided by emu
+F_I386(__p___wargv) ; x64, arm32 and arm64 __p___wargv provided by emu
 F_I386(__p___winitenv)
-F_I386(__p__acmdln)
+F_I386(__p__acmdln) ; x64, arm32 and arm64 __p__acmdln provided by emu
 F_I386(__p__amblksiz)
-F_I386(__p__commode)
+F_I386(__p__commode) ; x64, arm32 and arm64 __p__commode provided by emu
 F_I386(__p__daylight)
 F_I386(__p__dstbias)
-F_I386(__p__environ)
+F_I386(__p__environ) ; x64 __p__environ provided by emu
 F_I386(__p__fileinfo)
-F_I386(__p__fmode)
-F_I386(__p__iob)
-F_I386(__p__mbctype)
+F_I386(__p__fmode) ; x64, arm32 and arm64 __p__fmode provided by emu
+F_I386(__p__iob) ; x64, arm32 and arm64 __p__iob provided by emu
+F_I386(__p__mbctype) ; x64, arm32 and arm64 __p__mbctype provided by emu
 F_I386(__p__osver)
-F_I386(__p__pctype)
-F_I386(__p__pgmptr)
-F_I386(__p__pwctype)
+F_I386(__p__pctype) ; x64, arm32 and arm64 __p__pctype provided by emu
+F_I386(__p__pgmptr) ; x64, arm32 and arm64 __p__pgmptr provided by emu
+F_I386(__p__pwctype) ; x64, arm32 and arm64 __p__pwctype provided by emu
 F_I386(__p__timezone)
 F_I386(__p__tzname)
-F_I386(__p__wcmdln)
-F_I386(__p__wenviron)
+F_I386(__p__wcmdln) ; x64, arm32 and arm64 __p__wcmdln provided by emu
+F_I386(__p__wenviron) ; x64 __p__wenviron provided by emu
 F_I386(__p__winmajor)
 F_I386(__p__winminor)
 F_I386(__p__winver)
-F_I386(__p__wpgmptr)
+F_I386(__p__wpgmptr) ; x64, arm32 and arm64 __p__wpgmptr provided by emu
 __pioinfo DATA
 __pxcptinfoptrs
 __set_app_type
@@ -508,7 +508,7 @@ __unDName
 F_X86_ANY(__unguarded_readlc_active DATA)
 __wargv DATA
 __wgetmainargs
-F_X86_ANY(__winitenv DATA)
+F_X86_ANY(__winitenv DATA) ; arm32 and arm64 __winitenv provided by emu
 F_I386(_abnormal_termination)
 _access
 _acmdln DATA
@@ -1129,7 +1129,7 @@ wscanf
 
 ; These symbols were added in Microsoft Visual C++ 5.0 SP1 and Windows 98 First Edition OS system versions of msvcrt.dll
 ; They are not available in Microsoft Visual C++ 4.2, nor in 5.0 and neither in Windows NT 4.0 OS system version
-F_I386(__p__mbcasemap)
+F_I386(__p__mbcasemap) ; x64, arm32 and arm64 __p__mbcasemap provided by emu
 _mbcasemap DATA
 
 ; These symbols were added in Microsoft Visual C++ 6.0 and Windows 98 Second Edition OS system versions of msvcrt.dll
