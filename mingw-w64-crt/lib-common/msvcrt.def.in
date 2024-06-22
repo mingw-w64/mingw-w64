@@ -322,24 +322,22 @@ EXPORTS
 ; This is list of symbols available in the original Microsoft Visual C++ 4.2 version of msvcrt.dll
 ; Same set of symbols are available in Windows NT 4.0 OS system version of msvcrt.dll
 F_I386($I10_OUTPUT) ; $I10_OUTPUT is available also in Windows XP x64, but was removed in Windows Vista x64
-#ifdef DEF_I386
-_CIacos
-_CIasin
-_CIatan
-_CIatan2
-_CIcos
-_CIcosh
-_CIexp
-_CIfmod
-_CIlog
-_CIlog10
-_CIpow
-_CIsin
-_CIsinh
-_CIsqrt
-_CItan
-_CItanh
-#endif
+F_I386(_CIacos)
+F_I386(_CIasin)
+F_I386(_CIatan)
+F_I386(_CIatan2)
+F_I386(_CIcos)
+F_I386(_CIcosh)
+F_I386(_CIexp)
+F_I386(_CIfmod)
+F_I386(_CIlog)
+F_I386(_CIlog10)
+F_I386(_CIpow)
+F_I386(_CIsin)
+F_I386(_CIsinh)
+F_I386(_CIsqrt)
+F_I386(_CItan)
+F_I386(_CItanh)
 F_I386(_CxxThrowException@8)
 F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
@@ -373,36 +371,34 @@ F_X86_ANY(__lc_codepage DATA)
 __lc_handle DATA
 __lconv_init
 __mb_cur_max DATA
-#ifdef DEF_I386
-__p___argc
-__p___argv
-__p___initenv
-__p___mb_cur_max
-__p___wargv
-__p___winitenv
-__p__acmdln
-__p__amblksiz
-__p__commode
-__p__daylight
-__p__dstbias
-__p__environ
-__p__fileinfo
-__p__fmode
-__p__iob
-__p__mbctype
-__p__osver
-__p__pctype
-__p__pgmptr
-__p__pwctype
-__p__timezone
-__p__tzname
-__p__wcmdln
-__p__wenviron
-__p__winmajor
-__p__winminor
-__p__winver
-__p__wpgmptr
-#endif
+F_I386(__p___argc)
+F_I386(__p___argv)
+F_I386(__p___initenv)
+F_I386(__p___mb_cur_max)
+F_I386(__p___wargv)
+F_I386(__p___winitenv)
+F_I386(__p__acmdln)
+F_I386(__p__amblksiz)
+F_I386(__p__commode)
+F_I386(__p__daylight)
+F_I386(__p__dstbias)
+F_I386(__p__environ)
+F_I386(__p__fileinfo)
+F_I386(__p__fmode)
+F_I386(__p__iob)
+F_I386(__p__mbctype)
+F_I386(__p__osver)
+F_I386(__p__pctype)
+F_I386(__p__pgmptr)
+F_I386(__p__pwctype)
+F_I386(__p__timezone)
+F_I386(__p__tzname)
+F_I386(__p__wcmdln)
+F_I386(__p__wenviron)
+F_I386(__p__winmajor)
+F_I386(__p__winminor)
+F_I386(__p__winver)
+F_I386(__p__wpgmptr)
 __pioinfo DATA
 __pxcptinfoptrs
 __set_app_type
@@ -419,22 +415,20 @@ F_X86_ANY(__winitenv DATA)
 F_I386(_abnormal_termination)
 _access
 _acmdln DATA
-#ifdef DEF_I386
-_adj_fdiv_m16i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdiv_m32 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdiv_m32i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdiv_m64 ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
-_adj_fdiv_r
-_adj_fdivr_m16i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdivr_m32 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdivr_m32i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
-_adj_fdivr_m64 ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
-_adj_fpatan
-_adj_fprem
-_adj_fprem1
-_adj_fptan
-_adjust_fdiv DATA
-#endif
+F_I386(_adj_fdiv_m16i) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdiv_m32) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdiv_m32i) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdiv_m64) ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
+F_I386(_adj_fdiv_r)
+F_I386(_adj_fdivr_m16i) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdivr_m32) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdivr_m32i) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_adj_fdivr_m64) ; msvc symbol is without decoration but callee pop stack (like stdcall @8)
+F_I386(_adj_fpatan)
+F_I386(_adj_fprem)
+F_I386(_adj_fprem1)
+F_I386(_adj_fptan)
+F_I386(_adjust_fdiv DATA)
 _aexit_rtn DATA
 _amsg_exit
 _assert
@@ -689,12 +683,10 @@ _rmdir
 _rmtmp
 _rotl
 _rotr
-#ifdef DEF_I386
-_safe_fdiv
-_safe_fdivr
-_safe_fprem
-_safe_fprem1
-#endif
+F_I386(_safe_fdiv)
+F_I386(_safe_fdivr)
+F_I386(_safe_fprem)
+F_I386(_safe_fprem1)
 _scalb
 _searchenv
 F_I386(_seh_longjmp_unwind@4)
@@ -1238,29 +1230,27 @@ F_I386(__CxxCallUnwindDelDtor)
 __CxxFrameHandler3
 __daylight
 __dstbias
-#ifdef DEF_I386
-__libm_sse2_acos
-__libm_sse2_acosf
-__libm_sse2_asin
-__libm_sse2_asinf
-__libm_sse2_atan
-__libm_sse2_atan2
-__libm_sse2_atanf
-__libm_sse2_cos
-__libm_sse2_cosf
-__libm_sse2_exp
-__libm_sse2_expf
-__libm_sse2_log
-__libm_sse2_log10
-__libm_sse2_log10f
-__libm_sse2_logf
-__libm_sse2_pow
-__libm_sse2_powf
-__libm_sse2_sin
-__libm_sse2_sinf
-__libm_sse2_tan
-__libm_sse2_tanf
-#endif
+F_I386(__libm_sse2_acos)
+F_I386(__libm_sse2_acosf)
+F_I386(__libm_sse2_asin)
+F_I386(__libm_sse2_asinf)
+F_I386(__libm_sse2_atan)
+F_I386(__libm_sse2_atan2)
+F_I386(__libm_sse2_atanf)
+F_I386(__libm_sse2_cos)
+F_I386(__libm_sse2_cosf)
+F_I386(__libm_sse2_exp)
+F_I386(__libm_sse2_expf)
+F_I386(__libm_sse2_log)
+F_I386(__libm_sse2_log10)
+F_I386(__libm_sse2_log10f)
+F_I386(__libm_sse2_logf)
+F_I386(__libm_sse2_pow)
+F_I386(__libm_sse2_powf)
+F_I386(__libm_sse2_sin)
+F_I386(__libm_sse2_sinf)
+F_I386(__libm_sse2_tan)
+F_I386(__libm_sse2_tanf)
 __strncnt
 __wcserror_s
 __wcsncnt
@@ -1796,19 +1786,17 @@ _W_Getmonths
 _W_Gettnames
 _Wcsftime
 __AdjustPointer
-#ifdef DEF_I386
-_libm_sse2_acos_precise
-_libm_sse2_asin_precise
-_libm_sse2_atan_precise
-_libm_sse2_cos_precise
-_libm_sse2_exp_precise
-_libm_sse2_log10_precise
-_libm_sse2_log_precise
-_libm_sse2_pow_precise
-_libm_sse2_sin_precise
-_libm_sse2_sqrt_precise
-_libm_sse2_tan_precise
-#endif
+F_I386(_libm_sse2_acos_precise)
+F_I386(_libm_sse2_asin_precise)
+F_I386(_libm_sse2_atan_precise)
+F_I386(_libm_sse2_cos_precise)
+F_I386(_libm_sse2_exp_precise)
+F_I386(_libm_sse2_log10_precise)
+F_I386(_libm_sse2_log_precise)
+F_I386(_libm_sse2_pow_precise)
+F_I386(_libm_sse2_sin_precise)
+F_I386(_libm_sse2_sqrt_precise)
+F_I386(_libm_sse2_tan_precise)
 
 ; These symbols were added in Windows 10 OS system version of msvcrt.dll
 ; TODO: fill them
