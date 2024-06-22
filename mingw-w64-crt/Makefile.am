@@ -192,8 +192,8 @@ src_msvcrt_common=\
   math/lrint.c math/lrintf.c \
   math/lround.c math/lroundf.c \
   math/modf.c math/modff.c \
-  math/nextafterf.c \
-  math/nexttowardf.c \
+  math/nextafterf.c math/nextafterl.c \
+  math/nexttoward.c math/nexttowardf.c \
   math/powf.c \
   math/round.c math/roundf.c \
   math/s_erf.c math/sf_erf.c \
@@ -398,7 +398,8 @@ src_ucrtapp=\
 src_ucrtbase32=\
   $(src_ucrtbase) \
   math/fabsf.c \
-  math/nexttowardf.c \
+  math/nextafterl.c \
+  math/nexttoward.c math/nexttowardf.c \
   math/coshf.c \
   math/expf.c \
   math/log10f.c \
@@ -423,7 +424,8 @@ src_ucrtbase32=\
 src_ucrtbase64=\
   $(src_ucrtbase) \
   math/fabsf.c \
-  math/nexttowardf.c
+  math/nextafterl.c \
+  math/nexttoward.c math/nexttowardf.c
 
 # Files included in libucrt*.a on arm32
 src_ucrtbasearm32=\
@@ -771,7 +773,7 @@ src_libmingwex=\
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       \
-  math/modfl.c          math/nextafterl.c  math/nexttoward.c     \
+  math/modfl.c          \
   math/powi.c           math/powif.c       math/powil.c          \
   math/signbit.c        math/signbitf.c    math/signbitl.c       \
   math/signgam.c        \
