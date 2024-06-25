@@ -1686,7 +1686,7 @@ _strtoi64
 _strtoi64_l
 F_X86_ANY(_strtoimax_l)
 _strtol_l
-F_X86_ANY(_strtold_l)
+; F_X86_ANY(_strtold_l) ; Can't use long double functions from the CRT on x86
 F_X86_ANY(_strtoll_l)
 _strtoui64
 _strtoui64_l
@@ -1843,7 +1843,7 @@ _wcstoi64
 _wcstoi64_l
 F_X86_ANY(_wcstoimax_l)
 _wcstol_l
-F_X86_ANY(_wcstold_l)
+; F_X86_ANY(_wcstold_l) ; Can't use long double functions from the CRT on x86
 F_X86_ANY(_wcstoll_l)
 _wcstombs_l
 _wcstombs_s_l
