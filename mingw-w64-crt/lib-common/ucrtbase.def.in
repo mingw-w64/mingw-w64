@@ -2462,7 +2462,7 @@ nearbyintl F_X86_ANY(DATA)
 nextafter
 nextafterf
 nextafterl F_X86_ANY(DATA)
-; All of the nexttoward functions take the second parameter as long doubke,
+; All of the nexttoward functions take the second parameter as long double,
 ; making them unusable for x86.
 nexttoward F_X86_ANY(DATA)
 nexttowardf F_X86_ANY(DATA)
