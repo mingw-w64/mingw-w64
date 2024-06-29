@@ -1,0 +1,6 @@
+CREATE libmsvcr110d.a
+ADDLIB libmsvcr110d_def.a
+ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcr110_extra.a
+SAVE
+END
