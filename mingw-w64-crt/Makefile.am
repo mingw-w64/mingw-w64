@@ -1235,7 +1235,7 @@ lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/msvcrt40.def lib32/msvcr40d.def \
 				  lib32/msvcrt.def lib32/msvcrtd.def lib32/msvcr70.def lib32/msvcr70d.def lib32/msvcr71.def lib32/msvcr71d.def \
-				  lib32/msvcr80.def lib32/msvcr80d.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def \
+				  lib32/msvcr80.def lib32/msvcr80d.def lib32/msvcr90.def lib32/msvcr90d.def lib32/msvcr100.def lib32/msvcr100d.def \
 				  lib32/msvcr110.def lib32/msvcr120.def lib32/msvcr120d.def \
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
@@ -1307,6 +1307,10 @@ lib32/libmsvcr90d.a: lib-common/msvcr90d.mri lib32/libmsvcr90d_def.a lib32/libms
 
 lib32_DATA += lib32/libmsvcr100.a
 lib32/libmsvcr100.a: lib-common/msvcr100.mri lib32/libmsvcr100_def.a lib32/libmsvcrt_common.a lib32/libmsvcr100_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+lib32_DATA += lib32/libmsvcr100d.a
+lib32/libmsvcr100d.a: lib-common/msvcr100d.mri lib32/libmsvcr100d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr100_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr110.a
@@ -1635,7 +1639,7 @@ lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr80d.def lib64/msvcr90.def lib64/msvcr90d.def \
-				  lib64/msvcr100.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
+				  lib64/msvcr100.def lib64/msvcr100d.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
 				  lib64/msvcr120_app.def lib64/msvcp120_app.def lib64/ucrtbase.def \
 				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def lib64/ole32.def \
 				  lib64/oleaut32.def lib64/user32.def lib64/winhvplatform.def lib64/ws2_32.def \
@@ -1668,6 +1672,10 @@ lib64/libmsvcr90d.a: lib-common/msvcr90d.mri lib64/libmsvcr90d_def.a lib64/libms
 
 lib64_DATA += lib64/libmsvcr100.a
 lib64/libmsvcr100.a: lib-common/msvcr100.mri lib64/libmsvcr100_def.a lib64/libmsvcrt_common.a lib64/libmsvcr100_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+lib64_DATA += lib64/libmsvcr100d.a
+lib64/libmsvcr100d.a: lib-common/msvcr100d.mri lib64/libmsvcr100d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr100_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr110.a
