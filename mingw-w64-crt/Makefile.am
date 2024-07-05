@@ -354,6 +354,8 @@ src_ucrtbase=\
   crt/ucrtbase_compat.c \
   math/_huge.c \
   misc/__badioinfo.c \
+  misc/__p___initenv.c \
+  misc/__p___winitenv.c \
   misc/__initenv.c \
   misc/__winitenv.c \
   misc/ucrt-access.c \
@@ -470,6 +472,8 @@ src_msvcrt64=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___initenv.c \
+  misc/__p___winitenv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__environ.c \
@@ -493,6 +497,8 @@ src_msvcrtarm32=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___initenv.c \
+  misc/__p___winitenv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
@@ -598,6 +604,8 @@ src_msvcrtarm64=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___initenv.c \
+  misc/__p___winitenv.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
   misc/__p__fmode.c \
@@ -621,6 +629,7 @@ src_crtdll=\
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
+  misc/__p___initenv.c \
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
@@ -669,6 +678,7 @@ src_msvcrt10=\
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
+  misc/__p___initenv.c \
   misc/__p___mb_cur_max.c \
   misc/__p__acmdln.c \
   misc/__p__commode.c \
@@ -816,6 +826,8 @@ src_msvcr110=\
   misc/isblank.c
 
 src_msvcr120_app=\
+  misc/__p___initenv.c \
+  misc/__p___winitenv.c \
   misc/__set_app_type.c \
   misc/_getpid.c
 

@@ -96,15 +96,11 @@ extern "C" {
   extern int _dowildcard;
   extern int _newmode;
 
-#ifndef __winitenv
-extern wchar_t *** __MINGW_IMP_SYMBOL(__winitenv);
-#define __winitenv (* __MINGW_IMP_SYMBOL(__winitenv))
-#endif
+  _CRTIMP wchar_t *** __cdecl __p___winitenv(void);
+#define __winitenv (*__p___winitenv())
 
-#if !defined(__initenv)
-extern char *** __MINGW_IMP_SYMBOL(__initenv);
-#define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
-#endif
+  _CRTIMP char *** __cdecl __p___initenv(void);
+#define __initenv (*__p___initenv())
 
   _CRTIMP void __cdecl _amsg_exit(int);
 

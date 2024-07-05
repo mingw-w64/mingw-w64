@@ -470,10 +470,10 @@ __lconv_init
 __mb_cur_max DATA
 F_I386(__p___argc) ; x64, arm32 and arm64 __p___argc provided by emu
 F_I386(__p___argv) ; x64, arm32 and arm64 __p___argv provided by emu
-F_I386(__p___initenv)
+F_I386(__p___initenv) ; x64, arm32 and arm64 __p___initenv provided by emu
 F_I386(__p___mb_cur_max) ; x64, arm32 and arm64 __p___mb_cur_max provided by emu
 F_I386(__p___wargv) ; x64, arm32 and arm64 __p___wargv provided by emu
-F_I386(__p___winitenv)
+F_I386(__p___winitenv) ; x64, arm32 and arm64 __p___winitenv provided by emu
 F_I386(__p__acmdln) ; x64, arm32 and arm64 __p__acmdln provided by emu
 F_I386(__p__amblksiz)
 F_I386(__p__commode) ; x64, arm32 and arm64 __p__commode provided by emu

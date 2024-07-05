@@ -25,16 +25,6 @@
 #define SEH_INLINE_ASM
 #endif
 
-#ifndef __winitenv
-extern wchar_t *** __MINGW_IMP_SYMBOL(__winitenv);
-#define __winitenv (* __MINGW_IMP_SYMBOL(__winitenv))
-#endif
-
-#if !defined(__initenv)
-extern char *** __MINGW_IMP_SYMBOL(__initenv);
-#define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
-#endif
-
 extern IMAGE_DOS_HEADER __ImageBase;
 
 extern void _fpreset (void);
