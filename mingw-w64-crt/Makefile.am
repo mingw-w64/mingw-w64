@@ -455,6 +455,8 @@ src_msvcrt32=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c
@@ -641,6 +643,8 @@ src_crtdll=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -685,6 +689,8 @@ src_msvcrt10=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -718,6 +724,8 @@ src_msvcrt20=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -746,6 +754,8 @@ src_msvcrt40=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -860,7 +870,7 @@ src_libmingwex=\
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
-  misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
+  misc/wcstold.c         misc/wctob.c               misc/wctrans.c         \
   misc/wctype.c          misc/wdirent.c             misc/winbs_uint64.c     misc/winbs_ulong.c           misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \

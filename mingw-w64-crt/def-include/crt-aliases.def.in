@@ -289,6 +289,10 @@ strtoll == _strtoi64
 strtoull == _strtoui64
 strtoimax == _strtoi64
 strtoumax == _strtoui64
+wcstoll == _wcstoi64
+wcstoull == _wcstoui64
+wcstoimax == _wcstoi64
+wcstoumax == _wcstoui64
 #endif
 
 #ifdef WITH_STRTO64_L_ALIAS
@@ -296,6 +300,10 @@ _strtoll_l == _strtoi64_l
 _strtoull_l == _strtoui64_l
 _strtoimax_l == _strtoi64_l
 _strtoumax_l == _strtoui64_l
+_wcstoll_l == _wcstoi64_l
+_wcstoull_l == _wcstoui64_l
+_wcstoimax_l == _wcstoi64_l
+_wcstoumax_l == _wcstoui64_l
 #endif
 
 ; This is list of find symbol aliases, every CRT library has either find symbols with SIZE suffix or without them

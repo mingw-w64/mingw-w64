@@ -1224,8 +1224,8 @@ _ungetwch
 F_NON_I386(_vscprintf) ; i386 _vscprintf replaced by emu
 _vscwprintf
 _wcserror
-_wcstoi64
-_wcstoui64
+F_NON_I386(_wcstoi64) ; i386 _wcstoi64 replaced by emu
+F_NON_I386(_wcstoui64) ; i386 _wcstoui64 replaced by emu
 _wtof
 
 ; These symbols were added in Windows Server 2003 OS system version of msvcrt.dll
@@ -1919,7 +1919,7 @@ F_I386(_libm_sse2_tan_precise)
 #ifndef DEF_I386
 ; i386 llabs and imaxabs alias provided by emu
 #define WITH_LLABS_ALIAS
-; i386 strtoll, strtoull, strtoimax and strtoumax alias provided by emu
+; i386 strtoll, strtoull, strtoimax, strtoumax, wcstoll, wcstoull, wcstoimax and wcstoumax aliases provided by emu
 #define WITH_STRTO64_ALIAS
 #endif
 #include "crt-aliases.def.in"
