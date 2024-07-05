@@ -501,7 +501,7 @@ src_msvcrtarm32=\
   misc/__p__wcmdln.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
-  misc/initenv.c \
+  misc/__initenv.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
@@ -605,7 +605,7 @@ src_msvcrtarm64=\
   misc/__p__wcmdln.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
-  misc/initenv.c \
+  misc/__initenv.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
