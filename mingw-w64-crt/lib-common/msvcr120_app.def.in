@@ -2333,5 +2333,5 @@ wprintf_s
 wscanf
 wscanf_s
 
-#define NO_GETPID_ALIAS
+#define CRTAPP
 #include "crt-aliases.def.in"

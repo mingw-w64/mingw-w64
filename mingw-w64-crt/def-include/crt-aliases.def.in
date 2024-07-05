@@ -12,16 +12,22 @@
 #else
 ADD_UNDERSCORE(access)
 #endif
+#ifndef CRTAPP
 ; ADD_UNDERSCORE(cgets)
 ADD_UNDERSCORE(chdir)
+#endif
 ADD_UNDERSCORE(chmod)
 ADD_UNDERSCORE(chsize)
 ADD_UNDERSCORE(close)
+#ifndef CRTAPP
 ; ADD_UNDERSCORE(cprintf)
 ; ADD_UNDERSCORE(cputs)
+#endif
 ADD_UNDERSCORE(creat)
+#ifndef CRTAPP
 ; ADD_UNDERSCORE(cscanf)
 ADD_UNDERSCORE(cwait)
+#endif
 #if defined(UCRTBASE)
 ; daylight variable is provided by ucrtbase_compat.c
 #elif defined(CRTDLL)
@@ -40,6 +46,7 @@ ADD_UNDERSCORE(ecvt)
 ; ADD_UNDERSCORE_DATA(environ)
 #endif
 ADD_UNDERSCORE(eof)
+#ifndef CRTAPP
 ADD_UNDERSCORE(execl)
 ADD_UNDERSCORE(execle)
 ADD_UNDERSCORE(execlp)
@@ -48,6 +55,7 @@ ADD_UNDERSCORE(execv)
 ADD_UNDERSCORE(execve)
 ADD_UNDERSCORE(execvp)
 ADD_UNDERSCORE(execvpe)
+#endif
 ADD_UNDERSCORE(fcloseall)
 ADD_UNDERSCORE(fcvt)
 ADD_UNDERSCORE(fdopen)
@@ -71,20 +79,26 @@ F64(fstat == _fstat64i32)
 ; ADD_UNDERSCORE_DATA(HUGE)
 #endif
 ADD_UNDERSCORE(gcvt)
+#ifndef CRTAPP
 ADD_UNDERSCORE(getch)
 ADD_UNDERSCORE(getche)
 ADD_UNDERSCORE(getcwd)
+#endif
 #ifdef UCRTBASE
 ; ucrtbase.dll has got _getpid for all archs
 ADD_UNDERSCORE(getpid)
-#elif !defined(NO_GETPID_ALIAS)
+#elif !defined(CRTAPP)
 ; msvcrt.dll for arm/arm64 lacks _getpid
 F_X86_ANY(ADD_UNDERSCORE(getpid))
 #endif
+#ifndef CRTAPP
 ADD_UNDERSCORE(getw)
+#endif
 ADD_UNDERSCORE(isatty)
 ADD_UNDERSCORE(itoa)
+#ifndef CRTAPP
 ADD_UNDERSCORE(kbhit)
+#endif
 ADD_UNDERSCORE(lfind)
 ; ADD_UNDERSCORE(locking)
 ADD_UNDERSCORE(lsearch)
@@ -96,14 +110,17 @@ ADD_UNDERSCORE(mkdir)
 ADD_UNDERSCORE(mktemp)
 ; ADD_UNDERSCORE(onexit)
 ADD_UNDERSCORE(open)
+#ifndef CRTAPP
 ADD_UNDERSCORE(putch)
 ADD_UNDERSCORE(putenv)
+#endif
 ADD_UNDERSCORE(putw)
 ADD_UNDERSCORE(read)
 ADD_UNDERSCORE(rmdir)
 ADD_UNDERSCORE(rmtmp)
 ADD_UNDERSCORE(setmode)
 ADD_UNDERSCORE(sopen)
+#ifndef CRTAPP
 ADD_UNDERSCORE(spawnl)
 ADD_UNDERSCORE(spawnle)
 ADD_UNDERSCORE(spawnlp)
@@ -112,6 +129,7 @@ ADD_UNDERSCORE(spawnv)
 ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
+#endif
 ; stat is provided by mingw to workaround trailing slash issue in _stat
 #ifdef NO_STRCMPI_ALIAS
 ; Symbol _strcmpi is natively present and defined in the library def file
@@ -166,7 +184,9 @@ ADD_UNDERSCORE(tzset)
 #endif
 ; ADD_UNDERSCORE(ultoa)
 ADD_UNDERSCORE(umask)
+#ifndef CRTAPP
 ADD_UNDERSCORE(ungetch)
+#endif
 ADD_UNDERSCORE(unlink)
 #ifdef FIXED_SIZE_SYMBOLS
 ADD_UNDERSCORE(utime)
@@ -238,8 +258,10 @@ F64(timespec_get == _timespec64_get)
 ; This is list of symbol aliases for POSIX functions
 ADD_DOUBLE_UNDERSCORE(isascii)
 ADD_DOUBLE_UNDERSCORE(toascii)
+#ifndef CRTAPP
 ADD_UNDERSCORE(pclose)
 ADD_UNDERSCORE(popen)
+#endif
 ; ADD_UNDERSCORE(scalb)
 
 ; This is list of symbol aliases for Large File Specification (extension to Single UNIX Specification)
@@ -509,12 +531,18 @@ ADD_UNDERSCORE(fgetwchar)
 ADD_UNDERSCORE(finite)
 ADD_UNDERSCORE(fpclass)
 ADD_UNDERSCORE(fputwchar)
+#ifndef CRTAPP
 ADD_UNDERSCORE(heapwalk)
+#endif
 ADD_DOUBLE_UNDERSCORE(iscsymf)
 ADD_DOUBLE_UNDERSCORE(iscsym)
+#ifndef CRTAPP
 ADD_UNDERSCORE(searchenv)
+#endif
 ADD_UNDERSCORE(stricoll)
 #ifndef UCRTBASE
 ADD_UNDERSCORE(vsnprintf_s)
 #endif
+#ifndef CRTAPP
 ADD_UNDERSCORE(wpopen)
+#endif
