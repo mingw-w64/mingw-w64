@@ -59,7 +59,7 @@ extern "C" {
 #define _tm_unicode_safe(i) (_pioinfo_safe(i)->unicode)
 
 #ifndef __badioinfo
-  extern ioinfo ** __MINGW_IMP_SYMBOL(__badioinfo)[];
+  extern ioinfo * __MINGW_IMP_SYMBOL(__badioinfo);
 #define __badioinfo (* __MINGW_IMP_SYMBOL(__badioinfo))
 #endif
 
