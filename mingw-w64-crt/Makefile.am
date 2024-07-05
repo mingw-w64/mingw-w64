@@ -353,6 +353,7 @@ src_msvcrt_add_x86=\
 src_ucrtbase=\
   crt/ucrtbase_compat.c \
   math/_huge.c \
+  misc/__badioinfo.c \
   misc/__initenv.c \
   misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
@@ -613,6 +614,7 @@ src_crtdll=\
   crt/crtdll_ismbblead.c \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
+  misc/__badioinfo.c \
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
@@ -660,6 +662,7 @@ src_msvcrt10=\
   crt/crtdll_getmainargs.c \
   crt/msvcrt10_ismbblead.c \
   misc/___mb_cur_max_func.c \
+  misc/__badioinfo.c \
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
@@ -706,6 +709,7 @@ src_msvcrt20=\
   crt/msvcrt20_getmainargs.c \
   crt/msvcrt20_wgetmainargs.c \
   misc/___mb_cur_max_func.c \
+  misc/__badioinfo.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__set_app_type.c \
@@ -738,6 +742,7 @@ src_msvcrt20=\
 
 src_msvcrt40=\
   misc/___mb_cur_max_func.c \
+  misc/__badioinfo.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__sys_errlist.c \
