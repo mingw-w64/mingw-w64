@@ -214,31 +214,31 @@ extern "C" {
 #define _tcstold wcstold
 #define _tcstol wcstol
 #define _tcstoul wcstoul
-#define _tcstoll _wcstoi64
-#define _tcstoull _wcstoui64
+#define _tcstoll wcstoll
+#define _tcstoull wcstoull
 #define _tcstoi64 _wcstoi64
 #define _tcstoui64 _wcstoui64
-#define _tcstoimax _wcstoi64
-#define _tcstoumax _wcstoui64
+#define _tcstoimax wcstoimax
+#define _tcstoumax wcstoumax
 #define _tstof _wtof
 #define _tstol _wtol
 #define _tstoi _wtoi
-#define _tstoll _wtoi64
+#define _tstoll _wtoll
 #define _tstoi64 _wtoi64
 #define _tcstof_l _wcstof_l
 #define _tcstod_l _wcstod_l
 /* TODO: #define _tcstold_l _wcstold_l  */
 #define _tcstol_l _wcstol_l
 #define _tcstoul_l _wcstoul_l
-#define _tcstoll_l _wcstoi64_l
-#define _tcstoull_l _wcstoui64_l
+#define _tcstoll_l _wcstoll_l
+#define _tcstoull_l _wcstoull_l
 #define _tcstoi64_l _wcstoi64_l
 #define _tcstoui64_l _wcstoui64_l
-#define _tcstoimax_l _wcstoi64_l
-#define _tcstoumax_l _wcstoui64_l
+#define _tcstoimax_l _wcstoimax_l
+#define _tcstoumax_l _wcstoumax_l
 #define _tstof_l _wtof_l
 #define _tstol_l _wtol_l
-#define _tstoll_l _wtoi64_l
+#define _tstoll_l _wtoll_l
 #define _tstoi_l _wtoi_l
 #define _tstoi64_l _wtoi64_l
 
@@ -248,7 +248,7 @@ extern "C" {
 #define _ttof _wtof
 #define _ttoi _wtoi
 #define _ttol _wtol
-#define _ttoll _wtoi64
+#define _ttoll _wtoll
 
 #define _ttoi64 _wtoi64
 #define _i64tot _i64tow
@@ -601,11 +601,11 @@ extern "C" {
 #define _tcstold strtold
 #define _tcstol strtol
 #define _tcstoul strtoul
-#define _tcstoll _strtoi64
-#define _tcstoull _strtoui64
+#define _tcstoll strtoll
+#define _tcstoull strtoull
 #define _tstof atof
 #define _tstol atol
-#define _tstoll _atoi64
+#define _tstoll atoll
 #define _tstoi atoi
 #define _tstoi64 _atoi64
 #define _tcstof_l _strtof_l
@@ -613,12 +613,12 @@ extern "C" {
 /* TODO: #define _tcstold_l _strtold_l  */
 #define _tcstol_l _strtol_l
 #define _tcstoul_l _strtoul_l
-#define _tcstoll_l _strtoi64_l
-#define _tcstoull_l _strtoui64_l
+#define _tcstoll_l _strtoll_l
+#define _tcstoull_l _strtoull_l
 #define _tstof_l _atof_l
 #define _tstol_l _atol_l
 #define _tstoi_l _atoi_l
-#define _tstoll_l _atoi64_l
+#define _tstoll_l _atoll_l
 #define _tstoi64_l _atoi64_l
 
 #define _itot _itoa
@@ -627,17 +627,17 @@ extern "C" {
 #define _ttof atof
 #define _ttoi atoi
 #define _ttol atol
-#define _ttoll _atoi64
+#define _ttoll atoll
 
 #define _ttoi64 _atoi64
 #define _tcstoi64 _strtoi64
 #define _tcstoi64_l _strtoi64_l
 #define _tcstoui64 _strtoui64
 #define _tcstoui64_l _strtoui64_l
-#define _tcstoimax _strtoi64
-#define _tcstoumax _strtoui64
-#define _tcstoimax_l _strtoi64_l
-#define _tcstoumax_l _strtoui64_l
+#define _tcstoimax strtoimax
+#define _tcstoumax strtoumax
+#define _tcstoimax_l _strtoimax_l
+#define _tcstoumax_l _strtoumax_l
 #define _i64tot _i64toa
 #define _ui64tot _ui64toa
 
