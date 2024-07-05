@@ -267,10 +267,12 @@ __iob_func == __p__iob
 
 #ifdef WITH_ATOLL_ALIAS
 atoll == _atoi64
+_wtoll == _wtoi64
 #endif
 
 #ifdef WITH_ATOLL_L_ALIAS
 _atoll_l == _atoi64_l
+_wtoll_l == _wtoi64_l
 #endif
 
 #ifdef WITH_LLABS_ALIAS
