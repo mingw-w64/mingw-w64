@@ -123,6 +123,7 @@ for f in \
 	winhttp.h \
 	winineti.h \
 	wmpids.h \
+	x3daudio.h \
 	xapofx.h \
 	xinput.h; do
     import_header $f include
