@@ -828,6 +828,8 @@ src_msvcr110=\
 src_msvcr120_app=\
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
+  misc/__p__environ.c \
+  misc/__p__wenviron.c \
   misc/__set_app_type.c \
   misc/_getpid.c
 
