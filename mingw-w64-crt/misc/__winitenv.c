@@ -5,6 +5,7 @@
  */
 
 #include <_mingw.h>
+#include <stddef.h>
 
-static char ** local__initenv;
-char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
+static wchar_t ** local__winitenv;
+wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;

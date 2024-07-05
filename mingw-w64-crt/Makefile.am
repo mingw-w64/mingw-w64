@@ -355,6 +355,7 @@ src_ucrtbase=\
   math/_huge.c \
   misc/__badioinfo.c \
   misc/__initenv.c \
+  misc/__winitenv.c \
   misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
@@ -502,6 +503,7 @@ src_msvcrtarm32=\
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
   misc/__initenv.c \
+  misc/__winitenv.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
@@ -606,6 +608,7 @@ src_msvcrtarm64=\
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
   misc/__initenv.c \
+  misc/__winitenv.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
