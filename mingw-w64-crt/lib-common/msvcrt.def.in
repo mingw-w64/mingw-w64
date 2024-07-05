@@ -974,7 +974,7 @@ fputws
 fread
 free
 freopen
-frexp DATA
+frexp F_X86_ANY(DATA)
 fscanf
 fseek
 fsetpos
