@@ -583,12 +583,15 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wsdxml.idl \
 @HAVE_WIDL_TRUE@  include/wsmandisp.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.activation.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.background.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.enumeration.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.geolocation.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.haptics.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.input.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.power.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.radios.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.usb.idl \
@@ -607,6 +610,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.graphics.directx.direct3d11.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.effects.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.holographic.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.imaging.idl \
 @HAVE_WIDL_TRUE@  include/windows.management.deployment.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.capture.idl \
@@ -639,6 +643,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.userprofile.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.input.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.core.idl \

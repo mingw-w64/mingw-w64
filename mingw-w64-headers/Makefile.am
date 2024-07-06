@@ -281,12 +281,15 @@ IDL_SRCS = \
   include/wsdxml.idl \
   include/wsmandisp.idl \
   include/wtypesbase.idl \
+  include/windows.applicationmodel.activation.idl \
+  include/windows.applicationmodel.background.idl \
   include/windows.applicationmodel.core.idl \
   include/windows.applicationmodel.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
   include/windows.devices.geolocation.idl \
   include/windows.devices.haptics.idl \
+  include/windows.devices.input.idl \
   include/windows.devices.power.idl \
   include/windows.devices.radios.idl \
   include/windows.devices.usb.idl \
@@ -305,6 +308,7 @@ IDL_SRCS = \
   include/windows.graphics.directx.direct3d11.idl \
   include/windows.graphics.effects.idl \
   include/windows.graphics.holographic.idl \
+  include/windows.graphics.idl \
   include/windows.graphics.imaging.idl \
   include/windows.management.deployment.idl \
   include/windows.media.capture.idl \
@@ -337,6 +341,7 @@ IDL_SRCS = \
   include/windows.system.threading.idl \
   include/windows.system.userprofile.idl \
   include/windows.ui.idl \
+  include/windows.ui.input.idl \
   include/windows.ui.composition.idl \
   include/windows.ui.composition.interop.idl \
   include/windows.ui.core.idl \
