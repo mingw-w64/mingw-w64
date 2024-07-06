@@ -815,17 +815,35 @@ typedef struct DECLSPEC_ALIGN(8) MEM_EXTENDED_PARAMETER {
 #define MEM_EXTENDED_PARAMETER_EC_CODE                  0x00000040
 #define MEM_EXTENDED_PARAMETER_IMAGE_NO_HPAT            0x00000080
 
-#define	PAGE_NOACCESS		0x01
-#define	PAGE_READONLY		0x02
-#define	PAGE_READWRITE		0x04
-#define	PAGE_WRITECOPY		0x08
-#define	PAGE_EXECUTE		0x10
-#define	PAGE_EXECUTE_READ	0x20
-#define	PAGE_EXECUTE_READWRITE	0x40
-#define	PAGE_EXECUTE_WRITECOPY	0x80
-#define	PAGE_GUARD		0x100
-#define	PAGE_NOCACHE		0x200
-#define	PAGE_WRITECOMBINE	0x400
+#define PAGE_NOACCESS                   0x00000001
+#define PAGE_READONLY                   0x00000002
+#define PAGE_READWRITE                  0x00000004
+#define PAGE_WRITECOPY                  0x00000008
+#define PAGE_EXECUTE                    0x00000010
+#define PAGE_EXECUTE_READ               0x00000020
+#define PAGE_EXECUTE_READWRITE          0x00000040
+#define PAGE_EXECUTE_WRITECOPY          0x00000080
+#define PAGE_GUARD                      0x00000100
+#define PAGE_NOCACHE                    0x00000200
+#define PAGE_WRITECOMBINE               0x00000400
+#define PAGE_GRAPHICS_NOACCESS          0x00000800
+#define PAGE_GRAPHICS_READONLY          0x00001000
+#define PAGE_GRAPHICS_READWRITE         0x00002000
+#define PAGE_GRAPHICS_EXECUTE           0x00004000
+#define PAGE_GRAPHICS_EXECUTE_READ      0x00008000
+#define PAGE_GRAPHICS_EXECUTE_READWRITE 0x00010000
+#define PAGE_GRAPHICS_COHERENT          0x00020000
+#define PAGE_GRAPHICS_NOCACHE           0x00040000
+#define PAGE_ENCLAVE_MASK               0x10000000
+#define PAGE_ENCLAVE_UNVALIDATED        0x20000000
+#define PAGE_ENCLAVE_NO_CHANGE          0x20000000
+#define PAGE_TARGETS_NO_UPDATE          0x40000000
+#define PAGE_TARGETS_INVALID            0x40000000
+#define PAGE_REVERT_TO_FILE_MAP         0x80000000
+#define PAGE_ENCLAVE_THREAD_CONTROL     0x80000000
+#define PAGE_ENCLAVE_DECOMMIT           (PAGE_ENCLAVE_MASK | 0)
+#define PAGE_ENCLAVE_SS_FIRST           (PAGE_ENCLAVE_MASK | 1)
+#define PAGE_ENCLAVE_SS_REST            (PAGE_ENCLAVE_MASK | 2)
 
 #define MEM_COMMIT               0x00001000
 #define MEM_RESERVE              0x00002000
@@ -7064,11 +7082,14 @@ static FORCEINLINE void MemoryBarrier(void)
  */
 #if _MSC_VER >= 1700
 #pragma intrinsic(__iso_volatile_load32)
+#pragma intrinsic(__iso_volatile_load64)
 #pragma intrinsic(__iso_volatile_store32)
 #define __WINE_LOAD32_NO_FENCE(src) (__iso_volatile_load32(src))
+#define __WINE_LOAD64_NO_FENCE(src) (__iso_volatile_load64(src))
 #define __WINE_STORE32_NO_FENCE(dest, value) (__iso_volatile_store32(dest, value))
 #else  /* _MSC_VER >= 1700 */
 #define __WINE_LOAD32_NO_FENCE(src) (*(src))
+#define __WINE_LOAD64_NO_FENCE(src) (*(src))
 #define __WINE_STORE32_NO_FENCE(dest, value) ((void)(*(dest) = (value)))
 #endif  /* _MSC_VER >= 1700 */
 
@@ -7099,6 +7120,12 @@ static FORCEINLINE LONG ReadAcquire( LONG const volatile *src )
 static FORCEINLINE LONG ReadNoFence( LONG const volatile *src )
 {
     LONG value = __WINE_LOAD32_NO_FENCE( (int const volatile *)src );
+    return value;
+}
+
+static FORCEINLINE LONG64 ReadNoFence64( LONG64 const volatile *src )
+{
+    LONG64 value = __WINE_LOAD64_NO_FENCE( (__int64 const volatile *)src );
     return value;
 }
 
@@ -7284,6 +7311,13 @@ static FORCEINLINE LONG ReadAcquire( LONG const volatile *src )
 static FORCEINLINE LONG ReadNoFence( LONG const volatile *src )
 {
     LONG value;
+    __WINE_ATOMIC_LOAD_RELAXED( src, &value );
+    return value;
+}
+
+static FORCEINLINE LONG64 ReadNoFence64( LONG64 const volatile *src )
+{
+    LONG64 value;
     __WINE_ATOMIC_LOAD_RELAXED( src, &value );
     return value;
 }
