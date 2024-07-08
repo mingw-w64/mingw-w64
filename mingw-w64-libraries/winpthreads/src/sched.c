@@ -112,24 +112,25 @@ static int convert_posix_to_windows_priority(int posix_priority) {
 		return THREAD_PRIORITY_IDLE;
 	}
 	else if (posix_priority <= 10) {
-		return THREAD_PRIORITY_LOWEST + posix_priority;
+		return THREAD_PRIORITY_LOWEST + (posix_priority - 1);
 	}
 	else if (posix_priority <= 20) {
-		return THREAD_PRIORITY_BELOW_NORMAL + (posix_priority - 10);
+		return THREAD_PRIORITY_BELOW_NORMAL + (posix_priority - 11);
 	}
 	else if (posix_priority <= 30) {
-		return THREAD_PRIORITY_NORMAL + (posix_priority - 20);
+		return THREAD_PRIORITY_NORMAL + (posix_priority - 21);
 	}
 	else if (posix_priority <= 40) {
-		return THREAD_PRIORITY_ABOVE_NORMAL + (posix_priority - 30);
+		return THREAD_PRIORITY_ABOVE_NORMAL + (posix_priority - 31);
 	}
 	else if (posix_priority <= 50) {
-		return THREAD_PRIORITY_HIGHEST + (posix_priority - 40);
+		return THREAD_PRIORITY_HIGHEST + (posix_priority - 41);
 	}
 	else {
 		return THREAD_PRIORITY_TIME_CRITICAL;
 	}
 }
+
 
 int pthread_setschedparam(pthread_t t, int pol, const struct sched_param* p) {
 	struct _pthread_v* pv;
