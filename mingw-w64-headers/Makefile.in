@@ -587,6 +587,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.background.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
+@HAVE_WIDL_TRUE@  include/windows.data.json.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.enumeration.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.geolocation.idl \

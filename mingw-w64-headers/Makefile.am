@@ -285,6 +285,7 @@ IDL_SRCS = \
   include/windows.applicationmodel.background.idl \
   include/windows.applicationmodel.core.idl \
   include/windows.applicationmodel.idl \
+  include/windows.data.json.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
   include/windows.devices.geolocation.idl \
