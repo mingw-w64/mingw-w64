@@ -124,6 +124,8 @@ typedef enum WHV_PROCESSOR_VENDOR {
     WHvProcessorVendorArm = 0x0010
 } WHV_PROCESSOR_VENDOR;
 
+#if defined(__x86_64__)
+
 typedef union WHV_X64_PROCESSOR_FEATURES {
     __C89_NAMELESS struct {
         UINT64 Sse3Support : 1;
@@ -255,6 +257,71 @@ typedef union WHV_X64_PROCESSOR_FEATURES1 {
 } WHV_X64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
 
 C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES1) == sizeof(UINT64));
+
+#elif defined(__aarch64__)
+
+typedef union WHV_ARM64_PROCESSOR_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 Asid16 : 1;
+        UINT64 TGran16 : 1;
+        UINT64 TGran64 : 1;
+        UINT64 Haf : 1;
+        UINT64 Hdbs : 1;
+        UINT64 Pan : 1;
+        UINT64 AtS1E1 : 1;
+        UINT64 Uao : 1;
+        UINT64 El0Aarch32 : 1;
+        UINT64 Fp : 1;
+        UINT64 FpHp : 1;
+        UINT64 AdvSimd : 1;
+        UINT64 AdvSimdHp : 1;
+        UINT64 GicV3V4 : 1;
+        UINT64 GicV41 : 1;
+        UINT64 Ras : 1;
+        UINT64 PmuV3 : 1;
+        UINT64 PmuV3ArmV81 : 1;
+        UINT64 PmuV3ArmV84 : 1;
+        UINT64 PmuV3ArmV85 : 1;
+        UINT64 Aes : 1;
+        UINT64 PolyMul : 1;
+        UINT64 Sha1 : 1;
+        UINT64 Sha256 : 1;
+        UINT64 Sha512 : 1;
+        UINT64 Crc32 : 1;
+        UINT64 Atomic : 1;
+        UINT64 Rdm : 1;
+        UINT64 Sha3 : 1;
+        UINT64 Sm3 : 1;
+        UINT64 Sm4 : 1;
+        UINT64 Dp : 1;
+        UINT64 Fhm : 1;
+        UINT64 DcCvap : 1;
+        UINT64 DcCvadp : 1;
+        UINT64 ApaBase : 1;
+        UINT64 ApaEp : 1;
+        UINT64 ApaEp2 : 1;
+        UINT64 ApaEp2Fp : 1;
+        UINT64 ApaEp2Fpc : 1;
+        UINT64 Jscvt : 1;
+        UINT64 Fcma : 1;
+        UINT64 RcpcV83 : 1;
+        UINT64 RcpcV84 : 1;
+        UINT64 Gpa : 1;
+        UINT64 L1ipPipt : 1;
+        UINT64 DzPermitted : 1;
+        UINT64 Reserved : 17;
+    };
+    UINT64 AsUINT64;
+} WHV_ARM64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
+
+typedef union WHV_ARM64_PROCESSOR_FEATURES1 {
+    __C89_NAMELESS struct {
+        UINT64 Reserved : 64;
+    };
+    UINT64 AsUINT64;
+} WHV_ARM64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
+
+#endif /* __x86_64__ || __aarch64__ */
 
 #define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
 
