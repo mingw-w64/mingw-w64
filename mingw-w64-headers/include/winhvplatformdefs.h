@@ -124,7 +124,7 @@ typedef enum WHV_PROCESSOR_VENDOR {
     WHvProcessorVendorArm = 0x0010
 } WHV_PROCESSOR_VENDOR;
 
-typedef union WHV_PROCESSOR_FEATURES {
+typedef union WHV_X64_PROCESSOR_FEATURES {
     __C89_NAMELESS struct {
         UINT64 Sse3Support : 1;
         UINT64 LahfSahfSupport : 1;
@@ -172,7 +172,7 @@ typedef union WHV_PROCESSOR_FEATURES {
         UINT64 IbrsSupport : 1;
         UINT64 StibpSupport : 1;
         UINT64 IbpbSupport : 1;
-        UINT64 Reserved2 : 1;
+        UINT64 UnrestrictedGuestSupport : 1;
         UINT64 SsbdSupport : 1;
         UINT64 FastShortRepMovSupport : 1;
         UINT64 Reserved3 : 1;
@@ -191,9 +191,9 @@ typedef union WHV_PROCESSOR_FEATURES {
         UINT64 Reserved6 : 1;
     };
     UINT64 AsUINT64;
-} WHV_PROCESSOR_FEATURES;
+} WHV_X64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES) == sizeof(UINT64));
 
 typedef union WHV_PROCESSOR_FEATURES1 {
     __C89_NAMELESS struct {
