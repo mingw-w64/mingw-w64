@@ -244,55 +244,73 @@ C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR
 
 typedef union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     __C89_NAMELESS struct {
-        UINT64 HypervisorPresent:1;
-        UINT64 Hv1:1;
-        UINT64 AccessVpRunTimeReg:1;
-        UINT64 AccessPartitionReferenceCounter:1;
-        UINT64 AccessSynicRegs:1;
-        UINT64 AccessSyntheticTimerRegs:1;
+        UINT64 HypervisorPresent : 1;
+        UINT64 Hv1 : 1;
+        UINT64 AccessVpRunTimeReg : 1;
+        UINT64 AccessPartitionReferenceCounter : 1;
+        UINT64 AccessSynicRegs : 1;
+        UINT64 AccessSyntheticTimerRegs : 1;
+        UINT64 AccessIntrCtrlRegs : 1;
+        UINT64 AccessHypercallRegs : 1;
+        UINT64 AccessVpIndex : 1;
+        UINT64 AccessPartitionReferenceTsc : 1;
 #ifdef __x86_64__
-        UINT64 AccessIntrCtrlRegs:1;
+        UINT64 AccessGuestIdleReg : 1;
+        UINT64 AccessFrequencyRegs : 1;
 #else
-        UINT64 ReservedZ6:1;
+        UINT64 ReservedZ10 : 1;
+        UINT64 ReservedZ11 : 1;
 #endif
-        UINT64 AccessHypercallRegs:1;
-        UINT64 AccessVpIndex:1;
-        UINT64 AccessPartitionReferenceTsc:1;
+        UINT64 ReservedZ12 : 1;
+        UINT64 ReservedZ13 : 1;
+        UINT64 ReservedZ14 : 1;
 #ifdef __x86_64__
-        UINT64 AccessGuestIdleReg:1;
-        UINT64 AccessFrequencyRegs:1;
+        UINT64 EnableExtendedGvaRangesForFlushVirtualAddressList : 1;
 #else
-        UINT64 ReservedZ10:1;
-        UINT64 ReservedZ11:1;
+        UINT64 ReservedZ15 : 1;
 #endif
-        UINT64 ReservedZ12:1;
-        UINT64 ReservedZ13:1;
-        UINT64 ReservedZ14:1;
+        UINT64 ReservedZ16 : 1;
+        UINT64 ReservedZ17 : 1;
+        UINT64 FastHypercallOutput : 1;
+        UINT64 ReservedZ19 : 1;
+        UINT64 ReservedZ20 : 1;
+        UINT64 ReservedZ21 : 1;
+        UINT64 DirectSyntheticTimers : 1;
+        UINT64 ReservedZ23 : 1;
+        UINT64 ExtendedProcessorMasks : 1;
 #ifdef __x86_64__
-        UINT64 EnableExtendedGvaRangesForFlushVirtualAddressList:1;
+        UINT64 TbFlushHypercalls : 1;
 #else
-        UINT64 ReservedZ15:1;
+        UINT64 ReservedZ25 : 1;
 #endif
-        UINT64 ReservedZ16:1;
-        UINT64 ReservedZ17:1;
-        UINT64 FastHypercallOutput:1;
-        UINT64 ReservedZ19:1;
-        UINT64 ReservedZ20:1;
-        UINT64 ReservedZ21:1;
-        UINT64 DirectSyntheticTimers:1;
-        UINT64 ReservedZ23:1;
-        UINT64 ExtendedProcessorMasks:1;
+        UINT64 SyntheticClusterIpi : 1;
+        UINT64 NotifyLongSpinWait : 1;
+        UINT64 QueryNumaDistance : 1;
+        UINT64 SignalEvents : 1;
+        UINT64 RetargetDeviceInterrupt : 1;
 #ifdef __x86_64__
-        UINT64 TbFlushHypercalls:1;
+        UINT64 RestoreTime : 1;
+        UINT64 EnlightenedVmcs : 1;
+        UINT64 NestedDebugCtl : 1;
+        UINT64 SyntheticTimeUnhaltedTimer : 1;
+        UINT64 IdleSpecCtrl : 1;
 #else
-        UINT64 ReservedZ25:1;
+        UINT64 ReservedZ31 : 1;
+        UINT64 ReservedZ32 : 1;
+        UINT64 ReservedZ33 : 1;
+        UINT64 ReservedZ34 : 1;
+        UINT64 ReservedZ35 : 1;
 #endif
-        UINT64 SyntheticClusterIpi:1;
-        UINT64 NotifyLongSpinWait:1;
-        UINT64 QueryNumaDistance:1;
-        UINT64 SignalEvents:1;
-        UINT64 RetargetDeviceInterrupt:1;
-        UINT64 Reserved:33;
+        UINT64 ReservedZ36 : 1;
+        UINT64 WakeVps : 1;
+        UINT64 AccessVpRegs : 1;
+#ifdef __aarch64__
+        UINT64 SyncContext : 1;
+#else
+        UINT64 ReservedZ39 : 1;
+#endif
+        UINT64 ReservedZ40 : 1;
+        UINT64 Reserved : 23;
     };
     UINT64 AsUINT64;
 } WHV_SYNTHETIC_PROCESSOR_FEATURES;
