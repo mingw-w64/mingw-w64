@@ -195,19 +195,20 @@ typedef union WHV_X64_PROCESSOR_FEATURES {
 
 C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES) == sizeof(UINT64));
 
-typedef union WHV_PROCESSOR_FEATURES1 {
+typedef union WHV_X64_PROCESSOR_FEATURES1 {
     __C89_NAMELESS struct {
         UINT64 ACountMCountSupport : 1;
         UINT64 TscInvariantSupport : 1;
         UINT64 ClZeroSupport : 1;
         UINT64 RdpruSupport : 1;
-        UINT64 Reserved2 : 2;
+        UINT64 La57Support : 1;
+        UINT64 MbecSupport : 1;
         UINT64 NestedVirtSupport : 1;
         UINT64 PsfdSupport: 1;
         UINT64 CetSsSupport : 1;
         UINT64 CetIbtSupport : 1;
         UINT64 VmxExceptionInjectSupport : 1;
-        UINT64 Reserved4 : 1;
+        UINT64 Reserved2 : 1;
         UINT64 UmwaitTpauseSupport : 1;
         UINT64 MovdiriSupport : 1;
         UINT64 Movdir64bSupport : 1;
@@ -219,12 +220,41 @@ typedef union WHV_PROCESSOR_FEATURES1 {
         UINT64 FSRepStosb : 1;
         UINT64 FSRepCmpsb : 1;
         UINT64 TsxLdTrkSupport : 1;
-        UINT64 Reserved5 : 41;
+        UINT64 VmxInsOutsExitInfoSupport : 1;
+        UINT64 Reserved3 : 1;
+        UINT64 SbdrSsdpNoSupport : 1;
+        UINT64 FbsdpNoSupport : 1;
+        UINT64 PsdpNoSupport : 1;
+        UINT64 FbClearSupport : 1;
+        UINT64 BtcNoSupport : 1;
+        UINT64 IbpbRsbFlushSupport : 1;
+        UINT64 StibpAlwaysOnSupport : 1;
+        UINT64 PerfGlobalCtrlSupport : 1;
+        UINT64 NptExecuteOnlySupport : 1;
+        UINT64 NptADFlagsSupport : 1;
+        UINT64 Npt1GbPageSupport : 1;
+        UINT64 Reserved4 : 1;
+        UINT64 Reserved5 : 1;
+        UINT64 Reserved6 : 1;
+        UINT64 Reserved7 : 1;
+        UINT64 CmpccxaddSupport : 1;
+        UINT64 Reserved8 : 1;
+        UINT64 Reserved9 : 1;
+        UINT64 Reserved10 : 1;
+        UINT64 Reserved11 : 1;
+        UINT64 PrefetchISupport : 1;
+        UINT64 Sha512Support : 1;
+        UINT64 Reserved12 : 1;
+        UINT64 Reserved13 : 1;
+        UINT64 Reserved14 : 1;
+        UINT64 SM3Support : 1;
+        UINT64 SM4Support : 1;
+        UINT64 Reserved15 : 12;
     };
     UINT64 AsUINT64;
-} WHV_PROCESSOR_FEATURES1;
+} WHV_X64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES1) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES1) == sizeof(UINT64));
 
 #define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
 
