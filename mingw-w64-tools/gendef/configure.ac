@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([mingw-w64-gendef],[1.0],[mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64-gendef],[1.1],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/gendef.c])
 AC_CONFIG_HEADERS([config.h])
