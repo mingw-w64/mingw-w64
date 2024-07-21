@@ -374,6 +374,7 @@ typedef struct sAddresses {
 
 int gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData, uint32_t *at);
 int gendef_addpath_def (const char *path);
+void gendef_no_include_current_dir (void);
 
 #pragma pack()
 

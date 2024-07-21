@@ -121,6 +121,11 @@ opt_chain (const char *opts, const char *next)
       gendef_addpath_def (next);
       return 1;
     }
+  if (!strcmp (opts, "--no-include-current-dir"))
+    {
+      gendef_no_include_current_dir ();
+      return 0;
+    }
   if (!strcmp (opts, "--no-forward-output") || !strcmp (opts, "-f"))
     {
       no_forward_output = 1;
@@ -183,6 +188,8 @@ show_usage (void)
     "                           convention as stdcall.\n"
     "  -I, --include-def-path <path>\n"
     "                           Add additional search paths to find\n"
+    "                           hint .def files.\n"
+    "  --no-include-current-dir Don't search current directory to find\n"
     "                           hint .def files.\n"
     "  -f, --no-forward-output  Don't output forwarders in .def file\n"
 #ifdef REDIRECTOR

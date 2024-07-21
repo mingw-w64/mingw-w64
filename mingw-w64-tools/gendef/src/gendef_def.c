@@ -41,6 +41,7 @@ typedef struct sDefPaths {
 } sDefPaths;
 
 static sDefPaths *thePathDefs;
+static int theIncludeCurrentDir = 1;
 
 static int find_path_def (const char *path);
 static int add_path_def (const char *path);
@@ -132,7 +133,7 @@ fopen_def (const char *name)
 {
   sDefPaths *l = thePathDefs;
   FILE *fp;
-  if ((fp = fopen (name, "rb")) != NULL)
+  if (theIncludeCurrentDir && (fp = fopen (name, "rb")) != NULL)
     return fp;
   while (l != NULL)
     {
@@ -304,3 +305,7 @@ add_path_def (const char *path)
   return 1;
 }
 
+void gendef_no_include_current_dir (void)
+{
+  theIncludeCurrentDir = 0;
+}
