@@ -312,6 +312,12 @@ load_pep (void)
       gPEPDta = NULL;
       fprintf (stderr, " * [%s] Found PE image\n", fninput);
     }
+  else if (gPEDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL32_HEADER
+      && gPEDta->OptionalHeader.Magic == 0 && gPEDta->FileHeader.Machine == 0x014c /* IMAGE_FILE_MACHINE_I386 */)
+    {
+      gPEPDta = NULL;
+      fprintf (stderr, " * [%s] Found PE image for I386 with zeroed NT magic\n", fninput);
+    }
   else if (gPEPDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL64_HEADER
     && gPEPDta->OptionalHeader.Magic == IMAGE_NT_OPTIONAL_HDR64_MAGIC)
     {
