@@ -657,17 +657,7 @@ dump_def (void)
       int seen_ret;
       seen_ret = 1;
       gExp = exp->next;
-      if (exp->name[0] == '?')
-        {
-          decode_mangle (fp, exp->name);
-        }
-      if (exp->name[0] == 0)
-        fprintf (fp, "ord_%u", (unsigned int) exp->ord);
-      else
-        {
-          const char *quote = strchr (exp->name, '.') ? "\"" : "";
-          fprintf (fp, "%s%s%s", quote, exp->name, quote);
-        }
+      int name_has_at_suffix = 0;
       if (exp->name[0] == '?' && exp->name[1] == '?')
         {
           if (!strncmp (exp->name, "??_7", 4))
@@ -705,11 +695,36 @@ dump_def (void)
       if (exp->be64)
         exp->retpop = 0;
 
+      if (exp->name[0] == '?')
+        {
+          decode_mangle (fp, exp->name);
+        }
+
+      if (exp->name[0] == '_' && !exp->be64 && has_atdecoration())
+        {
+          char at_suffix[12];
+          unsigned int retpop = exp->retpop != (uint32_t) -1 ? exp->retpop : 0;
+          int at_suffix_len = sprintf(at_suffix, "@%u", retpop);
+          int name_len = strlen(exp->name);
+          if (name_len > at_suffix_len && memcmp(&exp->name[name_len-at_suffix_len], at_suffix, at_suffix_len) == 0)
+            name_has_at_suffix = 1;
+        }
+      if (exp->name[0] == 0)
+        fprintf (fp, "ord_%u", (unsigned int) exp->ord);
+      else
+        {
+          const char *quote = strchr (exp->name, '.') ? "\"" : "";
+          const char *import_name = exp->name;
+          if (name_has_at_suffix)
+            import_name++;
+          fprintf (fp, "%s%s%s", quote, import_name, quote);
+        }
+
       if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration())
         {
           if (exp->name[0]=='?')
             fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
-          else
+          else if (!name_has_at_suffix)
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
       if (exp->func == 0 && no_forward_output == 0)
@@ -718,6 +733,11 @@ dump_def (void)
         fprintf(fp," @%u", (unsigned int) exp->ord);
       if (exp->beData)
         fprintf(fp," DATA");
+      if (name_has_at_suffix)
+        {
+          const char *quote = strchr (exp->name, '.') ? "\"" : "";
+          fprintf(fp, " == %s%s%s", quote, exp->name, quote);
+        }
 
       if (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ())
 	{
