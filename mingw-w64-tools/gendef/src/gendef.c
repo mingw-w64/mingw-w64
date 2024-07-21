@@ -658,6 +658,7 @@ dump_def (void)
       seen_ret = 1;
       gExp = exp->next;
       int name_has_at_suffix = 0;
+      int name_has_fastcall = 0;
       if (exp->name[0] == '?' && exp->name[1] == '?')
         {
           if (!strncmp (exp->name, "??_7", 4))
@@ -700,14 +701,31 @@ dump_def (void)
           decode_mangle (fp, exp->name);
         }
 
-      if (exp->name[0] == '_' && !exp->be64 && has_atdecoration())
+      if ((exp->name[0] == '_' || exp->name[0] == '@') && !exp->be64 && has_atdecoration())
         {
           char at_suffix[12];
           unsigned int retpop = exp->retpop != (uint32_t) -1 ? exp->retpop : 0;
-          int at_suffix_len = sprintf(at_suffix, "@%u", retpop);
           int name_len = strlen(exp->name);
-          if (name_len > at_suffix_len && memcmp(&exp->name[name_len-at_suffix_len], at_suffix, at_suffix_len) == 0)
-            name_has_at_suffix = 1;
+          if (exp->name[0] == '_')
+            {
+              int at_suffix_len = sprintf(at_suffix, "@%u", retpop);
+              if (name_len > at_suffix_len && memcmp(&exp->name[name_len-at_suffix_len], at_suffix, at_suffix_len) == 0)
+                name_has_at_suffix = 1;
+            }
+          else if (exp->name[0] == '@')
+            {
+              if (retpop == 0)
+                {
+                  if (name_len > 2 && exp->name[name_len-2] == '@' && (exp->name[name_len-1] == '0' || exp->name[name_len-1] == '4' || exp->name[name_len-1] == '8'))
+                    name_has_fastcall = 1;
+                }
+              else
+                {
+                  int at_suffix_len = sprintf(at_suffix, "@%u", retpop+8);
+                  if (name_len > at_suffix_len && memcmp(&exp->name[name_len-at_suffix_len], at_suffix, at_suffix_len) == 0)
+                    name_has_fastcall = 1;
+                }
+            }
         }
       if (exp->name[0] == 0)
         fprintf (fp, "ord_%u", (unsigned int) exp->ord);
@@ -724,7 +742,7 @@ dump_def (void)
         {
           if (exp->name[0]=='?')
             fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
-          else if (!name_has_at_suffix)
+          else if (!name_has_at_suffix && !name_has_fastcall)
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
       if (exp->func == 0 && no_forward_output == 0)
@@ -733,7 +751,7 @@ dump_def (void)
         fprintf(fp," @%u", (unsigned int) exp->ord);
       if (exp->beData)
         fprintf(fp," DATA");
-      if (name_has_at_suffix)
+      if (name_has_at_suffix || name_has_fastcall)
         {
           const char *quote = strchr (exp->name, '.') ? "\"" : "";
           fprintf(fp, " == %s%s%s", quote, exp->name, quote);
