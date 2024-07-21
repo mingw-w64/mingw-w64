@@ -755,7 +755,7 @@ dump_def (void)
       if (exp->func == 0 && no_forward_output == 0)
 	fprintf (fp, " = %s", exp->forward);
       if (exp->name[0] == 0)
-        fprintf(fp," @%u", (unsigned int) exp->ord);
+        fprintf(fp," @%u NONAME", (unsigned int) exp->ord);
       if (exp->beData)
         fprintf(fp," DATA");
       if (name_has_at_suffix || name_has_fastcall)
