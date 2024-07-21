@@ -769,7 +769,7 @@ dump_def (void)
 	}
       else if (pimpname)
         {
-	  fprintf (fp, " ; Check!!! forwards to %s in %s (ordinal %u)",
+	  fprintf (fp, " ; Check!!! return value is from %s in %s (ordinal %u)",
 	    pimpname->name, pimpname->dll, pimpname->ord);
         }
       else if (exp->func == 0 && !exp->beData)
