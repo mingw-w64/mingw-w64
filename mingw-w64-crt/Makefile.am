@@ -2035,7 +2035,7 @@ libarm32_LIBRARIES += libarm32/libmingwthrd.a
 libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
-processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr110d.def libarm32/msvcr120.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
+processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr110d.def libarm32/msvcr120.def libarm32/msvcr120d.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
 				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
@@ -2059,6 +2059,10 @@ libarm32/libmsvcr110d.a: lib-common/msvcr110d.mri libarm32/libmsvcr110d_def.a li
 
 libarm32_DATA += libarm32/libmsvcr120.a
 libarm32/libmsvcr120.a: lib-common/msvcr120.mri libarm32/libmsvcr120_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
+libarm32_DATA += libarm32/libmsvcr120d.a
+libarm32/libmsvcr120d.a: lib-common/msvcr120d.mri libarm32/libmsvcr120d_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libmsvcr120_app.a
