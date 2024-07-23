@@ -2035,7 +2035,7 @@ libarm32_LIBRARIES += libarm32/libmingwthrd.a
 libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
-processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
+processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
 				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
