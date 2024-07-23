@@ -2035,7 +2035,7 @@ libarm32_LIBRARIES += libarm32/libmingwthrd.a
 libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
-processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr110d.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
+processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr110d.def libarm32/msvcr120.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
 				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
@@ -2057,6 +2057,10 @@ libarm32_DATA += libarm32/libmsvcr110d.a
 libarm32/libmsvcr110d.a: lib-common/msvcr110d.mri libarm32/libmsvcr110d_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr110_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
+libarm32_DATA += libarm32/libmsvcr120.a
+libarm32/libmsvcr120.a: lib-common/msvcr120.mri libarm32/libmsvcr120_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_extra.a
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+
 libarm32_DATA += libarm32/libmsvcr120_app.a
 libarm32/libmsvcr120_app.a: lib-common/msvcr120_app.mri libarm32/libmsvcr120_app_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_app_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
@@ -2066,13 +2070,15 @@ libarm32/libucrtbase.a: lib-common/ucrtbase.mri libarm32/libucrtbase_def.a libar
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libucrt.a libarm32/libucrtapp.a
-noinst_LIBRARIES += libarm32/libmsvcrt_common.a libarm32/libmsvcrt_extra.a libarm32/libmsvcr110_extra.a libarm32/libmsvcr120_app_extra.a libarm32/libucrt_extra.a libarm32/libucrtapp_extra.a
+noinst_LIBRARIES += libarm32/libmsvcrt_common.a libarm32/libmsvcrt_extra.a libarm32/libmsvcr110_extra.a libarm32/libmsvcr120_extra.a libarm32/libmsvcr120_app_extra.a libarm32/libucrt_extra.a libarm32/libucrtapp_extra.a
 libarm32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_commonarm32)
 libarm32_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm32_libmsvcrt_extra_a_SOURCES = $(src_msvcrtarm32)
 libarm32_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
 libarm32_libmsvcr110_extra_a_SOURCES = $(src_msvcr110)
 libarm32_libmsvcr110_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+libarm32_libmsvcr120_extra_a_SOURCES = $(src_msvcr120)
+libarm32_libmsvcr120_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm32_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 libarm32_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm32_libucrt_extra_a_SOURCES = $(src_ucrtbasearm32)
