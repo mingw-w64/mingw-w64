@@ -464,6 +464,7 @@ src_msvcrt32=\
   misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctob.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c
@@ -495,7 +496,8 @@ src_msvcrt64=\
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
-  misc/wcrtomb.c
+  misc/wcrtomb.c \
+  misc/wctob.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
@@ -668,6 +670,7 @@ src_crtdll=\
   misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
@@ -721,6 +724,7 @@ src_msvcrt10=\
   misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
@@ -762,6 +766,7 @@ src_msvcrt20=\
   misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
@@ -798,6 +803,7 @@ src_msvcrt40=\
   misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -821,6 +827,7 @@ src_msvcr70=\
   misc/seterrno.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
@@ -841,6 +848,7 @@ src_msvcr71=\
   misc/seterrno.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wctob.c \
   misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
@@ -935,7 +943,7 @@ src_libmingwex=\
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
-  misc/wcstold.c         misc/wctob.c           \
+  misc/wcstold.c \
   misc/wctype.c          misc/wdirent.c             misc/winbs_uint64.c     misc/winbs_ulong.c           misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \
