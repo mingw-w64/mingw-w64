@@ -453,6 +453,7 @@ src_msvcrt32=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/btowc.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
@@ -488,6 +489,7 @@ src_msvcrt64=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/btowc.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c
@@ -695,6 +697,7 @@ src_msvcrt10=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/btowc.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -732,6 +735,7 @@ src_msvcrt20=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/btowc.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
@@ -765,6 +769,7 @@ src_msvcrt40=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/btowc.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -790,6 +795,7 @@ src_msvcr70=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/btowc.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -806,6 +812,7 @@ src_msvcr71=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/btowc.c \
   misc/imaxabs.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -888,7 +895,7 @@ src_libmingwex=\
   misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \
-  misc/btowc.c               misc/delay-f.c          misc/delay-n.c         \
+  misc/delay-f.c         misc/delay-n.c         \
   misc/delayimp.c        misc/dirent.c          \
   misc/dirname.c \
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
