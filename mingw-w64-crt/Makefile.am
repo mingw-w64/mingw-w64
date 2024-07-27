@@ -459,6 +459,7 @@ src_msvcrt32=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
@@ -496,6 +497,7 @@ src_msvcrt64=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
   misc/wctob.c
@@ -665,6 +667,7 @@ src_crtdll=\
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
@@ -720,6 +723,7 @@ src_msvcrt10=\
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
@@ -763,6 +767,7 @@ src_msvcrt20=\
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
@@ -801,6 +806,7 @@ src_msvcrt40=\
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
@@ -830,6 +836,7 @@ src_msvcr70=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
   misc/wctob.c \
@@ -852,6 +859,7 @@ src_msvcr71=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
+  misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
   misc/wctob.c \
@@ -950,7 +958,7 @@ src_libmingwex=\
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
   misc/mkstemp.c         misc/sleep.c           \
-  misc/strnlen.c         misc/strsafe.c         \
+  misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \

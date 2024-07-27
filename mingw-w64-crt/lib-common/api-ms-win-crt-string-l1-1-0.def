@@ -175,7 +175,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
-; strnlen replaced by emu
+strnlen
 strpbrk
 strspn
 strtok
