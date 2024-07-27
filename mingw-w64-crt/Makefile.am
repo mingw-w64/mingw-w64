@@ -301,6 +301,7 @@ src_msvcrt=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/purecall.c \
+  misc/wctrans.c \
   secapi/_vscprintf_p.c \
   secapi/_vscwprintf_p.c \
   secapi/_vswprintf_p.c \
@@ -665,6 +666,7 @@ src_crtdll=\
   misc/wassert.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -716,6 +718,7 @@ src_msvcrt10=\
   misc/wassert.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -755,6 +758,7 @@ src_msvcrt20=\
   misc/wassert.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctrans.c \
   stdio/_filelengthi64.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
@@ -789,6 +793,7 @@ src_msvcrt40=\
   misc/wassert.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  misc/wctrans.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c \
   stdio/atoll.c \
@@ -810,6 +815,7 @@ src_msvcr70=\
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
+  misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
   stdio/mingw_lock.c
@@ -828,6 +834,7 @@ src_msvcr71=\
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
+  misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
   stdio/mingw_lock.c
@@ -835,20 +842,24 @@ src_msvcr71=\
 src_msvcr80=\
   misc/imaxdiv.c \
   misc/isblank.c \
-  misc/iswblank.c
+  misc/iswblank.c \
+  misc/wctrans.c
 
 src_msvcr90=\
   misc/imaxdiv.c \
   misc/isblank.c \
-  misc/iswblank.c
+  misc/iswblank.c \
+  misc/wctrans.c
 
 src_msvcr100=\
   misc/isblank.c \
-  misc/iswblank.c
+  misc/iswblank.c \
+  misc/wctrans.c
 
 src_msvcr110=\
   misc/isblank.c \
-  misc/iswblank.c
+  misc/iswblank.c \
+  misc/wctrans.c
 
 src_msvcr120_app=\
   misc/__p___initenv.c \
@@ -917,7 +928,7 @@ src_libmingwex=\
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
   misc/wcsnlen.c         misc/wcstof.c          \
-  misc/wcstold.c         misc/wctob.c               misc/wctrans.c         \
+  misc/wcstold.c         misc/wctob.c           \
   misc/wctype.c          misc/wdirent.c             misc/winbs_uint64.c     misc/winbs_ulong.c           misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \
