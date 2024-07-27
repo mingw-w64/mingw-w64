@@ -714,6 +714,7 @@ lib64_DATA += %reldir%/libntoskrnl.a
 lib64_DATA += %reldir%/libuxtheme.a
 lib64_DATA += %reldir%/libwtsapi32.a
 lib64_DATA += %reldir%/libbcrypt.a
+lib64_DATA += %reldir%/libbcryptprimitives.a
 lib64_DATA += %reldir%/libbthprops.a
 lib64_DATA += %reldir%/libdhcpcsvc6.a
 lib64_DATA += %reldir%/libdxva2.a
