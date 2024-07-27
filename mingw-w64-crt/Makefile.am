@@ -162,7 +162,6 @@ src_msvcrt_common=\
   misc/mbsinit.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
-  misc/wcrtomb.c \
   stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
   stdio/_putc_nolock.c \
@@ -462,6 +461,7 @@ src_msvcrt32=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   stdio/_fstat64i32.c \
@@ -494,7 +494,8 @@ src_msvcrt64=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
-  misc/wassert.c
+  misc/wassert.c \
+  misc/wcrtomb.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
@@ -664,6 +665,7 @@ src_crtdll=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctrans.c \
@@ -716,6 +718,7 @@ src_msvcrt10=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctrans.c \
@@ -756,6 +759,7 @@ src_msvcrt20=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctrans.c \
@@ -791,6 +795,7 @@ src_msvcrt40=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctrans.c \
@@ -815,6 +820,7 @@ src_msvcr70=\
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
@@ -834,6 +840,7 @@ src_msvcr71=\
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
+  misc/wcrtomb.c \
   misc/wctrans.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
