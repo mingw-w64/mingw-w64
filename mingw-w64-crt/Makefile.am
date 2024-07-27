@@ -159,7 +159,6 @@ src_libws2_32=libsrc/ws2_32.c \
 
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
-  misc/mbrtowc.c \
   misc/mbsinit.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
@@ -456,6 +455,7 @@ src_msvcrt32=\
   misc/btowc.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/strtoimax.c \
@@ -490,6 +490,7 @@ src_msvcrt64=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/btowc.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c
@@ -655,6 +656,7 @@ src_crtdll=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/lc_locale_func.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
@@ -705,6 +707,7 @@ src_msvcrt10=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/lc_locale_func.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
@@ -743,6 +746,7 @@ src_msvcrt20=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/lc_locale_func.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
@@ -776,6 +780,7 @@ src_msvcrt40=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/lc_locale_func.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
   misc/seterrno.c \
@@ -801,6 +806,7 @@ src_msvcr70=\
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
   misc/iswblank.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
@@ -818,6 +824,7 @@ src_msvcr71=\
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
   misc/iswblank.c \
+  misc/mbrtowc.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
