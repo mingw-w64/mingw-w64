@@ -300,6 +300,7 @@ src_msvcrt=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/purecall.c \
   secapi/_vscprintf_p.c \
   secapi/_vscwprintf_p.c \
@@ -650,6 +651,7 @@ src_crtdll=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
   misc/purecall.c \
@@ -698,6 +700,7 @@ src_msvcrt10=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
   misc/purecall.c \
@@ -734,6 +737,7 @@ src_msvcrt20=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
   misc/purecall.c \
@@ -765,6 +769,7 @@ src_msvcrt40=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
   misc/purecall.c \
@@ -789,6 +794,7 @@ src_msvcr70=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
@@ -804,6 +810,7 @@ src_msvcr71=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/iswblank.c \
   misc/output_format.c \
   misc/seterrno.c \
   misc/wassert.c \
@@ -813,17 +820,21 @@ src_msvcr71=\
 
 src_msvcr80=\
   misc/imaxdiv.c \
-  misc/isblank.c
+  misc/isblank.c \
+  misc/iswblank.c
 
 src_msvcr90=\
   misc/imaxdiv.c \
-  misc/isblank.c
+  misc/isblank.c \
+  misc/iswblank.c
 
 src_msvcr100=\
-  misc/isblank.c
+  misc/isblank.c \
+  misc/iswblank.c
 
 src_msvcr110=\
-  misc/isblank.c
+  misc/isblank.c \
+  misc/iswblank.c
 
 src_msvcr120_app=\
   misc/__p___initenv.c \
@@ -883,7 +894,7 @@ src_libmingwex=\
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
   misc/feraiseexcept.c   misc/fesetenv.c            misc/fesetexceptflag.c  misc/fesetround.c            misc/fetestexcept.c    \
   misc/feupdateenv.c     misc/ftruncate.c           misc/fwide.c            misc/getlogin.c              misc/getopt.c          \
-  misc/gettimeofday.c    misc/iswblank.c        \
+  misc/gettimeofday.c \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
