@@ -14,6 +14,7 @@ libarm64_DATA += %reldir%/libavrt.a
 libarm64_DATA += %reldir%/libazroles.a
 libarm64_DATA += %reldir%/libbasesrv.a
 libarm64_DATA += %reldir%/libbcrypt.a
+libarm64_DATA += %reldir%/libbcryptprimitives.a
 libarm64_DATA += %reldir%/libbluetoothapis.a
 libarm64_DATA += %reldir%/libbootvid.a
 libarm64_DATA += %reldir%/libbrowcli.a
