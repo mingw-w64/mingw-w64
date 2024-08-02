@@ -458,7 +458,8 @@ src_msvcrt32=\
   misc/lc_locale_func.c \
   misc/mbrtowc.c \
   misc/output_format.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -497,7 +498,8 @@ src_msvcrt64=\
   misc/btowc.c \
   misc/mbrtowc.c \
   misc/output_format.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
@@ -668,7 +670,8 @@ src_crtdll=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -725,7 +728,8 @@ src_msvcrt10=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -770,7 +774,8 @@ src_msvcrt20=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -810,7 +815,8 @@ src_msvcrt40=\
   misc/mbrtowc.c \
   misc/output_format.c \
   misc/purecall.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
@@ -841,7 +847,8 @@ src_msvcr70=\
   misc/iswblank.c \
   misc/mbrtowc.c \
   misc/output_format.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
@@ -865,7 +872,8 @@ src_msvcr71=\
   misc/iswblank.c \
   misc/mbrtowc.c \
   misc/output_format.c \
-  misc/seterrno.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
