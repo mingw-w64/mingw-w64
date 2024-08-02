@@ -19,7 +19,7 @@ static int __cdecl emu_vscprintf(const char * __restrict__ format, va_list argli
 
     /* if format is a null pointer, _vscprintf() returns -1 and sets errno to EINVAL */
     if (!format) {
-        _set_errno(EINVAL);
+        errno = EINVAL;
         return -1;
     }
 
@@ -28,7 +28,7 @@ static int __cdecl emu_vscprintf(const char * __restrict__ format, va_list argli
     buffer = malloc(size);
 
     if (!buffer) {
-        _set_errno(ENOMEM);
+        errno = ENOMEM;
         return -1;
     }
 
@@ -45,7 +45,7 @@ static int __cdecl emu_vscprintf(const char * __restrict__ format, va_list argli
     free(buffer);
 
     if (ret < 0) {
-        _set_errno(ENOMEM);
+        errno = ENOMEM;
         return -1;
     }
 
