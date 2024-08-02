@@ -464,6 +464,7 @@ src_msvcrt32=\
   misc/strtoumax.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
@@ -500,6 +501,7 @@ src_msvcrt64=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wctob.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
@@ -672,6 +674,7 @@ src_crtdll=\
   misc/strtoumax.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
@@ -728,6 +731,7 @@ src_msvcrt10=\
   misc/strtoumax.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
@@ -772,6 +776,7 @@ src_msvcrt20=\
   misc/strtoumax.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
@@ -811,6 +816,7 @@ src_msvcrt40=\
   misc/strtoumax.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
@@ -839,6 +845,7 @@ src_msvcr70=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wctob.c \
   misc/wctrans.c \
   misc/wctype.c \
@@ -862,6 +869,7 @@ src_msvcr71=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsnlen.c \
   misc/wctob.c \
   misc/wctrans.c \
   misc/wctype.c \
@@ -961,7 +969,7 @@ src_libmingwex=\
   misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
-  misc/wcsnlen.c         misc/wcstof.c          \
+  misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
