@@ -353,6 +353,7 @@ src_msvcrt_add_x86=\
 # Files included in libucrt*.a
 src_ucrtbase=\
   misc/ucrt_compat.c \
+  misc/ucrt__onexit.c \
   misc/ucrt__getmainargs.c \
   misc/ucrt__wgetmainargs.c \
   math/_huge.c \

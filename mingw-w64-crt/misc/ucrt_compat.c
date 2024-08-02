@@ -37,13 +37,6 @@ int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 extern char __mingw_module_is_dll;
 
 
-_onexit_t __cdecl _onexit(_onexit_t func)
-{
-  return _crt_atexit((_PVFV)func) == 0 ? func : NULL;
-}
-
-_onexit_t __cdecl (*__MINGW_IMP_SYMBOL(_onexit))(_onexit_t func) = _onexit;
-
 int __cdecl at_quick_exit(void (__cdecl *func)(void))
 {
   // In a DLL, we can't register a function with _crt_at_quick_exit, because
