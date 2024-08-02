@@ -34,20 +34,6 @@ unsigned int __cdecl _get_output_format(void);
 
 int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 
-extern char __mingw_module_is_dll;
-
-
-int __cdecl at_quick_exit(void (__cdecl *func)(void))
-{
-  // In a DLL, we can't register a function with _crt_at_quick_exit, because
-  // we can't unregister it when the DLL is unloaded. This matches how
-  // at_quick_exit/quick_exit work with MSVC with a dynamically linked CRT.
-  if (__mingw_module_is_dll)
-    return 0;
-  return _crt_at_quick_exit(func);
-}
-
-int __cdecl (*__MINGW_IMP_SYMBOL(at_quick_exit))(void (__cdecl *)(void)) = at_quick_exit;
 
 void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret) {
   fprintf(stderr, "runtime error %d\n", ret);
