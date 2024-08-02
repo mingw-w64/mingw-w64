@@ -21,11 +21,12 @@ toolchain, users can specify a version of the runtime DLL using the
 --with-default-msvcrt= configure option. The most commonly used versions are
 ucrt (utilizing ucrtbase.dll) and msvcrt (utilizing msvcrt.dll).
 
-The implementation of msvcrt.dll dates back to the Windows 9x era. While it has
+The implementation of msvcrt.dll was introduced with Visual C++ 4.2 in 1996.
+As a system library it is included since Windows 98 and NT 4. While it has
 been extended for a period, it eventually became frozen in favor of providing
 separate DLLs for future MSVC versions. Although msvcrt.dll continues to be
 shipped with modern Windows versions, it remains compatible with the version
-from the 1990s. msvcrt.dll is known to deviate from standard behavior in many
+from the 1996. msvcrt.dll is known to deviate from standard behavior in many
 aspects. mingw-w64 includes compatibility wrappers and extensions to improve
 standard compatibility, but there are limitations to what can be practically
 achieved.
