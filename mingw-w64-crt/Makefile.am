@@ -352,7 +352,7 @@ src_msvcrt_add_x86=\
 
 # Files included in libucrt*.a
 src_ucrtbase=\
-  crt/ucrtbase_compat.c \
+  misc/ucrt_compat.c \
   math/_huge.c \
   misc/__badioinfo.c \
   misc/__p___initenv.c \
@@ -385,7 +385,7 @@ src_ucrtbase=\
 
 # Files included in libucrtapp.a
 src_ucrtapp=\
-  crt/__C_specific_handler.c \
+  misc/__C_specific_handler.c \
   misc/longjmp.S \
   misc/setjmp.S \
   string/memchr.c \
@@ -636,8 +636,8 @@ src_msvcrtarm64=\
   stdio/gets.c
 
 src_crtdll=\
-  crt/crtdll_getmainargs.c \
-  crt/crtdll_ismbblead.c \
+  misc/crtdll__getmainargs.c \
+  misc/crtdll__ismbblead.c \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
@@ -695,8 +695,8 @@ src_crtdll=\
   stdio/mingw_lock.c
 
 src_msvcrt10=\
-  crt/crtdll_getmainargs.c \
-  crt/msvcrt10_ismbblead.c \
+  misc/crtdll__getmainargs.c \
+  misc/msvcrt10__ismbblead.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
   misc/__initenv.c \
@@ -753,8 +753,8 @@ src_msvcrt10=\
   stdio/mingw_lock.c
 
 src_msvcrt20=\
-  crt/msvcrt20_getmainargs.c \
-  crt/msvcrt20_wgetmainargs.c \
+  misc/msvcrt20__getmainargs.c \
+  misc/msvcrt20__wgetmainargs.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
   misc/__pctype_func.c \
@@ -923,7 +923,7 @@ src_msvcr120_app=\
 src_libmingwex=\
   cfguard/mingw_cfguard_support.c \
   \
-  crt/dllentry.c        crt/dllmain.c \
+  misc/dllentrypoint.c misc/dllmain.c \
   \
   complex/_cabs.c    complex/cabs.c   complex/cabsf.c   complex/cabsl.c   complex/cacos.c   complex/cacosf.c   \
   complex/cacosl.c   complex/carg.c   complex/cargf.c   complex/cargl.c   complex/casin.c   complex/casinf.c   \
