@@ -12,8 +12,6 @@
 #undef __MSVCRT_VERSION__
 #define _UCRT
 
-#define __getmainargs crtimp___getmainargs
-#define __wgetmainargs crtimp___wgetmainargs
 #define _amsg_exit crtimp__amsg_exit
 #define _get_output_format crtimp__get_output_format
 
@@ -23,8 +21,6 @@
 #include <time.h>
 #include <corecrt_startup.h>
 
-#undef __getmainargs
-#undef __wgetmainargs
 #undef _amsg_exit
 #undef _get_output_format
 
@@ -33,55 +29,13 @@
 // Declarations of non-static functions implemented within this file (that aren't
 // declared in any of the included headers, and that isn't mapped away with a define
 // to get rid of the _CRTIMP in headers).
-int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
-int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
 void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret);
 unsigned int __cdecl _get_output_format(void);
 
 int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 
-// Declarations of functions from ucrtbase.dll that we use below
-_CRTIMP int* __cdecl __p___argc(void);
-_CRTIMP char*** __cdecl __p___argv(void);
-_CRTIMP wchar_t*** __cdecl __p___wargv(void);
-_CRTIMP char*** __cdecl __p__environ(void);
-_CRTIMP wchar_t*** __cdecl __p__wenviron(void);
-
-_CRTIMP int __cdecl _initialize_narrow_environment(void);
-_CRTIMP int __cdecl _initialize_wide_environment(void);
-_CRTIMP int __cdecl _configure_narrow_argv(int mode);
-_CRTIMP int __cdecl _configure_wide_argv(int mode);
-
-// Declared in new.h, but only visible to C++
-_CRTIMP int __cdecl _set_new_mode(int _NewMode);
-
 extern char __mingw_module_is_dll;
 
-
-// Wrappers with legacy msvcrt.dll style API, based on the new ucrtbase.dll functions.
-int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWildCard, _startupinfo *_StartInfo)
-{
-  _initialize_narrow_environment();
-  _configure_narrow_argv(_DoWildCard ? 2 : 1);
-  *_Argc = *__p___argc();
-  *_Argv = *__p___argv();
-  *_Env = *__p__environ();
-  if (_StartInfo)
-    _set_new_mode(_StartInfo->newmode);
-  return 0;
-}
-
-int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo)
-{
-  _initialize_wide_environment();
-  _configure_wide_argv(_DoWildCard ? 2 : 1);
-  *_Argc = *__p___argc();
-  *_Argv = *__p___wargv();
-  *_Env = *__p__wenviron();
-  if (_StartInfo)
-    _set_new_mode(_StartInfo->newmode);
-  return 0;
-}
 
 _onexit_t __cdecl _onexit(_onexit_t func)
 {
@@ -158,8 +112,6 @@ int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
 }
 
 // Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
-int __cdecl (*__MINGW_IMP_SYMBOL(__getmainargs))(int *, char ***, char ***, int, _startupinfo *) = __getmainargs;
-int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t ***, int, _startupinfo *) = __wgetmainargs;
 void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
 unsigned int __cdecl (*__MINGW_IMP_SYMBOL(_get_output_format))(void) = _get_output_format;
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
