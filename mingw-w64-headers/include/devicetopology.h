@@ -901,9 +901,9 @@ static __WIDL_INLINE HRESULT IAudioChannelConfig_GetChannelConfig(IAudioChannelC
 #ifndef __IAudioLoudness_INTERFACE_DEFINED__
 #define __IAudioLoudness_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IAudioLoudness, 0x7d8b1437, 0xdd53, 0x4350, 0x9c,0x1b, 0x1e,0xe2,0x89,0x0b,0xf9,0x38);
+DEFINE_GUID(IID_IAudioLoudness, 0x7d8b1437, 0xdd53, 0x4350, 0x9c,0x1b, 0x1e,0xe2,0x89,0x0b,0xd9,0x38);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("7d8b1437-dd53-4350-9c1b-1ee2890bf938")
+MIDL_INTERFACE("7d8b1437-dd53-4350-9c1b-1ee2890bd938")
 IAudioLoudness : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetEnabled(
@@ -915,7 +915,7 @@ IAudioLoudness : public IUnknown
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IAudioLoudness, 0x7d8b1437, 0xdd53, 0x4350, 0x9c,0x1b, 0x1e,0xe2,0x89,0x0b,0xf9,0x38)
+__CRT_UUID_DECL(IAudioLoudness, 0x7d8b1437, 0xdd53, 0x4350, 0x9c,0x1b, 0x1e,0xe2,0x89,0x0b,0xd9,0x38)
 #endif
 #else
 typedef struct IAudioLoudnessVtbl {

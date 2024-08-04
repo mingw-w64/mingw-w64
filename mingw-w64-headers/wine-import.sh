@@ -54,10 +54,8 @@ for f in \
 	d3d10misc.h \
 	d3d11shader.h \
 	d3d8caps.h \
-	d3d8.h \
 	d3d8types.h \
 	d3d9caps.h \
-	d3d9.h \
 	d3d9types.h \
 	d3dcaps.h \
 	d3dcompiler.h \

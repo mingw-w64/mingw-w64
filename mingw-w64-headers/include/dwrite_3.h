@@ -871,9 +871,9 @@ static __WIDL_INLINE DWRITE_RENDERING_MODE1 IDWriteRenderingParams3_GetRendering
 #ifndef __IDWriteStringList_INTERFACE_DEFINED__
 #define __IDWriteStringList_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IDWriteStringList, 0xcfee3140, 0x1257, 0x47ca, 0x8b,0x85, 0x31,0xbf,0xcf,0x3f,0x2d,0x0e);
+DEFINE_GUID(IID_IDWriteStringList, 0xcfee3140, 0x1157, 0x47ca, 0x8b,0x85, 0x31,0xbf,0xcf,0x3f,0x2d,0x0e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("cfee3140-1257-47ca-8b85-31bfcf3f2d0e")
+MIDL_INTERFACE("cfee3140-1157-47ca-8b85-31bfcf3f2d0e")
 IDWriteStringList : public IUnknown
 {
     virtual UINT32 STDMETHODCALLTYPE GetCount(
@@ -899,7 +899,7 @@ IDWriteStringList : public IUnknown
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IDWriteStringList, 0xcfee3140, 0x1257, 0x47ca, 0x8b,0x85, 0x31,0xbf,0xcf,0x3f,0x2d,0x0e)
+__CRT_UUID_DECL(IDWriteStringList, 0xcfee3140, 0x1157, 0x47ca, 0x8b,0x85, 0x31,0xbf,0xcf,0x3f,0x2d,0x0e)
 #endif
 #else
 typedef struct IDWriteStringListVtbl {

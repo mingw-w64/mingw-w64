@@ -1202,7 +1202,7 @@ static __WIDL_INLINE void IXAudio2SubmixVoice_DestroyVoice(IXAudio2SubmixVoice* 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 interface IXAudio2MasteringVoice : public IXAudio2Voice
 {
-    virtual void STDMETHODCALLTYPE GetChannelMask(
+    virtual HRESULT STDMETHODCALLTYPE GetChannelMask(
         DWORD *pChannelMask) = 0;
 
 };
@@ -1310,7 +1310,7 @@ typedef struct IXAudio2MasteringVoiceVtbl {
         IXAudio2MasteringVoice *This);
 
     /*** IXAudio2MasteringVoice methods ***/
-    void (STDMETHODCALLTYPE *GetChannelMask)(
+    HRESULT (STDMETHODCALLTYPE *GetChannelMask)(
         IXAudio2MasteringVoice *This,
         DWORD *pChannelMask);
 
@@ -1405,8 +1405,8 @@ static __WIDL_INLINE void IXAudio2MasteringVoice_DestroyVoice(IXAudio2MasteringV
     This->lpVtbl->DestroyVoice(This);
 }
 /*** IXAudio2MasteringVoice methods ***/
-static __WIDL_INLINE void IXAudio2MasteringVoice_GetChannelMask(IXAudio2MasteringVoice* This,DWORD *pChannelMask) {
-    This->lpVtbl->GetChannelMask(This,pChannelMask);
+static __WIDL_INLINE HRESULT IXAudio2MasteringVoice_GetChannelMask(IXAudio2MasteringVoice* This,DWORD *pChannelMask) {
+    return This->lpVtbl->GetChannelMask(This,pChannelMask);
 }
 #endif
 #endif

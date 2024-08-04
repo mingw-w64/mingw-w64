@@ -114,6 +114,22 @@ interface IRunningTaskCollection;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ITaskNamedValuePair_FWD_DEFINED__
+#define __ITaskNamedValuePair_FWD_DEFINED__
+typedef interface ITaskNamedValuePair ITaskNamedValuePair;
+#ifdef __cplusplus
+interface ITaskNamedValuePair;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ITaskNamedValueCollection_FWD_DEFINED__
+#define __ITaskNamedValueCollection_FWD_DEFINED__
+typedef interface ITaskNamedValueCollection ITaskNamedValueCollection;
+#ifdef __cplusplus
+interface ITaskNamedValueCollection;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ITrigger_FWD_DEFINED__
 #define __ITrigger_FWD_DEFINED__
 typedef interface ITrigger ITrigger;
@@ -122,11 +138,83 @@ interface ITrigger;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IIdleTrigger_FWD_DEFINED__
+#define __IIdleTrigger_FWD_DEFINED__
+typedef interface IIdleTrigger IIdleTrigger;
+#ifdef __cplusplus
+interface IIdleTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ILogonTrigger_FWD_DEFINED__
+#define __ILogonTrigger_FWD_DEFINED__
+typedef interface ILogonTrigger ILogonTrigger;
+#ifdef __cplusplus
+interface ILogonTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ISessionStateChangeTrigger_FWD_DEFINED__
+#define __ISessionStateChangeTrigger_FWD_DEFINED__
+typedef interface ISessionStateChangeTrigger ISessionStateChangeTrigger;
+#ifdef __cplusplus
+interface ISessionStateChangeTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IEventTrigger_FWD_DEFINED__
+#define __IEventTrigger_FWD_DEFINED__
+typedef interface IEventTrigger IEventTrigger;
+#ifdef __cplusplus
+interface IEventTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ITimeTrigger_FWD_DEFINED__
+#define __ITimeTrigger_FWD_DEFINED__
+typedef interface ITimeTrigger ITimeTrigger;
+#ifdef __cplusplus
+interface ITimeTrigger;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IDailyTrigger_FWD_DEFINED__
 #define __IDailyTrigger_FWD_DEFINED__
 typedef interface IDailyTrigger IDailyTrigger;
 #ifdef __cplusplus
 interface IDailyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWeeklyTrigger_FWD_DEFINED__
+#define __IWeeklyTrigger_FWD_DEFINED__
+typedef interface IWeeklyTrigger IWeeklyTrigger;
+#ifdef __cplusplus
+interface IWeeklyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMonthlyTrigger_FWD_DEFINED__
+#define __IMonthlyTrigger_FWD_DEFINED__
+typedef interface IMonthlyTrigger IMonthlyTrigger;
+#ifdef __cplusplus
+interface IMonthlyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMonthlyDOWTrigger_FWD_DEFINED__
+#define __IMonthlyDOWTrigger_FWD_DEFINED__
+typedef interface IMonthlyDOWTrigger IMonthlyDOWTrigger;
+#ifdef __cplusplus
+interface IMonthlyDOWTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IBootTrigger_FWD_DEFINED__
+#define __IBootTrigger_FWD_DEFINED__
+typedef interface IBootTrigger IBootTrigger;
+#ifdef __cplusplus
+interface IBootTrigger;
 #endif /* __cplusplus */
 #endif
 
@@ -143,14 +231,6 @@ interface IRegistrationTrigger;
 typedef interface ITriggerCollection ITriggerCollection;
 #ifdef __cplusplus
 interface ITriggerCollection;
-#endif /* __cplusplus */
-#endif
-
-#ifndef __ITimeTrigger_FWD_DEFINED__
-#define __ITimeTrigger_FWD_DEFINED__
-typedef interface ITimeTrigger ITimeTrigger;
-#ifdef __cplusplus
-interface ITimeTrigger;
 #endif /* __cplusplus */
 #endif
 
@@ -259,8 +339,17 @@ typedef enum _TASK_TRIGGER_TYPE2 {
     TASK_TRIGGER_REGISTRATION = 7,
     TASK_TRIGGER_BOOT = 8,
     TASK_TRIGGER_LOGON = 9,
-    TASK_TRIGGER_SESSION_STATE_CHANGE = 11
+    TASK_TRIGGER_SESSION_STATE_CHANGE = 11,
+    TASK_TRIGGER_CUSTOM_TRIGGER_01 = 12
 } TASK_TRIGGER_TYPE2;
+typedef enum _TASK_SESSION_STATE_CHANGE_TYPE {
+    TASK_CONSOLE_CONNECT = 1,
+    TASK_CONSOLE_DISCONNECT = 2,
+    TASK_REMOTE_CONNECT = 3,
+    TASK_REMOTE_DISCONNECT = 4,
+    TASK_SESSION_LOCK = 7,
+    TASK_SESSION_UNLOCK = 8
+} TASK_SESSION_STATE_CHANGE_TYPE;
 typedef enum _TASK_ACTION_TYPE {
     TASK_ACTION_EXEC = 0,
     TASK_ACTION_COM_HANDLER = 5,
@@ -277,7 +366,10 @@ typedef enum _TASK_COMPATIBILITY {
     TASK_COMPATIBILITY_AT = 0,
     TASK_COMPATIBILITY_V1 = 1,
     TASK_COMPATIBILITY_V2 = 2,
-    TASK_COMPATIBILITY_V2_1 = 3
+    TASK_COMPATIBILITY_V2_1 = 3,
+    TASK_COMPATIBILITY_V2_2 = 4,
+    TASK_COMPATIBILITY_V2_3 = 5,
+    TASK_COMPATIBILITY_V2_4 = 6
 } TASK_COMPATIBILITY;
 typedef enum _TASK_CREATION {
     TASK_VALIDATE_ONLY = 1,
@@ -376,6 +468,22 @@ interface IRunningTaskCollection;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ITaskNamedValuePair_FWD_DEFINED__
+#define __ITaskNamedValuePair_FWD_DEFINED__
+typedef interface ITaskNamedValuePair ITaskNamedValuePair;
+#ifdef __cplusplus
+interface ITaskNamedValuePair;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ITaskNamedValueCollection_FWD_DEFINED__
+#define __ITaskNamedValueCollection_FWD_DEFINED__
+typedef interface ITaskNamedValueCollection ITaskNamedValueCollection;
+#ifdef __cplusplus
+interface ITaskNamedValueCollection;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ITrigger_FWD_DEFINED__
 #define __ITrigger_FWD_DEFINED__
 typedef interface ITrigger ITrigger;
@@ -392,11 +500,91 @@ interface ITriggerCollection;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IIdleTrigger_FWD_DEFINED__
+#define __IIdleTrigger_FWD_DEFINED__
+typedef interface IIdleTrigger IIdleTrigger;
+#ifdef __cplusplus
+interface IIdleTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ILogonTrigger_FWD_DEFINED__
+#define __ILogonTrigger_FWD_DEFINED__
+typedef interface ILogonTrigger ILogonTrigger;
+#ifdef __cplusplus
+interface ILogonTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ISessionStateChangeTrigger_FWD_DEFINED__
+#define __ISessionStateChangeTrigger_FWD_DEFINED__
+typedef interface ISessionStateChangeTrigger ISessionStateChangeTrigger;
+#ifdef __cplusplus
+interface ISessionStateChangeTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IEventTrigger_FWD_DEFINED__
+#define __IEventTrigger_FWD_DEFINED__
+typedef interface IEventTrigger IEventTrigger;
+#ifdef __cplusplus
+interface IEventTrigger;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ITimeTrigger_FWD_DEFINED__
 #define __ITimeTrigger_FWD_DEFINED__
 typedef interface ITimeTrigger ITimeTrigger;
 #ifdef __cplusplus
 interface ITimeTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IDailyTrigger_FWD_DEFINED__
+#define __IDailyTrigger_FWD_DEFINED__
+typedef interface IDailyTrigger IDailyTrigger;
+#ifdef __cplusplus
+interface IDailyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWeeklyTrigger_FWD_DEFINED__
+#define __IWeeklyTrigger_FWD_DEFINED__
+typedef interface IWeeklyTrigger IWeeklyTrigger;
+#ifdef __cplusplus
+interface IWeeklyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMonthlyTrigger_FWD_DEFINED__
+#define __IMonthlyTrigger_FWD_DEFINED__
+typedef interface IMonthlyTrigger IMonthlyTrigger;
+#ifdef __cplusplus
+interface IMonthlyTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IMonthlyDOWTrigger_FWD_DEFINED__
+#define __IMonthlyDOWTrigger_FWD_DEFINED__
+typedef interface IMonthlyDOWTrigger IMonthlyDOWTrigger;
+#ifdef __cplusplus
+interface IMonthlyDOWTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IBootTrigger_FWD_DEFINED__
+#define __IBootTrigger_FWD_DEFINED__
+typedef interface IBootTrigger IBootTrigger;
+#ifdef __cplusplus
+interface IBootTrigger;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IRegistrationTrigger_FWD_DEFINED__
+#define __IRegistrationTrigger_FWD_DEFINED__
+typedef interface IRegistrationTrigger IRegistrationTrigger;
+#ifdef __cplusplus
+interface IRegistrationTrigger;
 #endif /* __cplusplus */
 #endif
 
@@ -3296,6 +3484,349 @@ static __WIDL_INLINE HRESULT IRunningTaskCollection_get__NewEnum(IRunningTaskCol
 #endif  /* __IRunningTaskCollection_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * ITaskNamedValuePair interface
+ */
+#ifndef __ITaskNamedValuePair_INTERFACE_DEFINED__
+#define __ITaskNamedValuePair_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITaskNamedValuePair, 0x39038068, 0x2b46, 0x4afd, 0x86,0x62, 0x7b,0xb6,0xf8,0x68,0xd2,0x21);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("39038068-2b46-4afd-8662-7bb6f868d221")
+ITaskNamedValuePair : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Name(
+        BSTR *pName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Name(
+        BSTR name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Value(
+        BSTR *pValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Value(
+        BSTR value) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITaskNamedValuePair, 0x39038068, 0x2b46, 0x4afd, 0x86,0x62, 0x7b,0xb6,0xf8,0x68,0xd2,0x21)
+#endif
+#else
+typedef struct ITaskNamedValuePairVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITaskNamedValuePair *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITaskNamedValuePair *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITaskNamedValuePair *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        ITaskNamedValuePair *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        ITaskNamedValuePair *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        ITaskNamedValuePair *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        ITaskNamedValuePair *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITaskNamedValuePair methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Name)(
+        ITaskNamedValuePair *This,
+        BSTR *pName);
+
+    HRESULT (STDMETHODCALLTYPE *put_Name)(
+        ITaskNamedValuePair *This,
+        BSTR name);
+
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        ITaskNamedValuePair *This,
+        BSTR *pValue);
+
+    HRESULT (STDMETHODCALLTYPE *put_Value)(
+        ITaskNamedValuePair *This,
+        BSTR value);
+
+    END_INTERFACE
+} ITaskNamedValuePairVtbl;
+
+interface ITaskNamedValuePair {
+    CONST_VTBL ITaskNamedValuePairVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITaskNamedValuePair_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITaskNamedValuePair_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITaskNamedValuePair_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define ITaskNamedValuePair_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define ITaskNamedValuePair_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define ITaskNamedValuePair_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define ITaskNamedValuePair_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITaskNamedValuePair methods ***/
+#define ITaskNamedValuePair_get_Name(This,pName) (This)->lpVtbl->get_Name(This,pName)
+#define ITaskNamedValuePair_put_Name(This,name) (This)->lpVtbl->put_Name(This,name)
+#define ITaskNamedValuePair_get_Value(This,pValue) (This)->lpVtbl->get_Value(This,pValue)
+#define ITaskNamedValuePair_put_Value(This,value) (This)->lpVtbl->put_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_QueryInterface(ITaskNamedValuePair* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ITaskNamedValuePair_AddRef(ITaskNamedValuePair* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ITaskNamedValuePair_Release(ITaskNamedValuePair* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_GetTypeInfoCount(ITaskNamedValuePair* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_GetTypeInfo(ITaskNamedValuePair* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_GetIDsOfNames(ITaskNamedValuePair* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_Invoke(ITaskNamedValuePair* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITaskNamedValuePair methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_get_Name(ITaskNamedValuePair* This,BSTR *pName) {
+    return This->lpVtbl->get_Name(This,pName);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_put_Name(ITaskNamedValuePair* This,BSTR name) {
+    return This->lpVtbl->put_Name(This,name);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_get_Value(ITaskNamedValuePair* This,BSTR *pValue) {
+    return This->lpVtbl->get_Value(This,pValue);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValuePair_put_Value(ITaskNamedValuePair* This,BSTR value) {
+    return This->lpVtbl->put_Value(This,value);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ITaskNamedValuePair_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITaskNamedValueCollection interface
+ */
+#ifndef __ITaskNamedValueCollection_INTERFACE_DEFINED__
+#define __ITaskNamedValueCollection_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITaskNamedValueCollection, 0xb4ef826b, 0x63c3, 0x46e4, 0xa5,0x04, 0xef,0x69,0xe4,0xf7,0xea,0x4d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b4ef826b-63c3-46e4-a504-ef69e4f7ea4d")
+ITaskNamedValueCollection : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Count(
+        LONG *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Item(
+        VARIANT index,
+        ITaskNamedValuePair **pair) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get__NewEnum(
+        IUnknown **penum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Create(
+        BSTR name,
+        BSTR value,
+        ITaskNamedValuePair **pair) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Remove(
+        LONG index) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clear(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITaskNamedValueCollection, 0xb4ef826b, 0x63c3, 0x46e4, 0xa5,0x04, 0xef,0x69,0xe4,0xf7,0xea,0x4d)
+#endif
+#else
+typedef struct ITaskNamedValueCollectionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITaskNamedValueCollection *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITaskNamedValueCollection *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITaskNamedValueCollection *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        ITaskNamedValueCollection *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        ITaskNamedValueCollection *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        ITaskNamedValueCollection *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        ITaskNamedValueCollection *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITaskNamedValueCollection methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Count)(
+        ITaskNamedValueCollection *This,
+        LONG *count);
+
+    HRESULT (STDMETHODCALLTYPE *get_Item)(
+        ITaskNamedValueCollection *This,
+        VARIANT index,
+        ITaskNamedValuePair **pair);
+
+    HRESULT (STDMETHODCALLTYPE *get__NewEnum)(
+        ITaskNamedValueCollection *This,
+        IUnknown **penum);
+
+    HRESULT (STDMETHODCALLTYPE *Create)(
+        ITaskNamedValueCollection *This,
+        BSTR name,
+        BSTR value,
+        ITaskNamedValuePair **pair);
+
+    HRESULT (STDMETHODCALLTYPE *Remove)(
+        ITaskNamedValueCollection *This,
+        LONG index);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        ITaskNamedValueCollection *This);
+
+    END_INTERFACE
+} ITaskNamedValueCollectionVtbl;
+
+interface ITaskNamedValueCollection {
+    CONST_VTBL ITaskNamedValueCollectionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITaskNamedValueCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITaskNamedValueCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITaskNamedValueCollection_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define ITaskNamedValueCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define ITaskNamedValueCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define ITaskNamedValueCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define ITaskNamedValueCollection_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITaskNamedValueCollection methods ***/
+#define ITaskNamedValueCollection_get_Count(This,count) (This)->lpVtbl->get_Count(This,count)
+#define ITaskNamedValueCollection_get_Item(This,index,pair) (This)->lpVtbl->get_Item(This,index,pair)
+#define ITaskNamedValueCollection_get__NewEnum(This,penum) (This)->lpVtbl->get__NewEnum(This,penum)
+#define ITaskNamedValueCollection_Create(This,name,value,pair) (This)->lpVtbl->Create(This,name,value,pair)
+#define ITaskNamedValueCollection_Remove(This,index) (This)->lpVtbl->Remove(This,index)
+#define ITaskNamedValueCollection_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_QueryInterface(ITaskNamedValueCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ITaskNamedValueCollection_AddRef(ITaskNamedValueCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ITaskNamedValueCollection_Release(ITaskNamedValueCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_GetTypeInfoCount(ITaskNamedValueCollection* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_GetTypeInfo(ITaskNamedValueCollection* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_GetIDsOfNames(ITaskNamedValueCollection* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_Invoke(ITaskNamedValueCollection* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITaskNamedValueCollection methods ***/
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_get_Count(ITaskNamedValueCollection* This,LONG *count) {
+    return This->lpVtbl->get_Count(This,count);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_get_Item(ITaskNamedValueCollection* This,VARIANT index,ITaskNamedValuePair **pair) {
+    return This->lpVtbl->get_Item(This,index,pair);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_get__NewEnum(ITaskNamedValueCollection* This,IUnknown **penum) {
+    return This->lpVtbl->get__NewEnum(This,penum);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_Create(ITaskNamedValueCollection* This,BSTR name,BSTR value,ITaskNamedValuePair **pair) {
+    return This->lpVtbl->Create(This,name,value,pair);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_Remove(ITaskNamedValueCollection* This,LONG index) {
+    return This->lpVtbl->Remove(This,index);
+}
+static __WIDL_INLINE HRESULT ITaskNamedValueCollection_Clear(ITaskNamedValueCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ITaskNamedValueCollection_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * ITrigger interface
  */
 #ifndef __ITrigger_INTERFACE_DEFINED__
@@ -3551,6 +4082,1306 @@ static __WIDL_INLINE HRESULT ITrigger_put_Enabled(ITrigger* This,VARIANT_BOOL en
 
 
 #endif  /* __ITrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIdleTrigger interface
+ */
+#ifndef __IIdleTrigger_INTERFACE_DEFINED__
+#define __IIdleTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IIdleTrigger, 0xd537d2b0, 0x9fb3, 0x4d34, 0x97,0x39, 0x1f,0xf5,0xce,0x7b,0x1e,0xf3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d537d2b0-9fb3-4d34-9739-1ff5ce7b1ef3")
+IIdleTrigger : public ITrigger
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IIdleTrigger, 0xd537d2b0, 0x9fb3, 0x4d34, 0x97,0x39, 0x1f,0xf5,0xce,0x7b,0x1e,0xf3)
+#endif
+#else
+typedef struct IIdleTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IIdleTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IIdleTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IIdleTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IIdleTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IIdleTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IIdleTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IIdleTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IIdleTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IIdleTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IIdleTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IIdleTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IIdleTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IIdleTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IIdleTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IIdleTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IIdleTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IIdleTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IIdleTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IIdleTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IIdleTrigger *This,
+        VARIANT_BOOL enabled);
+
+    END_INTERFACE
+} IIdleTriggerVtbl;
+
+interface IIdleTrigger {
+    CONST_VTBL IIdleTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IIdleTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IIdleTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IIdleTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IIdleTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IIdleTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IIdleTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IIdleTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IIdleTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IIdleTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IIdleTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IIdleTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IIdleTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IIdleTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IIdleTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IIdleTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IIdleTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IIdleTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IIdleTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IIdleTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IIdleTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IIdleTrigger_QueryInterface(IIdleTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IIdleTrigger_AddRef(IIdleTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IIdleTrigger_Release(IIdleTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IIdleTrigger_GetTypeInfoCount(IIdleTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_GetTypeInfo(IIdleTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_GetIDsOfNames(IIdleTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_Invoke(IIdleTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IIdleTrigger_get_Type(IIdleTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_Id(IIdleTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_Id(IIdleTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_Repetition(IIdleTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_Repetition(IIdleTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_ExecutionTimeLimit(IIdleTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_ExecutionTimeLimit(IIdleTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_StartBoundary(IIdleTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_StartBoundary(IIdleTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_EndBoundary(IIdleTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_EndBoundary(IIdleTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_get_Enabled(IIdleTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IIdleTrigger_put_Enabled(IIdleTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IIdleTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ILogonTrigger interface
+ */
+#ifndef __ILogonTrigger_INTERFACE_DEFINED__
+#define __ILogonTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ILogonTrigger, 0x72dade38, 0xfae4, 0x4b3e, 0xba,0xf4, 0x5d,0x00,0x9a,0xf0,0x2b,0x1c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("72dade38-fae4-4b3e-baf4-5d009af02b1c")
+ILogonTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Delay(
+        BSTR *pDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Delay(
+        BSTR delay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_UserId(
+        BSTR *pUser) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_UserId(
+        BSTR user) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ILogonTrigger, 0x72dade38, 0xfae4, 0x4b3e, 0xba,0xf4, 0x5d,0x00,0x9a,0xf0,0x2b,0x1c)
+#endif
+#else
+typedef struct ILogonTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ILogonTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ILogonTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ILogonTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        ILogonTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        ILogonTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        ILogonTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        ILogonTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        ILogonTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        ILogonTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        ILogonTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        ILogonTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        ILogonTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        ILogonTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        ILogonTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        ILogonTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        ILogonTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        ILogonTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        ILogonTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        ILogonTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        ILogonTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** ILogonTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Delay)(
+        ILogonTrigger *This,
+        BSTR *pDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_Delay)(
+        ILogonTrigger *This,
+        BSTR delay);
+
+    HRESULT (STDMETHODCALLTYPE *get_UserId)(
+        ILogonTrigger *This,
+        BSTR *pUser);
+
+    HRESULT (STDMETHODCALLTYPE *put_UserId)(
+        ILogonTrigger *This,
+        BSTR user);
+
+    END_INTERFACE
+} ILogonTriggerVtbl;
+
+interface ILogonTrigger {
+    CONST_VTBL ILogonTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ILogonTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ILogonTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ILogonTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define ILogonTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define ILogonTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define ILogonTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define ILogonTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define ILogonTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define ILogonTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define ILogonTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define ILogonTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define ILogonTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define ILogonTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define ILogonTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define ILogonTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define ILogonTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define ILogonTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define ILogonTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define ILogonTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define ILogonTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** ILogonTrigger methods ***/
+#define ILogonTrigger_get_Delay(This,pDelay) (This)->lpVtbl->get_Delay(This,pDelay)
+#define ILogonTrigger_put_Delay(This,delay) (This)->lpVtbl->put_Delay(This,delay)
+#define ILogonTrigger_get_UserId(This,pUser) (This)->lpVtbl->get_UserId(This,pUser)
+#define ILogonTrigger_put_UserId(This,user) (This)->lpVtbl->put_UserId(This,user)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ILogonTrigger_QueryInterface(ILogonTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ILogonTrigger_AddRef(ILogonTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ILogonTrigger_Release(ILogonTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT ILogonTrigger_GetTypeInfoCount(ILogonTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_GetTypeInfo(ILogonTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_GetIDsOfNames(ILogonTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_Invoke(ILogonTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT ILogonTrigger_get_Type(ILogonTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_Id(ILogonTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_Id(ILogonTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_Repetition(ILogonTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_Repetition(ILogonTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_ExecutionTimeLimit(ILogonTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_ExecutionTimeLimit(ILogonTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_StartBoundary(ILogonTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_StartBoundary(ILogonTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_EndBoundary(ILogonTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_EndBoundary(ILogonTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_Enabled(ILogonTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_Enabled(ILogonTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** ILogonTrigger methods ***/
+static __WIDL_INLINE HRESULT ILogonTrigger_get_Delay(ILogonTrigger* This,BSTR *pDelay) {
+    return This->lpVtbl->get_Delay(This,pDelay);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_Delay(ILogonTrigger* This,BSTR delay) {
+    return This->lpVtbl->put_Delay(This,delay);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_get_UserId(ILogonTrigger* This,BSTR *pUser) {
+    return This->lpVtbl->get_UserId(This,pUser);
+}
+static __WIDL_INLINE HRESULT ILogonTrigger_put_UserId(ILogonTrigger* This,BSTR user) {
+    return This->lpVtbl->put_UserId(This,user);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ILogonTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ISessionStateChangeTrigger interface
+ */
+#ifndef __ISessionStateChangeTrigger_INTERFACE_DEFINED__
+#define __ISessionStateChangeTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ISessionStateChangeTrigger, 0x754da71b, 0x4385, 0x4475, 0x9d,0xd9, 0x59,0x82,0x94,0xfa,0x36,0x41);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("754da71b-4385-4475-9dd9-598294fa3641")
+ISessionStateChangeTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Delay(
+        BSTR *pDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Delay(
+        BSTR delay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_UserId(
+        BSTR *pUser) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_UserId(
+        BSTR user) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_StateChange(
+        TASK_SESSION_STATE_CHANGE_TYPE *pType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_StateChange(
+        TASK_SESSION_STATE_CHANGE_TYPE type) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISessionStateChangeTrigger, 0x754da71b, 0x4385, 0x4475, 0x9d,0xd9, 0x59,0x82,0x94,0xfa,0x36,0x41)
+#endif
+#else
+typedef struct ISessionStateChangeTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ISessionStateChangeTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ISessionStateChangeTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ISessionStateChangeTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        ISessionStateChangeTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        ISessionStateChangeTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        ISessionStateChangeTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        ISessionStateChangeTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        ISessionStateChangeTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        ISessionStateChangeTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        ISessionStateChangeTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        ISessionStateChangeTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        ISessionStateChangeTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        ISessionStateChangeTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        ISessionStateChangeTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        ISessionStateChangeTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        ISessionStateChangeTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        ISessionStateChangeTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        ISessionStateChangeTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        ISessionStateChangeTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        ISessionStateChangeTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** ISessionStateChangeTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Delay)(
+        ISessionStateChangeTrigger *This,
+        BSTR *pDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_Delay)(
+        ISessionStateChangeTrigger *This,
+        BSTR delay);
+
+    HRESULT (STDMETHODCALLTYPE *get_UserId)(
+        ISessionStateChangeTrigger *This,
+        BSTR *pUser);
+
+    HRESULT (STDMETHODCALLTYPE *put_UserId)(
+        ISessionStateChangeTrigger *This,
+        BSTR user);
+
+    HRESULT (STDMETHODCALLTYPE *get_StateChange)(
+        ISessionStateChangeTrigger *This,
+        TASK_SESSION_STATE_CHANGE_TYPE *pType);
+
+    HRESULT (STDMETHODCALLTYPE *put_StateChange)(
+        ISessionStateChangeTrigger *This,
+        TASK_SESSION_STATE_CHANGE_TYPE type);
+
+    END_INTERFACE
+} ISessionStateChangeTriggerVtbl;
+
+interface ISessionStateChangeTrigger {
+    CONST_VTBL ISessionStateChangeTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ISessionStateChangeTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISessionStateChangeTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISessionStateChangeTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define ISessionStateChangeTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define ISessionStateChangeTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define ISessionStateChangeTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define ISessionStateChangeTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define ISessionStateChangeTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define ISessionStateChangeTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define ISessionStateChangeTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define ISessionStateChangeTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define ISessionStateChangeTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define ISessionStateChangeTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define ISessionStateChangeTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define ISessionStateChangeTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define ISessionStateChangeTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define ISessionStateChangeTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define ISessionStateChangeTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define ISessionStateChangeTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define ISessionStateChangeTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** ISessionStateChangeTrigger methods ***/
+#define ISessionStateChangeTrigger_get_Delay(This,pDelay) (This)->lpVtbl->get_Delay(This,pDelay)
+#define ISessionStateChangeTrigger_put_Delay(This,delay) (This)->lpVtbl->put_Delay(This,delay)
+#define ISessionStateChangeTrigger_get_UserId(This,pUser) (This)->lpVtbl->get_UserId(This,pUser)
+#define ISessionStateChangeTrigger_put_UserId(This,user) (This)->lpVtbl->put_UserId(This,user)
+#define ISessionStateChangeTrigger_get_StateChange(This,pType) (This)->lpVtbl->get_StateChange(This,pType)
+#define ISessionStateChangeTrigger_put_StateChange(This,type) (This)->lpVtbl->put_StateChange(This,type)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_QueryInterface(ISessionStateChangeTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ISessionStateChangeTrigger_AddRef(ISessionStateChangeTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ISessionStateChangeTrigger_Release(ISessionStateChangeTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_GetTypeInfoCount(ISessionStateChangeTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_GetTypeInfo(ISessionStateChangeTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_GetIDsOfNames(ISessionStateChangeTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_Invoke(ISessionStateChangeTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_Type(ISessionStateChangeTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_Id(ISessionStateChangeTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_Id(ISessionStateChangeTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_Repetition(ISessionStateChangeTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_Repetition(ISessionStateChangeTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_ExecutionTimeLimit(ISessionStateChangeTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_ExecutionTimeLimit(ISessionStateChangeTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_StartBoundary(ISessionStateChangeTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_StartBoundary(ISessionStateChangeTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_EndBoundary(ISessionStateChangeTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_EndBoundary(ISessionStateChangeTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_Enabled(ISessionStateChangeTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_Enabled(ISessionStateChangeTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** ISessionStateChangeTrigger methods ***/
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_Delay(ISessionStateChangeTrigger* This,BSTR *pDelay) {
+    return This->lpVtbl->get_Delay(This,pDelay);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_Delay(ISessionStateChangeTrigger* This,BSTR delay) {
+    return This->lpVtbl->put_Delay(This,delay);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_UserId(ISessionStateChangeTrigger* This,BSTR *pUser) {
+    return This->lpVtbl->get_UserId(This,pUser);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_UserId(ISessionStateChangeTrigger* This,BSTR user) {
+    return This->lpVtbl->put_UserId(This,user);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_get_StateChange(ISessionStateChangeTrigger* This,TASK_SESSION_STATE_CHANGE_TYPE *pType) {
+    return This->lpVtbl->get_StateChange(This,pType);
+}
+static __WIDL_INLINE HRESULT ISessionStateChangeTrigger_put_StateChange(ISessionStateChangeTrigger* This,TASK_SESSION_STATE_CHANGE_TYPE type) {
+    return This->lpVtbl->put_StateChange(This,type);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ISessionStateChangeTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEventTrigger interface
+ */
+#ifndef __IEventTrigger_INTERFACE_DEFINED__
+#define __IEventTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEventTrigger, 0xd45b0167, 0x9653, 0x4eef, 0xb9,0x4f, 0x07,0x32,0xca,0x7a,0xf2,0x51);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d45b0167-9653-4eef-b94f-0732ca7af251")
+IEventTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Subscription(
+        BSTR *pQuery) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Subscription(
+        BSTR query) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_Delay(
+        BSTR *pDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Delay(
+        BSTR delay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ValueQueries(
+        ITaskNamedValueCollection **ppNamedXPaths) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ValueQueries(
+        ITaskNamedValueCollection *pNamedXPaths) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEventTrigger, 0xd45b0167, 0x9653, 0x4eef, 0xb9,0x4f, 0x07,0x32,0xca,0x7a,0xf2,0x51)
+#endif
+#else
+typedef struct IEventTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEventTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEventTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEventTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IEventTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IEventTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IEventTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IEventTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IEventTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IEventTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IEventTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IEventTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IEventTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IEventTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IEventTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IEventTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IEventTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IEventTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IEventTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IEventTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IEventTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** IEventTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Subscription)(
+        IEventTrigger *This,
+        BSTR *pQuery);
+
+    HRESULT (STDMETHODCALLTYPE *put_Subscription)(
+        IEventTrigger *This,
+        BSTR query);
+
+    HRESULT (STDMETHODCALLTYPE *get_Delay)(
+        IEventTrigger *This,
+        BSTR *pDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_Delay)(
+        IEventTrigger *This,
+        BSTR delay);
+
+    HRESULT (STDMETHODCALLTYPE *get_ValueQueries)(
+        IEventTrigger *This,
+        ITaskNamedValueCollection **ppNamedXPaths);
+
+    HRESULT (STDMETHODCALLTYPE *put_ValueQueries)(
+        IEventTrigger *This,
+        ITaskNamedValueCollection *pNamedXPaths);
+
+    END_INTERFACE
+} IEventTriggerVtbl;
+
+interface IEventTrigger {
+    CONST_VTBL IEventTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEventTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEventTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEventTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IEventTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IEventTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IEventTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IEventTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IEventTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IEventTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IEventTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IEventTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IEventTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IEventTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IEventTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IEventTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IEventTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IEventTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IEventTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IEventTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IEventTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** IEventTrigger methods ***/
+#define IEventTrigger_get_Subscription(This,pQuery) (This)->lpVtbl->get_Subscription(This,pQuery)
+#define IEventTrigger_put_Subscription(This,query) (This)->lpVtbl->put_Subscription(This,query)
+#define IEventTrigger_get_Delay(This,pDelay) (This)->lpVtbl->get_Delay(This,pDelay)
+#define IEventTrigger_put_Delay(This,delay) (This)->lpVtbl->put_Delay(This,delay)
+#define IEventTrigger_get_ValueQueries(This,ppNamedXPaths) (This)->lpVtbl->get_ValueQueries(This,ppNamedXPaths)
+#define IEventTrigger_put_ValueQueries(This,pNamedXPaths) (This)->lpVtbl->put_ValueQueries(This,pNamedXPaths)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IEventTrigger_QueryInterface(IEventTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IEventTrigger_AddRef(IEventTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IEventTrigger_Release(IEventTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IEventTrigger_GetTypeInfoCount(IEventTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_GetTypeInfo(IEventTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_GetIDsOfNames(IEventTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_Invoke(IEventTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IEventTrigger_get_Type(IEventTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_Id(IEventTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_Id(IEventTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_Repetition(IEventTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_Repetition(IEventTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_ExecutionTimeLimit(IEventTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_ExecutionTimeLimit(IEventTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_StartBoundary(IEventTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_StartBoundary(IEventTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_EndBoundary(IEventTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_EndBoundary(IEventTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_Enabled(IEventTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_Enabled(IEventTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** IEventTrigger methods ***/
+static __WIDL_INLINE HRESULT IEventTrigger_get_Subscription(IEventTrigger* This,BSTR *pQuery) {
+    return This->lpVtbl->get_Subscription(This,pQuery);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_Subscription(IEventTrigger* This,BSTR query) {
+    return This->lpVtbl->put_Subscription(This,query);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_Delay(IEventTrigger* This,BSTR *pDelay) {
+    return This->lpVtbl->get_Delay(This,pDelay);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_Delay(IEventTrigger* This,BSTR delay) {
+    return This->lpVtbl->put_Delay(This,delay);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_get_ValueQueries(IEventTrigger* This,ITaskNamedValueCollection **ppNamedXPaths) {
+    return This->lpVtbl->get_ValueQueries(This,ppNamedXPaths);
+}
+static __WIDL_INLINE HRESULT IEventTrigger_put_ValueQueries(IEventTrigger* This,ITaskNamedValueCollection *pNamedXPaths) {
+    return This->lpVtbl->put_ValueQueries(This,pNamedXPaths);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IEventTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITimeTrigger interface
+ */
+#ifndef __ITimeTrigger_INTERFACE_DEFINED__
+#define __ITimeTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITimeTrigger, 0xb45747e0, 0xeba7, 0x4276, 0x9f,0x29, 0x85,0xc5,0xbb,0x30,0x00,0x06);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b45747e0-eba7-4276-9f29-85c5bb300006")
+ITimeTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_RandomDelay(
+        BSTR *delay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RandomDelay(
+        BSTR delay) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITimeTrigger, 0xb45747e0, 0xeba7, 0x4276, 0x9f,0x29, 0x85,0xc5,0xbb,0x30,0x00,0x06)
+#endif
+#else
+typedef struct ITimeTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITimeTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITimeTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITimeTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        ITimeTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        ITimeTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        ITimeTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        ITimeTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        ITimeTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        ITimeTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        ITimeTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        ITimeTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        ITimeTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        ITimeTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        ITimeTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        ITimeTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        ITimeTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        ITimeTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        ITimeTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        ITimeTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        ITimeTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** ITimeTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RandomDelay)(
+        ITimeTrigger *This,
+        BSTR *delay);
+
+    HRESULT (STDMETHODCALLTYPE *put_RandomDelay)(
+        ITimeTrigger *This,
+        BSTR delay);
+
+    END_INTERFACE
+} ITimeTriggerVtbl;
+
+interface ITimeTrigger {
+    CONST_VTBL ITimeTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITimeTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITimeTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITimeTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define ITimeTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define ITimeTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define ITimeTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define ITimeTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define ITimeTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define ITimeTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define ITimeTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define ITimeTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define ITimeTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define ITimeTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define ITimeTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define ITimeTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define ITimeTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define ITimeTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define ITimeTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define ITimeTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define ITimeTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** ITimeTrigger methods ***/
+#define ITimeTrigger_get_RandomDelay(This,delay) (This)->lpVtbl->get_RandomDelay(This,delay)
+#define ITimeTrigger_put_RandomDelay(This,delay) (This)->lpVtbl->put_RandomDelay(This,delay)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ITimeTrigger_QueryInterface(ITimeTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ITimeTrigger_AddRef(ITimeTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ITimeTrigger_Release(ITimeTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT ITimeTrigger_GetTypeInfoCount(ITimeTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_GetTypeInfo(ITimeTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_GetIDsOfNames(ITimeTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_Invoke(ITimeTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT ITimeTrigger_get_Type(ITimeTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_Id(ITimeTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_Id(ITimeTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_Repetition(ITimeTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_Repetition(ITimeTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_ExecutionTimeLimit(ITimeTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_ExecutionTimeLimit(ITimeTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_StartBoundary(ITimeTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_StartBoundary(ITimeTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_EndBoundary(ITimeTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_EndBoundary(ITimeTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_get_Enabled(ITimeTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_Enabled(ITimeTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** ITimeTrigger methods ***/
+static __WIDL_INLINE HRESULT ITimeTrigger_get_RandomDelay(ITimeTrigger* This,BSTR *delay) {
+    return This->lpVtbl->get_RandomDelay(This,delay);
+}
+static __WIDL_INLINE HRESULT ITimeTrigger_put_RandomDelay(ITimeTrigger* This,BSTR delay) {
+    return This->lpVtbl->put_RandomDelay(This,delay);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ITimeTrigger_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IDailyTrigger interface
@@ -3816,6 +5647,1176 @@ static __WIDL_INLINE HRESULT IDailyTrigger_put_RandomDelay(IDailyTrigger* This,B
 
 
 #endif  /* __IDailyTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWeeklyTrigger interface
+ */
+#ifndef __IWeeklyTrigger_INTERFACE_DEFINED__
+#define __IWeeklyTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWeeklyTrigger, 0x5038fc98, 0x82ff, 0x436d, 0x87,0x28, 0xa5,0x12,0xa5,0x7c,0x9d,0xc1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("5038fc98-82ff-436d-8728-a512a57c9dc1")
+IWeeklyTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_DaysOfWeek(
+        short *pDays) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_DaysOfWeek(
+        short days) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_WeeksInterval(
+        short *pWeeks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_WeeksInterval(
+        short weeks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RandomDelay(
+        BSTR *pRandomDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RandomDelay(
+        BSTR randomDelay) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWeeklyTrigger, 0x5038fc98, 0x82ff, 0x436d, 0x87,0x28, 0xa5,0x12,0xa5,0x7c,0x9d,0xc1)
+#endif
+#else
+typedef struct IWeeklyTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWeeklyTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWeeklyTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWeeklyTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IWeeklyTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IWeeklyTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IWeeklyTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IWeeklyTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IWeeklyTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IWeeklyTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IWeeklyTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IWeeklyTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IWeeklyTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IWeeklyTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IWeeklyTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IWeeklyTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IWeeklyTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IWeeklyTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IWeeklyTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IWeeklyTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IWeeklyTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** IWeeklyTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_DaysOfWeek)(
+        IWeeklyTrigger *This,
+        short *pDays);
+
+    HRESULT (STDMETHODCALLTYPE *put_DaysOfWeek)(
+        IWeeklyTrigger *This,
+        short days);
+
+    HRESULT (STDMETHODCALLTYPE *get_WeeksInterval)(
+        IWeeklyTrigger *This,
+        short *pWeeks);
+
+    HRESULT (STDMETHODCALLTYPE *put_WeeksInterval)(
+        IWeeklyTrigger *This,
+        short weeks);
+
+    HRESULT (STDMETHODCALLTYPE *get_RandomDelay)(
+        IWeeklyTrigger *This,
+        BSTR *pRandomDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_RandomDelay)(
+        IWeeklyTrigger *This,
+        BSTR randomDelay);
+
+    END_INTERFACE
+} IWeeklyTriggerVtbl;
+
+interface IWeeklyTrigger {
+    CONST_VTBL IWeeklyTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWeeklyTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWeeklyTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWeeklyTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IWeeklyTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IWeeklyTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IWeeklyTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IWeeklyTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IWeeklyTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IWeeklyTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IWeeklyTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IWeeklyTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IWeeklyTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IWeeklyTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IWeeklyTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IWeeklyTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IWeeklyTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IWeeklyTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IWeeklyTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IWeeklyTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IWeeklyTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** IWeeklyTrigger methods ***/
+#define IWeeklyTrigger_get_DaysOfWeek(This,pDays) (This)->lpVtbl->get_DaysOfWeek(This,pDays)
+#define IWeeklyTrigger_put_DaysOfWeek(This,days) (This)->lpVtbl->put_DaysOfWeek(This,days)
+#define IWeeklyTrigger_get_WeeksInterval(This,pWeeks) (This)->lpVtbl->get_WeeksInterval(This,pWeeks)
+#define IWeeklyTrigger_put_WeeksInterval(This,weeks) (This)->lpVtbl->put_WeeksInterval(This,weeks)
+#define IWeeklyTrigger_get_RandomDelay(This,pRandomDelay) (This)->lpVtbl->get_RandomDelay(This,pRandomDelay)
+#define IWeeklyTrigger_put_RandomDelay(This,randomDelay) (This)->lpVtbl->put_RandomDelay(This,randomDelay)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IWeeklyTrigger_QueryInterface(IWeeklyTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IWeeklyTrigger_AddRef(IWeeklyTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IWeeklyTrigger_Release(IWeeklyTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IWeeklyTrigger_GetTypeInfoCount(IWeeklyTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_GetTypeInfo(IWeeklyTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_GetIDsOfNames(IWeeklyTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_Invoke(IWeeklyTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_Type(IWeeklyTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_Id(IWeeklyTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_Id(IWeeklyTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_Repetition(IWeeklyTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_Repetition(IWeeklyTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_ExecutionTimeLimit(IWeeklyTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_ExecutionTimeLimit(IWeeklyTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_StartBoundary(IWeeklyTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_StartBoundary(IWeeklyTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_EndBoundary(IWeeklyTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_EndBoundary(IWeeklyTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_Enabled(IWeeklyTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_Enabled(IWeeklyTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** IWeeklyTrigger methods ***/
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_DaysOfWeek(IWeeklyTrigger* This,short *pDays) {
+    return This->lpVtbl->get_DaysOfWeek(This,pDays);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_DaysOfWeek(IWeeklyTrigger* This,short days) {
+    return This->lpVtbl->put_DaysOfWeek(This,days);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_WeeksInterval(IWeeklyTrigger* This,short *pWeeks) {
+    return This->lpVtbl->get_WeeksInterval(This,pWeeks);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_WeeksInterval(IWeeklyTrigger* This,short weeks) {
+    return This->lpVtbl->put_WeeksInterval(This,weeks);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_get_RandomDelay(IWeeklyTrigger* This,BSTR *pRandomDelay) {
+    return This->lpVtbl->get_RandomDelay(This,pRandomDelay);
+}
+static __WIDL_INLINE HRESULT IWeeklyTrigger_put_RandomDelay(IWeeklyTrigger* This,BSTR randomDelay) {
+    return This->lpVtbl->put_RandomDelay(This,randomDelay);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWeeklyTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMonthlyTrigger interface
+ */
+#ifndef __IMonthlyTrigger_INTERFACE_DEFINED__
+#define __IMonthlyTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMonthlyTrigger, 0x97c45ef1, 0x6b02, 0x4a1a, 0x9c,0x0e, 0x1e,0xbf,0xba,0x15,0x00,0xac);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("97c45ef1-6b02-4a1a-9c0e-1ebfba1500ac")
+IMonthlyTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_DaysOfMonth(
+        short *pDays) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_DaysOfMonth(
+        short days) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_MonthsOfYear(
+        short *pMonths) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_MonthsOfYear(
+        short months) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RunOnLastDayOfMonth(
+        VARIANT_BOOL *pLastDay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RunOnLastDayOfMonth(
+        VARIANT_BOOL lastDay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RandomDelay(
+        BSTR *pRandomDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RandomDelay(
+        BSTR randomDelay) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMonthlyTrigger, 0x97c45ef1, 0x6b02, 0x4a1a, 0x9c,0x0e, 0x1e,0xbf,0xba,0x15,0x00,0xac)
+#endif
+#else
+typedef struct IMonthlyTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMonthlyTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMonthlyTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMonthlyTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IMonthlyTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IMonthlyTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IMonthlyTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IMonthlyTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IMonthlyTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IMonthlyTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IMonthlyTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IMonthlyTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IMonthlyTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IMonthlyTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IMonthlyTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IMonthlyTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IMonthlyTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IMonthlyTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IMonthlyTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IMonthlyTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IMonthlyTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** IMonthlyTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_DaysOfMonth)(
+        IMonthlyTrigger *This,
+        short *pDays);
+
+    HRESULT (STDMETHODCALLTYPE *put_DaysOfMonth)(
+        IMonthlyTrigger *This,
+        short days);
+
+    HRESULT (STDMETHODCALLTYPE *get_MonthsOfYear)(
+        IMonthlyTrigger *This,
+        short *pMonths);
+
+    HRESULT (STDMETHODCALLTYPE *put_MonthsOfYear)(
+        IMonthlyTrigger *This,
+        short months);
+
+    HRESULT (STDMETHODCALLTYPE *get_RunOnLastDayOfMonth)(
+        IMonthlyTrigger *This,
+        VARIANT_BOOL *pLastDay);
+
+    HRESULT (STDMETHODCALLTYPE *put_RunOnLastDayOfMonth)(
+        IMonthlyTrigger *This,
+        VARIANT_BOOL lastDay);
+
+    HRESULT (STDMETHODCALLTYPE *get_RandomDelay)(
+        IMonthlyTrigger *This,
+        BSTR *pRandomDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_RandomDelay)(
+        IMonthlyTrigger *This,
+        BSTR randomDelay);
+
+    END_INTERFACE
+} IMonthlyTriggerVtbl;
+
+interface IMonthlyTrigger {
+    CONST_VTBL IMonthlyTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMonthlyTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMonthlyTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMonthlyTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IMonthlyTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IMonthlyTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IMonthlyTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IMonthlyTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IMonthlyTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IMonthlyTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IMonthlyTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IMonthlyTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IMonthlyTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IMonthlyTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IMonthlyTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IMonthlyTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IMonthlyTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IMonthlyTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IMonthlyTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IMonthlyTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IMonthlyTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** IMonthlyTrigger methods ***/
+#define IMonthlyTrigger_get_DaysOfMonth(This,pDays) (This)->lpVtbl->get_DaysOfMonth(This,pDays)
+#define IMonthlyTrigger_put_DaysOfMonth(This,days) (This)->lpVtbl->put_DaysOfMonth(This,days)
+#define IMonthlyTrigger_get_MonthsOfYear(This,pMonths) (This)->lpVtbl->get_MonthsOfYear(This,pMonths)
+#define IMonthlyTrigger_put_MonthsOfYear(This,months) (This)->lpVtbl->put_MonthsOfYear(This,months)
+#define IMonthlyTrigger_get_RunOnLastDayOfMonth(This,pLastDay) (This)->lpVtbl->get_RunOnLastDayOfMonth(This,pLastDay)
+#define IMonthlyTrigger_put_RunOnLastDayOfMonth(This,lastDay) (This)->lpVtbl->put_RunOnLastDayOfMonth(This,lastDay)
+#define IMonthlyTrigger_get_RandomDelay(This,pRandomDelay) (This)->lpVtbl->get_RandomDelay(This,pRandomDelay)
+#define IMonthlyTrigger_put_RandomDelay(This,randomDelay) (This)->lpVtbl->put_RandomDelay(This,randomDelay)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IMonthlyTrigger_QueryInterface(IMonthlyTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IMonthlyTrigger_AddRef(IMonthlyTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IMonthlyTrigger_Release(IMonthlyTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IMonthlyTrigger_GetTypeInfoCount(IMonthlyTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_GetTypeInfo(IMonthlyTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_GetIDsOfNames(IMonthlyTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_Invoke(IMonthlyTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_Type(IMonthlyTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_Id(IMonthlyTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_Id(IMonthlyTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_Repetition(IMonthlyTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_Repetition(IMonthlyTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_ExecutionTimeLimit(IMonthlyTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_ExecutionTimeLimit(IMonthlyTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_StartBoundary(IMonthlyTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_StartBoundary(IMonthlyTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_EndBoundary(IMonthlyTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_EndBoundary(IMonthlyTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_Enabled(IMonthlyTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_Enabled(IMonthlyTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** IMonthlyTrigger methods ***/
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_DaysOfMonth(IMonthlyTrigger* This,short *pDays) {
+    return This->lpVtbl->get_DaysOfMonth(This,pDays);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_DaysOfMonth(IMonthlyTrigger* This,short days) {
+    return This->lpVtbl->put_DaysOfMonth(This,days);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_MonthsOfYear(IMonthlyTrigger* This,short *pMonths) {
+    return This->lpVtbl->get_MonthsOfYear(This,pMonths);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_MonthsOfYear(IMonthlyTrigger* This,short months) {
+    return This->lpVtbl->put_MonthsOfYear(This,months);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_RunOnLastDayOfMonth(IMonthlyTrigger* This,VARIANT_BOOL *pLastDay) {
+    return This->lpVtbl->get_RunOnLastDayOfMonth(This,pLastDay);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_RunOnLastDayOfMonth(IMonthlyTrigger* This,VARIANT_BOOL lastDay) {
+    return This->lpVtbl->put_RunOnLastDayOfMonth(This,lastDay);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_get_RandomDelay(IMonthlyTrigger* This,BSTR *pRandomDelay) {
+    return This->lpVtbl->get_RandomDelay(This,pRandomDelay);
+}
+static __WIDL_INLINE HRESULT IMonthlyTrigger_put_RandomDelay(IMonthlyTrigger* This,BSTR randomDelay) {
+    return This->lpVtbl->put_RandomDelay(This,randomDelay);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMonthlyTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMonthlyDOWTrigger interface
+ */
+#ifndef __IMonthlyDOWTrigger_INTERFACE_DEFINED__
+#define __IMonthlyDOWTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMonthlyDOWTrigger, 0x77d025a3, 0x90fa, 0x43aa, 0xb5,0x2e, 0xcd,0xa5,0x49,0x9b,0x94,0x6a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("77d025a3-90fa-43aa-b52e-cda5499b946a")
+IMonthlyDOWTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_DaysOfWeek(
+        short *pDays) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_DaysOfWeek(
+        short days) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_WeeksOfMonth(
+        short *pWeeks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_WeeksOfMonth(
+        short weeks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_MonthsOfYear(
+        short *pMonths) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_MonthsOfYear(
+        short months) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RunOnLastWeekOfMonth(
+        VARIANT_BOOL *pLastWeek) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RunOnLastWeekOfMonth(
+        VARIANT_BOOL lastWeek) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RandomDelay(
+        BSTR *pRandomDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RandomDelay(
+        BSTR randomDelay) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMonthlyDOWTrigger, 0x77d025a3, 0x90fa, 0x43aa, 0xb5,0x2e, 0xcd,0xa5,0x49,0x9b,0x94,0x6a)
+#endif
+#else
+typedef struct IMonthlyDOWTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMonthlyDOWTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMonthlyDOWTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMonthlyDOWTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IMonthlyDOWTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IMonthlyDOWTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IMonthlyDOWTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IMonthlyDOWTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IMonthlyDOWTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IMonthlyDOWTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IMonthlyDOWTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IMonthlyDOWTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IMonthlyDOWTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IMonthlyDOWTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IMonthlyDOWTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IMonthlyDOWTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IMonthlyDOWTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IMonthlyDOWTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IMonthlyDOWTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IMonthlyDOWTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IMonthlyDOWTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** IMonthlyDOWTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_DaysOfWeek)(
+        IMonthlyDOWTrigger *This,
+        short *pDays);
+
+    HRESULT (STDMETHODCALLTYPE *put_DaysOfWeek)(
+        IMonthlyDOWTrigger *This,
+        short days);
+
+    HRESULT (STDMETHODCALLTYPE *get_WeeksOfMonth)(
+        IMonthlyDOWTrigger *This,
+        short *pWeeks);
+
+    HRESULT (STDMETHODCALLTYPE *put_WeeksOfMonth)(
+        IMonthlyDOWTrigger *This,
+        short weeks);
+
+    HRESULT (STDMETHODCALLTYPE *get_MonthsOfYear)(
+        IMonthlyDOWTrigger *This,
+        short *pMonths);
+
+    HRESULT (STDMETHODCALLTYPE *put_MonthsOfYear)(
+        IMonthlyDOWTrigger *This,
+        short months);
+
+    HRESULT (STDMETHODCALLTYPE *get_RunOnLastWeekOfMonth)(
+        IMonthlyDOWTrigger *This,
+        VARIANT_BOOL *pLastWeek);
+
+    HRESULT (STDMETHODCALLTYPE *put_RunOnLastWeekOfMonth)(
+        IMonthlyDOWTrigger *This,
+        VARIANT_BOOL lastWeek);
+
+    HRESULT (STDMETHODCALLTYPE *get_RandomDelay)(
+        IMonthlyDOWTrigger *This,
+        BSTR *pRandomDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_RandomDelay)(
+        IMonthlyDOWTrigger *This,
+        BSTR randomDelay);
+
+    END_INTERFACE
+} IMonthlyDOWTriggerVtbl;
+
+interface IMonthlyDOWTrigger {
+    CONST_VTBL IMonthlyDOWTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMonthlyDOWTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMonthlyDOWTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMonthlyDOWTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IMonthlyDOWTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IMonthlyDOWTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IMonthlyDOWTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IMonthlyDOWTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IMonthlyDOWTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IMonthlyDOWTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IMonthlyDOWTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IMonthlyDOWTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IMonthlyDOWTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IMonthlyDOWTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IMonthlyDOWTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IMonthlyDOWTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IMonthlyDOWTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IMonthlyDOWTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IMonthlyDOWTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IMonthlyDOWTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IMonthlyDOWTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** IMonthlyDOWTrigger methods ***/
+#define IMonthlyDOWTrigger_get_DaysOfWeek(This,pDays) (This)->lpVtbl->get_DaysOfWeek(This,pDays)
+#define IMonthlyDOWTrigger_put_DaysOfWeek(This,days) (This)->lpVtbl->put_DaysOfWeek(This,days)
+#define IMonthlyDOWTrigger_get_WeeksOfMonth(This,pWeeks) (This)->lpVtbl->get_WeeksOfMonth(This,pWeeks)
+#define IMonthlyDOWTrigger_put_WeeksOfMonth(This,weeks) (This)->lpVtbl->put_WeeksOfMonth(This,weeks)
+#define IMonthlyDOWTrigger_get_MonthsOfYear(This,pMonths) (This)->lpVtbl->get_MonthsOfYear(This,pMonths)
+#define IMonthlyDOWTrigger_put_MonthsOfYear(This,months) (This)->lpVtbl->put_MonthsOfYear(This,months)
+#define IMonthlyDOWTrigger_get_RunOnLastWeekOfMonth(This,pLastWeek) (This)->lpVtbl->get_RunOnLastWeekOfMonth(This,pLastWeek)
+#define IMonthlyDOWTrigger_put_RunOnLastWeekOfMonth(This,lastWeek) (This)->lpVtbl->put_RunOnLastWeekOfMonth(This,lastWeek)
+#define IMonthlyDOWTrigger_get_RandomDelay(This,pRandomDelay) (This)->lpVtbl->get_RandomDelay(This,pRandomDelay)
+#define IMonthlyDOWTrigger_put_RandomDelay(This,randomDelay) (This)->lpVtbl->put_RandomDelay(This,randomDelay)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_QueryInterface(IMonthlyDOWTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IMonthlyDOWTrigger_AddRef(IMonthlyDOWTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IMonthlyDOWTrigger_Release(IMonthlyDOWTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_GetTypeInfoCount(IMonthlyDOWTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_GetTypeInfo(IMonthlyDOWTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_GetIDsOfNames(IMonthlyDOWTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_Invoke(IMonthlyDOWTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_Type(IMonthlyDOWTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_Id(IMonthlyDOWTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_Id(IMonthlyDOWTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_Repetition(IMonthlyDOWTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_Repetition(IMonthlyDOWTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_ExecutionTimeLimit(IMonthlyDOWTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_ExecutionTimeLimit(IMonthlyDOWTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_StartBoundary(IMonthlyDOWTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_StartBoundary(IMonthlyDOWTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_EndBoundary(IMonthlyDOWTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_EndBoundary(IMonthlyDOWTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_Enabled(IMonthlyDOWTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_Enabled(IMonthlyDOWTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** IMonthlyDOWTrigger methods ***/
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_DaysOfWeek(IMonthlyDOWTrigger* This,short *pDays) {
+    return This->lpVtbl->get_DaysOfWeek(This,pDays);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_DaysOfWeek(IMonthlyDOWTrigger* This,short days) {
+    return This->lpVtbl->put_DaysOfWeek(This,days);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_WeeksOfMonth(IMonthlyDOWTrigger* This,short *pWeeks) {
+    return This->lpVtbl->get_WeeksOfMonth(This,pWeeks);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_WeeksOfMonth(IMonthlyDOWTrigger* This,short weeks) {
+    return This->lpVtbl->put_WeeksOfMonth(This,weeks);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_MonthsOfYear(IMonthlyDOWTrigger* This,short *pMonths) {
+    return This->lpVtbl->get_MonthsOfYear(This,pMonths);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_MonthsOfYear(IMonthlyDOWTrigger* This,short months) {
+    return This->lpVtbl->put_MonthsOfYear(This,months);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_RunOnLastWeekOfMonth(IMonthlyDOWTrigger* This,VARIANT_BOOL *pLastWeek) {
+    return This->lpVtbl->get_RunOnLastWeekOfMonth(This,pLastWeek);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_RunOnLastWeekOfMonth(IMonthlyDOWTrigger* This,VARIANT_BOOL lastWeek) {
+    return This->lpVtbl->put_RunOnLastWeekOfMonth(This,lastWeek);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_get_RandomDelay(IMonthlyDOWTrigger* This,BSTR *pRandomDelay) {
+    return This->lpVtbl->get_RandomDelay(This,pRandomDelay);
+}
+static __WIDL_INLINE HRESULT IMonthlyDOWTrigger_put_RandomDelay(IMonthlyDOWTrigger* This,BSTR randomDelay) {
+    return This->lpVtbl->put_RandomDelay(This,randomDelay);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IMonthlyDOWTrigger_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IBootTrigger interface
+ */
+#ifndef __IBootTrigger_INTERFACE_DEFINED__
+#define __IBootTrigger_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IBootTrigger, 0x2a9c35da, 0xd357, 0x41f4, 0xbb,0xc1, 0x20,0x7a,0xc1,0xb1,0xf3,0xcb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2a9c35da-d357-41f4-bbc1-207ac1b1f3cb")
+IBootTrigger : public ITrigger
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Delay(
+        BSTR *pDelay) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_Delay(
+        BSTR delay) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IBootTrigger, 0x2a9c35da, 0xd357, 0x41f4, 0xbb,0xc1, 0x20,0x7a,0xc1,0xb1,0xf3,0xcb)
+#endif
+#else
+typedef struct IBootTriggerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IBootTrigger *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IBootTrigger *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IBootTrigger *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IBootTrigger *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IBootTrigger *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IBootTrigger *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IBootTrigger *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** ITrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        IBootTrigger *This,
+        TASK_TRIGGER_TYPE2 *type);
+
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        IBootTrigger *This,
+        BSTR *id);
+
+    HRESULT (STDMETHODCALLTYPE *put_Id)(
+        IBootTrigger *This,
+        BSTR id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
+        IBootTrigger *This,
+        IRepetitionPattern **repeat);
+
+    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
+        IBootTrigger *This,
+        IRepetitionPattern *repeat);
+
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
+        IBootTrigger *This,
+        BSTR *limit);
+
+    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
+        IBootTrigger *This,
+        BSTR limit);
+
+    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
+        IBootTrigger *This,
+        BSTR *start);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
+        IBootTrigger *This,
+        BSTR start);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
+        IBootTrigger *This,
+        BSTR *end);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
+        IBootTrigger *This,
+        BSTR end);
+
+    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
+        IBootTrigger *This,
+        VARIANT_BOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
+        IBootTrigger *This,
+        VARIANT_BOOL enabled);
+
+    /*** IBootTrigger methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Delay)(
+        IBootTrigger *This,
+        BSTR *pDelay);
+
+    HRESULT (STDMETHODCALLTYPE *put_Delay)(
+        IBootTrigger *This,
+        BSTR delay);
+
+    END_INTERFACE
+} IBootTriggerVtbl;
+
+interface IBootTrigger {
+    CONST_VTBL IBootTriggerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IBootTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBootTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBootTrigger_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IBootTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IBootTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IBootTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IBootTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** ITrigger methods ***/
+#define IBootTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
+#define IBootTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define IBootTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
+#define IBootTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
+#define IBootTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
+#define IBootTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
+#define IBootTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
+#define IBootTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
+#define IBootTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
+#define IBootTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
+#define IBootTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
+#define IBootTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
+#define IBootTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
+/*** IBootTrigger methods ***/
+#define IBootTrigger_get_Delay(This,pDelay) (This)->lpVtbl->get_Delay(This,pDelay)
+#define IBootTrigger_put_Delay(This,delay) (This)->lpVtbl->put_Delay(This,delay)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IBootTrigger_QueryInterface(IBootTrigger* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IBootTrigger_AddRef(IBootTrigger* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IBootTrigger_Release(IBootTrigger* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static __WIDL_INLINE HRESULT IBootTrigger_GetTypeInfoCount(IBootTrigger* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_GetTypeInfo(IBootTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_GetIDsOfNames(IBootTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_Invoke(IBootTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** ITrigger methods ***/
+static __WIDL_INLINE HRESULT IBootTrigger_get_Type(IBootTrigger* This,TASK_TRIGGER_TYPE2 *type) {
+    return This->lpVtbl->get_Type(This,type);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_Id(IBootTrigger* This,BSTR *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_Id(IBootTrigger* This,BSTR id) {
+    return This->lpVtbl->put_Id(This,id);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_Repetition(IBootTrigger* This,IRepetitionPattern **repeat) {
+    return This->lpVtbl->get_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_Repetition(IBootTrigger* This,IRepetitionPattern *repeat) {
+    return This->lpVtbl->put_Repetition(This,repeat);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_ExecutionTimeLimit(IBootTrigger* This,BSTR *limit) {
+    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_ExecutionTimeLimit(IBootTrigger* This,BSTR limit) {
+    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_StartBoundary(IBootTrigger* This,BSTR *start) {
+    return This->lpVtbl->get_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_StartBoundary(IBootTrigger* This,BSTR start) {
+    return This->lpVtbl->put_StartBoundary(This,start);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_EndBoundary(IBootTrigger* This,BSTR *end) {
+    return This->lpVtbl->get_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_EndBoundary(IBootTrigger* This,BSTR end) {
+    return This->lpVtbl->put_EndBoundary(This,end);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_get_Enabled(IBootTrigger* This,VARIANT_BOOL *enabled) {
+    return This->lpVtbl->get_Enabled(This,enabled);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_Enabled(IBootTrigger* This,VARIANT_BOOL enabled) {
+    return This->lpVtbl->put_Enabled(This,enabled);
+}
+/*** IBootTrigger methods ***/
+static __WIDL_INLINE HRESULT IBootTrigger_get_Delay(IBootTrigger* This,BSTR *pDelay) {
+    return This->lpVtbl->get_Delay(This,pDelay);
+}
+static __WIDL_INLINE HRESULT IBootTrigger_put_Delay(IBootTrigger* This,BSTR delay) {
+    return This->lpVtbl->put_Delay(This,delay);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IBootTrigger_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IRegistrationTrigger interface
@@ -4242,249 +7243,6 @@ static __WIDL_INLINE HRESULT ITriggerCollection_Clear(ITriggerCollection* This) 
 
 
 #endif  /* __ITriggerCollection_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * ITimeTrigger interface
- */
-#ifndef __ITimeTrigger_INTERFACE_DEFINED__
-#define __ITimeTrigger_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID_ITimeTrigger, 0xb45747e0, 0xeba7, 0x4276, 0x9f,0x29, 0x85,0xc5,0xbb,0x30,0x00,0x06);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("b45747e0-eba7-4276-9f29-85c5bb300006")
-ITimeTrigger : public ITrigger
-{
-    virtual HRESULT STDMETHODCALLTYPE get_RandomDelay(
-        BSTR *delay) = 0;
-
-    virtual HRESULT STDMETHODCALLTYPE put_RandomDelay(
-        BSTR delay) = 0;
-
-};
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(ITimeTrigger, 0xb45747e0, 0xeba7, 0x4276, 0x9f,0x29, 0x85,0xc5,0xbb,0x30,0x00,0x06)
-#endif
-#else
-typedef struct ITimeTriggerVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        ITimeTrigger *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        ITimeTrigger *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        ITimeTrigger *This);
-
-    /*** IDispatch methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
-        ITimeTrigger *This,
-        UINT *pctinfo);
-
-    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
-        ITimeTrigger *This,
-        UINT iTInfo,
-        LCID lcid,
-        ITypeInfo **ppTInfo);
-
-    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
-        ITimeTrigger *This,
-        REFIID riid,
-        LPOLESTR *rgszNames,
-        UINT cNames,
-        LCID lcid,
-        DISPID *rgDispId);
-
-    HRESULT (STDMETHODCALLTYPE *Invoke)(
-        ITimeTrigger *This,
-        DISPID dispIdMember,
-        REFIID riid,
-        LCID lcid,
-        WORD wFlags,
-        DISPPARAMS *pDispParams,
-        VARIANT *pVarResult,
-        EXCEPINFO *pExcepInfo,
-        UINT *puArgErr);
-
-    /*** ITrigger methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_Type)(
-        ITimeTrigger *This,
-        TASK_TRIGGER_TYPE2 *type);
-
-    HRESULT (STDMETHODCALLTYPE *get_Id)(
-        ITimeTrigger *This,
-        BSTR *id);
-
-    HRESULT (STDMETHODCALLTYPE *put_Id)(
-        ITimeTrigger *This,
-        BSTR id);
-
-    HRESULT (STDMETHODCALLTYPE *get_Repetition)(
-        ITimeTrigger *This,
-        IRepetitionPattern **repeat);
-
-    HRESULT (STDMETHODCALLTYPE *put_Repetition)(
-        ITimeTrigger *This,
-        IRepetitionPattern *repeat);
-
-    HRESULT (STDMETHODCALLTYPE *get_ExecutionTimeLimit)(
-        ITimeTrigger *This,
-        BSTR *limit);
-
-    HRESULT (STDMETHODCALLTYPE *put_ExecutionTimeLimit)(
-        ITimeTrigger *This,
-        BSTR limit);
-
-    HRESULT (STDMETHODCALLTYPE *get_StartBoundary)(
-        ITimeTrigger *This,
-        BSTR *start);
-
-    HRESULT (STDMETHODCALLTYPE *put_StartBoundary)(
-        ITimeTrigger *This,
-        BSTR start);
-
-    HRESULT (STDMETHODCALLTYPE *get_EndBoundary)(
-        ITimeTrigger *This,
-        BSTR *end);
-
-    HRESULT (STDMETHODCALLTYPE *put_EndBoundary)(
-        ITimeTrigger *This,
-        BSTR end);
-
-    HRESULT (STDMETHODCALLTYPE *get_Enabled)(
-        ITimeTrigger *This,
-        VARIANT_BOOL *enabled);
-
-    HRESULT (STDMETHODCALLTYPE *put_Enabled)(
-        ITimeTrigger *This,
-        VARIANT_BOOL enabled);
-
-    /*** ITimeTrigger methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_RandomDelay)(
-        ITimeTrigger *This,
-        BSTR *delay);
-
-    HRESULT (STDMETHODCALLTYPE *put_RandomDelay)(
-        ITimeTrigger *This,
-        BSTR delay);
-
-    END_INTERFACE
-} ITimeTriggerVtbl;
-
-interface ITimeTrigger {
-    CONST_VTBL ITimeTriggerVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define ITimeTrigger_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ITimeTrigger_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ITimeTrigger_Release(This) (This)->lpVtbl->Release(This)
-/*** IDispatch methods ***/
-#define ITimeTrigger_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-#define ITimeTrigger_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-#define ITimeTrigger_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-#define ITimeTrigger_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-/*** ITrigger methods ***/
-#define ITimeTrigger_get_Type(This,type) (This)->lpVtbl->get_Type(This,type)
-#define ITimeTrigger_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
-#define ITimeTrigger_put_Id(This,id) (This)->lpVtbl->put_Id(This,id)
-#define ITimeTrigger_get_Repetition(This,repeat) (This)->lpVtbl->get_Repetition(This,repeat)
-#define ITimeTrigger_put_Repetition(This,repeat) (This)->lpVtbl->put_Repetition(This,repeat)
-#define ITimeTrigger_get_ExecutionTimeLimit(This,limit) (This)->lpVtbl->get_ExecutionTimeLimit(This,limit)
-#define ITimeTrigger_put_ExecutionTimeLimit(This,limit) (This)->lpVtbl->put_ExecutionTimeLimit(This,limit)
-#define ITimeTrigger_get_StartBoundary(This,start) (This)->lpVtbl->get_StartBoundary(This,start)
-#define ITimeTrigger_put_StartBoundary(This,start) (This)->lpVtbl->put_StartBoundary(This,start)
-#define ITimeTrigger_get_EndBoundary(This,end) (This)->lpVtbl->get_EndBoundary(This,end)
-#define ITimeTrigger_put_EndBoundary(This,end) (This)->lpVtbl->put_EndBoundary(This,end)
-#define ITimeTrigger_get_Enabled(This,enabled) (This)->lpVtbl->get_Enabled(This,enabled)
-#define ITimeTrigger_put_Enabled(This,enabled) (This)->lpVtbl->put_Enabled(This,enabled)
-/*** ITimeTrigger methods ***/
-#define ITimeTrigger_get_RandomDelay(This,delay) (This)->lpVtbl->get_RandomDelay(This,delay)
-#define ITimeTrigger_put_RandomDelay(This,delay) (This)->lpVtbl->put_RandomDelay(This,delay)
-#else
-/*** IUnknown methods ***/
-static __WIDL_INLINE HRESULT ITimeTrigger_QueryInterface(ITimeTrigger* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static __WIDL_INLINE ULONG ITimeTrigger_AddRef(ITimeTrigger* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static __WIDL_INLINE ULONG ITimeTrigger_Release(ITimeTrigger* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IDispatch methods ***/
-static __WIDL_INLINE HRESULT ITimeTrigger_GetTypeInfoCount(ITimeTrigger* This,UINT *pctinfo) {
-    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_GetTypeInfo(ITimeTrigger* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
-    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_GetIDsOfNames(ITimeTrigger* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
-    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_Invoke(ITimeTrigger* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
-    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
-}
-/*** ITrigger methods ***/
-static __WIDL_INLINE HRESULT ITimeTrigger_get_Type(ITimeTrigger* This,TASK_TRIGGER_TYPE2 *type) {
-    return This->lpVtbl->get_Type(This,type);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_Id(ITimeTrigger* This,BSTR *id) {
-    return This->lpVtbl->get_Id(This,id);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_Id(ITimeTrigger* This,BSTR id) {
-    return This->lpVtbl->put_Id(This,id);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_Repetition(ITimeTrigger* This,IRepetitionPattern **repeat) {
-    return This->lpVtbl->get_Repetition(This,repeat);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_Repetition(ITimeTrigger* This,IRepetitionPattern *repeat) {
-    return This->lpVtbl->put_Repetition(This,repeat);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_ExecutionTimeLimit(ITimeTrigger* This,BSTR *limit) {
-    return This->lpVtbl->get_ExecutionTimeLimit(This,limit);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_ExecutionTimeLimit(ITimeTrigger* This,BSTR limit) {
-    return This->lpVtbl->put_ExecutionTimeLimit(This,limit);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_StartBoundary(ITimeTrigger* This,BSTR *start) {
-    return This->lpVtbl->get_StartBoundary(This,start);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_StartBoundary(ITimeTrigger* This,BSTR start) {
-    return This->lpVtbl->put_StartBoundary(This,start);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_EndBoundary(ITimeTrigger* This,BSTR *end) {
-    return This->lpVtbl->get_EndBoundary(This,end);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_EndBoundary(ITimeTrigger* This,BSTR end) {
-    return This->lpVtbl->put_EndBoundary(This,end);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_get_Enabled(ITimeTrigger* This,VARIANT_BOOL *enabled) {
-    return This->lpVtbl->get_Enabled(This,enabled);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_Enabled(ITimeTrigger* This,VARIANT_BOOL enabled) {
-    return This->lpVtbl->put_Enabled(This,enabled);
-}
-/*** ITimeTrigger methods ***/
-static __WIDL_INLINE HRESULT ITimeTrigger_get_RandomDelay(ITimeTrigger* This,BSTR *delay) {
-    return This->lpVtbl->get_RandomDelay(This,delay);
-}
-static __WIDL_INLINE HRESULT ITimeTrigger_put_RandomDelay(ITimeTrigger* This,BSTR delay) {
-    return This->lpVtbl->put_RandomDelay(This,delay);
-}
-#endif
-#endif
-
-#endif
-
-
-#endif  /* __ITimeTrigger_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IRepetitionPattern interface
