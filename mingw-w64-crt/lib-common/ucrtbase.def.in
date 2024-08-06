@@ -2636,6 +2636,19 @@ _o_memcpy_s
 _o_rename
 _o_setlocale
 
+; All symbols below this line are not available in Windows XP version of ucrtbase.dll
+
+; These symbols were added in ucrtbase.dll version 10.0.14393.0
+; This is part of the Windows 10 Anniversary Update (Redstone 1)
+__std_terminate
+__uncaught_exceptions
+
+; These symbols were added in ucrtbase.dll version 10.0.17134.1
+F_NON_I386(__C_specific_handler_noexcept)
+
+; These symbols were added in ucrtbase.dll version 10.0.19041.1
+F_X64(__CxxFrameHandler4)
+
 ; Include symbol aliases for compatibility with msvcrt.dll
 #define UCRTBASE
 #include "crt-aliases.def.in"
