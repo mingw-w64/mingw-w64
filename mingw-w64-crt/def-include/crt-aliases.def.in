@@ -72,7 +72,8 @@ F64(fstat == _fstat64i32)
 #endif
 ; ADD_UNDERSCORE(ftime)
 #if defined(UCRTBASE)
-; _HUGE variable is not available in ucrtbase.dll and there is no replacement for it
+; _HUGE variable is provided by math/_huge.c
+; HUGE alias is not defined
 #elif defined(CRTDLL)
 ; ADD_UNDERSCORE_DATA_DLL(HUGE)
 #else
