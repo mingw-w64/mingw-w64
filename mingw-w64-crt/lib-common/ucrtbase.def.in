@@ -601,7 +601,6 @@ _mbbtombc
 _mbbtombc_l
 _mbbtype
 _mbbtype_l
-; DATA added manually
 _mbcasemap DATA
 _mbccpy
 _mbccpy_l
