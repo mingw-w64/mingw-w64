@@ -33,8 +33,8 @@ _FCbuild
 _FCmulcc
 _FCmulcr
 _FindAndUnlinkFrame
-_GetImageBase
-_GetThrowImageBase
+F_X64(_GetImageBase)
+F_X64(_GetThrowImageBase)
 _Getdays
 _Getmonths
 _Gettnames
@@ -42,11 +42,11 @@ _IsExceptionObjectToBeDestroyed
 _LCbuild
 _LCmulcc
 _LCmulcr
-_SetImageBase
-_SetThrowImageBase
-_NLG_Dispatch2
-_NLG_Return
-_NLG_Return2
+F_I386(_NLG_Dispatch2@4)
+F_I386(_NLG_Return@12)
+F_I386(_NLG_Return2)
+F_X64(_SetImageBase)
+F_X64(_SetThrowImageBase)
 _SetWinRTOutOfMemoryExceptionCallback
 _Strftime
 _W_Getdays
@@ -69,8 +69,8 @@ __CxxUnregisterExceptionObject
 __DestructExceptionObject
 __FrameUnwindFilter
 __GetPlatformExceptionInfo
-__NLG_Dispatch2
-__NLG_Return2
+F_NON_I386(__NLG_Dispatch2)
+F_NON_I386(__NLG_Return2)
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
@@ -101,7 +101,7 @@ __fpe_flt_rounds
 __fpecode
 __initialize_lconv_for_unsigned_char
 __lconv_init == __initialize_lconv_for_unsigned_char
-__intrinsic_abnormal_termination
+F_I386(__intrinsic_abnormal_termination)
 __intrinsic_setjmp
 F64(__intrinsic_setjmpex)
 __isascii
@@ -254,7 +254,7 @@ _creat
 _create_locale
 _crt_at_quick_exit
 _crt_atexit
-_crt_debugger_hook
+F_I386(_crt_debugger_hook)
 _ctime32
 _ctime32_s
 _ctime64
@@ -336,8 +336,8 @@ _finite
 F_NON_I386(_finitef)
 _flushall
 _fpclass
-_fpclassf
-F_NON_I386(_fpieee_flt)
+F_X64(_fpclassf)
+_fpieee_flt
 ; DATA added manually
 _fpreset DATA
 _fputc_nolock
@@ -370,7 +370,7 @@ _futime64
 _fwrite_nolock
 _gcvt
 _gcvt_s
-_get_FMA3_enable
+F_X64(_get_FMA3_enable)
 _get_current_locale
 _get_daylight
 _get_doserrno
@@ -746,6 +746,7 @@ _mktime64
 _msize
 _nextafter
 F_X64(_nextafterf)
+#ifdef DEF_I386
 _o__CIacos
 _o__CIasin
 _o__CIatan
@@ -762,6 +763,7 @@ _o__CIsinh
 _o__CIsqrt
 _o__CItan
 _o__CItanh
+#endif
 _o__Getdays
 _o__Getmonths
 _o__Gettnames
@@ -786,6 +788,7 @@ _o___conio_common_vcwscanf
 _o___daylight
 _o___dstbias
 _o___fpe_flt_rounds
+#ifdef DEF_I386
 _o___libm_sse2_acos
 _o___libm_sse2_acosf
 _o___libm_sse2_asin
@@ -807,6 +810,7 @@ _o___libm_sse2_sin
 _o___libm_sse2_sinf
 _o___libm_sse2_tan
 _o___libm_sse2_tanf
+#endif
 _o___p___argc
 _o___p___argv
 _o___p___wargv
@@ -962,7 +966,7 @@ _o__findnext64
 _o__findnext64i32
 _o__flushall
 _o__fpclass
-_o__fpclassf
+F_X64(_o__fpclassf)
 _o__fputc_nolock
 _o__fputchar
 _o__fputwc_nolock
@@ -1137,6 +1141,7 @@ _o__ldtest
 _o__ldunscale
 _o__lfind
 _o__lfind_s
+#ifdef DEF_I386
 _o__libm_sse2_acos_precise
 _o__libm_sse2_asin_precise
 _o__libm_sse2_atan_precise
@@ -1148,6 +1153,7 @@ _o__libm_sse2_pow_precise
 _o__libm_sse2_sin_precise
 _o__libm_sse2_sqrt_precise
 _o__libm_sse2_tan_precise
+#endif
 _o__loaddll
 _o__localtime32
 _o__localtime32_s
@@ -1156,7 +1162,7 @@ _o__localtime64_s
 _o__lock_file
 _o__locking
 _o__logb
-_o__logbf
+F_NON_I386(_o__logbf)
 _o__lsearch
 _o__lsearch_s
 _o__lseek
@@ -1313,7 +1319,7 @@ _o__mktime32
 _o__mktime64
 _o__msize
 _o__nextafter
-_o__nextafterf
+F_X64(_o__nextafterf)
 _o__open_osfhandle
 _o__pclose
 _o__pipe
@@ -1337,7 +1343,7 @@ _o__resetstkoflw
 _o__rmdir
 _o__rmtmp
 _o__scalb
-_o__scalbf
+F_X64(_o__scalbf)
 _o__searchenv
 _o__searchenv_s
 _o__seh_filter_dll
@@ -1574,21 +1580,21 @@ _o__y1
 _o__yn
 _o_abort
 _o_acos
-_o_acosf
+F_NON_I386(_o_acosf)
 _o_acosh
 _o_acoshf
 F_ARM_ANY(_o_acoshl) ; Can't use long double functions from the CRT on x86
 _o_asctime
 _o_asctime_s
 _o_asin
-_o_asinf
+F_NON_I386(_o_asinf)
 _o_asinh
 _o_asinhf
 F_ARM_ANY(_o_asinhl) ; Can't use long double functions from the CRT on x86
 _o_atan
 _o_atan2
-_o_atan2f
-_o_atanf
+F_NON_I386(_o_atan2f)
+F_NON_I386(_o_atanf)
 _o_atanh
 _o_atanhf
 F_ARM_ANY(_o_atanhl) ; Can't use long double functions from the CRT on x86
@@ -1603,13 +1609,13 @@ _o_calloc
 _o_cbrt
 _o_cbrtf
 _o_ceil
-_o_ceilf
+F_NON_I386(_o_ceilf)
 _o_clearerr
 _o_clearerr_s
 _o_cos
-_o_cosf
+F_NON_I386(_o_cosf)
 _o_cosh
-_o_coshf
+F_NON_I386(_o_coshf)
 _o_erf
 _o_erfc
 _o_erfcf
@@ -1621,7 +1627,7 @@ _o_exp
 _o_exp2
 _o_exp2f
 F_ARM_ANY(_o_exp2l) ; Can't use long double functions from the CRT on x86
-_o_expf
+F_NON_I386(_o_expf)
 _o_fabs
 _o_fclose
 _o_feof
@@ -1633,12 +1639,12 @@ _o_fgets
 _o_fgetwc
 _o_fgetws
 _o_floor
-_o_floorf
+F_NON_I386(_o_floorf)
 _o_fma
 _o_fmaf
 F_ARM_ANY(_o_fmal) ; Can't use long double functions from the CRT on x86
 _o_fmod
-_o_fmodf
+F_NON_I386(_o_fmodf)
 _o_fopen
 _o_fopen_s
 _o_fputc
@@ -1705,7 +1711,7 @@ F_ARM_ANY(_o_llroundl) ; Can't use long double functions from the CRT on x86
 _o_localeconv
 _o_log
 _o_log10
-_o_log10f
+F_NON_I386(_o_log10f)
 _o_log1p
 _o_log1pf
 F_ARM_ANY(_o_log1pl) ; Can't use long double functions from the CRT on x86
@@ -1715,7 +1721,7 @@ F_ARM_ANY(_o_log2l) ; Can't use long double functions from the CRT on x86
 _o_logb
 _o_logbf
 F_ARM_ANY(_o_logbl) ; Can't use long double functions from the CRT on x86
-_o_logf
+F_NON_I386(_o_logf)
 _o_lrint
 _o_lrintf
 F_ARM_ANY(_o_lrintl) ; Can't use long double functions from the CRT on x86
@@ -1736,7 +1742,7 @@ _o_mbtowc
 _o_memcpy_s
 _o_memset
 _o_modf
-_o_modff
+F_NON_I386(_o_modff)
 _o_nan
 _o_nanf
 F_ARM_ANY(_o_nanl) ; Can't use long double functions from the CRT on x86
@@ -1788,11 +1794,11 @@ _o_setbuf
 _o_setlocale
 _o_setvbuf
 _o_sin
-_o_sinf
+F_NON_I386(_o_sinf)
 _o_sinh
-_o_sinhf
+F_NON_I386(_o_sinhf)
 _o_sqrt
-_o_sqrtf
+F_NON_I386(_o_sqrtf)
 _o_srand
 _o_strcat_s
 _o_strcoll
@@ -1813,9 +1819,9 @@ _o_strtoul
 _o_strtoull
 _o_system
 _o_tan
-_o_tanf
+F_NON_I386(_o_tanf)
 _o_tanh
-_o_tanhf
+F_NON_I386(_o_tanhf)
 _o_terminate
 _o_tgamma
 _o_tgammaf
@@ -2471,7 +2477,7 @@ normf
 norml
 perror
 pow
-F_NON_I386(powf)
+powf
 putc
 putchar
 puts
