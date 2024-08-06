@@ -484,6 +484,12 @@ F64(_wutime == _wutime64)
 #endif
 #endif
 
+; This is list of symbols which are present in msvcrt but not in UCRT
+#ifdef UCRTBASE
+__lconv_init == __initialize_lconv_for_unsigned_char
+__set_app_type == _set_app_type
+#endif
+
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
 #ifndef UCRTBASE
 __ms_fprintf == fprintf
