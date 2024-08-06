@@ -94,7 +94,7 @@ __current_exception
 __current_exception_context
 __daylight
 __dcrt_get_wide_environment_from_os
-__dcrt_initial_narrow_environment
+__dcrt_initial_narrow_environment DATA
 __doserrno
 __dstbias
 __fpe_flt_rounds
