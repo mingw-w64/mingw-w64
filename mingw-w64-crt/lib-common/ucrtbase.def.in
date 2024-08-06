@@ -3,6 +3,8 @@ EXPORTS
 
 #include "func.def.in"
 
+; This is list of symbols available in the first public version 10.0.10137.0 of ucrtbase.dll
+; It is part of the Microsoft Visual C++ 2015 Redistributable version 14.0.23026.0
 #ifdef DEF_I386
 _CIacos
 _CIasin
@@ -772,10 +774,6 @@ _o__W_Getdays
 _o__W_Getmonths
 _o__W_Gettnames
 _o__Wcsftime
-_o____lc_codepage_func
-_o____lc_collate_cp_func
-_o____lc_locale_name_func
-_o____mb_cur_max_func
 _o___acrt_iob_func
 _o___conio_common_vcprintf
 _o___conio_common_vcprintf_p
@@ -826,10 +824,6 @@ _o___p__wenviron
 _o___p__wpgmptr
 _o___pctype_func
 _o___pwctype_func
-_o___std_exception_copy
-_o___std_exception_destroy
-_o___std_type_info_destroy_list
-_o___std_type_info_name
 _o___stdio_common_vfprintf
 _o___stdio_common_vfprintf_p
 _o___stdio_common_vfprintf_s
@@ -879,7 +873,6 @@ _o__beginthreadex
 _o__cabs
 _o__callnewh
 _o__calloc_base
-_o__cexit
 _o__cgets
 _o__cgets_s
 _o__cgetws
@@ -891,15 +884,11 @@ _o__chsize
 _o__chsize_s
 _o__close
 _o__commit
-_o__configthreadlocale
-_o__configure_narrow_argv
 _o__configure_wide_argv
-_o__controlfp_s
 _o__cputs
 _o__cputws
 _o__creat
 _o__create_locale
-_o__crt_atexit
 _o__ctime32_s
 _o__ctime64_s
 _o__cwait
@@ -931,7 +920,6 @@ _o__execv
 _o__execve
 _o__execvp
 _o__execvpe
-_o__exit
 _o__expand
 _o__fclose_nolock
 _o__fcloseall
@@ -1002,8 +990,6 @@ _o__get_dstbias
 _o__get_errno
 _o__get_fmode
 _o__get_heap_handle
-_o__get_initial_narrow_environment
-_o__get_initial_wide_environment
 _o__get_invalid_parameter_handler
 _o__get_narrow_winmain_command_line
 _o__get_osfhandle
@@ -1048,9 +1034,7 @@ _o__i64toa
 _o__i64toa_s
 _o__i64tow
 _o__i64tow_s
-_o__initialize_narrow_environment
 _o__initialize_onexit_table
-_o__initialize_wide_environment
 _o__invalid_parameter_noinfo
 _o__invalid_parameter_noinfo_noreturn
 _o__isatty
@@ -1324,7 +1308,6 @@ _o__open_osfhandle
 _o__pclose
 _o__pipe
 _o__popen
-_o__purecall
 _o__putc_nolock
 _o__putch
 _o__putch_nolock
@@ -1346,13 +1329,9 @@ _o__scalb
 F_X64(_o__scalbf)
 _o__searchenv
 _o__searchenv_s
-_o__seh_filter_dll
-_o__seh_filter_exe
 _o__set_abort_behavior
-_o__set_app_type
 _o__set_doserrno
 _o__set_errno
-_o__set_fmode
 _o__set_invalid_parameter_handler
 _o__set_new_handler
 _o__set_new_mode
@@ -1622,7 +1601,6 @@ _o_erfcf
 F_ARM_ANY(_o_erfcl) ; Can't use long double functions from the CRT on x86
 _o_erff
 F_ARM_ANY(_o_erfl) ; Can't use long double functions from the CRT on x86
-_o_exit
 _o_exp
 _o_exp2
 _o_exp2f
@@ -1740,7 +1718,6 @@ _o_mbsrtowcs_s
 _o_mbstowcs
 _o_mbstowcs_s
 _o_mbtowc
-_o_memcpy_s
 _o_memset
 _o_modf
 F_NON_I386(_o_modff)
@@ -1776,7 +1753,6 @@ _o_remove
 _o_remquo
 _o_remquof
 F_ARM_ANY(_o_remquol) ; Can't use long double functions from the CRT on x86
-_o_rename
 _o_rewind
 _o_rint
 _o_rintf
@@ -1792,7 +1768,6 @@ _o_scalbnf
 F_ARM_ANY(_o_scalbnl) ; Can't use long double functions from the CRT on x86
 _o_set_terminate
 _o_setbuf
-_o_setlocale
 _o_setvbuf
 _o_sin
 F_NON_I386(_o_sinf)
@@ -2631,5 +2606,36 @@ wctype
 wmemcpy_s
 wmemmove_s
 
+; These symbols were added in ucrtbase.dll version 10.0.10563.0
+; It is part of the Microsoft Visual C++ 2015 Redistributable version 14.0.23506.0
+_o____lc_codepage_func
+_o____lc_collate_cp_func
+_o____lc_locale_name_func
+_o____mb_cur_max_func
+_o___std_exception_copy
+_o___std_exception_destroy
+_o___std_type_info_destroy_list
+_o___std_type_info_name
+_o__cexit
+_o__configthreadlocale
+_o__configure_narrow_argv
+_o__controlfp_s
+_o__crt_atexit
+_o__exit
+_o__get_initial_narrow_environment
+_o__get_initial_wide_environment
+_o__initialize_narrow_environment
+_o__initialize_wide_environment
+_o__purecall
+_o__seh_filter_dll
+_o__seh_filter_exe
+_o__set_app_type
+_o__set_fmode
+_o_exit
+_o_memcpy_s
+_o_rename
+_o_setlocale
+
+; Include symbol aliases for compatibility with msvcrt.dll
 #define UCRTBASE
 #include "crt-aliases.def.in"
