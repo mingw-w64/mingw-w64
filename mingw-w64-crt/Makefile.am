@@ -1358,7 +1358,7 @@ processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/m
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
 				  lib32/api-ms-win-crt-filesystem-l1-1-0.def lib32/api-ms-win-crt-time-l1-1-0.def \
-				  lib32/vcruntime140.def lib32/vcruntime140_app.def
+				  lib32/vcruntime140.def lib32/vcruntime140d.def lib32/vcruntime140_app.def
 
 endif
 
@@ -1489,6 +1489,7 @@ lib32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 lib32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 lib32_DATA += lib32/libvcruntime140.a
+lib32_DATA += lib32/libvcruntime140d.a
 lib32_DATA += lib32/libvcruntime140_app.a
 endif
 
@@ -1768,7 +1769,7 @@ processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr80d.def lib64/ms
 				  lib64/oleaut32.def lib64/user32.def lib64/winhvplatform.def lib64/ws2_32.def \
 				  lib64/api-ms-win-crt-math-l1-1-0.def lib64/api-ms-win-crt-private-l1-1-0.def lib64/api-ms-win-crt-runtime-l1-1-0.def \
 				  lib64/api-ms-win-crt-filesystem-l1-1-0.def lib64/api-ms-win-crt-time-l1-1-0.def \
-				  lib64/vcruntime140.def lib64/vcruntime140_app.def
+				  lib64/vcruntime140.def lib64/vcruntime140d.def lib64/vcruntime140_app.def
 
 endif
 
@@ -1847,6 +1848,7 @@ lib64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 lib64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 lib64_DATA += lib64/libvcruntime140.a
+lib64_DATA += lib64/libvcruntime140d.a
 lib64_DATA += lib64/libvcruntime140_app.a
 endif
 
@@ -2128,7 +2130,7 @@ processed_defs += libarm32/msvcrt.def libarm32/msvcr110.def libarm32/msvcr110d.d
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
 				  libarm32/api-ms-win-crt-filesystem-l1-1-0.def libarm32/api-ms-win-crt-time-l1-1-0.def \
-				  libarm32/vcruntime140.def libarm32/vcruntime140_app.def
+				  libarm32/vcruntime140.def libarm32/vcruntime140d.def libarm32/vcruntime140_app.def
 
 endif
 
@@ -2179,6 +2181,7 @@ libarm32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 libarm32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm32_DATA += libarm32/libvcruntime140.a
+libarm32_DATA += libarm32/libvcruntime140d.a
 libarm32_DATA += libarm32/libvcruntime140_app.a
 endif
 
@@ -2440,7 +2443,7 @@ processed_defs += libarm64/msvcrt.def libarm64/ucrtbase.def \
 				  libarm64/user32.def libarm64/winhvplatform.def libarm64/ws2_32.def \
 				  libarm64/api-ms-win-crt-math-l1-1-0.def libarm64/api-ms-win-crt-private-l1-1-0.def libarm64/api-ms-win-crt-runtime-l1-1-0.def \
 				  libarm64/api-ms-win-crt-filesystem-l1-1-0.def libarm64/api-ms-win-crt-time-l1-1-0.def \
-				  libarm64/vcruntime140.def libarm64/vcruntime140_app.def
+				  libarm64/vcruntime140.def libarm64/vcruntime140d.def libarm64/vcruntime140_app.def
 
 endif
 
@@ -2463,6 +2466,7 @@ libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 libarm64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm64_DATA += libarm64/libvcruntime140.a
+libarm64_DATA += libarm64/libvcruntime140d.a
 libarm64_DATA += libarm64/libvcruntime140_app.a
 endif
 
