@@ -103,7 +103,7 @@ __fpecode
 __initialize_lconv_for_unsigned_char
 __lconv_init == __initialize_lconv_for_unsigned_char
 F_I386(__intrinsic_abnormal_termination)
-__intrinsic_setjmp
+F_NON_ARM64(__intrinsic_setjmp)
 F64(__intrinsic_setjmpex)
 __isascii
 __iscsym
@@ -572,7 +572,7 @@ _libm_sse2_sqrt_precise
 _libm_sse2_tan_precise
 #endif
 _loaddll
-F_X64(_local_unwind)
+F64(_local_unwind)
 F_I386(_local_unwind2)
 F_I386(_local_unwind4)
 _localtime32
@@ -1901,7 +1901,7 @@ _searchenv
 _searchenv_s
 _seh_filter_dll
 _seh_filter_exe
-F64(_set_FMA3_enable)
+F_X64(_set_FMA3_enable)
 F_I386(_seh_longjmp_unwind4@4)
 F_I386(_seh_longjmp_unwind@4)
 F_I386(_set_SSE2_enable)
