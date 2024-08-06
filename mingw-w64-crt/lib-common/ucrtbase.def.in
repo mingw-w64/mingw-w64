@@ -32,6 +32,7 @@ _Exit
 _FCbuild
 _FCmulcc
 _FCmulcr
+F_ARM32(_FPE_Raise)
 _FindAndUnlinkFrame
 F_X64(_GetImageBase)
 F_X64(_GetThrowImageBase)
@@ -109,6 +110,7 @@ __iscsym
 __iscsymf
 __iswcsym
 __iswcsymf
+F_ARM32(__jump_unwind)
 #ifdef DEF_I386
 __libm_sse2_acos
 __libm_sse2_acosf
@@ -1629,6 +1631,7 @@ _o_exp2f
 F_ARM_ANY(_o_exp2l) ; Can't use long double functions from the CRT on x86
 F_NON_I386(_o_expf)
 _o_fabs
+F_ARM_ANY(_o_fabsf)
 _o_fclose
 _o_feof
 _o_ferror
