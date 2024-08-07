@@ -175,7 +175,14 @@
 /* Choose NTDDI Version */
 #ifndef NTDDI_VERSION
 #ifdef _WIN32_WINNT
+#if _WIN32_WINNT < _WIN32_WINNT_WIN10
+/* For versions before Windows 10, set the corresponding NTDDI_VERSION. */
 #define NTDDI_VERSION NTDDI_VERSION_FROM_WIN32_WINNT(_WIN32_WINNT)
+#else
+/* As _WIN32_WINNT doesn't distinguish between versions of Windows 10/11,
+ * set NTDDI_VERSION to the highest version. */
+#define NTDDI_VERSION WDK_NTDDI_VERSION
+#endif
 #else
 #define NTDDI_VERSION NTDDI_WS03
 #endif
