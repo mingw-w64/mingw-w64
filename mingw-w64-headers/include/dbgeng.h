@@ -53,8 +53,12 @@ extern "C" {
   DEFINE_GUID(IID_IDebugOutputCallbacksWide,0x4c7fd663,0xc394,0x4e26,0x8e,0xf1,0x34,0xad,0x5e,0xd3,0x76,0x4c);
   DEFINE_GUID(IID_IDebugRegisters,0xce289126,0x9e84,0x45a7,0x93,0x7e,0x67,0xbb,0x18,0x69,0x14,0x93);
   DEFINE_GUID(IID_IDebugSymbolGroup,0xf2528316,0x0f1a,0x4431,0xae,0xed,0x11,0xd0,0x96,0xe1,0xe2,0xab);
+  DEFINE_GUID(IID_IDebugSymbolGroup2,0x6a7ccc5f,0xfb5e,0x4dcc,0xb4,0x1c,0x6c,0x20,0x30,0x7b,0xcc,0xc7);
   DEFINE_GUID(IID_IDebugSymbols,0x8c31e98c,0x983a,0x48a5,0x90,0x16,0x6f,0xe5,0xd6,0x67,0xa9,0x50);
   DEFINE_GUID(IID_IDebugSymbols2,0x3a707211,0xafdd,0x4495,0xad,0x4f,0x56,0xfe,0xcd,0xf8,0x16,0x3f);
+  DEFINE_GUID(IID_IDebugSymbols3,0xf02fbecc,0x50ac,0x4f36,0x9a,0xd9,0xc9,0x75,0xe8,0xf3,0x2f,0xf8);
+  DEFINE_GUID(IID_IDebugSymbols4,0xe391bbd8,0x9d8c,0x4418,0x84,0x0b,0xc0,0x06,0x59,0x2a,0x17,0x52);
+  DEFINE_GUID(IID_IDebugSymbols5,0xc65fa83e,0x1e69,0x475e,0x8e,0x0e,0xb5,0xd7,0x9e,0x9c,0xc1,0x7e);
   DEFINE_GUID(IID_IDebugSystemObjects,0x6b86fe2c,0x2c4f,0x4f0c,0x9d,0xa2,0x17,0x43,0x11,0xac,0xc3,0x27);
   DEFINE_GUID(IID_IDebugSystemObjects2,0x0ae9f5ff,0x1852,0x4679,0xb0,0x55,0x49,0x4b,0xee,0x64,0x07,0xee);
   DEFINE_GUID(IID_IDebugSystemObjects3,0xe9676e2f,0xe286,0x4ea3,0xb0,0xf9,0xdf,0xe5,0xd9,0xfc,0x33,0x0e);
@@ -90,8 +94,12 @@ extern "C" {
   typedef struct IDebugOutputCallbacksWide *PDEBUG_OUTPUT_CALLBACKS_WIDE;
   typedef struct IDebugRegisters *PDEBUG_REGISTERS;
   typedef struct IDebugSymbolGroup *PDEBUG_SYMBOL_GROUP;
+  typedef struct IDebugSymbolGroup2 *PDEBUG_SYMBOL_GROUP2;
   typedef struct IDebugSymbols *PDEBUG_SYMBOLS;
   typedef struct IDebugSymbols2 *PDEBUG_SYMBOLS2;
+  typedef struct IDebugSymbols3 *PDEBUG_SYMBOLS3;
+  typedef struct IDebugSymbols4 *PDEBUG_SYMBOLS4;
+  typedef struct IDebugSymbols5 *PDEBUG_SYMBOLS5;
   typedef struct IDebugSystemObjects *PDEBUG_SYSTEM_OBJECTS;
   typedef struct IDebugSystemObjects2 *PDEBUG_SYSTEM_OBJECTS2;
   typedef struct IDebugSystemObjects3 *PDEBUG_SYSTEM_OBJECTS3;
@@ -100,6 +108,11 @@ extern "C" {
 
   STDAPI DebugConnect(PCSTR RemoteOptions,REFIID InterfaceId,PVOID *Interface);
   STDAPI DebugCreate(REFIID InterfaceId,PVOID *Interface);
+
+  typedef struct _DEBUG_OFFSET_REGION {
+    ULONG64 Base;
+    ULONG64 Size;
+  } DEBUG_OFFSET_REGION,*PDEBUG_OFFSET_REGION;
 
 #undef INTERFACE
 #define INTERFACE IDebugAdvanced
@@ -2997,6 +3010,62 @@ __CRT_UUID_DECL(IDebugRegisters,0xce289126,0x9e84,0x45a7,0x93,0x7e,0x67,0xbb,0x1
 __CRT_UUID_DECL(IDebugSymbolGroup,0xf2528316,0x0f1a,0x4431,0xae,0xed,0x11,0xd0,0x96,0xe1,0xe2,0xab)
 #endif
 
+#define DEBUG_SYMENT_IS_CODE 0x00000001
+#define DEBUG_SYMENT_IS_DATA 0x00000002
+#define DEBUG_SYMENT_IS_PARAMETER 0x00000004
+#define DEBUG_SYMENT_IS_LOCAL 0x00000008
+#define DEBUG_SYMENT_IS_MANAGED 0x00000010
+#define DEBUG_SYMENT_IS_SYNTHETIC 0x00000020
+
+  typedef struct _DEBUG_SYMBOL_ENTRY {
+    ULONG64 ModuleBase;
+    ULONG64 Offset;
+    ULONG64 Id;
+    ULONG64 Arg64;
+    ULONG Size;
+    ULONG Flags;
+    ULONG TypeId;
+    ULONG NameSize;
+    ULONG Token;
+    ULONG Tag;
+    ULONG Arg32;
+    ULONG Reserved;
+  } DEBUG_SYMBOL_ENTRY,*PDEBUG_SYMBOL_ENTRY;
+
+#undef INTERFACE
+#define INTERFACE IDebugSymbolGroup2
+  DECLARE_INTERFACE_(IDebugSymbolGroup2, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetNumberSymbols)(THIS_ PULONG Number) PURE;
+    STDMETHOD(AddSymbol)(THIS_ PCSTR Name, PULONG Index) PURE;
+    STDMETHOD(RemoveSymbolByName)(THIS_ PCSTR Name) PURE;
+    STDMETHOD(RemoveSymbolByIndex)(THIS_ ULONG Index) PURE;
+    STDMETHOD(GetSymbolName)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetSymbolParameters)(THIS_ ULONG Start, ULONG Count, PDEBUG_SYMBOL_PARAMETERS Params) PURE;
+    STDMETHOD(ExpandSymbol)(THIS_ ULONG Index, WINBOOL Expand) PURE;
+    STDMETHOD(OutputSymbols)(THIS_ ULONG OutputControl, ULONG Flags, ULONG Start, ULONG Count) PURE;
+    STDMETHOD(WriteSymbol)(THIS_ ULONG Index, PCSTR Value) PURE;
+    STDMETHOD(OutputAsType)(THIS_ ULONG Index, PCSTR Type) PURE;
+    STDMETHOD(AddSymbolWide)(THIS_ PCWSTR Name, PULONG Index) PURE;
+    STDMETHOD(RemoveSymbolByNameWide)(THIS_ PCWSTR Name) PURE;
+    STDMETHOD(GetSymbolNameWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(WriteSymbolWide)(THIS_ ULONG Index, PCWSTR Value) PURE;
+    STDMETHOD(OutputAsTypeWide)(THIS_ ULONG Index, PCWSTR Type) PURE;
+    STDMETHOD(GetSymbolTypeName)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetSymbolTypeNameWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetSymbolSize)(THIS_ ULONG Index, PULONG Size) PURE;
+    STDMETHOD(GetSymbolOffset)(THIS_ ULONG Index, PULONG64 Offset) PURE;
+    STDMETHOD(GetSymbolRegister)(THIS_ ULONG Index, PULONG Register) PURE;
+    STDMETHOD(GetSymbolValueText)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetSymbolValueTextWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetSymbolEntryInformation)(THIS_ ULONG Index, PDEBUG_SYMBOL_ENTRY Entry) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugSymbolGroup2,0x6a7ccc5f,0xfb5e,0x4dcc,0xb4,0x1c,0x6c,0x20,0x30,0x7b,0xcc,0xc7)
+#endif
+
 #define DEBUG_MODULE_LOADED 0x00000000
 #define DEBUG_MODULE_UNLOADED 0x00000001
 #define DEBUG_MODULE_USER_MODE 0x00000002
@@ -3182,6 +3251,473 @@ __CRT_UUID_DECL(IDebugSymbols,0x8c31e98c,0x983a,0x48a5,0x90,0x16,0x6f,0xe5,0xd6,
   };
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDebugSymbols2,0x3a707211,0xafdd,0x4495,0xad,0x4f,0x56,0xfe,0xcd,0xf8,0x16,0x3f)
+#endif
+
+#define DEBUG_GETMOD_DEFAULT 0x00000000
+#define DEBUG_GETMOD_NO_LOADED_MODULES 0x00000001
+#define DEBUG_GETMOD_NO_UNLOADED_MODULES 0x00000002
+
+#define DEBUG_ADDSYNTHMOD_DEFAULT 0x00000000
+#define DEBUG_ADDSYNTHMOD_ZEROBASE 0x00000001
+
+#define DEBUG_ADDSYNTHSYM_DEFAULT 0x00000000
+
+#define DEBUG_OUTSYM_DEFAULT 0x00000000
+#define DEBUG_OUTSYM_FORCE_OFFSET 0x00000001
+#define DEBUG_OUTSYM_SOURCE_LINE 0x00000002
+#define DEBUG_OUTSYM_ALLOW_DISPLACEMENT 0x00000004
+
+#define DEBUG_GETFNENT_DEFAULT 0x00000000
+#define DEBUG_GETFNENT_RAW_ENTRY_ONLY 0x00000001
+
+  typedef struct _DEBUG_MODULE_AND_ID {
+    ULONG64 ModuleBase;
+    ULONG64 Id;
+  } DEBUG_MODULE_AND_ID,*PDEBUG_MODULE_AND_ID;
+
+#define DEBUG_SOURCE_IS_STATEMENT 0x00000001
+
+#define DEBUG_GSEL_DEFAULT 0x00000000
+#define DEBUG_GSEL_NO_SYMBOL_LOADS 0x00000001
+#define DEBUG_GSEL_ALLOW_LOWER 0x00000002
+#define DEBUG_GSEL_ALLOW_HIGHER 0x00000004
+#define DEBUG_GSEL_NEAREST_ONLY 0x00000008
+#define DEBUG_GSEL_INLINE_CALLSITE 0x00000010
+
+  typedef struct _DEBUG_SYMBOL_SOURCE_ENTRY {
+    ULONG64 ModuleBase;
+    ULONG64 Offset;
+    ULONG64 FileNameId;
+    ULONG64 EngineInternal;
+    ULONG Size;
+    ULONG Flags;
+    ULONG FileNameSize;
+    ULONG StartLine;
+    ULONG EndLine;
+    ULONG StartColumn;
+    ULONG EndColumn;
+    ULONG Reserved;
+  } DEBUG_SYMBOL_SOURCE_ENTRY,*PDEBUG_SYMBOL_SOURCE_ENTRY;
+
+#undef INTERFACE
+#define INTERFACE IDebugSymbols3
+  DECLARE_INTERFACE_(IDebugSymbols3, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetSymbolOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffset)(THIS_ ULONG64 Offset, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByName)(THIS_ PCSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffset)(THIS_ ULONG64 Offset, LONG Delta, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffset)(THIS_ ULONG64 Offset, PULONG Line, PSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLine)(THIS_ ULONG Line, PCSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetNumberModules)(THIS_ PULONG Loaded, PULONG Unloaded) PURE;
+    STDMETHOD(GetModuleByIndex)(THIS_ ULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName)(THIS_ PCSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset)(THIS_ ULONG64 Offset, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleNames)(THIS_ ULONG Index, ULONG64 Base, PSTR ImageNameBuffer, ULONG ImageNameBufferSize, PULONG ImageNameSize, PSTR ModuleNameBuffer, ULONG ModuleNameBufferSize, PULONG ModuleNameSize, PSTR LoadedImageNameBuffer, ULONG LoadedImageNameBufferSize, PULONG LoadedImageNameSize) PURE;
+    STDMETHOD(GetModuleParameters)(THIS_ ULONG Count, PULONG64 Bases, ULONG Start, PDEBUG_MODULE_PARAMETERS Params) PURE;
+    STDMETHOD(GetSymbolModule)(THIS_ PCSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeName)(THIS_ ULONG64 Module, ULONG TypeId, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeId)(THIS_ ULONG64 Module, PCSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetTypeSize)(THIS_ ULONG64 Module, ULONG TypeId, PULONG Size) PURE;
+    STDMETHOD(GetFieldOffset)(THIS_ ULONG64 Module, ULONG TypeId, PCSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeId)(THIS_ PCSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetOffsetTypeId)(THIS_ ULONG64 Offset, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(ReadTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataVirtual)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(ReadTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataPhysical)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(GetScope)(THIS_ PULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(SetScope)(THIS_ ULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(ResetScope)(THIS) PURE;
+    STDMETHOD(GetScopeSymbolGroup)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP Update, PDEBUG_SYMBOL_GROUP *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup)(THIS_ PDEBUG_SYMBOL_GROUP *Group) PURE;
+    STDMETHOD(StartSymbolMatch)(THIS_ PCSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatch)(THIS_ ULONG64 Handle, PSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(EndSymbolMatch)(THIS_ ULONG64 Handle) PURE;
+    STDMETHOD(Reload)(THIS_ PCSTR Module) PURE;
+    STDMETHOD(GetSymbolPath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSymbolPath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetImagePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendImagePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetSourcePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElement)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSourcePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(FindSourceFile)(THIS_ ULONG StartElement, PCSTR File, ULONG Flags, PULONG FoundElement, PSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsets)(THIS_ PCSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformation)(THIS_ ULONG Index, ULONG64 Base, PCSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameString)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffsetWide)(THIS_ ULONG64 Offset, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByNameWide)(THIS_ PCWSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffsetWide)(THIS_ ULONG64 Offset, LONG Delta, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffsetWide)(THIS_ ULONG64 Offset, PULONG Line, PWSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLineWide)(THIS_ ULONG Line, PCWSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetModuleByModuleNameWide)(THIS_ PCWSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetSymbolModuleWide)(THIS_ PCWSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeNameWide)(THIS_ ULONG64 Module, ULONG TypeId, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeIdWide)(THIS_ ULONG64 Module, PCWSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetFieldOffsetWide)(THIS_ ULONG64 Module, ULONG TypeId, PCWSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeIdWide)(THIS_ PCWSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetScopeSymbolGroup2)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP2 Update, PDEBUG_SYMBOL_GROUP2 *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup2)(THIS_ PDEBUG_SYMBOL_GROUP2 *Group) PURE;
+    STDMETHOD(StartSymbolMatchWide)(THIS_ PCWSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatchWide)(THIS_ ULONG64 Handle, PWSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(ReloadWide)(THIS_ PCWSTR Module) PURE;
+    STDMETHOD(GetSymbolPathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSymbolPathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetImagePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendImagePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetSourcePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElementWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSourcePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(FindSourceFileWide)(THIS_ ULONG StartElement, PCWSTR File, ULONG Flags, PULONG FoundElement, PWSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsetsWide)(THIS_ PCWSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformationWide)(THIS_ ULONG Index, ULONG64 Base, PCWSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameStringWide)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(IsManagedModule)(THIS_ ULONG Index, ULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2)(THIS_ PCSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2Wide)(THIS_ PCWSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset2)(THIS_ ULONG64 Offset, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(AddSyntheticModule)(THIS_ ULONG64 Base, ULONG Size, PCSTR ImagePath, PCSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(AddSyntheticModuleWide)(THIS_ ULONG64 Base, ULONG Size, PCWSTR ImagePath, PCWSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(RemoveSyntheticModule)(THIS_ ULONG64 Base) PURE;
+    STDMETHOD(GetCurrentScopeFrameIndex)(THIS_ PULONG Index) PURE;
+    STDMETHOD(SetScopeFrameByIndex)(THIS_ ULONG Index) PURE;
+    STDMETHOD(SetScopeFromJitDebugInfo)(THIS_ ULONG OutputControl, ULONG64 InfoOffset) PURE;
+    STDMETHOD(SetScopeFromStoredEvent)(THIS) PURE;
+    STDMETHOD(OutputSymbolByOffset)(THIS_ ULONG OutputControl, ULONG Flags, ULONG64 Offset) PURE;
+    STDMETHOD(GetFunctionEntryByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PVOID Buffer, ULONG BufferSize, PULONG BufferNeeded) PURE;
+    STDMETHOD(GetFieldTypeAndOffset)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(GetFieldTypeAndOffsetWide)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCWSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(AddSyntheticSymbol)(THIS_ ULONG64 Offset, ULONG Size, PCSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(AddSyntheticSymbolWide)(THIS_ ULONG64 Offset, ULONG Size, PCWSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(RemoveSyntheticSymbol)(THIS_ PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, PULONG64 Displacements, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByName)(THIS_ PCSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByNameWide)(THIS_ PCWSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntryByToken)(THIS_ ULONG64 ModuleBase, ULONG Token, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntryInformation)(THIS_ PDEBUG_MODULE_AND_ID Id, PDEBUG_SYMBOL_ENTRY Info) PURE;
+    STDMETHOD(GetSymbolEntryString)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryStringWide)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryOffsetRegions)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSymbolEntryBySymbolEntry)(THIS_ PDEBUG_MODULE_AND_ID FromId, ULONG Flags, PDEBUG_MODULE_AND_ID ToId) PURE;
+    STDMETHOD(GetSourceEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLine)(THIS_ ULONG Line, PCSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLineWide)(THIS_ ULONG Line, PCWSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntryString)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryStringWide)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryOffsetRegions)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSourceEntryBySourceEntry)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY FromEntry, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY ToEntry) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugSymbols3,0xf02fbecc,0x50ac,0x4f36,0x9a,0xd9,0xc9,0x75,0xe8,0xf3,0x2f,0xf8)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugSymbols4
+  DECLARE_INTERFACE_(IDebugSymbols4, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetSymbolOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffset)(THIS_ ULONG64 Offset, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByName)(THIS_ PCSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffset)(THIS_ ULONG64 Offset, LONG Delta, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffset)(THIS_ ULONG64 Offset, PULONG Line, PSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLine)(THIS_ ULONG Line, PCSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetNumberModules)(THIS_ PULONG Loaded, PULONG Unloaded) PURE;
+    STDMETHOD(GetModuleByIndex)(THIS_ ULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName)(THIS_ PCSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset)(THIS_ ULONG64 Offset, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleNames)(THIS_ ULONG Index, ULONG64 Base, PSTR ImageNameBuffer, ULONG ImageNameBufferSize, PULONG ImageNameSize, PSTR ModuleNameBuffer, ULONG ModuleNameBufferSize, PULONG ModuleNameSize, PSTR LoadedImageNameBuffer, ULONG LoadedImageNameBufferSize, PULONG LoadedImageNameSize) PURE;
+    STDMETHOD(GetModuleParameters)(THIS_ ULONG Count, PULONG64 Bases, ULONG Start, PDEBUG_MODULE_PARAMETERS Params) PURE;
+    STDMETHOD(GetSymbolModule)(THIS_ PCSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeName)(THIS_ ULONG64 Module, ULONG TypeId, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeId)(THIS_ ULONG64 Module, PCSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetTypeSize)(THIS_ ULONG64 Module, ULONG TypeId, PULONG Size) PURE;
+    STDMETHOD(GetFieldOffset)(THIS_ ULONG64 Module, ULONG TypeId, PCSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeId)(THIS_ PCSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetOffsetTypeId)(THIS_ ULONG64 Offset, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(ReadTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataVirtual)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(ReadTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataPhysical)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(GetScope)(THIS_ PULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(SetScope)(THIS_ ULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(ResetScope)(THIS) PURE;
+    STDMETHOD(GetScopeSymbolGroup)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP Update, PDEBUG_SYMBOL_GROUP *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup)(THIS_ PDEBUG_SYMBOL_GROUP *Group) PURE;
+    STDMETHOD(StartSymbolMatch)(THIS_ PCSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatch)(THIS_ ULONG64 Handle, PSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(EndSymbolMatch)(THIS_ ULONG64 Handle) PURE;
+    STDMETHOD(Reload)(THIS_ PCSTR Module) PURE;
+    STDMETHOD(GetSymbolPath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSymbolPath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetImagePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendImagePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetSourcePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElement)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSourcePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(FindSourceFile)(THIS_ ULONG StartElement, PCSTR File, ULONG Flags, PULONG FoundElement, PSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsets)(THIS_ PCSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformation)(THIS_ ULONG Index, ULONG64 Base, PCSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameString)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffsetWide)(THIS_ ULONG64 Offset, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByNameWide)(THIS_ PCWSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffsetWide)(THIS_ ULONG64 Offset, LONG Delta, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffsetWide)(THIS_ ULONG64 Offset, PULONG Line, PWSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLineWide)(THIS_ ULONG Line, PCWSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetModuleByModuleNameWide)(THIS_ PCWSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetSymbolModuleWide)(THIS_ PCWSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeNameWide)(THIS_ ULONG64 Module, ULONG TypeId, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeIdWide)(THIS_ ULONG64 Module, PCWSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetFieldOffsetWide)(THIS_ ULONG64 Module, ULONG TypeId, PCWSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeIdWide)(THIS_ PCWSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetScopeSymbolGroup2)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP2 Update, PDEBUG_SYMBOL_GROUP2 *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup2)(THIS_ PDEBUG_SYMBOL_GROUP2 *Group) PURE;
+    STDMETHOD(StartSymbolMatchWide)(THIS_ PCWSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatchWide)(THIS_ ULONG64 Handle, PWSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(ReloadWide)(THIS_ PCWSTR Module) PURE;
+    STDMETHOD(GetSymbolPathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSymbolPathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetImagePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendImagePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetSourcePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElementWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSourcePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(FindSourceFileWide)(THIS_ ULONG StartElement, PCWSTR File, ULONG Flags, PULONG FoundElement, PWSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsetsWide)(THIS_ PCWSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformationWide)(THIS_ ULONG Index, ULONG64 Base, PCWSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameStringWide)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(IsManagedModule)(THIS_ ULONG Index, ULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2)(THIS_ PCSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2Wide)(THIS_ PCWSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset2)(THIS_ ULONG64 Offset, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(AddSyntheticModule)(THIS_ ULONG64 Base, ULONG Size, PCSTR ImagePath, PCSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(AddSyntheticModuleWide)(THIS_ ULONG64 Base, ULONG Size, PCWSTR ImagePath, PCWSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(RemoveSyntheticModule)(THIS_ ULONG64 Base) PURE;
+    STDMETHOD(GetCurrentScopeFrameIndex)(THIS_ PULONG Index) PURE;
+    STDMETHOD(SetScopeFrameByIndex)(THIS_ ULONG Index) PURE;
+    STDMETHOD(SetScopeFromJitDebugInfo)(THIS_ ULONG OutputControl, ULONG64 InfoOffset) PURE;
+    STDMETHOD(SetScopeFromStoredEvent)(THIS) PURE;
+    STDMETHOD(OutputSymbolByOffset)(THIS_ ULONG OutputControl, ULONG Flags, ULONG64 Offset) PURE;
+    STDMETHOD(GetFunctionEntryByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PVOID Buffer, ULONG BufferSize, PULONG BufferNeeded) PURE;
+    STDMETHOD(GetFieldTypeAndOffset)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(GetFieldTypeAndOffsetWide)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCWSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(AddSyntheticSymbol)(THIS_ ULONG64 Offset, ULONG Size, PCSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(AddSyntheticSymbolWide)(THIS_ ULONG64 Offset, ULONG Size, PCWSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(RemoveSyntheticSymbol)(THIS_ PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, PULONG64 Displacements, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByName)(THIS_ PCSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByNameWide)(THIS_ PCWSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntryByToken)(THIS_ ULONG64 ModuleBase, ULONG Token, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntryInformation)(THIS_ PDEBUG_MODULE_AND_ID Id, PDEBUG_SYMBOL_ENTRY Info) PURE;
+    STDMETHOD(GetSymbolEntryString)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryStringWide)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryOffsetRegions)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSymbolEntryBySymbolEntry)(THIS_ PDEBUG_MODULE_AND_ID FromId, ULONG Flags, PDEBUG_MODULE_AND_ID ToId) PURE;
+    STDMETHOD(GetSourceEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLine)(THIS_ ULONG Line, PCSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLineWide)(THIS_ ULONG Line, PCWSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntryString)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryStringWide)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryOffsetRegions)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSourceEntryBySourceEntry)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY FromEntry, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY ToEntry) PURE;
+    STDMETHOD(GetScopeEx)(THIS_ PULONG64 InstructionOffset, PDEBUG_STACK_FRAME_EX ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(SetScopeEx)(THIS_ ULONG64 InstructionOffset, PDEBUG_STACK_FRAME_EX ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(GetNameByInlineContext)(THIS_ ULONG64 Offset, ULONG InlineContext, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetNameByInlineContextWide)(THIS_ ULONG64 Offset, ULONG InlineContext, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByInlineContext)(THIS_ ULONG64 Offset, ULONG InlineContext, PULONG Line, PSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByInlineContextWide)(THIS_ ULONG64 Offset, ULONG InlineContext, PULONG Line, PWSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(OutputSymbolByInlineContext)(THIS_ ULONG OutputControl, ULONG Flags, ULONG64 Offset, ULONG InlineContext) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugSymbols4,0xe391bbd8,0x9d8c,0x4418,0x84,0x0b,0xc0,0x06,0x59,0x2a,0x17,0x52)
+#endif
+
+#define DEBUG_FRAME_DEFAULT 0
+#define DEBUG_FRAME_IGNORE_INLINE 0x00000001
+
+#undef INTERFACE
+#define INTERFACE IDebugSymbols5
+  DECLARE_INTERFACE_(IDebugSymbols5, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetSymbolOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetSymbolOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffset)(THIS_ ULONG64 Offset, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByName)(THIS_ PCSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffset)(THIS_ ULONG64 Offset, LONG Delta, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffset)(THIS_ ULONG64 Offset, PULONG Line, PSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLine)(THIS_ ULONG Line, PCSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetNumberModules)(THIS_ PULONG Loaded, PULONG Unloaded) PURE;
+    STDMETHOD(GetModuleByIndex)(THIS_ ULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName)(THIS_ PCSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset)(THIS_ ULONG64 Offset, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleNames)(THIS_ ULONG Index, ULONG64 Base, PSTR ImageNameBuffer, ULONG ImageNameBufferSize, PULONG ImageNameSize, PSTR ModuleNameBuffer, ULONG ModuleNameBufferSize, PULONG ModuleNameSize, PSTR LoadedImageNameBuffer, ULONG LoadedImageNameBufferSize, PULONG LoadedImageNameSize) PURE;
+    STDMETHOD(GetModuleParameters)(THIS_ ULONG Count, PULONG64 Bases, ULONG Start, PDEBUG_MODULE_PARAMETERS Params) PURE;
+    STDMETHOD(GetSymbolModule)(THIS_ PCSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeName)(THIS_ ULONG64 Module, ULONG TypeId, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeId)(THIS_ ULONG64 Module, PCSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetTypeSize)(THIS_ ULONG64 Module, ULONG TypeId, PULONG Size) PURE;
+    STDMETHOD(GetFieldOffset)(THIS_ ULONG64 Module, ULONG TypeId, PCSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeId)(THIS_ PCSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetOffsetTypeId)(THIS_ ULONG64 Offset, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(ReadTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataVirtual)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataVirtual)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(ReadTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteTypedDataPhysical)(THIS_ ULONG64 Offset, ULONG64 Module, ULONG TypeId, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(OutputTypedDataPhysical)(THIS_ ULONG OutputControl, ULONG64 Offset, ULONG64 Module, ULONG TypeId, ULONG Flags) PURE;
+    STDMETHOD(GetScope)(THIS_ PULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(SetScope)(THIS_ ULONG64 InstructionOffset, PDEBUG_STACK_FRAME ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(ResetScope)(THIS) PURE;
+    STDMETHOD(GetScopeSymbolGroup)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP Update, PDEBUG_SYMBOL_GROUP *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup)(THIS_ PDEBUG_SYMBOL_GROUP *Group) PURE;
+    STDMETHOD(StartSymbolMatch)(THIS_ PCSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatch)(THIS_ ULONG64 Handle, PSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(EndSymbolMatch)(THIS_ ULONG64 Handle) PURE;
+    STDMETHOD(Reload)(THIS_ PCSTR Module) PURE;
+    STDMETHOD(GetSymbolPath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSymbolPath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetImagePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendImagePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(GetSourcePath)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElement)(THIS_ ULONG Index, PSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePath)(THIS_ PCSTR Path) PURE;
+    STDMETHOD(AppendSourcePath)(THIS_ PCSTR Addition) PURE;
+    STDMETHOD(FindSourceFile)(THIS_ ULONG StartElement, PCSTR File, ULONG Flags, PULONG FoundElement, PSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsets)(THIS_ PCSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformation)(THIS_ ULONG Index, ULONG64 Base, PCSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameString)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldName)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeOptions)(THIS_ PULONG Options) PURE;
+    STDMETHOD(AddTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(RemoveTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(SetTypeOptions)(THIS_ ULONG Options) PURE;
+    STDMETHOD(GetNameByOffsetWide)(THIS_ ULONG64 Offset, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByNameWide)(THIS_ PCWSTR Symbol, PULONG64 Offset) PURE;
+    STDMETHOD(GetNearNameByOffsetWide)(THIS_ ULONG64 Offset, LONG Delta, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByOffsetWide)(THIS_ ULONG64 Offset, PULONG Line, PWSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetOffsetByLineWide)(THIS_ ULONG Line, PCWSTR File, PULONG64 Offset) PURE;
+    STDMETHOD(GetModuleByModuleNameWide)(THIS_ PCWSTR Name, ULONG StartIndex, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetSymbolModuleWide)(THIS_ PCWSTR Symbol, PULONG64 Base) PURE;
+    STDMETHOD(GetTypeNameWide)(THIS_ ULONG64 Module, ULONG TypeId, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetTypeIdWide)(THIS_ ULONG64 Module, PCWSTR Name, PULONG TypeId) PURE;
+    STDMETHOD(GetFieldOffsetWide)(THIS_ ULONG64 Module, ULONG TypeId, PCWSTR Field, PULONG Offset) PURE;
+    STDMETHOD(GetSymbolTypeIdWide)(THIS_ PCWSTR Symbol, PULONG TypeId, PULONG64 Module) PURE;
+    STDMETHOD(GetScopeSymbolGroup2)(THIS_ ULONG Flags, PDEBUG_SYMBOL_GROUP2 Update, PDEBUG_SYMBOL_GROUP2 *Symbols) PURE;
+    STDMETHOD(CreateSymbolGroup2)(THIS_ PDEBUG_SYMBOL_GROUP2 *Group) PURE;
+    STDMETHOD(StartSymbolMatchWide)(THIS_ PCWSTR Pattern, PULONG64 Handle) PURE;
+    STDMETHOD(GetNextSymbolMatchWide)(THIS_ ULONG64 Handle, PWSTR Buffer, ULONG BufferSize, PULONG MatchSize, PULONG64 Offset) PURE;
+    STDMETHOD(ReloadWide)(THIS_ PCWSTR Module) PURE;
+    STDMETHOD(GetSymbolPathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetSymbolPathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSymbolPathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetImagePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(SetImagePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendImagePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(GetSourcePathWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG PathSize) PURE;
+    STDMETHOD(GetSourcePathElementWide)(THIS_ ULONG Index, PWSTR Buffer, ULONG BufferSize, PULONG ElementSize) PURE;
+    STDMETHOD(SetSourcePathWide)(THIS_ PCWSTR Path) PURE;
+    STDMETHOD(AppendSourcePathWide)(THIS_ PCWSTR Addition) PURE;
+    STDMETHOD(FindSourceFileWide)(THIS_ ULONG StartElement, PCWSTR File, ULONG Flags, PULONG FoundElement, PWSTR Buffer, ULONG BufferSize, PULONG FoundSize) PURE;
+    STDMETHOD(GetSourceFileLineOffsetsWide)(THIS_ PCWSTR File, PULONG64 Buffer, ULONG BufferLines, PULONG FileLines) PURE;
+    STDMETHOD(GetModuleVersionInformationWide)(THIS_ ULONG Index, ULONG64 Base, PCWSTR Item, PVOID Buffer, ULONG BufferSize, PULONG VerInfoSize) PURE;
+    STDMETHOD(GetModuleNameStringWide)(THIS_ ULONG Which, ULONG Index, ULONG64 Base, PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetConstantNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG64 Value, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetFieldNameWide)(THIS_ ULONG64 Module, ULONG TypeId, ULONG FieldIndex, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize) PURE;
+    STDMETHOD(IsManagedModule)(THIS_ ULONG Index, ULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2)(THIS_ PCSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByModuleName2Wide)(THIS_ PCWSTR Name, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(GetModuleByOffset2)(THIS_ ULONG64 Offset, ULONG StartIndex, ULONG Flags, PULONG Index, PULONG64 Base) PURE;
+    STDMETHOD(AddSyntheticModule)(THIS_ ULONG64 Base, ULONG Size, PCSTR ImagePath, PCSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(AddSyntheticModuleWide)(THIS_ ULONG64 Base, ULONG Size, PCWSTR ImagePath, PCWSTR ModuleName, ULONG Flags) PURE;
+    STDMETHOD(RemoveSyntheticModule)(THIS_ ULONG64 Base) PURE;
+    STDMETHOD(GetCurrentScopeFrameIndex)(THIS_ PULONG Index) PURE;
+    STDMETHOD(SetScopeFrameByIndex)(THIS_ ULONG Index) PURE;
+    STDMETHOD(SetScopeFromJitDebugInfo)(THIS_ ULONG OutputControl, ULONG64 InfoOffset) PURE;
+    STDMETHOD(SetScopeFromStoredEvent)(THIS) PURE;
+    STDMETHOD(OutputSymbolByOffset)(THIS_ ULONG OutputControl, ULONG Flags, ULONG64 Offset) PURE;
+    STDMETHOD(GetFunctionEntryByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PVOID Buffer, ULONG BufferSize, PULONG BufferNeeded) PURE;
+    STDMETHOD(GetFieldTypeAndOffset)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(GetFieldTypeAndOffsetWide)(THIS_ ULONG64 Module, ULONG ContainerTypeId, PCWSTR Field, PULONG FieldTypeId, PULONG Offset) PURE;
+    STDMETHOD(AddSyntheticSymbol)(THIS_ ULONG64 Offset, ULONG Size, PCSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(AddSyntheticSymbolWide)(THIS_ ULONG64 Offset, ULONG Size, PCWSTR Name, ULONG Flags, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(RemoveSyntheticSymbol)(THIS_ PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, PULONG64 Displacements, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByName)(THIS_ PCSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntriesByNameWide)(THIS_ PCWSTR Symbol, ULONG Flags, PDEBUG_MODULE_AND_ID Ids, ULONG IdsCount, PULONG Entries) PURE;
+    STDMETHOD(GetSymbolEntryByToken)(THIS_ ULONG64 ModuleBase, ULONG Token, PDEBUG_MODULE_AND_ID Id) PURE;
+    STDMETHOD(GetSymbolEntryInformation)(THIS_ PDEBUG_MODULE_AND_ID Id, PDEBUG_SYMBOL_ENTRY Info) PURE;
+    STDMETHOD(GetSymbolEntryString)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryStringWide)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSymbolEntryOffsetRegions)(THIS_ PDEBUG_MODULE_AND_ID Id, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSymbolEntryBySymbolEntry)(THIS_ PDEBUG_MODULE_AND_ID FromId, ULONG Flags, PDEBUG_MODULE_AND_ID ToId) PURE;
+    STDMETHOD(GetSourceEntriesByOffset)(THIS_ ULONG64 Offset, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLine)(THIS_ ULONG Line, PCSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntriesByLineWide)(THIS_ ULONG Line, PCWSTR File, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY Entries, ULONG EntriesCount, PULONG EntriesAvail) PURE;
+    STDMETHOD(GetSourceEntryString)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryStringWide)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Which, PWSTR Buffer, ULONG BufferSize, PULONG StringSize) PURE;
+    STDMETHOD(GetSourceEntryOffsetRegions)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY Entry, ULONG Flags, PDEBUG_OFFSET_REGION Regions, ULONG RegionsCount, PULONG RegionsAvail) PURE;
+    STDMETHOD(GetSourceEntryBySourceEntry)(THIS_ PDEBUG_SYMBOL_SOURCE_ENTRY FromEntry, ULONG Flags, PDEBUG_SYMBOL_SOURCE_ENTRY ToEntry) PURE;
+    STDMETHOD(GetScopeEx)(THIS_ PULONG64 InstructionOffset, PDEBUG_STACK_FRAME_EX ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(SetScopeEx)(THIS_ ULONG64 InstructionOffset, PDEBUG_STACK_FRAME_EX ScopeFrame, PVOID ScopeContext, ULONG ScopeContextSize) PURE;
+    STDMETHOD(GetNameByInlineContext)(THIS_ ULONG64 Offset, ULONG InlineContext, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetNameByInlineContextWide)(THIS_ ULONG64 Offset, ULONG InlineContext, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByInlineContext)(THIS_ ULONG64 Offset, ULONG InlineContext, PULONG Line, PSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(GetLineByInlineContextWide)(THIS_ ULONG64 Offset, ULONG InlineContext, PULONG Line, PWSTR FileBuffer, ULONG FileBufferSize, PULONG FileSize, PULONG64 Displacement) PURE;
+    STDMETHOD(OutputSymbolByInlineContext)(THIS_ ULONG OutputControl, ULONG Flags, ULONG64 Offset, ULONG InlineContext) PURE;
+    STDMETHOD(GetCurrentScopeFrameIndexEx)(THIS_ ULONG Flags, PULONG Index) PURE;
+    STDMETHOD(SetScopeFrameByIndexEx)(THIS_ ULONG Flags, ULONG Index) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugSymbols5,0xc65fa83e,0x1e69,0x475e,0x8e,0x0e,0xb5,0xd7,0x9e,0x9c,0xc1,0x7e)
 #endif
 
 #undef INTERFACE
