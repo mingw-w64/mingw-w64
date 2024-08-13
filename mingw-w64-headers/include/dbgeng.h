@@ -52,6 +52,7 @@ extern "C" {
   DEFINE_GUID(IID_IDebugDataSpaces,0x88f7dfab,0x3ea7,0x4c3a,0xae,0xfb,0xc4,0xe8,0x10,0x61,0x73,0xaa);
   DEFINE_GUID(IID_IDebugDataSpaces2,0x7a5e852f,0x96e9,0x468f,0xac,0x1b,0x0b,0x3a,0xdd,0xc4,0xa0,0x49);
   DEFINE_GUID(IID_IDebugDataSpaces3,0x23f79d6c,0x8aaf,0x4f7c,0xa6,0x07,0x99,0x95,0xf5,0x40,0x7e,0x63);
+  DEFINE_GUID(IID_IDebugDataSpaces4,0xd98ada1f,0x29e9,0x4ef5,0xa6,0xc0,0xe5,0x33,0x49,0x88,0x32,0x12);
   DEFINE_GUID(IID_IDebugEventCallbacks,0x337be28b,0x5036,0x4d72,0xb6,0xbf,0xc4,0x5f,0xbb,0x9f,0x2e,0xaa);
   DEFINE_GUID(IID_IDebugEventCallbacksWide,0x0690e046,0x9c23,0x45ac,0xa0,0x4f,0x98,0x7a,0xc2,0x9a,0xd0,0xd3);
   DEFINE_GUID(IID_IDebugEventContextCallbacks,0x61a4905b,0x23f9,0x4247,0xb3,0xc5,0x53,0xd0,0x87,0x52,0x9a,0xb7);
@@ -100,6 +101,7 @@ extern "C" {
   typedef struct IDebugDataSpaces *PDEBUG_DATA_SPACES;
   typedef struct IDebugDataSpaces2 *PDEBUG_DATA_SPACES2;
   typedef struct IDebugDataSpaces3 *PDEBUG_DATA_SPACES3;
+  typedef struct IDebugDataSpaces4 *PDEBUG_DATA_SPACES4;
   typedef struct IDebugEventCallbacks *PDEBUG_EVENT_CALLBACKS;
   typedef struct IDebugEventCallbacksWide *PDEBUG_EVENT_CALLBACKS_WIDE;
   typedef struct IDebugEventContextCallbacks *PDEBUG_EVENT_CONTEXT_CALLBACKS;
@@ -3009,6 +3011,73 @@ __CRT_UUID_DECL(IDebugDataSpaces2,0x7a5e852f,0x96e9,0x468f,0xac,0x1b,0x0b,0x3a,0
   };
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDebugDataSpaces3,0x23f79d6c,0x8aaf,0x4f7c,0xa6,0x07,0x99,0x95,0xf5,0x40,0x7e,0x63)
+#endif
+
+#define DEBUG_OFFSINFO_VIRTUAL_SOURCE 0x00000001
+
+#define DEBUG_VSOURCE_INVALID 0x00000000
+#define DEBUG_VSOURCE_DEBUGGEE 0x00000001
+#define DEBUG_VSOURCE_MAPPED_IMAGE 0x00000002
+#define DEBUG_VSOURCE_DUMP_WITHOUT_MEMINFO 0x00000003
+
+#define DEBUG_VSEARCH_DEFAULT 0x00000000
+#define DEBUG_VSEARCH_WRITABLE_ONLY 0x00000001
+
+#define DEBUG_PHYSICAL_DEFAULT 0x00000000
+#define DEBUG_PHYSICAL_CACHED 0x00000001
+#define DEBUG_PHYSICAL_UNCACHED 0x00000002
+#define DEBUG_PHYSICAL_WRITE_COMBINED 0x00000003
+
+#undef INTERFACE
+#define INTERFACE IDebugDataSpaces4
+  DECLARE_INTERFACE_(IDebugDataSpaces4, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(ReadVirtual)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteVirtual)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(SearchVirtual)(THIS_ ULONG64 Offset, ULONG64 Length, PVOID Pattern, ULONG PatternSize, ULONG PatternGranularity, PULONG64 MatchOffset) PURE;
+    STDMETHOD(ReadVirtualUncached)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteVirtualUncached)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(ReadPointersVirtual)(THIS_ ULONG Count, ULONG64 Offset, PULONG64 Ptrs) PURE;
+    STDMETHOD(WritePointersVirtual)(THIS_ ULONG Count, ULONG64 Offset, PULONG64 Ptrs) PURE;
+    STDMETHOD(ReadPhysical)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WritePhysical)(THIS_ ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(ReadControl)(THIS_ ULONG Processor, ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteControl)(THIS_ ULONG Processor, ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(ReadIo)(THIS_ ULONG InterfaceType, ULONG BusNumber, ULONG AddressSpace, ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteIo)(THIS_ ULONG InterfaceType, ULONG BusNumber, ULONG AddressSpace, ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(ReadMsr)(THIS_ ULONG Msr, PULONG64 Value) PURE;
+    STDMETHOD(WriteMsr)(THIS_ ULONG Msr, ULONG64 Value) PURE;
+    STDMETHOD(ReadBusData)(THIS_ ULONG BusDataType, ULONG BusNumber, ULONG SlotNumber, ULONG Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WriteBusData)(THIS_ ULONG BusDataType, ULONG BusNumber, ULONG SlotNumber, ULONG Offset, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+    STDMETHOD(CheckLowMemory)(THIS) PURE;
+    STDMETHOD(ReadDebuggerData)(THIS_ ULONG Index, PVOID Buffer, ULONG BufferSize, PULONG DataSize) PURE;
+    STDMETHOD(ReadProcessorSystemData)(THIS_ ULONG Processor, ULONG Index, PVOID Buffer, ULONG BufferSize, PULONG DataSize) PURE;
+    STDMETHOD(VirtualToPhysical)(THIS_ ULONG64 Virtual, PULONG64 Physical) PURE;
+    STDMETHOD(GetVirtualTranslationPhysicalOffsets)(THIS_ ULONG64 Virtual, PULONG64 Offsets, ULONG OffsetsSize, PULONG Levels) PURE;
+    STDMETHOD(ReadHandleData)(THIS_ ULONG64 Handle, ULONG DataType, PVOID Buffer, ULONG BufferSize, PULONG DataSize) PURE;
+    STDMETHOD(FillVirtual)(THIS_ ULONG64 Start, ULONG Size, PVOID Pattern, ULONG PatternSize, PULONG Filled) PURE;
+    STDMETHOD(FillPhysical)(THIS_ ULONG64 Start, ULONG Size, PVOID Pattern, ULONG PatternSize, PULONG Filled) PURE;
+    STDMETHOD(QueryVirtual)(THIS_ ULONG64 Offset, PMEMORY_BASIC_INFORMATION64 Info) PURE;
+    STDMETHOD(ReadImageNtHeaders)(THIS_ ULONG64 ImageBase, PIMAGE_NT_HEADERS64 Headers) PURE;
+    STDMETHOD(ReadTagged)(THIS_ LPGUID Tag, ULONG Offset, PVOID Buffer, ULONG BufferSize, PULONG TotalSize) PURE;
+    STDMETHOD(StartEnumTagged)(THIS_ PULONG64 Handle) PURE;
+    STDMETHOD(GetNextTagged)(THIS_ ULONG64 Handle, LPGUID Tag, PULONG Size) PURE;
+    STDMETHOD(EndEnumTagged)(THIS_ ULONG64 Handle) PURE;
+    STDMETHOD(GetOffsetInformation)(THIS_ ULONG Space, ULONG Which, ULONG64 Offset, PVOID Buffer, ULONG BufferSize, PULONG InfoSize) PURE;
+    STDMETHOD(GetNextDifferentlyValidOffsetVirtual)(THIS_ ULONG64 Offset, PULONG64 NextOffset) PURE;
+    STDMETHOD(GetValidRegionVirtual)(THIS_ ULONG64 Base, ULONG Size, PULONG64 ValidBase, PULONG ValidSize) PURE;
+    STDMETHOD(SearchVirtual2)(THIS_ ULONG64 Offset, ULONG64 Length, ULONG Flags, PVOID Pattern, ULONG PatternSize, ULONG PatternGranularity, PULONG64 MatchOffset) PURE;
+    STDMETHOD(ReadMultiByteStringVirtual)(THIS_ ULONG64 Offset, ULONG MaxBytes, PSTR Buffer, ULONG BufferSize, PULONG StringBytes) PURE;
+    STDMETHOD(ReadMultiByteStringVirtualWide)(THIS_ ULONG64 Offset, ULONG MaxBytes, ULONG CodePage, PWSTR Buffer, ULONG BufferSize, PULONG StringBytes) PURE;
+    STDMETHOD(ReadUnicodeStringVirtual)(THIS_ ULONG64 Offset, ULONG MaxBytes, ULONG CodePage, PSTR Buffer, ULONG BufferSize, PULONG StringBytes) PURE;
+    STDMETHOD(ReadUnicodeStringVirtualWide)(THIS_ ULONG64 Offset, ULONG MaxBytes, PWSTR Buffer, ULONG BufferSize, PULONG StringBytes) PURE;
+    STDMETHOD(ReadPhysical2)(THIS_ ULONG64 Offset, ULONG Flags, PVOID Buffer, ULONG BufferSize, PULONG BytesRead) PURE;
+    STDMETHOD(WritePhysical2)(THIS_ ULONG64 Offset, ULONG Flags, PVOID Buffer, ULONG BufferSize, PULONG BytesWritten) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugDataSpaces4,0xd98ada1f,0x29e9,0x4ef5,0xa6,0xc0,0xe5,0x33,0x49,0x88,0x32,0x12)
 #endif
 
 #define DEBUG_EVENT_BREAKPOINT 0x00000001
