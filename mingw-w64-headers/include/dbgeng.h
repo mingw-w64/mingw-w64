@@ -60,6 +60,7 @@ extern "C" {
   DEFINE_GUID(IID_IDebugOutputCallbacks,0x4bf58045,0xd654,0x4c40,0xb0,0xaf,0x68,0x30,0x90,0xf3,0x56,0xdc);
   DEFINE_GUID(IID_IDebugOutputCallbacksWide,0x4c7fd663,0xc394,0x4e26,0x8e,0xf1,0x34,0xad,0x5e,0xd3,0x76,0x4c);
   DEFINE_GUID(IID_IDebugRegisters,0xce289126,0x9e84,0x45a7,0x93,0x7e,0x67,0xbb,0x18,0x69,0x14,0x93);
+  DEFINE_GUID(IID_IDebugRegisters2,0x1656afa9,0x19c6,0x4e3a,0x97,0xe7,0x5d,0xc9,0x16,0x0c,0xf9,0xc4);
   DEFINE_GUID(IID_IDebugSymbolGroup,0xf2528316,0x0f1a,0x4431,0xae,0xed,0x11,0xd0,0x96,0xe1,0xe2,0xab);
   DEFINE_GUID(IID_IDebugSymbolGroup2,0x6a7ccc5f,0xfb5e,0x4dcc,0xb4,0x1c,0x6c,0x20,0x30,0x7b,0xcc,0xc7);
   DEFINE_GUID(IID_IDebugSymbols,0x8c31e98c,0x983a,0x48a5,0x90,0x16,0x6f,0xe5,0xd6,0x67,0xa9,0x50);
@@ -109,6 +110,7 @@ extern "C" {
   typedef struct IDebugOutputCallbacks *PDEBUG_OUTPUT_CALLBACKS;
   typedef struct IDebugOutputCallbacksWide *PDEBUG_OUTPUT_CALLBACKS_WIDE;
   typedef struct IDebugRegisters *PDEBUG_REGISTERS;
+  typedef struct IDebugRegisters2 *PDEBUG_REGISTERS2;
   typedef struct IDebugSymbolGroup *PDEBUG_SYMBOL_GROUP;
   typedef struct IDebugSymbolGroup2 *PDEBUG_SYMBOL_GROUP2;
   typedef struct IDebugSymbols *PDEBUG_SYMBOLS;
@@ -3293,6 +3295,47 @@ __CRT_UUID_DECL(IDebugOutputCallbacksWide,0x4c7fd663,0xc394,0x4e26,0x8e,0xf1,0x3
   };
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDebugRegisters,0xce289126,0x9e84,0x45a7,0x93,0x7e,0x67,0xbb,0x18,0x69,0x14,0x93)
+#endif
+
+#define DEBUG_REGSRC_DEBUGGEE 0x00000000
+#define DEBUG_REGSRC_EXPLICIT 0x00000001
+#define DEBUG_REGSRC_FRAME 0x00000002
+
+#undef INTERFACE
+#define INTERFACE IDebugRegisters2
+  DECLARE_INTERFACE_(IDebugRegisters2, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetNumberRegisters)(THIS_ PULONG Number) PURE;
+    STDMETHOD(GetDescription)(THIS_ ULONG Register, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PDEBUG_REGISTER_DESCRIPTION Desc) PURE;
+    STDMETHOD(GetIndexByName)(THIS_ PCSTR Name, PULONG Index) PURE;
+    STDMETHOD(GetValue)(THIS_ ULONG Register, PDEBUG_VALUE Value) PURE;
+    STDMETHOD(SetValue)(THIS_ ULONG Register, PDEBUG_VALUE Value) PURE;
+    STDMETHOD(GetValues)(THIS_ ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(SetValues)(THIS_ ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(OutputRegisters)(THIS_ ULONG OutputControl, ULONG Flags) PURE;
+    STDMETHOD(GetInstructionOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetStackOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetFrameOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetDescriptionWide)(THIS_ ULONG Register, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PDEBUG_REGISTER_DESCRIPTION Desc) PURE;
+    STDMETHOD(GetIndexByNameWide)(THIS_ PCWSTR Name, PULONG Index) PURE;
+    STDMETHOD(GetNumberPseudoRegisters)(THIS_ PULONG Number) PURE;
+    STDMETHOD(GetPseudoDescription)(THIS_ ULONG Register, PSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 TypeModule, PULONG TypeId) PURE;
+    STDMETHOD(GetPseudoDescriptionWide)(THIS_ ULONG Register, PWSTR NameBuffer, ULONG NameBufferSize, PULONG NameSize, PULONG64 TypeModule, PULONG TypeId) PURE;
+    STDMETHOD(GetPseudoIndexByName)(THIS_ PCSTR Name, PULONG Index) PURE;
+    STDMETHOD(GetPseudoIndexByNameWide)(THIS_ PCWSTR Name, PULONG Index) PURE;
+    STDMETHOD(GetPseudoValues)(THIS_ ULONG Source, ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(SetPseudoValues)(THIS_ ULONG Source, ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(GetValues2)(THIS_ ULONG Source, ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(SetValues2)(THIS_ ULONG Source, ULONG Count, PULONG Indices, ULONG Start, PDEBUG_VALUE Values) PURE;
+    STDMETHOD(OutputRegisters2)(THIS_ ULONG OutputControl, ULONG Source, ULONG Flags) PURE;
+    STDMETHOD(GetInstructionOffset2)(THIS_ ULONG Source, PULONG64 Offset) PURE;
+    STDMETHOD(GetStackOffset2)(THIS_ ULONG Source, PULONG64 Offset) PURE;
+    STDMETHOD(GetFrameOffset2)(THIS_ ULONG Source, PULONG64 Offset) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugRegisters2,0x1656afa9,0x19c6,0x4e3a,0x97,0xe7,0x5d,0xc9,0x16,0x0c,0xf9,0xc4)
 #endif
 
 #define DEBUG_OUTPUT_SYMBOLS_DEFAULT 0x00000000
