@@ -71,6 +71,7 @@ extern "C" {
   DEFINE_GUID(IID_IDebugSystemObjects,0x6b86fe2c,0x2c4f,0x4f0c,0x9d,0xa2,0x17,0x43,0x11,0xac,0xc3,0x27);
   DEFINE_GUID(IID_IDebugSystemObjects2,0x0ae9f5ff,0x1852,0x4679,0xb0,0x55,0x49,0x4b,0xee,0x64,0x07,0xee);
   DEFINE_GUID(IID_IDebugSystemObjects3,0xe9676e2f,0xe286,0x4ea3,0xb0,0xf9,0xdf,0xe5,0xd9,0xfc,0x33,0x0e);
+  DEFINE_GUID(IID_IDebugSystemObjects4,0x489468e6,0x7d0f,0x4af5,0x87,0xab,0x25,0x20,0x74,0x54,0xd5,0x53);
 
   typedef struct IDebugAdvanced *PDEBUG_ADVANCED;
   typedef struct IDebugAdvanced2 *PDEBUG_ADVANCED2;
@@ -121,6 +122,7 @@ extern "C" {
   typedef struct IDebugSystemObjects *PDEBUG_SYSTEM_OBJECTS;
   typedef struct IDebugSystemObjects2 *PDEBUG_SYSTEM_OBJECTS2;
   typedef struct IDebugSystemObjects3 *PDEBUG_SYSTEM_OBJECTS3;
+  typedef struct IDebugSystemObjects4 *PDEBUG_SYSTEM_OBJECTS4;
 
 #define DEBUG_EXTEND64(Addr) ((ULONG64)(LONG64)(LONG)(Addr))
 
@@ -4234,6 +4236,62 @@ __CRT_UUID_DECL(IDebugSystemObjects2,0x0ae9f5ff,0x1852,0x4679,0xb0,0x55,0x49,0x4
   };
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDebugSystemObjects3,0xe9676e2f,0xe286,0x4ea3,0xb0,0xf9,0xdf,0xe5,0xd9,0xfc,0x33,0x0e)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugSystemObjects4
+  DECLARE_INTERFACE_(IDebugSystemObjects4, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(GetEventThread)(THIS_ PULONG Id) PURE;
+    STDMETHOD(GetEventProcess)(THIS_ PULONG Id) PURE;
+    STDMETHOD(GetCurrentThreadId)(THIS_ PULONG Id) PURE;
+    STDMETHOD(SetCurrentThreadId)(THIS_ ULONG Id) PURE;
+    STDMETHOD(GetCurrentProcessId)(THIS_ PULONG Id) PURE;
+    STDMETHOD(SetCurrentProcessId)(THIS_ ULONG Id) PURE;
+    STDMETHOD(GetNumberThreads)(THIS_ PULONG Number) PURE;
+    STDMETHOD(GetTotalNumberThreads)(THIS_ PULONG Total, PULONG LargestProcess) PURE;
+    STDMETHOD(GetThreadIdsByIndex)(THIS_ ULONG Start, ULONG Count, PULONG Ids, PULONG SysIds) PURE;
+    STDMETHOD(GetThreadIdByProcessor)(THIS_ ULONG Processor, PULONG Id) PURE;
+    STDMETHOD(GetCurrentThreadDataOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetThreadIdByDataOffset)(THIS_ ULONG64 Offset, PULONG Id) PURE;
+    STDMETHOD(GetCurrentThreadTeb)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetThreadIdByTeb)(THIS_ ULONG64 Offset, PULONG Id) PURE;
+    STDMETHOD(GetCurrentThreadSystemId)(THIS_ PULONG SysId) PURE;
+    STDMETHOD(GetThreadIdBySystemId)(THIS_ ULONG SysId, PULONG Id) PURE;
+    STDMETHOD(GetCurrentThreadHandle)(THIS_ PULONG64 Handle) PURE;
+    STDMETHOD(GetThreadIdByHandle)(THIS_ ULONG64 Handle, PULONG Id) PURE;
+    STDMETHOD(GetNumberProcesses)(THIS_ PULONG Number) PURE;
+    STDMETHOD(GetProcessIdsByIndex)(THIS_ ULONG Start, ULONG Count, PULONG Ids, PULONG SysIds) PURE;
+    STDMETHOD(GetCurrentProcessDataOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetProcessIdByDataOffset)(THIS_ ULONG64 Offset, PULONG Id) PURE;
+    STDMETHOD(GetCurrentProcessPeb)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(GetProcessIdByPeb)(THIS_ ULONG64 Offset, PULONG Id) PURE;
+    STDMETHOD(GetCurrentProcessSystemId)(THIS_ PULONG SysId) PURE;
+    STDMETHOD(GetProcessIdBySystemId)(THIS_ ULONG SysId, PULONG Id) PURE;
+    STDMETHOD(GetCurrentProcessHandle)(THIS_ PULONG64 Handle) PURE;
+    STDMETHOD(GetProcessIdByHandle)(THIS_ ULONG64 Handle, PULONG Id) PURE;
+    STDMETHOD(GetCurrentProcessExecutableName)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG ExeSize) PURE;
+    STDMETHOD(GetCurrentProcessUpTime)(THIS_ PULONG UpTime) PURE;
+    STDMETHOD(GetImplicitThreadDataOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(SetImplicitThreadDataOffset)(THIS_ ULONG64 Offset) PURE;
+    STDMETHOD(GetImplicitProcessDataOffset)(THIS_ PULONG64 Offset) PURE;
+    STDMETHOD(SetImplicitProcessDataOffset)(THIS_ ULONG64 Offset) PURE;
+    STDMETHOD(GetEventSystem)(THIS_ PULONG Id) PURE;
+    STDMETHOD(GetCurrentSystemId)(THIS_ PULONG Id) PURE;
+    STDMETHOD(SetCurrentSystemId)(THIS_ ULONG Id) PURE;
+    STDMETHOD(GetNumberSystems)(THIS_ PULONG Number) PURE;
+    STDMETHOD(GetSystemIdsByIndex)(THIS_ ULONG Start, ULONG Count, PULONG Ids) PURE;
+    STDMETHOD(GetTotalNumberThreadsAndProcesses)(THIS_ PULONG TotalThreads, PULONG TotalProcesses, PULONG LargestProcessThreads, PULONG LargestSystemThreads, PULONG LargestSystemProcesses) PURE;
+    STDMETHOD(GetCurrentSystemServer)(THIS_ PULONG64 Server) PURE;
+    STDMETHOD(GetSystemByServer)(THIS_ ULONG64 Server, PULONG Id) PURE;
+    STDMETHOD(GetCurrentSystemServerName)(THIS_ PSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+    STDMETHOD(GetCurrentProcessExecutableNameWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG ExeSize) PURE;
+    STDMETHOD(GetCurrentSystemServerNameWide)(THIS_ PWSTR Buffer, ULONG BufferSize, PULONG NameSize) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugSystemObjects4,0x489468e6,0x7d0f,0x4af5,0x87,0xab,0x25,0x20,0x74,0x54,0xd5,0x53)
 #endif
 
 #define DEBUG_COMMAND_EXCEPTION_ID 0xdbe00dbe
