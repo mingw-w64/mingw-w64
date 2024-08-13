@@ -38,6 +38,10 @@ extern "C" {
   DEFINE_GUID(IID_IDebugClient7,0x13586be3,0x542e,0x481e,0xb1,0xf2,0x84,0x97,0xba,0x74,0xf9,0xa9);
   DEFINE_GUID(IID_IDebugClient8,0xcec43add,0x6375,0x469e,0x83,0xd5,0x41,0x4e,0x40,0x33,0xc1,0x9a);
   DEFINE_GUID(IID_IDebugClient9,0x2c24cd5b,0x4d9e,0x4df4,0x8a,0x70,0x3d,0x37,0x44,0x0d,0x11,0x9f);
+  DEFINE_GUID(IID_IDebugPlmClient,0xa02b66c4,0xaea3,0x4234,0xa9,0xf7,0xfe,0x4c,0x38,0x3d,0x4e,0x29);
+  DEFINE_GUID(IID_IDebugPlmClient2,0x597c980d,0xe7bd,0x4309,0x96,0x2c,0x9d,0x9b,0x69,0xa7,0x37,0x2c);
+  DEFINE_GUID(IID_IDebugPlmClient3,0xcdf48669,0x901f,0x4791,0xb8,0x68,0x7d,0x2c,0xb3,0xa2,0xd7,0xfc);
+  DEFINE_GUID(IID_IDebugOutputStream,0x7782d8f2,0x2b85,0x4059,0xab,0x88,0x28,0xce,0xdd,0xca,0x1c,0x80);
   DEFINE_GUID(IID_IDebugControl,0x5182e668,0x105e,0x416e,0xad,0x92,0x24,0xef,0x80,0x04,0x24,0xba);
   DEFINE_GUID(IID_IDebugControl2,0xd4366723,0x44df,0x4bed,0x8c,0x7e,0x4c,0x05,0x42,0x4f,0x45,0x88);
   DEFINE_GUID(IID_IDebugControl3,0x7df74a86,0xb03f,0x407f,0x90,0xab,0xa2,0x0d,0xad,0xce,0xad,0x08);
@@ -82,6 +86,10 @@ extern "C" {
   typedef struct IDebugClient7 *PDEBUG_CLIENT7;
   typedef struct IDebugClient8 *PDEBUG_CLIENT8;
   typedef struct IDebugClient9 *PDEBUG_CLIENT9;
+  typedef struct IDebugPlmClient *PIDEBUG_PLMCLIENT;
+  typedef struct IDebugPlmClient2 *PIDEBUG_PLMCLIENT2;
+  typedef struct IDebugPlmClient3 *PIDEBUG_PLMCLIENT3;
+  typedef struct IDebugOutputStream *PDEBUG_OUTPUT_STREAM;
   typedef struct IDebugControl *PDEBUG_CONTROL;
   typedef struct IDebugControl2 *PDEBUG_CONTROL2;
   typedef struct IDebugControl3 *PDEBUG_CONTROL3;
@@ -1323,6 +1331,65 @@ __CRT_UUID_DECL(IDebugClient8,0xcec43add,0x6375,0x469e,0x83,0xd5,0x41,0x4e,0x40,
   };
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDebugClient9,0x2c24cd5b,0x4d9e,0x4df4,0x8a,0x70,0x3d,0x37,0x44,0x0d,0x11,0x9f)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugPlmClient
+  DECLARE_INTERFACE_(IDebugPlmClient, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(LaunchPlmPackageForDebugWide)(THIS_ ULONG64 Server, ULONG Timeout, PCWSTR PackageFullName, PCWSTR AppName, PCWSTR Arguments, PULONG ProcessId, PULONG ThreadId) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugPlmClient,0xa02b66c4,0xaea3,0x4234,0xa9,0xf7,0xfe,0x4c,0x38,0x3d,0x4e,0x29)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugPlmClient2
+  DECLARE_INTERFACE_(IDebugPlmClient2, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(LaunchPlmPackageForDebugWide)(THIS_ ULONG64 Server, ULONG Timeout, PCWSTR PackageFullName, PCWSTR AppName, PCWSTR Arguments, PULONG ProcessId, PULONG ThreadId) PURE;
+    STDMETHOD(LaunchPlmBgTaskForDebugWide)(THIS_ ULONG64 Server, ULONG Timeout, PCWSTR PackageFullName, PCWSTR BackgroundTaskId, PULONG ProcessId, PULONG ThreadId) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugPlmClient2,0x597c980d,0xe7bd,0x4309,0x96,0x2c,0x9d,0x9b,0x69,0xa7,0x37,0x2c)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugPlmClient3
+  DECLARE_INTERFACE_(IDebugPlmClient3, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(LaunchPlmPackageForDebugWide)(THIS_ ULONG64 Server, ULONG Timeout, PCWSTR PackageFullName, PCWSTR AppName, PCWSTR Arguments, PULONG ProcessId, PULONG ThreadId) PURE;
+    STDMETHOD(LaunchPlmBgTaskForDebugWide)(THIS_ ULONG64 Server, ULONG Timeout, PCWSTR PackageFullName, PCWSTR BackgroundTaskId, PULONG ProcessId, PULONG ThreadId) PURE;
+    STDMETHOD(QueryPlmPackageWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName, PDEBUG_OUTPUT_STREAM Stream) PURE;
+    STDMETHOD(QueryPlmPackageList)(THIS_ ULONG64 Server, PDEBUG_OUTPUT_STREAM Stream) PURE;
+    STDMETHOD(EnablePlmPackageDebugWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName) PURE;
+    STDMETHOD(DisablePlmPackageDebugWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName) PURE;
+    STDMETHOD(SuspendPlmPackageWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName) PURE;
+    STDMETHOD(ResumePlmPackageWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName) PURE;
+    STDMETHOD(TerminatePlmPackageWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName) PURE;
+    STDMETHOD(LaunchAndDebugPlmAppWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName, PCWSTR AppName, PCWSTR Arguments) PURE;
+    STDMETHOD(ActivateAndDebugPlmBgTaskWide)(THIS_ ULONG64 Server, PCWSTR PackageFullName, PCWSTR BackgroundTaskId) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugPlmClient3,0xcdf48669,0x901f,0x4791,0xb8,0x68,0x7d,0x2c,0xb3,0xa2,0xd7,0xfc)
+#endif
+
+#undef INTERFACE
+#define INTERFACE IDebugOutputStream
+  DECLARE_INTERFACE_(IDebugOutputStream, IUnknown) {
+    STDMETHOD(QueryInterface)(THIS_ REFIID InterfaceId, PVOID *Interface) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    STDMETHOD(Write)(THIS_ PCWSTR psz) PURE;
+  };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebugOutputStream,0x7782d8f2,0x2b85,0x4059,0xab,0x88,0x28,0xce,0xdd,0xca,0x1c,0x80)
 #endif
 
 #define DEBUG_STATUS_NO_CHANGE 0
