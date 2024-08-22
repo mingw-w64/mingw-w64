@@ -2510,7 +2510,7 @@ normf
 norml
 perror
 pow
-powf
+F_NON_I386(powf) ; Missing in Wine's ucrtbase.dll for i386 in Wine 9.15 and older
 putc
 putchar
 puts

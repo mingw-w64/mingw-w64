@@ -342,7 +342,7 @@ norm
 normf
 norml
 pow
-F_NON_I386(powf)
+F_NON_I386(powf) ; Missing in Wine's ucrtbase.dll for i386 in Wine 9.15 and older
 F_ARM_ANY(powl == pow)
 remainder
 remainderf
