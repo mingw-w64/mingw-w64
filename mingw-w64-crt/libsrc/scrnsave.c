@@ -1,4 +1,3 @@
-#if 0
 /*
   Screen saver library by Anders Norlander <anorland@hem2.passagen.se>
 
@@ -105,7 +104,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
             {
               hPwdLib = LoadLibrary(TEXT("PASSWORD.CPL"));
               if (hPwdLib)
-                VerifyScreenSavePwd = GetProcAddress(hPwdLib, szVerifyPassword);
+                VerifyScreenSavePwd = (VERIFYPWDPROC) GetProcAddress(hPwdLib, szVerifyPassword);
             }
           RegCloseKey(hKey);
         }
@@ -290,7 +289,7 @@ static LRESULT WINAPI SysScreenSaverProc(HWND hWnd, UINT msg,
   return ScreenSaverProc(hWnd, msg, wParam, lParam);
 }
 
-LONG WINAPI DefScreenSaverProc(HWND hWnd, UINT msg,
+LRESULT WINAPI DefScreenSaverProc(HWND hWnd, UINT msg,
                                WPARAM wParam, LPARAM lParam)
 {
   /* don't do any special processing when in preview mode */
@@ -408,5 +407,3 @@ void WINAPI ScreenSaverChangePassword(HWND hParent)
       FreeLibrary(hMpr);
     }
 }
-#endif
-
