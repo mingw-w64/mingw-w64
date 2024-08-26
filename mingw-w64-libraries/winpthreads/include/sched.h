@@ -30,6 +30,8 @@
 
 #include <sys/timeb.h>
 
+#include "pthread_compat.h"
+
 #ifndef WIN_PTHREADS_SCHED_H
 #define WIN_PTHREADS_SCHED_H
 
