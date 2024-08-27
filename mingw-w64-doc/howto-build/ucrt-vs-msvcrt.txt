@@ -1,7 +1,7 @@
 == Summary ==
 
 Starting from mingw-w64 version 12 and onwards, UCRT (Universal C Runtime) will
-be the default CRT runtime, unless specified otherwise during the minwgw-64
+be the default CRT runtime, unless specified otherwise during the mingw-w64
 build process. We believe that this configuration is the best choice for the
 majority of users. While we encourage users to consider switching to UCRT, we
 understand that it may not always be desirable, especially for compatibility
@@ -19,7 +19,14 @@ versions of these DLLs, some of which were designed for specific MSVC versions
 while others aimed for backward compatibility. When building the mingw-w64
 toolchain, users can specify a version of the runtime DLL using the
 --with-default-msvcrt= configure option. The most commonly used versions are
-ucrt (utilizing ucrtbase.dll) and msvcrt (utilizing msvcrt.dll).
+ucrt (utilizing UCRT, via api-ms-win-crt-*.dll API set libraries) and
+msvcrt (utilizing msvcrt.dll).
+
+Users can also choose crtdll (utilizing system crtdll.dll library which
+is a predecessor of msvcrt.dll and is available on all 32-bit Windows versions
+starting from NT 3.1, Win32s and Win9x), version-specific msvcr* libraries,
+ucrtbase (linking directly against ucrtbase.dll instead of
+api-ms-win-crt-*.dll wrappers) and debug mode libraries.
 
 The implementation of msvcrt.dll was introduced with Visual C++ 4.2 in 1996.
 As a system library it is included since Windows 98 and NT 4. While it has
@@ -31,13 +38,29 @@ aspects. mingw-w64 includes compatibility wrappers and extensions to improve
 standard compatibility, but there are limitations to what can be practically
 achieved.
 
-On the other hand, ucrtbase.dll was introduced with MSVC 14 and is currently
+On the other hand, the UCRT was introduced with MSVC 14 and is currently
 included with all Windows versions supported by Microsoft. It is also available
-as a redistributable package for older versions of Windows. ucrtbase.dll aims to
+as a redistributable package for older versions of Windows. UCRT aims to
 replace MSVC version-specific DLLs and has been used by all MSVC versions since
 its introduction. It offers a more modern approach compared to msvcrt.dll and
 provides better standard compatibility out of the box, reducing overhead on the
 mingw-w64 side.
+
+Windows 10 and newer systems have UCRT automatically preinstalled.
+
+Windows Vista / Server 2008, Windows 7 / Server 2008 R2, Widows 8 / Server 2012
+and Windows 8.1 / Server 2012 R2 systems include UCRT libraries in KB2999226
+system update, which is available at website:
+https://support.microsoft.com/help/2999226
+
+For Windows XP and Windows Server 2003, the UCRT libraries are provided via
+a Visual Studio redistributable package. The latest compatible
+version for these systems is the Visual Studio 2019 16.7 redistributable
+package, it contains UCRT version 14.27.29114.0 and is available at:
+32-bit: https://download.visualstudio.microsoft.com/download/pr/56f631e5-4252-4f28-8ecc-257c7bf412b8/D305BAA965C9CD1B44EBCD53635EE9ECC6D85B54210E2764C8836F4E9DEFA345/VC_redist.x86.exe
+64-bit: https://download.visualstudio.microsoft.com/download/pr/722d59e4-0671-477e-b9b1-b8da7d4bd60b/591CBE3A269AFBCC025681B968A29CD191DF3C6204712CBDC9BA1CB632BA6068/VC_redist.x64.exe
+
+Windows 2000 and older systems do not have support for UCRT at all.
 
 
 == Compatibility ==
