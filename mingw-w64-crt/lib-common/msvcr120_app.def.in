@@ -1870,7 +1870,7 @@ F_NON_I386(atanf)
 atanh
 atanhf
 F_ARM32(atanhl) ; Can't use long double functions from the CRT on x86
-atexit
+_crt_atexit == atexit ; rename atexit to _crt_atexit for compatibility with UCRT, real atexit function provided by mingw-w64
 atof
 atoi
 atol

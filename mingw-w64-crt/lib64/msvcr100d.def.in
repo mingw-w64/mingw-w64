@@ -1671,7 +1671,7 @@ atan
 atan2 DATA ; overwritten
 atan2f DATA ; overwritten
 atanf DATA ; overwritten
-atexit DATA ; overwritten
+_crt_atexit == atexit ; rename atexit to _crt_atexit for compatibility with UCRT, real atexit function provided by mingw-w64
 atof
 atoi
 atol

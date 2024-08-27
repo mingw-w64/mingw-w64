@@ -20,6 +20,7 @@
 #include <tchar.h>
 #include <sect_attribs.h>
 #include <locale.h>
+#include <corecrt_startup.h>
 
 #if defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7)
 #define SEH_INLINE_ASM
@@ -325,7 +326,12 @@ static void duplicate_ppstrings (int ac, _TCHAR ***av)
 
 int __cdecl atexit (_PVFV func)
 {
-    return _onexit((_onexit_t)func) ? 0 : -1;
+    /*
+     * msvcrt def file renames the real atexit() function to _crt_atexit().
+     * UCRT provides atexit() function only under name _crt_atexit().
+     * So redirect call to _crt_atexit() function.
+     */
+    return _crt_atexit(func);
 }
 
 char __mingw_module_is_dll = 0;

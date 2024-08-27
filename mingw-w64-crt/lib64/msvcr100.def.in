@@ -1606,7 +1606,7 @@ atan
 atan2 DATA
 atan2f DATA
 atanf DATA
-atexit DATA
+_crt_atexit == atexit ; rename atexit to _crt_atexit for compatibility with UCRT, real atexit function provided by mingw-w64
 atof
 atoi
 atol
