@@ -361,6 +361,7 @@ libarm64_DATA += %reldir%/libwinrnr.a
 libarm64_DATA += %reldir%/libwinscard.a
 libarm64_DATA += %reldir%/libwinspool.a
 libarm64_DATA += %reldir%/libwinsrv.a
+libarm64_DATA += %reldir%/libwintrust.a
 libarm64_DATA += %reldir%/libwinusb.a
 libarm64_DATA += %reldir%/libwkscli.a
 libarm64_DATA += %reldir%/libwkssvc.a
