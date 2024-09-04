@@ -90,6 +90,14 @@ interface IWICPersistStream;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IWICStreamProvider_FWD_DEFINED__
+#define __IWICStreamProvider_FWD_DEFINED__
+typedef interface IWICStreamProvider IWICStreamProvider;
+#ifdef __cplusplus
+interface IWICStreamProvider;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IWICComponentFactory_FWD_DEFINED__
 #define __IWICComponentFactory_FWD_DEFINED__
 typedef interface IWICComponentFactory IWICComponentFactory;
@@ -1707,6 +1715,115 @@ static __WIDL_INLINE HRESULT IWICPersistStream_SaveEx(IWICPersistStream* This,IS
 
 
 #endif  /* __IWICPersistStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICStreamProvider interface
+ */
+#ifndef __IWICStreamProvider_INTERFACE_DEFINED__
+#define __IWICStreamProvider_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICStreamProvider, 0x449494bc, 0xb468, 0x4927, 0x96,0xd7, 0xba,0x90,0xd3,0x1a,0xb5,0x05);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("449494bc-b468-4927-96d7-ba90d31ab505")
+IWICStreamProvider : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStream(
+        IStream **stream) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPersistOptions(
+        DWORD *options) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreferredVendorGUID(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RefreshStream(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICStreamProvider, 0x449494bc, 0xb468, 0x4927, 0x96,0xd7, 0xba,0x90,0xd3,0x1a,0xb5,0x05)
+#endif
+#else
+typedef struct IWICStreamProviderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICStreamProvider *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICStreamProvider *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICStreamProvider *This);
+
+    /*** IWICStreamProvider methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStream)(
+        IWICStreamProvider *This,
+        IStream **stream);
+
+    HRESULT (STDMETHODCALLTYPE *GetPersistOptions)(
+        IWICStreamProvider *This,
+        DWORD *options);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreferredVendorGUID)(
+        IWICStreamProvider *This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *RefreshStream)(
+        IWICStreamProvider *This);
+
+    END_INTERFACE
+} IWICStreamProviderVtbl;
+
+interface IWICStreamProvider {
+    CONST_VTBL IWICStreamProviderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWICStreamProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICStreamProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICStreamProvider_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICStreamProvider methods ***/
+#define IWICStreamProvider_GetStream(This,stream) (This)->lpVtbl->GetStream(This,stream)
+#define IWICStreamProvider_GetPersistOptions(This,options) (This)->lpVtbl->GetPersistOptions(This,options)
+#define IWICStreamProvider_GetPreferredVendorGUID(This,guid) (This)->lpVtbl->GetPreferredVendorGUID(This,guid)
+#define IWICStreamProvider_RefreshStream(This) (This)->lpVtbl->RefreshStream(This)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT IWICStreamProvider_QueryInterface(IWICStreamProvider* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG IWICStreamProvider_AddRef(IWICStreamProvider* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG IWICStreamProvider_Release(IWICStreamProvider* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICStreamProvider methods ***/
+static __WIDL_INLINE HRESULT IWICStreamProvider_GetStream(IWICStreamProvider* This,IStream **stream) {
+    return This->lpVtbl->GetStream(This,stream);
+}
+static __WIDL_INLINE HRESULT IWICStreamProvider_GetPersistOptions(IWICStreamProvider* This,DWORD *options) {
+    return This->lpVtbl->GetPersistOptions(This,options);
+}
+static __WIDL_INLINE HRESULT IWICStreamProvider_GetPreferredVendorGUID(IWICStreamProvider* This,GUID *guid) {
+    return This->lpVtbl->GetPreferredVendorGUID(This,guid);
+}
+static __WIDL_INLINE HRESULT IWICStreamProvider_RefreshStream(IWICStreamProvider* This) {
+    return This->lpVtbl->RefreshStream(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWICStreamProvider_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IWICComponentFactory interface

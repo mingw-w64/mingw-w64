@@ -210,6 +210,14 @@ interface ISelectionProvider;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ISelectionProvider2_FWD_DEFINED__
+#define __ISelectionProvider2_FWD_DEFINED__
+typedef interface ISelectionProvider2 ISelectionProvider2;
+#ifdef __cplusplus
+interface ISelectionProvider2;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IScrollProvider_FWD_DEFINED__
 #define __IScrollProvider_FWD_DEFINED__
 typedef interface IScrollProvider IScrollProvider;
@@ -3081,6 +3089,143 @@ static __WIDL_INLINE HRESULT ISelectionProvider_get_IsSelectionRequired(ISelecti
 
 
 #endif  /* __ISelectionProvider_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ISelectionProvider2 interface
+ */
+#ifndef __ISelectionProvider2_INTERFACE_DEFINED__
+#define __ISelectionProvider2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ISelectionProvider2, 0x14f68475, 0xee1c, 0x44f6, 0xa8,0x69, 0xd2,0x39,0x38,0x1f,0x0f,0xe7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("14f68475-ee1c-44f6-a869-d239381f0fe7")
+ISelectionProvider2 : public ISelectionProvider
+{
+    virtual HRESULT STDMETHODCALLTYPE get_FirstSelectedItem(
+        IRawElementProviderSimple **val) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_LastSelectedItem(
+        IRawElementProviderSimple **val) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_CurrentSelectedItem(
+        IRawElementProviderSimple **val) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_ItemCount(
+        int *val) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISelectionProvider2, 0x14f68475, 0xee1c, 0x44f6, 0xa8,0x69, 0xd2,0x39,0x38,0x1f,0x0f,0xe7)
+#endif
+#else
+typedef struct ISelectionProvider2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ISelectionProvider2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ISelectionProvider2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ISelectionProvider2 *This);
+
+    /*** ISelectionProvider methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSelection)(
+        ISelectionProvider2 *This,
+        SAFEARRAY **pRetVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_CanSelectMultiple)(
+        ISelectionProvider2 *This,
+        WINBOOL *pRetVal);
+
+    HRESULT (STDMETHODCALLTYPE *get_IsSelectionRequired)(
+        ISelectionProvider2 *This,
+        WINBOOL *pRetVal);
+
+    /*** ISelectionProvider2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_FirstSelectedItem)(
+        ISelectionProvider2 *This,
+        IRawElementProviderSimple **val);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastSelectedItem)(
+        ISelectionProvider2 *This,
+        IRawElementProviderSimple **val);
+
+    HRESULT (STDMETHODCALLTYPE *get_CurrentSelectedItem)(
+        ISelectionProvider2 *This,
+        IRawElementProviderSimple **val);
+
+    HRESULT (STDMETHODCALLTYPE *get_ItemCount)(
+        ISelectionProvider2 *This,
+        int *val);
+
+    END_INTERFACE
+} ISelectionProvider2Vtbl;
+
+interface ISelectionProvider2 {
+    CONST_VTBL ISelectionProvider2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ISelectionProvider2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISelectionProvider2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISelectionProvider2_Release(This) (This)->lpVtbl->Release(This)
+/*** ISelectionProvider methods ***/
+#define ISelectionProvider2_GetSelection(This,pRetVal) (This)->lpVtbl->GetSelection(This,pRetVal)
+#define ISelectionProvider2_get_CanSelectMultiple(This,pRetVal) (This)->lpVtbl->get_CanSelectMultiple(This,pRetVal)
+#define ISelectionProvider2_get_IsSelectionRequired(This,pRetVal) (This)->lpVtbl->get_IsSelectionRequired(This,pRetVal)
+/*** ISelectionProvider2 methods ***/
+#define ISelectionProvider2_get_FirstSelectedItem(This,val) (This)->lpVtbl->get_FirstSelectedItem(This,val)
+#define ISelectionProvider2_get_LastSelectedItem(This,val) (This)->lpVtbl->get_LastSelectedItem(This,val)
+#define ISelectionProvider2_get_CurrentSelectedItem(This,val) (This)->lpVtbl->get_CurrentSelectedItem(This,val)
+#define ISelectionProvider2_get_ItemCount(This,val) (This)->lpVtbl->get_ItemCount(This,val)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT ISelectionProvider2_QueryInterface(ISelectionProvider2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG ISelectionProvider2_AddRef(ISelectionProvider2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG ISelectionProvider2_Release(ISelectionProvider2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISelectionProvider methods ***/
+static __WIDL_INLINE HRESULT ISelectionProvider2_GetSelection(ISelectionProvider2* This,SAFEARRAY **pRetVal) {
+    return This->lpVtbl->GetSelection(This,pRetVal);
+}
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_CanSelectMultiple(ISelectionProvider2* This,WINBOOL *pRetVal) {
+    return This->lpVtbl->get_CanSelectMultiple(This,pRetVal);
+}
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_IsSelectionRequired(ISelectionProvider2* This,WINBOOL *pRetVal) {
+    return This->lpVtbl->get_IsSelectionRequired(This,pRetVal);
+}
+/*** ISelectionProvider2 methods ***/
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_FirstSelectedItem(ISelectionProvider2* This,IRawElementProviderSimple **val) {
+    return This->lpVtbl->get_FirstSelectedItem(This,val);
+}
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_LastSelectedItem(ISelectionProvider2* This,IRawElementProviderSimple **val) {
+    return This->lpVtbl->get_LastSelectedItem(This,val);
+}
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_CurrentSelectedItem(ISelectionProvider2* This,IRawElementProviderSimple **val) {
+    return This->lpVtbl->get_CurrentSelectedItem(This,val);
+}
+static __WIDL_INLINE HRESULT ISelectionProvider2_get_ItemCount(ISelectionProvider2* This,int *val) {
+    return This->lpVtbl->get_ItemCount(This,val);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ISelectionProvider2_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IScrollProvider interface
