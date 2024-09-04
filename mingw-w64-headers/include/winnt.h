@@ -8950,8 +8950,10 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #define HEAP_PSEUDO_TAG_FLAG 0x8000
 #define HEAP_TAG_SHIFT 18
 
-#if (!defined (__CRT__NO_INLINE) || defined(_UCRT)) && !defined (__WIDL__)
-    __forceinline PVOID RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
+    PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
+
+#if !defined (__CRT__NO_INLINE) && !defined (__WIDL__)
+    __CRT_INLINE PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
       volatile char *vptr =(volatile char *)ptr;
 #ifdef __x86_64
       __stosb((PBYTE)((DWORD64)vptr),0,cnt);
@@ -8963,8 +8965,6 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #endif /* __x86_64 */
       return ptr;
     }
-#else /* intrinsic in kernel32 */
-    PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
 #endif /* !__CRT__NO_INLINE // !__WIDL__ */
 
 /* Let this macro fail for non-desktop mode.  AFAIU this should be better an inline-function ... */
