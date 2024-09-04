@@ -1365,7 +1365,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   __mingw_ovr
   int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format, va_list _ArgList)
   {
-      int _Result = __stdio_common_vswprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
+      int _Result = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
       return _Result < 0 ? -1 : _Result;
   }
 #else
