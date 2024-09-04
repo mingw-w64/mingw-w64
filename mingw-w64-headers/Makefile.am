@@ -264,6 +264,7 @@ IDL_SRCS = \
   include/robuffer.idl \
   include/rtworkq.idl \
   include/vmr9.idl \
+  include/weakreference.idl \
   include/wincodec.idl \
   include/wincodecsdk.idl \
   include/wmcontainer.idl \
