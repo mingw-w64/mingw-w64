@@ -14,7 +14,7 @@ int __cdecl _scprintf(const char * __restrict__ _Format, ...)
   int ret;
   va_list _ArgList;
   va_start(_ArgList, _Format);
-  ret = __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
+  ret = __stdio_common_vsprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
   va_end(_ArgList);
   return ret;
 }
