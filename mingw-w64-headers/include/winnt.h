@@ -1652,6 +1652,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
+#if !defined(RC_INVOKED)
 # if defined(__cplusplus)
 extern "C" {
 # endif
@@ -1660,6 +1661,7 @@ extern "C" {
 }
 # endif
 #include <emmintrin.h>
+#endif /* !defined(RC_INVOKED) */
 
 #define FastFence __faststorefence
 #define LoadFence _mm_lfence
@@ -2426,16 +2428,16 @@ extern "C" {
 
 #if defined(__i386__) && !defined(__x86_64)
 
-#ifdef __SSE2__
+#if defined(__SSE2__) && !defined(RC_INVOKED)
 #include <emmintrin.h>
 #define YieldProcessor _mm_pause
 #define MemoryBarrier _mm_mfence
-#else
+#else /* defined(__SSE2__) && !defined(RC_INVOKED) */
 #define YieldProcessor __buildpause
 VOID MemoryBarrier(VOID);
 FORCEINLINE VOID MemoryBarrier(VOID)
 __buildmemorybarrier()
-#endif
+#endif /* defined(__SSE2__) && !defined(RC_INVOKED) */
 
 #define PreFetchCacheLine(l,a)
 #define ReadForWriteAccess(p) (*(p))
