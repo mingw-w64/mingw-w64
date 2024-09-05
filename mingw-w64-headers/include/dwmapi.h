@@ -286,7 +286,7 @@ extern "C" {
   HRESULT WINAPI DwmUpdateThumbnailProperties (HTHUMBNAIL hThumbnailId, const DWM_THUMBNAIL_PROPERTIES *ptnProperties);
   HRESULT WINAPI DwmAttachMilContent (HWND hwnd);
   HRESULT WINAPI DwmDetachMilContent (HWND hwnd);
-  HRESULT WINAPI DwmFlush ();
+  HRESULT WINAPI DwmFlush (void);
   HRESULT WINAPI DwmGetGraphicsStreamTransformHint (UINT uIndex, MilMatrix3x2D *pTransform);
   HRESULT WINAPI DwmGetGraphicsStreamClient (UINT uIndex, UUID *pClientUuid);
   HRESULT WINAPI DwmGetTransportAttributes (WINBOOL *pfIsRemoting, WINBOOL *pfIsConnected, DWORD *pDwGeneration);
