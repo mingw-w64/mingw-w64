@@ -482,7 +482,7 @@ F_I386(__p__dstbias)
 F_I386(__p__environ) ; x64 __p__environ provided by emu
 F_I386(__p__fileinfo)
 F_I386(__p__fmode) ; x64, arm32 and arm64 __p__fmode provided by emu
-F_I386(__p__iob) ; x64, arm32 and arm64 __p__iob provided by emu
+__p__iob F_NON_I386(== __iob_func) ; x64, arm32 and arm64 __p__iob provided by alias
 F_I386(__p__mbctype) ; x64, arm32 and arm64 __p__mbctype provided by emu
 F_I386(__p__osver)
 F_I386(__p__pctype) ; x64, arm32 and arm64 __p__pctype provided by emu
