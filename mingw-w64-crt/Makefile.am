@@ -484,6 +484,7 @@ src_msvcrt64=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___mb_cur_max.c \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__acmdln.c \
@@ -492,7 +493,9 @@ src_msvcrt64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
+  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__wenviron.c \
   misc/__p__wpgmptr.c \
@@ -516,6 +519,7 @@ src_msvcrtarm32=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___mb_cur_max.c \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__acmdln.c \
@@ -523,7 +527,9 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
+  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
@@ -623,6 +629,7 @@ src_msvcrtarm64=\
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
+  misc/__p___mb_cur_max.c \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__acmdln.c \
@@ -630,7 +637,9 @@ src_msvcrtarm64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
+  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
