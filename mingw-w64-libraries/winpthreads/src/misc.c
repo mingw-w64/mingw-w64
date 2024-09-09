@@ -28,7 +28,7 @@ void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;
 static ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
 
 #if defined(__GNUC__) || defined(__clang__)
-__attribute__((constructor))
+__attribute__((constructor(0)))
 #endif
 static void winpthreads_init(void)
 {
