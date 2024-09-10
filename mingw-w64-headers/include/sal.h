@@ -282,6 +282,41 @@
 #define _Deref_ret_range_(l,u)
 #define _Unchanged_(e)
 
+#define _Ret_bytecap_(s)
+#define _Ret_bytecap_c_(s)
+#define _Ret_bytecap_x_(s)
+#define _Ret_bytecount_(s)
+#define _Ret_bytecount_c_(s)
+#define _Ret_bytecount_x_(s)
+#define _Ret_cap_(s)
+#define _Ret_cap_c_(s)
+#define _Ret_cap_x_(s)
+#define _Ret_count_(s)
+#define _Ret_count_c_(s)
+#define _Ret_count_x_(s)
+#define _Ret_opt_bytecap_(s)
+#define _Ret_opt_bytecap_c_(s)
+#define _Ret_opt_bytecap_x_(s)
+#define _Ret_opt_bytecount_(s)
+#define _Ret_opt_bytecount_c_(s)
+#define _Ret_opt_bytecount_x_(s)
+#define _Ret_opt_cap_(s)
+#define _Ret_opt_cap_c_(s)
+#define _Ret_opt_cap_x_(s)
+#define _Ret_opt_count_(s)
+#define _Ret_opt_count_c_(s)
+#define _Ret_opt_count_x_(s)
+#define _Ret_opt_valid_
+#define _Ret_opt_z_
+#define _Ret_opt_z_bytecap_(s)
+#define _Ret_opt_z_bytecount_(s)
+#define _Ret_opt_z_cap_(s)
+#define _Ret_opt_z_count_(s)
+#define _Ret_z_bytecap_(s)
+#define _Ret_z_bytecount_(s)
+#define _Ret_z_cap_(s)
+#define _Ret_z_count_(s)
+
 /* Optional pointer parameters */
 #define __in_opt
 #define __out_opt
