@@ -578,14 +578,14 @@ __mingw_choose_expr (                                         \
 #define isnan(x) \
 __mingw_choose_expr (                                         \
   __mingw_types_compatible_p (__typeof__ (x), double),            \
-    __isnan(x),                                                 \
+    __isnan((double)(x)),                                         \
     __mingw_choose_expr (                                     \
       __mingw_types_compatible_p (__typeof__ (x), float),         \
-        __isnanf(x),                                            \
+        __isnanf((float)(x)),                                     \
     __mingw_choose_expr (                                     \
       __mingw_types_compatible_p (__typeof__ (x), long double),   \
-        __isnanl(x),                                            \
-    __dfp_expansion(__isnan,(__builtin_trap(),x),x))))
+        __isnanl((long double)(x)),                               \
+    __dfp_expansion(__isnan,(__builtin_trap(),(int)0),x))))
 
 /* 7.12.3.5 */
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
