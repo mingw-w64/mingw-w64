@@ -494,7 +494,7 @@ F_I386(__p__wcmdln) ; x64, arm32 and arm64 __p__wcmdln provided by emu
 F_I386(__p__wenviron) ; x64 __p__wenviron provided by emu
 F_I386(__p__winmajor) ; x64, arm32 and arm64 __p__winmajor provided by emu
 F_I386(__p__winminor) ; x64, arm32 and arm64 __p__winminor provided by emu
-F_I386(__p__winver) ; x64 __p__winver provided by emu
+F_I386(__p__winver) ; x64, arm32 and arm64 __p__winver provided by emu
 F_I386(__p__wpgmptr) ; x64, arm32 and arm64 __p__wpgmptr provided by emu
 __pioinfo DATA
 __pxcptinfoptrs

@@ -540,6 +540,7 @@ src_msvcrtarm32=\
   misc/__p__wcmdln.c \
   misc/__p__winmajor.c \
   misc/__p__winminor.c \
+  misc/__p__winver.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
   misc/__initenv.c \
@@ -653,6 +654,7 @@ src_msvcrtarm64=\
   misc/__p__wcmdln.c \
   misc/__p__winmajor.c \
   misc/__p__winminor.c \
+  misc/__p__winver.c \
   misc/__p__wpgmptr.c \
   misc/_getpid.c \
   misc/__initenv.c \
