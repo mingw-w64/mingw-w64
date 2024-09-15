@@ -361,6 +361,7 @@ src_ucrtbase=\
   misc/__badioinfo.c \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
+  misc/__p__osver_emul.c \
   misc/__initenv.c \
   misc/__winitenv.c \
   misc/ucrt-access.c \
@@ -932,6 +933,7 @@ src_msvcr80=\
   misc/wctype.c
 
 src_msvcr90=\
+  misc/__p__osver_emul.c \
   misc/imaxdiv.c \
   misc/isblank.c \
   misc/iswblank.c \
@@ -939,16 +941,21 @@ src_msvcr90=\
   misc/wctype.c
 
 src_msvcr100=\
+  misc/__p__osver_emul.c \
   misc/isblank.c \
   misc/iswblank.c \
   misc/wctrans.c \
   misc/wctype.c
 
 src_msvcr110=\
+  misc/__p__osver_emul.c \
   misc/isblank.c \
   misc/iswblank.c \
   misc/wctrans.c \
   misc/wctype.c
+
+src_msvcr120=\
+  misc/__p__osver_emul.c
 
 src_msvcr120_app=\
   misc/__p___initenv.c \
@@ -1479,15 +1486,15 @@ lib32/libmsvcr110d.a: lib-common/msvcr110d.mri lib32/libmsvcr110d_def.a lib32/li
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120.a
-lib32/libmsvcr120.a: lib-common/msvcr120.mri lib32/libmsvcr120_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcr120.a: lib-common/msvcr120.mri lib32/libmsvcr120_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120d.a
-lib32/libmsvcr120d.a: lib-common/msvcr120d.mri lib32/libmsvcr120d_def.a lib32/libmsvcrt_common.a
+lib32/libmsvcr120d.a: lib-common/msvcr120d.mri lib32/libmsvcr120d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120_app.a
-lib32/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib32/libmsvcr120_app_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_app_extra.a
+lib32/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib32/libmsvcr120_app_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a lib32/libmsvcr120_app_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrtbase.a
@@ -1499,7 +1506,7 @@ lib32/libucrtbased.a: lib-common/ucrtbased.mri lib32/libucrtbased_def.a lib32/li
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrt.a lib32/libucrtapp.a
-noinst_LIBRARIES += lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt20_extra.a lib32/libmsvcrt40_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcr70_extra.a lib32/libmsvcr71_extra.a lib32/libmsvcr80_extra.a lib32/libmsvcr90_extra.a lib32/libmsvcr100_extra.a lib32/libmsvcr110_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
+noinst_LIBRARIES += lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt20_extra.a lib32/libmsvcrt40_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcr70_extra.a lib32/libmsvcr71_extra.a lib32/libmsvcr80_extra.a lib32/libmsvcr90_extra.a lib32/libmsvcr100_extra.a lib32/libmsvcr110_extra.a lib32/libmsvcr120_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
 lib32_libcrtdll_extra_a_SOURCES = $(src_crtdll)
 lib32_libcrtdll_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt10_extra_a_SOURCES = $(src_msvcrt10)
@@ -1524,6 +1531,8 @@ lib32_libmsvcr100_extra_a_SOURCES = $(src_msvcr100)
 lib32_libmsvcr100_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr110_extra_a_SOURCES = $(src_msvcr110)
 lib32_libmsvcr110_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+lib32_libmsvcr120_extra_a_SOURCES = $(src_msvcr120)
+lib32_libmsvcr120_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 lib32_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libucrt_extra_a_SOURCES = $(src_ucrtbase32)
@@ -1854,15 +1863,15 @@ lib64/libmsvcr110d.a: lib-common/msvcr110d.mri lib64/libmsvcr110d_def.a lib64/li
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120.a
-lib64/libmsvcr120.a: lib-common/msvcr120.mri lib64/libmsvcr120_def.a lib64/libmsvcrt_common.a
+lib64/libmsvcr120.a: lib-common/msvcr120.mri lib64/libmsvcr120_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120d.a
-lib64/libmsvcr120d.a: lib-common/msvcr120d.mri lib64/libmsvcr120d_def.a lib64/libmsvcrt_common.a
+lib64/libmsvcr120d.a: lib-common/msvcr120d.mri lib64/libmsvcr120d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120_app.a
-lib64/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib64/libmsvcr120_app_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_app_extra.a
+lib64/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib64/libmsvcr120_app_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a lib64/libmsvcr120_app_extra.a
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libucrtbase.a
@@ -1874,7 +1883,7 @@ lib64/libucrtbased.a: lib-common/ucrtbased.mri lib64/libucrtbased_def.a lib64/li
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libucrt.a lib64/libucrtapp.a
-noinst_LIBRARIES += lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a lib64/libmsvcr80_extra.a lib64/libmsvcr90_extra.a lib64/libmsvcr100_extra.a lib64/libmsvcr110_extra.a lib64/libmsvcr120_app_extra.a lib64/libucrt_extra.a lib64/libucrtapp_extra.a
+noinst_LIBRARIES += lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a lib64/libmsvcr80_extra.a lib64/libmsvcr90_extra.a lib64/libmsvcr100_extra.a lib64/libmsvcr110_extra.a lib64/libmsvcr120_extra.a lib64/libmsvcr120_app_extra.a lib64/libucrt_extra.a lib64/libucrtapp_extra.a
 lib64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common64)
 lib64_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcrt_extra_a_SOURCES = $(src_msvcrt64)
@@ -1887,6 +1896,8 @@ lib64_libmsvcr100_extra_a_SOURCES = $(src_msvcr100)
 lib64_libmsvcr100_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcr110_extra_a_SOURCES = $(src_msvcr110)
 lib64_libmsvcr110_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+lib64_libmsvcr120_extra_a_SOURCES = $(src_msvcr120)
+lib64_libmsvcr120_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 lib64_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libucrt_extra_a_SOURCES = $(src_ucrtbase64)

@@ -1,5 +1,6 @@
 CREATE libmsvcr120.a
 ADDLIB libmsvcr120_def.a
 ADDLIB libmsvcrt_common.a
+ADDLIB libmsvcr120_extra.a
 SAVE
 END
