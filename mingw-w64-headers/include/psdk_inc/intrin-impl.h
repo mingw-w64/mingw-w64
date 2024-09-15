@@ -67,6 +67,17 @@ __INTRINSICS_USEINLINE
   #define __has_builtin(x) 0
 #endif
 
+/*
+ * Macro __INTRINSIC_PROLOG uses non-portable Conditional inclusion
+ * (ISO WG14 N2176 (C17) 6.10.1/4). Avoid gcc 7+ -Wexpansion-to-defined
+ * warning enabled by -W or -Wextra option.
+ * In Clang, this warning is enabled by -pedantic.
+ */
+#if defined(__GNUC__) && (__GNUC__ >= 7 || defined(__clang__))
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wexpansion-to-defined"
+#endif
+
 /* These macros are used by the routines below.  While this file may be included 
    multiple times, these macros only need to be defined once. */
 #ifndef _INTRIN_MAC_
@@ -2288,6 +2299,10 @@ __build_writecr(__writecr8, unsigned __LONG32, "8")
 #undef __FLAGSET
 #undef __FLAGCLOBBER1
 #undef __FLAGCLOBBER2
+
+#if defined(__GNUC__) && (__GNUC__ >= 7 || defined(__clang__))
+#pragma GCC diagnostic pop
+#endif
 
 #pragma pop_macro("__has_builtin")
 
