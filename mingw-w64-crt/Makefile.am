@@ -452,6 +452,7 @@ src_msvcrt32=\
   $(src_msvcrt_add_x86) \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
+  misc/__p__osplatform.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/_create_locale.c \
@@ -493,6 +494,7 @@ src_msvcrt64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__osplatform.c \
   misc/__p__osver.c \
   misc/__p__pctype.c \
   misc/__p__pgmptr.c \
@@ -869,6 +871,7 @@ src_msvcrt40=\
   stdio/mingw_lock.c
 
 src_msvcr70=\
+  misc/__p__osplatform.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
@@ -894,6 +897,7 @@ src_msvcr70=\
   stdio/mingw_lock.c
 
 src_msvcr71=\
+  misc/__p__osplatform.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \

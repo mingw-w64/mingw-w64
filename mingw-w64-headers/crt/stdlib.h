@@ -231,16 +231,15 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 #endif /* !_POSIX_ */
 
-#ifndef _osplatform
-  extern unsigned int * __MINGW_IMP_SYMBOL(_osplatform);
-#define _osplatform (* __MINGW_IMP_SYMBOL(_osplatform))
-#endif
-
+  _CRTIMP unsigned int *__cdecl __p__osplatform(void);
   _CRTIMP unsigned int *__cdecl __p__osver(void);
   _CRTIMP unsigned int *__cdecl __p__winver(void);
   _CRTIMP unsigned int *__cdecl __p__winmajor(void);
   _CRTIMP unsigned int *__cdecl __p__winminor(void);
 
+#ifndef _osplatform
+#define _osplatform (* __p__osplatform())
+#endif
 #ifndef _osver
 #define _osver (* __p__osver())
 #endif
