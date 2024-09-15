@@ -361,6 +361,7 @@ src_ucrtbase=\
   misc/__badioinfo.c \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
+  misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c \
   misc/__initenv.c \
   misc/__winitenv.c \
@@ -534,6 +535,7 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
   misc/__p__pctype.c \
   misc/__p__pgmptr.c \
@@ -648,6 +650,7 @@ src_msvcrtarm64=\
   misc/__p__fmode.c \
   misc/__p__mbcasemap.c \
   misc/__p__mbctype.c \
+  misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
   misc/__p__pctype.c \
   misc/__p__pgmptr.c \
@@ -681,6 +684,7 @@ src_crtdll=\
   misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__mbctype.c \
+  misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
   misc/__p__pgmptr.c \
   misc/__p__pctype.c \
@@ -742,6 +746,7 @@ src_msvcrt10=\
   misc/__p__commode.c \
   misc/__p__environ.c \
   misc/__p__fmode.c \
+  misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
   misc/__p__pctype.c \
   misc/__p__pgmptr.c \
@@ -795,6 +800,7 @@ src_msvcrt20=\
   misc/msvcrt20__wgetmainargs.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
+  misc/__p__osplatform_emul.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__set_app_type.c \
@@ -838,6 +844,7 @@ src_msvcrt20=\
 src_msvcrt40=\
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
+  misc/__p__osplatform_emul.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/__sys_errlist.c \
@@ -933,6 +940,7 @@ src_msvcr80=\
   misc/wctype.c
 
 src_msvcr90=\
+  misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c \
   misc/imaxdiv.c \
   misc/isblank.c \
@@ -941,6 +949,7 @@ src_msvcr90=\
   misc/wctype.c
 
 src_msvcr100=\
+  misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c \
   misc/isblank.c \
   misc/iswblank.c \
@@ -948,6 +957,7 @@ src_msvcr100=\
   misc/wctype.c
 
 src_msvcr110=\
+  misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c \
   misc/isblank.c \
   misc/iswblank.c \
@@ -955,6 +965,7 @@ src_msvcr110=\
   misc/wctype.c
 
 src_msvcr120=\
+  misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c
 
 src_msvcr120_app=\
