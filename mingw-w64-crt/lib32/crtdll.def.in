@@ -193,7 +193,7 @@ _fpreset DATA
 _fputchar
 _fputwchar
 _fsopen
-_fstat
+__crtdll_fstat == _fstat ; crtdll.dll's _fstat is incompatible with mingw-w64's _fstat, real _fstat provided by emu
 _ftime
 _ftol
 _fullpath
@@ -364,7 +364,7 @@ _spawnve
 _spawnvp
 _spawnvpe
 _splitpath
-_stat
+__crtdll_stat == _stat ; crtdll.dll's _stat is incompatible with mingw-w64's _stat, real _stat provided by emu
 _statusfp
 _strcmpi
 _strdate

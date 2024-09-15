@@ -661,6 +661,8 @@ src_msvcrtarm64=\
 src_crtdll=\
   misc/crtdll__getmainargs.c \
   misc/crtdll__ismbblead.c \
+  misc/crtdll_fstat.c \
+  misc/crtdll_stat.c \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \

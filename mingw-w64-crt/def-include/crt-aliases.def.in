@@ -65,7 +65,9 @@ ADD_UNDERSCORE(fileno)
 ; ADD_UNDERSCORE(flushall)
 ADD_UNDERSCORE(fputchar)
 #ifdef FIXED_SIZE_SYMBOLS
+#ifndef CRTDLL
 ADD_UNDERSCORE(fstat)
+#endif
 #else
 F32(fstat == _fstat32)
 F64(fstat == _fstat64i32)
@@ -131,7 +133,9 @@ ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
 #endif
+#ifndef CRTDLL
 ; stat is provided by mingw to workaround trailing slash issue in _stat
+#endif
 #ifdef NO_STRCMPI_ALIAS
 ; Symbol _strcmpi is natively present and defined in the library def file
 ; So define strcmpi as an alias to _strcmpi
@@ -388,7 +392,9 @@ F64(_wfindnexti64 == _wfindnext64)
 
 ; This is list of stat symbol aliases, every CRT library has either stat symbols with SIZE suffix or without them
 #ifdef FIXED_SIZE_SYMBOLS
+#ifndef CRTDLL
 F32(_fstat32 == _fstat)
+#endif
 F64(_fstat64i32 == _fstat)
 #ifndef NO_I64_FIXED_SIZE
 F32(_fstat32i64 == _fstati64)
@@ -396,7 +402,9 @@ F32(_fstat32i64 == _fstati64)
 F64(_fstat64 == _fstati64)
 #endif
 #endif
+#ifndef CRTDLL
 F32(_stat32 == _stat)
+#endif
 F64(_stat64i32 == _stat)
 #ifndef NO_I64_FIXED_SIZE
 F32(_stat32i64 == _stati64)
