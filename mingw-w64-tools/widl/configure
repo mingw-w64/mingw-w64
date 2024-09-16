@@ -668,7 +668,6 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
-BIN_TO_INCLUDEDIR
 WIDL_INCLUDEDIR
 MAINT
 MAINTAINER_MODE_FALSE
@@ -3442,33 +3441,6 @@ fi
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $with_widl_includedir" >&5
 printf "%s\n" "$with_widl_includedir" >&6; }
 WIDL_INCLUDEDIR=$with_widl_includedir
-
-
-_lcl_common_prefix=''
-_lcl_second_prefix_match=''
-while test "$_lcl_second_prefix_match" != 0; do
-  _lcl_first_prefix=`expr "x$install_bindir" : "x\($_lcl_common_prefix/*[^/]*\)"`
-  _lcl_second_prefix_match=`expr "x$with_widl_includedir" : "x$_lcl_first_prefix"`
-  if test "$_lcl_second_prefix_match" != 0; then
-    if test "$_lcl_first_prefix" != "$_lcl_common_prefix"; then
-      _lcl_common_prefix="$_lcl_first_prefix"
-    else
-      _lcl_second_prefix_match=0
-    fi
-  fi
-done
-_lcl_first_suffix=`expr "x$install_bindir" : "x$_lcl_common_prefix/*\(.*\)"`
-_lcl_first_rel=''
-_lcl_tmp='xxx'
-while test "$_lcl_tmp" != ''; do
-  _lcl_tmp=`expr "x$_lcl_first_suffix" : "x[^/]*/*\(.*\)"`
-  if test "$_lcl_first_suffix" != ''; then
-     _lcl_first_suffix="$_lcl_tmp"
-     _lcl_first_rel="../$_lcl_first_rel"
-  fi
-done
-_lcl_second_suffix=`expr "x$with_widl_includedir" : "x$_lcl_common_prefix/*\(.*\)"`
-BIN_TO_INCLUDEDIR="$_lcl_first_rel$_lcl_second_suffix"
 
 
 # Checks for programs.

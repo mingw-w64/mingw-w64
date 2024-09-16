@@ -30,9 +30,6 @@ AC_MSG_RESULT([$with_widl_includedir])
 AS_VAR_SET([WIDL_INCLUDEDIR],[$with_widl_includedir])
 AC_SUBST([WIDL_INCLUDEDIR])
 
-AX_COMPUTE_RELATIVE_PATH([install_bindir], [with_widl_includedir], [BIN_TO_INCLUDEDIR])
-AC_SUBST([BIN_TO_INCLUDEDIR])
-
 # Checks for programs.
 AC_PROG_CC
 
