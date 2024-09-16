@@ -26,6 +26,51 @@
 
 /* Forward declarations */
 
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendar __x_ABI_CWindows_CGlobalization_CICalendar;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendar ABI::Windows::Globalization::ICalendar
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendar;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendarFactory __x_ABI_CWindows_CGlobalization_CICalendarFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory ABI::Windows::Globalization::ICalendarFactory
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendarFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendarFactory2 __x_ABI_CWindows_CGlobalization_CICalendarFactory2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2 ABI::Windows::Globalization::ICalendarFactory2
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendarFactory2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CGlobalization_CILanguage __x_ABI_CWindows_CGlobalization_CILanguage;
@@ -190,6 +235,36 @@ namespace ABI {
 }
 #endif /* __cplusplus */
 #endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar ABI::Windows::Globalization::ITimeZoneOnCalendar
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ITimeZoneOnCalendar;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CCalendar_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CCalendar_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            class Calendar;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CCalendar __x_ABI_CWindows_CGlobalization_CCalendar;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CGlobalization_CCalendar_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CGlobalization_CLanguage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CLanguage_FWD_DEFINED__
@@ -273,6 +348,51 @@ typedef enum __x_ABI_CWindows_CGlobalization_CDayOfWeek __x_ABI_CWindows_CGlobal
 typedef enum __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection;
 #endif /* __cplusplus */
 
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendar __x_ABI_CWindows_CGlobalization_CICalendar;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendar ABI::Windows::Globalization::ICalendar
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendar;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendarFactory __x_ABI_CWindows_CGlobalization_CICalendarFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory ABI::Windows::Globalization::ICalendarFactory
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendarFactory;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CICalendarFactory2 __x_ABI_CWindows_CGlobalization_CICalendarFactory2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2 ABI::Windows::Globalization::ICalendarFactory2
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ICalendarFactory2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CGlobalization_CILanguage __x_ABI_CWindows_CGlobalization_CILanguage;
@@ -432,6 +552,21 @@ namespace ABI {
     namespace Windows {
         namespace Globalization {
             interface IGeographicRegionStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar ABI::Windows::Globalization::ITimeZoneOnCalendar
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface ITimeZoneOnCalendar;
         }
     }
 }
@@ -534,6 +669,1605 @@ enum __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection {
 #endif
 
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000 */
+/*****************************************************************************
+ * ICalendar interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendar_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendar_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CICalendar, 0xca30221d, 0x86d9, 0x40fb, 0xa2,0x6b, 0xd4,0x4e,0xb7,0xcf,0x08,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("ca30221d-86d9-40fb-a26b-d44eb7cf08ea")
+            ICalendar : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE Clone(
+                    ABI::Windows::Globalization::ICalendar **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SetToMin(
+                    ) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SetToMax(
+                    ) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Languages(
+                    ABI::Windows::Foundation::Collections::IVectorView<HSTRING > **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumeralSystem(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_NumeralSystem(
+                    HSTRING value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetCalendarSystem(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE ChangeCalendarSystem(
+                    HSTRING value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetClock(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE ChangeClock(
+                    HSTRING value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetDateTime(
+                    ABI::Windows::Foundation::DateTime *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SetDateTime(
+                    ABI::Windows::Foundation::DateTime value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SetToNow(
+                    ) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstEra(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastEra(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfEras(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Era(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Era(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddEras(
+                    INT32 eras) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE EraAsFullString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE EraAsString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstYearInThisEra(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastYearInThisEra(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfYearsInThisEra(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Year(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Year(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddYears(
+                    INT32 years) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE YearAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE YearAsTruncatedString(
+                    INT32 remaining_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE YearAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstMonthInThisYear(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastMonthInThisYear(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfMonthsInThisYear(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Month(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Month(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddMonths(
+                    INT32 months) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsFullString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsFullSoloString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsSoloString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsNumericString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MonthAsPaddedNumericString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddWeeks(
+                    INT32 weeks) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstDayInThisMonth(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastDayInThisMonth(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfDaysInThisMonth(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Day(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Day(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddDays(
+                    INT32 days) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_DayOfWeek(
+                    ABI::Windows::Globalization::DayOfWeek *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayOfWeekAsFullString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayOfWeekAsString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayOfWeekAsFullSoloString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE DayOfWeekAsSoloString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstPeriodInThisDay(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastPeriodInThisDay(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfPeriodsInThisDay(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Period(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Period(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddPeriods(
+                    INT32 periods) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE PeriodAsFullString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE PeriodAsString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstHourInThisPeriod(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastHourInThisPeriod(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfHoursInThisPeriod(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Hour(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Hour(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddHours(
+                    INT32 hours) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE HourAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE HourAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Minute(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Minute(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddMinutes(
+                    INT32 minutes) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MinuteAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE MinuteAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Second(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Second(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddSeconds(
+                    INT32 seconds) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SecondAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE SecondAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Nanosecond(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Nanosecond(
+                    INT32 value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE AddNanoseconds(
+                    INT32 nanoseconds) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE NanosecondAsString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE NanosecondAsPaddedString(
+                    INT32 min_digits,
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE Compare(
+                    ABI::Windows::Globalization::ICalendar *other,
+                    INT32 *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CompareDateTime(
+                    ABI::Windows::Foundation::DateTime other,
+                    INT32 *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CopyTo(
+                    ABI::Windows::Globalization::ICalendar *other) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstMinuteInThisHour(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastMinuteInThisHour(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfMinutesInThisHour(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_FirstSecondInThisMinute(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_LastSecondInThisMinute(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_NumberOfSecondsInThisMinute(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_ResolvedLanguage(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_IsDaylightSavingTime(
+                    boolean *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CICalendar, 0xca30221d, 0x86d9, 0x40fb, 0xa2,0x6b, 0xd4,0x4e,0xb7,0xcf,0x08,0xea)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CICalendarVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        TrustLevel *trustLevel);
+
+    /*** ICalendar methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CGlobalization_CICalendar **value);
+
+    HRESULT (STDMETHODCALLTYPE *SetToMin)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This);
+
+    HRESULT (STDMETHODCALLTYPE *SetToMax)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_Languages)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __FIVectorView_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumeralSystem)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_NumeralSystem)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *GetCalendarSystem)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *ChangeCalendarSystem)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *GetClock)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *ChangeClock)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDateTime)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CFoundation_CDateTime *result);
+
+    HRESULT (STDMETHODCALLTYPE *SetDateTime)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CFoundation_CDateTime value);
+
+    HRESULT (STDMETHODCALLTYPE *SetToNow)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstEra)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastEra)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfEras)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Era)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Era)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddEras)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 eras);
+
+    HRESULT (STDMETHODCALLTYPE *EraAsFullString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *EraAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstYearInThisEra)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastYearInThisEra)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfYearsInThisEra)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Year)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Year)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddYears)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 years);
+
+    HRESULT (STDMETHODCALLTYPE *YearAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *YearAsTruncatedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 remaining_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *YearAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstMonthInThisYear)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastMonthInThisYear)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfMonthsInThisYear)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Month)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Month)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddMonths)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 months);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsFullString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsFullSoloString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsSoloString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsNumericString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MonthAsPaddedNumericString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *AddWeeks)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 weeks);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstDayInThisMonth)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastDayInThisMonth)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfDaysInThisMonth)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Day)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Day)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddDays)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 days);
+
+    HRESULT (STDMETHODCALLTYPE *DayAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *DayAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_DayOfWeek)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek *value);
+
+    HRESULT (STDMETHODCALLTYPE *DayOfWeekAsFullString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *DayOfWeekAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *DayOfWeekAsFullSoloString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *DayOfWeekAsSoloString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstPeriodInThisDay)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastPeriodInThisDay)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfPeriodsInThisDay)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Period)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Period)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddPeriods)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 periods);
+
+    HRESULT (STDMETHODCALLTYPE *PeriodAsFullString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *PeriodAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstHourInThisPeriod)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastHourInThisPeriod)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfHoursInThisPeriod)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Hour)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Hour)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddHours)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 hours);
+
+    HRESULT (STDMETHODCALLTYPE *HourAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *HourAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_Minute)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Minute)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddMinutes)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 minutes);
+
+    HRESULT (STDMETHODCALLTYPE *MinuteAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *MinuteAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_Second)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Second)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddSeconds)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 seconds);
+
+    HRESULT (STDMETHODCALLTYPE *SecondAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *SecondAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *get_Nanosecond)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Nanosecond)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *AddNanoseconds)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 nanoseconds);
+
+    HRESULT (STDMETHODCALLTYPE *NanosecondAsString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *NanosecondAsPaddedString)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 min_digits,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *Compare)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CGlobalization_CICalendar *other,
+        INT32 *result);
+
+    HRESULT (STDMETHODCALLTYPE *CompareDateTime)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CFoundation_CDateTime other,
+        INT32 *result);
+
+    HRESULT (STDMETHODCALLTYPE *CopyTo)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        __x_ABI_CWindows_CGlobalization_CICalendar *other);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstMinuteInThisHour)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastMinuteInThisHour)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfMinutesInThisHour)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_FirstSecondInThisMinute)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_LastSecondInThisMinute)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_NumberOfSecondsInThisMinute)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ResolvedLanguage)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_IsDaylightSavingTime)(
+        __x_ABI_CWindows_CGlobalization_CICalendar *This,
+        boolean *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CICalendarVtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CICalendar {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CICalendarVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendar_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ICalendar methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendar_Clone(This,value) (This)->lpVtbl->Clone(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SetToMin(This) (This)->lpVtbl->SetToMin(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SetToMax(This) (This)->lpVtbl->SetToMax(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Languages(This,value) (This)->lpVtbl->get_Languages(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumeralSystem(This,value) (This)->lpVtbl->get_NumeralSystem(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_NumeralSystem(This,value) (This)->lpVtbl->put_NumeralSystem(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetCalendarSystem(This,value) (This)->lpVtbl->GetCalendarSystem(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_ChangeCalendarSystem(This,value) (This)->lpVtbl->ChangeCalendarSystem(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetClock(This,value) (This)->lpVtbl->GetClock(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_ChangeClock(This,value) (This)->lpVtbl->ChangeClock(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_GetDateTime(This,result) (This)->lpVtbl->GetDateTime(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SetDateTime(This,value) (This)->lpVtbl->SetDateTime(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SetToNow(This) (This)->lpVtbl->SetToNow(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstEra(This,value) (This)->lpVtbl->get_FirstEra(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastEra(This,value) (This)->lpVtbl->get_LastEra(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfEras(This,value) (This)->lpVtbl->get_NumberOfEras(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Era(This,value) (This)->lpVtbl->get_Era(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Era(This,value) (This)->lpVtbl->put_Era(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddEras(This,eras) (This)->lpVtbl->AddEras(This,eras)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_EraAsFullString(This,result) (This)->lpVtbl->EraAsFullString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_EraAsString(This,ideal_length,result) (This)->lpVtbl->EraAsString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstYearInThisEra(This,value) (This)->lpVtbl->get_FirstYearInThisEra(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastYearInThisEra(This,value) (This)->lpVtbl->get_LastYearInThisEra(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfYearsInThisEra(This,value) (This)->lpVtbl->get_NumberOfYearsInThisEra(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Year(This,value) (This)->lpVtbl->get_Year(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Year(This,value) (This)->lpVtbl->put_Year(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddYears(This,years) (This)->lpVtbl->AddYears(This,years)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_YearAsString(This,result) (This)->lpVtbl->YearAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_YearAsTruncatedString(This,remaining_digits,result) (This)->lpVtbl->YearAsTruncatedString(This,remaining_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_YearAsPaddedString(This,min_digits,result) (This)->lpVtbl->YearAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMonthInThisYear(This,value) (This)->lpVtbl->get_FirstMonthInThisYear(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMonthInThisYear(This,value) (This)->lpVtbl->get_LastMonthInThisYear(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMonthsInThisYear(This,value) (This)->lpVtbl->get_NumberOfMonthsInThisYear(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Month(This,value) (This)->lpVtbl->get_Month(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Month(This,value) (This)->lpVtbl->put_Month(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddMonths(This,months) (This)->lpVtbl->AddMonths(This,months)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullString(This,result) (This)->lpVtbl->MonthAsFullString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsString(This,ideal_length,result) (This)->lpVtbl->MonthAsString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullSoloString(This,result) (This)->lpVtbl->MonthAsFullSoloString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsSoloString(This,ideal_length,result) (This)->lpVtbl->MonthAsSoloString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsNumericString(This,result) (This)->lpVtbl->MonthAsNumericString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsPaddedNumericString(This,min_digits,result) (This)->lpVtbl->MonthAsPaddedNumericString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddWeeks(This,weeks) (This)->lpVtbl->AddWeeks(This,weeks)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstDayInThisMonth(This,value) (This)->lpVtbl->get_FirstDayInThisMonth(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastDayInThisMonth(This,value) (This)->lpVtbl->get_LastDayInThisMonth(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfDaysInThisMonth(This,value) (This)->lpVtbl->get_NumberOfDaysInThisMonth(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Day(This,value) (This)->lpVtbl->get_Day(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Day(This,value) (This)->lpVtbl->put_Day(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddDays(This,days) (This)->lpVtbl->AddDays(This,days)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayAsString(This,result) (This)->lpVtbl->DayAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayAsPaddedString(This,min_digits,result) (This)->lpVtbl->DayAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_DayOfWeek(This,value) (This)->lpVtbl->get_DayOfWeek(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullString(This,result) (This)->lpVtbl->DayOfWeekAsFullString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsString(This,ideal_length,result) (This)->lpVtbl->DayOfWeekAsString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullSoloString(This,result) (This)->lpVtbl->DayOfWeekAsFullSoloString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsSoloString(This,ideal_length,result) (This)->lpVtbl->DayOfWeekAsSoloString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstPeriodInThisDay(This,value) (This)->lpVtbl->get_FirstPeriodInThisDay(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastPeriodInThisDay(This,value) (This)->lpVtbl->get_LastPeriodInThisDay(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfPeriodsInThisDay(This,value) (This)->lpVtbl->get_NumberOfPeriodsInThisDay(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Period(This,value) (This)->lpVtbl->get_Period(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Period(This,value) (This)->lpVtbl->put_Period(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddPeriods(This,periods) (This)->lpVtbl->AddPeriods(This,periods)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsFullString(This,result) (This)->lpVtbl->PeriodAsFullString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsString(This,ideal_length,result) (This)->lpVtbl->PeriodAsString(This,ideal_length,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstHourInThisPeriod(This,value) (This)->lpVtbl->get_FirstHourInThisPeriod(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastHourInThisPeriod(This,value) (This)->lpVtbl->get_LastHourInThisPeriod(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfHoursInThisPeriod(This,value) (This)->lpVtbl->get_NumberOfHoursInThisPeriod(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Hour(This,value) (This)->lpVtbl->get_Hour(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Hour(This,value) (This)->lpVtbl->put_Hour(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddHours(This,hours) (This)->lpVtbl->AddHours(This,hours)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_HourAsString(This,result) (This)->lpVtbl->HourAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_HourAsPaddedString(This,min_digits,result) (This)->lpVtbl->HourAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Minute(This,value) (This)->lpVtbl->get_Minute(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Minute(This,value) (This)->lpVtbl->put_Minute(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddMinutes(This,minutes) (This)->lpVtbl->AddMinutes(This,minutes)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsString(This,result) (This)->lpVtbl->MinuteAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsPaddedString(This,min_digits,result) (This)->lpVtbl->MinuteAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Second(This,value) (This)->lpVtbl->get_Second(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Second(This,value) (This)->lpVtbl->put_Second(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddSeconds(This,seconds) (This)->lpVtbl->AddSeconds(This,seconds)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsString(This,result) (This)->lpVtbl->SecondAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsPaddedString(This,min_digits,result) (This)->lpVtbl->SecondAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_Nanosecond(This,value) (This)->lpVtbl->get_Nanosecond(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_put_Nanosecond(This,value) (This)->lpVtbl->put_Nanosecond(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_AddNanoseconds(This,nanoseconds) (This)->lpVtbl->AddNanoseconds(This,nanoseconds)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsString(This,result) (This)->lpVtbl->NanosecondAsString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsPaddedString(This,min_digits,result) (This)->lpVtbl->NanosecondAsPaddedString(This,min_digits,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_Compare(This,other,result) (This)->lpVtbl->Compare(This,other,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_CompareDateTime(This,other,result) (This)->lpVtbl->CompareDateTime(This,other,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_CopyTo(This,other) (This)->lpVtbl->CopyTo(This,other)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMinuteInThisHour(This,value) (This)->lpVtbl->get_FirstMinuteInThisHour(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMinuteInThisHour(This,value) (This)->lpVtbl->get_LastMinuteInThisHour(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMinutesInThisHour(This,value) (This)->lpVtbl->get_NumberOfMinutesInThisHour(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstSecondInThisMinute(This,value) (This)->lpVtbl->get_FirstSecondInThisMinute(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_LastSecondInThisMinute(This,value) (This)->lpVtbl->get_LastSecondInThisMinute(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfSecondsInThisMinute(This,value) (This)->lpVtbl->get_NumberOfSecondsInThisMinute(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_ResolvedLanguage(This,value) (This)->lpVtbl->get_ResolvedLanguage(This,value)
+#define __x_ABI_CWindows_CGlobalization_CICalendar_get_IsDaylightSavingTime(This,value) (This)->lpVtbl->get_IsDaylightSavingTime(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_QueryInterface(__x_ABI_CWindows_CGlobalization_CICalendar* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendar_AddRef(__x_ABI_CWindows_CGlobalization_CICalendar* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendar_Release(__x_ABI_CWindows_CGlobalization_CICalendar* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetIids(__x_ABI_CWindows_CGlobalization_CICalendar* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CICalendar* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ICalendar methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_Clone(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CGlobalization_CICalendar **value) {
+    return This->lpVtbl->Clone(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SetToMin(__x_ABI_CWindows_CGlobalization_CICalendar* This) {
+    return This->lpVtbl->SetToMin(This);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SetToMax(__x_ABI_CWindows_CGlobalization_CICalendar* This) {
+    return This->lpVtbl->SetToMax(This);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Languages(__x_ABI_CWindows_CGlobalization_CICalendar* This,__FIVectorView_1_HSTRING **value) {
+    return This->lpVtbl->get_Languages(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumeralSystem(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *value) {
+    return This->lpVtbl->get_NumeralSystem(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_NumeralSystem(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING value) {
+    return This->lpVtbl->put_NumeralSystem(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetCalendarSystem(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *value) {
+    return This->lpVtbl->GetCalendarSystem(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_ChangeCalendarSystem(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING value) {
+    return This->lpVtbl->ChangeCalendarSystem(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetClock(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *value) {
+    return This->lpVtbl->GetClock(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_ChangeClock(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING value) {
+    return This->lpVtbl->ChangeClock(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_GetDateTime(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CFoundation_CDateTime *result) {
+    return This->lpVtbl->GetDateTime(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SetDateTime(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CFoundation_CDateTime value) {
+    return This->lpVtbl->SetDateTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SetToNow(__x_ABI_CWindows_CGlobalization_CICalendar* This) {
+    return This->lpVtbl->SetToNow(This);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstEra(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstEra(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastEra(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastEra(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfEras(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfEras(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Era(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Era(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Era(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Era(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddEras(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 eras) {
+    return This->lpVtbl->AddEras(This,eras);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_EraAsFullString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->EraAsFullString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_EraAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->EraAsString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstYearInThisEra(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstYearInThisEra(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastYearInThisEra(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastYearInThisEra(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfYearsInThisEra(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfYearsInThisEra(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Year(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Year(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Year(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Year(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddYears(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 years) {
+    return This->lpVtbl->AddYears(This,years);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_YearAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->YearAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_YearAsTruncatedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 remaining_digits,HSTRING *result) {
+    return This->lpVtbl->YearAsTruncatedString(This,remaining_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_YearAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->YearAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMonthInThisYear(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstMonthInThisYear(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMonthInThisYear(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastMonthInThisYear(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMonthsInThisYear(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfMonthsInThisYear(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Month(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Month(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Month(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Month(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddMonths(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 months) {
+    return This->lpVtbl->AddMonths(This,months);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->MonthAsFullString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->MonthAsString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullSoloString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->MonthAsFullSoloString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsSoloString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->MonthAsSoloString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsNumericString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->MonthAsNumericString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsPaddedNumericString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->MonthAsPaddedNumericString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddWeeks(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 weeks) {
+    return This->lpVtbl->AddWeeks(This,weeks);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstDayInThisMonth(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstDayInThisMonth(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastDayInThisMonth(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastDayInThisMonth(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfDaysInThisMonth(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfDaysInThisMonth(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Day(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Day(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Day(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Day(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddDays(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 days) {
+    return This->lpVtbl->AddDays(This,days);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->DayAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->DayAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_DayOfWeek(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CGlobalization_CDayOfWeek *value) {
+    return This->lpVtbl->get_DayOfWeek(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->DayOfWeekAsFullString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->DayOfWeekAsString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullSoloString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->DayOfWeekAsFullSoloString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsSoloString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->DayOfWeekAsSoloString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstPeriodInThisDay(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstPeriodInThisDay(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastPeriodInThisDay(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastPeriodInThisDay(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfPeriodsInThisDay(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfPeriodsInThisDay(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Period(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Period(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Period(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Period(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddPeriods(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 periods) {
+    return This->lpVtbl->AddPeriods(This,periods);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsFullString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->PeriodAsFullString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->PeriodAsString(This,ideal_length,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstHourInThisPeriod(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstHourInThisPeriod(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastHourInThisPeriod(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastHourInThisPeriod(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfHoursInThisPeriod(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfHoursInThisPeriod(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Hour(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Hour(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Hour(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Hour(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddHours(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 hours) {
+    return This->lpVtbl->AddHours(This,hours);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_HourAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->HourAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_HourAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->HourAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Minute(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Minute(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Minute(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Minute(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddMinutes(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 minutes) {
+    return This->lpVtbl->AddMinutes(This,minutes);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->MinuteAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->MinuteAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Second(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Second(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Second(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Second(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddSeconds(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 seconds) {
+    return This->lpVtbl->AddSeconds(This,seconds);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->SecondAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->SecondAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_Nanosecond(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_Nanosecond(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_put_Nanosecond(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 value) {
+    return This->lpVtbl->put_Nanosecond(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_AddNanoseconds(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 nanoseconds) {
+    return This->lpVtbl->AddNanoseconds(This,nanoseconds);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsString(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *result) {
+    return This->lpVtbl->NanosecondAsString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsPaddedString(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 min_digits,HSTRING *result) {
+    return This->lpVtbl->NanosecondAsPaddedString(This,min_digits,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_Compare(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CGlobalization_CICalendar *other,INT32 *result) {
+    return This->lpVtbl->Compare(This,other,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_CompareDateTime(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CFoundation_CDateTime other,INT32 *result) {
+    return This->lpVtbl->CompareDateTime(This,other,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_CopyTo(__x_ABI_CWindows_CGlobalization_CICalendar* This,__x_ABI_CWindows_CGlobalization_CICalendar *other) {
+    return This->lpVtbl->CopyTo(This,other);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMinuteInThisHour(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstMinuteInThisHour(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMinuteInThisHour(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastMinuteInThisHour(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMinutesInThisHour(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfMinutesInThisHour(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstSecondInThisMinute(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_FirstSecondInThisMinute(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_LastSecondInThisMinute(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_LastSecondInThisMinute(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfSecondsInThisMinute(__x_ABI_CWindows_CGlobalization_CICalendar* This,INT32 *value) {
+    return This->lpVtbl->get_NumberOfSecondsInThisMinute(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_ResolvedLanguage(__x_ABI_CWindows_CGlobalization_CICalendar* This,HSTRING *value) {
+    return This->lpVtbl->get_ResolvedLanguage(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendar_get_IsDaylightSavingTime(__x_ABI_CWindows_CGlobalization_CICalendar* This,boolean *value) {
+    return This->lpVtbl->get_IsDaylightSavingTime(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_ICalendar IID___x_ABI_CWindows_CGlobalization_CICalendar
+#define ICalendarVtbl __x_ABI_CWindows_CGlobalization_CICalendarVtbl
+#define ICalendar __x_ABI_CWindows_CGlobalization_CICalendar
+#define ICalendar_QueryInterface __x_ABI_CWindows_CGlobalization_CICalendar_QueryInterface
+#define ICalendar_AddRef __x_ABI_CWindows_CGlobalization_CICalendar_AddRef
+#define ICalendar_Release __x_ABI_CWindows_CGlobalization_CICalendar_Release
+#define ICalendar_GetIids __x_ABI_CWindows_CGlobalization_CICalendar_GetIids
+#define ICalendar_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CICalendar_GetRuntimeClassName
+#define ICalendar_GetTrustLevel __x_ABI_CWindows_CGlobalization_CICalendar_GetTrustLevel
+#define ICalendar_Clone __x_ABI_CWindows_CGlobalization_CICalendar_Clone
+#define ICalendar_SetToMin __x_ABI_CWindows_CGlobalization_CICalendar_SetToMin
+#define ICalendar_SetToMax __x_ABI_CWindows_CGlobalization_CICalendar_SetToMax
+#define ICalendar_get_Languages __x_ABI_CWindows_CGlobalization_CICalendar_get_Languages
+#define ICalendar_get_NumeralSystem __x_ABI_CWindows_CGlobalization_CICalendar_get_NumeralSystem
+#define ICalendar_put_NumeralSystem __x_ABI_CWindows_CGlobalization_CICalendar_put_NumeralSystem
+#define ICalendar_GetCalendarSystem __x_ABI_CWindows_CGlobalization_CICalendar_GetCalendarSystem
+#define ICalendar_ChangeCalendarSystem __x_ABI_CWindows_CGlobalization_CICalendar_ChangeCalendarSystem
+#define ICalendar_GetClock __x_ABI_CWindows_CGlobalization_CICalendar_GetClock
+#define ICalendar_ChangeClock __x_ABI_CWindows_CGlobalization_CICalendar_ChangeClock
+#define ICalendar_GetDateTime __x_ABI_CWindows_CGlobalization_CICalendar_GetDateTime
+#define ICalendar_SetDateTime __x_ABI_CWindows_CGlobalization_CICalendar_SetDateTime
+#define ICalendar_SetToNow __x_ABI_CWindows_CGlobalization_CICalendar_SetToNow
+#define ICalendar_get_FirstEra __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstEra
+#define ICalendar_get_LastEra __x_ABI_CWindows_CGlobalization_CICalendar_get_LastEra
+#define ICalendar_get_NumberOfEras __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfEras
+#define ICalendar_get_Era __x_ABI_CWindows_CGlobalization_CICalendar_get_Era
+#define ICalendar_put_Era __x_ABI_CWindows_CGlobalization_CICalendar_put_Era
+#define ICalendar_AddEras __x_ABI_CWindows_CGlobalization_CICalendar_AddEras
+#define ICalendar_EraAsFullString __x_ABI_CWindows_CGlobalization_CICalendar_EraAsFullString
+#define ICalendar_EraAsString __x_ABI_CWindows_CGlobalization_CICalendar_EraAsString
+#define ICalendar_get_FirstYearInThisEra __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstYearInThisEra
+#define ICalendar_get_LastYearInThisEra __x_ABI_CWindows_CGlobalization_CICalendar_get_LastYearInThisEra
+#define ICalendar_get_NumberOfYearsInThisEra __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfYearsInThisEra
+#define ICalendar_get_Year __x_ABI_CWindows_CGlobalization_CICalendar_get_Year
+#define ICalendar_put_Year __x_ABI_CWindows_CGlobalization_CICalendar_put_Year
+#define ICalendar_AddYears __x_ABI_CWindows_CGlobalization_CICalendar_AddYears
+#define ICalendar_YearAsString __x_ABI_CWindows_CGlobalization_CICalendar_YearAsString
+#define ICalendar_YearAsTruncatedString __x_ABI_CWindows_CGlobalization_CICalendar_YearAsTruncatedString
+#define ICalendar_YearAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_YearAsPaddedString
+#define ICalendar_get_FirstMonthInThisYear __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMonthInThisYear
+#define ICalendar_get_LastMonthInThisYear __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMonthInThisYear
+#define ICalendar_get_NumberOfMonthsInThisYear __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMonthsInThisYear
+#define ICalendar_get_Month __x_ABI_CWindows_CGlobalization_CICalendar_get_Month
+#define ICalendar_put_Month __x_ABI_CWindows_CGlobalization_CICalendar_put_Month
+#define ICalendar_AddMonths __x_ABI_CWindows_CGlobalization_CICalendar_AddMonths
+#define ICalendar_MonthAsFullString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullString
+#define ICalendar_MonthAsString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsString
+#define ICalendar_MonthAsFullSoloString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsFullSoloString
+#define ICalendar_MonthAsSoloString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsSoloString
+#define ICalendar_MonthAsNumericString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsNumericString
+#define ICalendar_MonthAsPaddedNumericString __x_ABI_CWindows_CGlobalization_CICalendar_MonthAsPaddedNumericString
+#define ICalendar_AddWeeks __x_ABI_CWindows_CGlobalization_CICalendar_AddWeeks
+#define ICalendar_get_FirstDayInThisMonth __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstDayInThisMonth
+#define ICalendar_get_LastDayInThisMonth __x_ABI_CWindows_CGlobalization_CICalendar_get_LastDayInThisMonth
+#define ICalendar_get_NumberOfDaysInThisMonth __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfDaysInThisMonth
+#define ICalendar_get_Day __x_ABI_CWindows_CGlobalization_CICalendar_get_Day
+#define ICalendar_put_Day __x_ABI_CWindows_CGlobalization_CICalendar_put_Day
+#define ICalendar_AddDays __x_ABI_CWindows_CGlobalization_CICalendar_AddDays
+#define ICalendar_DayAsString __x_ABI_CWindows_CGlobalization_CICalendar_DayAsString
+#define ICalendar_DayAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_DayAsPaddedString
+#define ICalendar_get_DayOfWeek __x_ABI_CWindows_CGlobalization_CICalendar_get_DayOfWeek
+#define ICalendar_DayOfWeekAsFullString __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullString
+#define ICalendar_DayOfWeekAsString __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsString
+#define ICalendar_DayOfWeekAsFullSoloString __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsFullSoloString
+#define ICalendar_DayOfWeekAsSoloString __x_ABI_CWindows_CGlobalization_CICalendar_DayOfWeekAsSoloString
+#define ICalendar_get_FirstPeriodInThisDay __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstPeriodInThisDay
+#define ICalendar_get_LastPeriodInThisDay __x_ABI_CWindows_CGlobalization_CICalendar_get_LastPeriodInThisDay
+#define ICalendar_get_NumberOfPeriodsInThisDay __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfPeriodsInThisDay
+#define ICalendar_get_Period __x_ABI_CWindows_CGlobalization_CICalendar_get_Period
+#define ICalendar_put_Period __x_ABI_CWindows_CGlobalization_CICalendar_put_Period
+#define ICalendar_AddPeriods __x_ABI_CWindows_CGlobalization_CICalendar_AddPeriods
+#define ICalendar_PeriodAsFullString __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsFullString
+#define ICalendar_PeriodAsString __x_ABI_CWindows_CGlobalization_CICalendar_PeriodAsString
+#define ICalendar_get_FirstHourInThisPeriod __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstHourInThisPeriod
+#define ICalendar_get_LastHourInThisPeriod __x_ABI_CWindows_CGlobalization_CICalendar_get_LastHourInThisPeriod
+#define ICalendar_get_NumberOfHoursInThisPeriod __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfHoursInThisPeriod
+#define ICalendar_get_Hour __x_ABI_CWindows_CGlobalization_CICalendar_get_Hour
+#define ICalendar_put_Hour __x_ABI_CWindows_CGlobalization_CICalendar_put_Hour
+#define ICalendar_AddHours __x_ABI_CWindows_CGlobalization_CICalendar_AddHours
+#define ICalendar_HourAsString __x_ABI_CWindows_CGlobalization_CICalendar_HourAsString
+#define ICalendar_HourAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_HourAsPaddedString
+#define ICalendar_get_Minute __x_ABI_CWindows_CGlobalization_CICalendar_get_Minute
+#define ICalendar_put_Minute __x_ABI_CWindows_CGlobalization_CICalendar_put_Minute
+#define ICalendar_AddMinutes __x_ABI_CWindows_CGlobalization_CICalendar_AddMinutes
+#define ICalendar_MinuteAsString __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsString
+#define ICalendar_MinuteAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_MinuteAsPaddedString
+#define ICalendar_get_Second __x_ABI_CWindows_CGlobalization_CICalendar_get_Second
+#define ICalendar_put_Second __x_ABI_CWindows_CGlobalization_CICalendar_put_Second
+#define ICalendar_AddSeconds __x_ABI_CWindows_CGlobalization_CICalendar_AddSeconds
+#define ICalendar_SecondAsString __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsString
+#define ICalendar_SecondAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_SecondAsPaddedString
+#define ICalendar_get_Nanosecond __x_ABI_CWindows_CGlobalization_CICalendar_get_Nanosecond
+#define ICalendar_put_Nanosecond __x_ABI_CWindows_CGlobalization_CICalendar_put_Nanosecond
+#define ICalendar_AddNanoseconds __x_ABI_CWindows_CGlobalization_CICalendar_AddNanoseconds
+#define ICalendar_NanosecondAsString __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsString
+#define ICalendar_NanosecondAsPaddedString __x_ABI_CWindows_CGlobalization_CICalendar_NanosecondAsPaddedString
+#define ICalendar_Compare __x_ABI_CWindows_CGlobalization_CICalendar_Compare
+#define ICalendar_CompareDateTime __x_ABI_CWindows_CGlobalization_CICalendar_CompareDateTime
+#define ICalendar_CopyTo __x_ABI_CWindows_CGlobalization_CICalendar_CopyTo
+#define ICalendar_get_FirstMinuteInThisHour __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstMinuteInThisHour
+#define ICalendar_get_LastMinuteInThisHour __x_ABI_CWindows_CGlobalization_CICalendar_get_LastMinuteInThisHour
+#define ICalendar_get_NumberOfMinutesInThisHour __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfMinutesInThisHour
+#define ICalendar_get_FirstSecondInThisMinute __x_ABI_CWindows_CGlobalization_CICalendar_get_FirstSecondInThisMinute
+#define ICalendar_get_LastSecondInThisMinute __x_ABI_CWindows_CGlobalization_CICalendar_get_LastSecondInThisMinute
+#define ICalendar_get_NumberOfSecondsInThisMinute __x_ABI_CWindows_CGlobalization_CICalendar_get_NumberOfSecondsInThisMinute
+#define ICalendar_get_ResolvedLanguage __x_ABI_CWindows_CGlobalization_CICalendar_get_ResolvedLanguage
+#define ICalendar_get_IsDaylightSavingTime __x_ABI_CWindows_CGlobalization_CICalendar_get_IsDaylightSavingTime
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CICalendar_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * ICalendarFactory interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CICalendarFactory, 0x83f58412, 0xe56b, 0x4c75, 0xa6,0x6e, 0x0f,0x63,0xd5,0x77,0x58,0xa6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("83f58412-e56b-4c75-a66e-0f63d57758a6")
+            ICalendarFactory : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE CreateCalendarDefaultCalendarAndClock(
+                    ABI::Windows::Foundation::Collections::IIterable<HSTRING > *languages,
+                    ABI::Windows::Globalization::ICalendar **result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateCalendar(
+                    ABI::Windows::Foundation::Collections::IIterable<HSTRING > *languages,
+                    HSTRING calendar,
+                    HSTRING clock,
+                    ABI::Windows::Globalization::ICalendar **result) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CICalendarFactory, 0x83f58412, 0xe56b, 0x4c75, 0xa6,0x6e, 0x0f,0x63,0xd5,0x77,0x58,0xa6)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CICalendarFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        TrustLevel *trustLevel);
+
+    /*** ICalendarFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateCalendarDefaultCalendarAndClock)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        __FIIterable_1_HSTRING *languages,
+        __x_ABI_CWindows_CGlobalization_CICalendar **result);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCalendar)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory *This,
+        __FIIterable_1_HSTRING *languages,
+        HSTRING calendar,
+        HSTRING clock,
+        __x_ABI_CWindows_CGlobalization_CICalendar **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CICalendarFactoryVtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CICalendarFactory {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CICalendarFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ICalendarFactory methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendarDefaultCalendarAndClock(This,languages,result) (This)->lpVtbl->CreateCalendarDefaultCalendarAndClock(This,languages,result)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendar(This,languages,calendar,clock,result) (This)->lpVtbl->CreateCalendar(This,languages,calendar,clock,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_QueryInterface(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendarFactory_AddRef(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendarFactory_Release(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetIids(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ICalendarFactory methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendarDefaultCalendarAndClock(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,__FIIterable_1_HSTRING *languages,__x_ABI_CWindows_CGlobalization_CICalendar **result) {
+    return This->lpVtbl->CreateCalendarDefaultCalendarAndClock(This,languages,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendar(__x_ABI_CWindows_CGlobalization_CICalendarFactory* This,__FIIterable_1_HSTRING *languages,HSTRING calendar,HSTRING clock,__x_ABI_CWindows_CGlobalization_CICalendar **result) {
+    return This->lpVtbl->CreateCalendar(This,languages,calendar,clock,result);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_ICalendarFactory IID___x_ABI_CWindows_CGlobalization_CICalendarFactory
+#define ICalendarFactoryVtbl __x_ABI_CWindows_CGlobalization_CICalendarFactoryVtbl
+#define ICalendarFactory __x_ABI_CWindows_CGlobalization_CICalendarFactory
+#define ICalendarFactory_QueryInterface __x_ABI_CWindows_CGlobalization_CICalendarFactory_QueryInterface
+#define ICalendarFactory_AddRef __x_ABI_CWindows_CGlobalization_CICalendarFactory_AddRef
+#define ICalendarFactory_Release __x_ABI_CWindows_CGlobalization_CICalendarFactory_Release
+#define ICalendarFactory_GetIids __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetIids
+#define ICalendarFactory_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetRuntimeClassName
+#define ICalendarFactory_GetTrustLevel __x_ABI_CWindows_CGlobalization_CICalendarFactory_GetTrustLevel
+#define ICalendarFactory_CreateCalendarDefaultCalendarAndClock __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendarDefaultCalendarAndClock
+#define ICalendarFactory_CreateCalendar __x_ABI_CWindows_CGlobalization_CICalendarFactory_CreateCalendar
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CICalendarFactory_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * ICalendarFactory2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CICalendarFactory2, 0xb44b378c, 0xca7e, 0x4590, 0x9e,0x72, 0xea,0x2b,0xec,0x1a,0x51,0x15);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("b44b378c-ca7e-4590-9e72-ea2bec1a5115")
+            ICalendarFactory2 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE CreateCalendarWithTimeZone(
+                    ABI::Windows::Foundation::Collections::IIterable<HSTRING > *languages,
+                    HSTRING calendar,
+                    HSTRING clock,
+                    HSTRING time_zone_id,
+                    ABI::Windows::Globalization::ICalendar **result) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CICalendarFactory2, 0xb44b378c, 0xca7e, 0x4590, 0x9e,0x72, 0xea,0x2b,0xec,0x1a,0x51,0x15)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CICalendarFactory2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This,
+        TrustLevel *trustLevel);
+
+    /*** ICalendarFactory2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateCalendarWithTimeZone)(
+        __x_ABI_CWindows_CGlobalization_CICalendarFactory2 *This,
+        __FIIterable_1_HSTRING *languages,
+        HSTRING calendar,
+        HSTRING clock,
+        HSTRING time_zone_id,
+        __x_ABI_CWindows_CGlobalization_CICalendar **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CICalendarFactory2Vtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CICalendarFactory2 {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CICalendarFactory2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ICalendarFactory2 methods ***/
+#define __x_ABI_CWindows_CGlobalization_CICalendarFactory2_CreateCalendarWithTimeZone(This,languages,calendar,clock,time_zone_id,result) (This)->lpVtbl->CreateCalendarWithTimeZone(This,languages,calendar,clock,time_zone_id,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_QueryInterface(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendarFactory2_AddRef(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CICalendarFactory2_Release(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetIids(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ICalendarFactory2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_CreateCalendarWithTimeZone(__x_ABI_CWindows_CGlobalization_CICalendarFactory2* This,__FIIterable_1_HSTRING *languages,HSTRING calendar,HSTRING clock,HSTRING time_zone_id,__x_ABI_CWindows_CGlobalization_CICalendar **result) {
+    return This->lpVtbl->CreateCalendarWithTimeZone(This,languages,calendar,clock,time_zone_id,result);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_ICalendarFactory2 IID___x_ABI_CWindows_CGlobalization_CICalendarFactory2
+#define ICalendarFactory2Vtbl __x_ABI_CWindows_CGlobalization_CICalendarFactory2Vtbl
+#define ICalendarFactory2 __x_ABI_CWindows_CGlobalization_CICalendarFactory2
+#define ICalendarFactory2_QueryInterface __x_ABI_CWindows_CGlobalization_CICalendarFactory2_QueryInterface
+#define ICalendarFactory2_AddRef __x_ABI_CWindows_CGlobalization_CICalendarFactory2_AddRef
+#define ICalendarFactory2_Release __x_ABI_CWindows_CGlobalization_CICalendarFactory2_Release
+#define ICalendarFactory2_GetIids __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetIids
+#define ICalendarFactory2_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetRuntimeClassName
+#define ICalendarFactory2_GetTrustLevel __x_ABI_CWindows_CGlobalization_CICalendarFactory2_GetTrustLevel
+#define ICalendarFactory2_CreateCalendarWithTimeZone __x_ABI_CWindows_CGlobalization_CICalendarFactory2_CreateCalendarWithTimeZone
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CICalendarFactory2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*****************************************************************************
  * ILanguage interface
  */
@@ -2052,6 +3786,186 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIGeographicRegionS
 #endif
 
 #endif  /* ____x_ABI_CWindows_CGlobalization_CIGeographicRegionStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * ITimeZoneOnCalendar interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar, 0xbb3c25e5, 0x46cf, 0x4317, 0xa3,0xf5, 0x02,0x62,0x1a,0xd5,0x44,0x78);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("bb3c25e5-46cf-4317-a3f5-02621ad54478")
+            ITimeZoneOnCalendar : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE GetTimeZone(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE ChangeTimeZone(
+                    HSTRING time_zone_id) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE TimeZoneAsFullString(
+                    HSTRING *result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE TimeZoneAsString(
+                    INT32 ideal_length,
+                    HSTRING *result) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar, 0xbb3c25e5, 0x46cf, 0x4317, 0xa3,0xf5, 0x02,0x62,0x1a,0xd5,0x44,0x78)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendarVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        TrustLevel *trustLevel);
+
+    /*** ITimeZoneOnCalendar methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTimeZone)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *ChangeTimeZone)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        HSTRING time_zone_id);
+
+    HRESULT (STDMETHODCALLTYPE *TimeZoneAsFullString)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        HSTRING *result);
+
+    HRESULT (STDMETHODCALLTYPE *TimeZoneAsString)(
+        __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar *This,
+        INT32 ideal_length,
+        HSTRING *result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendarVtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendarVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ITimeZoneOnCalendar methods ***/
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTimeZone(This,value) (This)->lpVtbl->GetTimeZone(This,value)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_ChangeTimeZone(This,time_zone_id) (This)->lpVtbl->ChangeTimeZone(This,time_zone_id)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsFullString(This,result) (This)->lpVtbl->TimeZoneAsFullString(This,result)
+#define __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsString(This,ideal_length,result) (This)->lpVtbl->TimeZoneAsString(This,ideal_length,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_QueryInterface(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_AddRef(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_Release(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetIids(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ITimeZoneOnCalendar methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTimeZone(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,HSTRING *value) {
+    return This->lpVtbl->GetTimeZone(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_ChangeTimeZone(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,HSTRING time_zone_id) {
+    return This->lpVtbl->ChangeTimeZone(This,time_zone_id);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsFullString(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,HSTRING *result) {
+    return This->lpVtbl->TimeZoneAsFullString(This,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsString(__x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar* This,INT32 ideal_length,HSTRING *result) {
+    return This->lpVtbl->TimeZoneAsString(This,ideal_length,result);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_ITimeZoneOnCalendar IID___x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar
+#define ITimeZoneOnCalendarVtbl __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendarVtbl
+#define ITimeZoneOnCalendar __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar
+#define ITimeZoneOnCalendar_QueryInterface __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_QueryInterface
+#define ITimeZoneOnCalendar_AddRef __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_AddRef
+#define ITimeZoneOnCalendar_Release __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_Release
+#define ITimeZoneOnCalendar_GetIids __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetIids
+#define ITimeZoneOnCalendar_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetRuntimeClassName
+#define ITimeZoneOnCalendar_GetTrustLevel __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTrustLevel
+#define ITimeZoneOnCalendar_GetTimeZone __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_GetTimeZone
+#define ITimeZoneOnCalendar_ChangeTimeZone __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_ChangeTimeZone
+#define ITimeZoneOnCalendar_TimeZoneAsFullString __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsFullString
+#define ITimeZoneOnCalendar_TimeZoneAsString __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_TimeZoneAsString
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Globalization.Calendar
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Globalization_Calendar_DEFINED
+#define RUNTIMECLASS_Windows_Globalization_Calendar_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Globalization_Calendar[] = {'W','i','n','d','o','w','s','.','G','l','o','b','a','l','i','z','a','t','i','o','n','.','C','a','l','e','n','d','a','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_Calendar[] = L"Windows.Globalization.Calendar";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_Calendar[] = {'W','i','n','d','o','w','s','.','G','l','o','b','a','l','i','z','a','t','i','o','n','.','C','a','l','e','n','d','a','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Globalization_Calendar_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
