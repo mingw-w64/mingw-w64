@@ -36,7 +36,6 @@ widl_SOURCES = src/widl.h \
   src/wpp.c \
   src/write_sltg.c \
   src/write_msft.c \
-  src/pathtools.c \
   include/pshpack1.h \
   include/pshpack2.h \
   include/winbase.h \
@@ -54,7 +53,6 @@ widl_SOURCES = src/widl.h \
   include/pshpack4.h \
   include/winnt.h \
   include/winnls.h \
-  include/pathtools.h \
   include/winnt.rh
 
 widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DLIBDIR="\"@WIDL_INCLUDEDIR@\"" -DBINDIR="\"@prefix@/bin\""
