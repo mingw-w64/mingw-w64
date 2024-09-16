@@ -311,6 +311,7 @@ union PARSER_STYPE
 	char *str;
 	struct uuid *uuid;
 	unsigned int num;
+	struct integer integer;
 	double dbl;
 	typelib_t *typelib;
 	struct _import_t *import;
@@ -320,7 +321,7 @@ union PARSER_STYPE
 	enum function_specifier function_specifier;
 	struct namespace *namespace;
 
-#line 324 "tools/widl/parser.tab.h"
+#line 325 "tools/widl/parser.tab.h"
 
 };
 typedef union PARSER_STYPE PARSER_STYPE;
@@ -360,6 +361,6 @@ PARSER_LTYPE pop_import(void);
              else init_location( &(cur), &YYRHSLOC( rhs, 0 ), NULL ); } while(0)
 
 
-#line 364 "tools/widl/parser.tab.h"
+#line 365 "tools/widl/parser.tab.h"
 
 #endif /* !YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED  */

@@ -154,10 +154,13 @@ static int token_str( int token, const char *str, YYSTYPE *yylval )
     return token;
 }
 
-static int token_num( int token, const char *yytext, YYSTYPE *yylval )
+static int token_num( const char *yytext, YYSTYPE *yylval, int is_hex )
 {
-    yylval->num = xstrtoul( yytext, NULL, 0 );
-    return token;
+    yylval->integer.value = xstrtoul( yytext, NULL, 0 );
+    yylval->integer.is_hex = is_hex;
+    yylval->integer.is_long = !!strchr(yytext, 'l');
+    yylval->integer.is_unsigned = !!strchr(yytext, 'u');
+    return is_hex ? aHEXNUM : aNUM;
 }
 
 static int token_ident( const char *str, YYSTYPE *yylval )
@@ -431,8 +434,8 @@ SAFEARRAY{ws}*/\(	return tSAFEARRAY;
 
     [a-zA-Z_][0-9a-zA-Z_]*                      { return token_ident( yytext, yylval ); }
 
-    0[xX]{hd}+([lL][uU]?|[uU][lL]?)?            { return token_num( aHEXNUM, yytext, yylval ); }
-    [0-9]+([lL][uU]?|[uU][lL]?)?                { return token_num( aNUM, yytext, yylval ); }
+    0[xX]{hd}+[uU]?[lL]?                        { return token_num( yytext, yylval, TRUE ); }
+    [0-9]+[uU]?[lL]?                            { return token_num( yytext, yylval, FALSE ); }
 
     L\"(\\.|[^"\\])*\"                          { return token_str( aWSTRING, yytext + 1, yylval ); }
     \"(\\.|[^"\\])*\"                           { return token_str( aSTRING, yytext, yylval ); }
@@ -616,9 +619,10 @@ static void diagnostic( const struct location *where, const char *type, const ch
     fprintf( stderr, "%s", line );
 
     line = buffer;
-    for (i = 0; i < where->first_column - 1; i++) line += sprintf( line, " " );
-    line += sprintf( line, "^" );
-    for (i = where->first_column + 1; i < where->last_column; i++) line += sprintf( line, "~" );
+    for (i = 0; i < where->first_column - 1; i++) *line++ = ' ';
+    *line++ = '^';
+    for (i = where->first_column + 1; i < where->last_column; i++) *line++ = '~';
+    *line = '\0';
     fprintf( stderr, "%s\n", buffer );
 }
 

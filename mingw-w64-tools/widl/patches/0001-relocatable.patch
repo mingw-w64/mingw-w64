@@ -1,37 +1,45 @@
 diff --git a/mingw-w64-tools/widl/src/widl.c b/mingw-w64-tools/widl/src/widl.c
-index a99eed4e9..69cb4b628 100644
+index 6eb81d128..ef9ced031 100644
 --- a/mingw-w64-tools/widl/src/widl.c
 +++ b/mingw-w64-tools/widl/src/widl.c
-@@ -42,6 +42,7 @@
- #include "parser.h"
- #include "wine/wpp.h"
- #include "header.h"
-+#include "pathtools.h"
+@@ -635,7 +635,7 @@ static void option_callback( int optc, char *optarg )
  
- static const char usage[] =
- "Usage: widl [options...] infile.idl\n"
-@@ -772,19 +773,12 @@ int main(int argc,char *argv[])
+ int open_typelib( const char *name )
+ {
+-    static const char *default_dirs[] = { LIBDIR "/wine", "/usr/lib/wine", "/usr/local/lib/wine" };
++    static const char *default_dirs[] = { LIBDIR };
+     struct target win_target = { target.cpu, PLATFORM_WINDOWS };
+     const char *pe_dir = get_arch_dir( win_target );
+     int fd;
+@@ -666,8 +666,7 @@ int open_typelib( const char *name )
+     {
+         if (libdir)
+         {
+-            TRYOPEN( strmake( "%s/wine%s/%s", libdir, pe_dir, name ));
+-            TRYOPEN( strmake( "%s/wine/%s", libdir, name ));
++            TRYOPEN( strmake( "%s/%s", libdir, name ));
+         }
+         for (i = 0; i < ARRAY_SIZE(default_dirs); i++)
+         {
+@@ -697,18 +696,16 @@ int main(int argc,char *argv[])
  
    if (stdinc)
    {
 -      static const char *incl_dirs[] = { INCLUDEDIR, "/usr/include", "/usr/local/include" };
--
--      if (includedir)
--      {
++      static const char *incl_dirs[] = { INCLUDEDIR };
+ 
+       if (includedir)
+       {
 -          wpp_add_include_path( strmake( "%s/wine/msvcrt", includedir ));
 -          wpp_add_include_path( strmake( "%s/wine/windows", includedir ));
--      }
--      for (i = 0; i < ARRAY_SIZE(incl_dirs); i++)
--      {
--          if (i && !strcmp( incl_dirs[i], incl_dirs[0] )) continue;
++          wpp_add_include_path( includedir );
+       }
+       for (i = 0; i < ARRAY_SIZE(incl_dirs); i++)
+       {
+           if (i && !strcmp( incl_dirs[i], incl_dirs[0] )) continue;
 -          wpp_add_include_path( strmake( "%s%s/wine/msvcrt", sysroot, incl_dirs[i] ));
 -          wpp_add_include_path( strmake( "%s%s/wine/windows", sysroot, incl_dirs[i] ));
-+      char exe_path[PATH_MAX];
-+      get_executable_path (argv[0], &exe_path[0], sizeof (exe_path) / sizeof (exe_path[0]));
-+      if (strrchr (exe_path, '/') != NULL) {
-+          strrchr (exe_path, '/')[1] = '\0';
++          wpp_add_include_path( strmake( "%s%s", sysroot, incl_dirs[i] ));
        }
-+      wpp_add_include_path(strmake("%s%s/%s", sysroot, exe_path, BIN_TO_INCLUDEDIR));
    }
  
-   switch (target_cpu)

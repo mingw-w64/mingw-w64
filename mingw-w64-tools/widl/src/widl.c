@@ -36,7 +36,6 @@
 #include "parser.h"
 #include "wpp_private.h"
 #include "header.h"
-#include "pathtools.h"
 
 static const char usage[] =
 "Usage: widl [options...] infile.idl\n"
@@ -135,8 +134,9 @@ struct strarray temp_files = { 0 };
 const char *temp_dir = NULL;
 const char *prefix_client = "";
 const char *prefix_server = "";
+static const char *bindir;
+static const char *libdir;
 static const char *includedir;
-static const char *dlldir;
 static struct strarray dlldirs;
 static char *output_name;
 static const char *sysroot = "";
@@ -470,15 +470,6 @@ void write_id_data(const statement_list_t *stmts)
   fclose(idfile);
 }
 
-static void init_argv0_dir( const char *argv0 )
-{
-    char *dir = get_argv0_dir( argv0 );
-
-    if (!dir) return;
-    includedir = strmake( "%s/%s", dir, BIN_TO_INCLUDEDIR );
-    dlldir = strmake( "%s/%s", dir, BIN_TO_DLLDIR );
-}
-
 static void option_callback( int optc, char *optarg )
 {
     switch (optc)
@@ -644,7 +635,7 @@ static void option_callback( int optc, char *optarg )
 
 int open_typelib( const char *name )
 {
-    static const char *default_dirs[] = { DLLDIR, "/usr/lib/wine", "/usr/local/lib/wine" };
+    static const char *default_dirs[] = { LIBDIR };
     struct target win_target = { target.cpu, PLATFORM_WINDOWS };
     const char *pe_dir = get_arch_dir( win_target );
     int fd;
@@ -673,10 +664,9 @@ int open_typelib( const char *name )
 
     if (stdinc)
     {
-        if (dlldir)
+        if (libdir)
         {
-            TRYOPEN( strmake( "%s%s/%s", dlldir, pe_dir, name ));
-            TRYOPEN( strmake( "%s/%s", dlldir, name ));
+            TRYOPEN( strmake( "%s/%s", libdir, name ));
         }
         for (i = 0; i < ARRAY_SIZE(default_dirs); i++)
         {
@@ -695,7 +685,9 @@ int main(int argc,char *argv[])
   struct strarray files;
 
   init_signals( exit_on_signal );
-  init_argv0_dir( argv[0] );
+  bindir = get_bindir( argv[0] );
+  libdir = get_libdir( bindir );
+  includedir = get_includedir( bindir );
   target = init_argv0_target( argv[0] );
 
   now = time(NULL);
@@ -704,12 +696,17 @@ int main(int argc,char *argv[])
 
   if (stdinc)
   {
-      char exe_path[PATH_MAX];
-      get_executable_path (argv[0], &exe_path[0], sizeof (exe_path) / sizeof (exe_path[0]));
-      if (strrchr (exe_path, '/') != NULL) {
-          strrchr (exe_path, '/')[1] = '\0';
+      static const char *incl_dirs[] = { INCLUDEDIR };
+
+      if (includedir)
+      {
+          wpp_add_include_path( includedir );
       }
-      wpp_add_include_path(strmake("%s%s/%s", sysroot, exe_path, BIN_TO_INCLUDEDIR));
+      for (i = 0; i < ARRAY_SIZE(incl_dirs); i++)
+      {
+          if (i && !strcmp( incl_dirs[i], incl_dirs[0] )) continue;
+          wpp_add_include_path( strmake( "%s%s", sysroot, incl_dirs[i] ));
+      }
   }
 
   if (pointer_size)
