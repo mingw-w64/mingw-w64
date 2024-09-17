@@ -33,6 +33,7 @@ static BOOL checking_pwd = FALSE;
 static BOOL closing = FALSE;
 static BOOL w95 = FALSE;
 
+typedef void (*PVFV)(void);
 typedef BOOL (WINAPI *VERIFYPWDPROC)(HWND);
 typedef DWORD (WINAPI *CHPWDPROC)(LPCTSTR, HWND, DWORD, PVOID);
 static VERIFYPWDPROC VerifyScreenSavePwd = NULL;
@@ -57,15 +58,13 @@ static int ISSPACE(char c)
   return (c == ' ' || c == '\t');
 }
 
-#define ISNUM(c) ((c) >= '0' && c <= '9')
-static unsigned long
-_toul(const char *s)
+static ULONG_PTR parse_ulptr(const char *s)
 {
-  unsigned long res;
-  unsigned long n;
+  ULONG_PTR res, n;
   const char *p;
   for (p = s; *p; p++)
-    if (!ISNUM(*p)) break;
+    if (*p < '0' || *p > '9')
+      break;
   p--;
   res = 0;
   for (n = 1; p >= s; p--, n *= 10)
@@ -79,6 +78,9 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
 {
   LPSTR p;
   OSVERSIONINFO vi;
+
+  UNREFERENCED_PARAMETER(hPrevInst);
+  UNREFERENCED_PARAMETER(nCmdShow);
 
   /* initialize */
   hMainInstance = hInst;
@@ -104,7 +106,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
             {
               hPwdLib = LoadLibrary(TEXT("PASSWORD.CPL"));
               if (hPwdLib)
-                VerifyScreenSavePwd = (VERIFYPWDPROC) GetProcAddress(hPwdLib, szVerifyPassword);
+                VerifyScreenSavePwd = (VERIFYPWDPROC)(PVFV) GetProcAddress(hPwdLib, szVerifyPassword);
             }
           RegCloseKey(hKey);
         }
@@ -119,7 +121,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
         case 's':
           /* start screen saver */
           return LaunchScreenSaver(NULL);
-          
+
         case 'P':
         case 'p':
           {
@@ -127,7 +129,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
             HWND hParent;
             fChildPreview = TRUE;
             while (ISSPACE(*++p));
-            hParent = (HWND) (unsigned long long)_toul(p);
+            hParent = (HWND) parse_ulptr(p);
             if (hParent && IsWindow(hParent))
               return LaunchScreenSaver(hParent);
           }
@@ -145,7 +147,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
             /* change screen saver password */
             HWND hParent;
             while (ISSPACE(*++p));
-            hParent = (HWND) (unsigned long long) _toul(p);
+            hParent = (HWND) parse_ulptr(p);
             if (!hParent || !IsWindow(hParent))
               hParent = GetForegroundWindow();
             ScreenSaverChangePassword(hParent);
@@ -155,7 +157,7 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
         case '-':
         case '/':
         case ' ':
-        default: 
+        default:
 	  break;
         }
     }
@@ -169,7 +171,7 @@ static void LaunchConfig(void)
   RegisterDialogClasses(hMainInstance);
   /* display configure dialog */
   DialogBox(hMainInstance, MAKEINTRESOURCE(DLG_SCRNSAVECONFIGURE),
-            GetForegroundWindow(), (DLGPROC) ScreenSaverConfigureDialog);
+            GetForegroundWindow(), (DLGPROC)(PVFV) ScreenSaverConfigureDialog);
 }
 
 
@@ -304,9 +306,9 @@ LRESULT WINAPI DefScreenSaverProc(HWND hWnd, UINT msg,
          an invalid password was given.
        */
       return 0;
-    case SCRM_VERIFYPW: 
+    case SCRM_VERIFYPW:
       /* verify password or return TRUE if password checking is turned off */
-      if (VerifyScreenSavePwd) 
+      if (VerifyScreenSavePwd)
         return VerifyScreenSavePwd(hWnd);
       else
         return TRUE;
@@ -318,15 +320,19 @@ LRESULT WINAPI DefScreenSaverProc(HWND hWnd, UINT msg,
     case WM_NCACTIVATE:
     case WM_ACTIVATE:
     case WM_ACTIVATEAPP:
-      if (wParam != FALSE)
-        break;
+      /* if wParam is FALSE then I am losing focus */
+      if (wParam == FALSE && !checking_pwd)
+        PostMessage(hWnd, WM_CLOSE, 0, 0);
+      break;
     case WM_MOUSEMOVE:
       {
         POINT pt;
         GetCursorPos(&pt);
         if (pt.x == pt_orig.x && pt.y == pt_orig.y)
           break;
+        /* mouse moved */
       }
+      /* fallthrough */
     case WM_LBUTTONDOWN:
     case WM_RBUTTONDOWN:
     case WM_MBUTTONDOWN:
@@ -372,18 +378,18 @@ static void TerminateScreenSaver(HWND hWnd)
 static BOOL RegisterClasses(void)
 {
   WNDCLASS cls;
-  
-  cls.hCursor = NULL; 
-  cls.hIcon = LoadIcon(hMainInstance, MAKEINTATOM(ID_APP)); 
+
+  cls.hCursor = NULL;
+  cls.hIcon = LoadIcon(hMainInstance, MAKEINTATOM(ID_APP));
   cls.lpszMenuName = NULL;
   cls.lpszClassName = CLASS_SCRNSAVE;
   cls.hbrBackground = GetStockObject(BLACK_BRUSH);
   cls.hInstance = hMainInstance;
   cls.style = CS_VREDRAW | CS_HREDRAW | CS_SAVEBITS | CS_PARENTDC;
-  cls.lpfnWndProc = (WNDPROC) SysScreenSaverProc;
+  cls.lpfnWndProc = SysScreenSaverProc;
   cls.cbWndExtra = 0;
   cls.cbClsExtra = 0;
-  
+
   if (!RegisterClass(&cls))
     return FALSE;
 
@@ -394,11 +400,11 @@ void WINAPI ScreenSaverChangePassword(HWND hParent)
 {
   /* load Master Password Router (MPR) */
   HINSTANCE hMpr = LoadLibrary(TEXT("MPR.DLL"));
-  
+
   if (hMpr)
     {
       CHPWDPROC ChangePassword;
-      ChangePassword = (CHPWDPROC) GetProcAddress(hMpr, szPwdChangePassword);
+      ChangePassword = (CHPWDPROC)(PVFV) GetProcAddress(hMpr, szPwdChangePassword);
 
       /* change password for screen saver provider */
       if (ChangePassword)
