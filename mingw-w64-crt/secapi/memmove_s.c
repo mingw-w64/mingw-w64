@@ -16,7 +16,7 @@ _stub (void *d, size_t dn, const void *s, size_t n)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(void *, size_t, const void *, size_t))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "memmove_s");
 	if (!f)
 	  f = _int_memmove_s;

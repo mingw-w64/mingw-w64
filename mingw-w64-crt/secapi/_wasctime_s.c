@@ -17,7 +17,7 @@ _stub (wchar_t *d, size_t dn, const struct tm *pt)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(wchar_t *, size_t, const struct tm *))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_wasctime_s");
 	if (!f)
 	  f = _int_wasctime_s;

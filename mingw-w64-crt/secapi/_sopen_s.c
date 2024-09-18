@@ -14,7 +14,7 @@ _stub (int* pfh, const char *filename, int oflag, int shflag, int pmode)
     errno_t __cdecl (*f)(int *, const char *, int, int, int) = __MINGW_IMP_SYMBOL(_sopen_s);
 
     if (f == _stub) {
-        f = (errno_t __cdecl (*)(int *, const char *, int, int, int))
+        f = (void*)
             GetProcAddress (__mingw_get_msvcrt_handle (), "_sopen_s");
         if (f == NULL)
             f = _int_sopen_s;

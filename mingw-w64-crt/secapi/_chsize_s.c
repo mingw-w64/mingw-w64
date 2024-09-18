@@ -17,7 +17,7 @@ _stub (int fd, long long sz)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(int, long long))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_chsize_s");
 	if (!f)
 	  f = _int_chsize_s;

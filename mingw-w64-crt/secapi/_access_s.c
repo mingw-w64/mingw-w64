@@ -17,7 +17,7 @@ _stub (const char *s, int m)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(const char *, int))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_access_s");
 	if (!f)
 	  f = _int_access_s;

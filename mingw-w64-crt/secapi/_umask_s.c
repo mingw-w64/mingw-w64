@@ -17,7 +17,7 @@ _stub (int m, int *pold)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(int, int *))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_umask_s");
 	if (!f)
 	  f = _int_umask_s;

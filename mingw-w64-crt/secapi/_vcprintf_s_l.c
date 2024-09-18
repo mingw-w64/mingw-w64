@@ -17,7 +17,7 @@ _stub (const char *s, _locale_t loc, va_list argp)
 
   if (f == _stub)
     {
-	f = (int __cdecl (*)(const char *, _locale_t, va_list))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_vcprintf_s_l");
 	if (!f)
 	  f = _int_vcprintf_s_l;

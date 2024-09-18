@@ -45,7 +45,7 @@ static errno_t __cdecl _stub (
 
   if (f == _stub)
     {
-        f = (errno_t __cdecl (*)(unsigned int *, unsigned int, unsigned int))
+        f = (void*)
             GetProcAddress (__mingw_get_msvcrt_handle (), "_controlfp_s");
         if (!f)
           f = _int_controlfp_s;

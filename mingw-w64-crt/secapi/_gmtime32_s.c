@@ -17,7 +17,7 @@ _stub (struct tm *ptm, const __time32_t *pt)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(struct tm *, const __time32_t *))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_gmtime32_s");
 	if (!f)
 	  f = _int_gmtime32_s;

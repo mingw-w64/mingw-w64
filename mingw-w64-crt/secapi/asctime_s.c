@@ -17,7 +17,7 @@ _stub (char *d, size_t dn, const struct tm *pt)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(char *, size_t, const struct tm *))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "asctime_s");
 	if (!f)
 	  f = _int_asctime_s;

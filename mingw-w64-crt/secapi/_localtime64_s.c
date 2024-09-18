@@ -17,7 +17,7 @@ _stub (struct tm *ptm, const __time64_t *pt)
 
   if (f == _stub)
     {
-	f = (errno_t __cdecl (*)(struct tm *, const __time64_t *))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_localtime64_s");
 	if (!f)
 	  f = _int_localtime64_s;

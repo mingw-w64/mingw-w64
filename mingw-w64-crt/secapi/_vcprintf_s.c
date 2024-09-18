@@ -17,7 +17,7 @@ _stub (const char *s, va_list argp)
 
   if (f == _stub)
     {
-	f = (int __cdecl (*)(const char *, va_list))
+	f = (void*)
 	    GetProcAddress (__mingw_get_msvcrt_handle (), "_vcprintf_s");
 	if (!f)
 	  f = _int_vcprintf_s;

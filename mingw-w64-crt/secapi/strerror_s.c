@@ -16,7 +16,7 @@ _stub (char *buffer, size_t numberOfElements, int errnum)
 
   if (f == _stub)
     {
-      f = (errno_t __cdecl (*)(char *, size_t, int))
+      f = (void*)
             GetProcAddress (__mingw_get_msvcrt_handle (), "strerror_s");
       if (!f)
       {
