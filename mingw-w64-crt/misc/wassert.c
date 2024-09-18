@@ -8,6 +8,7 @@
 #include <stdlib.h>
 
 /* _wassert is not available on XP, so forward it to _assert if needed */
+__MINGW_ATTRIB_NORETURN
 static void __cdecl mingw_wassert(const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
     char *message = NULL, *file = NULL;
