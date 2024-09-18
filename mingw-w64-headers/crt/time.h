@@ -116,7 +116,6 @@ extern "C" {
 #define TIME_UTC 1
 #endif
 
-#ifdef _UCRT
   _CRTIMP int *__cdecl __daylight(void);
   _CRTIMP long *__cdecl __dstbias(void);
   _CRTIMP long *__cdecl __timezone(void);
@@ -125,12 +124,6 @@ extern "C" {
 #define _dstbias (* __dstbias())
 #define _timezone (* __timezone())
 #define _tzname (__tzname())
-#else
-  __MINGW_IMPORT int _daylight;
-  __MINGW_IMPORT long _dstbias;
-  __MINGW_IMPORT long _timezone;
-  __MINGW_IMPORT char * _tzname[2];
-#endif
 
 #undef __MINGW_STRFTIME_FORMAT
 

@@ -477,8 +477,8 @@ F_I386(__p___winitenv) ; x64, arm32 and arm64 __p___winitenv provided by emu
 F_I386(__p__acmdln) ; x64, arm32 and arm64 __p__acmdln provided by emu
 F_I386(__p__amblksiz)
 F_I386(__p__commode) ; x64, arm32 and arm64 __p__commode provided by emu
-F_I386(__p__daylight)
-F_I386(__p__dstbias)
+F_NON_X64(__p__daylight F_NON_I386(== __daylight)) ; arm32 and arm64 __p__daylight provided by alias and x64 __p__daylight provided by emu
+F_NON_X64(__p__dstbias F_NON_I386(== __dstbias)) ; arm32 and arm64 __p__dstbias provided by alias and x64 __p__dstbias provided by emu
 F_I386(__p__environ) ; x64 __p__environ provided by emu
 F_I386(__p__fileinfo)
 F_I386(__p__fmode) ; x64, arm32 and arm64 __p__fmode provided by emu
@@ -488,8 +488,8 @@ F_I386(__p__osver) ; x64, arm32 and arm64 __p__osver provided by emu
 F_I386(__p__pctype) ; x64, arm32 and arm64 __p__pctype provided by emu
 F_I386(__p__pgmptr) ; x64, arm32 and arm64 __p__pgmptr provided by emu
 F_I386(__p__pwctype) ; x64, arm32 and arm64 __p__pwctype provided by emu
-F_I386(__p__timezone)
-F_I386(__p__tzname)
+F_I386(__p__timezone) ; x64, arm32 and arm64 __p__timezone provided by emu
+F_I386(__p__tzname) ; x64, arm32 and arm64 __p__tzname provided by emu
 F_I386(__p__wcmdln) ; x64, arm32 and arm64 __p__wcmdln provided by emu
 F_I386(__p__wenviron) ; x64 __p__wenviron provided by emu
 F_I386(__p__winmajor) ; x64, arm32 and arm64 __p__winmajor provided by emu
@@ -1324,8 +1324,8 @@ _CrtSetReportHook2
 _CrtSetReportMode
 F_I386(__CxxCallUnwindDelDtor)
 __CxxFrameHandler3
-__daylight
-__dstbias
+F_ARM_ANY(__daylight) ; i386 __daylight replaced by alias and x64 __daylight replaced by emu
+F_ARM_ANY(__dstbias) ; i386 __dstbias replaced by alias and x64 __dstbias replaced by emu
 F_I386(__libm_sse2_acos)
 F_I386(__libm_sse2_acosf)
 F_I386(__libm_sse2_asin)
@@ -1912,6 +1912,7 @@ F_I386(_libm_sse2_tan_precise)
 #ifdef DEF_I386
 ; i386 __iob_func replaced by alias
 #define WITH_IOB_FUNC_ALIAS
+#define WITH_TZ_ALIASES
 #endif
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS

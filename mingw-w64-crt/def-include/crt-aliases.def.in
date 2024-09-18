@@ -292,6 +292,15 @@ _strcmpi == _stricmp
 __iob_func == __p__iob
 #endif
 
+#ifdef WITH_TZ_ALIASES
+__daylight == __p__daylight
+#ifndef NO_DSTBIAS
+__dstbias == __p__dstbias
+#endif
+__timezone == __p__timezone
+__tzname == __p__tzname
+#endif
+
 #ifdef WITH_ATOLL_ALIAS
 atoll == _atoi64
 _wtoll == _wtoi64
@@ -497,6 +506,10 @@ F64(_wutime == _wutime64)
 #ifdef UCRTBASE
 __lconv_init == __initialize_lconv_for_unsigned_char
 __set_app_type == _set_app_type
+__p__daylight == __daylight
+__p__dstbias == __dstbias
+__p__timezone == __timezone
+__p__tzname == __tzname
 #endif
 
 ; This is list of printf/scanf symbol aliases with __ms_ prefix

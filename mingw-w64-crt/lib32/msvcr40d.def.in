@@ -1700,4 +1700,5 @@ _dstbias DATA
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_IOB_FUNC_ALIAS
+#define WITH_TZ_ALIASES
 #include "crt-aliases.def.in"

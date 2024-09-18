@@ -948,6 +948,7 @@ wscanf
 #define FIXED_SIZE_SYMBOLS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
+#define WITH_TZ_ALIASES
 #define WITH_ATOLL_ALIAS
 #define WITH_STRTO64_ALIAS
 #include "crt-aliases.def.in"

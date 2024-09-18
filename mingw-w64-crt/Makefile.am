@@ -484,6 +484,8 @@ src_msvcrt32=\
 src_msvcrt64=\
   $(src_msvcrt) \
   $(src_msvcrt_add_x86) \
+  misc/__daylight.c \
+  misc/__dstbias.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
@@ -507,6 +509,8 @@ src_msvcrt64=\
   misc/__p__winminor.c \
   misc/__p__winver.c \
   misc/__p__wpgmptr.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
@@ -545,6 +549,8 @@ src_msvcrtarm32=\
   misc/__p__winminor.c \
   misc/__p__winver.c \
   misc/__p__wpgmptr.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
   misc/_getpid.c \
   misc/__initenv.c \
   misc/__winitenv.c \
@@ -660,6 +666,8 @@ src_msvcrtarm64=\
   misc/__p__winminor.c \
   misc/__p__winver.c \
   misc/__p__wpgmptr.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
   misc/_getpid.c \
   misc/__initenv.c \
   misc/__winitenv.c \
@@ -674,6 +682,7 @@ src_crtdll=\
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
+  misc/__daylight.c \
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
@@ -697,6 +706,8 @@ src_crtdll=\
   misc/__set_app_type.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
   misc/_configthreadlocale.c \
   misc/dummy__setusermatherr.c \
   misc/imaxabs.c \
@@ -737,6 +748,7 @@ src_msvcrt10=\
   misc/msvcrt10__ismbblead.c \
   misc/___mb_cur_max_func.c \
   misc/__badioinfo.c \
+  misc/__daylight.c \
   misc/__initenv.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
@@ -759,6 +771,8 @@ src_msvcrt10=\
   misc/__set_app_type.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
   misc/_configthreadlocale.c \
   misc/btowc.c \
   misc/dummy__setusermatherr.c \
