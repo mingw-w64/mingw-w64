@@ -1064,7 +1064,6 @@ src_libmingwex=\
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         stdio/strtok_r.c          stdio/scanf.S \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c \
-  stdio/_ftime.c       \
   stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c                                   stdio/ftello.c          \
