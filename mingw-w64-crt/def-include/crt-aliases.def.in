@@ -115,7 +115,7 @@ ADD_UNDERSCORE(memccpy)
 ADD_UNDERSCORE(memicmp)
 ADD_UNDERSCORE(mkdir)
 ADD_UNDERSCORE(mktemp)
-; ADD_UNDERSCORE(onexit)
+; onexit function alias is provided by misc/_onexit.c
 ADD_UNDERSCORE(open)
 #ifndef CRTAPP
 ADD_UNDERSCORE(putch)
