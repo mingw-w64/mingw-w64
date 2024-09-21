@@ -1321,7 +1321,7 @@ _mktime64
 _msize
 _nextafter
 _nextafterf
-_onexit
+; _onexit ; disable _onexit for compatibility with DLL builds, real _onexit function provided by mingw-w64
 _open
 _open_osfhandle
 _pclose

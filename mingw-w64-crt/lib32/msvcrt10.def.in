@@ -1022,7 +1022,7 @@ _mtlock
 _mtlockinit
 _mtunlock
 _nextafter
-_onexit
+; _onexit ; disable _onexit for compatibility with DLL builds, real _onexit function provided by mingw-w64
 _open
 _open_osfhandle
 _osver DATA

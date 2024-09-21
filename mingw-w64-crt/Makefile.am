@@ -159,6 +159,7 @@ src_libws2_32=libsrc/ws2_32.c \
 
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
+  misc/_onexit.c \
   misc/mbsinit.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
@@ -353,7 +354,6 @@ src_msvcrt_add_x86=\
 # Files included in libucrt*.a
 src_ucrtbase=\
   misc/ucrt_compat.c \
-  misc/ucrt__onexit.c \
   misc/ucrt__getmainargs.c \
   misc/ucrt__wgetmainargs.c \
   misc/ucrt_at_quick_exit.c \
@@ -365,6 +365,7 @@ src_ucrtbase=\
   misc/__p__osver_emul.c \
   misc/__initenv.c \
   misc/__winitenv.c \
+  misc/_onexit.c \
   misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
