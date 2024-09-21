@@ -74,12 +74,11 @@ F64(fstat == _fstat64i32)
 #endif
 ; ADD_UNDERSCORE(ftime)
 #if defined(UCRTBASE)
-; _HUGE variable is provided by math/_huge.c
-; HUGE alias is not defined
+; HUGE alias and _HUGE variable are provided by math/_huge.c
 #elif defined(CRTDLL)
-; ADD_UNDERSCORE_DATA_DLL(HUGE)
+ADD_UNDERSCORE_DATA_DLL(HUGE)
 #else
-; ADD_UNDERSCORE_DATA(HUGE)
+ADD_UNDERSCORE_DATA(HUGE)
 #endif
 ADD_UNDERSCORE(gcvt)
 #ifndef CRTAPP
