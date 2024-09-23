@@ -75,8 +75,8 @@ SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
   return EXCEPTION_CONTINUE_SEARCH;
 }
 
-static PVOID (*AddVectoredExceptionHandlerFuncPtr) (ULONG, PVECTORED_EXCEPTION_HANDLER);
-static ULONG (*RemoveVectoredExceptionHandlerFuncPtr) (PVOID);
+static PVOID (WINAPI *AddVectoredExceptionHandlerFuncPtr) (ULONG, PVECTORED_EXCEPTION_HANDLER);
+static ULONG (WINAPI *RemoveVectoredExceptionHandlerFuncPtr) (PVOID);
 
 static void __attribute__((constructor))
 ctor (void)
