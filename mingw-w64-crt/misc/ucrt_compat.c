@@ -4,11 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#ifdef __GNUC__
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Winline"
-#endif
-
 #undef __MSVCRT_VERSION__
 #define _UCRT
 
@@ -48,6 +43,3 @@ void __cdecl tzset(void)
 
 // Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
-#ifdef __GNUC__
-#pragma GCC diagnostic pop
-#endif
