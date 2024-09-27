@@ -29,7 +29,7 @@ ADD_UNDERSCORE(creat)
 ADD_UNDERSCORE(cwait)
 #endif
 #if defined(UCRTBASE)
-; daylight variable is provided by ucrtbase_compat.c
+; daylight variable is provided by misc/ucrt_tzset.c
 #elif defined(CRTDLL)
 ADD_UNDERSCORE_DATA_DLL(daylight)
 #else
@@ -174,20 +174,20 @@ ADD_UNDERSCORE(swab)
 ADD_UNDERSCORE(tell)
 ADD_UNDERSCORE(tempnam)
 #if defined(UCRTBASE)
-; timezone variable is provided by ucrtbase_compat.c
+; timezone variable is provided by misc/ucrt_tzset.c
 #elif defined(CRTDLL)
 ADD_UNDERSCORE_DATA_DLL(timezone)
 #else
 ADD_UNDERSCORE_DATA(timezone)
 #endif
 #if defined(UCRTBASE)
-; tzname variable is provided by ucrtbase_compat.c
+; tzname variable is provided by misc/ucrt_tzset.c
 #else
 // tzname variable is without _dll suffix in crtdll.dll
 ADD_UNDERSCORE_DATA(tzname)
 #endif
 #if defined(UCRTBASE)
-; tzset function is provided by ucrtbase_compat.c
+; tzset function is provided by misc/ucrt_tzset.c
 #else
 ADD_UNDERSCORE(tzset)
 #endif
