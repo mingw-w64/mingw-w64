@@ -1927,7 +1927,5 @@ F_I386(_libm_sse2_tan_precise)
 
 ; This is list of additional symbol aliases not available in any CRT library
 ; FIXME: check if these really are needed
-F32(_ftime_s == _ftime32_s)
-F64(_ftime_s == _ftime64_s)
 snwprintf == _snwprintf
 vsnwprintf == _vsnwprintf
