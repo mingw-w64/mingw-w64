@@ -356,6 +356,7 @@ src_ucrtbase=\
   misc/ucrt_compat.c \
   misc/ucrt__getmainargs.c \
   misc/ucrt__wgetmainargs.c \
+  misc/ucrt_amsg_exit.c \
   misc/ucrt_at_quick_exit.c \
   math/_huge.c \
   misc/__badioinfo.c \

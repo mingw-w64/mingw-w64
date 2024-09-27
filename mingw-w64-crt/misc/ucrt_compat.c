@@ -12,28 +12,7 @@
 #undef __MSVCRT_VERSION__
 #define _UCRT
 
-#define _amsg_exit crtimp__amsg_exit
-
-#include <internal.h>
-#include <sect_attribs.h>
-#include <stdio.h>
 #include <time.h>
-#include <corecrt_startup.h>
-
-#undef _amsg_exit
-
-
-
-// Declarations of non-static functions implemented within this file (that aren't
-// declared in any of the included headers, and that isn't mapped away with a define
-// to get rid of the _CRTIMP in headers).
-void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret);
-
-void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret) {
-  fprintf(stderr, "runtime error %d\n", ret);
-  _exit(255);
-}
-
 
 // These are required to provide the unrepfixed data symbols "timezone"
 // and "tzname"; we can't remap "timezone" via a define due to clashes
@@ -68,7 +47,6 @@ void __cdecl tzset(void)
 }
 
 // Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
-void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
