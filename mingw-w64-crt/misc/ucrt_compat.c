@@ -13,7 +13,6 @@
 #define _UCRT
 
 #define _amsg_exit crtimp__amsg_exit
-#define _get_output_format crtimp__get_output_format
 
 #include <internal.h>
 #include <sect_attribs.h>
@@ -22,7 +21,6 @@
 #include <corecrt_startup.h>
 
 #undef _amsg_exit
-#undef _get_output_format
 
 
 
@@ -30,7 +28,6 @@
 // declared in any of the included headers, and that isn't mapped away with a define
 // to get rid of the _CRTIMP in headers).
 void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret);
-unsigned int __cdecl _get_output_format(void);
 
 int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 
@@ -38,11 +35,6 @@ int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 void __cdecl __MINGW_ATTRIB_NORETURN _amsg_exit(int ret) {
   fprintf(stderr, "runtime error %d\n", ret);
   _exit(255);
-}
-
-unsigned int __cdecl _get_output_format(void)
-{
-  return 0;
 }
 
 
@@ -92,7 +84,6 @@ int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
 
 // Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
 void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
-unsigned int __cdecl (*__MINGW_IMP_SYMBOL(_get_output_format))(void) = _get_output_format;
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
 int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fwprintf))(FILE *, const wchar_t *, ...) = __ms_fwprintf;
 #ifdef __GNUC__

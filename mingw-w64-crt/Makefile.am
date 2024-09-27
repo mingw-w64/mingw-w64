@@ -366,6 +366,7 @@ src_ucrtbase=\
   misc/__initenv.c \
   misc/__winitenv.c \
   misc/_onexit.c \
+  misc/output_format.c \
   misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
