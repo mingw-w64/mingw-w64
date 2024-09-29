@@ -677,6 +677,8 @@ typedef void *UIA_HWND;
 
 DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc4,0x77,0xac,0xb2,0xf8,0x97);
 
+#ifndef __UIA_PatternIds_MODULE_DEFINED__
+#define __UIA_PatternIds_MODULE_DEFINED__
 #define UIA_InvokePatternId (10000)
 
 #define UIA_SelectionPatternId (10001)
@@ -745,6 +747,9 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 
 #define UIA_CustomNavigationPatternId (10033)
 
+#endif /* __UIA_PatternIds_MODULE_DEFINED__ */
+#ifndef __UIA_EventIds_MODULE_DEFINED__
+#define __UIA_EventIds_MODULE_DEFINED__
 #define UIA_ToolTipOpenedEventId (20000)
 
 #define UIA_ToolTipClosedEventId (20001)
@@ -817,6 +822,9 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 
 #define UIA_NotificationEventId (20035)
 
+#endif /* __UIA_EventIds_MODULE_DEFINED__ */
+#ifndef __UIA_PropertyIds_MODULE_DEFINED__
+#define __UIA_PropertyIds_MODULE_DEFINED__
 #define UIA_RuntimeIdPropertyId (30000)
 
 #define UIA_BoundingRectanglePropertyId (30001)
@@ -1167,6 +1175,100 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 
 #define UIA_IsDialogPropertyId (30174)
 
+#endif /* __UIA_PropertyIds_MODULE_DEFINED__ */
+#ifndef __UIA_TextAttributeIds_MODULE_DEFINED__
+#define __UIA_TextAttributeIds_MODULE_DEFINED__
+#define UIA_AnimationStyleAttributeId (40000)
+
+#define UIA_BackgroundColorAttributeId (40001)
+
+#define UIA_BulletStyleAttributeId (40002)
+
+#define UIA_CapStyleAttributeId (40003)
+
+#define UIA_CultureAttributeId (40004)
+
+#define UIA_FontNameAttributeId (40005)
+
+#define UIA_FontSizeAttributeId (40006)
+
+#define UIA_FontWeightAttributeId (40007)
+
+#define UIA_ForegroundColorAttributeId (40008)
+
+#define UIA_HorizontalTextAlignmentAttributeId (40009)
+
+#define UIA_IndentationFirstLineAttributeId (40010)
+
+#define UIA_IndentationLeadingAttributeId (40011)
+
+#define UIA_IndentationTrailingAttributeId (40012)
+
+#define UIA_IsHiddenAttributeId (40013)
+
+#define UIA_IsItalicAttributeId (40014)
+
+#define UIA_IsReadOnlyAttributeId (40015)
+
+#define UIA_IsSubscriptAttributeId (40016)
+
+#define UIA_IsSuperscriptAttributeId (40017)
+
+#define UIA_MarginBottomAttributeId (40018)
+
+#define UIA_MarginLeadingAttributeId (40019)
+
+#define UIA_MarginTopAttributeId (40020)
+
+#define UIA_MarginTrailingAttributeId (40021)
+
+#define UIA_OutlineStylesAttributeId (40022)
+
+#define UIA_OverlineColorAttributeId (40023)
+
+#define UIA_OverlineStyleAttributeId (40024)
+
+#define UIA_StrikethroughColorAttributeId (40025)
+
+#define UIA_StrikethroughStyleAttributeId (40026)
+
+#define UIA_TabsAttributeId (40027)
+
+#define UIA_TextFlowDirectionsAttributeId (40028)
+
+#define UIA_UnderlineColorAttributeId (40029)
+
+#define UIA_UnderlineStyleAttributeId (40030)
+
+#define UIA_AnnotationTypesAttributeId (40031)
+
+#define UIA_AnnotationObjectsAttributeId (40032)
+
+#define UIA_StyleNameAttributeId (40033)
+
+#define UIA_StyleIdAttributeId (40034)
+
+#define UIA_LinkAttributeId (40035)
+
+#define UIA_IsActiveAttributeId (40036)
+
+#define UIA_SelectionActiveEndAttributeId (40037)
+
+#define UIA_CaretPositionAttributeId (40038)
+
+#define UIA_CaretBidiModeAttributeId (40039)
+
+#define UIA_LineSpacingAttributeId (40040)
+
+#define UIA_BeforeParagraphSpacingAttributeId (40041)
+
+#define UIA_AfterParagraphSpacingAttributeId (40042)
+
+#define UIA_SayAsInterpretAsAttributeId (40043)
+
+#endif /* __UIA_TextAttributeIds_MODULE_DEFINED__ */
+#ifndef __UIA_ControlTypeIds_MODULE_DEFINED__
+#define __UIA_ControlTypeIds_MODULE_DEFINED__
 #define UIA_ButtonControlTypeId (50000)
 
 #define UIA_CalendarControlTypeId (50001)
@@ -1249,6 +1351,20 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 
 #define UIA_AppBarControlTypeId (50040)
 
+#endif /* __UIA_ControlTypeIds_MODULE_DEFINED__ */
+#ifndef __UIA_LandmarkTypeIds_MODULE_DEFINED__
+#define __UIA_LandmarkTypeIds_MODULE_DEFINED__
+#define UIA_CustomLandmarkTypeId (80000)
+
+#define UIA_FormLandmarkTypeId (80001)
+
+#define UIA_MainLandmarkTypeId (80002)
+
+#define UIA_NavigationLandmarkTypeId (80003)
+
+#define UIA_SearchLandmarkTypeId (80004)
+
+#endif /* __UIA_LandmarkTypeIds_MODULE_DEFINED__ */
 #ifndef __IUIAutomationElement_FWD_DEFINED__
 #define __IUIAutomationElement_FWD_DEFINED__
 typedef interface IUIAutomationElement IUIAutomationElement;
