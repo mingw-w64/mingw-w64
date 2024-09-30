@@ -196,38 +196,40 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define _WCTYPE_DEFINED
 
   int __cdecl iswalpha(wint_t _C);
-  _CRTIMP int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswupper(wint_t _C);
-  _CRTIMP int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswlower(wint_t _C);
-  _CRTIMP int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswdigit(wint_t _C);
-  _CRTIMP int __cdecl _iswdigit_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswxdigit(wint_t _C);
-  _CRTIMP int __cdecl _iswxdigit_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswspace(wint_t _C);
-  _CRTIMP int __cdecl _iswspace_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswpunct(wint_t _C);
-  _CRTIMP int __cdecl _iswpunct_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswalnum(wint_t _C);
-  _CRTIMP int __cdecl _iswalnum_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswprint(wint_t _C);
-  _CRTIMP int __cdecl _iswprint_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswgraph(wint_t _C);
-  _CRTIMP int __cdecl _iswgraph_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswcntrl(wint_t _C);
-  _CRTIMP int __cdecl _iswcntrl_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswascii(wint_t _C);
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   int __cdecl isleadbyte(int _C);
-  _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
   wint_t __cdecl towupper(wint_t _C);
-  _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
   wint_t __cdecl towlower(wint_t _C);
-  _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswctype(wint_t _C,wctype_t _Type);
 #if __MSVCRT_VERSION__ >= 0x800
+  _CRTIMP int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswdigit_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswxdigit_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswspace_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswpunct_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswalnum_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswprint_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswgraph_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswcntrl_l(wint_t _C,_locale_t _Locale);
+# ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
+# endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+  _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
   _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
@@ -330,18 +332,19 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define iswgraph(_c) (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
 #define iswcntrl(_c) (iswctype(_c,_CONTROL))
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
-
-#define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
-#define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
-#define _iswlower_l(_c,_p) (_iswctype_l(_c,_LOWER,_p))
-#define _iswdigit_l(_c,_p) (_iswctype_l(_c,_DIGIT,_p))
-#define _iswxdigit_l(_c,_p) (_iswctype_l(_c,_HEX,_p))
-#define _iswspace_l(_c,_p) (_iswctype_l(_c,_SPACE,_p))
-#define _iswpunct_l(_c,_p) (_iswctype_l(_c,_PUNCT,_p))
-#define _iswalnum_l(_c,_p) (_iswctype_l(_c,_ALPHA|_DIGIT,_p))
-#define _iswprint_l(_c,_p) (_iswctype_l(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT,_p))
-#define _iswgraph_l(_c,_p) (_iswctype_l(_c,_PUNCT|_ALPHA|_DIGIT,_p))
-#define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
+#if __MSVCRT_VERSION__ >= 0x800
+# define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
+# define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
+# define _iswlower_l(_c,_p) (_iswctype_l(_c,_LOWER,_p))
+# define _iswdigit_l(_c,_p) (_iswctype_l(_c,_DIGIT,_p))
+# define _iswxdigit_l(_c,_p) (_iswctype_l(_c,_HEX,_p))
+# define _iswspace_l(_c,_p) (_iswctype_l(_c,_SPACE,_p))
+# define _iswpunct_l(_c,_p) (_iswctype_l(_c,_PUNCT,_p))
+# define _iswalnum_l(_c,_p) (_iswctype_l(_c,_ALPHA|_DIGIT,_p))
+# define _iswprint_l(_c,_p) (_iswctype_l(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT,_p))
+# define _iswgraph_l(_c,_p) (_iswctype_l(_c,_PUNCT|_ALPHA|_DIGIT,_p))
+# define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
+#endif  /* __MSVCRT_VERSION__ >= 0x800 */
 #if !defined(_CTYPE_DISABLE_MACROS) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
 #define isleadbyte(_c) (__PCTYPE_FUNC[(unsigned char)(_c)] & _LEADBYTE)
 #endif
