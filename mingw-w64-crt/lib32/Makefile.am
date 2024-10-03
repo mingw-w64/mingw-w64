@@ -356,6 +356,7 @@ lib32_DATA += %reldir%/libwmilib.a
 lib32_DATA += %reldir%/libwofutil.a
 lib32_DATA += %reldir%/libwow32.a
 #lib32_DATA += %reldir%/libws2_32.a      # Handled by custom rule
+lib32_DATA += %reldir%/libwscapi.a
 lib32_DATA += %reldir%/libwsdapi.a
 lib32_DATA += %reldir%/libwsmsvc.a
 lib32_DATA += %reldir%/libwsnmp32.a
