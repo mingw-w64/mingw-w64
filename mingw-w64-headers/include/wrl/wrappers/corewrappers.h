@@ -22,6 +22,158 @@ namespace Microsoft {
         }
 
         namespace Wrappers {
+            class HStringReference;
+
+            class HString {
+            public:
+                HString() throw() : hstr_(nullptr) {}
+
+                HString(HString&& o) throw() : hstr_(o.hstr_) {
+                    o.hstr_ = nullptr;
+                }
+
+                HString(const HString&) = delete;
+                HString& operator=(const HString&) = delete;
+
+                operator HSTRING() const throw() {
+                    return hstr_;
+                }
+
+                ~HString() throw() {
+                    Release();
+                }
+
+                HString& operator=(HString&& o) throw() {
+                    Release();
+                    hstr_ = o.hstr_;
+                    o.hstr_ = nullptr;
+                    return *this;
+                }
+
+                HRESULT Set(const wchar_t *s, unsigned int l) throw() {
+                    Release();
+                    return ::WindowsCreateString(s, l, &hstr_);
+                }
+
+                HRESULT Set(const HSTRING& s) throw() {
+                    HRESULT hr = S_OK;
+                    if (s == nullptr || s != hstr_) {
+                        Release();
+                        hr = ::WindowsDuplicateString(s, &hstr_);
+                    }
+                    return hr;
+                }
+
+                void Attach(HSTRING h) throw() {
+                    ::WindowsDeleteString(hstr_);
+                    hstr_ = h;
+                }
+
+                HSTRING Detach() throw() {
+                    HSTRING t = hstr_;
+                    hstr_ = nullptr;
+                    return t;
+                }
+
+                HSTRING* GetAddressOf() throw() {
+                    Release();
+                    return &hstr_;
+                }
+
+                HSTRING* ReleaseAndGetAddressOf() throw() {
+                    Release();
+                    return &hstr_;
+                }
+
+                HSTRING Get() const throw() {
+                    return hstr_;
+                }
+
+                void Release() throw() {
+                    ::WindowsDeleteString(hstr_);
+                    hstr_ = nullptr;
+                }
+
+                bool IsValid() const throw() {
+                    return hstr_ != nullptr;
+                }
+
+                UINT32 Length() const throw() {
+                    return ::WindowsGetStringLen(hstr_);
+                }
+
+                const wchar_t* GetRawBuffer(unsigned int *l) const {
+                    return ::WindowsGetStringRawBuffer(hstr_, l);
+                }
+
+                HRESULT CopyTo(HSTRING *s) const throw() {
+                    return ::WindowsDuplicateString(hstr_, s);
+                }
+
+                HRESULT Duplicate(const HString& o) throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsDuplicateString(o, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, *this);
+                }
+
+                bool IsEmpty() const throw() {
+                    return hstr_ == nullptr;
+                }
+
+                HRESULT Concat(const HString& s, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsConcatString(hstr_, s, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                HRESULT TrimStart(const HString& t, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsTrimStringStart(hstr_, t, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                HRESULT TrimEnd(const HString& t, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsTrimStringEnd(hstr_, t, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                HRESULT Substring(UINT32 s, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsSubstring(hstr_, s, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                HRESULT Substring(UINT32 s, UINT32 len, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsSubstringWithSpecifiedLength(hstr_, s, len, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                HRESULT Replace(const HString& s1, const HString& s2, HString& n) const throw() {
+                    HSTRING l;
+                    HRESULT hr = ::WindowsReplaceString(hstr_, s1, s2, &l);
+                    return ReleaseAndAssignOnSuccess(hr, l, n);
+                }
+
+                template<unsigned int s>
+                static HStringReference MakeReference(wchar_t const (&str)[s]) throw();
+
+                template<unsigned int s>
+                static HStringReference MakeReference(wchar_t const (&str)[s], unsigned int l) throw();
+
+            private:
+                static HRESULT ReleaseAndAssignOnSuccess(HRESULT hr, HSTRING n, HString& t) {
+                    if (SUCCEEDED(hr)) {
+                        *t.ReleaseAndGetAddressOf() = n;
+                    }
+                    return hr;
+                }
+
+            protected:
+                HSTRING hstr_;
+            };
+
             class HStringReference {
             private:
                 void Init(const wchar_t* str, unsigned int len) {
