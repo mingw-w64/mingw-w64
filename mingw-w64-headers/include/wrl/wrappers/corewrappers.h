@@ -7,6 +7,8 @@
 #ifndef _WRL_COREWRAPPERS_H_
 #define _WRL_COREWRAPPERS_H_
 
+#include <type_traits>
+
 #include <windows.h>
 #include <intsafe.h>
 #include <winstring.h>
@@ -53,6 +55,37 @@ namespace Microsoft {
                 HRESULT Set(const wchar_t *s, unsigned int l) throw() {
                     Release();
                     return ::WindowsCreateString(s, l, &hstr_);
+                }
+
+                template <size_t s>
+                HRESULT Set(const wchar_t (&str)[s]) throw() {
+                    static_assert(static_cast<size_t>(static_cast<UINT32>(s - 1)) == s - 1, "mismatch string length");
+                    return Set(str, s - 1);
+                }
+
+                template <size_t s>
+                HRESULT Set(wchar_t (&strRef)[s]) throw() {
+                    const wchar_t *str = static_cast<const wchar_t *>(strRef);
+                    unsigned int l;
+                    HRESULT hr = SizeTToUInt32(::wcslen(str), &l);
+                    if (SUCCEEDED(hr))
+                        hr = Set(str, l);
+                    return hr;
+                }
+
+                template <typename T>
+                HRESULT Set(const T& s, typename ::std::enable_if<::std::is_convertible<const T&, const wchar_t *>::value, ::Microsoft::WRL::Details::Dummy>::type = ::Microsoft::WRL::Details::Dummy()) throw() {
+                    HRESULT hr = S_OK;
+                    const wchar_t *str = static_cast<PCWSTR>(s);
+                    if (str != nullptr) {
+                        unsigned int l;
+                        hr = SizeTToUInt32(::wcslen(str), &l);
+                        if (SUCCEEDED(hr))
+                            hr = Set(str, l);
+                    }
+                    else
+                        hr = Set(L"", 0);
+                    return hr;
                 }
 
                 HRESULT Set(const HSTRING& s) throw() {
