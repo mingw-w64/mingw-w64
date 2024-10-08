@@ -612,6 +612,22 @@ typedef interface __FIAsyncOperationCompletedHandler_1_UINT32 __FIAsyncOperation
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationProgressHandler_2_UINT32_UINT32_FWD_DEFINED__
+#define ____FIAsyncOperationProgressHandler_2_UINT32_UINT32_FWD_DEFINED__
+typedef interface __FIAsyncOperationProgressHandler_2_UINT32_UINT32 __FIAsyncOperationProgressHandler_2_UINT32_UINT32;
+#ifdef __cplusplus
+#define __FIAsyncOperationProgressHandler_2_UINT32_UINT32 ABI::Windows::Foundation::IAsyncOperationProgressHandler<UINT32,UINT32 >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_FWD_DEFINED__
+#define ____FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_FWD_DEFINED__
+typedef interface __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32;
+#ifdef __cplusplus
+#define __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 ABI::Windows::Foundation::IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_IInspectable_FWD_DEFINED__
 #define ____FIAsyncOperation_1_IInspectable_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_IInspectable __FIAsyncOperation_1_IInspectable;
@@ -636,19 +652,19 @@ typedef interface __FIAsyncOperation_1_UINT32 __FIAsyncOperation_1_UINT32;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationWithProgress_2_UINT32_UINT32_FWD_DEFINED__
+#define ____FIAsyncOperationWithProgress_2_UINT32_UINT32_FWD_DEFINED__
+typedef interface __FIAsyncOperationWithProgress_2_UINT32_UINT32 __FIAsyncOperationWithProgress_2_UINT32_UINT32;
+#ifdef __cplusplus
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32 ABI::Windows::Foundation::IAsyncOperationWithProgress<UINT32,UINT32 >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIReference_1_BYTE_FWD_DEFINED__
 #define ____FIReference_1_BYTE_FWD_DEFINED__
 typedef interface __FIReference_1_BYTE __FIReference_1_BYTE;
 #ifdef __cplusplus
 #define __FIReference_1_BYTE ABI::Windows::Foundation::IReference<BYTE >
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____FIReference_1_INT32_FWD_DEFINED__
-#define ____FIReference_1_INT32_FWD_DEFINED__
-typedef interface __FIReference_1_INT32 __FIReference_1_INT32;
-#ifdef __cplusplus
-#define __FIReference_1_INT32 ABI::Windows::Foundation::IReference<INT32 >
 #endif /* __cplusplus */
 #endif
 
@@ -665,6 +681,38 @@ typedef interface __FIReference_1_DOUBLE __FIReference_1_DOUBLE;
 typedef interface __FIReference_1_FLOAT __FIReference_1_FLOAT;
 #ifdef __cplusplus
 #define __FIReference_1_FLOAT ABI::Windows::Foundation::IReference<FLOAT >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_GUID_FWD_DEFINED__
+#define ____FIReference_1_GUID_FWD_DEFINED__
+typedef interface __FIReference_1_GUID __FIReference_1_GUID;
+#ifdef __cplusplus
+#define __FIReference_1_GUID ABI::Windows::Foundation::IReference<GUID >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT16_FWD_DEFINED__
+#define ____FIReference_1_INT16_FWD_DEFINED__
+typedef interface __FIReference_1_INT16 __FIReference_1_INT16;
+#ifdef __cplusplus
+#define __FIReference_1_INT16 ABI::Windows::Foundation::IReference<INT16 >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT32_FWD_DEFINED__
+#define ____FIReference_1_INT32_FWD_DEFINED__
+typedef interface __FIReference_1_INT32 __FIReference_1_INT32;
+#ifdef __cplusplus
+#define __FIReference_1_INT32 ABI::Windows::Foundation::IReference<INT32 >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT64_FWD_DEFINED__
+#define ____FIReference_1_INT64_FWD_DEFINED__
+typedef interface __FIReference_1_INT64 __FIReference_1_INT64;
+#ifdef __cplusplus
+#define __FIReference_1_INT64 ABI::Windows::Foundation::IReference<INT64 >
 #endif /* __cplusplus */
 #endif
 
@@ -689,6 +737,46 @@ typedef interface __FIReference_1_UINT64 __FIReference_1_UINT64;
 typedef interface __FIReference_1_DateTime __FIReference_1_DateTime;
 #ifdef __cplusplus
 #define __FIReference_1_DateTime ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::DateTime >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Point_FWD_DEFINED__
+#define ____FIReference_1_Point_FWD_DEFINED__
+typedef interface __FIReference_1_Point __FIReference_1_Point;
+#ifdef __cplusplus
+#define __FIReference_1_Point ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Point >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Rect_FWD_DEFINED__
+#define ____FIReference_1_Rect_FWD_DEFINED__
+typedef interface __FIReference_1_Rect __FIReference_1_Rect;
+#ifdef __cplusplus
+#define __FIReference_1_Rect ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Rect >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Size_FWD_DEFINED__
+#define ____FIReference_1_Size_FWD_DEFINED__
+typedef interface __FIReference_1_Size __FIReference_1_Size;
+#ifdef __cplusplus
+#define __FIReference_1_Size ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Size >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_TimeSpan_FWD_DEFINED__
+#define ____FIReference_1_TimeSpan_FWD_DEFINED__
+typedef interface __FIReference_1_TimeSpan __FIReference_1_TimeSpan;
+#ifdef __cplusplus
+#define __FIReference_1_TimeSpan ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::TimeSpan >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_boolean_FWD_DEFINED__
+#define ____FIReference_1_boolean_FWD_DEFINED__
+typedef interface __FIReference_1_boolean __FIReference_1_boolean;
+#ifdef __cplusplus
+#define __FIReference_1_boolean ABI::Windows::Foundation::IReference<boolean >
 #endif /* __cplusplus */
 #endif
 
@@ -1362,19 +1450,19 @@ typedef interface __FIAsyncOperation_1_UINT32 __FIAsyncOperation_1_UINT32;
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationWithProgress_2_UINT32_UINT32_FWD_DEFINED__
+#define ____FIAsyncOperationWithProgress_2_UINT32_UINT32_FWD_DEFINED__
+typedef interface __FIAsyncOperationWithProgress_2_UINT32_UINT32 __FIAsyncOperationWithProgress_2_UINT32_UINT32;
+#ifdef __cplusplus
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32 ABI::Windows::Foundation::IAsyncOperationWithProgress<UINT32,UINT32 >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIReference_1_BYTE_FWD_DEFINED__
 #define ____FIReference_1_BYTE_FWD_DEFINED__
 typedef interface __FIReference_1_BYTE __FIReference_1_BYTE;
 #ifdef __cplusplus
 #define __FIReference_1_BYTE ABI::Windows::Foundation::IReference<BYTE >
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____FIReference_1_INT32_FWD_DEFINED__
-#define ____FIReference_1_INT32_FWD_DEFINED__
-typedef interface __FIReference_1_INT32 __FIReference_1_INT32;
-#ifdef __cplusplus
-#define __FIReference_1_INT32 ABI::Windows::Foundation::IReference<INT32 >
 #endif /* __cplusplus */
 #endif
 
@@ -1391,6 +1479,38 @@ typedef interface __FIReference_1_DOUBLE __FIReference_1_DOUBLE;
 typedef interface __FIReference_1_FLOAT __FIReference_1_FLOAT;
 #ifdef __cplusplus
 #define __FIReference_1_FLOAT ABI::Windows::Foundation::IReference<FLOAT >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_GUID_FWD_DEFINED__
+#define ____FIReference_1_GUID_FWD_DEFINED__
+typedef interface __FIReference_1_GUID __FIReference_1_GUID;
+#ifdef __cplusplus
+#define __FIReference_1_GUID ABI::Windows::Foundation::IReference<GUID >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT16_FWD_DEFINED__
+#define ____FIReference_1_INT16_FWD_DEFINED__
+typedef interface __FIReference_1_INT16 __FIReference_1_INT16;
+#ifdef __cplusplus
+#define __FIReference_1_INT16 ABI::Windows::Foundation::IReference<INT16 >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT32_FWD_DEFINED__
+#define ____FIReference_1_INT32_FWD_DEFINED__
+typedef interface __FIReference_1_INT32 __FIReference_1_INT32;
+#ifdef __cplusplus
+#define __FIReference_1_INT32 ABI::Windows::Foundation::IReference<INT32 >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_INT64_FWD_DEFINED__
+#define ____FIReference_1_INT64_FWD_DEFINED__
+typedef interface __FIReference_1_INT64 __FIReference_1_INT64;
+#ifdef __cplusplus
+#define __FIReference_1_INT64 ABI::Windows::Foundation::IReference<INT64 >
 #endif /* __cplusplus */
 #endif
 
@@ -1415,6 +1535,46 @@ typedef interface __FIReference_1_UINT64 __FIReference_1_UINT64;
 typedef interface __FIReference_1_DateTime __FIReference_1_DateTime;
 #ifdef __cplusplus
 #define __FIReference_1_DateTime ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::DateTime >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Point_FWD_DEFINED__
+#define ____FIReference_1_Point_FWD_DEFINED__
+typedef interface __FIReference_1_Point __FIReference_1_Point;
+#ifdef __cplusplus
+#define __FIReference_1_Point ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Point >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Rect_FWD_DEFINED__
+#define ____FIReference_1_Rect_FWD_DEFINED__
+typedef interface __FIReference_1_Rect __FIReference_1_Rect;
+#ifdef __cplusplus
+#define __FIReference_1_Rect ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Rect >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_Size_FWD_DEFINED__
+#define ____FIReference_1_Size_FWD_DEFINED__
+typedef interface __FIReference_1_Size __FIReference_1_Size;
+#ifdef __cplusplus
+#define __FIReference_1_Size ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::Size >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_TimeSpan_FWD_DEFINED__
+#define ____FIReference_1_TimeSpan_FWD_DEFINED__
+typedef interface __FIReference_1_TimeSpan __FIReference_1_TimeSpan;
+#ifdef __cplusplus
+#define __FIReference_1_TimeSpan ABI::Windows::Foundation::IReference<ABI::Windows::Foundation::TimeSpan >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIReference_1_boolean_FWD_DEFINED__
+#define ____FIReference_1_boolean_FWD_DEFINED__
+typedef interface __FIReference_1_boolean __FIReference_1_boolean;
+#ifdef __cplusplus
+#define __FIReference_1_boolean ABI::Windows::Foundation::IReference<boolean >
 #endif /* __cplusplus */
 #endif
 
@@ -8226,6 +8386,190 @@ static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_UINT32_Invoke(
 #endif  /* ____FIAsyncOperationCompletedHandler_1_UINT32_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IAsyncOperationProgressHandler<UINT32,UINT32 > interface
+ */
+#ifndef ____FIAsyncOperationProgressHandler_2_UINT32_UINT32_INTERFACE_DEFINED__
+#define ____FIAsyncOperationProgressHandler_2_UINT32_UINT32_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationProgressHandler_2_UINT32_UINT32, 0xea0fe405, 0xd432, 0x5ac7, 0x9e,0xf8, 0x5a,0x65,0xe1,0xf9,0x7d,0x7e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("ea0fe405-d432-5ac7-9ef8-5a65e1f97d7e")
+            IAsyncOperationProgressHandler<UINT32,UINT32 > : IAsyncOperationProgressHandler_impl<UINT32, UINT32 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationProgressHandler_2_UINT32_UINT32, 0xea0fe405, 0xd432, 0x5ac7, 0x9e,0xf8, 0x5a,0x65,0xe1,0xf9,0x7d,0x7e)
+#endif
+#else
+typedef struct __FIAsyncOperationProgressHandler_2_UINT32_UINT32Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 *This);
+
+    /*** IAsyncOperationProgressHandler<UINT32,UINT32 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 *This,
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *info,
+        UINT32 progress);
+
+    END_INTERFACE
+} __FIAsyncOperationProgressHandler_2_UINT32_UINT32Vtbl;
+
+interface __FIAsyncOperationProgressHandler_2_UINT32_UINT32 {
+    CONST_VTBL __FIAsyncOperationProgressHandler_2_UINT32_UINT32Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationProgressHandler_2_UINT32_UINT32_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationProgressHandler_2_UINT32_UINT32_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationProgressHandler<UINT32,UINT32 > methods ***/
+#define __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Invoke(This,info,progress) (This)->lpVtbl->Invoke(This,info,progress)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationProgressHandler_2_UINT32_UINT32_QueryInterface(__FIAsyncOperationProgressHandler_2_UINT32_UINT32* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationProgressHandler_2_UINT32_UINT32_AddRef(__FIAsyncOperationProgressHandler_2_UINT32_UINT32* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Release(__FIAsyncOperationProgressHandler_2_UINT32_UINT32* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationProgressHandler<UINT32,UINT32 > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Invoke(__FIAsyncOperationProgressHandler_2_UINT32_UINT32* This,__FIAsyncOperationWithProgress_2_UINT32_UINT32 *info,UINT32 progress) {
+    return This->lpVtbl->Invoke(This,info,progress);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationProgressHandler_UINT32_UINT32 IID___FIAsyncOperationProgressHandler_2_UINT32_UINT32
+#define IAsyncOperationProgressHandler_UINT32_UINT32Vtbl __FIAsyncOperationProgressHandler_2_UINT32_UINT32Vtbl
+#define IAsyncOperationProgressHandler_UINT32_UINT32 __FIAsyncOperationProgressHandler_2_UINT32_UINT32
+#define IAsyncOperationProgressHandler_UINT32_UINT32_QueryInterface __FIAsyncOperationProgressHandler_2_UINT32_UINT32_QueryInterface
+#define IAsyncOperationProgressHandler_UINT32_UINT32_AddRef __FIAsyncOperationProgressHandler_2_UINT32_UINT32_AddRef
+#define IAsyncOperationProgressHandler_UINT32_UINT32_Release __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Release
+#define IAsyncOperationProgressHandler_UINT32_UINT32_Invoke __FIAsyncOperationProgressHandler_2_UINT32_UINT32_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationProgressHandler_2_UINT32_UINT32_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 > interface
+ */
+#ifndef ____FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_INTERFACE_DEFINED__
+#define ____FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32, 0x1e466dc5, 0x840f, 0x54f9, 0xb8,0x77, 0x5e,0x3a,0x9f,0x4b,0x6c,0x74);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("1e466dc5-840f-54f9-b877-5e3a9f4b6c74")
+            IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 > : IAsyncOperationWithProgressCompletedHandler_impl<UINT32, UINT32 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32, 0x1e466dc5, 0x840f, 0x54f9, 0xb8,0x77, 0x5e,0x3a,0x9f,0x4b,0x6c,0x74)
+#endif
+#else
+typedef struct __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *This);
+
+    /*** IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *This,
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32Vtbl;
+
+interface __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 {
+    CONST_VTBL __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 > methods ***/
+#define __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_QueryInterface(__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_AddRef(__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Release(__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationWithProgressCompletedHandler<UINT32,UINT32 > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Invoke(__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32* This,__FIAsyncOperationWithProgress_2_UINT32_UINT32 *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32 IID___FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32Vtbl __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32Vtbl
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32 __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32_QueryInterface __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_QueryInterface
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32_AddRef __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_AddRef
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32_Release __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Release
+#define IAsyncOperationWithProgressCompletedHandler_UINT32_UINT32_Invoke __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IAsyncOperation<IInspectable* > interface
  */
 #ifndef ____FIAsyncOperation_1_IInspectable_INTERFACE_DEFINED__
@@ -8646,6 +8990,164 @@ static __WIDL_INLINE HRESULT __FIAsyncOperation_1_UINT32_GetResults(__FIAsyncOpe
 #endif  /* ____FIAsyncOperation_1_UINT32_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IAsyncOperationWithProgress<UINT32,UINT32 > interface
+ */
+#ifndef ____FIAsyncOperationWithProgress_2_UINT32_UINT32_INTERFACE_DEFINED__
+#define ____FIAsyncOperationWithProgress_2_UINT32_UINT32_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationWithProgress_2_UINT32_UINT32, 0xeccb574a, 0xc684, 0x5572, 0xa6,0x79, 0x6b,0x08,0x42,0xcf,0xb5,0x7f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("eccb574a-c684-5572-a679-6b0842cfb57f")
+            IAsyncOperationWithProgress<UINT32,UINT32 > : IAsyncOperationWithProgress_impl<UINT32, UINT32 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationWithProgress_2_UINT32_UINT32, 0xeccb574a, 0xc684, 0x5572, 0xa6,0x79, 0x6b,0x08,0x42,0xcf,0xb5,0x7f)
+#endif
+#else
+typedef struct __FIAsyncOperationWithProgress_2_UINT32_UINT32Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperationWithProgress<UINT32,UINT32 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Progress)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Progress)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        __FIAsyncOperationProgressHandler_2_UINT32_UINT32 **handler);
+
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        __FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 *This,
+        UINT32 *results);
+
+    END_INTERFACE
+} __FIAsyncOperationWithProgress_2_UINT32_UINT32Vtbl;
+
+interface __FIAsyncOperationWithProgress_2_UINT32_UINT32 {
+    CONST_VTBL __FIAsyncOperationWithProgress_2_UINT32_UINT32Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperationWithProgress<UINT32,UINT32 > methods ***/
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Progress(This,handler) (This)->lpVtbl->put_Progress(This,handler)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Progress(This,handler) (This)->lpVtbl->get_Progress(This,handler)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_QueryInterface(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationWithProgress_2_UINT32_UINT32_AddRef(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationWithProgress_2_UINT32_UINT32_Release(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetIids(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetRuntimeClassName(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetTrustLevel(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperationWithProgress<UINT32,UINT32 > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Progress(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,__FIAsyncOperationProgressHandler_2_UINT32_UINT32 *handler) {
+    return This->lpVtbl->put_Progress(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Progress(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,__FIAsyncOperationProgressHandler_2_UINT32_UINT32 **handler) {
+    return This->lpVtbl->get_Progress(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Completed(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Completed(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,__FIAsyncOperationWithProgressCompletedHandler_2_UINT32_UINT32 **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetResults(__FIAsyncOperationWithProgress_2_UINT32_UINT32* This,UINT32 *results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationWithProgress_UINT32_UINT32 IID___FIAsyncOperationWithProgress_2_UINT32_UINT32
+#define IAsyncOperationWithProgress_UINT32_UINT32Vtbl __FIAsyncOperationWithProgress_2_UINT32_UINT32Vtbl
+#define IAsyncOperationWithProgress_UINT32_UINT32 __FIAsyncOperationWithProgress_2_UINT32_UINT32
+#define IAsyncOperationWithProgress_UINT32_UINT32_QueryInterface __FIAsyncOperationWithProgress_2_UINT32_UINT32_QueryInterface
+#define IAsyncOperationWithProgress_UINT32_UINT32_AddRef __FIAsyncOperationWithProgress_2_UINT32_UINT32_AddRef
+#define IAsyncOperationWithProgress_UINT32_UINT32_Release __FIAsyncOperationWithProgress_2_UINT32_UINT32_Release
+#define IAsyncOperationWithProgress_UINT32_UINT32_GetIids __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetIids
+#define IAsyncOperationWithProgress_UINT32_UINT32_GetRuntimeClassName __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetRuntimeClassName
+#define IAsyncOperationWithProgress_UINT32_UINT32_GetTrustLevel __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetTrustLevel
+#define IAsyncOperationWithProgress_UINT32_UINT32_put_Progress __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Progress
+#define IAsyncOperationWithProgress_UINT32_UINT32_get_Progress __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Progress
+#define IAsyncOperationWithProgress_UINT32_UINT32_put_Completed __FIAsyncOperationWithProgress_2_UINT32_UINT32_put_Completed
+#define IAsyncOperationWithProgress_UINT32_UINT32_get_Completed __FIAsyncOperationWithProgress_2_UINT32_UINT32_get_Completed
+#define IAsyncOperationWithProgress_UINT32_UINT32_GetResults __FIAsyncOperationWithProgress_2_UINT32_UINT32_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationWithProgress_2_UINT32_UINT32_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IReference<BYTE > interface
  */
 #ifndef ____FIReference_1_BYTE_INTERFACE_DEFINED__
@@ -8766,128 +9268,6 @@ static __WIDL_INLINE HRESULT __FIReference_1_BYTE_get_Value(__FIReference_1_BYTE
 #endif
 
 #endif  /* ____FIReference_1_BYTE_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * IReference<INT32 > interface
- */
-#ifndef ____FIReference_1_INT32_INTERFACE_DEFINED__
-#define ____FIReference_1_INT32_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID___FIReference_1_INT32, 0x548cefbd, 0xbc8a, 0x5fa0, 0x8d,0xf2, 0x95,0x74,0x40,0xfc,0x8b,0xf4);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            template<>
-            MIDL_INTERFACE("548cefbd-bc8a-5fa0-8df2-957440fc8bf4")
-            IReference<INT32 > : IReference_impl<INT32 >
-            {
-            };
-        }
-    }
-}
-extern "C" {
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(__FIReference_1_INT32, 0x548cefbd, 0xbc8a, 0x5fa0, 0x8d,0xf2, 0x95,0x74,0x40,0xfc,0x8b,0xf4)
-#endif
-#else
-typedef struct __FIReference_1_INT32Vtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        __FIReference_1_INT32 *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        __FIReference_1_INT32 *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        __FIReference_1_INT32 *This);
-
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __FIReference_1_INT32 *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __FIReference_1_INT32 *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __FIReference_1_INT32 *This,
-        TrustLevel *trustLevel);
-
-    /*** IReference<INT32 > methods ***/
-    HRESULT (STDMETHODCALLTYPE *get_Value)(
-        __FIReference_1_INT32 *This,
-        INT32 *value);
-
-    END_INTERFACE
-} __FIReference_1_INT32Vtbl;
-
-interface __FIReference_1_INT32 {
-    CONST_VTBL __FIReference_1_INT32Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define __FIReference_1_INT32_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define __FIReference_1_INT32_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define __FIReference_1_INT32_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __FIReference_1_INT32_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __FIReference_1_INT32_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __FIReference_1_INT32_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
-/*** IReference<INT32 > methods ***/
-#define __FIReference_1_INT32_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
-#else
-/*** IUnknown methods ***/
-static __WIDL_INLINE HRESULT __FIReference_1_INT32_QueryInterface(__FIReference_1_INT32* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static __WIDL_INLINE ULONG __FIReference_1_INT32_AddRef(__FIReference_1_INT32* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static __WIDL_INLINE ULONG __FIReference_1_INT32_Release(__FIReference_1_INT32* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** IInspectable methods ***/
-static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetIids(__FIReference_1_INT32* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetRuntimeClassName(__FIReference_1_INT32* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetTrustLevel(__FIReference_1_INT32* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
-}
-/*** IReference<INT32 > methods ***/
-static __WIDL_INLINE HRESULT __FIReference_1_INT32_get_Value(__FIReference_1_INT32* This,INT32 *value) {
-    return This->lpVtbl->get_Value(This,value);
-}
-#endif
-#ifdef WIDL_using_Windows_Foundation
-#define IID_IReference_INT32 IID___FIReference_1_INT32
-#define IReference_INT32Vtbl __FIReference_1_INT32Vtbl
-#define IReference_INT32 __FIReference_1_INT32
-#define IReference_INT32_QueryInterface __FIReference_1_INT32_QueryInterface
-#define IReference_INT32_AddRef __FIReference_1_INT32_AddRef
-#define IReference_INT32_Release __FIReference_1_INT32_Release
-#define IReference_INT32_GetIids __FIReference_1_INT32_GetIids
-#define IReference_INT32_GetRuntimeClassName __FIReference_1_INT32_GetRuntimeClassName
-#define IReference_INT32_GetTrustLevel __FIReference_1_INT32_GetTrustLevel
-#define IReference_INT32_get_Value __FIReference_1_INT32_get_Value
-#endif /* WIDL_using_Windows_Foundation */
-#endif
-
-#endif
-
-#endif  /* ____FIReference_1_INT32_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IReference<DOUBLE > interface
@@ -9132,6 +9512,494 @@ static __WIDL_INLINE HRESULT __FIReference_1_FLOAT_get_Value(__FIReference_1_FLO
 #endif
 
 #endif  /* ____FIReference_1_FLOAT_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<GUID > interface
+ */
+#ifndef ____FIReference_1_GUID_INTERFACE_DEFINED__
+#define ____FIReference_1_GUID_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_GUID, 0x7d50f649, 0x632c, 0x51f9, 0x84,0x9a, 0xee,0x49,0x42,0x89,0x33,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("7d50f649-632c-51f9-849a-ee49428933ea")
+            IReference<GUID > : IReference_impl<GUID >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_GUID, 0x7d50f649, 0x632c, 0x51f9, 0x84,0x9a, 0xee,0x49,0x42,0x89,0x33,0xea)
+#endif
+#else
+typedef struct __FIReference_1_GUIDVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_GUID *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_GUID *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_GUID *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_GUID *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_GUID *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_GUID *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<GUID > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_GUID *This,
+        GUID *value);
+
+    END_INTERFACE
+} __FIReference_1_GUIDVtbl;
+
+interface __FIReference_1_GUID {
+    CONST_VTBL __FIReference_1_GUIDVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_GUID_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_GUID_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_GUID_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_GUID_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_GUID_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_GUID_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<GUID > methods ***/
+#define __FIReference_1_GUID_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_GUID_QueryInterface(__FIReference_1_GUID* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_GUID_AddRef(__FIReference_1_GUID* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_GUID_Release(__FIReference_1_GUID* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_GUID_GetIids(__FIReference_1_GUID* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_GUID_GetRuntimeClassName(__FIReference_1_GUID* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_GUID_GetTrustLevel(__FIReference_1_GUID* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<GUID > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_GUID_get_Value(__FIReference_1_GUID* This,GUID *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_GUID IID___FIReference_1_GUID
+#define IReference_GUIDVtbl __FIReference_1_GUIDVtbl
+#define IReference_GUID __FIReference_1_GUID
+#define IReference_GUID_QueryInterface __FIReference_1_GUID_QueryInterface
+#define IReference_GUID_AddRef __FIReference_1_GUID_AddRef
+#define IReference_GUID_Release __FIReference_1_GUID_Release
+#define IReference_GUID_GetIids __FIReference_1_GUID_GetIids
+#define IReference_GUID_GetRuntimeClassName __FIReference_1_GUID_GetRuntimeClassName
+#define IReference_GUID_GetTrustLevel __FIReference_1_GUID_GetTrustLevel
+#define IReference_GUID_get_Value __FIReference_1_GUID_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_GUID_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<INT16 > interface
+ */
+#ifndef ____FIReference_1_INT16_INTERFACE_DEFINED__
+#define ____FIReference_1_INT16_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_INT16, 0x6ec9e41b, 0x6709, 0x5647, 0x99,0x18, 0xa1,0x27,0x01,0x10,0xfc,0x4e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("6ec9e41b-6709-5647-9918-a1270110fc4e")
+            IReference<INT16 > : IReference_impl<INT16 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_INT16, 0x6ec9e41b, 0x6709, 0x5647, 0x99,0x18, 0xa1,0x27,0x01,0x10,0xfc,0x4e)
+#endif
+#else
+typedef struct __FIReference_1_INT16Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_INT16 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_INT16 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_INT16 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_INT16 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_INT16 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_INT16 *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<INT16 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_INT16 *This,
+        INT16 *value);
+
+    END_INTERFACE
+} __FIReference_1_INT16Vtbl;
+
+interface __FIReference_1_INT16 {
+    CONST_VTBL __FIReference_1_INT16Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_INT16_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_INT16_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_INT16_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_INT16_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_INT16_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_INT16_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<INT16 > methods ***/
+#define __FIReference_1_INT16_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT16_QueryInterface(__FIReference_1_INT16* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT16_AddRef(__FIReference_1_INT16* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT16_Release(__FIReference_1_INT16* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT16_GetIids(__FIReference_1_INT16* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT16_GetRuntimeClassName(__FIReference_1_INT16* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT16_GetTrustLevel(__FIReference_1_INT16* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<INT16 > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT16_get_Value(__FIReference_1_INT16* This,INT16 *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_INT16 IID___FIReference_1_INT16
+#define IReference_INT16Vtbl __FIReference_1_INT16Vtbl
+#define IReference_INT16 __FIReference_1_INT16
+#define IReference_INT16_QueryInterface __FIReference_1_INT16_QueryInterface
+#define IReference_INT16_AddRef __FIReference_1_INT16_AddRef
+#define IReference_INT16_Release __FIReference_1_INT16_Release
+#define IReference_INT16_GetIids __FIReference_1_INT16_GetIids
+#define IReference_INT16_GetRuntimeClassName __FIReference_1_INT16_GetRuntimeClassName
+#define IReference_INT16_GetTrustLevel __FIReference_1_INT16_GetTrustLevel
+#define IReference_INT16_get_Value __FIReference_1_INT16_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_INT16_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<INT32 > interface
+ */
+#ifndef ____FIReference_1_INT32_INTERFACE_DEFINED__
+#define ____FIReference_1_INT32_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_INT32, 0x548cefbd, 0xbc8a, 0x5fa0, 0x8d,0xf2, 0x95,0x74,0x40,0xfc,0x8b,0xf4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("548cefbd-bc8a-5fa0-8df2-957440fc8bf4")
+            IReference<INT32 > : IReference_impl<INT32 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_INT32, 0x548cefbd, 0xbc8a, 0x5fa0, 0x8d,0xf2, 0x95,0x74,0x40,0xfc,0x8b,0xf4)
+#endif
+#else
+typedef struct __FIReference_1_INT32Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_INT32 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_INT32 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_INT32 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_INT32 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_INT32 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_INT32 *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<INT32 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_INT32 *This,
+        INT32 *value);
+
+    END_INTERFACE
+} __FIReference_1_INT32Vtbl;
+
+interface __FIReference_1_INT32 {
+    CONST_VTBL __FIReference_1_INT32Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_INT32_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_INT32_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_INT32_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_INT32_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_INT32_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_INT32_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<INT32 > methods ***/
+#define __FIReference_1_INT32_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT32_QueryInterface(__FIReference_1_INT32* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT32_AddRef(__FIReference_1_INT32* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT32_Release(__FIReference_1_INT32* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetIids(__FIReference_1_INT32* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetRuntimeClassName(__FIReference_1_INT32* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT32_GetTrustLevel(__FIReference_1_INT32* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<INT32 > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT32_get_Value(__FIReference_1_INT32* This,INT32 *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_INT32 IID___FIReference_1_INT32
+#define IReference_INT32Vtbl __FIReference_1_INT32Vtbl
+#define IReference_INT32 __FIReference_1_INT32
+#define IReference_INT32_QueryInterface __FIReference_1_INT32_QueryInterface
+#define IReference_INT32_AddRef __FIReference_1_INT32_AddRef
+#define IReference_INT32_Release __FIReference_1_INT32_Release
+#define IReference_INT32_GetIids __FIReference_1_INT32_GetIids
+#define IReference_INT32_GetRuntimeClassName __FIReference_1_INT32_GetRuntimeClassName
+#define IReference_INT32_GetTrustLevel __FIReference_1_INT32_GetTrustLevel
+#define IReference_INT32_get_Value __FIReference_1_INT32_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_INT32_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<INT64 > interface
+ */
+#ifndef ____FIReference_1_INT64_INTERFACE_DEFINED__
+#define ____FIReference_1_INT64_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_INT64, 0x4dda9e24, 0xe69f, 0x5c6a, 0xa0,0xa6, 0x93,0x42,0x73,0x65,0xaf,0x2a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("4dda9e24-e69f-5c6a-a0a6-93427365af2a")
+            IReference<INT64 > : IReference_impl<INT64 >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_INT64, 0x4dda9e24, 0xe69f, 0x5c6a, 0xa0,0xa6, 0x93,0x42,0x73,0x65,0xaf,0x2a)
+#endif
+#else
+typedef struct __FIReference_1_INT64Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_INT64 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_INT64 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_INT64 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_INT64 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_INT64 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_INT64 *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<INT64 > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_INT64 *This,
+        INT64 *value);
+
+    END_INTERFACE
+} __FIReference_1_INT64Vtbl;
+
+interface __FIReference_1_INT64 {
+    CONST_VTBL __FIReference_1_INT64Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_INT64_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_INT64_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_INT64_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_INT64_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_INT64_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_INT64_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<INT64 > methods ***/
+#define __FIReference_1_INT64_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT64_QueryInterface(__FIReference_1_INT64* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT64_AddRef(__FIReference_1_INT64* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_INT64_Release(__FIReference_1_INT64* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT64_GetIids(__FIReference_1_INT64* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT64_GetRuntimeClassName(__FIReference_1_INT64* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_INT64_GetTrustLevel(__FIReference_1_INT64* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<INT64 > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_INT64_get_Value(__FIReference_1_INT64* This,INT64 *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_INT64 IID___FIReference_1_INT64
+#define IReference_INT64Vtbl __FIReference_1_INT64Vtbl
+#define IReference_INT64 __FIReference_1_INT64
+#define IReference_INT64_QueryInterface __FIReference_1_INT64_QueryInterface
+#define IReference_INT64_AddRef __FIReference_1_INT64_AddRef
+#define IReference_INT64_Release __FIReference_1_INT64_Release
+#define IReference_INT64_GetIids __FIReference_1_INT64_GetIids
+#define IReference_INT64_GetRuntimeClassName __FIReference_1_INT64_GetRuntimeClassName
+#define IReference_INT64_GetTrustLevel __FIReference_1_INT64_GetTrustLevel
+#define IReference_INT64_get_Value __FIReference_1_INT64_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_INT64_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IReference<UINT32 > interface
@@ -9498,6 +10366,616 @@ static __WIDL_INLINE HRESULT __FIReference_1_DateTime_get_Value(__FIReference_1_
 #endif
 
 #endif  /* ____FIReference_1_DateTime_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<ABI::Windows::Foundation::Point > interface
+ */
+#ifndef ____FIReference_1_Point_INTERFACE_DEFINED__
+#define ____FIReference_1_Point_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_Point, 0x84f14c22, 0xa00a, 0x5272, 0x8d,0x3d, 0x82,0x11,0x2e,0x66,0xdf,0x00);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("84f14c22-a00a-5272-8d3d-82112e66df00")
+            IReference<ABI::Windows::Foundation::Point > : IReference_impl<ABI::Windows::Foundation::Point >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_Point, 0x84f14c22, 0xa00a, 0x5272, 0x8d,0x3d, 0x82,0x11,0x2e,0x66,0xdf,0x00)
+#endif
+#else
+typedef struct __FIReference_1_PointVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_Point *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_Point *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_Point *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_Point *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_Point *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_Point *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<ABI::Windows::Foundation::Point > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_Point *This,
+        __x_ABI_CWindows_CFoundation_CPoint *value);
+
+    END_INTERFACE
+} __FIReference_1_PointVtbl;
+
+interface __FIReference_1_Point {
+    CONST_VTBL __FIReference_1_PointVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_Point_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_Point_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_Point_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_Point_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_Point_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_Point_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<ABI::Windows::Foundation::Point > methods ***/
+#define __FIReference_1_Point_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Point_QueryInterface(__FIReference_1_Point* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Point_AddRef(__FIReference_1_Point* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Point_Release(__FIReference_1_Point* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Point_GetIids(__FIReference_1_Point* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Point_GetRuntimeClassName(__FIReference_1_Point* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Point_GetTrustLevel(__FIReference_1_Point* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<ABI::Windows::Foundation::Point > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Point_get_Value(__FIReference_1_Point* This,__x_ABI_CWindows_CFoundation_CPoint *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_Point IID___FIReference_1_Point
+#define IReference_PointVtbl __FIReference_1_PointVtbl
+#define IReference_Point __FIReference_1_Point
+#define IReference_Point_QueryInterface __FIReference_1_Point_QueryInterface
+#define IReference_Point_AddRef __FIReference_1_Point_AddRef
+#define IReference_Point_Release __FIReference_1_Point_Release
+#define IReference_Point_GetIids __FIReference_1_Point_GetIids
+#define IReference_Point_GetRuntimeClassName __FIReference_1_Point_GetRuntimeClassName
+#define IReference_Point_GetTrustLevel __FIReference_1_Point_GetTrustLevel
+#define IReference_Point_get_Value __FIReference_1_Point_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_Point_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<ABI::Windows::Foundation::Rect > interface
+ */
+#ifndef ____FIReference_1_Rect_INTERFACE_DEFINED__
+#define ____FIReference_1_Rect_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_Rect, 0x80423f11, 0x054f, 0x5eac, 0xaf,0xd3, 0x63,0xb6,0xce,0x15,0xe7,0x7b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("80423f11-054f-5eac-afd3-63b6ce15e77b")
+            IReference<ABI::Windows::Foundation::Rect > : IReference_impl<ABI::Windows::Foundation::Rect >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_Rect, 0x80423f11, 0x054f, 0x5eac, 0xaf,0xd3, 0x63,0xb6,0xce,0x15,0xe7,0x7b)
+#endif
+#else
+typedef struct __FIReference_1_RectVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_Rect *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_Rect *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_Rect *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_Rect *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_Rect *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_Rect *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<ABI::Windows::Foundation::Rect > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_Rect *This,
+        __x_ABI_CWindows_CFoundation_CRect *value);
+
+    END_INTERFACE
+} __FIReference_1_RectVtbl;
+
+interface __FIReference_1_Rect {
+    CONST_VTBL __FIReference_1_RectVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_Rect_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_Rect_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_Rect_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_Rect_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_Rect_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_Rect_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<ABI::Windows::Foundation::Rect > methods ***/
+#define __FIReference_1_Rect_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Rect_QueryInterface(__FIReference_1_Rect* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Rect_AddRef(__FIReference_1_Rect* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Rect_Release(__FIReference_1_Rect* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Rect_GetIids(__FIReference_1_Rect* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Rect_GetRuntimeClassName(__FIReference_1_Rect* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Rect_GetTrustLevel(__FIReference_1_Rect* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<ABI::Windows::Foundation::Rect > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Rect_get_Value(__FIReference_1_Rect* This,__x_ABI_CWindows_CFoundation_CRect *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_Rect IID___FIReference_1_Rect
+#define IReference_RectVtbl __FIReference_1_RectVtbl
+#define IReference_Rect __FIReference_1_Rect
+#define IReference_Rect_QueryInterface __FIReference_1_Rect_QueryInterface
+#define IReference_Rect_AddRef __FIReference_1_Rect_AddRef
+#define IReference_Rect_Release __FIReference_1_Rect_Release
+#define IReference_Rect_GetIids __FIReference_1_Rect_GetIids
+#define IReference_Rect_GetRuntimeClassName __FIReference_1_Rect_GetRuntimeClassName
+#define IReference_Rect_GetTrustLevel __FIReference_1_Rect_GetTrustLevel
+#define IReference_Rect_get_Value __FIReference_1_Rect_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_Rect_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<ABI::Windows::Foundation::Size > interface
+ */
+#ifndef ____FIReference_1_Size_INTERFACE_DEFINED__
+#define ____FIReference_1_Size_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_Size, 0x61723086, 0x8e53, 0x5276, 0x9f,0x36, 0x2a,0x4b,0xb9,0x3e,0x2b,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("61723086-8e53-5276-9f36-2a4bb93e2b75")
+            IReference<ABI::Windows::Foundation::Size > : IReference_impl<ABI::Windows::Foundation::Size >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_Size, 0x61723086, 0x8e53, 0x5276, 0x9f,0x36, 0x2a,0x4b,0xb9,0x3e,0x2b,0x75)
+#endif
+#else
+typedef struct __FIReference_1_SizeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_Size *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_Size *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_Size *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_Size *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_Size *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_Size *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<ABI::Windows::Foundation::Size > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_Size *This,
+        __x_ABI_CWindows_CFoundation_CSize *value);
+
+    END_INTERFACE
+} __FIReference_1_SizeVtbl;
+
+interface __FIReference_1_Size {
+    CONST_VTBL __FIReference_1_SizeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_Size_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_Size_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_Size_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_Size_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_Size_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_Size_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<ABI::Windows::Foundation::Size > methods ***/
+#define __FIReference_1_Size_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Size_QueryInterface(__FIReference_1_Size* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Size_AddRef(__FIReference_1_Size* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_Size_Release(__FIReference_1_Size* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Size_GetIids(__FIReference_1_Size* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Size_GetRuntimeClassName(__FIReference_1_Size* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_Size_GetTrustLevel(__FIReference_1_Size* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<ABI::Windows::Foundation::Size > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_Size_get_Value(__FIReference_1_Size* This,__x_ABI_CWindows_CFoundation_CSize *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_Size IID___FIReference_1_Size
+#define IReference_SizeVtbl __FIReference_1_SizeVtbl
+#define IReference_Size __FIReference_1_Size
+#define IReference_Size_QueryInterface __FIReference_1_Size_QueryInterface
+#define IReference_Size_AddRef __FIReference_1_Size_AddRef
+#define IReference_Size_Release __FIReference_1_Size_Release
+#define IReference_Size_GetIids __FIReference_1_Size_GetIids
+#define IReference_Size_GetRuntimeClassName __FIReference_1_Size_GetRuntimeClassName
+#define IReference_Size_GetTrustLevel __FIReference_1_Size_GetTrustLevel
+#define IReference_Size_get_Value __FIReference_1_Size_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_Size_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<ABI::Windows::Foundation::TimeSpan > interface
+ */
+#ifndef ____FIReference_1_TimeSpan_INTERFACE_DEFINED__
+#define ____FIReference_1_TimeSpan_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_TimeSpan, 0x604d0c4c, 0x91de, 0x5c2a, 0x93,0x5f, 0x36,0x2f,0x13,0xea,0xf8,0x00);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("604d0c4c-91de-5c2a-935f-362f13eaf800")
+            IReference<ABI::Windows::Foundation::TimeSpan > : IReference_impl<ABI::Windows::Foundation::TimeSpan >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_TimeSpan, 0x604d0c4c, 0x91de, 0x5c2a, 0x93,0x5f, 0x36,0x2f,0x13,0xea,0xf8,0x00)
+#endif
+#else
+typedef struct __FIReference_1_TimeSpanVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_TimeSpan *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_TimeSpan *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_TimeSpan *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_TimeSpan *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_TimeSpan *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_TimeSpan *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<ABI::Windows::Foundation::TimeSpan > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_TimeSpan *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    END_INTERFACE
+} __FIReference_1_TimeSpanVtbl;
+
+interface __FIReference_1_TimeSpan {
+    CONST_VTBL __FIReference_1_TimeSpanVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_TimeSpan_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_TimeSpan_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_TimeSpan_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_TimeSpan_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_TimeSpan_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_TimeSpan_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<ABI::Windows::Foundation::TimeSpan > methods ***/
+#define __FIReference_1_TimeSpan_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_TimeSpan_QueryInterface(__FIReference_1_TimeSpan* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_TimeSpan_AddRef(__FIReference_1_TimeSpan* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_TimeSpan_Release(__FIReference_1_TimeSpan* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_TimeSpan_GetIids(__FIReference_1_TimeSpan* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_TimeSpan_GetRuntimeClassName(__FIReference_1_TimeSpan* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_TimeSpan_GetTrustLevel(__FIReference_1_TimeSpan* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<ABI::Windows::Foundation::TimeSpan > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_TimeSpan_get_Value(__FIReference_1_TimeSpan* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_TimeSpan IID___FIReference_1_TimeSpan
+#define IReference_TimeSpanVtbl __FIReference_1_TimeSpanVtbl
+#define IReference_TimeSpan __FIReference_1_TimeSpan
+#define IReference_TimeSpan_QueryInterface __FIReference_1_TimeSpan_QueryInterface
+#define IReference_TimeSpan_AddRef __FIReference_1_TimeSpan_AddRef
+#define IReference_TimeSpan_Release __FIReference_1_TimeSpan_Release
+#define IReference_TimeSpan_GetIids __FIReference_1_TimeSpan_GetIids
+#define IReference_TimeSpan_GetRuntimeClassName __FIReference_1_TimeSpan_GetRuntimeClassName
+#define IReference_TimeSpan_GetTrustLevel __FIReference_1_TimeSpan_GetTrustLevel
+#define IReference_TimeSpan_get_Value __FIReference_1_TimeSpan_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_TimeSpan_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<boolean > interface
+ */
+#ifndef ____FIReference_1_boolean_INTERFACE_DEFINED__
+#define ____FIReference_1_boolean_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_boolean, 0x3c00fd60, 0x2950, 0x5939, 0xa2,0x1a, 0x2d,0x12,0xc5,0xa0,0x1b,0x8a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("3c00fd60-2950-5939-a21a-2d12c5a01b8a")
+            IReference<boolean > : IReference_impl<boolean >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_boolean, 0x3c00fd60, 0x2950, 0x5939, 0xa2,0x1a, 0x2d,0x12,0xc5,0xa0,0x1b,0x8a)
+#endif
+#else
+typedef struct __FIReference_1_booleanVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_boolean *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_boolean *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_boolean *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_boolean *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_boolean *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_boolean *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<boolean > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_boolean *This,
+        boolean *value);
+
+    END_INTERFACE
+} __FIReference_1_booleanVtbl;
+
+interface __FIReference_1_boolean {
+    CONST_VTBL __FIReference_1_booleanVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_boolean_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_boolean_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_boolean_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_boolean_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_boolean_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_boolean_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<boolean > methods ***/
+#define __FIReference_1_boolean_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_boolean_QueryInterface(__FIReference_1_boolean* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_boolean_AddRef(__FIReference_1_boolean* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_boolean_Release(__FIReference_1_boolean* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_boolean_GetIids(__FIReference_1_boolean* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_boolean_GetRuntimeClassName(__FIReference_1_boolean* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_boolean_GetTrustLevel(__FIReference_1_boolean* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<boolean > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_boolean_get_Value(__FIReference_1_boolean* This,boolean *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_boolean IID___FIReference_1_boolean
+#define IReference_booleanVtbl __FIReference_1_booleanVtbl
+#define IReference_boolean __FIReference_1_boolean
+#define IReference_boolean_QueryInterface __FIReference_1_boolean_QueryInterface
+#define IReference_boolean_AddRef __FIReference_1_boolean_AddRef
+#define IReference_boolean_Release __FIReference_1_boolean_Release
+#define IReference_boolean_GetIids __FIReference_1_boolean_GetIids
+#define IReference_boolean_GetRuntimeClassName __FIReference_1_boolean_GetRuntimeClassName
+#define IReference_boolean_GetTrustLevel __FIReference_1_boolean_GetTrustLevel
+#define IReference_boolean_get_Value __FIReference_1_boolean_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_boolean_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITypedEventHandler<IInspectable*,IInspectable* > interface

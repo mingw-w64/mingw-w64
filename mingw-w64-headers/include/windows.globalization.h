@@ -71,6 +71,36 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics ABI::Windows::Globalization::IApplicationLanguagesStatics
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface IApplicationLanguagesStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 ABI::Windows::Globalization::IApplicationLanguagesStatics2
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface IApplicationLanguagesStatics2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CILanguage_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CGlobalization_CILanguage __x_ABI_CWindows_CGlobalization_CILanguage;
@@ -266,6 +296,21 @@ typedef struct __x_ABI_CWindows_CGlobalization_CCalendar __x_ABI_CWindows_CGloba
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CGlobalization_CCalendar_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CGlobalization_CApplicationLanguages_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CApplicationLanguages_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            class ApplicationLanguages;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CApplicationLanguages __x_ABI_CWindows_CGlobalization_CApplicationLanguages;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CGlobalization_CApplicationLanguages_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CGlobalization_CLanguage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CLanguage_FWD_DEFINED__
 #ifdef __cplusplus
@@ -335,6 +380,7 @@ typedef interface __FIVector_1_Windows__CGlobalization__CLanguage __FIVector_1_W
 #include <eventtoken.h>
 #include <windowscontracts.h>
 #include <windows.foundation.h>
+#include <windows.system.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -347,6 +393,36 @@ typedef enum __x_ABI_CWindows_CGlobalization_CDayOfWeek __x_ABI_CWindows_CGlobal
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection;
 #endif /* __cplusplus */
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics ABI::Windows::Globalization::IApplicationLanguagesStatics
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface IApplicationLanguagesStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 ABI::Windows::Globalization::IApplicationLanguagesStatics2
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            interface IApplicationLanguagesStatics2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
 
 #ifndef ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGlobalization_CICalendar_FWD_DEFINED__
@@ -2269,6 +2345,296 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CICalendarFactory2_
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IApplicationLanguagesStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics, 0x75b40847, 0x0a4c, 0x4a92, 0x95,0x65, 0xfd,0x63,0xc9,0x5f,0x7a,0xed);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("75b40847-0a4c-4a92-9565-fd63c95f7aed")
+            IApplicationLanguagesStatics : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_PrimaryLanguageOverride(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_PrimaryLanguageOverride(
+                    HSTRING value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Languages(
+                    ABI::Windows::Foundation::Collections::IVectorView<HSTRING > **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_ManifestLanguages(
+                    ABI::Windows::Foundation::Collections::IVectorView<HSTRING > **value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics, 0x75b40847, 0x0a4c, 0x4a92, 0x95,0x65, 0xfd,0x63,0xc9,0x5f,0x7a,0xed)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IApplicationLanguagesStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_PrimaryLanguageOverride)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_PrimaryLanguageOverride)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Languages)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        __FIVectorView_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ManifestLanguages)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics *This,
+        __FIVectorView_1_HSTRING **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStaticsVtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IApplicationLanguagesStatics methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_PrimaryLanguageOverride(This,value) (This)->lpVtbl->get_PrimaryLanguageOverride(This,value)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_put_PrimaryLanguageOverride(This,value) (This)->lpVtbl->put_PrimaryLanguageOverride(This,value)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_Languages(This,value) (This)->lpVtbl->get_Languages(This,value)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_ManifestLanguages(This,value) (This)->lpVtbl->get_ManifestLanguages(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_QueryInterface(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_AddRef(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_Release(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetIids(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IApplicationLanguagesStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_PrimaryLanguageOverride(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,HSTRING *value) {
+    return This->lpVtbl->get_PrimaryLanguageOverride(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_put_PrimaryLanguageOverride(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,HSTRING value) {
+    return This->lpVtbl->put_PrimaryLanguageOverride(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_Languages(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,__FIVectorView_1_HSTRING **value) {
+    return This->lpVtbl->get_Languages(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_ManifestLanguages(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics* This,__FIVectorView_1_HSTRING **value) {
+    return This->lpVtbl->get_ManifestLanguages(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_IApplicationLanguagesStatics IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics
+#define IApplicationLanguagesStaticsVtbl __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStaticsVtbl
+#define IApplicationLanguagesStatics __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics
+#define IApplicationLanguagesStatics_QueryInterface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_QueryInterface
+#define IApplicationLanguagesStatics_AddRef __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_AddRef
+#define IApplicationLanguagesStatics_Release __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_Release
+#define IApplicationLanguagesStatics_GetIids __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetIids
+#define IApplicationLanguagesStatics_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetRuntimeClassName
+#define IApplicationLanguagesStatics_GetTrustLevel __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_GetTrustLevel
+#define IApplicationLanguagesStatics_get_PrimaryLanguageOverride __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_PrimaryLanguageOverride
+#define IApplicationLanguagesStatics_put_PrimaryLanguageOverride __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_put_PrimaryLanguageOverride
+#define IApplicationLanguagesStatics_get_Languages __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_Languages
+#define IApplicationLanguagesStatics_get_ManifestLanguages __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_get_ManifestLanguages
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IApplicationLanguagesStatics2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#ifndef ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2, 0x1df0de4f, 0x072b, 0x4d7b, 0x8f,0x06, 0xcb,0x2d,0xb4,0x0f,0x2b,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Globalization {
+            MIDL_INTERFACE("1df0de4f-072b-4d7b-8f06-cb2db40f2bb5")
+            IApplicationLanguagesStatics2 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE GetLanguagesForUser(
+                    ABI::Windows::System::IUser *user,
+                    ABI::Windows::Foundation::Collections::IVectorView<HSTRING > **value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2, 0x1df0de4f, 0x072b, 0x4d7b, 0x8f,0x06, 0xcb,0x2d,0xb4,0x0f,0x2b,0xb5)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IApplicationLanguagesStatics2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetLanguagesForUser)(
+        __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 *This,
+        __x_ABI_CWindows_CSystem_CIUser *user,
+        __FIVectorView_1_HSTRING **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2Vtbl;
+
+interface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 {
+    CONST_VTBL __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IApplicationLanguagesStatics2 methods ***/
+#define __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetLanguagesForUser(This,user,value) (This)->lpVtbl->GetLanguagesForUser(This,user,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_QueryInterface(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_AddRef(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_Release(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetIids(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetRuntimeClassName(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetTrustLevel(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IApplicationLanguagesStatics2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetLanguagesForUser(__x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2* This,__x_ABI_CWindows_CSystem_CIUser *user,__FIVectorView_1_HSTRING **value) {
+    return This->lpVtbl->GetLanguagesForUser(This,user,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Globalization
+#define IID_IApplicationLanguagesStatics2 IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2
+#define IApplicationLanguagesStatics2Vtbl __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2Vtbl
+#define IApplicationLanguagesStatics2 __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2
+#define IApplicationLanguagesStatics2_QueryInterface __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_QueryInterface
+#define IApplicationLanguagesStatics2_AddRef __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_AddRef
+#define IApplicationLanguagesStatics2_Release __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_Release
+#define IApplicationLanguagesStatics2_GetIids __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetIids
+#define IApplicationLanguagesStatics2_GetRuntimeClassName __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetRuntimeClassName
+#define IApplicationLanguagesStatics2_GetTrustLevel __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetTrustLevel
+#define IApplicationLanguagesStatics2_GetLanguagesForUser __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_GetLanguagesForUser
+#endif /* WIDL_using_Windows_Globalization */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000 */
+
+/*****************************************************************************
  * ILanguage interface
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -3966,6 +4332,22 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_Calendar[] = L
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_Calendar[] = {'W','i','n','d','o','w','s','.','G','l','o','b','a','l','i','z','a','t','i','o','n','.','C','a','l','e','n','d','a','r',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Globalization_Calendar_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Globalization.ApplicationLanguages
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Globalization_ApplicationLanguages_DEFINED
+#define RUNTIMECLASS_Windows_Globalization_ApplicationLanguages_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Globalization_ApplicationLanguages[] = {'W','i','n','d','o','w','s','.','G','l','o','b','a','l','i','z','a','t','i','o','n','.','A','p','p','l','i','c','a','t','i','o','n','L','a','n','g','u','a','g','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_ApplicationLanguages[] = L"Windows.Globalization.ApplicationLanguages";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Globalization_ApplicationLanguages[] = {'W','i','n','d','o','w','s','.','G','l','o','b','a','l','i','z','a','t','i','o','n','.','A','p','p','l','i','c','a','t','i','o','n','L','a','n','g','u','a','g','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Globalization_ApplicationLanguages_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*

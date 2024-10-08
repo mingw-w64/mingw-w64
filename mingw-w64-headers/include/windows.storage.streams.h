@@ -77,6 +77,57 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriter __x_ABI_CWindows_CStorage_CStreams_CIDataWriter;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter ABI::Windows::Storage::Streams::IDataWriter
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IDataWriter;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory ABI::Windows::Storage::Streams::IDataWriterFactory
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IDataWriterFactory;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream ABI::Windows::Storage::Streams::IOutputStream
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IOutputStream;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream;
@@ -87,6 +138,40 @@ namespace ABI {
         namespace Storage {
             namespace Streams {
                 interface IRandomAccessStream;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference ABI::Windows::Storage::Streams::IRandomAccessStreamReference
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IRandomAccessStreamReference;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics ABI::Windows::Storage::Streams::IRandomAccessStreamReferenceStatics
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IRandomAccessStreamReferenceStatics;
             }
         }
     }
@@ -162,6 +247,40 @@ typedef struct __x_ABI_CWindows_CStorage_CStreams_CBuffer __x_ABI_CWindows_CStor
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CBuffer_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CDataWriter_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CDataWriter_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                class DataWriter;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CDataWriter __x_ABI_CWindows_CStorage_CStreams_CDataWriter;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CDataWriter_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CDataWriterStoreOperation_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CDataWriterStoreOperation_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                class DataWriterStoreOperation;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CDataWriterStoreOperation __x_ABI_CWindows_CStorage_CStreams_CDataWriterStoreOperation;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CStreams_CDataWriterStoreOperation_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CRandomAccessStreamReference_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CRandomAccessStreamReference_FWD_DEFINED__
 #ifdef __cplusplus
@@ -219,11 +338,35 @@ typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStrea
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 #define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream;
 #ifdef __cplusplus
 #define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStream* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
 #endif /* __cplusplus */
 #endif
 
@@ -235,11 +378,35 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer __F
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStream* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
 #endif /* __cplusplus */
 #endif
 
@@ -252,6 +419,29 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAcce
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageFile_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageFile_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageFile __x_ABI_CWindows_CStorage_CIStorageFile;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CIStorageFile ABI::Windows::Storage::IStorageFile
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageFile;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CStorage_CStreams_CByteOrder __x_ABI_CWindows_CStorage_CStreams_CByteOrder;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding;
+#endif /* __cplusplus */
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIBuffer_FWD_DEFINED__
@@ -314,6 +504,40 @@ namespace ABI {
         namespace Storage {
             namespace Streams {
                 interface IContentTypeProvider;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriter __x_ABI_CWindows_CStorage_CStreams_CIDataWriter;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter ABI::Windows::Storage::Streams::IDataWriter
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IDataWriter;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory ABI::Windows::Storage::Streams::IDataWriterFactory
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                interface IDataWriterFactory;
             }
         }
     }
@@ -497,6 +721,14 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer __F
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream;
@@ -505,6 +737,78 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAcce
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
+#endif /* __cplusplus */
+#endif
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                enum ByteOrder {
+                    ByteOrder_LittleEndian = 0,
+                    ByteOrder_BigEndian = 1
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CStorage_CStreams_CByteOrder {
+    ByteOrder_LittleEndian = 0,
+    ByteOrder_BigEndian = 1
+};
+#ifdef WIDL_using_Windows_Storage_Streams
+#define ByteOrder __x_ABI_CWindows_CStorage_CStreams_CByteOrder
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                enum UnicodeEncoding {
+                    UnicodeEncoding_Utf8 = 0,
+                    UnicodeEncoding_Utf16LE = 1,
+                    UnicodeEncoding_Utf16BE = 2
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding {
+    UnicodeEncoding_Utf8 = 0,
+    UnicodeEncoding_Utf16LE = 1,
+    UnicodeEncoding_Utf16BE = 2
+};
+#ifdef WIDL_using_Windows_Storage_Streams
+#define UnicodeEncoding __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 /*****************************************************************************
  * IBuffer interface
  */
@@ -932,6 +1236,728 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIBufferStatics_
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IDataWriter interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriter, 0x64b89265, 0xd341, 0x4922, 0xb3,0x8a, 0xdd,0x4a,0xf8,0x80,0x8c,0x4e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("64b89265-d341-4922-b38a-dd4af8808c4e")
+                IDataWriter : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_UnstoredBufferLength(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_UnicodeEncoding(
+                        ABI::Windows::Storage::Streams::UnicodeEncoding *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_UnicodeEncoding(
+                        ABI::Windows::Storage::Streams::UnicodeEncoding value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_ByteOrder(
+                        ABI::Windows::Storage::Streams::ByteOrder *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_ByteOrder(
+                        ABI::Windows::Storage::Streams::ByteOrder value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteByte(
+                        BYTE value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteBytes(
+                        UINT32 value_size,
+                        BYTE *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteBuffer(
+                        ABI::Windows::Storage::Streams::IBuffer *buffer) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteBufferRange(
+                        ABI::Windows::Storage::Streams::IBuffer *buffer,
+                        UINT32 start,
+                        UINT32 count) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteBoolean(
+                        boolean value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteGuid(
+                        GUID value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteInt16(
+                        INT16 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteInt32(
+                        INT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteInt64(
+                        INT64 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteUInt16(
+                        UINT16 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteUInt32(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteUInt64(
+                        UINT64 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteSingle(
+                        FLOAT value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteDouble(
+                        DOUBLE value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteDateTime(
+                        ABI::Windows::Foundation::DateTime value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteTimeSpan(
+                        ABI::Windows::Foundation::TimeSpan value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE WriteString(
+                        HSTRING value,
+                        UINT32 *code_unit_count) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE MeasureString(
+                        HSTRING value,
+                        UINT32 *code_unit_count) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE StoreAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<UINT32 > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE FlushAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<boolean > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE DetachBuffer(
+                        ABI::Windows::Storage::Streams::IBuffer **buffer) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE DetachStream(
+                        ABI::Windows::Storage::Streams::IOutputStream **output_stream) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter, 0x64b89265, 0xd341, 0x4922, 0xb3,0x8a, 0xdd,0x4a,0xf8,0x80,0x8c,0x4e)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        TrustLevel *trustLevel);
+
+    /*** IDataWriter methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_UnstoredBufferLength)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_UnicodeEncoding)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_UnicodeEncoding)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ByteOrder)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CByteOrder *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_ByteOrder)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CByteOrder value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteByte)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        BYTE value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteBytes)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        UINT32 value_size,
+        BYTE *value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteBuffer)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer);
+
+    HRESULT (STDMETHODCALLTYPE *WriteBufferRange)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,
+        UINT32 start,
+        UINT32 count);
+
+    HRESULT (STDMETHODCALLTYPE *WriteBoolean)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        boolean value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteGuid)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        GUID value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteInt16)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        INT16 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteInt32)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        INT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteInt64)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        INT64 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteUInt16)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        UINT16 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteUInt32)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteUInt64)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        UINT64 value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteSingle)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        FLOAT value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteDouble)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        DOUBLE value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteDateTime)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CFoundation_CDateTime value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteTimeSpan)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    HRESULT (STDMETHODCALLTYPE *WriteString)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        HSTRING value,
+        UINT32 *code_unit_count);
+
+    HRESULT (STDMETHODCALLTYPE *MeasureString)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        HSTRING value,
+        UINT32 *code_unit_count);
+
+    HRESULT (STDMETHODCALLTYPE *StoreAsync)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __FIAsyncOperation_1_UINT32 **operation);
+
+    HRESULT (STDMETHODCALLTYPE *FlushAsync)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __FIAsyncOperation_1_boolean **operation);
+
+    HRESULT (STDMETHODCALLTYPE *DetachBuffer)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer);
+
+    HRESULT (STDMETHODCALLTYPE *DetachStream)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream **output_stream);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriter {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDataWriter methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnstoredBufferLength(This,value) (This)->lpVtbl->get_UnstoredBufferLength(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnicodeEncoding(This,value) (This)->lpVtbl->get_UnicodeEncoding(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_UnicodeEncoding(This,value) (This)->lpVtbl->put_UnicodeEncoding(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_ByteOrder(This,value) (This)->lpVtbl->get_ByteOrder(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_ByteOrder(This,value) (This)->lpVtbl->put_ByteOrder(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteByte(This,value) (This)->lpVtbl->WriteByte(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBytes(This,value_size,value) (This)->lpVtbl->WriteBytes(This,value_size,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBuffer(This,buffer) (This)->lpVtbl->WriteBuffer(This,buffer)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBufferRange(This,buffer,start,count) (This)->lpVtbl->WriteBufferRange(This,buffer,start,count)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBoolean(This,value) (This)->lpVtbl->WriteBoolean(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteGuid(This,value) (This)->lpVtbl->WriteGuid(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt16(This,value) (This)->lpVtbl->WriteInt16(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt32(This,value) (This)->lpVtbl->WriteInt32(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt64(This,value) (This)->lpVtbl->WriteInt64(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt16(This,value) (This)->lpVtbl->WriteUInt16(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt32(This,value) (This)->lpVtbl->WriteUInt32(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt64(This,value) (This)->lpVtbl->WriteUInt64(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteSingle(This,value) (This)->lpVtbl->WriteSingle(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDouble(This,value) (This)->lpVtbl->WriteDouble(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDateTime(This,value) (This)->lpVtbl->WriteDateTime(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteTimeSpan(This,value) (This)->lpVtbl->WriteTimeSpan(This,value)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteString(This,value,code_unit_count) (This)->lpVtbl->WriteString(This,value,code_unit_count)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_MeasureString(This,value,code_unit_count) (This)->lpVtbl->MeasureString(This,value,code_unit_count)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_StoreAsync(This,operation) (This)->lpVtbl->StoreAsync(This,operation)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FlushAsync(This,operation) (This)->lpVtbl->FlushAsync(This,operation)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachBuffer(This,buffer) (This)->lpVtbl->DetachBuffer(This,buffer)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachStream(This,output_stream) (This)->lpVtbl->DetachStream(This,output_stream)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_Release(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDataWriter methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnstoredBufferLength(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,UINT32 *value) {
+    return This->lpVtbl->get_UnstoredBufferLength(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnicodeEncoding(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding *value) {
+    return This->lpVtbl->get_UnicodeEncoding(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_UnicodeEncoding(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CUnicodeEncoding value) {
+    return This->lpVtbl->put_UnicodeEncoding(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_ByteOrder(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CByteOrder *value) {
+    return This->lpVtbl->get_ByteOrder(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_ByteOrder(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CByteOrder value) {
+    return This->lpVtbl->put_ByteOrder(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteByte(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,BYTE value) {
+    return This->lpVtbl->WriteByte(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBytes(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,UINT32 value_size,BYTE *value) {
+    return This->lpVtbl->WriteBytes(This,value_size,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBuffer(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer) {
+    return This->lpVtbl->WriteBuffer(This,buffer);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBufferRange(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,UINT32 start,UINT32 count) {
+    return This->lpVtbl->WriteBufferRange(This,buffer,start,count);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBoolean(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,boolean value) {
+    return This->lpVtbl->WriteBoolean(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteGuid(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,GUID value) {
+    return This->lpVtbl->WriteGuid(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt16(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,INT16 value) {
+    return This->lpVtbl->WriteInt16(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt32(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,INT32 value) {
+    return This->lpVtbl->WriteInt32(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt64(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,INT64 value) {
+    return This->lpVtbl->WriteInt64(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt16(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,UINT16 value) {
+    return This->lpVtbl->WriteUInt16(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt32(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,UINT32 value) {
+    return This->lpVtbl->WriteUInt32(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt64(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,UINT64 value) {
+    return This->lpVtbl->WriteUInt64(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteSingle(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,FLOAT value) {
+    return This->lpVtbl->WriteSingle(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDouble(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,DOUBLE value) {
+    return This->lpVtbl->WriteDouble(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDateTime(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CFoundation_CDateTime value) {
+    return This->lpVtbl->WriteDateTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteTimeSpan(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->WriteTimeSpan(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteString(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,HSTRING value,UINT32 *code_unit_count) {
+    return This->lpVtbl->WriteString(This,value,code_unit_count);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_MeasureString(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,HSTRING value,UINT32 *code_unit_count) {
+    return This->lpVtbl->MeasureString(This,value,code_unit_count);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_StoreAsync(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__FIAsyncOperation_1_UINT32 **operation) {
+    return This->lpVtbl->StoreAsync(This,operation);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FlushAsync(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__FIAsyncOperation_1_boolean **operation) {
+    return This->lpVtbl->FlushAsync(This,operation);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachBuffer(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **buffer) {
+    return This->lpVtbl->DetachBuffer(This,buffer);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachStream(__x_ABI_CWindows_CStorage_CStreams_CIDataWriter* This,__x_ABI_CWindows_CStorage_CStreams_CIOutputStream **output_stream) {
+    return This->lpVtbl->DetachStream(This,output_stream);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IDataWriter IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriter
+#define IDataWriterVtbl __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl
+#define IDataWriter __x_ABI_CWindows_CStorage_CStreams_CIDataWriter
+#define IDataWriter_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_QueryInterface
+#define IDataWriter_AddRef __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_AddRef
+#define IDataWriter_Release __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_Release
+#define IDataWriter_GetIids __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetIids
+#define IDataWriter_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetRuntimeClassName
+#define IDataWriter_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_GetTrustLevel
+#define IDataWriter_get_UnstoredBufferLength __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnstoredBufferLength
+#define IDataWriter_get_UnicodeEncoding __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_UnicodeEncoding
+#define IDataWriter_put_UnicodeEncoding __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_UnicodeEncoding
+#define IDataWriter_get_ByteOrder __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_get_ByteOrder
+#define IDataWriter_put_ByteOrder __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_put_ByteOrder
+#define IDataWriter_WriteByte __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteByte
+#define IDataWriter_WriteBytes __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBytes
+#define IDataWriter_WriteBuffer __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBuffer
+#define IDataWriter_WriteBufferRange __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBufferRange
+#define IDataWriter_WriteBoolean __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteBoolean
+#define IDataWriter_WriteGuid __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteGuid
+#define IDataWriter_WriteInt16 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt16
+#define IDataWriter_WriteInt32 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt32
+#define IDataWriter_WriteInt64 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteInt64
+#define IDataWriter_WriteUInt16 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt16
+#define IDataWriter_WriteUInt32 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt32
+#define IDataWriter_WriteUInt64 __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteUInt64
+#define IDataWriter_WriteSingle __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteSingle
+#define IDataWriter_WriteDouble __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDouble
+#define IDataWriter_WriteDateTime __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteDateTime
+#define IDataWriter_WriteTimeSpan __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteTimeSpan
+#define IDataWriter_WriteString __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_WriteString
+#define IDataWriter_MeasureString __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_MeasureString
+#define IDataWriter_StoreAsync __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_StoreAsync
+#define IDataWriter_FlushAsync __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_FlushAsync
+#define IDataWriter_DetachBuffer __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachBuffer
+#define IDataWriter_DetachStream __x_ABI_CWindows_CStorage_CStreams_CIDataWriter_DetachStream
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIDataWriter_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDataWriterFactory interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory, 0x338c67c2, 0x8b84, 0x4c2b, 0x9c,0x50, 0x7b,0x87,0x67,0x84,0x7a,0x1f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("338c67c2-8b84-4c2b-9c50-7b8767847a1f")
+                IDataWriterFactory : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE CreateDataWriter(
+                        ABI::Windows::Storage::Streams::IOutputStream *output_stream,
+                        ABI::Windows::Storage::Streams::IDataWriter **data_writer) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory, 0x338c67c2, 0x8b84, 0x4c2b, 0x9c,0x50, 0x7b,0x87,0x67,0x84,0x7a,0x1f)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactoryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This,
+        TrustLevel *trustLevel);
+
+    /*** IDataWriterFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateDataWriter)(
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *output_stream,
+        __x_ABI_CWindows_CStorage_CStreams_CIDataWriter **data_writer);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactoryVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactoryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDataWriterFactory methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_CreateDataWriter(This,output_stream,data_writer) (This)->lpVtbl->CreateDataWriter(This,output_stream,data_writer)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_Release(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDataWriterFactory methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_CreateDataWriter(__x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory* This,__x_ABI_CWindows_CStorage_CStreams_CIOutputStream *output_stream,__x_ABI_CWindows_CStorage_CStreams_CIDataWriter **data_writer) {
+    return This->lpVtbl->CreateDataWriter(This,output_stream,data_writer);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IDataWriterFactory IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory
+#define IDataWriterFactoryVtbl __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactoryVtbl
+#define IDataWriterFactory __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory
+#define IDataWriterFactory_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_QueryInterface
+#define IDataWriterFactory_AddRef __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_AddRef
+#define IDataWriterFactory_Release __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_Release
+#define IDataWriterFactory_GetIids __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetIids
+#define IDataWriterFactory_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetRuntimeClassName
+#define IDataWriterFactory_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_GetTrustLevel
+#define IDataWriterFactory_CreateDataWriter __x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_CreateDataWriter
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IOutputStream interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIOutputStream, 0x905a0fe6, 0xbc53, 0x11df, 0x8c,0x49, 0x00,0x1e,0x4f,0xc6,0x86,0xda);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("905a0fe6-bc53-11df-8c49-001e4fc686da")
+                IOutputStream : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE WriteAsync(
+                        ABI::Windows::Storage::Streams::IBuffer *buffer,
+                        ABI::Windows::Foundation::IAsyncOperationWithProgress<UINT32,UINT32 > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE FlushAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<boolean > **operation) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream, 0x905a0fe6, 0xbc53, 0x11df, 0x8c,0x49, 0x00,0x1e,0x4f,0xc6,0x86,0xda)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        TrustLevel *trustLevel);
+
+    /*** IOutputStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *WriteAsync)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,
+        __FIAsyncOperationWithProgress_2_UINT32_UINT32 **operation);
+
+    HRESULT (STDMETHODCALLTYPE *FlushAsync)(
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream *This,
+        __FIAsyncOperation_1_boolean **operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IOutputStream methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_WriteAsync(This,buffer,operation) (This)->lpVtbl->WriteAsync(This,buffer,operation)
+#define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FlushAsync(This,operation) (This)->lpVtbl->FlushAsync(This,operation)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_Release(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IOutputStream methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_WriteAsync(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer *buffer,__FIAsyncOperationWithProgress_2_UINT32_UINT32 **operation) {
+    return This->lpVtbl->WriteAsync(This,buffer,operation);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FlushAsync(__x_ABI_CWindows_CStorage_CStreams_CIOutputStream* This,__FIAsyncOperation_1_boolean **operation) {
+    return This->lpVtbl->FlushAsync(This,operation);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IOutputStream IID___x_ABI_CWindows_CStorage_CStreams_CIOutputStream
+#define IOutputStreamVtbl __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl
+#define IOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
+#define IOutputStream_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_QueryInterface
+#define IOutputStream_AddRef __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_AddRef
+#define IOutputStream_Release __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_Release
+#define IOutputStream_GetIids __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetIids
+#define IOutputStream_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetRuntimeClassName
+#define IOutputStream_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_GetTrustLevel
+#define IOutputStream_WriteAsync __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_WriteAsync
+#define IOutputStream_FlushAsync __x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FlushAsync
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
  * IRandomAccessStream interface
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -1160,6 +2186,292 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessSt
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IRandomAccessStreamReference interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference, 0x33ee3134, 0x1dd6, 0x4e3a, 0x80,0x67, 0xd1,0xc1,0x62,0xe8,0x64,0x2b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("33ee3134-1dd6-4e3a-8067-d1c162e8642b")
+                IRandomAccessStreamReference : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE OpenReadAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > **operation) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference, 0x33ee3134, 0x1dd6, 0x4e3a, 0x80,0x67, 0xd1,0xc1,0x62,0xe8,0x64,0x2b)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IRandomAccessStreamReference methods ***/
+    HRESULT (STDMETHODCALLTYPE *OpenReadAsync)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *This,
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType **operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IRandomAccessStreamReference methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_OpenReadAsync(This,operation) (This)->lpVtbl->OpenReadAsync(This,operation)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_Release(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IRandomAccessStreamReference methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_OpenReadAsync(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* This,__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType **operation) {
+    return This->lpVtbl->OpenReadAsync(This,operation);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IRandomAccessStreamReference IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference
+#define IRandomAccessStreamReferenceVtbl __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl
+#define IRandomAccessStreamReference __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference
+#define IRandomAccessStreamReference_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_QueryInterface
+#define IRandomAccessStreamReference_AddRef __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_AddRef
+#define IRandomAccessStreamReference_Release __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_Release
+#define IRandomAccessStreamReference_GetIids __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetIids
+#define IRandomAccessStreamReference_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetRuntimeClassName
+#define IRandomAccessStreamReference_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_GetTrustLevel
+#define IRandomAccessStreamReference_OpenReadAsync __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_OpenReadAsync
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IRandomAccessStreamReferenceStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics, 0x857309dc, 0x3fbf, 0x4e7d, 0x98,0x6f, 0xef,0x3b,0x1a,0x07,0xa9,0x64);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace Streams {
+                MIDL_INTERFACE("857309dc-3fbf-4e7d-986f-ef3b1a07a964")
+                IRandomAccessStreamReferenceStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromFile(
+                        ABI::Windows::Storage::IStorageFile *file,
+                        ABI::Windows::Storage::Streams::IRandomAccessStreamReference **stream_reference) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromUri(
+                        ABI::Windows::Foundation::IUriRuntimeClass *uri,
+                        ABI::Windows::Storage::Streams::IRandomAccessStreamReference **stream_reference) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE CreateFromStream(
+                        ABI::Windows::Storage::Streams::IRandomAccessStream *stream,
+                        ABI::Windows::Storage::Streams::IRandomAccessStreamReference **stream_reference) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics, 0x857309dc, 0x3fbf, 0x4e7d, 0x98,0x6f, 0xef,0x3b,0x1a,0x07,0xa9,0x64)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IRandomAccessStreamReferenceStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateFromFile)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        __x_ABI_CWindows_CStorage_CIStorageFile *file,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFromUri)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass *uri,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference);
+
+    HRESULT (STDMETHODCALLTYPE *CreateFromStream)(
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream *stream,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStaticsVtbl;
+
+interface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IRandomAccessStreamReferenceStatics methods ***/
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromFile(This,file,stream_reference) (This)->lpVtbl->CreateFromFile(This,file,stream_reference)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromUri(This,uri,stream_reference) (This)->lpVtbl->CreateFromUri(This,uri,stream_reference)
+#define __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromStream(This,stream,stream_reference) (This)->lpVtbl->CreateFromStream(This,stream,stream_reference)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_QueryInterface(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_AddRef(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_Release(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetIids(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetTrustLevel(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IRandomAccessStreamReferenceStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromFile(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,__x_ABI_CWindows_CStorage_CIStorageFile *file,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference) {
+    return This->lpVtbl->CreateFromFile(This,file,stream_reference);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromUri(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,__x_ABI_CWindows_CFoundation_CIUriRuntimeClass *uri,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference) {
+    return This->lpVtbl->CreateFromUri(This,uri,stream_reference);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromStream(__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics* This,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream *stream,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **stream_reference) {
+    return This->lpVtbl->CreateFromStream(This,stream,stream_reference);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_Streams
+#define IID_IRandomAccessStreamReferenceStatics IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics
+#define IRandomAccessStreamReferenceStaticsVtbl __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStaticsVtbl
+#define IRandomAccessStreamReferenceStatics __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics
+#define IRandomAccessStreamReferenceStatics_QueryInterface __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_QueryInterface
+#define IRandomAccessStreamReferenceStatics_AddRef __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_AddRef
+#define IRandomAccessStreamReferenceStatics_Release __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_Release
+#define IRandomAccessStreamReferenceStatics_GetIids __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetIids
+#define IRandomAccessStreamReferenceStatics_GetRuntimeClassName __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetRuntimeClassName
+#define IRandomAccessStreamReferenceStatics_GetTrustLevel __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_GetTrustLevel
+#define IRandomAccessStreamReferenceStatics_CreateFromFile __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromFile
+#define IRandomAccessStreamReferenceStatics_CreateFromUri __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromUri
+#define IRandomAccessStreamReferenceStatics_CreateFromStream __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_CreateFromStream
+#endif /* WIDL_using_Windows_Storage_Streams */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
  * IRandomAccessStreamWithContentType interface
  */
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
@@ -1316,6 +2628,38 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_Buffer[] = L
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_Buffer[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','B','u','f','f','e','r',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Storage_Streams_Buffer_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.Streams.DataWriter
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_Streams_DataWriter_DEFINED
+#define RUNTIMECLASS_Windows_Storage_Streams_DataWriter_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_Streams_DataWriter[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','D','a','t','a','W','r','i','t','e','r',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_DataWriter[] = L"Windows.Storage.Streams.DataWriter";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_DataWriter[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','D','a','t','a','W','r','i','t','e','r',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_Streams_DataWriter_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.Streams.DataWriterStoreOperation
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_Streams_DataWriterStoreOperation_DEFINED
+#define RUNTIMECLASS_Windows_Storage_Streams_DataWriterStoreOperation_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_Streams_DataWriterStoreOperation[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','D','a','t','a','W','r','i','t','e','r','S','t','o','r','e','O','p','e','r','a','t','i','o','n',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_DataWriterStoreOperation[] = L"Windows.Storage.Streams.DataWriterStoreOperation";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_Streams_DataWriterStoreOperation[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','S','t','r','e','a','m','s','.','D','a','t','a','W','r','i','t','e','r','S','t','o','r','e','O','p','e','r','a','t','i','o','n',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_Streams_DataWriterStoreOperation_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
@@ -2091,6 +3435,98 @@ static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStor
 #endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIBuffer_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream, 0xbcb37f4f, 0x3af4, 0x561c, 0xa9,0xe3, 0xee,0xf1,0x73,0x84,0x94,0xd7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("bcb37f4f-3af4-561c-a9e3-eef1738494d7")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Storage::Streams::IOutputStream* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream, 0xbcb37f4f, 0x3af4, 0x561c, 0xa9,0xe3, 0xee,0xf1,0x73,0x84,0x94,0xd7)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStreamVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStreamVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStreamVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream* This,__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IOutputStream IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream
+#define IAsyncOperationCompletedHandler_IOutputStreamVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStreamVtbl
+#define IAsyncOperationCompletedHandler_IOutputStream __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream
+#define IAsyncOperationCompletedHandler_IOutputStream_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface
+#define IAsyncOperationCompletedHandler_IOutputStream_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_AddRef
+#define IAsyncOperationCompletedHandler_IOutputStream_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Release
+#define IAsyncOperationCompletedHandler_IOutputStream_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStream* > interface
  */
 #ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__
@@ -2181,6 +3617,190 @@ static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStor
 #endif
 
 #endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference, 0x60847289, 0xea0b, 0x5df6, 0x89,0xdf, 0xf2,0xc6,0x2c,0xba,0x96,0x93);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("60847289-ea0b-5df6-89df-f2c62cba9693")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference, 0x60847289, 0xea0b, 0x5df6, 0x89,0xdf, 0xf2,0xc6,0x2c,0xba,0x96,0x93)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IRandomAccessStreamReference IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReferenceVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReference __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReference_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReference_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReference_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamReference_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType, 0x3dddecf4, 0x1d39, 0x58e8, 0x83,0xb1, 0xdb,0xed,0x54,0x1c,0x7f,0x35);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("3dddecf4-1d39-58e8-83b1-dbed541c7f35")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType, 0x3dddecf4, 0x1d39, 0x58e8, 0x83,0xb1, 0xdb,0xed,0x54,0x1c,0x7f,0x35)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentTypeVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release
+#define IAsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperation<ABI::Windows::Storage::Streams::IBuffer* > interface
@@ -2323,6 +3943,146 @@ static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__C
 #endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream, 0xe8736833, 0xd013, 0x5361, 0x97,0x7d, 0xc5,0xe9,0x99,0x34,0x68,0x0e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("e8736833-d013-5361-977d-c5e99934680e")
+            IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* > : IAsyncOperation_impl<ABI::Windows::Storage::Streams::IOutputStream* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream, 0xe8736833, 0xd013, 0x5361, 0x97,0x7d, 0xc5,0xe9,0x99,0x34,0x68,0x0e)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStreamVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIOutputStream **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStreamVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStreamVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_AddRef(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_Release(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetIids(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IOutputStream* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIOutputStream **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetResults(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream* This,__x_ABI_CWindows_CStorage_CStreams_CIOutputStream **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IOutputStream IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream
+#define IAsyncOperation_IOutputStreamVtbl __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStreamVtbl
+#define IAsyncOperation_IOutputStream __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream
+#define IAsyncOperation_IOutputStream_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_QueryInterface
+#define IAsyncOperation_IOutputStream_AddRef __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_AddRef
+#define IAsyncOperation_IOutputStream_Release __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_Release
+#define IAsyncOperation_IOutputStream_GetIids __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetIids
+#define IAsyncOperation_IOutputStream_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetRuntimeClassName
+#define IAsyncOperation_IOutputStream_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetTrustLevel
+#define IAsyncOperation_IOutputStream_put_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_put_Completed
+#define IAsyncOperation_IOutputStream_get_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_get_Completed
+#define IAsyncOperation_IOutputStream_GetResults __FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIOutputStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStream* > interface
  */
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__
@@ -2462,8 +4222,292 @@ static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__C
 
 #endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference, 0x65178d50, 0xe6a2, 0x5d16, 0xb2,0x44, 0x65,0xe9,0x72,0x5e,0x5a,0x0c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("65178d50-e6a2-5d16-b244-65e9725e5a0c")
+            IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > : IAsyncOperation_impl<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference, 0x65178d50, 0xe6a2, 0x5d16, 0xb2,0x44, 0x65,0xe9,0x72,0x5e,0x5a,0x0c)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetIids(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetResults(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference* This,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IRandomAccessStreamReference IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference
+#define IAsyncOperation_IRandomAccessStreamReferenceVtbl __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReferenceVtbl
+#define IAsyncOperation_IRandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference
+#define IAsyncOperation_IRandomAccessStreamReference_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_QueryInterface
+#define IAsyncOperation_IRandomAccessStreamReference_AddRef __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_AddRef
+#define IAsyncOperation_IRandomAccessStreamReference_Release __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_Release
+#define IAsyncOperation_IRandomAccessStreamReference_GetIids __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetIids
+#define IAsyncOperation_IRandomAccessStreamReference_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetRuntimeClassName
+#define IAsyncOperation_IRandomAccessStreamReference_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetTrustLevel
+#define IAsyncOperation_IRandomAccessStreamReference_put_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_put_Completed
+#define IAsyncOperation_IRandomAccessStreamReference_get_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_get_Completed
+#define IAsyncOperation_IRandomAccessStreamReference_GetResults __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamReference_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType, 0xc4a57c5e, 0x32b0, 0x55b3, 0xad,0x13, 0xce,0x1c,0x23,0x04,0x1e,0xd6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("c4a57c5e-32b0-55b3-ad13-ce1c23041ed6")
+            IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > : IAsyncOperation_impl<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType, 0xc4a57c5e, 0x32b0, 0x55b3, 0xad,0x13, 0xce,0x1c,0x23,0x04,0x1e,0xd6)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetIids(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetResults(__FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType* This,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IRandomAccessStreamWithContentType IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType
+#define IAsyncOperation_IRandomAccessStreamWithContentTypeVtbl __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentTypeVtbl
+#define IAsyncOperation_IRandomAccessStreamWithContentType __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType
+#define IAsyncOperation_IRandomAccessStreamWithContentType_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_QueryInterface
+#define IAsyncOperation_IRandomAccessStreamWithContentType_AddRef __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_AddRef
+#define IAsyncOperation_IRandomAccessStreamWithContentType_Release __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_Release
+#define IAsyncOperation_IRandomAccessStreamWithContentType_GetIids __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetIids
+#define IAsyncOperation_IRandomAccessStreamWithContentType_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetRuntimeClassName
+#define IAsyncOperation_IRandomAccessStreamWithContentType_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetTrustLevel
+#define IAsyncOperation_IRandomAccessStreamWithContentType_put_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_put_Completed
+#define IAsyncOperation_IRandomAccessStreamWithContentType_get_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_get_Completed
+#define IAsyncOperation_IRandomAccessStreamWithContentType_GetResults __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER HSTRING_UserSize     (ULONG *, ULONG, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserMarshal  (ULONG *, unsigned char *, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserUnmarshal(ULONG *, unsigned char *, HSTRING *);
+void            __RPC_USER HSTRING_UserFree     (ULONG *, HSTRING *);
 
 /* End additional prototypes */
 

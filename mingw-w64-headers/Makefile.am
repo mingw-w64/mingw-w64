@@ -288,6 +288,7 @@ IDL_SRCS = \
   include/windows.applicationmodel.core.idl \
   include/windows.applicationmodel.idl \
   include/windows.data.json.idl \
+  include/windows.data.xml.dom.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.enumeration.idl \
   include/windows.devices.geolocation.idl \
@@ -328,6 +329,7 @@ IDL_SRCS = \
   include/windows.perception.spatial.idl \
   include/windows.perception.spatial.surfaces.idl \
   include/windows.security.authentication.onlineid.idl \
+  include/windows.security.authorization.appcapabilityaccess.idl \
   include/windows.security.credentials.idl \
   include/windows.security.credentials.ui.idl \
   include/windows.security.cryptography.idl \
@@ -350,6 +352,8 @@ IDL_SRCS = \
   include/windows.ui.core.idl \
   include/windows.ui.viewmanagement.idl \
   include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
+  include/windows.ui.xaml.idl \
+  include/windows.ui.xaml.interop.idl \
   include/windowscontracts.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \

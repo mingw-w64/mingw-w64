@@ -26,6 +26,21 @@
 
 /* Forward declarations */
 
+#ifndef ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs ABI::Windows::Media::IAutoRepeatModeChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IAutoRepeatModeChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CIMediaMarker_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CIMediaMarker __x_ABI_CWindows_CMedia_CIMediaMarker;
@@ -71,6 +86,51 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs ABI::Windows::Media::IPlaybackPositionChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IPlaybackPositionChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs ABI::Windows::Media::IPlaybackRateChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IPlaybackRateChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs ABI::Windows::Media::IShuffleEnabledChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IShuffleEnabledChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControls __x_ABI_CWindows_CMedia_CISystemMediaTransportControls;
@@ -80,6 +140,21 @@ namespace ABI {
     namespace Windows {
         namespace Media {
             interface ISystemMediaTransportControls;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 ABI::Windows::Media::ISystemMediaTransportControls2
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface ISystemMediaTransportControls2;
         }
     }
 }
@@ -131,6 +206,36 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties ABI::Windows::Media::ISystemMediaTransportControlsTimelineProperties
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface ISystemMediaTransportControlsTimelineProperties;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            class AutoRepeatModeChangeRequestedEventArgs;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CAutoRepeatModeChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CAutoRepeatModeChangeRequestedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CMedia_CImageDisplayProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CImageDisplayProperties_FWD_DEFINED__
 #ifdef __cplusplus
@@ -160,6 +265,51 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CMedia_CMusicDisplayProperties __x_ABI_CWindows_CMedia_CMusicDisplayProperties;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CMedia_CMusicDisplayProperties_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CMedia_CPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            class PlaybackPositionChangeRequestedEventArgs;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CPlaybackPositionChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CPlaybackPositionChangeRequestedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CMedia_CPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            class PlaybackRateChangeRequestedEventArgs;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CPlaybackRateChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CPlaybackRateChangeRequestedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CMedia_CShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            class ShuffleEnabledChangeRequestedEventArgs;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CShuffleEnabledChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CShuffleEnabledChangeRequestedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CMedia_CSystemMediaTransportControls_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CSystemMediaTransportControls_FWD_DEFINED__
@@ -221,6 +371,21 @@ typedef struct __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsPropertyChan
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CMedia_CSystemMediaTransportControlsPropertyChangedEventArgs_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CMedia_CSystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CSystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            class SystemMediaTransportControlsTimelineProperties;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsTimelineProperties __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsTimelineProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CMedia_CSystemMediaTransportControlsTimelineProperties_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CMedia_CVideoDisplayProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CVideoDisplayProperties_FWD_DEFINED__
 #ifdef __cplusplus
@@ -268,6 +433,46 @@ typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windo
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIReference_1_MediaPlaybackAutoRepeatMode_FWD_DEFINED__
+#define ____FIReference_1_MediaPlaybackAutoRepeatMode_FWD_DEFINED__
+typedef interface __FIReference_1_MediaPlaybackAutoRepeatMode __FIReference_1_MediaPlaybackAutoRepeatMode;
+#ifdef __cplusplus
+#define __FIReference_1_MediaPlaybackAutoRepeatMode ABI::Windows::Foundation::IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CSystemMediaTransportControlsButtonPressedEventArgs_FWD_DEFINED__
 #define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CSystemMediaTransportControlsButtonPressedEventArgs_FWD_DEFINED__
 typedef interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CSystemMediaTransportControlsButtonPressedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CSystemMediaTransportControlsButtonPressedEventArgs;
@@ -300,6 +505,10 @@ typedef enum __x_ABI_CWindows_CMedia_CAudioProcessing __x_ABI_CWindows_CMedia_CA
 #endif /* __cplusplus */
 
 #ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CMedia_CMediaPlaybackStatus __x_ABI_CWindows_CMedia_CMediaPlaybackStatus;
 #endif /* __cplusplus */
 
@@ -318,6 +527,21 @@ typedef enum __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton __x_ABI
 #ifndef __cplusplus
 typedef enum __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty;
 #endif /* __cplusplus */
+
+#ifndef ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs ABI::Windows::Media::IAutoRepeatModeChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IAutoRepeatModeChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
 
 #ifndef ____x_ABI_CWindows_CMedia_CIImageDisplayProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CIImageDisplayProperties_FWD_DEFINED__
@@ -403,6 +627,51 @@ namespace ABI {
     namespace Windows {
         namespace Media {
             interface IMusicDisplayProperties3;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs ABI::Windows::Media::IPlaybackPositionChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IPlaybackPositionChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs ABI::Windows::Media::IPlaybackRateChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IPlaybackRateChangeRequestedEventArgs;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs ABI::Windows::Media::IShuffleEnabledChangeRequestedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface IShuffleEnabledChangeRequestedEventArgs;
         }
     }
 }
@@ -499,6 +768,21 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties ABI::Windows::Media::ISystemMediaTransportControlsTimelineProperties
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            interface ISystemMediaTransportControlsTimelineProperties;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CMedia_CIVideoDisplayProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CIVideoDisplayProperties_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CIVideoDisplayProperties __x_ABI_CWindows_CMedia_CIVideoDisplayProperties;
@@ -561,6 +845,14 @@ typedef interface __FIVector_1_Windows__CMedia__CIMediaMarker __FIVector_1_Windo
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIReference_1_MediaPlaybackAutoRepeatMode_FWD_DEFINED__
+#define ____FIReference_1_MediaPlaybackAutoRepeatMode_FWD_DEFINED__
+typedef interface __FIReference_1_MediaPlaybackAutoRepeatMode __FIReference_1_MediaPlaybackAutoRepeatMode;
+#ifdef __cplusplus
+#define __FIReference_1_MediaPlaybackAutoRepeatMode ABI::Windows::Foundation::IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode >
+#endif /* __cplusplus */
+#endif
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
@@ -582,6 +874,33 @@ enum __x_ABI_CWindows_CMedia_CAudioProcessing {
 };
 #ifdef WIDL_using_Windows_Media
 #define AudioProcessing __x_ABI_CWindows_CMedia_CAudioProcessing
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            enum MediaPlaybackAutoRepeatMode {
+                MediaPlaybackAutoRepeatMode_None = 0,
+                MediaPlaybackAutoRepeatMode_Track = 1,
+                MediaPlaybackAutoRepeatMode_List = 2
+            };
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode {
+    MediaPlaybackAutoRepeatMode_None = 0,
+    MediaPlaybackAutoRepeatMode_Track = 1,
+    MediaPlaybackAutoRepeatMode_List = 2
+};
+#ifdef WIDL_using_Windows_Media
+#define MediaPlaybackAutoRepeatMode __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode
 #endif /* WIDL_using_Windows_Media */
 #endif
 
@@ -737,6 +1056,132 @@ enum __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty {
 #endif
 
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+/*****************************************************************************
+ * IAutoRepeatModeChangeRequestedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs, 0xea137efa, 0xd852, 0x438e, 0x88,0x2b, 0xc9,0x90,0x10,0x9a,0x78,0xf4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("ea137efa-d852-438e-882b-c990109a78f4")
+            IAutoRepeatModeChangeRequestedEventArgs : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_RequestedAutoRepeatMode(
+                    ABI::Windows::Media::MediaPlaybackAutoRepeatMode *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs, 0xea137efa, 0xd852, 0x438e, 0x88,0x2b, 0xc9,0x90,0x10,0x9a,0x78,0xf4)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IAutoRepeatModeChangeRequestedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RequestedAutoRepeatMode)(
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAutoRepeatModeChangeRequestedEventArgs methods ***/
+#define __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_get_RequestedAutoRepeatMode(This,value) (This)->lpVtbl->get_RequestedAutoRepeatMode(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_QueryInterface(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_AddRef(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_Release(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetIids(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetTrustLevel(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAutoRepeatModeChangeRequestedEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_get_RequestedAutoRepeatMode(__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs* This,__x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value) {
+    return This->lpVtbl->get_RequestedAutoRepeatMode(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_IAutoRepeatModeChangeRequestedEventArgs IID___x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs
+#define IAutoRepeatModeChangeRequestedEventArgsVtbl __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgsVtbl
+#define IAutoRepeatModeChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs
+#define IAutoRepeatModeChangeRequestedEventArgs_QueryInterface __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_QueryInterface
+#define IAutoRepeatModeChangeRequestedEventArgs_AddRef __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_AddRef
+#define IAutoRepeatModeChangeRequestedEventArgs_Release __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_Release
+#define IAutoRepeatModeChangeRequestedEventArgs_GetIids __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetIids
+#define IAutoRepeatModeChangeRequestedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetRuntimeClassName
+#define IAutoRepeatModeChangeRequestedEventArgs_GetTrustLevel __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_GetTrustLevel
+#define IAutoRepeatModeChangeRequestedEventArgs_get_RequestedAutoRepeatMode __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_get_RequestedAutoRepeatMode
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*****************************************************************************
  * IMediaMarker interface
  */
@@ -1248,6 +1693,384 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2_g
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IPlaybackPositionChangeRequestedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs, 0xb4493f88, 0xeb28, 0x4961, 0x9c,0x14, 0x33,0x5e,0x44,0xf3,0xe1,0x25);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("b4493f88-eb28-4961-9c14-335e44f3e125")
+            IPlaybackPositionChangeRequestedEventArgs : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_RequestedPlaybackPosition(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs, 0xb4493f88, 0xeb28, 0x4961, 0x9c,0x14, 0x33,0x5e,0x44,0xf3,0xe1,0x25)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IPlaybackPositionChangeRequestedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RequestedPlaybackPosition)(
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IPlaybackPositionChangeRequestedEventArgs methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_get_RequestedPlaybackPosition(This,value) (This)->lpVtbl->get_RequestedPlaybackPosition(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_QueryInterface(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_AddRef(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_Release(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetIids(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetTrustLevel(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IPlaybackPositionChangeRequestedEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_get_RequestedPlaybackPosition(__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_RequestedPlaybackPosition(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_IPlaybackPositionChangeRequestedEventArgs IID___x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs
+#define IPlaybackPositionChangeRequestedEventArgsVtbl __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgsVtbl
+#define IPlaybackPositionChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs
+#define IPlaybackPositionChangeRequestedEventArgs_QueryInterface __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_QueryInterface
+#define IPlaybackPositionChangeRequestedEventArgs_AddRef __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_AddRef
+#define IPlaybackPositionChangeRequestedEventArgs_Release __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_Release
+#define IPlaybackPositionChangeRequestedEventArgs_GetIids __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetIids
+#define IPlaybackPositionChangeRequestedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetRuntimeClassName
+#define IPlaybackPositionChangeRequestedEventArgs_GetTrustLevel __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_GetTrustLevel
+#define IPlaybackPositionChangeRequestedEventArgs_get_RequestedPlaybackPosition __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_get_RequestedPlaybackPosition
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IPlaybackRateChangeRequestedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs, 0x2ce2c41f, 0x3cd6, 0x4f77, 0x9b,0xa7, 0xeb,0x27,0xc2,0x6a,0x21,0x40);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("2ce2c41f-3cd6-4f77-9ba7-eb27c26a2140")
+            IPlaybackRateChangeRequestedEventArgs : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_RequestedPlaybackRate(
+                    DOUBLE *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs, 0x2ce2c41f, 0x3cd6, 0x4f77, 0x9b,0xa7, 0xeb,0x27,0xc2,0x6a,0x21,0x40)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IPlaybackRateChangeRequestedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RequestedPlaybackRate)(
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *This,
+        DOUBLE *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IPlaybackRateChangeRequestedEventArgs methods ***/
+#define __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_get_RequestedPlaybackRate(This,value) (This)->lpVtbl->get_RequestedPlaybackRate(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_QueryInterface(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_AddRef(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_Release(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetIids(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetTrustLevel(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IPlaybackRateChangeRequestedEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_get_RequestedPlaybackRate(__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs* This,DOUBLE *value) {
+    return This->lpVtbl->get_RequestedPlaybackRate(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_IPlaybackRateChangeRequestedEventArgs IID___x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs
+#define IPlaybackRateChangeRequestedEventArgsVtbl __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgsVtbl
+#define IPlaybackRateChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs
+#define IPlaybackRateChangeRequestedEventArgs_QueryInterface __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_QueryInterface
+#define IPlaybackRateChangeRequestedEventArgs_AddRef __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_AddRef
+#define IPlaybackRateChangeRequestedEventArgs_Release __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_Release
+#define IPlaybackRateChangeRequestedEventArgs_GetIids __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetIids
+#define IPlaybackRateChangeRequestedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetRuntimeClassName
+#define IPlaybackRateChangeRequestedEventArgs_GetTrustLevel __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_GetTrustLevel
+#define IPlaybackRateChangeRequestedEventArgs_get_RequestedPlaybackRate __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_get_RequestedPlaybackRate
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IShuffleEnabledChangeRequestedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs, 0x49b593fe, 0x4fd0, 0x4666, 0xa3,0x14, 0xc0,0xe0,0x19,0x40,0xd3,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("49b593fe-4fd0-4666-a314-c0e01940d302")
+            IShuffleEnabledChangeRequestedEventArgs : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_RequestedShuffleEnabled(
+                    boolean *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs, 0x49b593fe, 0x4fd0, 0x4666, 0xa3,0x14, 0xc0,0xe0,0x19,0x40,0xd3,0x02)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    /*** IShuffleEnabledChangeRequestedEventArgs methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RequestedShuffleEnabled)(
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *This,
+        boolean *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IShuffleEnabledChangeRequestedEventArgs methods ***/
+#define __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_get_RequestedShuffleEnabled(This,value) (This)->lpVtbl->get_RequestedShuffleEnabled(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_QueryInterface(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_AddRef(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_Release(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetIids(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetTrustLevel(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IShuffleEnabledChangeRequestedEventArgs methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_get_RequestedShuffleEnabled(__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs* This,boolean *value) {
+    return This->lpVtbl->get_RequestedShuffleEnabled(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_IShuffleEnabledChangeRequestedEventArgs IID___x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs
+#define IShuffleEnabledChangeRequestedEventArgsVtbl __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgsVtbl
+#define IShuffleEnabledChangeRequestedEventArgs __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs
+#define IShuffleEnabledChangeRequestedEventArgs_QueryInterface __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_QueryInterface
+#define IShuffleEnabledChangeRequestedEventArgs_AddRef __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_AddRef
+#define IShuffleEnabledChangeRequestedEventArgs_Release __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_Release
+#define IShuffleEnabledChangeRequestedEventArgs_GetIids __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetIids
+#define IShuffleEnabledChangeRequestedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetRuntimeClassName
+#define IShuffleEnabledChangeRequestedEventArgs_GetTrustLevel __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_GetTrustLevel
+#define IShuffleEnabledChangeRequestedEventArgs_get_RequestedShuffleEnabled __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_get_RequestedShuffleEnabled
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
  * ISystemMediaTransportControls interface
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -1723,6 +2546,308 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportContr
 #endif
 
 #endif  /* ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * ISystemMediaTransportControls2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls2, 0xea98d2f6, 0x7f3c, 0x4af2, 0xa5,0x86, 0x72,0x88,0x98,0x08,0xef,0xb1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("ea98d2f6-7f3c-4af2-a586-72889808efb1")
+            ISystemMediaTransportControls2 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_AutoRepeatMode(
+                    ABI::Windows::Media::MediaPlaybackAutoRepeatMode *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_AutoRepeatMode(
+                    ABI::Windows::Media::MediaPlaybackAutoRepeatMode value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_ShuffleEnabled(
+                    boolean *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_ShuffleEnabled(
+                    boolean value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_PlaybackRate(
+                    DOUBLE *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_PlaybackRate(
+                    DOUBLE value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE UpdateTimelineProperties(
+                    ABI::Windows::Media::ISystemMediaTransportControlsTimelineProperties *timeline_properties) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE add_PlaybackPositionChangeRequested(
+                    ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > *handler,
+                    EventRegistrationToken *token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE remove_PlaybackPositionChangeRequested(
+                    EventRegistrationToken token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE add_PlaybackRateChangeRequested(
+                    ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > *handler,
+                    EventRegistrationToken *token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE remove_PlaybackRateChangeRequested(
+                    EventRegistrationToken token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE add_ShuffleEnabledChangeRequested(
+                    ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > *handler,
+                    EventRegistrationToken *token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE remove_ShuffleEnabledChangeRequested(
+                    EventRegistrationToken token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE add_AutoRepeatModeChangeRequested(
+                    ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > *handler,
+                    EventRegistrationToken *token) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE remove_AutoRepeatModeChangeRequested(
+                    EventRegistrationToken token) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2, 0xea98d2f6, 0x7f3c, 0x4af2, 0xa5,0x86, 0x72,0x88,0x98,0x08,0xef,0xb1)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        TrustLevel *trustLevel);
+
+    /*** ISystemMediaTransportControls2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoRepeatMode)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_AutoRepeatMode)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ShuffleEnabled)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_ShuffleEnabled)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        boolean value);
+
+    HRESULT (STDMETHODCALLTYPE *get_PlaybackRate)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_PlaybackRate)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        DOUBLE value);
+
+    HRESULT (STDMETHODCALLTYPE *UpdateTimelineProperties)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *timeline_properties);
+
+    HRESULT (STDMETHODCALLTYPE *add_PlaybackPositionChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_PlaybackPositionChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *add_PlaybackRateChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_PlaybackRateChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *add_ShuffleEnabledChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_ShuffleEnabledChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *add_AutoRepeatModeChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AutoRepeatModeChangeRequested)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 *This,
+        EventRegistrationToken token);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2Vtbl;
+
+interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISystemMediaTransportControls2 methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_AutoRepeatMode(This,value) (This)->lpVtbl->get_AutoRepeatMode(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_AutoRepeatMode(This,value) (This)->lpVtbl->put_AutoRepeatMode(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_ShuffleEnabled(This,value) (This)->lpVtbl->get_ShuffleEnabled(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_ShuffleEnabled(This,value) (This)->lpVtbl->put_ShuffleEnabled(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_PlaybackRate(This,value) (This)->lpVtbl->get_PlaybackRate(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_PlaybackRate(This,value) (This)->lpVtbl->put_PlaybackRate(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_UpdateTimelineProperties(This,timeline_properties) (This)->lpVtbl->UpdateTimelineProperties(This,timeline_properties)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackPositionChangeRequested(This,handler,token) (This)->lpVtbl->add_PlaybackPositionChangeRequested(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackPositionChangeRequested(This,token) (This)->lpVtbl->remove_PlaybackPositionChangeRequested(This,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackRateChangeRequested(This,handler,token) (This)->lpVtbl->add_PlaybackRateChangeRequested(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackRateChangeRequested(This,token) (This)->lpVtbl->remove_PlaybackRateChangeRequested(This,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested(This,handler,token) (This)->lpVtbl->add_ShuffleEnabledChangeRequested(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_ShuffleEnabledChangeRequested(This,token) (This)->lpVtbl->remove_ShuffleEnabledChangeRequested(This,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested(This,handler,token) (This)->lpVtbl->add_AutoRepeatModeChangeRequested(This,handler,token)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_AutoRepeatModeChangeRequested(This,token) (This)->lpVtbl->remove_AutoRepeatModeChangeRequested(This,token)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_QueryInterface(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_AddRef(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_Release(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetIids(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetTrustLevel(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISystemMediaTransportControls2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_AutoRepeatMode(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value) {
+    return This->lpVtbl->get_AutoRepeatMode(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_AutoRepeatMode(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode value) {
+    return This->lpVtbl->put_AutoRepeatMode(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_ShuffleEnabled(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,boolean *value) {
+    return This->lpVtbl->get_ShuffleEnabled(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_ShuffleEnabled(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,boolean value) {
+    return This->lpVtbl->put_ShuffleEnabled(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_PlaybackRate(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,DOUBLE *value) {
+    return This->lpVtbl->get_PlaybackRate(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_PlaybackRate(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,DOUBLE value) {
+    return This->lpVtbl->put_PlaybackRate(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_UpdateTimelineProperties(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *timeline_properties) {
+    return This->lpVtbl->UpdateTimelineProperties(This,timeline_properties);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackPositionChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_PlaybackPositionChangeRequested(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackPositionChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_PlaybackPositionChangeRequested(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackRateChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_PlaybackRateChangeRequested(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackRateChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_PlaybackRateChangeRequested(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_ShuffleEnabledChangeRequested(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_ShuffleEnabledChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_ShuffleEnabledChangeRequested(This,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_AutoRepeatModeChangeRequested(This,handler,token);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_AutoRepeatModeChangeRequested(__x_ABI_CWindows_CMedia_CISystemMediaTransportControls2* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_AutoRepeatModeChangeRequested(This,token);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_ISystemMediaTransportControls2 IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls2
+#define ISystemMediaTransportControls2Vtbl __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2Vtbl
+#define ISystemMediaTransportControls2 __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2
+#define ISystemMediaTransportControls2_QueryInterface __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_QueryInterface
+#define ISystemMediaTransportControls2_AddRef __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_AddRef
+#define ISystemMediaTransportControls2_Release __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_Release
+#define ISystemMediaTransportControls2_GetIids __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetIids
+#define ISystemMediaTransportControls2_GetRuntimeClassName __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetRuntimeClassName
+#define ISystemMediaTransportControls2_GetTrustLevel __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_GetTrustLevel
+#define ISystemMediaTransportControls2_get_AutoRepeatMode __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_AutoRepeatMode
+#define ISystemMediaTransportControls2_put_AutoRepeatMode __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_AutoRepeatMode
+#define ISystemMediaTransportControls2_get_ShuffleEnabled __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_ShuffleEnabled
+#define ISystemMediaTransportControls2_put_ShuffleEnabled __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_ShuffleEnabled
+#define ISystemMediaTransportControls2_get_PlaybackRate __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_get_PlaybackRate
+#define ISystemMediaTransportControls2_put_PlaybackRate __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_put_PlaybackRate
+#define ISystemMediaTransportControls2_UpdateTimelineProperties __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_UpdateTimelineProperties
+#define ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackPositionChangeRequested
+#define ISystemMediaTransportControls2_remove_PlaybackPositionChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackPositionChangeRequested
+#define ISystemMediaTransportControls2_add_PlaybackRateChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_PlaybackRateChangeRequested
+#define ISystemMediaTransportControls2_remove_PlaybackRateChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_PlaybackRateChangeRequested
+#define ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested
+#define ISystemMediaTransportControls2_remove_ShuffleEnabledChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_ShuffleEnabledChangeRequested
+#define ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested
+#define ISystemMediaTransportControls2_remove_AutoRepeatModeChangeRequested __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_remove_AutoRepeatModeChangeRequested
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CISystemMediaTransportControls2_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -2237,6 +3362,256 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportContr
 #endif  /* ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * ISystemMediaTransportControlsTimelineProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties, 0x5125316a, 0xc3a2, 0x475b, 0x85,0x07, 0x93,0x53,0x4d,0xc8,0x8f,0x15);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Media {
+            MIDL_INTERFACE("5125316a-c3a2-475b-8507-93534dc88f15")
+            ISystemMediaTransportControlsTimelineProperties : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_StartTime(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_StartTime(
+                    ABI::Windows::Foundation::TimeSpan value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_EndTime(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_EndTime(
+                    ABI::Windows::Foundation::TimeSpan value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_MinSeekTime(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_MinSeekTime(
+                    ABI::Windows::Foundation::TimeSpan value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_MaxSeekTime(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_MaxSeekTime(
+                    ABI::Windows::Foundation::TimeSpan value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_Position(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE put_Position(
+                    ABI::Windows::Foundation::TimeSpan value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties, 0x5125316a, 0xc3a2, 0x475b, 0x85,0x07, 0x93,0x53,0x4d,0xc8,0x8f,0x15)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelinePropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** ISystemMediaTransportControlsTimelineProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_StartTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_StartTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    HRESULT (STDMETHODCALLTYPE *get_EndTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_EndTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    HRESULT (STDMETHODCALLTYPE *get_MinSeekTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_MinSeekTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    HRESULT (STDMETHODCALLTYPE *get_MaxSeekTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_MaxSeekTime)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Position)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Position)(
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelinePropertiesVtbl;
+
+interface __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties {
+    CONST_VTBL __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelinePropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISystemMediaTransportControlsTimelineProperties methods ***/
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_StartTime(This,value) (This)->lpVtbl->get_StartTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_StartTime(This,value) (This)->lpVtbl->put_StartTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_EndTime(This,value) (This)->lpVtbl->get_EndTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_EndTime(This,value) (This)->lpVtbl->put_EndTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MinSeekTime(This,value) (This)->lpVtbl->get_MinSeekTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MinSeekTime(This,value) (This)->lpVtbl->put_MinSeekTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MaxSeekTime(This,value) (This)->lpVtbl->get_MaxSeekTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MaxSeekTime(This,value) (This)->lpVtbl->put_MaxSeekTime(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_Position(This,value) (This)->lpVtbl->get_Position(This,value)
+#define __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_Position(This,value) (This)->lpVtbl->put_Position(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_QueryInterface(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_AddRef(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_Release(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetIids(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetRuntimeClassName(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetTrustLevel(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISystemMediaTransportControlsTimelineProperties methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_StartTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_StartTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_StartTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->put_StartTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_EndTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_EndTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_EndTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->put_EndTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MinSeekTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_MinSeekTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MinSeekTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->put_MinSeekTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MaxSeekTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_MaxSeekTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MaxSeekTime(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->put_MaxSeekTime(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_Position(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_Position(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_Position(__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan value) {
+    return This->lpVtbl->put_Position(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Media
+#define IID_ISystemMediaTransportControlsTimelineProperties IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties
+#define ISystemMediaTransportControlsTimelinePropertiesVtbl __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelinePropertiesVtbl
+#define ISystemMediaTransportControlsTimelineProperties __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties
+#define ISystemMediaTransportControlsTimelineProperties_QueryInterface __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_QueryInterface
+#define ISystemMediaTransportControlsTimelineProperties_AddRef __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_AddRef
+#define ISystemMediaTransportControlsTimelineProperties_Release __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_Release
+#define ISystemMediaTransportControlsTimelineProperties_GetIids __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetIids
+#define ISystemMediaTransportControlsTimelineProperties_GetRuntimeClassName __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetRuntimeClassName
+#define ISystemMediaTransportControlsTimelineProperties_GetTrustLevel __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_GetTrustLevel
+#define ISystemMediaTransportControlsTimelineProperties_get_StartTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_StartTime
+#define ISystemMediaTransportControlsTimelineProperties_put_StartTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_StartTime
+#define ISystemMediaTransportControlsTimelineProperties_get_EndTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_EndTime
+#define ISystemMediaTransportControlsTimelineProperties_put_EndTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_EndTime
+#define ISystemMediaTransportControlsTimelineProperties_get_MinSeekTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MinSeekTime
+#define ISystemMediaTransportControlsTimelineProperties_put_MinSeekTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MinSeekTime
+#define ISystemMediaTransportControlsTimelineProperties_get_MaxSeekTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_MaxSeekTime
+#define ISystemMediaTransportControlsTimelineProperties_put_MaxSeekTime __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_MaxSeekTime
+#define ISystemMediaTransportControlsTimelineProperties_get_Position __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_get_Position
+#define ISystemMediaTransportControlsTimelineProperties_put_Position __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_put_Position
+#endif /* WIDL_using_Windows_Media */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.AutoRepeatModeChangeRequestedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_AutoRepeatModeChangeRequestedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_Media_AutoRepeatModeChangeRequestedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_AutoRepeatModeChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','A','u','t','o','R','e','p','e','a','t','M','o','d','e','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_AutoRepeatModeChangeRequestedEventArgs[] = L"Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_AutoRepeatModeChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','A','u','t','o','R','e','p','e','a','t','M','o','d','e','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_AutoRepeatModeChangeRequestedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Media.ImageDisplayProperties
  */
@@ -2267,6 +3642,54 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_MusicDisplayProperties
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_MusicDisplayProperties[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','M','u','s','i','c','D','i','s','p','l','a','y','P','r','o','p','e','r','t','i','e','s',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Media_MusicDisplayProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.PlaybackPositionChangeRequestedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_PlaybackPositionChangeRequestedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_Media_PlaybackPositionChangeRequestedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_PlaybackPositionChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','P','l','a','y','b','a','c','k','P','o','s','i','t','i','o','n','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_PlaybackPositionChangeRequestedEventArgs[] = L"Windows.Media.PlaybackPositionChangeRequestedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_PlaybackPositionChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','P','l','a','y','b','a','c','k','P','o','s','i','t','i','o','n','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_PlaybackPositionChangeRequestedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.PlaybackRateChangeRequestedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_PlaybackRateChangeRequestedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_Media_PlaybackRateChangeRequestedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_PlaybackRateChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','P','l','a','y','b','a','c','k','R','a','t','e','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_PlaybackRateChangeRequestedEventArgs[] = L"Windows.Media.PlaybackRateChangeRequestedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_PlaybackRateChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','P','l','a','y','b','a','c','k','R','a','t','e','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_PlaybackRateChangeRequestedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.ShuffleEnabledChangeRequestedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_ShuffleEnabledChangeRequestedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_Media_ShuffleEnabledChangeRequestedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_ShuffleEnabledChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','h','u','f','f','l','e','E','n','a','b','l','e','d','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_ShuffleEnabledChangeRequestedEventArgs[] = L"Windows.Media.ShuffleEnabledChangeRequestedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_ShuffleEnabledChangeRequestedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','h','u','f','f','l','e','E','n','a','b','l','e','d','C','h','a','n','g','e','R','e','q','u','e','s','t','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_ShuffleEnabledChangeRequestedEventArgs_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
@@ -2331,6 +3754,22 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SystemMediaTransportCo
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SystemMediaTransportControlsPropertyChangedEventArgs[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','y','s','t','e','m','M','e','d','i','a','T','r','a','n','s','p','o','r','t','C','o','n','t','r','o','l','s','P','r','o','p','e','r','t','y','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Media_SystemMediaTransportControlsPropertyChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Media.SystemMediaTransportControlsTimelineProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Media_SystemMediaTransportControlsTimelineProperties_DEFINED
+#define RUNTIMECLASS_Windows_Media_SystemMediaTransportControlsTimelineProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Media_SystemMediaTransportControlsTimelineProperties[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','y','s','t','e','m','M','e','d','i','a','T','r','a','n','s','p','o','r','t','C','o','n','t','r','o','l','s','T','i','m','e','l','i','n','e','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SystemMediaTransportControlsTimelineProperties[] = L"Windows.Media.SystemMediaTransportControlsTimelineProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Media_SystemMediaTransportControlsTimelineProperties[] = {'W','i','n','d','o','w','s','.','M','e','d','i','a','.','S','y','s','t','e','m','M','e','d','i','a','T','r','a','n','s','p','o','r','t','C','o','n','t','r','o','l','s','T','i','m','e','l','i','n','e','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Media_SystemMediaTransportControlsTimelineProperties_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
@@ -3012,6 +4451,496 @@ static __WIDL_INLINE HRESULT __FIVector_1_Windows__CMedia__CIMediaMarker_Replace
 #endif
 
 #endif  /* ____FIVector_1_Windows__CMedia__CIMediaMarker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode > interface
+ */
+#ifndef ____FIReference_1_MediaPlaybackAutoRepeatMode_INTERFACE_DEFINED__
+#define ____FIReference_1_MediaPlaybackAutoRepeatMode_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIReference_1_MediaPlaybackAutoRepeatMode, 0x50a7f41f, 0x58d5, 0x5c4d, 0x94,0x75, 0x8d,0xd1,0xac,0xd6,0x58,0x36);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("50a7f41f-58d5-5c4d-9475-8dd1acd65836")
+            IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode > : IReference_impl<ABI::Windows::Media::MediaPlaybackAutoRepeatMode >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIReference_1_MediaPlaybackAutoRepeatMode, 0x50a7f41f, 0x58d5, 0x5c4d, 0x94,0x75, 0x8d,0xd1,0xac,0xd6,0x58,0x36)
+#endif
+#else
+typedef struct __FIReference_1_MediaPlaybackAutoRepeatModeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This,
+        TrustLevel *trustLevel);
+
+    /*** IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Value)(
+        __FIReference_1_MediaPlaybackAutoRepeatMode *This,
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value);
+
+    END_INTERFACE
+} __FIReference_1_MediaPlaybackAutoRepeatModeVtbl;
+
+interface __FIReference_1_MediaPlaybackAutoRepeatMode {
+    CONST_VTBL __FIReference_1_MediaPlaybackAutoRepeatModeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode > methods ***/
+#define __FIReference_1_MediaPlaybackAutoRepeatMode_get_Value(This,value) (This)->lpVtbl->get_Value(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_MediaPlaybackAutoRepeatMode_QueryInterface(__FIReference_1_MediaPlaybackAutoRepeatMode* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIReference_1_MediaPlaybackAutoRepeatMode_AddRef(__FIReference_1_MediaPlaybackAutoRepeatMode* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIReference_1_MediaPlaybackAutoRepeatMode_Release(__FIReference_1_MediaPlaybackAutoRepeatMode* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_MediaPlaybackAutoRepeatMode_GetIids(__FIReference_1_MediaPlaybackAutoRepeatMode* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_MediaPlaybackAutoRepeatMode_GetRuntimeClassName(__FIReference_1_MediaPlaybackAutoRepeatMode* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIReference_1_MediaPlaybackAutoRepeatMode_GetTrustLevel(__FIReference_1_MediaPlaybackAutoRepeatMode* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IReference<ABI::Windows::Media::MediaPlaybackAutoRepeatMode > methods ***/
+static __WIDL_INLINE HRESULT __FIReference_1_MediaPlaybackAutoRepeatMode_get_Value(__FIReference_1_MediaPlaybackAutoRepeatMode* This,__x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode *value) {
+    return This->lpVtbl->get_Value(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IReference_MediaPlaybackAutoRepeatMode IID___FIReference_1_MediaPlaybackAutoRepeatMode
+#define IReference_MediaPlaybackAutoRepeatModeVtbl __FIReference_1_MediaPlaybackAutoRepeatModeVtbl
+#define IReference_MediaPlaybackAutoRepeatMode __FIReference_1_MediaPlaybackAutoRepeatMode
+#define IReference_MediaPlaybackAutoRepeatMode_QueryInterface __FIReference_1_MediaPlaybackAutoRepeatMode_QueryInterface
+#define IReference_MediaPlaybackAutoRepeatMode_AddRef __FIReference_1_MediaPlaybackAutoRepeatMode_AddRef
+#define IReference_MediaPlaybackAutoRepeatMode_Release __FIReference_1_MediaPlaybackAutoRepeatMode_Release
+#define IReference_MediaPlaybackAutoRepeatMode_GetIids __FIReference_1_MediaPlaybackAutoRepeatMode_GetIids
+#define IReference_MediaPlaybackAutoRepeatMode_GetRuntimeClassName __FIReference_1_MediaPlaybackAutoRepeatMode_GetRuntimeClassName
+#define IReference_MediaPlaybackAutoRepeatMode_GetTrustLevel __FIReference_1_MediaPlaybackAutoRepeatMode_GetTrustLevel
+#define IReference_MediaPlaybackAutoRepeatMode_get_Value __FIReference_1_MediaPlaybackAutoRepeatMode_get_Value
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIReference_1_MediaPlaybackAutoRepeatMode_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs, 0xa6214bde, 0x02d5, 0x55b3, 0xab,0x0d, 0xc6,0x03,0x1b,0xe7,0x0d,0xa1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("a6214bde-02d5-55b3-ab0d-c6031be70da1")
+            ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SystemMediaTransportControls*, ABI::Windows::Media::ISystemMediaTransportControls* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs*, ABI::Windows::Media::IAutoRepeatModeChangeRequestedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs, 0xa6214bde, 0x02d5, 0x55b3, 0xab,0x0d, 0xc6,0x03,0x1b,0xe7,0x0d,0xa1)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,
+        __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Release(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::AutoRepeatModeChangeRequestedEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs* This,__x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgsVtbl __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgsVtbl
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_QueryInterface
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs_AddRef __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_AddRef
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs_Release __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Release
+#define ITypedEventHandler_SystemMediaTransportControls_AutoRepeatModeChangeRequestedEventArgs_Invoke __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CAutoRepeatModeChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs, 0x44e34f15, 0xbdc0, 0x50a7, 0xac,0xe4, 0x39,0xe9,0x1f,0xb7,0x53,0xf1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("44e34f15-bdc0-50a7-ace4-39e91fb753f1")
+            ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SystemMediaTransportControls*, ABI::Windows::Media::ISystemMediaTransportControls* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs*, ABI::Windows::Media::IPlaybackPositionChangeRequestedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs, 0x44e34f15, 0xbdc0, 0x50a7, 0xac,0xe4, 0x39,0xe9,0x1f,0xb7,0x53,0xf1)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,
+        __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Release(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackPositionChangeRequestedEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs* This,__x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgsVtbl __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgsVtbl
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_QueryInterface
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs_AddRef __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_AddRef
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs_Release __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Release
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackPositionChangeRequestedEventArgs_Invoke __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackPositionChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs, 0x15eb0182, 0x6366, 0x5b9f, 0xbd,0x8c, 0x8a,0xb4,0xfa,0x9d,0x7c,0xd9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("15eb0182-6366-5b9f-bd8c-8ab4fa9d7cd9")
+            ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SystemMediaTransportControls*, ABI::Windows::Media::ISystemMediaTransportControls* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs*, ABI::Windows::Media::IPlaybackRateChangeRequestedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs, 0x15eb0182, 0x6366, 0x5b9f, 0xbd,0x8c, 0x8a,0xb4,0xfa,0x9d,0x7c,0xd9)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,
+        __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Release(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::PlaybackRateChangeRequestedEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs* This,__x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgsVtbl __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgsVtbl
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_QueryInterface
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs_AddRef __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_AddRef
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs_Release __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Release
+#define ITypedEventHandler_SystemMediaTransportControls_PlaybackRateChangeRequestedEventArgs_Invoke __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CPlaybackRateChangeRequestedEventArgs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs, 0x17ecea80, 0x27e4, 0x5dae, 0xab,0xb4, 0xc8,0x58,0xad,0x1c,0x53,0x07);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("17ecea80-27e4-5dae-abb4-c858ad1c5307")
+            ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::SystemMediaTransportControls*, ABI::Windows::Media::ISystemMediaTransportControls* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs*, ABI::Windows::Media::IShuffleEnabledChangeRequestedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs, 0x17ecea80, 0x27e4, 0x5dae, 0xab,0xb4, 0xc8,0x58,0xad,0x1c,0x53,0x07)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs *This,
+        __x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,
+        __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Release(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::ShuffleEnabledChangeRequestedEventArgs* > methods ***/
+static __WIDL_INLINE HRESULT __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs* This,__x_ABI_CWindows_CMedia_CISystemMediaTransportControls *sender,__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs IID___FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgsVtbl __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgsVtbl
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_QueryInterface
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs_AddRef __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_AddRef
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs_Release __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Release
+#define ITypedEventHandler_SystemMediaTransportControls_ShuffleEnabledChangeRequestedEventArgs_Invoke __FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CMedia__CSystemMediaTransportControls_Windows__CMedia__CShuffleEnabledChangeRequestedEventArgs_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITypedEventHandler<ABI::Windows::Media::SystemMediaTransportControls*,ABI::Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs* > interface

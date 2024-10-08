@@ -41,6 +41,36 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics ABI::Windows::ApplicationModel::IDesignModeStatics
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IDesignModeStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 ABI::Windows::ApplicationModel::IDesignModeStatics2
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IDesignModeStatics2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs;
@@ -235,6 +265,21 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CApplicationModel_CAppDisplayInfo __x_ABI_CWindows_CApplicationModel_CAppDisplayInfo;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CApplicationModel_CAppDisplayInfo_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CDesignMode_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CDesignMode_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            class DesignMode;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CDesignMode __x_ABI_CWindows_CApplicationModel_CDesignMode;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CApplicationModel_CDesignMode_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CEnteredBackgroundEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CEnteredBackgroundEventArgs_FWD_DEFINED__
@@ -461,6 +506,36 @@ namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
             interface IAppDisplayInfo;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics ABI::Windows::ApplicationModel::IDesignModeStatics
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IDesignModeStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 ABI::Windows::ApplicationModel::IDesignModeStatics2
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IDesignModeStatics2;
         }
     }
 }
@@ -867,6 +942,258 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo
 
 #endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDesignModeStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIDesignModeStatics, 0x2c3893cc, 0xf81a, 0x4e7a, 0xb8,0x57, 0x76,0xa8,0x08,0x87,0xe1,0x85);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("2c3893cc-f81a-4e7a-b857-76a80887e185")
+            IDesignModeStatics : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_DesignModeEnabled(
+                    boolean *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics, 0x2c3893cc, 0xf81a, 0x4e7a, 0xb8,0x57, 0x76,0xa8,0x08,0x87,0xe1,0x85)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIDesignModeStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IDesignModeStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_DesignModeEnabled)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics *This,
+        boolean *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIDesignModeStaticsVtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIDesignModeStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDesignModeStatics methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_get_DesignModeEnabled(This,value) (This)->lpVtbl->get_DesignModeEnabled(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_AddRef(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_Release(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetIids(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDesignModeStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_get_DesignModeEnabled(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics* This,boolean *value) {
+    return This->lpVtbl->get_DesignModeEnabled(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IDesignModeStatics IID___x_ABI_CWindows_CApplicationModel_CIDesignModeStatics
+#define IDesignModeStaticsVtbl __x_ABI_CWindows_CApplicationModel_CIDesignModeStaticsVtbl
+#define IDesignModeStatics __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics
+#define IDesignModeStatics_QueryInterface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_QueryInterface
+#define IDesignModeStatics_AddRef __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_AddRef
+#define IDesignModeStatics_Release __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_Release
+#define IDesignModeStatics_GetIids __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetIids
+#define IDesignModeStatics_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetRuntimeClassName
+#define IDesignModeStatics_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_GetTrustLevel
+#define IDesignModeStatics_get_DesignModeEnabled __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_get_DesignModeEnabled
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IDesignModeStatics2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2, 0x80cf8137, 0xb064, 0x4858, 0xbe,0xc8, 0x3e,0xba,0x22,0x35,0x75,0x35);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("80cf8137-b064-4858-bec8-3eba22357535")
+            IDesignModeStatics2 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_DesignMode2Enabled(
+                    boolean *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2, 0x80cf8137, 0xb064, 0x4858, 0xbe,0xc8, 0x3e,0xba,0x22,0x35,0x75,0x35)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IDesignModeStatics2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_DesignMode2Enabled)(
+        __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 *This,
+        boolean *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2Vtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2 {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDesignModeStatics2 methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_get_DesignMode2Enabled(This,value) (This)->lpVtbl->get_DesignMode2Enabled(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_AddRef(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_Release(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetIids(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDesignModeStatics2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_get_DesignMode2Enabled(__x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2* This,boolean *value) {
+    return This->lpVtbl->get_DesignMode2Enabled(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IDesignModeStatics2 IID___x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2
+#define IDesignModeStatics2Vtbl __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2Vtbl
+#define IDesignModeStatics2 __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2
+#define IDesignModeStatics2_QueryInterface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_QueryInterface
+#define IDesignModeStatics2_AddRef __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_AddRef
+#define IDesignModeStatics2_Release __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_Release
+#define IDesignModeStatics2_GetIids __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetIids
+#define IDesignModeStatics2_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetRuntimeClassName
+#define IDesignModeStatics2_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_GetTrustLevel
+#define IDesignModeStatics2_get_DesignMode2Enabled __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_get_DesignMode2Enabled
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000 */
 
 /*****************************************************************************
  * IEnteredBackgroundEventArgs interface
@@ -2763,6 +3090,22 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_AppDisplayI
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_AppDisplayInfo[] = {'W','i','n','d','o','w','s','.','A','p','p','l','i','c','a','t','i','o','n','M','o','d','e','l','.','A','p','p','D','i','s','p','l','a','y','I','n','f','o',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_ApplicationModel_AppDisplayInfo_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.ApplicationModel.DesignMode
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_DesignMode_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_DesignMode_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_ApplicationModel_DesignMode[] = {'W','i','n','d','o','w','s','.','A','p','p','l','i','c','a','t','i','o','n','M','o','d','e','l','.','D','e','s','i','g','n','M','o','d','e',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_DesignMode[] = L"Windows.ApplicationModel.DesignMode";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_DesignMode[] = {'W','i','n','d','o','w','s','.','A','p','p','l','i','c','a','t','i','o','n','M','o','d','e','l','.','D','e','s','i','g','n','M','o','d','e',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_ApplicationModel_DesignMode_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
