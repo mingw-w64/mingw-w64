@@ -83,7 +83,7 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 MIDL_INTERFACE("25297d5c-3ad4-4c9c-b5cf-e36a38512330")
-                ICompositorInterop : public IInspectable
+                ICompositorInterop : public IUnknown
                 {
                     virtual HRESULT STDMETHODCALLTYPE CreateCompositionSurfaceForHandle(
                         HANDLE swapchain,
@@ -122,20 +122,6 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositorInteropVtbl {
     ULONG (STDMETHODCALLTYPE *Release)(
         __x_ABI_CWindows_CUI_CComposition_CICompositorInterop *This);
 
-    /*** IInspectable methods ***/
-    HRESULT (STDMETHODCALLTYPE *GetIids)(
-        __x_ABI_CWindows_CUI_CComposition_CICompositorInterop *This,
-        ULONG *iidCount,
-        IID **iids);
-
-    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
-        __x_ABI_CWindows_CUI_CComposition_CICompositorInterop *This,
-        HSTRING *className);
-
-    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
-        __x_ABI_CWindows_CUI_CComposition_CICompositorInterop *This,
-        TrustLevel *trustLevel);
-
     /*** ICompositorInterop methods ***/
     HRESULT (STDMETHODCALLTYPE *CreateCompositionSurfaceForHandle)(
         __x_ABI_CWindows_CUI_CComposition_CICompositorInterop *This,
@@ -165,10 +151,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositorInterop {
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_Release(This) (This)->lpVtbl->Release(This)
-/*** IInspectable methods ***/
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
 /*** ICompositorInterop methods ***/
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateCompositionSurfaceForHandle(This,swapchain,result) (This)->lpVtbl->CreateCompositionSurfaceForHandle(This,swapchain,result)
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateCompositionSurfaceForSwapChain(This,swapchain,result) (This)->lpVtbl->CreateCompositionSurfaceForSwapChain(This,swapchain,result)
@@ -183,16 +165,6 @@ static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CComposition_CICompositorInterop
 }
 static __WIDL_INLINE ULONG __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_Release(__x_ABI_CWindows_CUI_CComposition_CICompositorInterop* This) {
     return This->lpVtbl->Release(This);
-}
-/*** IInspectable methods ***/
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetIids(__x_ABI_CWindows_CUI_CComposition_CICompositorInterop* This,ULONG *iidCount,IID **iids) {
-    return This->lpVtbl->GetIids(This,iidCount,iids);
-}
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetRuntimeClassName(__x_ABI_CWindows_CUI_CComposition_CICompositorInterop* This,HSTRING *className) {
-    return This->lpVtbl->GetRuntimeClassName(This,className);
-}
-static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetTrustLevel(__x_ABI_CWindows_CUI_CComposition_CICompositorInterop* This,TrustLevel *trustLevel) {
-    return This->lpVtbl->GetTrustLevel(This,trustLevel);
 }
 /*** ICompositorInterop methods ***/
 static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateCompositionSurfaceForHandle(__x_ABI_CWindows_CUI_CComposition_CICompositorInterop* This,HANDLE swapchain,__x_ABI_CWindows_CUI_CComposition_CICompositionSurface **result) {
@@ -212,9 +184,6 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CUI_CComposition_CICompositorInter
 #define ICompositorInterop_QueryInterface __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_QueryInterface
 #define ICompositorInterop_AddRef __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_AddRef
 #define ICompositorInterop_Release __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_Release
-#define ICompositorInterop_GetIids __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetIids
-#define ICompositorInterop_GetRuntimeClassName __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetRuntimeClassName
-#define ICompositorInterop_GetTrustLevel __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_GetTrustLevel
 #define ICompositorInterop_CreateCompositionSurfaceForHandle __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateCompositionSurfaceForHandle
 #define ICompositorInterop_CreateCompositionSurfaceForSwapChain __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateCompositionSurfaceForSwapChain
 #define ICompositorInterop_CreateGraphicsDevice __x_ABI_CWindows_CUI_CComposition_CICompositorInterop_CreateGraphicsDevice

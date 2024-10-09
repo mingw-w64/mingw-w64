@@ -41,6 +41,81 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo __x_ABI_CWindows_CApplicationModel_CIAppInfo;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo ABI::Windows::ApplicationModel::IAppInfo
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo2 __x_ABI_CWindows_CApplicationModel_CIAppInfo2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2 ABI::Windows::ApplicationModel::IAppInfo2
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo3 __x_ABI_CWindows_CApplicationModel_CIAppInfo3;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3 ABI::Windows::ApplicationModel::IAppInfo3
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo3;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo4 __x_ABI_CWindows_CApplicationModel_CIAppInfo4;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4 ABI::Windows::ApplicationModel::IAppInfo4
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo4;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics ABI::Windows::ApplicationModel::IAppInfoStatics
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfoStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CIDesignModeStatics_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics __x_ABI_CWindows_CApplicationModel_CIDesignModeStatics;
@@ -266,6 +341,21 @@ typedef struct __x_ABI_CWindows_CApplicationModel_CAppDisplayInfo __x_ABI_CWindo
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CApplicationModel_CAppDisplayInfo_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CApplicationModel_CAppInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CAppInfo_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            class AppInfo;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CAppInfo __x_ABI_CWindows_CApplicationModel_CAppInfo;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CApplicationModel_CAppInfo_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CApplicationModel_CDesignMode_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CDesignMode_FWD_DEFINED__
 #ifdef __cplusplus
@@ -401,6 +491,14 @@ typedef struct __x_ABI_CWindows_CApplicationModel_CSuspendingOperation __x_ABI_C
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CApplicationModel_CSuspendingOperation_FWD_DEFINED__ */
 
+#ifndef ____FIIterable_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CApplicationModel__CAppInfo __FIIterable_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::ApplicationModel::AppInfo* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterable_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 #define ____FIIterable_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 typedef interface __FIIterable_1_Windows__CApplicationModel__CPackage __FIIterable_1_Windows__CApplicationModel__CPackage;
@@ -409,11 +507,27 @@ typedef interface __FIIterable_1_Windows__CApplicationModel__CPackage __FIIterab
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CApplicationModel__CAppInfo __FIIterator_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::ApplicationModel::AppInfo* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterator_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 #define ____FIIterator_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 typedef interface __FIIterator_1_Windows__CApplicationModel__CPackage __FIIterator_1_Windows__CApplicationModel__CPackage;
 #ifdef __cplusplus
 #define __FIIterator_1_Windows__CApplicationModel__CPackage ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::ApplicationModel::Package* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CApplicationModel__CAppInfo __FIVectorView_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >
 #endif /* __cplusplus */
 #endif
 
@@ -457,11 +571,27 @@ typedef interface __FIEventHandler_1_Windows__CApplicationModel__CSuspendingEven
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_FWD_DEFINED__
 #define ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::Core::AppListEntry* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* >
 #endif /* __cplusplus */
 #endif
 
@@ -486,6 +616,10 @@ extern "C" {
 #endif
 
 #ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CApplicationModel_CAppExecutionContext __x_ABI_CWindows_CApplicationModel_CAppExecutionContext;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
 typedef struct __x_ABI_CWindows_CApplicationModel_CPackageVersion __x_ABI_CWindows_CApplicationModel_CPackageVersion;
 #else /* __cplusplus */
 namespace ABI {
@@ -506,6 +640,81 @@ namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
             interface IAppDisplayInfo;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo __x_ABI_CWindows_CApplicationModel_CIAppInfo;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo ABI::Windows::ApplicationModel::IAppInfo
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo2 __x_ABI_CWindows_CApplicationModel_CIAppInfo2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2 ABI::Windows::ApplicationModel::IAppInfo2
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo2;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo3 __x_ABI_CWindows_CApplicationModel_CIAppInfo3;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3 ABI::Windows::ApplicationModel::IAppInfo3
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo3;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfo4 __x_ABI_CWindows_CApplicationModel_CIAppInfo4;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4 ABI::Windows::ApplicationModel::IAppInfo4
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfo4;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics ABI::Windows::ApplicationModel::IAppInfoStatics
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            interface IAppInfoStatics;
         }
     }
 }
@@ -722,6 +931,14 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterable_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CApplicationModel__CAppInfo __FIIterable_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::ApplicationModel::AppInfo* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterable_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 #define ____FIIterable_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 typedef interface __FIIterable_1_Windows__CApplicationModel__CPackage __FIIterable_1_Windows__CApplicationModel__CPackage;
@@ -730,11 +947,27 @@ typedef interface __FIIterable_1_Windows__CApplicationModel__CPackage __FIIterab
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterator_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CApplicationModel__CAppInfo __FIIterator_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::ApplicationModel::AppInfo* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterator_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 #define ____FIIterator_1_Windows__CApplicationModel__CPackage_FWD_DEFINED__
 typedef interface __FIIterator_1_Windows__CApplicationModel__CPackage __FIIterator_1_Windows__CApplicationModel__CPackage;
 #ifdef __cplusplus
 #define __FIIterator_1_Windows__CApplicationModel__CPackage ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::ApplicationModel::Package* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CApplicationModel__CAppInfo __FIVectorView_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >
 #endif /* __cplusplus */
 #endif
 
@@ -754,6 +987,14 @@ typedef interface __FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEn
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_FWD_DEFINED__
 #define ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry;
@@ -762,6 +1003,33 @@ typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationMod
 #endif /* __cplusplus */
 #endif
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            enum AppExecutionContext {
+                AppExecutionContext_Unknown = 0,
+                AppExecutionContext_Host = 1,
+                AppExecutionContext_Guest = 2
+            };
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CApplicationModel_CAppExecutionContext {
+    AppExecutionContext_Unknown = 0,
+    AppExecutionContext_Host = 1,
+    AppExecutionContext_Guest = 2
+};
+#ifdef WIDL_using_Windows_ApplicationModel
+#define AppExecutionContext __x_ABI_CWindows_CApplicationModel_CAppExecutionContext
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000 */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
 } /* extern "C" */
@@ -942,6 +1210,704 @@ static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo
 
 #endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IAppInfo interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIAppInfo, 0xcf7f59b3, 0x6a09, 0x4de8, 0xa6,0xc0, 0x57,0x92,0xd5,0x68,0x80,0xd1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("cf7f59b3-6a09-4de8-a6c0-5792d56880d1")
+            IAppInfo : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_Id(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_AppUserModelId(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_DisplayInfo(
+                    ABI::Windows::ApplicationModel::IAppDisplayInfo **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_PackageFamilyName(
+                    HSTRING *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIAppInfo, 0xcf7f59b3, 0x6a09, 0x4de8, 0xa6,0xc0, 0x57,0x92,0xd5,0x68,0x80,0xd1)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** IAppInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_AppUserModelId)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_DisplayInfo)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_PackageFamilyName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIAppInfoVtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIAppInfo {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAppInfo methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_Id(This,value) (This)->lpVtbl->get_Id(This,value)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_AppUserModelId(This,value) (This)->lpVtbl->get_AppUserModelId(This,value)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_DisplayInfo(This,value) (This)->lpVtbl->get_DisplayInfo(This,value)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_PackageFamilyName(This,value) (This)->lpVtbl->get_PackageFamilyName(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo_AddRef(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo_Release(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetIids(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAppInfo methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_Id(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,HSTRING *value) {
+    return This->lpVtbl->get_Id(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_AppUserModelId(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,HSTRING *value) {
+    return This->lpVtbl->get_AppUserModelId(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_DisplayInfo(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,__x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo **value) {
+    return This->lpVtbl->get_DisplayInfo(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_PackageFamilyName(__x_ABI_CWindows_CApplicationModel_CIAppInfo* This,HSTRING *value) {
+    return This->lpVtbl->get_PackageFamilyName(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IAppInfo IID___x_ABI_CWindows_CApplicationModel_CIAppInfo
+#define IAppInfoVtbl __x_ABI_CWindows_CApplicationModel_CIAppInfoVtbl
+#define IAppInfo __x_ABI_CWindows_CApplicationModel_CIAppInfo
+#define IAppInfo_QueryInterface __x_ABI_CWindows_CApplicationModel_CIAppInfo_QueryInterface
+#define IAppInfo_AddRef __x_ABI_CWindows_CApplicationModel_CIAppInfo_AddRef
+#define IAppInfo_Release __x_ABI_CWindows_CApplicationModel_CIAppInfo_Release
+#define IAppInfo_GetIids __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetIids
+#define IAppInfo_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetRuntimeClassName
+#define IAppInfo_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIAppInfo_GetTrustLevel
+#define IAppInfo_get_Id __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_Id
+#define IAppInfo_get_AppUserModelId __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_AppUserModelId
+#define IAppInfo_get_DisplayInfo __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_DisplayInfo
+#define IAppInfo_get_PackageFamilyName __x_ABI_CWindows_CApplicationModel_CIAppInfo_get_PackageFamilyName
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppInfo_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IAppInfo2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIAppInfo2, 0xbe4b1f5a, 0x2098, 0x431b, 0xbd,0x25, 0xb3,0x08,0x78,0x74,0x8d,0x47);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("be4b1f5a-2098-431b-bd25-b30878748d47")
+            IAppInfo2 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_Package(
+                    ABI::Windows::ApplicationModel::IPackage **value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIAppInfo2, 0xbe4b1f5a, 0x2098, 0x431b, 0xbd,0x25, 0xb3,0x08,0x78,0x74,0x8d,0x47)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIAppInfo2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IAppInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Package)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo2 *This,
+        __x_ABI_CWindows_CApplicationModel_CIPackage **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIAppInfo2Vtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIAppInfo2 {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIAppInfo2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAppInfo2 methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo2_get_Package(This,value) (This)->lpVtbl->get_Package(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo2_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo2_AddRef(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo2_Release(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetIids(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAppInfo2 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo2_get_Package(__x_ABI_CWindows_CApplicationModel_CIAppInfo2* This,__x_ABI_CWindows_CApplicationModel_CIPackage **value) {
+    return This->lpVtbl->get_Package(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IAppInfo2 IID___x_ABI_CWindows_CApplicationModel_CIAppInfo2
+#define IAppInfo2Vtbl __x_ABI_CWindows_CApplicationModel_CIAppInfo2Vtbl
+#define IAppInfo2 __x_ABI_CWindows_CApplicationModel_CIAppInfo2
+#define IAppInfo2_QueryInterface __x_ABI_CWindows_CApplicationModel_CIAppInfo2_QueryInterface
+#define IAppInfo2_AddRef __x_ABI_CWindows_CApplicationModel_CIAppInfo2_AddRef
+#define IAppInfo2_Release __x_ABI_CWindows_CApplicationModel_CIAppInfo2_Release
+#define IAppInfo2_GetIids __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetIids
+#define IAppInfo2_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetRuntimeClassName
+#define IAppInfo2_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIAppInfo2_GetTrustLevel
+#define IAppInfo2_get_Package __x_ABI_CWindows_CApplicationModel_CIAppInfo2_get_Package
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppInfo2_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
+
+/*****************************************************************************
+ * IAppInfo3 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIAppInfo3, 0x09a78e46, 0x93a4, 0x46de, 0x93,0x97, 0x08,0x43,0xb5,0x71,0x15,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("09a78e46-93a4-46de-9397-0843b57115ea")
+            IAppInfo3 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_ExecutionContext(
+                    ABI::Windows::ApplicationModel::AppExecutionContext *value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIAppInfo3, 0x09a78e46, 0x93a4, 0x46de, 0x93,0x97, 0x08,0x43,0xb5,0x71,0x15,0xea)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIAppInfo3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This,
+        TrustLevel *trustLevel);
+
+    /*** IAppInfo3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_ExecutionContext)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo3 *This,
+        __x_ABI_CWindows_CApplicationModel_CAppExecutionContext *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIAppInfo3Vtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIAppInfo3 {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIAppInfo3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAppInfo3 methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo3_get_ExecutionContext(This,value) (This)->lpVtbl->get_ExecutionContext(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo3_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo3_AddRef(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo3_Release(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetIids(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAppInfo3 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo3_get_ExecutionContext(__x_ABI_CWindows_CApplicationModel_CIAppInfo3* This,__x_ABI_CWindows_CApplicationModel_CAppExecutionContext *value) {
+    return This->lpVtbl->get_ExecutionContext(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IAppInfo3 IID___x_ABI_CWindows_CApplicationModel_CIAppInfo3
+#define IAppInfo3Vtbl __x_ABI_CWindows_CApplicationModel_CIAppInfo3Vtbl
+#define IAppInfo3 __x_ABI_CWindows_CApplicationModel_CIAppInfo3
+#define IAppInfo3_QueryInterface __x_ABI_CWindows_CApplicationModel_CIAppInfo3_QueryInterface
+#define IAppInfo3_AddRef __x_ABI_CWindows_CApplicationModel_CIAppInfo3_AddRef
+#define IAppInfo3_Release __x_ABI_CWindows_CApplicationModel_CIAppInfo3_Release
+#define IAppInfo3_GetIids __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetIids
+#define IAppInfo3_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetRuntimeClassName
+#define IAppInfo3_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIAppInfo3_GetTrustLevel
+#define IAppInfo3_get_ExecutionContext __x_ABI_CWindows_CApplicationModel_CIAppInfo3_get_ExecutionContext
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000 */
+
+/*****************************************************************************
+ * IAppInfo4 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIAppInfo4, 0x2f34bdeb, 0x1609, 0x4554, 0x9f,0x33, 0x12,0xe1,0xe8,0x03,0xe0,0xd4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("2f34bdeb-1609-4554-9f33-12e1e803e0d4")
+            IAppInfo4 : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_SupportedFileExtensions(
+                    UINT32 *value_size,
+                    HSTRING **value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIAppInfo4, 0x2f34bdeb, 0x1609, 0x4554, 0x9f,0x33, 0x12,0xe1,0xe8,0x03,0xe0,0xd4)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIAppInfo4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This,
+        TrustLevel *trustLevel);
+
+    /*** IAppInfo4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_SupportedFileExtensions)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo4 *This,
+        UINT32 *value_size,
+        HSTRING **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIAppInfo4Vtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIAppInfo4 {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIAppInfo4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAppInfo4 methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfo4_get_SupportedFileExtensions(This,value_size,value) (This)->lpVtbl->get_SupportedFileExtensions(This,value_size,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo4_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo4_AddRef(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfo4_Release(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetIids(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAppInfo4 methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfo4_get_SupportedFileExtensions(__x_ABI_CWindows_CApplicationModel_CIAppInfo4* This,UINT32 *value_size,HSTRING **value) {
+    return This->lpVtbl->get_SupportedFileExtensions(This,value_size,value);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IAppInfo4 IID___x_ABI_CWindows_CApplicationModel_CIAppInfo4
+#define IAppInfo4Vtbl __x_ABI_CWindows_CApplicationModel_CIAppInfo4Vtbl
+#define IAppInfo4 __x_ABI_CWindows_CApplicationModel_CIAppInfo4
+#define IAppInfo4_QueryInterface __x_ABI_CWindows_CApplicationModel_CIAppInfo4_QueryInterface
+#define IAppInfo4_AddRef __x_ABI_CWindows_CApplicationModel_CIAppInfo4_AddRef
+#define IAppInfo4_Release __x_ABI_CWindows_CApplicationModel_CIAppInfo4_Release
+#define IAppInfo4_GetIids __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetIids
+#define IAppInfo4_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetRuntimeClassName
+#define IAppInfo4_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIAppInfo4_GetTrustLevel
+#define IAppInfo4_get_SupportedFileExtensions __x_ABI_CWindows_CApplicationModel_CIAppInfo4_get_SupportedFileExtensions
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppInfo4_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000 */
+
+/*****************************************************************************
+ * IAppInfoStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CApplicationModel_CIAppInfoStatics, 0xcf1f782a, 0xe48b, 0x4f0c, 0x9b,0x0b, 0x79,0xc3,0xf8,0x95,0x7d,0xd7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            MIDL_INTERFACE("cf1f782a-e48b-4f0c-9b0b-79c3f8957dd7")
+            IAppInfoStatics : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_Current(
+                    ABI::Windows::ApplicationModel::IAppInfo **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetFromAppUserModelId(
+                    HSTRING app_user_model_id,
+                    ABI::Windows::ApplicationModel::IAppInfo **result) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetFromAppUserModelIdForUser(
+                    ABI::Windows::System::IUser *user,
+                    HSTRING app_user_model_id,
+                    ABI::Windows::ApplicationModel::IAppInfo **result) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics, 0xcf1f782a, 0xe48b, 0x4f0c, 0x9b,0x0b, 0x79,0xc3,0xf8,0x95,0x7d,0xd7)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CApplicationModel_CIAppInfoStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IAppInfoStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetFromAppUserModelId)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        HSTRING app_user_model_id,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **result);
+
+    HRESULT (STDMETHODCALLTYPE *GetFromAppUserModelIdForUser)(
+        __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics *This,
+        __x_ABI_CWindows_CSystem_CIUser *user,
+        HSTRING app_user_model_id,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CIAppInfoStaticsVtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics {
+    CONST_VTBL __x_ABI_CWindows_CApplicationModel_CIAppInfoStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAppInfoStatics methods ***/
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelId(This,app_user_model_id,result) (This)->lpVtbl->GetFromAppUserModelId(This,app_user_model_id,result)
+#define __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelIdForUser(This,user,app_user_model_id,result) (This)->lpVtbl->GetFromAppUserModelIdForUser(This,user,app_user_model_id,result)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_QueryInterface(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_AddRef(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_Release(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetIids(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetRuntimeClassName(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetTrustLevel(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAppInfoStatics methods ***/
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_get_Current(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,__x_ABI_CWindows_CApplicationModel_CIAppInfo **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelId(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,HSTRING app_user_model_id,__x_ABI_CWindows_CApplicationModel_CIAppInfo **result) {
+    return This->lpVtbl->GetFromAppUserModelId(This,app_user_model_id,result);
+}
+static __WIDL_INLINE HRESULT __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelIdForUser(__x_ABI_CWindows_CApplicationModel_CIAppInfoStatics* This,__x_ABI_CWindows_CSystem_CIUser *user,HSTRING app_user_model_id,__x_ABI_CWindows_CApplicationModel_CIAppInfo **result) {
+    return This->lpVtbl->GetFromAppUserModelIdForUser(This,user,app_user_model_id,result);
+}
+#endif
+#ifdef WIDL_using_Windows_ApplicationModel
+#define IID_IAppInfoStatics IID___x_ABI_CWindows_CApplicationModel_CIAppInfoStatics
+#define IAppInfoStaticsVtbl __x_ABI_CWindows_CApplicationModel_CIAppInfoStaticsVtbl
+#define IAppInfoStatics __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics
+#define IAppInfoStatics_QueryInterface __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_QueryInterface
+#define IAppInfoStatics_AddRef __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_AddRef
+#define IAppInfoStatics_Release __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_Release
+#define IAppInfoStatics_GetIids __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetIids
+#define IAppInfoStatics_GetRuntimeClassName __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetRuntimeClassName
+#define IAppInfoStatics_GetTrustLevel __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetTrustLevel
+#define IAppInfoStatics_get_Current __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_get_Current
+#define IAppInfoStatics_GetFromAppUserModelId __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelId
+#define IAppInfoStatics_GetFromAppUserModelIdForUser __x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_GetFromAppUserModelIdForUser
+#endif /* WIDL_using_Windows_ApplicationModel */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CApplicationModel_CIAppInfoStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
 
 /*****************************************************************************
  * IDesignModeStatics interface
@@ -3093,6 +4059,22 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_AppD
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
+ * Class Windows.ApplicationModel.AppInfo
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_AppInfo_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_AppInfo_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_ApplicationModel_AppInfo[] = {'W','i','n','d','o','w','s','.','A','p','p','l','i','c','a','t','i','o','n','M','o','d','e','l','.','A','p','p','I','n','f','o',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_AppInfo[] = L"Windows.ApplicationModel.AppInfo";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_AppInfo[] = {'W','i','n','d','o','w','s','.','A','p','p','l','i','c','a','t','i','o','n','M','o','d','e','l','.','A','p','p','I','n','f','o',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_ApplicationModel_AppInfo_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
  * Class Windows.ApplicationModel.DesignMode
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -3237,6 +4219,130 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_ApplicationModel_Susp
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IIterable<ABI::Windows::ApplicationModel::AppInfo* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CApplicationModel__CAppInfo, 0x63d0bffe, 0x0e34, 0x55b3, 0x83,0xd5, 0x31,0x4c,0xaf,0xf2,0xb1,0x37);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("63d0bffe-0e34-55b3-83d5-314caff2b137")
+                IIterable<ABI::Windows::ApplicationModel::AppInfo* > : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::ApplicationModel::AppInfo*, ABI::Windows::ApplicationModel::IAppInfo* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CApplicationModel__CAppInfo, 0x63d0bffe, 0x0e34, 0x55b3, 0x83,0xd5, 0x31,0x4c,0xaf,0xf2,0xb1,0x37)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CApplicationModel__CAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CApplicationModel__CAppInfo *This,
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CApplicationModel__CAppInfoVtbl;
+
+interface __FIIterable_1_Windows__CApplicationModel__CAppInfo {
+    CONST_VTBL __FIIterable_1_Windows__CApplicationModel__CAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+#define __FIIterable_1_Windows__CApplicationModel__CAppInfo_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CAppInfo_QueryInterface(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CApplicationModel__CAppInfo_AddRef(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterable_1_Windows__CApplicationModel__CAppInfo_Release(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetIids(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CAppInfo_First(__FIIterable_1_Windows__CApplicationModel__CAppInfo* This,__FIIterator_1_Windows__CApplicationModel__CAppInfo **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_AppInfo IID___FIIterable_1_Windows__CApplicationModel__CAppInfo
+#define IIterable_AppInfoVtbl __FIIterable_1_Windows__CApplicationModel__CAppInfoVtbl
+#define IIterable_AppInfo __FIIterable_1_Windows__CApplicationModel__CAppInfo
+#define IIterable_AppInfo_QueryInterface __FIIterable_1_Windows__CApplicationModel__CAppInfo_QueryInterface
+#define IIterable_AppInfo_AddRef __FIIterable_1_Windows__CApplicationModel__CAppInfo_AddRef
+#define IIterable_AppInfo_Release __FIIterable_1_Windows__CApplicationModel__CAppInfo_Release
+#define IIterable_AppInfo_GetIids __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetIids
+#define IIterable_AppInfo_GetRuntimeClassName __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName
+#define IIterable_AppInfo_GetTrustLevel __FIIterable_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel
+#define IIterable_AppInfo_First __FIIterable_1_Windows__CApplicationModel__CAppInfo_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IIterable<ABI::Windows::ApplicationModel::Package* > interface
  */
 #ifndef ____FIIterable_1_Windows__CApplicationModel__CPackage_INTERFACE_DEFINED__
@@ -3359,6 +4465,159 @@ static __WIDL_INLINE HRESULT __FIIterable_1_Windows__CApplicationModel__CPackage
 #endif
 
 #endif  /* ____FIIterable_1_Windows__CApplicationModel__CPackage_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::ApplicationModel::AppInfo* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CApplicationModel__CAppInfo, 0x69cec62c, 0x41eb, 0x5d69, 0xa4,0x75, 0x29,0xee,0x22,0x32,0x3d,0xd8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("69cec62c-41eb-5d69-a475-29ee22323dd8")
+                IIterator<ABI::Windows::ApplicationModel::AppInfo* > : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::ApplicationModel::AppInfo*, ABI::Windows::ApplicationModel::IAppInfo* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CApplicationModel__CAppInfo, 0x69cec62c, 0x41eb, 0x5d69, 0xa4,0x75, 0x29,0xee,0x22,0x32,0x3d,0xd8)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CApplicationModel__CAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CApplicationModel__CAppInfo *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CApplicationModel__CAppInfoVtbl;
+
+interface __FIIterator_1_Windows__CApplicationModel__CAppInfo {
+    CONST_VTBL __FIIterator_1_Windows__CApplicationModel__CAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_QueryInterface(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CApplicationModel__CAppInfo_AddRef(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIIterator_1_Windows__CApplicationModel__CAppInfo_Release(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetIids(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_Current(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,__x_ABI_CWindows_CApplicationModel_CIAppInfo **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_HasCurrent(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,boolean *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_MoveNext(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,boolean *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetMany(__FIIterator_1_Windows__CApplicationModel__CAppInfo* This,UINT32 items_size,__x_ABI_CWindows_CApplicationModel_CIAppInfo **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_AppInfo IID___FIIterator_1_Windows__CApplicationModel__CAppInfo
+#define IIterator_AppInfoVtbl __FIIterator_1_Windows__CApplicationModel__CAppInfoVtbl
+#define IIterator_AppInfo __FIIterator_1_Windows__CApplicationModel__CAppInfo
+#define IIterator_AppInfo_QueryInterface __FIIterator_1_Windows__CApplicationModel__CAppInfo_QueryInterface
+#define IIterator_AppInfo_AddRef __FIIterator_1_Windows__CApplicationModel__CAppInfo_AddRef
+#define IIterator_AppInfo_Release __FIIterator_1_Windows__CApplicationModel__CAppInfo_Release
+#define IIterator_AppInfo_GetIids __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetIids
+#define IIterator_AppInfo_GetRuntimeClassName __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName
+#define IIterator_AppInfo_GetTrustLevel __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel
+#define IIterator_AppInfo_get_Current __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_Current
+#define IIterator_AppInfo_get_HasCurrent __FIIterator_1_Windows__CApplicationModel__CAppInfo_get_HasCurrent
+#define IIterator_AppInfo_MoveNext __FIIterator_1_Windows__CApplicationModel__CAppInfo_MoveNext
+#define IIterator_AppInfo_GetMany __FIIterator_1_Windows__CApplicationModel__CAppInfo_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IIterator<ABI::Windows::ApplicationModel::Package* > interface
@@ -3512,6 +4771,163 @@ static __WIDL_INLINE HRESULT __FIIterator_1_Windows__CApplicationModel__CPackage
 #endif
 
 #endif  /* ____FIIterator_1_Windows__CApplicationModel__CPackage_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::ApplicationModel::AppInfo* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x8246ed12, 0x33e8, 0x52b3, 0xa5,0xc5, 0x19,0x77,0x9d,0xe9,0x99,0x9e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("8246ed12-33e8-52b3-a5c5-19779de9999e")
+                IVectorView<ABI::Windows::ApplicationModel::AppInfo* > : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::ApplicationModel::AppInfo*, ABI::Windows::ApplicationModel::IAppInfo* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x8246ed12, 0x33e8, 0x52b3, 0xa5,0xc5, 0x19,0x77,0x9d,0xe9,0x99,0x9e)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        UINT32 index,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CApplicationModel_CIAppInfo **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl;
+
+interface __FIVectorView_1_Windows__CApplicationModel__CAppInfo {
+    CONST_VTBL __FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::ApplicationModel::AppInfo* > methods ***/
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetAt(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,UINT32 index,__x_ABI_CWindows_CApplicationModel_CIAppInfo **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Size(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_IndexOf(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,__x_ABI_CWindows_CApplicationModel_CIAppInfo *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static __WIDL_INLINE HRESULT __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetMany(__FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CApplicationModel_CIAppInfo **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_AppInfo IID___FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IVectorView_AppInfoVtbl __FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl
+#define IVectorView_AppInfo __FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IVectorView_AppInfo_QueryInterface __FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface
+#define IVectorView_AppInfo_AddRef __FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef
+#define IVectorView_AppInfo_Release __FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release
+#define IVectorView_AppInfo_GetIids __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids
+#define IVectorView_AppInfo_GetRuntimeClassName __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName
+#define IVectorView_AppInfo_GetTrustLevel __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel
+#define IVectorView_AppInfo_GetAt __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetAt
+#define IVectorView_AppInfo_get_Size __FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Size
+#define IVectorView_AppInfo_IndexOf __FIVectorView_1_Windows__CApplicationModel__CAppInfo_IndexOf
+#define IVectorView_AppInfo_GetMany __FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVectorView<ABI::Windows::ApplicationModel::Package* > interface
@@ -4104,6 +5520,146 @@ static __WIDL_INLINE HRESULT __FIEventHandler_1_Windows__CApplicationModel__CSus
 #endif  /* ____FIEventHandler_1_Windows__CApplicationModel__CSuspendingEventArgs_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > interface
+ */
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x07543d91, 0x8610, 0x5152, 0xb0,0xe4, 0x43,0xd6,0xe4,0xcd,0xd0,0xcb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("07543d91-8610-5152-b0e4-43d6e4cdd0cb")
+            IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > : IAsyncOperation_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x07543d91, 0x8610, 0x5152, 0xb0,0xe4, 0x43,0xd6,0xe4,0xcd,0xd0,0xcb)
+#endif
+#else
+typedef struct __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        __FIVectorView_1_Windows__CApplicationModel__CAppInfo **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl;
+
+interface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo {
+    CONST_VTBL __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_put_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetResults(__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,__FIVectorView_1_Windows__CApplicationModel__CAppInfo **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IVectorView_AppInfo IID___FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IAsyncOperation_IVectorView_AppInfoVtbl __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl
+#define IAsyncOperation_IVectorView_AppInfo __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IAsyncOperation_IVectorView_AppInfo_QueryInterface __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface
+#define IAsyncOperation_IVectorView_AppInfo_AddRef __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef
+#define IAsyncOperation_IVectorView_AppInfo_Release __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release
+#define IAsyncOperation_IVectorView_AppInfo_GetIids __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetIids
+#define IAsyncOperation_IVectorView_AppInfo_GetRuntimeClassName __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetRuntimeClassName
+#define IAsyncOperation_IVectorView_AppInfo_GetTrustLevel __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetTrustLevel
+#define IAsyncOperation_IVectorView_AppInfo_put_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_put_Completed
+#define IAsyncOperation_IVectorView_AppInfo_get_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_get_Completed
+#define IAsyncOperation_IVectorView_AppInfo_GetResults __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::Core::AppListEntry* >* > interface
  */
 #ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_INTERFACE_DEFINED__
@@ -4242,6 +5798,98 @@ static __WIDL_INLINE HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CApp
 #endif
 
 #endif  /* ____FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CCore__CAppListEntry_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x07f25b6f, 0xf054, 0x5649, 0xa5,0xce, 0xb3,0x48,0xdd,0xc6,0x18,0xb6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("07f25b6f-f054-5649-a5ce-b348ddc618b6")
+            IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo, 0x07f25b6f, 0xf054, 0x5649, 0xa5,0xce, 0xb3,0x48,0xdd,0xc6,0x18,0xb6)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *This,
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static __WIDL_INLINE ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::AppInfo* >* > methods ***/
+static __WIDL_INLINE HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Invoke(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo* This,__FIAsyncOperation_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IVectorView_AppInfo IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfoVtbl __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfoVtbl
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfo __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfo_QueryInterface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_QueryInterface
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfo_AddRef __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_AddRef
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfo_Release __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Release
+#define IAsyncOperationCompletedHandler_IVectorView_AppInfo_Invoke __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CApplicationModel__CAppInfo_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::ApplicationModel::Core::AppListEntry* >* > interface
