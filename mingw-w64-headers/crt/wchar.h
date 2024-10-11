@@ -213,7 +213,8 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   wint_t __cdecl towupper(wint_t _C);
   wint_t __cdecl towlower(wint_t _C);
   int __cdecl iswctype(wint_t _C,wctype_t _Type);
-#if __MSVCRT_VERSION__ >= 0x800
+#if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x700 && _WIN32_WINNT >= 0x0600)
+  /* These are available since msvcr80.dll, and in msvcrt.dll since Vista. */
   _CRTIMP int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale);
@@ -232,8 +233,11 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
-  _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
+#endif
+#if __MSVCRT_VERSION__ >= 0x800
+  /* These are only available since msvcr80.dll, never in msvcrt.dll. */
+  _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
 #endif
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
@@ -332,7 +336,7 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define iswgraph(_c) (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
 #define iswcntrl(_c) (iswctype(_c,_CONTROL))
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
-#if __MSVCRT_VERSION__ >= 0x800
+#if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x700 && _WIN32_WINNT >= 0x0600)
 # define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
 # define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
 # define _iswlower_l(_c,_p) (_iswctype_l(_c,_LOWER,_p))
