@@ -348,6 +348,7 @@ libarm64_DATA += %reldir%/libwer.a
 libarm64_DATA += %reldir%/libwevtapi.a
 libarm64_DATA += %reldir%/libwiashext.a
 libarm64_DATA += %reldir%/libwimgapi.a
+libarm64_DATA += %reldir%/libwinbrand.a
 libarm64_DATA += %reldir%/libwindows.ai.machinelearning.a
 libarm64_DATA += %reldir%/libwindows.data.pdf.a
 libarm64_DATA += %reldir%/libwindows.networking.a
