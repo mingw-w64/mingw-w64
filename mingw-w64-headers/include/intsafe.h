@@ -999,14 +999,11 @@ __MINGW_INTSAFE_API __MINGW_INTSAFE_MATH(LongLongMult, LONGLONG, mul)
 #define SIZETToInt64 ULongPtrToLongLong
 #define SIZETToPtrdiffT ULongPtrToIntPtr
 #define SIZETToSSIZET ULongPtrToLongPtr
+
 #define UInt16Add UShortAdd
 #define WordAdd UShortAdd
 #define UInt32Add UIntAdd
-#define UIntPtrAdd ULongLongAdd
-#define ULongPtrAdd ULongLongAdd
 #define DWordAdd ULongAdd
-#define DWordPtrAdd ULongLongAdd
-#define SIZETAdd ULongLongAdd
 #define DWordLongAdd ULongLongAdd
 #define ULong64Add ULongLongAdd
 #define DWord64Add ULongLongAdd
@@ -1014,11 +1011,7 @@ __MINGW_INTSAFE_API __MINGW_INTSAFE_MATH(LongLongMult, LONGLONG, mul)
 #define UInt16Sub UShortSub
 #define WordSub UShortSub
 #define UInt32Sub UIntSub
-#define UIntPtrSub ULongLongSub
-#define ULongPtrSub ULongLongSub
 #define DWordSub ULongSub
-#define DWordPtrSub ULongLongSub
-#define SIZETSub ULongLongSub
 #define DWordLongSub ULongLongSub
 #define ULong64Sub ULongLongSub
 #define DWord64Sub ULongLongSub
@@ -1026,43 +1019,26 @@ __MINGW_INTSAFE_API __MINGW_INTSAFE_MATH(LongLongMult, LONGLONG, mul)
 #define UInt16Mult UShortMult
 #define WordMult UShortMult
 #define UInt32Mult UIntMult
-#define UIntPtrMult ULongLongMult
-#define ULongPtrMult ULongLongMult
 #define DWordMult ULongMult
-#define DWordPtrMult ULongLongMult
-#define SizeTMult ULongLongMult
-#define SIZETMult ULongLongMult
 #define DWordLongMult ULongLongMult
 #define ULong64Mult ULongLongMult
 #define DWord64Mult ULongLongMult
 #define UInt64Mult ULongLongMult
 #define Int16Add ShortAdd
 #define Int32Add IntAdd
-#define IntPtrAdd LongLongAdd
 #define Long32Add IntAdd
-#define LongPtrAdd LongLongAdd
 #define Long64Add LongLongAdd
 #define Int64Add LongLongAdd
-#define PtrdiffTAdd LongLongAdd
-#define SSIZETAdd LongLongAdd
 #define Int16Sub ShortSub
 #define Int32Sub IntSub
-#define IntPtrSub LongLongSub
 #define Long32Sub IntSub
-#define LongPtrSub LongLongSub
 #define Long64Sub LongLongSub
 #define Int64Sub LongLongSub
-#define PtrdiffTSub LongLongSub
-#define SSIZETSub LongLongSub
 #define Int16Mult ShortMult
 #define Int32Mult IntMult
-#define IntPtrMult LongLongMult
 #define Long32Mult IntMult
-#define LongPtrMult LongLongMult
 #define Long64Mult LongLongMult
 #define Int64Mult LongLongMult
-#define PtrdiffTMult LongLongMult
-#define SSIZETMult LongLongMult
 
 #endif /* __GNUC__ >= 5 */
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
