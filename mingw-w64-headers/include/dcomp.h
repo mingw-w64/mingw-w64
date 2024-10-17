@@ -555,6 +555,54 @@ __CRT_UUID_DECL(IDCompositionSaturationEffect,0xa08debda,0x3258,0x4fa4,0x9f,0x16
 
 
 #undef INTERFACE
+#define INTERFACE IDCompositionTableTransferEffect
+DECLARE_INTERFACE_IID_(IDCompositionTableTransferEffect, IDCompositionFilterEffect, "9B7E82E2-69C5-4EB4-A5F5-A7033F5132CD")
+{
+    STDMETHOD(SetRedTable)(THIS_ const float *tableValues, UINT count) PURE;
+    STDMETHOD(SetGreenTable)(THIS_ const float *tableValues, UINT count) PURE;
+    STDMETHOD(SetBlueTable)(THIS_ const float *tableValues, UINT count) PURE;
+    STDMETHOD(SetAlphaTable)(THIS_ const float *tableValues, UINT count) PURE;
+    STDMETHOD(SetRedDisable)(THIS_ BOOL redDisable) PURE;
+    STDMETHOD(SetGreenDisable)(THIS_ BOOL greenDisable) PURE;
+    STDMETHOD(SetBlueDisable)(THIS_ BOOL blueDisable) PURE;
+    STDMETHOD(SetAlphaDisable)(THIS_ BOOL alphaDisable) PURE;
+    STDMETHOD(SetClampOutput)(THIS_ BOOL clampOutput) PURE;
+#if defined(_MSC_VER) && defined(__cplusplus)
+    STDMETHOD(SetRedTableValue)(THIS_ UINT index, float value) PURE;
+    STDMETHOD(SetRedTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+#else
+    STDMETHOD(SetRedTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+    STDMETHOD(SetRedTableValue)(THIS_ UINT index, float value) PURE;
+#endif
+#if defined(_MSC_VER) && defined(__cplusplus)
+    STDMETHOD(SetGreenTableValue)(THIS_ UINT index, float value) PURE;
+    STDMETHOD(SetGreenTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+#else
+    STDMETHOD(SetGreenTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+    STDMETHOD(SetGreenTableValue)(THIS_ UINT index, float value) PURE;
+#endif
+#if defined(_MSC_VER) && defined(__cplusplus)
+    STDMETHOD(SetBlueTableValue)(THIS_ UINT index, float value) PURE;
+    STDMETHOD(SetBlueTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+#else
+    STDMETHOD(SetBlueTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+    STDMETHOD(SetBlueTableValue)(THIS_ UINT index, float value) PURE;
+#endif
+#if defined(_MSC_VER) && defined(__cplusplus)
+    STDMETHOD(SetAlphaTableValue)(THIS_ UINT index, float value) PURE;
+    STDMETHOD(SetAlphaTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+#else
+    STDMETHOD(SetAlphaTableValue)(THIS_ UINT index, IDCompositionAnimation *animation) PURE;
+    STDMETHOD(SetAlphaTableValue)(THIS_ UINT index, float value) PURE;
+#endif
+};
+
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDCompositionTableTransferEffect,0x9b7e82e2,0x69c5,0x4eb4,0xa5,0xf5,0xa7,0x03,0x3f,0x51,0x32,0xcd);
+#endif
+
+
+#undef INTERFACE
 #define INTERFACE IDCompositionGaussianBlurEffect
 DECLARE_INTERFACE_IID_(IDCompositionGaussianBlurEffect, IDCompositionFilterEffect, "45D4D0B7-1BD4-454E-8894-2BFA68443033")
 {
@@ -608,7 +656,7 @@ DECLARE_INTERFACE_IID_(IDCompositionDevice3, IDCompositionDevice2, "0987CB06-F91
     STDMETHOD(CreateSaturationEffect)(THIS_ IDCompositionSaturationEffect **saturationEffect) PURE;
     STDMETHOD(CreateTurbulenceEffect)(THIS_ /* IDCompositionTurbulenceEffect */ void **turbulenceEffect) PURE;
     STDMETHOD(CreateLinearTransferEffect)(THIS_ /* IDCompositionLinearTransferEffect */ void **linearTransferEffect) PURE;
-    STDMETHOD(CreateTableTransferEffect)(THIS_ /* IDCompositionTableTransferEffect */ void **tableTransferEffect) PURE;
+    STDMETHOD(CreateTableTransferEffect)(THIS_ IDCompositionTableTransferEffect **tableTransferEffect) PURE;
     STDMETHOD(CreateCompositeEffect)(THIS_ /* IDCompositionCompositeEffect */ void **compositeEffect) PURE;
     STDMETHOD(CreateBlendEffect)(THIS_ /* TODO IDCompositionBlendEffect */ void **blendEffect) PURE;
     STDMETHOD(CreateArithmeticCompositeEffect)(THIS_ /* IDCompositionArithmeticCompositeEffect */ void **arithmeticCompositeEffect) PURE;
