@@ -17,6 +17,7 @@
 #include <signal.h>
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <tchar.h>
 #include <sect_attribs.h>
 #include <locale.h>
@@ -67,7 +68,10 @@ extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
 long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
+
+#ifdef _UNICODE
 static void duplicate_ppstrings (int ac, _TCHAR ***av);
+#endif
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
@@ -130,7 +134,58 @@ pre_cpp_init (void)
 #ifdef _UNICODE
   argret = __wgetmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
 #else
-  argret = __getmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
+  // Get argv as wide chars and convert it to active code page
+  // without best-fit mapping to avoid security issues.
+  // Environment will be taken directly as narrow chars later.
+  wchar_t **wargv;
+  wchar_t **wenvp_dummy;
+  argret = __wgetmainargs(&argc,&wargv,&wenvp_dummy,_dowildcard,&startinfo);
+
+  size_t buf_size = 0;
+
+  for (int i = 0; i < argc; ++i) {
+    BOOL conv_was_lossy = TRUE;
+    int size = WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS,
+        wargv[i], -1,
+        NULL, 0,
+        NULL, &conv_was_lossy);
+
+    if (size <= 0 || conv_was_lossy) {
+      fprintf(stderr,
+          "Error: Command line contains characters that are not supported\n"
+          "in the active code page (%u).\n", GetACP());
+      _exit(255);
+    }
+
+    buf_size += size;
+  }
+
+  argv = malloc((argc + 1) * sizeof(char *));
+  char *buf = malloc(buf_size);
+  if (argv == NULL || buf == NULL)
+    _amsg_exit(8); // R6008 "not enough space for arguments" with MSVCRT
+
+  for (int i = 0; i < argc; ++i) {
+    int size = WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS,
+        wargv[i], -1,
+        buf, buf_size,
+        NULL, NULL);
+    argv[i] = buf;
+    buf += size;
+    buf_size -= size;
+  }
+
+  argv[argc] = NULL;
+
+  // Initialize narrow environment.
+  //
+  // IMPORANT: Don't expand wildcards as that alone can be a security issue
+  // with __getmainargs! Best-fit mapping can result in arguments that point
+  // to network shares and wildcard expansion of such arguments could then
+  // result in unexpected network access.
+  int argc_dummy;
+  char **argv_dummy;
+  (void)__getmainargs(&argc_dummy,&argv_dummy,&envp,0,&startinfo);
 #endif
 }
 
@@ -249,7 +304,10 @@ __tmainCRTStartup (void)
     
     _fpreset ();
 
+#ifdef _UNICODE
+    // Narrow argv is already a local copy so only duplicate the wide version.
     duplicate_ppstrings (argc, &argv);
+#endif
     __main (); /* C++ initialization. */
 #ifdef _UNICODE
     __winitenv = envp;
@@ -307,6 +365,7 @@ check_managed_app (void)
   return 0;
 }
 
+#ifdef _UNICODE
 static void duplicate_ppstrings (int ac, _TCHAR ***av)
 {
 	_TCHAR **avl;
@@ -323,6 +382,7 @@ static void duplicate_ppstrings (int ac, _TCHAR ***av)
 	n[i] = NULL;
 	*av = n;
 }
+#endif
 
 int __cdecl atexit (_PVFV func)
 {
