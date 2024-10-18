@@ -69,6 +69,108 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 ABI::Windows::UI::ViewManagement::IUISettings4
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings4;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 ABI::Windows::UI::ViewManagement::IUISettings5
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings5;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 ABI::Windows::UI::ViewManagement::IUISettings6
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettings6;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsAnimationsEnabledChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsAnimationsEnabledChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsAutoHideScrollBarsChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsAutoHideScrollBarsChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsMessageDurationChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsMessageDurationChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUIViewSettings_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CIUIViewSettings_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUIViewSettings __x_ABI_CWindows_CUI_CViewManagement_CIUIViewSettings;
@@ -222,6 +324,57 @@ typedef struct __x_ABI_CWindows_CUI_CViewManagement_CUISettings __x_ABI_CWindows
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CUISettings_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                class UISettingsAnimationsEnabledChangedEventArgs;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CUISettingsAnimationsEnabledChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CUISettingsAnimationsEnabledChangedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                class UISettingsAutoHideScrollBarsChangedEventArgs;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CUISettingsAutoHideScrollBarsChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CUISettingsAutoHideScrollBarsChangedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                class UISettingsMessageDurationChangedEventArgs;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CUISettingsMessageDurationChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CUISettingsMessageDurationChangedEventArgs;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CUI_CViewManagement_CUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__ */
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CUIViewSettings_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CUIViewSettings_FWD_DEFINED__
 #ifdef __cplusplus
@@ -278,6 +431,30 @@ typedef struct __x_ABI_CWindows_CUI_CViewManagement_CInputPaneVisibilityEventArg
 typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable;
 #ifdef __cplusplus
 #define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+typedef interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs;
+#ifdef __cplusplus
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* >
 #endif /* __cplusplus */
 #endif
 
@@ -415,6 +592,57 @@ namespace ABI {
         namespace UI {
             namespace ViewManagement {
                 interface IUISettings6;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsAnimationsEnabledChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsAnimationsEnabledChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsAutoHideScrollBarsChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsAutoHideScrollBarsChangedEventArgs;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs ABI::Windows::UI::ViewManagement::IUISettingsMessageDurationChangedEventArgs
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IUISettingsMessageDurationChangedEventArgs;
             }
         }
     }
@@ -1365,6 +1593,821 @@ static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_remove_
 
 #endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings3_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IUISettings4 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings4, 0x52bb3002, 0x919b, 0x4d6b, 0x9b,0x78, 0x8d,0xd6,0x6f,0xf4,0xb9,0x3b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("52bb3002-919b-4d6b-9b78-8dd66ff4b93b")
+                IUISettings4 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_AdvancedEffectsEnabled(
+                        boolean *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE add_AdvancedEffectsEnabledChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,IInspectable* > *handler,
+                        EventRegistrationToken *cookie) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AdvancedEffectsEnabledChanged(
+                        EventRegistrationToken cookie) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4, 0x52bb3002, 0x919b, 0x4d6b, 0x9b,0x78, 0x8d,0xd6,0x6f,0xf4,0xb9,0x3b)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        TrustLevel *trustLevel);
+
+    /*** IUISettings4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AdvancedEffectsEnabled)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *add_AdvancedEffectsEnabledChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable *handler,
+        EventRegistrationToken *cookie);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AdvancedEffectsEnabledChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 *This,
+        EventRegistrationToken cookie);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUISettings4 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_get_AdvancedEffectsEnabled(This,value) (This)->lpVtbl->get_AdvancedEffectsEnabled(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_add_AdvancedEffectsEnabledChanged(This,handler,cookie) (This)->lpVtbl->add_AdvancedEffectsEnabledChanged(This,handler,cookie)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_remove_AdvancedEffectsEnabledChanged(This,cookie) (This)->lpVtbl->remove_AdvancedEffectsEnabledChanged(This,cookie)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUISettings4 methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_get_AdvancedEffectsEnabled(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,boolean *value) {
+    return This->lpVtbl->get_AdvancedEffectsEnabled(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_add_AdvancedEffectsEnabledChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable *handler,EventRegistrationToken *cookie) {
+    return This->lpVtbl->add_AdvancedEffectsEnabledChanged(This,handler,cookie);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_remove_AdvancedEffectsEnabledChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings4* This,EventRegistrationToken cookie) {
+    return This->lpVtbl->remove_AdvancedEffectsEnabledChanged(This,cookie);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettings4 IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings4
+#define IUISettings4Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4Vtbl
+#define IUISettings4 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4
+#define IUISettings4_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_QueryInterface
+#define IUISettings4_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_AddRef
+#define IUISettings4_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_Release
+#define IUISettings4_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetIids
+#define IUISettings4_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetRuntimeClassName
+#define IUISettings4_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_GetTrustLevel
+#define IUISettings4_get_AdvancedEffectsEnabled __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_get_AdvancedEffectsEnabled
+#define IUISettings4_add_AdvancedEffectsEnabledChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_add_AdvancedEffectsEnabledChanged
+#define IUISettings4_remove_AdvancedEffectsEnabledChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_remove_AdvancedEffectsEnabledChanged
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings4_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000 */
+
+/*****************************************************************************
+ * IUISettings5 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings5, 0x5349d588, 0x0cb5, 0x5f05, 0xbd,0x34, 0x70,0x6b,0x32,0x31,0xf0,0xbd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("5349d588-0cb5-5f05-bd34-706b3231f0bd")
+                IUISettings5 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_AutoHideScrollBars(
+                        boolean *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE add_AutoHideScrollBarsChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AutoHideScrollBarsChanged(
+                        EventRegistrationToken token) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5, 0x5349d588, 0x0cb5, 0x5f05, 0xbd,0x34, 0x70,0x6b,0x32,0x31,0xf0,0xbd)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        TrustLevel *trustLevel);
+
+    /*** IUISettings5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_AutoHideScrollBars)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *add_AutoHideScrollBarsChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AutoHideScrollBarsChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 *This,
+        EventRegistrationToken token);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUISettings5 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_get_AutoHideScrollBars(This,value) (This)->lpVtbl->get_AutoHideScrollBars(This,value)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_add_AutoHideScrollBarsChanged(This,handler,token) (This)->lpVtbl->add_AutoHideScrollBarsChanged(This,handler,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_remove_AutoHideScrollBarsChanged(This,token) (This)->lpVtbl->remove_AutoHideScrollBarsChanged(This,token)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUISettings5 methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_get_AutoHideScrollBars(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,boolean *value) {
+    return This->lpVtbl->get_AutoHideScrollBars(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_add_AutoHideScrollBarsChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_AutoHideScrollBarsChanged(This,handler,token);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_remove_AutoHideScrollBarsChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings5* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_AutoHideScrollBarsChanged(This,token);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettings5 IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings5
+#define IUISettings5Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5Vtbl
+#define IUISettings5 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5
+#define IUISettings5_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_QueryInterface
+#define IUISettings5_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_AddRef
+#define IUISettings5_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_Release
+#define IUISettings5_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetIids
+#define IUISettings5_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetRuntimeClassName
+#define IUISettings5_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_GetTrustLevel
+#define IUISettings5_get_AutoHideScrollBars __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_get_AutoHideScrollBars
+#define IUISettings5_add_AutoHideScrollBarsChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_add_AutoHideScrollBarsChanged
+#define IUISettings5_remove_AutoHideScrollBarsChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_remove_AutoHideScrollBarsChanged
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings5_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+
+/*****************************************************************************
+ * IUISettings6 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings6, 0xaef19bd7, 0xfe31, 0x5a04, 0xad,0xa4, 0x46,0x9a,0xae,0xc6,0xdf,0xa9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("aef19bd7-fe31-5a04-ada4-469aaec6dfa9")
+                IUISettings6 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE add_AnimationsEnabledChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_AnimationsEnabledChanged(
+                        EventRegistrationToken token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE add_MessageDurationChanged(
+                        ABI::Windows::Foundation::ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > *handler,
+                        EventRegistrationToken *token) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE remove_MessageDurationChanged(
+                        EventRegistrationToken token) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6, 0xaef19bd7, 0xfe31, 0x5a04, 0xad,0xa4, 0x46,0x9a,0xae,0xc6,0xdf,0xa9)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        TrustLevel *trustLevel);
+
+    /*** IUISettings6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *add_AnimationsEnabledChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_AnimationsEnabledChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        EventRegistrationToken token);
+
+    HRESULT (STDMETHODCALLTYPE *add_MessageDurationChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *handler,
+        EventRegistrationToken *token);
+
+    HRESULT (STDMETHODCALLTYPE *remove_MessageDurationChanged)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 *This,
+        EventRegistrationToken token);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6Vtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6 {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IUISettings6 methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_AnimationsEnabledChanged(This,handler,token) (This)->lpVtbl->add_AnimationsEnabledChanged(This,handler,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_AnimationsEnabledChanged(This,token) (This)->lpVtbl->remove_AnimationsEnabledChanged(This,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_MessageDurationChanged(This,handler,token) (This)->lpVtbl->add_MessageDurationChanged(This,handler,token)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_MessageDurationChanged(This,token) (This)->lpVtbl->remove_MessageDurationChanged(This,token)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IUISettings6 methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_AnimationsEnabledChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_AnimationsEnabledChanged(This,handler,token);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_AnimationsEnabledChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_AnimationsEnabledChanged(This,token);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_MessageDurationChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *handler,EventRegistrationToken *token) {
+    return This->lpVtbl->add_MessageDurationChanged(This,handler,token);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_MessageDurationChanged(__x_ABI_CWindows_CUI_CViewManagement_CIUISettings6* This,EventRegistrationToken token) {
+    return This->lpVtbl->remove_MessageDurationChanged(This,token);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettings6 IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettings6
+#define IUISettings6Vtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6Vtbl
+#define IUISettings6 __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6
+#define IUISettings6_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_QueryInterface
+#define IUISettings6_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_AddRef
+#define IUISettings6_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_Release
+#define IUISettings6_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetIids
+#define IUISettings6_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetRuntimeClassName
+#define IUISettings6_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_GetTrustLevel
+#define IUISettings6_add_AnimationsEnabledChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_AnimationsEnabledChanged
+#define IUISettings6_remove_AnimationsEnabledChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_AnimationsEnabledChanged
+#define IUISettings6_add_MessageDurationChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_add_MessageDurationChanged
+#define IUISettings6_remove_MessageDurationChanged __x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_remove_MessageDurationChanged
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettings6_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
+
+/*****************************************************************************
+ * IUISettingsAnimationsEnabledChangedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs, 0x0c7b4b3d, 0x2ea1, 0x533e, 0x89,0x4d, 0x41,0x5b,0xc5,0x24,0x3c,0x29);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("0c7b4b3d-2ea1-533e-894d-415bc5243c29")
+                IUISettingsAnimationsEnabledChangedEventArgs : public IInspectable
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs, 0x0c7b4b3d, 0x2ea1, 0x533e, 0x89,0x4d, 0x41,0x5b,0xc5,0x24,0x3c,0x29)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettingsAnimationsEnabledChangedEventArgs IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs
+#define IUISettingsAnimationsEnabledChangedEventArgsVtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgsVtbl
+#define IUISettingsAnimationsEnabledChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs
+#define IUISettingsAnimationsEnabledChangedEventArgs_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_QueryInterface
+#define IUISettingsAnimationsEnabledChangedEventArgs_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_AddRef
+#define IUISettingsAnimationsEnabledChangedEventArgs_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_Release
+#define IUISettingsAnimationsEnabledChangedEventArgs_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetIids
+#define IUISettingsAnimationsEnabledChangedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetRuntimeClassName
+#define IUISettingsAnimationsEnabledChangedEventArgs_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_GetTrustLevel
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
+
+/*****************************************************************************
+ * IUISettingsAutoHideScrollBarsChangedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs, 0x87afd4b2, 0x9146, 0x5f02, 0x8f,0x6b, 0x06,0xd4,0x54,0x17,0x4c,0x0f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("87afd4b2-9146-5f02-8f6b-06d454174c0f")
+                IUISettingsAutoHideScrollBarsChangedEventArgs : public IInspectable
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs, 0x87afd4b2, 0x9146, 0x5f02, 0x8f,0x6b, 0x06,0xd4,0x54,0x17,0x4c,0x0f)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettingsAutoHideScrollBarsChangedEventArgs IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs
+#define IUISettingsAutoHideScrollBarsChangedEventArgsVtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgsVtbl
+#define IUISettingsAutoHideScrollBarsChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_AddRef
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_Release
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetIids
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetRuntimeClassName
+#define IUISettingsAutoHideScrollBarsChangedEventArgs_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_GetTrustLevel
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+
+/*****************************************************************************
+ * IUISettingsMessageDurationChangedEventArgs interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs, 0x338aad52, 0x4a5d, 0x5b59, 0x80,0x02, 0xd9,0x30,0xf6,0x08,0xfd,0x6e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("338aad52-4a5d-5b59-8002-d930f608fd6e")
+                IUISettingsMessageDurationChangedEventArgs : public IInspectable
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs, 0x338aad52, 0x4a5d, 0x5b59, 0x80,0x02, 0xd9,0x30,0xf6,0x08,0xfd,0x6e)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *This,
+        TrustLevel *trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs {
+    CONST_VTBL __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_QueryInterface(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_AddRef(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_Release(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetIids(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetRuntimeClassName(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetTrustLevel(__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+#endif
+#ifdef WIDL_using_Windows_UI_ViewManagement
+#define IID_IUISettingsMessageDurationChangedEventArgs IID___x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs
+#define IUISettingsMessageDurationChangedEventArgsVtbl __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgsVtbl
+#define IUISettingsMessageDurationChangedEventArgs __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs
+#define IUISettingsMessageDurationChangedEventArgs_QueryInterface __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_QueryInterface
+#define IUISettingsMessageDurationChangedEventArgs_AddRef __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_AddRef
+#define IUISettingsMessageDurationChangedEventArgs_Release __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_Release
+#define IUISettingsMessageDurationChangedEventArgs_GetIids __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetIids
+#define IUISettingsMessageDurationChangedEventArgs_GetRuntimeClassName __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetRuntimeClassName
+#define IUISettingsMessageDurationChangedEventArgs_GetTrustLevel __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_GetTrustLevel
+#endif /* WIDL_using_Windows_UI_ViewManagement */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
 
 /*****************************************************************************
  * IUIViewSettings interface
@@ -2509,6 +3552,54 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UIS
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*
+ * Class Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','A','n','i','m','a','t','i','o','n','s','E','n','a','b','l','e','d','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs[] = L"Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','A','n','i','m','a','t','i','o','n','s','E','n','a','b','l','e','d','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAnimationsEnabledChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
+
+/*
+ * Class Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+#ifndef RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','A','u','t','o','H','i','d','e','S','c','r','o','l','l','B','a','r','s','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs[] = L"Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','A','u','t','o','H','i','d','e','S','c','r','o','l','l','B','a','r','s','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsAutoHideScrollBarsChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000 */
+
+/*
+ * Class Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#ifndef RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','M','e','s','s','a','g','e','D','u','r','a','t','i','o','n','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs[] = L"Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs[] = {'W','i','n','d','o','w','s','.','U','I','.','V','i','e','w','M','a','n','a','g','e','m','e','n','t','.','U','I','S','e','t','t','i','n','g','s','M','e','s','s','a','g','e','D','u','r','a','t','i','o','n','C','h','a','n','g','e','d','E','v','e','n','t','A','r','g','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_UI_ViewManagement_UISettingsMessageDurationChangedEventArgs_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000 */
+
+/*
  * Class Windows.UI.ViewManagement.UIViewSettings
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -2647,6 +3738,282 @@ static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUI
 #endif
 
 #endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs, 0xdeff0f90, 0x59e1, 0x5859, 0xa2,0x45, 0x3d,0x27,0x50,0x81,0xc2,0xad);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("deff0f90-59e1-5859-a245-3d275081c2ad")
+            ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettings*, ABI::Windows::UI::ViewManagement::IUISettings* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs*, ABI::Windows::UI::ViewManagement::IUISettingsAnimationsEnabledChangedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs, 0xdeff0f90, 0x59e1, 0x5859, 0xa2,0x45, 0x3d,0x27,0x50,0x81,0xc2,0xad)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs *This,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Release(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAnimationsEnabledChangedEventArgs* > methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs* This,__x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAnimationsEnabledChangedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgsVtbl __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgsVtbl
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_QueryInterface
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs_AddRef __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_AddRef
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs_Release __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Release
+#define ITypedEventHandler_UISettings_UISettingsAnimationsEnabledChangedEventArgs_Invoke __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAnimationsEnabledChangedEventArgs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs, 0x808aef30, 0x2660, 0x51b0, 0x9c,0x11, 0xf7,0x5d,0xd4,0x20,0x06,0xb4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("808aef30-2660-51b0-9c11-f75dd42006b4")
+            ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettings*, ABI::Windows::UI::ViewManagement::IUISettings* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs*, ABI::Windows::UI::ViewManagement::IUISettingsAutoHideScrollBarsChangedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs, 0x808aef30, 0x2660, 0x51b0, 0x9c,0x11, 0xf7,0x5d,0xd4,0x20,0x06,0xb4)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs *This,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Release(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsAutoHideScrollBarsChangedEventArgs* > methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs* This,__x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsAutoHideScrollBarsChangedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgsVtbl __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgsVtbl
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_QueryInterface
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs_AddRef __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_AddRef
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs_Release __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Release
+#define ITypedEventHandler_UISettings_UISettingsAutoHideScrollBarsChangedEventArgs_Invoke __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsAutoHideScrollBarsChangedEventArgs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > interface
+ */
+#ifndef ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__
+#define ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs, 0xec807b08, 0x1ac6, 0x5b37, 0x9a,0xf7, 0x1a,0xaf,0x1c,0x93,0x57,0x7e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("ec807b08-1ac6-5b37-9af7-1aaf1c93577e")
+            ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettings*, ABI::Windows::UI::ViewManagement::IUISettings* >, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs*, ABI::Windows::UI::ViewManagement::IUISettingsMessageDurationChangedEventArgs* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs, 0xec807b08, 0x1ac6, 0x5b37, 0x9a,0xf7, 0x1a,0xaf,0x1c,0x93,0x57,0x7e)
+#endif
+#else
+typedef struct __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *This);
+
+    /*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs *This,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,
+        __x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *args);
+
+    END_INTERFACE
+} __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgsVtbl;
+
+interface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs {
+    CONST_VTBL __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Release(This) (This)->lpVtbl->Release(This)
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > methods ***/
+#define __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Invoke(This,sender,args) (This)->lpVtbl->Invoke(This,sender,args)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_QueryInterface(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_AddRef(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Release(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypedEventHandler<ABI::Windows::UI::ViewManagement::UISettings*,ABI::Windows::UI::ViewManagement::UISettingsMessageDurationChangedEventArgs* > methods ***/
+static inline HRESULT __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Invoke(__FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs* This,__x_ABI_CWindows_CUI_CViewManagement_CIUISettings *sender,__x_ABI_CWindows_CUI_CViewManagement_CIUISettingsMessageDurationChangedEventArgs *args) {
+    return This->lpVtbl->Invoke(This,sender,args);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs IID___FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgsVtbl __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgsVtbl
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs_QueryInterface __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_QueryInterface
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs_AddRef __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_AddRef
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs_Release __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Release
+#define ITypedEventHandler_UISettings_UISettingsMessageDurationChangedEventArgs_Invoke __FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FITypedEventHandler_2_Windows__CUI__CViewManagement__CUISettings_Windows__CUI__CViewManagement__CUISettingsMessageDurationChangedEventArgs_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITypedEventHandler<ABI::Windows::UI::ViewManagement::InputPane*,ABI::Windows::UI::ViewManagement::InputPaneVisibilityEventArgs* > interface
