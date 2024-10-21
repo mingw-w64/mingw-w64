@@ -108,6 +108,7 @@ unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeo
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
 extern void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME);
+extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
 
 #if defined(__GNUC__) || defined(__clang__)
 #define likely(cond) __builtin_expect((cond) != 0, 1)
