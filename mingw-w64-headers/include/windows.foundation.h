@@ -217,6 +217,36 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValue __x_ABI_CWindows_CFoundation_CIPropertyValue;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue ABI::Windows::Foundation::IPropertyValue
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IPropertyValue;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValueStatics __x_ABI_CWindows_CFoundation_CIPropertyValueStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics ABI::Windows::Foundation::IPropertyValueStatics
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IPropertyValueStatics;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIUriEscapeStatics_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CFoundation_CIUriEscapeStatics __x_ABI_CWindows_CFoundation_CIUriEscapeStatics;
@@ -351,6 +381,21 @@ namespace ABI {
 typedef struct __x_ABI_CWindows_CFoundation_CMemoryBuffer __x_ABI_CWindows_CFoundation_CMemoryBuffer;
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CFoundation_CMemoryBuffer_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CFoundation_CPropertyValue_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CPropertyValue_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            class PropertyValue;
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CPropertyValue __x_ABI_CWindows_CFoundation_CPropertyValue;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CFoundation_CPropertyValue_FWD_DEFINED__ */
 
 #ifndef ____x_ABI_CWindows_CFoundation_CUri_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CUri_FWD_DEFINED__
@@ -1277,6 +1322,36 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             interface IMemoryBufferReference;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValue __x_ABI_CWindows_CFoundation_CIPropertyValue;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue ABI::Windows::Foundation::IPropertyValue
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IPropertyValue;
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValueStatics __x_ABI_CWindows_CFoundation_CIPropertyValueStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics ABI::Windows::Foundation::IPropertyValueStatics
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            interface IPropertyValueStatics;
         }
     }
 }
@@ -3290,6 +3365,1322 @@ static inline HRESULT __x_ABI_CWindows_CFoundation_CIMemoryBufferReference_remov
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
+ * IPropertyValue interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValue_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValue_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIPropertyValue, 0x4bd682dd, 0x7554, 0x40e9, 0x9a,0x9b, 0x82,0x65,0x4e,0xde,0x7e,0x62);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("4bd682dd-7554-40e9-9a9b-82654ede7e62")
+            IPropertyValue : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE get_Type(
+                    ABI::Windows::Foundation::PropertyType *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE get_IsNumericScalar(
+                    boolean *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt8(
+                    BYTE *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt16(
+                    INT16 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt16(
+                    UINT16 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt32(
+                    INT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt32(
+                    UINT32 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt64(
+                    INT64 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt64(
+                    UINT64 *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetSingle(
+                    FLOAT *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetDouble(
+                    DOUBLE *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetChar16(
+                    WCHAR *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetBoolean(
+                    boolean *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetString(
+                    HSTRING *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetGuid(
+                    GUID *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetDateTime(
+                    ABI::Windows::Foundation::DateTime *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetTimeSpan(
+                    ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetPoint(
+                    ABI::Windows::Foundation::Point *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetSize(
+                    ABI::Windows::Foundation::Size *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetRect(
+                    ABI::Windows::Foundation::Rect *value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt8Array(
+                    UINT32 *value_size,
+                    BYTE **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt16Array(
+                    UINT32 *value_size,
+                    INT16 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt16Array(
+                    UINT32 *value_size,
+                    UINT16 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt32Array(
+                    UINT32 *value_size,
+                    INT32 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt32Array(
+                    UINT32 *value_size,
+                    UINT32 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInt64Array(
+                    UINT32 *value_size,
+                    INT64 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetUInt64Array(
+                    UINT32 *value_size,
+                    UINT64 **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetSingleArray(
+                    UINT32 *value_size,
+                    FLOAT **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetDoubleArray(
+                    UINT32 *value_size,
+                    DOUBLE **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetChar16Array(
+                    UINT32 *value_size,
+                    WCHAR **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetBooleanArray(
+                    UINT32 *value_size,
+                    boolean **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetStringArray(
+                    UINT32 *value_size,
+                    HSTRING **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetInspectableArray(
+                    UINT32 *value_size,
+                    IInspectable ***value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetGuidArray(
+                    UINT32 *value_size,
+                    GUID **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetDateTimeArray(
+                    UINT32 *value_size,
+                    ABI::Windows::Foundation::DateTime **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetTimeSpanArray(
+                    UINT32 *value_size,
+                    ABI::Windows::Foundation::TimeSpan **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetPointArray(
+                    UINT32 *value_size,
+                    ABI::Windows::Foundation::Point **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetSizeArray(
+                    UINT32 *value_size,
+                    ABI::Windows::Foundation::Size **value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE GetRectArray(
+                    UINT32 *value_size,
+                    ABI::Windows::Foundation::Rect **value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIPropertyValue, 0x4bd682dd, 0x7554, 0x40e9, 0x9a,0x9b, 0x82,0x65,0x4e,0xde,0x7e,0x62)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIPropertyValueVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        TrustLevel *trustLevel);
+
+    /*** IPropertyValue methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Type)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CPropertyType *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_IsNumericScalar)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt8)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        BYTE *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        INT16 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT16 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt32)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        INT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt32)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt64)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        INT64 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt64)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT64 *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetSingle)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        FLOAT *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDouble)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        DOUBLE *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetChar16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        WCHAR *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetBoolean)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetString)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetGuid)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        GUID *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDateTime)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CDateTime *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeSpan)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetPoint)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CPoint *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetSize)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CSize *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetRect)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        __x_ABI_CWindows_CFoundation_CRect *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt8Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        BYTE **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        INT16 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        UINT16 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt32Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        INT32 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt32Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        UINT32 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt64Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        INT64 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt64Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        UINT64 **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetSingleArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        FLOAT **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDoubleArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        DOUBLE **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetChar16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        WCHAR **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetBooleanArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        boolean **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetStringArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetInspectableArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        IInspectable ***value);
+
+    HRESULT (STDMETHODCALLTYPE *GetGuidArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        GUID **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDateTimeArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        __x_ABI_CWindows_CFoundation_CDateTime **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeSpanArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        __x_ABI_CWindows_CFoundation_CTimeSpan **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetPointArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        __x_ABI_CWindows_CFoundation_CPoint **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetSizeArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        __x_ABI_CWindows_CFoundation_CSize **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetRectArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValue *This,
+        UINT32 *value_size,
+        __x_ABI_CWindows_CFoundation_CRect **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIPropertyValueVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIPropertyValue {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIPropertyValueVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IPropertyValue methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_get_Type(This,value) (This)->lpVtbl->get_Type(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_get_IsNumericScalar(This,value) (This)->lpVtbl->get_IsNumericScalar(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8(This,value) (This)->lpVtbl->GetUInt8(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16(This,value) (This)->lpVtbl->GetInt16(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16(This,value) (This)->lpVtbl->GetUInt16(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32(This,value) (This)->lpVtbl->GetInt32(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32(This,value) (This)->lpVtbl->GetUInt32(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64(This,value) (This)->lpVtbl->GetInt64(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64(This,value) (This)->lpVtbl->GetUInt64(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingle(This,value) (This)->lpVtbl->GetSingle(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDouble(This,value) (This)->lpVtbl->GetDouble(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16(This,value) (This)->lpVtbl->GetChar16(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBoolean(This,value) (This)->lpVtbl->GetBoolean(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetString(This,value) (This)->lpVtbl->GetString(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuid(This,value) (This)->lpVtbl->GetGuid(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTime(This,value) (This)->lpVtbl->GetDateTime(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpan(This,value) (This)->lpVtbl->GetTimeSpan(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPoint(This,value) (This)->lpVtbl->GetPoint(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSize(This,value) (This)->lpVtbl->GetSize(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRect(This,value) (This)->lpVtbl->GetRect(This,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8Array(This,value_size,value) (This)->lpVtbl->GetUInt8Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16Array(This,value_size,value) (This)->lpVtbl->GetInt16Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16Array(This,value_size,value) (This)->lpVtbl->GetUInt16Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32Array(This,value_size,value) (This)->lpVtbl->GetInt32Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32Array(This,value_size,value) (This)->lpVtbl->GetUInt32Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64Array(This,value_size,value) (This)->lpVtbl->GetInt64Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64Array(This,value_size,value) (This)->lpVtbl->GetUInt64Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingleArray(This,value_size,value) (This)->lpVtbl->GetSingleArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDoubleArray(This,value_size,value) (This)->lpVtbl->GetDoubleArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16Array(This,value_size,value) (This)->lpVtbl->GetChar16Array(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBooleanArray(This,value_size,value) (This)->lpVtbl->GetBooleanArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetStringArray(This,value_size,value) (This)->lpVtbl->GetStringArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInspectableArray(This,value_size,value) (This)->lpVtbl->GetInspectableArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuidArray(This,value_size,value) (This)->lpVtbl->GetGuidArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTimeArray(This,value_size,value) (This)->lpVtbl->GetDateTimeArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpanArray(This,value_size,value) (This)->lpVtbl->GetTimeSpanArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPointArray(This,value_size,value) (This)->lpVtbl->GetPointArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSizeArray(This,value_size,value) (This)->lpVtbl->GetSizeArray(This,value_size,value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRectArray(This,value_size,value) (This)->lpVtbl->GetRectArray(This,value_size,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_QueryInterface(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CFoundation_CIPropertyValue_AddRef(__x_ABI_CWindows_CFoundation_CIPropertyValue* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CFoundation_CIPropertyValue_Release(__x_ABI_CWindows_CFoundation_CIPropertyValue* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetIids(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IPropertyValue methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_get_Type(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CPropertyType *value) {
+    return This->lpVtbl->get_Type(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_get_IsNumericScalar(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,boolean *value) {
+    return This->lpVtbl->get_IsNumericScalar(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,BYTE *value) {
+    return This->lpVtbl->GetUInt8(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,INT16 *value) {
+    return This->lpVtbl->GetInt16(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT16 *value) {
+    return This->lpVtbl->GetUInt16(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,INT32 *value) {
+    return This->lpVtbl->GetInt32(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value) {
+    return This->lpVtbl->GetUInt32(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,INT64 *value) {
+    return This->lpVtbl->GetInt64(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT64 *value) {
+    return This->lpVtbl->GetUInt64(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingle(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,FLOAT *value) {
+    return This->lpVtbl->GetSingle(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDouble(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,DOUBLE *value) {
+    return This->lpVtbl->GetDouble(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,WCHAR *value) {
+    return This->lpVtbl->GetChar16(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBoolean(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,boolean *value) {
+    return This->lpVtbl->GetBoolean(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetString(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,HSTRING *value) {
+    return This->lpVtbl->GetString(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuid(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,GUID *value) {
+    return This->lpVtbl->GetGuid(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTime(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CDateTime *value) {
+    return This->lpVtbl->GetDateTime(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpan(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->GetTimeSpan(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPoint(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CPoint *value) {
+    return This->lpVtbl->GetPoint(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSize(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CSize *value) {
+    return This->lpVtbl->GetSize(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRect(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,__x_ABI_CWindows_CFoundation_CRect *value) {
+    return This->lpVtbl->GetRect(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,BYTE **value) {
+    return This->lpVtbl->GetUInt8Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,INT16 **value) {
+    return This->lpVtbl->GetInt16Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,UINT16 **value) {
+    return This->lpVtbl->GetUInt16Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,INT32 **value) {
+    return This->lpVtbl->GetInt32Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,UINT32 **value) {
+    return This->lpVtbl->GetUInt32Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,INT64 **value) {
+    return This->lpVtbl->GetInt64Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,UINT64 **value) {
+    return This->lpVtbl->GetUInt64Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingleArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,FLOAT **value) {
+    return This->lpVtbl->GetSingleArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDoubleArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,DOUBLE **value) {
+    return This->lpVtbl->GetDoubleArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16Array(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,WCHAR **value) {
+    return This->lpVtbl->GetChar16Array(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBooleanArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,boolean **value) {
+    return This->lpVtbl->GetBooleanArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetStringArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,HSTRING **value) {
+    return This->lpVtbl->GetStringArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInspectableArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,IInspectable ***value) {
+    return This->lpVtbl->GetInspectableArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuidArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,GUID **value) {
+    return This->lpVtbl->GetGuidArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTimeArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,__x_ABI_CWindows_CFoundation_CDateTime **value) {
+    return This->lpVtbl->GetDateTimeArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpanArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,__x_ABI_CWindows_CFoundation_CTimeSpan **value) {
+    return This->lpVtbl->GetTimeSpanArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPointArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,__x_ABI_CWindows_CFoundation_CPoint **value) {
+    return This->lpVtbl->GetPointArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSizeArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,__x_ABI_CWindows_CFoundation_CSize **value) {
+    return This->lpVtbl->GetSizeArray(This,value_size,value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRectArray(__x_ABI_CWindows_CFoundation_CIPropertyValue* This,UINT32 *value_size,__x_ABI_CWindows_CFoundation_CRect **value) {
+    return This->lpVtbl->GetRectArray(This,value_size,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IPropertyValue IID___x_ABI_CWindows_CFoundation_CIPropertyValue
+#define IPropertyValueVtbl __x_ABI_CWindows_CFoundation_CIPropertyValueVtbl
+#define IPropertyValue __x_ABI_CWindows_CFoundation_CIPropertyValue
+#define IPropertyValue_QueryInterface __x_ABI_CWindows_CFoundation_CIPropertyValue_QueryInterface
+#define IPropertyValue_AddRef __x_ABI_CWindows_CFoundation_CIPropertyValue_AddRef
+#define IPropertyValue_Release __x_ABI_CWindows_CFoundation_CIPropertyValue_Release
+#define IPropertyValue_GetIids __x_ABI_CWindows_CFoundation_CIPropertyValue_GetIids
+#define IPropertyValue_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRuntimeClassName
+#define IPropertyValue_GetTrustLevel __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTrustLevel
+#define IPropertyValue_get_Type __x_ABI_CWindows_CFoundation_CIPropertyValue_get_Type
+#define IPropertyValue_get_IsNumericScalar __x_ABI_CWindows_CFoundation_CIPropertyValue_get_IsNumericScalar
+#define IPropertyValue_GetUInt8 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8
+#define IPropertyValue_GetInt16 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16
+#define IPropertyValue_GetUInt16 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16
+#define IPropertyValue_GetInt32 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32
+#define IPropertyValue_GetUInt32 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32
+#define IPropertyValue_GetInt64 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64
+#define IPropertyValue_GetUInt64 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64
+#define IPropertyValue_GetSingle __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingle
+#define IPropertyValue_GetDouble __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDouble
+#define IPropertyValue_GetChar16 __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16
+#define IPropertyValue_GetBoolean __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBoolean
+#define IPropertyValue_GetString __x_ABI_CWindows_CFoundation_CIPropertyValue_GetString
+#define IPropertyValue_GetGuid __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuid
+#define IPropertyValue_GetDateTime __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTime
+#define IPropertyValue_GetTimeSpan __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpan
+#define IPropertyValue_GetPoint __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPoint
+#define IPropertyValue_GetSize __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSize
+#define IPropertyValue_GetRect __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRect
+#define IPropertyValue_GetUInt8Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt8Array
+#define IPropertyValue_GetInt16Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt16Array
+#define IPropertyValue_GetUInt16Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt16Array
+#define IPropertyValue_GetInt32Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt32Array
+#define IPropertyValue_GetUInt32Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt32Array
+#define IPropertyValue_GetInt64Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInt64Array
+#define IPropertyValue_GetUInt64Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetUInt64Array
+#define IPropertyValue_GetSingleArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSingleArray
+#define IPropertyValue_GetDoubleArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDoubleArray
+#define IPropertyValue_GetChar16Array __x_ABI_CWindows_CFoundation_CIPropertyValue_GetChar16Array
+#define IPropertyValue_GetBooleanArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetBooleanArray
+#define IPropertyValue_GetStringArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetStringArray
+#define IPropertyValue_GetInspectableArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetInspectableArray
+#define IPropertyValue_GetGuidArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetGuidArray
+#define IPropertyValue_GetDateTimeArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetDateTimeArray
+#define IPropertyValue_GetTimeSpanArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetTimeSpanArray
+#define IPropertyValue_GetPointArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetPointArray
+#define IPropertyValue_GetSizeArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetSizeArray
+#define IPropertyValue_GetRectArray __x_ABI_CWindows_CFoundation_CIPropertyValue_GetRectArray
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIPropertyValue_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IPropertyValueStatics interface
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CFoundation_CIPropertyValueStatics, 0x629bdbc8, 0xd932, 0x4ff4, 0x96,0xb9, 0x8d,0x96,0xc5,0xc1,0xe8,0x58);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            MIDL_INTERFACE("629bdbc8-d932-4ff4-96b9-8d96c5c1e858")
+            IPropertyValueStatics : public IInspectable
+            {
+                virtual HRESULT STDMETHODCALLTYPE CreateEmpty(
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt8(
+                    BYTE value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt16(
+                    INT16 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt16(
+                    UINT16 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt32(
+                    INT32 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt32(
+                    UINT32 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt64(
+                    INT64 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt64(
+                    UINT64 value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateSingle(
+                    FLOAT value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateDouble(
+                    DOUBLE value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateChar16(
+                    WCHAR value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateBoolean(
+                    boolean value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateString(
+                    HSTRING value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInspectable(
+                    IInspectable *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateGuid(
+                    GUID value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateDateTime(
+                    ABI::Windows::Foundation::DateTime value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateTimeSpan(
+                    ABI::Windows::Foundation::TimeSpan value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreatePoint(
+                    ABI::Windows::Foundation::Point value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateSize(
+                    ABI::Windows::Foundation::Size value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateRect(
+                    ABI::Windows::Foundation::Rect value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt8Array(
+                    UINT32 value_size,
+                    BYTE *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt16Array(
+                    UINT32 value_size,
+                    INT16 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt16Array(
+                    UINT32 value_size,
+                    UINT16 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt32Array(
+                    UINT32 value_size,
+                    INT32 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt32Array(
+                    UINT32 value_size,
+                    UINT32 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInt64Array(
+                    UINT32 value_size,
+                    INT64 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateUInt64Array(
+                    UINT32 value_size,
+                    UINT64 *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateSingleArray(
+                    UINT32 value_size,
+                    FLOAT *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateDoubleArray(
+                    UINT32 value_size,
+                    DOUBLE *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateChar16Array(
+                    UINT32 value_size,
+                    WCHAR *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateBooleanArray(
+                    UINT32 value_size,
+                    boolean *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateStringArray(
+                    UINT32 value_size,
+                    HSTRING *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateInspectableArray(
+                    UINT32 value_size,
+                    IInspectable **value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateGuidArray(
+                    UINT32 value_size,
+                    GUID *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateDateTimeArray(
+                    UINT32 value_size,
+                    ABI::Windows::Foundation::DateTime *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateTimeSpanArray(
+                    UINT32 value_size,
+                    ABI::Windows::Foundation::TimeSpan *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreatePointArray(
+                    UINT32 value_size,
+                    ABI::Windows::Foundation::Point *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateSizeArray(
+                    UINT32 value_size,
+                    ABI::Windows::Foundation::Size *value,
+                    IInspectable **property_value) = 0;
+
+                virtual HRESULT STDMETHODCALLTYPE CreateRectArray(
+                    UINT32 value_size,
+                    ABI::Windows::Foundation::Rect *value,
+                    IInspectable **property_value) = 0;
+
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics, 0x629bdbc8, 0xd932, 0x4ff4, 0x96,0xb9, 0x8d,0x96,0xc5,0xc1,0xe8,0x58)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CFoundation_CIPropertyValueStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** IPropertyValueStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateEmpty)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt8)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        BYTE value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        INT16 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT16 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt32)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        INT32 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt32)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt64)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        INT64 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt64)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT64 value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSingle)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        FLOAT value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDouble)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        DOUBLE value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateChar16)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        WCHAR value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateBoolean)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        boolean value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateString)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        HSTRING value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInspectable)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        IInspectable *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateGuid)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        GUID value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDateTime)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        __x_ABI_CWindows_CFoundation_CDateTime value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTimeSpan)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePoint)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        __x_ABI_CWindows_CFoundation_CPoint value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSize)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        __x_ABI_CWindows_CFoundation_CSize value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateRect)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        __x_ABI_CWindows_CFoundation_CRect value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt8Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        BYTE *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        INT16 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        UINT16 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt32Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        INT32 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt32Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        UINT32 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInt64Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        INT64 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUInt64Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        UINT64 *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSingleArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        FLOAT *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDoubleArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        DOUBLE *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateChar16Array)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        WCHAR *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateBooleanArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        boolean *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateStringArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        HSTRING *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInspectableArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        IInspectable **value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateGuidArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        GUID *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDateTimeArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        __x_ABI_CWindows_CFoundation_CDateTime *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTimeSpanArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePointArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        __x_ABI_CWindows_CFoundation_CPoint *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSizeArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        __x_ABI_CWindows_CFoundation_CSize *value,
+        IInspectable **property_value);
+
+    HRESULT (STDMETHODCALLTYPE *CreateRectArray)(
+        __x_ABI_CWindows_CFoundation_CIPropertyValueStatics *This,
+        UINT32 value_size,
+        __x_ABI_CWindows_CFoundation_CRect *value,
+        IInspectable **property_value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CFoundation_CIPropertyValueStaticsVtbl;
+
+interface __x_ABI_CWindows_CFoundation_CIPropertyValueStatics {
+    CONST_VTBL __x_ABI_CWindows_CFoundation_CIPropertyValueStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IPropertyValueStatics methods ***/
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateEmpty(This,property_value) (This)->lpVtbl->CreateEmpty(This,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8(This,value,property_value) (This)->lpVtbl->CreateUInt8(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16(This,value,property_value) (This)->lpVtbl->CreateInt16(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16(This,value,property_value) (This)->lpVtbl->CreateUInt16(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32(This,value,property_value) (This)->lpVtbl->CreateInt32(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32(This,value,property_value) (This)->lpVtbl->CreateUInt32(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64(This,value,property_value) (This)->lpVtbl->CreateInt64(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64(This,value,property_value) (This)->lpVtbl->CreateUInt64(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingle(This,value,property_value) (This)->lpVtbl->CreateSingle(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDouble(This,value,property_value) (This)->lpVtbl->CreateDouble(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16(This,value,property_value) (This)->lpVtbl->CreateChar16(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBoolean(This,value,property_value) (This)->lpVtbl->CreateBoolean(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateString(This,value,property_value) (This)->lpVtbl->CreateString(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectable(This,value,property_value) (This)->lpVtbl->CreateInspectable(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuid(This,value,property_value) (This)->lpVtbl->CreateGuid(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTime(This,value,property_value) (This)->lpVtbl->CreateDateTime(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpan(This,value,property_value) (This)->lpVtbl->CreateTimeSpan(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePoint(This,value,property_value) (This)->lpVtbl->CreatePoint(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSize(This,value,property_value) (This)->lpVtbl->CreateSize(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRect(This,value,property_value) (This)->lpVtbl->CreateRect(This,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8Array(This,value_size,value,property_value) (This)->lpVtbl->CreateUInt8Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16Array(This,value_size,value,property_value) (This)->lpVtbl->CreateInt16Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16Array(This,value_size,value,property_value) (This)->lpVtbl->CreateUInt16Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32Array(This,value_size,value,property_value) (This)->lpVtbl->CreateInt32Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32Array(This,value_size,value,property_value) (This)->lpVtbl->CreateUInt32Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64Array(This,value_size,value,property_value) (This)->lpVtbl->CreateInt64Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64Array(This,value_size,value,property_value) (This)->lpVtbl->CreateUInt64Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingleArray(This,value_size,value,property_value) (This)->lpVtbl->CreateSingleArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDoubleArray(This,value_size,value,property_value) (This)->lpVtbl->CreateDoubleArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16Array(This,value_size,value,property_value) (This)->lpVtbl->CreateChar16Array(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBooleanArray(This,value_size,value,property_value) (This)->lpVtbl->CreateBooleanArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateStringArray(This,value_size,value,property_value) (This)->lpVtbl->CreateStringArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectableArray(This,value_size,value,property_value) (This)->lpVtbl->CreateInspectableArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuidArray(This,value_size,value,property_value) (This)->lpVtbl->CreateGuidArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTimeArray(This,value_size,value,property_value) (This)->lpVtbl->CreateDateTimeArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpanArray(This,value_size,value,property_value) (This)->lpVtbl->CreateTimeSpanArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePointArray(This,value_size,value,property_value) (This)->lpVtbl->CreatePointArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSizeArray(This,value_size,value,property_value) (This)->lpVtbl->CreateSizeArray(This,value_size,value,property_value)
+#define __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRectArray(This,value_size,value,property_value) (This)->lpVtbl->CreateRectArray(This,value_size,value,property_value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_QueryInterface(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_AddRef(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_Release(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetIids(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetRuntimeClassName(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IPropertyValueStatics methods ***/
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateEmpty(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,IInspectable **property_value) {
+    return This->lpVtbl->CreateEmpty(This,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,BYTE value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt8(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,INT16 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt16(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT16 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt16(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,INT32 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt32(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt32(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,INT64 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt64(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT64 value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt64(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingle(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,FLOAT value,IInspectable **property_value) {
+    return This->lpVtbl->CreateSingle(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDouble(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,DOUBLE value,IInspectable **property_value) {
+    return This->lpVtbl->CreateDouble(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,WCHAR value,IInspectable **property_value) {
+    return This->lpVtbl->CreateChar16(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBoolean(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,boolean value,IInspectable **property_value) {
+    return This->lpVtbl->CreateBoolean(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateString(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,HSTRING value,IInspectable **property_value) {
+    return This->lpVtbl->CreateString(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectable(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,IInspectable *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInspectable(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuid(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,GUID value,IInspectable **property_value) {
+    return This->lpVtbl->CreateGuid(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTime(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,__x_ABI_CWindows_CFoundation_CDateTime value,IInspectable **property_value) {
+    return This->lpVtbl->CreateDateTime(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpan(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,__x_ABI_CWindows_CFoundation_CTimeSpan value,IInspectable **property_value) {
+    return This->lpVtbl->CreateTimeSpan(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePoint(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,__x_ABI_CWindows_CFoundation_CPoint value,IInspectable **property_value) {
+    return This->lpVtbl->CreatePoint(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSize(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,__x_ABI_CWindows_CFoundation_CSize value,IInspectable **property_value) {
+    return This->lpVtbl->CreateSize(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRect(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,__x_ABI_CWindows_CFoundation_CRect value,IInspectable **property_value) {
+    return This->lpVtbl->CreateRect(This,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,BYTE *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt8Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,INT16 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt16Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,UINT16 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt16Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,INT32 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt32Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,UINT32 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt32Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,INT64 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInt64Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,UINT64 *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateUInt64Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingleArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,FLOAT *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateSingleArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDoubleArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,DOUBLE *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateDoubleArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16Array(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,WCHAR *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateChar16Array(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBooleanArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,boolean *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateBooleanArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateStringArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,HSTRING *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateStringArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectableArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,IInspectable **value,IInspectable **property_value) {
+    return This->lpVtbl->CreateInspectableArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuidArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,GUID *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateGuidArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTimeArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,__x_ABI_CWindows_CFoundation_CDateTime *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateDateTimeArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpanArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,__x_ABI_CWindows_CFoundation_CTimeSpan *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateTimeSpanArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePointArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,__x_ABI_CWindows_CFoundation_CPoint *value,IInspectable **property_value) {
+    return This->lpVtbl->CreatePointArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSizeArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,__x_ABI_CWindows_CFoundation_CSize *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateSizeArray(This,value_size,value,property_value);
+}
+static inline HRESULT __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRectArray(__x_ABI_CWindows_CFoundation_CIPropertyValueStatics* This,UINT32 value_size,__x_ABI_CWindows_CFoundation_CRect *value,IInspectable **property_value) {
+    return This->lpVtbl->CreateRectArray(This,value_size,value,property_value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IPropertyValueStatics IID___x_ABI_CWindows_CFoundation_CIPropertyValueStatics
+#define IPropertyValueStaticsVtbl __x_ABI_CWindows_CFoundation_CIPropertyValueStaticsVtbl
+#define IPropertyValueStatics __x_ABI_CWindows_CFoundation_CIPropertyValueStatics
+#define IPropertyValueStatics_QueryInterface __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_QueryInterface
+#define IPropertyValueStatics_AddRef __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_AddRef
+#define IPropertyValueStatics_Release __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_Release
+#define IPropertyValueStatics_GetIids __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetIids
+#define IPropertyValueStatics_GetRuntimeClassName __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetRuntimeClassName
+#define IPropertyValueStatics_GetTrustLevel __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_GetTrustLevel
+#define IPropertyValueStatics_CreateEmpty __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateEmpty
+#define IPropertyValueStatics_CreateUInt8 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8
+#define IPropertyValueStatics_CreateInt16 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16
+#define IPropertyValueStatics_CreateUInt16 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16
+#define IPropertyValueStatics_CreateInt32 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32
+#define IPropertyValueStatics_CreateUInt32 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32
+#define IPropertyValueStatics_CreateInt64 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64
+#define IPropertyValueStatics_CreateUInt64 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64
+#define IPropertyValueStatics_CreateSingle __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingle
+#define IPropertyValueStatics_CreateDouble __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDouble
+#define IPropertyValueStatics_CreateChar16 __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16
+#define IPropertyValueStatics_CreateBoolean __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBoolean
+#define IPropertyValueStatics_CreateString __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateString
+#define IPropertyValueStatics_CreateInspectable __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectable
+#define IPropertyValueStatics_CreateGuid __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuid
+#define IPropertyValueStatics_CreateDateTime __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTime
+#define IPropertyValueStatics_CreateTimeSpan __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpan
+#define IPropertyValueStatics_CreatePoint __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePoint
+#define IPropertyValueStatics_CreateSize __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSize
+#define IPropertyValueStatics_CreateRect __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRect
+#define IPropertyValueStatics_CreateUInt8Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt8Array
+#define IPropertyValueStatics_CreateInt16Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt16Array
+#define IPropertyValueStatics_CreateUInt16Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt16Array
+#define IPropertyValueStatics_CreateInt32Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt32Array
+#define IPropertyValueStatics_CreateUInt32Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt32Array
+#define IPropertyValueStatics_CreateInt64Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInt64Array
+#define IPropertyValueStatics_CreateUInt64Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateUInt64Array
+#define IPropertyValueStatics_CreateSingleArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSingleArray
+#define IPropertyValueStatics_CreateDoubleArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDoubleArray
+#define IPropertyValueStatics_CreateChar16Array __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateChar16Array
+#define IPropertyValueStatics_CreateBooleanArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateBooleanArray
+#define IPropertyValueStatics_CreateStringArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateStringArray
+#define IPropertyValueStatics_CreateInspectableArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateInspectableArray
+#define IPropertyValueStatics_CreateGuidArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateGuidArray
+#define IPropertyValueStatics_CreateDateTimeArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateDateTimeArray
+#define IPropertyValueStatics_CreateTimeSpanArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateTimeSpanArray
+#define IPropertyValueStatics_CreatePointArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreatePointArray
+#define IPropertyValueStatics_CreateSizeArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateSizeArray
+#define IPropertyValueStatics_CreateRectArray __x_ABI_CWindows_CFoundation_CIPropertyValueStatics_CreateRectArray
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CFoundation_CIPropertyValueStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
  * IUriEscapeStatics interface
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -4460,6 +5851,22 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_MemoryBuff
 #endif
 #endif /* RUNTIMECLASS_Windows_Foundation_MemoryBuffer_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Foundation.PropertyValue
+ */
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Foundation_PropertyValue_DEFINED
+#define RUNTIMECLASS_Windows_Foundation_PropertyValue_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Foundation_PropertyValue[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','P','r','o','p','e','r','t','y','V','a','l','u','e',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_PropertyValue[] = L"Windows.Foundation.PropertyValue";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Foundation_PropertyValue[] = {'W','i','n','d','o','w','s','.','F','o','u','n','d','a','t','i','o','n','.','P','r','o','p','e','r','t','y','V','a','l','u','e',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Foundation_PropertyValue_DEFINED */
+#endif /* WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000 */
 
 /*
  * Class Windows.Foundation.Uri
