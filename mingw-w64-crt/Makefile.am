@@ -678,315 +678,164 @@ src_msvcrtarm64=\
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
+src_pre_msvcrt20=\
+  misc/__daylight.c \
+  misc/__initenv.c \
+  misc/__p___argc.c \
+  misc/__p___argv.c \
+  misc/__p___initenv.c \
+  misc/__p___mb_cur_max.c \
+  misc/__p__acmdln.c \
+  misc/__p__commode.c \
+  misc/__p__environ.c \
+  misc/__p__fmode.c \
+  misc/__p__osver.c \
+  misc/__p__pctype.c \
+  misc/__p__pgmptr.c \
+  misc/__p__pwctype.c \
+  misc/__p__winmajor.c \
+  misc/__p__winminor.c \
+  misc/__p__winver.c \
+  misc/__timezone.c \
+  misc/__tzname.c \
+  stdio/iob_func.c
+
+src_pre_msvcrt40=\
+  misc/__set_app_type.c \
+  misc/dummy__setusermatherr.c \
+  stdio/_filelengthi64.c \
+  stdio/fgetpos.c \
+  stdio/fsetpos.c
+
+src_pre_msvcrt60=\
+  misc/__badioinfo.c \
+  misc/__p__osplatform_emul.c \
+  stdio/atoll.c \
+  stdio/mingw_dummy__lock.c
+
+src_pre_msvcr70=\
+  misc/___mb_cur_max_func.c \
+  misc/__pctype_func.c \
+  misc/__pwctype_func.c \
+  misc/lc_locale_func.c \
+  misc/purecall.c \
+  misc/strtoimax.c \
+  misc/strtoumax.c \
+  misc/wcstoimax.c \
+  misc/wcstoumax.c \
+  stdio/_scprintf.c \
+  stdio/_vscprintf.c
+
+src_pre_msvcr80=\
+  misc/__sys_errlist.c \
+  misc/__sys_nerr.c \
+  misc/_configthreadlocale.c \
+  misc/_get_errno.c \
+  misc/_set_errno.c \
+  misc/btowc.c \
+  misc/imaxabs.c \
+  misc/invalid_parameter_handler.c \
+  misc/mbrtowc.c \
+  misc/output_format.c \
+  misc/strnlen.c \
+  misc/wassert.c \
+  misc/wcrtomb.c \
+  misc/wcsnlen.c \
+  misc/wctob.c \
+  stdio/_fstat64i32.c \
+  stdio/fseeki64.c \
+  stdio/mingw_lock.c
+
+src_pre_msvcr100=\
+  misc/imaxdiv.c
+
+src_pre_msvcr120=\
+  misc/isblank.c \
+  misc/iswblank.c \
+  misc/wctrans.c \
+  misc/wctype.c
+
+src_post_msvcr80=\
+  misc/__p__osplatform_emul.c \
+  misc/__p__osver_emul.c
+
 src_crtdll=\
+  $(src_pre_msvcrt20) \
+  $(src_pre_msvcrt40) \
+  $(src_pre_msvcrt60) \
+  $(src_pre_msvcr70) \
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
   misc/crtdll__getmainargs.c \
   misc/crtdll__ismbblead.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
   math/x86/_copysignf.c \
-  misc/___mb_cur_max_func.c \
-  misc/__badioinfo.c \
-  misc/__daylight.c \
-  misc/__initenv.c \
-  misc/__p___argc.c \
-  misc/__p___argv.c \
-  misc/__p___initenv.c \
-  misc/__p___mb_cur_max.c \
-  misc/__p__acmdln.c \
-  misc/__p__commode.c \
-  misc/__p__environ.c \
-  misc/__p__fmode.c \
-  misc/__p__mbctype.c \
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver.c \
-  misc/__p__pgmptr.c \
-  misc/__p__pctype.c \
-  misc/__p__pwctype.c \
-  misc/__p__winmajor.c \
-  misc/__p__winminor.c \
-  misc/__p__winver.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
-  misc/__set_app_type.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/__timezone.c \
-  misc/__tzname.c \
-  misc/_configthreadlocale.c \
-  misc/dummy__setusermatherr.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/lc_locale_func.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/purecall.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/strtoimax.c \
-  misc/strtoumax.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wcstoimax.c \
-  misc/wcstoumax.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_filelengthi64.c \
-  stdio/_scprintf.c \
-  stdio/_vscprintf.c \
-  stdio/atoll.c \
-  stdio/fgetpos.c \
-  stdio/fsetpos.c \
-  stdio/fseeki64.c \
-  stdio/iob_func.c \
-  stdio/mingw_dummy__lock.c \
-  stdio/mingw_lock.c
+  misc/__p__mbctype.c
 
 src_msvcrt10=\
+  $(src_pre_msvcrt20) \
+  $(src_pre_msvcrt40) \
+  $(src_pre_msvcrt60) \
+  $(src_pre_msvcr70) \
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
   misc/crtdll__getmainargs.c \
-  misc/msvcrt10__ismbblead.c \
-  misc/___mb_cur_max_func.c \
-  misc/__badioinfo.c \
-  misc/__daylight.c \
-  misc/__initenv.c \
-  misc/__p___argc.c \
-  misc/__p___argv.c \
-  misc/__p___initenv.c \
-  misc/__p___mb_cur_max.c \
-  misc/__p__acmdln.c \
-  misc/__p__commode.c \
-  misc/__p__environ.c \
-  misc/__p__fmode.c \
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver.c \
-  misc/__p__pctype.c \
-  misc/__p__pgmptr.c \
-  misc/__p__pwctype.c \
-  misc/__p__winmajor.c \
-  misc/__p__winminor.c \
-  misc/__p__winver.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
-  misc/__set_app_type.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/__timezone.c \
-  misc/__tzname.c \
-  misc/_configthreadlocale.c \
-  misc/btowc.c \
-  misc/dummy__setusermatherr.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/lc_locale_func.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/purecall.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/strtoimax.c \
-  misc/strtoumax.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wcstoimax.c \
-  misc/wcstoumax.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_filelengthi64.c \
-  stdio/_scprintf.c \
-  stdio/_vscprintf.c \
-  stdio/atoll.c \
-  stdio/fgetpos.c \
-  stdio/fsetpos.c \
-  stdio/fseeki64.c \
-  stdio/iob_func.c \
-  stdio/mingw_dummy__lock.c \
-  stdio/mingw_lock.c
+  misc/msvcrt10__ismbblead.c
 
 src_msvcrt20=\
+  $(src_pre_msvcrt40) \
+  $(src_pre_msvcrt60) \
+  $(src_pre_msvcr70) \
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
   misc/msvcrt20__getmainargs.c \
-  misc/msvcrt20__wgetmainargs.c \
-  misc/___mb_cur_max_func.c \
-  misc/__badioinfo.c \
-  misc/__p__osplatform_emul.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
-  misc/__set_app_type.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/_configthreadlocale.c \
-  misc/btowc.c \
-  misc/dummy__setusermatherr.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/lc_locale_func.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/purecall.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/strtoimax.c \
-  misc/strtoumax.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wcstoimax.c \
-  misc/wcstoumax.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_filelengthi64.c \
-  stdio/_scprintf.c \
-  stdio/_vscprintf.c \
-  stdio/atoll.c \
-  stdio/fgetpos.c \
-  stdio/fsetpos.c \
-  stdio/fseeki64.c \
-  stdio/mingw_dummy__lock.c \
-  stdio/mingw_lock.c
+  misc/msvcrt20__wgetmainargs.c
 
 src_msvcrt40=\
-  misc/___mb_cur_max_func.c \
-  misc/__badioinfo.c \
-  misc/__p__osplatform_emul.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/_configthreadlocale.c \
-  misc/btowc.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/lc_locale_func.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/purecall.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/strtoimax.c \
-  misc/strtoumax.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wcstoimax.c \
-  misc/wcstoumax.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_scprintf.c \
-  stdio/_vscprintf.c \
-  stdio/atoll.c \
-  stdio/fseeki64.c \
-  stdio/mingw_dummy__lock.c \
-  stdio/mingw_lock.c
+  $(src_pre_msvcrt60) \
+  $(src_pre_msvcr70) \
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120)
 
 src_msvcr70=\
-  misc/__p__osplatform.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/_configthreadlocale.c \
-  misc/btowc.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_fstat64i32.c \
-  stdio/fseeki64.c \
-  stdio/mingw_lock.c
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
+  misc/__p__osplatform.c
 
 src_msvcr71=\
-  misc/__p__osplatform.c \
-  misc/__sys_errlist.c \
-  misc/__sys_nerr.c \
-  misc/_configthreadlocale.c \
-  misc/btowc.c \
-  misc/imaxabs.c \
-  misc/imaxdiv.c \
-  misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/mbrtowc.c \
-  misc/output_format.c \
-  misc/_get_errno.c \
-  misc/_set_errno.c \
-  misc/strnlen.c \
-  misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsnlen.c \
-  misc/wctob.c \
-  misc/wctrans.c \
-  misc/wctype.c \
-  stdio/_fstat64i32.c \
-  stdio/fseeki64.c \
-  stdio/mingw_lock.c
+  $(src_pre_msvcr80) \
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
+  misc/__p__osplatform.c
 
 src_msvcr80=\
-  misc/imaxdiv.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/wctrans.c \
-  misc/wctype.c
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120)
 
 src_msvcr90=\
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver_emul.c \
-  misc/imaxdiv.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/wctrans.c \
-  misc/wctype.c
+  $(src_pre_msvcr100) \
+  $(src_pre_msvcr120) \
+  $(src_post_msvcr80)
 
 src_msvcr100=\
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver_emul.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/wctrans.c \
-  misc/wctype.c
+  $(src_pre_msvcr120) \
+  $(src_post_msvcr80)
 
 src_msvcr110=\
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver_emul.c \
-  misc/isblank.c \
-  misc/iswblank.c \
-  misc/wctrans.c \
-  misc/wctype.c
+  $(src_pre_msvcr120) \
+  $(src_post_msvcr80)
 
 src_msvcr120=\
-  misc/__p__osplatform_emul.c \
-  misc/__p__osver_emul.c
+  $(src_post_msvcr80)
 
 src_msvcr120_app=\
+  $(src_post_msvcr80) \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__environ.c \
