@@ -1619,6 +1619,17 @@ __buildlogicali(_InterlockedXor, __LONG32, xor)
 #define __INTRINSIC_DEFINED__InterlockedXor
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_InterlockedCompareExchange8)
+char _InterlockedCompareExchange8(char volatile *destination, char exchange, char comperand);
+#if !__has_builtin(_InterlockedCompareExchange8)
+__INTRINSICS_USEINLINE
+char _InterlockedCompareExchange8(char volatile *destination, char exchange, char comperand) {
+    return __sync_val_compare_and_swap(destination, comperand, exchange);
+}
+#endif
+#define __INTRINSIC_DEFINED__InterlockedCompareExchange8
+#endif /* __INTRINSIC_PROLOG */
+
 #if __INTRINSIC_PROLOG(_InterlockedIncrement16)
 short _InterlockedIncrement16(short volatile *Addend);
 #if !__has_builtin(_InterlockedIncrement16)

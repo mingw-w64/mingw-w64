@@ -1157,7 +1157,7 @@ src_intrincs= \
   intrincs/bittest.c        intrincs/bittestc.c       intrincs/bittestci.c       intrincs/bittestr.c      intrincs/bittestri.c      \
   intrincs/bittests.c       intrincs/bittestsi.c      intrincs/cpuid.c           \
   intrincs/ilockadd.c       intrincs/ilockand.c        intrincs/ilockand64.c \
-  intrincs/ilockcxch.c      \
+  intrincs/ilockcxch.c      intrincs/ilockcxch8.c     \
   intrincs/ilockcxch16.c    intrincs/ilockcxch64.c    intrincs/ilockcxchptr.c    intrincs/ilockdec.c      intrincs/ilockdec16.c     \
   intrincs/ilockdec64.c     intrincs/ilockexch.c      intrincs/ilockexch64.c     intrincs/ilockexchadd.c  intrincs/ilockexchadd64.c \
   intrincs/ilockexchptr.c   intrincs/ilockinc.c       intrincs/ilockinc16.c      intrincs/ilockinc64.c    intrincs/ilockor.c        \
