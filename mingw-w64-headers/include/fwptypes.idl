@@ -13,6 +13,7 @@ import "wtypes.idl";
 #define FWP_BYTE_ARRAY6_SIZE 6
 #define FWP_V6_ADDR_SIZE (16)
 
+cpp_quote("#define FWP_BYTEMAP_ARRAY64_SIZE 8")
 cpp_quote("#define FWP_BYTE_ARRAY6_SIZE 6")
 cpp_quote("#define FWP_V6_ADDR_SIZE (16)")
 cpp_quote("#define FWP_ACTRL_MATCH_FILTER (1)")
@@ -91,6 +92,9 @@ cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_IPSEC_PROPERTIES_CHANGED  (0
 cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_MID_STREAM_INSPECTION     (0x00000040)")
 cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED   (0x00000080)")
 cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET (0x00000100)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED        (0x00000200)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED      (0x00004000)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD             (0x00010000)")
 cpp_quote("")
 cpp_quote("#define FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC      (0x00000001)")
 cpp_quote("#define FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC      (0x00000002)")
@@ -126,7 +130,7 @@ cpp_quote("#endif")
 
 cpp_quote("")
 
-cpp_quote("#define FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW        	(0x00000001)")
+cpp_quote("#define FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW         (0x00000001)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_OFFLOAD               (0x00000002)")
 cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY    (0x00000004)")
@@ -136,10 +140,19 @@ cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
 cpp_quote("#define FWP_CALLOUT_FLAG_RESERVED1                   (0x00000020)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_RSC                   (0x00000040)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY     (0x00000080)")
-cpp_quote("#endif")
-cpp_quote("#endif")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_USO                   (0x00000100)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_URO                   (0x00000200)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+cpp_quote("#define FWP_CALLOUT_FLAG_RESERVED2                   (0x00000400)")
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_CO) */")
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_VB) */")
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_19H1) */")
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN8) */")
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN7) */")
 
-cpp_quote("#ifdef __midl")
+cpp_quote("#ifdef __WIDL__")
 typedef struct _LUID {
   DWORD LowPart;
   LONG HighPart;
@@ -198,7 +211,8 @@ typedef [v1_enum] enum FWP_MATCH_TYPE_ {
   FWP_MATCH_LESS_OR_EQUAL, FWP_MATCH_RANGE,
   FWP_MATCH_FLAGS_ALL_SET, FWP_MATCH_FLAGS_ANY_SET,
   FWP_MATCH_FLAGS_NONE_SET, FWP_MATCH_EQUAL_CASE_INSENSITIVE,
-  FWP_MATCH_NOT_EQUAL, FWP_MATCH_TYPE_MAX
+  FWP_MATCH_NOT_EQUAL, FWP_MATCH_PREFIX,
+  FWP_MATCH_NOT_PREFIX, FWP_MATCH_TYPE_MAX
 } FWP_MATCH_TYPE;
 
 cpp_quote("")
@@ -374,5 +388,12 @@ typedef struct FWP_CONDITION_VALUE0_ {
 } FWP_CONDITION_VALUE0;
 
 cpp_quote("")
+
+typedef [v1_enum] enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE_ {
+  FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS,
+  FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE,
+  FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP,
+  FWP_NETWORK_CONNECTION_POLICY_MAX
+} FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE;
 
 cpp_quote("#endif /* WINAPI_PARTITION_DESKTOP. */")
