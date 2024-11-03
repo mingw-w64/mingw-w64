@@ -306,6 +306,22 @@ typedef interface __FIIterator_1_Windows__CStorage__CStreams__CIRandomAccessStre
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::Collections::IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream;
@@ -319,6 +335,14 @@ typedef interface __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessSt
 typedef interface __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream;
 #ifdef __cplusplus
 #define __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Storage::Streams::IRandomAccessStream* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* >
 #endif /* __cplusplus */
 #endif
 
@@ -362,6 +386,22 @@ typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStrea
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer __FIAsyncOperation_1_Windows__CStorage__CStreams__CIBuffer;
@@ -399,6 +439,14 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAcce
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
 #endif /* __cplusplus */
 #endif
 
@@ -689,6 +737,22 @@ typedef interface __FIIterator_1_Windows__CStorage__CStreams__CIRandomAccessStre
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::Collections::IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 #define ____FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream_FWD_DEFINED__
 typedef interface __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream;
@@ -702,6 +766,14 @@ typedef interface __FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessSt
 typedef interface __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream;
 #ifdef __cplusplus
 #define __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream ABI::Windows::Foundation::Collections::IVector<ABI::Windows::Storage::Streams::IRandomAccessStream* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* >
 #endif /* __cplusplus */
 #endif
 
@@ -742,6 +814,14 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAcce
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::IRandomAccessStreamWithContentType* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* >
 #endif /* __cplusplus */
 #endif
 
@@ -2948,6 +3028,341 @@ static inline HRESULT __FIIterator_1_Windows__CStorage__CStreams__CIRandomAccess
 #endif  /* ____FIIterator_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > interface
+ */
+#ifndef ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0x0a4ce7a5, 0xdfe0, 0x5796, 0xa4,0x38, 0xef,0xfd,0xfa,0xa3,0x1f,0x1b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("0a4ce7a5-dfe0-5796-a438-effdfaa31f1b")
+                IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > : IMapView_impl<HSTRING, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::Streams::RandomAccessStreamReference*, ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0x0a4ce7a5, 0xdfe0, 0x5796, 0xa4,0x38, 0xef,0xfd,0xfa,0xa3,0x1f,0x1b)
+#endif
+#else
+typedef struct __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Lookup)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        unsigned int *size);
+
+    HRESULT (STDMETHODCALLTYPE *HasKey)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key,
+        boolean *found);
+
+    HRESULT (STDMETHODCALLTYPE *Split)(
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **first,
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **second);
+
+    END_INTERFACE
+} __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup(This,key,value) (This)->lpVtbl->Lookup(This,key,value)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size(This,size) (This)->lpVtbl->get_Size(This,size)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey(This,key,found) (This)->lpVtbl->HasKey(This,key,found)
+#define __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Split(This,first,second) (This)->lpVtbl->Split(This,first,second)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **value) {
+    return This->lpVtbl->Lookup(This,key,value);
+}
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,unsigned int *size) {
+    return This->lpVtbl->get_Size(This,size);
+}
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key,boolean *found) {
+    return This->lpVtbl->HasKey(This,key,found);
+}
+static inline HRESULT __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Split(__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **first,__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **second) {
+    return This->lpVtbl->Split(This,first,second);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMapView_HSTRING_RandomAccessStreamReference IID___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IMapView_HSTRING_RandomAccessStreamReferenceVtbl __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IMapView_HSTRING_RandomAccessStreamReference __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IMapView_HSTRING_RandomAccessStreamReference_QueryInterface __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IMapView_HSTRING_RandomAccessStreamReference_AddRef __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IMapView_HSTRING_RandomAccessStreamReference_Release __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IMapView_HSTRING_RandomAccessStreamReference_GetIids __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids
+#define IMapView_HSTRING_RandomAccessStreamReference_GetRuntimeClassName __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName
+#define IMapView_HSTRING_RandomAccessStreamReference_GetTrustLevel __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel
+#define IMapView_HSTRING_RandomAccessStreamReference_Lookup __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup
+#define IMapView_HSTRING_RandomAccessStreamReference_get_Size __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size
+#define IMapView_HSTRING_RandomAccessStreamReference_HasKey __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey
+#define IMapView_HSTRING_RandomAccessStreamReference_Split __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Split
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > interface
+ */
+#ifndef ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xe5d2ccfc, 0x825a, 0x5a8e, 0x82,0xaa, 0x09,0x5e,0xd5,0xdb,0xd5,0xd1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("e5d2ccfc-825a-5a8e-82aa-095ed5dbd5d1")
+                IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > : IMap_impl<HSTRING, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::Streams::RandomAccessStreamReference*, ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xe5d2ccfc, 0x825a, 0x5a8e, 0x82,0xaa, 0x09,0x5e,0xd5,0xdb,0xd5,0xd1)
+#endif
+#else
+typedef struct __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Lookup)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        unsigned int *size);
+
+    HRESULT (STDMETHODCALLTYPE *HasKey)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key,
+        boolean *found);
+
+    HRESULT (STDMETHODCALLTYPE *GetView)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **view);
+
+    HRESULT (STDMETHODCALLTYPE *Insert)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *value,
+        boolean *replaced);
+
+    HRESULT (STDMETHODCALLTYPE *Remove)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING key);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    END_INTERFACE
+} __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup(This,key,value) (This)->lpVtbl->Lookup(This,key,value)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size(This,size) (This)->lpVtbl->get_Size(This,size)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey(This,key,found) (This)->lpVtbl->HasKey(This,key,found)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetView(This,view) (This)->lpVtbl->GetView(This,view)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Insert(This,key,value,replaced) (This)->lpVtbl->Insert(This,key,value,replaced)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Remove(This,key) (This)->lpVtbl->Remove(This,key)
+#define __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMap<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **value) {
+    return This->lpVtbl->Lookup(This,key,value);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,unsigned int *size) {
+    return This->lpVtbl->get_Size(This,size);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key,boolean *found) {
+    return This->lpVtbl->HasKey(This,key,found);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetView(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **view) {
+    return This->lpVtbl->GetView(This,view);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Insert(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference *value,boolean *replaced) {
+    return This->lpVtbl->Insert(This,key,value,replaced);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Remove(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING key) {
+    return This->lpVtbl->Remove(This,key);
+}
+static inline HRESULT __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Clear(__FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMap_HSTRING_RandomAccessStreamReference IID___FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IMap_HSTRING_RandomAccessStreamReferenceVtbl __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IMap_HSTRING_RandomAccessStreamReference __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IMap_HSTRING_RandomAccessStreamReference_QueryInterface __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IMap_HSTRING_RandomAccessStreamReference_AddRef __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IMap_HSTRING_RandomAccessStreamReference_Release __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IMap_HSTRING_RandomAccessStreamReference_GetIids __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids
+#define IMap_HSTRING_RandomAccessStreamReference_GetRuntimeClassName __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName
+#define IMap_HSTRING_RandomAccessStreamReference_GetTrustLevel __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel
+#define IMap_HSTRING_RandomAccessStreamReference_Lookup __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Lookup
+#define IMap_HSTRING_RandomAccessStreamReference_get_Size __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Size
+#define IMap_HSTRING_RandomAccessStreamReference_HasKey __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_HasKey
+#define IMap_HSTRING_RandomAccessStreamReference_GetView __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetView
+#define IMap_HSTRING_RandomAccessStreamReference_Insert __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Insert
+#define IMap_HSTRING_RandomAccessStreamReference_Remove __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Remove
+#define IMap_HSTRING_RandomAccessStreamReference_Clear __FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Clear
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMap_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IVectorView<ABI::Windows::Storage::Streams::IRandomAccessStream* > interface
  */
 #ifndef ____FIVectorView_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__
@@ -3333,6 +3748,98 @@ static inline HRESULT __FIVector_1_Windows__CStorage__CStreams__CIRandomAccessSt
 #endif
 
 #endif  /* ____FIVector_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xd4cb6b80, 0x821a, 0x5a7b, 0x89,0x8d, 0xd5,0x89,0x17,0xb3,0x1a,0x36);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("d4cb6b80-821a-5a7b-898d-d58917b31a36")
+            IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xd4cb6b80, 0x821a, 0x5a7b, 0x89,0x8d, 0xd5,0x89,0x17,0xb3,0x1a,0x36)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke(__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference IID___FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReferenceVtbl __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference_QueryInterface __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference_AddRef __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference_Release __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IAsyncOperationCompletedHandler_IMapView_HSTRING_RandomAccessStreamReference_Invoke __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::IBuffer* > interface
@@ -3793,6 +4300,238 @@ static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CS
 #endif
 
 #endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0x3d203732, 0xded7, 0x5d32, 0x87,0xe6, 0xc1,0x79,0x78,0x1f,0x79,0x1f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("3d203732-ded7-5d32-87e6-c179781f791f")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::Streams::RandomAccessStreamReference*, ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0x3d203732, 0xded7, 0x5d32, 0x87,0xe6, 0xc1,0x79,0x78,0x1f,0x79,0x1f)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_RandomAccessStreamReference IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReferenceVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReference __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReference_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReference_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReference_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IAsyncOperationCompletedHandler_RandomAccessStreamReference_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > interface
+ */
+#ifndef ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xfc012d44, 0x2dcf, 0x5162, 0xbe,0x9a, 0x76,0x68,0x67,0x5a,0xa5,0x90);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("fc012d44-2dcf-5162-be9a-7668675aa590")
+            IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > : IAsyncOperation_impl<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xfc012d44, 0x2dcf, 0x5162, 0xbe,0x9a, 0x76,0x68,0x67,0x5a,0xa5,0x90)
+#endif
+#else
+typedef struct __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMapView<HSTRING,ABI::Windows::Storage::Streams::RandomAccessStreamReference* >* > methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults(__FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference IID___FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReferenceVtbl __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_QueryInterface __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_AddRef __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_Release __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_GetIids __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_GetRuntimeClassName __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_GetTrustLevel __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_put_Completed __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_get_Completed __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed
+#define IAsyncOperation_IMapView_HSTRING_RandomAccessStreamReference_GetResults __FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1___FIMapView_2_HSTRING_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperation<ABI::Windows::Storage::Streams::IBuffer* > interface
@@ -4493,6 +5232,146 @@ static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandom
 #endif
 
 #endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CIRandomAccessStreamWithContentType_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xd90442ca, 0x543c, 0x504b, 0x9e,0xb9, 0x29,0x4b,0xca,0xd8,0xa2,0x83);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("d90442ca-543c-504b-9eb9-294bcad8a283")
+            IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::Streams::RandomAccessStreamReference*, ABI::Windows::Storage::Streams::IRandomAccessStreamReference* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference, 0xd90442ca, 0x543c, 0x504b, 0x9e,0xb9, 0x29,0x4b,0xca,0xd8,0xa2,0x83)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::Streams::RandomAccessStreamReference* > methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CRandomAccessStreamReference **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults(__FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference* This,__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_RandomAccessStreamReference IID___FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperation_RandomAccessStreamReferenceVtbl __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReferenceVtbl
+#define IAsyncOperation_RandomAccessStreamReference __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference
+#define IAsyncOperation_RandomAccessStreamReference_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_QueryInterface
+#define IAsyncOperation_RandomAccessStreamReference_AddRef __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_AddRef
+#define IAsyncOperation_RandomAccessStreamReference_Release __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_Release
+#define IAsyncOperation_RandomAccessStreamReference_GetIids __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetIids
+#define IAsyncOperation_RandomAccessStreamReference_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetRuntimeClassName
+#define IAsyncOperation_RandomAccessStreamReference_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetTrustLevel
+#define IAsyncOperation_RandomAccessStreamReference_put_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_put_Completed
+#define IAsyncOperation_RandomAccessStreamReference_get_Completed __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_get_Completed
+#define IAsyncOperation_RandomAccessStreamReference_GetResults __FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CStreams__CRandomAccessStreamReference_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

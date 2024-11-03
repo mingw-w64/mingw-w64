@@ -286,6 +286,9 @@ IDL_SRCS = \
   include/windows.applicationmodel.activation.idl \
   include/windows.applicationmodel.background.idl \
   include/windows.applicationmodel.core.idl \
+  include/windows.applicationmodel.datatransfer.dragdrop.core.idl \
+  include/windows.applicationmodel.datatransfer.dragdrop.idl \
+  include/windows.applicationmodel.datatransfer.idl \
   include/windows.applicationmodel.idl \
   include/windows.data.json.idl \
   include/windows.data.xml.dom.idl \
@@ -333,6 +336,7 @@ IDL_SRCS = \
   include/windows.security.credentials.idl \
   include/windows.security.credentials.ui.idl \
   include/windows.security.cryptography.idl \
+  include/windows.security.enterprisedata.idl \
   include/windows.security.exchangeactivesyncprovisioning.idl \
   include/windows.security.isolation.idl \
   include/windows.storage.idl \

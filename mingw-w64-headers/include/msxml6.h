@@ -379,19 +379,19 @@ interface ISAXLocator;
 #endif /* __cplusplus */
 #endif
 
-#ifndef __ISAXXMLFilter_FWD_DEFINED__
-#define __ISAXXMLFilter_FWD_DEFINED__
-typedef interface ISAXXMLFilter ISAXXMLFilter;
-#ifdef __cplusplus
-interface ISAXXMLFilter;
-#endif /* __cplusplus */
-#endif
-
 #ifndef __ISAXXMLReader_FWD_DEFINED__
 #define __ISAXXMLReader_FWD_DEFINED__
 typedef interface ISAXXMLReader ISAXXMLReader;
 #ifdef __cplusplus
 interface ISAXXMLReader;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __ISAXXMLFilter_FWD_DEFINED__
+#define __ISAXXMLFilter_FWD_DEFINED__
+typedef interface ISAXXMLFilter ISAXXMLFilter;
+#ifdef __cplusplus
+interface ISAXXMLFilter;
 #endif /* __cplusplus */
 #endif
 
@@ -15630,245 +15630,6 @@ static inline HRESULT ISAXLocator_getSystemId(ISAXLocator* This,const WCHAR **sy
 #endif  /* __ISAXLocator_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
- * ISAXXMLFilter interface
- */
-#ifndef __ISAXXMLFilter_INTERFACE_DEFINED__
-#define __ISAXXMLFilter_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID_ISAXXMLFilter, 0x70409222, 0xca09, 0x4475, 0xac,0xb8, 0x40,0x31,0x2f,0xe8,0xd1,0x45);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("70409222-ca09-4475-acb8-40312fe8d145")
-ISAXXMLFilter : public ISAXXMLReader
-{
-    virtual HRESULT STDMETHODCALLTYPE getParent(
-        ISAXXMLReader **pReader) = 0;
-
-    virtual HRESULT STDMETHODCALLTYPE putParent(
-        ISAXXMLReader *reader) = 0;
-
-};
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(ISAXXMLFilter, 0x70409222, 0xca09, 0x4475, 0xac,0xb8, 0x40,0x31,0x2f,0xe8,0xd1,0x45)
-#endif
-#else
-typedef struct ISAXXMLFilterVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        ISAXXMLFilter *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        ISAXXMLFilter *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        ISAXXMLFilter *This);
-
-    /*** ISAXXMLReader methods ***/
-    HRESULT (STDMETHODCALLTYPE *getFeature)(
-        ISAXXMLFilter *This,
-        const WCHAR *pFeature,
-        VARIANT_BOOL *pValue);
-
-    HRESULT (STDMETHODCALLTYPE *putFeature)(
-        ISAXXMLFilter *This,
-        const WCHAR *pFeature,
-        VARIANT_BOOL vfValue);
-
-    HRESULT (STDMETHODCALLTYPE *getProperty)(
-        ISAXXMLFilter *This,
-        const WCHAR *pProp,
-        VARIANT *pValue);
-
-    HRESULT (STDMETHODCALLTYPE *putProperty)(
-        ISAXXMLFilter *This,
-        const WCHAR *pProp,
-        VARIANT value);
-
-    HRESULT (STDMETHODCALLTYPE *getEntityResolver)(
-        ISAXXMLFilter *This,
-        ISAXEntityResolver **ppEntityResolver);
-
-    HRESULT (STDMETHODCALLTYPE *putEntityResolver)(
-        ISAXXMLFilter *This,
-        ISAXEntityResolver *pEntityResolver);
-
-    HRESULT (STDMETHODCALLTYPE *getContentHandler)(
-        ISAXXMLFilter *This,
-        ISAXContentHandler **pContentHandler);
-
-    HRESULT (STDMETHODCALLTYPE *putContentHandler)(
-        ISAXXMLFilter *This,
-        ISAXContentHandler *contentHandler);
-
-    HRESULT (STDMETHODCALLTYPE *getDTDHandler)(
-        ISAXXMLFilter *This,
-        ISAXDTDHandler **pDTDHandler);
-
-    HRESULT (STDMETHODCALLTYPE *putDTDHandler)(
-        ISAXXMLFilter *This,
-        ISAXDTDHandler *pDTDHandler);
-
-    HRESULT (STDMETHODCALLTYPE *getErrorHandler)(
-        ISAXXMLFilter *This,
-        ISAXErrorHandler **pErrorHandler);
-
-    HRESULT (STDMETHODCALLTYPE *putErrorHandler)(
-        ISAXXMLFilter *This,
-        ISAXErrorHandler *errorHandler);
-
-    HRESULT (STDMETHODCALLTYPE *getBaseURL)(
-        ISAXXMLFilter *This,
-        const WCHAR **pBaseUrl);
-
-    HRESULT (STDMETHODCALLTYPE *putBaseURL)(
-        ISAXXMLFilter *This,
-        const WCHAR *pBaseUrl);
-
-    HRESULT (STDMETHODCALLTYPE *getSecureBaseURL)(
-        ISAXXMLFilter *This,
-        const WCHAR **pSecureBaseUrl);
-
-    HRESULT (STDMETHODCALLTYPE *putSecureBaseURL)(
-        ISAXXMLFilter *This,
-        const WCHAR *secureBaseUrl);
-
-    HRESULT (STDMETHODCALLTYPE *parse)(
-        ISAXXMLFilter *This,
-        VARIANT varInput);
-
-    HRESULT (STDMETHODCALLTYPE *parseURL)(
-        ISAXXMLFilter *This,
-        const WCHAR *url);
-
-    /*** ISAXXMLFilter methods ***/
-    HRESULT (STDMETHODCALLTYPE *getParent)(
-        ISAXXMLFilter *This,
-        ISAXXMLReader **pReader);
-
-    HRESULT (STDMETHODCALLTYPE *putParent)(
-        ISAXXMLFilter *This,
-        ISAXXMLReader *reader);
-
-    END_INTERFACE
-} ISAXXMLFilterVtbl;
-
-interface ISAXXMLFilter {
-    CONST_VTBL ISAXXMLFilterVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define ISAXXMLFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ISAXXMLFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ISAXXMLFilter_Release(This) (This)->lpVtbl->Release(This)
-/*** ISAXXMLReader methods ***/
-#define ISAXXMLFilter_getFeature(This,pFeature,pValue) (This)->lpVtbl->getFeature(This,pFeature,pValue)
-#define ISAXXMLFilter_putFeature(This,pFeature,vfValue) (This)->lpVtbl->putFeature(This,pFeature,vfValue)
-#define ISAXXMLFilter_getProperty(This,pProp,pValue) (This)->lpVtbl->getProperty(This,pProp,pValue)
-#define ISAXXMLFilter_putProperty(This,pProp,value) (This)->lpVtbl->putProperty(This,pProp,value)
-#define ISAXXMLFilter_getEntityResolver(This,ppEntityResolver) (This)->lpVtbl->getEntityResolver(This,ppEntityResolver)
-#define ISAXXMLFilter_putEntityResolver(This,pEntityResolver) (This)->lpVtbl->putEntityResolver(This,pEntityResolver)
-#define ISAXXMLFilter_getContentHandler(This,pContentHandler) (This)->lpVtbl->getContentHandler(This,pContentHandler)
-#define ISAXXMLFilter_putContentHandler(This,contentHandler) (This)->lpVtbl->putContentHandler(This,contentHandler)
-#define ISAXXMLFilter_getDTDHandler(This,pDTDHandler) (This)->lpVtbl->getDTDHandler(This,pDTDHandler)
-#define ISAXXMLFilter_putDTDHandler(This,pDTDHandler) (This)->lpVtbl->putDTDHandler(This,pDTDHandler)
-#define ISAXXMLFilter_getErrorHandler(This,pErrorHandler) (This)->lpVtbl->getErrorHandler(This,pErrorHandler)
-#define ISAXXMLFilter_putErrorHandler(This,errorHandler) (This)->lpVtbl->putErrorHandler(This,errorHandler)
-#define ISAXXMLFilter_getBaseURL(This,pBaseUrl) (This)->lpVtbl->getBaseURL(This,pBaseUrl)
-#define ISAXXMLFilter_putBaseURL(This,pBaseUrl) (This)->lpVtbl->putBaseURL(This,pBaseUrl)
-#define ISAXXMLFilter_getSecureBaseURL(This,pSecureBaseUrl) (This)->lpVtbl->getSecureBaseURL(This,pSecureBaseUrl)
-#define ISAXXMLFilter_putSecureBaseURL(This,secureBaseUrl) (This)->lpVtbl->putSecureBaseURL(This,secureBaseUrl)
-#define ISAXXMLFilter_parse(This,varInput) (This)->lpVtbl->parse(This,varInput)
-#define ISAXXMLFilter_parseURL(This,url) (This)->lpVtbl->parseURL(This,url)
-/*** ISAXXMLFilter methods ***/
-#define ISAXXMLFilter_getParent(This,pReader) (This)->lpVtbl->getParent(This,pReader)
-#define ISAXXMLFilter_putParent(This,reader) (This)->lpVtbl->putParent(This,reader)
-#else
-/*** IUnknown methods ***/
-static inline HRESULT ISAXXMLFilter_QueryInterface(ISAXXMLFilter* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static inline ULONG ISAXXMLFilter_AddRef(ISAXXMLFilter* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static inline ULONG ISAXXMLFilter_Release(ISAXXMLFilter* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** ISAXXMLReader methods ***/
-static inline HRESULT ISAXXMLFilter_getFeature(ISAXXMLFilter* This,const WCHAR *pFeature,VARIANT_BOOL *pValue) {
-    return This->lpVtbl->getFeature(This,pFeature,pValue);
-}
-static inline HRESULT ISAXXMLFilter_putFeature(ISAXXMLFilter* This,const WCHAR *pFeature,VARIANT_BOOL vfValue) {
-    return This->lpVtbl->putFeature(This,pFeature,vfValue);
-}
-static inline HRESULT ISAXXMLFilter_getProperty(ISAXXMLFilter* This,const WCHAR *pProp,VARIANT *pValue) {
-    return This->lpVtbl->getProperty(This,pProp,pValue);
-}
-static inline HRESULT ISAXXMLFilter_putProperty(ISAXXMLFilter* This,const WCHAR *pProp,VARIANT value) {
-    return This->lpVtbl->putProperty(This,pProp,value);
-}
-static inline HRESULT ISAXXMLFilter_getEntityResolver(ISAXXMLFilter* This,ISAXEntityResolver **ppEntityResolver) {
-    return This->lpVtbl->getEntityResolver(This,ppEntityResolver);
-}
-static inline HRESULT ISAXXMLFilter_putEntityResolver(ISAXXMLFilter* This,ISAXEntityResolver *pEntityResolver) {
-    return This->lpVtbl->putEntityResolver(This,pEntityResolver);
-}
-static inline HRESULT ISAXXMLFilter_getContentHandler(ISAXXMLFilter* This,ISAXContentHandler **pContentHandler) {
-    return This->lpVtbl->getContentHandler(This,pContentHandler);
-}
-static inline HRESULT ISAXXMLFilter_putContentHandler(ISAXXMLFilter* This,ISAXContentHandler *contentHandler) {
-    return This->lpVtbl->putContentHandler(This,contentHandler);
-}
-static inline HRESULT ISAXXMLFilter_getDTDHandler(ISAXXMLFilter* This,ISAXDTDHandler **pDTDHandler) {
-    return This->lpVtbl->getDTDHandler(This,pDTDHandler);
-}
-static inline HRESULT ISAXXMLFilter_putDTDHandler(ISAXXMLFilter* This,ISAXDTDHandler *pDTDHandler) {
-    return This->lpVtbl->putDTDHandler(This,pDTDHandler);
-}
-static inline HRESULT ISAXXMLFilter_getErrorHandler(ISAXXMLFilter* This,ISAXErrorHandler **pErrorHandler) {
-    return This->lpVtbl->getErrorHandler(This,pErrorHandler);
-}
-static inline HRESULT ISAXXMLFilter_putErrorHandler(ISAXXMLFilter* This,ISAXErrorHandler *errorHandler) {
-    return This->lpVtbl->putErrorHandler(This,errorHandler);
-}
-static inline HRESULT ISAXXMLFilter_getBaseURL(ISAXXMLFilter* This,const WCHAR **pBaseUrl) {
-    return This->lpVtbl->getBaseURL(This,pBaseUrl);
-}
-static inline HRESULT ISAXXMLFilter_putBaseURL(ISAXXMLFilter* This,const WCHAR *pBaseUrl) {
-    return This->lpVtbl->putBaseURL(This,pBaseUrl);
-}
-static inline HRESULT ISAXXMLFilter_getSecureBaseURL(ISAXXMLFilter* This,const WCHAR **pSecureBaseUrl) {
-    return This->lpVtbl->getSecureBaseURL(This,pSecureBaseUrl);
-}
-static inline HRESULT ISAXXMLFilter_putSecureBaseURL(ISAXXMLFilter* This,const WCHAR *secureBaseUrl) {
-    return This->lpVtbl->putSecureBaseURL(This,secureBaseUrl);
-}
-static inline HRESULT ISAXXMLFilter_parse(ISAXXMLFilter* This,VARIANT varInput) {
-    return This->lpVtbl->parse(This,varInput);
-}
-static inline HRESULT ISAXXMLFilter_parseURL(ISAXXMLFilter* This,const WCHAR *url) {
-    return This->lpVtbl->parseURL(This,url);
-}
-/*** ISAXXMLFilter methods ***/
-static inline HRESULT ISAXXMLFilter_getParent(ISAXXMLFilter* This,ISAXXMLReader **pReader) {
-    return This->lpVtbl->getParent(This,pReader);
-}
-static inline HRESULT ISAXXMLFilter_putParent(ISAXXMLFilter* This,ISAXXMLReader *reader) {
-    return This->lpVtbl->putParent(This,reader);
-}
-#endif
-#endif
-
-#endif
-
-
-#endif  /* __ISAXXMLFilter_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
  * ISAXXMLReader interface
  */
 #ifndef __ISAXXMLReader_INTERFACE_DEFINED__
@@ -16139,6 +15900,245 @@ static inline HRESULT ISAXXMLReader_parseURL(ISAXXMLReader* This,const WCHAR *ur
 
 
 #endif  /* __ISAXXMLReader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ISAXXMLFilter interface
+ */
+#ifndef __ISAXXMLFilter_INTERFACE_DEFINED__
+#define __ISAXXMLFilter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ISAXXMLFilter, 0x70409222, 0xca09, 0x4475, 0xac,0xb8, 0x40,0x31,0x2f,0xe8,0xd1,0x45);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("70409222-ca09-4475-acb8-40312fe8d145")
+ISAXXMLFilter : public ISAXXMLReader
+{
+    virtual HRESULT STDMETHODCALLTYPE getParent(
+        ISAXXMLReader **pReader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE putParent(
+        ISAXXMLReader *reader) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISAXXMLFilter, 0x70409222, 0xca09, 0x4475, 0xac,0xb8, 0x40,0x31,0x2f,0xe8,0xd1,0x45)
+#endif
+#else
+typedef struct ISAXXMLFilterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ISAXXMLFilter *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ISAXXMLFilter *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ISAXXMLFilter *This);
+
+    /*** ISAXXMLReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *getFeature)(
+        ISAXXMLFilter *This,
+        const WCHAR *pFeature,
+        VARIANT_BOOL *pValue);
+
+    HRESULT (STDMETHODCALLTYPE *putFeature)(
+        ISAXXMLFilter *This,
+        const WCHAR *pFeature,
+        VARIANT_BOOL vfValue);
+
+    HRESULT (STDMETHODCALLTYPE *getProperty)(
+        ISAXXMLFilter *This,
+        const WCHAR *pProp,
+        VARIANT *pValue);
+
+    HRESULT (STDMETHODCALLTYPE *putProperty)(
+        ISAXXMLFilter *This,
+        const WCHAR *pProp,
+        VARIANT value);
+
+    HRESULT (STDMETHODCALLTYPE *getEntityResolver)(
+        ISAXXMLFilter *This,
+        ISAXEntityResolver **ppEntityResolver);
+
+    HRESULT (STDMETHODCALLTYPE *putEntityResolver)(
+        ISAXXMLFilter *This,
+        ISAXEntityResolver *pEntityResolver);
+
+    HRESULT (STDMETHODCALLTYPE *getContentHandler)(
+        ISAXXMLFilter *This,
+        ISAXContentHandler **pContentHandler);
+
+    HRESULT (STDMETHODCALLTYPE *putContentHandler)(
+        ISAXXMLFilter *This,
+        ISAXContentHandler *contentHandler);
+
+    HRESULT (STDMETHODCALLTYPE *getDTDHandler)(
+        ISAXXMLFilter *This,
+        ISAXDTDHandler **pDTDHandler);
+
+    HRESULT (STDMETHODCALLTYPE *putDTDHandler)(
+        ISAXXMLFilter *This,
+        ISAXDTDHandler *pDTDHandler);
+
+    HRESULT (STDMETHODCALLTYPE *getErrorHandler)(
+        ISAXXMLFilter *This,
+        ISAXErrorHandler **pErrorHandler);
+
+    HRESULT (STDMETHODCALLTYPE *putErrorHandler)(
+        ISAXXMLFilter *This,
+        ISAXErrorHandler *errorHandler);
+
+    HRESULT (STDMETHODCALLTYPE *getBaseURL)(
+        ISAXXMLFilter *This,
+        const WCHAR **pBaseUrl);
+
+    HRESULT (STDMETHODCALLTYPE *putBaseURL)(
+        ISAXXMLFilter *This,
+        const WCHAR *pBaseUrl);
+
+    HRESULT (STDMETHODCALLTYPE *getSecureBaseURL)(
+        ISAXXMLFilter *This,
+        const WCHAR **pSecureBaseUrl);
+
+    HRESULT (STDMETHODCALLTYPE *putSecureBaseURL)(
+        ISAXXMLFilter *This,
+        const WCHAR *secureBaseUrl);
+
+    HRESULT (STDMETHODCALLTYPE *parse)(
+        ISAXXMLFilter *This,
+        VARIANT varInput);
+
+    HRESULT (STDMETHODCALLTYPE *parseURL)(
+        ISAXXMLFilter *This,
+        const WCHAR *url);
+
+    /*** ISAXXMLFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *getParent)(
+        ISAXXMLFilter *This,
+        ISAXXMLReader **pReader);
+
+    HRESULT (STDMETHODCALLTYPE *putParent)(
+        ISAXXMLFilter *This,
+        ISAXXMLReader *reader);
+
+    END_INTERFACE
+} ISAXXMLFilterVtbl;
+
+interface ISAXXMLFilter {
+    CONST_VTBL ISAXXMLFilterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ISAXXMLFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISAXXMLFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISAXXMLFilter_Release(This) (This)->lpVtbl->Release(This)
+/*** ISAXXMLReader methods ***/
+#define ISAXXMLFilter_getFeature(This,pFeature,pValue) (This)->lpVtbl->getFeature(This,pFeature,pValue)
+#define ISAXXMLFilter_putFeature(This,pFeature,vfValue) (This)->lpVtbl->putFeature(This,pFeature,vfValue)
+#define ISAXXMLFilter_getProperty(This,pProp,pValue) (This)->lpVtbl->getProperty(This,pProp,pValue)
+#define ISAXXMLFilter_putProperty(This,pProp,value) (This)->lpVtbl->putProperty(This,pProp,value)
+#define ISAXXMLFilter_getEntityResolver(This,ppEntityResolver) (This)->lpVtbl->getEntityResolver(This,ppEntityResolver)
+#define ISAXXMLFilter_putEntityResolver(This,pEntityResolver) (This)->lpVtbl->putEntityResolver(This,pEntityResolver)
+#define ISAXXMLFilter_getContentHandler(This,pContentHandler) (This)->lpVtbl->getContentHandler(This,pContentHandler)
+#define ISAXXMLFilter_putContentHandler(This,contentHandler) (This)->lpVtbl->putContentHandler(This,contentHandler)
+#define ISAXXMLFilter_getDTDHandler(This,pDTDHandler) (This)->lpVtbl->getDTDHandler(This,pDTDHandler)
+#define ISAXXMLFilter_putDTDHandler(This,pDTDHandler) (This)->lpVtbl->putDTDHandler(This,pDTDHandler)
+#define ISAXXMLFilter_getErrorHandler(This,pErrorHandler) (This)->lpVtbl->getErrorHandler(This,pErrorHandler)
+#define ISAXXMLFilter_putErrorHandler(This,errorHandler) (This)->lpVtbl->putErrorHandler(This,errorHandler)
+#define ISAXXMLFilter_getBaseURL(This,pBaseUrl) (This)->lpVtbl->getBaseURL(This,pBaseUrl)
+#define ISAXXMLFilter_putBaseURL(This,pBaseUrl) (This)->lpVtbl->putBaseURL(This,pBaseUrl)
+#define ISAXXMLFilter_getSecureBaseURL(This,pSecureBaseUrl) (This)->lpVtbl->getSecureBaseURL(This,pSecureBaseUrl)
+#define ISAXXMLFilter_putSecureBaseURL(This,secureBaseUrl) (This)->lpVtbl->putSecureBaseURL(This,secureBaseUrl)
+#define ISAXXMLFilter_parse(This,varInput) (This)->lpVtbl->parse(This,varInput)
+#define ISAXXMLFilter_parseURL(This,url) (This)->lpVtbl->parseURL(This,url)
+/*** ISAXXMLFilter methods ***/
+#define ISAXXMLFilter_getParent(This,pReader) (This)->lpVtbl->getParent(This,pReader)
+#define ISAXXMLFilter_putParent(This,reader) (This)->lpVtbl->putParent(This,reader)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT ISAXXMLFilter_QueryInterface(ISAXXMLFilter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG ISAXXMLFilter_AddRef(ISAXXMLFilter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG ISAXXMLFilter_Release(ISAXXMLFilter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISAXXMLReader methods ***/
+static inline HRESULT ISAXXMLFilter_getFeature(ISAXXMLFilter* This,const WCHAR *pFeature,VARIANT_BOOL *pValue) {
+    return This->lpVtbl->getFeature(This,pFeature,pValue);
+}
+static inline HRESULT ISAXXMLFilter_putFeature(ISAXXMLFilter* This,const WCHAR *pFeature,VARIANT_BOOL vfValue) {
+    return This->lpVtbl->putFeature(This,pFeature,vfValue);
+}
+static inline HRESULT ISAXXMLFilter_getProperty(ISAXXMLFilter* This,const WCHAR *pProp,VARIANT *pValue) {
+    return This->lpVtbl->getProperty(This,pProp,pValue);
+}
+static inline HRESULT ISAXXMLFilter_putProperty(ISAXXMLFilter* This,const WCHAR *pProp,VARIANT value) {
+    return This->lpVtbl->putProperty(This,pProp,value);
+}
+static inline HRESULT ISAXXMLFilter_getEntityResolver(ISAXXMLFilter* This,ISAXEntityResolver **ppEntityResolver) {
+    return This->lpVtbl->getEntityResolver(This,ppEntityResolver);
+}
+static inline HRESULT ISAXXMLFilter_putEntityResolver(ISAXXMLFilter* This,ISAXEntityResolver *pEntityResolver) {
+    return This->lpVtbl->putEntityResolver(This,pEntityResolver);
+}
+static inline HRESULT ISAXXMLFilter_getContentHandler(ISAXXMLFilter* This,ISAXContentHandler **pContentHandler) {
+    return This->lpVtbl->getContentHandler(This,pContentHandler);
+}
+static inline HRESULT ISAXXMLFilter_putContentHandler(ISAXXMLFilter* This,ISAXContentHandler *contentHandler) {
+    return This->lpVtbl->putContentHandler(This,contentHandler);
+}
+static inline HRESULT ISAXXMLFilter_getDTDHandler(ISAXXMLFilter* This,ISAXDTDHandler **pDTDHandler) {
+    return This->lpVtbl->getDTDHandler(This,pDTDHandler);
+}
+static inline HRESULT ISAXXMLFilter_putDTDHandler(ISAXXMLFilter* This,ISAXDTDHandler *pDTDHandler) {
+    return This->lpVtbl->putDTDHandler(This,pDTDHandler);
+}
+static inline HRESULT ISAXXMLFilter_getErrorHandler(ISAXXMLFilter* This,ISAXErrorHandler **pErrorHandler) {
+    return This->lpVtbl->getErrorHandler(This,pErrorHandler);
+}
+static inline HRESULT ISAXXMLFilter_putErrorHandler(ISAXXMLFilter* This,ISAXErrorHandler *errorHandler) {
+    return This->lpVtbl->putErrorHandler(This,errorHandler);
+}
+static inline HRESULT ISAXXMLFilter_getBaseURL(ISAXXMLFilter* This,const WCHAR **pBaseUrl) {
+    return This->lpVtbl->getBaseURL(This,pBaseUrl);
+}
+static inline HRESULT ISAXXMLFilter_putBaseURL(ISAXXMLFilter* This,const WCHAR *pBaseUrl) {
+    return This->lpVtbl->putBaseURL(This,pBaseUrl);
+}
+static inline HRESULT ISAXXMLFilter_getSecureBaseURL(ISAXXMLFilter* This,const WCHAR **pSecureBaseUrl) {
+    return This->lpVtbl->getSecureBaseURL(This,pSecureBaseUrl);
+}
+static inline HRESULT ISAXXMLFilter_putSecureBaseURL(ISAXXMLFilter* This,const WCHAR *secureBaseUrl) {
+    return This->lpVtbl->putSecureBaseURL(This,secureBaseUrl);
+}
+static inline HRESULT ISAXXMLFilter_parse(ISAXXMLFilter* This,VARIANT varInput) {
+    return This->lpVtbl->parse(This,varInput);
+}
+static inline HRESULT ISAXXMLFilter_parseURL(ISAXXMLFilter* This,const WCHAR *url) {
+    return This->lpVtbl->parseURL(This,url);
+}
+/*** ISAXXMLFilter methods ***/
+static inline HRESULT ISAXXMLFilter_getParent(ISAXXMLFilter* This,ISAXXMLReader **pReader) {
+    return This->lpVtbl->getParent(This,pReader);
+}
+static inline HRESULT ISAXXMLFilter_putParent(ISAXXMLFilter* This,ISAXXMLReader *reader) {
+    return This->lpVtbl->putParent(This,reader);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ISAXXMLFilter_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IVBSAXAttributes interface

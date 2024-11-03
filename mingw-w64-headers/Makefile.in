@@ -588,6 +588,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.activation.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.background.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.core.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.datatransfer.dragdrop.core.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.datatransfer.dragdrop.idl \
+@HAVE_WIDL_TRUE@  include/windows.applicationmodel.datatransfer.idl \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.json.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.xml.dom.idl \
@@ -635,6 +638,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.credentials.ui.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
+@HAVE_WIDL_TRUE@  include/windows.security.enterprisedata.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.exchangeactivesyncprovisioning.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.isolation.idl \
 @HAVE_WIDL_TRUE@  include/windows.storage.idl \

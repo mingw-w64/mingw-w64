@@ -454,11 +454,27 @@ typedef interface __FIIterable_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__C
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterable_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CStorage__CIStorageItem __FIIterable_1_Windows__CStorage__CIStorageItem;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CStorage__CIStorageItem ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Storage::IStorageItem* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_FWD_DEFINED__
 #define ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_FWD_DEFINED__
 typedef interface __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer;
 #ifdef __cplusplus
 #define __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,ABI::Windows::Storage::ApplicationDataContainer* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CStorage__CIStorageItem __FIIterator_1_Windows__CStorage__CIStorageItem;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CStorage__CIStorageItem ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Storage::IStorageItem* >
 #endif /* __cplusplus */
 #endif
 
@@ -1033,11 +1049,27 @@ typedef interface __FIIterable_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__C
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIIterable_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+#define ____FIIterable_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+typedef interface __FIIterable_1_Windows__CStorage__CIStorageItem __FIIterable_1_Windows__CStorage__CIStorageItem;
+#ifdef __cplusplus
+#define __FIIterable_1_Windows__CStorage__CIStorageItem ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Storage::IStorageItem* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_FWD_DEFINED__
 #define ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_FWD_DEFINED__
 typedef interface __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer;
 #ifdef __cplusplus
 #define __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,ABI::Windows::Storage::ApplicationDataContainer* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterator_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+#define ____FIIterator_1_Windows__CStorage__CIStorageItem_FWD_DEFINED__
+typedef interface __FIIterator_1_Windows__CStorage__CIStorageItem __FIIterator_1_Windows__CStorage__CIStorageItem;
+#ifdef __cplusplus
+#define __FIIterator_1_Windows__CStorage__CIStorageItem ABI::Windows::Foundation::Collections::IIterator<ABI::Windows::Storage::IStorageItem* >
 #endif /* __cplusplus */
 #endif
 
@@ -5172,6 +5204,130 @@ static inline HRESULT __FIIterable_1___FIKeyValuePair_2_HSTRING_Windows__CStorag
 #endif  /* ____FIIterable_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IIterable<ABI::Windows::Storage::IStorageItem* > interface
+ */
+#ifndef ____FIIterable_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__
+#define ____FIIterable_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_Windows__CStorage__CIStorageItem, 0xbb8b8418, 0x65d1, 0x544b, 0xb0,0x83, 0x6d,0x17,0x2f,0x56,0x8c,0x73);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("bb8b8418-65d1-544b-b083-6d172f568c73")
+                IIterable<ABI::Windows::Storage::IStorageItem* > : IIterable_impl<ABI::Windows::Storage::IStorageItem* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_Windows__CStorage__CIStorageItem, 0xbb8b8418, 0x65d1, 0x544b, 0xb0,0x83, 0x6d,0x17,0x2f,0x56,0x8c,0x73)
+#endif
+#else
+typedef struct __FIIterable_1_Windows__CStorage__CIStorageItemVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<ABI::Windows::Storage::IStorageItem* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_Windows__CStorage__CIStorageItem *This,
+        __FIIterator_1_Windows__CStorage__CIStorageItem **value);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CStorage__CIStorageItemVtbl;
+
+interface __FIIterable_1_Windows__CStorage__CIStorageItem {
+    CONST_VTBL __FIIterable_1_Windows__CStorage__CIStorageItemVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<ABI::Windows::Storage::IStorageItem* > methods ***/
+#define __FIIterable_1_Windows__CStorage__CIStorageItem_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIIterable_1_Windows__CStorage__CIStorageItem_QueryInterface(__FIIterable_1_Windows__CStorage__CIStorageItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIIterable_1_Windows__CStorage__CIStorageItem_AddRef(__FIIterable_1_Windows__CStorage__CIStorageItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIIterable_1_Windows__CStorage__CIStorageItem_Release(__FIIterable_1_Windows__CStorage__CIStorageItem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIIterable_1_Windows__CStorage__CIStorageItem_GetIids(__FIIterable_1_Windows__CStorage__CIStorageItem* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIIterable_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName(__FIIterable_1_Windows__CStorage__CIStorageItem* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIIterable_1_Windows__CStorage__CIStorageItem_GetTrustLevel(__FIIterable_1_Windows__CStorage__CIStorageItem* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<ABI::Windows::Storage::IStorageItem* > methods ***/
+static inline HRESULT __FIIterable_1_Windows__CStorage__CIStorageItem_First(__FIIterable_1_Windows__CStorage__CIStorageItem* This,__FIIterator_1_Windows__CStorage__CIStorageItem **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_IStorageItem IID___FIIterable_1_Windows__CStorage__CIStorageItem
+#define IIterable_IStorageItemVtbl __FIIterable_1_Windows__CStorage__CIStorageItemVtbl
+#define IIterable_IStorageItem __FIIterable_1_Windows__CStorage__CIStorageItem
+#define IIterable_IStorageItem_QueryInterface __FIIterable_1_Windows__CStorage__CIStorageItem_QueryInterface
+#define IIterable_IStorageItem_AddRef __FIIterable_1_Windows__CStorage__CIStorageItem_AddRef
+#define IIterable_IStorageItem_Release __FIIterable_1_Windows__CStorage__CIStorageItem_Release
+#define IIterable_IStorageItem_GetIids __FIIterable_1_Windows__CStorage__CIStorageItem_GetIids
+#define IIterable_IStorageItem_GetRuntimeClassName __FIIterable_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName
+#define IIterable_IStorageItem_GetTrustLevel __FIIterable_1_Windows__CStorage__CIStorageItem_GetTrustLevel
+#define IIterable_IStorageItem_First __FIIterable_1_Windows__CStorage__CIStorageItem_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IIterator<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,ABI::Windows::Storage::ApplicationDataContainer* >* > interface
  */
 #ifndef ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_INTERFACE_DEFINED__
@@ -5323,6 +5479,159 @@ static inline HRESULT __FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorag
 #endif
 
 #endif  /* ____FIIterator_1___FIKeyValuePair_2_HSTRING_Windows__CStorage__CApplicationDataContainer_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterator<ABI::Windows::Storage::IStorageItem* > interface
+ */
+#ifndef ____FIIterator_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__
+#define ____FIIterator_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterator_1_Windows__CStorage__CIStorageItem, 0x05b487c2, 0x3830, 0x5d3c, 0x98,0xda, 0x25,0xfa,0x11,0x54,0x2d,0xbd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("05b487c2-3830-5d3c-98da-25fa11542dbd")
+                IIterator<ABI::Windows::Storage::IStorageItem* > : IIterator_impl<ABI::Windows::Storage::IStorageItem* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterator_1_Windows__CStorage__CIStorageItem, 0x05b487c2, 0x3830, 0x5d3c, 0x98,0xda, 0x25,0xfa,0x11,0x54,0x2d,0xbd)
+#endif
+#else
+typedef struct __FIIterator_1_Windows__CStorage__CIStorageItemVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterator<ABI::Windows::Storage::IStorageItem* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Current)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        __x_ABI_CWindows_CStorage_CIStorageItem **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_HasCurrent)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *MoveNext)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIIterator_1_Windows__CStorage__CIStorageItem *This,
+        UINT32 items_size,
+        __x_ABI_CWindows_CStorage_CIStorageItem **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CStorage__CIStorageItemVtbl;
+
+interface __FIIterator_1_Windows__CStorage__CIStorageItem {
+    CONST_VTBL __FIIterator_1_Windows__CStorage__CIStorageItemVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterator<ABI::Windows::Storage::IStorageItem* > methods ***/
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_get_Current(This,value) (This)->lpVtbl->get_Current(This,value)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_get_HasCurrent(This,value) (This)->lpVtbl->get_HasCurrent(This,value)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_MoveNext(This,value) (This)->lpVtbl->MoveNext(This,value)
+#define __FIIterator_1_Windows__CStorage__CIStorageItem_GetMany(This,items_size,items,value) (This)->lpVtbl->GetMany(This,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_QueryInterface(__FIIterator_1_Windows__CStorage__CIStorageItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIIterator_1_Windows__CStorage__CIStorageItem_AddRef(__FIIterator_1_Windows__CStorage__CIStorageItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIIterator_1_Windows__CStorage__CIStorageItem_Release(__FIIterator_1_Windows__CStorage__CIStorageItem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_GetIids(__FIIterator_1_Windows__CStorage__CIStorageItem* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName(__FIIterator_1_Windows__CStorage__CIStorageItem* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_GetTrustLevel(__FIIterator_1_Windows__CStorage__CIStorageItem* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterator<ABI::Windows::Storage::IStorageItem* > methods ***/
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_get_Current(__FIIterator_1_Windows__CStorage__CIStorageItem* This,__x_ABI_CWindows_CStorage_CIStorageItem **value) {
+    return This->lpVtbl->get_Current(This,value);
+}
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_get_HasCurrent(__FIIterator_1_Windows__CStorage__CIStorageItem* This,boolean *value) {
+    return This->lpVtbl->get_HasCurrent(This,value);
+}
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_MoveNext(__FIIterator_1_Windows__CStorage__CIStorageItem* This,boolean *value) {
+    return This->lpVtbl->MoveNext(This,value);
+}
+static inline HRESULT __FIIterator_1_Windows__CStorage__CIStorageItem_GetMany(__FIIterator_1_Windows__CStorage__CIStorageItem* This,UINT32 items_size,__x_ABI_CWindows_CStorage_CIStorageItem **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterator_IStorageItem IID___FIIterator_1_Windows__CStorage__CIStorageItem
+#define IIterator_IStorageItemVtbl __FIIterator_1_Windows__CStorage__CIStorageItemVtbl
+#define IIterator_IStorageItem __FIIterator_1_Windows__CStorage__CIStorageItem
+#define IIterator_IStorageItem_QueryInterface __FIIterator_1_Windows__CStorage__CIStorageItem_QueryInterface
+#define IIterator_IStorageItem_AddRef __FIIterator_1_Windows__CStorage__CIStorageItem_AddRef
+#define IIterator_IStorageItem_Release __FIIterator_1_Windows__CStorage__CIStorageItem_Release
+#define IIterator_IStorageItem_GetIids __FIIterator_1_Windows__CStorage__CIStorageItem_GetIids
+#define IIterator_IStorageItem_GetRuntimeClassName __FIIterator_1_Windows__CStorage__CIStorageItem_GetRuntimeClassName
+#define IIterator_IStorageItem_GetTrustLevel __FIIterator_1_Windows__CStorage__CIStorageItem_GetTrustLevel
+#define IIterator_IStorageItem_get_Current __FIIterator_1_Windows__CStorage__CIStorageItem_get_Current
+#define IIterator_IStorageItem_get_HasCurrent __FIIterator_1_Windows__CStorage__CIStorageItem_get_HasCurrent
+#define IIterator_IStorageItem_MoveNext __FIIterator_1_Windows__CStorage__CIStorageItem_MoveNext
+#define IIterator_IStorageItem_GetMany __FIIterator_1_Windows__CStorage__CIStorageItem_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterator_1_Windows__CStorage__CIStorageItem_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IMapView<HSTRING,ABI::Windows::Storage::ApplicationDataContainer* > interface
