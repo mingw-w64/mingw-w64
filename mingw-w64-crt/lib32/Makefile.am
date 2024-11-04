@@ -219,6 +219,7 @@ lib32_DATA += %reldir%/libnetio.a
 lib32_DATA += %reldir%/libnetjoin.a
 lib32_DATA += %reldir%/libnetutils.a
 lib32_DATA += %reldir%/libnewdev.a
+lib32_DATA += %reldir%/libninput.a
 lib32_DATA += %reldir%/libnormaliz.a
 lib32_DATA += %reldir%/libntdll.a
 lib32_DATA += %reldir%/libntdllcrt.a

@@ -425,6 +425,7 @@ lib64_DATA += %reldir%/libnetui0.a
 lib64_DATA += %reldir%/libnetui1.a
 lib64_DATA += %reldir%/libnetui2.a
 lib64_DATA += %reldir%/libnewdev.a
+lib64_DATA += %reldir%/libninput.a
 lib64_DATA += %reldir%/libnntpapi.a
 lib64_DATA += %reldir%/libnpptools.a
 lib64_DATA += %reldir%/libnshipsec.a

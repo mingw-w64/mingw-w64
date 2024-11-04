@@ -220,6 +220,7 @@ libarm64_DATA += %reldir%/libnetid.a
 libarm64_DATA += %reldir%/libnetio.a
 libarm64_DATA += %reldir%/libnetshell.a
 libarm64_DATA += %reldir%/libnetutils.a
+libarm64_DATA += %reldir%/libninput.a
 libarm64_DATA += %reldir%/libnormaliz.a
 libarm64_DATA += %reldir%/libntdsapi.a
 libarm64_DATA += %reldir%/libntdll.a
