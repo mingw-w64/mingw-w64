@@ -456,7 +456,7 @@ src_ucrtbasearm64=\
 src_msvcrt32=\
   $(src_msvcrt) \
   $(src_msvcrt_add_x86) \
-  math/x86/_copysignf.c \
+  math/i386__copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
   misc/__pctype_func.c \
@@ -752,6 +752,7 @@ src_pre_msvcr100=\
   misc/imaxdiv.c
 
 src_pre_msvcr120=\
+  math/i386__copysignf.c \
   misc/isblank.c \
   misc/iswblank.c \
   misc/wctrans.c \
@@ -774,7 +775,6 @@ src_crtdll=\
   misc/crtdll__ismbblead.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
-  math/x86/_copysignf.c \
   misc/__p__mbctype.c
 
 src_msvcrt10=\

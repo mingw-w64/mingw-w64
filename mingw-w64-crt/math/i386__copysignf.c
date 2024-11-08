@@ -4,6 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+/* This source file is i386-only */
+#if defined(_X86_) || defined(__i386__)
+
 #include <math.h>
 
 float __cdecl _copysignf(float aX, float aY)
@@ -12,3 +15,5 @@ float __cdecl _copysignf(float aX, float aY)
 }
 
 float (__cdecl *__MINGW_IMP_SYMBOL(_copysignf))(float, float) = _copysignf;
+
+#endif
