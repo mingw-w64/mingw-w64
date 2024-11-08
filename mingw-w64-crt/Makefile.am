@@ -296,11 +296,11 @@ src_msvcrt=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
+  misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
   misc/iswblank.c \
-  misc/purecall.c \
   misc/wctrans.c \
   misc/wctype.c \
   secapi/_vscprintf_p.c \
@@ -718,13 +718,15 @@ src_pre_msvcr70=\
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
   misc/lc_locale_func.c \
-  misc/purecall.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   stdio/_scprintf.c \
   stdio/_vscprintf.c
+
+src_pre_msvcr71=\
+  misc/_set_purecall_handler.c
 
 src_pre_msvcr80=\
   misc/__sys_errlist.c \
@@ -764,6 +766,7 @@ src_crtdll=\
   $(src_pre_msvcrt40) \
   $(src_pre_msvcrt60) \
   $(src_pre_msvcr70) \
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
@@ -779,6 +782,7 @@ src_msvcrt10=\
   $(src_pre_msvcrt40) \
   $(src_pre_msvcrt60) \
   $(src_pre_msvcr70) \
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
@@ -789,6 +793,7 @@ src_msvcrt20=\
   $(src_pre_msvcrt40) \
   $(src_pre_msvcrt60) \
   $(src_pre_msvcr70) \
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
@@ -798,17 +803,20 @@ src_msvcrt20=\
 src_msvcrt40=\
   $(src_pre_msvcrt60) \
   $(src_pre_msvcr70) \
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120)
 
 src_msvcrtd=\
   $(src_pre_msvcr70) \
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120)
 
 src_msvcr70=\
+  $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
