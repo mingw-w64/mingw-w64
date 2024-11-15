@@ -835,7 +835,7 @@ wcsrchr
 wcsspn
 wcsstr
 wcstod
-wcstok
+_wcstok == wcstok ; provide nonstandard function "wcstok" in the DLL, under the name "_wcstok" to match UCRT, the C95+ compatible "wcstok" is provided by mingw-w64
 wcstol
 wcstombs
 wcstoul

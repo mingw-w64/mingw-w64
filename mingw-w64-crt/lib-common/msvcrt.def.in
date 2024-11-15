@@ -1117,7 +1117,7 @@ wcsrchr
 wcsspn
 wcsstr
 wcstod
-wcstok
+_wcstok == wcstok ; provide nonstandard function "wcstok" in the DLL, under the name "_wcstok" to match UCRT, the C95+ compatible "wcstok" is provided by mingw-w64 or by wcstok_s alias
 wcstol
 wcstombs
 wcstoul
@@ -1845,7 +1845,7 @@ wcsncpy_s
 F_ARM_ANY(wcsnlen) ; i386 and x64 wcsnlen replaced by emu
 F_ARM_ANY(wcsrtombs) ; i386 and x64 wcsrtombs replaced by emu
 wcsrtombs_s
-wcstok_s
+F_ARM_ANY(wcstok_s) ; i386 and x64 wcstok_s replaced by emu
 wcstombs_s
 F_ARM_ANY(wctob) ; i386 and x64 wctob replaced by emu
 wctomb_s
@@ -1922,6 +1922,9 @@ F_I386(_libm_sse2_tan_precise)
 #define WITH_LLABS_ALIAS
 ; i386 strtoll, strtoull, strtoimax, strtoumax, wcstoll, wcstoull, wcstoimax and wcstoumax aliases provided by emu
 #define WITH_STRTO64_ALIAS
+#endif
+#if defined(DEF_ARM32) || defined(DEF_ARM64)
+#define USE_WCSTOK_S_FOR_WCSTOK
 #endif
 #include "crt-aliases.def.in"
 

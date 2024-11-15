@@ -1948,7 +1948,7 @@ wcsrtombs_s
 wcsspn
 wcsstr
 wcstod
-wcstok
+_wcstok == wcstok ; provide nonstandard function "wcstok" in the DLL, under the name "_wcstok" to match UCRT, the C95+ compatible "wcstok" is provided by wcstok_s alias
 wcstok_s
 wcstol
 wcstombs
@@ -1972,4 +1972,5 @@ wscanf_s
 #define WITH_IMAXDIV_ALIAS
 #define WITH_STRTO64_ALIAS
 #define WITH_STRTO64_L_ALIAS
+#define USE_WCSTOK_S_FOR_WCSTOK
 #include "crt-aliases.def.in"

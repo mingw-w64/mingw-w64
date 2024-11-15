@@ -2310,7 +2310,7 @@ wcsstr
 wcstod
 wcstof
 wcstoimax
-wcstok
+_wcstok == wcstok ; provide nonstandard function "wcstok" in the DLL, under the name "_wcstok" to match UCRT, the C95+ compatible "wcstok" is provided by wcstok_s alias
 wcstok_s
 wcstol
 F_ARM32(wcstold) ; Can't use long double functions from the CRT on x86
@@ -2334,4 +2334,5 @@ wscanf
 wscanf_s
 
 #define CRTAPP
+#define USE_WCSTOK_S_FOR_WCSTOK
 #include "crt-aliases.def.in"

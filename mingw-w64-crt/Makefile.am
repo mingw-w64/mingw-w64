@@ -391,7 +391,8 @@ src_ucrtbase=\
   stdio/ucrt_vscanf.c \
   stdio/ucrt_vsnprintf.c \
   stdio/ucrt_vsprintf.c \
-  stdio/ucrt_vsscanf.c
+  stdio/ucrt_vsscanf.c \
+  string/ucrt__wcstok.c
 
 # Files included in libucrtapp.a
 src_ucrtapp=\
@@ -482,7 +483,8 @@ src_msvcrt32=\
   misc/wctob.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
-  stdio/_vscprintf.c
+  stdio/_vscprintf.c \
+  string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
 src_msvcrt64=\
@@ -527,7 +529,8 @@ src_msvcrt64=\
   misc/wassert.c \
   misc/wcrtomb.c \
   misc/wcsnlen.c \
-  misc/wctob.c
+  misc/wctob.c \
+  string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
@@ -746,7 +749,8 @@ src_pre_msvcr80=\
   misc/wctob.c \
   stdio/_fstat64i32.c \
   stdio/fseeki64.c \
-  stdio/mingw_lock.c
+  stdio/mingw_lock.c \
+  string/wcstok.c
 
 src_pre_msvcr100=\
   misc/imaxdiv.c

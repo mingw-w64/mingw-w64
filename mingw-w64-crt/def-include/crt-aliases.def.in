@@ -230,6 +230,11 @@ ADD_UNDERSCORE(y0)
 ADD_UNDERSCORE(y1)
 ADD_UNDERSCORE(yn)
 
+; This is list of symbol aliases for C95 functions
+#ifdef USE_WCSTOK_S_FOR_WCSTOK
+wcstok == wcstok_s
+#endif
+
 ; This is list of symbol aliases for C99 functions
 ; ADD_UNDERSCORE(logb)
 #ifdef WITH_NEXTAFTER_ALIAS
