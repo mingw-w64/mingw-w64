@@ -1926,8 +1926,3 @@ F_I386(_libm_sse2_tan_precise)
 #define USE_WCSTOK_S_FOR_WCSTOK
 #endif
 #include "crt-aliases.def.in"
-
-; This is list of additional symbol aliases not available in any CRT library
-; FIXME: check if these really are needed
-snwprintf == _snwprintf
-vsnwprintf == _vsnwprintf

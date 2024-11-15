@@ -1651,8 +1651,6 @@ _vsnprintf_c_l
 _vsnprintf_l
 _vsnprintf_s
 _vsnprintf_s_l
-snwprintf == _snwprintf
-vsnwprintf == _vsnwprintf
 _vsnwprintf
 _vsnwprintf_l
 _vsnwprintf_s
