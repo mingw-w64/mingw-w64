@@ -935,10 +935,10 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
   int __cdecl __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
 /*__attribute__((__format__ (ms_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
   int __cdecl __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-/* __attribute__((__format__ (ms_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+/* __attribute__((__format__ (ms_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __ms_swprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...);
+/* __attribute__((__format__ (ms_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ ,va_list);
 
 #ifdef _UCRT
   int __cdecl __stdio_common_vswprintf(unsigned __int64 options, wchar_t *str, size_t len, const wchar_t *format, _locale_t locale, va_list valist);
@@ -1170,6 +1170,44 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #if __USE_MINGW_ANSI_STDIO == 0
   __mingw_ovr
+  int __cdecl swprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...)
+  {
+    __builtin_va_list __ap;
+    int __ret;
+    /*
+     * __stdio_common_vswprintf() for case _Dest == NULL and _Count == 0 and
+     * without _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR option, is
+     * executed in "standard snprintf behavior" and returns number of (wide)
+     * chars required to allocate. For all other cases it is executed in a way
+     * that returns negative value on error. But C95+ compliant swprintf() for
+     * case _Count == 0 returns negative value, so handle this case specially.
+     */
+    if (_Dest == NULL && _Count == 0)
+      return -1;
+    __builtin_va_start(__ap, _Format);
+    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, _Count, _Format, NULL, __ap);
+    __builtin_va_end(__ap);
+    return __ret < 0 ? -1 : __ret;
+  }
+  __mingw_ovr
+  int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args)
+  {
+    int __ret;
+    /*
+     * __stdio_common_vswprintf() for case _Dest == NULL and _Count == 0 and
+     * without _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR option, is
+     * executed in "standard snprintf behavior" and returns number of (wide)
+     * chars required to allocate. For all other cases it is executed in a way
+     * that returns negative value on error. But C95+ compliant vswprintf() for
+     * case _Count == 0 returns negative value, so handle this case specially.
+     */
+    if (_Dest == NULL && _Count == 0)
+      return -1;
+    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, _Count, _Format, NULL, _Args);
+    return __ret < 0 ? -1 : __ret;
+  }
+
+  __mingw_ovr
   int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
   {
     __builtin_va_list __ap;
@@ -1242,6 +1280,9 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #endif /* ! __NO_ISOCEXT */
   _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
+
+  int __cdecl swprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...);
+  int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args);
 #endif /* _UCRT */
 
 #ifndef RC_INVOKED

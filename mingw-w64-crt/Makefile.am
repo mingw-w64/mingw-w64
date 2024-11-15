@@ -172,7 +172,11 @@ src_msvcrt_common=\
   stdio/acrt_iob_func.c \
   stdio/strtof.c \
   stdio/snprintf_alias.c \
+  stdio/swprintf.c \
+  stdio/swprintf_alias.c \
   stdio/vsnprintf_alias.c \
+  stdio/vswprintf.c \
+  stdio/vswprintf_alias.c \
   math/cbrt.c math/cbrtf.c \
   math/copysign.c math/copysignf.c \
   math/coshf.c \

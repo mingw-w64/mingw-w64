@@ -1081,7 +1081,7 @@ strtok
 strtol
 strtoul
 strxfrm
-swprintf
+F_X86_ANY(_swprintf == swprintf) ; rename i386 and x64 swprintf to _swprintf (ARM already provided _swprintf) for compatibility with msvcr80+, real C95+ compatible swprintf provided by mingw-w64
 swscanf
 system
 tan
@@ -1099,7 +1099,7 @@ vfprintf
 vfwprintf
 vprintf
 vsprintf
-vswprintf
+F_X86_ANY(_vswprintf == vswprintf) ; rename i386 and x64 vswprintf to _vswprintf (ARM already provided _vswprintf) for compatibility with msvcr80+, real C95+ compatible vswprintf provided by mingw-w64
 vwprintf
 wcscat
 wcschr
@@ -1663,7 +1663,7 @@ _strupr_l
 _strupr_s
 _strupr_s_l
 _strxfrm_l
-_swprintf F_X86_ANY(== swprintf) ; i386 and x64 _swprintf replaced by alias
+F_ARM_ANY(_swprintf) ; i386 and x64 _swprintf replaced by renamed swprintf symbol
 _swprintf_c
 _swprintf_c_l
 _swprintf_p_l
@@ -1722,7 +1722,7 @@ _vsprintf_l
 _vsprintf_p
 _vsprintf_p_l
 _vsprintf_s_l
-_vswprintf F_X86_ANY(== vswprintf) ; i386 and x64 _vswprintf replaced by alias
+F_ARM_ANY(_vswprintf) ; i386 and x64 _vswprintf replaced by renamed vswprintf symbol
 _vswprintf_c
 _vswprintf_c_l
 _vswprintf_l
@@ -1903,7 +1903,6 @@ F_I386(_libm_sse2_tan_precise)
 
 
 ; This includes list of some symbol alises for compatibility with C99 and POSIX functions and symbols from other msvcr* libraries
-#define PRE_C95_SWPRINTF
 #define FIXED_SIZE_SYMBOLS
 #define NO_FIXED_SIZE_64_ALIAS
 #define NO_TIME_ALIAS

@@ -531,21 +531,11 @@ __ms_printf == printf
 __ms_scanf == scanf
 __ms_sprintf == sprintf
 __ms_sscanf == sscanf
-#ifdef PRE_C95_SWPRINTF
-__ms_swprintf == swprintf
-#else
-__ms_swprintf == _swprintf
-#endif
 __ms_swscanf == swscanf
 __ms_vfprintf == vfprintf
 __ms_vfwprintf == vfwprintf
 __ms_vprintf == vprintf
 __ms_vsprintf == vsprintf
-#ifdef PRE_C95_SWPRINTF
-__ms_vswprintf == vswprintf
-#else
-__ms_vswprintf == _vswprintf
-#endif
 __ms_vwprintf == vwprintf
 __ms_wprintf == wprintf
 __ms_wscanf == wscanf

@@ -571,7 +571,7 @@ strtok
 strtol
 strtoul
 strxfrm
-swprintf
+_swprintf == swprintf ; rename swprintf to _swprintf for compatibility with msvcr80+, real C95+ compatible swprintf provided by mingw-w64
 swscanf
 system
 tan
@@ -589,7 +589,7 @@ vfprintf
 vfwprintf
 vprintf
 vsprintf
-vswprintf
+_vswprintf == vswprintf ; rename vswprintf to _vswprintf for compatibility with msvcr80+, real C95+ compatible vswprintf provided by mingw-w64
 vwprintf
 wcscat
 wcschr
@@ -624,7 +624,6 @@ _ultow
 
 ; include symbol aliases for compatibility with msvcrt.dll
 #define CRTDLL
-#define PRE_C95_SWPRINTF
 #define FIXED_SIZE_SYMBOLS
 #define NO_WIDE_FIXED_SIZE
 #define NO_I64_FIXED_SIZE
