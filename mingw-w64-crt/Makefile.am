@@ -709,6 +709,7 @@ src_pre_msvcrt20=\
   misc/__p__winver.c \
   misc/__timezone.c \
   misc/__tzname.c \
+  stdio/fgetws.c \
   stdio/fputws.c \
   stdio/iob_func.c
 
