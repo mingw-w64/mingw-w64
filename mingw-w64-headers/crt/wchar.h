@@ -452,10 +452,10 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   int __cdecl __mingw_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
   int __cdecl __mingw_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
-/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...);
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ ,va_list);
 
 /* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
@@ -533,7 +533,16 @@ __MINGW_ASM_CALL(__mingw_vfwprintf);
 int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
 __MINGW_ASM_CALL(__mingw_vwprintf);
 
-/*#ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+int swprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
+__MINGW_ASM_CALL(__mingw_swprintf);
+
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+int vswprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
+__MINGW_ASM_CALL(__mingw_vswprintf);
+
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 __MINGW_ASM_CALL(__mingw_snwprintf);
@@ -541,7 +550,9 @@ __MINGW_ASM_CALL(__mingw_snwprintf);
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
 int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
 __MINGW_ASM_CALL(__mingw_vsnwprintf);
-/* #endif */ /* __NO_ISOCEXT */
+
+#endif /* __NO_ISOCEXT */
+
 #else /* !__USE_MINGW_ANSI_STDIO */
 
 #ifdef _UCRT
