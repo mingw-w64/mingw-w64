@@ -4196,6 +4196,9 @@ testcase_progs = \
   testcases/t_swprintf \
   testcases/t_swprintf0 \
   testcases/t_swprintf1 \
+  testcases/t_snwprintf \
+  testcases/t_snwprintf0 \
+  testcases/t_snwprintf1 \
   testcases/t_setjmp \
   testcases/t_sigv \
   testcases/t_speed_powl \
