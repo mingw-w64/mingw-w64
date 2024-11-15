@@ -630,4 +630,5 @@ _ultow
 #define NO_FPOS64_ALIASES
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
+#define WITH_GET_PUT_WCHAR_ALIASES
 #include "crt-aliases.def.in"
