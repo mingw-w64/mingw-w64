@@ -268,7 +268,7 @@ extern "C" {
 #define _tcsrchr wcsrchr
 #define _tcsspn wcsspn
 #define _tcsstr wcsstr
-#define _tcstok wcstok
+#define _tcstok _wcstok
 #define _tcstok_l _wcstok_l
 #define _tcserror _wcserror
 #define __tcserror __wcserror
@@ -477,7 +477,7 @@ extern "C" {
 #define _wcsspnp(_cpc1,_cpc2) (!_cpc1 ? NULL : ((*((_cpc1)+wcsspn(_cpc1,_cpc2))) ? ((_cpc1)+wcsspn(_cpc1,_cpc2)) : NULL))
 #define _wcsncpy_l(_Destination,_Source,_Count,_Locale) (wcsncpy(_Destination,_Source,_Count))
 #define _wcsncat_l(_Destination,_Source,_Count,_Locale) (wcsncat(_Destination,_Source,_Count))
-#define _wcstok_l(_String,_Delimiters,_Locale) (wcstok(_String,_Delimiters))
+#define _wcstok_l(_String,_Delimiters,_Locale) (_wcstok(_String,_Delimiters))
 #define _wcsnset_l(_Destination,_Value,_Count,_Locale) (_wcsnset(_Destination,_Value,_Count))
 #define _wcsset_l(_Destination,_Value,_Locale) (_wcsset(_Destination,_Value))
 
