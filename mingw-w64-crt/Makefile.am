@@ -489,7 +489,9 @@ src_msvcrt32=\
   misc/wctob.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
+  stdio/_scwprintf.c \
   stdio/_vscprintf.c \
+  stdio/_vscwprintf.c \
   string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
@@ -732,7 +734,9 @@ src_pre_msvcr70=\
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   stdio/_scprintf.c \
-  stdio/_vscprintf.c
+  stdio/_scwprintf.c \
+  stdio/_vscprintf.c \
+  stdio/_vscwprintf.c
 
 src_pre_msvcr71=\
   misc/_set_purecall_handler.c

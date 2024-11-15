@@ -1214,7 +1214,7 @@ _getwche
 _putwch
 _resetstkoflw
 F_NON_I386(_scprintf) ; i386 _scprintf replaced by emu
-_scwprintf
+F_NON_I386(_scwprintf) ; i386 _scwprintf replaced by emu
 F_I386(_set_SSE2_enable)
 _snscanf
 _snwscanf
@@ -1222,7 +1222,7 @@ F_NON_I386(_strtoi64) ; i386 _strtoi64 replaced by emu
 F_NON_I386(_strtoui64) ; i386 _strtoui64 replaced by emu
 _ungetwch
 F_NON_I386(_vscprintf) ; i386 _vscprintf replaced by emu
-_vscwprintf
+F_NON_I386(_vscwprintf) ; i386 _vscwprintf replaced by emu
 _wcserror
 F_NON_I386(_wcstoi64) ; i386 _wcstoi64 replaced by emu
 F_NON_I386(_wcstoui64) ; i386 _wcstoui64 replaced by emu
