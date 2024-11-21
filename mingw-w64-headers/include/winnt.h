@@ -8535,6 +8535,13 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       DWORD Reserved;
     } IMAGE_RESOURCE_DATA_ENTRY,*PIMAGE_RESOURCE_DATA_ENTRY;
 
+    typedef struct _IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
+      WORD Flags;
+      WORD Catalog;
+      DWORD CatalogOffset;
+      DWORD Reserved;
+    } IMAGE_LOAD_CONFIG_CODE_INTEGRITY,*PIMAGE_LOAD_CONFIG_CODE_INTEGRITY;
+
     typedef struct {
       DWORD Size;
       DWORD TimeDateStamp;
@@ -8551,11 +8558,40 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       DWORD ProcessHeapFlags;
       DWORD ProcessAffinityMask;
       WORD CSDVersion;
-      WORD Reserved1;
+      WORD DependentLoadFlags;
       DWORD EditList;
       DWORD SecurityCookie;
       DWORD SEHandlerTable;
       DWORD SEHandlerCount;
+      DWORD GuardCFCheckFunctionPointer;
+      DWORD GuardCFDispatchFunctionPointer;
+      DWORD GuardCFFunctionTable;
+      DWORD GuardCFFunctionCount;
+      DWORD GuardFlags;
+      IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity;
+      DWORD GuardAddressTakenIatEntryTable;
+      DWORD GuardAddressTakenIatEntryCount;
+      DWORD GuardLongJumpTargetTable;
+      DWORD GuardLongJumpTargetCount;
+      DWORD DynamicValueRelocTable;
+      DWORD CHPEMetadataPointer;
+      DWORD GuardRFFailureRoutine;
+      DWORD GuardRFFailureRoutineFunctionPointer;
+      DWORD DynamicValueRelocTableOffset;
+      WORD DynamicValueRelocTableSection;
+      WORD Reserved2;
+      DWORD GuardRFVerifyStackPointerFunctionPointer;
+      DWORD HotPatchTableOffset;
+      DWORD Reserved3;
+      DWORD EnclaveConfigurationPointer;
+      DWORD VolatileMetadataPointer;
+      DWORD GuardEHContinuationTable;
+      DWORD GuardEHContinuationCount;
+      DWORD GuardXFGCheckFunctionPointer;
+      DWORD GuardXFGDispatchFunctionPointer;
+      DWORD GuardXFGTableDispatchFunctionPointer;
+      DWORD CastGuardOsDeterminedFailureMode;
+      DWORD GuardMemcpyFunctionPointer;
     } IMAGE_LOAD_CONFIG_DIRECTORY32,*PIMAGE_LOAD_CONFIG_DIRECTORY32;
 
     typedef struct {
@@ -8574,11 +8610,40 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       ULONGLONG ProcessAffinityMask;
       DWORD ProcessHeapFlags;
       WORD CSDVersion;
-      WORD Reserved1;
+      WORD DependentLoadFlags;
       ULONGLONG EditList;
       ULONGLONG SecurityCookie;
       ULONGLONG SEHandlerTable;
       ULONGLONG SEHandlerCount;
+      ULONGLONG GuardCFCheckFunctionPointer;
+      ULONGLONG GuardCFDispatchFunctionPointer;
+      ULONGLONG GuardCFFunctionTable;
+      ULONGLONG GuardCFFunctionCount;
+      DWORD GuardFlags;
+      IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity;
+      ULONGLONG GuardAddressTakenIatEntryTable;
+      ULONGLONG GuardAddressTakenIatEntryCount;
+      ULONGLONG GuardLongJumpTargetTable;
+      ULONGLONG GuardLongJumpTargetCount;
+      ULONGLONG DynamicValueRelocTable;
+      ULONGLONG CHPEMetadataPointer;
+      ULONGLONG GuardRFFailureRoutine;
+      ULONGLONG GuardRFFailureRoutineFunctionPointer;
+      DWORD DynamicValueRelocTableOffset;
+      WORD DynamicValueRelocTableSection;
+      WORD Reserved2;
+      ULONGLONG GuardRFVerifyStackPointerFunctionPointer;
+      DWORD HotPatchTableOffset;
+      DWORD Reserved3;
+      ULONGLONG EnclaveConfigurationPointer;
+      ULONGLONG VolatileMetadataPointer;
+      ULONGLONG GuardEHContinuationTable;
+      ULONGLONG GuardEHContinuationCount;
+      ULONGLONG GuardXFGCheckFunctionPointer;
+      ULONGLONG GuardXFGDispatchFunctionPointer;
+      ULONGLONG GuardXFGTableDispatchFunctionPointer;
+      ULONGLONG CastGuardOsDeterminedFailureMode;
+      ULONGLONG GuardMemcpyFunctionPointer;
     } IMAGE_LOAD_CONFIG_DIRECTORY64,*PIMAGE_LOAD_CONFIG_DIRECTORY64;
 
 #ifdef _WIN64
