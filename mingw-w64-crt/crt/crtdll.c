@@ -147,12 +147,6 @@ WINBOOL WINAPI
 DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   __mingw_app_type = 0;
-  if (dwReason == DLL_PROCESS_ATTACH)
-    {
-#if defined(__x86_64__) && !defined(__SEH__)
-      __mingw_init_ehandler ();
-#endif
-    }
   return __DllMainCRTStartup (hDllHandle, dwReason, lpreserved);
 }
 
@@ -168,6 +162,12 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	goto i__leave;
     }
   _pei386_runtime_relocator ();
+
+#if defined(__x86_64__) && !defined(__SEH__)
+  if (dwReason == DLL_PROCESS_ATTACH)
+    __mingw_init_ehandler ();
+#endif
+
   if (dwReason == DLL_PROCESS_ATTACH || dwReason == DLL_THREAD_ATTACH)
     {
         retcode = _CRT_INIT (hDllHandle, dwReason, lpreserved);
