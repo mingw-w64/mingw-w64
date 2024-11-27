@@ -4,6 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <crtdefs.h>
+#include <sal.h>
 
 #ifndef _INC_CRTDBG
 #define _INC_CRTDBG
@@ -106,6 +107,8 @@ extern "C" {
 #define _STATIC_ASSERT(expr) extern void __static_assert_t(int [(expr)?1:-1])
 #endif
 #endif
+
+#ifndef _DEBUG
 
 #ifndef _ASSERT
 #define _ASSERT(expr) ((void)0)
@@ -213,6 +216,183 @@ extern "C" {
 #define _CrtSetDebugFillThreshold(t) ((size_t)0)
 #define _CrtSetCheckCount(f) ((int)0)
 #define _CrtGetCheckCount() ((int)0)
+
+#else /* _DEBUG */
+
+_CRTIMP long * __cdecl __p__crtAssertBusy(void);
+#define _crtAssertBusy (*__p__crtAssertBusy())
+
+_CRTIMP _CRT_REPORT_HOOK __cdecl _CrtGetReportHook(void);
+_CRTIMP _CRT_REPORT_HOOK __cdecl _CrtSetReportHook(_CRT_REPORT_HOOK _PFnNewHook);
+_CRTIMP int __cdecl _CrtSetReportHook2(int _Mode, _CRT_REPORT_HOOK _PFnNewHook);
+_CRTIMP int __cdecl _CrtSetReportHookW2(int _Mode, _CRT_REPORT_HOOKW _PFnNewHook);
+_CRTIMP int __cdecl _CrtSetReportMode(int _ReportType, int _ReportMode);
+_CRTIMP _HFILE __cdecl _CrtSetReportFile(int _ReportType, _HFILE _ReportFile);
+_CRTIMP int __cdecl _CrtDbgReport(int _ReportType, const char * _Filename, int _Linenumber, const char * _ModuleName, const char * _Format, ...);
+_CRTIMP size_t __cdecl _CrtSetDebugFillThreshold(size_t _NewDebugFillThreshold);
+_CRTIMP int __cdecl _CrtDbgReportW(int _ReportType, const wchar_t * _Filename, int _LineNumber, const wchar_t * _ModuleName, const wchar_t * _Format, ...);
+
+#define _ASSERT_EXPR(expr, msg) \
+        (void) ((!!(expr)) || \
+                (1 != _CrtDbgReportW(_CRT_ASSERT, _CRT_WIDE(__FILE__), __LINE__, NULL, msg)) || \
+                (_CrtDbgBreak(), 0))
+
+#ifndef _ASSERT
+#define _ASSERT(expr)   _ASSERT_EXPR((expr), NULL)
+#endif
+
+#ifndef _ASSERTE
+#define _ASSERTE(expr)  _ASSERT_EXPR((expr), _CRT_WIDE(#expr))
+#endif
+
+#ifndef _ASSERT_BASE
+#define _ASSERT_BASE _ASSERT_EXPR
+#endif
+
+#define _RPT_BASE(args) \
+        (void) ((1 != _CrtDbgReport args) || \
+                (_CrtDbgBreak(), 0))
+
+#define _RPT_BASE_W(args) \
+        (void) ((1 != _CrtDbgReportW args) || \
+                (_CrtDbgBreak(), 0))
+
+#define _RPT0(rptno, msg) \
+        _RPT_BASE((rptno, NULL, 0, NULL, "%s", msg))
+
+#define _RPTW0(rptno, msg) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, L"%s", msg))
+
+#define _RPT1(rptno, msg, arg1) \
+        _RPT_BASE((rptno, NULL, 0, NULL, msg, arg1))
+
+#define _RPTW1(rptno, msg, arg1) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, msg, arg1))
+
+#define _RPT2(rptno, msg, arg1, arg2) \
+        _RPT_BASE((rptno, NULL, 0, NULL, msg, arg1, arg2))
+
+#define _RPTW2(rptno, msg, arg1, arg2) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, msg, arg1, arg2))
+
+#define _RPT3(rptno, msg, arg1, arg2, arg3) \
+        _RPT_BASE((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3))
+
+#define _RPTW3(rptno, msg, arg1, arg2, arg3) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3))
+
+#define _RPT4(rptno, msg, arg1, arg2, arg3, arg4) \
+        _RPT_BASE((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3, arg4))
+
+#define _RPTW4(rptno, msg, arg1, arg2, arg3, arg4) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3, arg4))
+
+#define _RPT5(rptno, msg, arg1, arg2, arg3, arg4, arg5) \
+        _RPT_BASE((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3, arg4, arg5))
+
+#define _RPTW5(rptno, msg, arg1, arg2, arg3, arg4, arg5) \
+        _RPT_BASE_W((rptno, NULL, 0, NULL, msg, arg1, arg2, arg3, arg4, arg5))
+
+#define _RPTF0(rptno, msg) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, "%s", msg))
+
+#define _RPTFW0(rptno, msg) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, L"%s", msg))
+
+#define _RPTF1(rptno, msg, arg1) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, msg, arg1))
+
+#define _RPTFW1(rptno, msg, arg1) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, msg, arg1))
+
+#define _RPTF2(rptno, msg, arg1, arg2) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, msg, arg1, arg2))
+
+#define _RPTFW2(rptno, msg, arg1, arg2) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, msg, arg1, arg2))
+
+#define _RPTF3(rptno, msg, arg1, arg2, arg3) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, msg, arg1, arg2, arg3))
+
+#define _RPTFW3(rptno, msg, arg1, arg2, arg3) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, msg, arg1, arg2, arg3))
+
+#define _RPTF4(rptno, msg, arg1, arg2, arg3, arg4) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, msg, arg1, arg2, arg3, arg4))
+
+#define _RPTFW4(rptno, msg, arg1, arg2, arg3, arg4) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, msg, arg1, arg2, arg3, arg4))
+
+#define _RPTF5(rptno, msg, arg1, arg2, arg3, arg4, arg5) \
+        _RPT_BASE((rptno, __FILE__, __LINE__, NULL, msg, arg1, arg2, arg3, arg4, arg5))
+
+#define _RPTFW5(rptno, msg, arg1, arg2, arg3, arg4, arg5) \
+        _RPT_BASE_W((rptno, _CRT_WIDE(__FILE__), __LINE__, NULL, msg, arg1, arg2, arg3, arg4, arg5))
+
+#define _CrtDbgBreak() __debugbreak()
+
+_CRTIMP long * __cdecl __p__crtBreakAlloc(void);
+#define _crtBreakAlloc (*__p__crtBreakAlloc())
+
+_CRTIMP long __cdecl _CrtSetBreakAlloc(long _BreakAlloc);
+
+_CRTIMP __checkReturn void * __cdecl _malloc_dbg(size_t _Size, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _calloc_dbg(size_t _NumOfElements, size_t _SizeOfElements, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _realloc_dbg(void * _Memory, size_t _NewSize, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _recalloc_dbg(void * _Memory, size_t _NumOfElements, size_t _SizeOfElements, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _expand_dbg(void * _Memory, size_t _NewSize, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP void __cdecl _free_dbg(void * _Memory, int _BlockType);
+_CRTIMP size_t __cdecl _msize_dbg(void * _Memory, int _BlockType);
+_CRTIMP size_t __cdecl _aligned_msize_dbg(void * _Memory, size_t _Alignment, size_t _Offset);
+_CRTIMP __checkReturn void * __cdecl _aligned_malloc_dbg(size_t _Size, size_t _Alignment, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _aligned_realloc_dbg(void * _Memory, size_t _Size, size_t _Alignment, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _aligned_recalloc_dbg(void * _Memory, size_t _NumOfElements, size_t _SizeOfElements, size_t _Alignment, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _aligned_offset_malloc_dbg(size_t _Size, size_t _Alignment, size_t _Offset, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _aligned_offset_realloc_dbg(void * _Memory, size_t _Size, size_t _Alignment, size_t _Offset, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn void * __cdecl _aligned_offset_recalloc_dbg(void * _Memory, size_t _NumOfElements, size_t _SizeOfElements, size_t _Alignment, size_t _Offset, const char * _Filename, int _LineNumber);
+_CRTIMP void __cdecl _aligned_free_dbg(void * _Memory);
+_CRTIMP __checkReturn char * __cdecl _strdup_dbg(const char * _Str, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn wchar_t * __cdecl _wcsdup_dbg(const wchar_t * _Str, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn char * __cdecl _tempnam_dbg(const char * _DirName, const char * _FilePrefix, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn wchar_t * __cdecl _wtempnam_dbg(const wchar_t * _DirName, const wchar_t * _FilePrefix, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn char * __cdecl _fullpath_dbg(char * _FullPath, const char * _Path, size_t _SizeInBytes, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn wchar_t * __cdecl _wfullpath_dbg(wchar_t * _FullPath, const wchar_t * _Path, size_t _SizeInWords, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn char * __cdecl _getcwd_dbg(char * _DstBuf, int _SizeInBytes, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn wchar_t * __cdecl _wgetcwd_dbg(wchar_t * _DstBuf, int _SizeInWords, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn char * __cdecl _getdcwd_dbg(int _Drive, char * _DstBuf, int _SizeInBytes, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn wchar_t * __cdecl _wgetdcwd_dbg(int _Drive, wchar_t * _DstBuf, int _SizeInWords, int _BlockType, const char * _Filename, int _LineNumber);
+__checkReturn char * __cdecl _getdcwd_lk_dbg(int _Drive, char * _DstBuf, int _SizeInBytes, int _BlockType, const char * _Filename, int _LineNumber);
+__checkReturn wchar_t * __cdecl _wgetdcwd_lk_dbg(int _Drive, wchar_t * _DstBuf, int _SizeInWords, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn errno_t __cdecl _dupenv_s_dbg(char ** _PBuffer, size_t * _PBufferSizeInBytes, const char * _VarName, int _BlockType, const char * _Filename, int _LineNumber);
+_CRTIMP __checkReturn errno_t __cdecl _wdupenv_s_dbg(wchar_t ** _PBuffer, size_t * _PBufferSizeInWords, const wchar_t * _VarName, int _BlockType, const char * _Filename, int _LineNumber);
+
+#define _malloca_dbg(s, t, f, l)    _malloc_dbg(s, t, f, l)
+#define _freea_dbg(p, t)            _free_dbg(p, t)
+
+_CRTIMP _CRT_ALLOC_HOOK __cdecl _CrtGetAllocHook(void);
+_CRTIMP _CRT_ALLOC_HOOK __cdecl _CrtSetAllocHook(_CRT_ALLOC_HOOK _PfnNewHook);
+
+_CRTIMP int * __cdecl __p__crtDbgFlag(void);
+#define _crtDbgFlag (*__p__crtDbgFlag())
+
+_CRTIMP int __cdecl _CrtCheckMemory(void);
+_CRTIMP int __cdecl _CrtSetDbgFlag(int _NewFlag);
+_CRTIMP void __cdecl _CrtDoForAllClientObjects(void (__cdecl *_PFn)(void *, void *), void * _Context);
+_CRTIMP __checkReturn int __cdecl _CrtIsValidPointer(const void * _Ptr, unsigned int _Bytes, int _ReadWrite);
+_CRTIMP __checkReturn int __cdecl _CrtIsValidHeapPointer(const void * _HeapPtr);
+_CRTIMP int __cdecl _CrtIsMemoryBlock(const void * _Memory, unsigned int _Bytes, long * _RequestNumber, char ** _Filename, int * _LineNumber);
+_CRTIMP __checkReturn int __cdecl _CrtReportBlockType(const void * _Memory);
+_CRTIMP _CRT_DUMP_CLIENT __cdecl _CrtGetDumpClient(void);
+_CRTIMP _CRT_DUMP_CLIENT __cdecl _CrtSetDumpClient(_CRT_DUMP_CLIENT _PFnNewDump);
+_CRTIMP _CRT_MANAGED_HEAP_DEPRECATE void __cdecl _CrtMemCheckpoint(_CrtMemState * _State);
+_CRTIMP _CRT_MANAGED_HEAP_DEPRECATE int __cdecl _CrtMemDifference(_CrtMemState * _State, const _CrtMemState * _OldState, const _CrtMemState * _NewState);
+_CRTIMP void __cdecl _CrtMemDumpAllObjectsSince(const _CrtMemState * _State);
+_CRTIMP void __cdecl _CrtMemDumpStatistics(const _CrtMemState * _State);
+_CRTIMP int __cdecl _CrtDumpMemoryLeaks(void);
+_CRTIMP int __cdecl _CrtSetCheckCount(int _CheckCount);
+_CRTIMP int __cdecl _CrtGetCheckCount(void);
+
+#endif /* _DEBUG */
 
 #ifdef __cplusplus
 }
