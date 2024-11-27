@@ -459,7 +459,8 @@ __crtLCMapStringA
 __dllonexit
 __doserrno
 __fpecode
-__getmainargs
+F_I386(__msvcrt_getmainargs == __getmainargs) ; pre-XP i386 msvcrt.dll's __getmainargs is incompatible with mingw-w64's __getmainargs, real __getmainargs provided by emu
+F_NON_I386(__getmainargs)
 F_X86_ANY(__initenv DATA) ; arm32 and arm64 __initenv provided by emu
 __isascii
 __iscsym
@@ -507,7 +508,8 @@ __toascii
 __unDName
 F_X86_ANY(__unguarded_readlc_active DATA)
 __wargv DATA
-__wgetmainargs
+F_I386(__msvcrt_wgetmainargs == __wgetmainargs) ; pre-XP i386 msvcrt.dll's __wgetmainargs is incompatible with mingw-w64's __wgetmainargs, real __wgetmainargs provided by emu
+F_NON_I386(__wgetmainargs)
 F_X86_ANY(__winitenv DATA) ; arm32 and arm64 __winitenv provided by emu
 F_I386(_abnormal_termination)
 _access

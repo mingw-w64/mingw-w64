@@ -999,7 +999,7 @@ __STRINGTOLD
 __dllonexit
 __doserrno
 __fpecode
-__getmainargs
+__msvcrt40_getmainargs == __getmainargs ; msvcrt40.dll's __getmainargs is incompatible with mingw-w64's __getmainargs, real __getmainargs provided by emu
 __isascii
 __iscsym
 __iscsymf
@@ -1037,7 +1037,7 @@ __threadhandle
 __threadid
 __toascii
 __unDName
-__wgetmainargs
+__msvcrt40_wgetmainargs == __wgetmainargs ; msvcrt40.dll's __wgetmainargs is incompatible with mingw-w64's __wgetmainargs, real __wgetmainargs provided by emu
 _abnormal_termination
 _access
 _adj_fdiv_m16i ; msvc symbol is without decoration but callee pop stack (like stdcall @4)

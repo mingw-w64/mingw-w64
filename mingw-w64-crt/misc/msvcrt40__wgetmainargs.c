@@ -6,14 +6,14 @@
 
 #include <internal.h>
 
-/* Define __wgetmainargs() function via msvcrt20.dll __wgetmainargs() function */
-_CRTIMP void __cdecl __msvcrt20_wgetmainargs(int *argc, wchar_t ***argv, wchar_t ***envp, int expand_wildcards, int newmode);
+/* Define __wgetmainargs() function via msvcrt40.dll __wgetmainargs() function */
+_CRTIMP void __cdecl __msvcrt40_wgetmainargs(int *argc, wchar_t ***argv, wchar_t ***envp, int expand_wildcards, _startupinfo *startup_info);
 int __cdecl __wgetmainargs(int *argc, wchar_t ***argv, wchar_t ***envp, int expand_wildcards, _startupinfo *startup_info)
 {
   /*
-   * msvcrt20.dll's __wgetmainargs() function terminates process on error.
+   * msvcrt40.dll's __wgetmainargs() function terminates process on error.
    * If it returns back to the caller then it means that it succeeded.
    */
-  __msvcrt20_wgetmainargs(argc, argv, envp, expand_wildcards, startup_info->newmode);
+  __msvcrt40_wgetmainargs(argc, argv, envp, expand_wildcards, startup_info);
   return 0;
 }

@@ -481,6 +481,8 @@ src_ucrtbasearm64=\
 src_msvcrt32=\
   $(src_msvcrt) \
   $(src_msvcrt_add_x86) \
+  misc/msvcrt__getmainargs.c \
+  misc/msvcrt__wgetmainargs.c \
   math/i386__copysignf.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
@@ -841,14 +843,18 @@ src_msvcrt40=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
-  $(src_pre_msvcr120)
+  $(src_pre_msvcr120) \
+  misc/msvcrt40__getmainargs.c \
+  misc/msvcrt40__wgetmainargs.c
 
 src_msvcrtd=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
-  $(src_pre_msvcr120)
+  $(src_pre_msvcr120) \
+  misc/msvcrt40__getmainargs.c \
+  misc/msvcrt40__wgetmainargs.c
 
 src_msvcr70=\
   $(src_pre_msvcr71) \

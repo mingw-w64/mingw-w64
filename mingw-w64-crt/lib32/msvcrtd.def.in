@@ -165,7 +165,7 @@ __crtLCMapStringA
 __dllonexit
 __doserrno
 __fpecode
-__getmainargs
+__msvcrt40_getmainargs == __getmainargs ; msvcrtd.dll's __getmainargs has same API as msvcrt40.dll's __getmainargs, real __getmainargs provided by emu
 __initenv DATA
 __isascii
 __iscsym
@@ -216,7 +216,7 @@ __toascii
 __unDName
 __unguarded_readlc_active DATA
 __wargv DATA
-__wgetmainargs
+__msvcrt40_wgetmainargs == __wgetmainargs ; msvcrtd.dll's __wgetmainargs has same API as msvcrt40.dll's __wgetmainargs, real __wgetmainargs provided by emu
 __winitenv DATA
 _abnormal_termination
 _access

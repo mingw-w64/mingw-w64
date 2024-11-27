@@ -10,6 +10,10 @@
 _CRTIMP void __cdecl __GetMainArgs(int *argc, char ***argv, char ***envp, int expand_wildcards);
 int __cdecl __getmainargs(int *argc, char ***argv, char ***envp, int expand_wildcards, __UNUSED_PARAM(_startupinfo *startup_info))
 {
+  /*
+   * crtdll.dll's __GetMainArgs() function terminates process on error.
+   * If it returns back to the caller then it means that it succeeded.
+   */
   __GetMainArgs(argc, argv, envp, expand_wildcards);
   return 0;
 }
