@@ -95,6 +95,7 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 static int __cdecl
 pre_c_init (void)
 {
+  int ret;
   managedapp = check_managed_app ();
   if (__mingw_app_type)
     __set_app_type(_GUI_APP);
@@ -105,10 +106,12 @@ pre_c_init (void)
   * __p__commode() = _commode;
 
 #ifdef _UNICODE
-  _wsetargv();
+  ret = _wsetargv();
 #else
-  _setargv();
+  ret = _setargv();
 #endif
+  if (ret < 0)
+    _amsg_exit(8); /* _RT_SPACEARG */
   if (_MINGW_INSTALL_DEBUG_MATHERR == 1)
     {
       __setusermatherr (_matherr);
