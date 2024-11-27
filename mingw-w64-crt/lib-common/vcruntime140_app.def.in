@@ -1,5 +1,4 @@
-LIBRARY vcruntime140_app
-
+LIBRARY "VCRUNTIME140_APP.dll"
 EXPORTS
 
 #include "func.def.in"
@@ -10,8 +9,8 @@ F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
 _FindAndUnlinkFrame
 _IsExceptionObjectToBeDestroyed
-F_I386(_NLG_Dispatch2)
-F_I386(_NLG_Return)
+F_I386(_NLG_Dispatch2@4)
+F_I386(_NLG_Return@12)
 F_I386(_NLG_Return2)
 _SetWinRTOutOfMemoryExceptionCallback
 __AdjustPointer
@@ -69,10 +68,10 @@ _get_purecall_handler
 _get_unexpected
 F_I386(_global_unwind2)
 _is_exception_typeof
+F64(_local_unwind)
 F_I386(_local_unwind2)
 F_I386(_local_unwind4)
 F_I386(_longjmpex)
-F64(_local_unwind)
 _purecall
 F_I386(_seh_longjmp_unwind4@4)
 F_I386(_seh_longjmp_unwind@4)
