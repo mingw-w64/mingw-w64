@@ -491,6 +491,7 @@ src_msvcrt32=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/_initterm_e.c \
   misc/btowc.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
@@ -548,6 +549,7 @@ src_msvcrt64=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/_initterm_e.c \
   misc/btowc.c \
   misc/mbrtowc.c \
   misc/output_format.c \
@@ -768,6 +770,7 @@ src_pre_msvcr80=\
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
   misc/_get_errno.c \
+  misc/_initterm_e.c \
   misc/_set_errno.c \
   misc/btowc.c \
   misc/imaxabs.c \
