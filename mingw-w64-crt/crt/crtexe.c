@@ -58,7 +58,6 @@ extern void __main(void);
 static _TCHAR **argv;
 static _TCHAR **envp;
 
-static int argret;
 static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
@@ -125,6 +124,7 @@ static void __cdecl
 pre_cpp_init (void)
 {
   _startupinfo startinfo;
+  int argret;
 
   startinfo.newmode = _newmode;
 
@@ -133,6 +133,8 @@ pre_cpp_init (void)
 #else
   argret = __getmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
 #endif
+  if (argret < 0)
+    _amsg_exit(8); /* _RT_SPACEARG */
 }
 
 static int __tmainCRTStartup (void);
