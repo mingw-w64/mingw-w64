@@ -62,7 +62,6 @@ static int argret;
 static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
-static _startupinfo startinfo;
 extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
@@ -125,6 +124,8 @@ pre_c_init (void)
 static void __cdecl
 pre_cpp_init (void)
 {
+  _startupinfo startinfo;
+
   startinfo.newmode = _newmode;
 
 #ifdef _UNICODE
