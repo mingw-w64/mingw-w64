@@ -61,6 +61,36 @@ extern "C" {
 
 #ifndef _CRT_ALLOCATION_DEFINED
 #define _CRT_ALLOCATION_DEFINED
+
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma push_macro("calloc")
+#undef calloc
+#pragma push_macro("free")
+#undef free
+#pragma push_macro("malloc")
+#undef malloc
+#pragma push_macro("realloc")
+#undef realloc
+#pragma push_macro("_aligned_free")
+#undef _aligned_free
+#pragma push_macro("_aligned_malloc")
+#undef _aligned_malloc
+#pragma push_macro("_aligned_offset_malloc")
+#undef _aligned_offset_malloc
+#pragma push_macro("_aligned_realloc")
+#undef _aligned_realloc
+#pragma push_macro("_aligned_offset_realloc")
+#undef _aligned_offset_realloc
+#pragma push_macro("_recalloc")
+#undef _recalloc
+#pragma push_macro("_aligned_recalloc")
+#undef _aligned_recalloc
+#pragma push_macro("_aligned_offset_recalloc")
+#undef _aligned_offset_recalloc
+#pragma push_macro("_aligned_msize")
+#undef _aligned_msize
+#endif
+
   void *__cdecl calloc(size_t _NumOfElements,size_t _SizeOfElements);
   void __cdecl free(void *_Memory);
   void *__cdecl malloc(size_t _Size);
@@ -78,6 +108,23 @@ extern "C" {
   _CRTIMP void *__cdecl _aligned_offset_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP size_t __cdecl _aligned_msize(void *_Memory,size_t _Alignment,size_t _Offset);
 # endif
+
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma pop_macro("calloc")
+#pragma pop_macro("free")
+#pragma pop_macro("malloc")
+#pragma pop_macro("realloc")
+#pragma pop_macro("_aligned_free")
+#pragma pop_macro("_aligned_malloc")
+#pragma pop_macro("_aligned_offset_malloc")
+#pragma pop_macro("_aligned_realloc")
+#pragma pop_macro("_aligned_offset_realloc")
+#pragma pop_macro("_recalloc")
+#pragma pop_macro("_aligned_recalloc")
+#pragma pop_macro("_aligned_offset_recalloc")
+#pragma pop_macro("_aligned_msize")
+#endif
+
 #endif
 
 /* Users should really use MS provided versions */
@@ -98,8 +145,19 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
   _CRTIMP unsigned long __cdecl _set_malloc_crt_max_wait(unsigned long _NewValue);
 
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma push_macro("_expand")
+#undef _expand
+#pragma push_macro("_msize")
+#undef _msize
+#endif
   _CRTIMP void *__cdecl _expand(void *_Memory,size_t _NewSize);
   _CRTIMP size_t __cdecl _msize(void *_Memory);
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma pop_macro("_expand")
+#pragma pop_macro("_msize")
+#endif
+
 #ifdef __GNUC__
 #undef _alloca
 #define _alloca(x) __builtin_alloca((x))
@@ -138,11 +196,20 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
   }
 #endif
 
+#ifdef _DEBUG
+#ifndef _CRTDBG_MAP_ALLOC
+#undef _malloca
+#define _malloca(size) \
+    _MarkAllocaS(malloc((size) + _ALLOCA_S_MARKER_SIZE), _ALLOCA_S_HEAP_MARKER)
+#endif
+#else
 #undef _malloca
 #define _malloca(size) \
   ((((size) + _ALLOCA_S_MARKER_SIZE) <= _ALLOCA_S_THRESHOLD) ? \
     _MarkAllocaS(_alloca((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_STACK_MARKER) : \
     _MarkAllocaS(malloc((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_HEAP_MARKER))
+#endif
+
 #undef _FREEA_INLINE
 #define _FREEA_INLINE
 
