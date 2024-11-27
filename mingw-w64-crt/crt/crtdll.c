@@ -150,6 +150,12 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   return __DllMainCRTStartup (hDllHandle, dwReason, lpreserved);
 }
 
+static
+#if defined(__i386__) || defined(_X86_)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE
+   opts in DllMain/DllEntryPoint or in functions called from DllMain/DllEntryPoint.  */
+__attribute__((force_align_arg_pointer))
+#endif
 __declspec(noinline) WINBOOL
 __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
