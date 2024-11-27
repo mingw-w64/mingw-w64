@@ -97,7 +97,8 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	{
 	  __native_startup_state = __initializing;
 	  
-	  _initterm ((_PVFV *) (void *) __xi_a, (_PVFV *) (void *) __xi_z);
+	  if (_initterm_e (__xi_a, __xi_z) != 0)
+	    return FALSE;
 	}
       if (__native_startup_state == __initializing)
 	{
