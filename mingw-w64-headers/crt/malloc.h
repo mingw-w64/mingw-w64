@@ -21,7 +21,13 @@ extern "C" {
 #endif
 
 #ifndef _STATIC_ASSERT
-#if defined(_MSC_VER)
+#if (defined(__cpp_static_assert) && __cpp_static_assert >= 201411L) || (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L)
+#define _STATIC_ASSERT(expr) static_assert(expr)
+#elif defined(__cpp_static_assert)
+#define _STATIC_ASSERT(expr) static_assert(expr, #expr)
+#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define _STATIC_ASSERT(expr) _Static_assert(expr, #expr)
+#elif defined(_MSC_VER)
 #define _STATIC_ASSERT(expr) typedef char __static_assert_t[(expr)]
 #else
 #define _STATIC_ASSERT(expr) extern void __static_assert_t(int [(expr)?1:-1])
