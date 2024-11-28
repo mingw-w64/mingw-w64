@@ -182,7 +182,7 @@ msvcr120*)
   default_msvcrt_version=0xC00
   ;;
 msvcrt*)
-  default_msvcrt_version=0x700
+  default_msvcrt_version=0x600
   ;;
 ucrt*|*)
   default_msvcrt_version=0xE00
