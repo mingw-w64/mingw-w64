@@ -157,7 +157,7 @@ msvcrt10*)
 msvcrt20*)
   default_msvcrt_version=0x200
   ;;
-msvcrt40*)
+msvcrt40*|msvcr40*)
   default_msvcrt_version=0x400
   ;;
 msvcr70*)
