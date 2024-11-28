@@ -4236,6 +4236,7 @@ testcase_progs = \
   testcases/t_tls1 \
   testcases/t_trycatch \
   testcases/t_stat_slash \
+  testcases/t_vsscanf \
   testcases/t_wreaddir \
   testcases/t_fseeko64
 
