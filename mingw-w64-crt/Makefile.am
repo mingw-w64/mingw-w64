@@ -297,8 +297,26 @@ src_msvcrt_commonarm64=\
   $(src_msvcrt_common) \
   $(src_msvcrt_common_add_arm64)
 
+src_msvcrt_add_vscanf=\
+  stdio/scanf.S \
+  stdio/scanf2-argcount-char.c \
+  stdio/scanf2-argcount-wchar.c \
+  stdio/vfscanf.c \
+  stdio/vfscanf2.S \
+  stdio/vfwscanf.c \
+  stdio/vfwscanf2.S \
+  stdio/vscanf.c \
+  stdio/vscanf2.S \
+  stdio/vsscanf.c \
+  stdio/vsscanf2.S \
+  stdio/vswscanf.c \
+  stdio/vswscanf2.S \
+  stdio/vwscanf.c \
+  stdio/vwscanf2.S
+
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
+  $(src_msvcrt_add_vscanf) \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
@@ -768,6 +786,7 @@ src_pre_msvcr100=\
   misc/imaxdiv.c
 
 src_pre_msvcr120=\
+  $(src_msvcrt_add_vscanf) \
   math/i386__copysignf.c \
   misc/isblank.c \
   misc/iswblank.c \
@@ -942,9 +961,7 @@ src_libmingwex=\
   ssp/memset_chk.c       ssp/stack_chk_fail.c       ssp/stack_chk_guard.c   ssp/strcat_chk.c \
   ssp/stpcpy_chk.c       ssp/strcpy_chk.c           ssp/strncat_chk.c       ssp/strncpy_chk.c \
   \
-  stdio/scanf2-argcount-char.c stdio/scanf2-argcount-wchar.c \
-  stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
-  stdio/vwscanf2.S         stdio/strtok_r.c          stdio/scanf.S \
+  stdio/strtok_r.c \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c \
   stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c \
@@ -960,9 +977,9 @@ src_libmingwex=\
   stdio/mingw_vfwscanf.c   stdio/mingw_vswscanf.c    stdio/mingw_vsscanf.c    stdio/mingw_sformat.c     stdio/mingw_swformat.c  \
   \
   stdio/snprintf.c         stdio/snwprintf.c         stdio/truncate.c        \
-  stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c        stdio/vfscanf.c           stdio/vfwscanf.c        \
-  stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnwprintf.c        stdio/vsscanf.c         \
-  stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
+  stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c \
+  stdio/vsnprintf.c        stdio/vsnwprintf.c \
+  stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
 
 # Include the default load config struct only for Control Flow Guard support.
 if CFGUARD

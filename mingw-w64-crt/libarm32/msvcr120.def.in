@@ -2221,4 +2221,5 @@ wscanf
 wscanf_s
 
 #define USE_WCSTOK_S_FOR_WCSTOK
+#define WITH_MS_VSCANF_ALIASES
 #include "crt-aliases.def.in"
