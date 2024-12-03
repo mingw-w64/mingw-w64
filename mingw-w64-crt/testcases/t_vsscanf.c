@@ -29,5 +29,5 @@ int main()
     &b[41],&b[42],&b[43],&b[44],&b[45],&b[46],&b[47],&b[48],&b[49],&b[50]
   );
   printf("b=%.51s\n", b);
-  return memcmp(b, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY", 51) == 0;
+  return memcmp(b, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY", 51);
 }
