@@ -197,7 +197,7 @@ int mainCRTStartup (void)
 static
 #if defined(__i386__) || defined(_X86_)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE
-   opts in main or in functions called main.  */
+   opts in main or in functions called from main.  */
 __attribute__((force_align_arg_pointer))
 #endif
 __declspec(noinline) int
