@@ -5359,7 +5359,7 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
 #define LTP_PC_SMT 0x1
 
     typedef enum _PROCESSOR_CACHE_TYPE {
-      CacheUnified,CacheInstruction,CacheData,CacheTrace
+      CacheUnified,CacheInstruction,CacheData,CacheTrace,CacheUnknown
     } PROCESSOR_CACHE_TYPE;
 
 #define CACHE_FULLY_ASSOCIATIVE 0xFF
