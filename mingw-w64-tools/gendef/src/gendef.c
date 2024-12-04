@@ -18,6 +18,7 @@
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
@@ -313,19 +314,19 @@ load_pep (void)
       gPEDta = NULL;
       return 0;
     }
-  if (gPEDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL32_HEADER
+  if (gPEDta->FileHeader.SizeOfOptionalHeader >= offsetof(IMAGE_OPTIONAL_HEADER32, DataDirectory)
       && gPEDta->OptionalHeader.Magic == IMAGE_NT_OPTIONAL_HDR32_MAGIC)
     {
       gPEPDta = NULL;
       fprintf (stderr, " * [%s] Found PE image\n", fninput);
     }
-  else if (gPEDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL32_HEADER
+  else if (gPEDta->FileHeader.SizeOfOptionalHeader >= offsetof(IMAGE_OPTIONAL_HEADER32, DataDirectory)
       && gPEDta->OptionalHeader.Magic == 0 && gPEDta->FileHeader.Machine == 0x014c /* IMAGE_FILE_MACHINE_I386 */)
     {
       gPEPDta = NULL;
       fprintf (stderr, " * [%s] Found PE image for I386 with zeroed NT magic\n", fninput);
     }
-  else if (gPEPDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL64_HEADER
+  else if (gPEPDta->FileHeader.SizeOfOptionalHeader >= offsetof(IMAGE_OPTIONAL_HEADER64, DataDirectory)
     && gPEPDta->OptionalHeader.Magic == IMAGE_NT_OPTIONAL_HDR64_MAGIC)
     {
       gPEDta = NULL;
@@ -386,19 +387,27 @@ is_data (uint32_t va)
 static int
 is_reloc (uint32_t va)
 {
-  uint32_t va_rel, sz_rel, pos;
+  uint32_t va_rel = 0;
+  uint32_t sz_rel = 0;
+  uint32_t pos;
   unsigned char *p;
   PIMAGE_BASE_RELOCATION brel;
 
   if (gPEDta)
     {
-      va_rel = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress;
-      sz_rel = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].Size;
+      if (gPEDta->OptionalHeader.NumberOfRvaAndSizes > IMAGE_DIRECTORY_ENTRY_BASERELOC)
+        {
+          va_rel = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress;
+          sz_rel = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].Size;
+        }
     }
   else
     {
-      va_rel = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress;
-      sz_rel = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].Size;
+      if (gPEPDta->OptionalHeader.NumberOfRvaAndSizes > IMAGE_DIRECTORY_ENTRY_BASERELOC)
+        {
+          va_rel = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress;
+          sz_rel = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].Size;
+        }
     }
   if (va_rel == 0 || sz_rel < IMAGE_SIZEOF_BASE_RELOCATION)
     return 0;
@@ -476,8 +485,14 @@ map_va (uint32_t va)
 static void
 do_pepdef (void)
 {
-  uint32_t va_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
-  uint32_t sz_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+  uint32_t va_exp = 0;
+  uint32_t sz_exp = 0;
+
+  if (gPEPDta->OptionalHeader.NumberOfRvaAndSizes > IMAGE_DIRECTORY_ENTRY_EXPORT)
+    {
+      va_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+      sz_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+    }
 
   do_export_read (va_exp, sz_exp, 1);
 }
@@ -485,10 +500,22 @@ do_pepdef (void)
 static void
 do_pedef (void)
 {
-  uint32_t va_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
-  uint32_t sz_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
-  uint32_t va_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
-  uint32_t sz_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+  uint32_t va_exp = 0;
+  uint32_t sz_exp = 0;
+  uint32_t va_imp = 0;
+  uint32_t sz_imp = 0;
+
+  if (gPEDta->OptionalHeader.NumberOfRvaAndSizes > IMAGE_DIRECTORY_ENTRY_EXPORT)
+    {
+      va_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+      sz_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+    }
+
+  if (gPEDta->OptionalHeader.NumberOfRvaAndSizes > IMAGE_DIRECTORY_ENTRY_IMPORT)
+    {
+      va_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+      sz_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+    }
 
   imp32_free ();
   do_import_read32 (va_imp, sz_imp);
