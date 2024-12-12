@@ -3022,13 +3022,16 @@ esac
 fi
 
 case $with_default_msvcrt in
+crtdll*)
+  default_msvcrt_version=0x00
+  ;;
 msvcrt10*)
   default_msvcrt_version=0x100
   ;;
 msvcrt20*)
   default_msvcrt_version=0x200
   ;;
-msvcrt40*)
+msvcrt40*|msvcr40*)
   default_msvcrt_version=0x400
   ;;
 msvcr70*)
