@@ -52,42 +52,42 @@ extern "C" {
 #define FASTCALL __fastcall
 
 #ifndef DECLSPEC_IMPORT
-# if __has_declspec_attribute(dllimport)
-#  define DECLSPEC_IMPORT __declspec(dllimport)
-# elif defined(__MINGW32__) || defined(__CYGWIN__)
+# if defined(__MINGW32__) || defined(__CYGWIN__)
 #  define DECLSPEC_IMPORT __attribute__((dllimport))
 # elif defined(__GNUC__)
 #  define DECLSPEC_IMPORT __attribute__((visibility ("hidden")))
+# elif __has_declspec_attribute(dllimport)
+#  define DECLSPEC_IMPORT __declspec(dllimport)
 # else
 #  define DECLSPEC_IMPORT
 # endif
 #endif
 
 #ifndef DECLSPEC_NORETURN
-# if __has_declspec_attribute(noreturn) && !defined(MIDL_PASS)
-#  define DECLSPEC_NORETURN __declspec(noreturn)
-# elif defined(__GNUC__)
+# ifdef __GNUC__
 #  define DECLSPEC_NORETURN __attribute__((noreturn))
+# elif __has_declspec_attribute(noreturn) && !defined(MIDL_PASS)
+#  define DECLSPEC_NORETURN __declspec(noreturn)
 # else
 #  define DECLSPEC_NORETURN
 # endif
 #endif
 
 #ifndef DECLSPEC_ALIGN
-# if __has_declspec_attribute(align) && !defined(MIDL_PASS)
-#  define DECLSPEC_ALIGN(x) __declspec(align(x))
-# elif defined(__GNUC__)
+# ifdef __GNUC__
 #  define DECLSPEC_ALIGN(x) __attribute__((aligned(x)))
+# elif __has_declspec_attribute(align) && !defined(MIDL_PASS)
+#  define DECLSPEC_ALIGN(x) __declspec(align(x))
 # else
 #  define DECLSPEC_ALIGN(x)
 # endif
 #endif
 
 #ifndef DECLSPEC_NOTHROW
-# if __has_declspec_attribute(nothrow) && !defined(MIDL_PASS)
-#  define DECLSPEC_NOTHROW __declspec(nothrow)
-# elif defined(__GNUC__)
+# ifdef __GNUC__
 #  define DECLSPEC_NOTHROW __attribute__((nothrow))
+# elif __has_declspec_attribute(nothrow) && !defined(MIDL_PASS)
+#  define DECLSPEC_NOTHROW __declspec(nothrow)
 # else
 #  define DECLSPEC_NOTHROW
 # endif
@@ -114,15 +114,15 @@ extern "C" {
 #endif
 
 #ifndef DECLSPEC_SELECTANY
-# if __has_declspec_attribute(selectany)
-#define DECLSPEC_SELECTANY __declspec(selectany)
-#elif defined(__MINGW32__)
-#define DECLSPEC_SELECTANY __attribute__((selectany))
-#elif defined(__GNUC__)
-#define DECLSPEC_SELECTANY __attribute__((weak))
-#else
-#define DECLSPEC_SELECTANY
-#endif
+# ifdef __MINGW32__
+#  define DECLSPEC_SELECTANY __attribute__((selectany))
+# elif defined(__GNUC__)
+#  define DECLSPEC_SELECTANY __attribute__((weak))
+# elif __has_declspec_attribute(selectany)
+#  define DECLSPEC_SELECTANY __declspec(selectany)
+# else
+#  define DECLSPEC_SELECTANY
+# endif
 #endif
 
 #ifndef NOP_FUNCTION
@@ -152,21 +152,21 @@ extern "C" {
 #endif
 
 #ifndef DECLSPEC_NOINLINE
-# if __has_declspec_attribute(noinline)
-#  define DECLSPEC_NOINLINE  __declspec(noinline)
-# elif defined(__GNUC__)
+# ifdef __GNUC__
 #  define DECLSPEC_NOINLINE __attribute__((noinline))
+# elif __has_declspec_attribute(noinline)
+#  define DECLSPEC_NOINLINE  __declspec(noinline)
 # else
 #  define DECLSPEC_NOINLINE
 # endif
 #endif
 
 #ifndef DECLSPEC_DEPRECATED
-# if __has_declspec_attribute(deprecated) && !defined(MIDL_PASS)
-#  define DECLSPEC_DEPRECATED __declspec(deprecated)
-#  define DEPRECATE_SUPPORTED
-# elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 2)))
+# ifdef __GNUC__
 #  define DECLSPEC_DEPRECATED __attribute__((deprecated))
+#  define DEPRECATE_SUPPORTED
+# elif __has_declspec_attribute(deprecated) && !defined(MIDL_PASS)
+#  define DECLSPEC_DEPRECATED __declspec(deprecated)
 #  define DEPRECATE_SUPPORTED
 # else
 #  define DECLSPEC_DEPRECATED
@@ -179,12 +179,12 @@ extern "C" {
 #if defined(__WINESRC__) && !defined(WINE_UNIX_LIB)
 /* Wine uses .spec file for PE exports */
 # define DECLSPEC_EXPORT
-#elif __has_declspec_attribute(dllexport)
-# define DECLSPEC_EXPORT __declspec(dllexport)
 #elif defined(__MINGW32__)
 # define DECLSPEC_EXPORT __attribute__((dllexport))
 #elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3))) && !defined(__sun)
 # define DECLSPEC_EXPORT __attribute__((visibility ("default")))
+#elif __has_declspec_attribute(dllexport)
+# define DECLSPEC_EXPORT __declspec(dllexport)
 #else
 # define DECLSPEC_EXPORT
 #endif
@@ -2446,7 +2446,7 @@ NTSYSAPI struct _TEB * WINAPI NtCurrentTeb(void);
 static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 {
     struct _TEB *teb;
-    __asm__(".byte 0x64\n\tmovl (0x18),%0" : "=r" (teb));
+    __asm__("movl %%fs:0x18,%0" : "=r" (teb));
     return teb;
 }
 #elif defined(__i386__) && defined(_MSC_VER)
@@ -2471,7 +2471,7 @@ static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 {
     struct _TEB *teb;
-    __asm__(".byte 0x65\n\tmovq (0x30),%0" : "=r" (teb));
+    __asm__("movq %%gs:0x30,%0" : "=r" (teb));
     return teb;
 }
 #elif defined(__x86_64__) && defined(_MSC_VER)
@@ -3224,7 +3224,7 @@ typedef struct _IMAGE_EXPORT_DIRECTORY {
 /* Import name entry */
 typedef struct _IMAGE_IMPORT_BY_NAME {
 	WORD	Hint;
-	BYTE	Name[1];
+	char	Name[1];
 } IMAGE_IMPORT_BY_NAME,*PIMAGE_IMPORT_BY_NAME;
 
 #include <pshpack8.h>
@@ -6217,6 +6217,7 @@ NTSYSAPI VOID WINAPI RtlRunOnceInitialize(PRTL_RUN_ONCE);
 NTSYSAPI DWORD WINAPI RtlRunOnceExecuteOnce(PRTL_RUN_ONCE,PRTL_RUN_ONCE_INIT_FN,PVOID,PVOID*);
 NTSYSAPI DWORD WINAPI RtlRunOnceBeginInitialize(PRTL_RUN_ONCE, DWORD, PVOID*);
 NTSYSAPI DWORD WINAPI RtlRunOnceComplete(PRTL_RUN_ONCE, DWORD, PVOID);
+NTSYSAPI WORD WINAPI RtlCaptureStackBackTrace(DWORD,DWORD,void**,DWORD*);
 
 #include <pshpack8.h>
 typedef struct _IO_COUNTERS {
@@ -7387,11 +7388,11 @@ static FORCEINLINE unsigned char InterlockedCompareExchange128( volatile __int64
 
 static FORCEINLINE void YieldProcessor(void)
 {
-#ifdef __GNUC__
-#if defined(__i386__) || defined(__x86_64__)
-    __asm__ __volatile__( "rep; nop" : : : "memory" );
-#elif defined(__arm__) || defined(__aarch64__)
+#if defined(__GNUC__) || defined(__clang__)
+#if defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
     __asm__ __volatile__( "dmb ishst\n\tyield" : : : "memory" );
+#elif defined(__i386__) || defined(__x86_64__)
+    __asm__ __volatile__( "rep; nop" : : : "memory" );
 #else
     __asm__ __volatile__( "" : : : "memory" );
 #endif

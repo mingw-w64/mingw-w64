@@ -2339,7 +2339,7 @@ case 79:
 /* rule 79 can match eol */
 YY_RULE_SETUP
 #line 448 "tools/wrc/ppl.l"
-perror("Identifier expected");
+ppy_error("Identifier expected");
 	YY_BREAK
 /*
 	 * Scan the substitution of a define
