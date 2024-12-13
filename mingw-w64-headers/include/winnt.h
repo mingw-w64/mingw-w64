@@ -10211,11 +10211,10 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     PVOID GetFiberData(VOID);
 
 #if defined (__aarch64__) || defined(__arm64ec__)
+    register struct _TEB *__mingw_current_teb __asm__("x18");
     FORCEINLINE struct _TEB *NtCurrentTeb(VOID)
     {
-        struct _TEB *teb;
-        __asm ("mov %0, x18" : "=r" (teb));
-        return teb;
+        return __mingw_current_teb;
     }
     FORCEINLINE PVOID GetCurrentFiber(VOID)
     {
