@@ -2481,25 +2481,8 @@ __buildmemorybarrier()
 #define PF_TEMPORAL_LEVEL_1
 #define PF_NON_TEMPORAL_LEVEL_ALL
 
-#define PcTeb 0x18
-  struct _TEB *NtCurrentTeb(void);
-  PVOID GetCurrentFiber(void);
-  PVOID GetFiberData(void);
-
 #define DbgRaiseAssertionFailure __int2c
 
-  FORCEINLINE struct _TEB *NtCurrentTeb(void)
-  {
-    return (struct _TEB *)__readfsdword(PcTeb);
-  }
-  FORCEINLINE PVOID GetCurrentFiber(void)
-  {
-    return(PVOID)__readfsdword(0x10);
-  }
-  FORCEINLINE PVOID GetFiberData(void)
-  {
-      return *(PVOID *)GetCurrentFiber();
-  }
 #endif /* defined(__i386__) && !defined(__x86_64) */
 
 #define EXCEPTION_READ_FAULT 0
@@ -2663,8 +2646,6 @@ __buildmemorybarrier()
 #define UnsignedMultiplyHigh __UMULH
 
     ULONGLONG UnsignedMultiplyHigh(ULONGLONG Multiplier,ULONGLONG Multiplicand);
-#else  /* __ia64__ */
-    struct _TEB *NtCurrentTeb(void);
 #endif /* __ia64__ */
 #endif /* !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_) */
 
@@ -10224,38 +10205,56 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     FORCEINLINE VOID TpDestroyCallbackEnviron (PTP_CALLBACK_ENVIRON cbe) { UNREFERENCED_PARAMETER (cbe); }
 #endif
 
-#if defined(__x86_64) && !defined (__WIDL__)
+#if !defined(__ia64__) && !defined (__WIDL__)
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
     PVOID GetFiberData(VOID);
-    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
-    FORCEINLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
-    FORCEINLINE PVOID GetFiberData(VOID) {
-      return *(PVOID *)GetCurrentFiber();
+
+#if defined (__aarch64__)
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID)
+    {
+        struct _TEB *teb;
+        __asm ("mov %0, x18" : "=r" (teb));
+        return teb;
     }
-#endif /* __x86_64 */
+    FORCEINLINE PVOID GetCurrentFiber(VOID)
+    {
+        return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData);
+    }
+#elif defined(__x86_64__)
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID)
+    {
+        return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self));
+    }
+    FORCEINLINE PVOID GetCurrentFiber(VOID)
+    {
+        return (PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData));
+    }
+#elif defined(__i386__)
+#   define PcTeb 0x18
+    FORCEINLINE struct _TEB *NtCurrentTeb(void)
+    {
+        return (struct _TEB *)__readfsdword(PcTeb);
+    }
+    FORCEINLINE PVOID GetCurrentFiber(void)
+    {
+        return (PVOID)__readfsdword(0x10);
+    }
+#elif defined (__arm__)
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID)
+    {
+        struct _TEB *teb;
+        __asm ("mrc p15, 0, %0, c13, c0, 2" : "=r" (teb));
+        return teb;
+    }
+    FORCEINLINE PVOID GetCurrentFiber(VOID)
+    {
+        return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData);
+    }
+#endif
 
-#if defined (__arm__) && !defined (__WIDL__)
-    struct _TEB *NtCurrentTeb (VOID);
-    PVOID GetCurrentFiber (VOID);
-    PVOID GetFiberData (VOID);
-    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { struct _TEB *teb;
-    __asm ("mrc p15, 0, %0, c13, c0, 2" : "=r" (teb));
-    return teb; }
-    FORCEINLINE PVOID GetCurrentFiber(VOID) { return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData); }
-    FORCEINLINE PVOID GetFiberData (VOID) { return *(PVOID *)GetCurrentFiber (); }
-#endif /* arm */
-
-#if defined (__aarch64__) && !defined (__WIDL__)
-    struct _TEB *NtCurrentTeb (VOID);
-    PVOID GetCurrentFiber (VOID);
-    PVOID GetFiberData (VOID);
-    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { struct _TEB *teb;
-    __asm ("mov %0, x18" : "=r" (teb));
-    return teb; }
-    FORCEINLINE PVOID GetCurrentFiber(VOID) { return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData); }
-    FORCEINLINE PVOID GetFiberData (VOID) { return *(PVOID *)GetCurrentFiber (); }
-#endif /* aarch64 */
+    FORCEINLINE PVOID GetFiberData (VOID) { return *(void **)GetCurrentFiber (); }
+#endif /* !defined(__ia64__) && !defined (__WIDL__) */
 
 #ifndef _NTTMAPI_
 #define _NTTMAPI_
