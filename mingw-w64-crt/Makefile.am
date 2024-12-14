@@ -395,6 +395,7 @@ src_ucrtbase=\
   misc/ucrt-access.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
+  stdio/ucrt_ms_fprintf.c \
   stdio/ucrt_ms_fwprintf.c \
   stdio/ucrt_fwprintf.c \
   stdio/ucrt_printf.c \
