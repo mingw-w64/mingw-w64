@@ -404,6 +404,21 @@ extern "C" {
 
 #define _tsetlocale _wsetlocale
 
+#if __MSVCRT_VERSION__ >= 0x800
+#define _fgettc_nolock _fgetwc_nolock
+#define _fputtc_nolock _fputwc_nolock
+#define _gettc_nolock _getwc_nolock
+#define _gettch_nolock _getwch_nolock
+#define _gettche_nolock _getwche_nolock
+#define _gettchar_nolock _getwchar_nolock
+#define _puttc_nolock _putwc_nolock
+#define _puttchar_nolock _putwchar_nolock
+#define _puttch_nolock _putwch_nolock
+#define _ungettc_nolock _ungetwc_nolock
+#define _ungettch_nolock _ungetwch_nolock
+#define _tgetdcwd_nolock _wgetdcwd_nolock
+#endif
+
 #define _tcsclen wcslen
 #define _tcscnlen wcsnlen
 #define _tcsclen_l(_String,_Locale) wcslen(_String)
@@ -769,18 +784,6 @@ extern "C" {
 #define _tsetlocale setlocale
 
 #if __MSVCRT_VERSION__ >= 0x800
-#define _fgettc_nolock _fgetwc_nolock
-#define _fputtc_nolock _fputwc_nolock
-#define _gettc_nolock _getwc_nolock
-#define _gettch_nolock _getwch_nolock
-#define _gettche_nolock _getwche_nolock
-#define _gettchar_nolock _getwchar_nolock
-#define _puttc_nolock _putwc_nolock
-#define _puttchar_nolock _putwchar_nolock
-#define _puttch_nolock _putwch_nolock
-#define _ungettc_nolock _ungetwc_nolock
-#define _ungettch_nolock _ungetwch_nolock
-#define _tgetdcwd_nolock _wgetdcwd_nolock
 #define _fgettc_nolock _fgetc_nolock
 #define _fputtc_nolock _fputc_nolock
 #define _gettc_nolock _getc_nolock
