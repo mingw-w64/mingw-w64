@@ -493,7 +493,7 @@ extern "C" {
 
 #endif /* __CYGWIN__ */
 
-#else
+#else /* _UNICODE */
 
 #ifdef __cplusplus
 }
@@ -1009,7 +1009,7 @@ extern "C" {
 
 #endif /* __CYGWIN__ */
 
-#else
+#else /* _MBCS */
 
 #ifndef __TCHAR_DEFINED
 #define __TCHAR_DEFINED
@@ -1168,9 +1168,9 @@ extern "C" {
 #define _strnset_l(_Destination,_Value,_Count,_Locale) (_strnset(_Destination,_Value,_Count))
 #define _strset_l(_Destination,_Value,_Locale) (_strset(_Destination,_Value))
 #endif
-#endif
+#endif /* _MBCS */
 
-#endif /* __CYGWIN__ */
+#endif /* _UNICODE */
 
 #define _T(x) __T(x)
 #define _TEXT(x) __T(x)
