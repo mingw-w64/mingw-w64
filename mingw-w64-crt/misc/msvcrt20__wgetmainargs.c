@@ -17,3 +17,4 @@ int __cdecl __wgetmainargs(int *argc, wchar_t ***argv, wchar_t ***envp, int expa
   __msvcrt20_wgetmainargs(argc, argv, envp, expand_wildcards, startup_info->newmode);
   return 0;
 }
+int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t ***, int, _startupinfo *) = __wgetmainargs;

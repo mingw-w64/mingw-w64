@@ -30,3 +30,4 @@ int __cdecl __getmainargs(int *argc, char ***argv, char ***envp, int expand_wild
     return -1;
   return 0;
 }
+int __cdecl (*__MINGW_IMP_SYMBOL(__getmainargs))(int *, char ***, char ***, int, _startupinfo *) = __getmainargs;
