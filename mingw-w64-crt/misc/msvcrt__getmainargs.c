@@ -21,6 +21,12 @@ int __cdecl __getmainargs(int *argc, char ***argv, char ***envp, int expand_wild
    * declaration and ignoring it return value. This function does not touch
    * argc/argv/envp arguments on error, so we can use this fact to detect
    * failure independently of return value ABI.
+   *
+   * In the same way was changed also ABI of msvcrt40.dll __getmainargs()
+   * function. In the original Visual C++ 4.0/4.1 version and in Windows 9x
+   * versions, it had void return type. But in all Windows NT versions,
+   * it is just redirect to the msvcrt.dll __getmainargs() function. And
+   * since Windows XP, this function has int return type.
    */
   *argc = -1;
   *argv = NULL;

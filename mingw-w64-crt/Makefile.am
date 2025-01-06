@@ -851,8 +851,8 @@ src_msvcrt40=\
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
-  misc/msvcrt40__getmainargs.c \
-  misc/msvcrt40__wgetmainargs.c
+  misc/msvcrt__getmainargs.c \
+  misc/msvcrt__wgetmainargs.c
 
 src_msvcrtd=\
   $(src_pre_msvcr70) \
@@ -860,8 +860,8 @@ src_msvcrtd=\
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
-  misc/msvcrt40__getmainargs.c \
-  misc/msvcrt40__wgetmainargs.c
+  misc/msvcrt__getmainargs.c \
+  misc/msvcrt__wgetmainargs.c
 
 src_msvcr70=\
   $(src_pre_msvcr71) \
