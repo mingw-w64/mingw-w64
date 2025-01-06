@@ -28,12 +28,15 @@ int __cdecl __wgetmainargs(int *argc, wchar_t ***argv, wchar_t ***envp, int expa
    * it is just redirect to the msvcrt.dll __wgetmainargs() function. And
    * since Windows XP, this function has int return type.
    */
-  *argc = -1;
-  *argv = NULL;
-  *envp = NULL;
-  (void)__msvcrt_wgetmainargs(argc, argv, envp, expand_wildcards, startup_info);
-  if (*argc == -1 || *argv == NULL || *envp == NULL)
+  int local_argc = -1;
+  wchar_t **local_argv = NULL;
+  wchar_t **local_envp = NULL;
+  (void)__msvcrt_wgetmainargs(&local_argc, &local_argv, &local_envp, expand_wildcards, startup_info);
+  if (local_argc == -1 || local_argv == NULL || local_envp == NULL)
     return -1;
+  *argc = local_argc;
+  *argv = local_argv;
+  *envp = local_envp;
   return 0;
 }
 int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t ***, int, _startupinfo *) = __wgetmainargs;
