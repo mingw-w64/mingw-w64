@@ -54,13 +54,14 @@ const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* te
 extern int __mingw_app_type;
 
 static int argc;
-extern void __main(void);
 static _TCHAR **argv;
 static _TCHAR **envp;
 
 static int managedapp;
 static int has_cctor = 0;
 
+extern void __cdecl __mingw_do_global_ctors (void);
+extern void __cdecl __mingw_do_global_dtors (void);
 extern void _pei386_runtime_relocator (void);
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
@@ -246,7 +247,8 @@ __tmainCRTStartup (void)
 
 	SetUnhandledExceptionFilter (cpp_unhandled_exception_filter);
 	_initterm (__xc_a, __xc_z);
-	__main (); /* C++ initialization. */
+	__mingw_do_global_ctors ();
+	atexit (__mingw_do_global_dtors);
 
 	__native_startup_state = __initialized;
       }
