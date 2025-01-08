@@ -7,7 +7,6 @@
 #include <io.h>
 #include <errno.h>
 
-#if !defined(__arm__) && !defined(__aarch64__) /* we have F_ARM_ANY(_fseeki64) in msvcrt.def.in */
 int __cdecl _fseeki64(FILE* stream, __int64 offset, int whence)
 {
   fpos_t pos;
@@ -35,16 +34,3 @@ int __cdecl _fseeki64(FILE* stream, __int64 offset, int whence)
 }
 
 int __cdecl (*__MINGW_IMP_SYMBOL(_fseeki64))(FILE*, __int64, int) = _fseeki64;
-#endif /* !defined(__arm__) && !defined(__aarch64__) */
-
-__int64 __cdecl _ftelli64(FILE* stream)
-{
-  fpos_t pos;
-  if (fgetpos (stream, &pos))
-    return -1LL;
-  else
-    return (__int64) pos;
-}
-
-__int64 __cdecl (*__MINGW_IMP_SYMBOL(_ftelli64))(FILE*) = _ftelli64;
-

@@ -332,7 +332,7 @@ src_msvcrt=\
   secapi/_vswprintf_p.c \
   secapi/wmemcpy_s.c \
   secapi/wmemmove_s.c \
-  stdio/fseeki64.c \
+  stdio/_ftelli64.c \
   stdio/mingw_lock.c
 
 src_msvcrt_add_x86=\
@@ -509,6 +509,7 @@ src_msvcrt32=\
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   misc/wctob.c \
+  stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
   stdio/_scwprintf.c \
@@ -561,6 +562,7 @@ src_msvcrt64=\
   misc/wcrtomb.c \
   misc/wcsnlen.c \
   misc/wctob.c \
+  stdio/_fseeki64.c \
   string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
@@ -783,8 +785,9 @@ src_pre_msvcr80=\
   misc/wcrtomb.c \
   misc/wcsnlen.c \
   misc/wctob.c \
+  stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
-  stdio/fseeki64.c \
+  stdio/_ftelli64.c \
   stdio/mingw_lock.c \
   string/wcstok.c
 
