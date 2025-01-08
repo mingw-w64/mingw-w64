@@ -7,7 +7,7 @@
 
 #include <winbase.h>
 
-static inline HANDLE __mingw_get_msvcrt_handle(void)
+static inline HMODULE __mingw_get_msvcrt_handle(void)
 {
     return GetModuleHandleA("msvcrt.dll");
 }
