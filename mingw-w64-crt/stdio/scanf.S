@@ -4,25 +4,26 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-/* vsscanf, vswscanf, vfscanf, and vfwscanf all come here for i386 and arm.
+/* vsscanf, vswscanf, vfscanf, and vfwscanf all come here for i386, x64, arm32 and arm64.
 
    The goal of this routine is to turn a call to v*scanf into a call to
-   s*scanf.  This is needed because mingw-w64 uses msvcr100.dll, which doesn't
-   support the v*scanf functions instead of msvcr120.dll which does.
+   s*scanf.  This is needed for pre-msvcr120 CRT libraries, which do not
+   support the v*scanf functions.
+
+   The function prototype here is:
+
+   int __argtos (void * restrict s,
+                 const void * restrict format,
+                 va_list arg,
+                 size_t count,
+                 int (*func)(void * restrict s, const void * restrict format, ...));
+
+   Where:
+   s       - may be char *, a wchar_t *, or a FILE * (depending on a function)
+   format  - is a char *, or a wchar_t * (depending on a function)
+   count   - is the number of pointer-wide arguments from va_list arg which are
+             expanded as variadic arguments when calling func
 */
-
-/* The function prototype here is (essentially):
-
-   int __ms_v*scanf_internal (void *s,
-			     void *format,
-			     void *arg,
-			     size_t count,
-			     void *func);
-
-   I say 'essentially' because passing a function pointer as void in ISO
-   is not supported.  But in the end, I take the first parameter (which
-   may be a char *, a wchar_t *, or a FILE *) and put it into the newly
-   formed stack, and eventually call the address in func.  */
 
 #if defined (__x86_64__)
 
