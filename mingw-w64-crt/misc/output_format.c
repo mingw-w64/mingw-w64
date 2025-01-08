@@ -1,77 +1,32 @@
-#define _get_output_format __dummy__get_output_format
-#define _set_output_format __dummy__set_output_format
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+#include <stdio.h>
 #include <windows.h>
 
-#undef _get_output_format
-#undef _set_output_format
-
 static unsigned int last_value = 0;
-typedef unsigned int (*f_get_output_format)(void);
-typedef unsigned int (*f_set_output_format)(unsigned int);
 
-static unsigned int fake_get_output_format(void)
+static unsigned int emu__get_output_format(void)
 {
     return last_value;
 }
 
-static unsigned int fake_set_output_format(unsigned int value)
+static unsigned int emu__set_output_format(unsigned int value)
 {
     return InterlockedExchange((LONG*)&last_value, value);
 }
 
+#define RETT unsigned int
+#define FUNC _get_output_format
+#define ARGS void
+#define CALL
+#include "msvcrt_or_emu_glue.h"
 
-#ifndef __LIBMSVCRT_OS__
-
-unsigned int __attribute__ ((alias ("fake_set_output_format"))) _set_output_format(unsigned int);
-f_set_output_format __MINGW_IMP_SYMBOL(_set_output_format) = _set_output_format;
-
-
-unsigned int __attribute__ ((alias ("fake_get_output_format"))) _get_output_format(void);
-f_get_output_format __MINGW_IMP_SYMBOL(_get_output_format) = _get_output_format;
-
-#else
-
-#include <msvcrt.h>
-
-static unsigned int init_set_output_format(unsigned int);
-f_set_output_format __MINGW_IMP_SYMBOL(_set_output_format) = init_set_output_format;
-
-unsigned int _set_output_format(unsigned int format);
-unsigned int _set_output_format(unsigned int format)
-{
-    return __MINGW_IMP_SYMBOL(_set_output_format)(format);
-}
-
-static unsigned int init_set_output_format(unsigned int format)
-{
-  f_set_output_format sof;
-
-  sof = (void*) GetProcAddress (__mingw_get_msvcrt_handle(), "_set_output_format");
-  if(!sof)
-      sof = fake_set_output_format;
-
-  return (__MINGW_IMP_SYMBOL(_set_output_format) = sof)(format);
-}
-
-
-static unsigned int init_get_output_format(void);
-f_get_output_format __MINGW_IMP_SYMBOL(_get_output_format) = init_get_output_format;
-
-unsigned int _get_output_format(void);
-unsigned int _get_output_format(void)
-{
-    return __MINGW_IMP_SYMBOL(_get_output_format)();
-}
-
-static unsigned int init_get_output_format(void)
-{
-  f_get_output_format gof;
-
-  gof = (void*) GetProcAddress (__mingw_get_msvcrt_handle(), "_get_output_format");
-  if(!gof)
-      gof = fake_get_output_format;
-
-  return (__MINGW_IMP_SYMBOL(_get_output_format) = gof)();
-}
-
-#endif
+#define RETT unsigned int
+#define FUNC _set_output_format
+#define ARGS unsigned int format
+#define CALL format
+#include "msvcrt_or_emu_glue.h"

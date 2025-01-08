@@ -9,7 +9,7 @@
 
 /* _wassert is not available on XP, so forward it to _assert if needed */
 __MINGW_ATTRIB_NORETURN
-static void __cdecl mingw_wassert(const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
+static void __cdecl emu__wassert(const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
     char *message = NULL, *file = NULL;
     size_t len;
@@ -27,34 +27,11 @@ static void __cdecl mingw_wassert(const wchar_t *_Message, const wchar_t *_File,
     }
 
     _assert(message, file, _Line);
-
-    free(message);
-    free(file);
 }
 
-#ifndef __LIBMSVCRT_OS__
-
-void __cdecl __attribute__ ((alias ("mingw_wassert"))) _wassert(const wchar_t *, const wchar_t *, unsigned);
-void (__cdecl *__MINGW_IMP_SYMBOL(_wassert))(const wchar_t*, const wchar_t*, unsigned) = _wassert;
-
-#else
-
-#include <windows.h>
-#include "msvcrt.h"
-
-static void __cdecl init_wassert(const wchar_t *message, const wchar_t *file, unsigned line);
-
-void (__cdecl *__MINGW_IMP_SYMBOL(_wassert))(const wchar_t*, const wchar_t*,unsigned) = init_wassert;
-
-static void __cdecl init_wassert(const wchar_t *message, const wchar_t *file, unsigned line)
-{
-    void *func;
-
-    func = (void*)GetProcAddress(__mingw_get_msvcrt_handle(), "_wassert");
-    if(!func)
-        func = mingw_wassert;
-
-    return (__MINGW_IMP_SYMBOL(_wassert) = func)(message, file, line);
-}
-
-#endif
+#define NORETURN
+#define RETT void
+#define FUNC _wassert
+#define ARGS const wchar_t * message, const wchar_t * file, unsigned line
+#define CALL message, file, line
+#include "msvcrt_or_emu_glue.h"

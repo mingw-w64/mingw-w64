@@ -1,26 +1,18 @@
-#include <windows.h>
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
 #include <locale.h>
-#include <msvcrt.h>
 
-static _locale_t __cdecl init_func(void);
-_locale_t (__cdecl *__MINGW_IMP_SYMBOL(_get_current_locale))(void) = init_func;
-
-static _locale_t __cdecl null_func(void)
+static _locale_t __cdecl emu__get_current_locale(void)
 {
   return NULL;
 }
 
-static _locale_t __cdecl init_func(void)
-{
-    HMODULE msvcrt = __mingw_get_msvcrt_handle();
-    _locale_t (__cdecl *func)(void) = NULL;
-
-    if (msvcrt) {
-        func = (void*)GetProcAddress(msvcrt, "_get_current_locale");
-    }
-
-    if (!func)
-        func = null_func;
-
-    return (__MINGW_IMP_SYMBOL(_get_current_locale) = func)();
-}
+#define RETT _locale_t
+#define FUNC _get_current_locale
+#define ARGS void
+#define CALL
+#include "msvcrt_or_emu_glue.h"

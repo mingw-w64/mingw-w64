@@ -11,7 +11,7 @@
 #include <errno.h>
 
 /* emulation of _vscwprintf() via _vsnwprintf() */
-static int __cdecl emu_vscwprintf(const wchar_t * __restrict__ format, va_list arglist)
+static int __cdecl emu__vscwprintf(const wchar_t * __restrict__ format, va_list arglist)
 {
     wchar_t *buffer, *new_buffer;
     size_t size;
@@ -52,36 +52,8 @@ static int __cdecl emu_vscwprintf(const wchar_t * __restrict__ format, va_list a
     return ret;
 }
 
-#ifndef __LIBMSVCRT_OS__
-
-int __attribute__ ((alias ("emu_vscwprintf"))) __cdecl _vscwprintf(const wchar_t * __restrict__, va_list);
-int (__cdecl *__MINGW_IMP_SYMBOL(_vscwprintf))(const wchar_t * __restrict__, va_list) = _vscwprintf;
-
-#else
-
-#include <msvcrt.h>
-
-static int __cdecl init_vscwprintf(const wchar_t * __restrict__ format, va_list arglist);
-
-int (__cdecl *__MINGW_IMP_SYMBOL(_vscwprintf))(const wchar_t * __restrict__, va_list) = init_vscwprintf;
-
-static int __cdecl init_vscwprintf(const wchar_t * __restrict__ format, va_list arglist)
-{
-    HMODULE msvcrt = __mingw_get_msvcrt_handle();
-    int (__cdecl *func)(const wchar_t * __restrict__, va_list) = NULL;
-
-    if (msvcrt)
-        func = (int (__cdecl *)(const wchar_t * __restrict__, va_list))GetProcAddress(msvcrt, "_vscwprintf");
-
-    if (!func)
-        func = emu_vscwprintf;
-
-    return (__MINGW_IMP_SYMBOL(_vscwprintf) = func)(format, arglist);
-}
-
-int __cdecl _vscwprintf(const wchar_t * __restrict__ format, va_list arglist)
-{
-    return __MINGW_IMP_SYMBOL(_vscwprintf)(format, arglist);
-}
-
-#endif
+#define RETT int
+#define FUNC _vscwprintf
+#define ARGS const wchar_t * restrict format, va_list arglist
+#define CALL format, arglist
+#include "msvcrt_or_emu_glue.h"

@@ -4,30 +4,17 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <windows.h>
 #include <locale.h>
-#include <msvcrt.h>
 
-static _locale_t __cdecl init_func(int category, const char *locale);
-_locale_t (__cdecl *__MINGW_IMP_SYMBOL(_create_locale))(int, const char *) = init_func;
-
-static _locale_t __cdecl null_func(int category, const char *locale)
+static _locale_t __cdecl emu__create_locale(int category, const char *locale)
 {
   (void)category;
   (void)locale;
   return NULL;
 }
 
-static _locale_t __cdecl init_func(int category, const char *locale)
-{
-    HMODULE msvcrt = __mingw_get_msvcrt_handle();
-    _locale_t (__cdecl *func)(int, const char *) = NULL;
-
-    if (msvcrt)
-        func = (void*)GetProcAddress(msvcrt, "_create_locale");
-
-    if (!func)
-        func = null_func;
-
-    return (__MINGW_IMP_SYMBOL(_create_locale) = func)(category, locale);
-}
+#define RETT _locale_t
+#define FUNC _create_locale
+#define ARGS int category, const char * locale
+#define CALL category, locale
+#include "msvcrt_or_emu_glue.h"
