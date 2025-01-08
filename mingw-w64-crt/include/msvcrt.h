@@ -9,7 +9,7 @@
 
 static inline HANDLE __mingw_get_msvcrt_handle(void)
 {
-    return GetModuleHandleW(L"msvcrt.dll");
+    return GetModuleHandleA("msvcrt.dll");
 }
 
 #endif
