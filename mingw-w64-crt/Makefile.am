@@ -215,6 +215,7 @@ src_msvcrt_common_add_x86=\
   math/x86/atanh.c math/x86/atanhf.c \
   math/x86/ceil.S \
   math/x86/cos.c \
+  math/x86/cossin.c \
   math/x86/exp.c \
   math/x86/exp2.S math/x86/exp2f.S \
   math/x86/expm1.c math/x86/expm1f.c \
@@ -460,6 +461,8 @@ src_ucrtbase32=\
   math/x86/cosf.c \
   math/x86/floorf.S \
   math/x86/fmodf.c \
+  math/x86/sincos.S \
+  math/x86/sincosf.S \
   math/x86/sinf.c \
   math/x86/tanf.c
 
@@ -468,7 +471,9 @@ src_ucrtbase64=\
   $(src_ucrtbase) \
   math/fabsf.c \
   math/nextafterl.c \
-  math/nexttoward.c math/nexttowardf.c
+  math/nexttoward.c math/nexttowardf.c \
+  math/x86/sincos.S \
+  math/x86/sincosf.S
 
 # Files included in libucrt*.a on arm32
 src_ucrtbasearm32=\
@@ -1010,7 +1015,7 @@ src_libmingwex_x86=\
   math/x86/atanhl.c         math/x86/atanl.c          \
   math/x86/ceill.S          math/x86/copysignl.S      \
   math/x86/cos.def.h        math/x86/cosl.c           math/x86/cosl_internal.S  \
-  math/x86/cossin.c         math/x86/cossinl.c        \
+  math/x86/cossinl.c        \
   math/x86/exp2l.S          math/x86/exp.def.h        math/x86/expl.c           math/x86/expm1.def.h      math/x86/expm1l.c         \
   math/x86/fastmath.h       math/x86/floorl.S         \
   math/x86/fmodl.c          math/x86/fucom.c          \
