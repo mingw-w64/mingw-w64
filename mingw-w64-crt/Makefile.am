@@ -1009,7 +1009,8 @@ src_libmingwex_x86=\
   math/x86/asinhl.c         math/x86/asinl.c          math/x86/atan2l.c         \
   math/x86/atanhl.c         math/x86/atanl.c          \
   math/x86/ceill.S          math/x86/copysignl.S      \
-  math/x86/cos.def.h        math/x86/cosl.c           math/x86/cosl_internal.S  math/x86/cossin.c         \
+  math/x86/cos.def.h        math/x86/cosl.c           math/x86/cosl_internal.S  \
+  math/x86/cossin.c         math/x86/cossinl.c        \
   math/x86/exp2l.S          math/x86/exp.def.h        math/x86/expl.c           math/x86/expm1.def.h      math/x86/expm1l.c         \
   math/x86/fastmath.h       math/x86/floorl.S         \
   math/x86/fmodl.c          math/x86/fucom.c          \
