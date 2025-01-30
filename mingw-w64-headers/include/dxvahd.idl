@@ -398,7 +398,7 @@ cpp_quote("  PDXVAHDSW_VideoProcessBltHD                 VideoProcessBltHD;")
 cpp_quote("  PDXVAHDSW_DestroyVideoProcessor             DestroyVideoProcessor;")
 cpp_quote("} DXVAHDSW_CALLBACKS;")
 cpp_quote("")
-cpp_quote("HRESULT DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_DESC *pContentDesc,DXVAHD_DEVICE_USAGE Usage,PDXVAHDSW_Plugin pPlugin,IDXVAHD_Device **ppDevice);")
+cpp_quote("HRESULT WINAPI DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_DESC *pContentDesc,DXVAHD_DEVICE_USAGE Usage,PDXVAHDSW_Plugin pPlugin,IDXVAHD_Device **ppDevice);")
 cpp_quote("")
 [
     object,
