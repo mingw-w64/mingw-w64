@@ -2,13 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "pthread_time.h"
 
 #include <windows.h>
 
 #define POW10_3                 1000
 #define POW10_6                 1000000
-
-extern int __cdecl getntptimeofday(struct timespec *tp, struct timezone *tz);
 
 __int64 timespec_diff_as_ms(struct timespec *__old, struct timespec *__new)
 {
@@ -74,9 +73,9 @@ int main(int argc, char *argv[])
     int rc;
     struct timespec tp, tp2, request = { 1, 0 }, remain;
 
-    getntptimeofday(&tp, NULL);
+    clock_gettime(CLOCK_REALTIME, &tp);
     rc = nanosleep(&request, &remain);
-    getntptimeofday(&tp2, NULL);
+    clock_gettime(CLOCK_REALTIME, &tp2);
 
     if (rc != 0) {
         printf("remain: %d.%09d\n", (int) remain.tv_sec, (int) remain.tv_nsec);
