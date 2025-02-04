@@ -415,7 +415,7 @@ typedef struct _DXVAHDSW_CALLBACKS {
   PDXVAHDSW_DestroyVideoProcessor             DestroyVideoProcessor;
 } DXVAHDSW_CALLBACKS;
 
-HRESULT DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_DESC *pContentDesc,DXVAHD_DEVICE_USAGE Usage,PDXVAHDSW_Plugin pPlugin,IDXVAHD_Device **ppDevice);
+HRESULT WINAPI DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_DESC *pContentDesc,DXVAHD_DEVICE_USAGE Usage,PDXVAHDSW_Plugin pPlugin,IDXVAHD_Device **ppDevice);
 
 /*****************************************************************************
  * IDXVAHD_Device interface
