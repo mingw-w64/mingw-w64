@@ -7,8 +7,8 @@
 #ifndef _INC_CRTDEFS_MACRO
 #define _INC_CRTDEFS_MACRO
 
-#define __PASTE(x, y) x ## y
-#define __MINGW64_PASTE(x, y) __PASTE(x, y)
+#define __MINGW64_PASTE2(x, y) x ## y
+#define __MINGW64_PASTE(x, y) __MINGW64_PASTE2(x, y)
 
 #define __STRINGIFY(x) #x
 #define __MINGW64_STRINGIFY(x) \
