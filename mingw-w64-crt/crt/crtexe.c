@@ -4,7 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#undef CRTDLL
 #ifndef _DLL
 #define _DLL
 #endif

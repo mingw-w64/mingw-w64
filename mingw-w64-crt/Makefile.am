@@ -1143,7 +1143,7 @@ else
 crt32_DATA =
 endif
 
-COMPILE32=$(COMPILE) $(CPPFLAGS32) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+COMPILE32=$(COMPILE) $(CPPFLAGS32) $(extra_include) -D_SYSCRT=1
 lib32/crt1.o: crt/crtexe.c
 	$(COMPILE32) -c $< -o $@
 lib32/crt2.o: lib32/crt1.o
@@ -1348,7 +1348,7 @@ lib32_liblargeint_a_SOURCES = $(src_liblargeint)
 lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libmingw32.a
-lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
 lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
@@ -1577,7 +1577,7 @@ else
 crt64_DATA =
 endif
 
-COMPILE64=$(COMPILE) $(CPPFLAGS64) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+COMPILE64=$(COMPILE) $(CPPFLAGS64) $(extra_include) -D_SYSCRT=1
 lib64/crt1.o: crt/crtexe.c
 	$(COMPILE64) -c $< -o $@
 lib64/crt2.o: lib64/crt1.o
@@ -1771,7 +1771,7 @@ lib64_liblargeint_a_SOURCES = $(src_liblargeint)
 lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
 lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
@@ -1946,7 +1946,7 @@ else
 crt32_DATA =
 endif
 
-COMPILE32=$(COMPILE) $(CPPFLAGSARM32) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+COMPILE32=$(COMPILE) $(CPPFLAGSARM32) $(extra_include) -D_SYSCRT=1
 libarm32/crt1.o: crt/crtexe.c
 	$(COMPILE32) -c $< -o $@
 libarm32/crt2.o: libarm32/crt1.o
@@ -2144,7 +2144,7 @@ libarm32_liblargeint_a_SOURCES = $(src_liblargeint)
 libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libmingw32.a
-libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
 libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm32_LIBRARIES += libarm32/libmingwex.a
@@ -2268,7 +2268,7 @@ else
 crt64_DATA =
 endif
 
-COMPILE64=$(COMPILE) $(CPPFLAGSARM64) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+COMPILE64=$(COMPILE) $(CPPFLAGSARM64) $(extra_include) -D_SYSCRT=1
 libarm64/crt1.o: crt/crtexe.c
 	$(COMPILE64) -c $< -o $@
 libarm64/crt2.o: libarm64/crt1.o
@@ -2466,7 +2466,7 @@ libarm64_liblargeint_a_SOURCES = $(src_liblargeint)
 libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmingw32.a
-libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
 libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm64_LIBRARIES += libarm64/libmingwex.a

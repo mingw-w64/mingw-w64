@@ -4,8 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#ifdef CRTDLL
-#undef CRTDLL
 #ifndef _DLL
 #define _DLL
 #endif
@@ -19,14 +17,10 @@
 #include <crtdbg.h>
 
 #ifndef _CRTIMP
-#ifdef CRTDLL
-#define _CRTIMP __declspec(dllexport)
-#else
 #ifdef _DLL
 #define _CRTIMP __declspec(dllimport)
 #else
 #define _CRTIMP
-#endif
 #endif
 #endif
 #include <sect_attribs.h>
@@ -204,7 +198,6 @@ i__leave:
   __native_dllmain_reason = UINT_MAX;
   return retcode ;
 }
-#endif
 
 int __cdecl atexit (_PVFV func)
 {
