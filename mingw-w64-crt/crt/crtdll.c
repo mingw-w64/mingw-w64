@@ -4,10 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#ifndef _DLL
-#define _DLL
-#endif
-
 #include <oscalls.h>
 #include <internal.h>
 #include <stdlib.h>
@@ -17,11 +13,7 @@
 #include <crtdbg.h>
 
 #ifndef _CRTIMP
-#ifdef _DLL
 #define _CRTIMP __declspec(dllimport)
-#else
-#define _CRTIMP
-#endif
 #endif
 #include <sect_attribs.h>
 #include <locale.h>

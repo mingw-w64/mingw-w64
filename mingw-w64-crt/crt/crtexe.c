@@ -4,10 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#ifndef _DLL
-#define _DLL
-#endif
-
 #define SPECIAL_CRTEXE
 
 #include <oscalls.h>
