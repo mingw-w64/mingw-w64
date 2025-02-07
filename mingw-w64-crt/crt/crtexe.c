@@ -211,7 +211,7 @@ __tmainCRTStartup (void)
 {
     void *lock_free = NULL;
     void *fiberid = ((PNT_TIB)NtCurrentTeb())->StackBase;
-    int nested = FALSE;
+    BOOL nested = FALSE;
     while((lock_free = InterlockedCompareExchangePointer (&__native_startup_lock,
 							  fiberid, NULL)) != 0)
       {

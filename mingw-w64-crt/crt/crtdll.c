@@ -77,7 +77,7 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     {
       void *lock_free = NULL;
       void *fiberid = ((PNT_TIB)NtCurrentTeb ())->StackBase;
-      int nested = FALSE;
+      BOOL nested = FALSE;
       
       while ((lock_free = InterlockedCompareExchangePointer (&__native_startup_lock,
 							     fiberid, NULL)) != 0)
