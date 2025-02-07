@@ -930,7 +930,7 @@ src_msvcr120_app=\
 src_libmingwex=\
   cfguard/mingw_cfguard_support.c \
   \
-  misc/dllentrypoint.c misc/dllmain.c \
+  misc/dllmain.c \
   \
   complex/_cabs.c    complex/cabs.c   complex/cabsf.c   complex/cabsl.c   complex/cacos.c   complex/cacosf.c   \
   complex/cacosl.c   complex/carg.c   complex/cargf.c   complex/cargl.c   complex/casin.c   complex/casinf.c   \
