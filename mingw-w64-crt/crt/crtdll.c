@@ -171,7 +171,7 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   WINBOOL retcode = TRUE;
 
   __native_dllmain_reason = dwReason;
-  if (dwReason == DLL_PROCESS_DETACH && __proc_attached == 0)
+  if (dwReason == DLL_PROCESS_DETACH && __proc_attached <= 0)
     {
 	retcode = FALSE;
 	goto i__leave;
