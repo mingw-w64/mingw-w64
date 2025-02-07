@@ -4,7 +4,5 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#define SPECIAL_CRTEXE
-
 #include <fcntl.h>
 #include <stdlib.h>
