@@ -89,19 +89,16 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	    }
 	  Sleep(1000);
 	}
-      if (__native_startup_state == __initializing)
+      if (__native_startup_state != __uninitialized)
 	{
 	  _amsg_exit (31);
 	}
-      else if (__native_startup_state == __uninitialized)
+      else
 	{
 	  __native_startup_state = __initializing;
 	  
 	  if (_initterm_e (__xi_a, __xi_z) != 0)
 	    return FALSE;
-	}
-      if (__native_startup_state == __initializing)
-	{
 	  _initterm (__xc_a, __xc_z);
 	  __native_startup_state = __initialized;
 	}
