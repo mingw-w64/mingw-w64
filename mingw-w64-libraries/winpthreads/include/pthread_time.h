@@ -47,11 +47,6 @@
 #define _POSIX_THREAD_CPUTIME   200809L
 #endif
 
-#ifndef __clockid_t_defined
-typedef int clockid_t;
-#define __clockid_t_defined 1
-#endif  /* __clockid_t_defined */
-
 #ifndef TIMER_ABSTIME
 #define TIMER_ABSTIME   1
 #endif

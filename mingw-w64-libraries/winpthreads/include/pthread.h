@@ -397,11 +397,6 @@ WINPTHREAD_API int pthread_condattr_init(pthread_condattr_t *a);
 WINPTHREAD_API int pthread_condattr_getpshared(const pthread_condattr_t *a, int *s);
 WINPTHREAD_API int pthread_condattr_setpshared(pthread_condattr_t *a, int s);
 
-#ifndef __clockid_t_defined
-typedef int clockid_t;
-#define __clockid_t_defined 1
-#endif  /* __clockid_t_defined */
-
 WINPTHREAD_API int pthread_condattr_getclock (const pthread_condattr_t *attr,
        clockid_t *clock_id);
 WINPTHREAD_API int pthread_condattr_setclock(pthread_condattr_t *attr,

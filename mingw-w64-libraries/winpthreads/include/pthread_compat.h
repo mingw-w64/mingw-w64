@@ -60,6 +60,11 @@
 #ifndef WIN_PTHREADS_PTHREAD_COMPAT_H
 #define WIN_PTHREADS_PTHREAD_COMPAT_H
 
+#ifndef __clockid_t_defined
+typedef int clockid_t;
+#define __clockid_t_defined 1
+#endif  /* __clockid_t_defined */
+
 #ifdef __GNUC__
 
 #define WINPTHREADS_INLINE inline
