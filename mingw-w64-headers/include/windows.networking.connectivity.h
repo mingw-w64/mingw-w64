@@ -69,6 +69,23 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 ABI::Windows::Networking::Connectivity::IConnectionProfile2
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                interface IConnectionProfile2;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus;
@@ -249,6 +266,74 @@ namespace ABI {
         namespace Networking {
             namespace Connectivity {
                 interface IProxyConfiguration;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage ABI::Windows::Networking::Connectivity::INetworkUsage
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                interface INetworkUsage;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval ABI::Windows::Networking::Connectivity::IConnectivityInterval
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                interface IConnectivityInterval;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails ABI::Windows::Networking::Connectivity::IWwanConnectionProfileDetails
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                interface IWwanConnectionProfileDetails;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails ABI::Windows::Networking::Connectivity::IWlanConnectionProfileDetails
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                interface IWlanConnectionProfileDetails;
             }
         }
     }
@@ -477,6 +562,74 @@ typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CProxyConfiguration __
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CNetworking_CConnectivity_CProxyConfiguration_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CWwanConnectionProfileDetails_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CWwanConnectionProfileDetails_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                class WwanConnectionProfileDetails;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CWwanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CWwanConnectionProfileDetails;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CNetworking_CConnectivity_CWwanConnectionProfileDetails_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CWlanConnectionProfileDetails_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CWlanConnectionProfileDetails_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                class WlanConnectionProfileDetails;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CWlanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CWlanConnectionProfileDetails;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CNetworking_CConnectivity_CWlanConnectionProfileDetails_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsage_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsage_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                class NetworkUsage;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsage __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsage;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsage_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CConnectivityInterval_FWD_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CConnectivityInterval_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                class ConnectivityInterval;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CConnectivityInterval __x_ABI_CWindows_CNetworking_CConnectivity_CConnectivityInterval;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CNetworking_CConnectivity_CConnectivityInterval_FWD_DEFINED__ */
+
 #ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
 #define ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile;
@@ -549,6 +702,62 @@ typedef interface __FIVectorView_1_Windows__CNetworking__CEndpointPair __FIVecto
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* >
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -610,6 +819,40 @@ typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes __x_ABI_CW
 typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates;
 #endif /* __cplusplus */
 
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass;
+#endif /* __cplusplus */
+
+#ifndef __cplusplus
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates;
+#else /* __cplusplus */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                typedef struct NetworkUsageStates NetworkUsageStates;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+
 #ifndef ____FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile __FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile;
@@ -665,6 +908,42 @@ typedef interface __FIVectorView_1_Windows__CNetworking__CEndpointPair __FIVecto
 #define __FIVectorView_1_Windows__CNetworking__CEndpointPair ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::EndpointPair* >
 #endif /* __cplusplus */
 #endif
+
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+typedef interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval;
+#ifdef __cplusplus
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* >
+#endif /* __cplusplus */
+#endif
+
+#if !defined(WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION)
+#define WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION 0x20000
+#endif // defined(WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION)
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifdef __cplusplus
@@ -868,6 +1147,212 @@ enum __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates {
 };
 #ifdef WIDL_using_Windows_Networking_Connectivity
 #define RoamingStates __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                enum DomainConnectivityLevel {
+                    DomainConnectivityLevel_None = 0,
+                    DomainConnectivityLevel_Unauthenticated = 1,
+                    DomainConnectivityLevel_Authenticated = 2
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel {
+    DomainConnectivityLevel_None = 0,
+    DomainConnectivityLevel_Unauthenticated = 1,
+    DomainConnectivityLevel_Authenticated = 2
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define DomainConnectivityLevel __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                enum DataUsageGranularity {
+                    DataUsageGranularity_PerMinute = 0,
+                    DataUsageGranularity_PerHour = 1,
+                    DataUsageGranularity_PerDay = 2,
+                    DataUsageGranularity_Total = 3
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity {
+    DataUsageGranularity_PerMinute = 0,
+    DataUsageGranularity_PerHour = 1,
+    DataUsageGranularity_PerDay = 2,
+    DataUsageGranularity_Total = 3
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define DataUsageGranularity __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                enum TriStates {
+                    TriStates_DoNotCare = 0,
+                    TriStates_No = 1,
+                    TriStates_Yes = 2
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates {
+    TriStates_DoNotCare = 0,
+    TriStates_No = 1,
+    TriStates_Yes = 2
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define TriStates __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                enum WwanNetworkRegistrationState {
+                    WwanNetworkRegistrationState_None = 0,
+                    WwanNetworkRegistrationState_Deregistered = 1,
+                    WwanNetworkRegistrationState_Searching = 2,
+                    WwanNetworkRegistrationState_Home = 3,
+                    WwanNetworkRegistrationState_Roaming = 4,
+                    WwanNetworkRegistrationState_Partner = 5,
+                    WwanNetworkRegistrationState_Denied = 6
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState {
+    WwanNetworkRegistrationState_None = 0,
+    WwanNetworkRegistrationState_Deregistered = 1,
+    WwanNetworkRegistrationState_Searching = 2,
+    WwanNetworkRegistrationState_Home = 3,
+    WwanNetworkRegistrationState_Roaming = 4,
+    WwanNetworkRegistrationState_Partner = 5,
+    WwanNetworkRegistrationState_Denied = 6
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define WwanNetworkRegistrationState __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                enum WwanDataClass {
+                    WwanDataClass_None = 0x0,
+                    WwanDataClass_Gprs = 0x1,
+                    WwanDataClass_Edge = 0x2,
+                    WwanDataClass_Umts = 0x4,
+                    WwanDataClass_Hsdpa = 0x8,
+                    WwanDataClass_Hsupa = 0x10,
+                    WwanDataClass_LteAdvanced = 0x20,
+                    WwanDataClass_Cdma1xRtt = 0x10000,
+                    WwanDataClass_Cdma1xEvdo = 0x20000,
+                    WwanDataClass_Cdma1xEvdoRevA = 0x40000,
+                    WwanDataClass_Cdma1xEvdv = 0x80000,
+                    WwanDataClass_Cdma3xRtt = 0x100000,
+                    WwanDataClass_Cdma1xEvdoRevB = 0x200000,
+                    WwanDataClass_CdmaUmb = 0x400000,
+                    WwanDataClass_Custom = 0x80000000
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass {
+    WwanDataClass_None = 0x0,
+    WwanDataClass_Gprs = 0x1,
+    WwanDataClass_Edge = 0x2,
+    WwanDataClass_Umts = 0x4,
+    WwanDataClass_Hsdpa = 0x8,
+    WwanDataClass_Hsupa = 0x10,
+    WwanDataClass_LteAdvanced = 0x20,
+    WwanDataClass_Cdma1xRtt = 0x10000,
+    WwanDataClass_Cdma1xEvdo = 0x20000,
+    WwanDataClass_Cdma1xEvdoRevA = 0x40000,
+    WwanDataClass_Cdma1xEvdv = 0x80000,
+    WwanDataClass_Cdma3xRtt = 0x100000,
+    WwanDataClass_Cdma1xEvdoRevB = 0x200000,
+    WwanDataClass_CdmaUmb = 0x400000,
+    WwanDataClass_Custom = 0x80000000
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define WwanDataClass __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif /* WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000 */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                struct NetworkUsageStates {
+                    ABI::Windows::Networking::Connectivity::TriStates Roaming;
+                    ABI::Windows::Networking::Connectivity::TriStates Shared;
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+struct __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates {
+    __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates Roaming;
+    __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates Shared;
+};
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define NetworkUsageStates __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates
 #endif /* WIDL_using_Windows_Networking_Connectivity */
 #endif
 
@@ -1365,6 +1850,244 @@ static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionPro
 #endif
 
 #endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IConnectionProfile2 interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2, 0xe2045145, 0x4c9f, 0x400c, 0x91,0x50, 0x7e,0xc7,0xd6,0xe2,0x88,0x8a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                MIDL_INTERFACE("e2045145-4c9f-400c-9150-7ec7d6e2888a")
+                IConnectionProfile2 : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_IsWwanConnectionProfile(
+                        boolean *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_IsWlanConnectionProfile(
+                        boolean *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_WwanConnectionProfileDetails(
+                        ABI::Windows::Networking::Connectivity::IWwanConnectionProfileDetails **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_WlanConnectionProfileDetails(
+                        ABI::Windows::Networking::Connectivity::IWlanConnectionProfileDetails **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_ServiceProviderGuid(
+                        ABI::Windows::Foundation::IReference<GUID > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetSignalBars(
+                        ABI::Windows::Foundation::IReference<BYTE > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetDomainConnectivityLevel(
+                        ABI::Windows::Networking::Connectivity::DomainConnectivityLevel *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetNetworkUsageAsync(
+                        ABI::Windows::Foundation::DateTime time_start,
+                        ABI::Windows::Foundation::DateTime time_end,
+                        ABI::Windows::Networking::Connectivity::DataUsageGranularity granularity,
+                        ABI::Windows::Networking::Connectivity::NetworkUsageStates states,
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetConnectivityIntervalsAsync(
+                        ABI::Windows::Foundation::DateTime time_start,
+                        ABI::Windows::Foundation::DateTime time_end,
+                        ABI::Windows::Networking::Connectivity::NetworkUsageStates states,
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > **value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2, 0xe2045145, 0x4c9f, 0x400c, 0x91,0x50, 0x7e,0xc7,0xd6,0xe2,0x88,0x8a)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        TrustLevel *trustLevel);
+
+    /*** IConnectionProfile2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_IsWwanConnectionProfile)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_IsWlanConnectionProfile)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        boolean *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_WwanConnectionProfileDetails)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_WlanConnectionProfileDetails)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ServiceProviderGuid)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __FIReference_1_GUID **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetSignalBars)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __FIReference_1_BYTE **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetDomainConnectivityLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetNetworkUsageAsync)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __x_ABI_CWindows_CFoundation_CDateTime time_start,
+        __x_ABI_CWindows_CFoundation_CDateTime time_end,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity granularity,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates states,
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **value);
+
+    HRESULT (STDMETHODCALLTYPE *GetConnectivityIntervalsAsync)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 *This,
+        __x_ABI_CWindows_CFoundation_CDateTime time_start,
+        __x_ABI_CWindows_CFoundation_CDateTime time_end,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates states,
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2Vtbl;
+
+interface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 {
+    CONST_VTBL __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IConnectionProfile2 methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWwanConnectionProfile(This,value) (This)->lpVtbl->get_IsWwanConnectionProfile(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWlanConnectionProfile(This,value) (This)->lpVtbl->get_IsWlanConnectionProfile(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WwanConnectionProfileDetails(This,value) (This)->lpVtbl->get_WwanConnectionProfileDetails(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WlanConnectionProfileDetails(This,value) (This)->lpVtbl->get_WlanConnectionProfileDetails(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_ServiceProviderGuid(This,value) (This)->lpVtbl->get_ServiceProviderGuid(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetSignalBars(This,value) (This)->lpVtbl->GetSignalBars(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetDomainConnectivityLevel(This,value) (This)->lpVtbl->GetDomainConnectivityLevel(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetNetworkUsageAsync(This,time_start,time_end,granularity,states,value) (This)->lpVtbl->GetNetworkUsageAsync(This,time_start,time_end,granularity,states,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetConnectivityIntervalsAsync(This,time_start,time_end,states,value) (This)->lpVtbl->GetConnectivityIntervalsAsync(This,time_start,time_end,states,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_QueryInterface(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_AddRef(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_Release(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetIids(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetRuntimeClassName(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetTrustLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IConnectionProfile2 methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWwanConnectionProfile(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,boolean *value) {
+    return This->lpVtbl->get_IsWwanConnectionProfile(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWlanConnectionProfile(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,boolean *value) {
+    return This->lpVtbl->get_IsWlanConnectionProfile(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WwanConnectionProfileDetails(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails **value) {
+    return This->lpVtbl->get_WwanConnectionProfileDetails(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WlanConnectionProfileDetails(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails **value) {
+    return This->lpVtbl->get_WlanConnectionProfileDetails(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_ServiceProviderGuid(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__FIReference_1_GUID **value) {
+    return This->lpVtbl->get_ServiceProviderGuid(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetSignalBars(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__FIReference_1_BYTE **value) {
+    return This->lpVtbl->GetSignalBars(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetDomainConnectivityLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel *value) {
+    return This->lpVtbl->GetDomainConnectivityLevel(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetNetworkUsageAsync(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__x_ABI_CWindows_CFoundation_CDateTime time_start,__x_ABI_CWindows_CFoundation_CDateTime time_end,__x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity granularity,__x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates states,__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **value) {
+    return This->lpVtbl->GetNetworkUsageAsync(This,time_start,time_end,granularity,states,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetConnectivityIntervalsAsync(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2* This,__x_ABI_CWindows_CFoundation_CDateTime time_start,__x_ABI_CWindows_CFoundation_CDateTime time_end,__x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates states,__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **value) {
+    return This->lpVtbl->GetConnectivityIntervalsAsync(This,time_start,time_end,states,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define IID_IConnectionProfile2 IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2
+#define IConnectionProfile2Vtbl __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2Vtbl
+#define IConnectionProfile2 __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2
+#define IConnectionProfile2_QueryInterface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_QueryInterface
+#define IConnectionProfile2_AddRef __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_AddRef
+#define IConnectionProfile2_Release __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_Release
+#define IConnectionProfile2_GetIids __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetIids
+#define IConnectionProfile2_GetRuntimeClassName __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetRuntimeClassName
+#define IConnectionProfile2_GetTrustLevel __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetTrustLevel
+#define IConnectionProfile2_get_IsWwanConnectionProfile __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWwanConnectionProfile
+#define IConnectionProfile2_get_IsWlanConnectionProfile __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_IsWlanConnectionProfile
+#define IConnectionProfile2_get_WwanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WwanConnectionProfileDetails
+#define IConnectionProfile2_get_WlanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_WlanConnectionProfileDetails
+#define IConnectionProfile2_get_ServiceProviderGuid __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_get_ServiceProviderGuid
+#define IConnectionProfile2_GetSignalBars __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetSignalBars
+#define IConnectionProfile2_GetDomainConnectivityLevel __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetDomainConnectivityLevel
+#define IConnectionProfile2_GetNetworkUsageAsync __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetNetworkUsageAsync
+#define IConnectionProfile2_GetConnectivityIntervalsAsync __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_GetConnectivityIntervalsAsync
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -3095,6 +3818,590 @@ static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIProxyConfigur
 #endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIProxyConfiguration_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * INetworkUsage interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage, 0x49da8fce, 0x9985, 0x4927, 0xbf,0x5b, 0x07,0x2b,0x5c,0x65,0xf8,0xd9);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                MIDL_INTERFACE("49da8fce-9985-4927-bf5b-072b5c65f8d9")
+                INetworkUsage : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_BytesSent(
+                        UINT64 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_BytesReceived(
+                        UINT64 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_ConnectionDuration(
+                        ABI::Windows::Foundation::TimeSpan *duration) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage, 0x49da8fce, 0x9985, 0x4927, 0xbf,0x5b, 0x07,0x2b,0x5c,0x65,0xf8,0xd9)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsageVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        TrustLevel *trustLevel);
+
+    /*** INetworkUsage methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_BytesSent)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        UINT64 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_BytesReceived)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        UINT64 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionDuration)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *duration);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsageVtbl;
+
+interface __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage {
+    CONST_VTBL __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsageVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** INetworkUsage methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesSent(This,value) (This)->lpVtbl->get_BytesSent(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesReceived(This,value) (This)->lpVtbl->get_BytesReceived(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_ConnectionDuration(This,duration) (This)->lpVtbl->get_ConnectionDuration(This,duration)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_QueryInterface(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_AddRef(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_Release(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetIids(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetRuntimeClassName(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetTrustLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** INetworkUsage methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesSent(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,UINT64 *value) {
+    return This->lpVtbl->get_BytesSent(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesReceived(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,UINT64 *value) {
+    return This->lpVtbl->get_BytesReceived(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_ConnectionDuration(__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage* This,__x_ABI_CWindows_CFoundation_CTimeSpan *duration) {
+    return This->lpVtbl->get_ConnectionDuration(This,duration);
+}
+#endif
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define IID_INetworkUsage IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage
+#define INetworkUsageVtbl __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsageVtbl
+#define INetworkUsage __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage
+#define INetworkUsage_QueryInterface __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_QueryInterface
+#define INetworkUsage_AddRef __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_AddRef
+#define INetworkUsage_Release __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_Release
+#define INetworkUsage_GetIids __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetIids
+#define INetworkUsage_GetRuntimeClassName __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetRuntimeClassName
+#define INetworkUsage_GetTrustLevel __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_GetTrustLevel
+#define INetworkUsage_get_BytesSent __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesSent
+#define INetworkUsage_get_BytesReceived __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_BytesReceived
+#define INetworkUsage_get_ConnectionDuration __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_get_ConnectionDuration
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IConnectivityInterval interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval, 0x4faa3fff, 0x6746, 0x4824, 0xa9,0x64, 0xee,0xd8,0xe8,0x7f,0x87,0x09);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                MIDL_INTERFACE("4faa3fff-6746-4824-a964-eed8e87f8709")
+                IConnectivityInterval : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_StartTime(
+                        ABI::Windows::Foundation::DateTime *time_start) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_ConnectionDuration(
+                        ABI::Windows::Foundation::TimeSpan *duration) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval, 0x4faa3fff, 0x6746, 0x4824, 0xa9,0x64, 0xee,0xd8,0xe8,0x7f,0x87,0x09)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityIntervalVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        TrustLevel *trustLevel);
+
+    /*** IConnectivityInterval methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_StartTime)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        __x_ABI_CWindows_CFoundation_CDateTime *time_start);
+
+    HRESULT (STDMETHODCALLTYPE *get_ConnectionDuration)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *duration);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityIntervalVtbl;
+
+interface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval {
+    CONST_VTBL __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityIntervalVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IConnectivityInterval methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_StartTime(This,time_start) (This)->lpVtbl->get_StartTime(This,time_start)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_ConnectionDuration(This,duration) (This)->lpVtbl->get_ConnectionDuration(This,duration)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_QueryInterface(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_AddRef(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_Release(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetIids(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetRuntimeClassName(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetTrustLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IConnectivityInterval methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_StartTime(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,__x_ABI_CWindows_CFoundation_CDateTime *time_start) {
+    return This->lpVtbl->get_StartTime(This,time_start);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_ConnectionDuration(__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval* This,__x_ABI_CWindows_CFoundation_CTimeSpan *duration) {
+    return This->lpVtbl->get_ConnectionDuration(This,duration);
+}
+#endif
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define IID_IConnectivityInterval IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval
+#define IConnectivityIntervalVtbl __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityIntervalVtbl
+#define IConnectivityInterval __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval
+#define IConnectivityInterval_QueryInterface __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_QueryInterface
+#define IConnectivityInterval_AddRef __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_AddRef
+#define IConnectivityInterval_Release __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_Release
+#define IConnectivityInterval_GetIids __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetIids
+#define IConnectivityInterval_GetRuntimeClassName __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetRuntimeClassName
+#define IConnectivityInterval_GetTrustLevel __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_GetTrustLevel
+#define IConnectivityInterval_get_StartTime __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_StartTime
+#define IConnectivityInterval_get_ConnectionDuration __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_get_ConnectionDuration
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IWwanConnectionProfileDetails interface
+ */
+#if WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails, 0x0e4da8fe, 0x835f, 0x4df3, 0x82,0xfd, 0xdf,0x55,0x6e,0xbc,0x09,0xef);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                MIDL_INTERFACE("0e4da8fe-835f-4df3-82fd-df556ebc09ef")
+                IWwanConnectionProfileDetails : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_HomeProviderId(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_AccessPointName(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetNetworkRegistrationState(
+                        ABI::Windows::Networking::Connectivity::WwanNetworkRegistrationState *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetCurrentDataClass(
+                        ABI::Windows::Networking::Connectivity::WwanDataClass *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails, 0x0e4da8fe, 0x835f, 0x4df3, 0x82,0xfd, 0xdf,0x55,0x6e,0xbc,0x09,0xef)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetailsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        TrustLevel *trustLevel);
+
+    /*** IWwanConnectionProfileDetails methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_HomeProviderId)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_AccessPointName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetNetworkRegistrationState)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentDataClass)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetailsVtbl;
+
+interface __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails {
+    CONST_VTBL __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetailsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IWwanConnectionProfileDetails methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_HomeProviderId(This,value) (This)->lpVtbl->get_HomeProviderId(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_AccessPointName(This,value) (This)->lpVtbl->get_AccessPointName(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetNetworkRegistrationState(This,value) (This)->lpVtbl->GetNetworkRegistrationState(This,value)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetCurrentDataClass(This,value) (This)->lpVtbl->GetCurrentDataClass(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_QueryInterface(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_AddRef(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_Release(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetIids(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetRuntimeClassName(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetTrustLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IWwanConnectionProfileDetails methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_HomeProviderId(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,HSTRING *value) {
+    return This->lpVtbl->get_HomeProviderId(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_AccessPointName(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,HSTRING *value) {
+    return This->lpVtbl->get_AccessPointName(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetNetworkRegistrationState(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,__x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState *value) {
+    return This->lpVtbl->GetNetworkRegistrationState(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetCurrentDataClass(__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails* This,__x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass *value) {
+    return This->lpVtbl->GetCurrentDataClass(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define IID_IWwanConnectionProfileDetails IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails
+#define IWwanConnectionProfileDetailsVtbl __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetailsVtbl
+#define IWwanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails
+#define IWwanConnectionProfileDetails_QueryInterface __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_QueryInterface
+#define IWwanConnectionProfileDetails_AddRef __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_AddRef
+#define IWwanConnectionProfileDetails_Release __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_Release
+#define IWwanConnectionProfileDetails_GetIids __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetIids
+#define IWwanConnectionProfileDetails_GetRuntimeClassName __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetRuntimeClassName
+#define IWwanConnectionProfileDetails_GetTrustLevel __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetTrustLevel
+#define IWwanConnectionProfileDetails_get_HomeProviderId __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_HomeProviderId
+#define IWwanConnectionProfileDetails_get_AccessPointName __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_get_AccessPointName
+#define IWwanConnectionProfileDetails_GetNetworkRegistrationState __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetNetworkRegistrationState
+#define IWwanConnectionProfileDetails_GetCurrentDataClass __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_GetCurrentDataClass
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IWlanConnectionProfileDetails interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails, 0x562098cb, 0xb35a, 0x4bf1, 0xa8,0x84, 0xb7,0x55,0x7e,0x88,0xff,0x86);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Networking {
+            namespace Connectivity {
+                MIDL_INTERFACE("562098cb-b35a-4bf1-a884-b7557e88ff86")
+                IWlanConnectionProfileDetails : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetConnectedSsid(
+                        HSTRING *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails, 0x562098cb, 0xb35a, 0x4bf1, 0xa8,0x84, 0xb7,0x55,0x7e,0x88,0xff,0x86)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetailsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This,
+        TrustLevel *trustLevel);
+
+    /*** IWlanConnectionProfileDetails methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetConnectedSsid)(
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails *This,
+        HSTRING *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetailsVtbl;
+
+interface __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails {
+    CONST_VTBL __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetailsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IWlanConnectionProfileDetails methods ***/
+#define __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetConnectedSsid(This,value) (This)->lpVtbl->GetConnectedSsid(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_QueryInterface(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_AddRef(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_Release(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetIids(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetRuntimeClassName(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetTrustLevel(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IWlanConnectionProfileDetails methods ***/
+static inline HRESULT __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetConnectedSsid(__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails* This,HSTRING *value) {
+    return This->lpVtbl->GetConnectedSsid(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Networking_Connectivity
+#define IID_IWlanConnectionProfileDetails IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails
+#define IWlanConnectionProfileDetailsVtbl __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetailsVtbl
+#define IWlanConnectionProfileDetails __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails
+#define IWlanConnectionProfileDetails_QueryInterface __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_QueryInterface
+#define IWlanConnectionProfileDetails_AddRef __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_AddRef
+#define IWlanConnectionProfileDetails_Release __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_Release
+#define IWlanConnectionProfileDetails_GetIids __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetIids
+#define IWlanConnectionProfileDetails_GetRuntimeClassName __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetRuntimeClassName
+#define IWlanConnectionProfileDetails_GetTrustLevel __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetTrustLevel
+#define IWlanConnectionProfileDetails_GetConnectedSsid __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_GetConnectedSsid
+#endif /* WIDL_using_Windows_Networking_Connectivity */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Networking.Connectivity.ConnectionCost
  */
@@ -3301,6 +4608,70 @@ const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_Prox
 extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_ProxyConfiguration[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','P','r','o','x','y','C','o','n','f','i','g','u','r','a','t','i','o','n',0};
 #endif
 #endif /* RUNTIMECLASS_Windows_Networking_Connectivity_ProxyConfiguration_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Networking.Connectivity.WwanConnectionProfileDetails
+ */
+#if WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Networking_Connectivity_WwanConnectionProfileDetails_DEFINED
+#define RUNTIMECLASS_Windows_Networking_Connectivity_WwanConnectionProfileDetails_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Networking_Connectivity_WwanConnectionProfileDetails[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','W','w','a','n','C','o','n','n','e','c','t','i','o','n','P','r','o','f','i','l','e','D','e','t','a','i','l','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_WwanConnectionProfileDetails[] = L"Windows.Networking.Connectivity.WwanConnectionProfileDetails";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_WwanConnectionProfileDetails[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','W','w','a','n','C','o','n','n','e','c','t','i','o','n','P','r','o','f','i','l','e','D','e','t','a','i','l','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Networking_Connectivity_WwanConnectionProfileDetails_DEFINED */
+#endif /* WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Networking.Connectivity.WlanConnectionProfileDetails
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Networking_Connectivity_WlanConnectionProfileDetails_DEFINED
+#define RUNTIMECLASS_Windows_Networking_Connectivity_WlanConnectionProfileDetails_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Networking_Connectivity_WlanConnectionProfileDetails[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','W','l','a','n','C','o','n','n','e','c','t','i','o','n','P','r','o','f','i','l','e','D','e','t','a','i','l','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_WlanConnectionProfileDetails[] = L"Windows.Networking.Connectivity.WlanConnectionProfileDetails";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_WlanConnectionProfileDetails[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','W','l','a','n','C','o','n','n','e','c','t','i','o','n','P','r','o','f','i','l','e','D','e','t','a','i','l','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Networking_Connectivity_WlanConnectionProfileDetails_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Networking.Connectivity.NetworkUsage
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Networking_Connectivity_NetworkUsage_DEFINED
+#define RUNTIMECLASS_Windows_Networking_Connectivity_NetworkUsage_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Networking_Connectivity_NetworkUsage[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','N','e','t','w','o','r','k','U','s','a','g','e',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_NetworkUsage[] = L"Windows.Networking.Connectivity.NetworkUsage";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_NetworkUsage[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','N','e','t','w','o','r','k','U','s','a','g','e',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Networking_Connectivity_NetworkUsage_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Networking.Connectivity.ConnectivityInterval
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Networking_Connectivity_ConnectivityInterval_DEFINED
+#define RUNTIMECLASS_Windows_Networking_Connectivity_ConnectivityInterval_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Networking_Connectivity_ConnectivityInterval[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','C','o','n','n','e','c','t','i','v','i','t','y','I','n','t','e','r','v','a','l',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_ConnectivityInterval[] = L"Windows.Networking.Connectivity.ConnectivityInterval";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Networking_Connectivity_ConnectivityInterval[] = {'W','i','n','d','o','w','s','.','N','e','t','w','o','r','k','i','n','g','.','C','o','n','n','e','c','t','i','v','i','t','y','.','C','o','n','n','e','c','t','i','v','i','t','y','I','n','t','e','r','v','a','l',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Networking_Connectivity_ConnectivityInterval_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
 /*****************************************************************************
@@ -4518,6 +5889,876 @@ static inline HRESULT __FIVectorView_1_Windows__CNetworking__CEndpointPair_GetMa
 #endif
 
 #endif  /* ____FIVectorView_1_Windows__CNetworking__CEndpointPair_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0xb3853391, 0x40b6, 0x5cf5, 0x8f,0x46, 0x48,0x82,0x69,0x1d,0x1f,0xf7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("b3853391-40b6-5cf5-8f46-4882691d1ff7")
+                IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* > : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Networking::Connectivity::NetworkUsage*, ABI::Windows::Networking::Connectivity::INetworkUsage* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0xb3853391, 0x40b6, 0x5cf5, 0x8f,0x46, 0x48,0x82,0x69,0x1d,0x1f,0xf7)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        UINT32 index,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl;
+
+interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage {
+    CONST_VTBL __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* > methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* > methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetAt(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,UINT32 index,__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Size(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_IndexOf(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetMany(__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_NetworkUsage IID___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IVectorView_NetworkUsageVtbl __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl
+#define IVectorView_NetworkUsage __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IVectorView_NetworkUsage_QueryInterface __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface
+#define IVectorView_NetworkUsage_AddRef __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef
+#define IVectorView_NetworkUsage_Release __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release
+#define IVectorView_NetworkUsage_GetIids __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids
+#define IVectorView_NetworkUsage_GetRuntimeClassName __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName
+#define IVectorView_NetworkUsage_GetTrustLevel __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel
+#define IVectorView_NetworkUsage_GetAt __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetAt
+#define IVectorView_NetworkUsage_get_Size __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Size
+#define IVectorView_NetworkUsage_IndexOf __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_IndexOf
+#define IVectorView_NetworkUsage_GetMany __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > interface
+ */
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0x05c9e081, 0x6229, 0x5049, 0x8e,0xea, 0xa4,0x98,0x40,0x7c,0x00,0xd5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("05c9e081-6229-5049-8eea-a498407c00d5")
+            IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > : IAsyncOperation_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0x05c9e081, 0x6229, 0x5049, 0x8e,0xea, 0xa4,0x98,0x40,0x7c,0x00,0xd5)
+#endif
+#else
+typedef struct __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl;
+
+interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage {
+    CONST_VTBL __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_put_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetResults(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,__FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IVectorView_NetworkUsage IID___FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IAsyncOperation_IVectorView_NetworkUsageVtbl __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl
+#define IAsyncOperation_IVectorView_NetworkUsage __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IAsyncOperation_IVectorView_NetworkUsage_QueryInterface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface
+#define IAsyncOperation_IVectorView_NetworkUsage_AddRef __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef
+#define IAsyncOperation_IVectorView_NetworkUsage_Release __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release
+#define IAsyncOperation_IVectorView_NetworkUsage_GetIids __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetIids
+#define IAsyncOperation_IVectorView_NetworkUsage_GetRuntimeClassName __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetRuntimeClassName
+#define IAsyncOperation_IVectorView_NetworkUsage_GetTrustLevel __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetTrustLevel
+#define IAsyncOperation_IVectorView_NetworkUsage_put_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_put_Completed
+#define IAsyncOperation_IVectorView_NetworkUsage_get_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_get_Completed
+#define IAsyncOperation_IVectorView_NetworkUsage_GetResults __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* > interface
+ */
+#ifndef ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+#define ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xa3d0d117, 0x9e21, 0x5919, 0xb7,0xa0, 0xc8,0x19,0x0b,0xd5,0x5a,0xc5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("a3d0d117-9e21-5919-b7a0-c8190bd55ac5")
+                IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* > : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Networking::Connectivity::ConnectivityInterval*, ABI::Windows::Networking::Connectivity::IConnectivityInterval* > >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xa3d0d117, 0x9e21, 0x5919, 0xb7,0xa0, 0xc8,0x19,0x0b,0xd5,0x5a,0xc5)
+#endif
+#else
+typedef struct __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        TrustLevel *trustLevel);
+
+    /*** IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAt)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        UINT32 index,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *IndexOf)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *element,
+        UINT32 *index,
+        BOOLEAN *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetMany)(
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        UINT32 start_index,
+        UINT32 items_size,
+        __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval **items,
+        UINT32 *value);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl;
+
+interface __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval {
+    CONST_VTBL __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* > methods ***/
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetAt(This,index,value) (This)->lpVtbl->GetAt(This,index,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Size(This,value) (This)->lpVtbl->get_Size(This,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_IndexOf(This,element,index,value) (This)->lpVtbl->IndexOf(This,element,index,value)
+#define __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetMany(This,start_index,items_size,items,value) (This)->lpVtbl->GetMany(This,start_index,items_size,items,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* > methods ***/
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetAt(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,UINT32 index,__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval **value) {
+    return This->lpVtbl->GetAt(This,index,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Size(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,UINT32 *value) {
+    return This->lpVtbl->get_Size(This,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_IndexOf(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval *element,UINT32 *index,BOOLEAN *value) {
+    return This->lpVtbl->IndexOf(This,element,index,value);
+}
+static inline HRESULT __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetMany(__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,UINT32 start_index,UINT32 items_size,__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval **items,UINT32 *value) {
+    return This->lpVtbl->GetMany(This,start_index,items_size,items,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IVectorView_ConnectivityInterval IID___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IVectorView_ConnectivityIntervalVtbl __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl
+#define IVectorView_ConnectivityInterval __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IVectorView_ConnectivityInterval_QueryInterface __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface
+#define IVectorView_ConnectivityInterval_AddRef __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef
+#define IVectorView_ConnectivityInterval_Release __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release
+#define IVectorView_ConnectivityInterval_GetIids __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids
+#define IVectorView_ConnectivityInterval_GetRuntimeClassName __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName
+#define IVectorView_ConnectivityInterval_GetTrustLevel __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel
+#define IVectorView_ConnectivityInterval_GetAt __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetAt
+#define IVectorView_ConnectivityInterval_get_Size __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Size
+#define IVectorView_ConnectivityInterval_IndexOf __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_IndexOf
+#define IVectorView_ConnectivityInterval_GetMany __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetMany
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > interface
+ */
+#ifndef ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xaf96d70b, 0x41c7, 0x5dc6, 0x98,0x95, 0xea,0x04,0x3a,0x88,0x5d,0x8d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("af96d70b-41c7-5dc6-9895-ea043a885d8d")
+            IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > : IAsyncOperation_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xaf96d70b, 0x41c7, 0x5dc6, 0x98,0x95, 0xea,0x04,0x3a,0x88,0x5d,0x8d)
+#endif
+#else
+typedef struct __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        __FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl;
+
+interface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval {
+    CONST_VTBL __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_put_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Completed(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetResults(__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,__FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IVectorView_ConnectivityInterval IID___FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IAsyncOperation_IVectorView_ConnectivityIntervalVtbl __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl
+#define IAsyncOperation_IVectorView_ConnectivityInterval __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IAsyncOperation_IVectorView_ConnectivityInterval_QueryInterface __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface
+#define IAsyncOperation_IVectorView_ConnectivityInterval_AddRef __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef
+#define IAsyncOperation_IVectorView_ConnectivityInterval_Release __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release
+#define IAsyncOperation_IVectorView_ConnectivityInterval_GetIids __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetIids
+#define IAsyncOperation_IVectorView_ConnectivityInterval_GetRuntimeClassName __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetRuntimeClassName
+#define IAsyncOperation_IVectorView_ConnectivityInterval_GetTrustLevel __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetTrustLevel
+#define IAsyncOperation_IVectorView_ConnectivityInterval_put_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_put_Completed
+#define IAsyncOperation_IVectorView_ConnectivityInterval_get_Completed __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_get_Completed
+#define IAsyncOperation_IVectorView_ConnectivityInterval_GetResults __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xb475014c, 0x95f1, 0x5310, 0xb5,0xd1, 0xc2,0x30,0x9d,0x94,0x44,0x40);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("b475014c-95f1-5310-b5d1-c2309d944440")
+            IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval, 0xb475014c, 0x95f1, 0x5310, 0xb5,0xd1, 0xc2,0x30,0x9d,0x94,0x44,0x40)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *This,
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::ConnectivityInterval* >* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Invoke(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval* This,__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityIntervalVtbl __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityIntervalVtbl
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval_QueryInterface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_QueryInterface
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval_AddRef __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_AddRef
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval_Release __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Release
+#define IAsyncOperationCompletedHandler_IVectorView_ConnectivityInterval_Invoke __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CConnectivityInterval_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile, 0xe4f0c96a, 0x0571, 0x59f4, 0xa9,0xa9, 0xaf,0xac,0x3e,0x61,0xca,0xa0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("e4f0c96a-0571-59f4-a9a9-afac3e61caa0")
+            IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Networking::Connectivity::ConnectionProfile*, ABI::Windows::Networking::Connectivity::IConnectionProfile* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile, 0xe4f0c96a, 0x0571, 0x59f4, 0xa9,0xa9, 0xaf,0xac,0x3e,0x61,0xca,0xa0)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfileVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile *This,
+        __FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfileVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfileVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Release(__FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Networking::Connectivity::ConnectionProfile* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile* This,__FIAsyncOperation_1_Windows__CNetworking__CConnectivity__CConnectionProfile *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_ConnectionProfile IID___FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile
+#define IAsyncOperationCompletedHandler_ConnectionProfileVtbl __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfileVtbl
+#define IAsyncOperationCompletedHandler_ConnectionProfile __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile
+#define IAsyncOperationCompletedHandler_ConnectionProfile_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_QueryInterface
+#define IAsyncOperationCompletedHandler_ConnectionProfile_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_AddRef
+#define IAsyncOperationCompletedHandler_ConnectionProfile_Release __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Release
+#define IAsyncOperationCompletedHandler_ConnectionProfile_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CNetworking__CConnectivity__CConnectionProfile_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0xe31d7e7e, 0x4173, 0x5c71, 0xb0,0x4b, 0xa0,0x96,0x58,0x00,0x25,0x90);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("e31d7e7e-4173-5c71-b04b-a09658002590")
+            IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage, 0xe31d7e7e, 0x4173, 0x5c71, 0xb0,0x4b, 0xa0,0x96,0x58,0x00,0x25,0x90)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *This,
+        __FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IVectorView<ABI::Windows::Networking::Connectivity::NetworkUsage* >* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Invoke(__FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage* This,__FIAsyncOperation_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IVectorView_NetworkUsage IID___FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsageVtbl __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsageVtbl
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsage __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsage_QueryInterface __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_QueryInterface
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsage_AddRef __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_AddRef
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsage_Release __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Release
+#define IAsyncOperationCompletedHandler_IVectorView_NetworkUsage_Invoke __FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1___FIVectorView_1_Windows__CNetworking__CConnectivity__CNetworkUsage_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
