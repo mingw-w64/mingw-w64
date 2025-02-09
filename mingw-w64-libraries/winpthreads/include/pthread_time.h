@@ -25,6 +25,8 @@
 #ifndef WIN_PTHREADS_TIME_H
 #define WIN_PTHREADS_TIME_H
 
+#include "pthread_compat.h"
+
 /* Posix timers are supported */
 #ifndef _POSIX_TIMERS
 #define _POSIX_TIMERS           200809L
@@ -99,4 +101,3 @@ WINPTHREAD_API int __cdecl clock_settime(clockid_t clock_id, const struct timesp
 #endif
 
 #endif /* WIN_PTHREADS_TIME_H */
-

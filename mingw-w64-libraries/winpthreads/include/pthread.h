@@ -72,6 +72,10 @@
 
 #include "pthread_compat.h"
 
+#ifdef _MSC_VER
+#include "pthread_time.h"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
