@@ -84,6 +84,17 @@ typedef int clockid_t;
 typedef unsigned short mode_t;
 #endif
 
+/* Error-codes.  */
+#ifndef ETIMEDOUT
+#define ETIMEDOUT	138
+#endif
+#ifndef ENOTSUP
+#define ENOTSUP		129
+#endif
+#ifndef EWOULDBLOCK
+#define EWOULDBLOCK	140
+#endif
+
 #ifdef __GNUC__
 
 #define WINPTHREADS_INLINE inline

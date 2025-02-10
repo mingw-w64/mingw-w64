@@ -93,17 +93,6 @@ extern "C" {
 /* Compatibility stuff: */
 #define RWLS_PER_THREAD						8
 
-/* Error-codes.  */
-#ifndef ETIMEDOUT
-#define ETIMEDOUT	138
-#endif
-#ifndef ENOTSUP
-#define ENOTSUP		129
-#endif
-#ifndef EWOULDBLOCK
-#define EWOULDBLOCK	140
-#endif
-
 /* pthread specific defines.  */
 
 #define PTHREAD_CANCEL_DISABLE 0
