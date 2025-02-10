@@ -71,6 +71,7 @@
 #include <sys/timeb.h>
 
 #include "pthread_compat.h"
+#include "sched.h"
 
 #ifdef _MSC_VER
 #include "pthread_time.h"
@@ -223,26 +224,6 @@ struct _pthread_cleanup
         *pthread_getclean() = _pthread_cup.next;                        \
         if ((E)) _pthread_cup.func((pthread_once_t *)_pthread_cup.arg); \
     } while (0)
-
-#ifndef SCHED_OTHER
-/* Some POSIX realtime extensions, mostly stubbed */
-#define SCHED_OTHER     0
-#define SCHED_FIFO      1
-#define SCHED_RR        2
-#define SCHED_MIN       SCHED_OTHER
-#define SCHED_MAX       SCHED_RR
-
-struct sched_param {
-  int sched_priority;
-};
-
-WINPTHREAD_API int sched_yield(void);
-WINPTHREAD_API int sched_get_priority_min(int pol);
-WINPTHREAD_API int sched_get_priority_max(int pol);
-WINPTHREAD_API int sched_getscheduler(pid_t pid);
-WINPTHREAD_API int sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
-
-#endif
 
 typedef struct pthread_attr_t pthread_attr_t;
 struct pthread_attr_t

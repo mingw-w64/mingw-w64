@@ -34,7 +34,6 @@
 
 #include "pthread_compat.h"
 
-#ifndef SCHED_OTHER
 /* Some POSIX realtime extensions, mostly stubbed */
 #define SCHED_OTHER     0
 #define SCHED_FIFO      1
@@ -58,8 +57,6 @@ WINPTHREAD_API int sched_setscheduler(pid_t pid, int pol, const struct sched_par
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif
 
 #ifndef sched_rr_get_interval
