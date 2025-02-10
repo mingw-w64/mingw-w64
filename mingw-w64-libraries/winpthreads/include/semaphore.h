@@ -23,6 +23,8 @@
 #ifndef WIN_PTHREADS_SEMAPHORE_H
 #define WIN_PTHREADS_SEMAPHORE_H
 
+#include "pthread_compat.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -45,11 +47,6 @@ extern "C" {
 #define USE_SEM_CriticalSection_SpinCount	100
 
 #define SEM_VALUE_MAX   INT_MAX
-
-#ifndef _MODE_T_
-#define	_MODE_T_
-typedef unsigned short mode_t;
-#endif
 
 typedef void		*sem_t;
 

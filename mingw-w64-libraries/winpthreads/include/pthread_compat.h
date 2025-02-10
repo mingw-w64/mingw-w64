@@ -79,6 +79,11 @@ typedef int clockid_t;
 #define __clockid_t_defined 1
 #endif  /* __clockid_t_defined */
 
+#ifndef _MODE_T_
+#define	_MODE_T_
+typedef unsigned short mode_t;
+#endif
+
 #ifdef __GNUC__
 
 #define WINPTHREADS_INLINE inline
