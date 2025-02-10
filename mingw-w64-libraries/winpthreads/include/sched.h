@@ -19,6 +19,8 @@
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
    DEALINGS IN THE SOFTWARE.
 */
+#ifndef WIN_PTHREADS_SCHED_H
+#define WIN_PTHREADS_SCHED_H
 
 #include <stddef.h>
 #include <errno.h>
@@ -31,9 +33,6 @@
 #include <sys/timeb.h>
 
 #include "pthread_compat.h"
-
-#ifndef WIN_PTHREADS_SCHED_H
-#define WIN_PTHREADS_SCHED_H
 
 #ifndef SCHED_OTHER
 /* Some POSIX realtime extensions, mostly stubbed */
