@@ -335,34 +335,49 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ ,va_list);
 
 /* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+  int __cdecl __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...)
+  __MINGW_UCRT_ASM_CALL(swscanf);
 /* __attribute__((__format__ (ms_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_vswscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,va_list);
+  int __cdecl __ms_vswscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,va_list)
+  __MINGW_UCRT_ASM_CALL(vswscanf);
 /* __attribute__((__format__ (ms_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __ms_wscanf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl __ms_wscanf(const wchar_t * __restrict__ _Format,...)
+  __MINGW_UCRT_ASM_CALL(wscanf);
 /* __attribute__((__format__ (ms_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __ms_vwscanf(const wchar_t * __restrict__ _Format, va_list);
+  int __cdecl __ms_vwscanf(const wchar_t * __restrict__ _Format, va_list)
+  __MINGW_UCRT_ASM_CALL(vwscanf);
 /* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl __ms_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
+  __MINGW_UCRT_ASM_CALL(fwscanf);
 /* __attribute__((__format__ (ms_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_vfwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list);
+  int __cdecl __ms_vfwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list)
+  __MINGW_UCRT_ASM_CALL(vfwscanf);
 
 /* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __ms_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  /* No __MINGW_UCRT_ASM_CALL for __ms_fwprintf; this is provided as an
+   * actual function in the ucrt import libraries. */
 /* __attribute__((__format__ (ms_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __ms_wprintf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl __ms_wprintf(const wchar_t * __restrict__ _Format,...)
+  __MINGW_UCRT_ASM_CALL(wprintf);
 /* __attribute__((__format__ (ms_wprintf, 2, 0))) */__MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int __cdecl __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList)
+  __MINGW_UCRT_ASM_CALL(vfwprintf);
 /*__attribute__((__format__ (ms_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int __cdecl __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList)
+  __MINGW_UCRT_ASM_CALL(vwprintf);
 /* __attribute__((__format__ (ms_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-  int __cdecl __ms_swprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...);
+  int __cdecl __ms_swprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...)
+  __MINGW_UCRT_ASM_CALL(swprintf);
 /* __attribute__((__format__ (ms_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
-  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ ,va_list);
+  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ ,va_list)
+  __MINGW_UCRT_ASM_CALL(vswprintf);
 /* __attribute__((__format__ (ms_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-  int __cdecl __ms_snwprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...);
+  int __cdecl __ms_snwprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , ...)
+  __MINGW_UCRT_ASM_CALL(snwprintf);
 /* __attribute__((__format__ (ms_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
-  int __cdecl __ms_vsnwprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
+  int __cdecl __ms_vsnwprintf(wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list)
+  __MINGW_UCRT_ASM_CALL(vsnwprintf);
 
 #ifdef _UCRT
   int __cdecl __stdio_common_vswprintf(unsigned __int64 options, wchar_t *str, size_t len, const wchar_t *format, _locale_t locale, va_list valist);
