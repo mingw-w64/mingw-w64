@@ -1397,6 +1397,43 @@ DEFINE_GUID(LIBID_UIAutomationClient, 0x944de083, 0x8fb8, 0x45cf, 0xbc,0xb7, 0xc
 #define AnnotationType_Sensitive (60024)
 
 #endif /* __UIA_AnnotationTypes_MODULE_DEFINED__ */
+#ifndef __UIA_StyleIds_MODULE_DEFINED__
+#define __UIA_StyleIds_MODULE_DEFINED__
+#define StyleId_Custom (70000)
+
+#define StyleId_Heading1 (70001)
+
+#define StyleId_Heading2 (70002)
+
+#define StyleId_Heading3 (70003)
+
+#define StyleId_Heading4 (70004)
+
+#define StyleId_Heading5 (70005)
+
+#define StyleId_Heading6 (70006)
+
+#define StyleId_Heading7 (70007)
+
+#define StyleId_Heading8 (70008)
+
+#define StyleId_Heading9 (70009)
+
+#define StyleId_Title (70010)
+
+#define StyleId_Subtitle (70011)
+
+#define StyleId_Normal (70012)
+
+#define StyleId_Emphasis (70013)
+
+#define StyleId_Quote (70014)
+
+#define StyleId_BulletedList (70015)
+
+#define StyleId_NumberedList (70016)
+
+#endif /* __UIA_StyleIds_MODULE_DEFINED__ */
 #ifndef __UIA_LandmarkTypeIds_MODULE_DEFINED__
 #define __UIA_LandmarkTypeIds_MODULE_DEFINED__
 #define UIA_CustomLandmarkTypeId (80000)
