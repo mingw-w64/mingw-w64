@@ -44,8 +44,8 @@ int fesetexceptflag (const fexcept_t * flagp, int excepts)
     {
       int sse_cw;
       __asm__ volatile ("stmxcsr %0;" : "=m" (sse_cw));
-      sse_cw &= ~(excepts << 7);
-      sse_cw |= ((*flagp & excepts) << 7);
+      sse_cw &= ~excepts;
+      sse_cw |= (*flagp & excepts);
       __asm__ volatile ("ldmxcsr %0" : : "m" (sse_cw));
     }
 
