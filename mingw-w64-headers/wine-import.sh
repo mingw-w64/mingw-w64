@@ -121,6 +121,7 @@ for f in \
 	uiautomation.h \
 	vfwmsgs.h \
 	webservices.h \
+	wia.h \
 	winhttp.h \
 	winineti.h \
 	wmpids.h \
@@ -220,6 +221,8 @@ for f in \
 	urlhist \
 	vmr9 \
 	weakreference \
+	wia_lh \
+	wia_xp \
 	wincodec \
 	wincodecsdk \
 	windowscontracts \

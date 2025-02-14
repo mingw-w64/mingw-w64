@@ -266,6 +266,8 @@ IDL_SRCS = \
   include/rtworkq.idl \
   include/vmr9.idl \
   include/weakreference.idl \
+  include/wia_lh.idl \
+  include/wia_xp.idl \
   include/wincodec.idl \
   include/wincodecsdk.idl \
   include/wmcontainer.idl \
