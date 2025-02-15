@@ -62,9 +62,6 @@
 
 #if defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
 
-/* Type representing exception flags. */
-typedef unsigned int fexcept_t;
-
 /* Type representing floating-point environment.  */
 typedef struct
 {
@@ -75,13 +72,6 @@ typedef struct
 #define FE_DFL_ENV  ((const fenv_t *) -1l)
 
 #else
-
-/*
-  For now, support only for the basic abstraction of flags that are
-  either set or clear. fexcept_t could be  structure that holds more
-  info about the fp environment.
-*/
-typedef unsigned short fexcept_t;
 
 /* This 32-byte struct represents the entire floating point
    environment as stored by fnstenv or fstenv, augmented by
@@ -119,6 +109,9 @@ typedef struct
 #define FE_DFL_ENV ((const fenv_t *) 0)
 
 #endif /* defined(_ARM_) || defined(__arm__) */
+
+/* Type representing exception flags. */
+typedef unsigned long fexcept_t;
 
 #ifdef __cplusplus
 extern "C" {
