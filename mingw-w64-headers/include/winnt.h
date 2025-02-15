@@ -5495,8 +5495,12 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
 
     typedef struct _NUMA_NODE_RELATIONSHIP {
       DWORD NodeNumber;
-      BYTE Reserved[20];
-      GROUP_AFFINITY GroupMask;
+      BYTE Reserved[18];
+      WORD GroupCount;
+      __C89_NAMELESS union {
+        GROUP_AFFINITY GroupMask;
+        GROUP_AFFINITY GroupMasks[ANYSIZE_ARRAY];
+      };
     } NUMA_NODE_RELATIONSHIP,*PNUMA_NODE_RELATIONSHIP;
 
     typedef struct _CACHE_RELATIONSHIP {
@@ -5505,8 +5509,12 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       WORD LineSize;
       DWORD CacheSize;
       PROCESSOR_CACHE_TYPE Type;
-      BYTE Reserved[20];
-      GROUP_AFFINITY GroupMask;
+      BYTE Reserved[18];
+      WORD GroupCount;
+      __C89_NAMELESS union {
+        GROUP_AFFINITY GroupMask;
+        GROUP_AFFINITY GroupMasks[ANYSIZE_ARRAY];
+      };
     } CACHE_RELATIONSHIP,*PCACHE_RELATIONSHIP;
 
     typedef struct _PROCESSOR_GROUP_INFO {
