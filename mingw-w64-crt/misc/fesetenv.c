@@ -4,9 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <_mingw.h>
-#include <fenv.h>
-#include <float.h>
 #include <internal.h>
 
 /* 7.6.4.3
@@ -22,61 +19,59 @@
 extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
 extern void _fpreset(void);
 
-int fesetenv (const fenv_t * envp)
+int fesetenv(const fenv_t *env)
 {
-#if defined(_ARM_) || defined(__arm__)
-  if (envp == FE_DFL_ENV)
-    /* Use the choice made at app startup */
-    _fpreset();
-  else
-    __asm__ volatile ("fmxr FPSCR, %0" : : "r" (*envp));
-#elif defined(_ARM64_) || defined(__aarch64__)
-  if (envp == FE_DFL_ENV) {
-    /* Use the choice made at app startup */
-    _fpreset();
-  } else {
-    unsigned __int64 fpcr = envp->__cw;
-    __asm__ volatile ("msr fpcr, %0" : : "r" (fpcr));
-  }
-#else
-  if (envp == FE_PC64_ENV)
-   /*
-    *  fninit initializes the control register to 0x37f,
-    *  the status register to zero and the tag word to 0FFFFh.
-    *  The other registers are unaffected.
-    */
-    __asm__ __volatile__ ("fninit");
+    unsigned int x87_cw, cw, x87_stat, stat;
+    unsigned int mask = ~0u;
 
-  else if (envp == FE_PC53_ENV)
-   /*
-    * MS _fpreset() does same *except* it sets control word
-    * to 0x27f (53-bit precision).
-    * We force calling _fpreset in msvcrt.dll
-    */
-
-   (* __MINGW_IMP_SYMBOL(_fpreset))();
-
-  else if (envp == FE_DFL_ENV)
-    /* Use the choice made at app startup */
-    _fpreset();
-
-  else
+#if defined(__i386__) || defined(__x86_64__)
+# if !defined(__arm64ec__)
+    if (env == FE_PC64_ENV)
     {
-      fenv_t env = *envp;
-      int has_sse = __mingw_has_sse ();
-      int _mxcsr;
-      /*_mxcsr = ((int)envp->__unused0 << 16) | (int)envp->__unused1; *//* mxcsr low and high */
-      if (has_sse)
-        __asm__ ("stmxcsr %0" : "=m" (*&_mxcsr));
-      env.__unused0 = 0xffff;
-      env.__unused1 = 0xffff;
-      __asm__ volatile ("fldenv %0" : : "m" (env)
-			: "st", "st(1)", "st(2)", "st(3)", "st(4)",
-			"st(5)", "st(6)", "st(7)");
-      if (has_sse)
-        __asm__ volatile ("ldmxcsr %0" : : "m" (*&_mxcsr));
+        /*
+         *  fninit initializes the control register to 0x37f,
+         *  the status register to zero and the tag word to 0FFFFh.
+         *  The other registers are unaffected.
+         */
+        __asm__ __volatile__ ("fninit");
+        return 0;
+    }
+# endif /* __arm64ec__ */
+    if (env == FE_PC53_ENV)
+    {
+        /*
+         * MS _fpreset() does same *except* it sets control word
+         * to 0x27f (53-bit precision).
+         * We force calling _fpreset in msvcrt.dll
+         */
+
+        (* __MINGW_IMP_SYMBOL(_fpreset))();
+        return 0;
+    }
+#endif /* defined(__i386__) || defined(__x86_64__) */
+    if (env == FE_DFL_ENV)
+    {
+        /* Use the choice made at app startup */
+        _fpreset();
+        return 0;
     }
 
-#endif /* defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__) */
-  return 0;
+    if (!env->_Fe_ctl && !env->_Fe_stat) {
+        _fpreset();
+        return 0;
+    }
+
+    if (!fenv_decode(env->_Fe_ctl, &x87_cw, &cw))
+        return 1;
+    if (!fenv_decode(env->_Fe_stat, &x87_stat, &stat))
+        return 1;
+
+#if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
+    __mingw_setfp(&x87_cw, mask, &x87_stat, ~0);
+    if (__mingw_has_sse())
+        __mingw_setfp_sse(&cw, mask, &stat, ~0);
+#else
+    __mingw_setfp(&cw, mask, &stat, ~0);
+#endif
+    return 0;
 }

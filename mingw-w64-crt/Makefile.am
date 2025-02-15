@@ -979,6 +979,8 @@ src_libmingwex=\
   misc/dirname.c \
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
   misc/feraiseexcept.c   misc/fesetenv.c            misc/fesetexceptflag.c  misc/fesetround.c            misc/fetestexcept.c    \
+  misc/mingw_controlfp.c \
+  misc/mingw_setfp.c \
   misc/feupdateenv.c     misc/ftruncate.c           misc/fwide.c            misc/getlogin.c              misc/getopt.c          \
   misc/gettimeofday.c    misc/__mingw_has_sse.c      \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c \
