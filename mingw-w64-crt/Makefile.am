@@ -141,6 +141,8 @@ src_libuuid=\
   libsrc/uuid.c           libsrc/vds-uuid.c         libsrc/virtdisk-uuid.c    libsrc/vss-uuid.c       libsrc/wia-uuid.c \
   libsrc/windowscodecs.c
 
+src_libwiaguid = libsrc/wia-uuid.c
+
 src_libws2_32=libsrc/ws2_32.c \
   \
   libsrc/ws2tcpip/in6_addr_equal.c           libsrc/ws2tcpip/in6addr_isany.c           libsrc/ws2tcpip/in6addr_isloopback.c       \
@@ -1281,6 +1283,10 @@ lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = $(src_libuuid)
 lib32_libuuid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libwiaguid.a
+lib32_libwiaguid_a_SOURCES = $(src_libwiaguid)
+lib32_libwiaguid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libgdiplus.a
 lib32_libgdiplus_a_SOURCES = $(src_libgdiplus)
 lib32_libgdiplus_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -1704,6 +1710,10 @@ lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = $(src_libuuid)
 lib64_libuuid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
+lib64_LIBRARIES += lib64/libwiaguid.a
+lib64_libwiaguid_a_SOURCES = $(src_libwiaguid)
+lib64_libwiaguid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
 lib64_LIBRARIES += lib64/libgdiplus.a
 lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
 lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
@@ -2077,6 +2087,10 @@ libarm32_LIBRARIES += libarm32/libuuid.a
 libarm32_libuuid_a_SOURCES = $(src_libuuid)
 libarm32_libuuid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
+libarm32_LIBRARIES += libarm32/libwiaguid.a
+libarm32_libwiaguid_a_SOURCES = $(src_libwiaguid)
+libarm32_libwiaguid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
 libarm32_LIBRARIES += libarm32/libgdiplus.a
 libarm32_libgdiplus_a_SOURCES = $(src_libgdiplus)
 libarm32_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
@@ -2394,6 +2408,10 @@ libarm64_libstrmiids_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libuuid.a
 libarm64_libuuid_a_SOURCES = $(src_libuuid)
 libarm64_libuuid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libwiaguid.a
+libarm64_libwiaguid_a_SOURCES = $(src_libwiaguid)
+libarm64_libwiaguid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libgdiplus.a
 libarm64_libgdiplus_a_SOURCES = $(src_libgdiplus)
