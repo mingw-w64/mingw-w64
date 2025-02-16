@@ -1305,9 +1305,10 @@ lib32_libgdiplus_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libgdiplus_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libws2_32.a
-lib32_libws2_32_a_SOURCES = $(src_libws2_32)
+lib32_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/ws2_32.def.in
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
+lib32_libws2_32_a_AR = $(DTDEF32) lib32/ws2_32.def && $(AR) $(ARFLAGS)
+EXTRA_lib32_libws2_32_a_DEPENDENCIES=lib32/ws2_32.def
 
 lib32_LIBRARIES += lib32/libtaskschd.a
 lib32_libtaskschd_a_SOURCES = $(src_libtaskschd)
