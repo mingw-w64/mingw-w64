@@ -20,8 +20,6 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#include <sys/timeb.h>
-
 #ifndef WIN_PTHREADS_TIME_H
 #define WIN_PTHREADS_TIME_H
 

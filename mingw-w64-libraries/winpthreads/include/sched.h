@@ -30,8 +30,6 @@
 #include <limits.h>
 #include <signal.h>
 
-#include <sys/timeb.h>
-
 #include "pthread_compat.h"
 
 /* Some POSIX realtime extensions, mostly stubbed */
