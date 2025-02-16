@@ -29,29 +29,32 @@ fakelib_libgcc_s_a_SOURCES =
 fakelib_libgcc_eh_a_SOURCES =
 endif
 
-lib_LIBRARIES = 
-
-if COPY_STATIC
-lib_LIBRARIES += libpthread.a
-libpthread_a_SOURCES =
-libpthread_a_DEPENDENCIES = libwinpthread.la
-#FIXME: Use cp kludge until a better method presents itself
-#libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
-libpthread_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.a
-endif
-
-if COPY_SHARED
-lib_LIBRARIES += libpthread.dll.a
-libpthread_dll_a_SOURCES =
-libpthread_dll_a_DEPENDENCIES = libwinpthread.la
-#FIXME: Use cp kludge until a better method presents itself
-#libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
-libpthread_dll_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.dll.a
-endif
-
 # Tell libtool how to use the resource compiler
 .rc.lo:
 	$(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --tag=RC --mode=compile $(RC) $(RCFLAGS) -i $< -o $@
 
-DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
+# Handle -lpthread alias when installing
+install-exec-hook:
+	. $(builddir)/libwinpthread.la; \
+	if test -n "$${library_names}"; then \
+		alias=$$(printf %s "$${library_names}" | $(SED) 's|winpthread|pthread|'); \
+		$(INSTALL_DATA) $(DESTDIR)$(libdir)/$${library_names} $(DESTDIR)$(libdir)/$${alias}; \
+	fi; \
+	if test -n "$${old_library}"; then \
+		alias=$$(printf %s "$${old_library}" | $(SED) 's|winpthread|pthread|'); \
+		$(INSTALL_DATA) $(DESTDIR)$(libdir)/$${old_library} $(DESTDIR)$(libdir)/$${alias}; \
+	fi
 
+# Likewise when uninstalling
+uninstall-hook:
+	. $(builddir)/libwinpthread.la; \
+	if test -n "$${library_names}"; then \
+		alias=$$(printf %s "$${library_names}" | $(SED) 's|winpthread|pthread|'); \
+		rm -f $(DESTDIR)$(libdir)/$${alias}; \
+	fi; \
+	if test -n "$${old_library}"; then \
+		alias=$$(printf %s "$${old_library}" | $(SED) 's|winpthread|pthread|'); \
+		rm -f $(DESTDIR)$(libdir)/$${alias}; \
+	fi
+
+DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
