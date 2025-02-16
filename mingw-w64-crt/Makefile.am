@@ -4171,13 +4171,13 @@ lib32/%.def: lib-common/%.def.in
 	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_I386 > $@
 
 lib64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_X64 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_X64 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm32/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM64 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM64 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 # Don't compile these, but install as is:
 #
