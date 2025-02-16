@@ -8,981 +8,6 @@
 
 #if defined(__x86_64__) || defined(__aarch64__)
 
-typedef enum WHV_CAPABILITY_CODE {
-    WHvCapabilityCodeHypervisorPresent = 0x00000000
-    ,WHvCapabilityCodeFeatures = 0x00000001
-    ,WHvCapabilityCodeExtendedVmExits = 0x00000002
-#if defined(__x86_64__)
-    ,WHvCapabilityCodeExceptionExitBitmap = 0x00000003
-    ,WHvCapabilityCodeX64MsrExitBitmap = 0x00000004
-#endif
-    ,WHvCapabilityCodeGpaRangePopulateFlags = 0x00000005
-    ,WHvCapabilityCodeSchedulerFeatures = 0x00000006
-    ,WHvCapabilityCodeProcessorVendor = 0x00001000
-    ,WHvCapabilityCodeProcessorFeatures = 0x00001001
-    ,WHvCapabilityCodeProcessorClFlushSize = 0x00001002
-#if defined(__x86_64__)
-    ,WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003
-#endif
-    ,WHvCapabilityCodeProcessorClockFrequency = 0x00001004
-#if defined(__x86_64__)
-    ,WHvCapabilityCodeInterruptClockFrequency = 0x00001005
-#endif
-    ,WHvCapabilityCodeProcessorFeaturesBanks = 0x00001006
-    ,WHvCapabilityCodeProcessorFrequencyCap = 0x00001007
-    ,WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008
-#if defined(__x86_64__)
-    ,WHvCapabilityCodeProcessorPerfmonFeatures = 0x00001009
-#endif
-    ,WHvCapabilityCodePhysicalAddressWidth = 0x0000100A
-#if defined(__x86_64__)
-    ,WHvCapabilityCodeVmxBasic = 0x00002000
-    ,WHvCapabilityCodeVmxPinbasedCtls = 0x00002001
-    ,WHvCapabilityCodeVmxProcbasedCtls = 0x00002002
-    ,WHvCapabilityCodeVmxExitCtls = 0x00002003
-    ,WHvCapabilityCodeVmxEntryCtls = 0x00002004
-    ,WHvCapabilityCodeVmxMisc = 0x00002005
-    ,WHvCapabilityCodeVmxCr0Fixed0 = 0x00002006
-    ,WHvCapabilityCodeVmxCr0Fixed1 = 0x00002007
-    ,WHvCapabilityCodeVmxCr4Fixed0 = 0x00002008
-    ,WHvCapabilityCodeVmxCr4Fixed1 = 0x00002009
-    ,WHvCapabilityCodeVmxVmcsEnum = 0x0000200A
-    ,WHvCapabilityCodeVmxProcbasedCtls2 = 0x0000200B
-    ,WHvCapabilityCodeVmxEptVpidCap = 0x0000200C
-    ,WHvCapabilityCodeVmxTruePinbasedCtls = 0x0000200D
-    ,WHvCapabilityCodeVmxTrueProcbasedCtls = 0x0000200E
-    ,WHvCapabilityCodeVmxTrueExitCtls = 0x0000200F
-    ,WHvCapabilityCodeVmxTrueEntryCtls = 0x00002010
-#elif defined (__aarch64__)
-    ,WHvCapabilityCodeGicLpiIntIdBits = 0x00002011
-    ,WHvCapabilityCodeMaxSveVectorLength = 0x00002012
-#endif
-} WHV_CAPABILITY_CODE;
-
-typedef union WHV_CAPABILITY_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 PartialUnmap : 1;
-#if defined(__x86_64__)
-        UINT64 LocalApicEmulation : 1;
-        UINT64 Xsave : 1;
-#else
-        UINT64 ReservedArm0 : 2;
-#endif
-        UINT64 DirtyPageTracking : 1;
-        UINT64 SpeculationControl : 1;
-#if defined(__x86_64__)
-        UINT64 ApicRemoteRead : 1;
-#else
-        UINT64 ReservedArm1 : 1;
-#endif
-        UINT64 IdleSuspend : 1;
-        UINT64 VirtualPciDeviceSupport : 1;
-        UINT64 IommuSupport : 1;
-        UINT64 VpHotAddRemove : 1;
-        UINT64 DeviceAccessTracking : 1;
-#if defined(__x86_64__)
-        UINT64 ReservedX640 : 1;
-#else
-        UINT64 Arm64Support : 1;
-#endif
-        UINT64 Reserved : 52;
-    };
-    UINT64 AsUINT64;
-} WHV_CAPABILITY_FEATURES;
-
-C_ASSERT(sizeof(WHV_CAPABILITY_FEATURES) == sizeof(UINT64));
-
-typedef union WHV_EXTENDED_VM_EXITS {
-    __C89_NAMELESS struct {
-#if defined(__x86_64__)
-        UINT64 X64CpuidExit : 1;
-        UINT64 X64MsrExit : 1;
-        UINT64 ExceptionExit : 1;
-        UINT64 X64RdtscExit : 1;
-        UINT64 X64ApicSmiExitTrap : 1;
-#else
-        UINT64 ReservedArm0 : 5;
-#endif
-        UINT64 HypercallExit : 1;
-#if defined(__x86_64__)
-        UINT64 X64ApicInitSipiExitTrap : 1;
-        UINT64 X64ApicWriteLint0ExitTrap : 1;
-        UINT64 X64ApicWriteLint1ExitTrap : 1;
-        UINT64 X64ApicWriteSvrExitTrap : 1;
-#else
-        UINT64 ReservedArm1 : 4;
-#endif
-        UINT64 UnknownSynicConnection : 1;
-        UINT64 RetargetUnknownVpciDevice : 1;
-#if defined(__x86_64__)
-        UINT64 X64ApicWriteLdrExitTrap : 1;
-        UINT64 X64ApicWriteDfrExitTrap : 1;
-#else
-        UINT64 ReservedArm2 : 2;
-#endif
-        UINT64 GpaAccessFaultExit : 1;
-        UINT64 Reserved : 49;
-    };
-    UINT64 AsUINT64;
-} WHV_EXTENDED_VM_EXITS;
-
-C_ASSERT(sizeof(WHV_EXTENDED_VM_EXITS) == sizeof(UINT64));
-
-typedef enum WHV_PROCESSOR_VENDOR {
-    WHvProcessorVendorAmd = 0x0000,
-    WHvProcessorVendorIntel = 0x0001,
-    WHvProcessorVendorHygon = 0x0002,
-    WHvProcessorVendorArm = 0x0010
-} WHV_PROCESSOR_VENDOR;
-
-#if defined(__x86_64__)
-
-typedef union WHV_X64_PROCESSOR_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 Sse3Support : 1;
-        UINT64 LahfSahfSupport : 1;
-        UINT64 Ssse3Support : 1;
-        UINT64 Sse4_1Support : 1;
-        UINT64 Sse4_2Support : 1;
-        UINT64 Sse4aSupport : 1;
-        UINT64 XopSupport : 1;
-        UINT64 PopCntSupport : 1;
-        UINT64 Cmpxchg16bSupport : 1;
-        UINT64 Altmovcr8Support : 1;
-        UINT64 LzcntSupport : 1;
-        UINT64 MisAlignSseSupport : 1;
-        UINT64 MmxExtSupport : 1;
-        UINT64 Amd3DNowSupport : 1;
-        UINT64 ExtendedAmd3DNowSupport : 1;
-        UINT64 Page1GbSupport : 1;
-        UINT64 AesSupport : 1;
-        UINT64 PclmulqdqSupport : 1;
-        UINT64 PcidSupport : 1;
-        UINT64 Fma4Support : 1;
-        UINT64 F16CSupport : 1;
-        UINT64 RdRandSupport : 1;
-        UINT64 RdWrFsGsSupport : 1;
-        UINT64 SmepSupport : 1;
-        UINT64 EnhancedFastStringSupport : 1;
-        UINT64 Bmi1Support : 1;
-        UINT64 Bmi2Support : 1;
-        UINT64 Reserved1 : 2;
-        UINT64 MovbeSupport : 1;
-        UINT64 Npiep1Support : 1;
-        UINT64 DepX87FPUSaveSupport : 1;
-        UINT64 RdSeedSupport : 1;
-        UINT64 AdxSupport : 1;
-        UINT64 IntelPrefetchSupport : 1;
-        UINT64 SmapSupport : 1;
-        UINT64 HleSupport : 1;
-        UINT64 RtmSupport : 1;
-        UINT64 RdtscpSupport : 1;
-        UINT64 ClflushoptSupport : 1;
-        UINT64 ClwbSupport : 1;
-        UINT64 ShaSupport : 1;
-        UINT64 X87PointersSavedSupport : 1;
-        UINT64 InvpcidSupport : 1;
-        UINT64 IbrsSupport : 1;
-        UINT64 StibpSupport : 1;
-        UINT64 IbpbSupport : 1;
-        UINT64 UnrestrictedGuestSupport : 1;
-        UINT64 SsbdSupport : 1;
-        UINT64 FastShortRepMovSupport : 1;
-        UINT64 Reserved3 : 1;
-        UINT64 RdclNo : 1;
-        UINT64 IbrsAllSupport : 1;
-        UINT64 Reserved4 : 1;
-        UINT64 SsbNo : 1;
-        UINT64 RsbANo : 1;
-        UINT64 Reserved5 : 1;
-        UINT64 RdPidSupport : 1;
-        UINT64 UmipSupport : 1;
-        UINT64 MdsNoSupport : 1;
-        UINT64 MdClearSupport : 1;
-        UINT64 TaaNoSupport : 1;
-        UINT64 TsxCtrlSupport : 1;
-        UINT64 Reserved6 : 1;
-    };
-    UINT64 AsUINT64;
-} WHV_X64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
-
-C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES) == sizeof(UINT64));
-
-typedef union WHV_X64_PROCESSOR_FEATURES1 {
-    __C89_NAMELESS struct {
-        UINT64 ACountMCountSupport : 1;
-        UINT64 TscInvariantSupport : 1;
-        UINT64 ClZeroSupport : 1;
-        UINT64 RdpruSupport : 1;
-        UINT64 La57Support : 1;
-        UINT64 MbecSupport : 1;
-        UINT64 NestedVirtSupport : 1;
-        UINT64 PsfdSupport: 1;
-        UINT64 CetSsSupport : 1;
-        UINT64 CetIbtSupport : 1;
-        UINT64 VmxExceptionInjectSupport : 1;
-        UINT64 Reserved2 : 1;
-        UINT64 UmwaitTpauseSupport : 1;
-        UINT64 MovdiriSupport : 1;
-        UINT64 Movdir64bSupport : 1;
-        UINT64 CldemoteSupport : 1;
-        UINT64 SerializeSupport : 1;
-        UINT64 TscDeadlineTmrSupport : 1;
-        UINT64 TscAdjustSupport : 1;
-        UINT64 FZLRepMovsb : 1;
-        UINT64 FSRepStosb : 1;
-        UINT64 FSRepCmpsb : 1;
-        UINT64 TsxLdTrkSupport : 1;
-        UINT64 VmxInsOutsExitInfoSupport : 1;
-        UINT64 Reserved3 : 1;
-        UINT64 SbdrSsdpNoSupport : 1;
-        UINT64 FbsdpNoSupport : 1;
-        UINT64 PsdpNoSupport : 1;
-        UINT64 FbClearSupport : 1;
-        UINT64 BtcNoSupport : 1;
-        UINT64 IbpbRsbFlushSupport : 1;
-        UINT64 StibpAlwaysOnSupport : 1;
-        UINT64 PerfGlobalCtrlSupport : 1;
-        UINT64 NptExecuteOnlySupport : 1;
-        UINT64 NptADFlagsSupport : 1;
-        UINT64 Npt1GbPageSupport : 1;
-        UINT64 Reserved4 : 1;
-        UINT64 Reserved5 : 1;
-        UINT64 Reserved6 : 1;
-        UINT64 Reserved7 : 1;
-        UINT64 CmpccxaddSupport : 1;
-        UINT64 Reserved8 : 1;
-        UINT64 Reserved9 : 1;
-        UINT64 Reserved10 : 1;
-        UINT64 Reserved11 : 1;
-        UINT64 PrefetchISupport : 1;
-        UINT64 Sha512Support : 1;
-        UINT64 Reserved12 : 1;
-        UINT64 Reserved13 : 1;
-        UINT64 Reserved14 : 1;
-        UINT64 SM3Support : 1;
-        UINT64 SM4Support : 1;
-        UINT64 Reserved15 : 1;
-        UINT64 Reserved16 : 1;
-        UINT64 SbpbSupported : 1;
-        UINT64 IbpbBrTypeSupported : 1;
-        UINT64 SrsoNoSupported : 1;
-        UINT64 SrsoUserKernelNoSupported : 1;
-        UINT64 Reserved17 : 1;
-        UINT64 Reserved18 : 1;
-        UINT64 Reserved19 : 1;
-        UINT64 Reserved20 : 3;
-    };
-    UINT64 AsUINT64;
-} WHV_X64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
-
-C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES1) == sizeof(UINT64));
-
-#elif defined(__aarch64__)
-
-typedef union WHV_ARM64_PROCESSOR_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 Asid16 : 1;
-        UINT64 TGran16 : 1;
-        UINT64 TGran64 : 1;
-        UINT64 Haf : 1;
-        UINT64 Hdbs : 1;
-        UINT64 Pan : 1;
-        UINT64 AtS1E1 : 1;
-        UINT64 Uao : 1;
-        UINT64 El0Aarch32 : 1;
-        UINT64 Fp : 1;
-        UINT64 FpHp : 1;
-        UINT64 AdvSimd : 1;
-        UINT64 AdvSimdHp : 1;
-        UINT64 GicV3V4 : 1;
-        UINT64 GicV41 : 1;
-        UINT64 Ras : 1;
-        UINT64 PmuV3 : 1;
-        UINT64 PmuV3ArmV81 : 1;
-        UINT64 PmuV3ArmV84 : 1;
-        UINT64 PmuV3ArmV85 : 1;
-        UINT64 Aes : 1;
-        UINT64 PolyMul : 1;
-        UINT64 Sha1 : 1;
-        UINT64 Sha256 : 1;
-        UINT64 Sha512 : 1;
-        UINT64 Crc32 : 1;
-        UINT64 Atomic : 1;
-        UINT64 Rdm : 1;
-        UINT64 Sha3 : 1;
-        UINT64 Sm3 : 1;
-        UINT64 Sm4 : 1;
-        UINT64 Dp : 1;
-        UINT64 Fhm : 1;
-        UINT64 DcCvap : 1;
-        UINT64 DcCvadp : 1;
-        UINT64 ApaBase : 1;
-        UINT64 ApaEp : 1;
-        UINT64 ApaEp2 : 1;
-        UINT64 ApaEp2Fp : 1;
-        UINT64 ApaEp2Fpc : 1;
-        UINT64 Jscvt : 1;
-        UINT64 Fcma : 1;
-        UINT64 RcpcV83 : 1;
-        UINT64 RcpcV84 : 1;
-        UINT64 Gpa : 1;
-        UINT64 L1ipPipt : 1;
-        UINT64 DzPermitted : 1;
-        UINT64 Ssbs : 1;
-        UINT64 SsbsRw : 1;
-        UINT64 Reserved49 : 1;
-        UINT64 Reserved50 : 1;
-        UINT64 Reserved51 : 1;
-        UINT64 Reserved52 : 1;
-        UINT64 Csv2 : 1;
-        UINT64 Csv3 : 1;
-        UINT64 Sb : 1;
-        UINT64 Idc : 1;
-        UINT64 Dic : 1;
-        UINT64 TlbiOs : 1;
-        UINT64 TlbiOsRange : 1;
-        UINT64 FlagsM : 1;
-        UINT64 FlagsM2 : 1;
-        UINT64 Bf16 : 1;
-        UINT64 Ebf16 : 1;
-    };
-    UINT64 AsUINT64;
-} WHV_ARM64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
-
-typedef union WHV_ARM64_PROCESSOR_FEATURES1 {
-    __C89_NAMELESS struct {
-        UINT64 SveBf16 : 1;
-        UINT64 SveEbf16 : 1;
-        UINT64 I8mm : 1;
-        UINT64 SveI8mm : 1;
-        UINT64 Frintts : 1;
-        UINT64 Specres : 1;
-        UINT64 Reserved6 : 1;
-        UINT64 Rpres : 1;
-        UINT64 Exs : 1;
-        UINT64 SpecSei : 1;
-        UINT64 Ets : 1;
-        UINT64 Afp : 1;
-        UINT64 Iesb : 1;
-        UINT64 Rng : 1;
-        UINT64 Lse2 : 1;
-        UINT64 Idst : 1;
-        UINT64 Reserved16 : 1;
-        UINT64 Reserved17 : 1;
-        UINT64 Reserved18 : 1;
-        UINT64 Reserved19 : 1;
-        UINT64 Reserved20 : 1;
-        UINT64 Reserved21 : 1;
-        UINT64 Ccidx : 1;
-        UINT64 Reserved23 : 1;
-        UINT64 Reserved24 : 1;
-        UINT64 Reserved25 : 1;
-        UINT64 Reserved26 : 1;
-        UINT64 Reserved27 : 1;
-        UINT64 Reserved28 : 1;
-        UINT64 Reserved29 : 1;
-        UINT64 Reserved30 : 1;
-        UINT64 Reserved31 : 1;
-        UINT64 Reserved32 : 1;
-        UINT64 Reserved33 : 1;
-        UINT64 Reserved34 : 1;
-        UINT64 TtCnp : 1;
-        UINT64 Hpds : 1;
-        UINT64 Sve : 1;
-        UINT64 SveV2 : 1;
-        UINT64 SveV2P1 : 1;
-        UINT64 SpecFpacc : 1;
-        UINT64 SveAes : 1;
-        UINT64 SveBitPerm : 1;
-        UINT64 SveSha3 : 1;
-        UINT64 SveSm4 : 1;
-        UINT64 E0PD : 1;
-        UINT64 Reserved : 8;
-    };
-    UINT64 AsUINT64;
-} WHV_ARM64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
-
-#endif /* __x86_64__ || __aarch64__ */
-
-#define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
-
-typedef struct WHV_PROCESSOR_FEATURES_BANKS {
-    UINT32 BanksCount;
-    UINT32 Reserved0;
-    __C89_NAMELESS union {
-        __C89_NAMELESS struct {
-            WHV_PROCESSOR_FEATURES Bank0;
-            WHV_PROCESSOR_FEATURES1 Bank1;
-        };
-        UINT64 AsUINT64[WHV_PROCESSOR_FEATURES_BANKS_COUNT];
-    };
-} WHV_PROCESSOR_FEATURES_BANKS;
-
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR_FEATURES_BANKS_COUNT + 1));
-
-typedef union WHV_SYNTHETIC_PROCESSOR_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 HypervisorPresent : 1;
-        UINT64 Hv1 : 1;
-        UINT64 AccessVpRunTimeReg : 1;
-        UINT64 AccessPartitionReferenceCounter : 1;
-        UINT64 AccessSynicRegs : 1;
-        UINT64 AccessSyntheticTimerRegs : 1;
-        UINT64 AccessIntrCtrlRegs : 1;
-        UINT64 AccessHypercallRegs : 1;
-        UINT64 AccessVpIndex : 1;
-        UINT64 AccessPartitionReferenceTsc : 1;
-#ifdef __x86_64__
-        UINT64 AccessGuestIdleReg : 1;
-        UINT64 AccessFrequencyRegs : 1;
-#else
-        UINT64 ReservedZ10 : 1;
-        UINT64 ReservedZ11 : 1;
-#endif
-        UINT64 ReservedZ12 : 1;
-        UINT64 ReservedZ13 : 1;
-        UINT64 ReservedZ14 : 1;
-#ifdef __x86_64__
-        UINT64 EnableExtendedGvaRangesForFlushVirtualAddressList : 1;
-#else
-        UINT64 ReservedZ15 : 1;
-#endif
-        UINT64 ReservedZ16 : 1;
-        UINT64 ReservedZ17 : 1;
-        UINT64 FastHypercallOutput : 1;
-        UINT64 ReservedZ19 : 1;
-        UINT64 ReservedZ20 : 1;
-        UINT64 ReservedZ21 : 1;
-        UINT64 DirectSyntheticTimers : 1;
-        UINT64 ReservedZ23 : 1;
-        UINT64 ExtendedProcessorMasks : 1;
-#ifdef __x86_64__
-        UINT64 TbFlushHypercalls : 1;
-#else
-        UINT64 ReservedZ25 : 1;
-#endif
-        UINT64 SyntheticClusterIpi : 1;
-        UINT64 NotifyLongSpinWait : 1;
-        UINT64 QueryNumaDistance : 1;
-        UINT64 SignalEvents : 1;
-        UINT64 RetargetDeviceInterrupt : 1;
-#ifdef __x86_64__
-        UINT64 RestoreTime : 1;
-        UINT64 EnlightenedVmcs : 1;
-        UINT64 NestedDebugCtl : 1;
-        UINT64 SyntheticTimeUnhaltedTimer : 1;
-        UINT64 IdleSpecCtrl : 1;
-#else
-        UINT64 ReservedZ31 : 1;
-        UINT64 ReservedZ32 : 1;
-        UINT64 ReservedZ33 : 1;
-        UINT64 ReservedZ34 : 1;
-        UINT64 ReservedZ35 : 1;
-#endif
-        UINT64 ReservedZ36 : 1;
-        UINT64 WakeVps : 1;
-        UINT64 AccessVpRegs : 1;
-#ifdef __aarch64__
-        UINT64 SyncContext : 1;
-#else
-        UINT64 ReservedZ39 : 1;
-#endif
-        UINT64 ReservedZ40 : 1;
-        UINT64 ReservedZ41 : 1;
-        UINT64 ReservedZ42 : 1;
-        UINT64 ReservedZ43 : 1;
-        UINT64 ReservedZ44 : 1;
-        UINT64 Reserved : 19;
-    };
-    UINT64 AsUINT64;
-} WHV_SYNTHETIC_PROCESSOR_FEATURES;
-
-C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES) == 8);
-
-#define WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT 1
-
-typedef struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    UINT32 BanksCount;
-    UINT32 Reserved0;
-    __C89_NAMELESS union {
-        __C89_NAMELESS struct {
-            WHV_SYNTHETIC_PROCESSOR_FEATURES Bank0;
-        };
-        UINT64 AsUINT64[WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT];
-    };
-} WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS;
-
-C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS) == 16);
-
-#if defined(__x86_64__)
-
-typedef union WHV_PROCESSOR_XSAVE_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 XsaveSupport : 1;
-        UINT64 XsaveoptSupport : 1;
-        UINT64 AvxSupport : 1;
-        UINT64 Avx2Support : 1;
-        UINT64 FmaSupport : 1;
-        UINT64 MpxSupport : 1;
-        UINT64 Avx512Support : 1;
-        UINT64 Avx512DQSupport : 1;
-        UINT64 Avx512CDSupport : 1;
-        UINT64 Avx512BWSupport : 1;
-        UINT64 Avx512VLSupport : 1;
-        UINT64 XsaveCompSupport : 1;
-        UINT64 XsaveSupervisorSupport : 1;
-        UINT64 Xcr1Support : 1;
-        UINT64 Avx512BitalgSupport : 1;
-        UINT64 Avx512IfmaSupport : 1;
-        UINT64 Avx512VBmiSupport : 1;
-        UINT64 Avx512VBmi2Support : 1;
-        UINT64 Avx512VnniSupport : 1;
-        UINT64 GfniSupport : 1;
-        UINT64 VaesSupport : 1;
-        UINT64 Avx512VPopcntdqSupport : 1;
-        UINT64 VpclmulqdqSupport : 1;
-        UINT64 Avx512Bf16Support : 1;
-        UINT64 Avx512Vp2IntersectSupport : 1;
-        UINT64 Avx512Fp16Support : 1;
-        UINT64 XfdSupport : 1;
-        UINT64 AmxTileSupport : 1;
-        UINT64 AmxBf16Support : 1;
-        UINT64 AmxInt8Support : 1;
-        UINT64 AvxVnniSupport : 1;
-        UINT64 AvxIfmaSupport : 1;
-        UINT64 AvxNeConvertSupport : 1;
-        UINT64 AvxVnniInt8Support : 1;
-        UINT64 AvxVnniInt16Support : 1;
-        UINT64 Avx10_1_256Support : 1;
-        UINT64 Avx10_1_512Support : 1;
-        UINT64 AmxFp16Support : 1;
-        UINT64 Reserved : 26;
-    };
-    UINT64 AsUINT64;
-} WHV_PROCESSOR_XSAVE_FEATURES, *PWHV_PROCESSOR_XSAVE_FEATURES;
-
-C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == sizeof(UINT64));
-
-typedef union WHV_PROCESSOR_PERFMON_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 PmuSupport : 1;
-        UINT64 LbrSupport : 1;
-        UINT64 Reserved : 62;
-    };
-    UINT64 AsUINT64;
-} WHV_PROCESSOR_PERFMON_FEATURES, *PWHV_PROCESSOR_PERFMON_FEATURES;
-
-C_ASSERT(sizeof(WHV_PROCESSOR_PERFMON_FEATURES) == 8);
-
-typedef union WHV_X64_MSR_EXIT_BITMAP {
-    UINT64 AsUINT64;
-    __C89_NAMELESS struct {
-        UINT64 UnhandledMsrs : 1;
-        UINT64 TscMsrWrite : 1;
-        UINT64 TscMsrRead : 1;
-        UINT64 ApicBaseMsrWrite : 1;
-        UINT64 MiscEnableMsrRead : 1;
-        UINT64 McUpdatePatchLevelMsrRead : 1;
-        UINT64 Reserved : 58;
-    };
-} WHV_X64_MSR_EXIT_BITMAP;
-
-C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
-
-#endif  /* defined(__x86_64__) */
-
-typedef struct WHV_MEMORY_RANGE_ENTRY {
-    UINT64 GuestAddress;
-    UINT64 SizeInBytes;
-} WHV_MEMORY_RANGE_ENTRY;
-
-C_ASSERT(sizeof(WHV_MEMORY_RANGE_ENTRY) == 16);
-
-typedef union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    UINT32 AsUINT32;
-    __C89_NAMELESS struct {
-        UINT32 Prefetch:1;
-        UINT32 AvoidHardFaults:1;
-        UINT32 Reserved:30;
-    };
-} WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS;
-
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS) == 4);
-
-typedef enum WHV_MEMORY_ACCESS_TYPE {
-    WHvMemoryAccessRead = 0,
-    WHvMemoryAccessWrite = 1,
-    WHvMemoryAccessExecute = 2
-} WHV_MEMORY_ACCESS_TYPE;
-
-typedef struct WHV_ADVISE_GPA_RANGE_POPULATE {
-    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS Flags;
-    WHV_MEMORY_ACCESS_TYPE AccessType;
-} WHV_ADVISE_GPA_RANGE_POPULATE;
-
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE) == 8);
-
-typedef struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    UINT32 IsSupported:1;
-    UINT32 Reserved:31;
-    UINT32 HighestFrequencyMhz;
-    UINT32 NominalFrequencyMhz;
-    UINT32 LowestFrequencyMhz;
-    UINT32 FrequencyStepMhz;
-} WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP;
-
-C_ASSERT(sizeof(WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP) == 20);
-
-typedef union WHV_SCHEDULER_FEATURES {
-    __C89_NAMELESS struct {
-        UINT64 CpuReserve: 1;
-        UINT64 CpuCap: 1;
-        UINT64 CpuWeight: 1;
-        UINT64 CpuGroupId: 1;
-        UINT64 DisableSmt: 1;
-        UINT64 Reserved: 59;
-    };
-    UINT64 AsUINT64;
-} WHV_SCHEDULER_FEATURES;
-
-C_ASSERT(sizeof(WHV_SCHEDULER_FEATURES) == 8);
-
-typedef union WHV_CAPABILITY {
-    WINBOOL HypervisorPresent;
-    WHV_CAPABILITY_FEATURES Features;
-    WHV_EXTENDED_VM_EXITS ExtendedVmExits;
-    WHV_PROCESSOR_VENDOR ProcessorVendor;
-    WHV_PROCESSOR_FEATURES ProcessorFeatures;
-    WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS SyntheticProcessorFeaturesBanks;
-    UINT8 ProcessorClFlushSize;
-    UINT64 ProcessorClockFrequency;
-    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
-    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS GpaRangePopulateFlags;
-    WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP ProcessorFrequencyCap;
-    WHV_SCHEDULER_FEATURES SchedulerFeatures;
-    UINT32 PhysicalAddressWidth;
-    UINT64 NestedFeatureRegister;
-#if defined(__x86_64__)
-    WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
-    UINT64 InterruptClockFrequency;
-    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
-    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
-    UINT64 ExceptionExitBitmap;
-#elif defined (__aarch64__)
-    UINT32 GicLpiIntIdBits;
-    UINT32 MaxSveVectorLength;
-#endif
-} WHV_CAPABILITY;
-
-typedef VOID* WHV_PARTITION_HANDLE;
-
-typedef enum WHV_PARTITION_PROPERTY_CODE {
-    WHvPartitionPropertyCodeExtendedVmExits = 0x00000001,
-#if defined(__x86_64__)
-    WHvPartitionPropertyCodeExceptionExitBitmap = 0x00000002,
-#endif
-    WHvPartitionPropertyCodeSeparateSecurityDomain = 0x00000003,
-    WHvPartitionPropertyCodeNestedVirtualization = 0x00000004,
-#if defined(__x86_64__)
-    WHvPartitionPropertyCodeX64MsrExitBitmap = 0x00000005,
-#endif
-    WHvPartitionPropertyCodePrimaryNumaNode = 0x00000006,
-    WHvPartitionPropertyCodeCpuReserve = 0x00000007,
-    WHvPartitionPropertyCodeCpuCap = 0x00000008,
-    WHvPartitionPropertyCodeCpuWeight = 0x00000009,
-    WHvPartitionPropertyCodeCpuGroupId = 0x0000000A,
-    WHvPartitionPropertyCodeProcessorFrequencyCap = 0x0000000B,
-    WHvPartitionPropertyCodeAllowDeviceAssignment = 0x0000000C,
-    WHvPartitionPropertyCodeDisableSmt = 0x0000000D,
-    WHvPartitionPropertyCodeProcessorFeatures = 0x00001001,
-    WHvPartitionPropertyCodeProcessorClFlushSize = 0x00001002,
-#if defined(__x86_64__)
-    WHvPartitionPropertyCodeCpuidExitList = 0x00001003,
-    WHvPartitionPropertyCodeCpuidResultList = 0x00001004,
-    WHvPartitionPropertyCodeLocalApicEmulationMode = 0x00001005,
-    WHvPartitionPropertyCodeProcessorXsaveFeatures = 0x00001006,
-#endif
-    WHvPartitionPropertyCodeProcessorClockFrequency = 0x00001007,
-#if defined(__x86_64__)
-    WHvPartitionPropertyCodeInterruptClockFrequency = 0x00001008,
-    WHvPartitionPropertyCodeApicRemoteReadSupport = 0x00001009,
-#endif
-    WHvPartitionPropertyCodeProcessorFeaturesBanks = 0x0000100A,
-    WHvPartitionPropertyCodeReferenceTime = 0x0000100B,
-    WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks = 0x0000100C,
-#if defined(__x86_64__)
-    WHvPartitionPropertyCodeCpuidResultList2 = 0x0000100D,
-    WHvPartitionPropertyCodeProcessorPerfmonFeatures = 0x0000100E,
-    WHvPartitionPropertyCodeMsrActionList = 0x0000100F,
-    WHvPartitionPropertyCodeUnimplementedMsrAction = 0x00001010,
-#endif
-    WHvPartitionPropertyCodePhysicalAddressWidth = 0x00001011,
-#if defined(__aarch64__)
-    WHvPartitionPropertyCodeArm64IcParameters = 0x00001012,
-#endif
-    WHvPartitionPropertyCodeProcessorCount = 0x00001fff
-} WHV_PARTITION_PROPERTY_CODE;
-
-#if defined(__x86_64__)
-
-typedef struct WHV_X64_CPUID_RESULT {
-    UINT32 Function;
-    UINT32 Reserved[3];
-    UINT32 Eax;
-    UINT32 Ebx;
-    UINT32 Ecx;
-    UINT32 Edx;
-} WHV_X64_CPUID_RESULT;
-
-C_ASSERT(sizeof(WHV_X64_CPUID_RESULT) == 32);
-
-typedef enum WHV_X64_CPUID_RESULT2_FLAGS {
-    WHvX64CpuidResult2FlagSubleafSpecific = 0x00000001,
-    WHvX64CpuidResult2FlagVpSpecific = 0x00000002
-} WHV_X64_CPUID_RESULT2_FLAGS;
-
-DEFINE_ENUM_FLAG_OPERATORS(WHV_X64_CPUID_RESULT2_FLAGS);
-
-typedef struct WHV_CPUID_OUTPUT {
-    UINT32 Eax;
-    UINT32 Ebx;
-    UINT32 Ecx;
-    UINT32 Edx;
-} WHV_CPUID_OUTPUT;
-
-C_ASSERT(sizeof(WHV_CPUID_OUTPUT) == 16);
-
-typedef struct WHV_X64_CPUID_RESULT2 {
-    UINT32 Function;
-    UINT32 Index;
-    UINT32 VpIndex;
-    WHV_X64_CPUID_RESULT2_FLAGS Flags;
-    WHV_CPUID_OUTPUT Output;
-    WHV_CPUID_OUTPUT Mask;
-} WHV_X64_CPUID_RESULT2;
-
-C_ASSERT(sizeof(WHV_X64_CPUID_RESULT2) == 48);
-
-typedef struct WHV_MSR_ACTION_ENTRY {
-    UINT32 Index;
-    UINT8 ReadAction;
-    UINT8 WriteAction;
-    UINT16 Reserved;
-} WHV_MSR_ACTION_ENTRY;
-
-C_ASSERT(sizeof(WHV_MSR_ACTION_ENTRY) == 8);
-
-typedef enum WHV_MSR_ACTION {
-    WHvMsrActionArchitectureDefault = 0,
-    WHvMsrActionIgnoreWriteReadZero = 1,
-    WHvMsrActionExit = 2
-} WHV_MSR_ACTION;
-
-typedef enum WHV_EXCEPTION_TYPE {
-    WHvX64ExceptionTypeDivideErrorFault = 0x0,
-    WHvX64ExceptionTypeDebugTrapOrFault = 0x1,
-    WHvX64ExceptionTypeBreakpointTrap = 0x3,
-    WHvX64ExceptionTypeOverflowTrap = 0x4,
-    WHvX64ExceptionTypeBoundRangeFault = 0x5,
-    WHvX64ExceptionTypeInvalidOpcodeFault = 0x6,
-    WHvX64ExceptionTypeDeviceNotAvailableFault = 0x7,
-    WHvX64ExceptionTypeDoubleFaultAbort = 0x8,
-    WHvX64ExceptionTypeInvalidTaskStateSegmentFault = 0x0A,
-    WHvX64ExceptionTypeSegmentNotPresentFault = 0x0B,
-    WHvX64ExceptionTypeStackFault = 0x0C,
-    WHvX64ExceptionTypeGeneralProtectionFault = 0x0D,
-    WHvX64ExceptionTypePageFault = 0x0E,
-    WHvX64ExceptionTypeFloatingPointErrorFault = 0x10,
-    WHvX64ExceptionTypeAlignmentCheckFault = 0x11,
-    WHvX64ExceptionTypeMachineCheckAbort = 0x12,
-    WHvX64ExceptionTypeSimdFloatingPointFault = 0x13,
-    WHvX64ExceptionTypeControlProtectionFault = 0x15
-} WHV_EXCEPTION_TYPE;
-
-typedef enum WHV_X64_LOCAL_APIC_EMULATION_MODE {
-    WHvX64LocalApicEmulationModeNone,
-    WHvX64LocalApicEmulationModeXApic,
-    WHvX64LocalApicEmulationModeX2Apic
-} WHV_X64_LOCAL_APIC_EMULATION_MODE;
-
-#elif defined(__aarch64__)
-
-typedef enum WHV_ARM64_IC_EMULATION_MODE {
-    WHvArm64IcEmulationModeNone = 0,
-    WHvArm64IcEmulationModeGicV3
-} WHV_ARM64_IC_EMULATION_MODE;
-
-typedef UINT32 WHV_ARM64_INTERRUPT_VECTOR;
-
-typedef struct WHV_ARM64_IC_GIC_V3_PARAMETERS {
-    WHV_GUEST_PHYSICAL_ADDRESS GicdBaseAddress;
-    WHV_GUEST_PHYSICAL_ADDRESS GitsTranslaterBaseAddress;
-    UINT32 Reserved;
-    UINT32 GicLpiIntIdBits;
-    WHV_ARM64_INTERRUPT_VECTOR GicPpiOverflowInterruptFromCntv;
-    WHV_ARM64_INTERRUPT_VECTOR GicPpiPerformanceMonitorsInterrupt;
-    UINT32 Reserved1[6];
-} WHV_ARM64_IC_GIC_V3_PARAMETERS;
-
-C_ASSERT(sizeof(WHV_ARM64_IC_GIC_V3_PARAMETERS) == 56);
-
-typedef struct WHV_ARM64_IC_PARAMETERS {
-    WHV_ARM64_IC_EMULATION_MODE EmulationMode;
-    UINT32 Reserved;
-    __C89_NAMELESS union {
-        WHV_ARM64_IC_GIC_V3_PARAMETERS GicV3Parameters;
-    };
-} WHV_ARM64_IC_PARAMETERS;
-
-C_ASSERT(sizeof(WHV_ARM64_IC_PARAMETERS) == 64);
-
-#endif  /* defined(__x86_64__) || defined(__aarch64__) */
-
-typedef union WHV_PARTITION_PROPERTY {
-    WHV_EXTENDED_VM_EXITS ExtendedVmExits;
-    WHV_PROCESSOR_FEATURES ProcessorFeatures;
-    WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS SyntheticProcessorFeaturesBanks;
-    UINT8 ProcessorClFlushSize;
-    UINT32 ProcessorCount;
-    WINBOOL SeparateSecurityDomain;
-    WINBOOL NestedVirtualization;
-    UINT64 ProcessorClockFrequency;
-    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
-    UINT64 ReferenceTime;
-    USHORT PrimaryNumaNode;
-    UINT32 CpuReserve;
-    UINT32 CpuCap;
-    UINT32 CpuWeight;
-    UINT64 CpuGroupId;
-    UINT32 ProcessorFrequencyCap;
-    WINBOOL AllowDeviceAssignment;
-    WINBOOL DisableSmt;
-    UINT32 PhysicalAddressWidth;
-#if defined(__x86_64__)
-    WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
-    UINT32 CpuidExitList[1];
-    UINT64 ExceptionExitBitmap;
-    WINBOOL ApicRemoteRead;
-    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
-    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
-    UINT64 InterruptClockFrequency;
-    WHV_X64_CPUID_RESULT CpuidResultList[1];
-    WHV_X64_CPUID_RESULT2 CpuidResultList2[1];
-    WHV_MSR_ACTION_ENTRY MsrActionList[1];
-    WHV_MSR_ACTION UnimplementedMsrAction;
-    WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
-#elif defined(__aarch64__)
-    WHV_ARM64_IC_PARAMETERS Arm64IcParameters;
-#endif
-} WHV_PARTITION_PROPERTY;
-
-typedef UINT64 WHV_GUEST_PHYSICAL_ADDRESS;
-typedef UINT64 WHV_GUEST_VIRTUAL_ADDRESS;
-
-typedef enum WHV_MAP_GPA_RANGE_FLAGS {
-    WHvMapGpaRangeFlagNone = 0x00000000,
-    WHvMapGpaRangeFlagRead = 0x00000001,
-    WHvMapGpaRangeFlagWrite = 0x00000002,
-    WHvMapGpaRangeFlagExecute = 0x00000004,
-    WHvMapGpaRangeFlagTrackDirtyPages = 0x00000008
-} WHV_MAP_GPA_RANGE_FLAGS;
-
-DEFINE_ENUM_FLAG_OPERATORS(WHV_MAP_GPA_RANGE_FLAGS);
-
-typedef enum WHV_TRANSLATE_GVA_FLAGS {
-    WHvTranslateGvaFlagNone = 0x00000000,
-    WHvTranslateGvaFlagValidateRead = 0x00000001,
-    WHvTranslateGvaFlagValidateWrite = 0x00000002,
-    WHvTranslateGvaFlagValidateExecute = 0x00000004
-#if defined(__x86_64__)
-    ,WHvTranslateGvaFlagPrivilegeExempt = 0x00000008
-#endif
-    ,WHvTranslateGvaFlagSetPageTableBits = 0x00000010
-#if defined(__x86_64__)
-    ,WHvTranslateGvaFlagEnforceSmap = 0x00000100
-    ,WHvTranslateGvaFlagOverrideSmap = 0x00000200
-#endif
-} WHV_TRANSLATE_GVA_FLAGS;
-
-DEFINE_ENUM_FLAG_OPERATORS(WHV_TRANSLATE_GVA_FLAGS);
-
-typedef union WHV_TRANSLATE_GVA_2_FLAGS {
-    __C89_NAMELESS struct {
-        UINT64 ValidateRead : 1;
-        UINT64 ValidateWrite : 1;
-        UINT64 ValidateExecute : 1;
-#if defined(__x86_64__)
-        UINT64 PrivilegeExempt : 1;
-#else
-        UINT64 Reserved0 : 1;
-#endif
-        UINT64 SetPageTableBits : 1;
-        UINT64 Reserved1 : 3;
-#if defined(__x86_64__)
-        UINT64 EnforceSmap : 1;
-        UINT64 OverrideSmap : 1;
-#else
-        UINT64 Reserved2 : 1;
-        UINT64 Reserved3 : 1;
-#endif
-        UINT64 Reserved4 : 46;
-        UINT64 InputVtl : 8;
-    };
-    UINT64 AsUINT64;
-} WHV_TRANSLATE_GVA_2_FLAGS;
-
-C_ASSERT(sizeof(WHV_TRANSLATE_GVA_2_FLAGS) == 8);
-
-typedef enum WHV_TRANSLATE_GVA_RESULT_CODE {
-    WHvTranslateGvaResultSuccess = 0,
-    WHvTranslateGvaResultPageNotPresent = 1,
-    WHvTranslateGvaResultPrivilegeViolation = 2,
-    WHvTranslateGvaResultInvalidPageTableFlags = 3,
-    WHvTranslateGvaResultGpaUnmapped = 4,
-    WHvTranslateGvaResultGpaNoReadAccess = 5,
-    WHvTranslateGvaResultGpaNoWriteAccess = 6,
-    WHvTranslateGvaResultGpaIllegalOverlayAccess = 7,
-    WHvTranslateGvaResultIntercept = 8
-} WHV_TRANSLATE_GVA_RESULT_CODE;
-
-typedef struct WHV_TRANSLATE_GVA_RESULT {
-    WHV_TRANSLATE_GVA_RESULT_CODE ResultCode;
-    UINT32 Reserved;
-} WHV_TRANSLATE_GVA_RESULT;
-
-C_ASSERT(sizeof(WHV_TRANSLATE_GVA_RESULT) == 8);
-
-typedef union WHV_ADVISE_GPA_RANGE {
-    WHV_ADVISE_GPA_RANGE_POPULATE Populate;
-} WHV_ADVISE_GPA_RANGE;
-
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 8);
-
-typedef enum WHV_CACHE_TYPE {
-    WHvCacheTypeUncached = 0,
-    WHvCacheTypeWriteCombining = 1,
-    WHvCacheTypeWriteThrough = 4,
-#ifdef __x86_64__
-    WHvCacheTypeWriteProtected = 5,
-#endif
-    WHvCacheTypeWriteBack = 6
-} WHV_CACHE_TYPE;
-
-typedef union WHV_ACCESS_GPA_CONTROLS {
-    UINT64 AsUINT64;
-    __C89_NAMELESS struct {
-        WHV_CACHE_TYPE CacheType;
-        WHV_INPUT_VTL InputVtl;
-        UINT8 Reserved;
-        UINT16 Reserved1;
-    };
-} WHV_ACCESS_GPA_CONTROLS;
-
-C_ASSERT(sizeof(WHV_ACCESS_GPA_CONTROLS) == 8);
-
-#define WHV_READ_WRITE_GPA_RANGE_MAX_SIZE 16
-
 #if defined(__x86_64__)
 
 typedef enum WHV_REGISTER_NAME {
@@ -1679,6 +704,9 @@ typedef enum WHV_REGISTER_NAME {
 
 #endif /* __x86_64__ || __aarch64__ */
 
+typedef UINT64 WHV_GUEST_PHYSICAL_ADDRESS;
+typedef UINT64 WHV_GUEST_VIRTUAL_ADDRESS;
+
 typedef union DECLSPEC_ALIGN(16) WHV_UINT128 {
     __C89_NAMELESS struct {
         UINT64 Low64;
@@ -1740,7 +768,7 @@ typedef union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     WHV_UINT128 AsUINT128;
 } WHV_X64_XMM_CONTROL_STATUS_REGISTER;
 
-C_ASSERT(sizeof(WHV_X64_FP_CONTROL_STATUS_REGISTER) == 16);
+C_ASSERT(sizeof(WHV_X64_XMM_CONTROL_STATUS_REGISTER) == 16);
 
 typedef struct WHV_X64_SEGMENT_REGISTER {
     UINT64 Base;
@@ -2085,6 +1113,1050 @@ typedef union WHV_REGISTER_VALUE {
 } WHV_REGISTER_VALUE;
 
 C_ASSERT(sizeof(WHV_REGISTER_VALUE) == 16);
+
+typedef enum WHV_CAPABILITY_CODE {
+    WHvCapabilityCodeHypervisorPresent = 0x00000000
+    ,WHvCapabilityCodeFeatures = 0x00000001
+    ,WHvCapabilityCodeExtendedVmExits = 0x00000002
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeExceptionExitBitmap = 0x00000003
+    ,WHvCapabilityCodeX64MsrExitBitmap = 0x00000004
+#endif
+    ,WHvCapabilityCodeGpaRangePopulateFlags = 0x00000005
+    ,WHvCapabilityCodeSchedulerFeatures = 0x00000006
+    ,WHvCapabilityCodeProcessorVendor = 0x00001000
+    ,WHvCapabilityCodeProcessorFeatures = 0x00001001
+    ,WHvCapabilityCodeProcessorClFlushSize = 0x00001002
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003
+#endif
+    ,WHvCapabilityCodeProcessorClockFrequency = 0x00001004
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeInterruptClockFrequency = 0x00001005
+#endif
+    ,WHvCapabilityCodeProcessorFeaturesBanks = 0x00001006
+    ,WHvCapabilityCodeProcessorFrequencyCap = 0x00001007
+    ,WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeProcessorPerfmonFeatures = 0x00001009
+#endif
+    ,WHvCapabilityCodePhysicalAddressWidth = 0x0000100A
+#if defined(__x86_64__)
+    ,WHvCapabilityCodeVmxBasic = 0x00002000
+    ,WHvCapabilityCodeVmxPinbasedCtls = 0x00002001
+    ,WHvCapabilityCodeVmxProcbasedCtls = 0x00002002
+    ,WHvCapabilityCodeVmxExitCtls = 0x00002003
+    ,WHvCapabilityCodeVmxEntryCtls = 0x00002004
+    ,WHvCapabilityCodeVmxMisc = 0x00002005
+    ,WHvCapabilityCodeVmxCr0Fixed0 = 0x00002006
+    ,WHvCapabilityCodeVmxCr0Fixed1 = 0x00002007
+    ,WHvCapabilityCodeVmxCr4Fixed0 = 0x00002008
+    ,WHvCapabilityCodeVmxCr4Fixed1 = 0x00002009
+    ,WHvCapabilityCodeVmxVmcsEnum = 0x0000200A
+    ,WHvCapabilityCodeVmxProcbasedCtls2 = 0x0000200B
+    ,WHvCapabilityCodeVmxEptVpidCap = 0x0000200C
+    ,WHvCapabilityCodeVmxTruePinbasedCtls = 0x0000200D
+    ,WHvCapabilityCodeVmxTrueProcbasedCtls = 0x0000200E
+    ,WHvCapabilityCodeVmxTrueExitCtls = 0x0000200F
+    ,WHvCapabilityCodeVmxTrueEntryCtls = 0x00002010
+#elif defined (__aarch64__)
+    ,WHvCapabilityCodeGicLpiIntIdBits = 0x00002011
+    ,WHvCapabilityCodeMaxSveVectorLength = 0x00002012
+#endif
+} WHV_CAPABILITY_CODE;
+
+typedef union WHV_CAPABILITY_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 PartialUnmap : 1;
+#if defined(__x86_64__)
+        UINT64 LocalApicEmulation : 1;
+        UINT64 Xsave : 1;
+#else
+        UINT64 ReservedArm0 : 2;
+#endif
+        UINT64 DirtyPageTracking : 1;
+        UINT64 SpeculationControl : 1;
+#if defined(__x86_64__)
+        UINT64 ApicRemoteRead : 1;
+#else
+        UINT64 ReservedArm1 : 1;
+#endif
+        UINT64 IdleSuspend : 1;
+        UINT64 VirtualPciDeviceSupport : 1;
+        UINT64 IommuSupport : 1;
+        UINT64 VpHotAddRemove : 1;
+        UINT64 DeviceAccessTracking : 1;
+#if defined(__x86_64__)
+        UINT64 ReservedX640 : 1;
+#else
+        UINT64 Arm64Support : 1;
+#endif
+        UINT64 Reserved : 52;
+    };
+    UINT64 AsUINT64;
+} WHV_CAPABILITY_FEATURES;
+
+C_ASSERT(sizeof(WHV_CAPABILITY_FEATURES) == sizeof(UINT64));
+
+typedef union WHV_EXTENDED_VM_EXITS {
+    __C89_NAMELESS struct {
+#if defined(__x86_64__)
+        UINT64 X64CpuidExit : 1;
+        UINT64 X64MsrExit : 1;
+        UINT64 ExceptionExit : 1;
+        UINT64 X64RdtscExit : 1;
+        UINT64 X64ApicSmiExitTrap : 1;
+#else
+        UINT64 ReservedArm0 : 5;
+#endif
+        UINT64 HypercallExit : 1;
+#if defined(__x86_64__)
+        UINT64 X64ApicInitSipiExitTrap : 1;
+        UINT64 X64ApicWriteLint0ExitTrap : 1;
+        UINT64 X64ApicWriteLint1ExitTrap : 1;
+        UINT64 X64ApicWriteSvrExitTrap : 1;
+#else
+        UINT64 ReservedArm1 : 4;
+#endif
+        UINT64 UnknownSynicConnection : 1;
+        UINT64 RetargetUnknownVpciDevice : 1;
+#if defined(__x86_64__)
+        UINT64 X64ApicWriteLdrExitTrap : 1;
+        UINT64 X64ApicWriteDfrExitTrap : 1;
+#else
+        UINT64 ReservedArm2 : 2;
+#endif
+        UINT64 GpaAccessFaultExit : 1;
+        UINT64 Reserved : 49;
+    };
+    UINT64 AsUINT64;
+} WHV_EXTENDED_VM_EXITS;
+
+C_ASSERT(sizeof(WHV_EXTENDED_VM_EXITS) == sizeof(UINT64));
+
+typedef enum WHV_PROCESSOR_VENDOR {
+    WHvProcessorVendorAmd = 0x0000,
+    WHvProcessorVendorIntel = 0x0001,
+    WHvProcessorVendorHygon = 0x0002,
+    WHvProcessorVendorArm = 0x0010
+} WHV_PROCESSOR_VENDOR;
+
+#if defined(__x86_64__)
+
+typedef union WHV_X64_PROCESSOR_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 Sse3Support : 1;
+        UINT64 LahfSahfSupport : 1;
+        UINT64 Ssse3Support : 1;
+        UINT64 Sse4_1Support : 1;
+        UINT64 Sse4_2Support : 1;
+        UINT64 Sse4aSupport : 1;
+        UINT64 XopSupport : 1;
+        UINT64 PopCntSupport : 1;
+        UINT64 Cmpxchg16bSupport : 1;
+        UINT64 Altmovcr8Support : 1;
+        UINT64 LzcntSupport : 1;
+        UINT64 MisAlignSseSupport : 1;
+        UINT64 MmxExtSupport : 1;
+        UINT64 Amd3DNowSupport : 1;
+        UINT64 ExtendedAmd3DNowSupport : 1;
+        UINT64 Page1GbSupport : 1;
+        UINT64 AesSupport : 1;
+        UINT64 PclmulqdqSupport : 1;
+        UINT64 PcidSupport : 1;
+        UINT64 Fma4Support : 1;
+        UINT64 F16CSupport : 1;
+        UINT64 RdRandSupport : 1;
+        UINT64 RdWrFsGsSupport : 1;
+        UINT64 SmepSupport : 1;
+        UINT64 EnhancedFastStringSupport : 1;
+        UINT64 Bmi1Support : 1;
+        UINT64 Bmi2Support : 1;
+        UINT64 Reserved1 : 2;
+        UINT64 MovbeSupport : 1;
+        UINT64 Npiep1Support : 1;
+        UINT64 DepX87FPUSaveSupport : 1;
+        UINT64 RdSeedSupport : 1;
+        UINT64 AdxSupport : 1;
+        UINT64 IntelPrefetchSupport : 1;
+        UINT64 SmapSupport : 1;
+        UINT64 HleSupport : 1;
+        UINT64 RtmSupport : 1;
+        UINT64 RdtscpSupport : 1;
+        UINT64 ClflushoptSupport : 1;
+        UINT64 ClwbSupport : 1;
+        UINT64 ShaSupport : 1;
+        UINT64 X87PointersSavedSupport : 1;
+        UINT64 InvpcidSupport : 1;
+        UINT64 IbrsSupport : 1;
+        UINT64 StibpSupport : 1;
+        UINT64 IbpbSupport : 1;
+        UINT64 UnrestrictedGuestSupport : 1;
+        UINT64 SsbdSupport : 1;
+        UINT64 FastShortRepMovSupport : 1;
+        UINT64 Reserved3 : 1;
+        UINT64 RdclNo : 1;
+        UINT64 IbrsAllSupport : 1;
+        UINT64 Reserved4 : 1;
+        UINT64 SsbNo : 1;
+        UINT64 RsbANo : 1;
+        UINT64 Reserved5 : 1;
+        UINT64 RdPidSupport : 1;
+        UINT64 UmipSupport : 1;
+        UINT64 MdsNoSupport : 1;
+        UINT64 MdClearSupport : 1;
+        UINT64 TaaNoSupport : 1;
+        UINT64 TsxCtrlSupport : 1;
+        UINT64 Reserved6 : 1;
+    };
+    UINT64 AsUINT64;
+} WHV_X64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
+
+C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES) == sizeof(UINT64));
+
+typedef union WHV_X64_PROCESSOR_FEATURES1 {
+    __C89_NAMELESS struct {
+        UINT64 ACountMCountSupport : 1;
+        UINT64 TscInvariantSupport : 1;
+        UINT64 ClZeroSupport : 1;
+        UINT64 RdpruSupport : 1;
+        UINT64 La57Support : 1;
+        UINT64 MbecSupport : 1;
+        UINT64 NestedVirtSupport : 1;
+        UINT64 PsfdSupport: 1;
+        UINT64 CetSsSupport : 1;
+        UINT64 CetIbtSupport : 1;
+        UINT64 VmxExceptionInjectSupport : 1;
+        UINT64 Reserved2 : 1;
+        UINT64 UmwaitTpauseSupport : 1;
+        UINT64 MovdiriSupport : 1;
+        UINT64 Movdir64bSupport : 1;
+        UINT64 CldemoteSupport : 1;
+        UINT64 SerializeSupport : 1;
+        UINT64 TscDeadlineTmrSupport : 1;
+        UINT64 TscAdjustSupport : 1;
+        UINT64 FZLRepMovsb : 1;
+        UINT64 FSRepStosb : 1;
+        UINT64 FSRepCmpsb : 1;
+        UINT64 TsxLdTrkSupport : 1;
+        UINT64 VmxInsOutsExitInfoSupport : 1;
+        UINT64 Reserved3 : 1;
+        UINT64 SbdrSsdpNoSupport : 1;
+        UINT64 FbsdpNoSupport : 1;
+        UINT64 PsdpNoSupport : 1;
+        UINT64 FbClearSupport : 1;
+        UINT64 BtcNoSupport : 1;
+        UINT64 IbpbRsbFlushSupport : 1;
+        UINT64 StibpAlwaysOnSupport : 1;
+        UINT64 PerfGlobalCtrlSupport : 1;
+        UINT64 NptExecuteOnlySupport : 1;
+        UINT64 NptADFlagsSupport : 1;
+        UINT64 Npt1GbPageSupport : 1;
+        UINT64 Reserved4 : 1;
+        UINT64 Reserved5 : 1;
+        UINT64 Reserved6 : 1;
+        UINT64 Reserved7 : 1;
+        UINT64 CmpccxaddSupport : 1;
+        UINT64 Reserved8 : 1;
+        UINT64 Reserved9 : 1;
+        UINT64 Reserved10 : 1;
+        UINT64 Reserved11 : 1;
+        UINT64 PrefetchISupport : 1;
+        UINT64 Sha512Support : 1;
+        UINT64 Reserved12 : 1;
+        UINT64 Reserved13 : 1;
+        UINT64 Reserved14 : 1;
+        UINT64 SM3Support : 1;
+        UINT64 SM4Support : 1;
+        UINT64 Reserved15 : 1;
+        UINT64 Reserved16 : 1;
+        UINT64 SbpbSupported : 1;
+        UINT64 IbpbBrTypeSupported : 1;
+        UINT64 SrsoNoSupported : 1;
+        UINT64 SrsoUserKernelNoSupported : 1;
+        UINT64 Reserved17 : 1;
+        UINT64 Reserved18 : 1;
+        UINT64 Reserved19 : 1;
+        UINT64 Reserved20 : 3;
+    };
+    UINT64 AsUINT64;
+} WHV_X64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
+
+C_ASSERT(sizeof(WHV_X64_PROCESSOR_FEATURES1) == sizeof(UINT64));
+
+#elif defined(__aarch64__)
+
+typedef union WHV_ARM64_PROCESSOR_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 Asid16 : 1;
+        UINT64 TGran16 : 1;
+        UINT64 TGran64 : 1;
+        UINT64 Haf : 1;
+        UINT64 Hdbs : 1;
+        UINT64 Pan : 1;
+        UINT64 AtS1E1 : 1;
+        UINT64 Uao : 1;
+        UINT64 El0Aarch32 : 1;
+        UINT64 Fp : 1;
+        UINT64 FpHp : 1;
+        UINT64 AdvSimd : 1;
+        UINT64 AdvSimdHp : 1;
+        UINT64 GicV3V4 : 1;
+        UINT64 GicV41 : 1;
+        UINT64 Ras : 1;
+        UINT64 PmuV3 : 1;
+        UINT64 PmuV3ArmV81 : 1;
+        UINT64 PmuV3ArmV84 : 1;
+        UINT64 PmuV3ArmV85 : 1;
+        UINT64 Aes : 1;
+        UINT64 PolyMul : 1;
+        UINT64 Sha1 : 1;
+        UINT64 Sha256 : 1;
+        UINT64 Sha512 : 1;
+        UINT64 Crc32 : 1;
+        UINT64 Atomic : 1;
+        UINT64 Rdm : 1;
+        UINT64 Sha3 : 1;
+        UINT64 Sm3 : 1;
+        UINT64 Sm4 : 1;
+        UINT64 Dp : 1;
+        UINT64 Fhm : 1;
+        UINT64 DcCvap : 1;
+        UINT64 DcCvadp : 1;
+        UINT64 ApaBase : 1;
+        UINT64 ApaEp : 1;
+        UINT64 ApaEp2 : 1;
+        UINT64 ApaEp2Fp : 1;
+        UINT64 ApaEp2Fpc : 1;
+        UINT64 Jscvt : 1;
+        UINT64 Fcma : 1;
+        UINT64 RcpcV83 : 1;
+        UINT64 RcpcV84 : 1;
+        UINT64 Gpa : 1;
+        UINT64 L1ipPipt : 1;
+        UINT64 DzPermitted : 1;
+        UINT64 Ssbs : 1;
+        UINT64 SsbsRw : 1;
+        UINT64 Reserved49 : 1;
+        UINT64 Reserved50 : 1;
+        UINT64 Reserved51 : 1;
+        UINT64 Reserved52 : 1;
+        UINT64 Csv2 : 1;
+        UINT64 Csv3 : 1;
+        UINT64 Sb : 1;
+        UINT64 Idc : 1;
+        UINT64 Dic : 1;
+        UINT64 TlbiOs : 1;
+        UINT64 TlbiOsRange : 1;
+        UINT64 FlagsM : 1;
+        UINT64 FlagsM2 : 1;
+        UINT64 Bf16 : 1;
+        UINT64 Ebf16 : 1;
+    };
+    UINT64 AsUINT64;
+} WHV_ARM64_PROCESSOR_FEATURES, WHV_PROCESSOR_FEATURES;
+
+typedef union WHV_ARM64_PROCESSOR_FEATURES1 {
+    __C89_NAMELESS struct {
+        UINT64 SveBf16 : 1;
+        UINT64 SveEbf16 : 1;
+        UINT64 I8mm : 1;
+        UINT64 SveI8mm : 1;
+        UINT64 Frintts : 1;
+        UINT64 Specres : 1;
+        UINT64 Reserved6 : 1;
+        UINT64 Rpres : 1;
+        UINT64 Exs : 1;
+        UINT64 SpecSei : 1;
+        UINT64 Ets : 1;
+        UINT64 Afp : 1;
+        UINT64 Iesb : 1;
+        UINT64 Rng : 1;
+        UINT64 Lse2 : 1;
+        UINT64 Idst : 1;
+        UINT64 Reserved16 : 1;
+        UINT64 Reserved17 : 1;
+        UINT64 Reserved18 : 1;
+        UINT64 Reserved19 : 1;
+        UINT64 Reserved20 : 1;
+        UINT64 Reserved21 : 1;
+        UINT64 Ccidx : 1;
+        UINT64 Reserved23 : 1;
+        UINT64 Reserved24 : 1;
+        UINT64 Reserved25 : 1;
+        UINT64 Reserved26 : 1;
+        UINT64 Reserved27 : 1;
+        UINT64 Reserved28 : 1;
+        UINT64 Reserved29 : 1;
+        UINT64 Reserved30 : 1;
+        UINT64 Reserved31 : 1;
+        UINT64 Reserved32 : 1;
+        UINT64 Reserved33 : 1;
+        UINT64 Reserved34 : 1;
+        UINT64 TtCnp : 1;
+        UINT64 Hpds : 1;
+        UINT64 Sve : 1;
+        UINT64 SveV2 : 1;
+        UINT64 SveV2P1 : 1;
+        UINT64 SpecFpacc : 1;
+        UINT64 SveAes : 1;
+        UINT64 SveBitPerm : 1;
+        UINT64 SveSha3 : 1;
+        UINT64 SveSm4 : 1;
+        UINT64 E0PD : 1;
+        UINT64 Reserved : 8;
+    };
+    UINT64 AsUINT64;
+} WHV_ARM64_PROCESSOR_FEATURES1, WHV_PROCESSOR_FEATURES1;
+
+#endif /* __x86_64__ || __aarch64__ */
+
+#define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
+
+typedef struct WHV_PROCESSOR_FEATURES_BANKS {
+    UINT32 BanksCount;
+    UINT32 Reserved0;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            WHV_PROCESSOR_FEATURES Bank0;
+            WHV_PROCESSOR_FEATURES1 Bank1;
+        };
+        UINT64 AsUINT64[WHV_PROCESSOR_FEATURES_BANKS_COUNT];
+    };
+} WHV_PROCESSOR_FEATURES_BANKS;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR_FEATURES_BANKS_COUNT + 1));
+
+typedef union WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 HypervisorPresent : 1;
+        UINT64 Hv1 : 1;
+        UINT64 AccessVpRunTimeReg : 1;
+        UINT64 AccessPartitionReferenceCounter : 1;
+        UINT64 AccessSynicRegs : 1;
+        UINT64 AccessSyntheticTimerRegs : 1;
+        UINT64 AccessIntrCtrlRegs : 1;
+        UINT64 AccessHypercallRegs : 1;
+        UINT64 AccessVpIndex : 1;
+        UINT64 AccessPartitionReferenceTsc : 1;
+#ifdef __x86_64__
+        UINT64 AccessGuestIdleReg : 1;
+        UINT64 AccessFrequencyRegs : 1;
+#else
+        UINT64 ReservedZ10 : 1;
+        UINT64 ReservedZ11 : 1;
+#endif
+        UINT64 ReservedZ12 : 1;
+        UINT64 ReservedZ13 : 1;
+        UINT64 ReservedZ14 : 1;
+#ifdef __x86_64__
+        UINT64 EnableExtendedGvaRangesForFlushVirtualAddressList : 1;
+#else
+        UINT64 ReservedZ15 : 1;
+#endif
+        UINT64 ReservedZ16 : 1;
+        UINT64 ReservedZ17 : 1;
+        UINT64 FastHypercallOutput : 1;
+        UINT64 ReservedZ19 : 1;
+        UINT64 ReservedZ20 : 1;
+        UINT64 ReservedZ21 : 1;
+        UINT64 DirectSyntheticTimers : 1;
+        UINT64 ReservedZ23 : 1;
+        UINT64 ExtendedProcessorMasks : 1;
+#ifdef __x86_64__
+        UINT64 TbFlushHypercalls : 1;
+#else
+        UINT64 ReservedZ25 : 1;
+#endif
+        UINT64 SyntheticClusterIpi : 1;
+        UINT64 NotifyLongSpinWait : 1;
+        UINT64 QueryNumaDistance : 1;
+        UINT64 SignalEvents : 1;
+        UINT64 RetargetDeviceInterrupt : 1;
+#ifdef __x86_64__
+        UINT64 RestoreTime : 1;
+        UINT64 EnlightenedVmcs : 1;
+        UINT64 NestedDebugCtl : 1;
+        UINT64 SyntheticTimeUnhaltedTimer : 1;
+        UINT64 IdleSpecCtrl : 1;
+#else
+        UINT64 ReservedZ31 : 1;
+        UINT64 ReservedZ32 : 1;
+        UINT64 ReservedZ33 : 1;
+        UINT64 ReservedZ34 : 1;
+        UINT64 ReservedZ35 : 1;
+#endif
+        UINT64 ReservedZ36 : 1;
+        UINT64 WakeVps : 1;
+        UINT64 AccessVpRegs : 1;
+#ifdef __aarch64__
+        UINT64 SyncContext : 1;
+#else
+        UINT64 ReservedZ39 : 1;
+#endif
+        UINT64 ReservedZ40 : 1;
+        UINT64 ReservedZ41 : 1;
+        UINT64 ReservedZ42 : 1;
+        UINT64 ReservedZ43 : 1;
+        UINT64 ReservedZ44 : 1;
+        UINT64 Reserved : 19;
+    };
+    UINT64 AsUINT64;
+} WHV_SYNTHETIC_PROCESSOR_FEATURES;
+
+C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES) == 8);
+
+#define WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT 1
+
+typedef struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
+    UINT32 BanksCount;
+    UINT32 Reserved0;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            WHV_SYNTHETIC_PROCESSOR_FEATURES Bank0;
+        };
+        UINT64 AsUINT64[WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT];
+    };
+} WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS;
+
+C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS) == 16);
+
+typedef UINT8 WHV_VTL;
+
+#define WHV_VTL_ALL 0xF
+
+typedef union WHV_INPUT_VTL {
+    UINT8 AsUINT8;
+    __C89_NAMELESS struct {
+        UINT8 TargetVtl : 4;
+        UINT8 UseTargetVtl : 1;
+        UINT8 Reserved : 3;
+    };
+} WHV_INPUT_VTL;
+
+typedef union WHV_ENABLE_PARTITION_VTL_FLAGS {
+    UINT8 AsUINT8;
+    __C89_NAMELESS struct {
+        UINT8 EnableMbec : 1;
+        UINT8 EnableSupervisorShadowStack : 1;
+        UINT8 EnableHardwareHvpt : 1;
+        UINT8 Reserved : 5;
+    };
+} WHV_ENABLE_PARTITION_VTL_FLAGS;
+
+typedef union WHV_DISABLE_PARTITION_VTL_FLAGS {
+    UINT8 AsUINT8;
+    __C89_NAMELESS struct {
+        UINT8 ScrubOnly : 1;
+        UINT8 Reserved : 7;
+    };
+} WHV_DISABLE_PARTITION_VTL_FLAGS;
+
+typedef struct WHV_INITIAL_VP_CONTEXT {
+#if defined(__aarch64__)
+    UINT64 Pc;
+    UINT64 Sp_ELh;
+    UINT64 SCTLR_EL1;
+    UINT64 MAIR_EL1;
+    UINT64 TCR_EL1;
+    UINT64 VBAR_EL1;
+    UINT64 TTBR0_EL1;
+    UINT64 TTBR1_EL1;
+    UINT64 X18;
+#else
+    UINT64 Rip;
+    UINT64 Rsp;
+    UINT64 Rflags;
+    WHV_X64_SEGMENT_REGISTER Cs;
+    WHV_X64_SEGMENT_REGISTER Ds;
+    WHV_X64_SEGMENT_REGISTER Es;
+    WHV_X64_SEGMENT_REGISTER Fs;
+    WHV_X64_SEGMENT_REGISTER Gs;
+    WHV_X64_SEGMENT_REGISTER Ss;
+    WHV_X64_SEGMENT_REGISTER Tr;
+    WHV_X64_SEGMENT_REGISTER Ldtr;
+    WHV_X64_TABLE_REGISTER Idtr;
+    WHV_X64_TABLE_REGISTER Gdtr;
+    UINT64 Efer;
+    UINT64 Cr0;
+    UINT64 Cr3;
+    UINT64 Cr4;
+    UINT64 MsrCrPat;
+#endif
+} WHV_INITIAL_VP_CONTEXT;
+
+typedef union WHV_DISABLE_VP_VTL_FLAGS {
+    UINT8 AsUINT8;
+    __C89_NAMELESS struct {
+        UINT8 ScrubOnly : 1;
+        UINT8 Reserved : 7;
+    };
+} WHV_DISABLE_VP_VTL_FLAGS;
+
+typedef VOID* WHV_PARTITION_HANDLE;
+
+typedef enum WHV_PARTITION_PROPERTY_CODE {
+    WHvPartitionPropertyCodeExtendedVmExits = 0x00000001,
+#if defined(__x86_64__)
+    WHvPartitionPropertyCodeExceptionExitBitmap = 0x00000002,
+#endif
+    WHvPartitionPropertyCodeSeparateSecurityDomain = 0x00000003,
+    WHvPartitionPropertyCodeNestedVirtualization = 0x00000004,
+#if defined(__x86_64__)
+    WHvPartitionPropertyCodeX64MsrExitBitmap = 0x00000005,
+#endif
+    WHvPartitionPropertyCodePrimaryNumaNode = 0x00000006,
+    WHvPartitionPropertyCodeCpuReserve = 0x00000007,
+    WHvPartitionPropertyCodeCpuCap = 0x00000008,
+    WHvPartitionPropertyCodeCpuWeight = 0x00000009,
+    WHvPartitionPropertyCodeCpuGroupId = 0x0000000A,
+    WHvPartitionPropertyCodeProcessorFrequencyCap = 0x0000000B,
+    WHvPartitionPropertyCodeAllowDeviceAssignment = 0x0000000C,
+    WHvPartitionPropertyCodeDisableSmt = 0x0000000D,
+    WHvPartitionPropertyCodeProcessorFeatures = 0x00001001,
+    WHvPartitionPropertyCodeProcessorClFlushSize = 0x00001002,
+#if defined(__x86_64__)
+    WHvPartitionPropertyCodeCpuidExitList = 0x00001003,
+    WHvPartitionPropertyCodeCpuidResultList = 0x00001004,
+    WHvPartitionPropertyCodeLocalApicEmulationMode = 0x00001005,
+    WHvPartitionPropertyCodeProcessorXsaveFeatures = 0x00001006,
+#endif
+    WHvPartitionPropertyCodeProcessorClockFrequency = 0x00001007,
+#if defined(__x86_64__)
+    WHvPartitionPropertyCodeInterruptClockFrequency = 0x00001008,
+    WHvPartitionPropertyCodeApicRemoteReadSupport = 0x00001009,
+#endif
+    WHvPartitionPropertyCodeProcessorFeaturesBanks = 0x0000100A,
+    WHvPartitionPropertyCodeReferenceTime = 0x0000100B,
+    WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks = 0x0000100C,
+#if defined(__x86_64__)
+    WHvPartitionPropertyCodeCpuidResultList2 = 0x0000100D,
+    WHvPartitionPropertyCodeProcessorPerfmonFeatures = 0x0000100E,
+    WHvPartitionPropertyCodeMsrActionList = 0x0000100F,
+    WHvPartitionPropertyCodeUnimplementedMsrAction = 0x00001010,
+#endif
+    WHvPartitionPropertyCodePhysicalAddressWidth = 0x00001011,
+#if defined(__aarch64__)
+    WHvPartitionPropertyCodeArm64IcParameters = 0x00001012,
+#endif
+    WHvPartitionPropertyCodeProcessorCount = 0x00001fff
+} WHV_PARTITION_PROPERTY_CODE;
+
+#if defined(__x86_64__)
+
+typedef union WHV_PROCESSOR_XSAVE_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 XsaveSupport : 1;
+        UINT64 XsaveoptSupport : 1;
+        UINT64 AvxSupport : 1;
+        UINT64 Avx2Support : 1;
+        UINT64 FmaSupport : 1;
+        UINT64 MpxSupport : 1;
+        UINT64 Avx512Support : 1;
+        UINT64 Avx512DQSupport : 1;
+        UINT64 Avx512CDSupport : 1;
+        UINT64 Avx512BWSupport : 1;
+        UINT64 Avx512VLSupport : 1;
+        UINT64 XsaveCompSupport : 1;
+        UINT64 XsaveSupervisorSupport : 1;
+        UINT64 Xcr1Support : 1;
+        UINT64 Avx512BitalgSupport : 1;
+        UINT64 Avx512IfmaSupport : 1;
+        UINT64 Avx512VBmiSupport : 1;
+        UINT64 Avx512VBmi2Support : 1;
+        UINT64 Avx512VnniSupport : 1;
+        UINT64 GfniSupport : 1;
+        UINT64 VaesSupport : 1;
+        UINT64 Avx512VPopcntdqSupport : 1;
+        UINT64 VpclmulqdqSupport : 1;
+        UINT64 Avx512Bf16Support : 1;
+        UINT64 Avx512Vp2IntersectSupport : 1;
+        UINT64 Avx512Fp16Support : 1;
+        UINT64 XfdSupport : 1;
+        UINT64 AmxTileSupport : 1;
+        UINT64 AmxBf16Support : 1;
+        UINT64 AmxInt8Support : 1;
+        UINT64 AvxVnniSupport : 1;
+        UINT64 AvxIfmaSupport : 1;
+        UINT64 AvxNeConvertSupport : 1;
+        UINT64 AvxVnniInt8Support : 1;
+        UINT64 AvxVnniInt16Support : 1;
+        UINT64 Avx10_1_256Support : 1;
+        UINT64 Avx10_1_512Support : 1;
+        UINT64 AmxFp16Support : 1;
+        UINT64 Reserved : 26;
+    };
+    UINT64 AsUINT64;
+} WHV_PROCESSOR_XSAVE_FEATURES, *PWHV_PROCESSOR_XSAVE_FEATURES;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == sizeof(UINT64));
+
+typedef union WHV_PROCESSOR_PERFMON_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 PmuSupport : 1;
+        UINT64 LbrSupport : 1;
+        UINT64 Reserved : 62;
+    };
+    UINT64 AsUINT64;
+} WHV_PROCESSOR_PERFMON_FEATURES, *PWHV_PROCESSOR_PERFMON_FEATURES;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_PERFMON_FEATURES) == 8);
+
+typedef union WHV_X64_MSR_EXIT_BITMAP {
+    UINT64 AsUINT64;
+    __C89_NAMELESS struct {
+        UINT64 UnhandledMsrs : 1;
+        UINT64 TscMsrWrite : 1;
+        UINT64 TscMsrRead : 1;
+        UINT64 ApicBaseMsrWrite : 1;
+        UINT64 MiscEnableMsrRead : 1;
+        UINT64 McUpdatePatchLevelMsrRead : 1;
+        UINT64 Reserved : 58;
+    };
+} WHV_X64_MSR_EXIT_BITMAP;
+
+C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
+
+#endif  /* defined(__x86_64__) */
+
+typedef enum WHV_MAP_GPA_RANGE_FLAGS {
+    WHvMapGpaRangeFlagNone = 0x00000000,
+    WHvMapGpaRangeFlagRead = 0x00000001,
+    WHvMapGpaRangeFlagWrite = 0x00000002,
+    WHvMapGpaRangeFlagExecute = 0x00000004,
+    WHvMapGpaRangeFlagTrackDirtyPages = 0x00000008
+} WHV_MAP_GPA_RANGE_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(WHV_MAP_GPA_RANGE_FLAGS);
+
+typedef enum WHV_TRANSLATE_GVA_FLAGS {
+    WHvTranslateGvaFlagNone = 0x00000000,
+    WHvTranslateGvaFlagValidateRead = 0x00000001,
+    WHvTranslateGvaFlagValidateWrite = 0x00000002,
+    WHvTranslateGvaFlagValidateExecute = 0x00000004
+#if defined(__x86_64__)
+    ,WHvTranslateGvaFlagPrivilegeExempt = 0x00000008
+#endif
+    ,WHvTranslateGvaFlagSetPageTableBits = 0x00000010
+#if defined(__x86_64__)
+    ,WHvTranslateGvaFlagEnforceSmap = 0x00000100
+    ,WHvTranslateGvaFlagOverrideSmap = 0x00000200
+#endif
+} WHV_TRANSLATE_GVA_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(WHV_TRANSLATE_GVA_FLAGS);
+
+typedef union WHV_TRANSLATE_GVA_2_FLAGS {
+    __C89_NAMELESS struct {
+        UINT64 ValidateRead : 1;
+        UINT64 ValidateWrite : 1;
+        UINT64 ValidateExecute : 1;
+#if defined(__x86_64__)
+        UINT64 PrivilegeExempt : 1;
+#else
+        UINT64 Reserved0 : 1;
+#endif
+        UINT64 SetPageTableBits : 1;
+        UINT64 Reserved1 : 3;
+#if defined(__x86_64__)
+        UINT64 EnforceSmap : 1;
+        UINT64 OverrideSmap : 1;
+#else
+        UINT64 Reserved2 : 1;
+        UINT64 Reserved3 : 1;
+#endif
+        UINT64 Reserved4 : 46;
+        UINT64 InputVtl : 8;
+    };
+    UINT64 AsUINT64;
+} WHV_TRANSLATE_GVA_2_FLAGS;
+
+C_ASSERT(sizeof(WHV_TRANSLATE_GVA_2_FLAGS) == 8);
+
+typedef enum WHV_TRANSLATE_GVA_RESULT_CODE {
+    WHvTranslateGvaResultSuccess = 0,
+    WHvTranslateGvaResultPageNotPresent = 1,
+    WHvTranslateGvaResultPrivilegeViolation = 2,
+    WHvTranslateGvaResultInvalidPageTableFlags = 3,
+    WHvTranslateGvaResultGpaUnmapped = 4,
+    WHvTranslateGvaResultGpaNoReadAccess = 5,
+    WHvTranslateGvaResultGpaNoWriteAccess = 6,
+    WHvTranslateGvaResultGpaIllegalOverlayAccess = 7,
+    WHvTranslateGvaResultIntercept = 8
+} WHV_TRANSLATE_GVA_RESULT_CODE;
+
+typedef struct WHV_TRANSLATE_GVA_RESULT {
+    WHV_TRANSLATE_GVA_RESULT_CODE ResultCode;
+    UINT32 Reserved;
+} WHV_TRANSLATE_GVA_RESULT;
+
+C_ASSERT(sizeof(WHV_TRANSLATE_GVA_RESULT) == 8);
+
+#define WHV_READ_WRITE_GPA_RANGE_MAX_SIZE 16
+
+typedef struct WHV_MEMORY_RANGE_ENTRY {
+    UINT64 GuestAddress;
+    UINT64 SizeInBytes;
+} WHV_MEMORY_RANGE_ENTRY;
+
+C_ASSERT(sizeof(WHV_MEMORY_RANGE_ENTRY) == 16);
+
+typedef union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
+    UINT32 AsUINT32;
+    __C89_NAMELESS struct {
+        UINT32 Prefetch:1;
+        UINT32 AvoidHardFaults:1;
+        UINT32 Reserved:30;
+    };
+} WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS) == 4);
+
+typedef enum WHV_MEMORY_ACCESS_TYPE {
+    WHvMemoryAccessRead = 0,
+    WHvMemoryAccessWrite = 1,
+    WHvMemoryAccessExecute = 2
+} WHV_MEMORY_ACCESS_TYPE;
+
+typedef struct WHV_ADVISE_GPA_RANGE_POPULATE {
+    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS Flags;
+    WHV_MEMORY_ACCESS_TYPE AccessType;
+} WHV_ADVISE_GPA_RANGE_POPULATE;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE) == 8);
+
+typedef union WHV_ADVISE_GPA_RANGE {
+    WHV_ADVISE_GPA_RANGE_POPULATE Populate;
+} WHV_ADVISE_GPA_RANGE;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 8);
+
+typedef enum WHV_CACHE_TYPE {
+    WHvCacheTypeUncached = 0,
+    WHvCacheTypeWriteCombining = 1,
+    WHvCacheTypeWriteThrough = 4,
+#ifdef __x86_64__
+    WHvCacheTypeWriteProtected = 5,
+#endif
+    WHvCacheTypeWriteBack = 6
+} WHV_CACHE_TYPE;
+
+typedef union WHV_ACCESS_GPA_CONTROLS {
+    UINT64 AsUINT64;
+    __C89_NAMELESS struct {
+        WHV_CACHE_TYPE CacheType;
+        WHV_INPUT_VTL InputVtl;
+        UINT8 Reserved;
+        UINT16 Reserved1;
+    };
+} WHV_ACCESS_GPA_CONTROLS;
+
+C_ASSERT(sizeof(WHV_ACCESS_GPA_CONTROLS) == 8);
+
+typedef struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
+    UINT32 IsSupported:1;
+    UINT32 Reserved:31;
+    UINT32 HighestFrequencyMhz;
+    UINT32 NominalFrequencyMhz;
+    UINT32 LowestFrequencyMhz;
+    UINT32 FrequencyStepMhz;
+} WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP;
+
+C_ASSERT(sizeof(WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP) == 20);
+
+typedef union WHV_SCHEDULER_FEATURES {
+    __C89_NAMELESS struct {
+        UINT64 CpuReserve: 1;
+        UINT64 CpuCap: 1;
+        UINT64 CpuWeight: 1;
+        UINT64 CpuGroupId: 1;
+        UINT64 DisableSmt: 1;
+        UINT64 Reserved: 59;
+    };
+    UINT64 AsUINT64;
+} WHV_SCHEDULER_FEATURES;
+
+C_ASSERT(sizeof(WHV_SCHEDULER_FEATURES) == 8);
+
+typedef union WHV_CAPABILITY {
+    WINBOOL HypervisorPresent;
+    WHV_CAPABILITY_FEATURES Features;
+    WHV_EXTENDED_VM_EXITS ExtendedVmExits;
+    WHV_PROCESSOR_VENDOR ProcessorVendor;
+    WHV_PROCESSOR_FEATURES ProcessorFeatures;
+    WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS SyntheticProcessorFeaturesBanks;
+    UINT8 ProcessorClFlushSize;
+    UINT64 ProcessorClockFrequency;
+    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
+    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS GpaRangePopulateFlags;
+    WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP ProcessorFrequencyCap;
+    WHV_SCHEDULER_FEATURES SchedulerFeatures;
+    UINT32 PhysicalAddressWidth;
+    UINT64 NestedFeatureRegister;
+#if defined(__x86_64__)
+    WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
+    UINT64 InterruptClockFrequency;
+    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
+    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
+    UINT64 ExceptionExitBitmap;
+#elif defined (__aarch64__)
+    UINT32 GicLpiIntIdBits;
+    UINT32 MaxSveVectorLength;
+#endif
+} WHV_CAPABILITY;
+
+#if defined(__x86_64__)
+
+typedef struct WHV_X64_CPUID_RESULT {
+    UINT32 Function;
+    UINT32 Reserved[3];
+    UINT32 Eax;
+    UINT32 Ebx;
+    UINT32 Ecx;
+    UINT32 Edx;
+} WHV_X64_CPUID_RESULT;
+
+C_ASSERT(sizeof(WHV_X64_CPUID_RESULT) == 32);
+
+typedef enum WHV_X64_CPUID_RESULT2_FLAGS {
+    WHvX64CpuidResult2FlagSubleafSpecific = 0x00000001,
+    WHvX64CpuidResult2FlagVpSpecific = 0x00000002
+} WHV_X64_CPUID_RESULT2_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(WHV_X64_CPUID_RESULT2_FLAGS);
+
+typedef struct WHV_CPUID_OUTPUT {
+    UINT32 Eax;
+    UINT32 Ebx;
+    UINT32 Ecx;
+    UINT32 Edx;
+} WHV_CPUID_OUTPUT;
+
+C_ASSERT(sizeof(WHV_CPUID_OUTPUT) == 16);
+
+typedef struct WHV_X64_CPUID_RESULT2 {
+    UINT32 Function;
+    UINT32 Index;
+    UINT32 VpIndex;
+    WHV_X64_CPUID_RESULT2_FLAGS Flags;
+    WHV_CPUID_OUTPUT Output;
+    WHV_CPUID_OUTPUT Mask;
+} WHV_X64_CPUID_RESULT2;
+
+C_ASSERT(sizeof(WHV_X64_CPUID_RESULT2) == 48);
+
+typedef struct WHV_MSR_ACTION_ENTRY {
+    UINT32 Index;
+    UINT8 ReadAction;
+    UINT8 WriteAction;
+    UINT16 Reserved;
+} WHV_MSR_ACTION_ENTRY;
+
+C_ASSERT(sizeof(WHV_MSR_ACTION_ENTRY) == 8);
+
+typedef enum WHV_MSR_ACTION {
+    WHvMsrActionArchitectureDefault = 0,
+    WHvMsrActionIgnoreWriteReadZero = 1,
+    WHvMsrActionExit = 2
+} WHV_MSR_ACTION;
+
+typedef enum WHV_EXCEPTION_TYPE {
+    WHvX64ExceptionTypeDivideErrorFault = 0x0,
+    WHvX64ExceptionTypeDebugTrapOrFault = 0x1,
+    WHvX64ExceptionTypeBreakpointTrap = 0x3,
+    WHvX64ExceptionTypeOverflowTrap = 0x4,
+    WHvX64ExceptionTypeBoundRangeFault = 0x5,
+    WHvX64ExceptionTypeInvalidOpcodeFault = 0x6,
+    WHvX64ExceptionTypeDeviceNotAvailableFault = 0x7,
+    WHvX64ExceptionTypeDoubleFaultAbort = 0x8,
+    WHvX64ExceptionTypeInvalidTaskStateSegmentFault = 0x0A,
+    WHvX64ExceptionTypeSegmentNotPresentFault = 0x0B,
+    WHvX64ExceptionTypeStackFault = 0x0C,
+    WHvX64ExceptionTypeGeneralProtectionFault = 0x0D,
+    WHvX64ExceptionTypePageFault = 0x0E,
+    WHvX64ExceptionTypeFloatingPointErrorFault = 0x10,
+    WHvX64ExceptionTypeAlignmentCheckFault = 0x11,
+    WHvX64ExceptionTypeMachineCheckAbort = 0x12,
+    WHvX64ExceptionTypeSimdFloatingPointFault = 0x13,
+    WHvX64ExceptionTypeControlProtectionFault = 0x15
+} WHV_EXCEPTION_TYPE;
+
+typedef enum WHV_X64_LOCAL_APIC_EMULATION_MODE {
+    WHvX64LocalApicEmulationModeNone,
+    WHvX64LocalApicEmulationModeXApic,
+    WHvX64LocalApicEmulationModeX2Apic
+} WHV_X64_LOCAL_APIC_EMULATION_MODE;
+
+#elif defined(__aarch64__)
+
+typedef enum WHV_ARM64_IC_EMULATION_MODE {
+    WHvArm64IcEmulationModeNone = 0,
+    WHvArm64IcEmulationModeGicV3
+} WHV_ARM64_IC_EMULATION_MODE;
+
+typedef UINT32 WHV_ARM64_INTERRUPT_VECTOR;
+
+typedef struct WHV_ARM64_IC_GIC_V3_PARAMETERS {
+    WHV_GUEST_PHYSICAL_ADDRESS GicdBaseAddress;
+    WHV_GUEST_PHYSICAL_ADDRESS GitsTranslaterBaseAddress;
+    UINT32 Reserved;
+    UINT32 GicLpiIntIdBits;
+    WHV_ARM64_INTERRUPT_VECTOR GicPpiOverflowInterruptFromCntv;
+    WHV_ARM64_INTERRUPT_VECTOR GicPpiPerformanceMonitorsInterrupt;
+    UINT32 Reserved1[6];
+} WHV_ARM64_IC_GIC_V3_PARAMETERS;
+
+C_ASSERT(sizeof(WHV_ARM64_IC_GIC_V3_PARAMETERS) == 56);
+
+typedef struct WHV_ARM64_IC_PARAMETERS {
+    WHV_ARM64_IC_EMULATION_MODE EmulationMode;
+    UINT32 Reserved;
+    __C89_NAMELESS union {
+        WHV_ARM64_IC_GIC_V3_PARAMETERS GicV3Parameters;
+    };
+} WHV_ARM64_IC_PARAMETERS;
+
+C_ASSERT(sizeof(WHV_ARM64_IC_PARAMETERS) == 64);
+
+#endif  /* defined(__x86_64__) || defined(__aarch64__) */
+
+typedef union WHV_PARTITION_PROPERTY {
+    WHV_EXTENDED_VM_EXITS ExtendedVmExits;
+    WHV_PROCESSOR_FEATURES ProcessorFeatures;
+    WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS SyntheticProcessorFeaturesBanks;
+    UINT8 ProcessorClFlushSize;
+    UINT32 ProcessorCount;
+    WINBOOL SeparateSecurityDomain;
+    WINBOOL NestedVirtualization;
+    UINT64 ProcessorClockFrequency;
+    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
+    UINT64 ReferenceTime;
+    USHORT PrimaryNumaNode;
+    UINT32 CpuReserve;
+    UINT32 CpuCap;
+    UINT32 CpuWeight;
+    UINT64 CpuGroupId;
+    UINT32 ProcessorFrequencyCap;
+    WINBOOL AllowDeviceAssignment;
+    WINBOOL DisableSmt;
+    UINT32 PhysicalAddressWidth;
+#if defined(__x86_64__)
+    WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
+    UINT32 CpuidExitList[1];
+    UINT64 ExceptionExitBitmap;
+    WINBOOL ApicRemoteRead;
+    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
+    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
+    UINT64 InterruptClockFrequency;
+    WHV_X64_CPUID_RESULT CpuidResultList[1];
+    WHV_X64_CPUID_RESULT2 CpuidResultList2[1];
+    WHV_MSR_ACTION_ENTRY MsrActionList[1];
+    WHV_MSR_ACTION UnimplementedMsrAction;
+    WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
+#elif defined(__aarch64__)
+    WHV_ARM64_IC_PARAMETERS Arm64IcParameters;
+#endif
+} WHV_PARTITION_PROPERTY;
 
 #if defined(__x86_64__)
 
@@ -2458,83 +2530,11 @@ C_ASSERT(sizeof(WHV_X64_APIC_SMI_CONTEXT) == 8);
 
 #endif  /* defined(__x86_64__) */
 
-typedef UINT8 WHV_VTL;
-
-#define WHV_VTL_ALL 0xF
-
-typedef union WHV_INPUT_VTL {
-    UINT8 AsUINT8;
-    __C89_NAMELESS struct {
-        UINT8 TargetVtl : 4;
-        UINT8 UseTargetVtl : 1;
-        UINT8 Reserved : 3;
-    };
-} WHV_INPUT_VTL;
-
-typedef union WHV_ENABLE_PARTITION_VTL_FLAGS {
-    UINT8 AsUINT8;
-    __C89_NAMELESS struct {
-        UINT8 EnableMbec : 1;
-        UINT8 EnableSupervisorShadowStack : 1;
-        UINT8 EnableHardwareHvpt : 1;
-        UINT8 Reserved : 5;
-    };
-} WHV_ENABLE_PARTITION_VTL_FLAGS;
-
-typedef union WHV_DISABLE_PARTITION_VTL_FLAGS {
-    UINT8 AsUINT8;
-    __C89_NAMELESS struct {
-        UINT8 ScrubOnly : 1;
-        UINT8 Reserved : 7;
-    };
-} WHV_DISABLE_PARTITION_VTL_FLAGS;
-
-typedef struct WHV_INITIAL_VP_CONTEXT {
-#if defined(__aarch64__)
-    UINT64 Pc;
-    UINT64 Sp_ELh;
-    UINT64 SCTLR_EL1;
-    UINT64 MAIR_EL1;
-    UINT64 TCR_EL1;
-    UINT64 VBAR_EL1;
-    UINT64 TTBR0_EL1;
-    UINT64 TTBR1_EL1;
-    UINT64 X18;
-#else
-    UINT64 Rip;
-    UINT64 Rsp;
-    UINT64 Rflags;
-    WHV_X64_SEGMENT_REGISTER Cs;
-    WHV_X64_SEGMENT_REGISTER Ds;
-    WHV_X64_SEGMENT_REGISTER Es;
-    WHV_X64_SEGMENT_REGISTER Fs;
-    WHV_X64_SEGMENT_REGISTER Gs;
-    WHV_X64_SEGMENT_REGISTER Ss;
-    WHV_X64_SEGMENT_REGISTER Tr;
-    WHV_X64_SEGMENT_REGISTER Ldtr;
-    WHV_X64_TABLE_REGISTER Idtr;
-    WHV_X64_TABLE_REGISTER Gdtr;
-    UINT64 Efer;
-    UINT64 Cr0;
-    UINT64 Cr3;
-    UINT64 Cr4;
-    UINT64 MsrCrPat;
-#endif
-} WHV_INITIAL_VP_CONTEXT;
-
-typedef union WHV_DISABLE_VP_VTL_FLAGS {
-    UINT8 AsUINT8;
-    __C89_NAMELESS struct {
-        UINT8 ScrubOnly : 1;
-        UINT8 Reserved : 7;
-    };
-} WHV_DISABLE_VP_VTL_FLAGS;
-
 #if defined(__x86_64__)
 
 #define WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS 6
 
-typedef struct _WHV_HYPERCALL_CONTEXT {
+typedef struct WHV_X64_HYPERCALL_CONTEXT {
     UINT64 Rax;
     UINT64 Rbx;
     UINT64 Rcx;
@@ -2545,7 +2545,7 @@ typedef struct _WHV_HYPERCALL_CONTEXT {
     UINT64 Reserved0;
     WHV_UINT128 XmmRegisters[WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS];
     UINT64 Reserved1[2];
-} WHV_HYPERCALL_CONTEXT, *PWHV_HYPERCALL_CONTEXT;
+} WHV_X64_HYPERCALL_CONTEXT, WHV_HYPERCALL_CONTEXT, *PWHV_HYPERCALL_CONTEXT;
 
 C_ASSERT(sizeof(WHV_HYPERCALL_CONTEXT) == 176);
 
@@ -2590,7 +2590,11 @@ C_ASSERT(sizeof(WHV_X64_APIC_WRITE_CONTEXT) == 16);
 typedef struct WHV_RUN_VP_EXIT_CONTEXT {
     WHV_RUN_VP_EXIT_REASON ExitReason;
     UINT32 Reserved;
+#if defined(__x86_64__)
     WHV_VP_EXIT_CONTEXT VpContext;
+#elif defined(__aarch64__)
+    UINT64 Reserved1;
+#endif
     __C89_NAMELESS union {
         WHV_MEMORY_ACCESS_CONTEXT MemoryAccess;
         WHV_RUN_VP_CANCELED_CONTEXT CancelReason;
@@ -2615,7 +2619,7 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT {
         WHV_REGISTER_CONTEXT Register;
         WHV_ARM64_RESET_CONTEXT Arm64Reset;
         UINT64 AsUINT64[32];
-#endif  /* defined(__x86_64__) || defined(__aarch64__) */
+#endif
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
 
