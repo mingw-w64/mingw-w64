@@ -166,16 +166,6 @@ typedef unsigned pthread_key_t;
 typedef void *pthread_barrierattr_t;
 typedef int pthread_condattr_t;
 typedef int pthread_rwlockattr_t;
-
-/*
-struct _pthread_v;
-
-typedef struct pthread_t {
-  struct _pthread_v *p;
-  int x;
-} pthread_t;
-*/
-
 typedef uintptr_t pthread_t;
 
 typedef struct _pthread_cleanup _pthread_cleanup;
