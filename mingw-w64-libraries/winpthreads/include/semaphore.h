@@ -29,9 +29,6 @@
 extern "C" {
 #endif
 
-/* Set this to 0 to disable it */
-#define USE_SEM_CriticalSection_SpinCount	100
-
 #define SEM_VALUE_MAX   INT_MAX
 
 typedef void		*sem_t;
