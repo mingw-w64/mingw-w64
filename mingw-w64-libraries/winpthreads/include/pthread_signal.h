@@ -23,6 +23,16 @@
 #ifndef WIN_PTHREADS_SIGNAL_H
 #define WIN_PTHREADS_SIGNAL_H
 
+#ifndef SIG_BLOCK
+#define SIG_BLOCK 0
+#endif
+#ifndef SIG_UNBLOCK
+#define SIG_UNBLOCK 1
+#endif
+#ifndef SIG_SETMASK
+#define SIG_SETMASK 2
+#endif
+
 /* Windows has rudimentary signals support.  */
 #define pthread_sigmask(H, S1, S2) 0
 
