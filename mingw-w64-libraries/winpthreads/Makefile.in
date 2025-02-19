@@ -94,8 +94,6 @@ host_triplet = @host@
 @MSVC_TRUE@am__append_2 = -D_CRT_NONSTDC_NO_WARNINGS
 @MSVC_FALSE@am__append_3 = -D__USE_MINGW_ANSI_STDIO=0
 @MSVC_FALSE@am__append_4 = -L$(builddir)/fakelib -Wc,-no-pthread
-@COPY_STATIC_TRUE@am__append_5 = libpthread.a
-@COPY_SHARED_TRUE@am__append_6 = libpthread.dll.a
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -112,6 +110,7 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
+LIBRARIES = $(noinst_LIBRARIES)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -139,9 +138,7 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(libdir)" \
-	"$(DESTDIR)$(includedir)"
-LIBRARIES = $(lib_LIBRARIES) $(noinst_LIBRARIES)
+am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 ARFLAGS = cru
 AM_V_AR = $(am__v_AR_@AM_V@)
@@ -165,12 +162,6 @@ fakelib_libgcc_s_a_AR = $(AR) $(ARFLAGS)
 fakelib_libgcc_s_a_LIBADD =
 am_fakelib_libgcc_s_a_OBJECTS =
 fakelib_libgcc_s_a_OBJECTS = $(am_fakelib_libgcc_s_a_OBJECTS)
-libpthread_a_LIBADD =
-am_libpthread_a_OBJECTS =
-libpthread_a_OBJECTS = $(am_libpthread_a_OBJECTS)
-libpthread_dll_a_LIBADD =
-am_libpthread_dll_a_OBJECTS =
-libpthread_dll_a_OBJECTS = $(am_libpthread_dll_a_OBJECTS)
 libwinpthread_la_LIBADD =
 am_libwinpthread_la_OBJECTS = src/libwinpthread_la-barrier.lo \
 	src/libwinpthread_la-cond.lo src/libwinpthread_la-misc.lo \
@@ -248,11 +239,9 @@ am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(fakelib_libgcc_a_SOURCES) $(fakelib_libgcc_eh_a_SOURCES) \
-	$(fakelib_libgcc_s_a_SOURCES) $(libpthread_a_SOURCES) \
-	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
+	$(fakelib_libgcc_s_a_SOURCES) $(libwinpthread_la_SOURCES)
 DIST_SOURCES = $(am__fakelib_libgcc_a_SOURCES_DIST) \
 	$(fakelib_libgcc_eh_a_SOURCES) $(fakelib_libgcc_s_a_SOURCES) \
-	$(libpthread_a_SOURCES) $(libpthread_dll_a_SOURCES) \
 	$(libwinpthread_la_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
@@ -396,7 +385,6 @@ LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
-LT_OBJDIR = @LT_OBJDIR@
 LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
@@ -498,17 +486,6 @@ libwinpthread_la_SOURCES = \
 @MSVC_FALSE@fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 @MSVC_FALSE@fakelib_libgcc_s_a_SOURCES = 
 @MSVC_FALSE@fakelib_libgcc_eh_a_SOURCES = 
-lib_LIBRARIES = $(am__append_5) $(am__append_6)
-@COPY_STATIC_TRUE@libpthread_a_SOURCES = 
-@COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
-#FIXME: Use cp kludge until a better method presents itself
-#libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
-@COPY_STATIC_TRUE@libpthread_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.a
-@COPY_SHARED_TRUE@libpthread_dll_a_SOURCES = 
-@COPY_SHARED_TRUE@libpthread_dll_a_DEPENDENCIES = libwinpthread.la
-#FIXME: Use cp kludge until a better method presents itself
-#libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
-@COPY_SHARED_TRUE@libpthread_dll_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.dll.a
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -563,37 +540,6 @@ $(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-install-libLIBRARIES: $(lib_LIBRARIES)
-	@$(NORMAL_INSTALL)
-	@list='$(lib_LIBRARIES)'; test -n "$(libdir)" || list=; \
-	list2=; for p in $$list; do \
-	  if test -f $$p; then \
-	    list2="$$list2 $$p"; \
-	  else :; fi; \
-	done; \
-	test -z "$$list2" || { \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(libdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(libdir)" || exit 1; \
-	  echo " $(INSTALL_DATA) $$list2 '$(DESTDIR)$(libdir)'"; \
-	  $(INSTALL_DATA) $$list2 "$(DESTDIR)$(libdir)" || exit $$?; }
-	@$(POST_INSTALL)
-	@list='$(lib_LIBRARIES)'; test -n "$(libdir)" || list=; \
-	for p in $$list; do \
-	  if test -f $$p; then \
-	    $(am__strip_dir) \
-	    echo " ( cd '$(DESTDIR)$(libdir)' && $(RANLIB) $$f )"; \
-	    ( cd "$(DESTDIR)$(libdir)" && $(RANLIB) $$f ) || exit $$?; \
-	  else :; fi; \
-	done
-
-uninstall-libLIBRARIES:
-	@$(NORMAL_UNINSTALL)
-	@list='$(lib_LIBRARIES)'; test -n "$(libdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(libdir)'; $(am__uninstall_files_from_dir)
-
-clean-libLIBRARIES:
-	-test -z "$(lib_LIBRARIES)" || rm -f $(lib_LIBRARIES)
 
 clean-noinstLIBRARIES:
 	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
@@ -660,16 +606,6 @@ fakelib/libgcc_s.a: $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_DEPENDENC
 	$(AM_V_at)-rm -f fakelib/libgcc_s.a
 	$(AM_V_AR)$(fakelib_libgcc_s_a_AR) fakelib/libgcc_s.a $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_LIBADD)
 	$(AM_V_at)$(RANLIB) fakelib/libgcc_s.a
-
-libpthread.a: $(libpthread_a_OBJECTS) $(libpthread_a_DEPENDENCIES) $(EXTRA_libpthread_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libpthread.a
-	$(AM_V_AR)$(libpthread_a_AR) libpthread.a $(libpthread_a_OBJECTS) $(libpthread_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libpthread.a
-
-libpthread.dll.a: $(libpthread_dll_a_OBJECTS) $(libpthread_dll_a_DEPENDENCIES) $(EXTRA_libpthread_dll_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libpthread.dll.a
-	$(AM_V_AR)$(libpthread_dll_a_AR) libpthread.dll.a $(libpthread_dll_a_OBJECTS) $(libpthread_dll_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libpthread.dll.a
 src/$(am__dirstamp):
 	@$(MKDIR_P) src
 	@: > src/$(am__dirstamp)
@@ -1205,7 +1141,7 @@ check: check-recursive
 all-am: Makefile $(LIBRARIES) $(LTLIBRARIES) $(HEADERS) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -1245,8 +1181,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-recursive
 
-clean-am: clean-generic clean-libLIBRARIES clean-libLTLIBRARIES \
-	clean-libtool clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
+	clean-noinstLIBRARIES mostlyclean-am
 
 distclean: distclean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -1286,8 +1222,9 @@ install-dvi: install-dvi-recursive
 
 install-dvi-am:
 
-install-exec-am: install-libLIBRARIES install-libLTLIBRARIES
-
+install-exec-am: install-libLTLIBRARIES
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) install-exec-hook
 install-html: install-html-recursive
 
 install-html-am:
@@ -1341,31 +1278,32 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-includeHEADERS uninstall-libLIBRARIES \
-	uninstall-libLTLIBRARIES
-
-.MAKE: $(am__recursive_targets) all install-am install-strip
+uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) uninstall-hook
+.MAKE: $(am__recursive_targets) all install-am install-exec-am \
+	install-strip uninstall-am
 
 .PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
 	am--depfiles am--refresh check check-am clean clean-cscope \
-	clean-generic clean-libLIBRARIES clean-libLTLIBRARIES \
-	clean-libtool clean-noinstLIBRARIES cscope cscopelist-am ctags \
-	ctags-am dist dist-all dist-bzip2 dist-gzip dist-lzip \
-	dist-shar dist-tarZ dist-xz dist-zip dist-zstd distcheck \
-	distclean distclean-compile distclean-generic distclean-hdr \
+	clean-generic clean-libLTLIBRARIES clean-libtool \
+	clean-noinstLIBRARIES cscope cscopelist-am ctags ctags-am dist \
+	dist-all dist-bzip2 dist-gzip dist-lzip dist-shar dist-tarZ \
+	dist-xz dist-zip dist-zstd distcheck distclean \
+	distclean-compile distclean-generic distclean-hdr \
 	distclean-libtool distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
 	install install-am install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-includeHEADERS install-info \
-	install-info-am install-libLIBRARIES install-libLTLIBRARIES \
+	install-dvi-am install-exec install-exec-am install-exec-hook \
+	install-html install-html-am install-includeHEADERS \
+	install-info install-info-am install-libLTLIBRARIES \
 	install-man install-pdf install-pdf-am install-ps \
 	install-ps-am install-strip installcheck installcheck-am \
 	installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-am uninstall uninstall-am uninstall-includeHEADERS \
-	uninstall-libLIBRARIES uninstall-libLTLIBRARIES
+	tags tags-am uninstall uninstall-am uninstall-hook \
+	uninstall-includeHEADERS uninstall-libLTLIBRARIES
 
 .PRECIOUS: Makefile
 
@@ -1373,6 +1311,30 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLIBRARIES \
 # Tell libtool how to use the resource compiler
 .rc.lo:
 	$(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --tag=RC --mode=compile $(RC) $(RCFLAGS) -i $< -o $@
+
+# Handle -lpthread alias when installing
+install-exec-hook:
+	. $(builddir)/libwinpthread.la; \
+	if test -n "$${library_names}"; then \
+		alias=$$(printf %s "$${library_names}" | $(SED) 's|winpthread|pthread|'); \
+		$(INSTALL_DATA) $(DESTDIR)$(libdir)/$${library_names} $(DESTDIR)$(libdir)/$${alias}; \
+	fi; \
+	if test -n "$${old_library}"; then \
+		alias=$$(printf %s "$${old_library}" | $(SED) 's|winpthread|pthread|'); \
+		$(INSTALL_DATA) $(DESTDIR)$(libdir)/$${old_library} $(DESTDIR)$(libdir)/$${alias}; \
+	fi
+
+# Likewise when uninstalling
+uninstall-hook:
+	. $(builddir)/libwinpthread.la; \
+	if test -n "$${library_names}"; then \
+		alias=$$(printf %s "$${library_names}" | $(SED) 's|winpthread|pthread|'); \
+		rm -f $(DESTDIR)$(libdir)/$${alias}; \
+	fi; \
+	if test -n "$${old_library}"; then \
+		alias=$$(printf %s "$${old_library}" | $(SED) 's|winpthread|pthread|'); \
+		rm -f $(DESTDIR)$(libdir)/$${alias}; \
+	fi
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

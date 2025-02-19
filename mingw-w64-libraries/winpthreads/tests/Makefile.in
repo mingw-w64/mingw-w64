@@ -87,6 +87,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+@MSVC_FALSE@am__append_1 = -L$(top_builddir)/fakelib
 check_PROGRAMS = t_clock_getres$(EXEEXT) t_clock_gettime$(EXEEXT) \
 	t_clock_nanosleep$(EXEEXT) t_clock_settime$(EXEEXT) \
 	t_nanosleep$(EXEEXT)
@@ -441,7 +442,6 @@ LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
-LT_OBJDIR = @LT_OBJDIR@
 LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
@@ -523,7 +523,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/include
-AM_LDFLAGS = -L$(top_builddir)/fakelib -L$(top_builddir) -lwinpthread -static
+AM_LDFLAGS = $(am__append_1) -L$(top_builddir) -lwinpthread -static
 TESTS = $(check_PROGRAMS)
 all: all-am
 
