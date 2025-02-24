@@ -1,4 +1,4 @@
-#define __NO_CTYPE_LINES
+#define _CTYPE_DISABLE_MACROS
 #include <ctype.h>
 
 int __cdecl isblank (int _C)
