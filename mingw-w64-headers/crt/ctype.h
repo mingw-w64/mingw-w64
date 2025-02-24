@@ -111,10 +111,8 @@ extern "C" {
   _CRTIMP int __cdecl __toascii(int _C);
   _CRTIMP int __cdecl __iscsymf(int _C);
   _CRTIMP int __cdecl __iscsym(int _C);
-
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || !defined (NO_OLDNAMES) || defined (__cplusplus)
-int __cdecl isblank(int _C);
-#endif
+  _CRTIMP int __cdecl isblank(int _C);
+  _CRTIMP int __cdecl _isblank_l(int _C,_locale_t _Locale);
 #endif
 
 #ifndef _WCTYPE_DEFINED
@@ -140,6 +138,7 @@ int __cdecl isblank(int _C);
   _CRTIMP int __cdecl iswctype(wint_t _C,wctype_t _Type);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
+  _CRTIMP int __cdecl iswblank(wint_t _C);
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
   /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
    * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
@@ -160,6 +159,7 @@ int __cdecl isblank(int _C);
   _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
 # endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswblank_l(wint_t _C,_locale_t _Locale);
 #endif
 #if __MSVCRT_VERSION__ >= 0x800
   /* These are only available since msvcr80.dll, never in msvcrt.dll. */
@@ -169,10 +169,6 @@ int __cdecl isblank(int _C);
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || !defined (NO_OLDNAMES) || defined (__cplusplus)
-int __cdecl iswblank(wint_t _C);
-#endif
 #endif
 
 #ifndef _CTYPE_DISABLE_MACROS
@@ -204,6 +200,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _isprint_l(_Char,_Locale) _ischartype_l(_Char,_BLANK|_PUNCT|_ALPHA|_DIGIT,_Locale)
 #define _isgraph_l(_Char,_Locale) _ischartype_l(_Char,_PUNCT|_ALPHA|_DIGIT,_Locale)
 #define _iscntrl_l(_Char,_Locale) _ischartype_l(_Char,_CONTROL,_Locale)
+#define _isblank_l(_Char,_Locale) (((_Char) == '\t') || _ischartype_l(_Char,_BLANK,_Locale))
 #define _tolower(_Char) ((_Char)-'A'+'a')
 #define _toupper(_Char) ((_Char)-'a'+'A')
 #define __isascii(_Char) ((unsigned)(_Char) < 0x80)
@@ -226,6 +223,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define iswgraph(_c) (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
 #define iswcntrl(_c) (iswctype(_c,_CONTROL))
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
+#define iswblank(_c) (((_c) == '\t') || iswctype(_c,_BLANK))
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
 # define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
 # define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
@@ -238,6 +236,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 # define _iswprint_l(_c,_p) (_iswctype_l(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT,_p))
 # define _iswgraph_l(_c,_p) (_iswctype_l(_c,_PUNCT|_ALPHA|_DIGIT,_p))
 # define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
+# define _iswblank_l(_c,_p) (((_c) == '\t') || _iswctype_l(_c,_BLANK,_p))
 #endif  /* __MSVCRT_VERSION__ >= 0x800 */
 #endif
 #endif
