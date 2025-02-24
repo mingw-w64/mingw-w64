@@ -472,6 +472,8 @@ extern "C" {
 #define _istupper_l _iswupper_l
 #define _istxdigit iswxdigit
 #define _istxdigit_l _iswxdigit_l
+#define _istblank iswblank
+#define _istblank_l _iswblank_l
 
 #define _totupper towupper
 #define _totupper_l _towupper_l
@@ -1000,6 +1002,8 @@ extern "C" {
 #define _istspace_l _ismbcspace_l
 #define _istupper _ismbcupper
 #define _istupper_l _ismbcupper_l
+#define _istblank _ismbcblank
+#define _istblank_l _ismbcblank_l
 
 #define _totupper _mbctoupper
 #define _totupper_l _mbctoupper_l
@@ -1137,6 +1141,8 @@ extern "C" {
 #define _istspace_l _isspace_l
 #define _istupper isupper
 #define _istupper_l _isupper_l
+#define _istblank isblank
+#define _istblank_l _isblank_l
 
 #define _totupper toupper
 #define _totupper_l _toupper_l
