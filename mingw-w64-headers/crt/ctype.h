@@ -77,42 +77,42 @@ extern "C" {
 #ifndef _CTYPE_DEFINED
 #define _CTYPE_DEFINED
 
-  _CRTIMP int __cdecl _isctype(int _C,int _Type);
-  _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
   _CRTIMP int __cdecl isalpha(int _C);
-  _CRTIMP int __cdecl _isalpha_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isupper(int _C);
-  _CRTIMP int __cdecl _isupper_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl islower(int _C);
-  _CRTIMP int __cdecl _islower_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isdigit(int _C);
-  _CRTIMP int __cdecl _isdigit_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isxdigit(int _C);
-  _CRTIMP int __cdecl _isxdigit_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isspace(int _C);
-  _CRTIMP int __cdecl _isspace_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl ispunct(int _C);
-  _CRTIMP int __cdecl _ispunct_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isalnum(int _C);
-  _CRTIMP int __cdecl _isalnum_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isprint(int _C);
-  _CRTIMP int __cdecl _isprint_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl isgraph(int _C);
-  _CRTIMP int __cdecl _isgraph_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl iscntrl(int _C);
-  _CRTIMP int __cdecl _iscntrl_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl toupper(int _C);
+  _CRTIMP int __cdecl _toupper(int _C);
   _CRTIMP int __cdecl tolower(int _C);
   _CRTIMP int __cdecl _tolower(int _C);
   _CRTIMP int __cdecl _tolower_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _toupper(int _C);
+  _CRTIMP int __cdecl _isctype(int _C,int _Type);
+  _CRTIMP int __cdecl isblank(int _C);
+  _CRTIMP int __cdecl _isalpha_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isupper_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _islower_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isdigit_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isxdigit_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isspace_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _ispunct_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isalnum_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isprint_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isgraph_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iscntrl_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl _toupper_l(int _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
+  _CRTIMP int __cdecl _isblank_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl __isascii(int _C);
   _CRTIMP int __cdecl __toascii(int _C);
   _CRTIMP int __cdecl __iscsymf(int _C);
   _CRTIMP int __cdecl __iscsym(int _C);
-  _CRTIMP int __cdecl isblank(int _C);
-  _CRTIMP int __cdecl _isblank_l(int _C,_locale_t _Locale);
 #endif
 
 #ifndef _WCTYPE_DEFINED
