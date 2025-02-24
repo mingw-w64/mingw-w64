@@ -86,32 +86,63 @@ extern "C" {
 #ifndef _WCTYPE_DEFINED
 #define _WCTYPE_DEFINED
 
-  int __cdecl iswalpha(wint_t);
-  int __cdecl iswupper(wint_t);
-  int __cdecl iswlower(wint_t);
-  int __cdecl iswdigit(wint_t);
-  int __cdecl iswxdigit(wint_t);
-  int __cdecl iswspace(wint_t);
-  int __cdecl iswpunct(wint_t);
-  int __cdecl iswalnum(wint_t);
-  int __cdecl iswprint(wint_t);
-  int __cdecl iswgraph(wint_t);
-  int __cdecl iswcntrl(wint_t);
-  int __cdecl iswascii(wint_t);
-  int __cdecl isleadbyte(int);
-  wint_t __cdecl towupper(wint_t);
-  wint_t __cdecl towlower(wint_t);
-  int __cdecl iswctype(wint_t,wctype_t);
-  _CRTIMP int __cdecl __iswcsymf(wint_t);
-  _CRTIMP int __cdecl __iswcsym(wint_t);
-  int __cdecl is_wctype(wint_t,wctype_t);
-#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || !defined (NO_OLDNAMES) || defined (__cplusplus)
-int __cdecl iswblank(wint_t _C);
+  _CRTIMP int __cdecl iswalpha(wint_t _C);
+  _CRTIMP int __cdecl iswupper(wint_t _C);
+  _CRTIMP int __cdecl iswlower(wint_t _C);
+  _CRTIMP int __cdecl iswdigit(wint_t _C);
+  _CRTIMP int __cdecl iswxdigit(wint_t _C);
+  _CRTIMP int __cdecl iswspace(wint_t _C);
+  _CRTIMP int __cdecl iswpunct(wint_t _C);
+  _CRTIMP int __cdecl iswalnum(wint_t _C);
+  _CRTIMP int __cdecl iswprint(wint_t _C);
+  _CRTIMP int __cdecl iswgraph(wint_t _C);
+  _CRTIMP int __cdecl iswcntrl(wint_t _C);
+  _CRTIMP int __cdecl iswascii(wint_t _C);
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP int __cdecl isleadbyte(int _C);
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+  _CRTIMP wint_t __cdecl towupper(wint_t _C);
+  _CRTIMP wint_t __cdecl towlower(wint_t _C);
+  _CRTIMP int __cdecl iswctype(wint_t _C,wctype_t _Type);
+  _CRTIMP int __cdecl __iswcsymf(wint_t _C);
+  _CRTIMP int __cdecl __iswcsym(wint_t _C);
+  _CRTIMP int __cdecl iswblank(wint_t _C);
+#if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
+  /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
+   * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
+  _CRTIMP int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswdigit_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswxdigit_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswspace_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswpunct_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswalnum_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswprint_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswgraph_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswcntrl_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
+# ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
+# endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+  _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswblank_l(wint_t _C,_locale_t _Locale);
 #endif
+#if __MSVCRT_VERSION__ >= 0x800
+  /* These are only available since msvcr80.dll, never in msvcrt.dll. */
+  _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
+  _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
+#endif
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 #endif
 
 #ifndef _WCTYPE_INLINE_DEFINED
 #define _WCTYPE_INLINE_DEFINED
+
+#undef _CRT_WCTYPE_NOINLINE
 #ifndef __cplusplus
 #define iswalpha(_c) (iswctype(_c,_ALPHA))
 #define iswupper(_c) (iswctype(_c,_UPPER))
@@ -125,24 +156,22 @@ int __cdecl iswblank(wint_t _C);
 #define iswgraph(_c) (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
 #define iswcntrl(_c) (iswctype(_c,_CONTROL))
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
-#define isleadbyte(c) (__pctype_func()[(unsigned char)(c)] & _LEADBYTE)
-#else
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE int __cdecl iswalpha(wint_t _C) {return (iswctype(_C,_ALPHA)); }
-  __CRT_INLINE int __cdecl iswupper(wint_t _C) {return (iswctype(_C,_UPPER)); }
-  __CRT_INLINE int __cdecl iswlower(wint_t _C) {return (iswctype(_C,_LOWER)); }
-  __CRT_INLINE int __cdecl iswdigit(wint_t _C) {return (iswctype(_C,_DIGIT)); }
-  __CRT_INLINE int __cdecl iswxdigit(wint_t _C) {return (iswctype(_C,_HEX)); }
-  __CRT_INLINE int __cdecl iswspace(wint_t _C) {return (iswctype(_C,_SPACE)); }
-  __CRT_INLINE int __cdecl iswpunct(wint_t _C) {return (iswctype(_C,_PUNCT)); }
-  __CRT_INLINE int __cdecl iswalnum(wint_t _C) {return (iswctype(_C,_ALPHA|_DIGIT)); }
-  __CRT_INLINE int __cdecl iswprint(wint_t _C) {return (iswctype(_C,_BLANK|_PUNCT|_ALPHA|_DIGIT)); }
-  __CRT_INLINE int __cdecl iswgraph(wint_t _C) {return (iswctype(_C,_PUNCT|_ALPHA|_DIGIT)); }
-  __CRT_INLINE int __cdecl iswcntrl(wint_t _C) {return (iswctype(_C,_CONTROL)); }
-  __CRT_INLINE int __cdecl iswascii(wint_t _C) {return ((unsigned)(_C) < 0x80); }
-  __CRT_INLINE int __cdecl isleadbyte(int _C) {return (__pctype_func()[(unsigned char)(_C)] & _LEADBYTE); }
-#endif /* !__CRT__NO_INLINE */
-#endif /* __cplusplus */
+#define iswblank(_c) (((_c) == '\t') || iswctype(_c,_BLANK))
+#if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
+# define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
+# define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
+# define _iswlower_l(_c,_p) (_iswctype_l(_c,_LOWER,_p))
+# define _iswdigit_l(_c,_p) (_iswctype_l(_c,_DIGIT,_p))
+# define _iswxdigit_l(_c,_p) (_iswctype_l(_c,_HEX,_p))
+# define _iswspace_l(_c,_p) (_iswctype_l(_c,_SPACE,_p))
+# define _iswpunct_l(_c,_p) (_iswctype_l(_c,_PUNCT,_p))
+# define _iswalnum_l(_c,_p) (_iswctype_l(_c,_ALPHA|_DIGIT,_p))
+# define _iswprint_l(_c,_p) (_iswctype_l(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT,_p))
+# define _iswgraph_l(_c,_p) (_iswctype_l(_c,_PUNCT|_ALPHA|_DIGIT,_p))
+# define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
+# define _iswblank_l(_c,_p) (((_c) == '\t') || _iswctype_l(_c,_BLANK,_p))
+#endif  /* __MSVCRT_VERSION__ >= 0x800 */
+#endif
 #endif
 
   typedef wchar_t wctrans_t;
