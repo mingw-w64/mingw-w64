@@ -330,6 +330,8 @@ src_msvcrt=\
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
   misc/iswblank.c \
+  misc/_isblank_l.c \
+  misc/_iswblank_l.c \
   misc/wctrans.c \
   misc/wctype.c \
   secapi/_vscprintf_p.c \
@@ -813,6 +815,10 @@ src_pre_msvcr120=\
   misc/wctrans.c \
   misc/wctype.c
 
+src_pre_msvcr120_post_msvcr71=\
+  misc/_isblank_l.c \
+  misc/_iswblank_l.c
+
 src_post_msvcr80=\
   misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c
@@ -889,19 +895,23 @@ src_msvcr71=\
 
 src_msvcr80=\
   $(src_pre_msvcr100) \
-  $(src_pre_msvcr120)
+  $(src_pre_msvcr120) \
+  $(src_pre_msvcr120_post_msvcr71)
 
 src_msvcr90=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr120) \
+  $(src_pre_msvcr120_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr100=\
   $(src_pre_msvcr120) \
+  $(src_pre_msvcr120_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr110=\
   $(src_pre_msvcr120) \
+  $(src_pre_msvcr120_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr120=\
