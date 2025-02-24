@@ -213,6 +213,8 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   wint_t __cdecl towupper(wint_t _C);
   wint_t __cdecl towlower(wint_t _C);
   int __cdecl iswctype(wint_t _C,wctype_t _Type);
+  _CRTIMP int __cdecl __iswcsymf(wint_t _C);
+  _CRTIMP int __cdecl __iswcsym(wint_t _C);
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
   /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
    * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
@@ -233,8 +235,6 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
   _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
-  _CRTIMP int __cdecl __iswcsymf(wint_t _C);
-  _CRTIMP int __cdecl __iswcsym(wint_t _C);
 #endif
 #if __MSVCRT_VERSION__ >= 0x800
   /* These are only available since msvcr80.dll, never in msvcrt.dll. */

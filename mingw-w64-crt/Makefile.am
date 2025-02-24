@@ -320,6 +320,8 @@ src_msvcrt_add_vscanf=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
   $(src_msvcrt_add_vscanf) \
+  misc/__iswcsym.c \
+  misc/__iswcsymf.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
@@ -776,6 +778,8 @@ src_pre_msvcr71=\
   misc/_set_purecall_handler.c
 
 src_pre_msvcr80=\
+  misc/__iswcsym.c \
+  misc/__iswcsymf.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_configthreadlocale.c \
