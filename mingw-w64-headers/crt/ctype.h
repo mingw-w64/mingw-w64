@@ -6,7 +6,6 @@
 #ifndef _INC_CTYPE
 #define _INC_CTYPE
 
-#include <crtdefs.h>
 #include <corecrt_wctype.h>
 
 #ifdef __cplusplus
