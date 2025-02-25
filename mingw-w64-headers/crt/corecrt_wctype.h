@@ -6,28 +6,11 @@
 #ifndef _INC_CORECRT_WCTYPE
 #define _INC_CORECRT_WCTYPE
 
-#ifndef _WIN32
-#error Only Win32 target is supported!
-#endif
-
-#include <crtdefs.h>
-
-#pragma pack(push,_CRT_PACKING)
+#include <corecrt.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#ifndef _CRTIMP
-#define _CRTIMP __declspec(dllimport)
-#endif
-
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-#ifndef __cplusplus
-  typedef unsigned short wchar_t;
-#endif /* C++ */
-#endif /* _WCHAR_T_DEFINED */
 
 #ifndef _WCTYPE_T_DEFINED
 #define _WCTYPE_T_DEFINED
@@ -178,5 +161,4 @@ extern "C" {
 }
 #endif
 
-#pragma pack(pop)
 #endif
