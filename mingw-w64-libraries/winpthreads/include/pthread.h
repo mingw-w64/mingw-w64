@@ -72,7 +72,6 @@
 #include "sched.h"
 
 #ifdef _MSC_VER
-#include "pthread_signal.h"
 #include "pthread_time.h"
 #endif
 
@@ -366,6 +365,16 @@ WINPTHREAD_API int pthread_rwlockattr_destroy(pthread_rwlockattr_t *a);
 WINPTHREAD_API int pthread_rwlockattr_getpshared(pthread_rwlockattr_t *a, int *s);
 WINPTHREAD_API int pthread_rwlockattr_init(pthread_rwlockattr_t *a);
 WINPTHREAD_API int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
+
+#ifndef SIG_BLOCK
+#define SIG_BLOCK 0
+#endif
+#ifndef SIG_UNBLOCK
+#define SIG_UNBLOCK 1
+#endif
+#ifndef SIG_SETMASK
+#define SIG_SETMASK 2
+#endif
 
 #include <pthread_unistd.h>
 
