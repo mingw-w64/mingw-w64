@@ -263,6 +263,51 @@ namespace Microsoft {
                 return tmp->Release();
             }
         };
+
+        template <class T, class U>
+        bool operator==(const ComPtr<T> &a, const ComPtr<U> &b) throw()
+        {
+            static_assert(__is_base_of(T, U) || __is_base_of(U, T), "Type incompatible");
+            return a.Get() == b.Get();
+        }
+
+        template <class T>
+        bool operator==(const ComPtr<T> &a, std::nullptr_t) throw()
+        {
+            return a.Get() == nullptr;
+        }
+
+        template <class T>
+        bool operator==(std::nullptr_t, const ComPtr<T> &a) throw()
+        {
+            return a.Get() == nullptr;
+        }
+
+        template <class T, class U>
+        bool operator!=(const ComPtr<T> &a, const ComPtr<U> &b) throw()
+        {
+            static_assert(__is_base_of(T, U) || __is_base_of(U, T), "Type incompatible");
+            return a.Get() != b.Get();
+        }
+
+        template <class T>
+        bool operator!=(const ComPtr<T> &a, std::nullptr_t) throw()
+        {
+            return a.Get() != nullptr;
+        }
+
+        template <class T>
+        bool operator!=(std::nullptr_t, const ComPtr<T> &a) throw()
+        {
+            return a.Get() != nullptr;
+        }
+
+        template <class T, class U>
+        bool operator<(const ComPtr<T> &a, const ComPtr<U> &b) throw()
+        {
+            static_assert(__is_base_of(T, U) || __is_base_of(U, T), "Type incompatible");
+            return a.Get() < b.Get();
+        }
     }
 }
 
