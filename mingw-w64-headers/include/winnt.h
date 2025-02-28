@@ -5401,7 +5401,7 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
       SERVERSILO_STARTED,
       SERVERSILO_SHUTTING_DOWN,
       SERVERSILO_TERMINATING,
-      SERVERSILO_TERMINATED,
+      SERVERSILO_TERMINATED
     } SERVERSILO_STATE, *PSERVERSILO_STATE;
 
     typedef struct _SERVERSILO_BASIC_INFORMATION {
@@ -8805,14 +8805,14 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
     typedef enum ARM64_FNPDATA_FLAGS {
       PdataRefToFullXdata = 0,
       PdataPackedUnwindFunction = 1,
-      PdataPackedUnwindFragment = 2,
+      PdataPackedUnwindFragment = 2
     } ARM64_FNPDATA_FLAGS;
 
     typedef enum ARM64_FNPDATA_CR {
       PdataCrUnchained = 0,
       PdataCrUnchainedSavedLr = 1,
       PdataCrChainedWithPac = 2,
-      PdataCrChained = 3,
+      PdataCrChained = 3
     } ARM64_FNPDATA_CR;
 
     typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
@@ -9470,7 +9470,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     typedef enum _RTL_UMS_SCHEDULER_REASON {
       UmsSchedulerStartup = 0,
       UmsSchedulerThreadBlocked,
-      UmsSchedulerThreadYield,
+      UmsSchedulerThreadYield
     } RTL_UMS_SCHEDULER_REASON,*PRTL_UMS_SCHEDULER_REASON;
 
     typedef VOID NTAPI RTL_UMS_SCHEDULER_ENTRY_POINT (RTL_UMS_SCHEDULER_REASON Reason, ULONG_PTR ActivationPayload, PVOID SchedulerParam);
@@ -10457,13 +10457,13 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
       typedef enum _TRANSACTION_OUTCOME {
 	TransactionOutcomeUndetermined = 1,
 	TransactionOutcomeCommitted,
-	TransactionOutcomeAborted,
+	TransactionOutcomeAborted
       } TRANSACTION_OUTCOME;
 
       typedef enum _TRANSACTION_STATE {
 	TransactionStateNormal = 1,
 	TransactionStateIndoubt,
-	TransactionStateCommittedNotify,
+	TransactionStateCommittedNotify
       } TRANSACTION_STATE;
 
       typedef struct _TRANSACTION_BASIC_INFORMATION {
