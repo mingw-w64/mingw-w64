@@ -1563,11 +1563,7 @@ typedef union WHV_SYNTHETIC_PROCESSOR_FEATURES {
         UINT64 DirectSyntheticTimers : 1;
         UINT64 ReservedZ23 : 1;
         UINT64 ExtendedProcessorMasks : 1;
-#ifdef __x86_64__
         UINT64 TbFlushHypercalls : 1;
-#else
-        UINT64 ReservedZ25 : 1;
-#endif
         UINT64 SyntheticClusterIpi : 1;
         UINT64 NotifyLongSpinWait : 1;
         UINT64 QueryNumaDistance : 1;
