@@ -37,6 +37,12 @@ Ref: https://docs.microsoft.com/en-us/windows/win32/secbp/pe-metadata
 #  define SYM(x) x
 #endif
 
+#ifdef HAS_CFGUARD
+#  define CFGSYM(x) SYM(x)
+#else
+#  define CFGSYM(x) 0
+#endif
+
 #if defined(INCLUDE_MSVC_FEATURES)
 /*
 These features are specific to MSVC as far as I am aware.
@@ -81,23 +87,23 @@ SYM(_load_config_used):
 	PTR	0 /* SEHandlerTable */
 	PTR	0 /* SEHandlerCount */
 #endif
-	PTR	SYM(__guard_check_icall_fptr) /* GuardCFCheckFunction */
+	PTR	CFGSYM(__guard_check_icall_fptr) /* GuardCFCheckFunction */
 #if defined(CFGUARD_USE_DISPATCH)
-	PTR	SYM(__guard_dispatch_icall_fptr) /* GuardCFCheckDispatch */
+	PTR	CFGSYM(__guard_dispatch_icall_fptr) /* GuardCFCheckDispatch */
 #else
 	PTR	0 /* GuardCFCheckDispatch */
 #endif
-	PTR	SYM(__guard_fids_table) /* GuardCFFunctionTable */
-	PTR	SYM(__guard_fids_count) /* GuardCFFunctionCount */
-	.4byte	SYM(__guard_flags) /* GuardFlags */
+	PTR	CFGSYM(__guard_fids_table) /* GuardCFFunctionTable */
+	PTR	CFGSYM(__guard_fids_count) /* GuardCFFunctionCount */
+	.4byte	CFGSYM(__guard_flags) /* GuardFlags */
 	.2byte	0 /* CodeIntegrity_Flags */
 	.2byte	0 /* CodeIntegrity_Catalog */
 	.4byte	0 /* CodeIntegrity_CatalogOffset */
 	.4byte	0 /* CodeIntegrity_Reserved */
-	PTR	SYM(__guard_iat_table) /* GuardAddressTakenIatEntryTable */
-	PTR	SYM(__guard_iat_count) /* GuardAddressTakenIatEntryCount */
-	PTR	SYM(__guard_longjmp_table) /* GuardLongJumpTargetTable */
-	PTR	SYM(__guard_longjmp_count) /* GuardLongJumpTargetCount */
+	PTR	CFGSYM(__guard_iat_table) /* GuardAddressTakenIatEntryTable */
+	PTR	CFGSYM(__guard_iat_count) /* GuardAddressTakenIatEntryCount */
+	PTR	CFGSYM(__guard_longjmp_table) /* GuardLongJumpTargetTable */
+	PTR	CFGSYM(__guard_longjmp_count) /* GuardLongJumpTargetCount */
 	PTR	0 /* DynamicValueRelocTable */
 	PTR	0 /* CHPEMetadataPointer */
 	PTR	0 /* GuardRFFailureRoutine */
@@ -114,8 +120,8 @@ SYM(_load_config_used):
 	PTR	0 /* EnclaveConfigurationPointer */
 #endif
 	PTR	0 /* VolatileMetadataPointer */
-	PTR	SYM(__guard_eh_cont_table) /* GuardEHContinuationTable */
-	PTR	SYM(__guard_eh_cont_count) /* GuardEHContinuationCount */
+	PTR	CFGSYM(__guard_eh_cont_table) /* GuardEHContinuationTable */
+	PTR	CFGSYM(__guard_eh_cont_count) /* GuardEHContinuationCount */
 	PTR	0 /* GuardXFGCheckFunctionPointer */
 	PTR	0 /* GuardXFGDispatchFunctionPointer */
 	PTR	0 /* GuardXFGTableDispatchFunctionPointer */

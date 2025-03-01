@@ -273,10 +273,8 @@ AC_ARG_ENABLE([cfguard],
 AC_MSG_RESULT([$enable_cfguard])
 AS_CASE([$enable_cfguard],
   [no],[],
-  [yes],[AS_VAR_SET([CFGUARD])
-	 AS_VAR_SET([CFGUARD_CFLAGS],[-mguard=cf])],
+  [yes],[AS_VAR_SET([CFGUARD_CFLAGS],["-mguard=cf -DHAS_CFGUARD"])],
   [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
-AM_CONDITIONAL([CFGUARD], [AS_VAR_TEST_SET([CFGUARD])])
 AC_SUBST([CFGUARD_CFLAGS])
 
 AC_MSG_CHECKING([whether to enable experimental features])

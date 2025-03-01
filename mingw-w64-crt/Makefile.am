@@ -22,6 +22,7 @@ endif
 AM_CPPFLAGS=$(sysincludes)
 AM_CFLAGS=-pipe -std=gnu99 -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x600 -D__USE_MINGW_ANSI_STDIO=0 @IMAGEBASE_CFLAGS@ @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
+AM_CCASFLAGS=@CFGUARD_CFLAGS@
 CPPFLAGSARM32=-mfpu=vfpv3
 CPPFLAGS32=-m32 -masm=att
 CPPFLAGS64=-m64 -masm=att
@@ -928,6 +929,7 @@ src_msvcr120_app=\
 
 # These mingwex sources are target independent:
 src_libmingwex=\
+  crt/loadcfg.S \
   cfguard/mingw_cfguard_support.c \
   \
   misc/dllmain.c \
@@ -1014,12 +1016,6 @@ src_libmingwex=\
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c \
   stdio/vsnprintf.c        stdio/vsnwprintf.c \
   stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
-
-# Include the default load config struct only for Control Flow Guard support.
-if CFGUARD
-src_libmingwex+=\
-  cfguard/mingw_cfguard_loadcfg.S
-endif
 
 # these go into both 32 and 64 bit x86 versions:
 src_libmingwex_x86=\
