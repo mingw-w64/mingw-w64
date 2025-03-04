@@ -662,8 +662,6 @@ ENABLE_PRINTF128_TRUE
 ENABLE_DFP_FALSE
 ENABLE_DFP_TRUE
 CFGUARD_CFLAGS
-CFGUARD_FALSE
-CFGUARD_TRUE
 MSVCRT_LIB
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
@@ -6782,19 +6780,10 @@ case $enable_cfguard in #(
   no) :
      ;; #(
   yes) :
-    CFGUARD=
-	 CFGUARD_CFLAGS=-mguard=cf ;; #(
+    CFGUARD_CFLAGS="-mguard=cf -DHAS_CFGUARD" ;; #(
   *) :
     as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
 esac
- if test ${CFGUARD+y}; then
-  CFGUARD_TRUE=
-  CFGUARD_FALSE='#'
-else
-  CFGUARD_TRUE='#'
-  CFGUARD_FALSE=
-fi
-
 
 
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to enable experimental features" >&5
@@ -7286,10 +7275,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
   as_fn_error $? "conditional \"DELAY_IMPORT_LIBS\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${CFGUARD_TRUE}" && test -z "${CFGUARD_FALSE}"; then
-  as_fn_error $? "conditional \"CFGUARD\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_DFP_TRUE}" && test -z "${ENABLE_DFP_FALSE}"; then
