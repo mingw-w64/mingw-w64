@@ -18,6 +18,8 @@ _difftime32
 _difftime64
 F32(_ftime == _ftime32)
 F64(_ftime == _ftime64)
+F32(ftime == _ftime32)
+F64(ftime == _ftime64)
 _ftime32
 _ftime32_s
 _ftime64
