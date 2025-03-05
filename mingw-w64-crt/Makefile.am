@@ -751,7 +751,9 @@ src_pre_msvcrt20=\
   stdio/iob_func.c
 
 src_pre_msvcrt40=\
+  misc/__dstbias.c \
   misc/__set_app_type.c \
+  misc/_dstbias.c \
   misc/dummy__setusermatherr.c \
   stdio/_filelengthi64.c \
   stdio/fgetpos.c \
