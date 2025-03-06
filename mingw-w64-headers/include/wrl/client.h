@@ -7,7 +7,7 @@
 #ifndef _WRL_CLIENT_H_
 #define _WRL_CLIENT_H_
 
-#include <stddef.h>
+#include <cstddef>
 #include <unknwn.h>
 /* #include <weakreference.h> */
 #include <roapi.h>
