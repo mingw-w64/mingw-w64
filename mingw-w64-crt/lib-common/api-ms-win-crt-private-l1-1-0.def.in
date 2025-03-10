@@ -1172,3 +1172,33 @@ unexpected
 wcschr
 wcsrchr
 wcsstr
+
+; These symbols were added in api-ms-win-crt-private-l1-1-0.dll version 10.0.10563.0
+; It is part of the Microsoft Visual C++ 2015 Redistributable version 14.0.23506.0
+_o____lc_codepage_func
+_o____lc_collate_cp_func
+_o____lc_locale_name_func
+_o____mb_cur_max_func
+_o___std_exception_copy
+_o___std_exception_destroy
+_o___std_type_info_destroy_list
+_o___std_type_info_name
+_o__cexit
+_o__configthreadlocale
+_o__configure_narrow_argv
+_o__controlfp_s
+_o__crt_atexit
+_o__exit
+_o__get_initial_narrow_environment
+_o__get_initial_wide_environment
+_o__initialize_narrow_environment
+_o__initialize_wide_environment
+_o__purecall
+_o__seh_filter_dll
+_o__seh_filter_exe
+_o__set_app_type
+_o__set_fmode
+_o_exit
+_o_memcpy_s
+_o_rename
+_o_setlocale
