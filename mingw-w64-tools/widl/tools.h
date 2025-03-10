@@ -39,6 +39,9 @@
 #ifdef HAVE_SYS_SYSCTL_H
 # include <sys/sysctl.h>
 #endif
+#ifdef __APPLE__
+# include <mach-o/dyld.h>
+#endif
 
 #ifdef _WIN32
 # include <direct.h>
@@ -193,17 +196,17 @@ static inline void strarray_addall( struct strarray *array, struct strarray adde
     for (i = 0; i < added.count; i++) strarray_add( array, added.str[i] );
 }
 
-static inline int strarray_exists( const struct strarray *array, const char *str )
+static inline int strarray_exists( struct strarray array, const char *str )
 {
     unsigned int i;
 
-    for (i = 0; i < array->count; i++) if (!strcmp( array->str[i], str )) return 1;
+    for (i = 0; i < array.count; i++) if (!strcmp( array.str[i], str )) return 1;
     return 0;
 }
 
 static inline void strarray_add_uniq( struct strarray *array, const char *str )
 {
-    if (!strarray_exists( array, str )) strarray_add( array, str );
+    if (!strarray_exists( *array, str )) strarray_add( array, str );
 }
 
 static inline void strarray_addall_uniq( struct strarray *array, struct strarray added )
@@ -257,12 +260,12 @@ static inline void strarray_qsort( struct strarray *array, int (*func)(const cha
     if (array->count) qsort( array->str, array->count, sizeof(*array->str), (void *)func );
 }
 
-static inline const char *strarray_bsearch( const struct strarray *array, const char *str,
+static inline const char *strarray_bsearch( struct strarray array, const char *str,
                                             int (*func)(const char **, const char **) )
 {
     char **res = NULL;
 
-    if (array->count) res = bsearch( &str, array->str, array->count, sizeof(*array->str), (void *)func );
+    if (array.count) res = bsearch( &str, array.str, array.count, sizeof(*array.str), (void *)func );
     return res ? *res : NULL;
 }
 
@@ -703,6 +706,12 @@ static inline char *get_bindir( const char *argv0 )
     size_t path_size = PATH_MAX;
     char *path = xmalloc( path_size );
     if (!sysctl( pathname, ARRAY_SIZE(pathname), path, &path_size, NULL, 0 ))
+        dir = realpath( path, NULL );
+    free( path );
+#elif defined(__APPLE__)
+    uint32_t path_size = PATH_MAX;
+    char *path = xmalloc( path_size );
+    if (!_NSGetExecutablePath( path, &path_size ))
         dir = realpath( path, NULL );
     free( path );
 #endif
