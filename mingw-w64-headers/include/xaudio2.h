@@ -87,36 +87,13 @@ interface IXAudio2Extension;
 #include <unknwn.h>
 #include <mmdeviceapi.h>
 #include <audiosessiontypes.h>
+#include <mmreg.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #include <pshpack1.h>
-#if 0
-typedef struct WAVEFORMATEX {
-    WORD wFormatTag;
-    WORD nChannels;
-    DWORD nSamplesPerSec;
-    DWORD nAvgBytesPerSec;
-    WORD nBlockAlign;
-    WORD wBitsPerSample;
-    WORD cbSize;
-} WAVEFORMATEX;
-typedef struct __WIDL_xaudio2_generated_name_00000020 {
-    WAVEFORMATEX Format;
-    union {
-        WORD wValidBitsPerSample;
-        WORD wSamplesPerBlock;
-        WORD wReserved;
-    } Samples;
-    DWORD dwChannelMask;
-    GUID SubFormat;
-} WAVEFORMATEXTENSIBLE;
-typedef struct __WIDL_xaudio2_generated_name_00000020 *PWAVEFORMATEXTENSIBLE;
-#else
-#include <mmreg.h>
-#endif
 #ifndef __IXAudio2Voice_FWD_DEFINED__
 #define __IXAudio2Voice_FWD_DEFINED__
 typedef interface IXAudio2Voice IXAudio2Voice;
