@@ -94,9 +94,9 @@ finite == _finite
 F_NON_I386(_finitef)
 _fpclass
 fpclass == _fpclass
-_fpclassf
+F_X64(_fpclassf)
 F_I386(_ftol)
-_get_FMA3_enable
+F_X64(_get_FMA3_enable)
 _hypot
 _hypotf
 _isnan
@@ -137,7 +137,7 @@ _nextafter
 F_X64(_nextafterf)
 _scalb
 F_X64(_scalbf)
-F64(_set_FMA3_enable)
+F_X64(_set_FMA3_enable)
 F_I386(_set_SSE2_enable)
 _y0
 y0 == _y0

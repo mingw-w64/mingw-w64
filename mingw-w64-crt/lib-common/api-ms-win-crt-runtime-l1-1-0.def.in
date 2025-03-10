@@ -37,13 +37,13 @@ _controlfp
 _controlfp_s
 _crt_at_quick_exit
 _crt_atexit
-_crt_debugger_hook
+F_I386(_crt_debugger_hook)
 _endthread
 _endthreadex
 _errno
 _execute_onexit_table
 _exit
-F_NON_I386(_fpieee_flt)
+_fpieee_flt
 ; DATA added manually
 _fpreset DATA
 _get_doserrno
