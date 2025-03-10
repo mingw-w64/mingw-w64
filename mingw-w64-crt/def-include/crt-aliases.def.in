@@ -222,7 +222,11 @@ ADD_UNDERSCORE(wcsupr)
 ; This is list of symbol aliases added in the Visual C++ 4.0 oldnames.lib library
 ; All these symbols with leading underscore are present also in pre-4.0 CRT versions: crtdll.dll, msvcrt10.dll and msvcrt20.dll
 ; ADD_UNDERSCORE(cabs)
+#ifdef UCRTBASE
+; hypot is natively exported from UCRT
+#else
 ADD_UNDERSCORE(hypot)
+#endif
 ADD_UNDERSCORE(j0)
 ADD_UNDERSCORE(j1)
 ADD_UNDERSCORE(jn)
