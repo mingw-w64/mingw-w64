@@ -179,6 +179,8 @@ IDL_SRCS = \
   include/mfreadwrite.idl \
   include/mftransform.idl \
   include/mmdeviceapi.idl \
+  include/mpeg2data.idl \
+  include/mpeg2structs.idl \
   include/mscoree.idl \
   include/msctf.idl \
   include/msinkaut.idl \

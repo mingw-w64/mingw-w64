@@ -111,6 +111,7 @@ for f in \
 	exdispid.h \
 	fontsub.h \
 	mediaerr.h \
+	mpeg2bits.h \
 	mscat.h \
 	msxml2did.h \
 	msxml6did.h \
@@ -198,6 +199,8 @@ for f in \
 	mftransform \
 	mmdeviceapi \
 	mmstream \
+	mpeg2data \
+	mpeg2structs \
 	mscoree \
 	msctf \
 	msxml \
