@@ -481,6 +481,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mfreadwrite.idl \
 @HAVE_WIDL_TRUE@  include/mftransform.idl \
 @HAVE_WIDL_TRUE@  include/mmdeviceapi.idl \
+@HAVE_WIDL_TRUE@  include/mpeg2data.idl \
+@HAVE_WIDL_TRUE@  include/mpeg2structs.idl \
 @HAVE_WIDL_TRUE@  include/mscoree.idl \
 @HAVE_WIDL_TRUE@  include/msctf.idl \
 @HAVE_WIDL_TRUE@  include/msinkaut.idl \
