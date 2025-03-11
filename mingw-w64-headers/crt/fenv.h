@@ -46,28 +46,6 @@
 
 #ifndef RC_INVOKED
 
-#if defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
-
-/* If the default argument is used we use this value.  */
-#define FE_DFL_ENV  ((const fenv_t *) -1l)
-
-#else
-
-/*The C99 standard (7.6.9) allows us to define implementation-specific macros for
-  different fp environments */
-  
-/* The default Intel x87 floating point environment (64-bit mantissa) */
-#define FE_PC64_ENV ((const fenv_t *)-1)
-
-/* The floating point environment set by MSVCRT _fpreset (53-bit mantissa) */
-#define FE_PC53_ENV ((const fenv_t *)-2)
-
-/* The FE_DFL_ENV macro is required by standard.
-  fesetenv will use the environment set at app startup.*/
-#define FE_DFL_ENV ((const fenv_t *) 0)
-
-#endif /* defined(_ARM_) || defined(__arm__) */
-
 typedef struct
 {
     unsigned long _Fe_ctl;
@@ -79,6 +57,25 @@ typedef unsigned long fexcept_t;
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+/* The FE_DFL_ENV macro is required by standard.
+   fesetenv will use the environment set at app startup.*/
+extern const __MINGW_SELECTANY fenv_t __mingw_fe_dfl_env = { 0, 0 };
+#define FE_DFL_ENV (&__mingw_fe_dfl_env)
+
+/* The C99 standard (7.6.9) allows us to define implementation-specific macros for
+   different fp environments */
+#if defined(__i386__) || defined(__x86_64__)
+
+/* The default Intel x87 floating point environment (64-bit mantissa) */
+extern const __MINGW_SELECTANY fenv_t __mingw_fe_pc64_env = { 0x3f3f003f, 0 };
+#define FE_PC64_ENV (&__mingw_fe_pc64_env)
+
+/* The floating point environment set by MSVCRT _fpreset (53-bit mantissa) */
+extern const __MINGW_SELECTANY fenv_t __mingw_fe_pc53_env = { 0x3f3f103f, 0 };
+#define FE_PC53_ENV (&__mingw_fe_pc53_env)
+
 #endif
 
 /*TODO: Some of these could be inlined */

@@ -24,38 +24,6 @@ int fesetenv(const fenv_t *env)
     unsigned int x87_cw, cw, x87_stat, stat;
     unsigned int mask = ~0u;
 
-#if defined(__i386__) || defined(__x86_64__)
-# if !defined(__arm64ec__)
-    if (env == FE_PC64_ENV)
-    {
-        /*
-         *  fninit initializes the control register to 0x37f,
-         *  the status register to zero and the tag word to 0FFFFh.
-         *  The other registers are unaffected.
-         */
-        __asm__ __volatile__ ("fninit");
-        return 0;
-    }
-# endif /* __arm64ec__ */
-    if (env == FE_PC53_ENV)
-    {
-        /*
-         * MS _fpreset() does same *except* it sets control word
-         * to 0x27f (53-bit precision).
-         * We force calling _fpreset in msvcrt.dll
-         */
-
-        (* __MINGW_IMP_SYMBOL(_fpreset))();
-        return 0;
-    }
-#endif /* defined(__i386__) || defined(__x86_64__) */
-    if (env == FE_DFL_ENV)
-    {
-        /* Use the choice made at app startup */
-        _fpreset();
-        return 0;
-    }
-
     if (!env->_Fe_ctl && !env->_Fe_stat) {
         _fpreset();
         return 0;
