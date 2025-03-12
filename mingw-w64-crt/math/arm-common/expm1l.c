@@ -8,9 +8,5 @@
 
 long double expm1l(long double x)
 {
-#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return expm1(x);
-#else
-#error Not supported on your platform yet
-#endif
 }

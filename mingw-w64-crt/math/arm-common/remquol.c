@@ -9,9 +9,5 @@
 
 long double remquol(long double x, long double y, int *quo)
 {
-#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return remquo(x, y, quo);
-#else
-#error Not supported on your platform yet
-#endif
 }
