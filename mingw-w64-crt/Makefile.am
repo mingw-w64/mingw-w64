@@ -112,7 +112,7 @@ src_libdloadhelper=libsrc/dloadhelper.c misc/delay-f.c
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/crtexewin.c     crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
   crt/charmax.c       crt/ucrtexewin.c crt/dllargv.c    crt/_newmode.c  crt/tlssup.c             crt/xncommod.c \
-  crt/cinitexe.c      crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c            crt/CRT_fp10.c \
+  crt/cinitexe.c      crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
   crt/usermatherr.c   \
@@ -1350,7 +1350,7 @@ lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libmingw32.a
 lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingw32_a_SOURCES = $(src_libmingw32)
+lib32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
@@ -1773,7 +1773,7 @@ lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingw32_a_SOURCES = $(src_libmingw32)
+lib64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
@@ -1941,7 +1941,7 @@ dx32dir=$(libarm32dir)
 if !W32API
 crt32_DATA = \
   libarm32/crt1.o    libarm32/crt2.o     libarm32/crt1u.o   libarm32/crt2u.o    libarm32/dllcrt1.o    libarm32/dllcrt2.o \
-  libarm32/CRT_fp8.o libarm32/CRT_fp10.o libarm32/txtmode.o libarm32/binmode.o  libarm32/crtbegin.o   libarm32/crtend.o \
+  libarm32/CRT_fp8.o libarm32/txtmode.o  libarm32/binmode.o libarm32/crtbegin.o libarm32/crtend.o \
   libarm32/gcrt0.o   libarm32/gcrt1.o    libarm32/gcrt2.o   libarm32/CRT_glob.o libarm32/CRT_noglob.o
 else
 crt32_DATA =
@@ -2146,7 +2146,7 @@ libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libmingw32.a
 libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
-libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
+libarm32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp8.c
 
 libarm32_LIBRARIES += libarm32/libmingwex.a
 libarm32_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
@@ -2263,7 +2263,7 @@ dx64dir=$(libarm64dir)
 if !W32API
 crt64_DATA = \
   libarm64/crt1.o    libarm64/crt2.o     libarm64/crt1u.o   libarm64/crt2u.o    libarm64/dllcrt1.o    libarm64/dllcrt2.o \
-  libarm64/CRT_fp8.o libarm64/CRT_fp10.o libarm64/txtmode.o libarm64/binmode.o  libarm64/crtbegin.o   libarm64/crtend.o \
+  libarm64/CRT_fp8.o libarm64/txtmode.o  libarm64/binmode.o libarm64/crtbegin.o libarm64/crtend.o \
   libarm64/gcrt0.o   libarm64/gcrt1.o    libarm64/gcrt2.o   libarm64/CRT_glob.o libarm64/CRT_noglob.o
 else
 crt64_DATA =
@@ -2468,7 +2468,7 @@ libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmingw32.a
 libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
-libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
+libarm64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp8.c
 
 libarm64_LIBRARIES += libarm64/libmingwex.a
 libarm64_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
