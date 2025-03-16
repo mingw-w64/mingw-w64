@@ -8,7 +8,7 @@ EXPORTS
 
 #include "func.def.in"
 
-#ifdef DEF_X64
+#ifdef __x86_64__
 ??0?$_SpinWait@$00@details@Concurrency@@QEAA@P6AXXZ@Z
 ??0?$_SpinWait@$0A@@details@Concurrency@@QEAA@P6AXXZ@Z
 ??0SchedulerPolicy@Concurrency@@QEAA@AEBV01@@Z
@@ -331,7 +331,7 @@ EXPORTS
 ?what@exception@std@@UEBAPEBDXZ
 #endif
 
-#ifdef DEF_I386
+#ifdef __i386__
 ??0?$_SpinWait@$00@details@Concurrency@@QAE@P6AXXZ@Z ; has WINAPI (@4)
 ??0?$_SpinWait@$0A@@details@Concurrency@@QAE@P6AXXZ@Z ; has WINAPI (@4)
 ??0SchedulerPolicy@Concurrency@@QAA@IZZ
@@ -657,7 +657,7 @@ EXPORTS
 ?what@exception@std@@UBEPBDXZ
 #endif
 
-#ifdef DEF_ARM32
+#ifdef __arm__
 ??0?$_SpinWait@$00@details@Concurrency@@QAA@P6AXXZ@Z
 ??0?$_SpinWait@$0A@@details@Concurrency@@QAA@P6AXXZ@Z
 ??0SchedulerPolicy@Concurrency@@QAA@ABV01@@Z

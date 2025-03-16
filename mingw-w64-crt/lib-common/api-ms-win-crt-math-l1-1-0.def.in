@@ -4,7 +4,7 @@ EXPORTS
 
 #include "func.def.in"
 
-#ifdef DEF_I386
+#ifdef __i386__
 _CIacos
 _CIasin
 _CIatan
@@ -31,7 +31,7 @@ _FCmulcr
 _LCbuild
 _LCmulcc
 _LCmulcr
-#ifdef DEF_I386
+#ifdef __i386__
 __libm_sse2_acos
 __libm_sse2_acosf
 __libm_sse2_asin
@@ -118,7 +118,7 @@ _ldsign
 _ldsin
 _ldtest
 _ldunscale
-#ifdef DEF_I386
+#ifdef __i386__
 _libm_sse2_acos_precise
 _libm_sse2_asin_precise
 _libm_sse2_atan_precise

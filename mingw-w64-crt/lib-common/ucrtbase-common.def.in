@@ -218,7 +218,7 @@ __threadid
 __timezone
 __toascii
 __tzname
-#if !defined(DEF_DEBUG) || !defined(DEF_ARM64)
+#if !defined(DEF_DEBUG) || !defined(__aarch64__)
 ; symbols __unDName and __unDNameEx are available in all versions except ARM64 ucrtbased.dll
 __unDName
 __unDNameEx
@@ -493,7 +493,7 @@ F_DEBUG(_invalid_parameter)
 _invalid_parameter_noinfo
 _invalid_parameter_noinfo_noreturn
 _invoke_watson
-#if !defined(DEF_DEBUG) || !defined(DEF_ARM64)
+#if !defined(DEF_DEBUG) || !defined(__aarch64__)
 ; symbol _is_exception_typeof is available in all versions except ARM64 ucrtbased.dll
 _is_exception_typeof
 #endif

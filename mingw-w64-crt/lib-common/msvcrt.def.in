@@ -3,7 +3,7 @@ EXPORTS
 
 #include "func.def.in"
 
-#ifdef DEF_I386
+#ifdef __i386__
 ; List of I386 C++ mangled symbols which matches the first I386 version of msvcrt.dll (Microsoft Visual C++ 4.2)
 ; public: __thiscall __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAE@ABV0@@Z ; has WINAPI (@4)
@@ -103,7 +103,7 @@ EXPORTS
 ?what@exception@@UBEPBDXZ
 #endif
 
-#ifdef DEF_X64
+#ifdef __x86_64__
 ; List of X64 C++ mangled symbols which matches the first X64 version of msvcrt.dll (Windows Server 2003 SP1 / Windows XP x64)
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
 ; GCC = __ZN17__non_rtti_objectC2ERKS_
@@ -217,7 +217,7 @@ EXPORTS
 ?what@exception@@UEBAPEBDXZ
 #endif
 
-#ifdef DEF_ARM32
+#ifdef __arm__
 ; List of ARM32 C++ mangled symbols which matches the first ARM32 version of msvcrt.dll (Windows RT 8.0)
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const &)
 ??0__non_rtti_object@@QAA@ABV0@@Z
@@ -313,7 +313,7 @@ EXPORTS
 ?what@exception@@UBAPBDXZ
 #endif
 
-#ifdef DEF_ARM64
+#ifdef __aarch64__
 ; List of ARM64 C++ mangled symbols which matches the first ARM64 version of msvcrt.dll (Windows 10 Fall Creators Update)
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const &__ptr64 )__ptr64
 ??0__non_rtti_object@@QEAA@AEBV0@@Z
@@ -1144,7 +1144,7 @@ F_I386(_chkesp)
 
 
 ; These symbols were added in Windows ME and Windows 2000 OS system versions of msvcrt.dll
-#ifdef DEF_I386
+#ifdef __i386__
 ; void *__cdecl operator new[](unsigned int)
 ??_U@YAPAXI@Z
 ; void __cdecl operator delete[](void *)
@@ -1173,7 +1173,7 @@ _wutime64
 F_X86_ANY(_get_heap_handle) ; _get_heap_handle is not available in Windows XP and Windows XP SP1 OS system versions of msvcrt.dll, but is in XP SP3
 
 ; These symbols were added in Windows XP OS system version of msvcrt.dll
-#ifdef DEF_I386
+#ifdef __i386__
 ; private: __thiscall bad_cast::bad_cast(char const *const *)
 ??0bad_cast@@AAE@PBQBD@Z ; has WINAPI (@4)
 ; public: __thiscall bad_cast::bad_cast(char const *)
@@ -1245,7 +1245,7 @@ _wctype DATA
 
 ; These symbols were added in Windows Server 2003 SP1 and Windows XP x64 OS system version of msvcrt.dll
 ; This is the first X64 version of msvcrt.dll, all symbols in this section and also above this section are present in all X64 versions of msvcrt.dll
-#ifdef DEF_I386
+#ifdef __i386__
 ; public: __thiscall exception::exception(char const *const &,int)
 ??0exception@@QAE@ABQBDH@Z ; has WINAPI (@8)
 #endif
@@ -1283,13 +1283,13 @@ F_NON_I386(sqrtf DATA) ; i386 sqrtf provided by emu
 F_NON_I386(tanf F_X86_ANY(DATA)) ; i386 tanf provided by emu
 
 ; These symbols were added in Windows Vista OS system version of msvcrt.dll
-#ifdef DEF_I386
+#ifdef __i386__
 ; void *__cdecl operator new(unsigned int,int,char const *,int)
 ??2@YAPAXIHPBDH@Z
 ; void *__cdecl operator new[](unsigned int,int,char const *,int)
 ??_U@YAPAXIHPBDH@Z
 #endif
-#ifdef DEF_X64
+#ifdef __x86_64__
 ; private: __thiscall bad_cast::bad_cast(char const *const *)
 ??0bad_cast@@AAE@PBQBD@Z
 ; public: __thiscall bad_cast::bad_cast(char const *const &)
@@ -1910,7 +1910,7 @@ F_I386(_libm_sse2_tan_precise)
 #define NO_TIME_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
-#ifdef DEF_I386
+#ifdef __i386__
 ; i386 __iob_func replaced by alias
 #define WITH_IOB_FUNC_ALIAS
 #define WITH_TZ_ALIASES
@@ -1918,13 +1918,13 @@ F_I386(_libm_sse2_tan_precise)
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS
 #define WITH_STRTO64_L_ALIAS
-#ifndef DEF_I386
+#ifndef __i386__
 ; i386 llabs and imaxabs alias provided by emu
 #define WITH_LLABS_ALIAS
 ; i386 strtoll, strtoull, strtoimax, strtoumax, wcstoll, wcstoull, wcstoimax and wcstoumax aliases provided by emu
 #define WITH_STRTO64_ALIAS
 #endif
-#if defined(DEF_ARM32) || defined(DEF_ARM64)
+#if defined(__arm__) || defined(__aarch64__)
 #define USE_WCSTOK_S_FOR_WCSTOK
 #endif
 #include "crt-aliases.def.in"

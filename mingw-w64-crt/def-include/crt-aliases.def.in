@@ -251,7 +251,7 @@ wcstok == wcstok_s
 ADD_UNDERSCORE(nextafter)
 #endif
 
-#if defined(DEF_ARM32) || defined(DEF_ARM64)
+#if defined(__arm__) || defined(__aarch64__)
 ; This is list of symbol aliases for C99 ARM long double functions
 ; They are defined as aliases to regular double symbols as on ARM, long double is equal to regular double
 acosl == acos

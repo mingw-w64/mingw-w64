@@ -4159,28 +4159,28 @@ endif
 	$(RANLIB) $@
 
 lib32/%.def: lib32/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_I386 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib64/%.def: lib64/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_X64 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 libarm32/%.def: libarm32/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 libarm64/%.def: libarm64/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM64 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib32/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_I386 > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_X64 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm32/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM64 | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 # Don't compile these, but install as is:
 #
