@@ -251,27 +251,25 @@ wcstok == wcstok_s
 ADD_UNDERSCORE(nextafter)
 #endif
 
-#if defined(__arm__) || defined(__aarch64__)
 ; This is list of symbol aliases for C99 ARM long double functions
 ; They are defined as aliases to regular double symbols as on ARM, long double is equal to regular double
-acosl == acos
-asinl == asin
-atan2l == atan2
-atanl == atan
-ceill == ceil
-cosl == cos
-expl == exp
-floorl == floor
-fmodl == fmod
-log10l == log10
-logl == log
+F_LD64(acosl == acos)
+F_LD64(asinl == asin)
+F_LD64(atan2l == atan2)
+F_LD64(atanl == atan)
+F_LD64(ceill == ceil)
+F_LD64(cosl == cos)
+F_LD64(expl == exp)
+F_LD64(floorl == floor)
+F_LD64(fmodl == fmod)
+F_LD64(log10l == log10)
+F_LD64(logl == log)
 ; FIXME: Why is powl alias defined only for UCRT?
 #ifdef UCRTBASE
-powl == pow
+F_LD64(powl == pow)
 #endif
-sinl == sin
-tanl == tan
-#endif
+F_LD64(sinl == sin)
+F_LD64(tanl == tan)
 
 ; This is list of symbol aliases for C11 functions
 #ifdef UCRTBASE
