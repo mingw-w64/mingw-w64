@@ -44,8 +44,7 @@ _errno
 _execute_onexit_table
 _exit
 _fpieee_flt
-; DATA added manually
-_fpreset DATA
+_fpreset F_LD80(DATA)
 _get_doserrno
 _get_errno
 _get_initial_narrow_environment
@@ -109,6 +108,7 @@ fesetenv DATA
 fesetexceptflag DATA
 fesetround DATA
 fetestexcept DATA
+F_LD64(fpreset == _fpreset)
 perror
 quick_exit
 raise

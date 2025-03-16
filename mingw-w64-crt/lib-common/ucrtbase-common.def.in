@@ -388,7 +388,7 @@ _flushall
 _fpclass
 F_X64(_fpclassf)
 _fpieee_flt
-_fpreset DATA ; DATA added manually
+_fpreset F_LD80(DATA)
 _fputc_nolock
 _fputchar
 _fputwc_nolock
@@ -2378,6 +2378,7 @@ fmod
 F_NON_I386(fmodf)
 fopen
 fopen_s
+F_LD64(fpreset == _fpreset)
 fputc
 fputs
 fputwc

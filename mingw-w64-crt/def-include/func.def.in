@@ -80,4 +80,12 @@
 #define FASTCALL_DECORATED_EXPORT(symbol) symbol == symbol
 #endif
 
+#if __SIZEOF_LONG_DOUBLE__ == __SIZEOF_DOUBLE__
+#define F_LD64(x) x
+#define F_LD80(x)
+#else
+#define F_LD64(x)
+#define F_LD80(x) x
+#endif
+
 #endif // FUNC_DEF_IN

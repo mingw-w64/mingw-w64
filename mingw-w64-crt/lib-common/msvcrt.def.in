@@ -603,7 +603,7 @@ _flushall
 _fmode DATA
 _fpclass
 F_NON_X64(_fpieee_flt)
-_fpreset DATA
+_fpreset F_LD80(DATA)
 _fputchar
 _fputwchar
 _fsopen
@@ -968,6 +968,7 @@ fgetws
 floor F_X86_ANY(DATA)
 fmod F_X86_ANY(DATA)
 fopen
+F_LD64(fpreset == _fpreset)
 fprintf
 fputc
 fputs
