@@ -1902,7 +1902,6 @@ fmod
 fmodf
 fopen
 fopen_s
-fpreset == _fpreset
 fprintf
 fprintf_s
 fputc

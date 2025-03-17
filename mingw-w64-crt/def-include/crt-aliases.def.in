@@ -208,7 +208,11 @@ ADD_UNDERSCORE(write)
 ; This is list of symbol aliases added in the Visual C++ 2.0 oldnames.lib library
 ; All these symbols with leading underscore are present also in pre-2.0 CRT versions: crtdll.dll and msvcrt10.dll
 ; ADD_UNDERSCORE(control87)
+#if __SIZEOF_LONG_DOUBLE__ == __SIZEOF_DOUBLE__
+ADD_UNDERSCORE(fpreset)
+#else
 ; ADD_UNDERSCORE(fpreset) ; Alias fpreset is set in CRT_fp10.c and CRT_fp8.c
+#endif
 ADD_UNDERSCORE(wcsdup)
 ADD_UNDERSCORE(wcsicmp)
 ADD_UNDERSCORE(wcsicoll)

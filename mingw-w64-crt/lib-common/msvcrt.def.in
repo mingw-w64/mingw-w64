@@ -968,7 +968,6 @@ fgetws
 floor F_X86_ANY(DATA)
 fmod F_X86_ANY(DATA)
 fopen
-F_LD64(fpreset == _fpreset)
 fprintf
 fputc
 fputs

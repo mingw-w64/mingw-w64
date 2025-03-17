@@ -2019,7 +2019,6 @@ fmod
 F_NON_I386(fmodf)
 fopen
 fopen_s
-fpreset == _fpreset
 fprintf
 fprintf_s
 fputc
