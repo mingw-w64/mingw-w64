@@ -401,6 +401,8 @@ src_ucrtbase=\
   misc/_onexit.c \
   misc/output_format.c \
   misc/ucrt-access.c \
+  stdio/ucrt___local_stdio_printf_options.c \
+  stdio/ucrt___local_stdio_scanf_options.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_ms_fprintf.c \
