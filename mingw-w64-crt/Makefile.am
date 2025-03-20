@@ -403,23 +403,23 @@ src_ucrtbase=\
   misc/ucrt-access.c \
   stdio/ucrt___local_stdio_printf_options.c \
   stdio/ucrt___local_stdio_scanf_options.c \
-  stdio/ucrt_fprintf.c \
-  stdio/ucrt_fscanf.c \
-  stdio/ucrt_ms_fprintf.c \
-  stdio/ucrt_ms_fwprintf.c \
-  stdio/ucrt_fwprintf.c \
-  stdio/ucrt_printf.c \
-  stdio/ucrt_scanf.c \
   stdio/ucrt__scprintf.c \
   stdio/ucrt__snprintf.c \
   stdio/ucrt__snscanf.c \
   stdio/ucrt__snwprintf.c \
-  stdio/ucrt_snprintf.c \
-  stdio/ucrt_sprintf.c \
-  stdio/ucrt_sscanf.c \
   stdio/ucrt__vscprintf.c \
   stdio/ucrt__vsnprintf.c \
   stdio/ucrt__vsnwprintf.c \
+  stdio/ucrt_fprintf.c \
+  stdio/ucrt_fscanf.c \
+  stdio/ucrt_fwprintf.c \
+  stdio/ucrt_ms_fprintf.c \
+  stdio/ucrt_ms_fwprintf.c \
+  stdio/ucrt_printf.c \
+  stdio/ucrt_scanf.c \
+  stdio/ucrt_snprintf.c \
+  stdio/ucrt_sprintf.c \
+  stdio/ucrt_sscanf.c \
   stdio/ucrt_vfprintf.c \
   stdio/ucrt_vfscanf.c \
   stdio/ucrt_vprintf.c \
