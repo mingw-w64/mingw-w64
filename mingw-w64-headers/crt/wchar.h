@@ -433,55 +433,19 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
 #else /* !__USE_MINGW_ANSI_STDIO */
 
 #ifdef _UCRT
-  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _File, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
-  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Src, (size_t)-1, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
-  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
-  __mingw_ovr
+  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
   __MINGW_ATTRIB_NONNULL(2)
-  int vfwscanf (FILE *__stream,  const wchar_t *__format, va_list __local_argv)
-  {
-    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __stream, __format, NULL, __local_argv);
-  }
+  int vfwscanf (FILE *__stream,  const wchar_t *__format, va_list __local_argv);
 
-  __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
-  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv)
-  {
-    return __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __source, (size_t)-1, __format, NULL, __local_argv);
-  }
-  __mingw_ovr
+  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv);
   __MINGW_ATTRIB_NONNULL(1)
-  int vwscanf(const wchar_t *__format, va_list __local_argv)
-  {
-    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, __format, NULL, __local_argv);
-  }
+  int vwscanf(const wchar_t *__format, va_list __local_argv);
 
   int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);

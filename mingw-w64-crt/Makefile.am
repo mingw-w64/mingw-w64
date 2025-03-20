@@ -413,6 +413,7 @@ src_ucrtbase=\
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \
+  stdio/ucrt_fwscanf.c \
   stdio/ucrt_ms_fprintf.c \
   stdio/ucrt_ms_fwprintf.c \
   stdio/ucrt_printf.c \
@@ -422,9 +423,11 @@ src_ucrtbase=\
   stdio/ucrt_sprintf.c \
   stdio/ucrt_sscanf.c \
   stdio/ucrt_swprintf.c \
+  stdio/ucrt_swscanf.c \
   stdio/ucrt_vfprintf.c \
   stdio/ucrt_vfscanf.c \
   stdio/ucrt_vfwprintf.c \
+  stdio/ucrt_vfwscanf.c \
   stdio/ucrt_vprintf.c \
   stdio/ucrt_vscanf.c \
   stdio/ucrt_vsnprintf.c \
@@ -432,8 +435,11 @@ src_ucrtbase=\
   stdio/ucrt_vsprintf.c \
   stdio/ucrt_vswprintf.c \
   stdio/ucrt_vsscanf.c \
+  stdio/ucrt_vswscanf.c \
   stdio/ucrt_vwprintf.c \
+  stdio/ucrt_vwscanf.c \
   stdio/ucrt_wprintf.c \
+  stdio/ucrt_wscanf.c \
   string/ucrt__wcstok.c
 
 # Files included in libucrtapp.a
