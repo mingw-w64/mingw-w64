@@ -17,7 +17,7 @@ int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...)
   va_list ap;
   int ret;
   va_start(ap, fmt);
-  ret = vfwprintf(ptr, fmt, ap);
+  ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, ptr, fmt, NULL, ap);
   va_end(ap);
   return ret;
 }
