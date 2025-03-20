@@ -414,7 +414,6 @@ src_ucrtbase=\
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \
   stdio/ucrt_fwscanf.c \
-  stdio/ucrt_ms_fprintf.c \
   stdio/ucrt_ms_fwprintf.c \
   stdio/ucrt_printf.c \
   stdio/ucrt_scanf.c \

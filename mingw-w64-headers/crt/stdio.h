@@ -239,9 +239,8 @@ extern
   __MINGW_UCRT_ASM_CALL(vprintf) __MINGW_NOTHROW;
 extern
   __MINGW_MS_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __ms_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
-  /* No __MINGW_UCRT_ASM_CALL for __ms_fprintf; this is provided as an
-   * actual function in the ucrt import libraries. */
+  int __cdecl __ms_fprintf (FILE * __restrict__ , const char * __restrict__ , ...)
+  __MINGW_UCRT_ASM_CALL(fprintf) __MINGW_NOTHROW;
 extern
   __MINGW_MS_PRINTF(2, 0) __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __ms_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list)
