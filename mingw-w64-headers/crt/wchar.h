@@ -484,64 +484,12 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   }
 
   int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  __mingw_ovr
-  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
-  __mingw_ovr
-  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList)
-  {
-    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, _ArgList);
-  }
-  __mingw_ovr
-  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList)
-  {
-    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, _ArgList);
-  }
+  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
 
-  __mingw_ovr
-  int __cdecl swprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    /*
-     * __stdio_common_vswprintf() for case _Dest == NULL and _Count == 0 and
-     * without _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR option, is
-     * executed in "standard snprintf behavior" and returns number of (wide)
-     * chars required to allocate. For all other cases it is executed in a way
-     * that returns negative value on error. But C95+ compliant swprintf() for
-     * case _Count == 0 returns negative value, so handle this case specially.
-     */
-    if (_Dest == NULL && _Count == 0)
-      return -1;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, _Count, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret < 0 ? -1 : __ret;
-  }
-  __mingw_ovr
-  int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args)
-  {
-    int __ret;
-    /*
-     * __stdio_common_vswprintf() for case _Dest == NULL and _Count == 0 and
-     * without _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR option, is
-     * executed in "standard snprintf behavior" and returns number of (wide)
-     * chars required to allocate. For all other cases it is executed in a way
-     * that returns negative value on error. But C95+ compliant vswprintf() for
-     * case _Count == 0 returns negative value, so handle this case specially.
-     */
-    if (_Dest == NULL && _Count == 0)
-      return -1;
-    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, _Count, _Format, NULL, _Args);
-    return __ret < 0 ? -1 : __ret;
-  }
+  int __cdecl swprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...);
+  int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args);
 #else
 
   int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -628,22 +576,8 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   }
 
 #if __USE_MINGW_ANSI_STDIO == 0
-  __mingw_ovr
-  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, format);
-    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, s, n, format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret < 0 ? -1 : __ret;
-  }
-  __mingw_ovr
-  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
-  {
-    int __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, s, n, format, NULL, arg);
-    return __ret < 0 ? -1 : __ret;
-  }
+  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
+  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg);
 #endif
 
 #else
