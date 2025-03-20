@@ -16,4 +16,3 @@ int __cdecl scanf(const char * __restrict__ _Format,...) {
   __builtin_va_end(__ap);
   return __ret;
 }
-int __cdecl (*__MINGW_IMP_SYMBOL(scanf))(const char *__restrict__, ...) = scanf;

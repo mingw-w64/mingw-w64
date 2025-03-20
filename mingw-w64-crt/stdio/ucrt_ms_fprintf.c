@@ -19,4 +19,3 @@ int __cdecl __ms_fprintf(FILE * restrict file, const char * restrict format, ...
   va_end(ap);
   return ret;
 }
-int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fprintf))(FILE * restrict, const char * restrict, ...) = __ms_fprintf;

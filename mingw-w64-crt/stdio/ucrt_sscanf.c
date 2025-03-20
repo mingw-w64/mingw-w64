@@ -16,5 +16,3 @@ int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _For
   __builtin_va_end(__ap);
   return __ret;
 }
-
-int __cdecl (*__MINGW_IMP_SYMBOL(sscanf))(const char *__restrict__, const char *__restrict__, ...) = sscanf;

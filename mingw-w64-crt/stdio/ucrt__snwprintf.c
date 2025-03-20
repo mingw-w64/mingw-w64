@@ -34,8 +34,6 @@ int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * 
   va_end(ap);
   return ret;
 }
-
-int __cdecl (*__MINGW_IMP_SYMBOL(_snwprintf))(wchar_t *restrict, size_t, const wchar_t *restrict, ...) = _snwprintf;
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif

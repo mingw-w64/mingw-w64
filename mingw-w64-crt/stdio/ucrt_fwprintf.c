@@ -34,8 +34,6 @@ int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...)
   va_end(ap);
   return ret;
 }
-
-int __cdecl (*__MINGW_IMP_SYMBOL(fwprintf))(FILE *, const wchar_t *, ...) = fwprintf;
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif

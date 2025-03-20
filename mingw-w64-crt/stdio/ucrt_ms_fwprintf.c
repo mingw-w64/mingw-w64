@@ -21,4 +21,3 @@ int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
   va_end(ap);
   return ret;
 }
-int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fwprintf))(FILE *, const wchar_t *, ...) = __ms_fwprintf;

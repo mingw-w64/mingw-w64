@@ -18,4 +18,3 @@ int __cdecl _snscanf(const char * __restrict__ _Src, size_t _MaxCount, const cha
   va_end(_ArgList);
   return ret;
 }
-int __cdecl (*__MINGW_IMP_SYMBOL(_snscanf))(const char *__restrict__, size_t, const char * __restrict__, ...) = _snscanf;
