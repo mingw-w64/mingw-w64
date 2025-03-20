@@ -14,10 +14,10 @@ been constructed with LLVM/LLD in mind.
 */
 
 #if defined(__x86_64__) || defined(__aarch64__)
-#  define PTR .8byte
+#  define PTR .quad
 #  define ALIGN 8
 #elif defined(__i386__) || defined(__arm__)
-#  define PTR .4byte
+#  define PTR .long
 #  define ALIGN 4
 #else
 #  error "Load config structure is unimplemented for the current architecture."
@@ -58,22 +58,22 @@ These features are specific to MSVC as far as I am aware.
 	.globl	SYM(_load_config_used)
 	.balign ALIGN
 SYM(_load_config_used):
-	.4byte	SYM(_load_config_used__end) - SYM(_load_config_used) /* Size */
-	.4byte	0 /* TimeDateStamp */
-	.2byte	0 /* MajorVersion */
-	.2byte	0 /* MinorVersion */
-	.4byte	0 /* GLobalFlagsClear */
-	.4byte	0 /* GlobalFlagsSet */
-	.4byte	0 /* CriticalSectionDefaultTimeout */
+	.long	SYM(_load_config_used__end) - SYM(_load_config_used) /* Size */
+	.long	0 /* TimeDateStamp */
+	.short	0 /* MajorVersion */
+	.short	0 /* MinorVersion */
+	.long	0 /* GLobalFlagsClear */
+	.long	0 /* GlobalFlagsSet */
+	.long	0 /* CriticalSectionDefaultTimeout */
 	PTR	0 /* DeCommitFreeBlockThreshold */
 	PTR	0 /* DeCommitTotalFreeThreshold */
 	PTR	0 /* LockPrefixTable */
 	PTR	0 /* MaximumAllocationSize */
 	PTR	0 /* VirtualMemoryThreshold */
 	PTR	0 /* ProcessAffinityMask */
-	.4byte	0 /* ProcessHeapFlags */
-	.2byte	0 /* CSDVersion */
-	.2byte	0 /* DependentLoadFlags */
+	.long	0 /* ProcessHeapFlags */
+	.short	0 /* CSDVersion */
+	.short	0 /* DependentLoadFlags */
 	PTR	0 /* EditList */
 #if defined(HAS_GS_SECURITY_COOKIE)
 	PTR	SYM(__security_cookie) /* SecurityCookie */
@@ -95,11 +95,11 @@ SYM(_load_config_used):
 #endif
 	PTR	CFGSYM(__guard_fids_table) /* GuardCFFunctionTable */
 	PTR	CFGSYM(__guard_fids_count) /* GuardCFFunctionCount */
-	.4byte	CFGSYM(__guard_flags) /* GuardFlags */
-	.2byte	0 /* CodeIntegrity_Flags */
-	.2byte	0 /* CodeIntegrity_Catalog */
-	.4byte	0 /* CodeIntegrity_CatalogOffset */
-	.4byte	0 /* CodeIntegrity_Reserved */
+	.long	CFGSYM(__guard_flags) /* GuardFlags */
+	.short	0 /* CodeIntegrity_Flags */
+	.short	0 /* CodeIntegrity_Catalog */
+	.long	0 /* CodeIntegrity_CatalogOffset */
+	.long	0 /* CodeIntegrity_Reserved */
 	PTR	CFGSYM(__guard_iat_table) /* GuardAddressTakenIatEntryTable */
 	PTR	CFGSYM(__guard_iat_count) /* GuardAddressTakenIatEntryCount */
 	PTR	CFGSYM(__guard_longjmp_table) /* GuardLongJumpTargetTable */
@@ -108,12 +108,12 @@ SYM(_load_config_used):
 	PTR	0 /* CHPEMetadataPointer */
 	PTR	0 /* GuardRFFailureRoutine */
 	PTR	0 /* GuardRFFailureRoutineFunctionPointer */
-	.4byte	0 /* DynamicValueRelocTableOffset */
-	.2byte	0 /* DynamicValueRelocTableSection */
-	.2byte	0 /* Reserved2 */
+	.long	0 /* DynamicValueRelocTableOffset */
+	.short	0 /* DynamicValueRelocTableSection */
+	.short	0 /* Reserved2 */
 	PTR	0 /* GuardRFVerifyStackPointerFunctionPointer */
-	.4byte	0 /* HotPatchTableOffset */
-	.4byte	0 /* Reserved3 */
+	.long	0 /* HotPatchTableOffset */
+	.long	0 /* Reserved3 */
 #if defined(HAS_ENCLAVE_CONFIG)
 	PTR	SYM(__enclave_config) /* EnclaveConfigurationPointer */
 #else
