@@ -9,5 +9,5 @@
 #include <stdio.h>
 
 int __cdecl vscanf(const char *__format, __builtin_va_list __local_argv) {
-  return __stdio_common_vfscanf(0, stdin, __format, NULL, __local_argv);
+  return __stdio_common_vfscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, __format, NULL, __local_argv);
 }

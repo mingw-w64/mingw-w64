@@ -14,7 +14,7 @@ int __cdecl _snscanf(const char * __restrict__ _Src, size_t _MaxCount, const cha
   int ret;
   va_list _ArgList;
   va_start(_ArgList, _Format);
-  ret = __stdio_common_vsscanf(0, _Src, _MaxCount, _Format, NULL, _ArgList);
+  ret = __stdio_common_vsscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Src, _MaxCount, _Format, NULL, _ArgList);
   va_end(_ArgList);
   return ret;
 }
