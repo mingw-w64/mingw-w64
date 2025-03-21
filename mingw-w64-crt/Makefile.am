@@ -1064,7 +1064,6 @@ src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
-  math/arm/_chgsignl.S \
   math/arm/s_rint.c         math/arm/s_rintf.c
 
 if ENABLE_SOFTMATH
@@ -1092,7 +1091,6 @@ endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
-  math/arm64/_chgsignl.S \
   math/arm64/rint.c         math/arm64/rintf.c \
   math/arm64/sincos.S       math/arm64/sincosf.S \
   math/arm-common/ldexpl.c

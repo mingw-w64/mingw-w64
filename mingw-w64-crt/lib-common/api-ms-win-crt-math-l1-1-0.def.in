@@ -59,6 +59,7 @@ __setusermatherr
 _cabs DATA
 _chgsign
 chgsign == _chgsign
+F_LD64(_chgsignl == _chgsign)
 _chgsignf
 _copysign
 _copysignf

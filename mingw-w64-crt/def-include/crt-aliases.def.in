@@ -274,6 +274,7 @@ F_LD64(powl == pow)
 #endif
 F_LD64(sinl == sin)
 F_LD64(tanl == tan)
+F_LD64(_chgsignl == _chgsign)
 
 ; This is list of symbol aliases for C11 functions
 #ifdef UCRTBASE
