@@ -465,6 +465,8 @@ src_ucrtbase32=\
   math/logf.c \
   math/modff.c \
   math/powf.c \
+  math/sincos.c \
+  math/sincosf.c \
   math/sinhf.c \
   math/sqrtf.c \
   math/tanhf.c \
@@ -476,8 +478,6 @@ src_ucrtbase32=\
   math/x86/cosf.c \
   math/x86/floorf.S \
   math/x86/fmodf.c \
-  math/x86/sincos.S \
-  math/x86/sincosf.S \
   math/x86/sinf.c \
   math/x86/tanf.c
 
@@ -487,8 +487,8 @@ src_ucrtbase64=\
   math/fabsf.c \
   math/nextafterl.c \
   math/nexttoward.c math/nexttowardf.c \
-  math/x86/sincos.S \
-  math/x86/sincosf.S
+  math/sincos.c \
+  math/sincosf.c
 
 # Files included in libucrt*.a on arm32
 src_ucrtbasearm32=\
@@ -1058,6 +1058,9 @@ src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
+  math/sincos.c \
+  math/sincosf.c \
+  math/arm-common/sincosl.c \
   math/arm/s_rint.c         math/arm/s_rintf.c
 
 if ENABLE_SOFTMATH
@@ -1076,17 +1079,19 @@ src_libmingwexarm32+=\
   math/softmath/powl.c      \
   math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
   math/softmath/remquo.c    math/softmath/remquof.c   math/softmath/remquol.c   math/softmath/scalbn.c    math/softmath/scalbnf.c   \
-  math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    math/softmath/sincosf.c   math/softmath/sincosl.c   \
+  math/softmath/scalbnl.c   math/softmath/sin.c \
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
 else
 src_libmingwexarm32+=\
-  math/arm-common/ldexpl.c  math/arm/sincos.S         math/arm/sincosf.S
+  math/arm-common/ldexpl.c
 endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
+  math/sincos.c \
+  math/sincosf.c \
+  math/arm-common/sincosl.c \
   math/arm64/rint.c         math/arm64/rintf.c \
-  math/arm64/sincos.S       math/arm64/sincosf.S \
   math/arm-common/ldexpl.c
 
 
