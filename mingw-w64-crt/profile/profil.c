@@ -185,7 +185,7 @@ profile_ctl (struct profinfo * p, char *samples, size_t size,
   if (scale)
     {
       memset (samples, 0, size);
-      memset (p, 0, sizeof *p);
+      *p = (struct profinfo){0};
       maxbin = size >> 1;
       prof.counter = (u_short *) samples;
       prof.lowpc = offset;
