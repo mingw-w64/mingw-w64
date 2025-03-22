@@ -69,7 +69,7 @@ int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
     free(_path);
 
   if (ret == -1) {
-    memset(_Stat,0,sizeof(struct _stat64i32));
+    *_Stat = (struct _stat64i32){0};
     return -1;
   }
   _Stat->st_dev=st.st_dev;

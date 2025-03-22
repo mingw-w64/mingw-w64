@@ -74,7 +74,7 @@ stat(const char *_Filename,struct stat *_Stat)
     free (_path);
 
   if (ret == -1) {
-    memset(_Stat,0,sizeof(struct stat));
+    *_Stat = (struct stat){0};
     return -1;
   }
   /* struct stat and struct _stat32
@@ -95,7 +95,7 @@ stat(const char *_Filename,struct stat *_Stat)
     free (_path);
 
   if (ret == -1) {
-    memset(_Stat,0,sizeof(struct stat));
+    *_Stat = (struct stat){0};
     return -1;
   }
   /* struct stat and struct _stat64i32
