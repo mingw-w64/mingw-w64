@@ -158,7 +158,7 @@ WINPTHREAD_API int    pthread_set_num_processors_np(int n);
 #define pthread_mutex_setprioceiling(M, P) ENOTSUP
 #define pthread_getcpuclockid(T, C) ENOTSUP
 #define pthread_attr_getguardsize(A, S) ENOTSUP
-#define pthread_attr_setgaurdsize(A, S) ENOTSUP
+#define pthread_attr_setguardsize(A, S) ENOTSUP
 
 typedef long pthread_once_t;
 typedef unsigned pthread_mutexattr_t;
