@@ -10,7 +10,7 @@
 #include <wchar.h>
 #include <stdio.h>
 
-int __ms_vwscanf (const wchar_t * __restrict__ format, va_list arg)
+int vwscanf (const wchar_t * __restrict__ format, va_list arg)
 {
   return __ms_vfwscanf(stdin, format, arg);
 }

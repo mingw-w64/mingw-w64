@@ -17,7 +17,7 @@ extern int __ms_vfwscanf_internal (
 
 extern size_t __ms_wscanf_max_arg_count_internal (const wchar_t * format);
 
-int __ms_vfwscanf (FILE * __restrict__ stream,
+int vfwscanf (FILE * __restrict__ stream,
   const wchar_t * __restrict__ format, va_list arg)
 {
   size_t count = __ms_wscanf_max_arg_count_internal (format);

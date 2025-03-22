@@ -552,14 +552,6 @@ __ms_vsprintf == vsprintf
 __ms_vwprintf == vwprintf
 __ms_wprintf == wprintf
 __ms_wscanf == wscanf
-#ifdef WITH_MS_VSCANF_ALIASES
-__ms_vfscanf == vfscanf
-__ms_vfwscanf == vfwscanf
-__ms_vscanf == vscanf
-__ms_vsscanf == vsscanf
-__ms_vswscanf == vswscanf
-__ms_vwscanf == vwscanf
-#endif
 #endif
 
 ; This is list of additional symbol aliases not available in any library as neither native symbols nor aliases

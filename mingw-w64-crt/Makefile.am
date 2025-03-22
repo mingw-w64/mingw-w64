@@ -306,17 +306,11 @@ src_msvcrt_add_vscanf=\
   stdio/scanf2-argcount-char.c \
   stdio/scanf2-argcount-wchar.c \
   stdio/vfscanf.c \
-  stdio/vfscanf2.S \
   stdio/vfwscanf.c \
-  stdio/vfwscanf2.S \
   stdio/vscanf.c \
-  stdio/vscanf2.S \
   stdio/vsscanf.c \
-  stdio/vsscanf2.S \
   stdio/vswscanf.c \
-  stdio/vswscanf2.S \
-  stdio/vwscanf.c \
-  stdio/vwscanf2.S
+  stdio/vwscanf.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
@@ -4246,8 +4240,7 @@ EXTRA_DIST += revstamp.h \
   profile/gcrt0.c \
   profile/COPYING \
   profile/CYGWIN_LICENSE \
-  stdio/scanf2-argcount-template.c \
-  stdio/scanf2-template.S
+  stdio/scanf2-argcount-template.c
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 

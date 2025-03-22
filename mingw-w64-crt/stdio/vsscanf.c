@@ -17,7 +17,7 @@ extern int __ms_vsscanf_internal (
 
 extern size_t __ms_scanf_max_arg_count_internal (const char * format);
 
-int __ms_vsscanf (const char * __restrict__ s,
+int vsscanf (const char * __restrict__ s,
   const char * __restrict__ format, va_list arg)
 {
   size_t count = __ms_scanf_max_arg_count_internal (format);

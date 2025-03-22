@@ -9,7 +9,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int __ms_vscanf(const char * __restrict__ format, va_list arg)
+int vscanf(const char * __restrict__ format, va_list arg)
 {
   return __ms_vfscanf(stdin, format, arg);
 }
