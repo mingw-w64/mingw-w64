@@ -61,7 +61,7 @@ extern "C" {
 
 /* The FE_DFL_ENV macro is required by standard.
    fesetenv will use the environment set at app startup.*/
-extern const __MINGW_SELECTANY fenv_t __mingw_fe_dfl_env = { 0, 0 };
+extern const fenv_t __mingw_fe_dfl_env;
 #define FE_DFL_ENV (&__mingw_fe_dfl_env)
 
 /* The C99 standard (7.6.9) allows us to define implementation-specific macros for
@@ -69,11 +69,11 @@ extern const __MINGW_SELECTANY fenv_t __mingw_fe_dfl_env = { 0, 0 };
 #if defined(__i386__) || defined(__x86_64__)
 
 /* The default Intel x87 floating point environment (64-bit mantissa) */
-extern const __MINGW_SELECTANY fenv_t __mingw_fe_pc64_env = { 0x3f3f003f, 0 };
+extern const fenv_t __mingw_fe_pc64_env;
 #define FE_PC64_ENV (&__mingw_fe_pc64_env)
 
 /* The floating point environment set by MSVCRT _fpreset (53-bit mantissa) */
-extern const __MINGW_SELECTANY fenv_t __mingw_fe_pc53_env = { 0x3f3f103f, 0 };
+extern const fenv_t __mingw_fe_pc53_env;
 #define FE_PC53_ENV (&__mingw_fe_pc53_env)
 
 #endif
