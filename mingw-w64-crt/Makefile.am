@@ -620,8 +620,6 @@ src_msvcrtarm32=\
 
 if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
-  math/arm/exp2.S \
-  math/arm/exp2f.S \
   math/arm/nearbyint.S \
   math/arm/nearbyintf.S \
   math/arm/nearbyintl.S \
@@ -636,6 +634,9 @@ src_msvcrtarm32+=\
   math/arm-common/atanh.c \
   math/arm-common/atanhf.c \
   math/arm-common/atanhl.c \
+  math/arm-common/exp2.c \
+  math/arm-common/exp2f.c \
+  math/arm-common/exp2l.c \
   math/arm-common/copysignl.c \
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
@@ -675,6 +676,9 @@ src_msvcrtarm64=\
   math/arm-common/atanhf.c \
   math/arm-common/atanhl.c \
   math/arm-common/copysignl.c \
+  math/arm-common/exp2.c \
+  math/arm-common/exp2f.c \
+  math/arm-common/exp2l.c \
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
   math/arm-common/expm1l.c \
@@ -698,8 +702,6 @@ src_msvcrtarm64=\
   math/arm-common/s_remquo.c \
   math/arm-common/s_remquof.c \
   math/arm-common/scalbn.c \
-  math/arm64/exp2.S \
-  math/arm64/exp2f.S \
   math/arm64/nearbyint.S \
   math/arm64/nearbyintf.S \
   math/arm64/nearbyintl.S \
