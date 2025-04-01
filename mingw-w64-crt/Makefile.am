@@ -705,8 +705,8 @@ src_msvcrtarm64=\
   math/arm64/nearbyint.S \
   math/arm64/nearbyintf.S \
   math/arm64/nearbyintl.S \
-  math/arm64/trunc.S \
-  math/arm64/truncf.S \
+  math/arm64/trunc.c \
+  math/arm64/truncf.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \

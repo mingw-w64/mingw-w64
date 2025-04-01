@@ -287,6 +287,14 @@ static inline unsigned int __mingw_statusfp(void)
     return flags;
 }
 
+#define __ASM_NAKED_FUNC(name,code)  \
+    asm(".text\n\t" \
+        ".p2align 2\n\t" \
+        ".globl " __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) "\n\t" \
+        ".def " __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) "; .scl 2; .type 32; .endef\n\t" \
+        __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) ":\n\t" \
+        code "\n\t");
+
 #ifdef __cplusplus
 }
 #endif
