@@ -702,9 +702,9 @@ src_msvcrtarm64=\
   math/arm-common/s_remquo.c \
   math/arm-common/s_remquof.c \
   math/arm-common/scalbn.c \
-  math/arm64/nearbyint.S \
-  math/arm64/nearbyintf.S \
-  math/arm64/nearbyintl.S \
+  math/arm64/nearbyint.c \
+  math/arm64/nearbyintf.c \
+  math/arm64/nearbyintl.c \
   math/arm64/trunc.c \
   math/arm64/truncf.c \
   misc/__p___argc.c \
