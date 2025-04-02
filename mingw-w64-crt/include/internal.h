@@ -287,13 +287,26 @@ static inline unsigned int __mingw_statusfp(void)
     return flags;
 }
 
-#define __ASM_NAKED_FUNC(name,code)  \
+/* Use naked functions only on Clang. GCC doesn’t support them on ARM targets and
+ * has broken behavior on x86_64 by emitting .seh_endprologue. */
+#ifndef __clang__
+
+#define __ASM_NAKED_FUNC(rettype, name, args, code) \
     asm(".text\n\t" \
         ".p2align 2\n\t" \
         ".globl " __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) "\n\t" \
         ".def " __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) "; .scl 2; .type 32; .endef\n\t" \
         __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) ":\n\t" \
         code "\n\t");
+
+#else
+
+#define __ASM_NAKED_FUNC(rettype, name, args, code) \
+    rettype __attribute__((naked)) name args { \
+        asm(code "\n\t"); \
+    }
+
+#endif
 
 #ifdef __cplusplus
 }

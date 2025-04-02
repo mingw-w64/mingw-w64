@@ -7,6 +7,6 @@
 #include <math.h>
 #include <internal.h>
 
-__ASM_NAKED_FUNC(truncf,
+__ASM_NAKED_FUNC(float, truncf, (float x),
                  "frintz s0, s0\n\t"
                  "ret")
