@@ -67,7 +67,7 @@ d3dcompiler=d3dcompiler_47
 # can move this into libsrc/dummy_libm.c or similar
 BUILT_SOURCES = _libm_dummy.c
 _libm_dummy.c:
-	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
+	$(AM_V_GEN)echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
 
 src_libm=_libm_dummy.c
 
@@ -1158,27 +1158,27 @@ endif
 
 COMPILE32=$(COMPILE) $(CPPFLAGS32) $(extra_include) -D_SYSCRT=1
 lib32/crt1.o: crt/crtexe.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 lib32/crt2.o: lib32/crt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib32/crt1u.o: crt/ucrtexe.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 lib32/crt2u.o: lib32/crt1u.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib32/dllcrt1.o: crt/crtdll.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 lib32/dllcrt2.o: lib32/dllcrt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib32/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) $(CPPFLAGS32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGS32) -c $< -o $@
 lib32/gcrt1.o: lib32/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib32/gcrt2.o: lib32/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib32/%.o: crt/%.c
-	$(COMPILE) $(CPPFLAGS32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGS32) -c $< -o $@
 
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.
@@ -1197,11 +1197,11 @@ lib32_DATA =
 if !W32API
 lib32_DATA += lib32/libmsvcrt.a
 lib32/libmsvcrt.a: lib32/@MSVCRT_LIB@
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib32_DATA += lib32/libmsvcrt-os.a
 lib32/libmsvcrt-os.a: lib-common/msvcrt-os.mri lib32/libmsvcrt_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
 lib32_LIBRARIES += lib32/libbits.a
@@ -1395,95 +1395,95 @@ lib32_DATA += lib32/libglut.a lib32/libmsvcp60.a lib32/libmsvcp120_app.a
 
 lib32_DATA += lib32/libcrtdll.a
 lib32/libcrtdll.a: lib32/crtdll.mri lib32/libcrtdll_def.a lib32/libmsvcrt_common.a lib32/libcrtdll_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt10.a
 lib32/libmsvcrt10.a: lib32/msvcrt10.mri lib32/libmsvcrt10_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt10_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt20.a
 lib32/libmsvcrt20.a: lib32/msvcrt20.mri lib32/libmsvcrt20_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt20_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrt40.a
 lib32/libmsvcrt40.a: lib32/msvcrt40.mri lib32/libmsvcrt40_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt40_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr40d.a
 lib32/libmsvcr40d.a: lib32/msvcr40d.mri lib32/libmsvcr40d_def.a lib32/libmsvcrt_common.a lib32/libmsvcrt40_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcrtd.a
 lib32/libmsvcrtd.a: lib32/msvcrtd.mri lib32/libmsvcrtd_def.a lib32/libmsvcrt_common.a lib32/libmsvcrtd_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr70.a
 lib32/libmsvcr70.a: lib32/msvcr70.mri lib32/libmsvcr70_def.a lib32/libmsvcrt_common.a lib32/libmsvcr70_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr70d.a
 lib32/libmsvcr70d.a: lib32/msvcr70d.mri lib32/libmsvcr70d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr70_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr71.a
 lib32/libmsvcr71.a: lib32/msvcr71.mri lib32/libmsvcr71_def.a lib32/libmsvcrt_common.a lib32/libmsvcr71_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr71d.a
 lib32/libmsvcr71d.a: lib32/msvcr71d.mri lib32/libmsvcr71d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr71_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr80.a
 lib32/libmsvcr80.a: lib-common/msvcr80.mri lib32/libmsvcr80_def.a lib32/libmsvcrt_common.a lib32/libmsvcr80_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr80d.a
 lib32/libmsvcr80d.a: lib-common/msvcr80d.mri lib32/libmsvcr80d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr80_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr90.a
 lib32/libmsvcr90.a: lib-common/msvcr90.mri lib32/libmsvcr90_def.a lib32/libmsvcrt_common.a lib32/libmsvcr90_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr90d.a
 lib32/libmsvcr90d.a: lib-common/msvcr90d.mri lib32/libmsvcr90d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr90_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr100.a
 lib32/libmsvcr100.a: lib-common/msvcr100.mri lib32/libmsvcr100_def.a lib32/libmsvcrt_common.a lib32/libmsvcr100_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr100d.a
 lib32/libmsvcr100d.a: lib-common/msvcr100d.mri lib32/libmsvcr100d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr100_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr110.a
 lib32/libmsvcr110.a: lib-common/msvcr110.mri lib32/libmsvcr110_def.a lib32/libmsvcrt_common.a lib32/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr110d.a
 lib32/libmsvcr110d.a: lib-common/msvcr110d.mri lib32/libmsvcr110d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120.a
 lib32/libmsvcr120.a: lib-common/msvcr120.mri lib32/libmsvcr120_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120d.a
 lib32/libmsvcr120d.a: lib-common/msvcr120d.mri lib32/libmsvcr120d_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libmsvcr120_app.a
 lib32/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib32/libmsvcr120_app_def.a lib32/libmsvcrt_common.a lib32/libmsvcr120_extra.a lib32/libmsvcr120_app_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrtbase.a
 lib32/libucrtbase.a: lib-common/ucrtbase.mri lib32/libucrtbase_def.a lib32/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrtbased.a
 lib32/libucrtbased.a: lib-common/ucrtbased.mri lib32/libucrtbased_def.a lib32/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib32_DATA += lib32/libucrt.a lib32/libucrtapp.a
 noinst_LIBRARIES += lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt20_extra.a lib32/libmsvcrt40_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcrtd_extra.a lib32/libmsvcr70_extra.a lib32/libmsvcr71_extra.a lib32/libmsvcr80_extra.a lib32/libmsvcr90_extra.a lib32/libmsvcr100_extra.a lib32/libmsvcr110_extra.a lib32/libmsvcr120_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
@@ -1528,16 +1528,16 @@ lib32_DATA += lib32/libvcruntime140_app.a
 endif
 
 lib32/lib%.a: lib32/%.def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 
 lib32/lib%.a: lib-common/%.def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 
 lib32/lib%_def.a: lib32/%.def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 
 lib32/lib%_def.a: lib-common/%.def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
@@ -1550,21 +1550,21 @@ dx32_DATA += lib32/libd3dcsxd.a
 dx32_DATA += lib32/libd3dcompiler.a
 
 lib32/libxinput.a: lib32/$(xinput).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libxapofx.a: lib32/$(xapofx).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libx3daudio.a: lib32/$(x3daudio).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libd3dx9.a: lib32/$(d3dx9).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libd3dx10.a: lib32/$(d3dx10).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libd3dx11.a: lib32/$(d3dx11).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libd3dcsxd.a: lib32/$(d3dcsxd).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 lib32/libd3dcompiler.a: lib32/$(d3dcompiler).def
-	$(DTDEF32) $<
+	$(AM_V_GEN)$(DTDEF32) $<
 
 endif
 # End 32-bit runtime
@@ -1593,27 +1593,27 @@ endif
 
 COMPILE64=$(COMPILE) $(CPPFLAGS64) $(extra_include) -D_SYSCRT=1
 lib64/crt1.o: crt/crtexe.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 lib64/crt2.o: lib64/crt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib64/crt1u.o: crt/ucrtexe.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 lib64/crt2u.o: lib64/crt1u.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib64/dllcrt1.o: crt/crtdll.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 lib64/dllcrt2.o: lib64/dllcrt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib64/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) $(CPPFLAGS64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGS64) -c $< -o $@
 lib64/gcrt1.o: lib64/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 lib64/gcrt2.o: lib64/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib64/%.o: crt/%.c
-	$(COMPILE) $(CPPFLAGS64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGS64) -c $< -o $@
 
 lib64_LIBRARIES = lib64/libkernel32.a
 lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64) lib-common/kernel32.def.in
@@ -1625,11 +1625,11 @@ lib64_DATA =
 if !W32API
 lib64_DATA += lib64/libmsvcrt.a
 lib64/libmsvcrt.a: lib64/@MSVCRT_LIB@
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 lib64_DATA += lib64/libmsvcrt-os.a
 lib64/libmsvcrt-os.a: lib-common/msvcrt-os.mri lib64/libmsvcrt_def.a lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
 lib64_LIBRARIES += lib64/libbits.a
@@ -1818,55 +1818,55 @@ lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcp120_app.a
 
 lib64_DATA += lib64/libmsvcr80.a
 lib64/libmsvcr80.a: lib-common/msvcr80.mri lib64/libmsvcr80_def.a lib64/libmsvcrt_common.a lib64/libmsvcr80_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr80d.a
 lib64/libmsvcr80d.a: lib-common/msvcr80d.mri lib64/libmsvcr80d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr80_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr90.a
 lib64/libmsvcr90.a: lib-common/msvcr90.mri lib64/libmsvcr90_def.a lib64/libmsvcrt_common.a lib64/libmsvcr90_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr90d.a
 lib64/libmsvcr90d.a: lib-common/msvcr90d.mri lib64/libmsvcr90d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr90_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr100.a
 lib64/libmsvcr100.a: lib-common/msvcr100.mri lib64/libmsvcr100_def.a lib64/libmsvcrt_common.a lib64/libmsvcr100_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr100d.a
 lib64/libmsvcr100d.a: lib-common/msvcr100d.mri lib64/libmsvcr100d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr100_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr110.a
 lib64/libmsvcr110.a: lib-common/msvcr110.mri lib64/libmsvcr110_def.a lib64/libmsvcrt_common.a lib64/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr110d.a
 lib64/libmsvcr110d.a: lib-common/msvcr110d.mri lib64/libmsvcr110d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120.a
 lib64/libmsvcr120.a: lib-common/msvcr120.mri lib64/libmsvcr120_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120d.a
 lib64/libmsvcr120d.a: lib-common/msvcr120d.mri lib64/libmsvcr120d_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libmsvcr120_app.a
 lib64/libmsvcr120_app.a: lib-common/msvcr120_app.mri lib64/libmsvcr120_app_def.a lib64/libmsvcrt_common.a lib64/libmsvcr120_extra.a lib64/libmsvcr120_app_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libucrtbase.a
 lib64/libucrtbase.a: lib-common/ucrtbase.mri lib64/libucrtbase_def.a lib64/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libucrtbased.a
 lib64/libucrtbased.a: lib-common/ucrtbased.mri lib64/libucrtbased_def.a lib64/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 lib64_DATA += lib64/libucrt.a lib64/libucrtapp.a
 noinst_LIBRARIES += lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a lib64/libmsvcr80_extra.a lib64/libmsvcr90_extra.a lib64/libmsvcr100_extra.a lib64/libmsvcr110_extra.a lib64/libmsvcr120_extra.a lib64/libmsvcr120_app_extra.a lib64/libucrt_extra.a lib64/libucrtapp_extra.a
@@ -1897,16 +1897,16 @@ lib64_DATA += lib64/libvcruntime140_app.a
 endif
 
 lib64/lib%.a: lib64/%.def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 
 lib64/lib%.a: lib-common/%.def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 
 lib64/lib%_def.a: lib64/%.def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 
 lib64/lib%_def.a: lib-common/%.def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 
 dx64_DATA =
 dx64_DATA += lib64/libxinput.a
@@ -1919,21 +1919,21 @@ dx64_DATA += lib64/libd3dcsxd.a
 dx64_DATA += lib64/libd3dcompiler.a
 
 lib64/libxinput.a: lib64/$(xinput).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libxapofx.a: lib64/$(xapofx).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libx3daudio.a: lib64/$(x3daudio).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libd3dx9.a: lib64/$(d3dx9).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libd3dx10.a: lib64/$(d3dx10).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libd3dx11.a: lib64/$(d3dx11).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libd3dcsxd.a: lib64/$(d3dcsxd).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 lib64/libd3dcompiler.a: lib-common/$(d3dcompiler).def
-	$(DTDEF64) $<
+	$(AM_V_GEN)$(DTDEF64) $<
 
 endif
 # End 64-bit runtime
@@ -1962,27 +1962,27 @@ endif
 
 COMPILE32=$(COMPILE) $(CPPFLAGSARM32) $(extra_include) -D_SYSCRT=1
 libarm32/crt1.o: crt/crtexe.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 libarm32/crt2.o: libarm32/crt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm32/crt1u.o: crt/ucrtexe.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 libarm32/crt2u.o: libarm32/crt1u.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm32/dllcrt1.o: crt/crtdll.c
-	$(COMPILE32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE32) -c $< -o $@
 libarm32/dllcrt2.o: libarm32/dllcrt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm32/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
 libarm32/gcrt1.o: libarm32/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm32/gcrt2.o: libarm32/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm32/%.o: crt/%.c
-	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
 
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.
@@ -2002,11 +2002,11 @@ libarm32_DATA =
 if !W32API
 libarm32_DATA += libarm32/libmsvcrt.a
 libarm32/libmsvcrt.a: libarm32/@MSVCRT_LIB@
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm32_DATA += libarm32/libmsvcrt-os.a
 libarm32/libmsvcrt-os.a: lib-common/msvcrt-os.mri libarm32/libmsvcrt_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
 libarm32_LIBRARIES += libarm32/libbits.a
@@ -2190,31 +2190,31 @@ libarm32_DATA += libarm32/libmsvcp60.a
 
 libarm32_DATA += libarm32/libmsvcr110.a
 libarm32/libmsvcr110.a: lib-common/msvcr110.mri libarm32/libmsvcr110_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libmsvcr110d.a
 libarm32/libmsvcr110d.a: lib-common/msvcr110d.mri libarm32/libmsvcr110d_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr110_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libmsvcr120.a
 libarm32/libmsvcr120.a: lib-common/msvcr120.mri libarm32/libmsvcr120_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libmsvcr120d.a
 libarm32/libmsvcr120d.a: lib-common/msvcr120d.mri libarm32/libmsvcr120d_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libmsvcr120_app.a
 libarm32/libmsvcr120_app.a: lib-common/msvcr120_app.mri libarm32/libmsvcr120_app_def.a libarm32/libmsvcrt_common.a libarm32/libmsvcr120_app_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libucrtbase.a
 libarm32/libucrtbase.a: lib-common/ucrtbase.mri libarm32/libucrtbase_def.a libarm32/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libucrtbased.a
 libarm32/libucrtbased.a: lib-common/ucrtbased.mri libarm32/libucrtbased_def.a libarm32/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm32_DATA += libarm32/libucrt.a libarm32/libucrtapp.a
 noinst_LIBRARIES += libarm32/libmsvcrt_common.a libarm32/libmsvcrt_extra.a libarm32/libmsvcr110_extra.a libarm32/libmsvcr120_extra.a libarm32/libmsvcr120_app_extra.a libarm32/libucrt_extra.a libarm32/libucrtapp_extra.a
@@ -2239,25 +2239,25 @@ libarm32_DATA += libarm32/libvcruntime140_app.a
 endif
 
 libarm32/lib%.a: libarm32/%.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 
 libarm32/lib%.a: lib-common/%.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 
 libarm32/lib%_def.a: libarm32/%.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 
 libarm32/lib%_def.a: lib-common/%.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
 dx32_DATA += libarm32/libd3dcompiler.a
 
 libarm32/libxinput.a: lib-common/xinput1_4.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 libarm32/libd3dcompiler.a: lib-common/d3dcompiler_47.def
-	$(DTDEFARM32) $<
+	$(AM_V_GEN)$(DTDEFARM32) $<
 
 endif
 # End ARM 32-bit runtime
@@ -2284,27 +2284,27 @@ endif
 
 COMPILE64=$(COMPILE) $(CPPFLAGSARM64) $(extra_include) -D_SYSCRT=1
 libarm64/crt1.o: crt/crtexe.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 libarm64/crt2.o: libarm64/crt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm64/crt1u.o: crt/ucrtexe.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 libarm64/crt2u.o: libarm64/crt1u.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm64/dllcrt1.o: crt/crtdll.c
-	$(COMPILE64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE64) -c $< -o $@
 libarm64/dllcrt2.o: libarm64/dllcrt1.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm64/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
 libarm64/gcrt1.o: libarm64/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 libarm64/gcrt2.o: libarm64/gcrt0.o
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm64/%.o: crt/%.c
-	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
+	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
 
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.
@@ -2324,11 +2324,11 @@ libarm64_DATA =
 if !W32API
 libarm64_DATA += libarm64/libmsvcrt.a
 libarm64/libmsvcrt.a: libarm64/@MSVCRT_LIB@
-	cp $< $@
+	$(AM_V_GEN)cp $< $@
 
 libarm64_DATA += libarm64/libmsvcrt-os.a
 libarm64/libmsvcrt-os.a: lib-common/msvcrt-os.mri libarm64/libmsvcrt_def.a libarm64/libmsvcrt_common.a libarm64/libmsvcrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 endif
 
 libarm64_LIBRARIES += libarm64/libbits.a
@@ -2509,11 +2509,11 @@ include libarm64/Makefile.am
 if !W32API
 libarm64_DATA += libarm64/libucrtbase.a
 libarm64/libucrtbase.a: lib-common/ucrtbase.mri libarm64/libucrtbase_def.a libarm64/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm64_DATA += libarm64/libucrtbased.a
 libarm64/libucrtbased.a: lib-common/ucrtbased.mri libarm64/libucrtbased_def.a libarm64/libucrt_extra.a
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 
 libarm64_DATA += libarm64/libucrt.a libarm64/libucrtapp.a
 noinst_LIBRARIES += libarm64/libmsvcrt_common.a libarm64/libmsvcrt_extra.a libarm64/libucrt_extra.a libarm64/libucrtapp_extra.a
@@ -2532,25 +2532,25 @@ libarm64_DATA += libarm64/libvcruntime140_app.a
 endif
 
 libarm64/lib%.a: libarm64/%.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 libarm64/lib%.a: lib-common/%.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 libarm64/lib%_def.a: libarm64/%.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 libarm64/lib%_def.a: lib-common/%.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 dx64_DATA =
 dx64_DATA += libarm64/libxinput.a
 dx64_DATA += libarm64/libd3dcompiler.a
 
 libarm64/libxinput.a: lib-common/xinput1_4.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 libarm64/libd3dcompiler.a: lib-common/d3dcompiler_47.def
-	$(DTDEFARM64) $<
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 endif
 # End ARM 64-bit runtime
@@ -2748,9 +2748,9 @@ endif
 		%/libwldap32.a \
 		%/libwebsocket.a \
 		%/libws2_32.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libmincore_downlevel.a: lib-common/mincore_downlevel.mri \
 		%/libapi-ms-win-downlevel-advapi32-l1-1-0.a \
@@ -2762,9 +2762,9 @@ endif
 		%/libapi-ms-win-downlevel-shlwapi-l2-1-0.a \
 		%/libapi-ms-win-downlevel-user32-l1-1-0.a \
 		%/libapi-ms-win-downlevel-version-l1-1-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libnanosrv.a: lib-common/nanosrv.mri \
 		%/libapi-ms-win-net-isolation-l1-1-0.a \
@@ -2794,9 +2794,9 @@ endif
 		%/libwevtapi.a \
 		%/libwintrust.a \
 		%/libwsmsvc.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libonecore.a: lib-common/onecore.mri \
 		%/libadvapi32_onecore.a \
@@ -2912,9 +2912,9 @@ endif
 		%/libws2_32.a \
 		%/libwtsapi32_onecore.a \
 		%/libxmllite.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libonecore_apiset.a: lib-common/onecore_apiset.mri \
 		%/libapi-ms-win-core-apiquery-l2-1-0.a \
@@ -3202,9 +3202,9 @@ endif
 		%/libwpprecorderum.a \
 		%/libws2_32.a \
 		%/libxmllite.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libonecoreuap_apiset.a: lib-common/onecoreuap_apiset.mri \
 		%/libapi-ms-win-appmodel-runtime-l1-1-0.a \
@@ -3540,15 +3540,15 @@ endif
 		%/libws2_32.a \
 		%/libxaudio2_9.a \
 		%/libxmllite.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libpathcch.a: lib-common/pathcch.mri \
 		%/libapi-ms-win-core-path-l1-1-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libruntimeobject.a: lib-common/runtimeobject.mri \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
@@ -3559,15 +3559,15 @@ endif
 		%/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
 		%/libapi-ms-win-ro-typeresolution-l1-1-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libsynchronization.a: lib-common/synchronization.mri \
 		%/libapi-ms-win-core-synch-l1-2-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libwindowsapp.a: lib-common/windowsapp.mri \
 		%/libapi-ms-win-appmodel-runtime-l1-1-0_windowsapp.a \
@@ -3821,9 +3821,9 @@ endif
 		%/libwlanapi_windowsapp.a \
 		%/libws2_32_windowsapp.a \
 		%/libxaudio2_9_windowsapp.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libwindowscoreheadless_apiset.a: lib-common/windowscoreheadless_apiset.mri \
 		%/libapi-ms-win-appmodel-runtime-l1-1-0.a \
@@ -4137,17 +4137,17 @@ endif
 		%/libwpprecorderum.a \
 		%/libxaudio2_9.a \
 		%/libxmllite.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libvfw32.a: lib-common/vfw32.mri \
 		%/libmsvfw32.a \
 		%/libavifil32.a \
 		%/libavicap32.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 %/libucrt.a: lib-common/ucrt.mri %/libucrt_extra.a \
 		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
@@ -4155,9 +4155,9 @@ endif
 		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a %/libapi-ms-win-crt-private-l1-1-0.a \
 		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
 		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 # The same as libucrt.a above, but without the -private lib and with some more
 # statically linked functions.
@@ -4167,33 +4167,33 @@ endif
 		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a \
 		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
 		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	cd $(dir $@) && $(AR) -M < $(abspath $<)
-	$(RANLIB) $@
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
 
 lib32/%.def: lib32/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib64/%.def: lib64/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 libarm32/%.def: libarm32/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 libarm64/%.def: libarm64/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib32/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm32/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 libarm64/%.def: lib-common/%.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
 
 # Don't compile these, but install as is:
 #
