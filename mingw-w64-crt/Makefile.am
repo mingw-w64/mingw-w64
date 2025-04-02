@@ -4324,3 +4324,7 @@ XFAIL_TESTS = \
 
 # Include the complex math testcase fragment.
 include testcases/complex/Makefile.am
+
+
+# Don't delete the implicit intermediate files after building.
+.PRECIOUS: lib32/lib%.a lib32/%.def lib64/lib%.a lib64/%.def libarm32/lib%.a libarm32/%.def libarm64/lib%.a libarm64/%.def
