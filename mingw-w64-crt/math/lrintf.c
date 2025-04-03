@@ -5,14 +5,19 @@
  */
 #include <math.h>
 
-#if defined(_AMD64_) || defined(__x86_64__)
+#if (defined(_AMD64_) && !defined(_ARM64EC_)) || (defined(__x86_64__) && !defined(__arm64ec__))
 #include <xmmintrin.h>
 #endif
 
 long lrintf (float x) 
 {
   long retval = 0l;
-#if defined(_AMD64_) || defined(__x86_64__)
+#if defined(__aarch64__) || defined(_ARM64_) || defined(__arm64ec__) || defined(_ARM64EC_)
+  __asm__ __volatile__ (
+    "frintx %s1, %s1\n\t"
+    "fcvtzs %w0, %s1\n\t"
+    : "=r" (retval), "+w" (x));
+#elif defined(_AMD64_) || defined(__x86_64__)
   retval = _mm_cvtss_si32(_mm_load_ss(&x));
 #elif defined(_X86_) || defined(__i386__)
   __asm__ __volatile__ ("fistpl %0"  : "=m" (retval) : "t" (x) : "st");
@@ -21,11 +26,6 @@ long lrintf (float x)
     "vcvtr.s32.f32    %[src], %[src]\n\t"
     "fmrs             %[dst], %[src]\n\t"
     : [dst] "=r" (retval), [src] "+w" (x));
-#elif defined(__aarch64__) || defined(_ARM64_)
-  __asm__ __volatile__ (
-    "frintx %s1, %s1\n\t"
-    "fcvtzs %w0, %s1\n\t"
-    : "=r" (retval), "+w" (x));
 #endif
   return retval;
 }
