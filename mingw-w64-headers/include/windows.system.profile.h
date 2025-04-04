@@ -52,6 +52,40 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo ABI::Windows::System::Profile::ISystemIdentificationInfo
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                interface ISystemIdentificationInfo;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics ABI::Windows::System::Profile::ISystemIdentificationStatics
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                interface ISystemIdentificationStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CSystem_CProfile_CAnalyticsVersionInfo_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CProfile_CAnalyticsVersionInfo_FWD_DEFINED__
 #ifdef __cplusplus
@@ -86,6 +120,40 @@ typedef struct __x_ABI_CWindows_CSystem_CProfile_CAnalyticsInfo __x_ABI_CWindows
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CSystem_CProfile_CAnalyticsInfo_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentification_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentification_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                class SystemIdentification;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CSystem_CProfile_CSystemIdentification __x_ABI_CWindows_CSystem_CProfile_CSystemIdentification;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentification_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationInfo_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                class SystemIdentificationInfo;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationInfo __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationInfo;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationInfo_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <inspectable.h>
@@ -99,6 +167,10 @@ typedef struct __x_ABI_CWindows_CSystem_CProfile_CAnalyticsInfo __x_ABI_CWindows
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource;
+#endif /* __cplusplus */
 
 #ifndef ____x_ABI_CWindows_CSystem_CProfile_CIAnalyticsInfoStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CProfile_CIAnalyticsInfoStatics_FWD_DEFINED__
@@ -168,6 +240,75 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo ABI::Windows::System::Profile::ISystemIdentificationInfo
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                interface ISystemIdentificationInfo;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics ABI::Windows::System::Profile::ISystemIdentificationStatics
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                interface ISystemIdentificationStatics;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                enum SystemIdentificationSource {
+                    SystemIdentificationSource_None = 0,
+                    SystemIdentificationSource_Tpm = 1,
+                    SystemIdentificationSource_Uefi = 2,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+                    SystemIdentificationSource_Registry = 3
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000 */
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource {
+    SystemIdentificationSource_None = 0,
+    SystemIdentificationSource_Tpm = 1,
+    SystemIdentificationSource_Uefi = 2,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+    SystemIdentificationSource_Registry = 3
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000 */
+};
+#ifdef WIDL_using_Windows_System_Profile
+#define SystemIdentificationSource __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource
+#endif /* WIDL_using_Windows_System_Profile */
+#endif
+
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
 /*****************************************************************************
  * IAnalyticsInfoStatics interface
  */
@@ -448,6 +589,288 @@ static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CIAnalyticsVersionInfo_g
 #endif  /* ____x_ABI_CWindows_CSystem_CProfile_CIAnalyticsVersionInfo_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * ISystemIdentificationInfo interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo, 0x0c659e7d, 0xc3c2, 0x4d33, 0xa2,0xdf, 0x21,0xbc,0x41,0x91,0x6e,0xb3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                MIDL_INTERFACE("0c659e7d-c3c2-4d33-a2df-21bc41916eb3")
+                ISystemIdentificationInfo : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Id(
+                        ABI::Windows::Storage::Streams::IBuffer **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Source(
+                        ABI::Windows::System::Profile::SystemIdentificationSource *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo, 0x0c659e7d, 0xc3c2, 0x4d33, 0xa2,0xdf, 0x21,0xbc,0x41,0x91,0x6e,0xb3)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        TrustLevel *trustLevel);
+
+    /*** ISystemIdentificationInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Source)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo *This,
+        __x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfoVtbl;
+
+interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo {
+    CONST_VTBL __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISystemIdentificationInfo methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Id(This,value) (This)->lpVtbl->get_Id(This,value)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Source(This,value) (This)->lpVtbl->get_Source(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_QueryInterface(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_AddRef(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_Release(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetIids(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetRuntimeClassName(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetTrustLevel(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISystemIdentificationInfo methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Id(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,__x_ABI_CWindows_CStorage_CStreams_CIBuffer **value) {
+    return This->lpVtbl->get_Id(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Source(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo* This,__x_ABI_CWindows_CSystem_CProfile_CSystemIdentificationSource *value) {
+    return This->lpVtbl->get_Source(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_System_Profile
+#define IID_ISystemIdentificationInfo IID___x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo
+#define ISystemIdentificationInfoVtbl __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfoVtbl
+#define ISystemIdentificationInfo __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo
+#define ISystemIdentificationInfo_QueryInterface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_QueryInterface
+#define ISystemIdentificationInfo_AddRef __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_AddRef
+#define ISystemIdentificationInfo_Release __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_Release
+#define ISystemIdentificationInfo_GetIids __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetIids
+#define ISystemIdentificationInfo_GetRuntimeClassName __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetRuntimeClassName
+#define ISystemIdentificationInfo_GetTrustLevel __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_GetTrustLevel
+#define ISystemIdentificationInfo_get_Id __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Id
+#define ISystemIdentificationInfo_get_Source __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_get_Source
+#endif /* WIDL_using_Windows_System_Profile */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
+
+/*****************************************************************************
+ * ISystemIdentificationStatics interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics, 0x5581f42a, 0xd3df, 0x4d93, 0xa3,0x7d, 0xc4,0x1a,0x61,0x6c,0x6d,0x01);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Profile {
+                MIDL_INTERFACE("5581f42a-d3df-4d93-a37d-c41a616c6d01")
+                ISystemIdentificationStatics : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetSystemIdForPublisher(
+                        ABI::Windows::System::Profile::ISystemIdentificationInfo **result) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetSystemIdForUser(
+                        ABI::Windows::System::IUser *user,
+                        ABI::Windows::System::Profile::ISystemIdentificationInfo **result) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics, 0x5581f42a, 0xd3df, 0x4d93, 0xa3,0x7d, 0xc4,0x1a,0x61,0x6c,0x6d,0x01)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStaticsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        TrustLevel *trustLevel);
+
+    /*** ISystemIdentificationStatics methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSystemIdForPublisher)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo **result);
+
+    HRESULT (STDMETHODCALLTYPE *GetSystemIdForUser)(
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics *This,
+        __x_ABI_CWindows_CSystem_CIUser *user,
+        __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo **result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStaticsVtbl;
+
+interface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics {
+    CONST_VTBL __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** ISystemIdentificationStatics methods ***/
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForPublisher(This,result) (This)->lpVtbl->GetSystemIdForPublisher(This,result)
+#define __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForUser(This,user,result) (This)->lpVtbl->GetSystemIdForUser(This,user,result)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_QueryInterface(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_AddRef(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_Release(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetIids(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetRuntimeClassName(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetTrustLevel(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** ISystemIdentificationStatics methods ***/
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForPublisher(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo **result) {
+    return This->lpVtbl->GetSystemIdForPublisher(This,result);
+}
+static inline HRESULT __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForUser(__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics* This,__x_ABI_CWindows_CSystem_CIUser *user,__x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationInfo **result) {
+    return This->lpVtbl->GetSystemIdForUser(This,user,result);
+}
+#endif
+#ifdef WIDL_using_Windows_System_Profile
+#define IID_ISystemIdentificationStatics IID___x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics
+#define ISystemIdentificationStaticsVtbl __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStaticsVtbl
+#define ISystemIdentificationStatics __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics
+#define ISystemIdentificationStatics_QueryInterface __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_QueryInterface
+#define ISystemIdentificationStatics_AddRef __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_AddRef
+#define ISystemIdentificationStatics_Release __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_Release
+#define ISystemIdentificationStatics_GetIids __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetIids
+#define ISystemIdentificationStatics_GetRuntimeClassName __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetRuntimeClassName
+#define ISystemIdentificationStatics_GetTrustLevel __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetTrustLevel
+#define ISystemIdentificationStatics_GetSystemIdForPublisher __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForPublisher
+#define ISystemIdentificationStatics_GetSystemIdForUser __x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_GetSystemIdForUser
+#endif /* WIDL_using_Windows_System_Profile */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CSystem_CProfile_CISystemIdentificationStatics_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
+
 /*
  * Class Windows.System.Profile.AnalyticsVersionInfo
  */
@@ -479,6 +902,38 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_Profile_Analyt
 #endif
 #endif /* RUNTIMECLASS_Windows_System_Profile_AnalyticsInfo_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.System.Profile.SystemIdentification
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef RUNTIMECLASS_Windows_System_Profile_SystemIdentification_DEFINED
+#define RUNTIMECLASS_Windows_System_Profile_SystemIdentification_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_System_Profile_SystemIdentification[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','P','r','o','f','i','l','e','.','S','y','s','t','e','m','I','d','e','n','t','i','f','i','c','a','t','i','o','n',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_Profile_SystemIdentification[] = L"Windows.System.Profile.SystemIdentification";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_Profile_SystemIdentification[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','P','r','o','f','i','l','e','.','S','y','s','t','e','m','I','d','e','n','t','i','f','i','c','a','t','i','o','n',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_System_Profile_SystemIdentification_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
+
+/*
+ * Class Windows.System.Profile.SystemIdentificationInfo
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+#ifndef RUNTIMECLASS_Windows_System_Profile_SystemIdentificationInfo_DEFINED
+#define RUNTIMECLASS_Windows_System_Profile_SystemIdentificationInfo_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_System_Profile_SystemIdentificationInfo[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','P','r','o','f','i','l','e','.','S','y','s','t','e','m','I','d','e','n','t','i','f','i','c','a','t','i','o','n','I','n','f','o',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_Profile_SystemIdentificationInfo[] = L"Windows.System.Profile.SystemIdentificationInfo";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_System_Profile_SystemIdentificationInfo[] = {'W','i','n','d','o','w','s','.','S','y','s','t','e','m','.','P','r','o','f','i','l','e','.','S','y','s','t','e','m','I','d','e','n','t','i','f','i','c','a','t','i','o','n','I','n','f','o',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_System_Profile_SystemIdentificationInfo_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000 */
 
 /* Begin additional prototypes for all interfaces */
 

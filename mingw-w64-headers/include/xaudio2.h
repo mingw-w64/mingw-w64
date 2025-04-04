@@ -93,7 +93,7 @@ interface IXAudio2Extension;
 extern "C" {
 #endif
 
-#include <pshpack1.h>
+#pragma pack(push,1)
 #ifndef __IXAudio2Voice_FWD_DEFINED__
 #define __IXAudio2Voice_FWD_DEFINED__
 typedef interface IXAudio2Voice IXAudio2Voice;
@@ -1856,7 +1856,7 @@ inline static float XAudio2FrequencyRatioToSemitones(float freqratio) { return 3
 inline static float XAudio2CutoffFrequencyToRadians(float cutofffreq, UINT32 samplerate) { if ((UINT32)(cutofffreq * 6.0f) >= samplerate) { return XAUDIO2_MAX_FILTER_FREQUENCY; } return 2.0f * sinf((float)M_PI * cutofffreq / samplerate); }
 inline static float XAudio2RadiansToCutoffFrequency(float radians, float samplerate) { return samplerate * asinf(radians/2.0f) / (float)M_PI; }
 #endif
-#include <poppack.h>
+#pragma pack(pop)
 HRESULT WINAPI XAudio2Create(IXAudio2** pxaudio2, UINT32 flags, XAUDIO2_PROCESSOR processor);
 /* Begin additional prototypes for all interfaces */
 
