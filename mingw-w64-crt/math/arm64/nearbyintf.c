@@ -7,8 +7,8 @@
 #include <math.h>
 #include <internal.h>
 
-__ASM_NAKED_FUNC(float, nearbyintf, (float x),
-                 "mrs x1, fpcr\n\t"
-                 "frintx s0, s0\n\t"
-                 "msr fpcr, x1\n\t"
-                 "ret")
+__ASM_DEFINE_FUNC(float, nearbyintf, (float x),
+                  "mrs x1, fpcr\n\t"
+                  "frintx s0, s0\n\t"
+                  "msr fpcr, x1\n\t"
+                  "ret")

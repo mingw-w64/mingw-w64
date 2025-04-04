@@ -291,7 +291,7 @@ static inline unsigned int __mingw_statusfp(void)
  * has broken behavior on x86_64 by emitting .seh_endprologue. */
 #ifndef __clang__
 
-#define __ASM_NAKED_FUNC(rettype, name, args, code) \
+#define __ASM_DEFINE_FUNC(rettype, name, args, code) \
     asm(".text\n\t" \
         ".p2align 2\n\t" \
         ".globl " __MINGW64_STRINGIFY(__MINGW_USYMBOL(name)) "\n\t" \
@@ -301,7 +301,7 @@ static inline unsigned int __mingw_statusfp(void)
 
 #else
 
-#define __ASM_NAKED_FUNC(rettype, name, args, code) \
+#define __ASM_DEFINE_FUNC(rettype, name, args, code) \
     rettype __attribute__((naked)) name args { \
         asm(code "\n\t"); \
     }
