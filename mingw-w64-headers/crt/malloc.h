@@ -131,6 +131,7 @@ extern "C" {
 void * __mingw_aligned_malloc (size_t _Size, size_t _Alignment);
 void __mingw_aligned_free (void *_Memory);
 void * __mingw_aligned_offset_realloc (void *_Memory, size_t _Size, size_t _Alignment, size_t _Offset);
+void * __mingw_aligned_offset_malloc (size_t, size_t, size_t);
 void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 
 #if defined(__x86_64__) || defined(__i386__)

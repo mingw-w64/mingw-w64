@@ -18,9 +18,6 @@
 #include <stdint.h>		/* uintptr_t */
 #include <string.h>		/* memmove */
 
-/* Forward declarations:  */
-void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
-
 #define NOT_POWER_OF_TWO(n) (((n) & ((n) - 1)))
 #define UI(p) ((uintptr_t) (p))
 #define CP(p) ((char *) p)
