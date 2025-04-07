@@ -324,7 +324,10 @@ src_msvcrt=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
+  misc/_aligned_offset_recalloc.c \
+  misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
+  misc/_recalloc.c \
   misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
@@ -813,9 +816,12 @@ src_pre_msvcr80=\
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
+  misc/_aligned_offset_recalloc.c \
+  misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
   misc/_get_errno.c \
   misc/_initterm_e.c \
+  misc/_recalloc.c \
   misc/_set_errno.c \
   misc/btowc.c \
   misc/imaxabs.c \
