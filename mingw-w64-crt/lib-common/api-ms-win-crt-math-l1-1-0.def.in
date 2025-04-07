@@ -266,7 +266,7 @@ expm1
 expm1f
 F_LD64(expm1l) ; Can't use long double functions from the CRT on x86
 fabs
-F_LD64(fabsf)
+F_ARM_ANY(fabsf)
 fdim
 fdimf
 F_LD64(fdiml) ; Can't use long double functions from the CRT on x86
