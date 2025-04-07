@@ -118,3 +118,28 @@ __mingw_aligned_realloc (void *memblock, size_t size, size_t alignment)
 {
   return __mingw_aligned_offset_realloc (memblock, size, alignment, 0);
 }
+
+size_t
+__mingw_aligned_msize (void *memblock, size_t alignment, size_t offset)
+{
+  void *p0;
+
+  if (!memblock || NOT_POWER_OF_TWO (alignment))
+    {
+      errno = EINVAL;
+      return (size_t)-1;
+    }
+  if (alignment < sizeof (void *))
+    alignment = sizeof (void *);
+
+  p0 = ORIG_PTR (memblock);
+
+  /* It is an error if the alignment or offset does not match. */
+  if (memblock != PTR_ALIGN (p0, alignment, offset))
+    {
+      errno = EINVAL;
+      return (size_t)-1;
+    }
+
+  return _msize (p0) - (alignment + sizeof (void *));
+}

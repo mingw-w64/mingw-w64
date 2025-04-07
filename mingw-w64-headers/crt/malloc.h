@@ -133,6 +133,7 @@ void __mingw_aligned_free (void *_Memory);
 void * __mingw_aligned_offset_realloc (void *_Memory, size_t _Size, size_t _Alignment, size_t _Offset);
 void * __mingw_aligned_offset_malloc (size_t, size_t, size_t);
 void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
+size_t __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset);
 
 #if defined(__x86_64__) || defined(__i386__)
 /* Get the compiler's definition of _mm_malloc and _mm_free. */
