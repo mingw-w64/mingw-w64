@@ -323,6 +323,7 @@ src_msvcrt=\
   misc/__iswcsymf.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_aligned_msize.c \
   misc/_configthreadlocale.c \
   misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
@@ -811,6 +812,7 @@ src_pre_msvcr80=\
   misc/__iswcsymf.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
+  misc/_aligned_msize.c \
   misc/_configthreadlocale.c \
   misc/_get_errno.c \
   misc/_initterm_e.c \

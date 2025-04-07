@@ -165,8 +165,8 @@ extern "C" {
 #define _recalloc_dbg(p,c,s,t,f,l) _recalloc(p,c,s)
 #define _aligned_recalloc_dbg(p,c,s,a,f,l) _aligned_realloc(p,c,s,a)
 #define _aligned_offset_recalloc_dbg(p,c,s,a,o,f,l) _aligned_offset_recalloc(p,c,s,a,o)
-#define _aligned_msize_dbg(p,a,o) _aligned_msize(p,a,o)
 #endif
+#define _aligned_msize_dbg(p,a,o) _aligned_msize(p,a,o)
 
 #define _malloca_dbg(s,t,f,l) _malloca(s)
 #define _freea_dbg(p,t) _freea(p)

@@ -106,8 +106,8 @@ extern "C" {
   _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
   _CRTIMP void *__cdecl _aligned_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment);
   _CRTIMP void *__cdecl _aligned_offset_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment,size_t _Offset);
-  _CRTIMP size_t __cdecl _aligned_msize(void *_Memory,size_t _Alignment,size_t _Offset);
 # endif
+  _CRTIMP size_t __cdecl _aligned_msize(void *_Memory,size_t _Alignment,size_t _Offset);
 
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma pop_macro("calloc")
