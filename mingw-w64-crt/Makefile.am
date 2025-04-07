@@ -513,6 +513,11 @@ src_msvcrt32=\
   misc/__p__osplatform.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
+  misc/_aligned_free.c \
+  misc/_aligned_malloc.c \
+  misc/_aligned_offset_malloc.c \
+  misc/_aligned_offset_realloc.c \
+  misc/_aligned_realloc.c \
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
@@ -783,6 +788,11 @@ src_pre_msvcr70=\
   misc/___mb_cur_max_func.c \
   misc/__pctype_func.c \
   misc/__pwctype_func.c \
+  misc/_aligned_free.c \
+  misc/_aligned_malloc.c \
+  misc/_aligned_offset_malloc.c \
+  misc/_aligned_offset_realloc.c \
+  misc/_aligned_realloc.c \
   misc/lc_locale_func.c \
   misc/strtoimax.c \
   misc/strtoumax.c \

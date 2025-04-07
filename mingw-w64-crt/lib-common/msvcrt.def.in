@@ -1202,11 +1202,11 @@ __crtLCMapStringW
 F_NON_I386(__iob_func) ; i386 __iob_func replaced by alias
 F_NON_I386(__pctype_func) ; i386 __pctype_func replaced by emu
 __wcserror
-_aligned_free
-_aligned_malloc
-_aligned_offset_malloc
-_aligned_offset_realloc
-_aligned_realloc
+F_NON_I386(_aligned_free) ; i386 _aligned_free replaced by emu
+F_NON_I386(_aligned_malloc) ; i386 _aligned_malloc replaced by emu
+F_NON_I386(_aligned_offset_malloc) ; i386 _aligned_offset_malloc replaced by emu
+F_NON_I386(_aligned_offset_realloc) ; i386 _aligned_offset_realloc replaced by emu
+F_NON_I386(_aligned_realloc) ; i386 _aligned_realloc replaced by emu
 _cgetws
 _cputws
 _cwprintf
