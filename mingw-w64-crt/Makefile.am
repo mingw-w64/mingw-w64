@@ -4292,6 +4292,7 @@ testcase_progs = \
   testcases/tstmainc \
   testcases/tstmaincpp \
   testcases/tstmain_sys_xxx \
+  testcases/t_aligned_alloc \
   testcases/t_ansi_io \
   testcases/t_findfirst \
   testcases/t_float  \
