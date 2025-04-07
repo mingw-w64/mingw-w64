@@ -22,9 +22,10 @@
 #define UI(p) ((uintptr_t) (p))
 #define CP(p) ((char *) p)
 
+#define GAP(offset) ((0 - offset) & (sizeof (void *) -1))
 #define PTR_ALIGN(p0, alignment, offset)				\
-            ((void *) (((UI(p0) + (alignment + sizeof(void*)) + offset)	\
-			& (~UI(alignment - 1)))				\
+            ((void *) (((UI(p0) + (alignment + GAP(offset) + sizeof(void*)) + offset)	\
+			& (~UI(alignment)))				\
 		       - offset))
 
 /* Pointer must sometimes be aligned; assume sizeof(void*) is a power of two. */
@@ -44,12 +45,13 @@ __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
     return ((void *) 0);
   if (alignment < sizeof (void *))
     alignment = sizeof (void *);
+  alignment--;
 
   /* Including the extra sizeof(void*) is overkill on a 32-bit
      machine, since malloc is already 8-byte aligned, as long
      as we enforce alignment >= 8 ...but oh well.  */
 
-  p0 = malloc (size + (alignment + sizeof (void *)));
+  p0 = malloc (size + (alignment + GAP (offset) + sizeof (void *)));
   if (!p0)
     return ((void *) 0);
   p = PTR_ALIGN (p0, alignment, offset);
@@ -88,6 +90,7 @@ __mingw_aligned_offset_realloc (void *memblock, size_t size,
     }
   if (alignment < sizeof (void *))
     alignment = sizeof (void *);
+  alignment--;
 
   p0 = ORIG_PTR (memblock);
   /* It is an error for the alignment to change. */
@@ -95,7 +98,7 @@ __mingw_aligned_offset_realloc (void *memblock, size_t size,
     goto bad;
   shift = CP (memblock) - CP (p0);
 
-  p0 = realloc (p0, size + (alignment + sizeof (void *)));
+  p0 = realloc (p0, size + (alignment + GAP (offset) + sizeof (void *)));
   if (!p0)
     return ((void *) 0);
   p = PTR_ALIGN (p0, alignment, offset);
@@ -131,6 +134,7 @@ __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset)
     }
   if (alignment < sizeof (void *))
     alignment = sizeof (void *);
+  alignment--;
 
   p0 = ORIG_PTR (memblock);
 
@@ -141,5 +145,5 @@ __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset)
       return (size_t)-1;
     }
 
-  return _msize (p0) - (alignment + sizeof (void *));
+  return _msize (p0) - (alignment + GAP (offset) + sizeof (void *));
 }
