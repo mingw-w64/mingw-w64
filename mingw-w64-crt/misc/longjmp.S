@@ -6,6 +6,7 @@
 
 #include <_mingw_mac.h>
 
+#ifndef __arm64ec__
         .globl  __MINGW_USYMBOL(longjmp)
         .def    __MINGW_USYMBOL(longjmp); .scl 2; .type 32; .endef
 
@@ -98,3 +99,4 @@ __MINGW_IMP_LSYMBOL(longjmp):
 #else
         .long   __MINGW_USYMBOL(longjmp)
 #endif
+#endif /* __arm64ec__ */

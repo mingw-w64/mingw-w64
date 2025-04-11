@@ -461,6 +461,12 @@ src_ucrtapp=\
   string/wcsrchr.c \
   string/wcsstr.c
 
+if ARM64EC
+src_ucrtapp_arm64=\
+  misc/arm64ec/longjmp.c \
+  misc/arm64ec/setjmp.c
+endif
+
 # Files included in libucrt*.a on x86_32
 src_ucrtbase32=\
   $(src_ucrtbase) \
@@ -2563,7 +2569,7 @@ libarm64_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ -D__LIBMSVC
 libarm64_libmsvcrt_extra_a_LIBADD=$(src_msvcrtarm64_x64)
 libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbasearm64)
 libarm64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
+libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp) $(src_ucrtapp_arm64)
 libarm64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm64_DATA += libarm64/libvcruntime140.a
