@@ -1086,7 +1086,8 @@ src_libmingwex_x86=\
 
 
 src_libmingwex32=$(src_libmingwex_x86)
-src_libmingwex64=$(src_libmingwex_x86)
+src_libmingwex64=$(src_libmingwex_x86) \
+  cfguard/guard_dispatch.S
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
