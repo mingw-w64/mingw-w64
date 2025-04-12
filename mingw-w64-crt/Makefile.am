@@ -1129,6 +1129,7 @@ src_libmingwexarm64=\
 
 if ARM64EC
 src_libmingwexarm64+=crt/chpe.S
+src_libmingwexarm64_x64=libarm64/cfguard/guard_dispatch.x86_64.o
 endif
 
 # These intrinsics are target independent:
@@ -2523,6 +2524,7 @@ libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
 libarm64_LIBRARIES += libarm64/libmingwex.a
 libarm64_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
 libarm64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwexarm64) $(src_dfp_math)
+libarm64_libmingwex_a_LIBADD=$(src_libmingwexarm64_x64)
 
 libarm64_LIBRARIES += libarm64/libmoldname.a
 libarm64_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
