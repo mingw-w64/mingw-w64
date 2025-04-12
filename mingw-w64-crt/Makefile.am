@@ -306,7 +306,6 @@ src_msvcrt_commonarm64=\
   $(src_msvcrt_common_add_arm64)
 
 src_msvcrt_add_vscanf=\
-  stdio/scanf.S \
   stdio/scanf2-argcount-char.c \
   stdio/scanf2-argcount-wchar.c \
   stdio/vfscanf.c \
@@ -383,7 +382,8 @@ src_msvcrt_add_x86=\
   secapi/rand_s.c \
   secapi/sprintf_s.c \
   secapi/strerror_s.c \
-  secapi/vsprintf_s.c
+  secapi/vsprintf_s.c \
+  stdio/scanf.S
 
 # Files included in libucrt*.a
 src_ucrtbase=\
@@ -629,7 +629,8 @@ src_msvcrtarm32=\
   misc/__winitenv.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
-  stdio/gets.c
+  stdio/gets.c \
+  stdio/scanf.S
 
 if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
@@ -749,6 +750,12 @@ src_msvcrtarm64=\
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
+if ARM64EC
+src_msvcrtarm64_x64=libarm64/stdio/scanf.x86_64.o
+else
+src_msvcrtarm64+=stdio/scanf.S
+endif
+
 src_pre_msvcrt20=\
   misc/__daylight.c \
   misc/__initenv.c \
@@ -848,7 +855,8 @@ src_pre_msvcr120=\
   misc/isblank.c \
   misc/iswblank.c \
   misc/wctrans.c \
-  misc/wctype.c
+  misc/wctype.c \
+  stdio/scanf.S
 
 src_pre_msvcr120_post_msvcr71=\
   misc/_isblank_l.c \
@@ -2331,6 +2339,9 @@ libarm64/gcrt2.o: libarm64/gcrt0.o
 libarm64/%.o: crt/%.c
 	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
 
+libarm64/%.x86_64.o: %.S
+	$(AM_V_CC)$(MKDIR_P) $(@D) && $(COMPILE) $(CPPFLAGSARM64) -target x86_64-windows-gnu -c $< -o $@
+
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.
 #
@@ -2546,6 +2557,7 @@ libarm64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_commonarm64)
 libarm64_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm64_libmsvcrt_extra_a_SOURCES = $(src_msvcrtarm64)
 libarm64_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
+libarm64_libmsvcrt_extra_a_LIBADD=$(src_msvcrtarm64_x64)
 libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbasearm64)
 libarm64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
