@@ -4,7 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#define __CRT__NO_INLINE
 #include <sys/stat.h>
 
 /* When the file size does not fit into the st_size field:

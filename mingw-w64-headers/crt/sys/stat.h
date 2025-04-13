@@ -71,55 +71,9 @@ extern "C" {
   _CRTIMP int __cdecl _fstat64(int _FileDes,struct _stat64 *_Stat);
   _CRTIMP int __cdecl _fstat32i64(int _FileDes,struct _stat32i64 *_Stat);
   int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat);
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int __ret=_fstat64(_FileDes,&st);
-    if (__ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return __ret;
-  }
-#endif /* __CRT__NO_INLINE */
   _CRTIMP int __cdecl _stat64(const char *_Name,struct _stat64 *_Stat);
   _CRTIMP int __cdecl _stat32i64(const char *_Name,struct _stat32i64 *_Stat);
   int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
-  {
-    struct _stat64 st;
-    int __ret=_stat64(_Name,&st);
-    if (__ret == -1) {
-      memset(_Stat,0,sizeof(struct _stat64i32));
-      return -1;
-    }
-    _Stat->st_dev=st.st_dev;
-    _Stat->st_ino=st.st_ino;
-    _Stat->st_mode=st.st_mode;
-    _Stat->st_nlink=st.st_nlink;
-    _Stat->st_uid=st.st_uid;
-    _Stat->st_gid=st.st_gid;
-    _Stat->st_rdev=st.st_rdev;
-    _Stat->st_size=(_off_t) st.st_size;
-    _Stat->st_atime=st.st_atime;
-    _Stat->st_mtime=st.st_mtime;
-    _Stat->st_ctime=st.st_ctime;
-    return __ret;
-  }
-#endif /* __CRT__NO_INLINE */
 
 #ifndef _WSTAT_DEFINED
 #define _WSTAT_DEFINED
