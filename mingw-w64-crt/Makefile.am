@@ -186,6 +186,14 @@ src_msvcrt_common=\
   stdio/vsnwprintf_alias.c \
   stdio/vswprintf.c \
   stdio/vswprintf_alias.c \
+  stdio/stat32.c \
+  stdio/stat32i64.c \
+  stdio/stat64.c \
+  stdio/stat64i32.c \
+  stdio/wstat32.c \
+  stdio/wstat32i64.c \
+  stdio/wstat64.c \
+  stdio/wstat64i32.c \
   math/cbrt.c math/cbrtf.c \
   math/copysign.c math/copysignf.c \
   math/coshf.c \
@@ -1063,11 +1071,11 @@ src_libmingwex=\
   ssp/stpcpy_chk.c       ssp/strcpy_chk.c           ssp/strncat_chk.c       ssp/strncpy_chk.c \
   \
   stdio/strtok_r.c \
-  stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c \
-  stdio/_stat.c            stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
-  stdio/_wstat.c           stdio/asprintf.c \
+  stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
+  stdio/asprintf.c \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c                                   stdio/ftello.c          \
   stdio/ftello64.c         stdio/ftruncate64.c       stdio/lltoa.c            stdio/lltow.c             stdio/lseek64.c         \
+  stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
   stdio/mingw_pformat.h    mingw_sformat.h           mingw_swformat.h \
   stdio/mingw_fprintf.c    stdio/mingw_fwprintf.c    stdio/mingw_fscanf.c     stdio/mingw_fwscanf.c     stdio/mingw_pformat.c   \

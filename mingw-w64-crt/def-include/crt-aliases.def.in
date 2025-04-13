@@ -137,8 +137,11 @@ ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
 #endif
-#ifndef CRTDLL
-; stat is provided by mingw to workaround trailing slash issue in _stat
+#ifdef UCRTBASE
+F32(stat == _stat32)
+F64(stat == _stat64i32)
+#else
+; stat for non-UCRT is provided by mingw to workaround trailing slash issue in _stat
 #endif
 #ifdef NO_STRCMPI_ALIAS
 ; Symbol _strcmpi is natively present and defined in the library def file
@@ -296,6 +299,21 @@ ADD_UNDERSCORE(popen)
 ; fgetpos and fsetpos are already 64-bit
 fgetpos64 == fgetpos
 fsetpos64 == fsetpos
+#endif
+#ifdef UCRTBASE
+stat32 == _stat32
+stat32i64 == _stat32i64
+stat64 == _stat64
+stat64i32 == _stat64i32
+#else
+; stat for non-UCRT is provided by mingw to workaround trailing slash issue in _stat
+#endif
+#ifdef FIXED_SIZE_SYMBOLS
+#if !defined(NO_I64_FIXED_SIZE) && !defined(NO_FIXED_SIZE_64_ALIAS)
+F64(fstat64 == _fstati64)
+#endif
+#else
+fstat64 == _fstat64
 #endif
 
 ; This is list of symbol aliases for GNU functions which are not part of POSIX or ISO C
@@ -556,6 +574,18 @@ __ms_wscanf == wscanf
 
 ; This is list of additional symbol aliases not available in any library as neither native symbols nor aliases
 ; FIXME: check if these really are needed
+
+; This is wstat and wstat64 symbol available only in mingw but for a long time
+#ifdef UCRTBASE
+F32(wstat == _wstat32)
+F64(wstat == _wstat64i32)
+wstat32 == _wstat32
+wstat32i64 == _wstat32i64
+wstat64 == _wstat64
+wstat64i32 == _wstat64i32
+#else
+; wstat for non-UCRT is provided by mingw to workaround trailing slash issue in _wstat
+#endif
 
 ; Origin of the symbol wcscmpi is unknown. This symbol is not present in
 ; crtdll.dll and neither in any msvcr* version. The only source of wcscmpi is
