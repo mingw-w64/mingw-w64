@@ -799,6 +799,9 @@ src_pre_msvcrt40=\
   misc/_dstbias.c \
   misc/dummy__setusermatherr.c \
   stdio/_filelengthi64.c \
+  stdio/_fstat32i64.c \
+  stdio/_stat32i64.c \
+  stdio/_wstat32i64.c \
   stdio/fgetpos.c \
   stdio/fsetpos.c
 
