@@ -554,9 +554,11 @@ src_msvcrt32=\
   stdio/_scprintf.c \
   stdio/_scwprintf.c \
   stdio/_stat64.c \
+  stdio/_stat64i32.c \
   stdio/_vscprintf.c \
   stdio/_vscwprintf.c \
   stdio/_wstat64.c \
+  stdio/_wstat64i32.c \
   string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
@@ -757,6 +759,8 @@ src_msvcrtarm64=\
   misc/__initenv.c \
   misc/__winitenv.c \
   stdio/_setmaxstdio.c \
+  stdio/_stat64i32.c \
+  stdio/_wstat64i32.c \
   stdio/gets.c
 
 if ARM64EC
@@ -855,6 +859,8 @@ src_pre_msvcr80=\
   stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
   stdio/_ftelli64.c \
+  stdio/_stat64i32.c \
+  stdio/_wstat64i32.c \
   stdio/mingw_lock.c \
   string/wcstok.c
 
@@ -1055,8 +1061,8 @@ src_libmingwex=\
   \
   stdio/strtok_r.c \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c \
-  stdio/_stat.c            stdio/_stat64i32.c        stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
-  stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c \
+  stdio/_stat.c            stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
+  stdio/_wstat.c           stdio/asprintf.c \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c                                   stdio/ftello.c          \
   stdio/ftello64.c         stdio/ftruncate64.c       stdio/lltoa.c            stdio/lltow.c             stdio/lseek64.c         \
   \
