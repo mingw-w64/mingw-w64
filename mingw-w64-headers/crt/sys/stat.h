@@ -124,31 +124,69 @@ extern "C" {
 
 #endif
 
-#if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
-int __cdecl fstat(int _Desc,struct stat *_Stat);
-#ifdef _UCRT
-  __mingw_ovr int __cdecl stat(const char *_Filename,struct stat *_Stat)
-  {
-    return _stat(_Filename, (struct _stat *)_Stat);
-  }
-  __mingw_ovr int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat)
-  {
-    return _wstat(_Filename, (struct _stat *)_Stat);
-  }
-#else
-int __cdecl stat(const char *_Filename,struct stat *_Stat);
-int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat);
-#endif
-#endif /* !RC_INVOKED && !NO_OLDNAMES */
+#if !defined(NO_OLDNAMES) || defined(_POSIX)
 
+/*
+ * When building mingw-w64 CRT files it is required that the fstat, stat and
+ * wstat functions are not declared with __MINGW_ASM_CALL redirection.
+ * Otherwise the mingw-w64 would provide broken fstat, stat and wstat symbols.
+ * To prevent ABI issues, the mingw-w64 runtime should not call the fstat,
+ * stat and wstat functions, instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
+struct stat {
+  _dev_t st_dev;
+  _ino_t st_ino;
+  unsigned short st_mode;
+  short st_nlink;
+  short st_uid;
+  short st_gid;
+  _dev_t st_rdev;
+  off_t st_size; /* off_t follows _FILE_OFFSET_BITS */
+  time_t st_atime; /* time_t follows _USE_32BIT_TIME_T */
+  time_t st_mtime;
+  time_t st_ctime;
+};
 #if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
 #ifdef _USE_32BIT_TIME_T
-#define stat _stat32i64
-#define fstat _fstat32i64
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat32i64);
+int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat32i64);
+int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat32i64);
 #else
-#define stat _stat64
-#define fstat _fstat64
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat64);
+int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat64);
+int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat64);
 #endif
+#else
+#ifdef _USE_32BIT_TIME_T
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat32);
+int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat32);
+int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat32);
+#else
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat64i32);
+int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat64i32);
+int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat64i32);
+#endif
+#endif
+#endif
+
+struct stat64 {
+  _dev_t st_dev;
+  _ino_t st_ino;
+  unsigned short st_mode;
+  short st_nlink;
+  short st_uid;
+  short st_gid;
+  _dev_t st_rdev;
+  __MINGW_EXTENSION __int64 st_size;
+  __time64_t st_atime;
+  __time64_t st_mtime;
+  __time64_t st_ctime;
+};
+int __cdecl fstat64(int _Desc, struct stat64 *_Stat);
+int __cdecl stat64(const char *_Filename, struct stat64 *_Stat);
+int __cdecl wstat64(const wchar_t *_Filename, struct stat64 *_Stat);
+
 #endif
 
 #ifdef __cplusplus

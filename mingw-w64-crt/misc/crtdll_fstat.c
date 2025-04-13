@@ -24,5 +24,6 @@ int __attribute__ ((alias ("_fstat32"))) __cdecl _fstat(int fd, struct _stat32 *
 extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_fstat32))))) (__cdecl *__MINGW_IMP_SYMBOL(_fstat))(int fd, struct _stat32 *stat);
 
 #undef fstat
+struct stat;
 int __attribute__ ((alias ("_fstat32"))) __cdecl fstat(int fd, struct stat *stat);
 extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_fstat32))))) (__cdecl *__MINGW_IMP_SYMBOL(fstat))(int fd, struct stat *stat);

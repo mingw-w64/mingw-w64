@@ -44,6 +44,5 @@ static int __cdecl emu__fstat64(int fd, struct _stat64 *stat)
 #define CALL fd, stat
 #include "msvcrt_or_emu_glue.h"
 
-#undef fstat64
-int __attribute__ ((alias ("_fstat64"))) __cdecl fstat64(int, struct _stat64 *);
-extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_fstat64))))) (__cdecl *__MINGW_IMP_SYMBOL(fstat64))(int, struct _stat64 *);
+int __attribute__ ((alias ("_fstat64"))) __cdecl fstat64(int, struct stat64 *);
+extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_fstat64))))) (__cdecl *__MINGW_IMP_SYMBOL(fstat64))(int, struct stat64 *);

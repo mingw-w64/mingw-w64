@@ -15,10 +15,8 @@
 #include <dirent.h>
 #include <ftw.h>
 
-#undef stat64
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat);
 int __cdecl stat32i64(const char *_Filename, struct _stat32i64 *_Stat);
-int __cdecl stat64(const char *_Filename, struct _stat64 *_Stat);
 int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat);
 
 typedef struct dir_data_t {

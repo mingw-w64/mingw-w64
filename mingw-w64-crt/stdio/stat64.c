@@ -9,14 +9,12 @@
 
 char *__mingw_fix_stat_path(const char *_path);
 
-#undef stat64
-int __cdecl stat64(const char *_Filename, struct _stat64 *_Stat);
-int __cdecl stat64(const char *_Filename, struct _stat64 *_Stat)
+int __cdecl stat64(const char *_Filename, struct stat64 *_Stat)
 {
   char *_path = __mingw_fix_stat_path(_Filename);
-  int ret = _stat64(_path, _Stat);
+  int ret = _stat64(_path, (struct _stat64 *)_Stat);
   if (_path != _Filename)
     free(_path);
   return ret;
 }
-int (__cdecl *__MINGW_IMP_SYMBOL(stat64))(const char *, struct _stat64 *) = stat64;
+int (__cdecl *__MINGW_IMP_SYMBOL(stat64))(const char *, struct stat64 *) = stat64;
