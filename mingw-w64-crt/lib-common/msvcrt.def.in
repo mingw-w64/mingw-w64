@@ -1161,7 +1161,7 @@ _localtime64
 _mktime64
 F_X86_ANY(_osplatform DATA)
 F_NON_I386(_stat64) ; i386 _stat64 replaced by emu
-_time64
+F_NON_I386(_time64) ; i386 _time64 replaced by emu
 _utime64
 _wctime64
 _wfindfirst64
