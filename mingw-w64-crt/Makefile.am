@@ -186,14 +186,10 @@ src_msvcrt_common=\
   stdio/vsnwprintf_alias.c \
   stdio/vswprintf.c \
   stdio/vswprintf_alias.c \
-  stdio/stat32.c \
   stdio/stat32i64.c \
   stdio/stat64.c \
-  stdio/stat64i32.c \
-  stdio/wstat32.c \
   stdio/wstat32i64.c \
   stdio/wstat64.c \
-  stdio/wstat64i32.c \
   math/cbrt.c math/cbrtf.c \
   math/copysign.c math/copysignf.c \
   math/coshf.c \
@@ -350,7 +346,11 @@ src_msvcrt=\
   secapi/wmemcpy_s.c \
   secapi/wmemmove_s.c \
   stdio/_ftelli64.c \
-  stdio/mingw_lock.c
+  stdio/mingw_lock.c \
+  stdio/msvcr110pre_stat32.c \
+  stdio/msvcr110pre_stat64i32.c \
+  stdio/msvcr110pre_wstat32.c \
+  stdio/msvcr110pre_wstat64i32.c
 
 src_msvcrt_add_x86=\
   secapi/_access_s.c \
@@ -878,6 +878,12 @@ src_pre_msvcr80=\
 src_pre_msvcr100=\
   misc/imaxdiv.c
 
+src_pre_msvcr110=\
+  stdio/msvcr110pre_stat32.c \
+  stdio/msvcr110pre_stat64i32.c \
+  stdio/msvcr110pre_wstat32.c \
+  stdio/msvcr110pre_wstat64i32.c
+
 src_pre_msvcr120=\
   $(src_msvcrt_add_vscanf) \
   math/i386__copysignf.c \
@@ -895,6 +901,12 @@ src_post_msvcr80=\
   misc/__p__osplatform_emul.c \
   misc/__p__osver_emul.c
 
+src_post_msvcr100=\
+  stdio/msvcr110plus_stat32.c \
+  stdio/msvcr110plus_stat64i32.c \
+  stdio/msvcr110plus_wstat32.c \
+  stdio/msvcr110plus_wstat64i32.c
+
 src_crtdll=\
   $(src_pre_msvcrt20) \
   $(src_pre_msvcrt40) \
@@ -903,6 +915,7 @@ src_crtdll=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/crtdll__getmainargs.c \
   misc/crtdll__ismbblead.c \
@@ -918,6 +931,7 @@ src_msvcrt10=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/crtdll__getmainargs.c \
   misc/msvcrt10__ismbblead.c
@@ -929,6 +943,7 @@ src_msvcrt20=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/msvcrt20__getmainargs.c \
   misc/msvcrt20__wgetmainargs.c
@@ -939,6 +954,7 @@ src_msvcrt40=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c
@@ -948,6 +964,7 @@ src_msvcrtd=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c
@@ -956,27 +973,32 @@ src_msvcr70=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/__p__osplatform.c
 
 src_msvcr71=\
   $(src_pre_msvcr80) \
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/__p__osplatform.c
 
 src_msvcr80=\
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71)
 
 src_msvcr90=\
   $(src_pre_msvcr100) \
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr100=\
+  $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
   $(src_post_msvcr80)
@@ -984,13 +1006,16 @@ src_msvcr100=\
 src_msvcr110=\
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
-  $(src_post_msvcr80)
+  $(src_post_msvcr80) \
+  $(src_post_msvcr100)
 
 src_msvcr120=\
-  $(src_post_msvcr80)
+  $(src_post_msvcr80) \
+  $(src_post_msvcr100)
 
 src_msvcr120_app=\
   $(src_post_msvcr80) \
+  $(src_post_msvcr100) \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__environ.c \
