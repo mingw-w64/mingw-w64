@@ -549,11 +549,14 @@ src_msvcrt32=\
   misc/wcstoumax.c \
   misc/wctob.c \
   stdio/_fseeki64.c \
+  stdio/_fstat64.c \
   stdio/_fstat64i32.c \
   stdio/_scprintf.c \
   stdio/_scwprintf.c \
+  stdio/_stat64.c \
   stdio/_vscprintf.c \
   stdio/_vscwprintf.c \
+  stdio/_wstat64.c \
   string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
@@ -815,10 +818,13 @@ src_pre_msvcr70=\
   misc/strtoumax.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  stdio/_fstat64.c \
   stdio/_scprintf.c \
   stdio/_scwprintf.c \
+  stdio/_stat64.c \
   stdio/_vscprintf.c \
-  stdio/_vscwprintf.c
+  stdio/_vscwprintf.c \
+  stdio/_wstat64.c
 
 src_pre_msvcr71=\
   misc/_set_purecall_handler.c
@@ -4279,6 +4285,7 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def.in \
   $(top_srcdir)/libarm32/*.def.in \
   $(top_srcdir)/def-include/*.def.in \
+  include/filetime_to_time64.h \
   crt/binmode.c \
   crt/crtbegin.c \
   crt/crtdll.c \
