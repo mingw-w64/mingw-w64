@@ -1063,7 +1063,8 @@ src_libmingwex=\
   misc/wcstold.c \
   misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
-  misc/wmemset.c         misc/ftw.c                 misc/ftw64.c            misc/mingw-access.c          \
+  misc/wmemset.c         misc/mingw-access.c \
+  misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
   \
   ssp/chk_fail.c         ssp/gets_chk.c             ssp/memcpy_chk.c        ssp/memmove_chk.c \
   ssp/mempcpy_chk.c \
@@ -4314,6 +4315,7 @@ EXTRA_DIST += revstamp.h \
   crt/CRT_noglob.c \
   crt/txtmode.c \
   crt/ucrtexe.c \
+  misc/ftw.c \
   profile/gcrt0.c \
   profile/COPYING \
   profile/CYGWIN_LICENSE \
