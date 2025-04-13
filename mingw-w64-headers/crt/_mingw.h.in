@@ -390,7 +390,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #ifndef __WIDL__
 
-#if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT) && !defined (_UCRT)
+#if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT) && !defined (_UCRT) && !(defined (_TIME_BITS) && _TIME_BITS == 64)
 #ifndef _USE_32BIT_TIME_T
 #define _USE_32BIT_TIME_T
 #endif
