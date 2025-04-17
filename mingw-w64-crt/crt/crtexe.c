@@ -216,6 +216,7 @@ __tmainCRTStartup (void)
 	  _amsg_exit (8); /* _RT_SPACEARG */
 
 	_initterm (__xc_a, __xc_z);
+	__main (); /* C++ initialization. */
 
 	__native_startup_state = __initialized;
       }
@@ -228,7 +229,6 @@ __tmainCRTStartup (void)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
 
     duplicate_ppstrings (argc, &argv);
-    __main (); /* C++ initialization. */
 #ifdef _UNICODE
     __winitenv = envp;
 #else
