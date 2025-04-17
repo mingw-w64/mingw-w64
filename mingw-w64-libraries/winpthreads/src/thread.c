@@ -1522,7 +1522,7 @@ void _fpreset (void);
 
 #if defined(__i386__)
 /* Align ESP on 16-byte boundaries. */
-#  if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 2)
+#  if defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 2))
 __attribute__((force_align_arg_pointer))
 #  endif
 #endif
