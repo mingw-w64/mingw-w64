@@ -31,8 +31,6 @@ extern int _fmode;
 extern int _commode;
 extern int _dowildcard;
 
-extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
-
 static int __cdecl check_managed_app (void);
 
 extern _PIFV __xi_a[];
