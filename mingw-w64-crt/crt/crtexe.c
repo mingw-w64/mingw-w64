@@ -172,6 +172,14 @@ __tmainCRTStartup (void)
       {
 	__native_startup_state = __initializing;
 
+	_pei386_runtime_relocator ();
+#if defined(__x86_64__) && !defined(__SEH__)
+	__mingw_init_ehandler ();
+#endif
+	__mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
+	_set_invalid_parameter_handler (__mingw_invalidParameterHandler);
+	_fpreset ();
+
 	managedapp = check_managed_app ();
 	if (__mingw_app_type)
 	  __set_app_type (_GUI_APP);
@@ -218,15 +226,6 @@ __tmainCRTStartup (void)
     
     if (__dyn_tls_init_callback != NULL)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
-    
-    _pei386_runtime_relocator ();
-    __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
-#if defined(__x86_64__) && !defined(__SEH__)
-    __mingw_init_ehandler ();
-#endif
-    _set_invalid_parameter_handler (__mingw_invalidParameterHandler);
-    
-    _fpreset ();
 
     duplicate_ppstrings (argc, &argv);
     __main (); /* C++ initialization. */
