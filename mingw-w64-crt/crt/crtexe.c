@@ -112,6 +112,7 @@ pre_c_init (void)
 
   if (__globallocalestatus == -1)
     {
+      _configthreadlocale(-1);
     }
   return 0;
 }
