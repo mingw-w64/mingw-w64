@@ -60,11 +60,6 @@ extern void _pei386_runtime_relocator (void);
 long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
 static void duplicate_ppstrings (int ac, _TCHAR ***av);
 
-static int __cdecl pre_c_init (void);
-static void __cdecl pre_cpp_init (void);
-_CRTALLOC(".CRT$XIAA") _PIFV __mingw_pcinit = pre_c_init;
-_CRTALLOC(".CRT$XCAA") _PVFV __mingw_pcppinit = pre_cpp_init;
-
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
 
 #ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
@@ -83,55 +78,6 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
   wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
   wprintf(L"Expression: %s\n", expression);
 #endif
-}
-
-static int __cdecl
-pre_c_init (void)
-{
-  int ret;
-  managedapp = check_managed_app ();
-  if (__mingw_app_type)
-    __set_app_type(_GUI_APP);
-  else
-    __set_app_type (_CONSOLE_APP);
-
-  * __p__fmode() = _fmode;
-  * __p__commode() = _commode;
-
-#ifdef _UNICODE
-  ret = _wsetargv();
-#else
-  ret = _setargv();
-#endif
-  if (ret < 0)
-    _amsg_exit(8); /* _RT_SPACEARG */
-  if (_MINGW_INSTALL_DEBUG_MATHERR == 1)
-    {
-      __setusermatherr (_matherr);
-    }
-
-  if (__globallocalestatus == -1)
-    {
-      _configthreadlocale(-1);
-    }
-  return 0;
-}
-
-static void __cdecl
-pre_cpp_init (void)
-{
-  _startupinfo startinfo;
-  int argret;
-
-  startinfo.newmode = _newmode;
-
-#ifdef _UNICODE
-  argret = __wgetmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
-#else
-  argret = __getmainargs(&argc,&argv,&envp,_dowildcard,&startinfo);
-#endif
-  if (argret < 0)
-    _amsg_exit(8); /* _RT_SPACEARG */
 }
 
 static int __tmainCRTStartup (void);
@@ -206,6 +152,8 @@ __tmainCRTStartup (void)
     void *lock_free = NULL;
     void *fiberid = ((PNT_TIB)NtCurrentTeb())->StackBase;
     BOOL nested = FALSE;
+    _startupinfo startinfo;
+    int ret = 0;
     while((lock_free = InterlockedCompareExchangePointer (&__native_startup_lock,
 							  fiberid, NULL)) != 0)
       {
@@ -223,18 +171,48 @@ __tmainCRTStartup (void)
     else if (__native_startup_state == __uninitialized)
       {
 	__native_startup_state = __initializing;
+
+	managedapp = check_managed_app ();
+	if (__mingw_app_type)
+	  __set_app_type (_GUI_APP);
+	else
+	  __set_app_type (_CONSOLE_APP);
+
+	*__p__fmode () = _fmode;
+	*__p__commode () = _commode;
+
+#ifdef _UNICODE
+	ret = _wsetargv ();
+#else
+	ret = _setargv ();
+#endif
+	if (ret < 0)
+	  _amsg_exit (8); /* _RT_SPACEARG */
+
+	if (_MINGW_INSTALL_DEBUG_MATHERR == 1)
+	  __setusermatherr (_matherr);
+
+	if (__globallocalestatus == -1)
+	  _configthreadlocale (-1);
+
 	if (_initterm_e (__xi_a, __xi_z) != 0)
 	  return 255;
+
+	startinfo.newmode = _newmode;
+#ifdef _UNICODE
+	ret = __wgetmainargs (&argc, &argv, &envp, _dowildcard, &startinfo);
+#else
+	ret = __getmainargs (&argc, &argv, &envp, _dowildcard, &startinfo);
+#endif
+	if (ret < 0)
+	  _amsg_exit (8); /* _RT_SPACEARG */
+
+	_initterm (__xc_a, __xc_z);
+
+	__native_startup_state = __initialized;
       }
     else
       has_cctor = 1;
-
-    if (__native_startup_state == __initializing)
-      {
-	_initterm (__xc_a, __xc_z);
-	__native_startup_state = __initialized;
-      }
-    _ASSERTE(__native_startup_state == __initialized);
     if (! nested)
       (VOID)InterlockedExchangePointer (&__native_startup_lock, NULL);
     
