@@ -51,7 +51,6 @@ extern void __main(void);
 static _TCHAR **argv;
 static _TCHAR **envp;
 
-static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
 extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
@@ -237,14 +236,14 @@ __tmainCRTStartup (void)
 #else
     __initenv = envp;
 #endif
-    mainret = _tmain (argc, argv, envp);
+    ret = _tmain (argc, argv, envp);
     if (!managedapp)
-      exit (mainret);
+      exit (ret);
 
     if (has_cctor == 0)
       _cexit ();
 
-  return mainret;
+  return ret;
 }
 
 extern int __mingw_initltsdrot_force;
