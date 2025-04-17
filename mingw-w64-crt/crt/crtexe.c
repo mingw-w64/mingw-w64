@@ -13,6 +13,7 @@
 #include <tchar.h>
 #include <sect_attribs.h>
 #include <locale.h>
+#include <float.h>
 #include <corecrt_startup.h>
 
 #if defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7)
@@ -20,8 +21,6 @@
 #endif
 
 extern IMAGE_DOS_HEADER __ImageBase;
-
-extern void _fpreset (void);
 
 int *__cdecl __p__commode(void);
 
