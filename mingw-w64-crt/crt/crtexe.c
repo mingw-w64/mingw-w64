@@ -58,7 +58,7 @@ extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
 long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
-static void duplicate_ppstrings (int ac, _TCHAR ***av);
+static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
 
@@ -215,7 +215,9 @@ __tmainCRTStartup (void)
 	if (ret < 0)
 	  _amsg_exit (8); /* _RT_SPACEARG */
 
-	duplicate_ppstrings (argc, &argv);
+	ret = duplicate_ppstrings (argc, &argv);
+	if (ret != 0)
+	  _amsg_exit (8); /* _RT_SPACEARG */
 
 	_initterm (__xc_a, __xc_z);
 	__main (); /* C++ initialization. */
@@ -286,21 +288,24 @@ check_managed_app (void)
   return 0;
 }
 
-static void duplicate_ppstrings (int ac, _TCHAR ***av)
+static int duplicate_ppstrings (int ac, _TCHAR ***av)
 {
 	_TCHAR **avl;
 	int i;
 	_TCHAR **n = (_TCHAR **) malloc (sizeof (_TCHAR *) * (ac + 1));
+	if (!n) return 1;
 	
 	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
 		size_t l = sizeof (_TCHAR) * (_tcslen (avl[i]) + 1);
 		n[i] = (_TCHAR *) malloc (l);
+		if (!n[i]) return 1;
 		memcpy (n[i], avl[i], l);
 	  }
 	n[i] = NULL;
 	*av = n;
+	return 0;
 }
 
 int __cdecl atexit (_PVFV func)
