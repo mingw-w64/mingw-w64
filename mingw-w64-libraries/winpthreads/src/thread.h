@@ -69,10 +69,6 @@ typedef struct __pthread_idlist {
 
 int _pthread_tryjoin(pthread_t t, void **res);
 void _pthread_setnobreak(int);
-#ifdef WINPTHREAD_DBG
-void thread_print_set(int state);
-void thread_print(volatile pthread_t t, char *txt);
-#endif
 int  __pthread_shallcancel(void);
 WINPTHREAD_API struct _pthread_v * __pth_gpointer_locked (pthread_t id);
 

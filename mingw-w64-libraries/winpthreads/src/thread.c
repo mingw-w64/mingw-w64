@@ -537,34 +537,6 @@ WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF")))
 extern const PIMAGE_TLS_CALLBACK __xl_f;
 const PIMAGE_TLS_CALLBACK __xl_f = __dyn_tls_pthread;
 
-
-#ifdef WINPTHREAD_DBG
-static int print_state = 0;
-void thread_print_set (int state)
-{
-  print_state = state;
-}
-
-void
-thread_print (volatile pthread_t t, char *txt)
-{
-    if (!print_state)
-      return;
-    if (!t)
-      printf("T%p %lu %s\n",NULL,GetCurrentThreadId(),txt);
-    else
-      {
-	printf("T%p %lu V=%0X H=%p %s\n",
-	    (void *) __pth_gpointer_locked (t),
-	    GetCurrentThreadId(),
-	    (__pth_gpointer_locked (t))->valid,
-	    (__pth_gpointer_locked (t))->h,
-	    txt
-	    );
-      }
-}
-#endif
-
 /* Internal collect-once structure.  */
 typedef struct collect_once_t {
   pthread_once_t *o;
@@ -725,7 +697,7 @@ pthread_delay_np_ms (DWORD to)
 /* Compatibility routine for pthread-win32.  It returns the
    amount of available CPUs on system.  */
 int
-pthread_num_processors_np(void) 
+pthread_num_processors_np(void)
 {
   int r = 0;
   DWORD_PTR ProcessAffinityMask, SystemAffinityMask;
@@ -742,10 +714,10 @@ pthread_num_processors_np(void)
 /* Compatiblity routine for pthread-win32.  Allows to set amount of used
    CPUs for process.  */
 int
-pthread_set_num_processors_np(int n) 
+pthread_set_num_processors_np(int n)
 {
   DWORD_PTR ProcessAffinityMask, ProcessNewAffinityMask = 0, SystemAffinityMask;
-  int r = 0; 
+  int r = 0;
   /* need at least 1 */
   n = n ? n : 1;
   if (GetProcessAffinityMask (GetCurrentProcess (), &ProcessAffinityMask, &SystemAffinityMask))
@@ -878,7 +850,7 @@ pthread_key_delete (pthread_key_t key)
     return EINVAL;
 
   pthread_rwlock_wrlock (&_pthread_key_lock);
-  
+
   _pthread_key_dest[key] = NULL;
 
   /* Start next search from our location */
@@ -910,7 +882,7 @@ pthread_setspecific (pthread_key_t key, const void *value)
 {
   DWORD lasterr = GetLastError ();
   _pthread_v *t = __pthread_self_lite ();
-  
+
   pthread_spin_lock (&t->spin_keys);
 
   if (key >= t->keymax)

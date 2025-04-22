@@ -86,8 +86,6 @@ extern "C" {
 /* MSB 8-bit major version, 8-bit minor version, 16-bit patch level.  */
 #define __WINPTHREADS_VERSION 0x00050000
 
-/* #define WINPTHREAD_DBG 1 */
-
 /* Compatibility stuff: */
 #define RWLS_PER_THREAD						8
 

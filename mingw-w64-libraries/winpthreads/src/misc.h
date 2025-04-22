@@ -25,35 +25,6 @@
 
 #include "pthread_compat.h"
 
-#ifndef assert
-
-#ifndef ASSERT_TRACE
-# define ASSERT_TRACE 0
-#else
-# undef ASSERT_TRACE
-# define ASSERT_TRACE 0
-#endif
-
-# define assert(e) \
-   ((e) ? ((ASSERT_TRACE) ? fprintf(stderr, \
-                                    "Assertion succeeded: (%s), file %s, line %d\n", \
-                        #e, __FILE__, (int) __LINE__), \
-                                fflush(stderr) : \
-                             0) : \
-          (fprintf(stderr, "Assertion failed: (%s), file %s, line %d\n", \
-                   #e, __FILE__, (int) __LINE__), exit(1), 0))
-
-# define fixme(e) \
-   ((e) ? ((ASSERT_TRACE) ? fprintf(stderr, \
-                                    "Assertion succeeded: (%s), file %s, line %d\n", \
-                        #e, __FILE__, (int) __LINE__), \
-                                fflush(stderr) : \
-                             0) : \
-          (fprintf(stderr, "FIXME: (%s), file %s, line %d\n", \
-                   #e, __FILE__, (int) __LINE__), 0, 0))
-
-#endif
-
 #define PTR2INT(x)	((int)(uintptr_t)(x))
 
 #if SIZE_MAX>UINT_MAX

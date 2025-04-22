@@ -52,41 +52,13 @@ typedef struct sCondWaitHelper {
 
 int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
 
-#ifdef WINPTHREAD_DBG
-static int print_state = 0;
-static FILE *fo;
-void cond_print_set(int state, FILE *f)
-{
-    if (f) fo = f;
-    if (!fo) fo = stdout;
-    print_state = state;
-}
-
-void cond_print(volatile pthread_cond_t *c, char *txt)
-{
-    if (!print_state) return;
-    cond_t *c_ = (cond_t *)*c;
-    if (c_ == NULL) {
-        fprintf(fo,"C%p %lu %s\n",(void *)*c,GetCurrentThreadId(),txt);
-    } else {
-        fprintf(fo,"C%p %lu V=%0X w=%ld %s\n",
-            (void *)*c,
-            GetCurrentThreadId(),
-            (int)c_->valid, 
-            c_->waiters_count_,
-            txt
-            );
-    }
-}
-#endif
-
 static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
 
 static int
 cond_static_init (pthread_cond_t *c)
 {
   int r = 0;
-  
+
   pthread_spin_lock (&cond_locked);
   if (c == NULL)
     r = EINVAL;
@@ -218,7 +190,7 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
   _c->sema_b =  CreateSemaphore (NULL,       /* no security */
       0,          /* initially 0 */
       0x7fffffff, /* max count */
-      NULL);  
+      NULL);
   if (_c->sema_q == NULL || _c->sema_b == NULL) {
       if (_c->sema_q != NULL)
 	CloseHandle (_c->sema_q);
@@ -356,7 +328,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
 {
   cond_t *_c;
   int r;
-  int relCnt = 0;    
+  int relCnt = 0;
 
   if (!c || !*c)
     return EINVAL;
@@ -751,5 +723,5 @@ do_sema_b_release(HANDLE sema, LONG count,CRITICAL_SECTION *cs, LONG *val)
   }
   InterlockedExchangeAdd(val, -count);
   LeaveCriticalSection(cs);
-  return EINVAL;  
+  return EINVAL;
 }

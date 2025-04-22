@@ -32,7 +32,7 @@ libwinpthread_la_SOURCES =      \
   src/wpth_ver.h                \
   src/version.rc
 
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
+libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD
 libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0
 
 if MSVC
