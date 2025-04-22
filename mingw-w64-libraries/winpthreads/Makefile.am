@@ -6,13 +6,34 @@ ACLOCAL_AMFLAGS = -I m4
 
 lib_LTLIBRARIES = libwinpthread.la
 
-include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h include/pthread_signal.h
+include_HEADERS =          \
+  include/pthread.h        \
+  include/pthread_compat.h \
+  include/pthread_signal.h \
+  include/pthread_time.h   \
+  include/pthread_unistd.h \
+  include/sched.h          \
+  include/semaphore.h
+
+libwinpthread_la_SOURCES =      \
+  src/barrier.c   src/barrier.h \
+  src/clock.c                   \
+  src/cond.c      src/cond.h    \
+  src/misc.c      src/misc.h    \
+  src/mutex.c                   \
+  src/nanosleep.c               \
+  src/ref.c       src/ref.h     \
+  src/rwlock.c    src/rwlock.h  \
+  src/sem.c       src/sem.h     \
+  src/spinlock.c                \
+  src/sched.c                   \
+  src/thread.c    src/thread.h  \
+  src/winpthread_internal.h     \
+  src/wpth_ver.h                \
+  src/version.rc
+
 libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
 libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0
-libwinpthread_la_SOURCES = \
-  src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
-  src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
-  src/winpthread_internal.h  src/clock.c src/nanosleep.c src/version.rc
 
 if MSVC
 AM_CFLAGS += -nologo
@@ -28,6 +49,10 @@ fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 fakelib_libgcc_s_a_SOURCES =
 fakelib_libgcc_eh_a_SOURCES =
 endif
+
+# Extra files to add into archive with `make dist`
+EXTRA_DIST = \
+  build-aux/windres-rc
 
 # Tell libtool how to use the resource compiler
 .rc.lo:
