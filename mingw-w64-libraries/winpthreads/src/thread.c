@@ -28,6 +28,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <wchar.h>
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -1862,13 +1863,14 @@ pthread_setname_np (pthread_t thread, const char *name)
 
   if (_pthread_set_thread_description != NULL)
     {
-      size_t required_size = mbstowcs(NULL, name, 0);
+      mbstate_t mbs = {0};
+      size_t required_size = mbsrtowcs(NULL, &name, 0, &mbs);
       if (required_size != (size_t)-1)
         {
           wchar_t *wname = malloc((required_size + 1) * sizeof(wchar_t));
           if (wname != NULL)
             {
-              mbstowcs(wname, name, required_size + 1);
+              mbsrtowcs(wname, &name, required_size + 1, &mbs);
               _pthread_set_thread_description(tv->h, wname);
               free(wname);
             }
