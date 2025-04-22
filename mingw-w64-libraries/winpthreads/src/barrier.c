@@ -20,6 +20,10 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <assert.h>
 #include <malloc.h>
 #include <stdio.h>

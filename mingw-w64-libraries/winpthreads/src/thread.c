@@ -20,6 +20,10 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <malloc.h>
 #include <signal.h>
 #include <stdio.h>

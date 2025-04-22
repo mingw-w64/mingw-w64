@@ -35,21 +35,12 @@ LT_INIT([win32-dll])
 LT_LANG([Windows Resource])
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-lpthread':
-#AC_CHECK_LIB([pthread], [main])
 
 # Checks for header files.
-AC_CHECK_HEADERS([limits.h sys/timeb.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_C_INLINE
-AC_TYPE_SIZE_T
 
 # Checks for library functions.
-#AC_FUNC_MALLOC
-#AC_FUNC_REALLOC
-# mingw-w64 should already have them
-#AC_CHECK_FUNCS([ftime gettimeofday memset])
 
 AC_CONFIG_FILES([Makefile tests/Makefile])
 AC_OUTPUT

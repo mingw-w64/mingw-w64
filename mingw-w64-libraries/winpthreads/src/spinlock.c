@@ -21,6 +21,10 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 

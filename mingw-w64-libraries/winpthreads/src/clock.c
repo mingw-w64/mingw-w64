@@ -4,6 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <errno.h>
 #include <stdint.h>
 #include <time.h>
