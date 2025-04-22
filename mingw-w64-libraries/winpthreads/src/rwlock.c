@@ -31,6 +31,8 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+#define WINPTHREAD_RWLOCK_DECL WINPTHREAD_API
+
 /* public header files */
 #include "pthread.h"
 /* internal header files */
@@ -262,7 +264,8 @@ int pthread_rwlock_rdlock (pthread_rwlock_t *rwlock_)
   return rwl_unref(rwlock_, ret);
 }
 
-int pthread_rwlock_timedrdlock (pthread_rwlock_t *rwlock_, const struct timespec *ts)
+/* Internal version which always uses `struct _timespec64`. */
+static int __pthread_rwlock_timedrdlock (pthread_rwlock_t *rwlock_, const struct _timespec64 *ts)
 {
   rwlock_t *rwlock;
   int ret;
@@ -273,12 +276,12 @@ int pthread_rwlock_timedrdlock (pthread_rwlock_t *rwlock_, const struct timespec
   if(ret != 0) return ret;
 
   rwlock = (rwlock_t *)*rwlock_;
-  if ((ret = pthread_mutex_timedlock (&rwlock->mex, ts)) != 0)
+  if ((ret = pthread_mutex_timedlock64 (&rwlock->mex, ts)) != 0)
       return rwl_unref(rwlock_, ret);
   InterlockedIncrement(&rwlock->nsh_count);
   if (rwlock->nsh_count == INT_MAX)
   {
-    ret = pthread_mutex_timedlock(&rwlock->mcomplete, ts);
+    ret = pthread_mutex_timedlock64(&rwlock->mcomplete, ts);
     if (ret != 0)
     {
       if (ret == ETIMEDOUT)
@@ -293,6 +296,17 @@ int pthread_rwlock_timedrdlock (pthread_rwlock_t *rwlock_, const struct timespec
   }
   ret = pthread_mutex_unlock(&rwlock->mex);
   return rwl_unref(rwlock_, ret);
+}
+
+int pthread_rwlock_timedrdlock64(pthread_rwlock_t *l, const struct _timespec64 *ts)
+{
+  return __pthread_rwlock_timedrdlock (l, ts);
+}
+
+int pthread_rwlock_timedrdlock32(pthread_rwlock_t *l, const struct _timespec32 *ts)
+{
+  struct _timespec64 ts64 = {.tv_sec = ts->tv_sec, .tv_nsec = ts->tv_nsec};
+  return __pthread_rwlock_timedrdlock (l, &ts64);
 }
 
 int pthread_rwlock_tryrdlock (pthread_rwlock_t *rwlock_)
@@ -442,7 +456,8 @@ int pthread_rwlock_wrlock (pthread_rwlock_t *rwlock_)
   return rwl_unref(rwlock_,ret);
 }
 
-int pthread_rwlock_timedwrlock (pthread_rwlock_t *rwlock_, const struct timespec *ts)
+/* Internal version which always uses `struct _timespec64`. */
+static int __pthread_rwlock_timedwrlock (pthread_rwlock_t *rwlock_, const struct _timespec64 *ts)
 {
   int ret;
   rwlock_t *rwlock;
@@ -454,10 +469,10 @@ int pthread_rwlock_timedwrlock (pthread_rwlock_t *rwlock_, const struct timespec
     return ret;
   rwlock = (rwlock_t *)*rwlock_;
 
-  ret = pthread_mutex_timedlock(&rwlock->mex, ts);
+  ret = pthread_mutex_timedlock64(&rwlock->mex, ts);
   if (ret != 0)
     return rwl_unref(rwlock_,ret);
-  ret = pthread_mutex_timedlock (&rwlock->mcomplete, ts);
+  ret = pthread_mutex_timedlock64(&rwlock->mcomplete, ts);
   if (ret != 0)
   {
     pthread_mutex_unlock(&rwlock->mex);
@@ -475,7 +490,7 @@ int pthread_rwlock_timedwrlock (pthread_rwlock_t *rwlock_, const struct timespec
       rwlock->ncomplete = -rwlock->nsh_count;
       pthread_cleanup_push(st_cancelwrite, (void *) rwlock);
       do {
-	ret = pthread_cond_timedwait(&rwlock->ccomplete, &rwlock->mcomplete, ts);
+	ret = pthread_cond_timedwait64(&rwlock->ccomplete, &rwlock->mcomplete, ts);
       } while (rwlock->ncomplete < 0 && !ret);
       pthread_cleanup_pop(!ret ? 0 : 1);
 
@@ -486,6 +501,17 @@ int pthread_rwlock_timedwrlock (pthread_rwlock_t *rwlock_, const struct timespec
   if(!ret)
     InterlockedIncrement((long*)&rwlock->nex_count);
   return rwl_unref(rwlock_,ret);
+}
+
+int pthread_rwlock_timedwrlock64(pthread_rwlock_t *rwlock, const struct _timespec64 *ts)
+{
+  return __pthread_rwlock_timedwrlock (rwlock, ts);
+}
+
+int pthread_rwlock_timedwrlock32(pthread_rwlock_t *rwlock, const struct _timespec32 *ts)
+{
+  struct _timespec64 ts64 = {.tv_sec = ts->tv_sec, .tv_nsec = ts->tv_nsec};
+  return __pthread_rwlock_timedwrlock (rwlock, &ts64);
 }
 
 int pthread_rwlockattr_destroy(pthread_rwlockattr_t *a)

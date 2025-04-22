@@ -139,7 +139,16 @@ extern "C" {
 #define PTHREAD_MUTEX_RECURSIVE_NP	PTHREAD_MUTEX_RECURSIVE
 
 WINPTHREAD_API void * pthread_timechange_handler_np(void * dummy);
-WINPTHREAD_API int    pthread_delay_np (const struct timespec *interval);
+WINPTHREAD_API int    pthread_delay32_np (const struct _timespec32 *interval);
+WINPTHREAD_API int    pthread_delay64_np (const struct _timespec64 *interval);
+WINPTHREAD_THREAD_DECL int    pthread_delay_np (const struct timespec *interval)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_delay32_np ((const struct _timespec32 *) interval);
+#else
+  return pthread_delay64_np ((const struct _timespec64 *) interval);
+#endif
+}
 WINPTHREAD_API int    pthread_num_processors_np(void);
 WINPTHREAD_API int    pthread_set_num_processors_np(int n);
 
@@ -269,12 +278,29 @@ WINPTHREAD_API int       pthread_detach(pthread_t t);
 WINPTHREAD_API int       pthread_setname_np(pthread_t thread, const char *name);
 WINPTHREAD_API int       pthread_getname_np(pthread_t thread, char *name, size_t len);
 
-
 WINPTHREAD_API int pthread_rwlock_init(pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *attr);
 WINPTHREAD_API int pthread_rwlock_wrlock(pthread_rwlock_t *l);
-WINPTHREAD_API int pthread_rwlock_timedwrlock(pthread_rwlock_t *rwlock, const struct timespec *ts);
+WINPTHREAD_API int pthread_rwlock_timedwrlock32(pthread_rwlock_t *rwlock, const struct _timespec32 *ts);
+WINPTHREAD_API int pthread_rwlock_timedwrlock64(pthread_rwlock_t *rwlock, const struct _timespec64 *ts);
+WINPTHREAD_RWLOCK_DECL int pthread_rwlock_timedwrlock(pthread_rwlock_t *rwlock, const struct timespec *ts)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_rwlock_timedwrlock32 (rwlock, (const struct _timespec32 *) ts);
+#else
+  return pthread_rwlock_timedwrlock64 (rwlock, (const struct _timespec64 *) ts);
+#endif
+}
 WINPTHREAD_API int pthread_rwlock_rdlock(pthread_rwlock_t *l);
-WINPTHREAD_API int pthread_rwlock_timedrdlock(pthread_rwlock_t *l, const struct timespec *ts);
+WINPTHREAD_API int pthread_rwlock_timedrdlock32(pthread_rwlock_t *l, const struct _timespec32 *ts);
+WINPTHREAD_API int pthread_rwlock_timedrdlock64(pthread_rwlock_t *l, const struct _timespec64 *ts);
+WINPTHREAD_RWLOCK_DECL int pthread_rwlock_timedrdlock(pthread_rwlock_t *l, const struct timespec *ts)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_rwlock_timedrdlock32 (l, (const struct _timespec32 *) ts);
+#else
+  return pthread_rwlock_timedrdlock64 (l, (const struct _timespec64 *) ts);
+#endif
+}
 WINPTHREAD_API int pthread_rwlock_unlock(pthread_rwlock_t *l);
 WINPTHREAD_API int pthread_rwlock_tryrdlock(pthread_rwlock_t *l);
 WINPTHREAD_API int pthread_rwlock_trywrlock(pthread_rwlock_t *l);
@@ -285,11 +311,38 @@ WINPTHREAD_API int pthread_cond_destroy(pthread_cond_t *cv);
 WINPTHREAD_API int pthread_cond_signal (pthread_cond_t *cv);
 WINPTHREAD_API int pthread_cond_broadcast (pthread_cond_t *cv);
 WINPTHREAD_API int pthread_cond_wait (pthread_cond_t *cv, pthread_mutex_t *external_mutex);
-WINPTHREAD_API int pthread_cond_timedwait(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
-WINPTHREAD_API int pthread_cond_timedwait_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
+WINPTHREAD_API int pthread_cond_timedwait32(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct _timespec32 *t);
+WINPTHREAD_API int pthread_cond_timedwait64(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct _timespec64 *t);
+WINPTHREAD_COND_DECL int pthread_cond_timedwait(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_cond_timedwait32 (cv, external_mutex, (const struct _timespec32 *) t);
+#else
+  return pthread_cond_timedwait64 (cv, external_mutex, (const struct _timespec64 *) t);
+#endif
+}
+WINPTHREAD_API int pthread_cond_timedwait32_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct _timespec32 *t);
+WINPTHREAD_API int pthread_cond_timedwait64_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct _timespec64 *t);
+WINPTHREAD_COND_DECL int pthread_cond_timedwait_relative_np(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_cond_timedwait32_relative_np (cv, external_mutex, (const struct _timespec32 *) t);
+#else
+  return pthread_cond_timedwait64_relative_np (cv, external_mutex, (const struct _timespec64 *) t);
+#endif
+}
 
 WINPTHREAD_API int pthread_mutex_lock(pthread_mutex_t *m);
-WINPTHREAD_API int pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts);
+WINPTHREAD_API int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts);
+WINPTHREAD_API int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts);
+WINPTHREAD_MUTEX_DECL int pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_mutex_timedlock32 (m, (const struct _timespec32 *) ts);
+#else
+  return pthread_mutex_timedlock64 (m, (const struct _timespec64 *) ts);
+#endif
+}
 WINPTHREAD_API int pthread_mutex_unlock(pthread_mutex_t *m);
 WINPTHREAD_API int pthread_mutex_trylock(pthread_mutex_t *m);
 WINPTHREAD_API int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a);
@@ -343,7 +396,6 @@ WINPTHREAD_API int pthread_condattr_getclock (const pthread_condattr_t *attr,
        clockid_t *clock_id);
 WINPTHREAD_API int pthread_condattr_setclock(pthread_condattr_t *attr,
        clockid_t clock_id);
-WINPTHREAD_API int __pthread_clock_nanosleep(clockid_t clock_id, int flags, const struct timespec *rqtp, struct timespec *rmtp);
 
 WINPTHREAD_API int pthread_barrierattr_init(void **attr);
 WINPTHREAD_API int pthread_barrierattr_destroy(void **attr);

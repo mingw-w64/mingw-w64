@@ -95,7 +95,7 @@ unsigned long long _pthread_time_in_ms(void)
             - 0x19DB1DED53E8000ULL) / 10000ULL;
 }
 
-unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts)
+unsigned long long _pthread_time_in_ms_from_timespec(const struct _timespec64 *ts)
 {
     unsigned long long t = (unsigned long long) ts->tv_sec * 1000LL;
     /* The +999999 is here to ensure that the division always rounds up */
@@ -104,7 +104,7 @@ unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts)
     return t;
 }
 
-unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts)
+unsigned long long _pthread_rel_time_in_ms(const struct _timespec64 *ts)
 {
     unsigned long long t1 = _pthread_time_in_ms_from_timespec(ts);
     unsigned long long t2 = _pthread_time_in_ms();

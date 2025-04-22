@@ -43,7 +43,16 @@ WINPTHREAD_API int sem_trywait(sem_t *sem);
 
 WINPTHREAD_API int sem_wait(sem_t *sem);
 
-WINPTHREAD_API int sem_timedwait(sem_t * sem, const struct timespec *t);
+WINPTHREAD_API int sem_timedwait32(sem_t * sem, const struct _timespec32 *t);
+WINPTHREAD_API int sem_timedwait64(sem_t * sem, const struct _timespec64 *t);
+WINPTHREAD_SEM_DECL int sem_timedwait(sem_t * sem, const struct timespec *t)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return sem_timedwait32 (sem, (const struct _timespec32 *) t);
+#else
+  return sem_timedwait64 (sem, (const struct _timespec64 *) t);
+#endif
+}
 
 WINPTHREAD_API int sem_post(sem_t *sem);
 

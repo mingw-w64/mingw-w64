@@ -220,8 +220,9 @@ sem_wait (sem_t *sem)
   return sem_result (ret);
 }
 
-int
-sem_timedwait (sem_t *sem, const struct timespec *t)
+/* Internal version which always uses `struct _timespec64`. */
+static int
+__sem_timedwait (sem_t *sem, const struct _timespec64 *t)
 {
   int cur_v, ret = 0;
   DWORD dwr;
@@ -257,6 +258,17 @@ sem_timedwait (sem_t *sem, const struct timespec *t)
   if (!ret)
     return 0;
   return sem_result (ret);
+}
+
+int sem_timedwait64(sem_t *sem, const struct _timespec64 *t)
+{
+  return __sem_timedwait (sem, t);
+}
+
+int sem_timedwait32(sem_t *sem, const struct _timespec32 *t)
+{
+  struct _timespec64 t64 = {.tv_sec = t->tv_sec, .tv_nsec = t->tv_nsec};
+  return __sem_timedwait (sem, &t64);
 }
 
 int

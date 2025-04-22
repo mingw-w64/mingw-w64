@@ -34,6 +34,8 @@
 #include <windows.h>
 #include <strsafe.h>
 
+#define WINPTHREAD_THREAD_DECL WINPTHREAD_API
+
 /* public header files */
 #include "pthread.h"
 /* internal header files */
@@ -658,8 +660,8 @@ pthread_timechange_handler_np(void *dummy)
 
 /* Compatibility routine for pthread-win32.  It waits for ellapse of
    interval and additionally checks for possible thread-cancelation.  */
-int
-pthread_delay_np (const struct timespec *interval)
+static int
+__pthread_delay_np (const struct _timespec64 *interval)
 {
   DWORD to = (!interval ? 0 : dwMilliSecs (_pthread_time_in_ms_from_timespec (interval)));
   struct _pthread_v *s = __pthread_self_lite ();
@@ -678,6 +680,19 @@ pthread_delay_np (const struct timespec *interval)
     Sleep (to);
   pthread_testcancel ();
   return 0;
+}
+
+int
+pthread_delay64_np (const struct _timespec64 *interval)
+{
+  return __pthread_delay_np(interval);
+}
+
+int
+pthread_delay32_np (const struct _timespec32 *interval)
+{
+  struct _timespec64 interval64 = {.tv_sec = interval->tv_sec, .tv_nsec = interval->tv_nsec};
+  return __pthread_delay_np(&interval64);
 }
 
 int
