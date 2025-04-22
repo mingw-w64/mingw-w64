@@ -19,13 +19,25 @@ AC_PROG_CC
 AM_PROG_AS
 AM_PROG_AR
 
-AS_CASE([$CC],
-  [*cl|*cl.exe],
-    [RC="$am_aux_dir/windres-rc rc.exe"
-     msvc=true],
-  [msvc=false]])
+AC_MSG_CHECKING([whether C compiler is MSVC-like compiler])
+AC_COMPILE_IFELSE(
+  [AC_LANG_SOURCE(
+    [
+#if !defined (_MSC_VER)
+not msvc
+#endif
+    ])
+  ],
+dnl then
+  [RC="$am_aux_dir/windres-rc rc.exe"]
+  [msvc=yes],
+dnl else
+  [msvc=no]
+)
+AC_MSG_RESULT([$msvc])
+
 AC_SUBST([RCFLAGS])
-AM_CONDITIONAL([MSVC], [test x$msvc = xtrue])
+AM_CONDITIONAL([MSVC], [test x$msvc = xyes])
 
 # Libtool 2.4 should check them correctly
 # AC_CHECK_TOOLS([AR],[ar],[:])

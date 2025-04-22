@@ -1,7 +1,7 @@
 
 SUBDIRS = . tests
 
-AM_CFLAGS = -Wall
+AM_CFLAGS =
 ACLOCAL_AMFLAGS = -I m4
 
 lib_LTLIBRARIES = libwinpthread.la
@@ -34,9 +34,10 @@ libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD
 libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0
 
 if MSVC
-AM_CFLAGS += -nologo
-libwinpthread_la_CPPFLAGS += -D_CRT_NONSTDC_NO_WARNINGS
+AM_CFLAGS += -W3
+libwinpthread_la_CPPFLAGS += -D_CRT_NONSTDC_NO_WARNINGS -D_CRT_DECLARE_NONSTDC_NAMES -D_CRT_SECURE_NO_WARNINGS
 else
+AM_CFLAGS += -Wall
 libwinpthread_la_CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
 libwinpthread_la_LDFLAGS += -L$(builddir)/fakelib -Wc,-no-pthread
 EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
