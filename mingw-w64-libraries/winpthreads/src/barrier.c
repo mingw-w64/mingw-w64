@@ -25,8 +25,8 @@
 #include <stdio.h>
 #include <malloc.h>
 #include "pthread.h"
+#include "semaphore.h"
 #include "barrier.h"
-#include "ref.h"
 #include "misc.h"
 
 static pthread_spinlock_t barrier_global = PTHREAD_SPINLOCK_INITIALIZER;

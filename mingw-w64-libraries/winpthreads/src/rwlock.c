@@ -26,7 +26,6 @@
 #include <malloc.h>
 #include "pthread.h"
 #include "thread.h"
-#include "ref.h"
 #include "rwlock.h"
 #include "misc.h"
 

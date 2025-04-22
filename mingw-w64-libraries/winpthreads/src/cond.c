@@ -30,7 +30,6 @@
 #include <time.h>
 #include "pthread.h"
 #include "pthread_time.h"
-#include "ref.h"
 #include "cond.h"
 #include "thread.h"
 #include "misc.h"
