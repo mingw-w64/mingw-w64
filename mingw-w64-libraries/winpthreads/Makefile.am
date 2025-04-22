@@ -28,7 +28,6 @@ libwinpthread_la_SOURCES =      \
   src/spinlock.c                \
   src/sched.c                   \
   src/thread.c    src/thread.h  \
-  src/winpthread_internal.h     \
   src/wpth_ver.h                \
   src/version.rc
 

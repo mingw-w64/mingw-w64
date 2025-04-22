@@ -71,5 +71,6 @@ int _pthread_tryjoin(pthread_t t, void **res);
 void _pthread_setnobreak(int);
 int  __pthread_shallcancel(void);
 WINPTHREAD_API struct _pthread_v * __pth_gpointer_locked (pthread_t id);
+int _pthread_delay_np_ms (DWORD to);
 
 #endif

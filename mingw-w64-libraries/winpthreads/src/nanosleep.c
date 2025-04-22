@@ -9,7 +9,7 @@
 #include <windows.h>
 #include "pthread.h"
 #include "pthread_time.h"
-#include "winpthread_internal.h"
+#include "thread.h"
 
 #define POW10_3                 1000
 #define POW10_4                 10000
@@ -48,7 +48,7 @@ int nanosleep(const struct timespec *request, struct timespec *remain)
         else ms = (unsigned long) u64;
 
         u64 -= ms;
-        rc = pthread_delay_np_ms(ms);
+        rc = _pthread_delay_np_ms(ms);
     }
 
     if (rc != 0) { /* WAIT_IO_COMPLETION (192) */

@@ -29,7 +29,6 @@
 #include "pthread.h"
 #include "thread.h"
 #include "misc.h"
-#include "winpthread_internal.h"
 
 static _pthread_v *__pthread_self_lite (void);
 
@@ -671,10 +670,8 @@ pthread_delay_np (const struct timespec *interval)
   return 0;
 }
 
-int pthread_delay_np_ms (DWORD to);
-
 int
-pthread_delay_np_ms (DWORD to)
+_pthread_delay_np_ms (DWORD to)
 {
   struct _pthread_v *s = __pthread_self_lite ();
 

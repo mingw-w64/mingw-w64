@@ -34,7 +34,6 @@
 #include "cond.h"
 #include "thread.h"
 #include "misc.h"
-#include "winpthread_internal.h"
 
 #include "pthread_compat.h"
 
@@ -135,7 +134,7 @@ __pthread_clock_nanosleep (clockid_t clock_id, int flags, const struct timespec 
     {
       dw = (DWORD) (delay >= 99999ULL ? 99999ULL : delay);
       tick = _pthread_time_in_ms ();
-      pthread_delay_np_ms (dw);
+      _pthread_delay_np_ms (dw);
       tick2 = _pthread_time_in_ms ();
       tick2 -= tick;
       if (tick2 >= delay)
