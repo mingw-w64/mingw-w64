@@ -21,11 +21,16 @@
 */
 
 #include <assert.h>
-#include <windows.h>
-#include <stdio.h>
 #include <malloc.h>
+#include <stdio.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+/* public header files */
 #include "pthread.h"
 #include "semaphore.h"
+/* internal header files */
 #include "barrier.h"
 #include "misc.h"
 

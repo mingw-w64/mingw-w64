@@ -7,12 +7,13 @@
 #include <errno.h>
 #include <stdint.h>
 #include <time.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#ifndef IN_WINPTHREAD
-#define IN_WINPTHREAD 1
-#endif
-#include "pthread.h"
+
+/* public header files */
 #include "pthread_time.h"
+/* internal header files */
 #include "misc.h"
 
 #define POW10_7                 10000000
@@ -172,7 +173,7 @@ int clock_gettime(clockid_t clock_id, struct timespec *tp)
         return 0;
         }
 
-    case CLOCK_THREAD_CPUTIME_ID: 
+    case CLOCK_THREAD_CPUTIME_ID:
         {
             if(0 == GetThreadTimes(GetCurrentThread(), &ct.ft, &et.ft, &kt.ft, &ut.ft))
                 return lc_set_errno(EINVAL);

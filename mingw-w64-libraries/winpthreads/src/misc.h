@@ -23,6 +23,8 @@
 #ifndef WIN_PTHREADS_MISC_H
 #define WIN_PTHREADS_MISC_H
 
+#include <limits.h>
+/* public header files */
 #include "pthread_compat.h"
 
 #define PTR2INT(x)	((int)(uintptr_t)(x))

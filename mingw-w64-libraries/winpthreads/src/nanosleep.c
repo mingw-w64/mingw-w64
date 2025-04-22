@@ -6,9 +6,14 @@
 
 #include <errno.h>
 #include <time.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+/* public header files */
 #include "pthread.h"
 #include "pthread_time.h"
+/* internal header files */
 #include "thread.h"
 
 #define POW10_3                 1000

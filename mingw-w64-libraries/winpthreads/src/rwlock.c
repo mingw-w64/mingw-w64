@@ -21,13 +21,18 @@
 */
 
 #include <assert.h>
-#include <windows.h>
-#include <stdio.h>
 #include <malloc.h>
+#include <stdio.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+/* public header files */
 #include "pthread.h"
-#include "thread.h"
-#include "rwlock.h"
+/* internal header files */
 #include "misc.h"
+#include "rwlock.h"
+#include "thread.h"
 
 static pthread_spinlock_t rwl_global = PTHREAD_SPINLOCK_INITIALIZER;
 

@@ -21,8 +21,12 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+/* public header files */
 #include "pthread.h"
+/* internal header files */
 #include "misc.h"
 
 /* We use the pthread_spinlock_t itself as a lock:
@@ -56,7 +60,7 @@ pthread_spin_lock (pthread_spinlock_t *lock)
     } while (*lk == 0);
   return 0;
 }
-  
+
 int
 pthread_spin_trylock (pthread_spinlock_t *lock)
 {

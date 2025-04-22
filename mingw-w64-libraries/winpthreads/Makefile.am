@@ -1,7 +1,7 @@
 
 SUBDIRS = . tests
 
-AM_CFLAGS = -Wall -DWIN32_LEAN_AND_MEAN
+AM_CFLAGS = -Wall
 ACLOCAL_AMFLAGS = -I m4
 
 lib_LTLIBRARIES = libwinpthread.la

@@ -20,15 +20,20 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#include <windows.h>
-#include <strsafe.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <malloc.h>
 #include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <strsafe.h>
+
+/* public header files */
 #include "pthread.h"
-#include "thread.h"
+/* internal header files */
 #include "misc.h"
+#include "thread.h"
 
 static _pthread_v *__pthread_self_lite (void);
 

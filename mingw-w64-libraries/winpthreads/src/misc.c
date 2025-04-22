@@ -20,8 +20,12 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+/* public header files */
 #include "pthread.h"
+/* internal header files */
 #include "misc.h"
 
 void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;

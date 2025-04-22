@@ -20,14 +20,19 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#include <windows.h>
-#include <stdio.h>
 #include <malloc.h>
+#include <stdio.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+/* public header files */
 #include "pthread.h"
-#include "thread.h"
-#include "misc.h"
 #include "semaphore.h"
+/* internal header files */
+#include "misc.h"
 #include "sem.h"
+#include "thread.h"
 
 int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
 

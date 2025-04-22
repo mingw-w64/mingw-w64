@@ -23,8 +23,8 @@
 #ifndef WIN_PTHREAD_H
 #define WIN_PTHREAD_H
 
-#include <windows.h>
 #include <setjmp.h>
+/* internal header files */
 #include "rwlock.h"
 
 #define LIFE_THREAD 0xBAB1F00D

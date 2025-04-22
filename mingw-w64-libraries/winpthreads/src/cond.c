@@ -24,15 +24,21 @@
  * Posix Condition Variables for Microsoft Windows.
  * 22-9-2010 Partly based on the ACE framework implementation.
  */
-#include <windows.h>
-#include <stdio.h>
+
 #include <malloc.h>
+#include <stdio.h>
 #include <time.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+/* public header files */
 #include "pthread.h"
 #include "pthread_time.h"
+/* internal header files */
 #include "cond.h"
-#include "thread.h"
 #include "misc.h"
+#include "thread.h"
 
 #include "pthread_compat.h"
 
