@@ -37,6 +37,8 @@ static ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
 HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR) = NULL;
 
 #if defined(__GNUC__) || defined(__clang__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wprio-ctor-dtor"
 __attribute__((constructor(0)))
 #endif
 static void winpthreads_init(void)
@@ -63,6 +65,9 @@ static void winpthreads_init(void)
             (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
     }
 }
+#if defined(__GNUC__) || defined(__clang__)
+#pragma GCC diagnostic pop
+#endif
 
 #if defined(_MSC_VER) && !defined(__clang__)
 /* Force a reference to __xc_t to prevent whole program optimization
