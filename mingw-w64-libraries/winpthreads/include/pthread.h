@@ -355,9 +355,6 @@ WINPTHREAD_API struct _pthread_cleanup ** pthread_getclean (void);
 WINPTHREAD_API void * pthread_gethandle (pthread_t t);
 WINPTHREAD_API void * pthread_getevent (void);
 
-WINPTHREAD_API unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts);
-WINPTHREAD_API unsigned long long _pthread_time_in_ms(void);
-WINPTHREAD_API unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts);
 WINPTHREAD_API int _pthread_tryjoin (pthread_t t, void **res);
 WINPTHREAD_API int pthread_rwlockattr_destroy(pthread_rwlockattr_t *a);
 WINPTHREAD_API int pthread_rwlockattr_getpshared(pthread_rwlockattr_t *a, int *s);
