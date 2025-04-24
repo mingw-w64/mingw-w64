@@ -255,6 +255,7 @@ libarm64_DATA += %reldir%/libprntvpt.a
 libarm64_DATA += %reldir%/libpropsys.a
 libarm64_DATA += %reldir%/libpsapi.a
 libarm64_DATA += %reldir%/libpstorec.a
+libarm64_DATA += %reldir%/libquartz.a
 libarm64_DATA += %reldir%/libquery.a
 libarm64_DATA += %reldir%/libqutil.a
 libarm64_DATA += %reldir%/libqwave.a

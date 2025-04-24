@@ -617,6 +617,7 @@ libarm32_DATA += %reldir%/libpwlauncher.a
 libarm32_DATA += %reldir%/libpwrshplugin.a
 libarm32_DATA += %reldir%/libqmgr.a
 libarm32_DATA += %reldir%/libqshvhost.a
+libarm32_DATA += %reldir%/libquartz.a
 libarm32_DATA += %reldir%/libquery.a
 libarm32_DATA += %reldir%/libqutil.a
 libarm32_DATA += %reldir%/libqwave.a
