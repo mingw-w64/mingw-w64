@@ -1,0 +1,5 @@
+CREATE libucrt_vcruntime140.a
+ADDLIB libucrt_common.a
+ADDLIB libvcruntime140.a
+SAVE
+END
