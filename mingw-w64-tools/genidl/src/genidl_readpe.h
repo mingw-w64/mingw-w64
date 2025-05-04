@@ -146,9 +146,6 @@ typedef struct sImgFileHeader {
   uint16_t Characteristics;                 /**< Object/Image attribute flags */
 } sImgFileHeader;
 
-#define IMG_SIZEOF_NT_OPTIONAL32_HEADER 224
-#define IMG_SIZEOF_NT_OPTIONAL64_HEADER 240
-
 /**
  * PE32+ Headers structure layout on disk
  */

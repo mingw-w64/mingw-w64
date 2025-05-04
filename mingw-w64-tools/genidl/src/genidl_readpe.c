@@ -230,9 +230,9 @@ genidl_ispe (FILE *fp, int32_t *be64)
     return 0;
   if (img.hdr32.Signature != 0x4550)
     return 0;
-  if (img.hdr32.FileHeader.SizeOfOptionalHeader == IMG_SIZEOF_NT_OPTIONAL32_HEADER)
+  if (img.hdr32.OptionalHeader.Magic == 0x10b)
     *be64 = 0;
-  else if (img.hdr32.FileHeader.SizeOfOptionalHeader == IMG_SIZEOF_NT_OPTIONAL64_HEADER)
+  else if (img.hdr64.OptionalHeader.Magic == 0x20b)
     *be64 = 1;
   else
     return 0;
