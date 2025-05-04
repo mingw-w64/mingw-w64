@@ -828,10 +828,7 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   {
     return _vswprintf_c_l(_DstBuf, _MaxCount, _Format, _Locale, _ArgList);
   }
-  __mingw_ovr int __cdecl _vswprintf(wchar_t *_DstBuf, const wchar_t *_Format, va_list _ArgList)
-  {
-    return _vswprintf_c_l(_DstBuf, (size_t)-1, _Format, NULL, _ArgList);
-  }
+  _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
   __mingw_ovr int __cdecl _swprintf_c_l(wchar_t *_DstBuf, size_t _MaxCount, const wchar_t *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
@@ -850,15 +847,7 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-  __mingw_ovr int __cdecl _swprintf(wchar_t *_DstBuf, const wchar_t *_Format, ...)
-  {
-    __builtin_va_list _ArgList;
-    int _Ret;
-    __builtin_va_start(_ArgList, _Format);
-    _Ret = _vswprintf_c_l(_DstBuf, (size_t)-1, _Format, NULL, _ArgList);
-    __builtin_va_end(_ArgList);
-    return _Ret;
-  }
+  _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
 #else /* _UCRT */
   _CRTIMP int __cdecl _fwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _wprintf_p(const wchar_t * __restrict__ _Format,...);

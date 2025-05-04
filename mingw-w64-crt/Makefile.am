@@ -417,9 +417,11 @@ src_ucrtbase=\
   stdio/ucrt__snprintf.c \
   stdio/ucrt__snscanf.c \
   stdio/ucrt__snwprintf.c \
+  stdio/ucrt__swprintf.c \
   stdio/ucrt__vscprintf.c \
   stdio/ucrt__vsnprintf.c \
   stdio/ucrt__vsnwprintf.c \
+  stdio/ucrt__vswprintf.c \
   stdio/ucrt_fprintf.c \
   stdio/ucrt_fscanf.c \
   stdio/ucrt_fwprintf.c \
