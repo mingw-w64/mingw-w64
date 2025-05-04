@@ -534,21 +534,14 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
 
-#ifdef _UCRT
   _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
-  int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
-#if __USE_MINGW_ANSI_STDIO == 0
-  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
-  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg);
-#endif
-
-#else
-  _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
+#ifndef _UCRT
   _CRTIMP int __cdecl _swprintf_l(wchar_t * __restrict__ ,size_t _SizeInWords,const wchar_t * __restrict__ _Format,_locale_t _Locale,... ) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
+#endif
+
   _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
@@ -559,15 +552,13 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
 #pragma push_macro("vsnwprintf")
 # undef snwprintf
 # undef vsnwprintf
-  int __cdecl snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...) __MINGW_ASM_CALL(__ms_snwprintf);
-  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg) __MINGW_ASM_CALL(__ms_vsnwprintf);
+  int __cdecl snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
+  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg);
 #pragma pop_macro ("vsnwprintf")
 #pragma pop_macro ("snwprintf")
 #endif
 
-#endif /* _UCRT */
-
-#endif /* _WSTDIO_DEFINED */
+#endif /* __NO_ISOCEXT */
 
 
 #ifdef _UCRT
@@ -932,7 +923,8 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
 #define _putwc_nolock(_c,_stm) _fputwc_nolock(_c,_stm)
 #define _getwc_nolock(_c) _fgetwc_nolock(_c)
 #endif
-#endif
+
+#endif /* _WSTDIO_DEFINED */
 
 #ifndef _WSTDLIB_DEFINED
 #define _WSTDLIB_DEFINED
