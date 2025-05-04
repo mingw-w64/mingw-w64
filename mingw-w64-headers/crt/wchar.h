@@ -537,11 +537,7 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
 #ifdef _UCRT
   _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
   int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-  int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args)
-  {
-    return __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION, _Dest, _Count, _Format, NULL, _Args);
-  }
+  _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #if __USE_MINGW_ANSI_STDIO == 0
   int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
