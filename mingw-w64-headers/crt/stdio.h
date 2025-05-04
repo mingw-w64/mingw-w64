@@ -1100,17 +1100,21 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #ifdef _UCRT
   __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+
   __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+
   __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
-  __MINGW_ATTRIB_NONNULL(2)
-  int vfwscanf (FILE *__stream,  const wchar_t *__format, va_list __local_argv);
 
   __MINGW_ATTRIB_NONNULL(2)
-  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv);
+  int __cdecl vfwscanf(FILE *__stream,  const wchar_t *__format, va_list __local_argv);
+
+  __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl vswscanf(const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv);
+
   __MINGW_ATTRIB_NONNULL(1)
-  int vwscanf(const wchar_t *__format, va_list __local_argv);
+  int __cdecl vwscanf(const wchar_t *__format, va_list __local_argv);
 
   int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
