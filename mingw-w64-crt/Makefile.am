@@ -414,11 +414,13 @@ src_ucrtbase=\
   stdio/ucrt___local_stdio_printf_options.c \
   stdio/ucrt___local_stdio_scanf_options.c \
   stdio/ucrt__scprintf.c \
+  stdio/ucrt__scwprintf.c \
   stdio/ucrt__snprintf.c \
   stdio/ucrt__snscanf.c \
   stdio/ucrt__snwprintf.c \
   stdio/ucrt__swprintf.c \
   stdio/ucrt__vscprintf.c \
+  stdio/ucrt__vscwprintf.c \
   stdio/ucrt__vsnprintf.c \
   stdio/ucrt__vsnwprintf.c \
   stdio/ucrt__vswprintf.c \

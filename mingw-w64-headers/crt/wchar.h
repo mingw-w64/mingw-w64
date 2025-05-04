@@ -535,16 +535,7 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
 
 #ifdef _UCRT
-  __mingw_ovr
-  int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...)
-  {
-    __builtin_va_list __ap;
-    int __ret;
-    __builtin_va_start(__ap, _Format);
-    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, __ap);
-    __builtin_va_end(__ap);
-    return __ret;
-  }
+  _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
   int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args)
@@ -802,10 +793,9 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   {
     return __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, _Locale, _ArgList);
   }
-  __mingw_ovr int __cdecl _vscwprintf(const wchar_t *_Format, va_list _ArgList)
-  {
-    return _vscwprintf_l(_Format, NULL, _ArgList);
-  }
+
+  _CRTIMP int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+
   __mingw_ovr int __cdecl _scwprintf_l(const wchar_t *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
