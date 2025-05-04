@@ -183,13 +183,15 @@ readResourceDirectory (FILE *fp, unsigned char **dta, size_t *length, size_t *re
   if (be64)
   {
     fread (&hdr.hdr64, 1, sizeof (sImgNtHeaders64), fp);
-    res_size = hdr.hdr64.OptionalHeader.DataDirectory[2].size;
+    if (hdr.hdr64.OptionalHeader.NumberOfRvaAndSizes > 2)
+      res_size = hdr.hdr64.OptionalHeader.DataDirectory[2].size;
     sect_count = hdr.hdr64.FileHeader.NumberOfSections;
   }
   else
   {
     fread (&hdr.hdr32, 1, sizeof (sImgNtHeaders32), fp);
-    res_size = hdr.hdr32.OptionalHeader.DataDirectory[2].size;
+    if (hdr.hdr32.OptionalHeader.NumberOfRvaAndSizes > 2)
+      res_size = hdr.hdr32.OptionalHeader.DataDirectory[2].size;
     sect_count = hdr.hdr32.FileHeader.NumberOfSections;
   }
   if (!res_size)
