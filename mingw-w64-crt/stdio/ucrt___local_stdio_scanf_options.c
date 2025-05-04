@@ -10,6 +10,6 @@
 
 static unsigned __int64 options = _CRT_INTERNAL_SCANF_LEGACY_WIDE_SPECIFIERS;
 
-unsigned __int64* __local_stdio_scanf_options(void) {
+unsigned __int64* __cdecl __local_stdio_scanf_options(void) {
   return &options;
 }

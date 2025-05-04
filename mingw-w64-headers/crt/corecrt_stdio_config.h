@@ -13,8 +13,8 @@
 extern "C" {
 #endif
 
-unsigned __int64* __local_stdio_printf_options(void);
-unsigned __int64* __local_stdio_scanf_options(void);
+unsigned __int64* __cdecl __local_stdio_printf_options(void);
+unsigned __int64* __cdecl __local_stdio_scanf_options(void);
 
 #define _CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION  0x0001ULL
 #define _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR        0x0002ULL

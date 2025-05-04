@@ -10,6 +10,6 @@
 
 static unsigned __int64 options = _CRT_INTERNAL_PRINTF_LEGACY_WIDE_SPECIFIERS | _CRT_INTERNAL_PRINTF_STANDARD_ROUNDING;
 
-unsigned __int64* __local_stdio_printf_options(void) {
+unsigned __int64* __cdecl __local_stdio_printf_options(void) {
   return &options;
 }
