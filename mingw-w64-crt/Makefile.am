@@ -649,6 +649,8 @@ src_msvcrtarm32=\
   misc/__winitenv.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
+  stdio/_stat64i32.c \
+  stdio/_wstat64i32.c \
   stdio/gets.c \
   stdio/scanf.S
 
@@ -768,8 +770,6 @@ src_msvcrtarm64=\
   misc/__initenv.c \
   misc/__winitenv.c \
   stdio/_setmaxstdio.c \
-  stdio/_stat64i32.c \
-  stdio/_wstat64i32.c \
   stdio/gets.c
 
 if ARM64EC
