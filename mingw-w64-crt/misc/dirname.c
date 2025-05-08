@@ -7,6 +7,7 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <stdlib.h>
+#include <locale.h>
 #include <libgen.h>
 #include <windows.h>
 
@@ -91,7 +92,7 @@ do_get_path_info(struct path_info* info, char* path)
     int dbcs_tb, prev_dir_sep, dir_sep;
 
     /* Get the code page for paths in the same way as `fopen()`.  */
-    cp = AreFileApisANSI() ? CP_ACP : CP_OEMCP;
+    cp = __mingw_filename_cp();
 
     /* Set the structure to 'no data'.  */
     info->prefix_end = NULL;
