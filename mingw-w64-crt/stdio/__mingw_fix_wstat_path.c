@@ -20,7 +20,7 @@
 
 wchar_t* __mingw_fix_wstat_path (const wchar_t* _path)
 {
-  int len;
+  size_t len;
   wchar_t *p;
 
   p = (wchar_t*)_path;

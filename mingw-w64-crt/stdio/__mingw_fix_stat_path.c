@@ -20,7 +20,7 @@
 
 char* __mingw_fix_stat_path (const char* _path)
 {
-  int len;
+  size_t len;
   char *p;
 
   p = (char*)_path;
