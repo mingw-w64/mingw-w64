@@ -90,10 +90,11 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@MSVC_TRUE@am__append_1 = -nologo
-@MSVC_TRUE@am__append_2 = -D_CRT_NONSTDC_NO_WARNINGS
-@MSVC_FALSE@am__append_3 = -D__USE_MINGW_ANSI_STDIO=0
-@MSVC_FALSE@am__append_4 = -L$(builddir)/fakelib -Wc,-no-pthread
+@MSVC_TRUE@am__append_1 = -W3
+@MSVC_TRUE@am__append_2 = -D_CRT_NONSTDC_NO_WARNINGS -D_CRT_DECLARE_NONSTDC_NAMES -D_CRT_SECURE_NO_WARNINGS
+@MSVC_FALSE@am__append_3 = -Wall
+@MSVC_FALSE@am__append_4 = -D__USE_MINGW_ANSI_STDIO=0
+@MSVC_FALSE@am__append_5 = -L$(builddir)/fakelib -Wc,-no-pthread
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -164,13 +165,12 @@ am_fakelib_libgcc_s_a_OBJECTS =
 fakelib_libgcc_s_a_OBJECTS = $(am_fakelib_libgcc_s_a_OBJECTS)
 libwinpthread_la_LIBADD =
 am_libwinpthread_la_OBJECTS = src/libwinpthread_la-barrier.lo \
-	src/libwinpthread_la-cond.lo src/libwinpthread_la-misc.lo \
-	src/libwinpthread_la-mutex.lo src/libwinpthread_la-rwlock.lo \
-	src/libwinpthread_la-spinlock.lo \
-	src/libwinpthread_la-thread.lo src/libwinpthread_la-ref.lo \
-	src/libwinpthread_la-sem.lo src/libwinpthread_la-sched.lo \
-	src/libwinpthread_la-clock.lo \
-	src/libwinpthread_la-nanosleep.lo src/version.lo
+	src/libwinpthread_la-clock.lo src/libwinpthread_la-cond.lo \
+	src/libwinpthread_la-misc.lo src/libwinpthread_la-mutex.lo \
+	src/libwinpthread_la-nanosleep.lo \
+	src/libwinpthread_la-rwlock.lo src/libwinpthread_la-sem.lo \
+	src/libwinpthread_la-spinlock.lo src/libwinpthread_la-sched.lo \
+	src/libwinpthread_la-thread.lo src/version.lo
 libwinpthread_la_OBJECTS = $(am_libwinpthread_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -201,7 +201,6 @@ am__depfiles_remade = src/$(DEPDIR)/libwinpthread_la-barrier.Plo \
 	src/$(DEPDIR)/libwinpthread_la-misc.Plo \
 	src/$(DEPDIR)/libwinpthread_la-mutex.Plo \
 	src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo \
-	src/$(DEPDIR)/libwinpthread_la-ref.Plo \
 	src/$(DEPDIR)/libwinpthread_la-rwlock.Plo \
 	src/$(DEPDIR)/libwinpthread_la-sched.Plo \
 	src/$(DEPDIR)/libwinpthread_la-sem.Plo \
@@ -466,19 +465,37 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = . tests
-AM_CFLAGS = -Wall -DWIN32_LEAN_AND_MEAN $(am__append_1)
+AM_CFLAGS = $(am__append_1) $(am__append_3)
 ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
-include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h include/pthread_signal.h
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD \
-	-DWINPTHREAD_DBG=1 $(am__append_2) $(am__append_3)
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 \
-	$(am__append_4)
-libwinpthread_la_SOURCES = \
-  src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
-  src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
-  src/winpthread_internal.h  src/clock.c src/nanosleep.c src/version.rc
+include_HEADERS = \
+  include/pthread.h        \
+  include/pthread_compat.h \
+  include/pthread_signal.h \
+  include/pthread_time.h   \
+  include/pthread_unistd.h \
+  include/sched.h          \
+  include/semaphore.h
 
+libwinpthread_la_SOURCES = \
+  src/barrier.c   src/barrier.h \
+  src/clock.c                   \
+  src/cond.c      src/cond.h    \
+  src/misc.c      src/misc.h    \
+  src/mutex.c                   \
+  src/nanosleep.c               \
+  src/rwlock.c    src/rwlock.h  \
+  src/sem.c       src/sem.h     \
+  src/spinlock.c                \
+  src/sched.c                   \
+  src/thread.c    src/thread.h  \
+  src/wpth_ver.h                \
+  src/version.rc
+
+libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD \
+	$(am__append_2) $(am__append_4)
+libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 \
+	$(am__append_5)
 @MSVC_FALSE@EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 
 # Break circular dep on bootstrap
@@ -486,6 +503,11 @@ libwinpthread_la_SOURCES = \
 @MSVC_FALSE@fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 @MSVC_FALSE@fakelib_libgcc_s_a_SOURCES = 
 @MSVC_FALSE@fakelib_libgcc_eh_a_SOURCES = 
+
+# Extra files to add into archive with `make dist`
+EXTRA_DIST = \
+  build-aux/windres-rc
+
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -614,27 +636,25 @@ src/$(DEPDIR)/$(am__dirstamp):
 	@: > src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-barrier.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/libwinpthread_la-clock.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-cond.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-misc.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-mutex.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/libwinpthread_la-nanosleep.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-rwlock.lo: src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/libwinpthread_la-spinlock.lo: src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/libwinpthread_la-thread.lo: src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/libwinpthread_la-ref.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-sem.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/libwinpthread_la-spinlock.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/libwinpthread_la-sched.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
-src/libwinpthread_la-clock.lo: src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/libwinpthread_la-nanosleep.lo: src/$(am__dirstamp) \
+src/libwinpthread_la-thread.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/version.lo: src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
@@ -656,7 +676,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-misc.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-mutex.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-ref.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-rwlock.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-sched.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwinpthread_la-sem.Plo@am__quote@ # am--include-marker
@@ -726,6 +745,13 @@ src/libwinpthread_la-barrier.lo: src/barrier.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-barrier.lo `test -f 'src/barrier.c' || echo '$(srcdir)/'`src/barrier.c
 
+src/libwinpthread_la-clock.lo: src/clock.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-clock.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-clock.Tpo -c -o src/libwinpthread_la-clock.lo `test -f 'src/clock.c' || echo '$(srcdir)/'`src/clock.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-clock.Tpo src/$(DEPDIR)/libwinpthread_la-clock.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/clock.c' object='src/libwinpthread_la-clock.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-clock.lo `test -f 'src/clock.c' || echo '$(srcdir)/'`src/clock.c
+
 src/libwinpthread_la-cond.lo: src/cond.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-cond.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-cond.Tpo -c -o src/libwinpthread_la-cond.lo `test -f 'src/cond.c' || echo '$(srcdir)/'`src/cond.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-cond.Tpo src/$(DEPDIR)/libwinpthread_la-cond.Plo
@@ -747,33 +773,19 @@ src/libwinpthread_la-mutex.lo: src/mutex.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-mutex.lo `test -f 'src/mutex.c' || echo '$(srcdir)/'`src/mutex.c
 
+src/libwinpthread_la-nanosleep.lo: src/nanosleep.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-nanosleep.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-nanosleep.Tpo -c -o src/libwinpthread_la-nanosleep.lo `test -f 'src/nanosleep.c' || echo '$(srcdir)/'`src/nanosleep.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-nanosleep.Tpo src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nanosleep.c' object='src/libwinpthread_la-nanosleep.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-nanosleep.lo `test -f 'src/nanosleep.c' || echo '$(srcdir)/'`src/nanosleep.c
+
 src/libwinpthread_la-rwlock.lo: src/rwlock.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-rwlock.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-rwlock.Tpo -c -o src/libwinpthread_la-rwlock.lo `test -f 'src/rwlock.c' || echo '$(srcdir)/'`src/rwlock.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-rwlock.Tpo src/$(DEPDIR)/libwinpthread_la-rwlock.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/rwlock.c' object='src/libwinpthread_la-rwlock.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-rwlock.lo `test -f 'src/rwlock.c' || echo '$(srcdir)/'`src/rwlock.c
-
-src/libwinpthread_la-spinlock.lo: src/spinlock.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-spinlock.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-spinlock.Tpo -c -o src/libwinpthread_la-spinlock.lo `test -f 'src/spinlock.c' || echo '$(srcdir)/'`src/spinlock.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-spinlock.Tpo src/$(DEPDIR)/libwinpthread_la-spinlock.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/spinlock.c' object='src/libwinpthread_la-spinlock.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-spinlock.lo `test -f 'src/spinlock.c' || echo '$(srcdir)/'`src/spinlock.c
-
-src/libwinpthread_la-thread.lo: src/thread.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-thread.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-thread.Tpo -c -o src/libwinpthread_la-thread.lo `test -f 'src/thread.c' || echo '$(srcdir)/'`src/thread.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-thread.Tpo src/$(DEPDIR)/libwinpthread_la-thread.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/thread.c' object='src/libwinpthread_la-thread.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-thread.lo `test -f 'src/thread.c' || echo '$(srcdir)/'`src/thread.c
-
-src/libwinpthread_la-ref.lo: src/ref.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-ref.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-ref.Tpo -c -o src/libwinpthread_la-ref.lo `test -f 'src/ref.c' || echo '$(srcdir)/'`src/ref.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-ref.Tpo src/$(DEPDIR)/libwinpthread_la-ref.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/ref.c' object='src/libwinpthread_la-ref.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-ref.lo `test -f 'src/ref.c' || echo '$(srcdir)/'`src/ref.c
 
 src/libwinpthread_la-sem.lo: src/sem.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-sem.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-sem.Tpo -c -o src/libwinpthread_la-sem.lo `test -f 'src/sem.c' || echo '$(srcdir)/'`src/sem.c
@@ -782,6 +794,13 @@ src/libwinpthread_la-sem.lo: src/sem.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-sem.lo `test -f 'src/sem.c' || echo '$(srcdir)/'`src/sem.c
 
+src/libwinpthread_la-spinlock.lo: src/spinlock.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-spinlock.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-spinlock.Tpo -c -o src/libwinpthread_la-spinlock.lo `test -f 'src/spinlock.c' || echo '$(srcdir)/'`src/spinlock.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-spinlock.Tpo src/$(DEPDIR)/libwinpthread_la-spinlock.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/spinlock.c' object='src/libwinpthread_la-spinlock.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-spinlock.lo `test -f 'src/spinlock.c' || echo '$(srcdir)/'`src/spinlock.c
+
 src/libwinpthread_la-sched.lo: src/sched.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-sched.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-sched.Tpo -c -o src/libwinpthread_la-sched.lo `test -f 'src/sched.c' || echo '$(srcdir)/'`src/sched.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-sched.Tpo src/$(DEPDIR)/libwinpthread_la-sched.Plo
@@ -789,19 +808,12 @@ src/libwinpthread_la-sched.lo: src/sched.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-sched.lo `test -f 'src/sched.c' || echo '$(srcdir)/'`src/sched.c
 
-src/libwinpthread_la-clock.lo: src/clock.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-clock.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-clock.Tpo -c -o src/libwinpthread_la-clock.lo `test -f 'src/clock.c' || echo '$(srcdir)/'`src/clock.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-clock.Tpo src/$(DEPDIR)/libwinpthread_la-clock.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/clock.c' object='src/libwinpthread_la-clock.lo' libtool=yes @AMDEPBACKSLASH@
+src/libwinpthread_la-thread.lo: src/thread.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-thread.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-thread.Tpo -c -o src/libwinpthread_la-thread.lo `test -f 'src/thread.c' || echo '$(srcdir)/'`src/thread.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-thread.Tpo src/$(DEPDIR)/libwinpthread_la-thread.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/thread.c' object='src/libwinpthread_la-thread.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-clock.lo `test -f 'src/clock.c' || echo '$(srcdir)/'`src/clock.c
-
-src/libwinpthread_la-nanosleep.lo: src/nanosleep.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT src/libwinpthread_la-nanosleep.lo -MD -MP -MF src/$(DEPDIR)/libwinpthread_la-nanosleep.Tpo -c -o src/libwinpthread_la-nanosleep.lo `test -f 'src/nanosleep.c' || echo '$(srcdir)/'`src/nanosleep.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libwinpthread_la-nanosleep.Tpo src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nanosleep.c' object='src/libwinpthread_la-nanosleep.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-nanosleep.lo `test -f 'src/nanosleep.c' || echo '$(srcdir)/'`src/nanosleep.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libwinpthread_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o src/libwinpthread_la-thread.lo `test -f 'src/thread.c' || echo '$(srcdir)/'`src/thread.c
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -1192,7 +1204,6 @@ distclean: distclean-recursive
 	-rm -f src/$(DEPDIR)/libwinpthread_la-misc.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-mutex.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo
-	-rm -f src/$(DEPDIR)/libwinpthread_la-ref.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-rwlock.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-sched.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-sem.Plo
@@ -1254,7 +1265,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f src/$(DEPDIR)/libwinpthread_la-misc.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-mutex.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-nanosleep.Plo
-	-rm -f src/$(DEPDIR)/libwinpthread_la-ref.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-rwlock.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-sched.Plo
 	-rm -f src/$(DEPDIR)/libwinpthread_la-sem.Plo
