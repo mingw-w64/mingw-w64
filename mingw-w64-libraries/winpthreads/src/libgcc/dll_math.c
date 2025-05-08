@@ -131,9 +131,7 @@ u_quad_t	__udivmoddi4(u_quad_t a, u_quad_t b, u_quad_t *rem);
  * This is the same as logical shift left!
  */
 quad_t
-__ashldi3(a, shift)
-	quad_t a;
-	qshift_t shift;
+__ashldi3(quad_t a, qshift_t shift)
 {
 	union uu aa;
 
@@ -154,9 +152,7 @@ __ashldi3(a, shift)
  * Shift a (signed) quad value right (arithmetic shift right).
  */
 quad_t
-__ashrdi3(a, shift)
-	quad_t a;
-	qshift_t shift;
+__ashrdi3(quad_t a, qshift_t shift)
 {
 	union uu aa;
 
@@ -189,8 +185,7 @@ __ashrdi3(a, shift)
  * signed.
  */
 int
-__cmpdi2(a, b)
-	quad_t a, b;
+__cmpdi2(quad_t a, quad_t b)
 {
 	union uu aa, bb;
 
@@ -205,8 +200,7 @@ __cmpdi2(a, b)
  * ??? if -1/2 should produce -1 on this machine, this code is wrong
  */
 quad_t
-__divdi3(a, b)
-	quad_t a, b;
+__divdi3(quad_t a, quad_t b)
 {
 	u_quad_t ua, ub, uq;
 	int neg;
@@ -227,9 +221,7 @@ __divdi3(a, b)
  * Shift an (unsigned) quad value right (logical shift right).
  */
 quad_t
-__lshrdi3(a, shift)
-	quad_t a;
-	qshift_t shift;
+__lshrdi3(quad_t a, qshift_t shift)
 {
 	union uu aa;
 
@@ -253,8 +245,7 @@ __lshrdi3(a, shift)
  * If -1/2 should produce -1 on this machine, this code is wrong.
  */
 quad_t
-__moddi3(a, b)
-	quad_t a, b;
+__moddi3(quad_t a, quad_t b)
 {
 	u_quad_t ua, ub, ur;
 	int neg;
@@ -313,8 +304,7 @@ __shl(register digit *p, register int len, register int sh)
  * leading zeros).
  */
 u_quad_t
-__qdivrem(uq, vq, arq)
-	u_quad_t uq, vq, *arq;
+__qdivrem(u_quad_t uq, u_quad_t vq, u_quad_t *arq)
 {
 	union uu tmp;
 	digit *u, *v, *q;
@@ -514,8 +504,7 @@ __qdivrem(uq, vq, arq)
  * Neither a nor b are considered signed.
  */
 int
-__ucmpdi2(a, b)
-	u_quad_t a, b;
+__ucmpdi2(u_quad_t a, u_quad_t b)
 {
 	union uu aa, bb;
 
@@ -529,8 +518,7 @@ __ucmpdi2(a, b)
  * Divide two unsigned quads.
  */
 u_quad_t
-__udivdi3(a, b)
-	u_quad_t a, b;
+__udivdi3(u_quad_t a, u_quad_t b)
 {
 
 	return (__qdivrem(a, b, (u_quad_t *)0));
@@ -540,8 +528,7 @@ __udivdi3(a, b)
  * Return remainder after dividing two unsigned quads.
  */
 u_quad_t
-__umoddi3(a, b)
-	u_quad_t a, b;
+__umoddi3(u_quad_t a, u_quad_t b)
 {
 	u_quad_t r;
 
@@ -554,8 +541,7 @@ __umoddi3(a, b)
  * This function is new in GCC 7.
  */
 quad_t
-__divmoddi4(a, b, rem)
-	quad_t a, b, *rem;
+__divmoddi4(quad_t a, quad_t b, quad_t *rem)
 {
 	u_quad_t ua, ub, uq, ur;
 	int negq, negr;
