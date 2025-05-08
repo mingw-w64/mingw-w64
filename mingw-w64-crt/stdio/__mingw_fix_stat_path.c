@@ -6,6 +6,7 @@
 
 #include <sys/stat.h>
 #include <stdlib.h>
+#include "__mingw_fix_stat.h"
 
 /**
  * Returns _path without trailing slash if any
@@ -17,7 +18,6 @@
  *   to free it.
  */
 
-char* __mingw_fix_stat_path (const char* _path);
 char* __mingw_fix_stat_path (const char* _path)
 {
   int len;

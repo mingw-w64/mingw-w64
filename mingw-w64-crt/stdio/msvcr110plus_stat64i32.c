@@ -6,8 +6,7 @@
 
 #include <sys/stat.h>
 #include <stdlib.h>
-
-char *__mingw_fix_stat_path(const char *_path);
+#include "__mingw_fix_stat.h"
 
 int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat);
 int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat)

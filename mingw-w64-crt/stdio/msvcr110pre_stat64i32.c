@@ -8,8 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <errno.h>
-
-char *__mingw_fix_stat_path(const char *_path);
+#include "__mingw_fix_stat.h"
 
 /* For pre-msvcr110 builds, we cannot use _stat64i32() function as it does
  * not signal EOVERFLOW when file size does not fit into the st_size field,

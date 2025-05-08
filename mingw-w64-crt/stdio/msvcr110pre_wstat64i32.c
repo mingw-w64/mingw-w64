@@ -8,8 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <errno.h>
-
-wchar_t *__mingw_fix_wstat_path(const wchar_t *_path);
+#include "__mingw_fix_stat.h"
 
 /* For pre-msvcr110 builds, we cannot use _wstat64i32() function as it does
  * not signal EOVERFLOW when file size does not fit into the st_size field,

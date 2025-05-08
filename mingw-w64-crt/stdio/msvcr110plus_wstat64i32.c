@@ -6,8 +6,7 @@
 
 #include <sys/stat.h>
 #include <stdlib.h>
-
-wchar_t *__mingw_fix_wstat_path(const wchar_t *_path);
+#include "__mingw_fix_stat.h"
 
 int __cdecl wstat64i32(const wchar_t *_Filename, struct _stat64i32 *_Stat);
 int __cdecl wstat64i32(const wchar_t *_Filename, struct _stat64i32 *_Stat)
