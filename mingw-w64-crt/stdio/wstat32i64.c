@@ -12,6 +12,8 @@ int __cdecl wstat32i64(const wchar_t *_Filename, struct _stat32i64 *_Stat);
 int __cdecl wstat32i64(const wchar_t *_Filename, struct _stat32i64 *_Stat)
 {
   wchar_t *_path = __mingw_fix_wstat_path(_Filename);
+  if (_path == NULL && _Filename != NULL)
+    return -1;
   int ret = _wstat32i64(_path, _Stat);
   if (_path != _Filename)
     free(_path);

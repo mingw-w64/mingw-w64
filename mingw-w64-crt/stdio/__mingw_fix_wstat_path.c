@@ -55,6 +55,8 @@ wchar_t* __mingw_fix_wstat_path (const wchar_t* _path)
     if (_path[len - 1] == L'/' || _path[len - 1] == L'\\')
       {
 	p = (wchar_t*)malloc (len * sizeof(wchar_t));
+	if (p == NULL)
+	  return NULL; /* malloc has set errno. */
 	memcpy (p, _path, (len - 1) * sizeof(wchar_t));
 	p[len - 1] = L'\0';
       }

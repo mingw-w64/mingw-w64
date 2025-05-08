@@ -20,6 +20,8 @@ int __cdecl wstat64i32(const wchar_t *_Filename, struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
   wchar_t *_path = __mingw_fix_wstat_path(_Filename);
+  if (_path == NULL && _Filename != NULL)
+    return -1;
   int ret = _wstat64(_path, &st);
   if (_path != _Filename)
     free(_path);

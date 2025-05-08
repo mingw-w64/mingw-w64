@@ -20,6 +20,8 @@ int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
 {
   struct _stat32i64 st;
   char *_path = __mingw_fix_stat_path(_Filename);
+  if (_path == NULL && _Filename != NULL)
+    return -1;
   int ret = _stat32i64(_path, &st);
   if (_path != _Filename)
     free(_path);

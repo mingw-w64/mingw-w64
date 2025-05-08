@@ -12,6 +12,8 @@ int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat);
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
 {
   char *_path = __mingw_fix_stat_path(_Filename);
+  if (_path == NULL && _Filename != NULL)
+    return -1;
   int ret = _stat32(_path, _Stat);
   if (_path != _Filename)
     free(_path);

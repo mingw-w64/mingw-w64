@@ -55,6 +55,8 @@ char* __mingw_fix_stat_path (const char* _path)
     if (_path[len - 1] == '/' || _path[len - 1] == '\\')
       {
 	p = (char*)malloc (len);
+	if (p == NULL)
+	  return NULL; /* malloc has set errno. */
 	memcpy (p, _path, len - 1);
 	p[len - 1] = '\0';
       }
