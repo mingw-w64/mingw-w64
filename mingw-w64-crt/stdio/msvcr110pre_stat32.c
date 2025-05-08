@@ -23,8 +23,7 @@ int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
   if (_path == NULL && _Filename != NULL)
     return -1;
   int ret = _stat32i64(_path, &st);
-  if (_path != _Filename)
-    free(_path);
+  ret = __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
   if (ret != 0)
     return ret;
   if (st.st_size > UINT32_MAX) {

@@ -1112,7 +1112,7 @@ src_libmingwex=\
   stdio/asprintf.c \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c                                   stdio/ftello.c          \
   stdio/ftello64.c         stdio/ftruncate64.c       stdio/lltoa.c            stdio/lltow.c             stdio/lseek64.c         \
-  stdio/__mingw_fix_stat.h \
+  stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
   stdio/mingw_pformat.h    mingw_sformat.h           mingw_swformat.h \

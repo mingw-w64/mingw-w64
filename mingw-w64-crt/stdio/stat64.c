@@ -14,8 +14,6 @@ int __cdecl stat64(const char *_Filename, struct stat64 *_Stat)
   if (_path == NULL && _Filename != NULL)
     return -1;
   int ret = _stat64(_path, (struct _stat64 *)_Stat);
-  if (_path != _Filename)
-    free(_path);
-  return ret;
+  return __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat64))(const char *, struct stat64 *) = stat64;

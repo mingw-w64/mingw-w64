@@ -9,5 +9,7 @@
 
 char* __mingw_fix_stat_path (const char* _path);
 wchar_t* __mingw_fix_wstat_path (const wchar_t* _path);
+int __mingw_fix_stat_finish(int ret, const void *orig_path, void *used_path,
+                            unsigned short mode);
 
 #endif

@@ -15,9 +15,7 @@ int __cdecl wstat32(const wchar_t *_Filename, struct _stat32 *_Stat)
   if (_path == NULL && _Filename != NULL)
     return -1;
   int ret = _wstat32(_path, _Stat);
-  if (_path != _Filename)
-    free(_path);
-  return ret;
+  return __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(wstat32))(const wchar_t *, struct _stat32 *) = wstat32;
 
