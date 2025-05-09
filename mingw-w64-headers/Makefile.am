@@ -156,6 +156,7 @@ IDL_SRCS = \
   include/fusion.idl \
   include/fwptypes.idl \
   include/hstring.idl \
+  include/httprequest.idl \
   include/icftypes.idl \
   include/icodecapi.idl \
   include/iketypes.idl \

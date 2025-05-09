@@ -191,6 +191,7 @@ for f in \
 	evr9 \
 	exdisp \
 	fusion \
+	httprequest \
 	icftypes \
 	ivectorchangedeventargs \
 	mediaobj \
