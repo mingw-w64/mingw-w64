@@ -309,8 +309,9 @@ stat64i32 == _stat64i32
 ; stat for non-UCRT is provided by mingw to workaround trailing slash issue in _stat
 #endif
 #ifdef FIXED_SIZE_SYMBOLS
-#if !defined(NO_I64_FIXED_SIZE) && !defined(NO_FIXED_SIZE_64_ALIAS)
-F64(fstat64 == _fstati64)
+// NO_FIXED_SIZE_64_ALIAS means that DLL provides the native _fstat64 symbol
+#if defined(NO_FIXED_SIZE_64_ALIAS) && !defined(NO_FSTAT64_ALIAS)
+fstat64 == _fstat64
 #endif
 #else
 fstat64 == _fstat64

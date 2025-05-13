@@ -1907,6 +1907,10 @@ F_I386(_libm_sse2_tan_precise)
 ; This includes list of some symbol alises for compatibility with C99 and POSIX functions and symbols from other msvcr* libraries
 #define FIXED_SIZE_SYMBOLS
 #define NO_FIXED_SIZE_64_ALIAS
+#ifdef __i386__
+; i386 fstat64 alias provided by emu
+#define NO_FSTAT64_ALIAS
+#endif
 #define NO_TIME_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS

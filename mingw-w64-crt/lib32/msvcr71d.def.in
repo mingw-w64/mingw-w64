@@ -939,6 +939,7 @@ wprintf
 wscanf
 
 #define FIXED_SIZE_SYMBOLS
+#define NO_FIXED_SIZE_64_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_TZ_ALIASES
