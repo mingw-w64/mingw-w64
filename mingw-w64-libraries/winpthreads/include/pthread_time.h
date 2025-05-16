@@ -23,6 +23,7 @@
 #ifndef WIN_PTHREADS_TIME_H
 #define WIN_PTHREADS_TIME_H
 
+#include <sys/timeb.h>
 #include "pthread_compat.h"
 
 /* Posix timers are supported */
