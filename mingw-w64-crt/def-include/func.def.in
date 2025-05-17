@@ -18,6 +18,9 @@
 #define F_X86_ANY(x) x
 #define F_NON_I386(x) x
 #define F_NON_ARM64(x) x
+#if defined(__arm64ec__)
+#define F_ARM_ANY(x) x
+#endif
 #elif defined(__i386__)
 #define F32(x) x
 #define F_I386(x) x
