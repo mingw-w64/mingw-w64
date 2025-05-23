@@ -6,6 +6,8 @@ CursorLibLockDbc@8
 CursorLibLockDesc@8
 CursorLibLockStmt@8
 CursorLibTransact@12
+DllBidEntryPoint@36
+GetODBCSharedData@0
 LockHandle@12
 MpHeapAlloc
 MpHeapCompact
@@ -39,6 +41,7 @@ SQLBrowseConnectA@24
 SQLBrowseConnectW@24
 SQLBulkOperations@8
 SQLCancel@4
+SQLCancelHandle@8
 SQLCloseCursor@4
 SQLColAttribute@28
 SQLColAttributeA@28
@@ -52,6 +55,7 @@ SQLColumnPrivilegesW@36
 SQLColumns@36
 SQLColumnsA@36
 SQLColumnsW@36
+SQLCompleteAsync@12
 SQLConnect@28
 SQLConnectA@28
 SQLConnectW@28
