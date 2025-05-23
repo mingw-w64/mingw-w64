@@ -24,6 +24,11 @@ extern "C" {
 #if (ODBCVER >= 0x0300)
 #define SQL_NO_DATA 100
 #endif
+
+#if (ODBCVER >= 0x0380)
+#define SQL_PARAM_DATA_AVAILABLE 101
+#endif
+
 #define SQL_ERROR (-1)
 #define SQL_INVALID_HANDLE (-2)
 
@@ -172,6 +177,10 @@ extern "C" {
 
 #if (ODBCVER >= 0x0300)
 #define SQL_ARD_TYPE (-99)
+#endif
+
+#if (ODBCVER >= 0x0380)
+#define SQL_APD_TYPE (-100)
 #endif
 
 #if (ODBCVER >= 0x0300)
@@ -337,6 +346,10 @@ extern "C" {
 #define SQL_API_SQLSTATISTICS 53
 #define SQL_API_SQLTABLES 54
 #define SQL_API_SQLTRANSACT 23
+#if (ODBCVER >= 0x0380)
+#define SQL_API_SQLCANCELHANDLE 1550
+#define SQL_API_SQLCOMPLETEASYNC 1551
+#endif
 
 #if (ODBCVER >= 0x0300)
 #define SQL_MAX_DRIVER_CONNECTIONS 0
@@ -491,6 +504,9 @@ extern "C" {
   SQLRETURN SQL_API SQLBindParam(SQLHSTMT StatementHandle,SQLUSMALLINT ParameterNumber,SQLSMALLINT ValueType,SQLSMALLINT ParameterType,SQLULEN LengthPrecision,SQLSMALLINT ParameterScale,SQLPOINTER ParameterValue,SQLLEN *StrLen_or_Ind);
 #endif
   SQLRETURN SQL_API SQLCancel(SQLHSTMT StatementHandle);
+#if (ODBCVER >= 0x0380)
+  SQLRETURN SQL_API SQLCancelHandle(SQLSMALLINT HandleType,SQLHANDLE InputHandle);
+#endif
 #if (ODBCVER >= 0x0300)
   SQLRETURN SQL_API SQLCloseCursor(SQLHSTMT StatementHandle);
 #ifdef _WIN64
@@ -500,6 +516,9 @@ extern "C" {
 #endif
 #endif
   SQLRETURN SQL_API SQLColumns(SQLHSTMT StatementHandle,SQLCHAR *CatalogName,SQLSMALLINT NameLength1,SQLCHAR *SchemaName,SQLSMALLINT NameLength2,SQLCHAR *TableName,SQLSMALLINT NameLength3,SQLCHAR *ColumnName,SQLSMALLINT NameLength4);
+#if (ODBCVER >= 0x0380)
+  SQLRETURN SQL_API SQLCompleteAsync(SQLSMALLINT HandleType,SQLHANDLE Handle,RETCODE *AsyncRetCodePtr);
+#endif
   SQLRETURN SQL_API SQLConnect(SQLHDBC ConnectionHandle,SQLCHAR *ServerName,SQLSMALLINT NameLength1,SQLCHAR *UserName,SQLSMALLINT NameLength2,SQLCHAR *Authentication,SQLSMALLINT NameLength3);
 #if (ODBCVER >= 0x0300)
   SQLRETURN SQL_API SQLCopyDesc(SQLHDESC SourceDescHandle,SQLHDESC TargetDescHandle);
