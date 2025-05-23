@@ -1862,7 +1862,7 @@ F_ARM_ANY(_free_locale) ; i386 and x64 _free_locale replaced by emu
 F_ARM_ANY(_get_current_locale) ; i386 and x64 _get_current_locale replaced by emu
 F_ARM_ANY(_memcpy_strict_align)
 _wcstod_l
-F_ARM_ANY(fabsf) ; i386 and x64 fabsf provided by emu
+F_ARM_NATIVE(fabsf) ; i386 and x64 fabsf provided by emu
 
 ; These symbols were added in Windows 8.1 OS system version of msvcrt.dll
 F_I386(_CallMemberFunction0@8)

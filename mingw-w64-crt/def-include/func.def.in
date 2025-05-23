@@ -30,14 +30,14 @@
 #elif defined(__arm__)
 #define F32(x) x
 #define F_ARM32(x) x
-#define F_ARM_ANY(x) x
+#define F_ARM_NATIVE(x) x
 #define F_NON_I386(x) x
 #define F_NON_X64(x) x
 #define F_NON_ARM64(x) x
 #elif defined(__aarch64__)
 #define F64(x) x
 #define F_ARM64(x) x
-#define F_ARM_ANY(x) x
+#define F_ARM_NATIVE(x) x
 #define F_NON_I386(x) x
 #define F_NON_X64(x) x
 #else
@@ -59,8 +59,11 @@
 #ifndef F_X64
 #define F_X64(x)
 #endif
+#ifndef F_ARM_NATIVE
+#define F_ARM_NATIVE(x)
+#endif
 #ifndef F_ARM_ANY
-#define F_ARM_ANY(x)
+#define F_ARM_ANY(x) F_ARM_NATIVE(x)
 #endif
 #ifndef F_ARM32
 #define F_ARM32(x)

@@ -1656,7 +1656,7 @@ _o_exp2f
 F_LD64(_o_exp2l) ; Can't use long double functions from the CRT on x86
 F_NON_I386(_o_expf)
 _o_fabs
-F_ARM_ANY(_o_fabsf)
+F_ARM_NATIVE(_o_fabsf)
 _o_fclose
 _o_feof
 _o_ferror
@@ -2338,7 +2338,7 @@ expm1
 expm1f
 F_LD64(expm1l) ; Can't use long double functions from the CRT on x86
 fabs
-F_ARM_ANY(fabsf)
+F_ARM_NATIVE(fabsf)
 fclose
 fdim
 fdimf

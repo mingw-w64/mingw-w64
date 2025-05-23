@@ -1643,8 +1643,8 @@ F_X86_ANY(RtlUTF8StringToUnicodeString)
 RtlUTF8ToUnicodeN
 RtlUdiv128
 F_X64(RtlUmsThreadYield)
-F_ARM_ANY(RtlUlongByteSwap)
-F_ARM_ANY(RtlUlonglongByteSwap)
+F_ARM_NATIVE(RtlUlongByteSwap)
+F_ARM_NATIVE(RtlUlonglongByteSwap)
 RtlUnhandledExceptionFilter
 RtlUnhandledExceptionFilter2
 RtlUnicodeStringToAnsiSize
@@ -1690,7 +1690,7 @@ RtlUpperString
 F_X86_ANY(RtlUsageHeap)
 RtlUserFiberStart
 RtlUserThreadStart
-F_ARM_ANY(RtlUshortByteSwap)
+F_ARM_NATIVE(RtlUshortByteSwap)
 RtlValidAcl
 RtlValidProcessProtection
 RtlValidRelativeSecurityDescriptor
