@@ -520,6 +520,10 @@ src_ucrtbasearm32=\
 src_ucrtbasearm64=\
   $(src_ucrtbase)
 
+if ARM64EC
+src_ucrtbasearm64+=math/fabsf.c
+endif
+
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_32
 src_msvcrt32=\
   $(src_msvcrt) \
@@ -773,6 +777,7 @@ src_msvcrtarm64=\
   stdio/gets.c
 
 if ARM64EC
+src_msvcrtarm64+=math/fabsf.c
 src_msvcrtarm64_x64=libarm64/stdio/scanf.x86_64.o
 else
 src_msvcrtarm64+=stdio/scanf.S
