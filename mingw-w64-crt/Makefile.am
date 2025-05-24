@@ -385,6 +385,7 @@ src_msvcrt_add_x86=\
   secapi/_wstrdate_s.c \
   secapi/_wstrtime_s.c \
   secapi/asctime_s.c \
+  secapi/getenv_s.c \
   secapi/memcpy_s.c \
   secapi/memmove_s.c \
   secapi/rand_s.c \
@@ -878,6 +879,7 @@ src_pre_msvcr80=\
   misc/wcrtomb.c \
   misc/wcsnlen.c \
   misc/wctob.c \
+  secapi/getenv_s.c \
   stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
   stdio/_ftelli64.c \

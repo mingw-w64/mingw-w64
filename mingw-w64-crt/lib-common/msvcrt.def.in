@@ -1803,7 +1803,7 @@ freopen_s
 fscanf_s
 fwprintf_s
 fwscanf_s
-getenv_s
+F_ARM_ANY(getenv_s) ; i386 and x64 getenv_s replaced by emu
 F_ARM_ANY(mbrlen) ; i386 and x64 mbrlen replaced by emu
 F_ARM_ANY(mbrtowc) ; i386 and x64 mbrtowc replaced by emu
 mbsdup_dbg
