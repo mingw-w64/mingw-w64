@@ -319,6 +319,7 @@ getopt_internal(int nargc, char * const *nargv, const char *options,
 {
 	char *oli;				/* option letter list index */
 	int optchar, short_too;
+	size_t var_size;
 	static int posixly_correct = -1;
 
 	if (options == NULL)
@@ -339,7 +340,7 @@ getopt_internal(int nargc, char * const *nargv, const char *options,
 	 *                 optreset != 0 for GNU compatibility.
 	 */
 	if (posixly_correct == -1 || optreset != 0)
-		posixly_correct = (getenv("POSIXLY_CORRECT") != NULL);
+		posixly_correct = (getenv_s(&var_size, NULL, 0, "POSIXLY_CORRECT") == 0 && var_size > 0);
 	if (*options == '-')
 		flags |= FLAG_ALLARGS;
 	else if (posixly_correct || *options == '+')
