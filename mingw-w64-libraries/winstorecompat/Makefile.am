@@ -25,6 +25,7 @@ libwinstorecompat_a_SOURCES = \
   src/GetACP.c \
   src/VirtualProtect.c \
   src/getenv.c \
+  src/getenv_s.c \
   src/LocalAlloc.c \
   src/LocalFree.c \
   src/Sleep.c \
