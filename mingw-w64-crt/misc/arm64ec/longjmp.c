@@ -25,6 +25,7 @@ void __cdecl longjmp( jmp_buf b, int retval )
     rec.NumberParameters = 1;
     rec.ExceptionInformation[0] = (DWORD_PTR)buf;
     RtlUnwind( (void *)buf->Frame, (void *)buf->Rip, &rec, IntToPtr(retval) );
+    __builtin_unreachable();
 }
 
 void (__cdecl *__MINGW_IMP_SYMBOL(longjmp))( jmp_buf b, int retval ) = longjmp;
