@@ -167,11 +167,19 @@ extern "C" {
     } data;
   } NLA_BLOB,*PNLA_BLOB,*LPNLA_BLOB;
 
+#if (_WIN32_WINNT >= 0x0600)
+#define _WSACMSGHDR cmsghdr
+#endif
+
   typedef struct _WSACMSGHDR {
     SIZE_T cmsg_len;
     INT cmsg_level;
     INT cmsg_type;
   } WSACMSGHDR,*PWSACMSGHDR,*LPWSACMSGHDR;
+
+#if (_WIN32_WINNT >= 0x0600)
+typedef WSACMSGHDR CMSGHDR, *PCMSGHDR;
+#endif
 
 #define WSA_CMSGHDR_ALIGN(length) (((length) + TYPE_ALIGNMENT(WSACMSGHDR)-1) & (~(TYPE_ALIGNMENT(WSACMSGHDR)-1)))
 #define WSA_CMSGDATA_ALIGN(length) (((length) + MAX_NATURAL_ALIGNMENT-1) & (~(MAX_NATURAL_ALIGNMENT-1)))
@@ -180,6 +188,15 @@ extern "C" {
 #define WSA_CMSG_DATA(cmsg) ((u_char *)(cmsg) + WSA_CMSGDATA_ALIGN(sizeof(WSACMSGHDR)))
 #define WSA_CMSG_SPACE(length) (WSA_CMSGDATA_ALIGN(sizeof(WSACMSGHDR) + WSA_CMSGHDR_ALIGN(length)))
 #define WSA_CMSG_LEN(length) (WSA_CMSGDATA_ALIGN(sizeof(WSACMSGHDR)) + length)
+
+#if (_WIN32_WINNT >= 0x0600)
+#define CMSGHDR_ALIGN WSA_CMSGHDR_ALIGN
+#define CMSGDATA_ALIGN WSA_CMSGDATA_ALIGN
+#define CMSG_FIRSTHDR WSA_CMSG_FIRSTHDR
+#define CMSG_NXTHDR WSA_CMSG_NXTHDR
+#define CMSG_SPACE WSA_CMSG_SPACE
+#define CMSG_LEN WSA_CMSG_LEN
+#endif
 
 #define MSG_TRUNC 0x0100
 #define MSG_CTRUNC 0x0200
