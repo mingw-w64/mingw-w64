@@ -17,6 +17,7 @@ widl_SOURCES = src/widl.h \
   src/expr.c \
   src/hash.c \
   src/header.c \
+  src/metadata.c \
   src/parser.tab.c \
   src/parser.yy.c \
   src/port/getopt.c \

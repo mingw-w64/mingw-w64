@@ -12,7 +12,7 @@ fi
 
 for f in attribute.c client.c expr.c expr.h hash.c hash.h header.c header.h parser.h parser.l parser.tab.c parser.tab.h parser.y \
 	parser.yy.c proxy.c register.c server.c typegen.c typegen.h typelib.c typelib.h typelib_struct.h typetree.c typetree.h \
-	utils.c utils.h widl.c widl.h widltypes.h write_sltg.c write_msft.c
+	utils.c utils.h widl.c widl.h widltypes.h write_sltg.c write_msft.c metadata.c
 do
 	if [ ! -f $WINE_DIR/tools/widl/$f ] && [ -f $WINE_BUILD_DIR/tools/widl/$f ]; then
 		cp $WINE_BUILD_DIR/tools/widl/$f src
@@ -42,7 +42,7 @@ done
 for f in basetsd.h concurrencysal.h driverspecs.h guiddef.h excpt.h memoryapi.h namespaceapi.h ndrtypes.h poppack.h pshpack1.h \
         processthreadsapi.h pshpack2.h pshpack4.h pshpack8.h realtimeapiset.h sal.h specstrings.h specstrings_strict.h threadpoolapiset.h \
         timezoneapi.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h winapifamily.h minwindef.h minwinbase.h fibersapi.h \
-	sysinfoapi.h
+	sysinfoapi.h wincrypt.h bcrypt.h ncrypt.h
 do
 	cp $WINE_DIR/include/$f include
 done

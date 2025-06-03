@@ -109,15 +109,15 @@ am__dirstamp = $(am__leading_dot)dirstamp
 am_widl_OBJECTS = src/widl-attribute.$(OBJEXT) \
 	src/widl-client.$(OBJEXT) src/widl-expr.$(OBJEXT) \
 	src/widl-hash.$(OBJEXT) src/widl-header.$(OBJEXT) \
-	src/widl-parser.tab.$(OBJEXT) src/widl-parser.yy.$(OBJEXT) \
-	src/port/widl-getopt.$(OBJEXT) src/port/widl-port.$(OBJEXT) \
-	src/widl-ppl.yy.$(OBJEXT) src/widl-ppy.tab.$(OBJEXT) \
-	src/widl-proxy.$(OBJEXT) src/widl-register.$(OBJEXT) \
-	src/widl-server.$(OBJEXT) src/widl-typegen.$(OBJEXT) \
-	src/widl-typelib.$(OBJEXT) src/widl-typetree.$(OBJEXT) \
-	src/widl-utils.$(OBJEXT) src/widl-widl.$(OBJEXT) \
-	src/widl-wpp.$(OBJEXT) src/widl-write_sltg.$(OBJEXT) \
-	src/widl-write_msft.$(OBJEXT)
+	src/widl-metadata.$(OBJEXT) src/widl-parser.tab.$(OBJEXT) \
+	src/widl-parser.yy.$(OBJEXT) src/port/widl-getopt.$(OBJEXT) \
+	src/port/widl-port.$(OBJEXT) src/widl-ppl.yy.$(OBJEXT) \
+	src/widl-ppy.tab.$(OBJEXT) src/widl-proxy.$(OBJEXT) \
+	src/widl-register.$(OBJEXT) src/widl-server.$(OBJEXT) \
+	src/widl-typegen.$(OBJEXT) src/widl-typelib.$(OBJEXT) \
+	src/widl-typetree.$(OBJEXT) src/widl-utils.$(OBJEXT) \
+	src/widl-widl.$(OBJEXT) src/widl-wpp.$(OBJEXT) \
+	src/widl-write_sltg.$(OBJEXT) src/widl-write_msft.$(OBJEXT)
 widl_OBJECTS = $(am_widl_OBJECTS)
 widl_LDADD = $(LDADD)
 widl_LINK = $(CCLD) $(widl_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
@@ -140,6 +140,7 @@ am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = src/$(DEPDIR)/widl-attribute.Po \
 	src/$(DEPDIR)/widl-client.Po src/$(DEPDIR)/widl-expr.Po \
 	src/$(DEPDIR)/widl-hash.Po src/$(DEPDIR)/widl-header.Po \
+	src/$(DEPDIR)/widl-metadata.Po \
 	src/$(DEPDIR)/widl-parser.tab.Po \
 	src/$(DEPDIR)/widl-parser.yy.Po src/$(DEPDIR)/widl-ppl.yy.Po \
 	src/$(DEPDIR)/widl-ppy.tab.Po src/$(DEPDIR)/widl-proxy.Po \
@@ -341,6 +342,7 @@ widl_SOURCES = src/widl.h \
   src/expr.c \
   src/hash.c \
   src/header.c \
+  src/metadata.c \
   src/parser.tab.c \
   src/parser.yy.c \
   src/port/getopt.c \
@@ -492,6 +494,8 @@ src/widl-hash.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-header.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/widl-metadata.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-parser.tab.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-parser.yy.$(OBJEXT): src/$(am__dirstamp) \
@@ -550,6 +554,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-expr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-hash.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-header.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-metadata.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.tab.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.yy.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-ppl.yy.Po@am__quote@ # am--include-marker
@@ -659,6 +664,20 @@ src/widl-header.obj: src/header.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/header.c' object='src/widl-header.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
+
+src/widl-metadata.o: src/metadata.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-metadata.o -MD -MP -MF src/$(DEPDIR)/widl-metadata.Tpo -c -o src/widl-metadata.o `test -f 'src/metadata.c' || echo '$(srcdir)/'`src/metadata.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-metadata.Tpo src/$(DEPDIR)/widl-metadata.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/metadata.c' object='src/widl-metadata.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-metadata.o `test -f 'src/metadata.c' || echo '$(srcdir)/'`src/metadata.c
+
+src/widl-metadata.obj: src/metadata.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-metadata.obj -MD -MP -MF src/$(DEPDIR)/widl-metadata.Tpo -c -o src/widl-metadata.obj `if test -f 'src/metadata.c'; then $(CYGPATH_W) 'src/metadata.c'; else $(CYGPATH_W) '$(srcdir)/src/metadata.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/widl-metadata.Tpo src/$(DEPDIR)/widl-metadata.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/metadata.c' object='src/widl-metadata.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-metadata.obj `if test -f 'src/metadata.c'; then $(CYGPATH_W) 'src/metadata.c'; else $(CYGPATH_W) '$(srcdir)/src/metadata.c'; fi`
 
 src/widl-parser.tab.o: src/parser.tab.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.tab.o -MD -MP -MF src/$(DEPDIR)/widl-parser.tab.Tpo -c -o src/widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
@@ -1180,6 +1199,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/widl-expr.Po
 	-rm -f src/$(DEPDIR)/widl-hash.Po
 	-rm -f src/$(DEPDIR)/widl-header.Po
+	-rm -f src/$(DEPDIR)/widl-metadata.Po
 	-rm -f src/$(DEPDIR)/widl-parser.tab.Po
 	-rm -f src/$(DEPDIR)/widl-parser.yy.Po
 	-rm -f src/$(DEPDIR)/widl-ppl.yy.Po
@@ -1249,6 +1269,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/widl-expr.Po
 	-rm -f src/$(DEPDIR)/widl-hash.Po
 	-rm -f src/$(DEPDIR)/widl-header.Po
+	-rm -f src/$(DEPDIR)/widl-metadata.Po
 	-rm -f src/$(DEPDIR)/widl-parser.tab.Po
 	-rm -f src/$(DEPDIR)/widl-parser.yy.Po
 	-rm -f src/$(DEPDIR)/widl-ppl.yy.Po
