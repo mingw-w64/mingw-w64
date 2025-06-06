@@ -66,18 +66,12 @@
 #define WINPTHREADS_TIME_BITS 64
 #endif
 
-#if defined(IN_WINPTHREAD)
-#  if defined(DLL_EXPORT)
-#    define WINPTHREAD_API  __declspec(dllexport)  /* building the DLL  */
-#  else
-#    define WINPTHREAD_API  /* building the static library  */
-#  endif
-#else
-#  if defined(WINPTHREADS_USE_DLLIMPORT)
-#    define WINPTHREAD_API  __declspec(dllimport)  /* user wants explicit `dllimport`  */
-#  else
-#    define WINPTHREAD_API  /* the default; auto imported in case of DLL  */
-#  endif
+#ifndef WINPTHREAD_API
+# ifdef WINPTHREADS_USE_DLLIMPORT
+#  define WINPTHREAD_API  __declspec(dllimport)
+# else
+#  define WINPTHREAD_API
+# endif
 #endif
 
 #ifndef __clockid_t_defined
