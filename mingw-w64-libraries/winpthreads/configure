@@ -14400,6 +14400,9 @@ CFLAGS=$lt_save_CFLAGS
 
 # Checks for library functions.
 
+# config.h
+
+
 ac_config_files="$ac_config_files Makefile tests/Makefile"
 
 cat >confcache <<\_ACEOF

@@ -61,3 +61,9 @@
 
 /* Version number of package */
 #undef VERSION
+
+#ifdef DLL_EXPORT
+#define WINPTHREAD_API __declspec(dllexport)
+#else
+#define WINPTHREAD_API
+#endif
