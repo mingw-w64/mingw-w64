@@ -170,9 +170,11 @@ fread_s
 freopen
 freopen_s
 fseek
+fseeko == fseek
 fsetpos
 fsetpos64 == fsetpos
 ftell
+ftello == ftell
 fwrite
 getc
 getchar
