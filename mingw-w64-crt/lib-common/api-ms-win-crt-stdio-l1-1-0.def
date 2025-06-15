@@ -99,6 +99,7 @@ mktemp == _mktemp
 _mktemp_s
 _open
 open == _open
+open64 == _open
 _open_osfhandle
 _pclose
 pclose == _pclose
@@ -172,6 +173,7 @@ fputws
 fread
 fread_s
 freopen
+freopen64 == freopen
 freopen_s
 fseek
 fseeko == fseek
@@ -195,6 +197,7 @@ rewind
 setbuf
 setvbuf
 tmpfile
+tmpfile64 == tmpfile
 tmpfile_s
 tmpnam
 tmpnam_s
