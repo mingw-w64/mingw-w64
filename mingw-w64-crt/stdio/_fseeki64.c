@@ -7,7 +7,7 @@
 #include <io.h>
 #include <errno.h>
 
-int __cdecl _fseeki64(FILE* stream, __int64 offset, int whence)
+static int __cdecl emu__fseeki64(FILE *stream, __int64 offset, int whence)
 {
   fpos_t pos;
   if (whence == SEEK_CUR)
@@ -33,4 +33,8 @@ int __cdecl _fseeki64(FILE* stream, __int64 offset, int whence)
   return fsetpos (stream, &pos);
 }
 
-int __cdecl (*__MINGW_IMP_SYMBOL(_fseeki64))(FILE*, __int64, int) = _fseeki64;
+#define RETT int
+#define FUNC _fseeki64
+#define ARGS FILE *stream, __int64 offset, int whence
+#define CALL stream, offset, whence
+#include "msvcrt_or_emu_glue.h"
