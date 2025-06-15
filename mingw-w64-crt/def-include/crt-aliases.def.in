@@ -319,6 +319,9 @@ fstat64 == _fstat64
 #else
 fstat64 == _fstat64
 #endif
+#ifndef FIXED_SIZE_SYMBOLS
+fseeko64 == _fseeki64
+#endif
 
 ; This is list of symbol aliases for GNU functions which are not part of POSIX or ISO C
 strcasecmp == _stricmp

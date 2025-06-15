@@ -63,6 +63,7 @@ _fread_nolock
 _fread_nolock_s
 _fseek_nolock
 _fseeki64
+fseeko64 == _fseeki64
 _fseeki64_nolock
 _fsopen
 _ftell_nolock

@@ -38,3 +38,6 @@ static int __cdecl emu__fseeki64(FILE *stream, __int64 offset, int whence)
 #define ARGS FILE *stream, __int64 offset, int whence
 #define CALL stream, offset, whence
 #include "msvcrt_or_emu_glue.h"
+
+int __attribute__ ((alias ("_fseeki64"))) __cdecl fseeko64(FILE *stream, _off64_t offset, int whence);
+extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_fseeki64))))) (__cdecl *__MINGW_IMP_SYMBOL(fseeko64))(FILE *stream, _off64_t offset, int whence);
