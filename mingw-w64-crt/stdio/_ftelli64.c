@@ -17,3 +17,6 @@ __int64 __cdecl _ftelli64(FILE* stream)
 }
 
 __int64 __cdecl (*__MINGW_IMP_SYMBOL(_ftelli64))(FILE*) = _ftelli64;
+
+_off64_t __attribute__ ((alias ("_ftelli64"))) __cdecl ftello64(FILE*);
+extern _off64_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_ftelli64))))) (__cdecl *__MINGW_IMP_SYMBOL(ftello64))(FILE*);

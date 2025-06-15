@@ -68,6 +68,7 @@ _fseeki64_nolock
 _fsopen
 _ftell_nolock
 _ftelli64
+ftello64 == _ftelli64
 _ftelli64_nolock
 _fwrite_nolock
 _get_fmode
