@@ -303,6 +303,7 @@ fopen64 == fopen
 ; fgetpos and fsetpos are already 64-bit
 fgetpos64 == fgetpos
 fsetpos64 == fsetpos
+lseek64 == _lseeki64
 #endif
 #ifdef UCRTBASE
 stat32 == _stat32

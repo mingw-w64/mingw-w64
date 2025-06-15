@@ -93,6 +93,7 @@ _locking
 _lseek
 lseek == _lseek
 _lseeki64
+lseek64 == _lseeki64
 _mktemp
 mktemp == _mktemp
 _mktemp_s

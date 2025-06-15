@@ -1127,7 +1127,7 @@ src_libmingwex=\
   stdio/strtok_r.c \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
   stdio/asprintf.c \
-  stdio/ftruncate64.c      stdio/lltoa.c             stdio/lltow.c             stdio/lseek64.c \
+  stdio/ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
