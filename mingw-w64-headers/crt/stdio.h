@@ -580,30 +580,12 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
   long __cdecl ftell(FILE *_File);
 
-  /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
-  /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
-#ifdef _UCRT
-  __mingw_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
-    return fseek(_File, _Offset, _Origin);
-  }
-  __mingw_ovr int fseeko64(FILE *_File, _off64_t _Offset, int _Origin) {
-    return _fseeki64(_File, _Offset, _Origin);
-  }
-  __mingw_ovr _off_t ftello(FILE *_File) {
-    return ftell(_File);
-  }
-  __mingw_ovr _off64_t ftello64(FILE *_File) {
-    return _ftelli64(_File);
-  }
-#else
-  int fseeko64(FILE* stream, _off64_t offset, int whence);
-  int fseeko(FILE* stream, _off_t offset, int whence);
-  /* Returns truncated 64bit off_t */
-  _off_t ftello(FILE * stream);
-  _off64_t ftello64(FILE * stream);
-#endif
+  _CRTIMP int __cdecl fseeko(FILE *_File, _off_t _Offset, int _Origin);
+  _CRTIMP int __cdecl fseeko64(FILE *_File, _off64_t _Offset, int _Origin);
+  _CRTIMP _off_t __cdecl ftello(FILE *_File);
+  _CRTIMP _off64_t __cdecl ftello64(FILE *_File);
 
 #ifndef _FILE_OFFSET_BITS_SET_FSEEKO
 #define _FILE_OFFSET_BITS_SET_FSEEKO
