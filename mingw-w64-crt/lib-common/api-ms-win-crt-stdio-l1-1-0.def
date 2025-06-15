@@ -162,6 +162,7 @@ fgets
 fgetwc
 fgetws
 fopen
+fopen64 == fopen
 fopen_s
 fputc
 fputs
