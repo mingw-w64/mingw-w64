@@ -400,6 +400,7 @@ src_ucrtbase=\
   misc/ucrt__wgetmainargs.c \
   misc/ucrt_amsg_exit.c \
   misc/ucrt_at_quick_exit.c \
+  misc/ucrt_mbsinit.c \
   misc/ucrt_tzset.c \
   math/_huge.c \
   misc/__badioinfo.c \

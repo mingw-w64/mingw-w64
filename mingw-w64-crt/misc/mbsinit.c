@@ -15,7 +15,6 @@
 
 */
 
-#define __CRT__NO_INLINE
 #include	<wchar.h>
 
 #if 0
