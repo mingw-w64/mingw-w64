@@ -295,6 +295,7 @@ ADD_UNDERSCORE(popen)
 ; ADD_UNDERSCORE(scalb)
 
 ; This is list of symbol aliases for Large File Specification (extension to Single UNIX Specification)
+; https://unix.org/version2/whatsnew/lfs20mar.html#3.1 section 3.1 Transitional Extensions
 #ifndef NO_FPOS64_ALIASES
 ; fgetpos and fsetpos are already 64-bit
 fgetpos64 == fgetpos
