@@ -1119,7 +1119,7 @@ src_libmingwex=\
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
-  stdio/mingw_pformat.h    mingw_sformat.h           mingw_swformat.h \
+  stdio/mingw_pformat.h    stdio/mingw_sformat.h     stdio/mingw_swformat.h \
   stdio/mingw_fprintf.c    stdio/mingw_fwprintf.c    stdio/mingw_fscanf.c     stdio/mingw_fwscanf.c     stdio/mingw_pformat.c   \
   stdio/mingw_wpformat.c   stdio/mingw_printf.c      stdio/mingw_wprintf.c    stdio/mingw_scanf.c       stdio/mingw_snprintf.c  \
   stdio/mingw_swprintf.c   stdio/mingw_snwprintf.c   stdio/mingw_sprintf.c    stdio/mingw_sscanf.c      stdio/mingw_swscanf.c   \
