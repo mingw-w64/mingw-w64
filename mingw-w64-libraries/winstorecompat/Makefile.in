@@ -168,12 +168,13 @@ am_libwinstorecompat_a_OBJECTS = src/beginthread.$(OBJEXT) \
 	src/TerminateProcess.$(OBJEXT) src/IsDBCSLeadByteEx.$(OBJEXT) \
 	src/SetErrorMode.$(OBJEXT) src/GetACP.$(OBJEXT) \
 	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
-	src/LocalAlloc.$(OBJEXT) src/LocalFree.$(OBJEXT) \
-	src/Sleep.$(OBJEXT) src/SleepEx.$(OBJEXT) \
-	src/SetFilePointer.$(OBJEXT) src/GetFileSize.$(OBJEXT) \
-	src/Tls.$(OBJEXT) src/SHGetFolderPathW.$(OBJEXT) \
-	src/QueueTimer.$(OBJEXT) src/Crypto.$(OBJEXT) \
-	src/GetStartupInfo.$(OBJEXT) src/GetConsoleOutputCP.$(OBJEXT) \
+	src/getenv_s.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
+	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
+	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT) \
+	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT) \
+	src/SHGetFolderPathW.$(OBJEXT) src/QueueTimer.$(OBJEXT) \
+	src/Crypto.$(OBJEXT) src/GetStartupInfo.$(OBJEXT) \
+	src/GetConsoleOutputCP.$(OBJEXT) \
 	src/EnumProcessModules.$(OBJEXT) \
 	src/RtlAddFunctionTable.$(OBJEXT) \
 	src/RtlCaptureContext.$(OBJEXT) src/RtlVirtualUnwind.$(OBJEXT) \
@@ -224,7 +225,7 @@ am__depfiles_remade = src/$(DEPDIR)/CreateEventW.Po \
 	src/$(DEPDIR)/VirtualProtect.Po \
 	src/$(DEPDIR)/WaitForSingleObject.Po \
 	src/$(DEPDIR)/beginthread.Po src/$(DEPDIR)/getenv.Po \
-	src/$(DEPDIR)/getpid.Po \
+	src/$(DEPDIR)/getenv_s.Po src/$(DEPDIR)/getpid.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-CreateFileW.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po \
 	src/$(DEPDIR)/libwindowsappcompat_a-GetFileSize.Po \
@@ -429,6 +430,7 @@ libwinstorecompat_a_SOURCES = \
   src/GetACP.c \
   src/VirtualProtect.c \
   src/getenv.c \
+  src/getenv_s.c \
   src/LocalAlloc.c \
   src/LocalFree.c \
   src/Sleep.c \
@@ -624,6 +626,8 @@ src/VirtualProtect.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/getenv.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/getenv_s.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/LocalAlloc.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/LocalFree.$(OBJEXT): src/$(am__dirstamp) \
@@ -716,6 +720,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/getenv.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/getenv_s.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/getpid.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-CreateFileW.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po@am__quote@ # am--include-marker
@@ -1309,6 +1314,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/WaitForSingleObject.Po
 	-rm -f src/$(DEPDIR)/beginthread.Po
 	-rm -f src/$(DEPDIR)/getenv.Po
+	-rm -f src/$(DEPDIR)/getenv_s.Po
 	-rm -f src/$(DEPDIR)/getpid.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-CreateFileW.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po
@@ -1413,6 +1419,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/WaitForSingleObject.Po
 	-rm -f src/$(DEPDIR)/beginthread.Po
 	-rm -f src/$(DEPDIR)/getenv.Po
+	-rm -f src/$(DEPDIR)/getenv_s.Po
 	-rm -f src/$(DEPDIR)/getpid.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-CreateFileW.Po
 	-rm -f src/$(DEPDIR)/libwindowsappcompat_a-EnumProcessModules.Po
