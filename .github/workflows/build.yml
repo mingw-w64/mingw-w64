@@ -554,3 +554,109 @@ jobs:
           ./hello-cpp.exe
           g++ test/hello-exception.cpp -o hello-exception.exe
           ./hello-exception.exe
+
+  mingw-w64-testcases-clang:
+    defaults:
+      run:
+        shell: msys2 {0}
+    strategy:
+      fail-fast: false
+      matrix:
+        crt:
+          - ucrt
+          - ucrtbase
+          - msvcrt
+        arch:
+          - i686
+          - x86_64
+          - aarch64
+    runs-on: ${{startsWith(matrix.arch, 'a') && 'windows-11-arm' || 'windows-latest'}}
+    steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: mingw64
+          install: >-
+            unzip
+            make
+            autoconf
+            automake
+      - name: Unpack toolchain
+        run: |
+          curl -LO https://github.com/mstorsjo/llvm-mingw/releases/download/20250826/llvm-mingw-20250826-${{ matrix.crt == 'ucrtbase' && 'ucrt' || ((matrix.crt == 'msvcrt' && startsWith(matrix.arch, 'a')) && 'ucrt') || matrix.crt }}-${{matrix.arch}}.zip
+          unzip -q llvm-mingw-*.zip
+          rm llvm-mingw-*.zip
+          mv llvm-mingw-* /llvm-mingw
+          echo /llvm-mingw/bin >> $GITHUB_PATH
+      - uses: actions/checkout@v4
+      - name: Build mingw-w64-crt and run testcases
+        run: |
+          export PATH=/llvm-mingw/bin:$PATH
+          cd mingw-w64-headers
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --prefix=/llvm-mingw --with-default-msvcrt=${{matrix.crt}}
+          make install
+          cd ../..
+          cd mingw-w64-crt
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --disable-dependency-tracking --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}} --enable-silent-rules ${{ (startsWith(matrix.arch, 'a') && '--disable-lib32 --disable-lib64') || (matrix.arch == 'x86_64' && '--disable-lib32') || '--disable-lib64' }}
+          make -j$(nproc)
+          make -j$(nproc) install
+          make -j$(nproc) check -k -O || { cat testcases/test-suite.log; exit 1; }
+
+  mingw-w64-testcases-gcc:
+    runs-on: windows-latest
+    needs: [gcc-cross]
+    defaults:
+      run:
+        shell: msys2 {0}
+    strategy:
+      fail-fast: false
+      matrix:
+        crt:
+          - ucrt
+          - ucrtbase
+          - msvcrt
+        arch:
+          - i686
+          - x86_64
+    steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: mingw64
+          install: >-
+            unzip
+            make
+            autoconf
+            automake
+      - uses: actions/download-artifact@v4
+        with:
+          name: windows-${{ matrix.crt == 'ucrtbase' && 'ucrt' || matrix.crt }}-${{matrix.arch}}-gcc-toolchain
+      - name: Unpack toolchain
+        run: |
+          unzip -q gcc-mingw-*.zip
+          rm gcc-mingw-*.zip
+          mv gcc-mingw-* /gcc-mingw
+          echo /gcc-mingw/bin >> $GITHUB_PATH
+      - uses: actions/checkout@v4
+      - name: Build mingw-w64-crt and run testcases
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          cd mingw-w64-headers
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}}
+          make install
+          cd ../..
+          cd mingw-w64-crt
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --disable-dependency-tracking --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}} --enable-silent-rules ${{ matrix.arch == 'x86_64' && '--disable-lib32' || '--disable-lib64' }}
+          make -j$(nproc)
+          make -j$(nproc) install
+          make -j$(nproc) check -k -O || { cat testcases/test-suite.log; exit 1; }
