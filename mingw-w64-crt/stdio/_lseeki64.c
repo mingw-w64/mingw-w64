@@ -11,7 +11,7 @@
 /* Define 64-bit _lseeki64() function via 32-bit _lseek() function */
 __int64 __cdecl _lseeki64(int fd, __int64 offset, int whence)
 {
-  if (offset > LONG_MAX)
+  if (offset < LONG_MIN || offset > LONG_MAX)
   {
     errno = EOVERFLOW;
     return -1;

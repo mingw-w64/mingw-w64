@@ -14,7 +14,7 @@ int __cdecl fsetpos(FILE *__restrict__ _File, const fpos_t *__restrict__ _Pos)
 {
   long pos32;
 
-  if (*_Pos > LONG_MAX)
+  if (*_Pos < LONG_MIN || *_Pos > LONG_MAX)
   {
     errno = EOVERFLOW;
     return -1;
