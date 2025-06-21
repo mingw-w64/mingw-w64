@@ -1406,7 +1406,7 @@ lib32_libscrnsave_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_LIBRARIES += lib32/libscrnsavw.a
 lib32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
 lib32_libscrnsavw_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-lib32_libscrnsavw_a_CFLAGS = -DUNICODE
+lib32_libscrnsavw_a_CFLAGS = $(AM_CFLAGS) -DUNICODE
 
 lib32_LIBRARIES += lib32/libstrmiids.a
 lib32_libstrmiids_a_SOURCES = $(src_libstrmiids)
@@ -1834,7 +1834,7 @@ lib64_libscrnsave_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libscrnsavw.a
 lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib64_libscrnsavw_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libscrnsavw_a_CFLAGS = -DUNICODE
+lib64_libscrnsavw_a_CFLAGS = $(AM_CFLAGS) -DUNICODE
 
 lib64_LIBRARIES += lib64/libstrmiids.a
 lib64_libstrmiids_a_SOURCES = $(src_libstrmiids)
@@ -2211,7 +2211,7 @@ libarm32_libscrnsave_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libscrnsavw.a
 libarm32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
 libarm32_libscrnsavw_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
-libarm32_libscrnsavw_a_CFLAGS = -DUNICODE
+libarm32_libscrnsavw_a_CFLAGS = $(AM_CFLAGS) -DUNICODE
 
 libarm32_LIBRARIES += libarm32/libstrmiids.a
 libarm32_libstrmiids_a_SOURCES = $(src_libstrmiids)
@@ -2536,7 +2536,7 @@ libarm64_libscrnsave_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libscrnsavw.a
 libarm64_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
 libarm64_libscrnsavw_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
-libarm64_libscrnsavw_a_CFLAGS = -DUNICODE
+libarm64_libscrnsavw_a_CFLAGS = $(AM_CFLAGS) -DUNICODE
 
 libarm64_LIBRARIES += libarm64/libstrmiids.a
 libarm64_libstrmiids_a_SOURCES = $(src_libstrmiids)
