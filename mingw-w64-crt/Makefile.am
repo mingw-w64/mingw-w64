@@ -4401,6 +4401,7 @@ testcase_progs = \
   testcases/t_fstat \
   testcases/t_intrinc \
   testcases/t_imagebase \
+  testcases/t_lfs \
   testcases/t_matherr \
   testcases/t_nullptrexception \
   testcases/t_readdir \
