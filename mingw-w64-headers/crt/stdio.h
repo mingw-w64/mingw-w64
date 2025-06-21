@@ -569,7 +569,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #endif
   _CRTIMP int __cdecl _flushall(void);
   FILE *__cdecl fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  FILE *fopen64(const char * __restrict__ filename,const char * __restrict__  mode);
+  FILE *__cdecl fopen64(const char * __restrict__ filename,const char * __restrict__  mode);
   int __cdecl fputc(int _Ch,FILE *_File);
   _CRTIMP int __cdecl _fputchar(int _Ch);
   int __cdecl fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
