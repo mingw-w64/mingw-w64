@@ -4392,6 +4392,8 @@ testcase_progs = \
   testcases/tstmainc \
   testcases/tstmaincpp \
   testcases/tstmain_sys_xxx \
+  testcases/t__fstat_all \
+  testcases/t__stat_all \
   testcases/t_aligned_alloc \
   testcases/t_ansi_io \
   testcases/t_findfirst \
@@ -4435,9 +4437,10 @@ testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_intrinc_CFLAGS = -std=c99
 
 if ENABLE_TESTS_UNICODE
-  testcase_progs += testcases/t_municode testcases/t_tmain
+  testcase_progs += testcases/t_municode testcases/t_tmain testcases/t__wstat_all
   testcases_t_municode_CFLAGS = -municode
   testcases_t_tmain_CFLAGS = -municode -D_UNICODE
+  testcases_t__wstat_all = -municode
 endif
 
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
