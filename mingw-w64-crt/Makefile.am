@@ -627,8 +627,11 @@ src_msvcrt64=\
   misc/wctob.c \
   stdio/_fseeki64.c \
   stdio/_fstat32.c \
+  stdio/_fstat32i64.c \
   stdio/_stat32.c \
+  stdio/_stat32i64.c \
   stdio/_wstat32.c \
+  stdio/_wstat32i64.c \
   string/wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
@@ -783,9 +786,12 @@ src_msvcrtarm64=\
   misc/__initenv.c \
   misc/__winitenv.c \
   stdio/_fstat32.c \
+  stdio/_fstat32i64.c \
   stdio/_setmaxstdio.c \
   stdio/_stat32.c \
+  stdio/_stat32i64.c \
   stdio/_wstat32.c \
+  stdio/_wstat32i64.c \
   stdio/gets.c
 
 if ARM64EC
