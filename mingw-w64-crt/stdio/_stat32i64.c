@@ -30,9 +30,9 @@ int __cdecl _stat32i64(const char *_Name,struct _stat32i64 *_Stat)
   _Stat->st_gid=st.st_gid;
   _Stat->st_rdev=st.st_rdev;
   _Stat->st_size=st.st_size;
-  _Stat->st_atime=((st.st_atime > INT32_MAX) ? -1 : st.st_atime);
-  _Stat->st_mtime=((st.st_mtime > INT32_MAX) ? -1 : st.st_mtime);
-  _Stat->st_ctime=((st.st_ctime > INT32_MAX) ? -1 : st.st_ctime);
+  _Stat->st_atime=((st.st_atime < 0 || st.st_atime > INT32_MAX) ? -1 : st.st_atime);
+  _Stat->st_mtime=((st.st_mtime < 0 || st.st_mtime > INT32_MAX) ? -1 : st.st_mtime);
+  _Stat->st_ctime=((st.st_ctime < 0 || st.st_ctime > INT32_MAX) ? -1 : st.st_ctime);
   return 0;
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(_stat32i64))(const char *, struct _stat32i64 *) = _stat32i64;
