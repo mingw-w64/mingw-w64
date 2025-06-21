@@ -30,9 +30,9 @@ int __cdecl _fstat32i64(int _FileDes,struct _stat32i64 *_Stat)
   _Stat->st_gid=st.st_gid;
   _Stat->st_rdev=st.st_rdev;
   _Stat->st_size=st.st_size;
-  _Stat->st_atime=((st.st_atime > INT32_MAX) ? -1 : st.st_atime);
-  _Stat->st_mtime=((st.st_mtime > INT32_MAX) ? -1 : st.st_mtime);
-  _Stat->st_ctime=((st.st_ctime > INT32_MAX) ? -1 : st.st_ctime);
+  _Stat->st_atime=((st.st_atime < 0 || st.st_atime > INT32_MAX) ? -1 : st.st_atime);
+  _Stat->st_mtime=((st.st_mtime < 0 || st.st_mtime > INT32_MAX) ? -1 : st.st_mtime);
+  _Stat->st_ctime=((st.st_ctime < 0 || st.st_ctime > INT32_MAX) ? -1 : st.st_ctime);
   return 0;
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(_fstat32i64))(int, struct _stat32i64 *) = _fstat32i64;
