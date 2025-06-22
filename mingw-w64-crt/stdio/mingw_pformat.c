@@ -66,6 +66,7 @@
 #include <limits.h>
 #include <locale.h>
 #include <wchar.h>
+#include <winternl.h>
 
 #ifdef __ENABLE_DFP
 #ifndef __STDC_WANT_DEC_FP__
@@ -2538,6 +2539,64 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
                */
               __pformat_puts( va_arg( argv, char * ), &stream );
             goto format_scan;
+
+          case 'Z':
+            /*
+             * The logic for `%Z` length modifier is quite complicated.
+             *
+             * for printf:
+             * `%Z`  - UNICODE_STRING for UCRT; ANSI_STRING for crtdll,msvcrt10,msvcrt,msvcr80-msvcr120
+             * `%hZ` - ANSI_STRING
+             * `%lZ` - UNICODE_STRING for UCRT; ANSI_STRING for crtdll,msvcrt10,msvcrt,msvcr80-msvcr120
+             * `%wZ` - UNICODE_STRING
+             *
+             * for wprintf:
+             * `%Z`  - ANSI_STRING
+             * `%hZ` - ANSI_STRING
+             * `%lZ` - UNICODE_STRING for UCRT; ANSI_STRING for crtdll,msvcrt10,msvcrt,msvcr80-msvcr120
+             * `%wZ` - UNICODE_STRING
+             *
+             * There are some other changes between versions regarding nul chars.
+             * - msvcrt since Vista, msvcr80+ and UCRT do not accept nul chars in ANSI_STRING for wprintf.
+             *   If encountering a nul char, it stops processing the format string and returns -1.
+             * - msvcrt before Vista, crtdll and msvcrt10 accept nul char in ANSI_STRING for wprintf,
+             *   but the first nul char and everything after it in ANSI_STRING content is discarded.
+             * - msvcrt20 does not support %Z format at all.
+             * - msvcrt40 from Visual C++ 4.0 and in Win9x systems does not support %Z format at all.
+             * - msvcrt40 in WinNT systems forwards calls to msvcrt, so it behaves as msvcrt described above.
+             * - ANSI_STRING for printf, and UNICODE_STRING for both printf and wprintf work fine
+             *   in all versions, every nul byte and all following chars in the ANSI_STRING/UNICODE_STRING
+             *   are processed and printed.
+             *
+             * This mingw-w64 implementation uses UCRT behavior of length modifiers.
+             */
+            if( length == PFORMAT_LENGTH_INT )
+            {
+    #ifndef __BUILD_WIDEAPI
+              length = PFORMAT_LENGTH_LONG;
+    #else
+              length = PFORMAT_LENGTH_SHORT;
+    #endif
+            }
+
+            if( (length == PFORMAT_LENGTH_LONG)
+                 || (length == PFORMAT_LENGTH_LLONG)
+              )
+            {
+              const UNICODE_STRING *s = va_arg( argv, UNICODE_STRING * );
+              const wchar_t *buf = (s && s->Buffer) ? (const wchar_t *)s->Buffer : L"(null)";
+              const int len = (s && s->Buffer) ? s->Length / sizeof(wchar_t) : ( sizeof( "(null)" ) - 1 );
+              __pformat_wputchars( buf, len, &stream );
+            }
+            else
+            {
+              const ANSI_STRING *s = va_arg( argv, ANSI_STRING * );
+              const char *buf = (s && s->Buffer) ? (const char *)s->Buffer : "(null)";
+              const int len = (s && s->Buffer) ? s->Length : ( sizeof( "(null)" ) - 1 );
+              __pformat_putchars( buf, len, &stream );
+            }
+            goto format_scan;
+
           case 'm': /* strerror (errno)  */
             __pformat_puts (strerror (saved_errno), &stream);
             goto format_scan;
