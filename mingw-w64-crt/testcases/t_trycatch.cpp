@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void foo (int d) throw (int)
+void foo (int d)
 {
   throw (d);
 }
