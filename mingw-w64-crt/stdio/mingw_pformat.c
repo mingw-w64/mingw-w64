@@ -2977,6 +2977,16 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
             state = PFORMAT_END;
             break;
 
+          case 'w':
+            /*
+             * Identify the appropriate argument as a wide
+             * character or wide string when associated with
+             * `%c`, `%C`, `%s' or `%S`.
+             */
+            length = PFORMAT_LENGTH_LONG;
+            state = PFORMAT_END;
+            break;
+
           case 'L':
             /*
              * Identify the appropriate argument as a `long double',
