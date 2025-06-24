@@ -15,7 +15,7 @@
 #if defined(_MSC_VER) /* MS Visual Studio */
 #define __threadlocal__ __declspec(thread)
 #elif defined(__GNUC__) && ((__GNUC__ > 4) \
-  || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3))
+  || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3)) || defined(__clang__)
 /* gcc >= 4.3, also needs binutils >= 2.19 */
 #define __threadlocal__ __thread
 #else
