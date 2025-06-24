@@ -4,8 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <stdio.h>
-
-_CRTIMP char *_sys_errlist[];
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
