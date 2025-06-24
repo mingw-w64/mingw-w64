@@ -29,6 +29,9 @@ testcase_progs = \
   t_excpt_int_overflow_thrd \
   t_findfirst \
   t_float  \
+  t_format_Z \
+  t_format_Z0 \
+  t_format_Z1 \
   t_fseeki64 \
   t_fseeki64_ftelli64 \
   t_fstat \
