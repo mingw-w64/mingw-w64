@@ -25,6 +25,18 @@
   } \
 } while (0)
 
+#ifndef BROKEN_REALLOC_SHRINK
+#if defined(__aarch64__)
+/* On aarch64, with both UCRT and msvcrt.dll, an _aligned_realloc that attempts
+ * to shrink the allocation, ends up not shrinking it in practice, leading to
+ * failures in some of these tests. Ignore those test failures. This is
+ * observed on both Windows 10 rev 19041 and Windows 11 rev 22000 and 22631. */
+#define BROKEN_REALLOC_SHRINK 1
+#else
+#define BROKEN_REALLOC_SHRINK 0
+#endif
+#endif
+
 int main() {
   void *ptr;
   size_t size;
@@ -94,17 +106,20 @@ int main() {
   TEST((uintptr_t)ptr % 128, 0, "_aligned_realloc: ptr 0x%p is not aligned", ptr);
 
   size = _aligned_msize(ptr, 128, 0);
-  TEST(size, 10, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST(size, 10, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
 
   ptr = _aligned_recalloc(ptr, 20, 1, 128);
   assert(ptr != NULL);
   TEST((uintptr_t)ptr % 128, 0, "_aligned_recalloc: ptr 0x%p is not aligned", ptr);
 
   size = _aligned_msize(ptr, 128, 0);
-  TEST(size, 20, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST(size, 20, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
 
   TEST_MEM(ptr, 0x02, 10, "_aligned_realloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i], (unsigned long)i);
-  TEST_MEM(ptr+10, 0x00, 10, "_aligned_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i+10], (unsigned long)i+10);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST_MEM(ptr+10, 0x00, 10, "_aligned_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i+10], (unsigned long)i+10);
 
   ptr = _aligned_recalloc(ptr, 3, 2, 128);
   assert(ptr != NULL);
@@ -135,7 +150,8 @@ int main() {
   TEST((uintptr_t)(ptr+7) % 128, 0, "_aligned_offset_recalloc: ptr 0x%p is not aligned", ptr);
 
   size = _aligned_msize(ptr, 128, 7);
-  TEST(size, 100, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST(size, 100, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
 
   memset(ptr, 0x02, 100);
 
@@ -144,10 +160,12 @@ int main() {
   TEST((uintptr_t)(ptr+7) % 128, 0, "_aligned_offset_recalloc: ptr 0x%p is not aligned", ptr);
 
   size = _aligned_msize(ptr, 128, 7);
-  TEST(size, 110, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST(size, 110, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
 
   TEST_MEM(ptr, 0x02, 100, "_aligned_offset_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i], (unsigned long)i);
-  TEST_MEM(ptr+100, 0x00, 10, "_aligned_offset_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i+100], (unsigned long)i+100);
+  if (!BROKEN_REALLOC_SHRINK)
+    TEST_MEM(ptr+100, 0x00, 10, "_aligned_offset_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i+100], (unsigned long)i+100);
 
   _aligned_free(ptr);
 
