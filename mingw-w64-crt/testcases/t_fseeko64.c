@@ -54,7 +54,7 @@ int main(int argc, char **argv){
   SHGetFolderPathW(NULL,CSIDL_PERSONAL,NULL,0,szPath);
   path = _wtempnam(szPath, L"mingw-w64-lfs64-test-");
 #ifdef debugtest
-  wprintf(L"Path: %ws\n", path);
+  wprintf(L"Path: %ls\n", path);
 #endif
   if (!path) return 1;
 

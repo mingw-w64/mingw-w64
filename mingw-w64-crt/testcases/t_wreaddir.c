@@ -13,7 +13,7 @@ int main(int argc, char **argv)
   if (!h)
     return 1;
   while ((di = _wreaddir (h)) != NULL)
-    printf ("%ws\n", di->d_name);
+    printf ("%ls\n", di->d_name);
   _wclosedir (h);
   return 0;
 }

@@ -82,7 +82,7 @@ static LPWSTR xp_normalize_fn(const LPWSTR fn) {
     free(target);
     return NULL;
   }
-  _snwprintf(ret,MAX_PATH,L"%ws%ws",tmplt,fn+wcslen(target));
+  _snwprintf(ret,MAX_PATH,L"%ls%ls",tmplt,fn+wcslen(target));
 
   return ret;
 }
@@ -206,10 +206,10 @@ checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
   dirpath = NULL;
 
   vol = FindFirstVolumeW(volumeid,50);
-  /* wprintf(L"%d - %ws\n",wcslen(volumeid),volumeid); */
+  /* wprintf(L"%d - %ls\n",wcslen(volumeid),volumeid); */
   do {
     check = GetVolumeInformationW(volumeid,volumepath,MAX_PATH+1,&volumeserial,NULL,NULL,NULL,0);
-    /* wprintf(L"GetVolumeInformationW %d id %ws path %ws error %d\n",check,volumeid,volumepath,GetLastError()); */
+    /* wprintf(L"GetVolumeInformationW %d id %ls path %ls error %d\n",check,volumeid,volumepath,GetLastError()); */
     if(volumeserial == fileinfo.dwVolumeSerialNumber) {
       dirpath = volumeid; 
       break;
@@ -320,8 +320,8 @@ int main(){
 /*  path = xp_getfilepath((HANDLE)_get_osfhandle(f),sz);
   dir = getdirpath(path);
   GetDiskFreeSpaceExW(dir,&freespace,NULL,NULL);
-  wprintf(L"fs - %ws\n",path);
-  wprintf(L"dirfs - %ws\n",dir);
+  wprintf(L"fs - %ls\n",path);
+  wprintf(L"dirfs - %ls\n",dir);
   wprintf(L"free - %I64u\n",freespace.QuadPart);
   free(dir);
   free(path);*/
