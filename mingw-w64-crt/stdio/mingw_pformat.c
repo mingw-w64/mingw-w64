@@ -680,7 +680,7 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
       __pformat_putc( '\x20', stream );
 
   len = count;
-  while(len-- > 0 && *s != 0)
+  while(len-- > 0)
   {
       __pformat_putc(*s++, stream);
   }
