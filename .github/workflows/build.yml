@@ -554,7 +554,7 @@ jobs:
           ref: 20250430
       - name: Run tests
         run: |
-          g++ test/hello.c -o hello.exe
+          gcc test/hello.c -o hello.exe
           ./hello.exe
           gcc test/crt-test.c -o crt-test.exe
           ./crt-test.exe
