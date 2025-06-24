@@ -23,7 +23,7 @@ int __cdecl wstat64i32(const wchar_t *_Filename, struct _stat64i32 *_Stat)
   if (_path == NULL && _Filename != NULL)
     return -1;
   int ret = _wstat64(_path, &st);
-  ret = __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
+  ret = __mingw_fix_stat_finish(ret, _Filename, _path, st.st_mode);
   if (ret != 0)
     return ret;
   if (st.st_size > UINT32_MAX) {
