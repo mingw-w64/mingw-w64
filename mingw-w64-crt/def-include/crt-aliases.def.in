@@ -321,10 +321,11 @@ stat64i32 == _stat64i32
 #if defined(NO_FIXED_SIZE_64_ALIAS) && !defined(NO_FSTAT64_ALIAS)
 fstat64 == _fstat64
 #endif
+#ifdef WITH_FSEEKO64_ALIAS
+fseeko64 == _fseeki64
+#endif
 #else
 fstat64 == _fstat64
-#endif
-#ifndef FIXED_SIZE_SYMBOLS
 fseeko64 == _fseeki64
 ftello64 == _ftelli64
 #endif

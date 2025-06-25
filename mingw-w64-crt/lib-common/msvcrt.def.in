@@ -1930,5 +1930,6 @@ F_I386(_libm_sse2_tan_precise)
 #endif
 #if defined(__arm__) || defined(__aarch64__)
 #define USE_WCSTOK_S_FOR_WCSTOK
+#define WITH_FSEEKO64_ALIAS
 #endif
 #include "crt-aliases.def.in"
