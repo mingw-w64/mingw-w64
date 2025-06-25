@@ -232,7 +232,7 @@ ADD_UNDERSCORE(wcsupr)
 #ifdef UCRTBASE
 ; hypot is natively exported from UCRT
 #else
-ADD_UNDERSCORE(hypot)
+; hypot is provided by math/hypot.c as a wrapper around _hypot
 #endif
 ADD_UNDERSCORE(j0)
 ADD_UNDERSCORE(j1)
