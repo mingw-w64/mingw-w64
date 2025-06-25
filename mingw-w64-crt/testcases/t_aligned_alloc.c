@@ -117,7 +117,7 @@ int main() {
   if (!BROKEN_REALLOC_SHRINK)
     TEST(size, 20, "_aligned_msize: ptr 0x%p has incorrect size %lu", ptr, (unsigned long)size);
 
-  TEST_MEM(ptr, 0x02, 10, "_aligned_realloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i], (unsigned long)i);
+  TEST_MEM(ptr, 0x02, 10, "_aligned_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i], (unsigned long)i);
   if (!BROKEN_REALLOC_SHRINK)
     TEST_MEM(ptr+10, 0x00, 10, "_aligned_recalloc: 0x%p has incorrect byte 0x%02x at %lu", ptr, ((unsigned char *)ptr)[i+10], (unsigned long)i+10);
 
