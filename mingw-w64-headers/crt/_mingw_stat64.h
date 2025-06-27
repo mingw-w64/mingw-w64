@@ -3,6 +3,12 @@
 /* __stat64 is needed for compatibility with msvc */
 #define __stat64 _stat64
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call the
+ * _fstat, _fstati64, _stat, _stati64, _wstat and _wstati64 functions.
+ * Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifdef _USE_32BIT_TIME_T
 #define _fstat _fstat32
 #define _fstati64 _fstat32i64
@@ -18,6 +24,7 @@
 #define _wstat _wstat64i32
 #define _wstati64 _wstat64
 #endif /* _USE_32BIT_TIME_T */
+#endif /* _CRTBLD */
 
   struct _stat32 {
     _dev_t st_dev;
