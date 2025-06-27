@@ -298,6 +298,7 @@ ftello == ftell
 
 ; This is list of symbol aliases for Large File Specification (extension to Single UNIX Specification)
 ; https://unix.org/version2/whatsnew/lfs20mar.html#3.1 section 3.1 Transitional Extensions
+creat64 == _creat
 open64 == _open
 fopen64 == fopen
 freopen64 == freopen
