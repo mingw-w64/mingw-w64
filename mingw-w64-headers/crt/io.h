@@ -344,6 +344,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl chsize(int _FileHandle,long _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl close(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl creat(const char *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl creat64(const char *_Filename,int _PermissionMode);
   int __cdecl dup(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl dup2(int _FileHandleSrc,int _FileHandleDst) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl eof(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
