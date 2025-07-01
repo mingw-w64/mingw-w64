@@ -42,6 +42,7 @@ generic_handle_list_t generic_handle_list = LIST_INIT(generic_handle_list);
 
 static void write_type_v(FILE *f, const decl_spec_t *t, int is_field, bool define, const char *name, enum name_type name_type);
 
+static void write_apicontract( FILE *header, type_t *type );
 static void write_apicontract_guard_start(FILE *header, const expr_t *expr);
 static void write_apicontract_guard_end(FILE *header, const expr_t *expr);
 
@@ -559,11 +560,17 @@ static void write_type_v(FILE *h, const decl_spec_t *ds, int is_field, bool defi
 static void write_type_definition(FILE *f, type_t *t, bool define)
 {
     int in_namespace = t->namespace && !is_global_namespace(t->namespace);
-    int save_written = t->written;
     decl_spec_t ds = {.type = t};
     expr_t *contract = get_attrp(t->attrs, ATTR_CONTRACT);
 
+    if (t->written) return;
+
     if (contract) write_apicontract_guard_start(f, contract);
+    if (winrt_mode && define && type_get_type( t ) == TYPE_ENUM)
+    {
+        fprintf( f, "#ifndef __%s_ENUM_DEFINED__\n", t->c_name );
+        fprintf( f, "#define __%s_ENUM_DEFINED__\n", t->c_name );
+    }
     if(in_namespace) {
         fprintf(f, "#ifdef __cplusplus\n");
         fprintf(f, "} /* extern \"C\" */\n");
@@ -573,7 +580,7 @@ static void write_type_definition(FILE *f, type_t *t, bool define)
     write_type_left(f, &ds, NAME_DEFAULT, define, TRUE);
     fprintf(f, ";\n");
     if(in_namespace) {
-        t->written = save_written;
+        t->written = false;
         write_namespace_end(f, t->namespace);
         fprintf(f, "extern \"C\" {\n");
         fprintf(f, "#else\n");
@@ -582,6 +589,8 @@ static void write_type_definition(FILE *f, type_t *t, bool define)
         if (winrt_mode) write_widl_using_macros(f, t);
         fprintf(f, "#endif\n\n");
     }
+    if (winrt_mode && define && type_get_type( t ) == TYPE_ENUM)
+        fprintf( f, "#endif /* __%s_ENUM_DEFINED__ */\n", t->c_name );
     if (contract) write_apicontract_guard_end(f, contract);
 }
 
@@ -816,6 +825,8 @@ static void write_generic_handle_routines(FILE *header)
 static void write_typedef(FILE *header, type_t *type, bool define)
 {
     type_t *t = type_alias_get_aliasee_type(type), *root = type_pointer_get_root_type(t);
+    if (winrt_mode && !define && type_get_type( t ) == TYPE_ENUM)
+        write_type_definition( header, t, TRUE );
     if (winrt_mode && root->namespace && !is_global_namespace(root->namespace))
     {
         fprintf(header, "#ifndef __cplusplus\n");
@@ -1574,11 +1585,12 @@ static char *format_apicontract_macro(const type_t *type)
 
 static void write_apicontract_guard_start(FILE *header, const expr_t *expr)
 {
-    const type_t *type;
+    type_t *type;
     char *name;
     int ver;
     if (!winrt_mode) return;
     type = expr->u.tref.type;
+    write_apicontract( header, type );
     ver = expr->ref->u.integer.value;
     name = format_apicontract_macro(type);
     fprintf(header, "#if %s_VERSION >= %#x\n", name, ver);
@@ -1823,11 +1835,14 @@ static void write_coclass_forward(FILE *header, type_t *cocl)
 
 static void write_apicontract(FILE *header, type_t *apicontract)
 {
-    char *name = format_apicontract_macro(apicontract);
+    char *name;
+    if (apicontract->written) return;
+    name = format_apicontract_macro( apicontract );
     fprintf(header, "#if !defined(%s_VERSION)\n", name);
     fprintf(header, "#define %s_VERSION %#x\n", name, get_attrv(apicontract->attrs, ATTR_CONTRACTVERSION));
     fprintf(header, "#endif // defined(%s_VERSION)\n\n", name);
     free(name);
+    apicontract->written = true;
 }
 
 static void write_runtimeclass(FILE *header, type_t *runtimeclass)
