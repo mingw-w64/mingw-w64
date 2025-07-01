@@ -599,7 +599,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.json.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.xml.dom.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.genericattributeprofile.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.rfcomm.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.enumeration.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.geolocation.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.haptics.idl \
@@ -636,6 +638,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.connectivity.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.idl \
+@HAVE_WIDL_TRUE@  include/windows.networking.sockets.idl \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.idl \
 @HAVE_WIDL_TRUE@  include/windows.perception.spatial.surfaces.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.authentication.onlineid.idl \
@@ -662,6 +665,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.notifications.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.xaml.idl \
