@@ -10,7 +10,11 @@
 
 void *__stack_chk_guard;
 
-static void __cdecl __attribute__((__constructor__)) init(void)
+// This function requires `no_stack_protector` because it changes the
+// value of `__stack_chk_guard`, causing stack checks to fail before
+// returning from this function.
+__attribute__((__constructor__, __no_stack_protector__))
+static void __cdecl init(void)
 {
   unsigned int ui;
   if (__stack_chk_guard != 0)
