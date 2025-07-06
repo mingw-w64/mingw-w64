@@ -729,8 +729,8 @@ _Gettnames
 _HUGE DATA
 _IsExceptionObjectToBeDestroyed
 _Lock_shared_ptr_spin_lock
-_NLG_Dispatch2@4
-_NLG_Return@12
+_NLG_Dispatch2 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_NLG_Return ; msvc symbol is without decoration but callee pop stack (like stdcall @12)
 _NLG_Return2
 _Strftime
 _Unlock_shared_ptr_spin_lock

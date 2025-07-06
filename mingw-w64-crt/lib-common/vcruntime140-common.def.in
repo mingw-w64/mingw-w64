@@ -4,8 +4,8 @@ F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
 _FindAndUnlinkFrame
 _IsExceptionObjectToBeDestroyed
-F_I386(_NLG_Dispatch2@4)
-F_I386(_NLG_Return@12)
+F_I386(_NLG_Dispatch2) ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+F_I386(_NLG_Return) ; msvc symbol is without decoration but callee pop stack (like stdcall @12)
 F_I386(_NLG_Return2)
 _SetWinRTOutOfMemoryExceptionCallback
 __AdjustPointer

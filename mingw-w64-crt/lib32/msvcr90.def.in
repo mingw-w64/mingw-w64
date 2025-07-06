@@ -176,8 +176,8 @@ _Getmonths
 _Gettnames
 _HUGE DATA
 _IsExceptionObjectToBeDestroyed
-_NLG_Dispatch2@4
-_NLG_Return@12
+_NLG_Dispatch2 ; msvc symbol is without decoration but callee pop stack (like stdcall @4)
+_NLG_Return ; msvc symbol is without decoration but callee pop stack (like stdcall @12)
 _NLG_Return2
 _Strftime
 _XcptFilter
