@@ -48,7 +48,7 @@ mingw-w64 side.
 
 Windows 10 and newer systems have UCRT automatically preinstalled.
 
-Windows Vista / Server 2008, Windows 7 / Server 2008 R2, Widows 8 / Server 2012
+Windows Vista / Server 2008, Windows 7 / Server 2008 R2, Windows 8 / Server 2012
 and Windows 8.1 / Server 2012 R2 systems include UCRT libraries in KB2999226
 system update, which is available at website:
 https://support.microsoft.com/help/2999226
