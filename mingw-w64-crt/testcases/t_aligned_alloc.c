@@ -48,6 +48,11 @@ int main() {
    * So it means that also mingw-w64 _aligned_msize function (wrapper around _msize)
    * returns wrong value when using those two CRT libraries.
    */
+#if __MSVCRT_VERSION__ >= 0x100 && __MSVCRT_VERSION__ <= 0x200
+  return 0;
+#endif
+
+
   ptr = malloc(231);
   assert(ptr != NULL);
   size = _msize(ptr);
