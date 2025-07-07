@@ -168,6 +168,17 @@ extern "C" {
   #define __setusermatherr __mingw_setusermatherr
 #endif
 
+#define MATH_ERRNO 1
+#define MATH_ERREXCEPT 2
+
+#if defined __FAST_MATH__  /* no error handling.  */
+# define math_errhandling  0
+#elif defined __NO_MATH_ERRNO__  /* errno is not used; only exceptions.  */
+# define math_errhandling  MATH_ERREXCEPT
+#else
+# define math_errhandling  (MATH_ERRNO | MATH_ERREXCEPT)
+#endif
+
   double __cdecl sin(double _X);
   double __cdecl cos(double _X);
   double __cdecl tan(double _X);
