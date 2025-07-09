@@ -1312,7 +1312,7 @@ atoi
 atol
 bsearch
 bsearch_s
-btowc
+; btowc ; use replacement
 calloc
 ceil DATA ; overwritten
 ceilf DATA ; overwritten
@@ -1551,7 +1551,7 @@ wcstombs
 wcstombs_s
 wcstoul
 wcsxfrm
-wctob
+; wctob ; use replacement
 wctomb
 wctomb_s
 wprintf

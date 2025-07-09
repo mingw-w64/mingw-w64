@@ -167,9 +167,11 @@ src_libws2_32=libsrc/ws2_32.c \
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
   misc/_onexit.c \
+  misc/btowc.c \
   misc/mbsinit.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
+  misc/wctob.c \
   stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
   stdio/_putc_nolock.c \
@@ -415,6 +417,8 @@ src_ucrtbase=\
   misc/_onexit.c \
   misc/output_format.c \
   misc/ucrt-access.c \
+  misc/ucrt_btowc.c \
+  misc/ucrt_wctob.c \
   stdio/ucrt___local_stdio_printf_options.c \
   stdio/ucrt___local_stdio_scanf_options.c \
   stdio/ucrt__scprintf.c \
@@ -553,7 +557,6 @@ src_msvcrt32=\
   misc/_get_current_locale.c \
   misc/_initterm_e.c \
   misc/_time64.c \
-  misc/btowc.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
@@ -566,7 +569,6 @@ src_msvcrt32=\
   misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
-  misc/wctob.c \
   stdio/_fseeki64.c \
   stdio/_fstat64.c \
   stdio/_fstat64i32.c \
@@ -615,14 +617,12 @@ src_msvcrt64=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/_initterm_e.c \
-  misc/btowc.c \
   misc/output_format.c \
   misc/_get_errno.c \
   misc/_set_errno.c \
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcsnlen.c \
-  misc/wctob.c \
   stdio/_fseeki64.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
@@ -881,7 +881,6 @@ src_pre_msvcr80=\
   misc/_initterm_e.c \
   misc/_recalloc.c \
   misc/_set_errno.c \
-  misc/btowc.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
   misc/mbrtowc.c \
@@ -890,7 +889,6 @@ src_pre_msvcr80=\
   misc/wassert.c \
   misc/wcrtomb.c \
   misc/wcsnlen.c \
-  misc/wctob.c \
   secapi/getenv_s.c \
   stdio/_fseeki64.c \
   stdio/_fstat64i32.c \

@@ -1825,7 +1825,7 @@ atol
 atoll
 bsearch
 bsearch_s
-btowc
+; btowc ; use replacement
 cabs
 cabsf
 cabsl
@@ -2273,7 +2273,7 @@ wcstoul
 wcstoull
 wcstoumax
 wcsxfrm
-wctob
+; wctob ; use replacement
 wctomb
 wctomb_s
 wctrans

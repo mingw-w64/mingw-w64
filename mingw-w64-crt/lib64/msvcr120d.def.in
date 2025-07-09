@@ -1858,7 +1858,7 @@ atol
 atoll
 bsearch
 bsearch_s
-btowc
+; btowc ; use replacement
 cabs
 cabsf
 ; cabsl ; Can't use long double functions from the CRT on x86
@@ -2305,7 +2305,7 @@ wcstoul
 wcstoull
 wcstoumax
 wcsxfrm
-wctob
+; wctob ; use replacement
 wctomb
 wctomb_s
 wctrans

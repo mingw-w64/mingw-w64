@@ -1795,7 +1795,7 @@ _wtol_l
 _wutime32 F_I386(== _wutime) ; i386 _wutime32 replaced by alias
 F_ARM_ANY(asctime_s) ; i386 and x64 asctime_s replaced by emu
 bsearch_s
-F_ARM_ANY(btowc) ; i386 and x64 btowc replaced by emu
+; F_ARM_ANY(btowc) ; always use replacement
 clearerr_s
 fopen_s
 fprintf_s
@@ -1849,7 +1849,7 @@ F_ARM_ANY(wcsnlen) ; i386 and x64 wcsnlen replaced by emu
 wcsrtombs_s
 F_ARM_ANY(wcstok_s) ; i386 and x64 wcstok_s replaced by emu
 wcstombs_s
-F_ARM_ANY(wctob) ; i386 and x64 wctob replaced by emu
+; F_ARM_ANY(wctob) ; always use replacement
 wctomb_s
 wprintf_s
 wscanf_s

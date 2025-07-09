@@ -93,7 +93,7 @@ atof
 atoi
 atol
 atoll
-btowc
+; btowc ; use replacement
 c16rtomb
 c32rtomb
 mbrtoc16
@@ -128,7 +128,7 @@ wcstombs_s
 wcstoul
 wcstoull
 wcstoumax
-wctob
+; wctob ; use replacement
 wctomb
 wctomb_s
 wctrans
