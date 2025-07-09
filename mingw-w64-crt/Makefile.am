@@ -4403,6 +4403,9 @@ testcase_progs = \
   testcases/t_imagebase \
   testcases/t_lfs \
   testcases/t_matherr \
+  testcases/t_mbrlen \
+  testcases/t_mbrtowc \
+  testcases/t_mbsrtowcs \
   testcases/t_nullptrexception \
   testcases/t_readdir \
   testcases/t_snprintf \
@@ -4430,6 +4433,8 @@ testcase_progs = \
   testcases/t_trycatch \
   testcases/t_stat_slash \
   testcases/t_vsscanf \
+  testcases/t_wcrtomb \
+  testcases/t_wcsrtombs \
   testcases/t_wreaddir \
   testcases/t_fseeko64
 
