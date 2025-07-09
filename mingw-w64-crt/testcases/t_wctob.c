@@ -97,5 +97,31 @@ int main (void) {
     }
   }
 
+#ifdef _UCRT
+  /**
+   * Test UTF-8
+   */
+  if (setlocale (LC_ALL, ".UTF-8") != NULL) {
+    assert (MB_CUR_MAX == 4);
+
+    /**
+     * All values in range [0,127] are valid and must convert to themselves
+     */
+    for (wchar_t wc = 0; wc < 0x80; ++wc) {
+      assert (wctob (wc) == wc);
+    }
+
+    /**
+     * All values in range [128,WEOF] are invalid
+     */
+    for (int wc = 0x80;; ++wc) {
+      assert (wctob (wc) == EOF);
+      if (wc == WEOF) {
+        break;
+      }
+    }
+  }
+#endif
+
   return 0;
 }

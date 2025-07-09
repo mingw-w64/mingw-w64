@@ -75,5 +75,28 @@ int main (void) {
     }
   }
 
+#ifdef _UCRT
+  /**
+   * Test UTF-8
+   */
+  if (setlocale (LC_ALL, ".UTF-8") != NULL) {
+    assert (MB_CUR_MAX == 4);
+
+    /**
+     * All bytes in range [0,127] are valid and must convert to themselves
+     */
+    for (int c = 0; c < 0x80; ++c) {
+      assert (btowc (c) == c);
+    }
+
+    /**
+     * All bytes in range [128,255] are invalid
+     */
+    for (int c = 0x80; c < 0x100; ++c) {
+      assert (btowc (c) == WEOF);
+    }
+  }
+#endif
+
   return 0;
 }
