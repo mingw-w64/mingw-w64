@@ -4394,6 +4394,7 @@ testcase_progs = \
   testcases/t__stat_all \
   testcases/t_aligned_alloc \
   testcases/t_ansi_io \
+  testcases/t_btowc \
   testcases/t_findfirst \
   testcases/t_float  \
   testcases/t_fstat \
@@ -4433,6 +4434,7 @@ testcase_progs = \
   testcases/t_vsscanf \
   testcases/t_wcrtomb \
   testcases/t_wcsrtombs \
+  testcases/t_wctob \
   testcases/t_wreaddir \
   testcases/t_fseeko64
 
