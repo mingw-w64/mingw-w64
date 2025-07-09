@@ -1804,10 +1804,10 @@ fscanf_s
 fwprintf_s
 fwscanf_s
 F_ARM_ANY(getenv_s) ; i386 and x64 getenv_s replaced by emu
-F_ARM_ANY(mbrlen) ; i386 and x64 mbrlen replaced by emu
-F_ARM_ANY(mbrtowc) ; i386 and x64 mbrtowc replaced by emu
+; F_ARM_ANY(mbrlen) ; always use replacement
+; F_ARM_ANY(mbrtowc) ; always use replacement
 mbsdup_dbg
-F_ARM_ANY(mbsrtowcs) ; i386 and x64 mbsrtowcs replaced by emu
+; F_ARM_ANY(mbsrtowcs) ; always use replacement
 mbsrtowcs_s
 mbstowcs_s
 F_ARM_ANY(memcpy_s) ; i386 and x64 memcpy_s replaced by emu
@@ -1838,14 +1838,14 @@ vprintf_s
 F_ARM_ANY(vsprintf_s) ; i386 and x64 vsprintf_s replaced by emu
 vswprintf_s
 vwprintf_s
-F_ARM_ANY(wcrtomb) ; i386 and x64 wcrtomb replaced by emu
+; F_ARM_ANY(wcrtomb) ; always use replacement
 wcrtomb_s
 wcscat_s
 wcscpy_s
 wcsncat_s
 wcsncpy_s
 F_ARM_ANY(wcsnlen) ; i386 and x64 wcsnlen replaced by emu
-F_ARM_ANY(wcsrtombs) ; i386 and x64 wcsrtombs replaced by emu
+; F_ARM_ANY(wcsrtombs) ; always use replacement
 wcsrtombs_s
 F_ARM_ANY(wcstok_s) ; i386 and x64 wcstok_s replaced by emu
 wcstombs_s

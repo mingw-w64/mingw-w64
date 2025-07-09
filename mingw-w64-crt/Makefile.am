@@ -338,6 +338,8 @@ src_msvcrt=\
   misc/iswblank.c \
   misc/_isblank_l.c \
   misc/_iswblank_l.c \
+  misc/mbrtowc.c \
+  misc/wcrtomb.c \
   misc/wctrans.c \
   misc/wctype.c \
   secapi/_vscprintf_p.c \
@@ -554,7 +556,6 @@ src_msvcrt32=\
   misc/btowc.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
-  misc/mbrtowc.c \
   misc/output_format.c \
   misc/_get_errno.c \
   misc/_set_errno.c \
@@ -562,7 +563,6 @@ src_msvcrt32=\
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wassert.c \
-  misc/wcrtomb.c \
   misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
@@ -616,13 +616,11 @@ src_msvcrt64=\
   misc/_get_current_locale.c \
   misc/_initterm_e.c \
   misc/btowc.c \
-  misc/mbrtowc.c \
   misc/output_format.c \
   misc/_get_errno.c \
   misc/_set_errno.c \
   misc/strnlen.c \
   misc/wassert.c \
-  misc/wcrtomb.c \
   misc/wcsnlen.c \
   misc/wctob.c \
   stdio/_fseeki64.c \
