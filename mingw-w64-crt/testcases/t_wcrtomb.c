@@ -12,6 +12,14 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+static void set_conversion_state (mbstate_t *state, int bytes) {
+#ifdef _UCRT
+  state->_Wchar = bytes;
+#else
+  *state = bytes;
+#endif
+}
+
 int main (void) {
 #if __MSVCRT_VERSION__ >= 0x0800
   return 77;
@@ -42,7 +50,7 @@ int main (void) {
    * NOTE: this is optional error condition specified in POSIX.
    * This check fails with CRT's wcrtomb.
    */
-  state = 1;
+  set_conversion_state (&state, 1);
 
   if (1) {
     char c = EOF;

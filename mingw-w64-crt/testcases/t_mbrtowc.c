@@ -9,6 +9,14 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+static void set_conversion_state (mbstate_t *state, int bytes) {
+#ifdef _UCRT
+  state->_Wchar = bytes;
+#else
+  *state = bytes;
+#endif
+}
+
 char Ascii[] = {'a'};
 char NonAscii[] = {(char) 0x80};
 char Multibyte[] = {(char) 0x81, (char) 0x81};
@@ -47,7 +55,7 @@ int main (void) {
    * NOTE: this is optional error condition specified in POSIX.
    * This check fails with CRT's mbrtowc.
    */
-  state = Ascii[0];
+  set_conversion_state (&state, Ascii[0]);
   wc = WEOF;
 
   assert (mbrtowc (&wc, (char *) &Ascii, MB_CUR_MAX, &state) == (size_t) -1);
