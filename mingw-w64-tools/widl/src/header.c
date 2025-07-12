@@ -1589,7 +1589,7 @@ static void write_apicontract_guard_start(FILE *header, const expr_t *expr)
     char *name;
     int ver;
     if (!winrt_mode) return;
-    type = expr->u.tref.type;
+    type = expr->u.var->declspec.type;
     write_apicontract( header, type );
     ver = expr->ref->u.integer.value;
     name = format_apicontract_macro(type);
@@ -1603,7 +1603,7 @@ static void write_apicontract_guard_end(FILE *header, const expr_t *expr)
     char *name;
     int ver;
     if (!winrt_mode) return;
-    type = expr->u.tref.type;
+    type = expr->u.var->declspec.type;
     ver = expr->ref->u.integer.value;
     name = format_apicontract_macro(type);
     fprintf(header, "#endif /* %s_VERSION >= %#x */\n", name, ver);
@@ -1977,6 +1977,26 @@ static void write_forward_decls(FILE *header, const statement_list_t *stmts)
   }
 }
 
+static void write_header_stmts( FILE *header, const statement_list_t *stmts, const type_t *iface, int ignore_funcs );
+
+static void write_header_com_interface( FILE *header, type_t *iface, const type_t *ref_iface )
+{
+    type_t *inherit_from;
+
+    if (iface->written) return;
+
+    /* ensure declaration of inherited interface exists before ours (C++ requires this) */
+    inherit_from = type_iface_get_inherit( iface );
+    if (inherit_from && !inherit_from->ignore)
+        write_header_com_interface( header, inherit_from, inherit_from );
+
+    write_com_interface_start( header, iface );
+    write_header_stmts( header, type_iface_get_stmts(iface), ref_iface, TRUE );
+    write_com_interface_end( header, iface );
+
+    iface->written = true;
+}
+
 static void write_header_stmts(FILE *header, const statement_list_t *stmts, const type_t *iface, int ignore_funcs)
 {
   const statement_t *stmt;
@@ -1993,9 +2013,7 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
           if (is_object(iface)) is_object_interface++;
           if (is_attr(stmt->u.type->attrs, ATTR_DISPINTERFACE) || is_object(stmt->u.type))
           {
-            write_com_interface_start(header, iface);
-            write_header_stmts(header, type_iface_get_stmts(iface), stmt->u.type, TRUE);
-            write_com_interface_end(header, iface);
+            write_header_com_interface(header, iface, stmt->u.type);
             if (async_iface)
             {
               write_com_interface_start(header, async_iface);
@@ -2028,7 +2046,7 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
       case STMT_TYPEREF:
         /* FIXME: shouldn't write out forward declarations for undefined
         * interfaces but a number of our IDL files depend on this */
-        if (type_get_type(stmt->u.type) == TYPE_INTERFACE && !stmt->u.type->written)
+        if (type_get_type(stmt->u.type) == TYPE_INTERFACE)
           write_forward(header, stmt->u.type);
         break;
       case STMT_IMPORTLIB:

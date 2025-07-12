@@ -346,6 +346,7 @@ struct _attr_t {
   /* parser-internal */
   struct list entry;
   struct location where;
+  unsigned int md_member;
 };
 
 struct integer
@@ -364,7 +365,7 @@ struct _expr_t {
     double dval;
     const char *sval;
     const expr_t *ext;
-    decl_spec_t tref;
+    var_t *var;
   } u;
   const expr_t *ext2;
   int is_const;
@@ -402,6 +403,7 @@ struct iface_details
   struct _type_t *inherit;
   struct _type_t *disp_inherit;
   struct _type_t *async_iface;
+  struct _type_t *runtime_class;
   typeref_list_t *requires;
 };
 
@@ -506,7 +508,6 @@ enum
     MD_ATTR_UUID,
     MD_ATTR_EXCLUSIVETO,
     MD_ATTR_STATIC,
-    MD_ATTR_ACTIVATABLE,
     MD_ATTR_THREADING,
     MD_ATTR_MARSHALINGBEHAVIOR,
     MD_ATTR_OVERLOAD,
