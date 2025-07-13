@@ -1438,7 +1438,7 @@ _get_wenviron
 F_X86_ANY(_get_winmajor)
 F_X86_ANY(_get_winminor)
 F_X86_ANY(_get_winver)
-F_X86_ANY(_get_wpgmptr)
+; F_X86_ANY(_get_wpgmptr) ; i386 and x64 _get_wpgmptr replaced by emu, arm32 and arm64 provided by emu
 _gmtime32 F_I386(== gmtime) ; i386 _gmtime32 replaced by alias
 F_ARM_ANY(_gmtime32_s) ; i386 and x64 _gmtime32_s replaced by emu
 F_ARM_ANY(_gmtime64_s) ; i386 and x64 _gmtime64_s replaced by emu
