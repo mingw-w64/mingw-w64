@@ -1425,7 +1425,7 @@ _fwprintf_s_l
 _fwscanf_l
 _fwscanf_s_l
 _gcvt_s
-_get_doserrno
+F_ARM_ANY(_get_doserrno) ; i386 and x64 _get_doserrno replaced by emu
 _get_environ
 F_ARM_ANY(_get_errno) ; i386 and x64 _get_errno replaced by emu
 _get_fileinfo

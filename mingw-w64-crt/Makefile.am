@@ -561,6 +561,7 @@ src_msvcrt32=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/_get_doserrno.c \
   misc/_initterm_e.c \
   misc/_time64.c \
   misc/imaxabs.c \
@@ -622,6 +623,7 @@ src_msvcrt64=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_get_current_locale.c \
+  misc/_get_doserrno.c \
   misc/_initterm_e.c \
   misc/output_format.c \
   misc/_get_errno.c \
@@ -884,6 +886,7 @@ src_pre_msvcr80=\
   misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
   misc/_get_daylight.c \
+  misc/_get_doserrno.c \
   misc/_get_dstbias.c \
   misc/_get_errno.c \
   misc/_get_pgmptr.c \
