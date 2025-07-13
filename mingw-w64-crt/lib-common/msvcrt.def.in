@@ -1618,7 +1618,7 @@ _set_controlfp
 F_ARM_ANY(_set_doserrno) ; i386 and x64 _set_doserrno replaced by emu
 F_ARM_ANY(_set_errno) ; i386 and x64 _set_errno replaced by emu
 _set_fileinfo
-_set_fmode
+F_ARM_ANY(_set_fmode) ; i386 and x64 _set_fmode replaced by emu
 F_ARM_ANY(_set_output_format) ; i386 and x64 _set_output_format replaced by emu
 _snprintf_c
 _snprintf_c_l
