@@ -333,6 +333,7 @@ src_msvcrt=\
   misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
   misc/_get_daylight.c \
+  misc/_get_dstbias.c \
   misc/_recalloc.c \
   misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
@@ -879,6 +880,7 @@ src_pre_msvcr80=\
   misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
   misc/_get_daylight.c \
+  misc/_get_dstbias.c \
   misc/_get_errno.c \
   misc/_initterm_e.c \
   misc/_recalloc.c \
