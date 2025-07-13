@@ -1433,7 +1433,7 @@ _get_fmode
 F_X86_ANY(_get_osplatform)
 F_X86_ANY(_get_osver)
 F_ARM_ANY(_get_output_format) ; i386 and x64 _get_output_format replaced by emu
-F_X86_ANY(_get_pgmptr)
+; F_X86_ANY(_get_pgmptr) ; i386 and x64 _get_pgmptr replaced by emu, arm32 and arm64 provided by emu
 _get_wenviron
 F_X86_ANY(_get_winmajor)
 F_X86_ANY(_get_winminor)
