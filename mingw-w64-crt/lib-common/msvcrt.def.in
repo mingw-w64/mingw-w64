@@ -1615,7 +1615,7 @@ _scwprintf_p_l
 _searchenv_s
 F_I386(_seh_longjmp_unwind4@4)
 _set_controlfp
-_set_doserrno
+F_ARM_ANY(_set_doserrno) ; i386 and x64 _set_doserrno replaced by emu
 F_ARM_ANY(_set_errno) ; i386 and x64 _set_errno replaced by emu
 _set_fileinfo
 _set_fmode

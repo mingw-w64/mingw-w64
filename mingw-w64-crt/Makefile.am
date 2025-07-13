@@ -563,6 +563,7 @@ src_msvcrt32=\
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_initterm_e.c \
+  misc/_set_doserrno.c \
   misc/_time64.c \
   misc/imaxabs.c \
   misc/lc_locale_func.c \
@@ -625,6 +626,7 @@ src_msvcrt64=\
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_initterm_e.c \
+  misc/_set_doserrno.c \
   misc/output_format.c \
   misc/_get_errno.c \
   misc/_set_errno.c \
@@ -895,6 +897,7 @@ src_pre_msvcr80=\
   misc/_get_wpgmptr.c \
   misc/_initterm_e.c \
   misc/_recalloc.c \
+  misc/_set_doserrno.c \
   misc/_set_errno.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
