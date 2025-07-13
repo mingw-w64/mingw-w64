@@ -562,6 +562,7 @@ src_msvcrt32=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
+  misc/_get_fmode.c \
   misc/_initterm_e.c \
   misc/_set_doserrno.c \
   misc/_time64.c \
@@ -625,6 +626,7 @@ src_msvcrt64=\
   misc/_free_locale.c \
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
+  misc/_get_fmode.c \
   misc/_initterm_e.c \
   misc/_set_doserrno.c \
   misc/output_format.c \
@@ -891,6 +893,7 @@ src_pre_msvcr80=\
   misc/_get_doserrno.c \
   misc/_get_dstbias.c \
   misc/_get_errno.c \
+  misc/_get_fmode.c \
   misc/_get_pgmptr.c \
   misc/_get_timezone.c \
   misc/_get_tzname.c \

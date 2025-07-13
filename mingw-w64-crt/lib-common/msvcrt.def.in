@@ -1429,7 +1429,7 @@ F_ARM_ANY(_get_doserrno) ; i386 and x64 _get_doserrno replaced by emu
 _get_environ
 F_ARM_ANY(_get_errno) ; i386 and x64 _get_errno replaced by emu
 _get_fileinfo
-_get_fmode
+F_ARM_ANY(_get_fmode) ; i386 and x64 _get_fmode replaced by emu
 F_X86_ANY(_get_osplatform)
 F_X86_ANY(_get_osver)
 F_ARM_ANY(_get_output_format) ; i386 and x64 _get_output_format replaced by emu
