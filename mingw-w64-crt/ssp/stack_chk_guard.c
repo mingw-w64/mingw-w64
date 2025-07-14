@@ -25,7 +25,7 @@ static void __cdecl init(void)
   // callable in WinStore mode too (since it's from the CRT).
   // In the case of msvcrt.dll, our import library provides a small wrapper
   // which tries to load the function dynamically, and falls back on
-  // using RtlRandomGen if not available.
+  // using RtlGenRandom if not available.
   if (rand_s(&ui) == 0) {
     __stack_chk_guard = (void*)(intptr_t)ui;
 #if __SIZEOF_POINTER__ > 4
