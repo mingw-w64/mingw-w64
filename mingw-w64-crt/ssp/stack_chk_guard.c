@@ -10,10 +10,18 @@
 
 void *__stack_chk_guard;
 
+#if defined __SSP__ || defined __SSP_STRONG__ || defined __SSP_ALL__
 // This function requires `no_stack_protector` because it changes the
 // value of `__stack_chk_guard`, causing stack checks to fail before
 // returning from this function.
-__attribute__((__constructor__, __no_stack_protector__))
+# if (defined __GNUC__ && __GNUC__ >= 11) || (defined __clang__ && __clang_major__ >= 7)
+__attribute__((__no_stack_protector__))
+# else
+#  error This file can not be built with stack protector enabled. Remove \
+         -fstack-protector* options from CFLAGS.
+# endif
+#endif
+__attribute__((__constructor__))
 static void __cdecl init(void)
 {
   unsigned int ui;
