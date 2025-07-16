@@ -68,7 +68,7 @@ jobs:
           mkdir cross
           cd cross
 
-          for arch in i686 x86_64 armv7 aarch64; do
+          for arch in i686 x86_64 aarch64; do
             src_crt=${{matrix.crt}}
             if [[ "$arch" = a* && "$src_crt" == "msvcrt" ]]; then
                 continue
@@ -103,13 +103,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: matrix.crt != 'msvcrt'
         with:
-          name: windows-${{matrix.crt}}-armv7-toolchain
-          path: |
-            llvm-mingw-*-armv7.zip
-          retention-days: 7
-      - uses: actions/upload-artifact@v4
-        if: matrix.crt != 'msvcrt'
-        with:
           name: windows-${{matrix.crt}}-aarch64-toolchain
           path: |
             llvm-mingw-*-aarch64.zip
@@ -127,15 +120,12 @@ jobs:
           - x86_64
           - i686
           - aarch64
-          - armv7
         crt:
           - ucrt
           - ucrtbase
           - msvcrt
         exclude:
           - arch: aarch64
-            crt: msvcrt
-          - arch: armv7
             crt: msvcrt
     runs-on: ${{startsWith(matrix.arch, 'a') && 'windows-11-arm' || 'windows-latest'}}
     steps:
@@ -180,7 +170,7 @@ jobs:
               $arch-w64-mingw32-clang $defs -fno-builtin test/crt-test.c -o $name-crt-first.exe -l$lib -O2
               echo $name
               case $arch in
-              ${{ runner.arch == 'ARM64' && 'a*' || '*86*' }}) ./$name-regular.exe ; ./$name-crt-first.exe ;;
+              ${{ runner.arch == 'ARM64' && 'aarch64' || '*86*' }}) ./$name-regular.exe ; ./$name-crt-first.exe ;;
               esac
             done
           done
