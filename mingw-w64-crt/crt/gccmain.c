@@ -49,6 +49,7 @@ __do_global_ctors (void)
 
 static int initialized = 0;
 
+__attribute__((used)) /* required for gcc -flto -Ofast */
 void
 __main (void)
 {
