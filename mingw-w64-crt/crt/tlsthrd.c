@@ -118,6 +118,24 @@ __mingwthr_run_key_dtors (void)
   LeaveCriticalSection (&__mingwthr_cs);
 }
 
+static void
+__mingwthr_remove_all_key_dtors (void)
+{
+  __mingwthr_key_t volatile *keyp, *t;
+
+  EnterCriticalSection (&__mingwthr_cs);
+
+  for (keyp = key_dtor_list; keyp; )
+  {
+    t = keyp->next;
+    free ((void *)keyp);
+    keyp = t;
+  }
+  key_dtor_list = NULL;
+
+  LeaveCriticalSection (&__mingwthr_cs);
+}
+
 WINBOOL
 __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
 		     DWORD reason,
@@ -133,14 +151,7 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
     case DLL_PROCESS_DETACH:
       if (__mingwthr_cs_init == 1)
         {
-          __mingwthr_key_t volatile *keyp, *t;
-          for (keyp = key_dtor_list; keyp; )
-          {
-            t = keyp->next;
-            free((void *)keyp);
-            keyp = t;
-          }
-          key_dtor_list = NULL;
+          __mingwthr_remove_all_key_dtors ();
           __mingwthr_cs_init = 0;
           DeleteCriticalSection (&__mingwthr_cs);
         }
