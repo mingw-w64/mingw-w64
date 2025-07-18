@@ -17,7 +17,6 @@
 #include <windows.h>
 #include <stdlib.h>
 
-extern void __cdecl __MINGW_NOTHROW _fpreset (void);
 WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
 int ___w64_mingwthr_remove_key_dtor (DWORD key);
 int ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *));
@@ -157,7 +156,6 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
         }
       break;
     case DLL_THREAD_ATTACH:
-      _fpreset();
       break;
     case DLL_THREAD_DETACH:
       __mingwthr_run_key_dtors();
