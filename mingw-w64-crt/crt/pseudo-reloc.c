@@ -480,7 +480,7 @@ do_pseudo_reloc (void * start, void * end, void * base)
      }
 }
 
-__attribute__((used)) /* required due to bug in gcc / ld */
+__attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30343 */
 void
 _pei386_runtime_relocator (void)
 {
