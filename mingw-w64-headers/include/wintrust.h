@@ -240,6 +240,11 @@ extern "C"
 
 #define TRUSTERROR_MAX_STEPS 38
 
+  struct _CRYPT_PROVIDER_DATA;
+  struct _CRYPT_PROVIDER_SGNR;
+  struct _CRYPT_PROVIDER_PRIVDATA;
+  struct _CRYPT_PROVIDER_DEFUSAGE;
+
   typedef void *(*PFN_CPD_MEM_ALLOC)(DWORD cbSize);
   typedef void (*PFN_CPD_MEM_FREE)(void *pvMem2Free);
   typedef WINBOOL (*PFN_CPD_ADD_STORE)(struct _CRYPT_PROVIDER_DATA *pProvData,HCERTSTORE hStore2Add);
