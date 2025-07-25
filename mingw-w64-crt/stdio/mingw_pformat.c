@@ -569,8 +569,8 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
    * output quota is honoured.
    */
   char buf[16];
-  mbstate_t state;
-  int len = wcrtomb(buf, L'\0', &state);
+  mbstate_t state = {0};
+  int len;
 
   if( (stream->precision >= 0) && (count > stream->precision) )
     /*
