@@ -807,14 +807,9 @@ dump_def (void)
             import_name++;
           fprintf (fp, "%s%s%s", quote, import_name, quote);
         }
+      if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration() && exp->name[0] != '?' && !name_has_at_suffix && !name_has_fastcall)
+        fprintf(fp,"@%u", (unsigned int) exp->retpop);
 
-      if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration())
-        {
-          if (exp->name[0]=='?')
-            fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
-          else if (!name_has_at_suffix && !name_has_fastcall)
-            fprintf(fp,"@%u", (unsigned int) exp->retpop);
-        }
       if (exp->func == 0 && no_forward_output == 0)
 	fprintf (fp, " = %s", exp->forward);
       if (exp->name[0] == 0)
@@ -830,6 +825,9 @@ dump_def (void)
           const char *quote = strchr (exp->name, '.') ? "\"" : "";
           fprintf(fp, " == %s%s%s", quote, exp->name, quote);
         }
+
+      if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration() && exp->name[0] == '?')
+        fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
 
       if (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ())
 	{
