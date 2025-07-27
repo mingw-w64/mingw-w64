@@ -829,7 +829,7 @@ dump_def (void)
       if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration() && exp->name[0] == '?')
         fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
 
-      if (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ())
+      if (exp->name[0] != 0 && (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ()))
 	{
 	}
       else if (pimpname)
