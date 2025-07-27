@@ -350,6 +350,7 @@ typedef struct sImportname {
   uint32_t addr_iat;
   char *dll;
   char *name;
+  uint16_t hint;
   uint16_t ord;
 } sImportname;
 

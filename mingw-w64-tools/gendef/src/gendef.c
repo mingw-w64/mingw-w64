@@ -49,7 +49,7 @@ static void dump_def (void);
 static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name, sImportname **ppimpname, int *seen_ret);
 static size_t getMemonic (int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name, sImportname **ppimpname);
 
-static sImportname *imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t ord);
+static sImportname *imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t hint, uint16_t ord);
 static void imp32_free (void);
 static sImportname *imp32_findbyaddress (uint32_t addr);
 
@@ -574,19 +574,28 @@ do_import_read32 (uint32_t va_imp, uint32_t sz_imp)
 
       for (;;) {
 	char *fctname;
+	uint16_t hint;
+	uint16_t ord;
 	pIAT = (PIMAGE_THUNK_DATA32) map_va (pid->OriginalFirstThunk + index);
 	pFT = (PIMAGE_THUNK_DATA32) map_va (pid->FirstThunk + index);
 	if (pIAT->u1.Ordinal == 0 || pFT->u1.Ordinal == 0)
 	  break;
 	if (IMAGE_SNAP_BY_ORDINAL32 (pIAT->u1.Ordinal))
+	{
 	  fctname = NULL;
+	  hint = 0;
+	  ord = IMAGE_ORDINAL32 (pIAT->u1.Ordinal);
+	}
 	else
+	{
 	  fctname = (char *) map_va (pIAT->u1.Function + 2);
-	if (fctname)
-	  imp32_add (imp_name, fctname,
+	  hint = *((uint16_t *) map_va (pIAT->u1.Function));
+	  ord = 0;
+	}
+	imp32_add (imp_name, fctname,
 	  //pid->OriginalFirstThunk + index + gPEDta->OptionalHeader.ImageBase,
 	  pid->FirstThunk + index + gPEDta->OptionalHeader.ImageBase,
-	    *((uint16_t *) map_va (pIAT->u1.Function)));
+	  hint, ord);
 	index += 4;
       }
       sz_imp -= 20;
@@ -621,12 +630,13 @@ imp32_free (void)
 }
 
 static sImportname *
-imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t ord)
+imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t hint, uint16_t ord)
 {
   sImportname *n = (sImportname *) malloc (sizeof (sImportname));
   memset (n, 0, sizeof (sImportname));
   n->dll = strdup (dll);
-  n->name = strdup (name);
+  n->name = name ? strdup (name) : NULL;
+  n->hint = hint;
   n->ord = ord;
   n->addr_iat = addr;
   n->next = theImports;
@@ -834,8 +844,12 @@ dump_def (void)
 	}
       else if (pimpname)
         {
-	  fprintf (fp, " ; Check!!! return value is from %s in %s (ordinal %u)",
-	    pimpname->name, pimpname->dll, pimpname->ord);
+          if (pimpname->name)
+            fprintf (fp, " ; Check!!! return value is from %s in %s",
+              pimpname->name, pimpname->dll);
+          else
+            fprintf (fp, " ; Check!!! return value is from ord %u in %s",
+              (unsigned int )pimpname->ord, pimpname->dll);
         }
       else if (exp->func == 0 && !exp->beData)
 	{
