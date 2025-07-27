@@ -345,6 +345,42 @@ load_pep (void)
 }
 
 static int
+is_reserved_name (const char *name)
+{
+  static const char * const reserved_names[] = {
+    /* PRIVATE symbols triggering LNK4104 error:
+     * https://learn.microsoft.com/en-us/cpp/error-messages/tool-errors/linker-tools-warning-lnk4104
+     */
+    "DllCanUnloadNow",
+    "DllGetClassObject",
+    "DllGetClassFactoryFromClassString",
+    "DllGetDocumentation",
+    "DllInitialize",
+    "DllInstall",
+    "DllRegisterServer",
+    "DllRegisterServerEx",
+    "DllRegisterServerExW",
+    "DllUnload",
+    "DllUnregisterServer",
+    "RasCustomDeleteEntryNotify",
+    "RasCustomDial",
+    "RasCustomDialDlg",
+    "RasCustomEntryDlg",
+
+    /* Symbols commonly used as entry points */
+    "DllEntryPoint",
+    "DllMain",
+  };
+  size_t i;
+
+  for (i = 0; i < sizeof(reserved_names)/sizeof(*reserved_names); i++)
+    if (strcmp(name, reserved_names[i]) == 0)
+      return 1;
+
+  return 0;
+}
+
+static int
 is_data (uint32_t va)
 {
   PIMAGE_SECTION_HEADER sec;
@@ -785,6 +821,10 @@ dump_def (void)
         fprintf(fp," @%u NONAME", (unsigned int) exp->ord);
       if (exp->beData)
         fprintf(fp," DATA");
+
+      if (is_reserved_name(exp->name))
+        fprintf(fp, " PRIVATE");
+
       if (name_has_at_suffix || name_has_fastcall)
         {
           const char *quote = strchr (exp->name, '.') ? "\"" : "";
