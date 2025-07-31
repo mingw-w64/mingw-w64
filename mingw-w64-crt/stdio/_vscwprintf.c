@@ -33,7 +33,7 @@ static int __cdecl emu__vscwprintf(const wchar_t * __restrict__ format, va_list 
     }
 
     /* if the number of characters to write is greater than size, _vsnwprintf() returns -1 */
-    while (size < SIZE_MAX/2 && (ret = _vsnwprintf(buffer, size, format, arglist)) < 0) {
+    while (size < SIZE_MAX/2 && (ret = _vsnwprintf(buffer, size / sizeof(wchar_t), format, arglist)) < 0) {
         /* in this case try with larger buffer */
         size *= 2;
         new_buffer = realloc(buffer, size);
