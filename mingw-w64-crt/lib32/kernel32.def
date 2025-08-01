@@ -1553,7 +1553,7 @@ InitializeConditionVariable@4
 InitializeCriticalSectionEx@12
 InitializeProcThreadAttributeList@16
 InitializeSRWLock@4
-InterlockedPushListSList@8
+@InterlockedPushListSList@16 ; really fastcall calling convention
 IsCalendarLeapDay@20
 IsCalendarLeapMonth@16
 IsCalendarLeapYear@12
