@@ -31,19 +31,18 @@ static HINSTANCE hPwdLib = NULL;
 static POINT pt_orig;
 static BOOL checking_pwd = FALSE;
 static BOOL closing = FALSE;
+#ifndef UNICODE
 static BOOL w9x = FALSE;
+#endif
 
 typedef void (*PVFV)(void);
+
+#ifndef UNICODE
 typedef BOOL (WINAPI *VERIFYPWDPROC)(HWND);
 typedef DWORD (WINAPI *CHPWDPROC)(LPCTSTR, HWND, DWORD, PVOID);
 static VERIFYPWDPROC VerifyScreenSavePwd = NULL;
-
 /* function names */
 #define szVerifyPassword "VerifyScreenSavePwd"
-
-#ifdef UNICODE
-#define szPwdChangePassword "PwdChangePasswordW"
-#else
 #define szPwdChangePassword "PwdChangePasswordA"
 #endif
 
@@ -92,13 +91,25 @@ int APIENTRY tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
   /* do not use GetVersionEx as it is not available on older WinNT systems,
      GetVersion returns DWORD with highest bit cleared only on WinNT */
   DWORD rawVer = GetVersion();
+ #ifndef UNICODE
   BYTE majOSVer = rawVer & 0xff;
+ #endif
   BOOL isNT = !(rawVer >> 31);
 
+ #ifndef UNICODE
   /* check if we are running on Win9x
    * distinguish between Win9x and older system via major OS ver */
   w9x = !isNT && majOSVer >= 0x04;
+ #else
+  /* check if we are running on WinNT */
+  if (!isNT)
+    {
+      MessageBoxA(NULL, "This is UNICODE Screen Saver which requires Windows NT system", NULL, MB_ICONHAND);
+      return 1;
+    }
+ #endif
 
+#ifndef UNICODE
   /* check if we are going to check for passwords */
   if (w9x)
     {
@@ -121,6 +132,7 @@ int APIENTRY tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
           RegCloseKey(hKey);
         }
     }
+#endif
 
   /* parse arguments */
   for (p = CmdLine; *p; p++)
@@ -187,15 +199,19 @@ static void LaunchConfig(void)
 
 static int LaunchScreenSaver(HWND hParent)
 {
+#ifndef UNICODE
   BOOL foo;
+#endif
   UINT style;
   RECT rc;
   MSG msg;
   HDC hdc;
 
+#ifndef UNICODE
   /* don't allow other tasks to get into the foreground */
   if (w9x && !fChildPreview)
     SystemParametersInfo(SPI_SCREENSAVERRUNNING, TRUE, &foo, 0);
+#endif
 
   msg.wParam = 0;
 
@@ -243,9 +259,11 @@ static int LaunchScreenSaver(HWND hParent)
     }
 
 restore:
+#ifndef UNICODE
   /* restore system */
   if (w9x && !fChildPreview)
     SystemParametersInfo(SPI_SCREENSAVERRUNNING, FALSE, &foo, 0);
+#endif
   FreeLibrary(hPwdLib);
   return msg.wParam;
 }
@@ -317,11 +335,12 @@ LRESULT WINAPI DefScreenSaverProc(HWND hWnd, UINT msg,
        */
       return 0;
     case SCRM_VERIFYPW:
+#ifndef UNICODE
       /* verify password or return TRUE if password checking is turned off */
       if (VerifyScreenSavePwd)
         return VerifyScreenSavePwd(hWnd);
-      else
-        return TRUE;
+#endif
+      return TRUE;
     case WM_SETCURSOR:
       if (checking_pwd)
         break;
@@ -362,6 +381,7 @@ static void TerminateScreenSaver(HWND hWnd)
   if (checking_pwd || closing)
     return;
 
+#ifndef UNICODE
   /* verify password */
   if (VerifyScreenSavePwd)
     {
@@ -370,6 +390,7 @@ static void TerminateScreenSaver(HWND hWnd)
       checking_pwd = FALSE;
     }
   else
+#endif
     closing = TRUE;
 
   /* are we closing? */
@@ -408,6 +429,7 @@ static BOOL RegisterClasses(void)
 
 void WINAPI ScreenSaverChangePassword(HWND hParent)
 {
+#ifndef UNICODE
   /* load Master Password Router (MPR) */
   HINSTANCE hMpr = LoadLibrary(TEXT("MPR.DLL"));
 
@@ -422,4 +444,7 @@ void WINAPI ScreenSaverChangePassword(HWND hParent)
 
       FreeLibrary(hMpr);
     }
+#else
+  UNREFERENCED_PARAMETER(hParent);
+#endif
 }
