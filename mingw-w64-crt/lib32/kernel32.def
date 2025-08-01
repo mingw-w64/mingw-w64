@@ -1237,7 +1237,7 @@ BaseInitAppcompatCacheSupport@0
 ; BaseProcessInitPostImport@0 ; removed in Windows Vista
 BaseUpdateAppcompatCache@12
 ConvertFiberToThread@0
-CopyLZFile@8 ; FIXME: MSDN says this is exported from lz32.dll
+; CopyLZFile@8 ; MSDN says this is exported from lz32.dll
 CreateActCtxA@4
 CreateActCtxW@4
 CreateJobSet@12
@@ -1255,8 +1255,8 @@ GetComPlusPackageInstallStatus@0
 GetConsoleProcessList@8
 GetConsoleSelectionInfo@4
 GetCurrentActCtx@4
-GetExpandedNameA@8 ; FIXME: MSDN says this is exported from lz32.dll
-GetExpandedNameW@8 ; FIXME: MSDN says this is exported from lz32.dll
+; GetExpandedNameA@8 ; MSDN says this is exported from lz32.dll
+; GetExpandedNameW@8 ; MSDN says this is exported from lz32.dll
 GetFirmwareEnvironmentVariableA@16
 GetFirmwareEnvironmentVariableW@16
 GetModuleHandleExA@12
@@ -1281,17 +1281,17 @@ InterlockedPushEntrySList@8
 IsProcessInJob@12
 ; IsValidUILanguage@4 ; removed in Windows Vista
 IsWow64Process@8
-LZClose@4 ; FIXME: MSDN says this is exported from lz32.dll
-LZCloseFile@4 ; FIXME: MSDN says this is exported from lz32.dll
-LZCopy@8 ; FIXME: MSDN says this is exported from lz32.dll
-LZCreateFileW@20 ; FIXME: MSDN says this is exported from lz32.dll
-LZDone@0 ; FIXME: MSDN says this is exported from lz32.dll
-LZInit@4 ; FIXME: MSDN says this is exported from lz32.dll
-LZOpenFileA@12 ; FIXME: MSDN says this is exported from lz32.dll
-LZOpenFileW@12 ; FIXME: MSDN says this is exported from lz32.dll
-LZRead@12 ; FIXME: MSDN says this is exported from lz32.dll
-LZSeek@12 ; FIXME: MSDN says this is exported from lz32.dll
-LZStart@0 ; FIXME: MSDN says this is exported from lz32.dll
+; LZClose@4 ; MSDN says this is exported from lz32.dll
+; LZCloseFile@4 ; MSDN says this is exported from lz32.dll
+; LZCopy@8 ; MSDN says this is exported from lz32.dll
+; LZCreateFileW@20 ; MSDN says this is exported from lz32.dll
+; LZDone@0 ; MSDN says this is exported from lz32.dll
+; LZInit@4 ; MSDN says this is exported from lz32.dll
+; LZOpenFileA@12 ; MSDN says this is exported from lz32.dll
+; LZOpenFileW@12 ; MSDN says this is exported from lz32.dll
+; LZRead@12 ; MSDN says this is exported from lz32.dll
+; LZSeek@12 ; MSDN says this is exported from lz32.dll
+; LZStart@0 ; MSDN says this is exported from lz32.dll
 ; NumaVirtualQueryNode@16 ; removed in Windows Server 2003
 QueryActCtxW@28
 QueryDepthSList@4
