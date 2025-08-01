@@ -2226,15 +2226,3 @@ GetFileInformationByName@16
 ; LogUnexpectedCodepath@4
 ReleasePseudoConsole@4
 TlsGetValue2@4
-
-; FIXME these symbols are not available in any 32-bit x86 version of kernel32.dll
-GlobalMemoryStatusVlm@4
-MapViewOfFileVlm@28
-ReadFileVlm@20
-UnmapViewOfFileVlm@4
-VirtualAllocVlm@24
-VirtualFreeVlm@20
-VirtualProtectVlm@24
-VirtualQueryVlm@16
-WriteFileVlm@20
-WriteProcessMemoryVlm@20
