@@ -186,6 +186,7 @@ static int LaunchScreenSaver(HWND hParent)
   UINT style;
   RECT rc;
   MSG msg;
+  HDC hdc;
 
   /* don't allow other tasks to get into the foreground */
   if (w95 && !fChildPreview)
@@ -211,18 +212,17 @@ static int LaunchScreenSaver(HWND hParent)
   else
     {
       style = WS_POPUP;
-      rc.left = GetSystemMetrics(SM_XVIRTUALSCREEN);
-      rc.top = GetSystemMetrics(SM_YVIRTUALSCREEN);
-      rc.right = GetSystemMetrics(SM_CXVIRTUALSCREEN);
-      rc.bottom = GetSystemMetrics(SM_CYVIRTUALSCREEN);
+      hdc = GetDC(NULL);
+      GetClipBox(hdc, &rc);
+      ReleaseDC(NULL, hdc);
       style |= WS_VISIBLE;
     }
 
   /* create main screen saver window */
   hMainWindow = CreateWindowEx(hParent ? 0 : WS_EX_TOPMOST, CLASS_SCRNSAVE,
                                TEXT("SCREENSAVER"), style,
-                               rc.left, rc.top, rc.right, rc.bottom, hParent, NULL,
-                               hMainInstance, NULL);
+                               rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top,
+                               hParent, NULL, hMainInstance, NULL);
 
   /* display window and start pumping messages */
   if (hMainWindow)
