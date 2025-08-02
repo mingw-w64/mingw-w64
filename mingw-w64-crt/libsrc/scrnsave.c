@@ -53,30 +53,35 @@ static LRESULT WINAPI SysScreenSaverProc(HWND,UINT,WPARAM,LPARAM);
 static int LaunchScreenSaver(HWND hParent);
 static void LaunchConfig(void);
 
-static int ISSPACE(char c)
+static int ISSPACE(TCHAR c)
 {
-  return (c == ' ' || c == '\t');
+  return (c == TEXT(' ') || c == TEXT('\t'));
 }
 
-static ULONG_PTR parse_ulptr(const char *s)
+static ULONG_PTR parse_ulptr(const TCHAR *s)
 {
   ULONG_PTR res, n;
-  const char *p;
+  const TCHAR *p;
   for (p = s; *p; p++)
-    if (*p < '0' || *p > '9')
+    if (*p < TEXT('0') || *p > TEXT('9'))
       break;
   p--;
   res = 0;
   for (n = 1; p >= s; p--, n *= 10)
-    res += (*p - '0') * n;
+    res += (*p - TEXT('0')) * n;
   return res;
 }
 
 /* screen saver entry point */
-int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
-                     LPSTR CmdLine, int nCmdShow)
+#ifdef UNICODE
+#define tWinMain wWinMain
+#else
+#define tWinMain WinMain
+#endif
+int APIENTRY tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
+                      LPTSTR CmdLine, int nCmdShow)
 {
-  LPSTR p;
+  LPTSTR p;
 
   UNREFERENCED_PARAMETER(hPrevInst);
   UNREFERENCED_PARAMETER(nCmdShow);
@@ -122,13 +127,13 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
     {
       switch (*p)
         {
-        case 'S':
-        case 's':
+        case TEXT('S'):
+        case TEXT('s'):
           /* start screen saver */
           return LaunchScreenSaver(NULL);
 
-        case 'P':
-        case 'p':
+        case TEXT('P'):
+        case TEXT('p'):
           {
             /* start screen saver in preview window */
             HWND hParent;
@@ -140,14 +145,14 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
           }
           return 0;
 
-        case 'C':
-        case 'c':
+        case TEXT('C'):
+        case TEXT('c'):
           /* display configure dialog */
           LaunchConfig();
           return 0;
 
-        case 'A':
-        case 'a':
+        case TEXT('A'):
+        case TEXT('a'):
           {
             /* change screen saver password */
             HWND hParent;
@@ -159,9 +164,9 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
           }
           return 0;
 
-        case '-':
-        case '/':
-        case ' ':
+        case TEXT('-'):
+        case TEXT('/'):
+        case TEXT(' '):
         default:
 	  break;
         }
