@@ -77,7 +77,6 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
                      LPSTR CmdLine, int nCmdShow)
 {
   LPSTR p;
-  OSVERSIONINFO vi;
 
   UNREFERENCED_PARAMETER(hPrevInst);
   UNREFERENCED_PARAMETER(nCmdShow);
@@ -85,14 +84,20 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
   /* initialize */
   hMainInstance = hInst;
 
-  vi.dwOSVersionInfoSize = sizeof(vi);
-  GetVersionEx(&vi);
+  /* do not use GetVersionEx as it is not available on older WinNT systems,
+     GetVersion returns DWORD with highest bit cleared only on WinNT */
+  DWORD rawVer = GetVersion();
+  BYTE majOSVer = rawVer & 0xff;
+  BOOL isNT = !(rawVer >> 31);
+
+  /* check if we are running on Win9x
+   * distinguish between Win9x and older system via major OS ver */
+  w95 = !isNT && majOSVer >= 0x04;
+
   /* check if we are going to check for passwords */
-  if (vi.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS)
+  if (w95)
     {
       HKEY hKey;
-      /* we are using windows 95 */
-      w95 = TRUE;
       if (RegOpenKey(HKEY_CURRENT_USER, REGSTR_PATH_SCREENSAVE ,&hKey) ==
           ERROR_SUCCESS)
         {
