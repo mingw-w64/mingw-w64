@@ -195,51 +195,6 @@ inline int IsEqualGUIDAligned(REFGUID guid1, REFGUID guid2)
 /******************************************************************************
  *                           INTERLOCKED Functions                            *
  ******************************************************************************/
-//
-// Intrinsics (note: taken from our winnt.h)
-// FIXME: 64-bit
-//
-#if defined(__GNUC__)
-
-static __inline__ BOOLEAN
-InterlockedBitTestAndSet(
-  IN LONG volatile *Base,
-  IN LONG Bit)
-{
-#if defined(_M_IX86)
-  LONG OldBit;
-  __asm__ __volatile__("lock "
-                       "btsl %2,%1\n\t"
-                       "sbbl %0,%0\n\t"
-                       :"=r" (OldBit),"+m" (*Base)
-                       :"Ir" (Bit)
-                       : "memory");
-  return OldBit;
-#else
-  return (_InterlockedOr(Base, 1 << Bit) >> Bit) & 1;
-#endif
-}
-
-static __inline__ BOOLEAN
-InterlockedBitTestAndReset(
-  IN LONG volatile *Base,
-  IN LONG Bit)
-{
-#if defined(_M_IX86)
-  LONG OldBit;
-  __asm__ __volatile__("lock "
-                       "btrl %2,%1\n\t"
-                       "sbbl %0,%0\n\t"
-                       :"=r" (OldBit),"+m" (*Base)
-                       :"Ir" (Bit)
-                       : "memory");
-  return OldBit;
-#else
-  return (_InterlockedAnd(Base, ~(1 << Bit)) >> Bit) & 1;
-#endif
-}
-
-#endif /* defined(__GNUC__) */
 
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
