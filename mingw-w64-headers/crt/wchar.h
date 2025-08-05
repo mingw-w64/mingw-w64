@@ -280,6 +280,85 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   _CRTIMP wint_t __cdecl _putwch(wchar_t _WCh);
   _CRTIMP wint_t __cdecl _ungetwch(wint_t _WCh);
   _CRTIMP int __cdecl _cputws(const wchar_t *_String);
+#ifdef _UCRT
+  int __cdecl __conio_common_vcwprintf(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
+  int __cdecl __conio_common_vcwprintf_p(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
+  int __cdecl __conio_common_vcwprintf_s(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
+  int __cdecl __conio_common_vcwscanf(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
+
+  __mingw_ovr int __cdecl _vcwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList)
+  {
+    return __conio_common_vcwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Format, NULL, _ArgList);
+  }
+  __mingw_ovr int __cdecl _cwprintf(const wchar_t * __restrict__ _Format,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Format);
+    _Ret = _vcwprintf(_Format, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Format);
+    _Ret = __conio_common_vcwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Format, NULL, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+  int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Locale);
+    _Ret = __conio_common_vcwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Format, _Locale, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+  __mingw_ovr int __cdecl _vcwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList)
+  {
+    return __conio_common_vcwprintf_p(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Format, NULL, _ArgList);
+  }
+  __mingw_ovr int __cdecl _cwprintf_p(const wchar_t * __restrict__ _Format,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Format);
+    _Ret = _vcwprintf_p(_Format, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+  __mingw_ovr int __cdecl _vcwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList)
+  {
+    return __conio_common_vcwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Format, _Locale, _ArgList);
+  }
+  __mingw_ovr int __cdecl _cwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Locale);
+    _Ret = _vcwprintf_l(_Format, _Locale, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+  __mingw_ovr int __cdecl _vcwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList)
+  {
+    return __conio_common_vcwprintf_p(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Format, _Locale, _ArgList);
+  }
+  __mingw_ovr int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Locale);
+    _Ret = _vcwprintf_p_l(_Format, _Locale, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+#else
   _CRTIMP int __cdecl _cwprintf(const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -291,6 +370,7 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   _CRTIMP int __cdecl _vcwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+#endif
 #if __MSVCRT_VERSION__ >= 0x800
   wint_t __cdecl _putwch_nolock(wchar_t _WCh);
   wint_t __cdecl _getwch_nolock(void);
