@@ -96,8 +96,11 @@ static void run_thread_dtor_list(void) {
 static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   if (dwReason == DLL_PROCESS_DETACH) {
     run_thread_dtor_list();
-    TlsFree(tls_dtors_slot);
     run_dtor_list(&global_dtors);
+    if (tls_dtors_slot != TLS_OUT_OF_INDEXES) {
+      TlsFree(tls_dtors_slot);
+      tls_dtors_slot = TLS_OUT_OF_INDEXES;
+    }
   }
 }
 
@@ -147,7 +150,10 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
        * thread local atexit callback, to make sure they don't run when
        * exiting the process with _exit or ExitProcess. */
       run_dtor_list(&global_dtors);
-      TlsFree(tls_dtors_slot);
+      if (tls_dtors_slot != TLS_OUT_OF_INDEXES) {
+        TlsFree(tls_dtors_slot);
+        tls_dtors_slot = TLS_OUT_OF_INDEXES;
+      }
     }
     if (inited == 1) {
       inited = 0;
