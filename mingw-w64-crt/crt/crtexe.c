@@ -49,7 +49,7 @@ extern _PVFV __xc_z[];
 
 
 /* TLS initialization hook.  */
-extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
+const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* tentative */
 
 extern int __mingw_app_type;
 
