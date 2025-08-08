@@ -13,8 +13,6 @@
 #include <sect_attribs.h>
 #include <corecrt_startup.h>
 
-extern WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
-
 static _CRTALLOC(".CRT$XDA") _PVFV __xd_a = 0;
 static _CRTALLOC(".CRT$XDZ") _PVFV __xd_z = 0;
 
@@ -23,7 +21,7 @@ extern int _CRT_MT;
 void WINAPI __dyn_tls_init (HANDLE, DWORD, LPVOID);
 
 void WINAPI
-__dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
+__dyn_tls_init (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOID lpreserved __attribute__((unused)))
 {
   _PVFV *pfunc;
   uintptr_t ps;
@@ -34,8 +32,6 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_ATTACH)
     {
-      if (dwReason == DLL_PROCESS_ATTACH)
-        __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
       return;
     }
 

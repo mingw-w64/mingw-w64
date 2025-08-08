@@ -17,7 +17,6 @@
 #include <windows.h>
 #include <stdlib.h>
 
-WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
 int ___w64_mingwthr_remove_key_dtor (DWORD key);
 int ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *));
 
@@ -135,7 +134,8 @@ __mingwthr_remove_all_key_dtors (void)
   LeaveCriticalSection (&__mingwthr_cs);
 }
 
-WINBOOL
+void WINAPI __mingw_TLScallback(HANDLE, DWORD, LPVOID);
+void WINAPI
 __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
 		     DWORD reason,
 		     LPVOID __UNUSED_PARAM(reserved))
@@ -161,6 +161,9 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
       __mingwthr_run_key_dtors();
       break;
     }
-  return TRUE;
 }
+void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID) = __mingw_TLScallback;
 
+/* Force inclusion of code which calls __mingw_TLScallback */
+extern const int __mingw_TLScallback_caller_provider;
+static __attribute__ ((used)) const void *const _include_mingw_TLScallback_caller = &__mingw_TLScallback_caller_provider;

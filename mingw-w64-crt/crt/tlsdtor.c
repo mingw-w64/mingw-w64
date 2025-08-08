@@ -15,8 +15,6 @@
 #include <malloc.h>
 #include <corecrt_startup.h>
 
-extern WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
-
 #define FUNCS_PER_NODE 30
 
 typedef struct TlsDtorNode {
@@ -72,7 +70,7 @@ __tlregdtor (_PVFV func)
 }
 
 void WINAPI
-__dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
+__dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOID lpreserved __attribute__((unused)))
 {
 #if !defined (DISABLE_MS_TLS)
   TlsDtorNode *pnode, *pnext;
@@ -102,7 +100,6 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
         }
     }
 #endif
-  __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
 }
 
 static _CRTALLOC(".CRT$XLD") PIMAGE_TLS_CALLBACK __xl_d = __dyn_tls_dtor;

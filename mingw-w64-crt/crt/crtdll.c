@@ -28,6 +28,9 @@ extern _PVFV __xc_z[];
 /* TLS initialization hook.  */
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* tentative */
 
+void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
+const int __mingw_TLScallback_caller_provider = 1; /* crtdll.c calls __mingw_TLScallback_ptr */
+
 static int __proc_attached = 0;
 
 static _onexit_table_t atexit_table;
@@ -69,6 +72,8 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  __native_startup_state = __initializing;
 	  
 	  _pei386_runtime_relocator ();
+	  if (__mingw_TLScallback_ptr != NULL)
+	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
 	  ret = _initialize_onexit_table (&atexit_table);
 	  if (ret != 0)
 	    goto i__leave;
@@ -116,6 +121,8 @@ i__leave:
 	}
       else
 	{
+	  if (__mingw_TLScallback_ptr != NULL)
+	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
           _execute_onexit_table(&atexit_table);
 	  __native_startup_state = __uninitialized;
 	}
@@ -123,6 +130,11 @@ i__leave:
 	{
 	  (void) InterlockedExchangePointer (&__native_startup_lock, NULL);
 	}
+    }
+  else if (dwReason == DLL_THREAD_DETACH)
+    {
+      if (__mingw_TLScallback_ptr != NULL)
+	 __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
     }
   return TRUE;
 }
