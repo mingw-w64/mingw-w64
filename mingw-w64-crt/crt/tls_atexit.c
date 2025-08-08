@@ -104,13 +104,15 @@ static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD 
   }
 }
 
-static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
+static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   switch (dwReason) {
   case DLL_PROCESS_ATTACH:
     if (inited == 0) {
+      tls_dtors_slot = TlsAlloc();
+      if (tls_dtors_slot == TLS_OUT_OF_INDEXES)
+        return FALSE;
       InitializeCriticalSection(&lock);
       __dso_handle = hDllHandle;
-      tls_dtors_slot = TlsAlloc();
       /*
        * We can only call _register_thread_local_exe_atexit_callback once
        * in a process; if we call it a second time the process terminates.
@@ -166,8 +168,9 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
     run_thread_dtor_list();
     break;
   }
+  return TRUE;
 }
-void (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) = tls_callback;
+WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) = tls_callback;
 
 /* Force inclusion of code which calls __mingw_atexit_tls_callback */
 extern const int __mingw_atexit_tls_callback_caller_provider;

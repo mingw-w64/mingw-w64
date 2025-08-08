@@ -31,7 +31,7 @@ const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* te
 void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
 const int __mingw_TLScallback_caller_provider = 1; /* crtdll.c calls __mingw_TLScallback_ptr */
 
-void (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
+WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
 const int __mingw_atexit_tls_callback_caller_provider = 1; /* crtdll.c calls __mingw_atexit_tls_callback_ptr */
 
 static int __proc_attached = 0;
@@ -82,7 +82,11 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	    goto i__leave;
 	  if (__mingw_atexit_tls_callback_ptr != NULL)
 	    {
-	      __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved);
+	      if (! __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved))
+		{
+		  ret = 1;
+		  goto i__leave;
+		}
 	    }
 	  ret = _initterm_e (__xi_a, __xi_z);
 	  if (ret != 0)
@@ -148,7 +152,8 @@ i__leave:
 	 __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
       if (__mingw_atexit_tls_callback_ptr != NULL)
 	{
-	  __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved);
+	  if (! __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved))
+	    return FALSE;
 	}
     }
   return TRUE;
