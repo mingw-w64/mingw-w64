@@ -167,9 +167,8 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
     break;
   }
 }
+void (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) = tls_callback;
 
-static _CRTALLOC(".CRT$XLB") PIMAGE_TLS_CALLBACK __xl_b = tls_callback;
-
-/* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
-extern const IMAGE_TLS_DIRECTORY _tls_used;
-static __attribute__((used)) const IMAGE_TLS_DIRECTORY *const _include_tls_used = &_tls_used;
+/* Force inclusion of code which calls __mingw_atexit_tls_callback */
+extern const int __mingw_atexit_tls_callback_caller_provider;
+static __attribute__((used)) const void *const _include_mingw_atexit_tls_callback_caller = &__mingw_atexit_tls_callback_caller_provider;
