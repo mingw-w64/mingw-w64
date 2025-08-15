@@ -549,6 +549,7 @@ src_msvcrt32=\
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   math/i386__copysignf.c \
+  misc/___lc_codepage_func.c \
   misc/___lc_handle_func.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
@@ -569,7 +570,6 @@ src_msvcrt32=\
   misc/_set_fmode.c \
   misc/_time64.c \
   misc/imaxabs.c \
-  misc/lc_locale_func.c \
   misc/output_format.c \
   misc/_get_errno.c \
   misc/_set_errno.c \
@@ -852,6 +852,7 @@ src_pre_msvcrt40=\
   stdio/fsetpos.c
 
 src_pre_msvcrt60=\
+  misc/___lc_codepage_func_emul.c \
   misc/__badioinfo.c \
   misc/__p__osplatform_emul.c \
   stdio/atoll.c \
@@ -867,7 +868,6 @@ src_pre_msvcr70=\
   misc/_aligned_offset_realloc.c \
   misc/_aligned_realloc.c \
   misc/_time64.c \
-  misc/lc_locale_func.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wcstoimax.c \
@@ -1014,6 +1014,7 @@ src_msvcrtd=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
+  misc/___lc_codepage_func.c \
   misc/___lc_handle_func.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c
