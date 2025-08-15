@@ -119,11 +119,11 @@ size_t mbrtowc (
   return length;
 
 eilseq:
-  _set_errno (EILSEQ);
+  errno = EILSEQ;
   return (size_t) -1;
 
 einval:
-  _set_errno (EINVAL);
+  errno = EINVAL;
   return (size_t) -1;
 }
 
