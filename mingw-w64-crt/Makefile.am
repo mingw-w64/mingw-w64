@@ -346,7 +346,9 @@ src_msvcrt=\
   misc/iswblank.c \
   misc/_isblank_l.c \
   misc/_iswblank_l.c \
+  misc/mbrlen.c \
   misc/mbrtowc.c \
+  misc/mbsrtowcs.c \
   misc/wcrtomb.c \
   misc/wctrans.c \
   misc/wctype.c \
@@ -908,7 +910,9 @@ src_pre_msvcr80=\
   misc/_set_fmode.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
+  misc/mbrlen.c \
   misc/mbrtowc.c \
+  misc/mbsrtowcs.c \
   misc/output_format.c \
   misc/strnlen.c \
   misc/wassert.c \
