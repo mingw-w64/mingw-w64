@@ -12,13 +12,6 @@
 #include <errno.h>
 #include <windows.h>
 
-/**
- * Private `mbstate_t` to use if caller did not supply one.
- */
-static mbstate_t state_mbrlen = {0};
-static mbstate_t state_mbrtowc = {0};
-static mbstate_t state_mbsrtowcs = {0};
-
 size_t mbrtowc (
   wchar_t *__restrict__ wc,
   const char *__restrict__ mbs,
@@ -27,6 +20,7 @@ size_t mbrtowc (
 ) {
   /* Use private `mbstate_t` if caller did not supply one */
   if (state == NULL) {
+    static mbstate_t state_mbrtowc = {0};
     state = &state_mbrtowc;
   }
 
@@ -140,6 +134,7 @@ size_t mbrlen (
 ) {
   /* Use private `mbstate_t` if caller did not supply one */
   if (state == NULL) {
+    static mbstate_t state_mbrlen = {0};
     state = &state_mbrlen;
   }
   wchar_t wc = WEOF;
@@ -154,6 +149,7 @@ size_t mbsrtowcs (
 ) {
   /* Use private `mbstate_t` if caller did not supply one */
   if (state == NULL) {
+    static mbstate_t state_mbsrtowcs = {0};
     state = &state_mbsrtowcs;
   }
 
