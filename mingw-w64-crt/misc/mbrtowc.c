@@ -19,14 +19,17 @@ static mbstate_t state_mbrlen = {0};
 static mbstate_t state_mbrtowc = {0};
 static mbstate_t state_mbsrtowcs = {0};
 
-static size_t mbrtowc_cp (
+size_t mbrtowc (
   wchar_t *__restrict__ wc,
   const char *__restrict__ mbs,
   size_t count,
-  mbstate_t *__restrict__ state,
-  unsigned cp,
-  int mb_cur_max
+  mbstate_t *__restrict__ state
 ) {
+  /* Use private `mbstate_t` if caller did not supply one */
+  if (state == NULL) {
+    state = &state_mbrtowc;
+  }
+
   /* Set `state` to initial state */
   if (mbs == NULL) {
     *state = 0;
@@ -42,6 +45,12 @@ static size_t mbrtowc_cp (
   if (count == 0) {
     return (size_t) -2;
   }
+
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
+  /* Maximum character length used by current locale */
+  int mb_cur_max = ___mb_cur_max_func ();
 
   /* Treat `state` as an array of bytes */
   union {
@@ -137,25 +146,6 @@ size_t mbrlen (
   return mbrtowc (&wc, mbs, count, state);
 }
 
-size_t mbrtowc (
-  wchar_t *__restrict__ wc,
-  const char *__restrict__ mbs,
-  size_t count,
-  mbstate_t *__restrict__ state
-) {
-  /* Use private `mbstate_t` if caller did not supply one */
-  if (state == NULL) {
-    state = &state_mbrtowc;
-  }
-
-  /* Code page used by current locale */
-  unsigned cp = ___lc_codepage_func ();
-  /* Maximum character length in `cp` */
-  int mb_cur_max = MB_CUR_MAX;
-
-  return mbrtowc_cp (wc, mbs, count, state, cp, mb_cur_max);
-}
-
 size_t mbsrtowcs (
   wchar_t *wcs,
   const char **__restrict__ mbs,
@@ -166,11 +156,6 @@ size_t mbsrtowcs (
   if (state == NULL) {
     state = &state_mbsrtowcs;
   }
-
-  /* Code page used by current locale */
-  unsigned cp = ___lc_codepage_func ();
-  /* Maximum character length in `cp` */
-  int mb_cur_max = MB_CUR_MAX;
 
   /* Treat `state` as array of bytes */
   union {
@@ -186,9 +171,12 @@ size_t mbsrtowcs (
   /* Next multibyte character to convert */
   const char *mbc = *mbs;
 
+  /* Maximum character length in `cp` */
+  int mb_cur_max = ___mb_cur_max_func();
+
   while (1) {
-    const size_t length = mbrtowc_cp (
-      &wc, mbc, mb_cur_max, &conversion_state.state, cp, mb_cur_max
+    const size_t length = mbrtowc (
+      &wc, mbc, mb_cur_max, &conversion_state.state
     );
 
     /* Conversion failed */
