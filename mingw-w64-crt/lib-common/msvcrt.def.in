@@ -1192,7 +1192,7 @@ F_I386(__CxxRegisterExceptionObject)
 F_I386(__CxxUnregisterExceptionObject)
 __DestructExceptionObject
 F_NON_I386(___lc_codepage_func) ; i386 ___lc_codepage_func replaced by emu
-___lc_handle_func
+F_NON_I386(___lc_handle_func) ; i386 ___lc_handle_func replaced by emu
 F_NON_I386(___mb_cur_max_func) ; i386 ___mb_cur_max_func replaced by emu
 F_X86_ANY(___setlc_active_func)
 F_X86_ANY(___unguarded_readlc_active_add_func)

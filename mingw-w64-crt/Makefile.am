@@ -549,6 +549,7 @@ src_msvcrt32=\
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   math/i386__copysignf.c \
+  misc/___lc_handle_func.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
   misc/__pctype_func.c \
@@ -1013,6 +1014,7 @@ src_msvcrtd=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
+  misc/___lc_handle_func.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c
 
