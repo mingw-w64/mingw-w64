@@ -15,8 +15,6 @@
 #include <string.h>
 #include <mbstring.h>
 
-#include "mb_wc_common.h"
-
 float wcstof (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
 {
   char * cs;

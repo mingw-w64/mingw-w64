@@ -1114,7 +1114,6 @@ src_libmingwex=\
   math/powi.def.h       math/sqrt.def.h    \
   math/cephes_mconf.h   math/fp_consts.h   \
   \
-  misc/mb_wc_common.h \
   misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \

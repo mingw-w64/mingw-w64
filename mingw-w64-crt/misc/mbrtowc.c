@@ -6,7 +6,7 @@
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
-#include "mb_wc_common.h"
+#include <locale.h>
 #include <wchar.h>
 #include <stdlib.h>
 #include <errno.h>
