@@ -19,11 +19,7 @@ size_t mbsrtowcs (
     state = &state_mbsrtowcs;
   }
 
-  /* Treat `state` as array of bytes */
-  union {
-    mbstate_t state;
-    char bytes[4];
-  } conversion_state = {.state = *state};
+  mbstate_t conversion_state = *state;
 
   /* Total number of wide character written to `wcs` */
   size_t  wcConverted = 0;
@@ -38,14 +34,14 @@ size_t mbsrtowcs (
 
   while (1) {
     const size_t length = mbrtowc (
-      &wc, mbc, mb_cur_max, &conversion_state.state
+      &wc, mbc, mb_cur_max, &conversion_state
     );
 
     /* Conversion failed */
     if (length == (size_t) -1) {
       if (wcs != NULL) {
         *mbs = mbc;
-        *state = conversion_state.state;
+        *state = conversion_state;
       }
       return (size_t) -1;
     }
@@ -81,7 +77,7 @@ size_t mbsrtowcs (
   }
 
   if (wcs != NULL) {
-    *state = conversion_state.state;
+    *state = conversion_state;
   }
 
   return wcConverted;
