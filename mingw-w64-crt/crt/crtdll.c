@@ -147,7 +147,9 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   WINBOOL retcode = TRUE;
 
-  __mingw_app_type = 0;
+  if (dwReason == DLL_PROCESS_ATTACH)
+    __mingw_app_type = 0;
+
   __native_dllmain_reason = dwReason;
   if (dwReason == DLL_PROCESS_DETACH && __proc_attached <= 0)
     {
