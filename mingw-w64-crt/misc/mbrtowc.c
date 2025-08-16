@@ -71,7 +71,7 @@ size_t mbrtowc (
   if (conversion_state.bytes[0]) {
     conversion_state.bytes[1] = mbs[0];
     length = 2;
-  } else if (mb_cur_max == 2 && IsDBCSLeadByteEx (cp, (BYTE) mbs[0])) {
+  } else if (mb_cur_max == 2 && isleadbyte (mbs[0])) {
     conversion_state.bytes[0] = mbs[0];
 
     /* We need to examine mbs[1] */
