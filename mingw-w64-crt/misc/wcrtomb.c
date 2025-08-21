@@ -26,7 +26,7 @@ size_t wcrtomb (
 
   /* Detect invalid conversion state */
   if (state != NULL && *state) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return (size_t) -1;
   }
 
@@ -71,6 +71,6 @@ size_t wcrtomb (
   return ret;
 
 eilseq:
-  _set_errno (EILSEQ);
+  errno = EILSEQ;
   return (size_t) -1;
 }
