@@ -350,6 +350,7 @@ src_msvcrt=\
   misc/mbrtowc.c \
   misc/mbsrtowcs.c \
   misc/wcrtomb.c \
+  misc/wcsrtombs.c \
   misc/wctrans.c \
   misc/wctype.c \
   secapi/_vscprintf_p.c \
@@ -917,6 +918,7 @@ src_pre_msvcr80=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcrtomb.c \
+  misc/wcsrtombs.c \
   misc/wcsnlen.c \
   secapi/getenv_s.c \
   stdio/_fseeki64.c \
