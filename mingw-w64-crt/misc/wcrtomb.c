@@ -13,12 +13,10 @@
 #include <limits.h>
 #include <windows.h>
 
-static size_t wcrtomb_cp (
+size_t wcrtomb (
   char *__restrict__ mbc,
   wchar_t wc,
-  mbstate_t *__restrict__ state,
-  unsigned cp,
-  int mb_cur_max
+  mbstate_t *__restrict__ state
 ) {
   /* Set `state` to initial state */
   if (mbc == NULL) {
@@ -41,6 +39,12 @@ static size_t wcrtomb_cp (
     }
     return 1;
   }
+
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
+  /* Maximum character length in `cp` */
+  int mb_cur_max = ___mb_cur_max_func ();
 
   /* Handle "C" locale */
   if (cp == 0) {
@@ -73,30 +77,12 @@ eilseq:
   return (size_t) -1;
 }
 
-size_t wcrtomb (
-  char *__restrict__ mbc,
-  wchar_t wc,
-  mbstate_t *__restrict__ state
-) {
-  /* Code page used by current locale */
-  unsigned cp = ___lc_codepage_func ();
-  /* Maximum character length in `cp` */
-  int mb_cur_max = MB_CUR_MAX;
-
-  return wcrtomb_cp (mbc, wc, state, cp, mb_cur_max);
-}
-
 size_t wcsrtombs (
   char *__restrict__ mbs,
   const wchar_t **__restrict__ wcs,
   size_t count,
   mbstate_t *__restrict__ state
 ) {
-  /* Code page used by current locale */
-  unsigned cp = ___lc_codepage_func ();
-  /* Maximum character length in `cp` */
-  int mb_cur_max = MB_CUR_MAX;
-
   /* Buffer to store single converted character */
   char mbc[2];
   /* Total number of bytes stored in `mbs` */
@@ -106,7 +92,7 @@ size_t wcsrtombs (
   const wchar_t *wc = *wcs;
 
   while (1) {
-    const size_t length = wcrtomb_cp (mbc, *wc, state, cp, mb_cur_max);
+    const size_t length = wcrtomb (mbc, *wc, state);
 
     /* Conversion failed */
     if (length == (size_t) -1) {
