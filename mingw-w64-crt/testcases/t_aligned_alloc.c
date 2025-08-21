@@ -30,7 +30,11 @@
 /* On aarch64, with both UCRT and msvcrt.dll, an _aligned_realloc that attempts
  * to shrink the allocation, ends up not shrinking it in practice, leading to
  * failures in some of these tests. Ignore those test failures. This is
- * observed on both Windows 10 rev 19041 and Windows 11 rev 22000 and 22631. */
+ * observed on both Windows 10 rev 19041 and Windows 11 rev 22000 and 22631.
+ *
+ * This issue has been reported upstream at
+ * https://developercommunity.visualstudio.com/t/ARM64-_aligned_recalloc-fails-to-zero-in/10954724.
+ */
 #define BROKEN_REALLOC_SHRINK 1
 #else
 #define BROKEN_REALLOC_SHRINK 0
