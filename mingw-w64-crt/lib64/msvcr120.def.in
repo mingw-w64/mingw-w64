@@ -1793,7 +1793,7 @@ atol
 atoll
 bsearch
 bsearch_s
-; btowc ; use replacement
+; btowc ; replaced for consistency with wctob
 cabs
 cabsf
 ; cabsl ; Can't use long double functions from the CRT on x86
@@ -2240,7 +2240,7 @@ wcstoul
 wcstoull
 wcstoumax
 wcsxfrm
-; wctob ; use replacement
+; wctob ; replaced, CRT version may sign-extend its return value
 wctomb
 wctomb_s
 wctrans

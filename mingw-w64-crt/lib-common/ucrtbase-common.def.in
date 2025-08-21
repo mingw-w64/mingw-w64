@@ -2233,7 +2233,7 @@ atol
 atoll
 bsearch
 bsearch_s
-; btowc ; use replacement
+; btowc ; replaced for consistency with wctob
 c16rtomb
 c32rtomb
 cabs
@@ -2656,7 +2656,7 @@ wcstoul
 wcstoull
 wcstoumax
 wcsxfrm
-; wctob ; use replacement
+; wctob ; replaced, CRT version may sign-extend its return value
 wctomb
 wctomb_s
 wctrans

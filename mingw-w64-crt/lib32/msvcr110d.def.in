@@ -1862,7 +1862,7 @@ atoi
 atol
 bsearch
 bsearch_s
-; btowc ; use replacement
+; btowc ; replaced for consistency with wctob
 calloc
 ceil DATA ; overwritten
 clearerr
@@ -2088,7 +2088,7 @@ wcstombs
 wcstombs_s
 wcstoul
 wcsxfrm
-; wctob ; use replacement
+; wctob ; replaced, CRT version may sign-extend its return value
 wctomb
 wctomb_s
 wmemcpy_s
