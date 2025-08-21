@@ -17,7 +17,7 @@ wchar_t MixedText[] = L"日NI本HON語GO";
 wchar_t BadText[] = {L'テ', L'く', WEOF, L'ト'};
 
 int main (void) {
-#if __MSVCRT_VERSION__ >= 0x0800
+#ifdef _UCRT
   return 77;
 #endif
   const wchar_t *original_text = NULL;

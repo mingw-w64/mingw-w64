@@ -21,7 +21,7 @@ static void set_conversion_state (mbstate_t *state, int bytes) {
 }
 
 int main (void) {
-#if __MSVCRT_VERSION__ >= 0x0800
+#ifdef _UCRT
   return 77;
 #endif
   mbstate_t state = {0};

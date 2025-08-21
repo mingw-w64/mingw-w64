@@ -21,7 +21,7 @@ unsigned char MixedText[] = {0x93, 0xFA, 'n', 'i', 0x96, 0x7B, 'h', 'o', 'n', 0x
 unsigned char BadText[] = {0x93, 0xFA, 0x96, 0x7B, 0x8C, 0x0};
 
 int main (void) {
-#if __MSVCRT_VERSION__ >= 0x0800
+#ifdef _UCRT
   return 77;
 #endif
   mbstate_t state = {0};

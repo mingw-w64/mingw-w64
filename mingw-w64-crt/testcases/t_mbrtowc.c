@@ -23,7 +23,7 @@ char Multibyte[] = {(char) 0x81, (char) 0x81};
 char InvalidMultibyte[] = {(char) 0x81, 0};
 
 int main (void) {
-#if __MSVCRT_VERSION__ >= 0x0800
+#ifdef _UCRT
   return 77;
 #endif
   mbstate_t state = {0};
