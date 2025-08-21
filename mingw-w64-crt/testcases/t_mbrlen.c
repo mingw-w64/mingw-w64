@@ -118,12 +118,9 @@ int main (void) {
 
   /**
    * Complete multibyte character
-   *
-   * NOTE: return value does not conform to ISO C and POSIX.
-   * This behavior is implemented for consistency with CRT.
    */
 
-  assert (mbrlen ((char *) Multibyte + 1, 1, &state) == 2);
+  assert (mbrlen ((char *) Multibyte + 1, 1, &state) == 1);
   assert (mbsinit (&state));
   assert (errno == 0);
 

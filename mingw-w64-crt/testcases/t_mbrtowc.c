@@ -136,13 +136,10 @@ int main (void) {
 
   /**
    * Complete multibyte character
-   *
-   * NOTE: return value does not conform to ISO C and POSIX.
-   * This behavior is implemented for consistency with CRT.
    */
   wc = WEOF;
 
-  assert (mbrtowc (&wc, (char *) Multibyte + 1, 1, &state) == 2);
+  assert (mbrtowc (&wc, (char *) Multibyte + 1, 1, &state) == 1);
   assert (wc != WEOF);
   assert (mbsinit (&state));
   assert (errno == 0);

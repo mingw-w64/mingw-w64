@@ -68,8 +68,12 @@ size_t mbrtowc (
   /* Length of potential multibyte character */
   int length = 1;
 
+  /* Number of bytes consumed from `mbs` */
+  int bytes_consumed = 0;
+
   if (conversion_state.bytes[0]) {
     conversion_state.bytes[1] = mbs[0];
+    bytes_consumed = 1;
     length = 2;
   } else if (mb_cur_max == 2 && isleadbyte (mbs[0])) {
     conversion_state.bytes[0] = mbs[0];
@@ -81,9 +85,11 @@ size_t mbrtowc (
     }
 
     conversion_state.bytes[1] = mbs[1];
+    bytes_consumed = 2;
     length = 2;
   } else {
     conversion_state.bytes[0] = mbs[0];
+    bytes_consumed = 1;
   }
 
   /* Store terminating '\0' */
@@ -116,7 +122,7 @@ size_t mbrtowc (
     *state = 0;
   }
 
-  return length;
+  return bytes_consumed;
 
 eilseq:
   errno = EILSEQ;
