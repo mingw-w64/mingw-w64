@@ -1804,10 +1804,10 @@ fscanf_s
 fwprintf_s
 fwscanf_s
 F_ARM_ANY(getenv_s) ; i386 and x64 getenv_s replaced by emu
-; F_ARM_ANY(mbrlen) ; always use replacement
-; F_ARM_ANY(mbrtowc) ; always use replacement
+; F_ARM_ANY(mbrlen) ; replaced, CRT version does not conform to C95
+; F_ARM_ANY(mbrtowc) ; replaced, CRT version does not conform to C95
 mbsdup_dbg
-; F_ARM_ANY(mbsrtowcs) ; always use replacement
+; F_ARM_ANY(mbsrtowcs) ; replaced, CRT version does not conform to C95
 mbsrtowcs_s
 mbstowcs_s
 F_ARM_ANY(memcpy_s) ; i386 and x64 memcpy_s replaced by emu
@@ -1838,14 +1838,14 @@ vprintf_s
 F_ARM_ANY(vsprintf_s) ; i386 and x64 vsprintf_s replaced by emu
 vswprintf_s
 vwprintf_s
-; F_ARM_ANY(wcrtomb) ; always use replacement
+; F_ARM_ANY(wcrtomb) ; replaced, CRT version does not report invalid conversion state
 wcrtomb_s
 wcscat_s
 wcscpy_s
 wcsncat_s
 wcsncpy_s
 F_ARM_ANY(wcsnlen) ; i386 and x64 wcsnlen replaced by emu
-; F_ARM_ANY(wcsrtombs) ; always use replacement
+; F_ARM_ANY(wcsrtombs) ; replaced, CRT version does not report invalid conversion state
 wcsrtombs_s
 F_ARM_ANY(wcstok_s) ; i386 and x64 wcstok_s replaced by emu
 wcstombs_s

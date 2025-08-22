@@ -2086,9 +2086,9 @@ lroundf
 ; lroundl ; Can't use long double functions from the CRT on x86
 malloc
 mblen
-mbrlen
-mbrtowc
-mbsrtowcs
+; mbrlen ; replaced, CRT version does not conform to C95
+; mbrtowc ; replaced, CRT version does not conform to C95
+; mbsrtowcs ; replaced, CRT version does not conform to C95
 mbsrtowcs_s
 mbstowcs
 mbstowcs_s
@@ -2246,7 +2246,7 @@ vwprintf
 vwprintf_s
 vwscanf
 vwscanf_s
-wcrtomb
+; wcrtomb ; replaced, CRT version does not report invalid conversion state
 wcrtomb_s
 wcscat
 wcscat_s
@@ -2266,7 +2266,7 @@ wcsncpy_s
 wcsnlen
 wcspbrk
 wcsrchr
-wcsrtombs
+; wcsrtombs ; replaced, CRT version does not report invalid conversion state
 wcsrtombs_s
 wcsspn
 wcsstr

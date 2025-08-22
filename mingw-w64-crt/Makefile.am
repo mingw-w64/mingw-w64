@@ -168,9 +168,14 @@ src_libws2_32=libsrc/ws2_32.c \
 src_msvcrt_common=\
   misc/_onexit.c \
   misc/btowc.c \
+  misc/mbrlen.c \
+  misc/mbrtowc.c \
   misc/mbsinit.c \
+  misc/mbsrtowcs.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
+  misc/wcrtomb.c \
+  misc/wcsrtombs.c \
   misc/wctob.c \
   stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
@@ -346,11 +351,6 @@ src_msvcrt=\
   misc/iswblank.c \
   misc/_isblank_l.c \
   misc/_iswblank_l.c \
-  misc/mbrlen.c \
-  misc/mbrtowc.c \
-  misc/mbsrtowcs.c \
-  misc/wcrtomb.c \
-  misc/wcsrtombs.c \
   misc/wctrans.c \
   misc/wctype.c \
   secapi/_vscprintf_p.c \
@@ -911,14 +911,9 @@ src_pre_msvcr80=\
   misc/_set_fmode.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
-  misc/mbrlen.c \
-  misc/mbrtowc.c \
-  misc/mbsrtowcs.c \
   misc/output_format.c \
   misc/strnlen.c \
   misc/wassert.c \
-  misc/wcrtomb.c \
-  misc/wcsrtombs.c \
   misc/wcsnlen.c \
   secapi/getenv_s.c \
   stdio/_fseeki64.c \
