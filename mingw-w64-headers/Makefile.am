@@ -297,6 +297,7 @@ IDL_SRCS = \
   include/windows.applicationmodel.idl \
   include/windows.data.json.idl \
   include/windows.data.xml.dom.idl \
+  include/windows.devices.bluetooth.advertisement.idl \
   include/windows.devices.bluetooth.genericattributeprofile.idl \
   include/windows.devices.bluetooth.idl \
   include/windows.devices.bluetooth.rfcomm.idl \
@@ -327,13 +328,16 @@ IDL_SRCS = \
   include/windows.management.deployment.idl \
   include/windows.media.capture.idl \
   include/windows.media.closedcaptioning.idl \
+  include/windows.media.core.idl \
   include/windows.media.devices.idl \
   include/windows.media.effects.idl \
   include/windows.media.faceanalysis.idl \
   include/windows.media.idl \
+  include/windows.media.mediaproperties.idl \
   include/windows.media.render.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
+  include/windows.media.transcoding.idl \
   include/windows.networking.connectivity.idl \
   include/windows.networking.idl \
   include/windows.networking.sockets.idl \
@@ -365,6 +369,7 @@ IDL_SRCS = \
   include/windows.ui.notifications.idl \
   include/windows.ui.viewmanagement.core.idl \
   include/windows.ui.viewmanagement.idl \
+  include/windows.ui.windowmanagement.idl \
   include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
   include/windows.ui.xaml.idl \
   include/windows.ui.xaml.interop.idl \

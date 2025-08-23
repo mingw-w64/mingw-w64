@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Mohamad Al-Jaf
+ * Copyright (C) 2025 Mohamad Al-Jaf
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,18 +20,39 @@
 #pragma winrt ns_prefix
 #endif
 
-#ifndef DO_NO_IMPORTS
 import "inspectable.idl";
 import "asyncinfo.idl";
 import "eventtoken.idl";
 import "windowscontracts.idl";
 import "windows.foundation.idl";
-/* import "windows.data.text.idl"; */
-/* import "windows.storage.idl"; */
+/* import "windows.applicationmodel.appservice.idl"; */
+import "windows.graphics.directx.direct3d11.idl";
+import "windows.graphics.imaging.idl";
+import "windows.media.idl";
+import "windows.media.capture.idl";
+/* import "windows.media.capture.frames.idl"; */
+import "windows.media.devices.idl";
+/* import "windows.media.devices.core.idl"; */
+import "windows.media.effects.idl";
+import "windows.media.faceanalysis.idl";
+import "windows.media.mediaproperties.idl";
+/* import "windows.media.playback.idl"; */
+/* import "windows.media.protection.idl"; */
+/* import "windows.media.streaming.adaptive.idl"; */
+/* import "windows.networking.backgroundtransfer.idl"; */
+import "windows.storage.idl";
 import "windows.storage.fileproperties.idl";
 import "windows.storage.streams.idl";
-#endif
+import "windows.ui.idl";
 
-namespace Windows.Storage.Search {
-    interface IStorageFolderQueryOperations;
+namespace Windows.Media.Core {
+    interface IMediaSource;
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        uuid(e7bfb599-a09d-4c21-bcdf-20af4f86b3d9)
+    ]
+    interface IMediaSource : IInspectable
+    {
+    }
 }
