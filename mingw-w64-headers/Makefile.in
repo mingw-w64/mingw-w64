@@ -599,6 +599,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.applicationmodel.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.json.idl \
 @HAVE_WIDL_TRUE@  include/windows.data.xml.dom.idl \
+@HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.advertisement.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.genericattributeprofile.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.idl \
 @HAVE_WIDL_TRUE@  include/windows.devices.bluetooth.rfcomm.idl \
@@ -629,13 +630,16 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.management.deployment.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.capture.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.closedcaptioning.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.devices.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.effects.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.faceanalysis.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.mediaproperties.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.render.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechrecognition.idl \
 @HAVE_WIDL_TRUE@  include/windows.media.speechsynthesis.idl \
+@HAVE_WIDL_TRUE@  include/windows.media.transcoding.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.connectivity.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.idl \
 @HAVE_WIDL_TRUE@  include/windows.networking.sockets.idl \
@@ -667,6 +671,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.ui.notifications.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.windowmanagement.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.xaml.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.xaml.interop.idl \
