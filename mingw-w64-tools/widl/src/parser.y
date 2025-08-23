@@ -59,6 +59,7 @@ static void append_array(declarator_t *decl, expr_t *expr);
 static void append_chain_type(declarator_t *decl, type_t *type, enum type_qualifier qual);
 static void append_chain_callconv( struct location where, type_t *chain, char *callconv );
 static warning_list_t *append_warning(warning_list_t *, int);
+static version_t *make_version( unsigned short major, unsigned short minor );
 
 static type_t *reg_typedefs( struct location where, decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs );
 static type_t *find_type_or_error(struct namespace *parent, const char *name);
@@ -148,6 +149,7 @@ PARSER_LTYPE pop_import(void);
 	warning_list_t *warning_list;
 	typeref_t *typeref;
 	typeref_list_t *typeref_list;
+	version_t *version;
 	char *str;
 	struct uuid *uuid;
 	unsigned int num;
@@ -336,8 +338,7 @@ PARSER_LTYPE pop_import(void);
 %type <type> coclass coclassdef
 %type <type> runtimeclass runtimeclass_def
 %type <type> apicontract apicontract_def
-%type <num> contract_ver
-%type <num> pointer_type threading_type marshaling_behavior version
+%type <num> pointer_type threading_type marshaling_behavior
 %type <str> libraryhdr callconv cppquote importlib import
 %type <str> typename m_typename
 %type <str> import_start
@@ -349,6 +350,7 @@ PARSER_LTYPE pop_import(void);
 %type <warning_list> warnings
 %type <num> allocate_option_list allocate_option
 %type <namespace> namespace_pfx
+%type <version> version contract_ver
 
 %left ','
 %right '?' ':'
@@ -594,13 +596,13 @@ marshaling_behavior:
 	;
 
 contract_ver:
-	  aNUM					{ $$ = MAKEVERSION(0, $1.value); }
-	| aNUM '.' aNUM				{ $$ = MAKEVERSION($3.value, $1.value); }
+	  aNUM					{ $$ = make_version( $1.value, 0 ); }
+	| aNUM '.' aNUM				{ $$ = make_version( $1.value, $3.value ); }
 	;
 
 contract_req
         : decl_spec ',' contract_ver            {
-                                                  struct integer integer = {.value = $3};
+                                                  struct integer integer = {.value = ($3->major << 16) | $3->minor };
                                                   if ($1->type->type_type != TYPE_APICONTRACT)
                                                     error_loc("type %s is not an apicontract\n", $1->type->name);
                                                   $$ = make_exprl(EXPR_NUM, &integer);
@@ -660,7 +662,7 @@ attribute
         | tCONTEXTHANDLENOSERIALIZE             { $$ = attr_int( @$, ATTR_CONTEXTHANDLE, 0 ); /* RPC_CONTEXT_HANDLE_DONT_SERIALIZE */ }
         | tCONTEXTHANDLESERIALIZE               { $$ = attr_int( @$, ATTR_CONTEXTHANDLE, 0 ); /* RPC_CONTEXT_HANDLE_SERIALIZE */ }
         | tCONTRACT '(' contract_req ')'        { $$ = attr_ptr( @$, ATTR_CONTRACT, $3 ); }
-        | tCONTRACTVERSION '(' contract_ver ')' { $$ = attr_int( @$, ATTR_CONTRACTVERSION, $3 ); }
+        | tCONTRACTVERSION '(' contract_ver ')' { $$ = attr_ptr( @$, ATTR_CONTRACTVERSION, $3 ); }
         | tCONTROL                              { $$ = attr_int( @$, ATTR_CONTROL, 0 ); }
         | tCUSTOM '(' aUUID ',' expr_const ')'  { attr_custdata_t *data = xmalloc( sizeof(*data) );
                                                   data->id = *$3; data->pval = $5;
@@ -765,7 +767,7 @@ attribute
         | tASYNCUUID '(' aUUID ')'              { $$ = attr_ptr( @$, ATTR_ASYNCUUID, $3 ); }
         | tV1ENUM                               { $$ = attr_int( @$, ATTR_V1ENUM, 0 ); }
         | tVARARG                               { $$ = attr_int( @$, ATTR_VARARG, 0 ); }
-        | tVERSION '(' version ')'              { $$ = attr_int( @$, ATTR_VERSION, $3 ); }
+        | tVERSION '(' version ')'              { $$ = attr_ptr( @$, ATTR_VERSION, $3 ); }
         | tVIPROGID '(' aSTRING ')'             { $$ = attr_ptr( @$, ATTR_VIPROGID, $3 ); }
         | tWIREMARSHAL '(' type ')'             { $$ = attr_ptr( @$, ATTR_WIREMARSHAL, $3 ); }
         | pointer_type                          { $$ = attr_int( @$, ATTR_POINTERTYPE, $1 ); }
@@ -1386,9 +1388,9 @@ uniondef: tUNION m_typename '{' ne_union_fields '}'
 	;
 
 version:
-	  aNUM					{ $$ = MAKEVERSION($1.value, 0); }
-	| aNUM '.' aNUM				{ $$ = MAKEVERSION($1.value, $3.value); }
-	| aHEXNUM				{ $$ = $1.value; }
+	  aNUM					{ $$ = make_version( $1.value, 0 ); }
+	| aNUM '.' aNUM				{ $$ = make_version( $1.value, $3.value ); }
+	| aHEXNUM				{ $$ = make_version( $1.value >> 16, $1.value & 0xffff ); }
 	;
 
 acf_statements
@@ -1990,6 +1992,14 @@ static typelib_t *make_library(const char *name, const attr_list_t *attrs)
     return typelib;
 }
 
+static version_t *make_version( unsigned short major, unsigned short minor )
+{
+    version_t *version = xmalloc( sizeof(*version) );
+    version->major = major;
+    version->minor = minor;
+    return version;
+}
+
 static int hash_ident(const char *name)
 {
   const char *p = name;
@@ -2100,6 +2110,11 @@ type_t *reg_type(type_t *type, const char *name, struct namespace *namespace, in
   {
     type->c_name = name;
     type->qualified_name = name;
+  }
+  else if (type->type_type == TYPE_PARAMETER)
+  {
+    type->c_name = strmake( "%s_abi", type->name );
+    type->qualified_name = strmake( "%s_abi", type->name );
   }
   else
   {
@@ -2562,6 +2577,108 @@ static void check_remoting_fields(const var_t *var, type_t *type)
         if (field->declspec.type) check_field_common(type, type->name, field);
 }
 
+static void check_eventadd_args( const var_t *func, const var_list_t *args )
+{
+    const var_t *arg;
+    unsigned int count = 0;
+
+    LIST_FOR_EACH_ENTRY( arg, args, const var_t, entry )
+    {
+        const type_t *type = arg->declspec.type;
+        const type_t *ref_type = is_ptr( type ) ? type_pointer_get_ref_type( type ) : NULL;
+
+        count++;
+        if (count == 1 && (!ref_type || ref_type->type_type != TYPE_DELEGATE))
+            error_at( &arg->where, "first parameter '%s' of function '%s' must be a delegate pointer\n",
+                      arg->name, func->name );
+
+        if (count == 2 && (!ref_type || !ref_type->name || strcmp( ref_type->name, "EventRegistrationToken" ) ||
+            !is_attr( arg->attrs, ATTR_RETVAL )))
+            error_at( &arg->where, "second parameter '%s' of function '%s' must be an [out, retval] EventRegistrationToken pointer\n",
+                      arg->name, func->name );
+
+        if (count > 2) error_at( &arg->where, "eventadd function '%s' has too many parameters\n", func->name );
+    }
+}
+
+static void check_eventremove_args( const var_t *func, const var_list_t *args )
+{
+    const var_t *arg;
+    unsigned int count = 0;
+
+    LIST_FOR_EACH_ENTRY( arg, args, const var_t, entry )
+    {
+        const type_t *type = arg->declspec.type;
+
+        count++;
+        if (count == 1 && (!type->name || strcmp( type->name, "EventRegistrationToken" )))
+            error_at( &arg->where, "first parameter '%s' of function '%s' must be an EventRegistrationToken\n",
+                      arg->name, func->name );
+
+        if (count > 1) error_at( &arg->where, "eventremove function '%s' has too many parameters\n", func->name );
+    }
+}
+
+bool is_size_param( const var_t *param, const var_list_t *args )
+{
+    const var_t *arg;
+
+    LIST_FOR_EACH_ENTRY( arg, args, const var_t, entry )
+    {
+        const type_t *type = arg->declspec.type;
+        const expr_t *size_is;
+
+        if (is_ptr( type )) type = type_pointer_get_ref_type( type );
+        if (type->type_type != TYPE_ARRAY || !(size_is = type_array_get_conformance( type ))) continue;
+
+        if (size_is->type == EXPR_PPTR) size_is = size_is->ref;
+        if (!strcmp( param->name, size_is->u.sval )) return true;
+    }
+    return false;
+}
+
+static void check_propget_args( const var_t *func, const var_list_t *args )
+{
+    const var_t *arg;
+    unsigned int count = 0;
+
+    LIST_FOR_EACH_ENTRY_REV( arg, args, const var_t, entry )
+    {
+        const type_t *type = arg->declspec.type;
+        bool is_size = is_size_param( arg, args );
+
+        count++;
+        if (count == 1 && (!is_ptr( type ) || !is_attr( arg->attrs, ATTR_RETVAL )))
+            error_at( &arg->where, "last parameter '%s' of function '%s' must be an [out, retval] pointer\n",
+                      arg->name, func->name );
+
+        if (count == 2 && !is_size)
+            error_at( &arg->where, "parameter '%s' of function '%s' must be a size_is parameter\n",
+                      arg->name, func->name );
+
+        if ((is_size && count > 2) || (!is_size && count > 1))
+            error_at( &arg->where, "propget function '%s' has too many parameters\n", func->name );
+    }
+}
+
+static void check_propput_args( const var_t *func, const var_list_t *args )
+{
+    const var_t *arg;
+    unsigned int count = 0;
+
+    LIST_FOR_EACH_ENTRY_REV( arg, args, const var_t, entry )
+    {
+        bool is_size = is_size_param( arg, args );
+
+        count++;
+        if (is_attr( arg->attrs, ATTR_OUT ))
+            error_at( &arg->where, "parameter '%s' of function '%s' must be an [in] parameter\n", arg->name, func->name );
+
+        if ((is_size && count > 2) || (!is_size && count > 1))
+            error_at( &arg->where, "propput function '%s' has too many parameters\n", func->name );
+    }
+}
+
 /* checks that arguments for a function make sense for marshalling and unmarshalling */
 static void check_remoting_args(const var_t *func)
 {
@@ -2612,6 +2729,8 @@ static void check_remoting_args(const var_t *func)
                 break;
             }
         }
+        else if (is_attr( arg->attrs, ATTR_RETVAL ))
+            error_at( &arg->where, "retval parameter \'%s\' of function \'%s\' must have out attribute\n", arg->name, funcname );
 
         check_field_common(func->declspec.type, funcname, arg);
     }
@@ -2683,6 +2802,19 @@ static void check_functions(const type_t *iface, int is_inside_library)
             const var_t *func = stmt->u.var;
             if (!is_attr(func->attrs, ATTR_LOCAL))
                 check_remoting_args(func);
+        }
+    }
+    if (winrt_mode)
+    {
+        STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts( iface ) )
+        {
+            const var_t *func = stmt->u.var;
+            const var_list_t *args = type_function_get_args( func->declspec.type );
+
+            if (args && is_attr( func->attrs, ATTR_EVENTADD )) check_eventadd_args( func, args );
+            if (args && is_attr( func->attrs, ATTR_EVENTREMOVE )) check_eventremove_args( func, args );
+            if (args && is_attr( func->attrs, ATTR_PROPGET )) check_propget_args( func, args );
+            if (args && is_attr( func->attrs, ATTR_PROPPUT )) check_propput_args( func, args );
         }
     }
 }
@@ -2784,6 +2916,103 @@ static statement_list_t *append_parameterized_type_stmts(statement_list_t *stmts
     return stmts;
 }
 
+static void check_activation_interface( const type_t *iface )
+{
+    const statement_t *stmt;
+
+    STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts( iface ) )
+    {
+        const var_t *arg, *func = stmt->u.var;
+        const var_list_t *arg_list = type_function_get_args( func->declspec.type );
+        unsigned int count = 0;
+
+        if (arg_list) LIST_FOR_EACH_ENTRY_REV( arg, arg_list, const var_t, entry )
+        {
+            const type_t *type = arg->declspec.type;
+
+            count++;
+            if (count == 1 && (!is_ptr( type ) || !is_attr( arg->attrs, ATTR_RETVAL )))
+                error_at( &arg->where, "last parameter '%s' of function '%s' must be an [out, retval] pointer\n",
+                          arg->name, func->name );
+
+            if (count > 1 && is_attr( arg->attrs, ATTR_OUT ))
+                error_at( &arg->where, "parameter '%s' of function '%s' must be an IN parameter\n",
+                          arg->name, func->name );
+        }
+        if (count < 2)
+            error_at( &func->where, "activation function '%s' must have at least 2 parameters\n", func->name );
+    }
+}
+
+static void check_composition_interface( const type_t *iface )
+{
+    const statement_t *stmt;
+
+    STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts( iface ) )
+    {
+        const var_t *arg, *func = stmt->u.var;
+        const var_list_t *arg_list = type_function_get_args( func->declspec.type );
+        unsigned int count = 0;
+
+        if (arg_list) LIST_FOR_EACH_ENTRY_REV( arg, arg_list, const var_t, entry )
+        {
+            const type_t *type = arg->declspec.type;
+
+            count++;
+            if (count == 1 && (!is_ptr( type ) || !is_attr( arg->attrs, ATTR_RETVAL )))
+                error_at( &arg->where, "last parameter '%s' of function '%s' must be an [out, retval] pointer\n",
+                          arg->name, func->name );
+
+            if (count == 2 && !is_attr( arg->attrs, ATTR_OUT ))
+                error_at( &arg->where, "parameter '%s' of function '%s' must be an OUT parameter\n",
+                          arg->name, func->name );
+
+            if (count > 2 && is_attr( arg->attrs, ATTR_OUT ))
+                error_at( &arg->where, "parameter '%s' of function '%s' must be an IN parameter\n",
+                          arg->name, func->name );
+        }
+        if (count < 3)
+            error_at( &func->where, "composition function '%s' must have at least 3 parameters\n", func->name );
+    }
+}
+
+static void check_runtimeclass( const type_t *runtimeclass )
+{
+    const attr_t *attr;
+
+    LIST_FOR_EACH_ENTRY( attr, runtimeclass->attrs, const attr_t, entry )
+    {
+        const expr_t *value = attr->u.pval;
+
+        if (attr->type == ATTR_ACTIVATABLE)
+        {
+            if (value->type != EXPR_MEMBER) continue;
+
+            if (!value->u.var->declspec.type->defined)
+                error_at( &attr->where, "activation interface %s is undefined\n", value->u.var->declspec.type->name );
+
+            check_activation_interface( value->u.var->declspec.type );
+        }
+        else if (attr->type == ATTR_COMPOSABLE)
+        {
+            if (!value->u.var->declspec.type->defined)
+                error_at( &attr->where, "composition interface %s is undefined\n", value->u.var->declspec.type->name );
+
+            check_composition_interface( value->u.var->declspec.type );
+        }
+        else if (attr->type == ATTR_STATIC)
+        {
+            if (!value->u.var->declspec.type->defined)
+                error_at( &attr->where, "static interface %s is undefined\n", value->u.var->declspec.type->name );
+        }
+        else if (attr->type == ATTR_CONTRACT)
+        {
+            if (!value->u.var->declspec.type->defined)
+                error_at( &attr->where, "apicontract %s is undefined\n", value->u.var->declspec.type->name );
+        }
+    }
+}
+
 static void check_statements(const statement_list_t *stmts, int is_inside_library)
 {
     const statement_t *stmt;
@@ -2803,6 +3032,8 @@ static void check_statements(const statement_list_t *stmts, int is_inside_librar
                 if(winrt_mode)
                     error_loc("coclass is not allowed in Windows Runtime mode\n");
                 break;
+            case TYPE_RUNTIMECLASS:
+                check_runtimeclass( stmt->u.type );
             default:
                 break;
             }

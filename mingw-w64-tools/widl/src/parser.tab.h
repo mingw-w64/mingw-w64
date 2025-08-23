@@ -53,7 +53,7 @@
 extern int parser_debug;
 #endif
 /* "%code requires" blocks.  */
-#line 110 "tools/widl/parser.y"
+#line 111 "tools/widl/parser.y"
 
 
 #define PARSER_LTYPE struct location
@@ -290,7 +290,7 @@ extern int parser_debug;
 #if ! defined PARSER_STYPE && ! defined PARSER_STYPE_IS_DECLARED
 union PARSER_STYPE
 {
-#line 134 "tools/widl/parser.y"
+#line 135 "tools/widl/parser.y"
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -308,6 +308,7 @@ union PARSER_STYPE
 	warning_list_t *warning_list;
 	typeref_t *typeref;
 	typeref_list_t *typeref_list;
+	version_t *version;
 	char *str;
 	struct uuid *uuid;
 	unsigned int num;
@@ -321,7 +322,7 @@ union PARSER_STYPE
 	enum function_specifier function_specifier;
 	struct namespace *namespace;
 
-#line 325 "tools/widl/parser.tab.h"
+#line 326 "tools/widl/parser.tab.h"
 
 };
 typedef union PARSER_STYPE PARSER_STYPE;
@@ -349,7 +350,7 @@ struct PARSER_LTYPE
 int parser_parse (void);
 
 /* "%code provides" blocks.  */
-#line 117 "tools/widl/parser.y"
+#line 118 "tools/widl/parser.y"
 
 
 int parser_lex( PARSER_STYPE *yylval, PARSER_LTYPE *yylloc );
@@ -361,6 +362,6 @@ PARSER_LTYPE pop_import(void);
              else init_location( &(cur), &YYRHSLOC( rhs, 0 ), NULL ); } while(0)
 
 
-#line 365 "tools/widl/parser.tab.h"
+#line 366 "tools/widl/parser.tab.h"
 
 #endif /* !YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED  */
