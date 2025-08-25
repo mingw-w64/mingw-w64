@@ -4471,7 +4471,7 @@ if ENABLE_TESTS_UNICODE
   testcase_progs += testcases/t_municode testcases/t_tmain testcases/t__wstat_all
   testcases_t_municode_CFLAGS = -municode
   testcases_t_tmain_CFLAGS = -municode -D_UNICODE
-  testcases_t__wstat_all = -municode
+  testcases_t__wstat_all_CFLAGS = -municode
 endif
 
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
