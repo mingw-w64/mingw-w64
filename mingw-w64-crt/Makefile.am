@@ -129,6 +129,7 @@ src_libmingw32=include/internal.h include/sect_attribs.h crt/seh_signal_dispatch
   crt/pseudo-reloc.c  crt/udll_argv.c      \
   crt/usermatherr.c   \
   crt/xtxtmode.c      \
+  crt/crtdll_atexit_register.c \
   crt/tlsdyn.c        crt/tlsdtor.c        \
   crt/tlsthrd_register.c crt/tls_atexit_register.c \
   crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   \

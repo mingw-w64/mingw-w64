@@ -35,9 +35,9 @@ const int __mingw_TLScallback_caller_provider = 1; /* crtdll.c calls __mingw_TLS
 WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
 const int __mingw_atexit_tls_callback_caller_provider = 1; /* crtdll.c calls __mingw_atexit_tls_callback_ptr */
 
-static int __proc_attached = 0;
+int (__cdecl *const __mingw_dll_atexit_table_func_ptr)(int) __attribute__((common)); /* tentative */
 
-static _onexit_table_t atexit_table;
+static int __proc_attached = 0;
 
 extern int __mingw_app_type;
 
@@ -78,9 +78,12 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  _pei386_runtime_relocator ();
 	  if (__mingw_TLScallback_ptr != NULL)
 	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
-	  ret = _initialize_onexit_table (&atexit_table);
-	  if (ret != 0)
-	    goto i__leave;
+	  if (__mingw_dll_atexit_table_func_ptr != NULL)
+	    {
+	      ret = __mingw_dll_atexit_table_func_ptr (0 /*init*/);
+	      if (ret != 0)
+		goto i__leave;
+	    }
 	  if (__mingw_atexit_tls_callback_ptr != NULL)
 	    {
 	      if (! __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved))
@@ -139,7 +142,8 @@ i__leave:
 	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
 	  if (__mingw_atexit_tls_callback_ptr != NULL)
 	    __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved);
-          _execute_onexit_table(&atexit_table);
+	  if (__mingw_dll_atexit_table_func_ptr != NULL)
+	    __mingw_dll_atexit_table_func_ptr (1 /*execute*/);
 	  __mingw_do_global_dtors ();
 
 	  __native_startup_state = __uninitialized;
@@ -204,13 +208,6 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 i__leave:
   __native_dllmain_reason = UINT_MAX;
   return retcode ;
-}
-
-int __cdecl atexit (_PVFV func)
-{
-    /* Do not use msvcrt's atexit() or UCRT's _crt_atexit() function as it
-     * cannot be called from DLL library which may be unloaded at runtime. */
-    return _register_onexit_function(&atexit_table, (_onexit_t)func);
 }
 
 char __mingw_module_is_dll = 1;
