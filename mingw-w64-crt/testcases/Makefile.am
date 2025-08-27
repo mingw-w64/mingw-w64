@@ -64,6 +64,7 @@ testcase_progs = \
 
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
+t_trycatch_LDFLAGS = -static
 t_intrinc_CFLAGS = -std=c99
 
 if ENABLE_TESTS_UNICODE
