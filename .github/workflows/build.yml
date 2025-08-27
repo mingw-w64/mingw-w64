@@ -567,6 +567,7 @@ jobs:
           - i686
           - x86_64
           - aarch64
+          - arm64ec
     runs-on: ${{startsWith(matrix.arch, 'a') && 'windows-11-arm' || 'windows-latest'}}
     steps:
       - uses: msys2/setup-msys2@v2
@@ -579,7 +580,7 @@ jobs:
             automake
       - name: Unpack toolchain
         run: |
-          curl -LO https://github.com/mstorsjo/llvm-mingw/releases/download/20250910/llvm-mingw-20250910-${{ matrix.crt == 'ucrtbase' && 'ucrt' || ((matrix.crt == 'msvcrt' && startsWith(matrix.arch, 'a')) && 'ucrt') || matrix.crt }}-${{matrix.arch}}.zip
+          curl -LO https://github.com/mstorsjo/llvm-mingw/releases/download/20250910/llvm-mingw-20250910-${{ matrix.crt == 'ucrtbase' && 'ucrt' || ((matrix.crt == 'msvcrt' && startsWith(matrix.arch, 'a')) && 'ucrt') || matrix.crt }}-${{ matrix.arch == 'arm64ec' && 'aarch64' || matrix.arch }}.zip
           unzip -q llvm-mingw-*.zip
           rm llvm-mingw-*.zip
           mv llvm-mingw-* /llvm-mingw
