@@ -23,9 +23,10 @@ AM_CPPFLAGS=$(sysincludes)
 AM_CFLAGS=-pipe -std=gnu99 -fno-builtin -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x600 -D__USE_MINGW_ANSI_STDIO=0 @IMAGEBASE_CFLAGS@ @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_CCASFLAGS=@CFGUARD_CFLAGS@
-CPPFLAGSARM32=-mfpu=vfpv3
-CPPFLAGS32=-m32 -masm=att
-CPPFLAGS64=-m64 -masm=att
+CPPFLAGSARM32=$(AM_CPPFLAGS) -mfpu=vfpv3
+CPPFLAGSARM64=$(AM_CPPFLAGS)
+CPPFLAGS32=$(AM_CPPFLAGS) -m32 -masm=att
+CPPFLAGS64=$(AM_CPPFLAGS) -m64 -masm=att
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DLLTOOLFLAGSARM32=-m arm
 if ARM64EC
@@ -1332,7 +1333,7 @@ test.c
 lib32_LIBRARIES = lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
-lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
 
 lib32_DATA =
 if !W32API
@@ -1503,15 +1504,15 @@ lib32_liblargeint_a_SOURCES = $(src_liblargeint)
 lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libmingw32.a
-lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include)
 lib32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
 
 lib32_LIBRARIES += lib32/libmingwex.a
-lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
 lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math)
 
 lib32_LIBRARIES += lib32/libmoldname.a
-lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
 lib32_libmoldname_a_SOURCES = $(src_libm)
 
 lib32_LIBRARIES += lib32/libmingwthrd.a
@@ -1758,7 +1759,7 @@ lib64/%.o: crt/%.c
 
 lib64_LIBRARIES = lib64/libkernel32.a
 lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64) lib-common/kernel32.def.in
-lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include)
 lib64_libkernel32_a_AR = $(DTDEF64) lib64/kernel32.def && $(AR) $(ARFLAGS)
 EXTRA_lib64_libkernel32_a_DEPENDENCIES=lib64/kernel32.def
 
@@ -1926,15 +1927,15 @@ lib64_liblargeint_a_SOURCES = $(src_liblargeint)
 lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include)
 lib64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
 
 lib64_LIBRARIES += lib64/libmingwex.a
-lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include)
 lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math)
 
 lib64_LIBRARIES += lib64/libmoldname.a
-lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include)
 lib64_libmoldname_a_SOURCES = $(src_libm)
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
@@ -2136,7 +2137,7 @@ test.c
 libarm32_LIBRARIES = libarm32/libkernel32.a
 libarm32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm32) lib-common/kernel32.def.in
 libarm32_libkernel32_a_AR = $(DTDEFARM32) libarm32/kernel32.def && $(AR) $(ARFLAGS)
-libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include)
 EXTRA_libarm32_libkernel32_a_DEPENDENCIES=libarm32/kernel32.def
 
 libarm32_DATA =
@@ -2299,15 +2300,15 @@ libarm32_liblargeint_a_SOURCES = $(src_liblargeint)
 libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libmingw32.a
-libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 $(extra_include)
 libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm32_LIBRARIES += libarm32/libmingwex.a
-libarm32_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include)
 libarm32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwexarm32) $(src_dfp_math)
 
 libarm32_LIBRARIES += libarm32/libmoldname.a
-libarm32_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include)
 libarm32_libmoldname_a_SOURCES = $(src_libm)
 
 libarm32_LIBRARIES += libarm32/libmingwthrd.a
@@ -2461,7 +2462,7 @@ test.c
 libarm64_LIBRARIES = libarm64/libkernel32.a
 libarm64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm64) lib-common/kernel32.def.in
 libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.def && $(AR) $(ARFLAGS)
-libarm64_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+libarm64_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include)
 EXTRA_libarm64_libkernel32_a_DEPENDENCIES=libarm64/kernel32.def
 
 libarm64_DATA =
@@ -2624,16 +2625,16 @@ libarm64_liblargeint_a_SOURCES = $(src_liblargeint)
 libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmingw32.a
-libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 $(extra_include)
 libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm64_LIBRARIES += libarm64/libmingwex.a
-libarm64_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include)
 libarm64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwexarm64) $(src_dfp_math)
 libarm64_libmingwex_a_LIBADD=$(src_libmingwexarm64_x64)
 
 libarm64_LIBRARIES += libarm64/libmoldname.a
-libarm64_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include)
 libarm64_libmoldname_a_SOURCES = $(src_libm)
 
 libarm64_LIBRARIES += libarm64/libmingwthrd.a
