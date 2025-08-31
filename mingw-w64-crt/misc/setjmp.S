@@ -13,7 +13,7 @@
         .def    __MINGW_USYMBOL(__intrinsic_setjmp); .scl 2; .type 32; .endef
 #endif
 
-#if defined(_WIN64)
+#ifndef __i386__
         .globl  __MINGW_USYMBOL(__intrinsic_setjmpex)
         .def    __MINGW_USYMBOL(__intrinsic_setjmpex); .scl 2; .type 32; .endef
 #endif
@@ -72,6 +72,7 @@ __MINGW_USYMBOL(__intrinsic_setjmpex):
 #elif defined(__arm__)
 __MINGW_USYMBOL(__intrinsic_setjmp):
         mov     r1,  #0
+__MINGW_USYMBOL(__intrinsic_setjmpex):
         str     r1,  [r0]            /* jmp_buf->Frame */
         str     r4,  [r0, #0x4]      /* jmp_buf->R4 */
         str     r5,  [r0, #0x8]      /* jmp_buf->R5 */
