@@ -223,7 +223,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #endif
 #ifndef _INC_SETJMPEX
 #  if defined(_X86_) || defined(__i386__)
-#    define setjmp(BUF) _setjmp3((BUF), NULL)
+#    define setjmp(BUF) _setjmp3((BUF), 0)
 #  elif !defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH)
 #    if defined(__arm__) || defined(__aarch64__)
 #      define setjmp(BUF) __mingw_setjmp((BUF))
@@ -241,7 +241,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
 #  endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
-  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ...);
 #else
 #  undef setjmp
 #  ifdef __SEH__
