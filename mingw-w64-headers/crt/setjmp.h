@@ -40,6 +40,7 @@ extern "C" {
     unsigned long Eip;
     unsigned long Registration;
     unsigned long TryLevel;
+    /* Following fields are only for new _setjmp3(), the are not for old _setjmp(). */
     unsigned long Cookie;
     unsigned long UnwindFunc;
     unsigned long UnwindData[6];
