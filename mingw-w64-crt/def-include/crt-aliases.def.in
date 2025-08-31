@@ -339,6 +339,20 @@ strncasecmp == _strnicmp
 ; Some symbols in some version of CRT library were added and some other symbols were removed or renamed
 ; This list provides some level of backward and forward compatibility
 
+#ifdef WITH_SETJMP3_ALIAS
+; crtdll.dll and msvcrt10.dll have only old _setjmp function which does not take
+; additional variadic arguments and uses smaller jmpbuf structure.
+; mingw-w64 calls _setjmp3 only with zero additional arguments and because number
+; of additional arguments is passed on the stack which is cleanup by the caller,
+; it means that the mingw-w64 usage of _setjmp3 is ABI compatible with the old
+; _setjmp function which is available also in crtdll.dll and msvcrt10.dll libs.
+; It heavily depends on the mingw-w64-headers/crt/setjmp.h implementation.
+; So this definition allows crtdll.dll and msvcrt10.dll applications to call
+; setjmp() macro from setjmp.h, which expands to _setjmp3() function call and
+; which is aliased to _setjmp symbol for crtdll.dll and msvcrt10.dll libraries.
+F_I386(_setjmp3 == _setjmp)
+#endif
+
 #ifdef UCRTBASE
 F_NON_ARM64(_setjmp == __intrinsic_setjmp)
 F64(_setjmpex == __intrinsic_setjmpex)

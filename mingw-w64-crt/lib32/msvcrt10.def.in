@@ -1301,4 +1301,5 @@ wscanf
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_GET_PUT_WCHAR_ALIASES
+#define WITH_SETJMP3_ALIAS
 #include "crt-aliases.def.in"
