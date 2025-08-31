@@ -11,6 +11,8 @@
 #ifndef __aarch64__
         .globl  __MINGW_USYMBOL(__intrinsic_setjmp)
         .def    __MINGW_USYMBOL(__intrinsic_setjmp); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(_setjmp)
+        .def    __MINGW_USYMBOL(_setjmp); .scl 2; .type 32; .endef
 #endif
 
 #ifdef __x86_64__
@@ -21,6 +23,8 @@
 #ifndef __i386__
         .globl  __MINGW_USYMBOL(__intrinsic_setjmpex)
         .def    __MINGW_USYMBOL(__intrinsic_setjmpex); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(_setjmpex)
+        .def    __MINGW_USYMBOL(_setjmpex); .scl 2; .type 32; .endef
 #endif
 
 #ifdef __i386__
@@ -32,6 +36,7 @@
 #if defined(__i386__)
 __MINGW_USYMBOL(_setjmp3):
 __MINGW_USYMBOL(__intrinsic_setjmp):
+__MINGW_USYMBOL(_setjmp):
         movl    4(%esp),%ecx         /* jmp_buf */
         movl    %ebp,0(%ecx)         /* jmp_buf.Ebp */
         movl    %ebx,4(%ecx)         /* jmp_buf.Ebx */
@@ -46,8 +51,10 @@ __MINGW_USYMBOL(__intrinsic_setjmp):
 #elif defined(__x86_64__)
 __MINGW_USYMBOL(setjmp):
 __MINGW_USYMBOL(__intrinsic_setjmp):
+__MINGW_USYMBOL(_setjmp):
         xorq    %rdx,%rdx
 __MINGW_USYMBOL(__intrinsic_setjmpex):
+__MINGW_USYMBOL(_setjmpex):
         movq    %rdx,(%rcx)          /* jmp_buf->Frame */
         movq    %rbx,0x8(%rcx)       /* jmp_buf->Rbx */
         leaq    0x8(%rsp),%rax
@@ -78,8 +85,10 @@ __MINGW_USYMBOL(__intrinsic_setjmpex):
 
 #elif defined(__arm__)
 __MINGW_USYMBOL(__intrinsic_setjmp):
+__MINGW_USYMBOL(_setjmp):
         mov     r1,  #0
 __MINGW_USYMBOL(__intrinsic_setjmpex):
+__MINGW_USYMBOL(_setjmpex):
         str     r1,  [r0]            /* jmp_buf->Frame */
         str     r4,  [r0, #0x4]      /* jmp_buf->R4 */
         str     r5,  [r0, #0x8]      /* jmp_buf->R5 */
@@ -105,6 +114,7 @@ __MINGW_USYMBOL(__intrinsic_setjmpex):
         bx      lr
 #elif defined(__aarch64__)
 __MINGW_USYMBOL(__intrinsic_setjmpex):
+__MINGW_USYMBOL(_setjmpex):
         str     x1,  [x0]             /* jmp_buf->Frame */
         stp     x19, x20, [x0, #0x10] /* jmp_buf->X19, X20 */
         stp     x21, x22, [x0, #0x20] /* jmp_buf->X21, X22 */

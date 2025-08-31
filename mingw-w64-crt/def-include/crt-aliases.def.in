@@ -339,6 +339,11 @@ strncasecmp == _strnicmp
 ; Some symbols in some version of CRT library were added and some other symbols were removed or renamed
 ; This list provides some level of backward and forward compatibility
 
+#ifdef UCRTBASE
+F_NON_ARM64(_setjmp == __intrinsic_setjmp)
+F64(_setjmpex == __intrinsic_setjmpex)
+#endif
+
 #ifndef NO_STRCMPI_ALIAS
 _strcmpi == _stricmp
 #endif
