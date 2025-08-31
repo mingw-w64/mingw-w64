@@ -241,7 +241,9 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
 #  endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
+#  if defined(_X86_) || defined(__i386__)
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ...);
+#  endif
 #else
 #  undef setjmp
 #  ifdef __SEH__
