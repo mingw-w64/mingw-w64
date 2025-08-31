@@ -13,14 +13,23 @@
         .def    __MINGW_USYMBOL(__intrinsic_setjmp); .scl 2; .type 32; .endef
 #endif
 
+#ifdef __x86_64__
+        .globl  __MINGW_USYMBOL(setjmp)
+        .def    __MINGW_USYMBOL(setjmp); .scl 2; .type 32; .endef
+#endif
+
 #ifndef __i386__
         .globl  __MINGW_USYMBOL(__intrinsic_setjmpex)
         .def    __MINGW_USYMBOL(__intrinsic_setjmpex); .scl 2; .type 32; .endef
 #endif
 
-#if defined(__i386__)
+#ifdef __i386__
         .globl  __MINGW_USYMBOL(_setjmp3)
         .def    __MINGW_USYMBOL(_setjmp3); .scl 2; .type 32; .endef
+#endif
+
+
+#if defined(__i386__)
 __MINGW_USYMBOL(_setjmp3):
 __MINGW_USYMBOL(__intrinsic_setjmp):
         movl    4(%esp),%ecx         /* jmp_buf */
@@ -35,8 +44,6 @@ __MINGW_USYMBOL(__intrinsic_setjmp):
         retl
 
 #elif defined(__x86_64__)
-        .globl  __MINGW_USYMBOL(setjmp)
-        .def    __MINGW_USYMBOL(setjmp); .scl 2; .type 32; .endef
 __MINGW_USYMBOL(setjmp):
 __MINGW_USYMBOL(__intrinsic_setjmp):
         xorq    %rdx,%rdx
