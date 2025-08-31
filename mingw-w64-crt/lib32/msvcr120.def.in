@@ -2296,5 +2296,4 @@ wprintf_s
 wscanf
 wscanf_s
 
-#define USE_WCSTOK_S_FOR_WCSTOK
 #include "crt-aliases.def.in"

@@ -596,7 +596,7 @@ src_msvcrt32=\
   stdio/_vscwprintf.c \
   stdio/_wstat64.c \
   stdio/_wstat64i32.c \
-  string/wcstok.c
+  string/msvcr80pre_wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
 src_msvcrt64=\
@@ -651,7 +651,7 @@ src_msvcrt64=\
   stdio/_stat32i64.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
-  string/wcstok.c
+  string/msvcr80pre_wcstok.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
@@ -687,7 +687,8 @@ src_msvcrtarm32=\
   stdio/_stat64i32.c \
   stdio/_wstat64i32.c \
   stdio/gets.c \
-  stdio/scanf.S
+  stdio/scanf.S \
+  string/msvcr80plus_wcstok.c
 
 if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
@@ -811,7 +812,8 @@ src_msvcrtarm64=\
   stdio/_stat32i64.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
-  stdio/gets.c
+  stdio/gets.c \
+  string/msvcr80plus_wcstok.c
 
 if ARM64EC
 src_msvcrtarm64+=math/fabsf.c
@@ -929,7 +931,7 @@ src_pre_msvcr80=\
   stdio/_stat64i32.c \
   stdio/_wstat64i32.c \
   stdio/mingw_lock.c \
-  string/wcstok.c
+  string/msvcr80pre_wcstok.c
 
 src_pre_msvcr100=\
   misc/_invalid_parameter_noinfo_noreturn.c \
@@ -953,6 +955,9 @@ src_pre_msvcr120=\
 src_pre_msvcr120_post_msvcr71=\
   misc/_isblank_l.c \
   misc/_iswblank_l.c
+
+src_post_msvcr71=\
+  string/msvcr80plus_wcstok.c
 
 src_post_msvcr80=\
   misc/__p__osplatform_emul.c \
@@ -1047,32 +1052,38 @@ src_msvcr80=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
-  $(src_pre_msvcr120_post_msvcr71)
+  $(src_pre_msvcr120_post_msvcr71) \
+  $(src_post_msvcr71)
 
 src_msvcr90=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
+  $(src_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr100=\
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
+  $(src_post_msvcr71) \
   $(src_post_msvcr80)
 
 src_msvcr110=\
   $(src_pre_msvcr120) \
   $(src_pre_msvcr120_post_msvcr71) \
+  $(src_post_msvcr71) \
   $(src_post_msvcr80) \
   $(src_post_msvcr100)
 
 src_msvcr120=\
+  $(src_post_msvcr71) \
   $(src_post_msvcr80) \
   $(src_post_msvcr100)
 
 src_msvcr120_app=\
+  $(src_post_msvcr71) \
   $(src_post_msvcr80) \
   $(src_post_msvcr100) \
   misc/__p___initenv.c \

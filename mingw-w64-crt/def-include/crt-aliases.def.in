@@ -248,9 +248,6 @@ getwchar == _fgetwchar
 putwc == fputwc
 putwchar == _fputwchar
 #endif
-#ifdef USE_WCSTOK_S_FOR_WCSTOK
-wcstok == wcstok_s
-#endif
 
 ; This is list of symbol aliases for C99 functions
 ; ADD_UNDERSCORE(logb)
