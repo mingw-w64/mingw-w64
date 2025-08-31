@@ -202,64 +202,83 @@ extern "C" {
 #define _JMP_BUF_DEFINED
 #endif
 
-_CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value);
+_CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf, int _Value); /* for setjmp.h and non-i386 setjmpex.h */
+#ifdef __i386__
+_CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl _longjmpex(jmp_buf _Buf, int _Value); /* for i386 setjmpex.h */
+#endif
+
+#ifdef __i386__
+_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf); /* old i386 crtdll setjmp.h */
+_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ...); /* new i386 msvcrt20+ setjmp.h and setjmpex.h */
+#else
+#ifndef __aarch64__
+_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Frame); /* for non-i386 and non-aarch64 setjmp.h */
+#endif
+_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf _Buf, void *_Frame); /* for non-i386 setjmpex.h and aarch64 setjmp.h */
+#endif
+
+#if defined(__arm__) || defined(__aarch64__)
+int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
+__MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_buf _Buf, int _Value);
+#endif
 
 void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
-
-#pragma push_macro("__has_builtin")
-#ifndef __has_builtin
-  #define __has_builtin(x) 0
-#endif
-
-#ifdef __aarch64__
-   /* ARM64 lacks _setjmp, only has _setjmpex. */
-#  define _setjmp _setjmpex
-#endif
-#ifndef _INC_SETJMPEX
-#  if defined(_X86_) || defined(__i386__)
-#    define setjmp(BUF) _setjmp3((BUF), 0)
-#  elif !defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH)
-#    if defined(__arm__) || defined(__aarch64__)
-#      define setjmp(BUF) __mingw_setjmp((BUF))
-#      define longjmp __mingw_longjmp
-      int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
-      __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_buf _Buf,int _Value);
-#    else
-#      define setjmp(BUF) _setjmp((BUF), NULL)
-#    endif
-#  elif __has_builtin(__builtin_sponentry)
-#    define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
-#  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
-#    define setjmp(BUF) _setjmp((BUF), mingw_getsp())
-#  else
-#    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
-#  endif
-  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
-#  if defined(_X86_) || defined(__i386__)
-  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ...);
-#  endif
-#else
-#  undef setjmp
-#  ifdef __SEH__
-#    if (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
-#      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
-#      define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
-#    else
-#      define setjmp(BUF) _setjmpex((BUF), __builtin_frame_address (0))
-#      define setjmpex(BUF) _setjmpex((BUF), __builtin_frame_address (0))
-#    endif
-#  else
-#    define setjmp(BUF) _setjmpex((BUF), NULL)
-#    define setjmpex(BUF) _setjmpex((BUF), NULL)
-#  endif
-  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf _Buf,void *_Ctx);
-#endif
-
-#pragma pop_macro("__has_builtin")
 
 #ifdef __cplusplus
 }
 #endif
 
 #pragma pack(pop)
+#endif /* _INC_SETJMP */
+
+/*
+ * Now outside of the _INC_SETJMP block, defines setjmp() and longjmp().
+ * It allows '#include <setjmpex.h>' to override the existing setjmp() and longjmp() definitions.
+ */
+
+#pragma push_macro("__has_builtin")
+#ifndef __has_builtin
+  #define __has_builtin(x) 0
 #endif
+
+#ifdef setjmp
+#  undef setjmp
+#endif
+#if defined(__i386__)
+#  define setjmp(BUF) _setjmp3((BUF), 0)
+#elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH))
+#  if defined(__arm__) || defined(__aarch64__)
+#    define setjmp(BUF) __mingw_setjmp((BUF))
+#  else
+#    define setjmp(BUF) _setjmp((BUF), NULL)
+#  endif
+#elif !defined(_INC_SETJMPEX) && !defined(__aarch64__)
+#  if __has_builtin(__builtin_sponentry)
+#    define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
+#  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
+#    define setjmp(BUF) _setjmp((BUF), mingw_getsp())
+#  else
+#    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address(0))
+#  endif
+#else
+#  if __has_builtin(__builtin_sponentry)
+#    define setjmp(BUF) _setjmpex((BUF), __builtin_sponentry())
+#  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
+#    define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
+#  else
+#    define setjmp(BUF) _setjmpex((BUF), __builtin_frame_address(0))
+#  endif
+#endif
+
+#ifdef longjmp
+#  undef longjmp
+#endif
+#if defined(_INC_SETJMPEX) && defined(__i386__)
+#  define longjmp _longjmpex
+#elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH)) && (defined(__arm__) || defined(__aarch64__))
+#  define longjmp __mingw_longjmp
+#else
+#  define longjmp longjmp
+#endif
+
+#pragma pop_macro("__has_builtin")
