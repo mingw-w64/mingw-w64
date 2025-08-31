@@ -21,13 +21,11 @@
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <errno.h>
 #include <wchar.h>
 
-wchar_t *__cdecl wcstok_s(wchar_t *restrict s, const wchar_t *restrict sep, wchar_t **restrict p)
+wchar_t *__cdecl wcstok(wchar_t *restrict s, const wchar_t *restrict sep, wchar_t **restrict p)
 {
-  if (!p || !sep) { errno = EINVAL; return NULL; } /* added for wcstok_s */
-  if (!s && !(s = *p)) { errno = EINVAL; return NULL; }
+  if (!s && !(s = *p)) return NULL;
   s += wcsspn(s, sep);
   if (!*s) return *p = NULL;
   *p = s + wcscspn(s, sep);
@@ -35,7 +33,4 @@ wchar_t *__cdecl wcstok_s(wchar_t *restrict s, const wchar_t *restrict sep, wcha
   else *p = 0;
   return s;
 }
-wchar_t *(__cdecl *__MINGW_IMP_SYMBOL(wcstok_s))(wchar_t *restrict, const wchar_t *restrict, wchar_t **restrict) = wcstok_s;
-
-wchar_t * __attribute__ ((alias ("wcstok_s"))) __cdecl wcstok (wchar_t *restrict, const wchar_t *restrict, wchar_t **restrict);
-extern wchar_t * (__cdecl * __attribute__((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(wcstok_s))))) __MINGW_IMP_SYMBOL(wcstok))(wchar_t *restrict, const wchar_t *restrict, wchar_t **restrict);
+wchar_t *(__cdecl *__MINGW_IMP_SYMBOL(wcstok))(wchar_t *restrict, const wchar_t *restrict, wchar_t **restrict) = wcstok;

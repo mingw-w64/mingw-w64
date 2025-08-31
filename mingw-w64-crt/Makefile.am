@@ -584,6 +584,7 @@ src_msvcrt32=\
   misc/wcsnlen.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  secapi/wcstok_s.c \
   stdio/_fseeki64.c \
   stdio/_fstat64.c \
   stdio/_fstat64i32.c \
@@ -642,6 +643,7 @@ src_msvcrt64=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcsnlen.c \
+  secapi/wcstok_s.c \
   stdio/_fseeki64.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
@@ -920,6 +922,7 @@ src_pre_msvcr80=\
   misc/wassert.c \
   misc/wcsnlen.c \
   secapi/getenv_s.c \
+  secapi/wcstok_s.c \
   stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
   stdio/_ftelli64.c \
