@@ -26,7 +26,7 @@
 extern "C" {
 #endif
 
-#if (defined(_X86_) && !defined(__x86_64))
+#if defined(__i386__)
 
 #define _JBLEN 16
 #define _JBTYPE int
@@ -107,7 +107,7 @@ extern "C" {
 
   } _JUMP_BUFFER;
 
-#elif defined(__x86_64)
+#elif defined(__x86_64__)
 
   typedef _CRT_ALIGN(16) struct _SETJMP_FLOAT128 {
     __MINGW_EXTENSION unsigned __int64 Part[2];
