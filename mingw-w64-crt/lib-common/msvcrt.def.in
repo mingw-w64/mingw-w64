@@ -1445,7 +1445,7 @@ F_ARM_ANY(_gmtime64_s) ; i386 and x64 _gmtime64_s replaced by emu
 _i64toa_s
 _i64tow_s
 F_ARM_ANY(_initterm_e) ; i386 and x64 _initterm_e replaced by emu
-_invalid_parameter
+; _invalid_parameter replaced by emu, msvcrt.dll's _invalid_parameter is not compatible with msvcr80+/UCRT
 _isalnum_l
 _isalpha_l
 _iscntrl_l
