@@ -151,6 +151,13 @@ typedef __time64_t time_t;
 #endif
 #endif
 
+#ifdef _DEBUG
+_CRTIMP void __cdecl _invalid_parameter(const wchar_t *expression, const wchar_t *function_name, const wchar_t *file_name, unsigned int line_number, uintptr_t reserved);
+#endif
+_CRTIMP void __cdecl _invalid_parameter_noinfo(void);
+_CRTIMP __MINGW_ATTRIB_NORETURN void __cdecl _invalid_parameter_noinfo_noreturn(void);
+_CRTIMP __MINGW_ATTRIB_NORETURN void __cdecl _invoke_watson(const wchar_t *expression, const wchar_t *function_name, const wchar_t *file_name, unsigned int line_number, uintptr_t reserved);
+
 #if defined(__cplusplus) && _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
 
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(__ret,__func,__dsttype,__dst) \
