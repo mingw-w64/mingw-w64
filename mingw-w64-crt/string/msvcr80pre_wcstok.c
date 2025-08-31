@@ -27,10 +27,9 @@ wchar_t *__cdecl wcstok(wchar_t *restrict s, const wchar_t *restrict sep, wchar_
 {
   if (!s && !(s = *p)) return NULL;
   s += wcsspn(s, sep);
-  if (!*s) return *p = NULL;
+  if (!*s) return *p = s, NULL;
   *p = s + wcscspn(s, sep);
   if (**p) *(*p)++ = 0;
-  else *p = 0;
   return s;
 }
 wchar_t *(__cdecl *__MINGW_IMP_SYMBOL(wcstok))(wchar_t *restrict, const wchar_t *restrict, wchar_t **restrict) = wcstok;
