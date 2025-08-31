@@ -58,6 +58,7 @@ testcase_progs = \
   t_vsscanf \
   t_wcrtomb \
   t_wcsrtombs \
+  t_wcstok_s \
   t_wctob \
   t_wreaddir \
   t_fseeko64
