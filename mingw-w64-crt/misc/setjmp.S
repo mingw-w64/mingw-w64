@@ -7,8 +7,11 @@
 #include <_mingw_mac.h>
 
 #ifndef __arm64ec__
+
+#ifndef __aarch64__
         .globl  __MINGW_USYMBOL(__intrinsic_setjmp)
         .def    __MINGW_USYMBOL(__intrinsic_setjmp); .scl 2; .type 32; .endef
+#endif
 
 #if defined(_WIN64)
         .globl  __MINGW_USYMBOL(__intrinsic_setjmpex)
@@ -93,8 +96,6 @@ __MINGW_USYMBOL(__intrinsic_setjmp):
         mov     r0,  #0
         bx      lr
 #elif defined(__aarch64__)
-__MINGW_USYMBOL(__intrinsic_setjmp):
-        mov     x1,  #0
 __MINGW_USYMBOL(__intrinsic_setjmpex):
         str     x1,  [x0]             /* jmp_buf->Frame */
         stp     x19, x20, [x0, #0x10] /* jmp_buf->X19, X20 */
