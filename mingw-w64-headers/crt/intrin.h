@@ -521,7 +521,8 @@ extern "C" {
     __MACHINEIA64(void __rum(int))
 #ifndef __CYGWIN__
 #ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
-    __MACHINE(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf,void *))
+    __MACHINEIA32(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf))
+    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf,void *))
     __MACHINEIA64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
     __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
 #else
