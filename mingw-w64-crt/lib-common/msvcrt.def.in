@@ -1928,7 +1928,10 @@ F_I386(_libm_sse2_tan_precise)
 ; i386 strtoll, strtoull, strtoimax, strtoumax, wcstoll, wcstoull, wcstoimax and wcstoumax aliases provided by emu
 #define WITH_STRTO64_ALIAS
 #endif
-#if defined(__arm__) || defined(__aarch64__)
+#if defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
+; This uses functions that are available since Vista. ARM/AArch64/ARM64EC
+; can assume that those fucntions always are available; on x86 we provide
+; fallbacks in the import library.
 #define USE_WCSTOK_S_FOR_WCSTOK
 #define WITH_FSEEKO64_ALIAS
 #endif
