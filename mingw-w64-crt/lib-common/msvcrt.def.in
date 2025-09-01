@@ -938,23 +938,23 @@ acos
 asctime
 asin
 atan
-atan2 F_X86_ANY(DATA)
+atan2 F_X86_NATIVE(DATA)
 _crt_atexit == atexit ; rename atexit to _crt_atexit for compatibility with UCRT, real atexit function provided by mingw-w64
 atof
 atoi
 atol
 bsearch
 calloc
-ceil F_X86_ANY(DATA)
+ceil F_X86_NATIVE(DATA)
 clearerr
 clock
-cos F_X86_ANY(DATA)
+cos F_X86_NATIVE(DATA)
 cosh
 ctime
 difftime
 div
 exit
-exp F_X86_ANY(DATA)
+exp F_X86_NATIVE(DATA)
 fabs DATA
 fclose
 feof
@@ -965,8 +965,8 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor F_X86_ANY(DATA)
-fmod F_X86_ANY(DATA)
+floor F_X86_NATIVE(DATA)
+fmod F_X86_NATIVE(DATA)
 fopen
 fprintf
 fputc
@@ -976,7 +976,7 @@ fputws
 fread
 free
 freopen
-frexp F_X86_ANY(DATA)
+frexp F_X86_NATIVE(DATA)
 fscanf
 fseek
 fsetpos
@@ -1018,11 +1018,11 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp F_X86_ANY(DATA)
+ldexp F_X86_NATIVE(DATA)
 ldiv
 localeconv
 localtime
-log F_X86_ANY(DATA)
+log F_X86_NATIVE(DATA)
 log10
 longjmp
 malloc
@@ -1056,7 +1056,7 @@ setbuf
 setlocale
 setvbuf
 signal
-sin F_X86_ANY(DATA)
+sin F_X86_NATIVE(DATA)
 sinh ; if we implement sinh, we can set it DATA only.
 sprintf
 sqrt DATA
@@ -1262,25 +1262,25 @@ F_NON_I386(_logbf)
 F_X64(_nextafterf)
 F_X64(_scalbf)
 F_NON_I386(_setjmpex)
-F_NON_I386(acosf F_X86_ANY(DATA)) ; i386 acosf provided by emu
-F_NON_I386(asinf F_X86_ANY(DATA)) ; i386 asinf provided by emu
-F_NON_I386(atan2f F_X86_ANY(DATA)) ; i386 atan2f provided by emu
-F_NON_I386(atanf F_X86_ANY(DATA)) ; i386 atanf provided by emu
-F_NON_I386(ceilf F_X86_ANY(DATA)) ; i386 ceilf provided by emu
-F_NON_I386(cosf F_X86_ANY(DATA)) ; i386 cosf provided by emu
+F_NON_I386(acosf F_X86_NATIVE(DATA)) ; i386 acosf provided by emu
+F_NON_I386(asinf F_X86_NATIVE(DATA)) ; i386 asinf provided by emu
+F_NON_I386(atan2f F_X86_NATIVE(DATA)) ; i386 atan2f provided by emu
+F_NON_I386(atanf F_X86_NATIVE(DATA)) ; i386 atanf provided by emu
+F_NON_I386(ceilf F_X86_NATIVE(DATA)) ; i386 ceilf provided by emu
+F_NON_I386(cosf F_X86_NATIVE(DATA)) ; i386 cosf provided by emu
 F_NON_I386(coshf DATA) ; i386 coshf provided by emu
-F_NON_I386(expf F_X86_ANY(DATA)) ; i386 expf provided by emu
-F_NON_I386(floorf F_X86_ANY(DATA)) ; i386 floorf provided by emu
-F_NON_I386(fmodf F_X86_ANY(DATA)) ; i386 fmodf provided by emu
-F_NON_I386(log10f F_X86_ANY(DATA)) ; i386 log10f provided by emu
-F_NON_I386(logf F_X86_ANY(DATA)) ; i386 logf provided by emu
+F_NON_I386(expf F_X86_NATIVE(DATA)) ; i386 expf provided by emu
+F_NON_I386(floorf F_X86_NATIVE(DATA)) ; i386 floorf provided by emu
+F_NON_I386(fmodf F_X86_NATIVE(DATA)) ; i386 fmodf provided by emu
+F_NON_I386(log10f F_X86_NATIVE(DATA)) ; i386 log10f provided by emu
+F_NON_I386(logf F_X86_NATIVE(DATA)) ; i386 logf provided by emu
 F_NON_I386(modff DATA) ; i386 modff provided by emu
 F_NON_I386(powf DATA) ; i386 powf provided by emu
 F_NON_I386(F_NON_ARM64(setjmp))
-F_NON_I386(sinf F_X86_ANY(DATA)) ; i386 sinf provided by emu
+F_NON_I386(sinf F_X86_NATIVE(DATA)) ; i386 sinf provided by emu
 F_NON_I386(sinhf DATA) ; i386 sinhf provided by emu
 F_NON_I386(sqrtf DATA) ; i386 sqrtf provided by emu
-F_NON_I386(tanf F_X86_ANY(DATA)) ; i386 tanf provided by emu
+F_NON_I386(tanf F_X86_NATIVE(DATA)) ; i386 tanf provided by emu
 
 ; These symbols were added in Windows Vista OS system version of msvcrt.dll
 #ifdef __i386__

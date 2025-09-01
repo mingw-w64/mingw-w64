@@ -16,15 +16,18 @@
 #define F64(x) x
 #define F_X64(x) x
 #define F_X86_ANY(x) x
+#define F_X86_NATIVE(x) x
 #define F_NON_I386(x) x
 #define F_NON_ARM64(x) x
 #if defined(__arm64ec__)
 #define F_ARM_ANY(x) x
+#undef F_X86_NATIVE
 #endif
 #elif defined(__i386__)
 #define F32(x) x
 #define F_I386(x) x
 #define F_X86_ANY(x) x
+#define F_X86_NATIVE(x) x
 #define F_NON_X64(x) x
 #define F_NON_ARM64(x) x
 #elif defined(__arm__)
@@ -52,6 +55,9 @@
 #endif
 #ifndef F_X86_ANY
 #define F_X86_ANY(x)
+#endif
+#ifndef F_X86_NATIVE(x)
+#define F_X86_NATIVE(x)
 #endif
 #ifndef F_I386
 #define F_I386(x)
