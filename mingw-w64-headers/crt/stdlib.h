@@ -192,7 +192,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 
 #ifndef _POSIX_
-#if (defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) && !defined(_UCRT)
+#if (defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__) || defined(_ARM64EC_) || defined(__arm64ec__)) && !defined(_UCRT)
   /* The plain msvcrt.dll for arm/aarch64 lacks
    * _environ/_wenviron, but has these functions instead. */
   _CRTIMP void __cdecl _get_environ(char ***);
