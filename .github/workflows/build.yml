@@ -155,7 +155,7 @@ jobs:
       - name: Run extra tests with crt-test
         run: |
           export PATH=/llvm-mingw/bin:$PATH
-          for arch in i686 x86_64 armv7 aarch64; do
+          for arch in i686 x86_64 armv7 aarch64 arm64ec; do
             for crt in msvcrt-ansi msvcrt-noansi ucrt ucrtbase; do
               case $crt in
               msvcrt*) defs="-D__MSVCRT_VERSION__=0x700"; lib=msvcrt-os ;;
@@ -170,7 +170,7 @@ jobs:
               $arch-w64-mingw32-clang $defs -fno-builtin test/crt-test.c -o $name-crt-first.exe -l$lib -O2
               echo $name
               case $arch in
-              ${{ runner.arch == 'ARM64' && 'aarch64' || '*86*' }}) ./$name-regular.exe ; ./$name-crt-first.exe ;;
+              ${{ runner.arch == 'ARM64' && 'aarch64|arm64ec' || '*86*' }}) ./$name-regular.exe ; ./$name-crt-first.exe ;;
               esac
             done
           done
