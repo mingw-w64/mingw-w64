@@ -141,8 +141,7 @@ __report_error (const char *msg, ...)
   cygwin_internal (CW_EXIT_PROCESS,
                    STATUS_ILLEGAL_DLL_PSEUDO_RELOCATION,
                    1);
-  /* not reached, but silences noreturn warning */
-  abort ();
+  __builtin_unreachable ();
 #else
   va_list argp;
   va_start (argp, msg);
@@ -196,7 +195,6 @@ mark_section_writable (LPVOID addr)
   if (!h)
     {
       __report_error ("Address %p has no image-section", addr);
-      return;
     }
   the_secs[i].hash = h;
   the_secs[i].old_protect = 0;
@@ -206,7 +204,6 @@ mark_section_writable (LPVOID addr)
     {
       __report_error ("  VirtualQuery failed for %d bytes at address %p",
 		      (int) h->Misc.VirtualSize, the_secs[i].sec_start);
-      return;
     }
 
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE
@@ -380,7 +377,6 @@ do_pseudo_reloc (void * start, void * end, void * base)
     {
       __report_error ("  Unknown pseudo relocation protocol version %d.\n",
 		      (int) v2_hdr->version);
-      return;
     }
 
   /*************************
