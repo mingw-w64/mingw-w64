@@ -41,7 +41,7 @@
 #define F_NON_I386(x) x
 #define F_NON_X64(x) x
 #else
-#error No DEF_<ARCH> is defined
+#error Unrecognized architecture
 #endif
 
 #ifndef F32
