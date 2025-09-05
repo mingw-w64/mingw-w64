@@ -232,7 +232,7 @@ jobs:
           ninja
           ninja check-runtimes
 
-  linux-test-cross-build-ffmpeg:
+  test-cross-build-ffmpeg:
     needs: [llvm-mingw]
     runs-on: ubuntu-latest
     strategy:
@@ -552,7 +552,7 @@ jobs:
           g++ test/hello-exception.cpp -o hello-exception.exe
           ./hello-exception.exe
 
-  mingw-w64-testcases-clang:
+  testcases-clang:
     defaults:
       run:
         shell: msys2 {0}
@@ -604,7 +604,7 @@ jobs:
           make -j$(nproc) install
           make -j$(nproc) check -k -O || { cat testcases/test-suite.log; exit 1; }
 
-  mingw-w64-testcases-gcc:
+  testcases-gcc:
     runs-on: windows-latest
     needs: [gcc-cross]
     defaults:
