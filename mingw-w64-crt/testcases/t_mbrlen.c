@@ -9,6 +9,16 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/**
+ * This test is for mingw-w64's implementation of mbrlen function.
+ *
+ * This implementation is used with all msvcr*.dll CRTs, but not UCRT.
+ * This test is skipped for UCRT.
+ *
+ * Also note that mingw-w64's implementation only works with SBCS and DBCS
+ * code pages (MB_CUR_MAX == 1 || MB_CUR_MAX == 2).
+ */
+
 static void set_conversion_state (mbstate_t *state, int bytes) {
 #ifdef _UCRT
   state->_Wchar = bytes;

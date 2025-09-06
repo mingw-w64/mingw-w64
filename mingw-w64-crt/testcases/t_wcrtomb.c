@@ -9,6 +9,16 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/**
+ * This test is for mingw-w64's implementation of wcrtomb function.
+ *
+ * This implementation is used with all msvcr*.dll CRTs, but not UCRT.
+ * This test is skipped for UCRT.
+ *
+ * Also note that mingw-w64's implementation only works with SBCS and DBCS
+ * code pages (MB_CUR_MAX == 1 || MB_CUR_MAX == 2).
+ */
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 

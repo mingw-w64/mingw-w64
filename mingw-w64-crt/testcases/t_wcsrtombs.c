@@ -10,6 +10,16 @@
 #include <string.h>
 #include <wchar.h>
 
+/**
+ * This test is for mingw-w64's implementation of wcsrtombs function.
+ *
+ * This implementation is used with all msvcr*.dll CRTs, but not UCRT.
+ * This test is skipped for UCRT.
+ *
+ * Also note that mingw-w64's implementation only works with SBCS and DBCS
+ * code pages (MB_CUR_MAX == 1 || MB_CUR_MAX == 2).
+ */
+
 wchar_t AsciiText[] = L"Simple English text.";
 wchar_t SBCSText[] = L"Sömè fÛnnÿ têxt";
 wchar_t DBCSText[] = L"日本語テクスト";

@@ -9,6 +9,16 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/**
+ * This test is for mingw-w64's implementation of mbsrtowcs function.
+ *
+ * This implementation is used with all msvcr*.dll CRTs, but not UCRT.
+ * This test is skipped for UCRT.
+ *
+ * Also note that mingw-w64's implementation only works with SBCS and DBCS
+ * code pages (MB_CUR_MAX == 1 || MB_CUR_MAX == 2).
+ */
+
 /* ASCII text */
 char          AsciiText[] = "Simple English string.";
 /* SBCS text (code page 1252) */
