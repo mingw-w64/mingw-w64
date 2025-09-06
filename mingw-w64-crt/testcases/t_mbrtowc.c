@@ -104,7 +104,7 @@ int main (void) {
   /**
    * Test DBCS code page
    */
-  assert (setlocale (LC_ALL, "Japanese_Japan.ACP") != NULL);
+  assert (setlocale (LC_ALL, "Japanese_Japan.932") != NULL);
   assert (MB_CUR_MAX == 2);
 
   /**

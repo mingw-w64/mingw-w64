@@ -134,7 +134,7 @@ int main (void) {
   /**
    * Test SBCS code page
    */
-  assert (setlocale (LC_ALL, "English_United States.ACP") != NULL);
+  assert (setlocale (LC_ALL, "English_United States.1252") != NULL);
   assert (MB_CUR_MAX == 1);
 
   /* Test SBCS input */
@@ -196,7 +196,7 @@ int main (void) {
   /**
    * Test DBCS code page
    */
-  assert (setlocale (LC_ALL, "Japanese_Japan.ACP") != NULL);
+  assert (setlocale (LC_ALL, "Japanese_Japan.932") != NULL);
   assert (MB_CUR_MAX == 2);
 
   /* Test ASCII input */
