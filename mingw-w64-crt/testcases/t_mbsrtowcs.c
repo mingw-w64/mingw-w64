@@ -194,6 +194,14 @@ int main (void) {
   assert (buffer[8] == WEOF);
 
   /**
+   * Disable tests for DBCS code pages with msvcrt10.dll since it does not
+   * support multibyte characters.
+   *
+   * Calling setlocale with locale string which requests DBCS code page
+   * result in runtime error.
+   */
+#if __MSVCRT_VERSION__ != 0x0100
+  /**
    * Test DBCS code page
    */
   assert (setlocale (LC_ALL, "Japanese_Japan.932") != NULL);
@@ -372,6 +380,6 @@ int main (void) {
   assert (errno == EILSEQ);
   /* This assertion fails with CRT's version */
   assert (buffer[0] != WEOF && buffer[1] != WEOF && buffer[2] == WEOF);
-
+#endif
   return 0;
 }

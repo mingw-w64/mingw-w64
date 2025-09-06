@@ -352,6 +352,14 @@ int main (void) {
   _set_errno (0);
 
   /**
+   * Disable tests for DBCS code pages with msvcrt10.dll since it does not
+   * support multibyte characters.
+   *
+   * Calling setlocale with locale string which requests DBCS code page
+   * result in runtime error.
+   */
+#if __MSVCRT_VERSION__ != 0x0100
+  /**
    * Test DBCS code page
    */
   assert (setlocale (LC_ALL, "Japanese_Japan.932") != NULL);
@@ -565,6 +573,6 @@ int main (void) {
 
   // reset errno
   _set_errno (0);
-
+#endif
   return 0;
 }
