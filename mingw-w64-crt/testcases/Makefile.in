@@ -585,6 +585,8 @@ t_tmain_LINK = $(CCLD) $(t_tmain_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 am_t_trycatch_OBJECTS = t_trycatch.$(OBJEXT)
 t_trycatch_OBJECTS = $(am_t_trycatch_OBJECTS)
 t_trycatch_LDADD = $(LDADD)
+t_trycatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_trycatch_LDFLAGS) $(LDFLAGS) -o $@
 t_vsscanf_SOURCES = t_vsscanf.c
 t_vsscanf_OBJECTS = t_vsscanf.$(OBJEXT)
 t_vsscanf_LDADD = $(LDADD)
@@ -1648,6 +1650,7 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_wcsrtombs t_wctob t_wreaddir t_fseeko64 $(am__append_1)
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
+t_trycatch_LDFLAGS = -static
 t_intrinc_CFLAGS = -std=c99
 @ENABLE_TESTS_UNICODE_TRUE@t_municode_CFLAGS = -municode
 @ENABLE_TESTS_UNICODE_TRUE@t_tmain_CFLAGS = -municode -D_UNICODE
@@ -2475,7 +2478,7 @@ t_tmain$(EXEEXT): $(t_tmain_OBJECTS) $(t_tmain_DEPENDENCIES) $(EXTRA_t_tmain_DEP
 
 t_trycatch$(EXEEXT): $(t_trycatch_OBJECTS) $(t_trycatch_DEPENDENCIES) $(EXTRA_t_trycatch_DEPENDENCIES) 
 	@rm -f t_trycatch$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(t_trycatch_OBJECTS) $(t_trycatch_LDADD) $(LIBS)
+	$(AM_V_CXXLD)$(t_trycatch_LINK) $(t_trycatch_OBJECTS) $(t_trycatch_LDADD) $(LIBS)
 
 t_vsscanf$(EXEEXT): $(t_vsscanf_OBJECTS) $(t_vsscanf_DEPENDENCIES) $(EXTRA_t_vsscanf_DEPENDENCIES) 
 	@rm -f t_vsscanf$(EXEEXT)
