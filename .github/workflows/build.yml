@@ -71,7 +71,7 @@ jobs:
           for arch in i686 x86_64 aarch64; do
             src_crt=${{matrix.crt}}
             if [[ "$arch" = a* && "$src_crt" == "msvcrt" ]]; then
-                continue
+                src_crt=ucrt
             fi
             if [ "$src_crt" = "ucrtbase" ]; then
                 src_crt=ucrt
@@ -81,7 +81,11 @@ jobs:
             rm llvm-mingw-*.zip
             mv llvm-mingw-* llvm-mingw
             rm -rf llvm-mingw/*-w64-mingw32 llvm-mingw/include
+            mkdir orig-dlls
+            mv llvm-mingw/bin/*.dll orig-dlls
             ../prepare-cross-toolchain.sh ../install/llvm-mingw llvm-mingw $arch
+            mv orig-dlls/*.dll llvm-mingw/bin
+            rmdir orig-dlls
             TAG=testing
             NAME=llvm-mingw-$TAG-${{matrix.crt}}-$arch
             mv llvm-mingw $NAME
@@ -101,7 +105,6 @@ jobs:
             llvm-mingw-*-x86_64.zip
           retention-days: 7
       - uses: actions/upload-artifact@v4
-        if: matrix.crt != 'msvcrt'
         with:
           name: windows-${{matrix.crt}}-aarch64-toolchain
           path: |
@@ -124,9 +127,6 @@ jobs:
           - ucrt
           - ucrtbase
           - msvcrt
-        exclude:
-          - arch: aarch64
-            crt: msvcrt
     runs-on: ${{startsWith(matrix.arch, 'a') && 'windows-11-arm' || 'windows-latest'}}
     steps:
       - uses: msys2/setup-msys2@v2
