@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Mohamad Al-Jaf
+ * Copyright 2025 Hans Leidekker for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,11 +25,22 @@ import "asyncinfo.idl";
 import "eventtoken.idl";
 import "windowscontracts.idl";
 import "windows.foundation.idl";
-/* import "windows.data.text.idl"; */
-/* import "windows.storage.idl"; */
-import "windows.storage.fileproperties.idl";
+/* import "windows.security.cryptography.certificates.idl"; */
 import "windows.storage.streams.idl";
 
-namespace Windows.Storage.Search {
-    interface IStorageFolderQueryOperations;
+namespace Windows.Security.Cryptography.Core {
+    typedef enum CryptographicPublicKeyBlobType CryptographicPublicKeyBlobType;
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0)
+    ]
+    enum CryptographicPublicKeyBlobType
+    {
+        X509SubjectPublicKeyInfo = 0,
+        Pkcs1RsaPublicKey        = 1,
+        BCryptPublicKey          = 2,
+        Capi1PublicKey           = 3,
+        [contract(Windows.Foundation.UniversalApiContract, 1.0)]
+        BCryptEccFullPublicKey   = 4,
+    };
 }

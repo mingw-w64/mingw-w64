@@ -334,6 +334,7 @@ IDL_SRCS = \
   include/windows.media.faceanalysis.idl \
   include/windows.media.idl \
   include/windows.media.mediaproperties.idl \
+  include/windows.media.playback.idl \
   include/windows.media.render.idl \
   include/windows.media.speechrecognition.idl \
   include/windows.media.speechsynthesis.idl \
@@ -341,12 +342,14 @@ IDL_SRCS = \
   include/windows.networking.connectivity.idl \
   include/windows.networking.idl \
   include/windows.networking.sockets.idl \
+  include/windows.perception.idl \
   include/windows.perception.spatial.idl \
   include/windows.perception.spatial.surfaces.idl \
   include/windows.security.authentication.onlineid.idl \
   include/windows.security.authorization.appcapabilityaccess.idl \
   include/windows.security.credentials.idl \
   include/windows.security.credentials.ui.idl \
+  include/windows.security.cryptography.core.idl \
   include/windows.security.cryptography.idl \
   include/windows.security.enterprisedata.idl \
   include/windows.security.exchangeactivesyncprovisioning.idl \

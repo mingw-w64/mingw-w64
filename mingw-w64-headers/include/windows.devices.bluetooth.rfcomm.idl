@@ -20,7 +20,6 @@
 #pragma winrt ns_prefix
 #endif
 
-#ifndef DO_NO_IMPORTS
 import "inspectable.idl";
 import "asyncinfo.idl";
 import "eventtoken.idl";
@@ -30,7 +29,6 @@ import "windows.devices.bluetooth.idl";
 import "windows.networking.idl";
 import "windows.networking.sockets.idl";
 import "windows.storage.streams.idl";
-#endif
 
 namespace Windows.Devices.Bluetooth {
     typedef enum BluetoothCacheMode BluetoothCacheMode;
@@ -86,6 +84,18 @@ namespace Windows.Devices.Bluetooth.Rfcomm {
 
     [
         contract(Windows.Foundation.UniversalApiContract, 1.0),
+        exclusiveto(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId),
+        uuid(22629204-7e02-4017-8136-da1b6a1b9bbf)
+    ]
+    interface IRfcommServiceId : IInspectable
+    {
+        [propget] HRESULT Uuid([out, retval] GUID *value);
+        HRESULT AsShortId([out, retval] UINT32 *short_id);
+        HRESULT AsString([out, retval] HSTRING *id);
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
         marshaling_behavior(agile),
         static(Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics, Windows.Foundation.UniversalApiContract, 1.0),
         /* static(Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2, Windows.Foundation.UniversalApiContract, 3.0), */
@@ -94,9 +104,9 @@ namespace Windows.Devices.Bluetooth.Rfcomm {
     runtimeclass RfcommDeviceService
     {
         [default] interface Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService;
-        interface Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService2;
+        /* interface Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService2; */
         interface Windows.Foundation.IClosable;
-        [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService3;
+        /* [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceService3; */
     }
 
     [

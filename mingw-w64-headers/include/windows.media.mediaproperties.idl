@@ -57,8 +57,17 @@ namespace Windows.Media.MediaProperties {
     runtimeclass AudioEncodingProperties;
     runtimeclass ContainerEncodingProperties;
     runtimeclass MediaEncodingProfile;
+    runtimeclass MediaPropertySet;
     runtimeclass MediaRatio;
     runtimeclass VideoEncodingProperties;
+
+    declare {
+        interface Windows.Foundation.Collections.IKeyValuePair<GUID, IInspectable *>;
+        interface Windows.Foundation.Collections.IIterable<Windows.Foundation.Collections.IKeyValuePair<GUID, IInspectable *> *>;
+        interface Windows.Foundation.Collections.IIterator<Windows.Foundation.Collections.IKeyValuePair<GUID, IInspectable *> *>;
+        interface Windows.Foundation.Collections.IMap<GUID, IInspectable *>;
+        interface Windows.Foundation.Collections.IMapView<GUID, IInspectable *>;
+    }
 
     [
         contract(Windows.Foundation.UniversalApiContract, 1.0),
@@ -105,6 +114,29 @@ namespace Windows.Media.MediaProperties {
 
     [
         contract(Windows.Foundation.UniversalApiContract, 1.0),
+        uuid(b4002af6-acd4-4e5a-a24b-5d7498a8b8c4)
+    ]
+    interface IMediaEncodingProperties : IInspectable
+    {
+        [propget] HRESULT Properties([out, retval] Windows.Media.MediaProperties.MediaPropertySet **value);
+        [propget] HRESULT Type([out, retval] HSTRING *value);
+        [propput] HRESULT Subtype([in] HSTRING value);
+        [propget] HRESULT Subtype([out, retval] HSTRING *value);
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        exclusiveto(Windows.Media.MediaProperties.AudioEncodingProperties),
+        uuid(98f10d79-13ea-49ff-be70-2673db69702c)
+    ]
+    interface IAudioEncodingPropertiesWithFormatUserData : IInspectable
+    {
+        HRESULT SetFormatUserData([in] UINT32 __value_size, [in, size_is(__value_size)] BYTE *value);
+        HRESULT GetFormatUserData([out] UINT32 * __value_size, [out, size_is(, *__value_size)] BYTE **value);
+    }
+
+    [
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
         exclusiveto(Windows.Media.MediaProperties.MediaRatio),
         uuid(d2d0fee5-8929-401d-ac78-7d357e378163)
     ]
@@ -147,8 +179,8 @@ namespace Windows.Media.MediaProperties {
         [default] interface Windows.Media.MediaProperties.IAudioEncodingProperties;
         interface Windows.Media.MediaProperties.IMediaEncodingProperties;
         [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Media.MediaProperties.IAudioEncodingPropertiesWithFormatUserData;
-        [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.Media.MediaProperties.IAudioEncodingProperties2;
-        [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IAudioEncodingProperties3;
+        /* [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.Media.MediaProperties.IAudioEncodingProperties2; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IAudioEncodingProperties3; */
     }
 
     [
@@ -161,7 +193,7 @@ namespace Windows.Media.MediaProperties {
     {
         [default] interface Windows.Media.MediaProperties.IContainerEncodingProperties;
         interface Windows.Media.MediaProperties.IMediaEncodingProperties;
-        [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IContainerEncodingProperties2;
+        /* [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IContainerEncodingProperties2; */
     }
 
     [
@@ -176,8 +208,20 @@ namespace Windows.Media.MediaProperties {
     runtimeclass MediaEncodingProfile
     {
         [default] interface Windows.Media.MediaProperties.IMediaEncodingProfile;
-        [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.Media.MediaProperties.IMediaEncodingProfile2;
-        [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IMediaEncodingProfile3;
+        /* [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.Media.MediaProperties.IMediaEncodingProfile2; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IMediaEncodingProfile3; */
+    }
+
+    [
+        activatable(Windows.Foundation.UniversalApiContract, 1.0),
+        contract(Windows.Foundation.UniversalApiContract, 1.0),
+        marshaling_behavior(agile),
+        threading(both)
+    ]
+    runtimeclass MediaPropertySet
+    {
+        [default] interface Windows.Foundation.Collections.IMap<GUID, IInspectable *>;
+        interface Windows.Foundation.Collections.IIterable<Windows.Foundation.Collections.IKeyValuePair<GUID, IInspectable *> *>;
     }
 
     [
@@ -202,9 +246,9 @@ namespace Windows.Media.MediaProperties {
     {
         [default] interface Windows.Media.MediaProperties.IVideoEncodingProperties;
         interface Windows.Media.MediaProperties.IMediaEncodingProperties;
-        [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties2;
-        [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties3;
-        [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties4;
-        [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties5;
+        /* [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties2; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties3; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties4; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Media.MediaProperties.IVideoEncodingProperties5; */
     }
 }

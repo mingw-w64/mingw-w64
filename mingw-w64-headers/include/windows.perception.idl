@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Paul Gofman for CodeWeavers
+ * Copyright 2025 Hans Leidekker for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,35 +21,34 @@
 #endif
 
 import "inspectable.idl";
+import "asyncinfo.idl";
 import "eventtoken.idl";
 import "windowscontracts.idl";
 import "windows.foundation.idl";
 
-namespace Windows.Gaming.UI {
-    runtimeclass GameBar;
+namespace Windows.Perception {
+    interface IPerceptionTimestamp;
+
+    runtimeclass PerceptionTimestamp;
 
     [
         contract(Windows.Foundation.UniversalApiContract, 2.0),
-        exclusiveto(Windows.Gaming.UI.GameBar),
-        uuid(1db9a292-cc78-4173-be45-b61e67283ea7)
+        exclusiveto(Windows.Perception.PerceptionTimestamp),
+        uuid(87c24804-a22e-4adb-ba26-d78ef639bcf4)
     ]
-    interface IGameBarStatics : IInspectable
+    interface IPerceptionTimestamp : IInspectable
     {
-        [eventadd] HRESULT VisibilityChanged([in] Windows.Foundation.EventHandler<IInspectable *> *handler, [out, retval] EventRegistrationToken *token);
-        [eventremove] HRESULT VisibilityChanged([in] EventRegistrationToken token);
-        [eventadd] HRESULT IsInputRedirectedChanged([in] Windows.Foundation.EventHandler<IInspectable *> *handler, [out, retval] EventRegistrationToken *token);
-        [eventremove] HRESULT IsInputRedirectedChanged([in] EventRegistrationToken token);
-        [propget] HRESULT Visible([out, retval] boolean *value);
-        [propget] HRESULT IsInputRedirected([out, retval] boolean *value);
+        [propget] HRESULT TargetTime([out, retval] Windows.Foundation.DateTime *value);
+        [propget] HRESULT PredictionAmount([out, retval] Windows.Foundation.TimeSpan *value);
     }
 
     [
         contract(Windows.Foundation.UniversalApiContract, 2.0),
         marshaling_behavior(agile),
-        static(Windows.Gaming.UI.IGameBarStatics, Windows.Foundation.UniversalApiContract, 2.0),
         threading(both)
     ]
-    runtimeclass GameBar
+    runtimeclass PerceptionTimestamp
     {
+        [default] interface Windows.Perception.IPerceptionTimestamp;
     }
 }

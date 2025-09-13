@@ -20,14 +20,12 @@
 #pragma winrt ns_prefix
 #endif
 
-#ifndef DO_NO_IMPORTS
 import "windows.foundation.idl";
 import "windows.storage.idl";
 import "windows.system.idl";
 import "windows.applicationmodel.idl";
 import "windows.applicationmodel.activation.idl";
 import "windows.ui.core.idl";
-#endif
 
 namespace Windows.ApplicationModel.Core {
     runtimeclass CoreApplicationView;
@@ -380,9 +378,9 @@ namespace Windows.ApplicationModel.Core {
     runtimeclass AppListEntry
     {
         [default] interface Windows.ApplicationModel.Core.IAppListEntry;
-        [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.ApplicationModel.Core.IAppListEntry2;
-        [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.ApplicationModel.Core.IAppListEntry3;
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.Core.IAppListEntry4;
+        /* [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.ApplicationModel.Core.IAppListEntry2; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.ApplicationModel.Core.IAppListEntry3; */
+        /* [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.Core.IAppListEntry4; */
     }
 
     [
