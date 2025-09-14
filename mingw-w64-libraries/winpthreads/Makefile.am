@@ -50,7 +50,10 @@ fakelib_libgcc_eh_a_SOURCES =
 endif
 
 # Extra files to add into archive with `make dist`
-EXTRA_DIST = \
+EXTRA_DIST =                   \
+  tests/benchtests/benchtest.h \
+  tests/ChangeLog.2010         \
+  tests/test.h                 \
   build-aux/windres-rc
 
 # Tell libtool how to use the resource compiler
