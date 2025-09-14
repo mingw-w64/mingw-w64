@@ -267,8 +267,15 @@ int sem_timedwait64(sem_t *sem, const struct _timespec64 *t)
 
 int sem_timedwait32(sem_t *sem, const struct _timespec32 *t)
 {
-  struct _timespec64 t64 = {.tv_sec = t->tv_sec, .tv_nsec = t->tv_nsec};
-  return __sem_timedwait (sem, &t64);
+  struct _timespec64 t64 = {0};
+
+  if (t != NULL)
+  {
+    t64.tv_sec = t->tv_sec;
+    t64.tv_nsec = t->tv_nsec;
+  }
+
+  return __sem_timedwait (sem, t == NULL ? NULL : &t64);
 }
 
 int
