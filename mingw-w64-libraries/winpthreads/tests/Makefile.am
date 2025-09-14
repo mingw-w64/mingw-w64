@@ -7,6 +7,11 @@ endif
 
 LDADD = $(top_builddir)/libwinpthread.la
 
-#FIXME: The test "test.c" is inherently broken currently.
-check_PROGRAMS = t_clock_getres  t_clock_gettime  t_clock_nanosleep  t_clock_settime  t_nanosleep  #test
+check_PROGRAMS =            \
+	clock/t_clock_getres    \
+	clock/t_clock_gettime   \
+	clock/t_clock_nanosleep \
+	clock/t_clock_settime   \
+	clock/t_nanosleep
+
 TESTS = $(check_PROGRAMS)
