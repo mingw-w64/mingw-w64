@@ -198,11 +198,11 @@ main (int argc, char *argv[])
 
   _ftime(&currSysTime2);
 
-  printf( "\nstart: %ld/%d, stop: %ld/%d, duration:%ld\n",
-          currSysTime1.time,currSysTime1.millitm,
-          currSysTime2.time,currSysTime2.millitm,
-          (currSysTime2.time*1000+currSysTime2.millitm) -
-          (currSysTime1.time*1000+currSysTime1.millitm));
+  printf( "\nstart: %.0f/%d, stop: %.0f/%d, duration:%.0f\n",
+          (double) currSysTime1.time,currSysTime1.millitm,
+          (double) currSysTime2.time,currSysTime2.millitm,
+          (double) (currSysTime2.time*1000+currSysTime2.millitm) -
+          (double) (currSysTime1.time*1000+currSysTime1.millitm));
 
   return 0;
 }
