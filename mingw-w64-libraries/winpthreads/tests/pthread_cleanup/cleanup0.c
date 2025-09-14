@@ -149,7 +149,7 @@ main()
 
   InitializeCriticalSection(&pop_count.cs);
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
 
   for (i = 1; i <= NUMTHREADS; i++)
     {

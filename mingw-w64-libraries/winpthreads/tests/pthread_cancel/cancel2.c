@@ -167,7 +167,7 @@ main()
   int i;
   pthread_t t[NUMTHREADS + 1];
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
   assert(pthread_mutex_lock(&waitLock) == 0);
 
   for (i = 1; i <= NUMTHREADS; i++)

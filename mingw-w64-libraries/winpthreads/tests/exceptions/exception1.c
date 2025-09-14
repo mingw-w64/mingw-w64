@@ -196,7 +196,7 @@ main()
   pthread_t et[NUMTHREADS];
   pthread_t ct[NUMTHREADS];
 
-  assert((mt = pthread_self()).p != NULL);
+  assert((mt = pthread_self()) != NULL);
 
   for (i = 0; i < NUMTHREADS; i++)
     {
