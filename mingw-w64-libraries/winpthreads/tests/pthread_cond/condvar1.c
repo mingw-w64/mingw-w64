@@ -78,12 +78,10 @@
 
 #include "test.h"
 
-static pthread_cond_t cv = NULL;
-
 int
 main()
 {
-  assert(cv == NULL);
+  static pthread_cond_t cv;
 
   assert(pthread_cond_init(&cv, NULL) == 0);
 

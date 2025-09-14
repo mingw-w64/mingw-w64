@@ -42,12 +42,10 @@
 
 #include "test.h"
 
-pthread_rwlock_t rwlock = NULL;
-
 int
 main()
 {
-  assert(rwlock == NULL);
+  static pthread_rwlock_t rwlock;
 
   assert(pthread_rwlock_init(&rwlock, NULL) == 0);
 

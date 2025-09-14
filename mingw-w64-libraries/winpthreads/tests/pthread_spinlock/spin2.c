@@ -40,13 +40,11 @@
 
 #include "test.h"
  
-pthread_spinlock_t lock = NULL;
-
 static int washere = 0;
 
 void * func(void * arg)
 {
-  assert(pthread_spin_trylock(&lock) == EBUSY);
+  assert(pthread_spin_trylock((pthread_spinlock_t *) arg) == EBUSY);
 
   washere = 1;
 
@@ -56,13 +54,14 @@ void * func(void * arg)
 int
 main()
 {
+  static pthread_spinlock_t lock;
   pthread_t t;
 
   assert(pthread_spin_init(&lock, PTHREAD_PROCESS_PRIVATE) == 0);
 
   assert(pthread_spin_lock(&lock) == 0);
 
-  assert(pthread_create(&t, NULL, func, NULL) == 0);
+  assert(pthread_create(&t, NULL, func, &lock) == 0);
   assert(pthread_join(t, NULL) == 0);
 
   assert(pthread_spin_unlock(&lock) == 0);

@@ -46,17 +46,16 @@
 
 #include "test.h"
 
-pthread_mutex_t mutex = NULL;
-pthread_mutexattr_t mxAttr;
-
 int
 main()
 {
+  static pthread_mutexattr_t mxAttr;
+
   assert(pthread_mutexattr_init(&mxAttr) == 0);
 
   assert(pthread_mutexattr_settype(&mxAttr, PTHREAD_MUTEX_ERRORCHECK) == 0);
 
-  assert(mutex == NULL);
+  static pthread_mutex_t mutex;
 
   assert(pthread_mutex_init(&mutex, &mxAttr) == 0);
 

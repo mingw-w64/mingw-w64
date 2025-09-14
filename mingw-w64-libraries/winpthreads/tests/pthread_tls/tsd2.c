@@ -83,7 +83,7 @@ enum {
   NUM_THREADS = 100
 };
 
-static pthread_key_t key = NULL;
+static pthread_key_t key;
 static int accesscount[NUM_THREADS];
 static int thread_set[NUM_THREADS];
 static int thread_destroyed[NUM_THREADS];
