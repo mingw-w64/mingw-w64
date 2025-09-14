@@ -604,6 +604,16 @@ jobs:
           make -j$(nproc)
           make -j$(nproc) install
           make -j$(nproc) check -k -O || { cat testcases/test-suite.log; exit 1; }
+      - name: Build and test winpthreads
+        run: |
+          export PATH=/llvm-mingw/bin:$PATH
+          cd mingw-w64-libraries/winpthreads
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --disable-dependency-tracking --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --enable-silent-rules
+          make -j$(nproc)
+          make -j$(nproc) check -k -O || { cat tests/test-suite.log; exit 1; }
 
   testcases-gcc:
     runs-on: windows-latest
@@ -658,3 +668,13 @@ jobs:
           make -j$(nproc)
           make -j$(nproc) install
           make -j$(nproc) check -k -O || { cat testcases/test-suite.log; exit 1; }
+      - name: Build and test winpthreads
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          cd mingw-w64-libraries/winpthreads
+          autoreconf
+          mkdir build
+          cd build
+          ../configure --disable-dependency-tracking --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --enable-silent-rules
+          make -j$(nproc)
+          make -j$(nproc) check -k -O || { cat tests/test-suite.log; exit 1; }
