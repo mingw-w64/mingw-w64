@@ -41,6 +41,14 @@
 
 pthread_mutex_t mx = PTHREAD_MUTEX_INITIALIZER;
 
+/**
+ * Wrapper for `pthread_mutex_unlock` to be used with `pthread_cleanup_push`
+ */
+static void wrap_pthread_mutex_unlock (void *ptr)
+{
+  pthread_mutex_unlock ((pthread_mutex_t *) ptr);
+}
+
 void *
 func(void * arg)
 {
@@ -51,7 +59,7 @@ func(void * arg)
 #ifdef _MSC_VER
 #pragma inline_depth(0)
 #endif
-  pthread_cleanup_push(pthread_mutex_unlock, &mx);
+  pthread_cleanup_push(wrap_pthread_mutex_unlock, &mx);
   assert(pthread_delay_np(&interval) == 0);
   pthread_cleanup_pop(1);
 #ifdef _MSC_VER

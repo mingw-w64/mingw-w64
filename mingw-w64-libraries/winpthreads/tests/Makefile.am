@@ -3,7 +3,7 @@ AM_CFLAGS =
 AM_LDFLAGS = -L$(top_builddir)
 
 if !MSVC
-AM_CFLAGS += -Wno-error=int-conversion -Wno-error=incompatible-pointer-types
+AM_CFLAGS += -Wno-error=int-conversion
 AM_LDFLAGS += -L$(top_builddir)/fakelib
 endif
 

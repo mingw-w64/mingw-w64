@@ -37,11 +37,12 @@ static struct timespec abstime = { 0, 0 };
 
 static int awoken;
 
-static void _pthread_mutex_unlock_cleanup (pthread_mutex_t arg)
+/**
+ * Wrapper for `pthread_mutex_unlock` to be used with `pthread_cleanup_push`
+ */
+static void wrap_pthread_mutex_unlock (void *ptr)
 {
-    pthread_mutex_t *m = (pthread_mutex_t *)arg;
-
-    pthread_mutex_unlock (m);
+  pthread_mutex_unlock ((pthread_mutex_t *) ptr);
 }
 
 void *
@@ -62,7 +63,7 @@ mythread(void * arg)
 #ifdef _MSC_VER
 #pragma inline_depth(0)
 #endif
-  pthread_cleanup_push(_pthread_mutex_unlock_cleanup, (void *) &cvthing.lock);
+  pthread_cleanup_push(wrap_pthread_mutex_unlock, (void *) &cvthing.lock);
 
   while (! (cvthing.shared > 0)) {
       int r = pthread_cond_timedwait(&cvthing.notbusy, &cvthing.lock, &abstime);
