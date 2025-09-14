@@ -66,13 +66,13 @@ main()
 
   assert(rwlock != PTHREAD_RWLOCK_INITIALIZER);
 
-  assert(rwlock != NULL);
+  assert(rwlock);
 
   assert(pthread_rwlock_unlock(&rwlock) == 0);
 
   assert(pthread_rwlock_destroy(&rwlock) == 0);
 
-  assert(rwlock == NULL);
+  assert(!rwlock);
 
   return 0;
 }

@@ -85,11 +85,11 @@ main()
 
   assert(pthread_cond_init(&cv, NULL) == 0);
 
-  assert(cv != NULL);
+  assert(cv);
 
   assert(pthread_cond_destroy(&cv) == 0);
 
-  assert(cv == NULL);
+  assert(!cv);
 
   return 0;
 }

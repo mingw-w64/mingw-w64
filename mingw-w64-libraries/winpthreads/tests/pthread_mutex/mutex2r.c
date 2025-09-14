@@ -54,13 +54,13 @@ main()
 
   assert(mutex != PTHREAD_RECURSIVE_MUTEX_INITIALIZER);
 
-  assert(mutex != NULL);
+  assert(mutex);
 
   assert(pthread_mutex_unlock(&mutex) == 0);
 
   assert(pthread_mutex_destroy(&mutex) == 0);
 
-  assert(mutex == NULL);
+  assert(!mutex);
 
   return 0;
 }

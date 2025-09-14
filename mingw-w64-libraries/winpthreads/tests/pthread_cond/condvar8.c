@@ -174,11 +174,11 @@ main()
   
   assert(pthread_mutex_destroy(&cvthing.lock) == 0);
 
-  assert(cvthing.lock == NULL);
+  assert(!cvthing.lock);
 
   assert(pthread_cond_destroy(&cvthing.notbusy) == 0);
 
-  assert(cvthing.notbusy == NULL);
+  assert(!cvthing.notbusy);
 
   assert(!failed);
 

@@ -49,11 +49,11 @@ main()
 
   assert(pthread_rwlock_init(&rwlock, NULL) == 0);
 
-  assert(rwlock != NULL);
+  assert(rwlock);
 
   assert(pthread_rwlock_destroy(&rwlock) == 0);
 
-  assert(rwlock == NULL);
+  assert(!rwlock);
 
   return 0;
 }

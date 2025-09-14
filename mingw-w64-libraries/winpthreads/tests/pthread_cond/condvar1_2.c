@@ -108,7 +108,7 @@ main()
       do
         {
           i = (NUM_CV - 1) * rand() / RAND_MAX;
-          if (cv[i] != NULL)
+          if (cv[i])
             {
               j--;
               assert(pthread_cond_destroy(&cv[i]) == 0);

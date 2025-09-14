@@ -56,7 +56,7 @@ main()
 
   assert(mutex != PTHREAD_MUTEX_INITIALIZER);
 
-  assert(mutex != NULL);
+  assert(mutex);
 
   assert(pthread_mutex_unlock(&mutex) == 0);
   fprintf(stderr, "Mutex unlocked\n");
@@ -64,7 +64,7 @@ main()
   assert(pthread_mutex_destroy(&mutex) == 0);
   fprintf(stderr, "Mutex destroyed\n");
 
-  assert(mutex == NULL);
+  assert(!mutex);
 
   return 0;
 }
