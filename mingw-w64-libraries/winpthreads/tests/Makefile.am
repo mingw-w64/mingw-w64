@@ -2,7 +2,10 @@ AM_CPPFLAGS = -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
 AM_CFLAGS =
 AM_LDFLAGS = -L$(top_builddir)
 
-if !MSVC
+if MSVC
+AM_CFLAGS += -W3 -D_CRT_SECURE_NO_WARNINGS
+else
+AM_CFLAGS += -Wall
 AM_LDFLAGS += -L$(top_builddir)/fakelib
 endif
 
