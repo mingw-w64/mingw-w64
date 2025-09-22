@@ -553,7 +553,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 #endif
 
 #if defined(__GNUC__)
-__attribute__((used))
+static __attribute__((used))
 #endif
 WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF")))
 const PIMAGE_TLS_CALLBACK __xl_f = __dyn_tls_pthread;
