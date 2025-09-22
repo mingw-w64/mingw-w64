@@ -528,13 +528,15 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
 /* TLS-runtime section variable.  */
 
-#if defined(_MSC_VER)
 /* Force a reference to _tls_used to make the linker create the TLS
  * directory if it's not already there.  (e.g. if __declspec(thread)
  * is not used).
  * Force a reference to __xl_f to prevent whole program optimization
  * from discarding the variable. */
-
+#if defined(__GNUC__)
+extern const IMAGE_TLS_DIRECTORY _tls_used;
+static __attribute__((used)) const IMAGE_TLS_DIRECTORY *const _include_tls_used = &_tls_used;
+#elif defined(_MSC_VER)
 /* On x86, symbols are prefixed with an underscore. */
 # if defined(_M_IX86)
 #   pragma comment(linker, "/include:__tls_used")
