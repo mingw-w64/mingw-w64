@@ -553,7 +553,6 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 #endif
 
 WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF")))
-extern const PIMAGE_TLS_CALLBACK __xl_f;
 const PIMAGE_TLS_CALLBACK __xl_f = __dyn_tls_pthread;
 
 /* Internal collect-once structure.  */
