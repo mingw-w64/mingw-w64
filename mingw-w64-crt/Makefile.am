@@ -168,7 +168,6 @@ src_libws2_32=libsrc/ws2_32.c \
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
   misc/_onexit.c \
-  misc/btowc.c \
   misc/mbrlen.c \
   misc/mbrtowc.c \
   misc/mbsinit.c \
@@ -177,7 +176,6 @@ src_msvcrt_common=\
   misc/register_tls_atexit.c \
   misc/wcrtomb.c \
   misc/wcsrtombs.c \
-  misc/wctob.c \
   stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
   stdio/_putc_nolock.c \
@@ -427,8 +425,6 @@ src_ucrtbase=\
   misc/_onexit.c \
   misc/output_format.c \
   misc/ucrt-access.c \
-  misc/ucrt_btowc.c \
-  misc/ucrt_wctob.c \
   stdio/ucrt___local_stdio_printf_options.c \
   stdio/ucrt___local_stdio_scanf_options.c \
   stdio/ucrt__scprintf.c \
@@ -1138,6 +1134,7 @@ src_libmingwex=\
   misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
+  misc/btowc.c           misc/wctob.c \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/mingw-access.c \
   misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
