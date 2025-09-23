@@ -1847,7 +1847,7 @@ wcsncpy_s
 F_ARM_ANY(wcsnlen) ; i386 and x64 wcsnlen replaced by emu
 ; wcsrtombs replaced by emu, CRT version does not report invalid conversion state
 wcsrtombs_s
-F_ARM_ANY(wcstok_s) ; i386 and x64 wcstok_s replaced by emu
+__msvcrt_wcstok_s == wcstok_s ; wcstok_s replaced by emu, it does not call exception handler for invalid arguments
 wcstombs_s
 ; wctob replaced by emu, CRT version may sign-extend its return value
 wctomb_s

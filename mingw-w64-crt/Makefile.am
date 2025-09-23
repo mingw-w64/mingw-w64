@@ -682,6 +682,7 @@ src_msvcrtarm32=\
   misc/_getpid.c \
   misc/__initenv.c \
   misc/__winitenv.c \
+  secapi/msvcrt_arm_wcstok_s.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
   stdio/_stat64i32.c \
@@ -805,6 +806,7 @@ src_msvcrtarm64=\
   misc/_getpid.c \
   misc/__initenv.c \
   misc/__winitenv.c \
+  secapi/msvcrt_arm_wcstok_s.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
   stdio/_setmaxstdio.c \
