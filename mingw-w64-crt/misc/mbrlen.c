@@ -15,6 +15,5 @@ size_t mbrlen (
     static mbstate_t state_mbrlen = {0};
     state = &state_mbrlen;
   }
-  wchar_t wc = WEOF;
-  return mbrtowc (&wc, mbs, count, state);
+  return mbrtowc (NULL, mbs, count, state);
 }
