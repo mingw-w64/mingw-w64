@@ -24,10 +24,15 @@ size_t mbrtowc (
     state = &state_mbrtowc;
   }
 
-  /* Set `state` to initial state */
+  /**
+   * Calling mbrtowc (..., NULL, ..., state) is equivalent to
+   *
+   *  mbrtowc (NULL, "", 1, state)
+   */
   if (mbs == NULL) {
-    *state = 0;
-    return 0;
+    wc = NULL;
+    mbs = "";
+    count = 1;
   }
 
   /* Detect invalid conversion state */
@@ -96,8 +101,11 @@ size_t mbrtowc (
   if (conversion_state.bytes[0] == '\0') {
     if (wc != NULL) {
       *wc = L'\0';
-      *state = 0;
     }
+
+    /* Set `state` to initial conversion state */
+    *state = 0;
+
     return 0;
   }
 
@@ -119,8 +127,10 @@ size_t mbrtowc (
 
   if (wc != NULL) {
     *wc = wcOut;
-    *state = 0;
   }
+
+  /* Set `state` to initial conversion state */
+  *state = 0;
 
   return bytes_consumed;
 

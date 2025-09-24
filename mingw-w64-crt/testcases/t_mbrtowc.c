@@ -76,15 +76,8 @@ int main (void) {
   // reset errno
   _set_errno (0);
 
-  /**
-   * Set conversion state to initial state
-   */
-  wc = WEOF;
-
-  assert (mbrtowc (&wc, NULL, 0, &state) == 0);
-  assert (wc == WEOF);
-  assert (mbsinit (&state));
-  assert (errno == 0);
+  // reset `state`
+  set_conversion_state (&state, 0);
 
   /**
    * Test SBCS code page
