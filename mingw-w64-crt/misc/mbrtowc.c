@@ -3,13 +3,12 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <locale.h>
-#include <wchar.h>
-#include <stdlib.h>
 #include <errno.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <wchar.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 size_t mbrtowc (
