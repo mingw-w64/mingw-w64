@@ -7,10 +7,6 @@
 #include <tchar.h>
 #include <corecrt_startup.h>
 
-#ifndef _UNICODE
-#include <mbctype.h>
-#endif
-
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
@@ -40,7 +36,7 @@ int _tmain (int      __UNUSED_PARAM(argc),
           if (*lpCmdLine == DQUOTECHAR)
             inDoubleQuote = !inDoubleQuote;
 #ifndef _UNICODE
-          if (_ismbblead (*lpCmdLine))
+          if (IsDBCSLeadByte (*lpCmdLine))
             {
               if (lpCmdLine[1])
                 ++lpCmdLine;
