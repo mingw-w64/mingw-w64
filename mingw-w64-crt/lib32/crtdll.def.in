@@ -227,7 +227,7 @@ _ismbbgraph
 _ismbbkalnum
 _ismbbkana
 _ismbbkpunct
-; _ismbblead is replaced by emu
+_ismbblead
 _ismbbprint
 _ismbbpunct
 _ismbbtrail

@@ -982,7 +982,6 @@ src_crtdll=\
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/crtdll__getmainargs.c \
-  misc/crtdll__ismbblead.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
   misc/__p__mbctype.c
@@ -997,8 +996,7 @@ src_msvcrt10=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
-  misc/crtdll__getmainargs.c \
-  misc/msvcrt10__ismbblead.c
+  misc/crtdll__getmainargs.c
 
 src_msvcrt20=\
   $(src_pre_msvcrt40) \
