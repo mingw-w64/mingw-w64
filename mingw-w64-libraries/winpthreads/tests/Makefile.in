@@ -87,10 +87,107 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@MSVC_FALSE@am__append_1 = -L$(top_builddir)/fakelib
-check_PROGRAMS = t_clock_getres$(EXEEXT) t_clock_gettime$(EXEEXT) \
-	t_clock_nanosleep$(EXEEXT) t_clock_settime$(EXEEXT) \
-	t_nanosleep$(EXEEXT)
+@MSVC_TRUE@am__append_1 = -W3 -D_CRT_SECURE_NO_WARNINGS
+@MSVC_FALSE@am__append_2 = -Wall
+@MSVC_FALSE@am__append_3 = -L$(top_builddir)/fakelib
+check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
+	benchtests/benchtest2$(EXEEXT) benchtests/benchtest3$(EXEEXT) \
+	benchtests/benchtest4$(EXEEXT) benchtests/benchtest5$(EXEEXT) \
+	clock/t_clock_getres$(EXEEXT) clock/t_clock_gettime$(EXEEXT) \
+	clock/t_clock_nanosleep$(EXEEXT) \
+	clock/t_clock_settime$(EXEEXT) clock/t_nanosleep$(EXEEXT) \
+	exceptions/exception1$(EXEEXT) exceptions/exception2$(EXEEXT) \
+	exceptions/exception3$(EXEEXT) misc/loadfree$(EXEEXT) \
+	misc/tryentercs$(EXEEXT) misc/tryentercs2$(EXEEXT) \
+	pthread_barrier/barrier1$(EXEEXT) \
+	pthread_barrier/barrier2$(EXEEXT) \
+	pthread_barrier/barrier3$(EXEEXT) \
+	pthread_barrier/barrier4$(EXEEXT) \
+	pthread_barrier/barrier5$(EXEEXT) \
+	pthread_barrier/barrier6$(EXEEXT) \
+	pthread_cancel/cancel1$(EXEEXT) \
+	pthread_cancel/cancel2$(EXEEXT) \
+	pthread_cancel/cancel3$(EXEEXT) \
+	pthread_cancel/cancel4$(EXEEXT) \
+	pthread_cancel/cancel5$(EXEEXT) \
+	pthread_cancel/cancel6a$(EXEEXT) \
+	pthread_cancel/cancel6d$(EXEEXT) \
+	pthread_cancel/cancel7$(EXEEXT) \
+	pthread_cancel/cancel8$(EXEEXT) \
+	pthread_cleanup/cleanup0$(EXEEXT) \
+	pthread_cleanup/cleanup1$(EXEEXT) \
+	pthread_cleanup/cleanup2$(EXEEXT) \
+	pthread_cleanup/cleanup3$(EXEEXT) \
+	pthread_cond/condvar1$(EXEEXT) \
+	pthread_cond/condvar1_1$(EXEEXT) \
+	pthread_cond/condvar1_2$(EXEEXT) \
+	pthread_cond/condvar2$(EXEEXT) \
+	pthread_cond/condvar2_1$(EXEEXT) \
+	pthread_cond/condvar3$(EXEEXT) \
+	pthread_cond/condvar3_1$(EXEEXT) \
+	pthread_cond/condvar3_2$(EXEEXT) \
+	pthread_cond/condvar3_3$(EXEEXT) \
+	pthread_cond/condvar4$(EXEEXT) pthread_cond/condvar5$(EXEEXT) \
+	pthread_cond/condvar6$(EXEEXT) pthread_cond/condvar7$(EXEEXT) \
+	pthread_cond/condvar8$(EXEEXT) pthread_cond/condvar9$(EXEEXT) \
+	pthread_create/create1$(EXEEXT) \
+	pthread_create/create2$(EXEEXT) \
+	pthread_create/create3$(EXEEXT) pthread_exit/exit2$(EXEEXT) \
+	pthread_exit/exit3$(EXEEXT) pthread_exit/exit4$(EXEEXT) \
+	pthread_exit/exit5$(EXEEXT) pthread_join/join1$(EXEEXT) \
+	pthread_join/join2$(EXEEXT) pthread_join/join3$(EXEEXT) \
+	pthread_misc/context1$(EXEEXT) pthread_misc/count1$(EXEEXT) \
+	pthread_misc/delay1$(EXEEXT) pthread_misc/delay2$(EXEEXT) \
+	pthread_misc/detach1$(EXEEXT) pthread_misc/equal1$(EXEEXT) \
+	pthread_misc/errno1$(EXEEXT) pthread_misc/eyal1$(EXEEXT) \
+	pthread_misc/inherit1$(EXEEXT) pthread_misc/kill1$(EXEEXT) \
+	pthread_misc/reuse1$(EXEEXT) pthread_misc/reuse2$(EXEEXT) \
+	pthread_misc/self1$(EXEEXT) pthread_misc/self2$(EXEEXT) \
+	pthread_misc/stress1$(EXEEXT) pthread_misc/valid1$(EXEEXT) \
+	pthread_misc/valid2$(EXEEXT) pthread_mutex/mutex1$(EXEEXT) \
+	pthread_mutex/mutex1e$(EXEEXT) pthread_mutex/mutex1n$(EXEEXT) \
+	pthread_mutex/mutex1r$(EXEEXT) pthread_mutex/mutex2$(EXEEXT) \
+	pthread_mutex/mutex2e$(EXEEXT) pthread_mutex/mutex2r$(EXEEXT) \
+	pthread_mutex/mutex3$(EXEEXT) pthread_mutex/mutex3e$(EXEEXT) \
+	pthread_mutex/mutex3r$(EXEEXT) pthread_mutex/mutex4$(EXEEXT) \
+	pthread_mutex/mutex5$(EXEEXT) pthread_mutex/mutex6$(EXEEXT) \
+	pthread_mutex/mutex6e$(EXEEXT) pthread_mutex/mutex6es$(EXEEXT) \
+	pthread_mutex/mutex6n$(EXEEXT) pthread_mutex/mutex6r$(EXEEXT) \
+	pthread_mutex/mutex6rs$(EXEEXT) pthread_mutex/mutex6s$(EXEEXT) \
+	pthread_mutex/mutex7$(EXEEXT) pthread_mutex/mutex7e$(EXEEXT) \
+	pthread_mutex/mutex7n$(EXEEXT) pthread_mutex/mutex7r$(EXEEXT) \
+	pthread_mutex/mutex8$(EXEEXT) pthread_mutex/mutex8e$(EXEEXT) \
+	pthread_mutex/mutex8n$(EXEEXT) pthread_mutex/mutex8r$(EXEEXT) \
+	pthread_once/once1$(EXEEXT) pthread_once/once2$(EXEEXT) \
+	pthread_once/once3$(EXEEXT) pthread_once/once4$(EXEEXT) \
+	pthread_rwlock/rwlock1$(EXEEXT) \
+	pthread_rwlock/rwlock2$(EXEEXT) \
+	pthread_rwlock/rwlock2_t$(EXEEXT) \
+	pthread_rwlock/rwlock3$(EXEEXT) \
+	pthread_rwlock/rwlock3_t$(EXEEXT) \
+	pthread_rwlock/rwlock4$(EXEEXT) \
+	pthread_rwlock/rwlock4_t$(EXEEXT) \
+	pthread_rwlock/rwlock5$(EXEEXT) \
+	pthread_rwlock/rwlock5_t$(EXEEXT) \
+	pthread_rwlock/rwlock6$(EXEEXT) \
+	pthread_rwlock/rwlock6_t$(EXEEXT) \
+	pthread_rwlock/rwlock6_t2$(EXEEXT) \
+	pthread_rwlock/rwlock7$(EXEEXT) \
+	pthread_rwlock/rwlock8$(EXEEXT) \
+	pthread_spinlock/spin1$(EXEEXT) \
+	pthread_spinlock/spin2$(EXEEXT) \
+	pthread_spinlock/spin3$(EXEEXT) \
+	pthread_spinlock/spin4$(EXEEXT) pthread_tls/tsd1$(EXEEXT) \
+	pthread_tls/tsd2$(EXEEXT) sched/priority1$(EXEEXT) \
+	sched/priority2$(EXEEXT) semaphore/semaphore1$(EXEEXT) \
+	semaphore/semaphore2$(EXEEXT) semaphore/semaphore3$(EXEEXT) \
+	semaphore/semaphore4$(EXEEXT) semaphore/semaphore4t$(EXEEXT) \
+	semaphore/semaphore5$(EXEEXT)
+XFAIL_TESTS = pthread_mutex/mutex4$(EXEEXT) \
+	pthread_mutex/mutex6e$(EXEEXT) pthread_mutex/mutex6es$(EXEEXT) \
+	pthread_mutex/mutex7$(EXEEXT) pthread_mutex/mutex7e$(EXEEXT) \
+	pthread_mutex/mutex7n$(EXEEXT) pthread_spinlock/spin1$(EXEEXT) \
+	pthread_spinlock/spin3$(EXEEXT)
 subdir = tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -104,30 +201,609 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-t_clock_getres_SOURCES = t_clock_getres.c
-t_clock_getres_OBJECTS = t_clock_getres.$(OBJEXT)
-t_clock_getres_LDADD = $(LDADD)
-t_clock_getres_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+ARFLAGS = cru
+AM_V_AR = $(am__v_AR_@AM_V@)
+am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
+am__v_AR_0 = @echo "  AR      " $@;
+am__v_AR_1 = 
+libbenchlib_a_AR = $(AR) $(ARFLAGS)
+libbenchlib_a_LIBADD =
+am__dirstamp = $(am__leading_dot)dirstamp
+am_libbenchlib_a_OBJECTS = benchtests/benchlib.$(OBJEXT)
+libbenchlib_a_OBJECTS = $(am_libbenchlib_a_OBJECTS)
+benchtests_benchtest1_SOURCES = benchtests/benchtest1.c
+benchtests_benchtest1_OBJECTS = benchtests/benchtest1.$(OBJEXT)
+benchtests_benchtest1_DEPENDENCIES = libbenchlib.a $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-t_clock_gettime_SOURCES = t_clock_gettime.c
-t_clock_gettime_OBJECTS = t_clock_gettime.$(OBJEXT)
-t_clock_gettime_LDADD = $(LDADD)
-t_clock_gettime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-t_clock_nanosleep_SOURCES = t_clock_nanosleep.c
-t_clock_nanosleep_OBJECTS = t_clock_nanosleep.$(OBJEXT)
-t_clock_nanosleep_LDADD = $(LDADD)
-t_clock_nanosleep_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-t_clock_settime_SOURCES = t_clock_settime.c
-t_clock_settime_OBJECTS = t_clock_settime.$(OBJEXT)
-t_clock_settime_LDADD = $(LDADD)
-t_clock_settime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-t_nanosleep_SOURCES = t_nanosleep.c
-t_nanosleep_OBJECTS = t_nanosleep.$(OBJEXT)
-t_nanosleep_LDADD = $(LDADD)
-t_nanosleep_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+benchtests_benchtest2_SOURCES = benchtests/benchtest2.c
+benchtests_benchtest2_OBJECTS = benchtests/benchtest2.$(OBJEXT)
+benchtests_benchtest2_DEPENDENCIES = libbenchlib.a $(LDADD)
+benchtests_benchtest3_SOURCES = benchtests/benchtest3.c
+benchtests_benchtest3_OBJECTS = benchtests/benchtest3.$(OBJEXT)
+benchtests_benchtest3_DEPENDENCIES = libbenchlib.a $(LDADD)
+benchtests_benchtest4_SOURCES = benchtests/benchtest4.c
+benchtests_benchtest4_OBJECTS = benchtests/benchtest4.$(OBJEXT)
+benchtests_benchtest4_DEPENDENCIES = libbenchlib.a $(LDADD)
+benchtests_benchtest5_SOURCES = benchtests/benchtest5.c
+benchtests_benchtest5_OBJECTS = benchtests/benchtest5.$(OBJEXT)
+benchtests_benchtest5_DEPENDENCIES = libbenchlib.a $(LDADD)
+clock_t_clock_getres_SOURCES = clock/t_clock_getres.c
+clock_t_clock_getres_OBJECTS = clock/t_clock_getres.$(OBJEXT)
+clock_t_clock_getres_LDADD = $(LDADD)
+clock_t_clock_getres_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+clock_t_clock_gettime_SOURCES = clock/t_clock_gettime.c
+clock_t_clock_gettime_OBJECTS = clock/t_clock_gettime.$(OBJEXT)
+clock_t_clock_gettime_LDADD = $(LDADD)
+clock_t_clock_gettime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+clock_t_clock_nanosleep_SOURCES = clock/t_clock_nanosleep.c
+clock_t_clock_nanosleep_OBJECTS = clock/t_clock_nanosleep.$(OBJEXT)
+clock_t_clock_nanosleep_LDADD = $(LDADD)
+clock_t_clock_nanosleep_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_t_clock_settime_SOURCES = clock/t_clock_settime.c
+clock_t_clock_settime_OBJECTS = clock/t_clock_settime.$(OBJEXT)
+clock_t_clock_settime_LDADD = $(LDADD)
+clock_t_clock_settime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+clock_t_nanosleep_SOURCES = clock/t_nanosleep.c
+clock_t_nanosleep_OBJECTS = clock/t_nanosleep.$(OBJEXT)
+clock_t_nanosleep_LDADD = $(LDADD)
+clock_t_nanosleep_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+exceptions_exception1_SOURCES = exceptions/exception1.c
+exceptions_exception1_OBJECTS = exceptions/exception1.$(OBJEXT)
+exceptions_exception1_LDADD = $(LDADD)
+exceptions_exception1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+exceptions_exception2_SOURCES = exceptions/exception2.c
+exceptions_exception2_OBJECTS = exceptions/exception2.$(OBJEXT)
+exceptions_exception2_LDADD = $(LDADD)
+exceptions_exception2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+exceptions_exception3_SOURCES = exceptions/exception3.c
+exceptions_exception3_OBJECTS = exceptions/exception3.$(OBJEXT)
+exceptions_exception3_LDADD = $(LDADD)
+exceptions_exception3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+misc_loadfree_SOURCES = misc/loadfree.c
+misc_loadfree_OBJECTS = misc/loadfree.$(OBJEXT)
+misc_loadfree_LDADD = $(LDADD)
+misc_loadfree_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+misc_tryentercs_SOURCES = misc/tryentercs.c
+misc_tryentercs_OBJECTS = misc/tryentercs.$(OBJEXT)
+misc_tryentercs_LDADD = $(LDADD)
+misc_tryentercs_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+misc_tryentercs2_SOURCES = misc/tryentercs2.c
+misc_tryentercs2_OBJECTS = misc/tryentercs2.$(OBJEXT)
+misc_tryentercs2_LDADD = $(LDADD)
+misc_tryentercs2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_barrier_barrier1_SOURCES = pthread_barrier/barrier1.c
+pthread_barrier_barrier1_OBJECTS = pthread_barrier/barrier1.$(OBJEXT)
+pthread_barrier_barrier1_LDADD = $(LDADD)
+pthread_barrier_barrier1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_barrier_barrier2_SOURCES = pthread_barrier/barrier2.c
+pthread_barrier_barrier2_OBJECTS = pthread_barrier/barrier2.$(OBJEXT)
+pthread_barrier_barrier2_LDADD = $(LDADD)
+pthread_barrier_barrier2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_barrier_barrier3_SOURCES = pthread_barrier/barrier3.c
+pthread_barrier_barrier3_OBJECTS = pthread_barrier/barrier3.$(OBJEXT)
+pthread_barrier_barrier3_LDADD = $(LDADD)
+pthread_barrier_barrier3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_barrier_barrier4_SOURCES = pthread_barrier/barrier4.c
+pthread_barrier_barrier4_OBJECTS = pthread_barrier/barrier4.$(OBJEXT)
+pthread_barrier_barrier4_LDADD = $(LDADD)
+pthread_barrier_barrier4_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_barrier_barrier5_SOURCES = pthread_barrier/barrier5.c
+pthread_barrier_barrier5_OBJECTS = pthread_barrier/barrier5.$(OBJEXT)
+pthread_barrier_barrier5_LDADD = $(LDADD)
+pthread_barrier_barrier5_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_barrier_barrier6_SOURCES = pthread_barrier/barrier6.c
+pthread_barrier_barrier6_OBJECTS = pthread_barrier/barrier6.$(OBJEXT)
+pthread_barrier_barrier6_LDADD = $(LDADD)
+pthread_barrier_barrier6_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel1_SOURCES = pthread_cancel/cancel1.c
+pthread_cancel_cancel1_OBJECTS = pthread_cancel/cancel1.$(OBJEXT)
+pthread_cancel_cancel1_LDADD = $(LDADD)
+pthread_cancel_cancel1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel2_SOURCES = pthread_cancel/cancel2.c
+pthread_cancel_cancel2_OBJECTS = pthread_cancel/cancel2.$(OBJEXT)
+pthread_cancel_cancel2_LDADD = $(LDADD)
+pthread_cancel_cancel2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel3_SOURCES = pthread_cancel/cancel3.c
+pthread_cancel_cancel3_OBJECTS = pthread_cancel/cancel3.$(OBJEXT)
+pthread_cancel_cancel3_LDADD = $(LDADD)
+pthread_cancel_cancel3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel4_SOURCES = pthread_cancel/cancel4.c
+pthread_cancel_cancel4_OBJECTS = pthread_cancel/cancel4.$(OBJEXT)
+pthread_cancel_cancel4_LDADD = $(LDADD)
+pthread_cancel_cancel4_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel5_SOURCES = pthread_cancel/cancel5.c
+pthread_cancel_cancel5_OBJECTS = pthread_cancel/cancel5.$(OBJEXT)
+pthread_cancel_cancel5_LDADD = $(LDADD)
+pthread_cancel_cancel5_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel6a_SOURCES = pthread_cancel/cancel6a.c
+pthread_cancel_cancel6a_OBJECTS = pthread_cancel/cancel6a.$(OBJEXT)
+pthread_cancel_cancel6a_LDADD = $(LDADD)
+pthread_cancel_cancel6a_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel6d_SOURCES = pthread_cancel/cancel6d.c
+pthread_cancel_cancel6d_OBJECTS = pthread_cancel/cancel6d.$(OBJEXT)
+pthread_cancel_cancel6d_LDADD = $(LDADD)
+pthread_cancel_cancel6d_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel7_SOURCES = pthread_cancel/cancel7.c
+pthread_cancel_cancel7_OBJECTS = pthread_cancel/cancel7.$(OBJEXT)
+pthread_cancel_cancel7_LDADD = $(LDADD)
+pthread_cancel_cancel7_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cancel_cancel8_SOURCES = pthread_cancel/cancel8.c
+pthread_cancel_cancel8_OBJECTS = pthread_cancel/cancel8.$(OBJEXT)
+pthread_cancel_cancel8_LDADD = $(LDADD)
+pthread_cancel_cancel8_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cleanup_cleanup0_SOURCES = pthread_cleanup/cleanup0.c
+pthread_cleanup_cleanup0_OBJECTS = pthread_cleanup/cleanup0.$(OBJEXT)
+pthread_cleanup_cleanup0_LDADD = $(LDADD)
+pthread_cleanup_cleanup0_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cleanup_cleanup1_SOURCES = pthread_cleanup/cleanup1.c
+pthread_cleanup_cleanup1_OBJECTS = pthread_cleanup/cleanup1.$(OBJEXT)
+pthread_cleanup_cleanup1_LDADD = $(LDADD)
+pthread_cleanup_cleanup1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cleanup_cleanup2_SOURCES = pthread_cleanup/cleanup2.c
+pthread_cleanup_cleanup2_OBJECTS = pthread_cleanup/cleanup2.$(OBJEXT)
+pthread_cleanup_cleanup2_LDADD = $(LDADD)
+pthread_cleanup_cleanup2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cleanup_cleanup3_SOURCES = pthread_cleanup/cleanup3.c
+pthread_cleanup_cleanup3_OBJECTS = pthread_cleanup/cleanup3.$(OBJEXT)
+pthread_cleanup_cleanup3_LDADD = $(LDADD)
+pthread_cleanup_cleanup3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar1_SOURCES = pthread_cond/condvar1.c
+pthread_cond_condvar1_OBJECTS = pthread_cond/condvar1.$(OBJEXT)
+pthread_cond_condvar1_LDADD = $(LDADD)
+pthread_cond_condvar1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar1_1_SOURCES = pthread_cond/condvar1_1.c
+pthread_cond_condvar1_1_OBJECTS = pthread_cond/condvar1_1.$(OBJEXT)
+pthread_cond_condvar1_1_LDADD = $(LDADD)
+pthread_cond_condvar1_1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar1_2_SOURCES = pthread_cond/condvar1_2.c
+pthread_cond_condvar1_2_OBJECTS = pthread_cond/condvar1_2.$(OBJEXT)
+pthread_cond_condvar1_2_LDADD = $(LDADD)
+pthread_cond_condvar1_2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar2_SOURCES = pthread_cond/condvar2.c
+pthread_cond_condvar2_OBJECTS = pthread_cond/condvar2.$(OBJEXT)
+pthread_cond_condvar2_LDADD = $(LDADD)
+pthread_cond_condvar2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar2_1_SOURCES = pthread_cond/condvar2_1.c
+pthread_cond_condvar2_1_OBJECTS = pthread_cond/condvar2_1.$(OBJEXT)
+pthread_cond_condvar2_1_LDADD = $(LDADD)
+pthread_cond_condvar2_1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar3_SOURCES = pthread_cond/condvar3.c
+pthread_cond_condvar3_OBJECTS = pthread_cond/condvar3.$(OBJEXT)
+pthread_cond_condvar3_LDADD = $(LDADD)
+pthread_cond_condvar3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar3_1_SOURCES = pthread_cond/condvar3_1.c
+pthread_cond_condvar3_1_OBJECTS = pthread_cond/condvar3_1.$(OBJEXT)
+pthread_cond_condvar3_1_LDADD = $(LDADD)
+pthread_cond_condvar3_1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar3_2_SOURCES = pthread_cond/condvar3_2.c
+pthread_cond_condvar3_2_OBJECTS = pthread_cond/condvar3_2.$(OBJEXT)
+pthread_cond_condvar3_2_LDADD = $(LDADD)
+pthread_cond_condvar3_2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar3_3_SOURCES = pthread_cond/condvar3_3.c
+pthread_cond_condvar3_3_OBJECTS = pthread_cond/condvar3_3.$(OBJEXT)
+pthread_cond_condvar3_3_LDADD = $(LDADD)
+pthread_cond_condvar3_3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_cond_condvar4_SOURCES = pthread_cond/condvar4.c
+pthread_cond_condvar4_OBJECTS = pthread_cond/condvar4.$(OBJEXT)
+pthread_cond_condvar4_LDADD = $(LDADD)
+pthread_cond_condvar4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar5_SOURCES = pthread_cond/condvar5.c
+pthread_cond_condvar5_OBJECTS = pthread_cond/condvar5.$(OBJEXT)
+pthread_cond_condvar5_LDADD = $(LDADD)
+pthread_cond_condvar5_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar6_SOURCES = pthread_cond/condvar6.c
+pthread_cond_condvar6_OBJECTS = pthread_cond/condvar6.$(OBJEXT)
+pthread_cond_condvar6_LDADD = $(LDADD)
+pthread_cond_condvar6_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar7_SOURCES = pthread_cond/condvar7.c
+pthread_cond_condvar7_OBJECTS = pthread_cond/condvar7.$(OBJEXT)
+pthread_cond_condvar7_LDADD = $(LDADD)
+pthread_cond_condvar7_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar8_SOURCES = pthread_cond/condvar8.c
+pthread_cond_condvar8_OBJECTS = pthread_cond/condvar8.$(OBJEXT)
+pthread_cond_condvar8_LDADD = $(LDADD)
+pthread_cond_condvar8_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_cond_condvar9_SOURCES = pthread_cond/condvar9.c
+pthread_cond_condvar9_OBJECTS = pthread_cond/condvar9.$(OBJEXT)
+pthread_cond_condvar9_LDADD = $(LDADD)
+pthread_cond_condvar9_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_create_create1_SOURCES = pthread_create/create1.c
+pthread_create_create1_OBJECTS = pthread_create/create1.$(OBJEXT)
+pthread_create_create1_LDADD = $(LDADD)
+pthread_create_create1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_create_create2_SOURCES = pthread_create/create2.c
+pthread_create_create2_OBJECTS = pthread_create/create2.$(OBJEXT)
+pthread_create_create2_LDADD = $(LDADD)
+pthread_create_create2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_create_create3_SOURCES = pthread_create/create3.c
+pthread_create_create3_OBJECTS = pthread_create/create3.$(OBJEXT)
+pthread_create_create3_LDADD = $(LDADD)
+pthread_create_create3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_exit_exit2_SOURCES = pthread_exit/exit2.c
+pthread_exit_exit2_OBJECTS = pthread_exit/exit2.$(OBJEXT)
+pthread_exit_exit2_LDADD = $(LDADD)
+pthread_exit_exit2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_exit_exit3_SOURCES = pthread_exit/exit3.c
+pthread_exit_exit3_OBJECTS = pthread_exit/exit3.$(OBJEXT)
+pthread_exit_exit3_LDADD = $(LDADD)
+pthread_exit_exit3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_exit_exit4_SOURCES = pthread_exit/exit4.c
+pthread_exit_exit4_OBJECTS = pthread_exit/exit4.$(OBJEXT)
+pthread_exit_exit4_LDADD = $(LDADD)
+pthread_exit_exit4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_exit_exit5_SOURCES = pthread_exit/exit5.c
+pthread_exit_exit5_OBJECTS = pthread_exit/exit5.$(OBJEXT)
+pthread_exit_exit5_LDADD = $(LDADD)
+pthread_exit_exit5_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_join_join1_SOURCES = pthread_join/join1.c
+pthread_join_join1_OBJECTS = pthread_join/join1.$(OBJEXT)
+pthread_join_join1_LDADD = $(LDADD)
+pthread_join_join1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_join_join2_SOURCES = pthread_join/join2.c
+pthread_join_join2_OBJECTS = pthread_join/join2.$(OBJEXT)
+pthread_join_join2_LDADD = $(LDADD)
+pthread_join_join2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_join_join3_SOURCES = pthread_join/join3.c
+pthread_join_join3_OBJECTS = pthread_join/join3.$(OBJEXT)
+pthread_join_join3_LDADD = $(LDADD)
+pthread_join_join3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_context1_SOURCES = pthread_misc/context1.c
+pthread_misc_context1_OBJECTS = pthread_misc/context1.$(OBJEXT)
+pthread_misc_context1_LDADD = $(LDADD)
+pthread_misc_context1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_count1_SOURCES = pthread_misc/count1.c
+pthread_misc_count1_OBJECTS = pthread_misc/count1.$(OBJEXT)
+pthread_misc_count1_LDADD = $(LDADD)
+pthread_misc_count1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_delay1_SOURCES = pthread_misc/delay1.c
+pthread_misc_delay1_OBJECTS = pthread_misc/delay1.$(OBJEXT)
+pthread_misc_delay1_LDADD = $(LDADD)
+pthread_misc_delay1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_delay2_SOURCES = pthread_misc/delay2.c
+pthread_misc_delay2_OBJECTS = pthread_misc/delay2.$(OBJEXT)
+pthread_misc_delay2_LDADD = $(LDADD)
+pthread_misc_delay2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_detach1_SOURCES = pthread_misc/detach1.c
+pthread_misc_detach1_OBJECTS = pthread_misc/detach1.$(OBJEXT)
+pthread_misc_detach1_LDADD = $(LDADD)
+pthread_misc_detach1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_equal1_SOURCES = pthread_misc/equal1.c
+pthread_misc_equal1_OBJECTS = pthread_misc/equal1.$(OBJEXT)
+pthread_misc_equal1_LDADD = $(LDADD)
+pthread_misc_equal1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_errno1_SOURCES = pthread_misc/errno1.c
+pthread_misc_errno1_OBJECTS = pthread_misc/errno1.$(OBJEXT)
+pthread_misc_errno1_LDADD = $(LDADD)
+pthread_misc_errno1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_eyal1_SOURCES = pthread_misc/eyal1.c
+pthread_misc_eyal1_OBJECTS = pthread_misc/eyal1.$(OBJEXT)
+pthread_misc_eyal1_LDADD = $(LDADD)
+pthread_misc_eyal1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_inherit1_SOURCES = pthread_misc/inherit1.c
+pthread_misc_inherit1_OBJECTS = pthread_misc/inherit1.$(OBJEXT)
+pthread_misc_inherit1_LDADD = $(LDADD)
+pthread_misc_inherit1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_kill1_SOURCES = pthread_misc/kill1.c
+pthread_misc_kill1_OBJECTS = pthread_misc/kill1.$(OBJEXT)
+pthread_misc_kill1_LDADD = $(LDADD)
+pthread_misc_kill1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_reuse1_SOURCES = pthread_misc/reuse1.c
+pthread_misc_reuse1_OBJECTS = pthread_misc/reuse1.$(OBJEXT)
+pthread_misc_reuse1_LDADD = $(LDADD)
+pthread_misc_reuse1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_reuse2_SOURCES = pthread_misc/reuse2.c
+pthread_misc_reuse2_OBJECTS = pthread_misc/reuse2.$(OBJEXT)
+pthread_misc_reuse2_LDADD = $(LDADD)
+pthread_misc_reuse2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_self1_SOURCES = pthread_misc/self1.c
+pthread_misc_self1_OBJECTS = pthread_misc/self1.$(OBJEXT)
+pthread_misc_self1_LDADD = $(LDADD)
+pthread_misc_self1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_self2_SOURCES = pthread_misc/self2.c
+pthread_misc_self2_OBJECTS = pthread_misc/self2.$(OBJEXT)
+pthread_misc_self2_LDADD = $(LDADD)
+pthread_misc_self2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_stress1_SOURCES = pthread_misc/stress1.c
+pthread_misc_stress1_OBJECTS = pthread_misc/stress1.$(OBJEXT)
+pthread_misc_stress1_LDADD = $(LDADD)
+pthread_misc_stress1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_valid1_SOURCES = pthread_misc/valid1.c
+pthread_misc_valid1_OBJECTS = pthread_misc/valid1.$(OBJEXT)
+pthread_misc_valid1_LDADD = $(LDADD)
+pthread_misc_valid1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_valid2_SOURCES = pthread_misc/valid2.c
+pthread_misc_valid2_OBJECTS = pthread_misc/valid2.$(OBJEXT)
+pthread_misc_valid2_LDADD = $(LDADD)
+pthread_misc_valid2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex1_SOURCES = pthread_mutex/mutex1.c
+pthread_mutex_mutex1_OBJECTS = pthread_mutex/mutex1.$(OBJEXT)
+pthread_mutex_mutex1_LDADD = $(LDADD)
+pthread_mutex_mutex1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex1e_SOURCES = pthread_mutex/mutex1e.c
+pthread_mutex_mutex1e_OBJECTS = pthread_mutex/mutex1e.$(OBJEXT)
+pthread_mutex_mutex1e_LDADD = $(LDADD)
+pthread_mutex_mutex1e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex1n_SOURCES = pthread_mutex/mutex1n.c
+pthread_mutex_mutex1n_OBJECTS = pthread_mutex/mutex1n.$(OBJEXT)
+pthread_mutex_mutex1n_LDADD = $(LDADD)
+pthread_mutex_mutex1n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex1r_SOURCES = pthread_mutex/mutex1r.c
+pthread_mutex_mutex1r_OBJECTS = pthread_mutex/mutex1r.$(OBJEXT)
+pthread_mutex_mutex1r_LDADD = $(LDADD)
+pthread_mutex_mutex1r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex2_SOURCES = pthread_mutex/mutex2.c
+pthread_mutex_mutex2_OBJECTS = pthread_mutex/mutex2.$(OBJEXT)
+pthread_mutex_mutex2_LDADD = $(LDADD)
+pthread_mutex_mutex2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex2e_SOURCES = pthread_mutex/mutex2e.c
+pthread_mutex_mutex2e_OBJECTS = pthread_mutex/mutex2e.$(OBJEXT)
+pthread_mutex_mutex2e_LDADD = $(LDADD)
+pthread_mutex_mutex2e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex2r_SOURCES = pthread_mutex/mutex2r.c
+pthread_mutex_mutex2r_OBJECTS = pthread_mutex/mutex2r.$(OBJEXT)
+pthread_mutex_mutex2r_LDADD = $(LDADD)
+pthread_mutex_mutex2r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex3_SOURCES = pthread_mutex/mutex3.c
+pthread_mutex_mutex3_OBJECTS = pthread_mutex/mutex3.$(OBJEXT)
+pthread_mutex_mutex3_LDADD = $(LDADD)
+pthread_mutex_mutex3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex3e_SOURCES = pthread_mutex/mutex3e.c
+pthread_mutex_mutex3e_OBJECTS = pthread_mutex/mutex3e.$(OBJEXT)
+pthread_mutex_mutex3e_LDADD = $(LDADD)
+pthread_mutex_mutex3e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex3r_SOURCES = pthread_mutex/mutex3r.c
+pthread_mutex_mutex3r_OBJECTS = pthread_mutex/mutex3r.$(OBJEXT)
+pthread_mutex_mutex3r_LDADD = $(LDADD)
+pthread_mutex_mutex3r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex4_SOURCES = pthread_mutex/mutex4.c
+pthread_mutex_mutex4_OBJECTS = pthread_mutex/mutex4.$(OBJEXT)
+pthread_mutex_mutex4_LDADD = $(LDADD)
+pthread_mutex_mutex4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex5_SOURCES = pthread_mutex/mutex5.c
+pthread_mutex_mutex5_OBJECTS = pthread_mutex/mutex5.$(OBJEXT)
+pthread_mutex_mutex5_LDADD = $(LDADD)
+pthread_mutex_mutex5_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6_SOURCES = pthread_mutex/mutex6.c
+pthread_mutex_mutex6_OBJECTS = pthread_mutex/mutex6.$(OBJEXT)
+pthread_mutex_mutex6_LDADD = $(LDADD)
+pthread_mutex_mutex6_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6e_SOURCES = pthread_mutex/mutex6e.c
+pthread_mutex_mutex6e_OBJECTS = pthread_mutex/mutex6e.$(OBJEXT)
+pthread_mutex_mutex6e_LDADD = $(LDADD)
+pthread_mutex_mutex6e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6es_SOURCES = pthread_mutex/mutex6es.c
+pthread_mutex_mutex6es_OBJECTS = pthread_mutex/mutex6es.$(OBJEXT)
+pthread_mutex_mutex6es_LDADD = $(LDADD)
+pthread_mutex_mutex6es_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6n_SOURCES = pthread_mutex/mutex6n.c
+pthread_mutex_mutex6n_OBJECTS = pthread_mutex/mutex6n.$(OBJEXT)
+pthread_mutex_mutex6n_LDADD = $(LDADD)
+pthread_mutex_mutex6n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6r_SOURCES = pthread_mutex/mutex6r.c
+pthread_mutex_mutex6r_OBJECTS = pthread_mutex/mutex6r.$(OBJEXT)
+pthread_mutex_mutex6r_LDADD = $(LDADD)
+pthread_mutex_mutex6r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6rs_SOURCES = pthread_mutex/mutex6rs.c
+pthread_mutex_mutex6rs_OBJECTS = pthread_mutex/mutex6rs.$(OBJEXT)
+pthread_mutex_mutex6rs_LDADD = $(LDADD)
+pthread_mutex_mutex6rs_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_mutex6s_SOURCES = pthread_mutex/mutex6s.c
+pthread_mutex_mutex6s_OBJECTS = pthread_mutex/mutex6s.$(OBJEXT)
+pthread_mutex_mutex6s_LDADD = $(LDADD)
+pthread_mutex_mutex6s_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex7_SOURCES = pthread_mutex/mutex7.c
+pthread_mutex_mutex7_OBJECTS = pthread_mutex/mutex7.$(OBJEXT)
+pthread_mutex_mutex7_LDADD = $(LDADD)
+pthread_mutex_mutex7_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex7e_SOURCES = pthread_mutex/mutex7e.c
+pthread_mutex_mutex7e_OBJECTS = pthread_mutex/mutex7e.$(OBJEXT)
+pthread_mutex_mutex7e_LDADD = $(LDADD)
+pthread_mutex_mutex7e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex7n_SOURCES = pthread_mutex/mutex7n.c
+pthread_mutex_mutex7n_OBJECTS = pthread_mutex/mutex7n.$(OBJEXT)
+pthread_mutex_mutex7n_LDADD = $(LDADD)
+pthread_mutex_mutex7n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex7r_SOURCES = pthread_mutex/mutex7r.c
+pthread_mutex_mutex7r_OBJECTS = pthread_mutex/mutex7r.$(OBJEXT)
+pthread_mutex_mutex7r_LDADD = $(LDADD)
+pthread_mutex_mutex7r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex8_SOURCES = pthread_mutex/mutex8.c
+pthread_mutex_mutex8_OBJECTS = pthread_mutex/mutex8.$(OBJEXT)
+pthread_mutex_mutex8_LDADD = $(LDADD)
+pthread_mutex_mutex8_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex8e_SOURCES = pthread_mutex/mutex8e.c
+pthread_mutex_mutex8e_OBJECTS = pthread_mutex/mutex8e.$(OBJEXT)
+pthread_mutex_mutex8e_LDADD = $(LDADD)
+pthread_mutex_mutex8e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex8n_SOURCES = pthread_mutex/mutex8n.c
+pthread_mutex_mutex8n_OBJECTS = pthread_mutex/mutex8n.$(OBJEXT)
+pthread_mutex_mutex8n_LDADD = $(LDADD)
+pthread_mutex_mutex8n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_mutex8r_SOURCES = pthread_mutex/mutex8r.c
+pthread_mutex_mutex8r_OBJECTS = pthread_mutex/mutex8r.$(OBJEXT)
+pthread_mutex_mutex8r_LDADD = $(LDADD)
+pthread_mutex_mutex8r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_once_once1_SOURCES = pthread_once/once1.c
+pthread_once_once1_OBJECTS = pthread_once/once1.$(OBJEXT)
+pthread_once_once1_LDADD = $(LDADD)
+pthread_once_once1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_once_once2_SOURCES = pthread_once/once2.c
+pthread_once_once2_OBJECTS = pthread_once/once2.$(OBJEXT)
+pthread_once_once2_LDADD = $(LDADD)
+pthread_once_once2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_once_once3_SOURCES = pthread_once/once3.c
+pthread_once_once3_OBJECTS = pthread_once/once3.$(OBJEXT)
+pthread_once_once3_LDADD = $(LDADD)
+pthread_once_once3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_once_once4_SOURCES = pthread_once/once4.c
+pthread_once_once4_OBJECTS = pthread_once/once4.$(OBJEXT)
+pthread_once_once4_LDADD = $(LDADD)
+pthread_once_once4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock1_SOURCES = pthread_rwlock/rwlock1.c
+pthread_rwlock_rwlock1_OBJECTS = pthread_rwlock/rwlock1.$(OBJEXT)
+pthread_rwlock_rwlock1_LDADD = $(LDADD)
+pthread_rwlock_rwlock1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock2_SOURCES = pthread_rwlock/rwlock2.c
+pthread_rwlock_rwlock2_OBJECTS = pthread_rwlock/rwlock2.$(OBJEXT)
+pthread_rwlock_rwlock2_LDADD = $(LDADD)
+pthread_rwlock_rwlock2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock2_t_SOURCES = pthread_rwlock/rwlock2_t.c
+pthread_rwlock_rwlock2_t_OBJECTS = pthread_rwlock/rwlock2_t.$(OBJEXT)
+pthread_rwlock_rwlock2_t_LDADD = $(LDADD)
+pthread_rwlock_rwlock2_t_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock3_SOURCES = pthread_rwlock/rwlock3.c
+pthread_rwlock_rwlock3_OBJECTS = pthread_rwlock/rwlock3.$(OBJEXT)
+pthread_rwlock_rwlock3_LDADD = $(LDADD)
+pthread_rwlock_rwlock3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock3_t_SOURCES = pthread_rwlock/rwlock3_t.c
+pthread_rwlock_rwlock3_t_OBJECTS = pthread_rwlock/rwlock3_t.$(OBJEXT)
+pthread_rwlock_rwlock3_t_LDADD = $(LDADD)
+pthread_rwlock_rwlock3_t_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock4_SOURCES = pthread_rwlock/rwlock4.c
+pthread_rwlock_rwlock4_OBJECTS = pthread_rwlock/rwlock4.$(OBJEXT)
+pthread_rwlock_rwlock4_LDADD = $(LDADD)
+pthread_rwlock_rwlock4_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock4_t_SOURCES = pthread_rwlock/rwlock4_t.c
+pthread_rwlock_rwlock4_t_OBJECTS = pthread_rwlock/rwlock4_t.$(OBJEXT)
+pthread_rwlock_rwlock4_t_LDADD = $(LDADD)
+pthread_rwlock_rwlock4_t_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock5_SOURCES = pthread_rwlock/rwlock5.c
+pthread_rwlock_rwlock5_OBJECTS = pthread_rwlock/rwlock5.$(OBJEXT)
+pthread_rwlock_rwlock5_LDADD = $(LDADD)
+pthread_rwlock_rwlock5_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock5_t_SOURCES = pthread_rwlock/rwlock5_t.c
+pthread_rwlock_rwlock5_t_OBJECTS = pthread_rwlock/rwlock5_t.$(OBJEXT)
+pthread_rwlock_rwlock5_t_LDADD = $(LDADD)
+pthread_rwlock_rwlock5_t_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock6_SOURCES = pthread_rwlock/rwlock6.c
+pthread_rwlock_rwlock6_OBJECTS = pthread_rwlock/rwlock6.$(OBJEXT)
+pthread_rwlock_rwlock6_LDADD = $(LDADD)
+pthread_rwlock_rwlock6_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock6_t_SOURCES = pthread_rwlock/rwlock6_t.c
+pthread_rwlock_rwlock6_t_OBJECTS = pthread_rwlock/rwlock6_t.$(OBJEXT)
+pthread_rwlock_rwlock6_t_LDADD = $(LDADD)
+pthread_rwlock_rwlock6_t_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock6_t2_SOURCES = pthread_rwlock/rwlock6_t2.c
+pthread_rwlock_rwlock6_t2_OBJECTS =  \
+	pthread_rwlock/rwlock6_t2.$(OBJEXT)
+pthread_rwlock_rwlock6_t2_LDADD = $(LDADD)
+pthread_rwlock_rwlock6_t2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock7_SOURCES = pthread_rwlock/rwlock7.c
+pthread_rwlock_rwlock7_OBJECTS = pthread_rwlock/rwlock7.$(OBJEXT)
+pthread_rwlock_rwlock7_LDADD = $(LDADD)
+pthread_rwlock_rwlock7_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_rwlock_rwlock8_SOURCES = pthread_rwlock/rwlock8.c
+pthread_rwlock_rwlock8_OBJECTS = pthread_rwlock/rwlock8.$(OBJEXT)
+pthread_rwlock_rwlock8_LDADD = $(LDADD)
+pthread_rwlock_rwlock8_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_spinlock_spin1_SOURCES = pthread_spinlock/spin1.c
+pthread_spinlock_spin1_OBJECTS = pthread_spinlock/spin1.$(OBJEXT)
+pthread_spinlock_spin1_LDADD = $(LDADD)
+pthread_spinlock_spin1_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_spinlock_spin2_SOURCES = pthread_spinlock/spin2.c
+pthread_spinlock_spin2_OBJECTS = pthread_spinlock/spin2.$(OBJEXT)
+pthread_spinlock_spin2_LDADD = $(LDADD)
+pthread_spinlock_spin2_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_spinlock_spin3_SOURCES = pthread_spinlock/spin3.c
+pthread_spinlock_spin3_OBJECTS = pthread_spinlock/spin3.$(OBJEXT)
+pthread_spinlock_spin3_LDADD = $(LDADD)
+pthread_spinlock_spin3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_spinlock_spin4_SOURCES = pthread_spinlock/spin4.c
+pthread_spinlock_spin4_OBJECTS = pthread_spinlock/spin4.$(OBJEXT)
+pthread_spinlock_spin4_LDADD = $(LDADD)
+pthread_spinlock_spin4_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_tls_tsd1_SOURCES = pthread_tls/tsd1.c
+pthread_tls_tsd1_OBJECTS = pthread_tls/tsd1.$(OBJEXT)
+pthread_tls_tsd1_LDADD = $(LDADD)
+pthread_tls_tsd1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_tls_tsd2_SOURCES = pthread_tls/tsd2.c
+pthread_tls_tsd2_OBJECTS = pthread_tls/tsd2.$(OBJEXT)
+pthread_tls_tsd2_LDADD = $(LDADD)
+pthread_tls_tsd2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+sched_priority1_SOURCES = sched/priority1.c
+sched_priority1_OBJECTS = sched/priority1.$(OBJEXT)
+sched_priority1_LDADD = $(LDADD)
+sched_priority1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+sched_priority2_SOURCES = sched/priority2.c
+sched_priority2_OBJECTS = sched/priority2.$(OBJEXT)
+sched_priority2_LDADD = $(LDADD)
+sched_priority2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore1_SOURCES = semaphore/semaphore1.c
+semaphore_semaphore1_OBJECTS = semaphore/semaphore1.$(OBJEXT)
+semaphore_semaphore1_LDADD = $(LDADD)
+semaphore_semaphore1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore2_SOURCES = semaphore/semaphore2.c
+semaphore_semaphore2_OBJECTS = semaphore/semaphore2.$(OBJEXT)
+semaphore_semaphore2_LDADD = $(LDADD)
+semaphore_semaphore2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore3_SOURCES = semaphore/semaphore3.c
+semaphore_semaphore3_OBJECTS = semaphore/semaphore3.$(OBJEXT)
+semaphore_semaphore3_LDADD = $(LDADD)
+semaphore_semaphore3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore4_SOURCES = semaphore/semaphore4.c
+semaphore_semaphore4_OBJECTS = semaphore/semaphore4.$(OBJEXT)
+semaphore_semaphore4_LDADD = $(LDADD)
+semaphore_semaphore4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore4t_SOURCES = semaphore/semaphore4t.c
+semaphore_semaphore4t_OBJECTS = semaphore/semaphore4t.$(OBJEXT)
+semaphore_semaphore4t_LDADD = $(LDADD)
+semaphore_semaphore4t_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+semaphore_semaphore5_SOURCES = semaphore/semaphore5.c
+semaphore_semaphore5_OBJECTS = semaphore/semaphore5.$(OBJEXT)
+semaphore_semaphore5_LDADD = $(LDADD)
+semaphore_semaphore5_DEPENDENCIES = $(top_builddir)/libwinpthread.la
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -143,10 +819,139 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/t_clock_getres.Po \
-	./$(DEPDIR)/t_clock_gettime.Po \
-	./$(DEPDIR)/t_clock_nanosleep.Po \
-	./$(DEPDIR)/t_clock_settime.Po ./$(DEPDIR)/t_nanosleep.Po
+am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
+	benchtests/$(DEPDIR)/benchtest1.Po \
+	benchtests/$(DEPDIR)/benchtest2.Po \
+	benchtests/$(DEPDIR)/benchtest3.Po \
+	benchtests/$(DEPDIR)/benchtest4.Po \
+	benchtests/$(DEPDIR)/benchtest5.Po \
+	clock/$(DEPDIR)/t_clock_getres.Po \
+	clock/$(DEPDIR)/t_clock_gettime.Po \
+	clock/$(DEPDIR)/t_clock_nanosleep.Po \
+	clock/$(DEPDIR)/t_clock_settime.Po \
+	clock/$(DEPDIR)/t_nanosleep.Po \
+	exceptions/$(DEPDIR)/exception1.Po \
+	exceptions/$(DEPDIR)/exception2.Po \
+	exceptions/$(DEPDIR)/exception3.Po misc/$(DEPDIR)/loadfree.Po \
+	misc/$(DEPDIR)/tryentercs.Po misc/$(DEPDIR)/tryentercs2.Po \
+	pthread_barrier/$(DEPDIR)/barrier1.Po \
+	pthread_barrier/$(DEPDIR)/barrier2.Po \
+	pthread_barrier/$(DEPDIR)/barrier3.Po \
+	pthread_barrier/$(DEPDIR)/barrier4.Po \
+	pthread_barrier/$(DEPDIR)/barrier5.Po \
+	pthread_barrier/$(DEPDIR)/barrier6.Po \
+	pthread_cancel/$(DEPDIR)/cancel1.Po \
+	pthread_cancel/$(DEPDIR)/cancel2.Po \
+	pthread_cancel/$(DEPDIR)/cancel3.Po \
+	pthread_cancel/$(DEPDIR)/cancel4.Po \
+	pthread_cancel/$(DEPDIR)/cancel5.Po \
+	pthread_cancel/$(DEPDIR)/cancel6a.Po \
+	pthread_cancel/$(DEPDIR)/cancel6d.Po \
+	pthread_cancel/$(DEPDIR)/cancel7.Po \
+	pthread_cancel/$(DEPDIR)/cancel8.Po \
+	pthread_cleanup/$(DEPDIR)/cleanup0.Po \
+	pthread_cleanup/$(DEPDIR)/cleanup1.Po \
+	pthread_cleanup/$(DEPDIR)/cleanup2.Po \
+	pthread_cleanup/$(DEPDIR)/cleanup3.Po \
+	pthread_cond/$(DEPDIR)/condvar1.Po \
+	pthread_cond/$(DEPDIR)/condvar1_1.Po \
+	pthread_cond/$(DEPDIR)/condvar1_2.Po \
+	pthread_cond/$(DEPDIR)/condvar2.Po \
+	pthread_cond/$(DEPDIR)/condvar2_1.Po \
+	pthread_cond/$(DEPDIR)/condvar3.Po \
+	pthread_cond/$(DEPDIR)/condvar3_1.Po \
+	pthread_cond/$(DEPDIR)/condvar3_2.Po \
+	pthread_cond/$(DEPDIR)/condvar3_3.Po \
+	pthread_cond/$(DEPDIR)/condvar4.Po \
+	pthread_cond/$(DEPDIR)/condvar5.Po \
+	pthread_cond/$(DEPDIR)/condvar6.Po \
+	pthread_cond/$(DEPDIR)/condvar7.Po \
+	pthread_cond/$(DEPDIR)/condvar8.Po \
+	pthread_cond/$(DEPDIR)/condvar9.Po \
+	pthread_create/$(DEPDIR)/create1.Po \
+	pthread_create/$(DEPDIR)/create2.Po \
+	pthread_create/$(DEPDIR)/create3.Po \
+	pthread_exit/$(DEPDIR)/exit2.Po \
+	pthread_exit/$(DEPDIR)/exit3.Po \
+	pthread_exit/$(DEPDIR)/exit4.Po \
+	pthread_exit/$(DEPDIR)/exit5.Po \
+	pthread_join/$(DEPDIR)/join1.Po \
+	pthread_join/$(DEPDIR)/join2.Po \
+	pthread_join/$(DEPDIR)/join3.Po \
+	pthread_misc/$(DEPDIR)/context1.Po \
+	pthread_misc/$(DEPDIR)/count1.Po \
+	pthread_misc/$(DEPDIR)/delay1.Po \
+	pthread_misc/$(DEPDIR)/delay2.Po \
+	pthread_misc/$(DEPDIR)/detach1.Po \
+	pthread_misc/$(DEPDIR)/equal1.Po \
+	pthread_misc/$(DEPDIR)/errno1.Po \
+	pthread_misc/$(DEPDIR)/eyal1.Po \
+	pthread_misc/$(DEPDIR)/inherit1.Po \
+	pthread_misc/$(DEPDIR)/kill1.Po \
+	pthread_misc/$(DEPDIR)/reuse1.Po \
+	pthread_misc/$(DEPDIR)/reuse2.Po \
+	pthread_misc/$(DEPDIR)/self1.Po \
+	pthread_misc/$(DEPDIR)/self2.Po \
+	pthread_misc/$(DEPDIR)/stress1.Po \
+	pthread_misc/$(DEPDIR)/valid1.Po \
+	pthread_misc/$(DEPDIR)/valid2.Po \
+	pthread_mutex/$(DEPDIR)/mutex1.Po \
+	pthread_mutex/$(DEPDIR)/mutex1e.Po \
+	pthread_mutex/$(DEPDIR)/mutex1n.Po \
+	pthread_mutex/$(DEPDIR)/mutex1r.Po \
+	pthread_mutex/$(DEPDIR)/mutex2.Po \
+	pthread_mutex/$(DEPDIR)/mutex2e.Po \
+	pthread_mutex/$(DEPDIR)/mutex2r.Po \
+	pthread_mutex/$(DEPDIR)/mutex3.Po \
+	pthread_mutex/$(DEPDIR)/mutex3e.Po \
+	pthread_mutex/$(DEPDIR)/mutex3r.Po \
+	pthread_mutex/$(DEPDIR)/mutex4.Po \
+	pthread_mutex/$(DEPDIR)/mutex5.Po \
+	pthread_mutex/$(DEPDIR)/mutex6.Po \
+	pthread_mutex/$(DEPDIR)/mutex6e.Po \
+	pthread_mutex/$(DEPDIR)/mutex6es.Po \
+	pthread_mutex/$(DEPDIR)/mutex6n.Po \
+	pthread_mutex/$(DEPDIR)/mutex6r.Po \
+	pthread_mutex/$(DEPDIR)/mutex6rs.Po \
+	pthread_mutex/$(DEPDIR)/mutex6s.Po \
+	pthread_mutex/$(DEPDIR)/mutex7.Po \
+	pthread_mutex/$(DEPDIR)/mutex7e.Po \
+	pthread_mutex/$(DEPDIR)/mutex7n.Po \
+	pthread_mutex/$(DEPDIR)/mutex7r.Po \
+	pthread_mutex/$(DEPDIR)/mutex8.Po \
+	pthread_mutex/$(DEPDIR)/mutex8e.Po \
+	pthread_mutex/$(DEPDIR)/mutex8n.Po \
+	pthread_mutex/$(DEPDIR)/mutex8r.Po \
+	pthread_once/$(DEPDIR)/once1.Po \
+	pthread_once/$(DEPDIR)/once2.Po \
+	pthread_once/$(DEPDIR)/once3.Po \
+	pthread_once/$(DEPDIR)/once4.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock1.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock2.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock2_t.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock3.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock3_t.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock4.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock4_t.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock5.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock5_t.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock6.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock6_t.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock7.Po \
+	pthread_rwlock/$(DEPDIR)/rwlock8.Po \
+	pthread_spinlock/$(DEPDIR)/spin1.Po \
+	pthread_spinlock/$(DEPDIR)/spin2.Po \
+	pthread_spinlock/$(DEPDIR)/spin3.Po \
+	pthread_spinlock/$(DEPDIR)/spin4.Po \
+	pthread_tls/$(DEPDIR)/tsd1.Po pthread_tls/$(DEPDIR)/tsd2.Po \
+	sched/$(DEPDIR)/priority1.Po sched/$(DEPDIR)/priority2.Po \
+	semaphore/$(DEPDIR)/semaphore1.Po \
+	semaphore/$(DEPDIR)/semaphore2.Po \
+	semaphore/$(DEPDIR)/semaphore3.Po \
+	semaphore/$(DEPDIR)/semaphore4.Po \
+	semaphore/$(DEPDIR)/semaphore4t.Po \
+	semaphore/$(DEPDIR)/semaphore5.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -166,10 +971,138 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = t_clock_getres.c t_clock_gettime.c t_clock_nanosleep.c \
-	t_clock_settime.c t_nanosleep.c
-DIST_SOURCES = t_clock_getres.c t_clock_gettime.c t_clock_nanosleep.c \
-	t_clock_settime.c t_nanosleep.c
+SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
+	benchtests/benchtest2.c benchtests/benchtest3.c \
+	benchtests/benchtest4.c benchtests/benchtest5.c \
+	clock/t_clock_getres.c clock/t_clock_gettime.c \
+	clock/t_clock_nanosleep.c clock/t_clock_settime.c \
+	clock/t_nanosleep.c exceptions/exception1.c \
+	exceptions/exception2.c exceptions/exception3.c \
+	misc/loadfree.c misc/tryentercs.c misc/tryentercs2.c \
+	pthread_barrier/barrier1.c pthread_barrier/barrier2.c \
+	pthread_barrier/barrier3.c pthread_barrier/barrier4.c \
+	pthread_barrier/barrier5.c pthread_barrier/barrier6.c \
+	pthread_cancel/cancel1.c pthread_cancel/cancel2.c \
+	pthread_cancel/cancel3.c pthread_cancel/cancel4.c \
+	pthread_cancel/cancel5.c pthread_cancel/cancel6a.c \
+	pthread_cancel/cancel6d.c pthread_cancel/cancel7.c \
+	pthread_cancel/cancel8.c pthread_cleanup/cleanup0.c \
+	pthread_cleanup/cleanup1.c pthread_cleanup/cleanup2.c \
+	pthread_cleanup/cleanup3.c pthread_cond/condvar1.c \
+	pthread_cond/condvar1_1.c pthread_cond/condvar1_2.c \
+	pthread_cond/condvar2.c pthread_cond/condvar2_1.c \
+	pthread_cond/condvar3.c pthread_cond/condvar3_1.c \
+	pthread_cond/condvar3_2.c pthread_cond/condvar3_3.c \
+	pthread_cond/condvar4.c pthread_cond/condvar5.c \
+	pthread_cond/condvar6.c pthread_cond/condvar7.c \
+	pthread_cond/condvar8.c pthread_cond/condvar9.c \
+	pthread_create/create1.c pthread_create/create2.c \
+	pthread_create/create3.c pthread_exit/exit2.c \
+	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
+	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
+	pthread_misc/context1.c pthread_misc/count1.c \
+	pthread_misc/delay1.c pthread_misc/delay2.c \
+	pthread_misc/detach1.c pthread_misc/equal1.c \
+	pthread_misc/errno1.c pthread_misc/eyal1.c \
+	pthread_misc/inherit1.c pthread_misc/kill1.c \
+	pthread_misc/reuse1.c pthread_misc/reuse2.c \
+	pthread_misc/self1.c pthread_misc/self2.c \
+	pthread_misc/stress1.c pthread_misc/valid1.c \
+	pthread_misc/valid2.c pthread_mutex/mutex1.c \
+	pthread_mutex/mutex1e.c pthread_mutex/mutex1n.c \
+	pthread_mutex/mutex1r.c pthread_mutex/mutex2.c \
+	pthread_mutex/mutex2e.c pthread_mutex/mutex2r.c \
+	pthread_mutex/mutex3.c pthread_mutex/mutex3e.c \
+	pthread_mutex/mutex3r.c pthread_mutex/mutex4.c \
+	pthread_mutex/mutex5.c pthread_mutex/mutex6.c \
+	pthread_mutex/mutex6e.c pthread_mutex/mutex6es.c \
+	pthread_mutex/mutex6n.c pthread_mutex/mutex6r.c \
+	pthread_mutex/mutex6rs.c pthread_mutex/mutex6s.c \
+	pthread_mutex/mutex7.c pthread_mutex/mutex7e.c \
+	pthread_mutex/mutex7n.c pthread_mutex/mutex7r.c \
+	pthread_mutex/mutex8.c pthread_mutex/mutex8e.c \
+	pthread_mutex/mutex8n.c pthread_mutex/mutex8r.c \
+	pthread_once/once1.c pthread_once/once2.c pthread_once/once3.c \
+	pthread_once/once4.c pthread_rwlock/rwlock1.c \
+	pthread_rwlock/rwlock2.c pthread_rwlock/rwlock2_t.c \
+	pthread_rwlock/rwlock3.c pthread_rwlock/rwlock3_t.c \
+	pthread_rwlock/rwlock4.c pthread_rwlock/rwlock4_t.c \
+	pthread_rwlock/rwlock5.c pthread_rwlock/rwlock5_t.c \
+	pthread_rwlock/rwlock6.c pthread_rwlock/rwlock6_t.c \
+	pthread_rwlock/rwlock6_t2.c pthread_rwlock/rwlock7.c \
+	pthread_rwlock/rwlock8.c pthread_spinlock/spin1.c \
+	pthread_spinlock/spin2.c pthread_spinlock/spin3.c \
+	pthread_spinlock/spin4.c pthread_tls/tsd1.c pthread_tls/tsd2.c \
+	sched/priority1.c sched/priority2.c semaphore/semaphore1.c \
+	semaphore/semaphore2.c semaphore/semaphore3.c \
+	semaphore/semaphore4.c semaphore/semaphore4t.c \
+	semaphore/semaphore5.c
+DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
+	benchtests/benchtest2.c benchtests/benchtest3.c \
+	benchtests/benchtest4.c benchtests/benchtest5.c \
+	clock/t_clock_getres.c clock/t_clock_gettime.c \
+	clock/t_clock_nanosleep.c clock/t_clock_settime.c \
+	clock/t_nanosleep.c exceptions/exception1.c \
+	exceptions/exception2.c exceptions/exception3.c \
+	misc/loadfree.c misc/tryentercs.c misc/tryentercs2.c \
+	pthread_barrier/barrier1.c pthread_barrier/barrier2.c \
+	pthread_barrier/barrier3.c pthread_barrier/barrier4.c \
+	pthread_barrier/barrier5.c pthread_barrier/barrier6.c \
+	pthread_cancel/cancel1.c pthread_cancel/cancel2.c \
+	pthread_cancel/cancel3.c pthread_cancel/cancel4.c \
+	pthread_cancel/cancel5.c pthread_cancel/cancel6a.c \
+	pthread_cancel/cancel6d.c pthread_cancel/cancel7.c \
+	pthread_cancel/cancel8.c pthread_cleanup/cleanup0.c \
+	pthread_cleanup/cleanup1.c pthread_cleanup/cleanup2.c \
+	pthread_cleanup/cleanup3.c pthread_cond/condvar1.c \
+	pthread_cond/condvar1_1.c pthread_cond/condvar1_2.c \
+	pthread_cond/condvar2.c pthread_cond/condvar2_1.c \
+	pthread_cond/condvar3.c pthread_cond/condvar3_1.c \
+	pthread_cond/condvar3_2.c pthread_cond/condvar3_3.c \
+	pthread_cond/condvar4.c pthread_cond/condvar5.c \
+	pthread_cond/condvar6.c pthread_cond/condvar7.c \
+	pthread_cond/condvar8.c pthread_cond/condvar9.c \
+	pthread_create/create1.c pthread_create/create2.c \
+	pthread_create/create3.c pthread_exit/exit2.c \
+	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
+	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
+	pthread_misc/context1.c pthread_misc/count1.c \
+	pthread_misc/delay1.c pthread_misc/delay2.c \
+	pthread_misc/detach1.c pthread_misc/equal1.c \
+	pthread_misc/errno1.c pthread_misc/eyal1.c \
+	pthread_misc/inherit1.c pthread_misc/kill1.c \
+	pthread_misc/reuse1.c pthread_misc/reuse2.c \
+	pthread_misc/self1.c pthread_misc/self2.c \
+	pthread_misc/stress1.c pthread_misc/valid1.c \
+	pthread_misc/valid2.c pthread_mutex/mutex1.c \
+	pthread_mutex/mutex1e.c pthread_mutex/mutex1n.c \
+	pthread_mutex/mutex1r.c pthread_mutex/mutex2.c \
+	pthread_mutex/mutex2e.c pthread_mutex/mutex2r.c \
+	pthread_mutex/mutex3.c pthread_mutex/mutex3e.c \
+	pthread_mutex/mutex3r.c pthread_mutex/mutex4.c \
+	pthread_mutex/mutex5.c pthread_mutex/mutex6.c \
+	pthread_mutex/mutex6e.c pthread_mutex/mutex6es.c \
+	pthread_mutex/mutex6n.c pthread_mutex/mutex6r.c \
+	pthread_mutex/mutex6rs.c pthread_mutex/mutex6s.c \
+	pthread_mutex/mutex7.c pthread_mutex/mutex7e.c \
+	pthread_mutex/mutex7n.c pthread_mutex/mutex7r.c \
+	pthread_mutex/mutex8.c pthread_mutex/mutex8e.c \
+	pthread_mutex/mutex8n.c pthread_mutex/mutex8r.c \
+	pthread_once/once1.c pthread_once/once2.c pthread_once/once3.c \
+	pthread_once/once4.c pthread_rwlock/rwlock1.c \
+	pthread_rwlock/rwlock2.c pthread_rwlock/rwlock2_t.c \
+	pthread_rwlock/rwlock3.c pthread_rwlock/rwlock3_t.c \
+	pthread_rwlock/rwlock4.c pthread_rwlock/rwlock4_t.c \
+	pthread_rwlock/rwlock5.c pthread_rwlock/rwlock5_t.c \
+	pthread_rwlock/rwlock6.c pthread_rwlock/rwlock6_t.c \
+	pthread_rwlock/rwlock6_t2.c pthread_rwlock/rwlock7.c \
+	pthread_rwlock/rwlock8.c pthread_spinlock/spin1.c \
+	pthread_spinlock/spin2.c pthread_spinlock/spin3.c \
+	pthread_spinlock/spin4.c pthread_tls/tsd1.c pthread_tls/tsd2.c \
+	sched/priority1.c sched/priority2.c semaphore/semaphore1.c \
+	semaphore/semaphore2.c semaphore/semaphore3.c \
+	semaphore/semaphore4.c semaphore/semaphore4t.c \
+	semaphore/semaphore5.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -527,9 +1460,21 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/include
-AM_LDFLAGS = -L$(top_builddir) $(am__append_1)
+AM_CPPFLAGS = -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
+AM_CFLAGS = $(am__append_1) $(am__append_2)
+AM_LDFLAGS = -L$(top_builddir) $(am__append_3)
 LDADD = $(top_builddir)/libwinpthread.la
+check_LIBRARIES = \
+	libbenchlib.a
+
+libbenchlib_a_SOURCES = \
+	benchtests/benchlib.c
+
+benchtests_benchtest1_LDADD = libbenchlib.a $(LDADD)
+benchtests_benchtest2_LDADD = libbenchlib.a $(LDADD)
+benchtests_benchtest3_LDADD = libbenchlib.a $(LDADD)
+benchtests_benchtest4_LDADD = libbenchlib.a $(LDADD)
+benchtests_benchtest5_LDADD = libbenchlib.a $(LDADD)
 TESTS = $(check_PROGRAMS)
 all: all-am
 
@@ -574,37 +1519,1108 @@ clean-checkPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-t_clock_getres$(EXEEXT): $(t_clock_getres_OBJECTS) $(t_clock_getres_DEPENDENCIES) $(EXTRA_t_clock_getres_DEPENDENCIES) 
-	@rm -f t_clock_getres$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_clock_getres_OBJECTS) $(t_clock_getres_LDADD) $(LIBS)
+clean-checkLIBRARIES:
+	-test -z "$(check_LIBRARIES)" || rm -f $(check_LIBRARIES)
+benchtests/$(am__dirstamp):
+	@$(MKDIR_P) benchtests
+	@: > benchtests/$(am__dirstamp)
+benchtests/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) benchtests/$(DEPDIR)
+	@: > benchtests/$(DEPDIR)/$(am__dirstamp)
+benchtests/benchlib.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
 
-t_clock_gettime$(EXEEXT): $(t_clock_gettime_OBJECTS) $(t_clock_gettime_DEPENDENCIES) $(EXTRA_t_clock_gettime_DEPENDENCIES) 
-	@rm -f t_clock_gettime$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_clock_gettime_OBJECTS) $(t_clock_gettime_LDADD) $(LIBS)
+libbenchlib.a: $(libbenchlib_a_OBJECTS) $(libbenchlib_a_DEPENDENCIES) $(EXTRA_libbenchlib_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libbenchlib.a
+	$(AM_V_AR)$(libbenchlib_a_AR) libbenchlib.a $(libbenchlib_a_OBJECTS) $(libbenchlib_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libbenchlib.a
+benchtests/benchtest1.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
 
-t_clock_nanosleep$(EXEEXT): $(t_clock_nanosleep_OBJECTS) $(t_clock_nanosleep_DEPENDENCIES) $(EXTRA_t_clock_nanosleep_DEPENDENCIES) 
-	@rm -f t_clock_nanosleep$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_clock_nanosleep_OBJECTS) $(t_clock_nanosleep_LDADD) $(LIBS)
+benchtests/benchtest1$(EXEEXT): $(benchtests_benchtest1_OBJECTS) $(benchtests_benchtest1_DEPENDENCIES) $(EXTRA_benchtests_benchtest1_DEPENDENCIES) benchtests/$(am__dirstamp)
+	@rm -f benchtests/benchtest1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(benchtests_benchtest1_OBJECTS) $(benchtests_benchtest1_LDADD) $(LIBS)
+benchtests/benchtest2.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
 
-t_clock_settime$(EXEEXT): $(t_clock_settime_OBJECTS) $(t_clock_settime_DEPENDENCIES) $(EXTRA_t_clock_settime_DEPENDENCIES) 
-	@rm -f t_clock_settime$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_clock_settime_OBJECTS) $(t_clock_settime_LDADD) $(LIBS)
+benchtests/benchtest2$(EXEEXT): $(benchtests_benchtest2_OBJECTS) $(benchtests_benchtest2_DEPENDENCIES) $(EXTRA_benchtests_benchtest2_DEPENDENCIES) benchtests/$(am__dirstamp)
+	@rm -f benchtests/benchtest2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(benchtests_benchtest2_OBJECTS) $(benchtests_benchtest2_LDADD) $(LIBS)
+benchtests/benchtest3.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
 
-t_nanosleep$(EXEEXT): $(t_nanosleep_OBJECTS) $(t_nanosleep_DEPENDENCIES) $(EXTRA_t_nanosleep_DEPENDENCIES) 
-	@rm -f t_nanosleep$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_nanosleep_OBJECTS) $(t_nanosleep_LDADD) $(LIBS)
+benchtests/benchtest3$(EXEEXT): $(benchtests_benchtest3_OBJECTS) $(benchtests_benchtest3_DEPENDENCIES) $(EXTRA_benchtests_benchtest3_DEPENDENCIES) benchtests/$(am__dirstamp)
+	@rm -f benchtests/benchtest3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(benchtests_benchtest3_OBJECTS) $(benchtests_benchtest3_LDADD) $(LIBS)
+benchtests/benchtest4.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
+
+benchtests/benchtest4$(EXEEXT): $(benchtests_benchtest4_OBJECTS) $(benchtests_benchtest4_DEPENDENCIES) $(EXTRA_benchtests_benchtest4_DEPENDENCIES) benchtests/$(am__dirstamp)
+	@rm -f benchtests/benchtest4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(benchtests_benchtest4_OBJECTS) $(benchtests_benchtest4_LDADD) $(LIBS)
+benchtests/benchtest5.$(OBJEXT): benchtests/$(am__dirstamp) \
+	benchtests/$(DEPDIR)/$(am__dirstamp)
+
+benchtests/benchtest5$(EXEEXT): $(benchtests_benchtest5_OBJECTS) $(benchtests_benchtest5_DEPENDENCIES) $(EXTRA_benchtests_benchtest5_DEPENDENCIES) benchtests/$(am__dirstamp)
+	@rm -f benchtests/benchtest5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(benchtests_benchtest5_OBJECTS) $(benchtests_benchtest5_LDADD) $(LIBS)
+clock/$(am__dirstamp):
+	@$(MKDIR_P) clock
+	@: > clock/$(am__dirstamp)
+clock/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) clock/$(DEPDIR)
+	@: > clock/$(DEPDIR)/$(am__dirstamp)
+clock/t_clock_getres.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/t_clock_getres$(EXEEXT): $(clock_t_clock_getres_OBJECTS) $(clock_t_clock_getres_DEPENDENCIES) $(EXTRA_clock_t_clock_getres_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/t_clock_getres$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_t_clock_getres_OBJECTS) $(clock_t_clock_getres_LDADD) $(LIBS)
+clock/t_clock_gettime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/t_clock_gettime$(EXEEXT): $(clock_t_clock_gettime_OBJECTS) $(clock_t_clock_gettime_DEPENDENCIES) $(EXTRA_clock_t_clock_gettime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/t_clock_gettime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_t_clock_gettime_OBJECTS) $(clock_t_clock_gettime_LDADD) $(LIBS)
+clock/t_clock_nanosleep.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/t_clock_nanosleep$(EXEEXT): $(clock_t_clock_nanosleep_OBJECTS) $(clock_t_clock_nanosleep_DEPENDENCIES) $(EXTRA_clock_t_clock_nanosleep_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/t_clock_nanosleep$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_t_clock_nanosleep_OBJECTS) $(clock_t_clock_nanosleep_LDADD) $(LIBS)
+clock/t_clock_settime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/t_clock_settime$(EXEEXT): $(clock_t_clock_settime_OBJECTS) $(clock_t_clock_settime_DEPENDENCIES) $(EXTRA_clock_t_clock_settime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/t_clock_settime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_t_clock_settime_OBJECTS) $(clock_t_clock_settime_LDADD) $(LIBS)
+clock/t_nanosleep.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/t_nanosleep$(EXEEXT): $(clock_t_nanosleep_OBJECTS) $(clock_t_nanosleep_DEPENDENCIES) $(EXTRA_clock_t_nanosleep_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/t_nanosleep$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_t_nanosleep_OBJECTS) $(clock_t_nanosleep_LDADD) $(LIBS)
+exceptions/$(am__dirstamp):
+	@$(MKDIR_P) exceptions
+	@: > exceptions/$(am__dirstamp)
+exceptions/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) exceptions/$(DEPDIR)
+	@: > exceptions/$(DEPDIR)/$(am__dirstamp)
+exceptions/exception1.$(OBJEXT): exceptions/$(am__dirstamp) \
+	exceptions/$(DEPDIR)/$(am__dirstamp)
+
+exceptions/exception1$(EXEEXT): $(exceptions_exception1_OBJECTS) $(exceptions_exception1_DEPENDENCIES) $(EXTRA_exceptions_exception1_DEPENDENCIES) exceptions/$(am__dirstamp)
+	@rm -f exceptions/exception1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(exceptions_exception1_OBJECTS) $(exceptions_exception1_LDADD) $(LIBS)
+exceptions/exception2.$(OBJEXT): exceptions/$(am__dirstamp) \
+	exceptions/$(DEPDIR)/$(am__dirstamp)
+
+exceptions/exception2$(EXEEXT): $(exceptions_exception2_OBJECTS) $(exceptions_exception2_DEPENDENCIES) $(EXTRA_exceptions_exception2_DEPENDENCIES) exceptions/$(am__dirstamp)
+	@rm -f exceptions/exception2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(exceptions_exception2_OBJECTS) $(exceptions_exception2_LDADD) $(LIBS)
+exceptions/exception3.$(OBJEXT): exceptions/$(am__dirstamp) \
+	exceptions/$(DEPDIR)/$(am__dirstamp)
+
+exceptions/exception3$(EXEEXT): $(exceptions_exception3_OBJECTS) $(exceptions_exception3_DEPENDENCIES) $(EXTRA_exceptions_exception3_DEPENDENCIES) exceptions/$(am__dirstamp)
+	@rm -f exceptions/exception3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(exceptions_exception3_OBJECTS) $(exceptions_exception3_LDADD) $(LIBS)
+misc/$(am__dirstamp):
+	@$(MKDIR_P) misc
+	@: > misc/$(am__dirstamp)
+misc/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) misc/$(DEPDIR)
+	@: > misc/$(DEPDIR)/$(am__dirstamp)
+misc/loadfree.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+
+misc/loadfree$(EXEEXT): $(misc_loadfree_OBJECTS) $(misc_loadfree_DEPENDENCIES) $(EXTRA_misc_loadfree_DEPENDENCIES) misc/$(am__dirstamp)
+	@rm -f misc/loadfree$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(misc_loadfree_OBJECTS) $(misc_loadfree_LDADD) $(LIBS)
+misc/tryentercs.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+
+misc/tryentercs$(EXEEXT): $(misc_tryentercs_OBJECTS) $(misc_tryentercs_DEPENDENCIES) $(EXTRA_misc_tryentercs_DEPENDENCIES) misc/$(am__dirstamp)
+	@rm -f misc/tryentercs$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(misc_tryentercs_OBJECTS) $(misc_tryentercs_LDADD) $(LIBS)
+misc/tryentercs2.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+
+misc/tryentercs2$(EXEEXT): $(misc_tryentercs2_OBJECTS) $(misc_tryentercs2_DEPENDENCIES) $(EXTRA_misc_tryentercs2_DEPENDENCIES) misc/$(am__dirstamp)
+	@rm -f misc/tryentercs2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(misc_tryentercs2_OBJECTS) $(misc_tryentercs2_LDADD) $(LIBS)
+pthread_barrier/$(am__dirstamp):
+	@$(MKDIR_P) pthread_barrier
+	@: > pthread_barrier/$(am__dirstamp)
+pthread_barrier/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_barrier/$(DEPDIR)
+	@: > pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+pthread_barrier/barrier1.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier1$(EXEEXT): $(pthread_barrier_barrier1_OBJECTS) $(pthread_barrier_barrier1_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier1_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier1_OBJECTS) $(pthread_barrier_barrier1_LDADD) $(LIBS)
+pthread_barrier/barrier2.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier2$(EXEEXT): $(pthread_barrier_barrier2_OBJECTS) $(pthread_barrier_barrier2_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier2_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier2_OBJECTS) $(pthread_barrier_barrier2_LDADD) $(LIBS)
+pthread_barrier/barrier3.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier3$(EXEEXT): $(pthread_barrier_barrier3_OBJECTS) $(pthread_barrier_barrier3_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier3_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier3_OBJECTS) $(pthread_barrier_barrier3_LDADD) $(LIBS)
+pthread_barrier/barrier4.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier4$(EXEEXT): $(pthread_barrier_barrier4_OBJECTS) $(pthread_barrier_barrier4_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier4_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier4_OBJECTS) $(pthread_barrier_barrier4_LDADD) $(LIBS)
+pthread_barrier/barrier5.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier5$(EXEEXT): $(pthread_barrier_barrier5_OBJECTS) $(pthread_barrier_barrier5_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier5_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier5_OBJECTS) $(pthread_barrier_barrier5_LDADD) $(LIBS)
+pthread_barrier/barrier6.$(OBJEXT): pthread_barrier/$(am__dirstamp) \
+	pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+
+pthread_barrier/barrier6$(EXEEXT): $(pthread_barrier_barrier6_OBJECTS) $(pthread_barrier_barrier6_DEPENDENCIES) $(EXTRA_pthread_barrier_barrier6_DEPENDENCIES) pthread_barrier/$(am__dirstamp)
+	@rm -f pthread_barrier/barrier6$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_barrier_barrier6_OBJECTS) $(pthread_barrier_barrier6_LDADD) $(LIBS)
+pthread_cancel/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cancel
+	@: > pthread_cancel/$(am__dirstamp)
+pthread_cancel/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cancel/$(DEPDIR)
+	@: > pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+pthread_cancel/cancel1.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel1$(EXEEXT): $(pthread_cancel_cancel1_OBJECTS) $(pthread_cancel_cancel1_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel1_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel1_OBJECTS) $(pthread_cancel_cancel1_LDADD) $(LIBS)
+pthread_cancel/cancel2.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel2$(EXEEXT): $(pthread_cancel_cancel2_OBJECTS) $(pthread_cancel_cancel2_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel2_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel2_OBJECTS) $(pthread_cancel_cancel2_LDADD) $(LIBS)
+pthread_cancel/cancel3.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel3$(EXEEXT): $(pthread_cancel_cancel3_OBJECTS) $(pthread_cancel_cancel3_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel3_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel3_OBJECTS) $(pthread_cancel_cancel3_LDADD) $(LIBS)
+pthread_cancel/cancel4.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel4$(EXEEXT): $(pthread_cancel_cancel4_OBJECTS) $(pthread_cancel_cancel4_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel4_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel4_OBJECTS) $(pthread_cancel_cancel4_LDADD) $(LIBS)
+pthread_cancel/cancel5.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel5$(EXEEXT): $(pthread_cancel_cancel5_OBJECTS) $(pthread_cancel_cancel5_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel5_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel5_OBJECTS) $(pthread_cancel_cancel5_LDADD) $(LIBS)
+pthread_cancel/cancel6a.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel6a$(EXEEXT): $(pthread_cancel_cancel6a_OBJECTS) $(pthread_cancel_cancel6a_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel6a_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel6a$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel6a_OBJECTS) $(pthread_cancel_cancel6a_LDADD) $(LIBS)
+pthread_cancel/cancel6d.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel6d$(EXEEXT): $(pthread_cancel_cancel6d_OBJECTS) $(pthread_cancel_cancel6d_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel6d_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel6d$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel6d_OBJECTS) $(pthread_cancel_cancel6d_LDADD) $(LIBS)
+pthread_cancel/cancel7.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel7$(EXEEXT): $(pthread_cancel_cancel7_OBJECTS) $(pthread_cancel_cancel7_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel7_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel7$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel7_OBJECTS) $(pthread_cancel_cancel7_LDADD) $(LIBS)
+pthread_cancel/cancel8.$(OBJEXT): pthread_cancel/$(am__dirstamp) \
+	pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cancel/cancel8$(EXEEXT): $(pthread_cancel_cancel8_OBJECTS) $(pthread_cancel_cancel8_DEPENDENCIES) $(EXTRA_pthread_cancel_cancel8_DEPENDENCIES) pthread_cancel/$(am__dirstamp)
+	@rm -f pthread_cancel/cancel8$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cancel_cancel8_OBJECTS) $(pthread_cancel_cancel8_LDADD) $(LIBS)
+pthread_cleanup/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cleanup
+	@: > pthread_cleanup/$(am__dirstamp)
+pthread_cleanup/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cleanup/$(DEPDIR)
+	@: > pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+pthread_cleanup/cleanup0.$(OBJEXT): pthread_cleanup/$(am__dirstamp) \
+	pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cleanup/cleanup0$(EXEEXT): $(pthread_cleanup_cleanup0_OBJECTS) $(pthread_cleanup_cleanup0_DEPENDENCIES) $(EXTRA_pthread_cleanup_cleanup0_DEPENDENCIES) pthread_cleanup/$(am__dirstamp)
+	@rm -f pthread_cleanup/cleanup0$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cleanup_cleanup0_OBJECTS) $(pthread_cleanup_cleanup0_LDADD) $(LIBS)
+pthread_cleanup/cleanup1.$(OBJEXT): pthread_cleanup/$(am__dirstamp) \
+	pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cleanup/cleanup1$(EXEEXT): $(pthread_cleanup_cleanup1_OBJECTS) $(pthread_cleanup_cleanup1_DEPENDENCIES) $(EXTRA_pthread_cleanup_cleanup1_DEPENDENCIES) pthread_cleanup/$(am__dirstamp)
+	@rm -f pthread_cleanup/cleanup1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cleanup_cleanup1_OBJECTS) $(pthread_cleanup_cleanup1_LDADD) $(LIBS)
+pthread_cleanup/cleanup2.$(OBJEXT): pthread_cleanup/$(am__dirstamp) \
+	pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cleanup/cleanup2$(EXEEXT): $(pthread_cleanup_cleanup2_OBJECTS) $(pthread_cleanup_cleanup2_DEPENDENCIES) $(EXTRA_pthread_cleanup_cleanup2_DEPENDENCIES) pthread_cleanup/$(am__dirstamp)
+	@rm -f pthread_cleanup/cleanup2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cleanup_cleanup2_OBJECTS) $(pthread_cleanup_cleanup2_LDADD) $(LIBS)
+pthread_cleanup/cleanup3.$(OBJEXT): pthread_cleanup/$(am__dirstamp) \
+	pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cleanup/cleanup3$(EXEEXT): $(pthread_cleanup_cleanup3_OBJECTS) $(pthread_cleanup_cleanup3_DEPENDENCIES) $(EXTRA_pthread_cleanup_cleanup3_DEPENDENCIES) pthread_cleanup/$(am__dirstamp)
+	@rm -f pthread_cleanup/cleanup3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cleanup_cleanup3_OBJECTS) $(pthread_cleanup_cleanup3_LDADD) $(LIBS)
+pthread_cond/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cond
+	@: > pthread_cond/$(am__dirstamp)
+pthread_cond/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_cond/$(DEPDIR)
+	@: > pthread_cond/$(DEPDIR)/$(am__dirstamp)
+pthread_cond/condvar1.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar1$(EXEEXT): $(pthread_cond_condvar1_OBJECTS) $(pthread_cond_condvar1_DEPENDENCIES) $(EXTRA_pthread_cond_condvar1_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar1_OBJECTS) $(pthread_cond_condvar1_LDADD) $(LIBS)
+pthread_cond/condvar1_1.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar1_1$(EXEEXT): $(pthread_cond_condvar1_1_OBJECTS) $(pthread_cond_condvar1_1_DEPENDENCIES) $(EXTRA_pthread_cond_condvar1_1_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar1_1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar1_1_OBJECTS) $(pthread_cond_condvar1_1_LDADD) $(LIBS)
+pthread_cond/condvar1_2.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar1_2$(EXEEXT): $(pthread_cond_condvar1_2_OBJECTS) $(pthread_cond_condvar1_2_DEPENDENCIES) $(EXTRA_pthread_cond_condvar1_2_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar1_2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar1_2_OBJECTS) $(pthread_cond_condvar1_2_LDADD) $(LIBS)
+pthread_cond/condvar2.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar2$(EXEEXT): $(pthread_cond_condvar2_OBJECTS) $(pthread_cond_condvar2_DEPENDENCIES) $(EXTRA_pthread_cond_condvar2_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar2_OBJECTS) $(pthread_cond_condvar2_LDADD) $(LIBS)
+pthread_cond/condvar2_1.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar2_1$(EXEEXT): $(pthread_cond_condvar2_1_OBJECTS) $(pthread_cond_condvar2_1_DEPENDENCIES) $(EXTRA_pthread_cond_condvar2_1_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar2_1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar2_1_OBJECTS) $(pthread_cond_condvar2_1_LDADD) $(LIBS)
+pthread_cond/condvar3.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar3$(EXEEXT): $(pthread_cond_condvar3_OBJECTS) $(pthread_cond_condvar3_DEPENDENCIES) $(EXTRA_pthread_cond_condvar3_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar3_OBJECTS) $(pthread_cond_condvar3_LDADD) $(LIBS)
+pthread_cond/condvar3_1.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar3_1$(EXEEXT): $(pthread_cond_condvar3_1_OBJECTS) $(pthread_cond_condvar3_1_DEPENDENCIES) $(EXTRA_pthread_cond_condvar3_1_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar3_1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar3_1_OBJECTS) $(pthread_cond_condvar3_1_LDADD) $(LIBS)
+pthread_cond/condvar3_2.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar3_2$(EXEEXT): $(pthread_cond_condvar3_2_OBJECTS) $(pthread_cond_condvar3_2_DEPENDENCIES) $(EXTRA_pthread_cond_condvar3_2_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar3_2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar3_2_OBJECTS) $(pthread_cond_condvar3_2_LDADD) $(LIBS)
+pthread_cond/condvar3_3.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar3_3$(EXEEXT): $(pthread_cond_condvar3_3_OBJECTS) $(pthread_cond_condvar3_3_DEPENDENCIES) $(EXTRA_pthread_cond_condvar3_3_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar3_3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar3_3_OBJECTS) $(pthread_cond_condvar3_3_LDADD) $(LIBS)
+pthread_cond/condvar4.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar4$(EXEEXT): $(pthread_cond_condvar4_OBJECTS) $(pthread_cond_condvar4_DEPENDENCIES) $(EXTRA_pthread_cond_condvar4_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar4_OBJECTS) $(pthread_cond_condvar4_LDADD) $(LIBS)
+pthread_cond/condvar5.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar5$(EXEEXT): $(pthread_cond_condvar5_OBJECTS) $(pthread_cond_condvar5_DEPENDENCIES) $(EXTRA_pthread_cond_condvar5_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar5_OBJECTS) $(pthread_cond_condvar5_LDADD) $(LIBS)
+pthread_cond/condvar6.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar6$(EXEEXT): $(pthread_cond_condvar6_OBJECTS) $(pthread_cond_condvar6_DEPENDENCIES) $(EXTRA_pthread_cond_condvar6_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar6$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar6_OBJECTS) $(pthread_cond_condvar6_LDADD) $(LIBS)
+pthread_cond/condvar7.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar7$(EXEEXT): $(pthread_cond_condvar7_OBJECTS) $(pthread_cond_condvar7_DEPENDENCIES) $(EXTRA_pthread_cond_condvar7_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar7$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar7_OBJECTS) $(pthread_cond_condvar7_LDADD) $(LIBS)
+pthread_cond/condvar8.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar8$(EXEEXT): $(pthread_cond_condvar8_OBJECTS) $(pthread_cond_condvar8_DEPENDENCIES) $(EXTRA_pthread_cond_condvar8_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar8$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar8_OBJECTS) $(pthread_cond_condvar8_LDADD) $(LIBS)
+pthread_cond/condvar9.$(OBJEXT): pthread_cond/$(am__dirstamp) \
+	pthread_cond/$(DEPDIR)/$(am__dirstamp)
+
+pthread_cond/condvar9$(EXEEXT): $(pthread_cond_condvar9_OBJECTS) $(pthread_cond_condvar9_DEPENDENCIES) $(EXTRA_pthread_cond_condvar9_DEPENDENCIES) pthread_cond/$(am__dirstamp)
+	@rm -f pthread_cond/condvar9$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_cond_condvar9_OBJECTS) $(pthread_cond_condvar9_LDADD) $(LIBS)
+pthread_create/$(am__dirstamp):
+	@$(MKDIR_P) pthread_create
+	@: > pthread_create/$(am__dirstamp)
+pthread_create/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_create/$(DEPDIR)
+	@: > pthread_create/$(DEPDIR)/$(am__dirstamp)
+pthread_create/create1.$(OBJEXT): pthread_create/$(am__dirstamp) \
+	pthread_create/$(DEPDIR)/$(am__dirstamp)
+
+pthread_create/create1$(EXEEXT): $(pthread_create_create1_OBJECTS) $(pthread_create_create1_DEPENDENCIES) $(EXTRA_pthread_create_create1_DEPENDENCIES) pthread_create/$(am__dirstamp)
+	@rm -f pthread_create/create1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_create_create1_OBJECTS) $(pthread_create_create1_LDADD) $(LIBS)
+pthread_create/create2.$(OBJEXT): pthread_create/$(am__dirstamp) \
+	pthread_create/$(DEPDIR)/$(am__dirstamp)
+
+pthread_create/create2$(EXEEXT): $(pthread_create_create2_OBJECTS) $(pthread_create_create2_DEPENDENCIES) $(EXTRA_pthread_create_create2_DEPENDENCIES) pthread_create/$(am__dirstamp)
+	@rm -f pthread_create/create2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_create_create2_OBJECTS) $(pthread_create_create2_LDADD) $(LIBS)
+pthread_create/create3.$(OBJEXT): pthread_create/$(am__dirstamp) \
+	pthread_create/$(DEPDIR)/$(am__dirstamp)
+
+pthread_create/create3$(EXEEXT): $(pthread_create_create3_OBJECTS) $(pthread_create_create3_DEPENDENCIES) $(EXTRA_pthread_create_create3_DEPENDENCIES) pthread_create/$(am__dirstamp)
+	@rm -f pthread_create/create3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_create_create3_OBJECTS) $(pthread_create_create3_LDADD) $(LIBS)
+pthread_exit/$(am__dirstamp):
+	@$(MKDIR_P) pthread_exit
+	@: > pthread_exit/$(am__dirstamp)
+pthread_exit/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_exit/$(DEPDIR)
+	@: > pthread_exit/$(DEPDIR)/$(am__dirstamp)
+pthread_exit/exit2.$(OBJEXT): pthread_exit/$(am__dirstamp) \
+	pthread_exit/$(DEPDIR)/$(am__dirstamp)
+
+pthread_exit/exit2$(EXEEXT): $(pthread_exit_exit2_OBJECTS) $(pthread_exit_exit2_DEPENDENCIES) $(EXTRA_pthread_exit_exit2_DEPENDENCIES) pthread_exit/$(am__dirstamp)
+	@rm -f pthread_exit/exit2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_exit_exit2_OBJECTS) $(pthread_exit_exit2_LDADD) $(LIBS)
+pthread_exit/exit3.$(OBJEXT): pthread_exit/$(am__dirstamp) \
+	pthread_exit/$(DEPDIR)/$(am__dirstamp)
+
+pthread_exit/exit3$(EXEEXT): $(pthread_exit_exit3_OBJECTS) $(pthread_exit_exit3_DEPENDENCIES) $(EXTRA_pthread_exit_exit3_DEPENDENCIES) pthread_exit/$(am__dirstamp)
+	@rm -f pthread_exit/exit3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_exit_exit3_OBJECTS) $(pthread_exit_exit3_LDADD) $(LIBS)
+pthread_exit/exit4.$(OBJEXT): pthread_exit/$(am__dirstamp) \
+	pthread_exit/$(DEPDIR)/$(am__dirstamp)
+
+pthread_exit/exit4$(EXEEXT): $(pthread_exit_exit4_OBJECTS) $(pthread_exit_exit4_DEPENDENCIES) $(EXTRA_pthread_exit_exit4_DEPENDENCIES) pthread_exit/$(am__dirstamp)
+	@rm -f pthread_exit/exit4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_exit_exit4_OBJECTS) $(pthread_exit_exit4_LDADD) $(LIBS)
+pthread_exit/exit5.$(OBJEXT): pthread_exit/$(am__dirstamp) \
+	pthread_exit/$(DEPDIR)/$(am__dirstamp)
+
+pthread_exit/exit5$(EXEEXT): $(pthread_exit_exit5_OBJECTS) $(pthread_exit_exit5_DEPENDENCIES) $(EXTRA_pthread_exit_exit5_DEPENDENCIES) pthread_exit/$(am__dirstamp)
+	@rm -f pthread_exit/exit5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_exit_exit5_OBJECTS) $(pthread_exit_exit5_LDADD) $(LIBS)
+pthread_join/$(am__dirstamp):
+	@$(MKDIR_P) pthread_join
+	@: > pthread_join/$(am__dirstamp)
+pthread_join/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_join/$(DEPDIR)
+	@: > pthread_join/$(DEPDIR)/$(am__dirstamp)
+pthread_join/join1.$(OBJEXT): pthread_join/$(am__dirstamp) \
+	pthread_join/$(DEPDIR)/$(am__dirstamp)
+
+pthread_join/join1$(EXEEXT): $(pthread_join_join1_OBJECTS) $(pthread_join_join1_DEPENDENCIES) $(EXTRA_pthread_join_join1_DEPENDENCIES) pthread_join/$(am__dirstamp)
+	@rm -f pthread_join/join1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_join_join1_OBJECTS) $(pthread_join_join1_LDADD) $(LIBS)
+pthread_join/join2.$(OBJEXT): pthread_join/$(am__dirstamp) \
+	pthread_join/$(DEPDIR)/$(am__dirstamp)
+
+pthread_join/join2$(EXEEXT): $(pthread_join_join2_OBJECTS) $(pthread_join_join2_DEPENDENCIES) $(EXTRA_pthread_join_join2_DEPENDENCIES) pthread_join/$(am__dirstamp)
+	@rm -f pthread_join/join2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_join_join2_OBJECTS) $(pthread_join_join2_LDADD) $(LIBS)
+pthread_join/join3.$(OBJEXT): pthread_join/$(am__dirstamp) \
+	pthread_join/$(DEPDIR)/$(am__dirstamp)
+
+pthread_join/join3$(EXEEXT): $(pthread_join_join3_OBJECTS) $(pthread_join_join3_DEPENDENCIES) $(EXTRA_pthread_join_join3_DEPENDENCIES) pthread_join/$(am__dirstamp)
+	@rm -f pthread_join/join3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_join_join3_OBJECTS) $(pthread_join_join3_LDADD) $(LIBS)
+pthread_misc/$(am__dirstamp):
+	@$(MKDIR_P) pthread_misc
+	@: > pthread_misc/$(am__dirstamp)
+pthread_misc/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_misc/$(DEPDIR)
+	@: > pthread_misc/$(DEPDIR)/$(am__dirstamp)
+pthread_misc/context1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/context1$(EXEEXT): $(pthread_misc_context1_OBJECTS) $(pthread_misc_context1_DEPENDENCIES) $(EXTRA_pthread_misc_context1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/context1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_context1_OBJECTS) $(pthread_misc_context1_LDADD) $(LIBS)
+pthread_misc/count1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/count1$(EXEEXT): $(pthread_misc_count1_OBJECTS) $(pthread_misc_count1_DEPENDENCIES) $(EXTRA_pthread_misc_count1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/count1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_count1_OBJECTS) $(pthread_misc_count1_LDADD) $(LIBS)
+pthread_misc/delay1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/delay1$(EXEEXT): $(pthread_misc_delay1_OBJECTS) $(pthread_misc_delay1_DEPENDENCIES) $(EXTRA_pthread_misc_delay1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/delay1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_delay1_OBJECTS) $(pthread_misc_delay1_LDADD) $(LIBS)
+pthread_misc/delay2.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/delay2$(EXEEXT): $(pthread_misc_delay2_OBJECTS) $(pthread_misc_delay2_DEPENDENCIES) $(EXTRA_pthread_misc_delay2_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/delay2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_delay2_OBJECTS) $(pthread_misc_delay2_LDADD) $(LIBS)
+pthread_misc/detach1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/detach1$(EXEEXT): $(pthread_misc_detach1_OBJECTS) $(pthread_misc_detach1_DEPENDENCIES) $(EXTRA_pthread_misc_detach1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/detach1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_detach1_OBJECTS) $(pthread_misc_detach1_LDADD) $(LIBS)
+pthread_misc/equal1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/equal1$(EXEEXT): $(pthread_misc_equal1_OBJECTS) $(pthread_misc_equal1_DEPENDENCIES) $(EXTRA_pthread_misc_equal1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/equal1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_equal1_OBJECTS) $(pthread_misc_equal1_LDADD) $(LIBS)
+pthread_misc/errno1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/errno1$(EXEEXT): $(pthread_misc_errno1_OBJECTS) $(pthread_misc_errno1_DEPENDENCIES) $(EXTRA_pthread_misc_errno1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/errno1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_errno1_OBJECTS) $(pthread_misc_errno1_LDADD) $(LIBS)
+pthread_misc/eyal1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/eyal1$(EXEEXT): $(pthread_misc_eyal1_OBJECTS) $(pthread_misc_eyal1_DEPENDENCIES) $(EXTRA_pthread_misc_eyal1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/eyal1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_eyal1_OBJECTS) $(pthread_misc_eyal1_LDADD) $(LIBS)
+pthread_misc/inherit1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/inherit1$(EXEEXT): $(pthread_misc_inherit1_OBJECTS) $(pthread_misc_inherit1_DEPENDENCIES) $(EXTRA_pthread_misc_inherit1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/inherit1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_inherit1_OBJECTS) $(pthread_misc_inherit1_LDADD) $(LIBS)
+pthread_misc/kill1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/kill1$(EXEEXT): $(pthread_misc_kill1_OBJECTS) $(pthread_misc_kill1_DEPENDENCIES) $(EXTRA_pthread_misc_kill1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/kill1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_kill1_OBJECTS) $(pthread_misc_kill1_LDADD) $(LIBS)
+pthread_misc/reuse1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/reuse1$(EXEEXT): $(pthread_misc_reuse1_OBJECTS) $(pthread_misc_reuse1_DEPENDENCIES) $(EXTRA_pthread_misc_reuse1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/reuse1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_reuse1_OBJECTS) $(pthread_misc_reuse1_LDADD) $(LIBS)
+pthread_misc/reuse2.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/reuse2$(EXEEXT): $(pthread_misc_reuse2_OBJECTS) $(pthread_misc_reuse2_DEPENDENCIES) $(EXTRA_pthread_misc_reuse2_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/reuse2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_reuse2_OBJECTS) $(pthread_misc_reuse2_LDADD) $(LIBS)
+pthread_misc/self1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/self1$(EXEEXT): $(pthread_misc_self1_OBJECTS) $(pthread_misc_self1_DEPENDENCIES) $(EXTRA_pthread_misc_self1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/self1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_self1_OBJECTS) $(pthread_misc_self1_LDADD) $(LIBS)
+pthread_misc/self2.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/self2$(EXEEXT): $(pthread_misc_self2_OBJECTS) $(pthread_misc_self2_DEPENDENCIES) $(EXTRA_pthread_misc_self2_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/self2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_self2_OBJECTS) $(pthread_misc_self2_LDADD) $(LIBS)
+pthread_misc/stress1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/stress1$(EXEEXT): $(pthread_misc_stress1_OBJECTS) $(pthread_misc_stress1_DEPENDENCIES) $(EXTRA_pthread_misc_stress1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/stress1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_stress1_OBJECTS) $(pthread_misc_stress1_LDADD) $(LIBS)
+pthread_misc/valid1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/valid1$(EXEEXT): $(pthread_misc_valid1_OBJECTS) $(pthread_misc_valid1_DEPENDENCIES) $(EXTRA_pthread_misc_valid1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/valid1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_valid1_OBJECTS) $(pthread_misc_valid1_LDADD) $(LIBS)
+pthread_misc/valid2.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/valid2$(EXEEXT): $(pthread_misc_valid2_OBJECTS) $(pthread_misc_valid2_DEPENDENCIES) $(EXTRA_pthread_misc_valid2_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/valid2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_valid2_OBJECTS) $(pthread_misc_valid2_LDADD) $(LIBS)
+pthread_mutex/$(am__dirstamp):
+	@$(MKDIR_P) pthread_mutex
+	@: > pthread_mutex/$(am__dirstamp)
+pthread_mutex/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_mutex/$(DEPDIR)
+	@: > pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+pthread_mutex/mutex1.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex1$(EXEEXT): $(pthread_mutex_mutex1_OBJECTS) $(pthread_mutex_mutex1_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1_OBJECTS) $(pthread_mutex_mutex1_LDADD) $(LIBS)
+pthread_mutex/mutex1e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex1e$(EXEEXT): $(pthread_mutex_mutex1e_OBJECTS) $(pthread_mutex_mutex1e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex1e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1e_OBJECTS) $(pthread_mutex_mutex1e_LDADD) $(LIBS)
+pthread_mutex/mutex1n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex1n$(EXEEXT): $(pthread_mutex_mutex1n_OBJECTS) $(pthread_mutex_mutex1n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex1n$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1n_OBJECTS) $(pthread_mutex_mutex1n_LDADD) $(LIBS)
+pthread_mutex/mutex1r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex1r$(EXEEXT): $(pthread_mutex_mutex1r_OBJECTS) $(pthread_mutex_mutex1r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex1r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1r_OBJECTS) $(pthread_mutex_mutex1r_LDADD) $(LIBS)
+pthread_mutex/mutex2.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex2$(EXEEXT): $(pthread_mutex_mutex2_OBJECTS) $(pthread_mutex_mutex2_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2_OBJECTS) $(pthread_mutex_mutex2_LDADD) $(LIBS)
+pthread_mutex/mutex2e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex2e$(EXEEXT): $(pthread_mutex_mutex2e_OBJECTS) $(pthread_mutex_mutex2e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex2e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2e_OBJECTS) $(pthread_mutex_mutex2e_LDADD) $(LIBS)
+pthread_mutex/mutex2r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex2r$(EXEEXT): $(pthread_mutex_mutex2r_OBJECTS) $(pthread_mutex_mutex2r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex2r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2r_OBJECTS) $(pthread_mutex_mutex2r_LDADD) $(LIBS)
+pthread_mutex/mutex3.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex3$(EXEEXT): $(pthread_mutex_mutex3_OBJECTS) $(pthread_mutex_mutex3_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3_OBJECTS) $(pthread_mutex_mutex3_LDADD) $(LIBS)
+pthread_mutex/mutex3e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex3e$(EXEEXT): $(pthread_mutex_mutex3e_OBJECTS) $(pthread_mutex_mutex3e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex3e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3e_OBJECTS) $(pthread_mutex_mutex3e_LDADD) $(LIBS)
+pthread_mutex/mutex3r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex3r$(EXEEXT): $(pthread_mutex_mutex3r_OBJECTS) $(pthread_mutex_mutex3r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex3r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3r_OBJECTS) $(pthread_mutex_mutex3r_LDADD) $(LIBS)
+pthread_mutex/mutex4.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex4$(EXEEXT): $(pthread_mutex_mutex4_OBJECTS) $(pthread_mutex_mutex4_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex4_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex4_OBJECTS) $(pthread_mutex_mutex4_LDADD) $(LIBS)
+pthread_mutex/mutex5.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex5$(EXEEXT): $(pthread_mutex_mutex5_OBJECTS) $(pthread_mutex_mutex5_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex5_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex5_OBJECTS) $(pthread_mutex_mutex5_LDADD) $(LIBS)
+pthread_mutex/mutex6.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6$(EXEEXT): $(pthread_mutex_mutex6_OBJECTS) $(pthread_mutex_mutex6_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6_OBJECTS) $(pthread_mutex_mutex6_LDADD) $(LIBS)
+pthread_mutex/mutex6e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6e$(EXEEXT): $(pthread_mutex_mutex6e_OBJECTS) $(pthread_mutex_mutex6e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6e_OBJECTS) $(pthread_mutex_mutex6e_LDADD) $(LIBS)
+pthread_mutex/mutex6es.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6es$(EXEEXT): $(pthread_mutex_mutex6es_OBJECTS) $(pthread_mutex_mutex6es_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6es_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6es$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6es_OBJECTS) $(pthread_mutex_mutex6es_LDADD) $(LIBS)
+pthread_mutex/mutex6n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6n$(EXEEXT): $(pthread_mutex_mutex6n_OBJECTS) $(pthread_mutex_mutex6n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6n$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6n_OBJECTS) $(pthread_mutex_mutex6n_LDADD) $(LIBS)
+pthread_mutex/mutex6r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6r$(EXEEXT): $(pthread_mutex_mutex6r_OBJECTS) $(pthread_mutex_mutex6r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6r_OBJECTS) $(pthread_mutex_mutex6r_LDADD) $(LIBS)
+pthread_mutex/mutex6rs.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6rs$(EXEEXT): $(pthread_mutex_mutex6rs_OBJECTS) $(pthread_mutex_mutex6rs_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6rs_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6rs$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6rs_OBJECTS) $(pthread_mutex_mutex6rs_LDADD) $(LIBS)
+pthread_mutex/mutex6s.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex6s$(EXEEXT): $(pthread_mutex_mutex6s_OBJECTS) $(pthread_mutex_mutex6s_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6s_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex6s$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6s_OBJECTS) $(pthread_mutex_mutex6s_LDADD) $(LIBS)
+pthread_mutex/mutex7.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex7$(EXEEXT): $(pthread_mutex_mutex7_OBJECTS) $(pthread_mutex_mutex7_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex7$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7_OBJECTS) $(pthread_mutex_mutex7_LDADD) $(LIBS)
+pthread_mutex/mutex7e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex7e$(EXEEXT): $(pthread_mutex_mutex7e_OBJECTS) $(pthread_mutex_mutex7e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex7e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7e_OBJECTS) $(pthread_mutex_mutex7e_LDADD) $(LIBS)
+pthread_mutex/mutex7n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex7n$(EXEEXT): $(pthread_mutex_mutex7n_OBJECTS) $(pthread_mutex_mutex7n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex7n$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7n_OBJECTS) $(pthread_mutex_mutex7n_LDADD) $(LIBS)
+pthread_mutex/mutex7r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex7r$(EXEEXT): $(pthread_mutex_mutex7r_OBJECTS) $(pthread_mutex_mutex7r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex7r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7r_OBJECTS) $(pthread_mutex_mutex7r_LDADD) $(LIBS)
+pthread_mutex/mutex8.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex8$(EXEEXT): $(pthread_mutex_mutex8_OBJECTS) $(pthread_mutex_mutex8_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex8$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8_OBJECTS) $(pthread_mutex_mutex8_LDADD) $(LIBS)
+pthread_mutex/mutex8e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex8e$(EXEEXT): $(pthread_mutex_mutex8e_OBJECTS) $(pthread_mutex_mutex8e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex8e$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8e_OBJECTS) $(pthread_mutex_mutex8e_LDADD) $(LIBS)
+pthread_mutex/mutex8n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex8n$(EXEEXT): $(pthread_mutex_mutex8n_OBJECTS) $(pthread_mutex_mutex8n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex8n$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8n_OBJECTS) $(pthread_mutex_mutex8n_LDADD) $(LIBS)
+pthread_mutex/mutex8r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/mutex8r$(EXEEXT): $(pthread_mutex_mutex8r_OBJECTS) $(pthread_mutex_mutex8r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex8r$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8r_OBJECTS) $(pthread_mutex_mutex8r_LDADD) $(LIBS)
+pthread_once/$(am__dirstamp):
+	@$(MKDIR_P) pthread_once
+	@: > pthread_once/$(am__dirstamp)
+pthread_once/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_once/$(DEPDIR)
+	@: > pthread_once/$(DEPDIR)/$(am__dirstamp)
+pthread_once/once1.$(OBJEXT): pthread_once/$(am__dirstamp) \
+	pthread_once/$(DEPDIR)/$(am__dirstamp)
+
+pthread_once/once1$(EXEEXT): $(pthread_once_once1_OBJECTS) $(pthread_once_once1_DEPENDENCIES) $(EXTRA_pthread_once_once1_DEPENDENCIES) pthread_once/$(am__dirstamp)
+	@rm -f pthread_once/once1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_once_once1_OBJECTS) $(pthread_once_once1_LDADD) $(LIBS)
+pthread_once/once2.$(OBJEXT): pthread_once/$(am__dirstamp) \
+	pthread_once/$(DEPDIR)/$(am__dirstamp)
+
+pthread_once/once2$(EXEEXT): $(pthread_once_once2_OBJECTS) $(pthread_once_once2_DEPENDENCIES) $(EXTRA_pthread_once_once2_DEPENDENCIES) pthread_once/$(am__dirstamp)
+	@rm -f pthread_once/once2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_once_once2_OBJECTS) $(pthread_once_once2_LDADD) $(LIBS)
+pthread_once/once3.$(OBJEXT): pthread_once/$(am__dirstamp) \
+	pthread_once/$(DEPDIR)/$(am__dirstamp)
+
+pthread_once/once3$(EXEEXT): $(pthread_once_once3_OBJECTS) $(pthread_once_once3_DEPENDENCIES) $(EXTRA_pthread_once_once3_DEPENDENCIES) pthread_once/$(am__dirstamp)
+	@rm -f pthread_once/once3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_once_once3_OBJECTS) $(pthread_once_once3_LDADD) $(LIBS)
+pthread_once/once4.$(OBJEXT): pthread_once/$(am__dirstamp) \
+	pthread_once/$(DEPDIR)/$(am__dirstamp)
+
+pthread_once/once4$(EXEEXT): $(pthread_once_once4_OBJECTS) $(pthread_once_once4_DEPENDENCIES) $(EXTRA_pthread_once_once4_DEPENDENCIES) pthread_once/$(am__dirstamp)
+	@rm -f pthread_once/once4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_once_once4_OBJECTS) $(pthread_once_once4_LDADD) $(LIBS)
+pthread_rwlock/$(am__dirstamp):
+	@$(MKDIR_P) pthread_rwlock
+	@: > pthread_rwlock/$(am__dirstamp)
+pthread_rwlock/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_rwlock/$(DEPDIR)
+	@: > pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+pthread_rwlock/rwlock1.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock1$(EXEEXT): $(pthread_rwlock_rwlock1_OBJECTS) $(pthread_rwlock_rwlock1_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock1_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock1_OBJECTS) $(pthread_rwlock_rwlock1_LDADD) $(LIBS)
+pthread_rwlock/rwlock2.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock2$(EXEEXT): $(pthread_rwlock_rwlock2_OBJECTS) $(pthread_rwlock_rwlock2_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock2_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock2_OBJECTS) $(pthread_rwlock_rwlock2_LDADD) $(LIBS)
+pthread_rwlock/rwlock2_t.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock2_t$(EXEEXT): $(pthread_rwlock_rwlock2_t_OBJECTS) $(pthread_rwlock_rwlock2_t_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock2_t_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock2_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock2_t_OBJECTS) $(pthread_rwlock_rwlock2_t_LDADD) $(LIBS)
+pthread_rwlock/rwlock3.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock3$(EXEEXT): $(pthread_rwlock_rwlock3_OBJECTS) $(pthread_rwlock_rwlock3_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock3_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock3_OBJECTS) $(pthread_rwlock_rwlock3_LDADD) $(LIBS)
+pthread_rwlock/rwlock3_t.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock3_t$(EXEEXT): $(pthread_rwlock_rwlock3_t_OBJECTS) $(pthread_rwlock_rwlock3_t_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock3_t_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock3_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock3_t_OBJECTS) $(pthread_rwlock_rwlock3_t_LDADD) $(LIBS)
+pthread_rwlock/rwlock4.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock4$(EXEEXT): $(pthread_rwlock_rwlock4_OBJECTS) $(pthread_rwlock_rwlock4_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock4_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock4_OBJECTS) $(pthread_rwlock_rwlock4_LDADD) $(LIBS)
+pthread_rwlock/rwlock4_t.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock4_t$(EXEEXT): $(pthread_rwlock_rwlock4_t_OBJECTS) $(pthread_rwlock_rwlock4_t_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock4_t_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock4_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock4_t_OBJECTS) $(pthread_rwlock_rwlock4_t_LDADD) $(LIBS)
+pthread_rwlock/rwlock5.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock5$(EXEEXT): $(pthread_rwlock_rwlock5_OBJECTS) $(pthread_rwlock_rwlock5_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock5_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock5_OBJECTS) $(pthread_rwlock_rwlock5_LDADD) $(LIBS)
+pthread_rwlock/rwlock5_t.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock5_t$(EXEEXT): $(pthread_rwlock_rwlock5_t_OBJECTS) $(pthread_rwlock_rwlock5_t_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock5_t_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock5_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock5_t_OBJECTS) $(pthread_rwlock_rwlock5_t_LDADD) $(LIBS)
+pthread_rwlock/rwlock6.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock6$(EXEEXT): $(pthread_rwlock_rwlock6_OBJECTS) $(pthread_rwlock_rwlock6_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock6_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock6$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock6_OBJECTS) $(pthread_rwlock_rwlock6_LDADD) $(LIBS)
+pthread_rwlock/rwlock6_t.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock6_t$(EXEEXT): $(pthread_rwlock_rwlock6_t_OBJECTS) $(pthread_rwlock_rwlock6_t_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock6_t_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock6_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock6_t_OBJECTS) $(pthread_rwlock_rwlock6_t_LDADD) $(LIBS)
+pthread_rwlock/rwlock6_t2.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock6_t2$(EXEEXT): $(pthread_rwlock_rwlock6_t2_OBJECTS) $(pthread_rwlock_rwlock6_t2_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock6_t2_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock6_t2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock6_t2_OBJECTS) $(pthread_rwlock_rwlock6_t2_LDADD) $(LIBS)
+pthread_rwlock/rwlock7.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock7$(EXEEXT): $(pthread_rwlock_rwlock7_OBJECTS) $(pthread_rwlock_rwlock7_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock7_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock7$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock7_OBJECTS) $(pthread_rwlock_rwlock7_LDADD) $(LIBS)
+pthread_rwlock/rwlock8.$(OBJEXT): pthread_rwlock/$(am__dirstamp) \
+	pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_rwlock/rwlock8$(EXEEXT): $(pthread_rwlock_rwlock8_OBJECTS) $(pthread_rwlock_rwlock8_DEPENDENCIES) $(EXTRA_pthread_rwlock_rwlock8_DEPENDENCIES) pthread_rwlock/$(am__dirstamp)
+	@rm -f pthread_rwlock/rwlock8$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_rwlock_rwlock8_OBJECTS) $(pthread_rwlock_rwlock8_LDADD) $(LIBS)
+pthread_spinlock/$(am__dirstamp):
+	@$(MKDIR_P) pthread_spinlock
+	@: > pthread_spinlock/$(am__dirstamp)
+pthread_spinlock/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_spinlock/$(DEPDIR)
+	@: > pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+pthread_spinlock/spin1.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_spinlock/spin1$(EXEEXT): $(pthread_spinlock_spin1_OBJECTS) $(pthread_spinlock_spin1_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin1_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spin1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin1_OBJECTS) $(pthread_spinlock_spin1_LDADD) $(LIBS)
+pthread_spinlock/spin2.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_spinlock/spin2$(EXEEXT): $(pthread_spinlock_spin2_OBJECTS) $(pthread_spinlock_spin2_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin2_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spin2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin2_OBJECTS) $(pthread_spinlock_spin2_LDADD) $(LIBS)
+pthread_spinlock/spin3.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_spinlock/spin3$(EXEEXT): $(pthread_spinlock_spin3_OBJECTS) $(pthread_spinlock_spin3_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin3_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spin3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin3_OBJECTS) $(pthread_spinlock_spin3_LDADD) $(LIBS)
+pthread_spinlock/spin4.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+
+pthread_spinlock/spin4$(EXEEXT): $(pthread_spinlock_spin4_OBJECTS) $(pthread_spinlock_spin4_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin4_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spin4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin4_OBJECTS) $(pthread_spinlock_spin4_LDADD) $(LIBS)
+pthread_tls/$(am__dirstamp):
+	@$(MKDIR_P) pthread_tls
+	@: > pthread_tls/$(am__dirstamp)
+pthread_tls/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) pthread_tls/$(DEPDIR)
+	@: > pthread_tls/$(DEPDIR)/$(am__dirstamp)
+pthread_tls/tsd1.$(OBJEXT): pthread_tls/$(am__dirstamp) \
+	pthread_tls/$(DEPDIR)/$(am__dirstamp)
+
+pthread_tls/tsd1$(EXEEXT): $(pthread_tls_tsd1_OBJECTS) $(pthread_tls_tsd1_DEPENDENCIES) $(EXTRA_pthread_tls_tsd1_DEPENDENCIES) pthread_tls/$(am__dirstamp)
+	@rm -f pthread_tls/tsd1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_tls_tsd1_OBJECTS) $(pthread_tls_tsd1_LDADD) $(LIBS)
+pthread_tls/tsd2.$(OBJEXT): pthread_tls/$(am__dirstamp) \
+	pthread_tls/$(DEPDIR)/$(am__dirstamp)
+
+pthread_tls/tsd2$(EXEEXT): $(pthread_tls_tsd2_OBJECTS) $(pthread_tls_tsd2_DEPENDENCIES) $(EXTRA_pthread_tls_tsd2_DEPENDENCIES) pthread_tls/$(am__dirstamp)
+	@rm -f pthread_tls/tsd2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_tls_tsd2_OBJECTS) $(pthread_tls_tsd2_LDADD) $(LIBS)
+sched/$(am__dirstamp):
+	@$(MKDIR_P) sched
+	@: > sched/$(am__dirstamp)
+sched/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) sched/$(DEPDIR)
+	@: > sched/$(DEPDIR)/$(am__dirstamp)
+sched/priority1.$(OBJEXT): sched/$(am__dirstamp) \
+	sched/$(DEPDIR)/$(am__dirstamp)
+
+sched/priority1$(EXEEXT): $(sched_priority1_OBJECTS) $(sched_priority1_DEPENDENCIES) $(EXTRA_sched_priority1_DEPENDENCIES) sched/$(am__dirstamp)
+	@rm -f sched/priority1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(sched_priority1_OBJECTS) $(sched_priority1_LDADD) $(LIBS)
+sched/priority2.$(OBJEXT): sched/$(am__dirstamp) \
+	sched/$(DEPDIR)/$(am__dirstamp)
+
+sched/priority2$(EXEEXT): $(sched_priority2_OBJECTS) $(sched_priority2_DEPENDENCIES) $(EXTRA_sched_priority2_DEPENDENCIES) sched/$(am__dirstamp)
+	@rm -f sched/priority2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(sched_priority2_OBJECTS) $(sched_priority2_LDADD) $(LIBS)
+semaphore/$(am__dirstamp):
+	@$(MKDIR_P) semaphore
+	@: > semaphore/$(am__dirstamp)
+semaphore/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) semaphore/$(DEPDIR)
+	@: > semaphore/$(DEPDIR)/$(am__dirstamp)
+semaphore/semaphore1.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore1$(EXEEXT): $(semaphore_semaphore1_OBJECTS) $(semaphore_semaphore1_DEPENDENCIES) $(EXTRA_semaphore_semaphore1_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore1_OBJECTS) $(semaphore_semaphore1_LDADD) $(LIBS)
+semaphore/semaphore2.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore2$(EXEEXT): $(semaphore_semaphore2_OBJECTS) $(semaphore_semaphore2_DEPENDENCIES) $(EXTRA_semaphore_semaphore2_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore2$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore2_OBJECTS) $(semaphore_semaphore2_LDADD) $(LIBS)
+semaphore/semaphore3.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore3$(EXEEXT): $(semaphore_semaphore3_OBJECTS) $(semaphore_semaphore3_DEPENDENCIES) $(EXTRA_semaphore_semaphore3_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore3$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore3_OBJECTS) $(semaphore_semaphore3_LDADD) $(LIBS)
+semaphore/semaphore4.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore4$(EXEEXT): $(semaphore_semaphore4_OBJECTS) $(semaphore_semaphore4_DEPENDENCIES) $(EXTRA_semaphore_semaphore4_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore4$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore4_OBJECTS) $(semaphore_semaphore4_LDADD) $(LIBS)
+semaphore/semaphore4t.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore4t$(EXEEXT): $(semaphore_semaphore4t_OBJECTS) $(semaphore_semaphore4t_DEPENDENCIES) $(EXTRA_semaphore_semaphore4t_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore4t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore4t_OBJECTS) $(semaphore_semaphore4t_LDADD) $(LIBS)
+semaphore/semaphore5.$(OBJEXT): semaphore/$(am__dirstamp) \
+	semaphore/$(DEPDIR)/$(am__dirstamp)
+
+semaphore/semaphore5$(EXEEXT): $(semaphore_semaphore5_OBJECTS) $(semaphore_semaphore5_DEPENDENCIES) $(EXTRA_semaphore_semaphore5_DEPENDENCIES) semaphore/$(am__dirstamp)
+	@rm -f semaphore/semaphore5$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(semaphore_semaphore5_OBJECTS) $(semaphore_semaphore5_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f benchtests/*.$(OBJEXT)
+	-rm -f clock/*.$(OBJEXT)
+	-rm -f exceptions/*.$(OBJEXT)
+	-rm -f misc/*.$(OBJEXT)
+	-rm -f pthread_barrier/*.$(OBJEXT)
+	-rm -f pthread_cancel/*.$(OBJEXT)
+	-rm -f pthread_cleanup/*.$(OBJEXT)
+	-rm -f pthread_cond/*.$(OBJEXT)
+	-rm -f pthread_create/*.$(OBJEXT)
+	-rm -f pthread_exit/*.$(OBJEXT)
+	-rm -f pthread_join/*.$(OBJEXT)
+	-rm -f pthread_misc/*.$(OBJEXT)
+	-rm -f pthread_mutex/*.$(OBJEXT)
+	-rm -f pthread_once/*.$(OBJEXT)
+	-rm -f pthread_rwlock/*.$(OBJEXT)
+	-rm -f pthread_spinlock/*.$(OBJEXT)
+	-rm -f pthread_tls/*.$(OBJEXT)
+	-rm -f sched/*.$(OBJEXT)
+	-rm -f semaphore/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_getres.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_gettime.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_nanosleep.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_settime.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_nanosleep.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchlib.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_getres.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_gettime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_nanosleep.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_settime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_nanosleep.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/loadfree.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/tryentercs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/tryentercs2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_barrier/$(DEPDIR)/barrier6.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel6a.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel6d.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel7.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cancel/$(DEPDIR)/cancel8.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cleanup/$(DEPDIR)/cleanup0.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cleanup/$(DEPDIR)/cleanup1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cleanup/$(DEPDIR)/cleanup2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cleanup/$(DEPDIR)/cleanup3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar1_1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar1_2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar2_1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar3_1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar3_2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar3_3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar6.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar7.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar8.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_cond/$(DEPDIR)/condvar9.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_join/$(DEPDIR)/join1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_join/$(DEPDIR)/join2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_join/$(DEPDIR)/join3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/context1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/count1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/delay1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/delay2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/detach1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/equal1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/errno1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/eyal1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/inherit1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/kill1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/reuse1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/reuse2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/self1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/self2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/stress1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1n.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6es.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6n.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6rs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6s.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7n.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8e.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8n.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock2_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock3_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock4_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock5_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock6.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock6_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock7.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock8.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_tls/$(DEPDIR)/tsd1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_tls/$(DEPDIR)/tsd2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@sched/$(DEPDIR)/priority1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@sched/$(DEPDIR)/priority2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore4t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@semaphore/$(DEPDIR)/semaphore5.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -641,6 +2657,25 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
+	-rm -rf benchtests/.libs benchtests/_libs
+	-rm -rf clock/.libs clock/_libs
+	-rm -rf exceptions/.libs exceptions/_libs
+	-rm -rf misc/.libs misc/_libs
+	-rm -rf pthread_barrier/.libs pthread_barrier/_libs
+	-rm -rf pthread_cancel/.libs pthread_cancel/_libs
+	-rm -rf pthread_cleanup/.libs pthread_cleanup/_libs
+	-rm -rf pthread_cond/.libs pthread_cond/_libs
+	-rm -rf pthread_create/.libs pthread_create/_libs
+	-rm -rf pthread_exit/.libs pthread_exit/_libs
+	-rm -rf pthread_join/.libs pthread_join/_libs
+	-rm -rf pthread_misc/.libs pthread_misc/_libs
+	-rm -rf pthread_mutex/.libs pthread_mutex/_libs
+	-rm -rf pthread_once/.libs pthread_once/_libs
+	-rm -rf pthread_rwlock/.libs pthread_rwlock/_libs
+	-rm -rf pthread_spinlock/.libs pthread_spinlock/_libs
+	-rm -rf pthread_tls/.libs pthread_tls/_libs
+	-rm -rf sched/.libs sched/_libs
+	-rm -rf semaphore/.libs semaphore/_libs
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
@@ -814,7 +2849,7 @@ $(TEST_SUITE_LOG): $(TEST_LOGS)
 	fi;								\
 	$$success || exit 1
 
-check-TESTS: $(check_PROGRAMS)
+check-TESTS: $(check_PROGRAMS) $(check_LIBRARIES)
 	@list='$(RECHECK_LOGS)';           test -z "$$list" || rm -f $$list
 	@list='$(RECHECK_LOGS:.log=.trs)'; test -z "$$list" || rm -f $$list
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
@@ -824,7 +2859,7 @@ check-TESTS: $(check_PROGRAMS)
 	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
 	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
 	exit $$?;
-recheck: all $(check_PROGRAMS)
+recheck: all $(check_PROGRAMS) $(check_LIBRARIES)
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 	@set +e; $(am__set_TESTS_bases); \
 	bases=`for i in $$bases; do echo $$i; done \
@@ -835,37 +2870,954 @@ recheck: all $(check_PROGRAMS)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
-t_clock_getres.log: t_clock_getres$(EXEEXT)
-	@p='t_clock_getres$(EXEEXT)'; \
-	b='t_clock_getres'; \
+benchtests/benchtest1.log: benchtests/benchtest1$(EXEEXT)
+	@p='benchtests/benchtest1$(EXEEXT)'; \
+	b='benchtests/benchtest1'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_clock_gettime.log: t_clock_gettime$(EXEEXT)
-	@p='t_clock_gettime$(EXEEXT)'; \
-	b='t_clock_gettime'; \
+benchtests/benchtest2.log: benchtests/benchtest2$(EXEEXT)
+	@p='benchtests/benchtest2$(EXEEXT)'; \
+	b='benchtests/benchtest2'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_clock_nanosleep.log: t_clock_nanosleep$(EXEEXT)
-	@p='t_clock_nanosleep$(EXEEXT)'; \
-	b='t_clock_nanosleep'; \
+benchtests/benchtest3.log: benchtests/benchtest3$(EXEEXT)
+	@p='benchtests/benchtest3$(EXEEXT)'; \
+	b='benchtests/benchtest3'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_clock_settime.log: t_clock_settime$(EXEEXT)
-	@p='t_clock_settime$(EXEEXT)'; \
-	b='t_clock_settime'; \
+benchtests/benchtest4.log: benchtests/benchtest4$(EXEEXT)
+	@p='benchtests/benchtest4$(EXEEXT)'; \
+	b='benchtests/benchtest4'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_nanosleep.log: t_nanosleep$(EXEEXT)
-	@p='t_nanosleep$(EXEEXT)'; \
-	b='t_nanosleep'; \
+benchtests/benchtest5.log: benchtests/benchtest5$(EXEEXT)
+	@p='benchtests/benchtest5$(EXEEXT)'; \
+	b='benchtests/benchtest5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/t_clock_getres.log: clock/t_clock_getres$(EXEEXT)
+	@p='clock/t_clock_getres$(EXEEXT)'; \
+	b='clock/t_clock_getres'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/t_clock_gettime.log: clock/t_clock_gettime$(EXEEXT)
+	@p='clock/t_clock_gettime$(EXEEXT)'; \
+	b='clock/t_clock_gettime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/t_clock_nanosleep.log: clock/t_clock_nanosleep$(EXEEXT)
+	@p='clock/t_clock_nanosleep$(EXEEXT)'; \
+	b='clock/t_clock_nanosleep'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/t_clock_settime.log: clock/t_clock_settime$(EXEEXT)
+	@p='clock/t_clock_settime$(EXEEXT)'; \
+	b='clock/t_clock_settime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/t_nanosleep.log: clock/t_nanosleep$(EXEEXT)
+	@p='clock/t_nanosleep$(EXEEXT)'; \
+	b='clock/t_nanosleep'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+exceptions/exception1.log: exceptions/exception1$(EXEEXT)
+	@p='exceptions/exception1$(EXEEXT)'; \
+	b='exceptions/exception1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+exceptions/exception2.log: exceptions/exception2$(EXEEXT)
+	@p='exceptions/exception2$(EXEEXT)'; \
+	b='exceptions/exception2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+exceptions/exception3.log: exceptions/exception3$(EXEEXT)
+	@p='exceptions/exception3$(EXEEXT)'; \
+	b='exceptions/exception3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+misc/loadfree.log: misc/loadfree$(EXEEXT)
+	@p='misc/loadfree$(EXEEXT)'; \
+	b='misc/loadfree'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+misc/tryentercs.log: misc/tryentercs$(EXEEXT)
+	@p='misc/tryentercs$(EXEEXT)'; \
+	b='misc/tryentercs'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+misc/tryentercs2.log: misc/tryentercs2$(EXEEXT)
+	@p='misc/tryentercs2$(EXEEXT)'; \
+	b='misc/tryentercs2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier1.log: pthread_barrier/barrier1$(EXEEXT)
+	@p='pthread_barrier/barrier1$(EXEEXT)'; \
+	b='pthread_barrier/barrier1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier2.log: pthread_barrier/barrier2$(EXEEXT)
+	@p='pthread_barrier/barrier2$(EXEEXT)'; \
+	b='pthread_barrier/barrier2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier3.log: pthread_barrier/barrier3$(EXEEXT)
+	@p='pthread_barrier/barrier3$(EXEEXT)'; \
+	b='pthread_barrier/barrier3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier4.log: pthread_barrier/barrier4$(EXEEXT)
+	@p='pthread_barrier/barrier4$(EXEEXT)'; \
+	b='pthread_barrier/barrier4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier5.log: pthread_barrier/barrier5$(EXEEXT)
+	@p='pthread_barrier/barrier5$(EXEEXT)'; \
+	b='pthread_barrier/barrier5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_barrier/barrier6.log: pthread_barrier/barrier6$(EXEEXT)
+	@p='pthread_barrier/barrier6$(EXEEXT)'; \
+	b='pthread_barrier/barrier6'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel1.log: pthread_cancel/cancel1$(EXEEXT)
+	@p='pthread_cancel/cancel1$(EXEEXT)'; \
+	b='pthread_cancel/cancel1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel2.log: pthread_cancel/cancel2$(EXEEXT)
+	@p='pthread_cancel/cancel2$(EXEEXT)'; \
+	b='pthread_cancel/cancel2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel3.log: pthread_cancel/cancel3$(EXEEXT)
+	@p='pthread_cancel/cancel3$(EXEEXT)'; \
+	b='pthread_cancel/cancel3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel4.log: pthread_cancel/cancel4$(EXEEXT)
+	@p='pthread_cancel/cancel4$(EXEEXT)'; \
+	b='pthread_cancel/cancel4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel5.log: pthread_cancel/cancel5$(EXEEXT)
+	@p='pthread_cancel/cancel5$(EXEEXT)'; \
+	b='pthread_cancel/cancel5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel6a.log: pthread_cancel/cancel6a$(EXEEXT)
+	@p='pthread_cancel/cancel6a$(EXEEXT)'; \
+	b='pthread_cancel/cancel6a'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel6d.log: pthread_cancel/cancel6d$(EXEEXT)
+	@p='pthread_cancel/cancel6d$(EXEEXT)'; \
+	b='pthread_cancel/cancel6d'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel7.log: pthread_cancel/cancel7$(EXEEXT)
+	@p='pthread_cancel/cancel7$(EXEEXT)'; \
+	b='pthread_cancel/cancel7'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cancel/cancel8.log: pthread_cancel/cancel8$(EXEEXT)
+	@p='pthread_cancel/cancel8$(EXEEXT)'; \
+	b='pthread_cancel/cancel8'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cleanup/cleanup0.log: pthread_cleanup/cleanup0$(EXEEXT)
+	@p='pthread_cleanup/cleanup0$(EXEEXT)'; \
+	b='pthread_cleanup/cleanup0'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cleanup/cleanup1.log: pthread_cleanup/cleanup1$(EXEEXT)
+	@p='pthread_cleanup/cleanup1$(EXEEXT)'; \
+	b='pthread_cleanup/cleanup1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cleanup/cleanup2.log: pthread_cleanup/cleanup2$(EXEEXT)
+	@p='pthread_cleanup/cleanup2$(EXEEXT)'; \
+	b='pthread_cleanup/cleanup2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cleanup/cleanup3.log: pthread_cleanup/cleanup3$(EXEEXT)
+	@p='pthread_cleanup/cleanup3$(EXEEXT)'; \
+	b='pthread_cleanup/cleanup3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar1.log: pthread_cond/condvar1$(EXEEXT)
+	@p='pthread_cond/condvar1$(EXEEXT)'; \
+	b='pthread_cond/condvar1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar1_1.log: pthread_cond/condvar1_1$(EXEEXT)
+	@p='pthread_cond/condvar1_1$(EXEEXT)'; \
+	b='pthread_cond/condvar1_1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar1_2.log: pthread_cond/condvar1_2$(EXEEXT)
+	@p='pthread_cond/condvar1_2$(EXEEXT)'; \
+	b='pthread_cond/condvar1_2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar2.log: pthread_cond/condvar2$(EXEEXT)
+	@p='pthread_cond/condvar2$(EXEEXT)'; \
+	b='pthread_cond/condvar2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar2_1.log: pthread_cond/condvar2_1$(EXEEXT)
+	@p='pthread_cond/condvar2_1$(EXEEXT)'; \
+	b='pthread_cond/condvar2_1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar3.log: pthread_cond/condvar3$(EXEEXT)
+	@p='pthread_cond/condvar3$(EXEEXT)'; \
+	b='pthread_cond/condvar3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar3_1.log: pthread_cond/condvar3_1$(EXEEXT)
+	@p='pthread_cond/condvar3_1$(EXEEXT)'; \
+	b='pthread_cond/condvar3_1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar3_2.log: pthread_cond/condvar3_2$(EXEEXT)
+	@p='pthread_cond/condvar3_2$(EXEEXT)'; \
+	b='pthread_cond/condvar3_2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar3_3.log: pthread_cond/condvar3_3$(EXEEXT)
+	@p='pthread_cond/condvar3_3$(EXEEXT)'; \
+	b='pthread_cond/condvar3_3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar4.log: pthread_cond/condvar4$(EXEEXT)
+	@p='pthread_cond/condvar4$(EXEEXT)'; \
+	b='pthread_cond/condvar4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar5.log: pthread_cond/condvar5$(EXEEXT)
+	@p='pthread_cond/condvar5$(EXEEXT)'; \
+	b='pthread_cond/condvar5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar6.log: pthread_cond/condvar6$(EXEEXT)
+	@p='pthread_cond/condvar6$(EXEEXT)'; \
+	b='pthread_cond/condvar6'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar7.log: pthread_cond/condvar7$(EXEEXT)
+	@p='pthread_cond/condvar7$(EXEEXT)'; \
+	b='pthread_cond/condvar7'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar8.log: pthread_cond/condvar8$(EXEEXT)
+	@p='pthread_cond/condvar8$(EXEEXT)'; \
+	b='pthread_cond/condvar8'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_cond/condvar9.log: pthread_cond/condvar9$(EXEEXT)
+	@p='pthread_cond/condvar9$(EXEEXT)'; \
+	b='pthread_cond/condvar9'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_create/create1.log: pthread_create/create1$(EXEEXT)
+	@p='pthread_create/create1$(EXEEXT)'; \
+	b='pthread_create/create1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_create/create2.log: pthread_create/create2$(EXEEXT)
+	@p='pthread_create/create2$(EXEEXT)'; \
+	b='pthread_create/create2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_create/create3.log: pthread_create/create3$(EXEEXT)
+	@p='pthread_create/create3$(EXEEXT)'; \
+	b='pthread_create/create3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_exit/exit2.log: pthread_exit/exit2$(EXEEXT)
+	@p='pthread_exit/exit2$(EXEEXT)'; \
+	b='pthread_exit/exit2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_exit/exit3.log: pthread_exit/exit3$(EXEEXT)
+	@p='pthread_exit/exit3$(EXEEXT)'; \
+	b='pthread_exit/exit3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_exit/exit4.log: pthread_exit/exit4$(EXEEXT)
+	@p='pthread_exit/exit4$(EXEEXT)'; \
+	b='pthread_exit/exit4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_exit/exit5.log: pthread_exit/exit5$(EXEEXT)
+	@p='pthread_exit/exit5$(EXEEXT)'; \
+	b='pthread_exit/exit5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_join/join1.log: pthread_join/join1$(EXEEXT)
+	@p='pthread_join/join1$(EXEEXT)'; \
+	b='pthread_join/join1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_join/join2.log: pthread_join/join2$(EXEEXT)
+	@p='pthread_join/join2$(EXEEXT)'; \
+	b='pthread_join/join2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_join/join3.log: pthread_join/join3$(EXEEXT)
+	@p='pthread_join/join3$(EXEEXT)'; \
+	b='pthread_join/join3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/context1.log: pthread_misc/context1$(EXEEXT)
+	@p='pthread_misc/context1$(EXEEXT)'; \
+	b='pthread_misc/context1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/count1.log: pthread_misc/count1$(EXEEXT)
+	@p='pthread_misc/count1$(EXEEXT)'; \
+	b='pthread_misc/count1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/delay1.log: pthread_misc/delay1$(EXEEXT)
+	@p='pthread_misc/delay1$(EXEEXT)'; \
+	b='pthread_misc/delay1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/delay2.log: pthread_misc/delay2$(EXEEXT)
+	@p='pthread_misc/delay2$(EXEEXT)'; \
+	b='pthread_misc/delay2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/detach1.log: pthread_misc/detach1$(EXEEXT)
+	@p='pthread_misc/detach1$(EXEEXT)'; \
+	b='pthread_misc/detach1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/equal1.log: pthread_misc/equal1$(EXEEXT)
+	@p='pthread_misc/equal1$(EXEEXT)'; \
+	b='pthread_misc/equal1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/errno1.log: pthread_misc/errno1$(EXEEXT)
+	@p='pthread_misc/errno1$(EXEEXT)'; \
+	b='pthread_misc/errno1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/eyal1.log: pthread_misc/eyal1$(EXEEXT)
+	@p='pthread_misc/eyal1$(EXEEXT)'; \
+	b='pthread_misc/eyal1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/inherit1.log: pthread_misc/inherit1$(EXEEXT)
+	@p='pthread_misc/inherit1$(EXEEXT)'; \
+	b='pthread_misc/inherit1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/kill1.log: pthread_misc/kill1$(EXEEXT)
+	@p='pthread_misc/kill1$(EXEEXT)'; \
+	b='pthread_misc/kill1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/reuse1.log: pthread_misc/reuse1$(EXEEXT)
+	@p='pthread_misc/reuse1$(EXEEXT)'; \
+	b='pthread_misc/reuse1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/reuse2.log: pthread_misc/reuse2$(EXEEXT)
+	@p='pthread_misc/reuse2$(EXEEXT)'; \
+	b='pthread_misc/reuse2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/self1.log: pthread_misc/self1$(EXEEXT)
+	@p='pthread_misc/self1$(EXEEXT)'; \
+	b='pthread_misc/self1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/self2.log: pthread_misc/self2$(EXEEXT)
+	@p='pthread_misc/self2$(EXEEXT)'; \
+	b='pthread_misc/self2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/stress1.log: pthread_misc/stress1$(EXEEXT)
+	@p='pthread_misc/stress1$(EXEEXT)'; \
+	b='pthread_misc/stress1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/valid1.log: pthread_misc/valid1$(EXEEXT)
+	@p='pthread_misc/valid1$(EXEEXT)'; \
+	b='pthread_misc/valid1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/valid2.log: pthread_misc/valid2$(EXEEXT)
+	@p='pthread_misc/valid2$(EXEEXT)'; \
+	b='pthread_misc/valid2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex1.log: pthread_mutex/mutex1$(EXEEXT)
+	@p='pthread_mutex/mutex1$(EXEEXT)'; \
+	b='pthread_mutex/mutex1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex1e.log: pthread_mutex/mutex1e$(EXEEXT)
+	@p='pthread_mutex/mutex1e$(EXEEXT)'; \
+	b='pthread_mutex/mutex1e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex1n.log: pthread_mutex/mutex1n$(EXEEXT)
+	@p='pthread_mutex/mutex1n$(EXEEXT)'; \
+	b='pthread_mutex/mutex1n'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex1r.log: pthread_mutex/mutex1r$(EXEEXT)
+	@p='pthread_mutex/mutex1r$(EXEEXT)'; \
+	b='pthread_mutex/mutex1r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex2.log: pthread_mutex/mutex2$(EXEEXT)
+	@p='pthread_mutex/mutex2$(EXEEXT)'; \
+	b='pthread_mutex/mutex2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex2e.log: pthread_mutex/mutex2e$(EXEEXT)
+	@p='pthread_mutex/mutex2e$(EXEEXT)'; \
+	b='pthread_mutex/mutex2e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex2r.log: pthread_mutex/mutex2r$(EXEEXT)
+	@p='pthread_mutex/mutex2r$(EXEEXT)'; \
+	b='pthread_mutex/mutex2r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex3.log: pthread_mutex/mutex3$(EXEEXT)
+	@p='pthread_mutex/mutex3$(EXEEXT)'; \
+	b='pthread_mutex/mutex3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex3e.log: pthread_mutex/mutex3e$(EXEEXT)
+	@p='pthread_mutex/mutex3e$(EXEEXT)'; \
+	b='pthread_mutex/mutex3e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex3r.log: pthread_mutex/mutex3r$(EXEEXT)
+	@p='pthread_mutex/mutex3r$(EXEEXT)'; \
+	b='pthread_mutex/mutex3r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex4.log: pthread_mutex/mutex4$(EXEEXT)
+	@p='pthread_mutex/mutex4$(EXEEXT)'; \
+	b='pthread_mutex/mutex4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex5.log: pthread_mutex/mutex5$(EXEEXT)
+	@p='pthread_mutex/mutex5$(EXEEXT)'; \
+	b='pthread_mutex/mutex5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6.log: pthread_mutex/mutex6$(EXEEXT)
+	@p='pthread_mutex/mutex6$(EXEEXT)'; \
+	b='pthread_mutex/mutex6'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6e.log: pthread_mutex/mutex6e$(EXEEXT)
+	@p='pthread_mutex/mutex6e$(EXEEXT)'; \
+	b='pthread_mutex/mutex6e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6es.log: pthread_mutex/mutex6es$(EXEEXT)
+	@p='pthread_mutex/mutex6es$(EXEEXT)'; \
+	b='pthread_mutex/mutex6es'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6n.log: pthread_mutex/mutex6n$(EXEEXT)
+	@p='pthread_mutex/mutex6n$(EXEEXT)'; \
+	b='pthread_mutex/mutex6n'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6r.log: pthread_mutex/mutex6r$(EXEEXT)
+	@p='pthread_mutex/mutex6r$(EXEEXT)'; \
+	b='pthread_mutex/mutex6r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6rs.log: pthread_mutex/mutex6rs$(EXEEXT)
+	@p='pthread_mutex/mutex6rs$(EXEEXT)'; \
+	b='pthread_mutex/mutex6rs'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex6s.log: pthread_mutex/mutex6s$(EXEEXT)
+	@p='pthread_mutex/mutex6s$(EXEEXT)'; \
+	b='pthread_mutex/mutex6s'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex7.log: pthread_mutex/mutex7$(EXEEXT)
+	@p='pthread_mutex/mutex7$(EXEEXT)'; \
+	b='pthread_mutex/mutex7'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex7e.log: pthread_mutex/mutex7e$(EXEEXT)
+	@p='pthread_mutex/mutex7e$(EXEEXT)'; \
+	b='pthread_mutex/mutex7e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex7n.log: pthread_mutex/mutex7n$(EXEEXT)
+	@p='pthread_mutex/mutex7n$(EXEEXT)'; \
+	b='pthread_mutex/mutex7n'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex7r.log: pthread_mutex/mutex7r$(EXEEXT)
+	@p='pthread_mutex/mutex7r$(EXEEXT)'; \
+	b='pthread_mutex/mutex7r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex8.log: pthread_mutex/mutex8$(EXEEXT)
+	@p='pthread_mutex/mutex8$(EXEEXT)'; \
+	b='pthread_mutex/mutex8'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex8e.log: pthread_mutex/mutex8e$(EXEEXT)
+	@p='pthread_mutex/mutex8e$(EXEEXT)'; \
+	b='pthread_mutex/mutex8e'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex8n.log: pthread_mutex/mutex8n$(EXEEXT)
+	@p='pthread_mutex/mutex8n$(EXEEXT)'; \
+	b='pthread_mutex/mutex8n'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/mutex8r.log: pthread_mutex/mutex8r$(EXEEXT)
+	@p='pthread_mutex/mutex8r$(EXEEXT)'; \
+	b='pthread_mutex/mutex8r'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_once/once1.log: pthread_once/once1$(EXEEXT)
+	@p='pthread_once/once1$(EXEEXT)'; \
+	b='pthread_once/once1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_once/once2.log: pthread_once/once2$(EXEEXT)
+	@p='pthread_once/once2$(EXEEXT)'; \
+	b='pthread_once/once2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_once/once3.log: pthread_once/once3$(EXEEXT)
+	@p='pthread_once/once3$(EXEEXT)'; \
+	b='pthread_once/once3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_once/once4.log: pthread_once/once4$(EXEEXT)
+	@p='pthread_once/once4$(EXEEXT)'; \
+	b='pthread_once/once4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock1.log: pthread_rwlock/rwlock1$(EXEEXT)
+	@p='pthread_rwlock/rwlock1$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock2.log: pthread_rwlock/rwlock2$(EXEEXT)
+	@p='pthread_rwlock/rwlock2$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock2_t.log: pthread_rwlock/rwlock2_t$(EXEEXT)
+	@p='pthread_rwlock/rwlock2_t$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock2_t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock3.log: pthread_rwlock/rwlock3$(EXEEXT)
+	@p='pthread_rwlock/rwlock3$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock3_t.log: pthread_rwlock/rwlock3_t$(EXEEXT)
+	@p='pthread_rwlock/rwlock3_t$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock3_t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock4.log: pthread_rwlock/rwlock4$(EXEEXT)
+	@p='pthread_rwlock/rwlock4$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock4_t.log: pthread_rwlock/rwlock4_t$(EXEEXT)
+	@p='pthread_rwlock/rwlock4_t$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock4_t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock5.log: pthread_rwlock/rwlock5$(EXEEXT)
+	@p='pthread_rwlock/rwlock5$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock5'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock5_t.log: pthread_rwlock/rwlock5_t$(EXEEXT)
+	@p='pthread_rwlock/rwlock5_t$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock5_t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock6.log: pthread_rwlock/rwlock6$(EXEEXT)
+	@p='pthread_rwlock/rwlock6$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock6'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock6_t.log: pthread_rwlock/rwlock6_t$(EXEEXT)
+	@p='pthread_rwlock/rwlock6_t$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock6_t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock6_t2.log: pthread_rwlock/rwlock6_t2$(EXEEXT)
+	@p='pthread_rwlock/rwlock6_t2$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock6_t2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock7.log: pthread_rwlock/rwlock7$(EXEEXT)
+	@p='pthread_rwlock/rwlock7$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock7'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_rwlock/rwlock8.log: pthread_rwlock/rwlock8$(EXEEXT)
+	@p='pthread_rwlock/rwlock8$(EXEEXT)'; \
+	b='pthread_rwlock/rwlock8'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_spinlock/spin1.log: pthread_spinlock/spin1$(EXEEXT)
+	@p='pthread_spinlock/spin1$(EXEEXT)'; \
+	b='pthread_spinlock/spin1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_spinlock/spin2.log: pthread_spinlock/spin2$(EXEEXT)
+	@p='pthread_spinlock/spin2$(EXEEXT)'; \
+	b='pthread_spinlock/spin2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_spinlock/spin3.log: pthread_spinlock/spin3$(EXEEXT)
+	@p='pthread_spinlock/spin3$(EXEEXT)'; \
+	b='pthread_spinlock/spin3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_spinlock/spin4.log: pthread_spinlock/spin4$(EXEEXT)
+	@p='pthread_spinlock/spin4$(EXEEXT)'; \
+	b='pthread_spinlock/spin4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_tls/tsd1.log: pthread_tls/tsd1$(EXEEXT)
+	@p='pthread_tls/tsd1$(EXEEXT)'; \
+	b='pthread_tls/tsd1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_tls/tsd2.log: pthread_tls/tsd2$(EXEEXT)
+	@p='pthread_tls/tsd2$(EXEEXT)'; \
+	b='pthread_tls/tsd2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+sched/priority1.log: sched/priority1$(EXEEXT)
+	@p='sched/priority1$(EXEEXT)'; \
+	b='sched/priority1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+sched/priority2.log: sched/priority2$(EXEEXT)
+	@p='sched/priority2$(EXEEXT)'; \
+	b='sched/priority2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore1.log: semaphore/semaphore1$(EXEEXT)
+	@p='semaphore/semaphore1$(EXEEXT)'; \
+	b='semaphore/semaphore1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore2.log: semaphore/semaphore2$(EXEEXT)
+	@p='semaphore/semaphore2$(EXEEXT)'; \
+	b='semaphore/semaphore2'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore3.log: semaphore/semaphore3$(EXEEXT)
+	@p='semaphore/semaphore3$(EXEEXT)'; \
+	b='semaphore/semaphore3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore4.log: semaphore/semaphore4$(EXEEXT)
+	@p='semaphore/semaphore4$(EXEEXT)'; \
+	b='semaphore/semaphore4'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore4t.log: semaphore/semaphore4t$(EXEEXT)
+	@p='semaphore/semaphore4t$(EXEEXT)'; \
+	b='semaphore/semaphore4t'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+semaphore/semaphore5.log: semaphore/semaphore5$(EXEEXT)
+	@p='semaphore/semaphore5$(EXEEXT)'; \
+	b='semaphore/semaphore5'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -918,7 +3870,7 @@ distdir-am: $(DISTFILES)
 	  fi; \
 	done
 check-am: all-am
-	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS) $(check_LIBRARIES)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
 all-am: Makefile
@@ -952,21 +3904,191 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f benchtests/$(DEPDIR)/$(am__dirstamp)
+	-rm -f benchtests/$(am__dirstamp)
+	-rm -f clock/$(DEPDIR)/$(am__dirstamp)
+	-rm -f clock/$(am__dirstamp)
+	-rm -f exceptions/$(DEPDIR)/$(am__dirstamp)
+	-rm -f exceptions/$(am__dirstamp)
+	-rm -f misc/$(DEPDIR)/$(am__dirstamp)
+	-rm -f misc/$(am__dirstamp)
+	-rm -f pthread_barrier/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_barrier/$(am__dirstamp)
+	-rm -f pthread_cancel/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_cancel/$(am__dirstamp)
+	-rm -f pthread_cleanup/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_cleanup/$(am__dirstamp)
+	-rm -f pthread_cond/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_cond/$(am__dirstamp)
+	-rm -f pthread_create/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_create/$(am__dirstamp)
+	-rm -f pthread_exit/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_exit/$(am__dirstamp)
+	-rm -f pthread_join/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_join/$(am__dirstamp)
+	-rm -f pthread_misc/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_misc/$(am__dirstamp)
+	-rm -f pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_mutex/$(am__dirstamp)
+	-rm -f pthread_once/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_once/$(am__dirstamp)
+	-rm -f pthread_rwlock/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_rwlock/$(am__dirstamp)
+	-rm -f pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_spinlock/$(am__dirstamp)
+	-rm -f pthread_tls/$(DEPDIR)/$(am__dirstamp)
+	-rm -f pthread_tls/$(am__dirstamp)
+	-rm -f sched/$(DEPDIR)/$(am__dirstamp)
+	-rm -f sched/$(am__dirstamp)
+	-rm -f semaphore/$(DEPDIR)/$(am__dirstamp)
+	-rm -f semaphore/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
-	mostlyclean-am
+clean-am: clean-checkLIBRARIES clean-checkPROGRAMS clean-generic \
+	clean-libtool mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/t_clock_getres.Po
-	-rm -f ./$(DEPDIR)/t_clock_gettime.Po
-	-rm -f ./$(DEPDIR)/t_clock_nanosleep.Po
-	-rm -f ./$(DEPDIR)/t_clock_settime.Po
-	-rm -f ./$(DEPDIR)/t_nanosleep.Po
+		-rm -f benchtests/$(DEPDIR)/benchlib.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest1.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest2.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest3.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest4.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest5.Po
+	-rm -f clock/$(DEPDIR)/t_clock_getres.Po
+	-rm -f clock/$(DEPDIR)/t_clock_gettime.Po
+	-rm -f clock/$(DEPDIR)/t_clock_nanosleep.Po
+	-rm -f clock/$(DEPDIR)/t_clock_settime.Po
+	-rm -f clock/$(DEPDIR)/t_nanosleep.Po
+	-rm -f exceptions/$(DEPDIR)/exception1.Po
+	-rm -f exceptions/$(DEPDIR)/exception2.Po
+	-rm -f exceptions/$(DEPDIR)/exception3.Po
+	-rm -f misc/$(DEPDIR)/loadfree.Po
+	-rm -f misc/$(DEPDIR)/tryentercs.Po
+	-rm -f misc/$(DEPDIR)/tryentercs2.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier1.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier2.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier3.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier4.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier5.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier6.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel1.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel2.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel3.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel4.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel5.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel6a.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel6d.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel7.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel8.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup0.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup1.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup2.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1_2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar2_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar4.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar5.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar6.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar7.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar8.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar9.Po
+	-rm -f pthread_create/$(DEPDIR)/create1.Po
+	-rm -f pthread_create/$(DEPDIR)/create2.Po
+	-rm -f pthread_create/$(DEPDIR)/create3.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit2.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit3.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit4.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit5.Po
+	-rm -f pthread_join/$(DEPDIR)/join1.Po
+	-rm -f pthread_join/$(DEPDIR)/join2.Po
+	-rm -f pthread_join/$(DEPDIR)/join3.Po
+	-rm -f pthread_misc/$(DEPDIR)/context1.Po
+	-rm -f pthread_misc/$(DEPDIR)/count1.Po
+	-rm -f pthread_misc/$(DEPDIR)/delay1.Po
+	-rm -f pthread_misc/$(DEPDIR)/delay2.Po
+	-rm -f pthread_misc/$(DEPDIR)/detach1.Po
+	-rm -f pthread_misc/$(DEPDIR)/equal1.Po
+	-rm -f pthread_misc/$(DEPDIR)/errno1.Po
+	-rm -f pthread_misc/$(DEPDIR)/eyal1.Po
+	-rm -f pthread_misc/$(DEPDIR)/inherit1.Po
+	-rm -f pthread_misc/$(DEPDIR)/kill1.Po
+	-rm -f pthread_misc/$(DEPDIR)/reuse1.Po
+	-rm -f pthread_misc/$(DEPDIR)/reuse2.Po
+	-rm -f pthread_misc/$(DEPDIR)/self1.Po
+	-rm -f pthread_misc/$(DEPDIR)/self2.Po
+	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
+	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
+	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex4.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex5.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6es.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6rs.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6s.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8r.Po
+	-rm -f pthread_once/$(DEPDIR)/once1.Po
+	-rm -f pthread_once/$(DEPDIR)/once2.Po
+	-rm -f pthread_once/$(DEPDIR)/once3.Po
+	-rm -f pthread_once/$(DEPDIR)/once4.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock1.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock2.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock2_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock3.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock3_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock4.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock4_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock5.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock5_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock7.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock8.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin1.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin2.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin3.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin4.Po
+	-rm -f pthread_tls/$(DEPDIR)/tsd1.Po
+	-rm -f pthread_tls/$(DEPDIR)/tsd2.Po
+	-rm -f sched/$(DEPDIR)/priority1.Po
+	-rm -f sched/$(DEPDIR)/priority2.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore1.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore2.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore3.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore4.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore4t.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore5.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1012,11 +4134,143 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/t_clock_getres.Po
-	-rm -f ./$(DEPDIR)/t_clock_gettime.Po
-	-rm -f ./$(DEPDIR)/t_clock_nanosleep.Po
-	-rm -f ./$(DEPDIR)/t_clock_settime.Po
-	-rm -f ./$(DEPDIR)/t_nanosleep.Po
+		-rm -f benchtests/$(DEPDIR)/benchlib.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest1.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest2.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest3.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest4.Po
+	-rm -f benchtests/$(DEPDIR)/benchtest5.Po
+	-rm -f clock/$(DEPDIR)/t_clock_getres.Po
+	-rm -f clock/$(DEPDIR)/t_clock_gettime.Po
+	-rm -f clock/$(DEPDIR)/t_clock_nanosleep.Po
+	-rm -f clock/$(DEPDIR)/t_clock_settime.Po
+	-rm -f clock/$(DEPDIR)/t_nanosleep.Po
+	-rm -f exceptions/$(DEPDIR)/exception1.Po
+	-rm -f exceptions/$(DEPDIR)/exception2.Po
+	-rm -f exceptions/$(DEPDIR)/exception3.Po
+	-rm -f misc/$(DEPDIR)/loadfree.Po
+	-rm -f misc/$(DEPDIR)/tryentercs.Po
+	-rm -f misc/$(DEPDIR)/tryentercs2.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier1.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier2.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier3.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier4.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier5.Po
+	-rm -f pthread_barrier/$(DEPDIR)/barrier6.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel1.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel2.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel3.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel4.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel5.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel6a.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel6d.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel7.Po
+	-rm -f pthread_cancel/$(DEPDIR)/cancel8.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup0.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup1.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup2.Po
+	-rm -f pthread_cleanup/$(DEPDIR)/cleanup3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar1_2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar2_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_1.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_2.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar3_3.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar4.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar5.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar6.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar7.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar8.Po
+	-rm -f pthread_cond/$(DEPDIR)/condvar9.Po
+	-rm -f pthread_create/$(DEPDIR)/create1.Po
+	-rm -f pthread_create/$(DEPDIR)/create2.Po
+	-rm -f pthread_create/$(DEPDIR)/create3.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit2.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit3.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit4.Po
+	-rm -f pthread_exit/$(DEPDIR)/exit5.Po
+	-rm -f pthread_join/$(DEPDIR)/join1.Po
+	-rm -f pthread_join/$(DEPDIR)/join2.Po
+	-rm -f pthread_join/$(DEPDIR)/join3.Po
+	-rm -f pthread_misc/$(DEPDIR)/context1.Po
+	-rm -f pthread_misc/$(DEPDIR)/count1.Po
+	-rm -f pthread_misc/$(DEPDIR)/delay1.Po
+	-rm -f pthread_misc/$(DEPDIR)/delay2.Po
+	-rm -f pthread_misc/$(DEPDIR)/detach1.Po
+	-rm -f pthread_misc/$(DEPDIR)/equal1.Po
+	-rm -f pthread_misc/$(DEPDIR)/errno1.Po
+	-rm -f pthread_misc/$(DEPDIR)/eyal1.Po
+	-rm -f pthread_misc/$(DEPDIR)/inherit1.Po
+	-rm -f pthread_misc/$(DEPDIR)/kill1.Po
+	-rm -f pthread_misc/$(DEPDIR)/reuse1.Po
+	-rm -f pthread_misc/$(DEPDIR)/reuse2.Po
+	-rm -f pthread_misc/$(DEPDIR)/self1.Po
+	-rm -f pthread_misc/$(DEPDIR)/self2.Po
+	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
+	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
+	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex1r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex2r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex3r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex4.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex5.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6es.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6rs.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex6s.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex7r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8e.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8n.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex8r.Po
+	-rm -f pthread_once/$(DEPDIR)/once1.Po
+	-rm -f pthread_once/$(DEPDIR)/once2.Po
+	-rm -f pthread_once/$(DEPDIR)/once3.Po
+	-rm -f pthread_once/$(DEPDIR)/once4.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock1.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock2.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock2_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock3.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock3_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock4.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock4_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock5.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock5_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock7.Po
+	-rm -f pthread_rwlock/$(DEPDIR)/rwlock8.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin1.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin2.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin3.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spin4.Po
+	-rm -f pthread_tls/$(DEPDIR)/tsd1.Po
+	-rm -f pthread_tls/$(DEPDIR)/tsd2.Po
+	-rm -f sched/$(DEPDIR)/priority1.Po
+	-rm -f sched/$(DEPDIR)/priority2.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore1.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore2.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore3.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore4.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore4t.Po
+	-rm -f semaphore/$(DEPDIR)/semaphore5.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -1038,15 +4292,16 @@ uninstall-am:
 .MAKE: check-am install-am install-strip
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--depfiles check check-TESTS \
-	check-am clean clean-checkPROGRAMS clean-generic clean-libtool \
-	cscopelist-am ctags ctags-am distclean distclean-compile \
-	distclean-generic distclean-libtool distclean-tags distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
+	check-am clean clean-checkLIBRARIES clean-checkPROGRAMS \
+	clean-generic clean-libtool cscopelist-am ctags ctags-am \
+	distclean distclean-compile distclean-generic \
+	distclean-libtool distclean-tags distdir dvi dvi-am html \
+	html-am info info-am install install-am install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	recheck tags tags-am uninstall uninstall-am

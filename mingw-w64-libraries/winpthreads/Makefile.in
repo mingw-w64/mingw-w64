@@ -506,6 +506,9 @@ libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 \
 
 # Extra files to add into archive with `make dist`
 EXTRA_DIST = \
+  tests/benchtests/benchtest.h \
+  tests/ChangeLog.2010         \
+  tests/test.h                 \
   build-aux/windres-rc
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
