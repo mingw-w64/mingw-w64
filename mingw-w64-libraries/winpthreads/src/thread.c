@@ -20,6 +20,14 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#if defined(__arm__) || defined(__aarch64__)
+/* We use setjmp/longjmp through asynchronous function calls via
+ * SetThreadContext below. This makes unwinding from longjmp not
+ * work reliably; therefore use a version of setjmp/longjmp that doesn't
+ * rely on SEH. */
+#define __USE_MINGW_SETJMP_NON_SEH
+#endif
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
