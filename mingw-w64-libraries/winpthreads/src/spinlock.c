@@ -77,6 +77,10 @@ int
 pthread_spin_unlock (pthread_spinlock_t *lock)
 {
   volatile spinlock_word_t *lk = (volatile spinlock_word_t *)lock;
-  *lk = -1;
+#if defined(__GNUC__) || defined(__clang__)
+  __atomic_store_n(lk, -1, __ATOMIC_RELEASE);
+#else
+  InterlockedExchangePointer((PVOID volatile *)lk, (void*)-1);
+#endif
   return 0;
 }
