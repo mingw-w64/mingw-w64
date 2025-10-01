@@ -1,7 +1,11 @@
 #include "test.h"
 
 enum {
+#ifdef _WIN64
   NUMTHREADS = 10000
+#else
+  NUMTHREADS = 1000
+#endif
 };
 
 
