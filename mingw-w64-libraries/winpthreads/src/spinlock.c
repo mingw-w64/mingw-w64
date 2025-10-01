@@ -59,9 +59,7 @@ pthread_spin_lock (pthread_spinlock_t *lock)
 {
   volatile spinlock_word_t *lk = (volatile spinlock_word_t *)lock;
   while (unlikely(InterlockedExchangePointer((PVOID volatile *)lk, 0) == 0))
-    do {
-      YieldProcessor();
-    } while (*lk == 0);
+    YieldProcessor();
   return 0;
 }
 
