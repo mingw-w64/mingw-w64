@@ -24,6 +24,13 @@ benchtests_benchtest4_LDADD = libbenchlib.a $(LDADD)
 benchtests_benchtest5_LDADD = libbenchlib.a $(LDADD)
 
 # TODO: fix pthread_cancel/cancel9
+#
+# pthread_exit/exit1 is skipped; exiting the main thread can be problematic,
+# in case something injects extra threads into the process.
+# That test also fails on AArch64 on modern versions of Windows, possibly
+# related to modern HW - see
+# https://developercommunity.visualstudio.com/t/Crash-when-doing-ExitThread-on-main-thre/10975751
+# for an upstream bug report about that.
 check_PROGRAMS =               \
 	benchtests/benchtest1      \
 	benchtests/benchtest2      \
@@ -78,7 +85,6 @@ check_PROGRAMS =               \
 	pthread_create/create1     \
 	pthread_create/create2     \
 	pthread_create/create3     \
-	pthread_exit/exit1         \
 	pthread_exit/exit2         \
 	pthread_exit/exit3         \
 	pthread_exit/exit4         \
