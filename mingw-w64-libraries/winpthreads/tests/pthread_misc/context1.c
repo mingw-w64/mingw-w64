@@ -50,8 +50,10 @@ main()
       GetThreadContext(hThread, &context);
 #ifdef _M_X64
 	  context.Rip = (uintptr_t) anotherEnding;
-#else
+#elif defined(_M_IX86)
 	  context.Eip = (uintptr_t) anotherEnding;
+#elif defined(_M_ARM) || defined(_M_ARM64)
+	  context.Pc = (uintptr_t) anotherEnding;
 #endif
 
       SetThreadContext(hThread, &context);
