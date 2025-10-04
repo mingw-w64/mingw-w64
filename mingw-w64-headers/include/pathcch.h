@@ -3,6 +3,9 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#ifndef __PATHCCH_H__
+#define __PATHCCH_H__
+
 #include <apiset.h>
 #include <apisetcconv.h>
 #include <minwindef.h>
@@ -134,4 +137,6 @@ DEFINE_ENUM_FLAG_OPERATORS(PATHCCH_OPTIONS)
     return PathCchFindExtension (const_cast<PCWSTR> (path), n, const_cast<PCWSTR *> (pext));
 }
 #endif
+#endif
+
 #endif
