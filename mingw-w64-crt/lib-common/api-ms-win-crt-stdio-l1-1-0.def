@@ -25,6 +25,7 @@ __stdio_common_vswprintf_s
 __stdio_common_vswscanf
 _chsize
 chsize == _chsize
+ftruncate == _chsize
 _chsize_s
 _close
 close == _close

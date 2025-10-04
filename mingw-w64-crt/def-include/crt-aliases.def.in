@@ -291,6 +291,7 @@ ADD_UNDERSCORE(popen)
 #endif
 fseeko == fseek
 ftello == ftell
+ftruncate == _chsize
 ; ADD_UNDERSCORE(scalb)
 
 ; This is list of symbol aliases for Large File Specification (extension to Single UNIX Specification)
