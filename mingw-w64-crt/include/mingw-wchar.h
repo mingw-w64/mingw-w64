@@ -9,4 +9,5 @@
 #include <wchar.h>
 
 size_t __cdecl __mingw_mbrtowc_cp(wchar_t * __restrict__ _DstCh,const char * __restrict__ _SrcCh,size_t _SizeInBytes,mbstate_t * __restrict__ _State, unsigned _Cp, int _MbCurMax);
+size_t __cdecl __mingw_wcrtomb_cp(char * __restrict__ _Dest,wchar_t _Source,mbstate_t * __restrict__ _State, unsigned cp, int mb_cur_max);
 #endif

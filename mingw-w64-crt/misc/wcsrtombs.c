@@ -3,8 +3,12 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+#include <locale.h>
+#include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
+
+#include "mingw-wchar.h"
 
 size_t wcsrtombs (
   char *__restrict__ mbs,
@@ -20,8 +24,14 @@ size_t wcsrtombs (
   /* Next wide character to convert */
   const wchar_t *wc = *wcs;
 
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
+  /* Maximum character length in `cp` */
+  int mb_cur_max = ___mb_cur_max_func ();
+
   while (1) {
-    const size_t length = wcrtomb (mbc, *wc, state);
+    const size_t length = __mingw_wcrtomb_cp (mbc, *wc, state, cp, mb_cur_max);
 
     /* Conversion failed */
     if (length == (size_t) -1) {
