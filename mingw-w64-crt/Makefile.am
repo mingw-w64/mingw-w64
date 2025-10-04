@@ -1192,7 +1192,7 @@ src_libmingwex=\
   stdio/mingw_vsnprintf.c  stdio/mingw_vswprintf.c   stdio/mingw_vsnwprintf.c stdio/mingw_vsprintf.c    stdio/mingw_wscanf.c    \
   stdio/mingw_vfwscanf.c   stdio/mingw_vswscanf.c    stdio/mingw_vsscanf.c    stdio/mingw_sformat.c     stdio/mingw_swformat.c  \
   \
-  stdio/snprintf.c         stdio/snwprintf.c         stdio/truncate.c        \
+  stdio/snprintf.c         stdio/snwprintf.c         stdio/truncate.c         stdio/truncate64.c \
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c \
   stdio/vsnprintf.c        stdio/vsnwprintf.c \
   stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
