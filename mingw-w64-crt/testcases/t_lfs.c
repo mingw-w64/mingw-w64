@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
     fsetpos64(stdin, &pos);
     lseek64(STDIN_FILENO, 0, SEEK_CUR);
     _lseeki64(STDIN_FILENO, 0, SEEK_CUR);
+    _telli64(STDIN_FILENO);
     file = fopen64(argc >= 2 ? argv[1] : argv[0], "r");
     if (file) {
         freopen64(argc >= 2 ? argv[1] : argv[0], "r", file);
