@@ -1170,7 +1170,7 @@ F_NON_I386(_wstat64) ; i386 _wstat64 replaced by emu
 _wutime64
 
 ; These symbols were added in Windows 2000 SP4 OS system version of msvcrt.dll
-F_X86_ANY(_get_heap_handle) ; _get_heap_handle is not available in Windows XP and Windows XP SP1 OS system versions of msvcrt.dll, but is in XP SP3
+F_X86_ANY(_get_heap_handle) ; _get_heap_handle is not available in Windows XP and Windows XP SP1 OS system versions of msvcrt.dll, but is in XP SP2 and SP3
 
 ; These symbols were added in Windows XP OS system version of msvcrt.dll
 #ifdef __i386__
