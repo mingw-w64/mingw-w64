@@ -22,6 +22,9 @@ testcase_progs = \
   t_findfirst \
   t_float  \
   t_fstat \
+  t_fstat_f64 \
+  t_fstat_t64 \
+  t_fstat_t64_f64 \
   t_intrinc \
   t_imagebase \
   t_lfs \
@@ -51,6 +54,9 @@ testcase_progs = \
   t_sigv \
   t_speed_powl \
   t_stat \
+  t_stat_f64 \
+  t_stat_t64 \
+  t_stat_t64_f64 \
   t_stdint \
   t_time \
   t_tls1 \
