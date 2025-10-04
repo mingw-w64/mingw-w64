@@ -167,6 +167,7 @@ src_libws2_32=libsrc/ws2_32.c \
 
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
+  misc/__mingw_mbrtowc_cp.c \
   misc/_onexit.c \
   misc/mbrlen.c \
   misc/mbrtowc.c \
