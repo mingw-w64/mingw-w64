@@ -66,6 +66,7 @@ int truncate64(const char *, _off64_t);
 #define _FILE_OFFSET_BITS_SET_FTRUNCATE
 #if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
 #define ftruncate ftruncate64
+#define truncate truncate64
 #endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
 #endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
 
