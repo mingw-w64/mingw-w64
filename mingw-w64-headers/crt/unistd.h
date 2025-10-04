@@ -60,12 +60,6 @@ int ftruncate(int, _off_t);
 int ftruncate64(int, _off64_t);
 int truncate(const char *, _off_t);
 int truncate64(const char *, _off64_t);
-#ifndef __CRT__NO_INLINE
-__CRT_INLINE int ftruncate(int __fd, _off_t __length)
-{
-  return _chsize (__fd, __length);
-}
-#endif /* !__CRT__NO_INLINE */
 #endif /* FTRUNCATE_DEFINED */
 
 #ifndef _FILE_OFFSET_BITS_SET_FTRUNCATE
