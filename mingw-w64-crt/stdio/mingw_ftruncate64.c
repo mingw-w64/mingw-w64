@@ -12,6 +12,7 @@
 #include <windows.h>
 #include <psapi.h>
 
+#if 0
 /* Mutually exclusive methods
   We check disk space as truncating more than the allowed space results
   in file getting mysteriously deleted
@@ -238,6 +239,7 @@ checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
   } /* We have enough space to truncate/expand */
   return 0;
 }
+#endif
 
 int __cdecl __mingw_ftruncate64(int __fd, _off64_t __length) {
   HANDLE f;
@@ -268,11 +270,13 @@ int __cdecl __mingw_ftruncate64(int __fd, _off64_t __length) {
     goto errorout;
   }
 
+#if 0
   /* Check available space */
   check = checkfreespace(f,__length);
   if (check != 0) {
     return -1; /* Error, errno already set */
   }
+#endif
 
   quad.QuadPart = __length;
   check = SetFilePointer(f, (LONG)quad.LowPart, &(quad.HighPart), FILE_BEGIN);
