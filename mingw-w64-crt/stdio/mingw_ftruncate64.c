@@ -239,7 +239,7 @@ checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
   return 0;
 }
 
-int ftruncate64(int __fd, _off64_t __length) {
+int __cdecl __mingw_ftruncate64(int __fd, _off64_t __length) {
   HANDLE f;
   LARGE_INTEGER quad;
   DWORD check;
@@ -305,6 +305,10 @@ int ftruncate64(int __fd, _off64_t __length) {
   errno = EINVAL;
   return -1;
 }
+
+#ifdef TEST_FTRUNCATE64
+#define ftruncate64 __mingw_ftruncate64
+#endif
 
 #if (TEST_FTRUNCATE64 == 1)
 int main(){

@@ -369,6 +369,7 @@ src_msvcrt=\
   secapi/wmemmove_s.c \
   stdio/_ftelli64.c \
   stdio/mingw_lock.c \
+  stdio/msvcrtos_ftruncate64.c \
   stdio/msvcr110pre_stat32.c \
   stdio/msvcr110pre_stat64i32.c \
   stdio/msvcr110pre_wstat32.c \
@@ -435,6 +436,7 @@ src_ucrtbase=\
   misc/_onexit.c \
   misc/output_format.c \
   misc/ucrt-access.c \
+  stdio/msvcr80plus_ftruncate64.c \
   stdio/ucrt___local_stdio_printf_options.c \
   stdio/ucrt___local_stdio_scanf_options.c \
   stdio/ucrt__scprintf.c \
@@ -937,6 +939,7 @@ src_pre_msvcr80=\
   stdio/_stat64i32.c \
   stdio/_wstat64i32.c \
   stdio/mingw_lock.c \
+  stdio/msvcr80pre_ftruncate64.c \
   string/msvcr80pre_wcstok.c
 
 src_pre_msvcr100=\
@@ -963,6 +966,7 @@ src_pre_msvcr120_post_msvcr71=\
   misc/_iswblank_l.c
 
 src_post_msvcr71=\
+  stdio/msvcr80plus_ftruncate64.c \
   string/msvcr80plus_wcstok.c
 
 src_post_msvcr80=\
@@ -1175,7 +1179,7 @@ src_libmingwex=\
   stdio/strtok_r.c \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
   stdio/asprintf.c \
-  stdio/ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
+  stdio/mingw_ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
