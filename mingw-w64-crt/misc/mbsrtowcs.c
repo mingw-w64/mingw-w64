@@ -4,8 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <locale.h>
-#include <wchar.h>
 #include <stdlib.h>
+#include <wchar.h>
+
+#include "mingw-wchar.h"
 
 size_t mbsrtowcs (
   wchar_t *wcs,
@@ -29,12 +31,15 @@ size_t mbsrtowcs (
   /* Next multibyte character to convert */
   const char *mbc = *mbs;
 
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
   /* Maximum character length in `cp` */
   int mb_cur_max = ___mb_cur_max_func();
 
   while (1) {
-    const size_t length = mbrtowc (
-      &wc, mbc, mb_cur_max, &conversion_state
+    const size_t length = __mingw_mbrtowc_cp (
+      &wc, mbc, mb_cur_max, &conversion_state, cp, mb_cur_max
     );
 
     /* Conversion failed */

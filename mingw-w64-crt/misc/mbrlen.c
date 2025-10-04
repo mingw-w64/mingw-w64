@@ -3,7 +3,11 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+#include <locale.h>
+#include <stdlib.h>
 #include <wchar.h>
+
+#include "mingw-wchar.h"
 
 size_t mbrlen (
   const char *__restrict__ mbs,
@@ -15,5 +19,12 @@ size_t mbrlen (
     static mbstate_t state_mbrlen = {0};
     state = &state_mbrlen;
   }
-  return mbrtowc (NULL, mbs, count, state);
+
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
+  /* Maximum character length used by current locale */
+  int mb_cur_max = ___mb_cur_max_func ();
+
+  return __mingw_mbrtowc_cp (NULL, mbs, count, state, cp, mb_cur_max);
 }

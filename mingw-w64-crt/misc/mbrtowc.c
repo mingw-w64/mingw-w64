@@ -11,18 +11,38 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-size_t mbrtowc (
+#include "mingw-wchar.h"
+
+/**
+ * __mingw_mbrtowc_cp is internal implementation for C95 functions mbrlen,
+ * mbrtowc and mbsrtowcs.
+ *
+ * In order to perform conversion we need the following information:
+ *
+ *  - code page used by active locale (which can be a thread locale for
+ *    msvcr80.dll and later); obtained by calling ___lc_codepage_func
+ *
+ *  - maximum character length in used code page; obtained by calling
+ *    ___mb_cur_max_func
+ *
+ *  - for double-byte code pages, we need to recognize leading bytes in order
+ *    to correctly convert multibyte characters; this can be done with Win32
+ *    function IsDBCSLeadByteEx or CRT function isleadbyte
+ *
+ * crtdll.dll's ___lc_codepage_func is quite expensive as it obtains this
+ * information by parsing return value of setlocale(LC_CTYPE, NULL). Using
+ * __mingw_mbrtowc_cp allows mbsrtowcs call both ___lc_codepage_func and
+ * ___mb_cur_max_func only once.
+ */
+
+size_t __mingw_mbrtowc_cp (
   wchar_t *__restrict__ wc,
   const char *__restrict__ mbs,
   size_t count,
-  mbstate_t *__restrict__ state
+  mbstate_t *__restrict__ state,
+  unsigned cp,
+  int mb_cur_max
 ) {
-  /* Use private `mbstate_t` if caller did not supply one */
-  if (state == NULL) {
-    static mbstate_t state_mbrtowc = {0};
-    state = &state_mbrtowc;
-  }
-
   /**
    * Calling mbrtowc (..., NULL, ..., state) is equivalent to
    *
@@ -43,12 +63,6 @@ size_t mbrtowc (
   if (count == 0) {
     return (size_t) -2;
   }
-
-  /* Code page used by current locale */
-  unsigned cp = ___lc_codepage_func ();
-
-  /* Maximum character length used by current locale */
-  int mb_cur_max = ___mb_cur_max_func ();
 
   /* Treat `state` as an array of bytes */
   union {
@@ -140,4 +154,25 @@ eilseq:
 einval:
   errno = EINVAL;
   return (size_t) -1;
+}
+
+size_t mbrtowc (
+  wchar_t *__restrict__ wc,
+  const char *__restrict__ mbs,
+  size_t count,
+  mbstate_t *__restrict__ state
+) {
+  /* Use private `mbstate_t` if caller did not supply one */
+  if (state == NULL) {
+    static mbstate_t state_mbrtowc = {0};
+    state = &state_mbrtowc;
+  }
+
+  /* Code page used by current locale */
+  unsigned cp = ___lc_codepage_func ();
+
+  /* Maximum character length used by current locale */
+  int mb_cur_max = ___mb_cur_max_func ();
+
+  return __mingw_mbrtowc_cp (wc, mbs, count, state, cp, mb_cur_max);
 }
