@@ -1440,18 +1440,85 @@ enum
     SIG_TYPE_EXPLICITTHIS = 0x40
 };
 
+static char *assembly_name;     /* current module */
+static char **assembly_imports;
+static UINT num_assembly_imports;
+
+static void append_assembly_import( const char *import )
+{
+    char *ptr, *name = xstrdup( import );
+
+    if ((ptr = strrchr( name, '.' ))) *ptr = 0;
+    assembly_imports = xrealloc( assembly_imports, (num_assembly_imports + 1) * sizeof(*assembly_imports) );
+    assembly_imports[num_assembly_imports++] = name;
+}
+
+static const char *get_assembly_import( const char *name )
+{
+    UINT i;
+    for (i = 0; i < num_assembly_imports; i++)
+    {
+        if (!strcasecmp( name, assembly_imports[i] )) return assembly_imports[i];
+    }
+    return NULL;
+}
+
 #define MODULE_ROW      1
 #define MSCORLIB_ROW    1
 
 #define MAX_NAME        256
 
-static UINT add_name( type_t *type, UINT *namespace )
+/* create a type reference if needed and store it in the base type */
+static void create_typeref( type_t *type )
 {
-    UINT name = add_string( type->name );
-    char *str = format_namespace( type->namespace, "", ".", NULL, NULL );
-    *namespace = add_string( str );
-    free( str );
-    return name;
+    UINT namespace, assemblyref, scope;
+    char *namespace_str;
+    const char *import_name;
+    type_t *base_type;
+
+    while (type_get_type( type ) == TYPE_POINTER) type = type_pointer_get_ref_type( type );
+    base_type = type_get_real_type( type );
+
+    if (base_type->md.ref) return;
+
+    /* basic types don't get a reference */
+    if (!base_type->name) return;
+
+    /* HSTRING is treated as a fundamental type */
+    if (type->name && !strcmp( type->name, "HSTRING__" )) return;
+
+    /* GUID is imported from mscorlib */
+    if (type->name && !strcmp( type->name, "GUID" ))
+    {
+        scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
+        base_type->md.ref = add_typeref_row( scope, add_string("Guid"), add_string("System") );
+        return;
+    }
+
+    base_type->md.name = add_string( base_type->name );
+    namespace_str = format_namespace( base_type->namespace, "", ".", NULL, NULL );
+    base_type->md.namespace = add_string( namespace_str );
+
+    if (base_type->md.namespace && (import_name = get_assembly_import( namespace_str )))
+    {
+        assemblyref = add_assemblyref_row( 0x200, 0, add_string(import_name) );
+        scope = resolution_scope( TABLE_ASSEMBLYREF, assemblyref );
+        base_type->md.ref = add_typeref_row( scope, base_type->md.name, base_type->md.namespace );
+    }
+    else if (!base_type->md.namespace) /* types without namespace are imported from Windows.Foundation */
+    {
+        namespace = add_string( "Windows.Foundation" );
+        assemblyref = add_assemblyref_row( 0x200, 0, namespace );
+        scope = resolution_scope( TABLE_ASSEMBLYREF, assemblyref );
+        base_type->md.ref = add_typeref_row( scope, base_type->md.name, namespace );
+    }
+    else
+    {
+        scope = resolution_scope( TABLE_MODULE, MODULE_ROW );
+        base_type->md.ref = add_typeref_row( scope, base_type->md.name, base_type->md.namespace );
+    }
+
+    free( namespace_str );
 }
 
 static UINT make_field_value_sig( UINT token, BYTE *buf )
@@ -1470,8 +1537,6 @@ enum
     LARGE_GUID_HEAP   = 0x02,
     LARGE_BLOB_HEAP   = 0x04
 };
-
-static char *assembly_name;
 
 static enum element_type map_basic_type( enum type_basic_type type, int sign )
 {
@@ -1509,7 +1574,7 @@ static UINT make_struct_field_sig( const var_t *var, BYTE *buf )
 
     if (type->name && !strcmp( type->name, "GUID" ))
     {
-        UINT token = typedef_or_ref( TABLE_TYPEREF, type->md.ref );
+        UINT token = typedef_or_ref( TABLE_TYPEREF, type_get_real_type(type)->md.ref );
         return make_field_value_sig( token, buf );
     }
 
@@ -1590,6 +1655,12 @@ static UINT make_member_sig4( UINT token, UINT token2, BYTE *buf )
 static UINT make_type_sig( const type_t *type, BYTE *buf )
 {
     UINT len = 0;
+
+    if (type->name && !strcmp( type->name, "HSTRING" ))
+    {
+        buf[0] = ELEMENT_TYPE_STRING;
+        return 1;
+    }
 
     type = type_get_real_type( type );
 
@@ -1908,14 +1979,13 @@ static void add_flags_attr_step2( const type_t *type )
 
 static void add_enum_type_step1( type_t *type )
 {
-    UINT name, namespace, scope, typeref;
-
-    name = add_name( type, &namespace );
+    UINT scope, typeref;
 
     scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
     typeref = add_typeref_row( scope, add_string("Enum"), add_string("System") );
     type->md.extends = typedef_or_ref( TABLE_TYPEREF, typeref );
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
+
+    create_typeref( type );
 
     add_version_attr_step1( type );
     add_contract_attr_step1( type );
@@ -1925,19 +1995,17 @@ static void add_enum_type_step1( type_t *type )
 static void add_enum_type_step2( type_t *type )
 {
     BYTE sig_value[] = { SIG_TYPE_FIELD, ELEMENT_TYPE_I4 };
-    UINT name, namespace, field, parent, sig_size;
+    UINT field, parent, sig_size;
     BYTE sig_field[32];
     const var_t *var;
 
     if (is_attr( type->attrs, ATTR_FLAGS )) sig_value[1] = ELEMENT_TYPE_U4;
 
-    name = add_name( type, &namespace );
-
     field = add_field_row( FIELD_ATTR_PRIVATE | FIELD_ATTR_SPECIALNAME | FIELD_ATTR_RTSPECIALNAME,
                            add_string("value__"), add_blob(sig_value, sizeof(sig_value)) );
 
-    type->md.def = add_typedef_row( TYPE_ATTR_PUBLIC | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN, name, namespace,
-                                    type->md.extends, field, 1 );
+    type->md.def = add_typedef_row( TYPE_ATTR_PUBLIC | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN, type->md.name,
+                                    type->md.namespace, type->md.extends, field, 1 );
 
     sig_size = make_field_value_sig( typedef_or_ref(TABLE_TYPEREF, type->md.ref), sig_field );
 
@@ -1958,33 +2026,28 @@ static void add_enum_type_step2( type_t *type )
 
 static void add_struct_type_step1( type_t *type )
 {
-    UINT name, namespace, scope, typeref;
+    UINT scope, typeref;
     const var_t *var;
-
-    name = add_name( type, &namespace );
-    scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
 
     LIST_FOR_EACH_ENTRY( var, type_struct_get_fields(type), const var_t, entry )
     {
-        type_t *field_type = var->declspec.type;
-        if (field_type->name && !strcmp( field_type->name, "GUID" ))
-            field_type->md.ref = add_typeref_row( scope, add_string("Guid"), add_string("System") );
+        create_typeref( var->declspec.type );
     }
 
+    scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
     typeref = add_typeref_row( scope, add_string("ValueType"), add_string("System") );
     type->md.extends = typedef_or_ref( TABLE_TYPEREF, typeref );
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
+
+    create_typeref( type );
 
     add_contract_attr_step1( type );
 }
 
 static void add_struct_type_step2( type_t *type )
 {
-    UINT name, namespace, field, flags, sig_size, first_field = 0;
+    UINT field, flags, sig_size, first_field = 0;
     const var_t *var;
     BYTE sig[32];
-
-    name = add_name( type, &namespace );
 
     LIST_FOR_EACH_ENTRY( var, type_struct_get_fields(type), const var_t, entry )
     {
@@ -1994,7 +2057,7 @@ static void add_struct_type_step2( type_t *type )
     }
 
     flags = TYPE_ATTR_PUBLIC | TYPE_ATTR_SEQUENTIALLAYOUT | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN;
-    type->md.def = add_typedef_row( flags, name, namespace, type->md.extends, first_field, 0 );
+    type->md.def = add_typedef_row( flags, type->md.name, type->md.namespace, type->md.extends, first_field, 0 );
 
     add_contract_attr_step2( type );
 }
@@ -2236,27 +2299,15 @@ static void add_deprecated_attr_step2( const var_t *method )
     free( value );
 }
 
-static void add_method_params_step1( var_list_t *arg_list )
+static void add_method_params_step1( const var_t *method )
 {
-    var_t *arg;
+    const var_list_t *arg_list = type_function_get_args( method->declspec.type );
+    const var_t *arg;
 
-    if (!arg_list) return;
-
-    LIST_FOR_EACH_ENTRY( arg, arg_list, var_t, entry )
+    if (arg_list) LIST_FOR_EACH_ENTRY( arg, arg_list, var_t, entry )
     {
-        type_t *type = arg->declspec.type;
-
         if (is_size_param( arg, arg_list )) continue;
-        if (type_get_type( type ) == TYPE_POINTER) type = type_pointer_get_ref_type( type );
-        if (type->name && !strcmp( type->name, "EventRegistrationToken" ))
-        {
-            UINT assemblyref, scope;
-
-            assemblyref = add_assemblyref_row( 0x200, 0, add_string("Windows.Foundation") );
-            scope = resolution_scope( TABLE_ASSEMBLYREF, assemblyref );
-            type = type_get_real_type( type );
-            type->md.ref = add_typeref_row( scope, add_string("EventRegistrationToken"), add_string("Windows.Foundation") );
-        }
+        create_typeref( arg->declspec.type );
     }
 }
 
@@ -2265,25 +2316,21 @@ static void add_runtimeclass_type_step1( type_t * );
 static void add_interface_type_step1( type_t *type )
 {
     const statement_t *stmt;
-    UINT name, namespace;
     type_t *class;
 
-    name = add_name( type, &namespace );
-
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
-
-    add_exclusiveto_attr_step1( type );
+    create_typeref( type );
 
     if ((class = type->details.iface->runtime_class)) add_runtimeclass_type_step1( class );
 
     add_contract_attr_step1( type );
     add_uuid_attr_step1( type );
+    add_exclusiveto_attr_step1( type );
 
     STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts(type) )
     {
         const var_t *method = stmt->u.var;
 
-        add_method_params_step1( type_function_get_args(method->declspec.type) );
+        add_method_params_step1( method );
 
         add_overload_attr_step1( method );
         add_default_overload_attr_step1( method );
@@ -2581,16 +2628,14 @@ static void add_runtimeclass_type_step2( type_t *type );
 
 static void add_interface_type_step2( type_t *type )
 {
-    UINT name, namespace, interface, flags = TYPE_ATTR_INTERFACE | TYPE_ATTR_ABSTRACT | TYPE_ATTR_UNKNOWN;
+    UINT interface, flags = TYPE_ATTR_INTERFACE | TYPE_ATTR_ABSTRACT | TYPE_ATTR_UNKNOWN;
     const typeref_list_t *require_list = type_iface_get_requires( type );
     const typeref_t *require;
     const statement_t *stmt;
     type_t *class;
 
-    name = add_name( type, &namespace );
-
     if (!is_attr( type->attrs, ATTR_EXCLUSIVETO )) flags |= TYPE_ATTR_PUBLIC;
-    type->md.def = add_typedef_row( flags, name, namespace, 0, 0, 0 );
+    type->md.def = add_typedef_row( flags, type->md.name, type->md.namespace, 0, 0, 0 );
 
     if (require_list) LIST_FOR_EACH_ENTRY( require, require_list, typeref_t, entry )
     {
@@ -2679,14 +2724,13 @@ static void add_apicontract_attr_step2( const type_t *type )
 
 static void add_apicontract_type_step1( type_t *type )
 {
-    UINT name, namespace, scope, typeref;
-
-    name = add_name( type, &namespace );
+    UINT scope, typeref;
 
     scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
     typeref = add_typeref_row( scope, add_string("ValueType"), add_string("System") );
     type->md.extends = typedef_or_ref( TABLE_TYPEREF, typeref );
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
+
+    create_typeref( type );
 
     add_contractversion_attr_step1( type );
     add_apicontract_attr_step1( type );
@@ -2694,11 +2738,9 @@ static void add_apicontract_type_step1( type_t *type )
 
 static void add_apicontract_type_step2( type_t *type )
 {
-    UINT name, namespace, flags = TYPE_ATTR_PUBLIC | TYPE_ATTR_SEQUENTIALLAYOUT | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN;
+    UINT flags = TYPE_ATTR_PUBLIC | TYPE_ATTR_SEQUENTIALLAYOUT | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN;
 
-    name = add_name( type, &namespace );
-
-    type->md.def = add_typedef_row( flags, name, namespace, type->md.extends, 0, 1 );
+    type->md.def = add_typedef_row( flags, type->md.name, type->md.namespace, type->md.extends, 0, 1 );
 
     add_contractversion_attr_step2( type );
     add_apicontract_attr_step2( type );
@@ -2706,12 +2748,20 @@ static void add_apicontract_type_step2( type_t *type )
 
 static void add_runtimeclass_type_step1( type_t *type )
 {
-    UINT name, namespace;
+    const typeref_list_t *iface_list = type_runtimeclass_get_ifaces( type );
+    const typeref_t *iface;
+    UINT scope, typeref;
 
-    if (type->md.ref) return;
+    create_typeref( type );
 
-    name = add_name( type, &namespace );
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
+    scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
+    typeref = add_typeref_row( scope, add_string("Object"), add_string("System") );
+    type->md.extends = typedef_or_ref( TABLE_TYPEREF, typeref );
+
+    if (iface_list) LIST_FOR_EACH_ENTRY( iface, iface_list, typeref_t, entry )
+    {
+        create_typeref( iface->type );
+    }
 }
 
 static void add_default_attr( UINT interfaceimpl_ref )
@@ -3140,9 +3190,13 @@ static void add_member_interfaces( type_t *class )
 
     if (iface_list) LIST_FOR_EACH_ENTRY( iface, iface_list, typeref_t, entry )
     {
-        UINT interface = typedef_or_ref( TABLE_TYPEREF, iface->type->md.ref );
-        UINT interfaceimpl_ref = add_interfaceimpl_row( class->md.def, interface );
+        UINT interface, interfaceimpl_ref;
         const statement_t *stmt;
+
+        create_typeref( iface->type );
+
+        interface = typedef_or_ref( TABLE_TYPEREF, iface->type->md.ref );
+        interfaceimpl_ref = add_interfaceimpl_row( class->md.def, interface );
 
         if (is_attr( iface->attrs, ATTR_DEFAULT )) add_default_attr( interfaceimpl_ref );
 
@@ -3319,23 +3373,17 @@ static void add_constructor_overload( const type_t *type )
 static void add_runtimeclass_type_step2( type_t *type )
 {
     const typeref_list_t *iface_list = type_runtimeclass_get_ifaces( type );
-    UINT name, namespace, scope, extends, typeref, flags;
+    UINT flags;
 
     if (type->md.def) return;
 
-    name = add_name( type, &namespace );
-
     add_constructor_overload( type );
-
-    scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
-    typeref = add_typeref_row( scope, add_string("Object"), add_string("System") );
-    extends = typedef_or_ref( TABLE_TYPEREF, typeref );
 
     flags = TYPE_ATTR_PUBLIC | TYPE_ATTR_UNKNOWN;
     if (!is_attr( type->attrs, ATTR_COMPOSABLE )) flags |= TYPE_ATTR_SEALED;
     if (!iface_list) flags |= TYPE_ATTR_ABSTRACT;
 
-    type->md.def = add_typedef_row( flags, name, namespace, extends, 0, 0 );
+    type->md.def = add_typedef_row( flags, type->md.name, type->md.namespace, type->md.extends, 0, 0 );
 
     /* add contract first so activation/composition constructors can inherit it */
     add_contract_attr_step1( type );
@@ -3361,14 +3409,20 @@ static void add_runtimeclass_type_step2( type_t *type )
 
 static void add_delegate_type_step1( type_t *type )
 {
-    UINT name, namespace, scope, typeref;
-
-    name = add_name( type, &namespace );
+    const type_t *iface = type_delegate_get_iface( type );
+    UINT scope, typeref;
+    const statement_t *stmt;
 
     scope = resolution_scope( TABLE_ASSEMBLYREF, MSCORLIB_ROW );
     typeref = add_typeref_row( scope, add_string("MulticastDelegate"), add_string("System") );
     type->md.extends = typedef_or_ref( TABLE_TYPEREF, typeref );
-    type->md.ref = add_typeref_row( resolution_scope(TABLE_MODULE, MODULE_ROW), name, namespace );
+
+    create_typeref( type );
+
+    STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts(iface) )
+    {
+        add_method_params_step1( stmt->u.var );
+    }
 
     add_version_attr_step1( type );
     add_contract_attr_step1( type );
@@ -3378,11 +3432,9 @@ static void add_delegate_type_step1( type_t *type )
 static void add_delegate_type_step2( type_t *type )
 {
     static const BYTE sig_ctor[] = { SIG_TYPE_HASTHIS, 2, ELEMENT_TYPE_VOID, ELEMENT_TYPE_OBJECT, ELEMENT_TYPE_I };
-    UINT name, namespace, methoddef, flags, paramlist;
+    UINT methoddef, flags, paramlist;
     const type_t *iface = type_delegate_get_iface( type );
     const statement_t *stmt;
-
-    name = add_name( type, &namespace );
 
     flags = METHOD_ATTR_RTSPECIALNAME | METHOD_ATTR_SPECIALNAME | METHOD_ATTR_HIDEBYSIG | METHOD_ATTR_PRIVATE;
     methoddef = add_methoddef_row( METHOD_IMPL_RUNTIME, flags, add_string(".ctor"),
@@ -3406,8 +3458,8 @@ static void add_delegate_type_step2( type_t *type )
         add_methoddef_row( METHOD_IMPL_RUNTIME, flags, add_string("Invoke"), add_blob(sig, sig_size), paramlist );
         break;
     }
-    type->md.def = add_typedef_row( TYPE_ATTR_PUBLIC | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN, name, namespace,
-                                    type->md.extends, 0, methoddef );
+    type->md.def = add_typedef_row( TYPE_ATTR_PUBLIC | TYPE_ATTR_SEALED | TYPE_ATTR_UNKNOWN, type->md.name,
+                                    type->md.namespace, type->md.extends, 0, methoddef );
 
     add_uuid_attr_step2( type );
     add_version_attr_step2( type );
@@ -3425,6 +3477,8 @@ static void build_tables( const statement_list_t *stmt_list )
     {
         type_t *type = stmt->u.type;
 
+        if (stmt->type == STMT_IMPORT) append_assembly_import( stmt->u.str );
+
         if (stmt->type != STMT_TYPE) continue;
 
         switch (type->type_type)
@@ -3438,7 +3492,7 @@ static void build_tables( const statement_list_t *stmt_list )
         case TYPE_INTERFACE:
             if (type->signature && !strncmp( type->signature, "pinterface", 10 ))
             {
-                fprintf( stderr, "Ingoring supported %s parameterized interface.\n", type->name );
+                /* fprintf( stderr, "Ignoring supported %s parameterized interface.\n", type->name ); */
                 break;
             }
             add_interface_type_step1( type );
@@ -3475,7 +3529,7 @@ static void build_tables( const statement_list_t *stmt_list )
         case TYPE_INTERFACE:
             if (type->signature && !strncmp( type->signature, "pinterface", 10 ))
             {
-                fprintf( stderr, "Ingoring supported %s parameterized interface.\n", type->name );
+                /* fprintf( stderr, "Ignoring supported %s parameterized interface.\n", type->name ); */
                 break;
             }
             add_interface_type_step2( type );
