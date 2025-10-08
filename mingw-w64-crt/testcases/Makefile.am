@@ -30,6 +30,7 @@ testcase_progs = \
   t_mbrtowc \
   t_mbsrtowcs \
   t_nullptrexception \
+  t_printf_g_width \
   t_readdir \
   t_snprintf \
   t_snprintf0 \
