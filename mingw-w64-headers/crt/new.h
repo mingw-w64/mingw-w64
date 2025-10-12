@@ -13,6 +13,7 @@
 #include <crtdefs.h>
 #pragma push_macro("new")
 #undef new
+extern "C" {
 #endif
 
 #ifndef __NOTHROW_T_DEFINED
@@ -41,6 +42,7 @@ _CRTIMP _PNH __cdecl _set_new_handler(_PNH _NewHandler);
 #endif
 
 #ifdef __cplusplus
+}
 #pragma pop_macro("new")
 #endif
 
