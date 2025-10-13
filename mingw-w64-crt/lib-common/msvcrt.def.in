@@ -1154,7 +1154,7 @@ _ctime64
 _findfirst64
 _findnext64
 F_NON_I386(_fstat64) ; i386 _fstat64 replaced by emu
-_ftime64
+F_NON_I386(_ftime64) ; i386 _ftime64 replaced by emu
 _futime64
 _gmtime64
 _localtime64
