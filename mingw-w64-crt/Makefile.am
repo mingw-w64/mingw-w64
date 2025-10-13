@@ -697,7 +697,6 @@ src_msvcrtarm32=\
   stdio/scanf.S \
   string/msvcr80plus_wcstok.c
 
-if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
   math/arm/nearbyint.S \
   math/arm/nearbyintf.S \
@@ -740,7 +739,6 @@ src_msvcrtarm32+=\
   math/arm-common/s_remquo.c \
   math/arm-common/s_remquof.c \
   math/arm-common/scalbn.c
-endif
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm64
 src_msvcrtarm64=\
@@ -1226,31 +1224,9 @@ src_libmingwex64=$(src_libmingwex_x86) \
 src_libmingwexarm32=\
   math/sincos.c \
   math/sincosf.c \
+  math/arm-common/ldexpl.c \
   math/arm-common/sincosl.c \
   math/arm/s_rint.c         math/arm/s_rintf.c
-
-if ENABLE_SOFTMATH
-src_libmingwexarm32+=\
-  math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    math/softmath/e_pow.c \
-  math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acosl.c     math/softmath/acoshf.c    math/softmath/acoshl.c    \
-  math/softmath/asinf.c     math/softmath/asinh.c     math/softmath/asinl.c     math/softmath/asinhf.c    math/softmath/asinhl.c    \
-  math/softmath/atan2f.c    math/softmath/atan2l.c    math/softmath/atanf.c     math/softmath/atanh.c     math/softmath/atanl.c     \
-  math/softmath/atanhf.c    math/softmath/atanhl.c    math/softmath/cos.c       math/softmath/cosf.c      math/softmath/cosl.c      \
-  math/softmath/exp.c       math/softmath/expl.c      math/softmath/exp2.c      math/softmath/exp2f.c     math/softmath/exp2l.c     \
-  math/softmath/expm1.c     math/softmath/expm1f.c    math/softmath/expm1l.c    math/softmath/fmod.c      math/softmath/fmodf.c     \
-  math/softmath/fmodl.c     math/softmath/frexpl.c    math/softmath/ilogb.c     math/softmath/ilogbf.c    math/softmath/ilogbl.c    \
-  math/softmath/ldexp.c     math/softmath/ldexpl.c    math/softmath/log.c       math/softmath/log10l.c    math/softmath/log1p.c     \
-  math/softmath/log1pf.c    math/softmath/log1pl.c    math/softmath/log2.c      math/softmath/log2f.c     math/softmath/log2l.c     \
-  math/softmath/logb.c      math/softmath/logbf.c     math/softmath/logbl.c     math/softmath/logl.c      math/softmath/pow.c       \
-  math/softmath/powl.c      \
-  math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
-  math/softmath/remquo.c    math/softmath/remquof.c   math/softmath/remquol.c   math/softmath/scalbn.c    math/softmath/scalbnf.c   \
-  math/softmath/scalbnl.c   math/softmath/sin.c \
-  math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
-else
-src_libmingwexarm32+=\
-  math/arm-common/ldexpl.c
-endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
