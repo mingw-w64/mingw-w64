@@ -1237,8 +1237,8 @@ F_X86_ANY(__CxxFrameHandler2)
 ___lc_collate_cp_func
 F_NON_I386(__pwctype_func) ; i386 __pwctype_func replaced by emu
 F_NON_I386(_abs64) ; i386 _abs64 replaced by emu
-_mkgmtime
-_mkgmtime64
+F_NON_I386(_mkgmtime) ; i386 _mkgmtime replaced by emu
+F_NON_I386(_mkgmtime64) ; i386 _mkgmtime64 replaced by emu
 F_NON_I386(_rotl64) ; i386 _rotl64 replaced by emu
 F_NON_I386(_rotr64) ; i386 _rotr64 replaced by emu
 _wctype DATA
@@ -1595,7 +1595,7 @@ _mbtowc_l
 _mbsnlen
 _mbstrnlen
 _memicmp_l
-_mkgmtime32 F_I386(== _mkgmtime) ; i386 _mkgmtime32 replaced by alias
+F_ARM_ANY(_mkgmtime32) ; i386 and x64 _mkgmtime32 replaced by emu
 F_ARM_ANY(_mktemp_s) ; i386 and x64 _mktemp_s replaced by emu
 _mktime32 F_I386(== mktime) ; i386 _mktime32 replaced by alias
 F_NON_I386(_msize_dbg)

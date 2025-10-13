@@ -219,9 +219,9 @@ in MinGW runtime. At least on follow-up it is marked that debian sees the
 version a-like BSD one. As MinGW.org (where those cephes parts are coming
 from) distributes them now over 6 years, it should be fine.
 
-================================
-Some string and memory functions
-================================
+=================================================
+Some string, memory and time conversion functions
+=================================================
 
 Copyright © 2005-2020 Rich Felker, et al.
 

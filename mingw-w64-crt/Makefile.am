@@ -580,6 +580,8 @@ src_msvcrt32=\
   misc/_get_fmode.c \
   misc/_gmtime64.c \
   misc/_initterm_e.c \
+  misc/_mkgmtime32.c \
+  misc/_mkgmtime64.c \
   misc/_set_doserrno.c \
   misc/_set_fmode.c \
   misc/_time64.c \
@@ -645,6 +647,7 @@ src_msvcrt64=\
   misc/_get_doserrno.c \
   misc/_get_fmode.c \
   misc/_initterm_e.c \
+  misc/_mkgmtime32.c \
   misc/_set_doserrno.c \
   misc/_set_fmode.c \
   misc/output_format.c \
@@ -926,6 +929,8 @@ src_pre_msvcr80=\
   misc/_invalid_parameter.c \
   misc/_invalid_parameter_noinfo.c \
   misc/_invoke_watson.c \
+  misc/_mkgmtime32.c \
+  misc/_mkgmtime64.c \
   misc/_recalloc.c \
   misc/_set_doserrno.c \
   misc/_set_errno.c \
