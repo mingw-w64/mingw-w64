@@ -4,6 +4,14 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+static inline void time64_to_filetime(__time64_t time64, FILETIME *filetime)
+{
+    /* conversion from signed 64-bit UNIX timestamp (1970-01-01 in seconds) to unsigned 64-bit FILETIME (1601-01-01 in 100-nanoseconds) */
+    unsigned long long value = (time64 * 10000000) + 116444736000000000LL;
+    filetime->dwLowDateTime = value & 0xffffffff;
+    filetime->dwHighDateTime = value >> 32;
+}
+
 static inline __time64_t filetime_to_time64(FILETIME *filetime)
 {
     unsigned long long value = ((unsigned long long)filetime->dwHighDateTime << 32) | filetime->dwLowDateTime;

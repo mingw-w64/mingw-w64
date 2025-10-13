@@ -578,6 +578,7 @@ src_msvcrt32=\
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_get_fmode.c \
+  misc/_gmtime64.c \
   misc/_initterm_e.c \
   misc/_set_doserrno.c \
   misc/_set_fmode.c \
@@ -886,6 +887,7 @@ src_pre_msvcr70=\
   misc/_aligned_offset_realloc.c \
   misc/_aligned_realloc.c \
   misc/_ftime64.c \
+  misc/_gmtime64.c \
   misc/_time64.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
