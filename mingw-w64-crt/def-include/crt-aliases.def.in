@@ -72,12 +72,7 @@ ADD_UNDERSCORE(fstat)
 F32(fstat == _fstat32)
 F64(fstat == _fstat64i32)
 #endif
-#ifdef FIXED_SIZE_SYMBOLS
-ADD_UNDERSCORE(ftime)
-#else
-F32(ftime == _ftime32)
-F64(ftime == _ftime64)
-#endif
+; ftime is provided in misc/ftime32.c or misc/ftime64.c as MS _ftime is not ABI compatible with POSIX ftime
 #if defined(UCRTBASE)
 ; HUGE alias and _HUGE variable are provided by math/_huge.c
 #elif defined(CRTDLL)

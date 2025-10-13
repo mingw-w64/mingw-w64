@@ -122,9 +122,9 @@ struct itimerspec {
 #ifndef _CRTBLD
 #if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
 #ifndef _USE_32BIT_TIME_T
-  void __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(_ftime64);
+  int __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(ftime64);
 #else
-  void __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(_ftime32);
+  int __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(ftime32);
 #endif /* _USE_32BIT_TIME_T */
 #endif
 #endif /* _CRTBLD */
