@@ -227,6 +227,11 @@ extern "C" {
 
 #ifndef RC_INVOKED
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call these
+ * functions. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifdef _USE_32BIT_TIME_T
 time_t __CRTDECL time(time_t *_Time) __MINGW_ASM_CALL(_time32);
 #ifdef _UCRT
@@ -256,6 +261,7 @@ errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) __
 time_t __CRTDECL mktime(struct tm *_Tm) __MINGW_ASM_CALL(_mktime64);
 time_t __CRTDECL _mkgmtime(struct tm *_Tm) __MINGW_ASM_CALL(_mkgmtime64);
 #endif
+#endif /* _CRTBLD */
 
 #endif /* !RC_INVOKED */
 

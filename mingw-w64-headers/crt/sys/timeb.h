@@ -78,6 +78,11 @@ extern "C" {
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
   _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call the
+ * _timeb and _ftime functions. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifndef _USE_32BIT_TIME_T
 #define _timeb __timeb64
 #define _ftime _ftime64
@@ -85,6 +90,7 @@ extern "C" {
 #define _timeb __timeb32
 #define _ftime _ftime32
 #endif
+#endif /* _CRTBLD */
 
 struct _timespec32 {
   __time32_t tv_sec;
@@ -109,6 +115,11 @@ struct itimerspec {
 };
 #endif
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call the
+ * ftime function. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
 #ifndef _USE_32BIT_TIME_T
   void __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(_ftime64);
@@ -116,6 +127,7 @@ struct itimerspec {
   void __cdecl ftime (struct timeb *) __MINGW_ASM_CALL(_ftime32);
 #endif /* _USE_32BIT_TIME_T */
 #endif
+#endif /* _CRTBLD */
 
 #ifdef __cplusplus
 }
