@@ -163,6 +163,12 @@ typedef union ATTRIB_GCC_STRUCT __uI128 {
 #define PFORMAT_XMASK       0x0000000F
 #define PFORMAT_XSHIFT      0x00000004
 
+/* `%b' and `%B' format digit extraction mask, and shift count...
+ * (These are constant, and do not propagate through the flags).
+ */
+#define PFORMAT_BMASK       0x00000001
+#define PFORMAT_BSHIFT      0x00000001
+
 /* The radix point character, used in floating point formats, is
  * localised on the basis of the active LC_NUMERIC locale category.
  * It is stored locally, as a `wchar_t' entity, which is converted
@@ -358,6 +364,23 @@ void __bigint_to_stringx(const uint32_t *digits, const uint32_t digitlen, char *
     if(buffpos == 0) break; /* sanity check */
   }
   memset(buff, '0', lastpos);
+  buff[bufflen - 1] = '\0';
+}
+
+/* LSB first, binary version */
+static
+void __bigint_to_stringb(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen){
+  const uint32_t digitsize = sizeof(*digits) * 8;
+  const uint64_t bits = digitsize * digitlen;
+  uint32_t pos = bufflen - 2;
+
+  for(uint32_t i = 0; i < bits; i++){
+    buff[pos] = (digits[i / digitsize] & (1 << (i % digitsize))) ? '1' : '0';
+    if(!pos) break; /* sanity check */
+    pos--;
+  }
+  if(pos < bufflen - 1)
+    memset(buff,'0', pos + 1);
   buff[bufflen - 1] = '\0';
 }
 
@@ -883,7 +906,7 @@ while( value.__pformat_ullong_t )
 static
 void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
 {
-  /* Handler for `%o', `%p', `%x' and `%X' conversions.
+  /* Handler for `%o', `%p', `%x', `%X', `%b' and `%B' conversions.
    *
    * These can be implemented using a simple `mask and shift' strategy;
    * set up the mask and shift values appropriate to the conversion format,
@@ -891,7 +914,8 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
    * digits of the formatted value, in preparation for output.
    */
   int width;
-  int shift = (fmt == 'o') ? PFORMAT_OSHIFT : PFORMAT_XSHIFT;
+  int shift = (fmt == 'o') ? PFORMAT_OSHIFT :
+              (fmt == 'b' || fmt == 'B') ? PFORMAT_BSHIFT : PFORMAT_XSHIFT;
   int bufflen = __pformat_int_bufsiz(2, shift, stream);
   char *buf = NULL;
 #ifdef __ENABLE_PRINTF128
@@ -904,6 +928,8 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   tmp_buf = alloca(bufflen);
   if(fmt == 'o'){
     __bigint_to_stringo(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen);
+  } else if(fmt == 'b' || fmt == 'B'){
+    __bigint_to_stringb(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen);
   } else {
     __bigint_to_stringx(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen, !(fmt & PFORMAT_XCASE));
   }
@@ -913,7 +939,8 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   for(int32_t i = strlen(tmp_buf); i >= 0; i--)
     *p++ = tmp_buf[i];
 #else
-  int mask = (fmt == 'o') ? PFORMAT_OMASK : PFORMAT_XMASK;
+  int mask = (fmt == 'o') ? PFORMAT_OMASK :
+             (fmt == 'b' || fmt == 'B') ? PFORMAT_BMASK : PFORMAT_XMASK;
   while( value.__pformat_ullong_t )
   {
     /* Encode the specified non-zero input value as a sequence of digits,
@@ -975,7 +1002,7 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   if( ((width = stream->width) > 0)
   &&  (fmt != 'o') && (stream->flags & PFORMAT_HASHED)  )
     /*
-     * For `%#x' or `%#X' formats, (which have the `#' flag set),
+     * For `%#x', `%#X', `%#b' or `%#B' formats, (which have the `#' flag set),
      * further reduce the padding width to accommodate the radix
      * indicating prefix.
      */
@@ -2515,8 +2542,10 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
           case 'u':
           case 'x':
           case 'X':
+          case 'b':
+          case 'B':
             /*
-             * Unsigned integer values; octal, decimal or hexadecimal format...
+             * Unsigned integer values; octal, decimal, hexadecimal or binary format...
              */
             stream.flags &= ~PFORMAT_POSITIVE;
 #if __ENABLE_PRINTF128

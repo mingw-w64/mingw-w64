@@ -927,6 +927,7 @@ __mingw_sformat (_IFP *s, const char *format, va_list argp)
 	case 'o': case 'p':
 	case 'u':
 	case 'x': case 'X':
+	case 'b': case 'B':
 	  switch (fc)
 	    {
 	    case 'd':
@@ -953,6 +954,9 @@ __mingw_sformat (_IFP *s, const char *format, va_list argp)
 	      break;
 	    case 'x': case 'X':
 	      base = 16;
+	      break;
+	    case 'b': case 'B':
+	      base = 2;
 	      break;
 	    }
 
