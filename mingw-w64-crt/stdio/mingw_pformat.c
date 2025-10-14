@@ -1882,13 +1882,14 @@ void __pformat_gfloat( long double x, __pformat_t *stream )
        * it, to suppress output of non-significant trailing zeros...
        */
       stream->precision = strlen( value ) - intlen;
-      /* When the mantissa is shorter than the number of integer digits
-       * (e.g., 100000 has mantissa "1" but requires 6 digit positions),
-       * precision becomes negative. Clamp to zero to represent no
-       * fractional digits.
-       */
-      if( stream->precision < 0 )
-        stream->precision = 0;
+
+    /* When the mantissa is shorter than the number of integer digits
+     * (e.g., 100000 has mantissa "1" but requires 6 digit positions),
+     * precision becomes negative. Clamp to zero to represent no
+     * fractional digits.
+     */
+    if( stream->precision < 0 )
+      stream->precision = 0;
 
     /* Now, we format the result as any other fixed point value.
      */
