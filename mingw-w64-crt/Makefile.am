@@ -4394,8 +4394,7 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
   $(top_srcdir)/libarm32/*.def \
   $(top_srcdir)/lib32/*.mri \
-  $(top_srcdir)/lib64/*.mri \
-  $(top_srcdir)/libarm32/*.mri \
+  $(top_srcdir)/lib-common/*.mri \
   $(top_srcdir)/lib-common/*.def.in \
   $(top_srcdir)/lib32/*.def.in \
   $(top_srcdir)/lib64/*.def.in \
