@@ -379,8 +379,8 @@ void __bigint_to_stringb(const uint32_t *digits, const uint32_t digitlen, char *
     if(!pos) break; /* sanity check */
     pos--;
   }
-  if(pos < bufflen - 1)
-    memset(buff,'0', pos + 1);
+  /* Fill any remaining leading positions with zeros  */
+  memset(buff, '0', pos + 1);
   buff[bufflen - 1] = '\0';
 }
 
@@ -400,8 +400,8 @@ void __bigint_to_stringo(const uint32_t *digits, const uint32_t digitlen, char *
       pos--;
     }
   }
-  if(pos < bufflen - 1)
-    memset(buff,'0', pos + 1);
+  /* Fill any remaining leading positions with zeros */
+  memset(buff, '0', pos + 1);
   buff[bufflen - 1] = '\0';
 }
 #endif /* defined(__ENABLE_PRINTF128) */
@@ -936,7 +936,7 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   __bigint_trim_leading_zeroes(tmp_buf,0);
 
   memset(buf,0,bufflen);
-  for(int32_t i = strlen(tmp_buf); i >= 0; i--)
+  for(int32_t i = strlen(tmp_buf)-1; i >= 0; i--)
     *p++ = tmp_buf[i];
 #else
   int mask = (fmt == 'o') ? PFORMAT_OMASK :
