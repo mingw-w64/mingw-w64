@@ -70,6 +70,12 @@ testcase_progs = \
   t_wreaddir \
   t_fseeko64
 
+EXTRA_DIST = \
+  t_snprintf_tmpl.h \
+  t_snwprintf_tmpl.h \
+  t_stprintf_tmpl.h \
+  t_swprintf_tmpl.h
+
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_trycatch_LDFLAGS = -static

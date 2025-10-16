@@ -78,6 +78,7 @@ src_libm=_libm_dummy.c
 
 if ENABLE_DFP
 src_dfp_math = \
+math/DFP/dfp_internal.h \
 math/DFP/__fpclassifyd32.c math/DFP/__fpclassifyd64.c math/DFP/__fpclassifyd128.c \
 math/DFP/__isnand32.c math/DFP/__isnand64.c math/DFP/__isnand128.c \
 math/DFP/__signbitd32.c math/DFP/__signbitd64.c math/DFP/__signbitd128.c \
@@ -167,6 +168,9 @@ src_libws2_32=libsrc/ws2_32.c \
 
 # Files included in all libmsvcr*.a
 src_msvcrt_common=\
+  include/msvcrt.h \
+  include/msvcrt_or_emu_glue.h \
+  include/mingw-wchar.h \
   misc/__mingw_mbrtowc_cp.c \
   misc/__mingw_wcrtomb_cp.c \
   misc/_onexit.c \
@@ -983,6 +987,7 @@ src_crtdll=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
+  misc/crtdll_stat.h \
   misc/crtdll__getmainargs.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
