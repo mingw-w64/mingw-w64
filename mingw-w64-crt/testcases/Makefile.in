@@ -1686,6 +1686,12 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_stat_t64 t_stat_t64_f64 t_stdint t_time t_tls1 t_trycatch \
 	t_stat_slash t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s \
 	t_wctob t_wreaddir t_fseeko64 $(am__append_1)
+EXTRA_DIST = \
+  t_snprintf_tmpl.h \
+  t_snwprintf_tmpl.h \
+  t_stprintf_tmpl.h \
+  t_swprintf_tmpl.h
+
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_trycatch_LDFLAGS = -static
