@@ -2288,7 +2288,7 @@ libarm32_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_libgdiplus_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 libarm32_LIBRARIES += libarm32/libws2_32.a
-libarm32_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/libws2_32.def.in
+libarm32_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/ws2_32.def.in
 libarm32_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_libws2_32_a_AR = $(DTDEFARM32) libarm32/ws2_32.def && $(AR) $(ARFLAGS)
 EXTRA_libarm32_libws2_32_a_DEPENDENCIES=libarm32/ws2_32.def
@@ -2613,7 +2613,7 @@ libarm64_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_libgdiplus_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 libarm64_LIBRARIES += libarm64/libws2_32.a
-libarm64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/libws2_32.def.in
+libarm64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/ws2_32.def.in
 libarm64_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.def && $(AR) $(ARFLAGS)
 EXTRA_libarm64_libws2_32_a_DEPENDENCIES=libarm64/ws2_32.def
