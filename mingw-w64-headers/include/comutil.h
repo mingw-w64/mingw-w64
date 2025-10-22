@@ -8,6 +8,7 @@
 
 #include <ole2.h>
 #include <stdio.h>
+#include <new>
 
 #ifndef _COM_ASSERT
 #define _COM_ASSERT(x) ((void)0)
@@ -51,8 +52,50 @@ namespace _com_util {
 }
 
 namespace _com_util {
-  BSTR WINAPI ConvertStringToBSTR(const char *pSrc);
-  char *WINAPI ConvertBSTRToString(BSTR pSrc);
+  inline BSTR WINAPI ConvertStringToBSTR(const char *pSrc){
+    int wcSize;
+    BSTR bstr;
+    if(!pSrc) return NULL;
+    wcSize=::MultiByteToWideChar(CP_ACP,0,pSrc,-1,NULL,0);
+    if (wcSize==0) {
+      _com_issue_error(HRESULT_FROM_WIN32(GetLastError()));
+      return NULL;
+    }
+    bstr=::SysAllocStringLen(NULL,wcSize-1);
+    if(!bstr) {
+      _com_issue_error(E_OUTOFMEMORY);
+      return NULL;
+    }
+    if(::MultiByteToWideChar(CP_ACP,0,pSrc,-1,bstr,wcSize)==0) {
+      DWORD err = ::GetLastError();
+      ::SysFreeString(bstr);
+      _com_issue_error(HRESULT_FROM_WIN32(err));
+      return NULL;
+    }
+    return bstr;
+  }
+  inline char *WINAPI ConvertBSTRToString(BSTR pSrc){
+    int mbSize;
+    char *str;
+    if(!pSrc) return NULL;
+    mbSize = ::WideCharToMultiByte(CP_ACP,0,pSrc,-1,NULL,0,NULL,NULL);
+    if (mbSize==0) {
+      _com_issue_error(HRESULT_FROM_WIN32(::GetLastError()));
+      return NULL;
+    }
+    str=new(::std::nothrow) char[mbSize];
+    if(!str) {
+      _com_issue_error(E_OUTOFMEMORY);
+      return NULL;
+    }
+    if(::WideCharToMultiByte(CP_ACP,0,pSrc,-1,str,mbSize,NULL,NULL)==0) {
+      DWORD err = ::GetLastError();
+      delete[] str;
+      _com_issue_error(HRESULT_FROM_WIN32(err));
+      return NULL;
+    }
+    return str;
+  }
 }
 
 class _bstr_t {
