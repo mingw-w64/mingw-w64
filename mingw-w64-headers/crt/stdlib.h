@@ -463,6 +463,10 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   _CRTIMP void *__cdecl _aligned_offset_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP size_t __cdecl _aligned_msize(void *_Memory,size_t _Alignment,size_t _Offset);
 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+  size_t __cdecl memalignment(const void *_Memory);
+#endif
+
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma pop_macro("calloc")
 #pragma pop_macro("free")
