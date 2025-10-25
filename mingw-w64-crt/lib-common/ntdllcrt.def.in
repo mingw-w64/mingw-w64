@@ -159,6 +159,15 @@ bsearch
 _vscwprintf
 _wcstoui64
 
+; This is list of symbols added in Windows Server 2003 SP1 / Windows XP x64 SP1
+F_NON_I386(__C_specific_handler)
+; F_NON_I386(__chkstk)
+F_X64(__misaligned_access)
+F64(_local_unwind)
+F_NON_I386(F_NON_ARM64(_setjmp))
+F_NON_I386(_setjmpex)
+F_NON_I386(longjmp)
+
 ; This is list of symbols added in Windows Vista
 F_I386(_alloca_probe_16)
 F_I386(_alloca_probe_8)
@@ -211,6 +220,7 @@ wcsncpy_s
 wcsnlen
 
 ; This is list of symbols added in Windows 8
+F_ARM32(__jump_unwind)
 _errno
 F_I386(_except_handler4_common)
 F_I386(_ftol2)
@@ -241,16 +251,3 @@ _vscprintf
 ; _libm_sse2_cos_precise
 ; _libm_sse2_sin_precise
 ; _libm_sse2_sqrt_precise
-
-
-
-; Unsorted list of symbols not available in any 32-bit x86 version of ntdll.dll library
-F_NON_I386(__C_specific_handler)
-; F_NON_I386(__chkstk)
-F_X64(__misaligned_access)
-F_ARM32(__jump_unwind)
-F64(_local_unwind)
-F_X64(_setjmp)
-F_ARM32(_setjmp)
-F_NON_I386(_setjmpex)
-F_NON_I386(longjmp)
