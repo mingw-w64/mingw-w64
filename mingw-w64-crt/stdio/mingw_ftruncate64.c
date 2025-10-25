@@ -241,6 +241,7 @@ checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
 }
 #endif
 
+int __cdecl __mingw_ftruncate64(int __fd, _off64_t __length);
 int __cdecl __mingw_ftruncate64(int __fd, _off64_t __length) {
   HANDLE f;
   LARGE_INTEGER quad;
