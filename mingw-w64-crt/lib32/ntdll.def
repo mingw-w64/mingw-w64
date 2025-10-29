@@ -6,9 +6,9 @@
 LIBRARY "ntdll.dll"
 EXPORTS
 RtlDispatchAPC@12
-RtlActivateActivationContextUnsafeFast@0
-RtlDeactivateActivationContextUnsafeFast@0
-RtlInterlockedPushListSList@8
+@RtlActivateActivationContextUnsafeFast@8
+@RtlDeactivateActivationContextUnsafeFast@4
+@RtlInterlockedPushListSList@16
 @RtlUlongByteSwap@4
 @RtlUlonglongByteSwap@8
 @RtlUshortByteSwap@4
