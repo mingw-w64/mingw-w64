@@ -1784,7 +1784,6 @@ TpWaitForWork@8
 VerSetConditionMask@16
 WerCheckEventEscalation@8
 WerReportExceptionWorker@4
-WerReportSQMEvent@12
 WerReportWatsonEvent@16
 WerReportSQMEvent@16
 WinSqmAddToAverageDWORD@12
