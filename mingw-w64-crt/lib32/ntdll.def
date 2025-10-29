@@ -165,10 +165,10 @@ LdrLoadDll@16
 LdrLoadEnclaveModule@12
 LdrLockLoaderLock@12
 LdrOpenImageFileOptionsKey@12
-LdrParentInterlockedPopEntrySList@0
-LdrParentRtlInitializeNtUserPfn@0
-LdrParentRtlResetNtUserPfn@0
-LdrParentRtlRetrieveNtUserPfn@0
+LdrParentInterlockedPopEntrySList DATA
+LdrParentRtlInitializeNtUserPfn DATA
+LdrParentRtlResetNtUserPfn DATA
+LdrParentRtlRetrieveNtUserPfn DATA
 LdrProcessRelocationBlock@16
 LdrProcessRelocationBlockEx@20
 LdrQueryImageFileExecutionOptions@24
@@ -197,7 +197,7 @@ LdrSetMUICacheType@4
 LdrShutdownProcess@0
 LdrShutdownThread@0
 LdrStandardizeSystemPath@4
-LdrSystemDllInitBlock@0
+LdrSystemDllInitBlock DATA
 LdrUnloadAlternateResourceModule@4
 LdrUnloadAlternateResourceModuleEx@8
 LdrUnloadDll@4
@@ -206,7 +206,7 @@ LdrUnregisterDllNotification@4
 LdrUpdatePackageSearchPath@4
 LdrVerifyImageMatchesChecksum@16
 LdrVerifyImageMatchesChecksumEx@8
-LdrpChildNtdll@0
+LdrpChildNtdll DATA
 LdrpResGetMappingSize@16
 LdrpResGetRCConfig@20
 LdrpResGetResourceDirectory@20
@@ -1672,7 +1672,7 @@ RtlpConvertLCIDsToCultureNames@8
 RtlpConvertRelativeToAbsoluteSecurityAttribute@16
 RtlpCreateProcessRegistryInfo@4
 RtlpEnsureBufferSize@12
-RtlpFreezeTimeBias@0
+RtlpFreezeTimeBias DATA
 RtlpGetDeviceFamilyInfoEnum@12
 RtlpGetLCIDFromLangInfoNode@12
 RtlpGetNameFromLangInfoNode@12
