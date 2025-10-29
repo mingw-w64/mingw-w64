@@ -1155,19 +1155,19 @@ _findfirst64
 _findnext64
 F_NON_I386(_fstat64) ; i386 _fstat64 replaced by emu
 F_NON_I386(_ftime64) ; i386 _ftime64 replaced by emu
-_futime64
+F_NON_I386(_futime64) ; i386 _futime64 replaced by emu
 F_NON_I386(_gmtime64) ; i386 _gmtime64 replaced by emu
 _localtime64
 _mktime64
 F_X86_ANY(_osplatform DATA)
 F_NON_I386(_stat64) ; i386 _stat64 replaced by emu
 F_NON_I386(_time64) ; i386 _time64 replaced by emu
-_utime64
+F_NON_I386(_utime64) ; i386 _utime64 replaced by emu
 _wctime64
 _wfindfirst64
 _wfindnext64
 F_NON_I386(_wstat64) ; i386 _wstat64 replaced by emu
-_wutime64
+F_NON_I386(_wutime64) ; i386 _wutime64 replaced by emu
 
 ; These symbols were added in Windows 2000 SP4 OS system version of msvcrt.dll
 F_X86_ANY(_get_heap_handle) ; _get_heap_handle is not available in Windows XP and Windows XP SP1 OS system versions of msvcrt.dll, but is in XP SP2 and SP3

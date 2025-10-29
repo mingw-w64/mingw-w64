@@ -576,6 +576,7 @@ src_msvcrt32=\
   misc/_create_locale.c \
   misc/_free_locale.c \
   misc/_ftime64.c \
+  misc/_futime64.c \
   misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_get_fmode.c \
@@ -586,6 +587,8 @@ src_msvcrt32=\
   misc/_set_doserrno.c \
   misc/_set_fmode.c \
   misc/_time64.c \
+  misc/_utime64.c \
+  misc/_wutime64.c \
   misc/imaxabs.c \
   misc/output_format.c \
   misc/_get_errno.c \
@@ -891,8 +894,11 @@ src_pre_msvcr70=\
   misc/_aligned_offset_realloc.c \
   misc/_aligned_realloc.c \
   misc/_ftime64.c \
+  misc/_futime64.c \
   misc/_gmtime64.c \
   misc/_time64.c \
+  misc/_utime64.c \
+  misc/_wutime64.c \
   misc/strtoimax.c \
   misc/strtoumax.c \
   misc/wcstoimax.c \
