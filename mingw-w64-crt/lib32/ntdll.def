@@ -1687,7 +1687,7 @@ RtlpMuiFreeLangRegistryInfo@4
 RtlpMuiRegCreateRegistryInfo@0
 RtlpMuiRegFreeRegistryInfo@8
 RtlpMuiRegLoadRegistryInfo@8
-RtlpNotOwnerCriticalSection@0 ; Check!!! gebdef says @4
+RtlpNotOwnerCriticalSection@4 ; Check!!! gebdef says @4
 RtlpNtCreateKey@24
 RtlpNtEnumerateSubKey@16
 RtlpNtMakeTemporaryKey@4
