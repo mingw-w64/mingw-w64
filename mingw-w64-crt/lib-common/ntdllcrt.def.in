@@ -18,7 +18,7 @@ F_X64(__misaligned_access)
 F_ARM32(__jump_unwind)
 __toascii
 #ifdef __i386__
-_alldiv
+_alldiv@16
 _alldvrm@16
 _allmul@16
 _alloca_probe
