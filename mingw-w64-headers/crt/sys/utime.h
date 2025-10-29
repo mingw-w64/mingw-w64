@@ -91,43 +91,24 @@ extern "C" {
   _CRTIMP int __cdecl _wutime64(const wchar_t *_Filename,struct __utimbuf64 *_Time);
 
 #ifndef RC_INVOKED
-int __cdecl _utime(const char *,struct _utimbuf *);
-int __cdecl _futime(int,struct _utimbuf *);
-int __cdecl _wutime(const wchar_t *,struct _utimbuf *);
-#ifndef __CRT__NO_INLINE
-#ifdef _USE_32BIT_TIME_T
-__CRT_INLINE int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) {
-  return _utime32(_Filename,(struct __utimbuf32 *)_Utimbuf);
-}
-__CRT_INLINE int __cdecl _futime(int _Desc,struct _utimbuf *_Utimbuf) {
-  return _futime32(_Desc,(struct __utimbuf32 *)_Utimbuf);
-}
-__CRT_INLINE int __cdecl _wutime(const wchar_t *_Filename,struct _utimbuf *_Utimbuf) {
-  return _wutime32(_Filename,(struct __utimbuf32 *)_Utimbuf);
-}
-#else
-__CRT_INLINE int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) {
-  return _utime64(_Filename,(struct __utimbuf64 *)_Utimbuf);
-}
-__CRT_INLINE int __cdecl _futime(int _Desc,struct _utimbuf *_Utimbuf) {
-  return _futime64(_Desc,(struct __utimbuf64 *)_Utimbuf);
-}
-__CRT_INLINE int __cdecl _wutime(const wchar_t *_Filename,struct _utimbuf *_Utimbuf) {
-  return _wutime64(_Filename,(struct __utimbuf64 *)_Utimbuf);
-}
-#endif
-#endif /* !__CRT__NO_INLINE */
 
-#ifndef	NO_OLDNAMES
-  int __cdecl utime(const char *, struct utimbuf *);
-#ifndef __CRT__NO_INLINE
-#ifndef _USE_32BIT_TIME_T
-__CRT_INLINE int __cdecl utime(const char *_Filename,struct utimbuf *_Utimbuf) {
-  return _utime64(_Filename,(struct __utimbuf64 *)_Utimbuf);
-}
-#endif /* !_USE_32BIT_TIME_T */
-#endif /* !__CRT__NO_INLINE */
+#ifdef _USE_32BIT_TIME_T
+  int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_utime32);
+  int __cdecl _futime(int _Desc,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_futime32);
+  int __cdecl _wutime(const wchar_t *_Filename,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_wutime32);
+#else
+  int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_utime64);
+  int __cdecl _futime(int _Desc,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_futime64);
+  int __cdecl _wutime(const wchar_t *_Filename,struct _utimbuf *_Utimbuf) __MINGW_ASM_CALL(_wutime64);
 #endif
+#ifndef	NO_OLDNAMES
+#ifdef _USE_32BIT_TIME_T
+  int __cdecl utime(const char *, struct utimbuf *) __MINGW_ASM_CALL(_utime32);
+#else
+  int __cdecl utime(const char *, struct utimbuf *) __MINGW_ASM_CALL(_utime64);
+#endif
+#endif
+
 #endif
 
 #ifdef __cplusplus
