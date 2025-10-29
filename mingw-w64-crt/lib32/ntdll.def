@@ -1624,7 +1624,7 @@ RtlUpperChar@4
 RtlUpperString@8
 RtlUsageHeap@12
 ; Not sure.
-RtlUserThreadStart
+RtlUserThreadStart@8
 RtlValidAcl@4
 RtlValidProcessProtection@4
 RtlValidRelativeSecurityDescriptor@12
@@ -1696,7 +1696,7 @@ RtlpNtQueryValueKey@20
 RtlpNtSetValueKey@16
 RtlpQueryDefaultUILanguage@8
 ; Not sure.
-RtlpQueryProcessDebugInformationRemote
+RtlpQueryProcessDebugInformationRemote@4
 RtlpRefreshCachedUILanguage@8
 RtlpSetInstallLanguage@8
 RtlpSetPreferredUILanguages@12
