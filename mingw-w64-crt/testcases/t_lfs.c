@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -23,7 +24,8 @@ int main(int argc, char *argv[]) {
         fclose(file);
     }
     file = tmpfile64();
-    if (file) fclose(file);
+    assert(file != NULL);
+    fclose(file);
     fd = open64(argc >= 2 ? argv[1] : argv[0], O_RDONLY);
     if (fd >= 0) close(fd);
     return 0;

@@ -295,7 +295,9 @@ creat64 == _creat
 open64 == _open
 fopen64 == fopen
 freopen64 == freopen
+#ifndef NO_TMPFILE_ALIAS
 tmpfile64 == tmpfile
+#endif
 #ifndef NO_FPOS64_ALIASES
 ; fgetpos and fsetpos are already 64-bit
 fgetpos64 == fgetpos

@@ -1543,7 +1543,7 @@ system
 tan
 ; If we implement tanh too, we can set it to DATA only.
 tanh
-tmpfile
+; tmpfile replaced by emu, CRT version may not use writable temporary directory
 tmpfile_s
 tmpnam
 tmpnam_s
@@ -1604,6 +1604,7 @@ wprintf_s
 wscanf
 wscanf_s
 
+#define NO_TMPFILE_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS

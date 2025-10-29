@@ -805,7 +805,7 @@ system
 tan
 tanh
 time
-tmpfile
+; tmpfile replaced by emu, CRT version may not use writable temporary directory
 tmpnam
 tolower
 toupper
@@ -854,6 +854,7 @@ __unDNameEx
 _chkesp
 
 #define FIXED_SIZE_SYMBOLS
+#define NO_TMPFILE_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_IOB_FUNC_ALIAS

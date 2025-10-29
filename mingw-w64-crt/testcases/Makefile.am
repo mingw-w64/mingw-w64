@@ -60,6 +60,7 @@ testcase_progs = \
   t_stdint \
   t_time \
   t_tls1 \
+  t_tmpfile \
   t_trycatch \
   t_stat_slash \
   t_vsscanf \

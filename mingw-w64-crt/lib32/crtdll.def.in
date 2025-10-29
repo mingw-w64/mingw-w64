@@ -480,7 +480,7 @@ system
 tan
 tanh
 time
-tmpfile
+; tmpfile replaced by emu, CRT version may not use writable temporary directory
 tmpnam
 tolower
 toupper
@@ -636,6 +636,7 @@ _pgmptr DATA == _pgmptr_dll
 #define NO_WIDE_FIXED_SIZE
 #define NO_I64_FIXED_SIZE
 #define NO_FPOS64_ALIASES
+#define NO_TMPFILE_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_GET_PUT_WCHAR_ALIASES

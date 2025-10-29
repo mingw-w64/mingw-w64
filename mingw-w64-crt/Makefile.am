@@ -373,7 +373,8 @@ src_msvcrt=\
   stdio/msvcr110pre_stat32.c \
   stdio/msvcr110pre_stat64i32.c \
   stdio/msvcr110pre_wstat32.c \
-  stdio/msvcr110pre_wstat64i32.c
+  stdio/msvcr110pre_wstat64i32.c \
+  stdio/tmpfile.c
 
 src_msvcrt_add_x86=\
   secapi/_access_s.c \
@@ -960,7 +961,8 @@ src_pre_msvcr110=\
   stdio/msvcr110pre_stat32.c \
   stdio/msvcr110pre_stat64i32.c \
   stdio/msvcr110pre_wstat32.c \
-  stdio/msvcr110pre_wstat64i32.c
+  stdio/msvcr110pre_wstat64i32.c \
+  stdio/tmpfile.c
 
 src_pre_msvcr120=\
   $(src_msvcrt_add_vscanf) \

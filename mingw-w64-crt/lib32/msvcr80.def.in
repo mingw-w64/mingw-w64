@@ -1473,7 +1473,7 @@ swscanf_s
 system
 tan
 tanh ; If we implement tanh, we can set it to DATA only.
-tmpfile
+; tmpfile replaced by emu, CRT version may not use writable temporary directory
 tmpfile_s
 tmpnam
 tmpnam_s
@@ -1547,6 +1547,7 @@ _fread_nolock_s
 fread_s
 
 ; Include symbol aliases for compatibility with msvcrt.dll
+#define NO_TMPFILE_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #define WITH_ATOLL_ALIAS
 #define WITH_ATOLL_L_ALIAS

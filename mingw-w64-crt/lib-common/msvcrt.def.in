@@ -1089,7 +1089,7 @@ system
 tan
 tanh ; if we implement tanh, we can set it to DATA only.
 time
-tmpfile
+; tmpfile replaced by emu, CRT version may not use writable temporary directory
 tmpnam
 tolower
 toupper
@@ -1912,6 +1912,7 @@ F_I386(_libm_sse2_tan_precise)
 #define NO_FSTAT64_ALIAS
 #endif
 #define NO_TIME_ALIAS
+#define NO_TMPFILE_ALIAS
 #define NO_STRCMPI_ALIAS
 #define WITH_NEXTAFTER_ALIAS
 #ifdef __i386__
