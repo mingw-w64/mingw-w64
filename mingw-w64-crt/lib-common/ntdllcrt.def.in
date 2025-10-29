@@ -1,225 +1,256 @@
 #include "func.def.in"
 
-LIBRARY "ntdll.dll"
+LIBRARY "NTDLL.dll"
 EXPORTS
-#ifdef __i386__
-_CIcos
-_CIlog
-_CIpow
-_CIsin
-_CIsqrt
-#endif
-F_NON_I386(__C_specific_handler)
-F_NON_I386(;__chkstk)
-__isascii
-__iscsym
-__iscsymf
-F_X64(__misaligned_access)
-F_ARM32(__jump_unwind)
-__toascii
-#ifdef __i386__
-_alldiv@16
-_alldvrm@16
-_allmul@16
-_alloca_probe
-_alloca_probe_16
-_alloca_probe_8
-_allrem@16
-_allshl
-_allshr
-#endif
-_atoi64
-#ifdef __i386__
-_aulldiv@16
-_aulldvrm@16
-_aullrem@16
-_aullshr
-;_chkstk
-#endif
-_errno
-F_I386(_except_handler4_common)
+
+; This is list of symbols available since Windows NT 3.5
+; Windows NT 3.1, Win32s and Win9x versions do not contain any CRT symbol
+F_I386(_CIpow)
+; _abnormal_termination ; removed in Windows NT 3.51
+; F_I386(_chkstk)
+; _except_handler2 ; removed in Windows NT 3.51
 _fltused DATA
-#ifdef __i386__
-_ftol
-_ftol2
-_ftol2_sse
-#endif
-_i64toa
-_i64toa_s
-_i64tow
-_i64tow_s
+F_I386(_ftol)
+; _global_unwind2 ; removed in Windows NT 3.51
 _itoa
-_itoa_s
-_itow
-_itow_s
-_lfind
-F64(_local_unwind)
-F_I386(_local_unwind4)
+; _local_unwind2 ; removed in Windows NT 3.51
 _ltoa
-_ltoa_s
-_ltow
-_ltow_s
-_makepath_s
 _memccpy
 _memicmp
-F_X64(_setjmp)
-F_ARM32(_setjmp)
-F_NON_I386(_setjmpex)
 _snprintf
-_snprintf_s
-_snscanf_s
 _snwprintf
-_snwprintf_s
-_snwscanf_s
 _splitpath
-_splitpath_s
 _strcmpi
 _stricmp
 _strlwr
-strlwr == _strlwr
-_strlwr_s
+strlwr == _strlwr ; manual alias
 _strnicmp
-_strnset_s
-_strset_s
 _strupr
-_strupr_s
-_swprintf
-F_X86_ANY(_tolower)
-F_X86_ANY(_toupper)
-_ui64toa
-_ui64toa_s
-_ui64tow
-_ui64tow_s
 _ultoa
-_ultoa_s
-_ultow
-_ultow_s
-_vscprintf
-_vscwprintf
 _vsnprintf
-_vsnprintf_s
-_vsnwprintf
-_vsnwprintf_s
-_vswprintf
 _wcsicmp
 _wcslwr
-wcslwr == _wcslwr
-_wcslwr_s
+wcslwr == _wcslwr ; manual alias
 _wcsnicmp
-_wcsnset_s
-_wcsset_s
-_wcstoi64
-_wcstoui64
 _wcsupr
-_wcsupr_s
-_wmakepath_s
-_wsplitpath_s
-_wtoi
-_wtoi64
-_wtol
 abs
-atan F_X86_ANY(DATA)
-atan2
+atan F_X86_ANY(DATA) ; replaced by emu
 atoi
 atol
-bsearch
-bsearch_s
 ceil
-cos F_X86_ANY(DATA)
-fabs F_X86_ANY(DATA)
-floor F_X86_ANY(DATA)
-isalnum
+cos F_X86_ANY(DATA) ; replaced by emu
+fabs F_X86_ANY(DATA) ; replaced by emu
+floor F_X86_ANY(DATA) ; replaced by emu
 isalpha
-iscntrl
 isdigit
-isgraph
 islower
 isprint
-ispunct
 isspace
 isupper
-iswalnum
 iswalpha
-iswascii
 iswctype
-iswdigit
-iswgraph
-iswlower
-iswprint
-iswspace
-iswxdigit
 isxdigit
 labs
 log
-F_NON_I386(longjmp)
 mbstowcs
 memchr
 memcmp
 memcpy
-memcpy_s
 memmove
-memmove_s
 memset
 pow
 qsort
-qsort_s
 sin
 sprintf
-sprintf_s
 sqrt
 sscanf
-sscanf_s
 strcat
-strcat_s
 strchr
 strcmp
 strcpy
-strcpy_s
 strcspn
 strlen
 strncat
-strncat_s
 strncmp
 strncpy
-strncpy_s
-strnlen
 strpbrk
 strrchr
 strspn
 strstr
-strtok_s
-strtol
-strtoul
 swprintf
-swprintf_s
-swscanf_s
 tan
 tolower
 toupper
 towlower
 towupper
 vsprintf
-vsprintf_s
-vswprintf_s
 wcscat
-wcscat_s
 wcschr
 wcscmp
 wcscpy
-wcscpy_s
 wcscspn
 wcslen
 wcsncat
-wcsncat_s
 wcsncmp
 wcsncpy
-wcsncpy_s
-wcsnlen
 wcspbrk
 wcsrchr
 wcsspn
 wcsstr
-wcstok_s
+; wcstok ; removed in Windows NT 4.0
 wcstol
 wcstombs
 wcstoul
+
+; This is list of symbols added in Windows NT 3.51
+F_I386(_alloca_probe)
+
+; This is list of symbols added in Windows NT 4.0
+__isascii
+__iscsym
+__iscsymf
+__toascii
+F_I386(_alldiv@16) ; stdcall
+F_I386(_allmul@16) ; stdcall
+F_I386(_allrem@16) ; stdcall
+F_I386(_allshl)
+F_I386(_allshr)
+_atoi64
+F_I386(_aulldiv@16) ; stdcall
+F_I386(_aullrem@16) ; stdcall
+F_I386(_aullshr)
+_i64toa
+_i64tow
+_itow
+_ltow
+F_X86_ANY(_tolower) ; removed in Windows Vista
+F_X86_ANY(_toupper) ; removed in Windows Vista
+_ultow
+_wtoi
+_wtoi64
+_wtol
+isalnum
+iscntrl
+isgraph
+ispunct
+strtol
+strtoul
+
+; This is list of symbols added in Windows 2000
+_ui64toa
+iswdigit
+iswlower
+iswspace
+iswxdigit
+
+; This is list of symbols added in Windows XP
+F_I386(_CIcos)
+F_I386(_CIlog)
+F_I386(_CIsin)
+F_I386(_CIsqrt)
+F_I386(_alldvrm@16) ; stdcall
+F_I386(_aulldvrm@16) ; stdcall
+_lfind
+_ui64tow
+_vsnwprintf
+bsearch
+
+; This is list of symbols added in Windows Server 2003
+_vscwprintf
+_wcstoui64
+
+; This is list of symbols added in Windows Vista
+F_I386(_alloca_probe_16)
+F_I386(_alloca_probe_8)
+_swprintf
+_vswprintf
+
+; This is list of symbols added in Windows 7
+_i64toa_s
+_i64tow_s
+_itoa_s
+_itow_s
+_ltoa_s
+_ltow_s
+_makepath_s
+_snprintf_s
+_snscanf_s
+_snwprintf_s
+_snwscanf_s
+_splitpath_s
+_strnset_s
+_strset_s
+_ui64toa_s
+_ui64tow_s
+_ultoa_s
+_ultow_s
+_vsnprintf_s
+_vsnwprintf_s
+_wcsnset_s
+_wcsset_s
+_wmakepath_s
+_wsplitpath_s
+memcpy_s
+memmove_s
+sprintf_s
+sscanf_s
+strcat_s
+strcpy_s
+strncat_s
+strncpy_s
+strnlen
+strtok_s
+swprintf_s
+swscanf_s
+vsprintf_s
+vswprintf_s
+wcscat_s
+wcscpy_s
+wcsncat_s
+wcsncpy_s
+wcsnlen
+
+; This is list of symbols added in Windows 8
+_errno
+F_I386(_except_handler4_common)
+F_I386(_ftol2)
+F_I386(_ftol2_sse)
+F_I386(_local_unwind4)
+_strlwr_s
+_strupr_s
+_wcslwr_s
+_wcstoi64
+_wcsupr_s
+iswalnum
+iswascii
+iswgraph
+iswprint
+qsort_s
+wcstok_s
+
+; This is list of symbols added in Windows 10 (Threshold / 1507)
+atan2
+
+; This is list of symbols added in Windows 10 Creators Update (Redstone 2 / 1703)
+bsearch_s
+
+; This is list of symbols added in Windows 10 Fall Creators Update (Redstone 3 / 1709)
+_vscprintf
+
+; This is list of symbols added in Windows 11 2024 Update (Hudson Valley / 24H2) (WoW64 version)
+; _libm_sse2_cos_precise
+; _libm_sse2_sin_precise
+; _libm_sse2_sqrt_precise
+
+
+
+; Unsorted list of symbols not available in any 32-bit x86 version of ntdll.dll library
+F_NON_I386(__C_specific_handler)
+; F_NON_I386(__chkstk)
+F_X64(__misaligned_access)
+F_ARM32(__jump_unwind)
+F64(_local_unwind)
+F_X64(_setjmp)
+F_ARM32(_setjmp)
+F_NON_I386(_setjmpex)
+F_NON_I386(longjmp)
