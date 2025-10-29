@@ -1462,7 +1462,7 @@ RtlResetMemoryZone@4
 RtlResetNtUserPfn@0
 RtlResetRtlTranslations@4
 RtlRestoreBootStatusDefaults@4
-RtlRestoreContext@8
+RtlRestoreContext
 RtlRestoreLastWin32Error@4
 RtlRestoreSystemBootStatusDefaults@0
 RtlRestoreThreadPreferredUILanguages@4
@@ -1507,7 +1507,7 @@ RtlSetMemoryStreamSize@12
 RtlSetOwnerSecurityDescriptor@12
 RtlSetPortableOperatingSystem@4
 RtlSetProcessDebugInformation@12
-RtlSetProcessIsCritical@0
+RtlSetProcessIsCritical
 RtlSetProcessPlaceholderCompatibilityMode@4
 RtlSetProcessPreferredUILanguages@12
 RtlSetProtectedPolicy@12
@@ -1520,7 +1520,7 @@ RtlSetSecurityObjectEx@24
 RtlSetSystemBootStatus@16
 RtlSetSystemBootStatusEx@12
 RtlSetThreadErrorMode@8
-RtlSetThreadIsCritical@0
+RtlSetThreadIsCritical
 RtlSetThreadPlaceholderCompatibilityMode@4
 RtlSetThreadPoolStartFunc@8
 RtlSetThreadPreferredUILanguages2@16
