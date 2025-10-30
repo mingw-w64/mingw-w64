@@ -4,7 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <stdlib.h>
+#include <stddef.h>
+
+size_t memalignment(const void *p);
 
 size_t memalignment(const void *p)
 {
