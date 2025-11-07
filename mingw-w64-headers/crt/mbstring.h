@@ -75,8 +75,10 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbsinc_l(const unsigned char *_Ptr,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbslen(const unsigned char *_Str);
   _CRTIMP size_t __cdecl _mbslen_l(const unsigned char *_Str,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0800
   _CRTIMP size_t __cdecl _mbsnlen(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnlen_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbslwr(unsigned char *_String);
   _CRTIMP unsigned char *__cdecl _mbslwr_l(unsigned char *_String,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbcat(unsigned char *_Dest,const unsigned char *_Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
