@@ -51,7 +51,9 @@ extern "C" {
   _CRTIMP unsigned int __cdecl _mbctombb_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsbtype(const unsigned char *_Str,size_t _Pos);
   _CRTIMP int __cdecl _mbsbtype_l(const unsigned char *_Str,size_t _Pos,_locale_t _Locale);
+#if __MSVCRT_VERSION__ < 0x0800
   _CRTIMP unsigned char *__cdecl _mbscat(unsigned char *_Dest,const unsigned char *_Source);
+#endif
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbschr(const unsigned char *_Str,unsigned int _Ch);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbschr_l(const unsigned char *_Str,unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _mbscmp(const unsigned char *_Str1,const unsigned char *_Str2);
@@ -60,7 +62,9 @@ extern "C" {
   _CRTIMP int __cdecl _mbscoll(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbscoll_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
 #endif
+#if __MSVCRT_VERSION__ < 0x0800
   _CRTIMP unsigned char *__cdecl _mbscpy(unsigned char *_Dest,const unsigned char *_Source);
+#endif
   _CRTIMP size_t __cdecl _mbscspn(const unsigned char *_Str,const unsigned char *_Control);
   _CRTIMP size_t __cdecl _mbscspn_l(const unsigned char *_Str,const unsigned char *_Control,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsdec(const unsigned char *_Start,const unsigned char *_Pos);
