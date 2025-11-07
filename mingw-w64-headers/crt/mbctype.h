@@ -48,6 +48,9 @@ extern "C" {
 #define _MB_CP_OEM -2
 #define _MB_CP_ANSI -3
 #define _MB_CP_LOCALE -4
+#ifdef _UCRT
+#define _MB_CP_UTF8 65001
+#endif
 
 #ifndef _MBCTYPE_DEFINED
 #define _MBCTYPE_DEFINED
