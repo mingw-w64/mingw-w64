@@ -171,6 +171,10 @@ extern "C" {
 #endif
   _CRTIMP int __cdecl _ismbcalpha(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcalpha_l(unsigned int _Ch,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0C00
+  _CRTIMP int __cdecl _ismbcblank(unsigned int _Ch);
+  _CRTIMP int __cdecl _ismbcblank_l(unsigned int _Ch,_locale_t _Locale);
+#endif
   _CRTIMP int __cdecl _ismbcdigit(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcdigit_l(unsigned int _Ch,_locale_t _Locale);
 #if __MSVCRT_VERSION__ >= 0x0200

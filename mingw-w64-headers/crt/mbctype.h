@@ -67,6 +67,10 @@ extern "C" {
 #endif
   _CRTIMP int __cdecl _ismbbalpha(unsigned int _C);
   _CRTIMP int __cdecl _ismbbalpha_l(unsigned int _C,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0C00
+  _CRTIMP int __cdecl _ismbbblank(unsigned int _C);
+  _CRTIMP int __cdecl _ismbbblank_l(unsigned int _C,_locale_t _Locale);
+#endif
   _CRTIMP int __cdecl _ismbbpunct(unsigned int _C);
   _CRTIMP int __cdecl _ismbbpunct_l(unsigned int _C,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbbalnum(unsigned int _C);
