@@ -56,8 +56,10 @@ extern "C" {
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbschr_l(const unsigned char *_Str,unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _mbscmp(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbscmp_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbscoll(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbscoll_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbscpy(unsigned char *_Dest,const unsigned char *_Source);
   _CRTIMP size_t __cdecl _mbscspn(const unsigned char *_Str,const unsigned char *_Control);
   _CRTIMP size_t __cdecl _mbscspn_l(const unsigned char *_Str,const unsigned char *_Control,_locale_t _Locale);
@@ -65,8 +67,10 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbsdec_l(const unsigned char *_Start,const unsigned char *_Pos,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsicmp(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbsicmp_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbsicoll(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbsicoll_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbsinc(const unsigned char *_Ptr);
   _CRTIMP unsigned char *__cdecl _mbsinc_l(const unsigned char *_Ptr,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbslen(const unsigned char *_Str);
@@ -79,16 +83,20 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbsnbcat_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _mbsnbcmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbcmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbsnbcoll(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbcoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#endif
   _CRTIMP size_t __cdecl _mbsnbcnt(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnbcnt_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbcpy(unsigned char *_Dest,const unsigned char *_Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsnbcpy_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _mbsnbicmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbicmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbsnbicoll(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbicoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbsnbset(unsigned char *_Str,unsigned int _Ch,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsnbset_l(unsigned char *_Str,unsigned int _Ch,size_t _MaxCount,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsncat(unsigned char *_Dest,const unsigned char *_Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -97,16 +105,20 @@ extern "C" {
   _CRTIMP size_t __cdecl _mbsnccnt_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsncmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsncmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbsncoll(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsncoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbsncpy(unsigned char *_Dest,const unsigned char *_Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsncpy_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned int __cdecl _mbsnextc (const unsigned char *_Str);
   _CRTIMP unsigned int __cdecl _mbsnextc_l(const unsigned char *_Str,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsnicmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnicmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _mbsnicoll(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnicoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
+#endif
   _CRTIMP unsigned char *__cdecl _mbsninc(const unsigned char *_Str,size_t _Count);
   _CRTIMP unsigned char *__cdecl _mbsninc_l(const unsigned char *_Str,size_t _Count,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnset(unsigned char *_Dst,unsigned int _Val,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -151,22 +163,28 @@ extern "C" {
 #endif
 #endif
 
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _ismbcalnum(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcalnum_l(unsigned int _Ch,_locale_t _Locale);
+#endif
   _CRTIMP int __cdecl _ismbcalpha(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcalpha_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbcdigit(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcdigit_l(unsigned int _Ch,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _ismbcgraph(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcgraph_l(unsigned int _Ch,_locale_t _Locale);
+#endif
   _CRTIMP int __cdecl _ismbclegal(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbclegal_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbclower(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbclower_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbcprint(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcprint_l(unsigned int _Ch,_locale_t _Locale);
+#if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _ismbcpunct(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcpunct_l(unsigned int _Ch,_locale_t _Locale);
+#endif
   _CRTIMP int __cdecl _ismbcspace(unsigned int _Ch);
   _CRTIMP int __cdecl _ismbcspace_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbcupper(unsigned int _Ch);
