@@ -74,7 +74,7 @@ extern "C" {
   _CRTIMP size_t __cdecl _mbsnlen(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnlen_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbslwr(unsigned char *_String);
-  _CRTIMP unsigned char *_mbslwr_l(unsigned char *_String,_locale_t _Locale);
+  _CRTIMP unsigned char *__cdecl _mbslwr_l(unsigned char *_String,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbcat(unsigned char *_Dest,const unsigned char *_Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsnbcat_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _mbsnbcmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
@@ -128,7 +128,7 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbstok(unsigned char *_Str,const unsigned char *_Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbstok_l(unsigned char *_Str,const unsigned char *_Delim,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP unsigned char *__cdecl _mbsupr(unsigned char *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP unsigned char *_mbsupr_l(unsigned char *_String,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP unsigned char *__cdecl _mbsupr_l(unsigned char *_String,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP size_t __cdecl _mbclen(const unsigned char *_Str);
   _CRTIMP size_t __cdecl _mbclen_l(const unsigned char *_Str,_locale_t _Locale);
   _CRTIMP void __cdecl _mbccpy(unsigned char *_Dst,const unsigned char *_Src) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
