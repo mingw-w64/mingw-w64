@@ -16,8 +16,8 @@
 ; Win32s 1.30c on Windows 3.1 misses following symbols:
 ; __argc_dll __argv_dll _environ_dll _pgmptr_dll
 ;
-; Win32s on Windows 3.1, Windows NT 3.51 and new Windows NT versions contains
-; additional symbols defined at the end of file.
+; Windows NT 3.1, NT 3.5 and Win9x miss following symbols:
+; _itow _ltow _ultow
 ;
 ; NOTE: The crtdll is OBSOLETE and msvcrt should be used instead.  The msvcrt
 ; is available for free download from Microsoft Corporation and will work on
@@ -67,14 +67,11 @@
 LIBRARY "CRTDLL.dll"
 EXPORTS
 
-; crtdll.dll contains 3 mangled C++ symbols
+; This is list of symbols available in all Windows versions (Win32s since Win32s 1.1; Win9x since Windows 95; WinNT since Windows NT 3.1)
 ; void *__cdecl operator new(unsigned int)
 ??2@YAPAXI@Z
 ; void __cdecl operator delete(void *)
 ??3@YAXPAX@Z
-; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
-?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
-
 _CIacos
 _CIasin
 _CIatan
@@ -95,11 +92,6 @@ _HUGE_dll DATA
 _HUGE DATA == _HUGE_dll
 _XcptFilter
 __GetMainArgs
-__argc_dll DATA
-__argc DATA == __argc_dll
-__argv_dll DATA
-__argv DATA == __argv_dll
-__dllonexit
 __doserrno
 __fpecode
 __isascii
@@ -154,8 +146,6 @@ _dup
 _dup2
 _ecvt
 _endthread
-_environ_dll DATA
-_environ DATA == _environ_dll
 _eof
 _errno
 _except_handler2
@@ -212,40 +202,10 @@ _getpid
 _getsystime
 _getw
 _global_unwind2
-_heapchk
-_heapmin
-_heapset
-_heapwalk
 _hypot
 _initterm
-_iob DATA
 _isatty
 _isctype
-_ismbbalnum
-_ismbbalpha
-_ismbbgraph
-_ismbbkalnum
-_ismbbkana
-_ismbbkpunct
-_ismbblead
-_ismbbprint
-_ismbbpunct
-_ismbbtrail
-_ismbcalpha
-_ismbcdigit
-_ismbchira
-_ismbckata
-_ismbcl0
-_ismbcl1
-_ismbcl2
-_ismbclegal
-_ismbclower
-_ismbcprint
-_ismbcspace
-_ismbcsymbol
-_ismbcupper
-_ismbslead
-_ismbstrail
 _isnan
 _itoa
 _j0
@@ -264,54 +224,7 @@ _lseek
 _ltoa
 _makepath
 _matherr
-_mbbtombc
-_mbbtype
-_mbccpy
-_mbcjistojms
-_mbcjmstojis
-_mbclen
-_mbctohira
-_mbctokata
-_mbctolower
-_mbctombb
-_mbctoupper
-_mbctype DATA
-_mbsbtype
-_mbscat
-_mbschr
-_mbscmp
-_mbscpy
-_mbscspn
-_mbsdec
-_mbsdup
-_mbsicmp
-_mbsinc
-_mbslen
-_mbslwr
-_mbsnbcat
-_mbsnbcmp
-_mbsnbcnt
-_mbsnbcpy
-_mbsnbicmp
-_mbsnbset
-_mbsncat
-_mbsnccnt
-_mbsncmp
-_mbsncpy
-_mbsnextc
-_mbsnicmp
-_mbsninc
-_mbsnset
-_mbspbrk
-_mbsrchr
-_mbsrev
-_mbsset
-_mbsspn
-_mbsspnp
-_mbsstr
-_mbstok
 _mbstrlen
-_mbsupr
 _memccpy
 _memicmp
 _mkdir
@@ -330,8 +243,6 @@ _osversion_dll DATA
 _pclose
 _pctype_dll DATA
 _pctype DATA == _pctype_dll
-_pgmptr_dll DATA
-_pgmptr DATA == _pgmptr_dll
 _pipe
 _popen
 _purecall
@@ -368,21 +279,15 @@ __crtdll_stat == _stat ; crtdll.dll's _stat is incompatible with mingw-w64's _st
 _statusfp
 _strcmpi
 _strdate
-_strdec
 _strdup
 _strerror
 _stricmp
 _stricoll
-_strinc
 _strlwr
-_strncnt
-_strnextc
 _strnicmp
-_strninc
 _strnset
 _strrev
 _strset
-_strspnp
 _strtime
 _strupr
 _swab
@@ -421,8 +326,6 @@ _winminor DATA == _winminor_dll
 _winver_dll DATA
 _winver DATA == _winver_dll
 _write
-_wtoi
-_wtol
 _y0
 _y1
 _yn
@@ -616,11 +519,116 @@ wctomb
 wprintf
 wscanf
 
-; crtdll.dll from Win32s (Windows 3.1) and crtdll.dll on Windows NT 3.51 (and new)
-; contains 3 additional symbols which are not available in the Windows 95, 98 or ME.
+; This is list of symbols added in Win32s 1.15, available in all Win9x versions and since Windows NT 3.5
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
+?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
+__dllonexit
+
+; This is list of symbols added in Win32s 1.20, available in all Win9x versions and since Windows NT 3.5
+_ismbbalnum
+_ismbbalpha
+_ismbbgraph
+_ismbbkalnum
+_ismbbkana
+_ismbbkpunct
+_ismbblead
+_ismbbprint
+_ismbbpunct
+_ismbbtrail
+_ismbcalpha
+_ismbcdigit
+_ismbchira
+_ismbckata
+_ismbcl0
+_ismbcl1
+_ismbcl2
+_ismbclegal
+_ismbclower
+_ismbcprint
+_ismbcspace
+_ismbcsymbol
+_ismbcupper
+_ismbslead
+_ismbstrail
+_mbbtombc
+_mbbtype
+_mbccpy
+_mbcjistojms
+_mbcjmstojis
+_mbclen
+_mbctohira
+_mbctokata
+_mbctolower
+_mbctombb
+_mbctoupper
+_mbsbtype
+_mbscat
+_mbschr
+_mbscmp
+_mbscpy
+_mbscspn
+_mbsdec
+_mbsdup
+_mbsicmp
+_mbsinc
+_mbslen
+_mbslwr
+_mbsnbcat
+_mbsnbcmp
+_mbsnbcnt
+_mbsnbcpy
+_mbsnbicmp
+_mbsnbset
+_mbsncat
+_mbsnccnt
+_mbsncmp
+_mbsncpy
+_mbsnextc
+_mbsnicmp
+_mbsninc
+_mbsnset
+_mbspbrk
+_mbsrchr
+_mbsrev
+_mbsset
+_mbsspn
+_mbsspnp
+_mbsstr
+_mbstok
+_mbsupr
+_strdec
+_strinc
+_strncnt
+_strnextc
+_strninc
+_strspnp
+
+; This is list of symbols added in Win32s 1.25, available in all Win9x versions and since Windows NT 3.1
+_iob DATA
+
+; This is list of symbols added in Win32s 1.30, available in all Win9x versions and since Windows NT 3.5
+_heapchk
+_heapmin
+_heapset
+_heapwalk
+_mbctype DATA
+_wtoi
+_wtol
+
+; This is list of symbols added in Win32s 1.30, available since Windows NT 3.51, but not available in Win9x
 _itow
 _ltow
 _ultow
+
+; This is list of symbols available in all WinNT and Win9x versions, but not available in Win32s
+__argc_dll DATA
+__argc DATA == __argc_dll
+__argv_dll DATA
+__argv DATA == __argv_dll
+_environ_dll DATA
+_environ DATA == _environ_dll
+_pgmptr_dll DATA
+_pgmptr DATA == _pgmptr_dll
 
 ; include symbol aliases for compatibility with msvcrt.dll
 #define CRTDLL
