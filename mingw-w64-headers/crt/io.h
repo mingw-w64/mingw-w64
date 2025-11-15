@@ -351,7 +351,11 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   long __cdecl filelength(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl isatty(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl locking(int _FileHandle,int _LockMode,long _NumOfBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  long __cdecl lseek(int _FileHandle,long _Offset,int _Origin) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  off_t __cdecl lseek(int _FileHandle,off_t _Offset,int _Origin)
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+  __MINGW_ASM_CALL(lseek64)
+#endif
+  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   char *__cdecl mktemp(char *_TemplateName)  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl open(const char *_Filename,int _OpenFlag,...)  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl open64(const char *_Filename,int _OpenFlag,...);
@@ -362,13 +366,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl umask(int _Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl write(int _Filehandle,const void *_Buf,unsigned int _MaxCharCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
-
-#ifndef _FILE_OFFSET_BITS_SET_LSEEK
-#define _FILE_OFFSET_BITS_SET_LSEEK
-#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-#define lseek lseek64
-#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-#endif /* _FILE_OFFSET_BITS_SET_LSEEK */
 
 #ifdef _POSIX
 
