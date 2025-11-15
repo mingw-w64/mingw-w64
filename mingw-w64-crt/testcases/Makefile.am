@@ -22,6 +22,7 @@ testcase_progs = \
   t_findfirst \
   t_float  \
   t_fseeki64 \
+  t_fseeki64_ftelli64 \
   t_fstat \
   t_fstat_f64 \
   t_fstat_t64 \
