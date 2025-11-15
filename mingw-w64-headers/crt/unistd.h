@@ -62,7 +62,11 @@ __MINGW_ASM_CALL(ftruncate64)
 #endif
 ;
 int ftruncate64(int, _off64_t);
-int truncate(const char *, _off_t);
+int truncate(const char *, off_t)
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+__MINGW_ASM_CALL(truncate64)
+#endif
+;
 int truncate64(const char *, _off64_t);
 #endif /* FTRUNCATE_DEFINED */
 
