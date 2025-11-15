@@ -56,18 +56,15 @@ int __cdecl __MINGW_NOTHROW usleep(useconds_t);
 #define FTRUNCATE_DEFINED
 /* This is defined as a real library function to allow autoconf
    to verify its existence. */
-int ftruncate(int, _off_t);
+int ftruncate(int, off_t)
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+__MINGW_ASM_CALL(ftruncate64)
+#endif
+;
 int ftruncate64(int, _off64_t);
 int truncate(const char *, _off_t);
 int truncate64(const char *, _off64_t);
 #endif /* FTRUNCATE_DEFINED */
-
-#ifndef _FILE_OFFSET_BITS_SET_FTRUNCATE
-#define _FILE_OFFSET_BITS_SET_FTRUNCATE
-#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-#define ftruncate ftruncate64
-#endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
-#endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
 
 #ifndef _CRT_SWAB_DEFINED
 #define _CRT_SWAB_DEFINED /* Also in stdlib.h */
