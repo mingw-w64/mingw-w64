@@ -28,6 +28,7 @@ testcase_progs = \
   t_intrinc \
   t_imagebase \
   t_lfs \
+  t_lseeki64 \
   t_matherr \
   t_mbrlen \
   t_mbrtowc \
