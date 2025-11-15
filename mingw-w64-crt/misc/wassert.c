@@ -11,18 +11,30 @@
 __MINGW_ATTRIB_NORETURN
 static void __cdecl emu__wassert(const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
+    static char static_message_buf[128]; /* thread unsafe */
+    static char static_file_buf[_MAX_PATH]; /* thread unsafe */
     char *message = NULL, *file = NULL;
     size_t len;
 
     if ((len = wcstombs(NULL, _Message, 0)) != (size_t)-1)
     {
         message = malloc(len + 1);
+        if (!message)
+        {
+            message = static_message_buf;
+            len = sizeof(static_message_buf) - 2; /* -1 to not touch the last nul byte */
+        }
         wcstombs(message, _Message, len + 1);
     }
 
     if ((len = wcstombs(NULL, _File, 0)) != (size_t)-1)
     {
         file = malloc(len + 1);
+        if (!file)
+        {
+            file = static_file_buf;
+            len = sizeof(static_file_buf) - 2; /* -1 to not touch the last nul byte */
+        }
         wcstombs(file, _File, len + 1);
     }
 
