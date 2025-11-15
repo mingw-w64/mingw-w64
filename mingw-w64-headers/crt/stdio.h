@@ -583,17 +583,14 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
-  _CRTIMP int __cdecl fseeko(FILE *_File, _off_t _Offset, int _Origin);
+  int __cdecl fseeko(FILE *_File, off_t _Offset, int _Origin)
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+  __MINGW_ASM_CALL(fseeko64)
+#endif
+  ;
   _CRTIMP int __cdecl fseeko64(FILE *_File, _off64_t _Offset, int _Origin);
   _CRTIMP _off_t __cdecl ftello(FILE *_File);
   _CRTIMP _off64_t __cdecl ftello64(FILE *_File);
-
-#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
-#define _FILE_OFFSET_BITS_SET_FSEEKO
-#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-#define fseeko fseeko64
-#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
 
 #ifndef _FILE_OFFSET_BITS_SET_FTELLO
 #define _FILE_OFFSET_BITS_SET_FTELLO
