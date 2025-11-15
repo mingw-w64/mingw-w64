@@ -937,7 +937,7 @@ __msvcrt20_wgetmainargs == __wgetmainargs ; msvcrt20.dll's __wgetmainargs is inc
 _abnormal_termination
 _access
 _amsg_exit
-_assert
+__msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
 _atodbl
 _atoldbl
 _beep

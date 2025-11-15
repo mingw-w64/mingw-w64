@@ -18,6 +18,7 @@ testcase_progs = \
   t__stat_all \
   t_aligned_alloc \
   t_ansi_io \
+  t_assert \
   t_btowc \
   t_findfirst \
   t_float  \

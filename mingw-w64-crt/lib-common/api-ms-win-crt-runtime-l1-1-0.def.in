@@ -24,7 +24,7 @@ __threadid
 __wcserror
 __wcserror_s
 ; DATA set manually
-_assert
+__msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
 _beginthread
 _beginthreadex
 _c_exit

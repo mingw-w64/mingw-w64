@@ -1081,7 +1081,7 @@ _adj_fprem1
 _adj_fptan
 _adjust_fdiv DATA
 _amsg_exit
-_assert
+__msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
 _atodbl
 _atoldbl
 _beep

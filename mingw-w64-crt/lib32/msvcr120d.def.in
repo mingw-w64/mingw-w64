@@ -912,7 +912,7 @@ _aligned_realloc_dbg
 _aligned_recalloc
 _aligned_recalloc_dbg
 _amsg_exit
-_assert
+__msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
 _atodbl
 _atodbl_l
 _atof_l

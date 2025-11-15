@@ -110,7 +110,7 @@ _acmdln DATA == _acmdln_dll
 _aexit_rtn_dll DATA
 _aexit_rtn DATA == _aexit_rtn_dll
 _amsg_exit
-_assert
+__msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
 _basemajor_dll DATA
 _baseminor_dll DATA
 _baseversion_dll DATA
