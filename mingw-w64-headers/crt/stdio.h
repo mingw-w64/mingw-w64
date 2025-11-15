@@ -589,15 +589,12 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #endif
   ;
   _CRTIMP int __cdecl fseeko64(FILE *_File, _off64_t _Offset, int _Origin);
-  _CRTIMP _off_t __cdecl ftello(FILE *_File);
-  _CRTIMP _off64_t __cdecl ftello64(FILE *_File);
-
-#ifndef _FILE_OFFSET_BITS_SET_FTELLO
-#define _FILE_OFFSET_BITS_SET_FTELLO
+  off_t __cdecl ftello(FILE *_File)
 #if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-#define ftello ftello64
-#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-#endif /* _FILE_OFFSET_BITS_SET_FTELLO */
+  __MINGW_ASM_CALL(ftello64)
+#endif
+  ;
+  _CRTIMP _off64_t __cdecl ftello64(FILE *_File);
 
   size_t __cdecl fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
   int __cdecl getc(FILE *_File);
