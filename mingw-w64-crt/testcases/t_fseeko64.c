@@ -37,12 +37,27 @@ static int testread(wchar_t *path){
 
   fd = _wfopen(path, L"r+bc");
   if (!fd) {
+    printf("fopen failed\n");
     free(readbuff);
     return 1;
   }
-  fseeko(fd,0x100000000LL,SEEK_SET);
-  fread(readbuff,sizeof(char),strlen(writebuf),fd);
+  ret = fseeko(fd,0x100000000LL,SEEK_SET);
+  if (ret != 0) {
+    printf("fseeko failed\n");
+    free(readbuff);
+    fclose(fd);
+    return ret;
+  }
+  if (fread(readbuff,sizeof(char),strlen(writebuf),fd) != strlen(writebuf)) {
+    printf("fread failed\n");
+    free(readbuff);
+    fclose(fd);
+    return 1;
+  }
   ret = strncmp(readbuff,writebuf,strlen(writebuf));
+  if (ret != 0) {
+    printf("strcmp failed\n");
+  }
   free(readbuff);
   fclose(fd);
   return ret;
