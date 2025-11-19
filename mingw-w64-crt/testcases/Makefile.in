@@ -177,8 +177,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	tstmain_sys_xxx$(EXEEXT) t__fstat_all$(EXEEXT) \
 	t__stat_all$(EXEEXT) t_aligned_alloc$(EXEEXT) \
-	t_ansi_io$(EXEEXT) t_btowc$(EXEEXT) t_findfirst$(EXEEXT) \
-	t_float$(EXEEXT) t_fseeki64$(EXEEXT) \
+	t_ansi_io$(EXEEXT) t_assert$(EXEEXT) t_btowc$(EXEEXT) \
+	t_findfirst$(EXEEXT) t_float$(EXEEXT) t_fseeki64$(EXEEXT) \
 	t_fseeki64_ftelli64$(EXEEXT) t_fstat$(EXEEXT) \
 	t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
 	t_fstat_t64_f64$(EXEEXT) t_intrinc$(EXEEXT) \
@@ -465,6 +465,9 @@ t_aligned_alloc_LDADD = $(LDADD)
 t_ansi_io_SOURCES = t_ansi_io.c
 t_ansi_io_OBJECTS = t_ansi_io.$(OBJEXT)
 t_ansi_io_LDADD = $(LDADD)
+t_assert_SOURCES = t_assert.c
+t_assert_OBJECTS = t_assert.$(OBJEXT)
+t_assert_LDADD = $(LDADD)
 t_btowc_SOURCES = t_btowc.c
 t_btowc_OBJECTS = t_btowc.$(OBJEXT)
 t_btowc_LDADD = $(LDADD)
@@ -983,15 +986,16 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t__stat_all.Po \
 	./$(DEPDIR)/t__wstat_all-t__wstat_all.Po \
 	./$(DEPDIR)/t_aligned_alloc.Po ./$(DEPDIR)/t_ansi_io.Po \
-	./$(DEPDIR)/t_btowc.Po ./$(DEPDIR)/t_findfirst.Po \
-	./$(DEPDIR)/t_float.Po ./$(DEPDIR)/t_fseeki64.Po \
-	./$(DEPDIR)/t_fseeki64_ftelli64.Po ./$(DEPDIR)/t_fseeko64.Po \
-	./$(DEPDIR)/t_fstat.Po ./$(DEPDIR)/t_fstat_f64.Po \
-	./$(DEPDIR)/t_fstat_t64.Po ./$(DEPDIR)/t_fstat_t64_f64.Po \
-	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
-	./$(DEPDIR)/t_lfs.Po ./$(DEPDIR)/t_lseeki64.Po \
-	./$(DEPDIR)/t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
-	./$(DEPDIR)/t_mbrtowc.Po ./$(DEPDIR)/t_mbsrtowcs.Po \
+	./$(DEPDIR)/t_assert.Po ./$(DEPDIR)/t_btowc.Po \
+	./$(DEPDIR)/t_findfirst.Po ./$(DEPDIR)/t_float.Po \
+	./$(DEPDIR)/t_fseeki64.Po ./$(DEPDIR)/t_fseeki64_ftelli64.Po \
+	./$(DEPDIR)/t_fseeko64.Po ./$(DEPDIR)/t_fstat.Po \
+	./$(DEPDIR)/t_fstat_f64.Po ./$(DEPDIR)/t_fstat_t64.Po \
+	./$(DEPDIR)/t_fstat_t64_f64.Po ./$(DEPDIR)/t_imagebase.Po \
+	./$(DEPDIR)/t_intrinc-t_intrinc.Po ./$(DEPDIR)/t_lfs.Po \
+	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_matherr.Po \
+	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
+	./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_nullptrexception.Po \
 	./$(DEPDIR)/t_printf_g_width.Po ./$(DEPDIR)/t_readdir.Po \
@@ -1228,7 +1232,7 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsf_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) t__fstat_all.c \
 	t__stat_all.c t__wstat_all.c t_aligned_alloc.c t_ansi_io.c \
-	t_btowc.c t_findfirst.c t_float.c t_fseeki64.c \
+	t_assert.c t_btowc.c t_findfirst.c t_float.c t_fseeki64.c \
 	t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c t_fstat_f64.c \
 	t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c t_intrinc.c \
 	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
@@ -1272,11 +1276,11 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
 	t__fstat_all.c t__stat_all.c t__wstat_all.c t_aligned_alloc.c \
-	t_ansi_io.c t_btowc.c t_findfirst.c t_float.c t_fseeki64.c \
-	t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c t_fstat_f64.c \
-	t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c t_intrinc.c \
-	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
-	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
+	t_ansi_io.c t_assert.c t_btowc.c t_findfirst.c t_float.c \
+	t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c \
+	t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c \
+	t_intrinc.c t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c \
+	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
 	t_printf_g_width.c t_readdir.c t_setjmp.c t_sigv.c \
 	t_snprintf.c t_snprintf0.c t_snprintf1.c t_snwprintf.c \
 	t_snwprintf0.c t_snwprintf1.c t_speed_powl.c t_stat.c \
@@ -1697,10 +1701,10 @@ AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 #  tstwassert \
 #  testcases_tstwinmain_LDADD = -lgdi32
 testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
-	t__stat_all t_aligned_alloc t_ansi_io t_btowc t_findfirst \
-	t_float t_fseeki64 t_fseeki64_ftelli64 t_fstat t_fstat_f64 \
-	t_fstat_t64 t_fstat_t64_f64 t_intrinc t_imagebase t_lfs \
-	t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
+	t__stat_all t_aligned_alloc t_ansi_io t_assert t_btowc \
+	t_findfirst t_float t_fseeki64 t_fseeki64_ftelli64 t_fstat \
+	t_fstat_f64 t_fstat_t64 t_fstat_t64_f64 t_intrinc t_imagebase \
+	t_lfs t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
 	t_nullptrexception t_printf_g_width t_readdir t_snprintf \
 	t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 t_swprintf1 \
 	t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
@@ -2388,6 +2392,10 @@ t_ansi_io$(EXEEXT): $(t_ansi_io_OBJECTS) $(t_ansi_io_DEPENDENCIES) $(EXTRA_t_ans
 	@rm -f t_ansi_io$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_ansi_io_OBJECTS) $(t_ansi_io_LDADD) $(LIBS)
 
+t_assert$(EXEEXT): $(t_assert_OBJECTS) $(t_assert_DEPENDENCIES) $(EXTRA_t_assert_DEPENDENCIES) 
+	@rm -f t_assert$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_assert_OBJECTS) $(t_assert_LDADD) $(LIBS)
+
 t_btowc$(EXEEXT): $(t_btowc_OBJECTS) $(t_btowc_DEPENDENCIES) $(EXTRA_t_btowc_DEPENDENCIES) 
 	@rm -f t_btowc$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_btowc_OBJECTS) $(t_btowc_LDADD) $(LIBS)
@@ -2908,6 +2916,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t__wstat_all-t__wstat_all.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_aligned_alloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ansi_io.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_findfirst.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_float.Po@am__quote@ # am--include-marker
@@ -5946,6 +5955,13 @@ t_ansi_io.log: t_ansi_io$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_assert.log: t_assert$(EXEEXT)
+	@p='t_assert$(EXEEXT)'; \
+	b='t_assert'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_btowc.log: t_btowc$(EXEEXT)
 	@p='t_btowc$(EXEEXT)'; \
 	b='t_btowc'; \
@@ -6768,6 +6784,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t__wstat_all-t__wstat_all.Po
 	-rm -f ./$(DEPDIR)/t_aligned_alloc.Po
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
+	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
@@ -7055,6 +7072,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t__wstat_all-t__wstat_all.Po
 	-rm -f ./$(DEPDIR)/t_aligned_alloc.Po
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
+	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
