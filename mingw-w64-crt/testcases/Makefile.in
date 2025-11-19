@@ -194,10 +194,10 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
 	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) t_stdint$(EXEEXT) \
 	t_time$(EXEEXT) t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) \
-	t_trycatch$(EXEEXT) t_stat_slash$(EXEEXT) t_vsscanf$(EXEEXT) \
-	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
-	t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) \
-	$(am__EXEEXT_1)
+	t_trycatch$(EXEEXT) t_stat_slash$(EXEEXT) t_utime$(EXEEXT) \
+	t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) \
+	t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) \
+	t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -615,6 +615,9 @@ t_trycatch_OBJECTS = $(am_t_trycatch_OBJECTS)
 t_trycatch_LDADD = $(LDADD)
 t_trycatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(t_trycatch_LDFLAGS) $(LDFLAGS) -o $@
+t_utime_SOURCES = t_utime.c
+t_utime_OBJECTS = t_utime.$(OBJEXT)
+t_utime_LDADD = $(LDADD)
 t_vsscanf_SOURCES = t_vsscanf.c
 t_vsscanf_OBJECTS = t_vsscanf.$(OBJEXT)
 t_vsscanf_LDADD = $(LDADD)
@@ -994,11 +997,12 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_swprintf0.Po ./$(DEPDIR)/t_swprintf1.Po \
 	./$(DEPDIR)/t_time.Po ./$(DEPDIR)/t_tls1.Po \
 	./$(DEPDIR)/t_tmain-t_tmain.Po ./$(DEPDIR)/t_tmpfile.Po \
-	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_vsscanf.Po \
-	./$(DEPDIR)/t_wcrtomb.Po ./$(DEPDIR)/t_wcsrtombs.Po \
-	./$(DEPDIR)/t_wcstok_s.Po ./$(DEPDIR)/t_wctob.Po \
-	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/tstmain_sys_xxx.Po \
-	./$(DEPDIR)/tstmainc.Po ./$(DEPDIR)/tstmaincpp.Po \
+	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_utime.Po \
+	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
+	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
+	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wreaddir.Po \
+	./$(DEPDIR)/tstmain_sys_xxx.Po ./$(DEPDIR)/tstmainc.Po \
+	./$(DEPDIR)/tstmaincpp.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -1223,8 +1227,8 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	t_stdint.c t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
 	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
 	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_vsscanf.c t_wcrtomb.c \
-	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
+	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
 	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
 	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
 	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
@@ -1266,8 +1270,8 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	t_stdint.c t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
 	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
 	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_vsscanf.c t_wcrtomb.c \
-	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
+	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
 	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -1688,8 +1692,9 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
 	t_stprintf1_u t_setjmp t_sigv t_speed_powl t_stat t_stat_f64 \
 	t_stat_t64 t_stat_t64_f64 t_stdint t_time t_tls1 t_tmpfile \
-	t_trycatch t_stat_slash t_vsscanf t_wcrtomb t_wcsrtombs \
-	t_wcstok_s t_wctob t_wreaddir t_fseeko64 $(am__append_1)
+	t_trycatch t_stat_slash t_utime t_vsscanf t_wcrtomb \
+	t_wcsrtombs t_wcstok_s t_wctob t_wreaddir t_fseeko64 \
+	$(am__append_1)
 EXTRA_DIST = \
   t_snprintf_tmpl.h \
   t_snwprintf_tmpl.h \
@@ -2560,6 +2565,10 @@ t_trycatch$(EXEEXT): $(t_trycatch_OBJECTS) $(t_trycatch_DEPENDENCIES) $(EXTRA_t_
 	@rm -f t_trycatch$(EXEEXT)
 	$(AM_V_CXXLD)$(t_trycatch_LINK) $(t_trycatch_OBJECTS) $(t_trycatch_LDADD) $(LIBS)
 
+t_utime$(EXEEXT): $(t_utime_OBJECTS) $(t_utime_DEPENDENCIES) $(EXTRA_t_utime_DEPENDENCIES) 
+	@rm -f t_utime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_utime_OBJECTS) $(t_utime_LDADD) $(LIBS)
+
 t_vsscanf$(EXEEXT): $(t_vsscanf_OBJECTS) $(t_vsscanf_DEPENDENCIES) $(EXTRA_t_vsscanf_DEPENDENCIES) 
 	@rm -f t_vsscanf$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_vsscanf_OBJECTS) $(t_vsscanf_LDADD) $(LIBS)
@@ -2920,6 +2929,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmain-t_tmain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmpfile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_trycatch.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_utime.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_vsscanf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcsrtombs.Po@am__quote@ # am--include-marker
@@ -6221,6 +6231,13 @@ t_stat_slash.log: t_stat_slash$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_utime.log: t_utime$(EXEEXT)
+	@p='t_utime$(EXEEXT)'; \
+	b='t_utime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_vsscanf.log: t_vsscanf$(EXEEXT)
 	@p='t_vsscanf$(EXEEXT)'; \
 	b='t_vsscanf'; \
@@ -6748,6 +6765,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
+	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
@@ -7031,6 +7049,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
+	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
