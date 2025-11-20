@@ -7068,24 +7068,68 @@ case $warning_level in #(
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration" ;; #(
   2) :
 
-    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wshadow -Wpacked -Winline"
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wshadow"
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration" ;; #(
   3) :
 
-    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wshadow -Wpacked -Winline"
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wshadow"
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes" ;; #(
   4) :
 
-    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing=2 -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Winline -Werror -pedantic"
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing=2 -Wsystem-headers -Wshadow -Wmissing-declarations -Werror -pedantic"
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes" ;; #(
   5) :
 
-    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing=2 -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Wredundant-decls -Winline -Werror -Wfatal-errors -pedantic -pedantic-errors"
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing=2 -Wsystem-headers -Wshadow -Wmissing-declarations -Wredundant-decls -Werror -Wfatal-errors -pedantic -pedantic-errors"
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes"
     ;; #(
   *) :
      ;;
 esac
+
+saved_CFLAGS="$CFLAGS"
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -Wpragma-pack" >&5
+printf %s "checking whether the compiler supports -Wpragma-pack... " >&6; }
+CFLAGS="$CFLAGS -Wpragma-pack"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"
+then :
+  supports_wpragma_pack=yes
+else case e in #(
+  e) supports_wpragma_pack=no ;;
+esac
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam conftest.$ac_ext
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $supports_wpragma_pack" >&5
+printf "%s\n" "$supports_wpragma_pack" >&6; }
+if test "$supports_wpragma_pack" = "yes"; then
+    ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-pragma-pack"
+fi
+CFLAGS="$saved_CFLAGS"
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -Warray-bounds" >&5
+printf %s "checking whether the compiler supports -Warray-bounds... " >&6; }
+CFLAGS="$CFLAGS -Warray-bounds"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"
+then :
+  supports_warray_bounds=yes
+else case e in #(
+  e) supports_warray_bounds=no ;;
+esac
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam conftest.$ac_ext
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $supports_warray_bounds" >&5
+printf "%s\n" "$supports_warray_bounds" >&6; }
+if test "$supports_warray_bounds" = "yes"; then
+    ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-array-bounds"
+fi
+CFLAGS="$saved_CFLAGS"
 
 
 

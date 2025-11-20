@@ -1689,8 +1689,9 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
-AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
+TEST_CFLAGS = -Wno-format -Wno-unused-parameter -Wno-error=unused-function
+AM_CFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS) -Wno-missing-prototypes
+AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS)
 
 # Testsuite options
 #
@@ -1723,10 +1724,10 @@ EXTRA_DIST = \
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_trycatch_LDFLAGS = -static
-t_intrinc_CFLAGS = -std=c99
-@ENABLE_TESTS_UNICODE_TRUE@t_municode_CFLAGS = -municode
-@ENABLE_TESTS_UNICODE_TRUE@t_tmain_CFLAGS = -municode -D_UNICODE
-@ENABLE_TESTS_UNICODE_TRUE@t__wstat_all_CFLAGS = -municode
+t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
+@ENABLE_TESTS_UNICODE_TRUE@t_municode_CFLAGS = -municode $(AM_CFLAGS)
+@ENABLE_TESTS_UNICODE_TRUE@t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
+@ENABLE_TESTS_UNICODE_TRUE@t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
 
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
 # may not be check_PROGRAMS.
