@@ -1157,7 +1157,7 @@ F_NON_I386(_fstat64) ; i386 _fstat64 replaced by emu
 F_NON_I386(_ftime64) ; i386 _ftime64 replaced by emu
 F_NON_I386(_futime64) ; i386 _futime64 replaced by emu
 F_NON_I386(_gmtime64) ; i386 _gmtime64 replaced by emu
-_localtime64
+F_NON_I386(_localtime64) ; i386 _localtime64 replaced by emu
 _mktime64
 F_X86_ANY(_osplatform DATA)
 F_NON_I386(_stat64) ; i386 _stat64 replaced by emu
