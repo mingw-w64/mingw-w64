@@ -587,6 +587,7 @@ src_msvcrt32=\
   misc/_localtime64.c \
   misc/_mkgmtime32.c \
   misc/_mkgmtime64.c \
+  misc/_mktime64.c \
   misc/_set_doserrno.c \
   misc/_set_fmode.c \
   misc/_time64.c \
@@ -902,6 +903,7 @@ src_pre_msvcr70=\
   misc/_futime64.c \
   misc/_gmtime64.c \
   misc/_localtime64.c \
+  misc/_mktime64.c \
   misc/_time64.c \
   misc/_utime64.c \
   misc/_wctime64.c \
