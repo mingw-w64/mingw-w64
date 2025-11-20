@@ -87,7 +87,6 @@ main()
 {
   struct timespec abstime = { 0, 0 };
   struct _timeb currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
 
   assert(pthread_cond_init(&cv, NULL) == 0);
 

@@ -99,11 +99,9 @@ main(int argc, char * argv[])
 
   if (argc <= 1)
     {
-      int result;
-
       printf("You should see an application memory write error message\n");
       fflush(stdout);
-      result = system("create3.exe die");
+      system("create3.exe die");
       exit(0);
     }
 

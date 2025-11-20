@@ -142,13 +142,10 @@ waste_time (int n)
 static int
 do_work_unit (int who, int n)
 {
-  int		i;
   static int	nchars = 0;
   double	f = 0.0;
 
-  if (quiet)
-    i = 0;
-  else {
+  if (!quiet) {
     /*
      * get lock on stdout
      */
@@ -157,7 +154,7 @@ do_work_unit (int who, int n)
     /*
      * do our job
      */
-    i = printf ("%c", "0123456789abcdefghijklmnopqrstuvwxyz"[who]);
+    printf ("%c", "0123456789abcdefghijklmnopqrstuvwxyz"[who]);
 
     if (!(++nchars % 50))
       printf ("\n");

@@ -16,7 +16,7 @@ static __inline void _my_assert(char *message, char *file, unsigned int line)
 void test_clock_settime()
 {
     int rc;
-    struct timespec tp, request = { 1, 0 }, remain;
+    struct timespec tp;
 
     rc = clock_gettime(CLOCK_REALTIME, &tp);
     assert(rc == 0);
