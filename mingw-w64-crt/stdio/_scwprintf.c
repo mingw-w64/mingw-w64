@@ -29,9 +29,9 @@ int (__cdecl *__MINGW_IMP_SYMBOL(_scwprintf))(const wchar_t * __restrict__, ...)
 
 #include <msvcrt.h>
 
-static int __cdecl init_scwprintf(const wchar_t * __restrict__ format, ...);
+int __cdecl __mingw_init_scwprintf(const wchar_t * __restrict__ format, ...);
 
-int (__cdecl *__MINGW_IMP_SYMBOL(_scwprintf))(const wchar_t * __restrict__, ...) = init_scwprintf;
+int (__cdecl *__MINGW_IMP_SYMBOL(_scwprintf))(const wchar_t * __restrict__, ...) = __mingw_init_scwprintf;
 
 __attribute__((used))
 static void resolve_scwprintf(void)
@@ -52,8 +52,8 @@ static void resolve_scwprintf(void)
  * this source file is used only on i386, so do this function redirect via inline i386 assembly */
 #define ASM_SYM(sym) __MINGW64_STRINGIFY(__MINGW_USYMBOL(sym))
 asm (
-".def\t" ASM_SYM(init_scwprintf) ";\t.scl\t3;\t.type\t32;\t.endef\n"
-ASM_SYM(init_scwprintf) ":\n\t"
+".def\t" ASM_SYM(__mingw_init_scwprintf) ";\t.scl\t3;\t.type\t32;\t.endef\n"
+ASM_SYM(__mingw_init_scwprintf) ":\n\t"
     "pushal\n\t"
     "call\t" ASM_SYM(resolve_scwprintf) "\n\t"
     "popal\n\t"

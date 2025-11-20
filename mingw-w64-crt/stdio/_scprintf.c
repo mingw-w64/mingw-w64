@@ -29,9 +29,9 @@ int (__cdecl *__MINGW_IMP_SYMBOL(_scprintf))(const char * __restrict__, ...) = _
 
 #include <msvcrt.h>
 
-static int __cdecl init_scprintf(const char * __restrict__ format, ...);
+int __cdecl __mingw_init_scprintf(const char * __restrict__ format, ...);
 
-int (__cdecl *__MINGW_IMP_SYMBOL(_scprintf))(const char * __restrict__, ...) = init_scprintf;
+int (__cdecl *__MINGW_IMP_SYMBOL(_scprintf))(const char * __restrict__, ...) = __mingw_init_scprintf;
 
 __attribute__((used))
 static void resolve_scprintf(void)
@@ -52,8 +52,8 @@ static void resolve_scprintf(void)
  * this source file is used only on i386, so do this function redirect via inline i386 assembly */
 #define ASM_SYM(sym) __MINGW64_STRINGIFY(__MINGW_USYMBOL(sym))
 asm (
-".def\t" ASM_SYM(init_scprintf) ";\t.scl\t3;\t.type\t32;\t.endef\n"
-ASM_SYM(init_scprintf) ":\n\t"
+".def\t" ASM_SYM(__mingw_init_scprintf) ";\t.scl\t3;\t.type\t32;\t.endef\n"
+ASM_SYM(__mingw_init_scprintf) ":\n\t"
     "pushal\n\t"
     "call\t" ASM_SYM(resolve_scprintf) "\n\t"
     "popal\n\t"
