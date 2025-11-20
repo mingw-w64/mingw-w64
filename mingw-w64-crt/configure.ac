@@ -439,6 +439,17 @@ AS_CASE([$warning_level],
     ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes"]
    )
 
+saved_CFLAGS="$CFLAGS"
+AC_MSG_CHECKING([whether the compiler supports -Wpragma-pack])
+CFLAGS="$CFLAGS -Wpragma-pack"
+AC_COMPILE_IFELSE([AC_LANG_SOURCE([[]])],
+    [supports_wpragma_pack=yes],[supports_wpragma_pack=no])
+AC_MSG_RESULT([$supports_wpragma_pack])
+if test "$supports_wpragma_pack" = "yes"; then
+    ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-pragma-pack"
+fi
+CFLAGS="$saved_CFLAGS"
+
 AC_SUBST(ADD_C_ONLY_WARNING_FLAGS)
 AC_SUBST(ADD_C_CXX_WARNING_FLAGS)
 AC_SUBST(ADD_CXX_ONLY_WARNING_FLAGS)
