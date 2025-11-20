@@ -32,7 +32,7 @@ static int testread(const char *path){
   char *readbuff;
   int ret;
 
-  readbuff = calloc(sizeof(char),strlen(writebuf) + 1);
+  readbuff = calloc(strlen(writebuf) + 1, sizeof(char));
   if (!readbuff) return 1;
 
   fd = fopen(path, "r+bc");
