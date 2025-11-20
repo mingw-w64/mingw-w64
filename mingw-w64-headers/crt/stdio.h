@@ -601,7 +601,10 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl getchar(void);
   _CRTIMP int __cdecl _getmaxstdio(void);
   char *__cdecl gets(char *_Buffer)
-    __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")));
+#ifndef _CRTBLD
+    __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")))
+#endif
+;
   int __cdecl _getw(FILE *_File);
 #ifndef _CRT_PERROR_DEFINED
 #define _CRT_PERROR_DEFINED
