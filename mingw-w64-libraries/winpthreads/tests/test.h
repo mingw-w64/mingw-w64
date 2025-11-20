@@ -123,7 +123,7 @@ const char * error_string[] = {
 	                            fflush(stderr) : \
                              0) : \
           (fprintf(stderr, "Assertion failed: (%s), file %s, line %d\n", \
-                   #e, __FILE__, (int) __LINE__), exit(1), 0))
+                   #e, __FILE__, (int) __LINE__), exit(1)))
 
 int assertE;
 # define assert_e(e, o, r) \
@@ -133,7 +133,7 @@ int assertE;
 	                            fflush(stderr) : \
                              0) : \
           (fprintf(stderr, "Assertion failed: (%s %s %s), file %s, line %d, error %s\n", \
-                   #e,#o,#r, __FILE__, (int) __LINE__, error_string[assertE]), exit(1), 0))
+                   #e,#o,#r, __FILE__, (int) __LINE__, error_string[assertE]), exit(1)))
 
 #ifndef PTW32_VERSION
 /* Extensions for winpthread to make more w32 tests happy (non posix): */
