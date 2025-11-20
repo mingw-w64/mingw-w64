@@ -574,6 +574,7 @@ src_msvcrt32=\
   misc/_aligned_offset_realloc.c \
   misc/_aligned_realloc.c \
   misc/_create_locale.c \
+  misc/_difftime64.c \
   misc/_free_locale.c \
   misc/_ftime64.c \
   misc/_futime64.c \
@@ -923,6 +924,7 @@ src_pre_msvcr80=\
   misc/_aligned_offset_recalloc.c \
   misc/_aligned_recalloc.c \
   misc/_configthreadlocale.c \
+  misc/_difftime64.c \
   misc/_get_daylight.c \
   misc/_get_doserrno.c \
   misc/_get_dstbias.c \

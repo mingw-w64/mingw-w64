@@ -1395,7 +1395,7 @@ _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
 _difftime32 F_I386(== difftime) ; i386 _difftime32 replaced by alias
-_difftime64 F_X64(== difftime) ; x64 _difftime64 replaced by alias
+F_NON_I386(_difftime64 F_X64(== difftime)) ; i386 _difftime64 replaced by emu and x64 _difftime64 replaced by alias
 _ecvt_s
 F_I386(_except_handler4_common)
 _expand_dbg
