@@ -84,6 +84,7 @@ static int __attribute__((used)) do_setjmpex( _JUMP_BUFFER *buf, UINT fpcr, UINT
     return 0;
 }
 
+int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame );
 int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame )
 {
     asm( ".seh_proc \"#__intrinsic_setjmpex\"\n\t"
