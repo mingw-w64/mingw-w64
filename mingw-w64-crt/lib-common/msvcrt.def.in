@@ -1150,7 +1150,7 @@ F_I386(_chkesp)
 ; void __cdecl operator delete[](void *)
 ??_V@YAXPAX@Z
 #endif
-_ctime64
+F_NON_I386(_ctime64) ; i386 _ctime64 replaced by emu
 _findfirst64
 _findnext64
 F_NON_I386(_fstat64) ; i386 _fstat64 replaced by emu
@@ -1163,7 +1163,7 @@ F_X86_ANY(_osplatform DATA)
 F_NON_I386(_stat64) ; i386 _stat64 replaced by emu
 F_NON_I386(_time64) ; i386 _time64 replaced by emu
 F_NON_I386(_utime64) ; i386 _utime64 replaced by emu
-_wctime64
+F_NON_I386(_wctime64) ; i386 _wctime64 replaced by emu
 _wfindfirst64
 _wfindnext64
 F_NON_I386(_wstat64) ; i386 _wstat64 replaced by emu
