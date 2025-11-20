@@ -3,7 +3,7 @@
 
 int main() {
   int i;
-  char buffer[10] = "XXXXXXXXXX";
+  char buffer[11] = "XXXXXXXXXX";
   int ret = snprintf(buffer, 3, "%s", "AAA");
   if (ret != 3 || memcmp(buffer, "AA\0XXXXXXX", 10) != 0) {
     fprintf(stderr, "ret: expected=3 got=%d\n", ret);

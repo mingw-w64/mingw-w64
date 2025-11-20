@@ -3,7 +3,7 @@
 
 int main() {
   int i;
-  wchar_t buffer[10] = L"XXXXXXXXXX";
+  wchar_t buffer[11] = L"XXXXXXXXXX";
   int ret = swprintf(buffer, 3, L"%ls", L"AAA");
   if (ret >= 0 || wmemcmp(buffer, L"AA\0XXXXXXX", 10) != 0) {
     fprintf(stderr, "ret: expected=<0 got=%d\n", ret);

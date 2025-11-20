@@ -172,7 +172,7 @@ __add_nanbits_D2A(char *b, size_t blen, ULong *bits, int nb)
 	char *rv;
 	int i, j;
 	size_t L;
-	static char Hexdig[16] = "0123456789abcdef";
+	static char Hexdig[17] = "0123456789abcdef";
 
 	while(!bits[--nb])
 		if (!nb)
