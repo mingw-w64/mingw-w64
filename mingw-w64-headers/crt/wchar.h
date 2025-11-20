@@ -1175,27 +1175,21 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
-  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#ifndef __CRT__NO_INLINE
 #ifndef _USE_32BIT_TIME_T
-  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
+  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ASM_CALL(_wctime64) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #else
-  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
+  wchar_t *__cdecl _wctime(const time_t *_Time) __MINGW_ASM_CALL(_wctime32) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
-#endif /* __CRT__NO_INLINE */
 #endif
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL)
 #define _INC_WTIME_S_INL
-  errno_t __cdecl _wctime_s(wchar_t *, size_t, const time_t *);
-#ifndef __CRT__NO_INLINE
 #ifndef _USE_32BIT_TIME_T
-  __CRT_INLINE errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime64_s (_Buffer,_SizeInWords,_Time); }
+  errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) __MINGW_ASM_CALL(_wctime64_s);
 #else
-  __CRT_INLINE errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime32_s (_Buffer,_SizeInWords,_Time); }
-#endif /* _USE_32BIT_TIME_T */
-#endif  /* __CRT__NO_INLINE */
-#endif /* !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL) */
+  errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) __MINGW_ASM_CALL(_wctime32_s);
+#endif
+#endif
 
 #endif
 
