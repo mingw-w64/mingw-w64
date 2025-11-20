@@ -19,10 +19,8 @@ int main()
   struct __timeb64 tb64;
   struct tm *htm;
   int ret1, ret2, ret3;
-#if __MSVCRT_VERSION__ > 0x0400
   const char *str;
   const wchar_t *wstr;
-#endif
 
   time (&t);
   _time32 (&t32);
@@ -36,12 +34,9 @@ int main()
   if (!htm) printf ("Failed localtime\n");
   else printf ("localtime:    %s", asctime (htm));
 
-  /* FIXME: mingw-w64 does not provide _localtime64 for msvcrt40 and older CRT libraries */
-#if __MSVCRT_VERSION__ > 0x0400
   htm = _localtime64 (&t64);
   if (!htm) printf ("Failed _localtime64\n");
   else printf ("_localtime64: %s", asctime (htm));
-#endif
 
   _ftime (&tb_);
   _ftime32 (&tb32);
@@ -100,8 +95,6 @@ int main()
   assert (htm->tm_yday == 74);
   assert (htm->tm_isdst == 0);
 
-  /* FIXME: mingw-w64 does not provide _ctime64 and _wctime64 for msvcrt40 and older CRT libraries */
-#if __MSVCRT_VERSION__ > 0x0400
   /* ctime returns time string in local timezone, so set local timezone to UTC to have test timezone independent */
   putenv ("TZ=UTC");
   tzset ();
@@ -115,7 +108,6 @@ int main()
   wstr = _wctime64 ( &t64 );
   printf ("_wctime64(1<<33): %ls", wstr);
   assert (wcscmp (wstr, L"Wed Mar 16 12:56:32 2242\n") == 0);
-#endif
 
   return 0;
 }
