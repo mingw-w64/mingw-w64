@@ -7,7 +7,7 @@ int main(void) {
 
     // Test the %g width specifier
     // This should output "(    100000)" with 4 leading spaces
-    int ret = snprintf(buffer, sizeof(buffer), "(%10g)", 100000.0f);
+    snprintf(buffer, sizeof(buffer), "(%10g)", 100000.0f);
 
     if (strcmp(buffer, "(    100000)") != 0) {
         fprintf(stderr, "FAIL: Expected '(    100000)', got '%s'\n", buffer);

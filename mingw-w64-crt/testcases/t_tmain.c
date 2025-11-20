@@ -9,5 +9,6 @@ int
 _tmain (void)
 {
   volatile void *wmainptr = wmain;
+  (void)wmainptr;
   return 0;
 }

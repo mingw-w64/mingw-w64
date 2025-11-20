@@ -4,7 +4,7 @@
 
 jmp_buf buf;
 
-void catchSigSegV( int sig )
+void __attribute__((noreturn)) catchSigSegV( int sig )
 {
  longjmp(buf, 1);
 }
@@ -22,5 +22,6 @@ int main(void)
   puts("Bad");
  }
   else puts("Ok");
+ (void)v;
  return 0;
 }

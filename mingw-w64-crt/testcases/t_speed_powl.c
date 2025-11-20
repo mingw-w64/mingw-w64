@@ -16,6 +16,7 @@ int main()
   start_ticks = GetTickCount() - start_ticks;
   __mingw_printf ("Loop %d times with result %Lg\n", i, ld);
   printf ("Has %g calculations / ms\n", (double) i / (double) start_ticks);
+  (void)sum;
   return 0;
 }
 

@@ -3,7 +3,7 @@
 
 jmp_buf buf;
 
-void foo (void)
+void __attribute__((noreturn)) foo (void)
 {
   printf ("Call longjmp\n");
   longjmp (buf, 1);
