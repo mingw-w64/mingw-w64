@@ -449,6 +449,15 @@ if test "$supports_wpragma_pack" = "yes"; then
     ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-pragma-pack"
 fi
 CFLAGS="$saved_CFLAGS"
+AC_MSG_CHECKING([whether the compiler supports -Warray-bounds])
+CFLAGS="$CFLAGS -Warray-bounds"
+AC_COMPILE_IFELSE([AC_LANG_SOURCE([[]])],
+    [supports_warray_bounds=yes],[supports_warray_bounds=no])
+AC_MSG_RESULT([$supports_warray_bounds])
+if test "$supports_warray_bounds" = "yes"; then
+    ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-array-bounds"
+fi
+CFLAGS="$saved_CFLAGS"
 
 AC_SUBST(ADD_C_ONLY_WARNING_FLAGS)
 AC_SUBST(ADD_C_CXX_WARNING_FLAGS)
