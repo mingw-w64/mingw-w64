@@ -6,7 +6,7 @@ EXPORTS
 ; from native kernel32.dll libraries on 32-bit Windows systems and also from
 ; 32-bit WoW64 kernel32.dll libraries on 64-bit Windows systems. Symbols in this
 ; file are ordered by increasing Windows version in which they were introduced.
-; For example symbols added in Windows 98 (which is version 4.10) are before
+; For example symbols added in Windows 98 (which is version 4.10) are after
 ; Windows NT 4.0 symbols. Note that some symbols are available in Windows NT 3.1,
 ; missing in Windows 98 (4.10), but are again available in Windows 2000 (5.0).
 ; This is always mentioned in the header of section which lists symbols.
