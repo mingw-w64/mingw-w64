@@ -13,6 +13,7 @@ libwinstorecompat_a_SOURCES = \
   src/Crypto.c \
   src/EnumProcessModules.c \
   src/GetACP.c \
+  src/GetActiveProcessorCount.c \
   src/GetConsoleOutputCP.c \
   src/GetFileAttributes.c \
   src/GetFileInformationByHandle.c \
@@ -52,6 +53,7 @@ libwinstorecompat_a_SOURCES = \
 libwindowsappcompat_a_SOURCES = \
   src/CreateFileW.c \
   src/EnumProcessModules.c \
+  src/GetActiveProcessorCount.c \
   src/GetFileSize.c \
   src/GetStartupInfo.c \
   src/GetUserName.c \
