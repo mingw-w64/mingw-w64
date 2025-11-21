@@ -4,9 +4,11 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define getenv_s __getenv_s
 #include <stdlib.h>
 #include <errno.h>
 #include <windows.h>
+#undef getenv_s
 
 errno_t __cdecl getenv_s(size_t *pReturnValue, char *dstBuf, rsize_t dstSize, const char *varName)
 {
