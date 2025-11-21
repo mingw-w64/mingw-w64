@@ -1377,10 +1377,10 @@ Wow64EnableWow64FsRedirection@4
 
 ; This is list of symbols added in Windows Server 2003 SP1 and Windows XP x64 SP1 (WoW64 version)
 AddVectoredContinueHandler@8
-BaseCheckRunApp@52 ; FIXME: Windows Server 2003 has ABI "BaseCheckRunApp@40", Windows Vista and 7 has ABI "BaseCheckRunApp@52", Windows 8 has ABI "BaseCheckRunApp@56", Windows 8.1 has ABI "BaseCheckRunApp@60" ; removed in Windows 10
-; BaseProcessStartThunk@0 ; available only in 32-bit WoW64 version on 64-bit system ; removed in Windows Vista
-; BaseThreadStartThunk@0 ; available only in 32-bit WoW64 version on 64-bit system ; removed in Windows Vista
-BasepCheckBadapp@56 ; FIXME: Windows Server 2003 has ABI "BasepCheckBadapp@36", Windows Vista has ABI "BasepCheckBadapp@56", Windows 7 has ABI "BasepCheckBadapp@60", Windows 8 and Windows 8.1 has ABI "BasepCheckBadapp@72" ; removed in Windows 10
+BaseCheckRunApp@52 ; FIXME: Windows Server 2003 has ABI "BaseCheckRunApp@40", Windows Vista and 7 has ABI "BaseCheckRunApp@52", Windows 8 has ABI "BaseCheckRunApp@56", Windows 8.1 has ABI "BaseCheckRunApp@60", removed in Windows 10
+; BaseProcessStartThunk@0 ; available only in 32-bit WoW64 version on 64-bit system, removed in Windows Vista
+; BaseThreadStartThunk@0 ; available only in 32-bit WoW64 version on 64-bit system, removed in Windows Vista
+BasepCheckBadapp@56 ; FIXME: Windows Server 2003 has ABI "BasepCheckBadapp@36", Windows Vista has ABI "BasepCheckBadapp@56", Windows 7 has ABI "BasepCheckBadapp@60", Windows 8 and Windows 8.1 has ABI "BasepCheckBadapp@72", removed in Windows 10
 BasepFreeAppCompatData@12 ; FIXME: Windows Server 2003 has ABI "BasepFreeAppCompatData@8", Windows Vista and new has ABI "BasepFreeAppCompatData@12"
 ConsoleIMERoutine@4 ; available only in 32-bit WoW64 version on 64-bit system
 CtrlRoutine@4 ; available only in 32-bit WoW64 version on 64-bit system, since Windows 7 available also on 32-bit system
@@ -2018,7 +2018,7 @@ WerRegisterRuntimeExceptionModuleWorker@8
 WerUnregisterFileWorker@4
 WerUnregisterMemoryBlockWorker@4
 WerUnregisterRuntimeExceptionModuleWorker@8
-WerpGetDebugger@8 ; FIXME: Windows 8 and Windows 8.1 has ABI WerpGetDebugger@20, Windows 10 has ABI WerpGetDebugger@8
+WerpGetDebugger@8 ; FIXME: Windows 8 and Windows 8.1 has ABI "WerpGetDebugger@20", Windows 10 has ABI "WerpGetDebugger@8"
 ; WerpLaunchAeDebug@24
 ; WerpNotifyLoadStringResourceWorker@16
 ; WerpNotifyUseStringResourceWorker@4
