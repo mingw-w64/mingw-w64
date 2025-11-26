@@ -1495,7 +1495,10 @@ void __pformat_emit_efloat( int sign, char *value, int e, __pformat_t *stream )
    * include the following exponent).
    */
   int exp_width = 1;
-  __pformat_intarg_t exponent; exponent.__pformat_llong_t = e -= 1;
+  __pformat_intarg_t exponent;
+  e -= 1;
+  exponent.__pformat_u128_t.t128.digits[1] = e < 0 ? -1 : 0;
+  exponent.__pformat_u128_t.t128.digits[0] = e;
 
   /* Determine how many digit positions are required for the exponent.
    */
