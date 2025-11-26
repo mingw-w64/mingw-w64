@@ -1973,7 +1973,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    * representation of the argument value.
    */
   char buf[18 + 6], *p = buf;
-  __pformat_intarg_t exponent; short exp_width = 2;
+  short exp_width = 2;
 
   if (value.__pformat_fpreg_mantissa != 0 ||
      value.__pformat_fpreg_exponent != 0)
@@ -2225,6 +2225,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
   stream->width += exp_width;
   stream->flags |= PFORMAT_SIGNED;
   /* sign extend */
+  __pformat_intarg_t exponent;
   exponent.__pformat_u128_t.t128.digits[1] = (value.__pformat_fpreg_exponent < 0) ? -1 : 0;
   exponent.__pformat_u128_t.t128.digits[0] = value.__pformat_fpreg_exponent;
   __pformat_int( exponent, stream );
