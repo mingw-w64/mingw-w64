@@ -775,7 +775,7 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
    */
   __bigint_to_string(value.__pformat_u128_t.t128_2.digits32,
     4, tmp_buff, bufflen);
-  __bigint_trim_leading_zeroes(tmp_buff,1);
+  __bigint_trim_leading_zeroes(tmp_buff, 0);
 
   memset(p,0,bufflen);
   for(int32_t i = strlen(tmp_buff) - 1; i >= 0; i--){
