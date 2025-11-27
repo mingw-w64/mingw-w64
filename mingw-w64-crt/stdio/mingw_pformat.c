@@ -779,8 +779,8 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
 
   memset(p,0,bufflen);
   for(int32_t i = strlen(tmp_buff) - 1; i >= 0; i--){
-  if ( i && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0
-        && (i % 4) == 3)
+    if (p != buf && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0
+        && ((p - buf) % 4) == 3)
       {
         *p++ = ',';
       }
