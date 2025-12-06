@@ -50,7 +50,7 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 }
 
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback = __dyn_tls_init;
-_CRTALLOC(".CRT$XLC") PIMAGE_TLS_CALLBACK __xl_c = __dyn_tls_init;
+static _CRTALLOC(".CRT$XLC") PIMAGE_TLS_CALLBACK __xl_c = __dyn_tls_init;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
 extern const IMAGE_TLS_DIRECTORY _tls_used;
