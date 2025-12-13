@@ -1306,6 +1306,7 @@ src_libmingwex=\
   stdio/mingw_ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c stdio/__mingw_fix_fstat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
+  stdio/__mingw_fix_stat_fallback_fd.c stdio/__mingw_fix_wstat_fallback_fd.c \
   \
   stdio/mingw_pformat.h    stdio/mingw_sformat.h     stdio/mingw_swformat.h \
   stdio/mingw_fprintf.c    stdio/mingw_fwprintf.c    stdio/mingw_fscanf.c     stdio/mingw_fwscanf.c     stdio/mingw_pformat.c   \

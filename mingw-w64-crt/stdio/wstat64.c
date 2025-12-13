@@ -10,6 +10,6 @@
 
 int __cdecl wstat64(const wchar_t *_Filename, struct stat64 *_Stat)
 {
-  return __MINGW_FIXED_STAT(_wstat64, _Filename, (struct _stat64 *)_Stat);
+  return __MINGW_FIXED_STAT(fstat64, _wstat64, _Filename, (struct _stat64 *)_Stat);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(wstat64))(const wchar_t *, struct stat64 *) = wstat64;

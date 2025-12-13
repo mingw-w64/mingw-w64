@@ -15,11 +15,12 @@
  * as it is required by POSIX stat().
  * This file is used only for pre-msvcr110 builds.
  */
+int __cdecl fstat32i64(int fd,struct _stat32i64 *stat);
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat);
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
 {
   struct _stat32i64 st;
-  int ret = __MINGW_FIXED_STAT(_stat32i64, _Filename, &st);
+  int ret = __MINGW_FIXED_STAT(fstat32i64, _stat32i64, _Filename, &st);
   if (ret != 0)
     return ret;
   if (st.st_size > INT32_MAX) {

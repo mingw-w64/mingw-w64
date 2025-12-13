@@ -8,9 +8,10 @@
 #include <stdlib.h>
 #include "__mingw_fix_stat.h"
 
+int __cdecl fstat32i64(int fd, struct _stat32i64 *stat);
 int __cdecl stat32i64(const char *_Filename, struct _stat32i64 *_Stat);
 int __cdecl stat32i64(const char *_Filename, struct _stat32i64 *_Stat)
 {
-  return __MINGW_FIXED_STAT(_stat32i64, _Filename, _Stat);
+  return __MINGW_FIXED_STAT(fstat32i64, _stat32i64, _Filename, _Stat);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat32i64))(const char *, struct _stat32i64 *) = stat32i64;

@@ -19,7 +19,7 @@ int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat);
 int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
-  int ret = __MINGW_FIXED_STAT(_stat64, _Filename, &st);
+  int ret = __MINGW_FIXED_STAT(fstat64, _stat64, _Filename, &st);
   if (ret != 0)
     return ret;
   if (st.st_size > INT32_MAX) {
