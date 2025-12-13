@@ -77,6 +77,12 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 #endif
 }
 
+static void
+safe_flush (void)
+{
+  fflush (NULL);
+}
+
 static int __tmainCRTStartup (void);
 
 int WinMainCRTStartup (void);
@@ -177,6 +183,14 @@ __tmainCRTStartup (void)
 	 * Windows CRT, so we have to disable buffering altogether.
 	 */
 	setvbuf (stderr, NULL, _IONBF, 0);
+
+	/* The C RunTime library flushes stdio streams in response to
+	 * DLL_PROCESS_DETACH. This is not entirely safe; other DLLs
+	 * may cause instant termination during process shutdown.
+	 * Here we add an exit handler to flush streams safely.
+	 */
+	if (atexit (safe_flush) != 0)
+	    abort ();
 
 	_pei386_runtime_relocator ();
 #if defined(__x86_64__) && !defined(__SEH__)
