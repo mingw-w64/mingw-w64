@@ -10,6 +10,7 @@
 #include <signal.h>
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <tchar.h>
 #include <sect_attribs.h>
 #include <locale.h>
@@ -167,6 +168,15 @@ __tmainCRTStartup (void)
     else if (__native_startup_state == __uninitialized)
       {
 	__native_startup_state = __initializing;
+
+	/* Before the UCRT stderr could be opened in full buffering
+	 * mode, for example when output goes to a pipe.
+	 *
+	 * The C standard disallows full buffering on stderr. Note
+	 * that line buffering is the same as full buffering in the
+	 * Windows CRT, so we have to disable buffering altogether.
+	 */
+	setvbuf (stderr, NULL, _IONBF, 0);
 
 	_pei386_runtime_relocator ();
 #if defined(__x86_64__) && !defined(__SEH__)
