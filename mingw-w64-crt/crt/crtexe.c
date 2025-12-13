@@ -76,6 +76,12 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 #endif
 }
 
+static void
+__mingw_safeStdioFlush (void)
+{
+  fflush (NULL);
+}
+
 static int __tmainCRTStartup (void);
 
 int WinMainCRTStartup (void);
@@ -150,6 +156,10 @@ __tmainCRTStartup (void)
     BOOL nested = FALSE;
     _startupinfo startinfo;
     int ret = 0;
+
+    if (atexit (__mingw_safeStdioFlush) != 0)
+      return 255;
+
     while((lock_free = InterlockedCompareExchangePointer (&__native_startup_lock,
 							  fiberid, NULL)) != 0)
       {
