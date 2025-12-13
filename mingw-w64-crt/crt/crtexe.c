@@ -199,6 +199,18 @@ __tmainCRTStartup (void)
 	if (__globallocalestatus == -1)
 	  _configthreadlocale (-1);
 
+#if !defined (_UCRT)
+	/* Before the UCRT stderr could be opened in full buffering
+	* mode, for example when output goes to a pipe).
+	*
+	* Recent C standard disallow full buffering on stderr.
+	* Note that line buffering is the same as full buffering
+	* in the Windows CRT, so we have to disable buffering
+	* altogether.
+	*/
+	setvbuf (stderr, NULL, _IONBF, 0);
+#endif
+
 	if (_initterm_e (__xi_a, __xi_z) != 0)
 	  return 255;
 
