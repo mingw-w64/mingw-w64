@@ -11,10 +11,6 @@
 int __cdecl stat32i64(const char *_Filename, struct _stat32i64 *_Stat);
 int __cdecl stat32i64(const char *_Filename, struct _stat32i64 *_Stat)
 {
-  char *_path = __mingw_fix_stat_path(_Filename);
-  if (_path == NULL && _Filename != NULL)
-    return -1;
-  int ret = _stat32i64(_path, _Stat);
-  return __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
+  return __MINGW_FIXED_STAT(_stat32i64, _Filename, _Stat);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat32i64))(const char *, struct _stat32i64 *) = stat32i64;

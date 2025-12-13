@@ -19,4 +19,27 @@ int __mingw_fix_fstat_finish(int ret, int fd, unsigned short *mode);
    _fstat_ret; \
 })
 
+#define __MINGW_CHOOSE_CHAR_WCHART_EXPR(var, char_expr, wchart_expr, other_expr) \
+  __builtin_choose_expr(__builtin_types_compatible_p(typeof(var), char), char_expr, \
+    __builtin_choose_expr(__builtin_types_compatible_p(typeof(var), wchar_t), wchart_expr, \
+      other_expr))
+
+#define __MINGW_PATH_PTR_TYPE(path) \
+  typeof(__MINGW_CHOOSE_CHAR_WCHART_EXPR((path)[0], (char*)0, (wchar_t*)0, (void)0))
+
+#define __MINGW_FIX_STAT_PATH(path) \
+  __MINGW_CHOOSE_CHAR_WCHART_EXPR((path)[0], __mingw_fix_stat_path, __mingw_fix_wstat_path, NULL)(path)
+
+#define __MINGW_FIXED_STAT(stat_func, filename, obj) ({ \
+  int _stat_ret; \
+  __MINGW_PATH_PTR_TYPE(filename) path = __MINGW_FIX_STAT_PATH(filename); \
+  if (path == NULL && (filename) != NULL) { \
+    _stat_ret = -1; \
+  } else { \
+    _stat_ret = (stat_func)(path, (obj)); \
+    _stat_ret = __mingw_fix_stat_finish(_stat_ret, (filename), path, (obj)->st_mode); \
+  } \
+  _stat_ret; \
+})
+
 #endif

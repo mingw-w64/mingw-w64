@@ -11,11 +11,7 @@
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat);
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
 {
-  char *_path = __mingw_fix_stat_path(_Filename);
-  if (_path == NULL && _Filename != NULL)
-    return -1;
-  int ret = _stat32(_path, _Stat);
-  return __mingw_fix_stat_finish(ret, _Filename, _path, _Stat->st_mode);
+  return __MINGW_FIXED_STAT(_stat32, _Filename, _Stat);
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat32))(const char *, struct _stat32 *) = stat32;
 

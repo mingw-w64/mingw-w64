@@ -19,11 +19,7 @@ int __cdecl wstat32(const wchar_t *_Filename, struct _stat32 *_Stat);
 int __cdecl wstat32(const wchar_t *_Filename, struct _stat32 *_Stat)
 {
   struct _stat32i64 st;
-  wchar_t *_path = __mingw_fix_wstat_path(_Filename);
-  if (_path == NULL && _Filename != NULL)
-    return -1;
-  int ret = _wstat32i64(_path, &st);
-  ret = __mingw_fix_stat_finish(ret, _Filename, _path, st.st_mode);
+  int ret = __MINGW_FIXED_STAT(_wstat32i64, _Filename, &st);
   if (ret != 0)
     return ret;
   if (st.st_size > INT32_MAX) {
