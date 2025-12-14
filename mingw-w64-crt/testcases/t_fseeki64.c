@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <errno.h>
 #include <io.h>
 #include <fcntl.h>
 #include <windows.h>
@@ -71,6 +72,11 @@ int main() {
     assert(fputs("_", file) >= 0);
 
     /* flush all data, so they can be accessed via WinAPI */
+    if (fflush(file) == EOF && errno == ENOSPC) {
+        /* skip the test for DISK FULL error */
+        printf("DISK FULL\n");
+        return 77;
+    }
     assert(fflush(file) == 0);
 
     /* now read all data via WinAPI and check that they were written at correct offsets */

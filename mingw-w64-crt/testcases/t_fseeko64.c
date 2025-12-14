@@ -18,6 +18,12 @@ static int writefile(const char *path){
     return 1;
   }
   if (!WriteFile(fd, writebuf, strlen(writebuf), &dwResult, NULL)) {
+    if (GetLastError() == ERROR_DISK_FULL) {
+        /* skip the test for DISK FULL error */
+        printf("DISK FULL\n");
+        CloseHandle(fd);
+        return 77;
+    }
     printf("writefile: write failed: winerror=%lu\n", GetLastError());
     CloseHandle(fd);
     return 1;
