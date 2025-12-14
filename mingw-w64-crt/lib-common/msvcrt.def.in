@@ -1151,8 +1151,8 @@ F_I386(_chkesp)
 ??_V@YAXPAX@Z
 #endif
 F_NON_I386(_ctime64) ; i386 _ctime64 replaced by emu
-_findfirst64
-_findnext64
+F_NON_I386(_findfirst64) ; i386 _findfirst64 replaced by emu
+F_NON_I386(_findnext64) ; i386 _findnext64 replaced by emu
 F_NON_I386(_fstat64) ; i386 _fstat64 replaced by emu
 F_NON_I386(_ftime64) ; i386 _ftime64 replaced by emu
 F_NON_I386(_futime64) ; i386 _futime64 replaced by emu
@@ -1164,8 +1164,8 @@ F_NON_I386(_stat64) ; i386 _stat64 replaced by emu
 F_NON_I386(_time64) ; i386 _time64 replaced by emu
 F_NON_I386(_utime64) ; i386 _utime64 replaced by emu
 F_NON_I386(_wctime64) ; i386 _wctime64 replaced by emu
-_wfindfirst64
-_wfindnext64
+F_NON_I386(_wfindfirst64) ; i386 _wfindfirst64 replaced by emu
+F_NON_I386(_wfindnext64) ; i386 _wfindnext64 replaced by emu
 F_NON_I386(_wstat64) ; i386 _wstat64 replaced by emu
 F_NON_I386(_wutime64) ; i386 _wutime64 replaced by emu
 

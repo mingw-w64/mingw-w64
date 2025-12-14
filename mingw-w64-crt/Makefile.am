@@ -606,6 +606,8 @@ src_msvcrt32=\
   misc/wcstoimax.c \
   misc/wcstoumax.c \
   secapi/wcstok_s.c \
+  stdio/_findfirst64.c \
+  stdio/_findnext64.c \
   stdio/_fseeki64.c \
   stdio/_fstat64.c \
   stdio/_fstat64i32.c \
@@ -615,6 +617,8 @@ src_msvcrt32=\
   stdio/_stat64i32.c \
   stdio/_vscprintf.c \
   stdio/_vscwprintf.c \
+  stdio/_wfindfirst64.c \
+  stdio/_wfindnext64.c \
   stdio/_wstat64.c \
   stdio/_wstat64i32.c \
   string/msvcr80pre_wcstok.c
@@ -912,12 +916,16 @@ src_pre_msvcr70=\
   misc/strtoumax.c \
   misc/wcstoimax.c \
   misc/wcstoumax.c \
+  stdio/_findfirst64.c \
+  stdio/_findnext64.c \
   stdio/_fstat64.c \
   stdio/_scprintf.c \
   stdio/_scwprintf.c \
   stdio/_stat64.c \
   stdio/_vscprintf.c \
   stdio/_vscwprintf.c \
+  stdio/_wfindfirst64.c \
+  stdio/_wfindnext64.c \
   stdio/_wstat64.c
 
 src_pre_msvcr71=\
