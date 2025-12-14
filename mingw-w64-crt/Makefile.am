@@ -674,11 +674,15 @@ src_msvcrt64=\
   misc/wassert.c \
   misc/wcsnlen.c \
   secapi/wcstok_s.c \
+  stdio/_findfirst32.c \
+  stdio/_findnext32.c \
   stdio/_fseeki64.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
   stdio/_stat32.c \
   stdio/_stat32i64.c \
+  stdio/_wfindfirst32.c \
+  stdio/_wfindnext32.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
   string/msvcr80pre_wcstok.c
@@ -839,11 +843,15 @@ src_msvcrtarm64=\
   misc/__initenv.c \
   misc/__winitenv.c \
   secapi/msvcrt_arm_wcstok_s.c \
+  stdio/_findfirst32.c \
+  stdio/_findnext32.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
   stdio/_setmaxstdio.c \
   stdio/_stat32.c \
   stdio/_stat32i64.c \
+  stdio/_wfindfirst32.c \
+  stdio/_wfindnext32.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
   stdio/gets.c \
