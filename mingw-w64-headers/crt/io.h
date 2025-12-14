@@ -76,6 +76,11 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     char name[260];
   };
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call these
+ * functions. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifdef _USE_32BIT_TIME_T
 #define _finddata_t _finddata32_t
 #define _finddatai64_t _finddata32i64_t
@@ -93,6 +98,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _findfirsti64 _findfirst64
 #define _findnexti64 _findnext64
 #endif /* _USE_32BIT_TIME_T */
+#endif /* _CRTBLD */
 
 #define _FINDDATA_T_DEFINED
 #endif /* _FINDDATA_T_DEFINED */
@@ -135,6 +141,11 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     wchar_t name[260];
   };
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call these
+ * functions. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifdef _USE_32BIT_TIME_T
 #define _wfinddata_t _wfinddata32_t
 #define _wfinddatai64_t _wfinddata32i64_t
@@ -152,6 +163,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _wfindfirsti64 _wfindfirst64
 #define _wfindnexti64 _wfindnext64
 #endif /* _USE_32BIT_TIME_T */
+#endif /* _CRTBLD */
 
 #define _WFINDDATA_T_DEFINED
 #endif /* _WFINDDATA_T_DEFINED */

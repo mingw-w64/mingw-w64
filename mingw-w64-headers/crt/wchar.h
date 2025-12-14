@@ -114,6 +114,11 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   };
 /* #endif */
 
+/*
+ * To prevent ABI issues, the mingw-w64 runtime should not call these
+ * functions. Instead it should call the fixed-size variants.
+ */
+#ifndef _CRTBLD
 #ifdef _USE_32BIT_TIME_T
 #define _wfinddata_t _wfinddata32_t
 #define _wfinddatai64_t _wfinddata32i64_t
@@ -131,6 +136,7 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define _wfindfirsti64 _wfindfirst64
 #define _wfindnexti64 _wfindnext64
 #endif
+#endif /* _CRTBLD */
 
 #define _WFINDDATA_T_DEFINED
 #endif
