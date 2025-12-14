@@ -607,7 +607,9 @@ src_msvcrt32=\
   misc/wcstoumax.c \
   secapi/wcstok_s.c \
   stdio/_findfirst64.c \
+  stdio/_findfirst64i32.c \
   stdio/_findnext64.c \
+  stdio/_findnext64i32.c \
   stdio/_fseeki64.c \
   stdio/_fstat64.c \
   stdio/_fstat64i32.c \
@@ -618,7 +620,9 @@ src_msvcrt32=\
   stdio/_vscprintf.c \
   stdio/_vscwprintf.c \
   stdio/_wfindfirst64.c \
+  stdio/_wfindfirst64i32.c \
   stdio/_wfindnext64.c \
+  stdio/_wfindnext64i32.c \
   stdio/_wstat64.c \
   stdio/_wstat64i32.c \
   string/msvcr80pre_wcstok.c
@@ -709,9 +713,13 @@ src_msvcrtarm32=\
   misc/__initenv.c \
   misc/__winitenv.c \
   secapi/msvcrt_arm_wcstok_s.c \
+  stdio/_findfirst64i32.c \
+  stdio/_findnext64i32.c \
   stdio/_fstat64i32.c \
   stdio/_setmaxstdio.c \
   stdio/_stat64i32.c \
+  stdio/_wfindfirst64i32.c \
+  stdio/_wfindnext64i32.c \
   stdio/_wstat64i32.c \
   stdio/gets.c \
   stdio/scanf.S \
@@ -968,10 +976,14 @@ src_pre_msvcr80=\
   misc/wcsnlen.c \
   secapi/getenv_s.c \
   secapi/wcstok_s.c \
+  stdio/_findfirst64i32.c \
+  stdio/_findnext64i32.c \
   stdio/_fseeki64.c \
   stdio/_fstat64i32.c \
   stdio/_ftelli64.c \
   stdio/_stat64i32.c \
+  stdio/_wfindfirst64i32.c \
+  stdio/_wfindnext64i32.c \
   stdio/_wstat64i32.c \
   stdio/mingw_lock.c \
   stdio/msvcr80pre_ftruncate64.c \
@@ -1216,7 +1228,7 @@ src_libmingwex=\
   ssp/stpcpy_chk.c       ssp/strcpy_chk.c           ssp/strncat_chk.c       ssp/strncpy_chk.c \
   \
   stdio/strtok_r.c \
-  stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
+  stdio/_Exit.c \
   stdio/asprintf.c \
   stdio/mingw_ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
