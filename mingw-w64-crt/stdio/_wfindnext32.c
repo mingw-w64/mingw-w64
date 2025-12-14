@@ -17,3 +17,9 @@ int __cdecl _wfindnext32(intptr_t _FindHandle, struct _wfinddata32_t *_FindData)
   return 0;
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(_wfindnext32))(intptr_t, struct _wfinddata32_t *) = _wfindnext32;
+
+#ifndef _WIN64
+#undef _wfindnext
+int __attribute__ ((alias ("_wfindnext32"))) __cdecl _wfindnext(intptr_t, struct _wfinddata32_t *);
+extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_wfindnext32))))) (__cdecl *__MINGW_IMP_SYMBOL(_wfindnext))(intptr_t, struct _wfinddata32_t *);
+#endif

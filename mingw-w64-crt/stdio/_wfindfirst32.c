@@ -17,3 +17,9 @@ intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename, struct _wfinddata32_t *
   return ret;
 }
 intptr_t (__cdecl *__MINGW_IMP_SYMBOL(_wfindfirst32))(const wchar_t *, struct _wfinddata32_t *) = _wfindfirst32;
+
+#ifndef _WIN64
+#undef _wfindfirst
+intptr_t __attribute__ ((alias ("_wfindfirst32"))) __cdecl _wfindfirst(const char *, struct _wfinddata32_t *);
+extern intptr_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_wfindfirst32))))) (__cdecl *__MINGW_IMP_SYMBOL(_wfindfirst))(const char *, struct _wfinddata32_t *);
+#endif

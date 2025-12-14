@@ -8,6 +8,11 @@
 #include <stdint.h>
 #include <errno.h>
 
+#ifndef _WIN64
+#include <fcntl.h>
+#include <windows.h>
+#endif
+
 /* When the file time does not fit into the st_Xtime field:
  *           crtdll-msvcr71   msvcr80+
  * st_Xtime       -1             -1
@@ -20,12 +25,12 @@
  * errno       no change     no change   EOVERFLOW
  * returns         0            -1          -1
  *
- * This file is used only for 64-bit msvcrt.dll builds.
  * The stat function on 32-bit system os msvcrt.dll behaves
  * like the msvcr80/msvcr90, so use this behavior.
  */
 int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat)
 {
+#ifdef _WIN64
   struct _stat64 st;
   int ret=_wstat64(_Name,&st);
   if (ret != 0)
@@ -44,5 +49,56 @@ int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat)
   if (_Stat->st_atime == -1 || _Stat->st_mtime == -1 || _Stat->st_ctime == -1)
     errno = EINVAL;
   return 0;
+#else
+  /* mingw-w64 _wstat64() on 32-bit systems is implemented as wrapper around the _wstat32().
+   * Therefore mingw-w64 _wstat32() implementation cannot call _wstat64().
+   * This _wstat32 implementation uses _fstat32() with handle obtained from CreateFileW().
+   * _fstat requires only FILE_READ_ATTRIBUTES access and FILE_FLAG_BACKUP_SEMANTICS is
+   * required for opening directory via CreateFileW().
+   * Using just FILE_READ_ATTRIBUTES access allows to open also path which is was denied for
+   * reading by another process. msvcrt.dll _wstat32() also allows to be called on such path.
+   */
+  int fd;
+  int ret;
+  int err;
+  HANDLE handle;
+  handle = CreateFileW(_Name, FILE_READ_ATTRIBUTES, FILE_SHARE_VALID_FLAGS, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
+  if (handle == INVALID_HANDLE_VALUE) {
+    switch (GetLastError()) {
+    case ERROR_PATH_NOT_FOUND:
+    case ERROR_FILE_NOT_FOUND:
+      errno = ENOENT;
+      break;
+    case ERROR_ACCESS_DENIED:
+    case ERROR_WRITE_PROTECT...ERROR_SHARING_BUFFER_EXCEEDED: /* gcc extension for case ranges: https://gcc.gnu.org/onlinedocs/gcc-3.0.4/gcc/Case-Ranges.html */
+      errno = EACCES;
+      break;
+    case ERROR_NOT_ENOUGH_MEMORY:
+      errno = ENOMEM;
+      break;
+    default:
+      errno = EINVAL;
+      break;
+    }
+    return -1;
+  }
+  fd = _open_osfhandle((intptr_t)handle, O_RDONLY);
+  if (fd < 0) {
+    CloseHandle(handle);
+    return -1;
+  }
+  ret = _fstat32(fd, _Stat);
+  err = errno;
+  close(fd);
+  errno = err;
+  return ret;
+#endif
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(_wstat32))(const wchar_t *, struct _stat32 *) = _wstat32;
+
+/* On 32-bit systems is _wstat ABI using 32-bit time_t and 32-bit off_t */
+#ifndef _WIN64
+#undef _wstat
+int __attribute__((alias("_wstat32"))) __cdecl _wstat(const wchar_t *_Name,struct _stat32 *_Stat);
+extern int __attribute__((alias(__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_wstat32))))) (__cdecl *__MINGW_IMP_SYMBOL(_wstat))(const wchar_t *, struct _stat32 *);
+#endif

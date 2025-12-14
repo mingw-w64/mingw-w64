@@ -893,6 +893,9 @@ src_pre_msvcrt20=\
   misc/__timezone.c \
   misc/__tzname.c \
   stdio/_telli64.c \
+  stdio/_wfindfirst32.c \
+  stdio/_wfindnext32.c \
+  stdio/_wstat32.c \
   stdio/fgetws.c \
   stdio/fputws.c \
   stdio/iob_func.c
