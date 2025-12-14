@@ -67,7 +67,7 @@ static int testread(const char *path){
   return ret;
 }
 
-int main(int argc, char **argv){
+int main(){
   int check;
   char *path;
   if (GetTempPathA(MAX_PATH, szPath) == 0) return 1;
