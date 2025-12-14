@@ -675,14 +675,18 @@ src_msvcrt64=\
   misc/wcsnlen.c \
   secapi/wcstok_s.c \
   stdio/_findfirst32.c \
+  stdio/_findfirst32i64.c \
   stdio/_findnext32.c \
+  stdio/_findnext32i64.c \
   stdio/_fseeki64.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
   stdio/_stat32.c \
   stdio/_stat32i64.c \
   stdio/_wfindfirst32.c \
+  stdio/_wfindfirst32i64.c \
   stdio/_wfindnext32.c \
+  stdio/_wfindnext32i64.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
   string/msvcr80pre_wcstok.c
@@ -844,14 +848,18 @@ src_msvcrtarm64=\
   misc/__winitenv.c \
   secapi/msvcrt_arm_wcstok_s.c \
   stdio/_findfirst32.c \
+  stdio/_findfirst32i64.c \
   stdio/_findnext32.c \
+  stdio/_findnext32i64.c \
   stdio/_fstat32.c \
   stdio/_fstat32i64.c \
   stdio/_setmaxstdio.c \
   stdio/_stat32.c \
   stdio/_stat32i64.c \
   stdio/_wfindfirst32.c \
+  stdio/_wfindfirst32i64.c \
   stdio/_wfindnext32.c \
+  stdio/_wfindnext32i64.c \
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
   stdio/gets.c \
@@ -895,9 +903,13 @@ src_pre_msvcrt40=\
   misc/_dstbias.c \
   misc/dummy__setusermatherr.c \
   stdio/_filelengthi64.c \
+  stdio/_findfirst32i64.c \
+  stdio/_findnext32i64.c \
   stdio/_fstat32i64.c \
   stdio/_lseeki64.c \
   stdio/_stat32i64.c \
+  stdio/_wfindfirst32i64.c \
+  stdio/_wfindnext32i64.c \
   stdio/_wstat32i64.c \
   stdio/fgetpos.c \
   stdio/fsetpos.c
