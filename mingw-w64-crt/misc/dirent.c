@@ -152,7 +152,13 @@ _treaddir (_TDIR * dirp)
     {
       /* We haven't started the search yet. */
       /* Start the search */
-      dirp->dd_handle = _tfindfirst (dirp->dd_name, &(dirp->dd_dta));
+      dirp->dd_handle =
+#ifdef _WIN64
+	_tfindfirst64i32
+#else
+	_tfindfirst32
+#endif
+	(dirp->dd_name, &(dirp->dd_dta));
 
       if (dirp->dd_handle == -1)
 	{
@@ -168,7 +174,13 @@ _treaddir (_TDIR * dirp)
   else
     {
       /* Get the next search entry. */
-      if (_tfindnext (dirp->dd_handle, &(dirp->dd_dta)))
+      if (
+#ifdef _WIN64
+	  _tfindnext64i32
+#else
+	  _tfindnext32
+#endif
+	  (dirp->dd_handle, &(dirp->dd_dta)))
 	{
 	  /* We are off the end or otherwise error.
 	     _findnext sets errno to ENOENT if no more file

@@ -38,7 +38,11 @@ struct dirent
 typedef struct
 {
 	/* disk transfer area for this dir */
-	struct _finddata_t	dd_dta;
+#ifdef _WIN64
+	struct _finddata64i32_t	dd_dta;
+#else
+	struct _finddata32_t	dd_dta;
+#endif
 
 	/* dirent struct to return from dir (NOTE: this makes this thread
 	 * safe as long as only one thread uses a particular DIR struct at
@@ -85,7 +89,11 @@ struct _wdirent
 typedef struct
 {
 	/* disk transfer area for this dir */
-	struct _wfinddata_t	dd_dta;
+#ifdef _WIN64
+	struct _wfinddata64i32_t	dd_dta;
+#else
+	struct _wfinddata32_t	dd_dta;
+#endif
 
 	/* dirent struct to return from dir (NOTE: this makes this thread
 	 * safe as long as only one thread uses a particular DIR struct at
