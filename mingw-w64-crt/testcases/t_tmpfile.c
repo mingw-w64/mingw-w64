@@ -5,8 +5,9 @@
 int main() {
     FILE *file;
 
-    /* ensure that tmpfile() works also when cwd is in C:\Windows */
-    assert(chdir("C:\\Windows\\") == 0);
+    /* ensure that tmpfile() works also when cwd is in C:\Windows or C:\ but do not fail if caller has no access to C:\ */
+    if (chdir("C:\\Windows\\") != 0)
+        chdir("C:\\");
 
     file = tmpfile();
     assert(file);
