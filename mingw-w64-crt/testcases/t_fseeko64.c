@@ -15,8 +15,16 @@ static int writefile(const char *path){
   ov.OffsetHigh = 0x1;
   HANDLE fd = CreateFileA(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
   if (fd == INVALID_HANDLE_VALUE) return 1;
-  SetFilePointer (fd, ov.Offset, (PLONG) &ov.OffsetHigh, FILE_BEGIN);
-  WriteFile(fd, writebuf, strlen(writebuf), &dwResult, NULL);
+  if (SetFilePointer(fd, ov.Offset, (PLONG) &ov.OffsetHigh, FILE_BEGIN) == INVALID_SET_FILE_POINTER && GetLastError() != NO_ERROR) {
+    printf("writefile: seek failed: winerror=%lu\n", GetLastError());
+    CloseHandle(fd);
+    return 1;
+  }
+  if (!WriteFile(fd, writebuf, strlen(writebuf), &dwResult, NULL)) {
+    printf("writefile: write failed: winerror=%lu\n", GetLastError());
+    CloseHandle(fd);
+    return 1;
+  }
   dwResult = WaitForSingleObject(fd, INFINITE);
   while(dwResult==WAIT_IO_COMPLETION)
   {
