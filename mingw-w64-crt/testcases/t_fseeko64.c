@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include <shlobj.h>
 
 static const char *writebuf = "TESTVECTORSTRING";
 static char szPath[MAX_PATH];
@@ -66,7 +65,10 @@ static int testread(const char *path){
 int main(int argc, char **argv){
   int check;
   char *path;
-  SHGetFolderPathA(NULL,CSIDL_PERSONAL,NULL,0,szPath);
+  if (GetTempPathA(MAX_PATH, szPath) == 0) return 1;
+#ifdef debugtest
+  printf("tmp: %s\n", szPath);
+#endif
   path = tempnam(szPath, "mingw-w64-lfs64-test-");
 #ifdef debugtest
   printf("Path: %s\n", path);
