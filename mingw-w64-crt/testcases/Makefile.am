@@ -62,6 +62,7 @@ testcase_progs = \
   t_stat_f64 \
   t_stat_t64 \
   t_stat_t64_f64 \
+  t_stderr_buffering \
   t_stdint \
   t_time \
   t_tls1 \
