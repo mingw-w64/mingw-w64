@@ -230,9 +230,9 @@ Parameters: (FunctionName, DataType, Segment)
 
 #define __buildreadseg(x, y, z, a) y x(unsigned __LONG32 Offset) { \
     y ret; \
-    __asm__ ("mov{" a " %%" z ":(%[offset]), %[ret] | %[ret], " z ":[%[offset]] }" \
+    __asm__ ("mov{" a " %%" z ":%a[offset], %[ret] | %[ret], " z ":[%[offset]] }" \
         : [ret] "=r" (ret) \
-        : [offset] "r" (Offset) \
+        : [offset] "ir" (Offset) \
         : "memory"); \
     return ret; \
 }
@@ -248,9 +248,9 @@ Parameters: (FunctionName, DataType, Segment)
    */
 
 #define __buildwriteseg(x, y, z, a) void x(unsigned __LONG32 Offset, y Data) { \
-    __asm__ volatile ("mov{" a " %[Data], %%" z ":(%[offset]) | " z ":[%[offset]], %[Data] }" \
+    __asm__ volatile ("mov{" a " %[Data], %%" z ":%a[offset] | " z ":[%[offset]], %[Data] }" \
         : \
-        : [offset] "r" (Offset), [Data] "r" (Data) \
+        : [offset] "ir" (Offset), [Data] "r" (Data) \
         : "memory"); \
 }
 
