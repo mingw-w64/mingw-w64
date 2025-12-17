@@ -8,3 +8,4 @@ wint_t __cdecl _getwc_nolock(FILE *stream)
 {
     return _fgetwc_nolock(stream);
 }
+wint_t __cdecl (*__MINGW_IMP_SYMBOL(_getwc_nolock))(FILE *) = _getwc_nolock;

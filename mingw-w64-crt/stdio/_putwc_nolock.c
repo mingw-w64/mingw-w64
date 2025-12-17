@@ -8,3 +8,4 @@ wint_t __cdecl _putwc_nolock(wchar_t c, FILE *stream)
 {
     return _fputwc_nolock(c, stream);
 }
+wint_t __cdecl (*__MINGW_IMP_SYMBOL(_putwc_nolock))(wchar_t, FILE *) = _putwc_nolock;
