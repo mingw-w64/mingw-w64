@@ -57,8 +57,8 @@ pthread_spin_destroy (pthread_spinlock_t *lock)
 int
 pthread_spin_lock (pthread_spinlock_t *lock)
 {
-  volatile spinlock_word_t *lk = (volatile spinlock_word_t *)lock;
-  while (unlikely(InterlockedExchangePointer((PVOID volatile *)lk, 0) == 0))
+  spinlock_word_t *lk = (spinlock_word_t *)lock;
+  while (unlikely(InterlockedExchangePointer((PVOID*)lk, 0) == 0))
     YieldProcessor();
   return 0;
 }
@@ -67,18 +67,18 @@ int
 pthread_spin_trylock (pthread_spinlock_t *lock)
 {
   spinlock_word_t *lk = (spinlock_word_t *)lock;
-  return InterlockedExchangePointer((PVOID volatile *)lk, 0) == 0 ? EBUSY : 0;
+  return InterlockedExchangePointer((PVOID*)lk, 0) == 0 ? EBUSY : 0;
 }
 
 
 int
 pthread_spin_unlock (pthread_spinlock_t *lock)
 {
-  volatile spinlock_word_t *lk = (volatile spinlock_word_t *)lock;
+  spinlock_word_t *lk = (spinlock_word_t *)lock;
 #if defined(__GNUC__) || defined(__clang__)
   __atomic_store_n(lk, -1, __ATOMIC_RELEASE);
 #else
-  InterlockedExchangePointer((PVOID volatile *)lk, (void*)-1);
+  InterlockedExchangePointer((PVOID*)lk, (void*)-1);
 #endif
   return 0;
 }
