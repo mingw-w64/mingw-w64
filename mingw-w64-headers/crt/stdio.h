@@ -1203,12 +1203,8 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #define _STDIO_DEFINED
 #endif
 
-#ifdef _UCRT
-  _CRTIMP int __cdecl _fputc_nolock(int _Char, FILE *_File);
-#else
-#define _fputc_nolock(_c,_stream) (--(_stream)->_cnt >= 0 ? 0xff & (*(_stream)->_ptr++ = (char)(_c)) : _flsbuf((_c),(_stream)))
-#endif
   _CRTIMP int __cdecl _fgetc_nolock(FILE *_File);
+  _CRTIMP int __cdecl _fputc_nolock(int _Char, FILE *_File);
   _CRTIMP int __cdecl _getc_nolock(FILE *_File);
   _CRTIMP int __cdecl _putc_nolock(int _Char, FILE *_File);
 #define _getchar_nolock() _getc_nolock(stdin)
