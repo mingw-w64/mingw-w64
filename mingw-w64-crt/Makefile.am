@@ -182,6 +182,7 @@ src_msvcrt_common=\
   misc/register_tls_atexit.c \
   misc/wcrtomb.c \
   misc/wcsrtombs.c \
+  stdio/_fgetc_nolock.c \
   stdio/_getwc_nolock.c \
   stdio/_putc_nolock.c \
   stdio/_putwc_nolock.c \
