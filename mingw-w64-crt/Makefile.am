@@ -182,7 +182,6 @@ src_msvcrt_common=\
   misc/register_tls_atexit.c \
   misc/wcrtomb.c \
   misc/wcsrtombs.c \
-  stdio/_getc_nolock.c \
   stdio/_getwc_nolock.c \
   stdio/_putc_nolock.c \
   stdio/_putwc_nolock.c \
@@ -368,6 +367,7 @@ src_msvcrt=\
   secapi/wmemcpy_s.c \
   secapi/wmemmove_s.c \
   stdio/_ftelli64.c \
+  stdio/_getc_nolock.c \
   stdio/mingw_lock.c \
   stdio/msvcrtos_ftruncate64.c \
   stdio/msvcr110pre_stat32.c \
@@ -1012,6 +1012,9 @@ src_pre_msvcr80=\
   stdio/msvcr80pre_ftruncate64.c \
   string/msvcr80pre_wcstok.c
 
+src_pre_msvcr90=\
+  stdio/_getc_nolock.c
+
 src_pre_msvcr100=\
   misc/_invalid_parameter_noinfo_noreturn.c \
   misc/imaxdiv.c
@@ -1057,6 +1060,7 @@ src_crtdll=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1073,6 +1077,7 @@ src_msvcrt10=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1084,6 +1089,7 @@ src_msvcrt20=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1095,6 +1101,7 @@ src_msvcrt40=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1105,6 +1112,7 @@ src_msvcrtd=\
   $(src_pre_msvcr70) \
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1116,6 +1124,7 @@ src_msvcrtd=\
 src_msvcr70=\
   $(src_pre_msvcr71) \
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
@@ -1123,12 +1132,14 @@ src_msvcr70=\
 
 src_msvcr71=\
   $(src_pre_msvcr80) \
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
   misc/__p__osplatform.c
 
 src_msvcr80=\
+  $(src_pre_msvcr90) \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
