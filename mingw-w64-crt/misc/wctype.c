@@ -63,3 +63,5 @@ wctype_t wctype (const char *property)
       return cmap[i].flags;
   return 0;
 }
+
+wctype_t (__cdecl *__MINGW_IMP_SYMBOL (wctype)) (const char *) = wctype;

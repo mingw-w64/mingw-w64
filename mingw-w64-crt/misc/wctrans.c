@@ -63,3 +63,6 @@ wint_t towctrans (wint_t wc, wctrans_t desc)
       return wc;
    }
 }
+
+wctrans_t (__cdecl *__MINGW_IMP_SYMBOL (wctrans)) (const char *) = wctrans;
+wint_t (__cdecl *__MINGW_IMP_SYMBOL (towctrans)) (wint_t, wctrans_t) = towctrans;
