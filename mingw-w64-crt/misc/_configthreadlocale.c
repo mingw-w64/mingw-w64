@@ -12,5 +12,5 @@ int __cdecl _configthreadlocale(int flag)
     return flag == _ENABLE_PER_THREAD_LOCALE ? -1 : _DISABLE_PER_THREAD_LOCALE;
 }
 
-void *__MINGW_IMP_SYMBOL(_configthreadlocale) = _configthreadlocale;
+int (__cdecl *__MINGW_IMP_SYMBOL(_configthreadlocale)) (int) = _configthreadlocale;
 
