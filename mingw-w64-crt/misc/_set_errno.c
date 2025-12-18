@@ -10,3 +10,5 @@ errno_t __cdecl _set_errno (int _Value)
   errno = _Value;
   return 0;
 }
+
+errno_t (__cdecl *__MINGW_IMP_SYMBOL (_set_errno)) (int) = _set_errno;

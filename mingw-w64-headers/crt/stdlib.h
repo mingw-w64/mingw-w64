@@ -145,8 +145,8 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _CRT_ERRNO_DEFINED
   _CRTIMP extern int *__cdecl _errno(void);
 #define errno (*_errno())
-  errno_t __cdecl _set_errno(int _Value);
-  errno_t __cdecl _get_errno(int *_Value);
+  _CRTIMP errno_t __cdecl _set_errno(int _Value);
+  _CRTIMP errno_t __cdecl _get_errno(int *_Value);
 #endif
   _CRTIMP unsigned long *__cdecl __doserrno(void);
 #define _doserrno (*__doserrno())
