@@ -32,3 +32,5 @@ wint_t btowc (int c)
 
   return wc;
 }
+
+wint_t (__cdecl *__MINGW_IMP_SYMBOL (btowc)) (int) = btowc;

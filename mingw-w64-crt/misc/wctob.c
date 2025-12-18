@@ -35,3 +35,5 @@ int wctob (wint_t wc)
 
   return (unsigned char) mbc[0];
 }
+
+int (__cdecl *__MINGW_IMP_SYMBOL (wctob)) (wint_t) = wctob;

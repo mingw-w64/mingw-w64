@@ -28,3 +28,5 @@ size_t mbrlen (
 
   return __mingw_mbrtowc_cp (NULL, mbs, count, state, cp, mb_cur_max);
 }
+
+size_t (__cdecl *__MINGW_IMP_SYMBOL (mbrlen)) (const char *, size_t, mbstate_t *) = mbrlen;

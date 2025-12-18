@@ -87,3 +87,5 @@ size_t mbsrtowcs (
 
   return wcConverted;
 }
+
+size_t (__cdecl *__MINGW_IMP_SYMBOL (mbsrtowcs)) (wchar_t *, const char **, size_t, mbstate_t *) = mbsrtowcs;

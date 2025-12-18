@@ -29,3 +29,5 @@ size_t mbrtowc (
 
   return __mingw_mbrtowc_cp (wc, mbs, count, state, cp, mb_cur_max);
 }
+
+size_t (__cdecl *__MINGW_IMP_SYMBOL (mbrtowc)) (wchar_t *, const char *, size_t, mbstate_t *) = mbrtowc;

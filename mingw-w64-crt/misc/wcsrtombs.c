@@ -79,3 +79,5 @@ size_t wcsrtombs (
 
   return mbcConverted;
 }
+
+size_t (__cdecl *__MINGW_IMP_SYMBOL (wcsrtombs)) (char *, const wchar_t **, size_t, mbstate_t *) = wcsrtombs;

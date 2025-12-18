@@ -22,3 +22,5 @@ size_t wcrtomb (
 
   return __mingw_wcrtomb_cp (mbc, wc, state, cp, mb_cur_max);
 }
+
+size_t (__cdecl *__MINGW_IMP_SYMBOL (wcrtomb)) (char *, wchar_t, mbstate_t *) = wcrtomb;
