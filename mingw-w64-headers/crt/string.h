@@ -76,7 +76,7 @@ extern "C" {
   _CRTIMP int __cdecl _stricmp(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _strcmpi(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _stricmp_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
-  int __cdecl strcoll(const char *_Str1,const char *_Str2);
+  _CRTIMP int __cdecl strcoll(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _strcoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
   _CRTIMP int __cdecl _stricoll(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _stricoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
@@ -86,7 +86,7 @@ extern "C" {
   _CRTIMP int __cdecl _strnicoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
   size_t __cdecl strcspn(const char *_Str,const char *_Control);
   _CRTIMP char *__cdecl _strerror(const char *_ErrMsg) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  char *__cdecl strerror(int) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP char *__cdecl strerror(int) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *__cdecl _strlwr(char *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char *strlwr_l(char *_String,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char *__cdecl strncat(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -101,14 +101,14 @@ extern "C" {
   _CRTIMP char *__cdecl _strrev(char *_Str);
   size_t __cdecl strspn(const char *_Str,const char *_Control);
   _CONST_RETURN char *__cdecl strstr(const char *_Str,const char *_SubStr);
-  char *__cdecl strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP char *__cdecl strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #pragma push_macro("strtok_r")
 #undef strtok_r
   char *strtok_r(char * __restrict__ _Str, const char * __restrict__ _Delim, char ** __restrict__ __last);
 #pragma pop_macro("strtok_r")
   _CRTIMP char *__cdecl _strupr(char *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *_strupr_l(char *_String,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  size_t __cdecl strxfrm(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount);
+  _CRTIMP size_t __cdecl strxfrm(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount);
   _CRTIMP size_t __cdecl _strxfrm_l(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
