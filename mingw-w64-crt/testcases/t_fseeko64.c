@@ -1,16 +1,18 @@
 #define _FILE_OFFSET_BITS 64
 #include <stdio.h>
 #include <stdlib.h>
+#include <io.h>
 #include <string.h>
 #include <windows.h>
 
 static const char *writebuf = "TESTVECTORSTRING";
-static char szPath[MAX_PATH];
+#define TMPTMPL "mingw-w64-fseeko64-XXXXXX"
+static char szPath[MAX_PATH + sizeof(TMPTMPL)];
 
 static int writefile(const char *path){
   LARGE_INTEGER li = { .QuadPart = 0x100000000ull };
   DWORD dwResult;
-  HANDLE fd = CreateFileA(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+  HANDLE fd = CreateFileA(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
   if (fd == INVALID_HANDLE_VALUE) return 1;
   if (SetFilePointer(fd, li.LowPart, &li.HighPart, FILE_BEGIN) == INVALID_SET_FILE_POINTER && GetLastError() != NO_ERROR) {
     printf("writefile: seek failed: winerror=%lu\n", GetLastError());
@@ -76,15 +78,18 @@ static int testread(const char *path){
 int main(){
   int check;
   char *path;
+  int fd;
   if (GetTempPathA(MAX_PATH, szPath) == 0) return 1;
 #ifdef debugtest
   printf("tmp: %s\n", szPath);
 #endif
-  path = tempnam(szPath, "mingw-w64-lfs64-test-");
+  path = strcat(szPath, TMPTMPL);
+  fd = mkstemp(path);
+  if (fd < 0) { printf("mkstemp failed\n"); return 1; }
+  close(fd);
 #ifdef debugtest
   printf("Path: %s\n", path);
 #endif
-  if (!path) return 1;
 
   check = writefile(path);
   if (check) goto err; /* error creating large file */
@@ -94,7 +99,6 @@ int main(){
 #ifndef debugtest
   DeleteFileA(path); /* Delete anyway */
 #endif
-  free(path);
   printf ("check: %d\n", check);
   return check;
 }
