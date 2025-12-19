@@ -194,12 +194,13 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_stprintf0_u$(EXEEXT) t_stprintf1_a$(EXEEXT) \
 	t_stprintf1_u$(EXEEXT) t_setjmp$(EXEEXT) t_sigv$(EXEEXT) \
 	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
-	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) t_stdint$(EXEEXT) \
-	t_time$(EXEEXT) t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) \
-	t_trycatch$(EXEEXT) t_stat_slash$(EXEEXT) t_utime$(EXEEXT) \
-	t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) \
-	t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) \
-	t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
+	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
+	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) t_time$(EXEEXT) \
+	t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) \
+	t_stat_slash$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
+	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
+	t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) \
+	$(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -580,6 +581,9 @@ t_stat_t64_LDADD = $(LDADD)
 t_stat_t64_f64_SOURCES = t_stat_t64_f64.c
 t_stat_t64_f64_OBJECTS = t_stat_t64_f64.$(OBJEXT)
 t_stat_t64_f64_LDADD = $(LDADD)
+t_stderr_buffering_SOURCES = t_stderr_buffering.c
+t_stderr_buffering_OBJECTS = t_stderr_buffering.$(OBJEXT)
+t_stderr_buffering_LDADD = $(LDADD)
 t_stdint_SOURCES = t_stdint.c
 t_stdint_OBJECTS = t_stdint.$(OBJEXT)
 t_stdint_LDADD = $(LDADD)
@@ -1006,19 +1010,19 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_speed_powl.Po ./$(DEPDIR)/t_stat.Po \
 	./$(DEPDIR)/t_stat_f64.Po ./$(DEPDIR)/t_stat_slash.Po \
 	./$(DEPDIR)/t_stat_t64.Po ./$(DEPDIR)/t_stat_t64_f64.Po \
-	./$(DEPDIR)/t_stdint.Po ./$(DEPDIR)/t_stprintf0_a.Po \
-	./$(DEPDIR)/t_stprintf0_u.Po ./$(DEPDIR)/t_stprintf1_a.Po \
-	./$(DEPDIR)/t_stprintf1_u.Po ./$(DEPDIR)/t_stprintf_a.Po \
-	./$(DEPDIR)/t_stprintf_u.Po ./$(DEPDIR)/t_swprintf.Po \
-	./$(DEPDIR)/t_swprintf0.Po ./$(DEPDIR)/t_swprintf1.Po \
-	./$(DEPDIR)/t_time.Po ./$(DEPDIR)/t_tls1.Po \
-	./$(DEPDIR)/t_tmain-t_tmain.Po ./$(DEPDIR)/t_tmpfile.Po \
-	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_utime.Po \
-	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
-	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
-	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wreaddir.Po \
-	./$(DEPDIR)/tstmain_sys_xxx.Po ./$(DEPDIR)/tstmainc.Po \
-	./$(DEPDIR)/tstmaincpp.Po \
+	./$(DEPDIR)/t_stderr_buffering.Po ./$(DEPDIR)/t_stdint.Po \
+	./$(DEPDIR)/t_stprintf0_a.Po ./$(DEPDIR)/t_stprintf0_u.Po \
+	./$(DEPDIR)/t_stprintf1_a.Po ./$(DEPDIR)/t_stprintf1_u.Po \
+	./$(DEPDIR)/t_stprintf_a.Po ./$(DEPDIR)/t_stprintf_u.Po \
+	./$(DEPDIR)/t_swprintf.Po ./$(DEPDIR)/t_swprintf0.Po \
+	./$(DEPDIR)/t_swprintf1.Po ./$(DEPDIR)/t_time.Po \
+	./$(DEPDIR)/t_tls1.Po ./$(DEPDIR)/t_tmain-t_tmain.Po \
+	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_trycatch.Po \
+	./$(DEPDIR)/t_utime.Po ./$(DEPDIR)/t_vsscanf.Po \
+	./$(DEPDIR)/t_wcrtomb.Po ./$(DEPDIR)/t_wcsrtombs.Po \
+	./$(DEPDIR)/t_wcstok_s.Po ./$(DEPDIR)/t_wctob.Po \
+	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/tstmain_sys_xxx.Po \
+	./$(DEPDIR)/tstmainc.Po ./$(DEPDIR)/tstmaincpp.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -1241,34 +1245,35 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	t_snprintf.c t_snprintf0.c t_snprintf1.c t_snwprintf.c \
 	t_snwprintf0.c t_snwprintf1.c t_speed_powl.c t_stat.c \
 	t_stat_f64.c t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	t_stdint.c t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
-	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
-	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
-	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
-	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
-	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
-	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
-	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
-	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
-	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
-	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
-	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
-	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
-	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
-	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
-	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
-	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
-	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
-	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
-	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
-	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
-	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
-	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES) \
-	tstmain_sys_xxx.c tstmainc.c $(tstmaincpp_SOURCES)
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c $(t_trycatch_SOURCES) \
+	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
+	t_wctob.c t_wreaddir.c $(tests32_cabs_SOURCES) \
+	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
+	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
+	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
+	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
+	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
+	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
+	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
+	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
+	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
+	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
+	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
+	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
+	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
+	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
+	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
+	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
+	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
+	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
+	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
+	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
+	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
+	$(tests64_ctanh_SOURCES) tstmain_sys_xxx.c tstmainc.c \
+	$(tstmaincpp_SOURCES)
 DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsld_a_SOURCES_DIST) \
@@ -1285,12 +1290,12 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	t_snprintf.c t_snprintf0.c t_snprintf1.c t_snwprintf.c \
 	t_snwprintf0.c t_snwprintf1.c t_speed_powl.c t_stat.c \
 	t_stat_f64.c t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	t_stdint.c t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
-	$(am__tests32_cabs_SOURCES_DIST) \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c $(t_trycatch_SOURCES) \
+	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
+	t_wctob.c t_wreaddir.c $(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
 	$(am__tests32_carg_SOURCES_DIST) \
@@ -1711,9 +1716,9 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
 	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
 	t_stprintf1_u t_setjmp t_sigv t_speed_powl t_stat t_stat_f64 \
-	t_stat_t64 t_stat_t64_f64 t_stdint t_time t_tls1 t_tmpfile \
-	t_trycatch t_stat_slash t_utime t_vsscanf t_wcrtomb \
-	t_wcsrtombs t_wcstok_s t_wctob t_wreaddir t_fseeko64 \
+	t_stat_t64 t_stat_t64_f64 t_stderr_buffering t_stdint t_time \
+	t_tls1 t_tmpfile t_trycatch t_stat_slash t_utime t_vsscanf \
+	t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob t_wreaddir t_fseeko64 \
 	$(am__append_1)
 EXTRA_DIST = \
   t_snprintf_tmpl.h \
@@ -2541,6 +2546,10 @@ t_stat_t64_f64$(EXEEXT): $(t_stat_t64_f64_OBJECTS) $(t_stat_t64_f64_DEPENDENCIES
 	@rm -f t_stat_t64_f64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_stat_t64_f64_OBJECTS) $(t_stat_t64_f64_LDADD) $(LIBS)
 
+t_stderr_buffering$(EXEEXT): $(t_stderr_buffering_OBJECTS) $(t_stderr_buffering_DEPENDENCIES) $(EXTRA_t_stderr_buffering_DEPENDENCIES) 
+	@rm -f t_stderr_buffering$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_stderr_buffering_OBJECTS) $(t_stderr_buffering_LDADD) $(LIBS)
+
 t_stdint$(EXEEXT): $(t_stdint_OBJECTS) $(t_stdint_DEPENDENCIES) $(EXTRA_t_stdint_DEPENDENCIES) 
 	@rm -f t_stdint$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_stdint_OBJECTS) $(t_stdint_LDADD) $(LIBS)
@@ -2954,6 +2963,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_slash.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_t64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_t64_f64.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stderr_buffering.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stdint.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stprintf0_a.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stprintf0_u.Po@am__quote@ # am--include-marker
@@ -6257,6 +6267,13 @@ t_stat_t64_f64.log: t_stat_t64_f64$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stderr_buffering.log: t_stderr_buffering$(EXEEXT)
+	@p='t_stderr_buffering$(EXEEXT)'; \
+	b='t_stderr_buffering'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_stdint.log: t_stdint$(EXEEXT)
 	@p='t_stdint$(EXEEXT)'; \
 	b='t_stdint'; \
@@ -6822,6 +6839,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_stat_slash.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_stderr_buffering.Po
 	-rm -f ./$(DEPDIR)/t_stdint.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_a.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_u.Po
@@ -7110,6 +7128,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_stat_slash.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_stderr_buffering.Po
 	-rm -f ./$(DEPDIR)/t_stdint.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_a.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_u.Po
