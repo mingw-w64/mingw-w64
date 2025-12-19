@@ -284,7 +284,7 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-  _CRTIMP wchar_t *_cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP wchar_t *__cdecl _cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wint_t __cdecl _getwch(void);
   _CRTIMP wint_t __cdecl _getwche(void);
   _CRTIMP wint_t __cdecl _putwch(wchar_t _WCh);

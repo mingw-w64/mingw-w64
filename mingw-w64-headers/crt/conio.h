@@ -14,7 +14,7 @@
 extern "C" {
 #endif
 
-  _CRTIMP char *_cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP char *__cdecl _cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _cputs(const char *_Str);
   _CRTIMP int __cdecl _getch(void);
   _CRTIMP int __cdecl _getche(void);
@@ -138,7 +138,7 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-  _CRTIMP wchar_t *_cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP wchar_t *__cdecl _cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wint_t __cdecl _getwch(void);
   _CRTIMP wint_t __cdecl _getwche(void);
   _CRTIMP wint_t __cdecl _putwch(wchar_t _WCh);
