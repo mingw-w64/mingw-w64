@@ -19,7 +19,7 @@ int __cdecl stat64i32(const char *_Filename, struct _stat64i32 *_Stat)
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat64i32))(const char *, struct _stat64i32 *) = stat64i32;
 
-/* On 64-bit systems is stat() function ABI compatible with stat64i32() function */
+/* On 64-bit systems stat() is ABI-compatible with stat64i32() */
 #ifdef _WIN64
 #undef stat
 struct stat;

@@ -64,13 +64,11 @@ ADD_UNDERSCORE(filelength)
 ADD_UNDERSCORE(fileno)
 ; ADD_UNDERSCORE(flushall)
 ADD_UNDERSCORE(fputchar)
-#ifdef FIXED_SIZE_SYMBOLS
-#ifndef CRTDLL
-ADD_UNDERSCORE(fstat)
-#endif
-#else
+#if defined(UCRTBASE)
 F32(fstat == _fstat32)
 F64(fstat == _fstat64i32)
+#else
+; fstat for non-UCRT is provided by mingw to workaround S_IFDIR issue in _fstat
 #endif
 ; ftime is provided in misc/ftime32.c or misc/ftime64.c as MS _ftime is not ABI compatible with POSIX ftime
 #if defined(UCRTBASE)
@@ -305,23 +303,23 @@ fsetpos64 == fsetpos
 lseek64 == _lseeki64
 #endif
 #ifdef UCRTBASE
+fstat32 == _fstat32
+fstat32i64 == _fstat32i64
+fstat64 == _fstat64
+fstat64i32 == _fstat64i32
 stat32 == _stat32
 stat32i64 == _stat32i64
 stat64 == _stat64
 stat64i32 == _stat64i32
 #else
+; fstat for non-UCRT is provided by mingw to workaround S_IFDIR issue in _fstat
 ; stat for non-UCRT is provided by mingw to workaround trailing slash issue in _stat
 #endif
 #ifdef FIXED_SIZE_SYMBOLS
-// NO_FIXED_SIZE_64_ALIAS means that DLL provides the native _fstat64 symbol
-#if defined(NO_FIXED_SIZE_64_ALIAS) && !defined(NO_FSTAT64_ALIAS)
-fstat64 == _fstat64
-#endif
 #ifdef WITH_FSEEKO64_ALIAS
 fseeko64 == _fseeki64
 #endif
 #else
-fstat64 == _fstat64
 fseeko64 == _fseeki64
 ftello64 == _ftelli64
 #endif

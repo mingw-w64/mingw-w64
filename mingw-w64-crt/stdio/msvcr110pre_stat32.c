@@ -10,9 +10,9 @@
 #include <errno.h>
 #include "__mingw_fix_stat.h"
 
-/* For pre-msvcr110 builds, we cannot use _stat32() function as it does
+/* For pre-msvcr110 builds, we cannot use _stat32() as it does
  * not signal EOVERFLOW when file size does not fit into the st_size field,
- * as it is required by POSIX stat() function.
+ * as it is required by POSIX stat().
  * This file is used only for pre-msvcr110 builds.
  */
 int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat);
@@ -26,7 +26,7 @@ int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
   ret = __mingw_fix_stat_finish(ret, _Filename, _path, st.st_mode);
   if (ret != 0)
     return ret;
-  if (st.st_size > UINT32_MAX) {
+  if (st.st_size > INT32_MAX) {
     errno = EOVERFLOW;
     return -1;
   }
@@ -45,7 +45,7 @@ int __cdecl stat32(const char *_Filename, struct _stat32 *_Stat)
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(stat32))(const char *, struct _stat32 *) = stat32;
 
-/* On 32-bit systems is stat() function ABI compatible with stat32() function */
+/* On 32-bit systems stat() is ABI-compatible with stat32() */
 #ifndef _WIN64
 #undef stat
 struct stat;

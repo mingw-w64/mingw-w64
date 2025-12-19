@@ -19,7 +19,7 @@ int __cdecl wstat32(const wchar_t *_Filename, struct _stat32 *_Stat)
 }
 int (__cdecl *__MINGW_IMP_SYMBOL(wstat32))(const wchar_t *, struct _stat32 *) = wstat32;
 
-/* On 32-bit systems is wstat() function ABI compatible with wstat32() function */
+/* On 32-bit systems wstat() is ABI-compatible with wstat32() */
 #ifndef _WIN64
 #undef stat
 #undef wstat

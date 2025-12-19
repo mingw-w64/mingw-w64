@@ -190,6 +190,8 @@ src_msvcrt_common=\
   stdio/_strtof_l.c \
   stdio/_wcstof_l.c \
   stdio/acrt_iob_func.c \
+  stdio/fstat32i64.c \
+  stdio/fstat64.c \
   stdio/strtof.c \
   stdio/snprintf_alias.c \
   stdio/snwprintf_alias.c \
@@ -374,6 +376,8 @@ src_msvcrt=\
   stdio/_getc_nolock.c \
   stdio/mingw_lock.c \
   stdio/msvcrtos_ftruncate64.c \
+  stdio/msvcr110pre_fstat32.c \
+  stdio/msvcr110pre_fstat64i32.c \
   stdio/msvcr110pre_stat32.c \
   stdio/msvcr110pre_stat64i32.c \
   stdio/msvcr110pre_wstat32.c \
@@ -1028,6 +1032,8 @@ src_pre_msvcr100=\
   misc/imaxdiv.c
 
 src_pre_msvcr110=\
+  stdio/msvcr110pre_fstat32.c \
+  stdio/msvcr110pre_fstat64i32.c \
   stdio/msvcr110pre_stat32.c \
   stdio/msvcr110pre_stat64i32.c \
   stdio/msvcr110pre_wstat32.c \
@@ -1060,6 +1066,8 @@ src_post_msvcr80=\
   misc/__p__osver_emul.c
 
 src_post_msvcr100=\
+  stdio/msvcr110plus_fstat32.c \
+  stdio/msvcr110plus_fstat64i32.c \
   stdio/msvcr110plus_stat32.c \
   stdio/msvcr110plus_stat64i32.c \
   stdio/msvcr110plus_wstat32.c \
@@ -1294,7 +1302,7 @@ src_libmingwex=\
   stdio/_Exit.c \
   stdio/asprintf.c \
   stdio/mingw_ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
-  stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c \
+  stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c stdio/__mingw_fix_fstat_finish.c \
   stdio/__mingw_fix_stat_path.c stdio/__mingw_fix_wstat_path.c \
   \
   stdio/mingw_pformat.h    stdio/mingw_sformat.h     stdio/mingw_swformat.h \

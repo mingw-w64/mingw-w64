@@ -149,21 +149,21 @@ struct stat {
 };
 #if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
 #ifdef _USE_32BIT_TIME_T
-int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat32i64);
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(fstat32i64);
 int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat32i64);
 int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat32i64);
 #else
-int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat64);
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(fstat64);
 int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat64);
 int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat64);
 #endif
 #else
 #ifdef _USE_32BIT_TIME_T
-int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat32);
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(fstat32);
 int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat32);
 int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat32);
 #else
-int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(_fstat64i32);
+int __cdecl fstat(int _Desc, struct stat *_Stat) __MINGW_ASM_CALL(fstat64i32);
 int __cdecl stat(const char *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(stat64i32);
 int __cdecl wstat(const wchar_t *_Filename, struct stat *_Stat) __MINGW_ASM_CALL(wstat64i32);
 #endif
