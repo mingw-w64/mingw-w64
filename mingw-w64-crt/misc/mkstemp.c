@@ -4,6 +4,7 @@
 #include <string.h>
 #include <io.h>
 #include <errno.h>
+#include <time.h>
 #include <share.h>
 #include <fcntl.h>
 #include <sys/stat.h>
@@ -46,7 +47,7 @@ int __cdecl mkstemp (char *template_name)
     for (i = 0; i <= INT_MAX; i++) {
         for(j = index; j < len; j++) {
             if (rand_s(&r))
-                r = rand();
+                r = rand() ^ _time32(NULL);
             template_name[j] = letters[r % 62];
         }
         fd = _sopen(template_name,
