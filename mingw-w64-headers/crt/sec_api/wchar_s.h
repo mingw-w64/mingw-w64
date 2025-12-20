@@ -30,6 +30,7 @@ extern "C" {
 #ifndef _WCONIO_S_DEFINED
 #define _WCONIO_S_DEFINED
   _SECIMP errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _cgetws_s, wchar_t, _Buffer, size_t*, _SizeRead)
   _SECIMP int __cdecl _cwprintf_s (const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
