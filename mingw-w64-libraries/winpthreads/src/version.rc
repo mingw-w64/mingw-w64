@@ -25,13 +25,10 @@
 
 #if defined(__MINGW64__)
 # define WPTH_VERSIONINFO_COMMENT "GNU C build -- MinGW-w64 64-bit\0"
-# define WPTH_VERSIONINFO_NAME "WinPthreadGC\0"
 #elif defined(__MINGW32__)
 # define WPTH_VERSIONINFO_COMMENT "GNU C build -- MinGW-w64 32-bit\0"
-# define WPTH_VERSIONINFO_NAME "WinPthreadGC\0"
 #else
 # define WPTH_VERSIONINFO_COMMENT "MSVC build\0"
-# define WPTH_VERSIONINFO_NAME "WinPthreadMS\0"
 #endif
 
 VS_VERSION_INFO VERSIONINFO
@@ -49,8 +46,8 @@ BEGIN
             VALUE "FileDescription", "POSIX WinThreads for Windows\0"
             VALUE "ProductVersion", WPTH_VERSION_STRING
             VALUE "FileVersion", WPTH_VERSION_STRING
-            VALUE "InternalName", WPTH_VERSIONINFO_NAME
-            VALUE "OriginalFilename", WPTH_VERSIONINFO_NAME
+            VALUE "InternalName", "libwinpthread-" WPTH_VERSION_MAJOR_STRING ".dll"
+            VALUE "OriginalFilename", "libwinpthread-" WPTH_VERSION_MAJOR_STRING ".dll"
             VALUE "CompanyName", "MinGW-W64 Project. All rights reserved.\0"
             VALUE "LegalCopyright", "Copyright (C) MinGW-W64 Project Members 2010-2023\0"
             VALUE "Licence", "MIT AND BSD-3-Clause\0"
