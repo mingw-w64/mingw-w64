@@ -38,7 +38,7 @@ HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR) = NULL;
 BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD) = NULL;
 
 #if defined(__GNUC__) || defined(__clang__)
-#if !defined(__clang__)
+#if __GNUC__ >= 9 && !defined(__clang__)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wprio-ctor-dtor"
 #endif
@@ -71,7 +71,7 @@ static void winpthreads_init(void)
             (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
     }
 }
-#if defined(__GNUC__) && !defined(__clang__)
+#if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
 #pragma GCC diagnostic pop
 #endif
 
