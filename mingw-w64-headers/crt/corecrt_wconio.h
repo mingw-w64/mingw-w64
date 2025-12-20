@@ -19,12 +19,32 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
+/**
+ * Functions to read/write strings from/to console.
+ */
+
 _CRTIMP wchar_t *__cdecl _cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+_CRTIMP int __cdecl _cputws(const wchar_t *_String);
+
+/**
+ * Functions to read/write single characters from/to console.
+ */
+
 _CRTIMP wint_t __cdecl _getwch(void);
 _CRTIMP wint_t __cdecl _getwche(void);
 _CRTIMP wint_t __cdecl _putwch(wchar_t _WCh);
 _CRTIMP wint_t __cdecl _ungetwch(wint_t _WCh);
-_CRTIMP int __cdecl _cputws(const wchar_t *_String);
+
+#if __MSVCRT_VERSION__ >= 0x800
+_CRTIMP wint_t __cdecl _getwch_nolock(void);
+_CRTIMP wint_t __cdecl _getwche_nolock(void);
+_CRTIMP wint_t __cdecl _putwch_nolock(wchar_t _WCh);
+_CRTIMP wint_t __cdecl _ungetwch_nolock(wint_t _WCh);
+#endif
+
+/**
+ * Formatted console I/O functions.
+ */
 
 #ifdef _UCRT
 int __cdecl __conio_common_vcwprintf(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
@@ -106,23 +126,16 @@ __mingw_ovr int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_loca
 }
 #else /* !_UCRT */
 _CRTIMP int __cdecl _cwprintf(const wchar_t * __restrict__ _Format,...);
+_CRTIMP int __cdecl _cwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+_CRTIMP int __cdecl _cwprintf_p(const wchar_t * __restrict__ _Format,...);
+_CRTIMP int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+_CRTIMP int __cdecl _vcwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+_CRTIMP int __cdecl _vcwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+_CRTIMP int __cdecl _vcwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
+_CRTIMP int __cdecl _vcwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
 _CRTIMP int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 _CRTIMP int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-_CRTIMP int __cdecl _vcwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-_CRTIMP int __cdecl _cwprintf_p(const wchar_t * __restrict__ _Format,...);
-_CRTIMP int __cdecl _vcwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
-_CRTIMP int __cdecl _cwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-_CRTIMP int __cdecl _vcwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-_CRTIMP int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-_CRTIMP int __cdecl _vcwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
 #endif /* _UCRT */
-
-#if __MSVCRT_VERSION__ >= 0x800
-_CRTIMP wint_t __cdecl _putwch_nolock(wchar_t _WCh);
-_CRTIMP wint_t __cdecl _getwch_nolock(void);
-_CRTIMP wint_t __cdecl _getwche_nolock(void);
-_CRTIMP wint_t __cdecl _ungetwch_nolock(wint_t _WCh);
-#endif
 
 #ifdef __cplusplus
 }
