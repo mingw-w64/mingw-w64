@@ -35,10 +35,7 @@ typedef long long LONGBAG;
 typedef long LONGBAG;
 #endif
 
-#if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-#undef GetHandleInformation
-#define GetHandleInformation(h,f)  (1)
-#endif
+extern BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD);
 
 /* For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
  * For other pre-C99 compilers declare DUMMY_WRITABLE_DWORD as static variable.
@@ -51,7 +48,9 @@ static DWORD DUMMY_WRITABLE_DWORD;
 
 #define TEST_HANDLE(h)                                                  \
   (((h) != NULL && (h) != INVALID_HANDLE_VALUE) && (                    \
-     GetHandleInformation((h), &DUMMY_WRITABLE_DWORD)                   \
+     _pthread_get_handle_information == NULL ||                         \
+     _pthread_get_handle_information((h), &DUMMY_WRITABLE_DWORD) ||     \
+     GetLastError() == ERROR_CALL_NOT_IMPLEMENTED                       \
   ))
 
 #define CHECK_HANDLE2(h, e)                                             \

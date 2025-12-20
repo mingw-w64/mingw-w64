@@ -35,6 +35,7 @@
 void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;
 static ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
 HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR) = NULL;
+BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD) = NULL;
 
 #if defined(__GNUC__) || defined(__clang__)
 #if !defined(__clang__)
@@ -48,6 +49,9 @@ static void winpthreads_init(void)
     HMODULE mod = GetModuleHandleA("kernel32.dll");
     if (mod)
     {
+        _pthread_get_handle_information =
+            (BOOL (WINAPI *)(HANDLE, LPDWORD))(void*) GetProcAddress(mod, "GetHandleInformation");
+
         _pthread_get_tick_count_64 =
             (ULONGLONG (WINAPI *)(VOID))(void*) GetProcAddress(mod, "GetTickCount64");
 
