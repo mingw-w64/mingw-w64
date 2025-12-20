@@ -42,7 +42,6 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#include <strsafe.h>
 
 #define WINPTHREAD_THREAD_DECL WINPTHREAD_API
 
@@ -1908,8 +1907,8 @@ pthread_setname_np (pthread_t thread, const char *name)
 int
 pthread_getname_np (pthread_t thread, char *name, size_t len)
 {
-  HRESULT result;
   struct _pthread_v *tv;
+  size_t thread_name_len;
 
   if (name == NULL)
     return EINVAL;
@@ -1928,12 +1927,10 @@ pthread_getname_np (pthread_t thread, char *name, size_t len)
       return 0;
     }
 
-  if (strlen (tv->thread_name) >= len)
+  thread_name_len = strlen (tv->thread_name);
+  if (thread_name_len >= len)
     return ERANGE;
 
-  result = StringCchCopyNA (name, len, tv->thread_name, len - 1);
-  if (SUCCEEDED (result))
-    return 0;
-
-  return ERANGE;
+  memcpy (name, tv->thread_name, thread_name_len + 1);
+  return 0;
 }
