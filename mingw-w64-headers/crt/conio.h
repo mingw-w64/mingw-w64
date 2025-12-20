@@ -178,7 +178,7 @@ extern "C" {
  * They are still available in i386 system versions of msvcrt.dll.
  */
 
-#if defined(_X86_) && !defined(__x86_64)
+#if (__MSVCRT_VERSION__ >= 0x0400 && __MSVCRT_VERSION__ < 0x0800) && defined(_M_IX86)
   int __cdecl _inp(unsigned short);
   unsigned short __cdecl _inpw(unsigned short);
   unsigned long __cdecl _inpd(unsigned short);
