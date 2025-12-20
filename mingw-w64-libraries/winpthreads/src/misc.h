@@ -40,12 +40,27 @@ typedef long LONGBAG;
 #define GetHandleInformation(h,f)  (1)
 #endif
 
-#define CHECK_HANDLE(h)                                                 \
+/* For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
+ * For other pre-C99 compilers declare DUMMY_WRITABLE_DWORD as static variable.
+ */
+#if defined(__GNUC__) || defined(__clang__)
+#define DUMMY_WRITABLE_DWORD (DWORD){0}
+#else
+static DWORD DUMMY_WRITABLE_DWORD;
+#endif
+
+#define TEST_HANDLE(h)                                                  \
+  (((h) != NULL && (h) != INVALID_HANDLE_VALUE) && (                    \
+     GetHandleInformation((h), &DUMMY_WRITABLE_DWORD)                   \
+  ))
+
+#define CHECK_HANDLE2(h, e)                                             \
   do {                                                                  \
-    DWORD dwFlags;                                                      \
-    if (!(h) || ((h) == INVALID_HANDLE_VALUE) || !GetHandleInformation((h), &dwFlags)) \
-      return EINVAL;                                                    \
+    if (!TEST_HANDLE(h))                                                \
+      return e;                                                         \
   } while (0)
+
+#define CHECK_HANDLE(h) CHECK_HANDLE2(h, EINVAL)
 
 #define CHECK_PTR(p) do { if (!(p)) return EINVAL; } while (0)
 
@@ -59,10 +74,8 @@ typedef long LONGBAG;
 
 #define CHECK_OBJECT(o, e)                                              \
   do {                                                                  \
-    DWORD dwFlags;                                                      \
     if (!(o)) return e;                                                 \
-    if (!((o)->h) || (((o)->h) == INVALID_HANDLE_VALUE) || !GetHandleInformation(((o)->h), &dwFlags)) \
-      return e;                                                         \
+    CHECK_HANDLE2((o)->h, e);                                           \
   } while (0)
 
 #define VALID(x)    if (!(p)) return EINVAL;

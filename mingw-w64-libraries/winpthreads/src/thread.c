@@ -1727,12 +1727,11 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
 int
 pthread_join (pthread_t t, void **res)
 {
-  DWORD dwFlags;
   struct _pthread_v *tv = __pth_gpointer_locked (t);
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
-  if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))
-    return ESRCH;
+  CHECK_OBJECT(tv, ESRCH);
+
   if ((tv->p_state & PTHREAD_CREATE_DETACHED) != 0)
     return EINVAL;
   if (pthread_equal(pthread_self(), t))
@@ -1758,14 +1757,13 @@ pthread_join (pthread_t t, void **res)
 int
 _pthread_tryjoin (pthread_t t, void **res)
 {
-  DWORD dwFlags;
   struct _pthread_v *tv;
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
   tv = __pthread_get_pointer (t);
 
-  if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))
+  if (!tv || !TEST_HANDLE(tv->h))
     {
       pthread_mutex_unlock (&mtx_pthr_locked);
       return ESRCH;
@@ -1812,13 +1810,12 @@ int
 pthread_detach (pthread_t t)
 {
   int r = 0;
-  DWORD dwFlags;
   struct _pthread_v *tv = __pth_gpointer_locked (t);
   HANDLE dw;
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
-  if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))
+  if (!tv || !TEST_HANDLE(tv->h))
     {
       pthread_mutex_unlock (&mtx_pthr_locked);
       return ESRCH;
