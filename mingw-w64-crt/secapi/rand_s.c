@@ -3,7 +3,10 @@
 #include <windows.h>
 #include <ntsecapi.h>
 #include <errno.h>
+
+#ifdef __LIBMSVCRT_OS__
 #include <msvcrt.h>
+#endif
 
 static BOOLEAN (WINAPI *pRtlGenRandom)(void*,ULONG);
 
@@ -24,11 +27,16 @@ rand_s(unsigned int *val)
 
 static errno_t __cdecl init_rand_s(unsigned int *val)
 {
-    int (__cdecl *func)(unsigned int*);
+    int (__cdecl *func)(unsigned int*) = NULL;
 
+#ifdef __LIBMSVCRT_OS__
     func = (void*)GetProcAddress(__mingw_get_msvcrt_handle(), "rand_s");
+#endif
+
     if(!func) {
         func = mingw_rand_s;
+        /* Function RtlGenRandom() is located in library advapi32.dll under
+         * symbol "SystemFunction036" and is available since Windows XP. */
         pRtlGenRandom = (void*)GetProcAddress(LoadLibraryW(L"advapi32.dll"), "SystemFunction036");
     }
 

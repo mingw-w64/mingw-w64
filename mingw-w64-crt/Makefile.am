@@ -1002,6 +1002,7 @@ src_pre_msvcr80=\
   misc/wassert.c \
   misc/wcsnlen.c \
   secapi/getenv_s.c \
+  secapi/rand_s.c \
   secapi/wcstok_s.c \
   stdio/_findfirst64i32.c \
   stdio/_findnext64i32.c \
