@@ -60,7 +60,9 @@
 typedef long long quad_t;
 typedef unsigned long long u_quad_t;
 typedef unsigned long u_long;
+#ifndef CHAR_BIT
 #define CHAR_BIT __CHAR_BIT__
+#endif
 
 /*
  * Define the order of 32-bit words in 64-bit words.
