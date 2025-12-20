@@ -102,6 +102,7 @@ check_PROGRAMS =               \
 	pthread_misc/eyal1         \
 	pthread_misc/inherit1      \
 	pthread_misc/kill1         \
+	pthread_misc/name          \
 	pthread_misc/reuse1        \
 	pthread_misc/reuse2        \
 	pthread_misc/self1         \
