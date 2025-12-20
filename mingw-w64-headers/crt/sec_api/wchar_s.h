@@ -27,18 +27,6 @@ extern "C" {
   _SECIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
 #endif
 
-#ifndef _WCONIO_S_DEFINED
-#define _WCONIO_S_DEFINED
-  _SECIMP errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
-  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _cgetws_s, wchar_t, _Buffer, size_t*, _SizeRead)
-  _SECIMP int __cdecl _cwprintf_s (const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _SECIMP int __cdecl _vcwprintf_s (const wchar_t *_Format,va_list _ArgList);
-  _SECIMP int __cdecl _cwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,...);
-  _SECIMP int __cdecl _vcwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-#endif
-
 #ifndef _WSTDIO_S_DEFINED
 #define _WSTDIO_S_DEFINED
   _CRTIMP wchar_t *__cdecl _getws_s(wchar_t *_Str,size_t _SizeInWords);

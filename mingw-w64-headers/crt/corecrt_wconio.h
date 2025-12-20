@@ -128,4 +128,6 @@ _CRTIMP wint_t __cdecl _ungetwch_nolock(wint_t _WCh);
 }
 #endif
 
+#include <sec_api/wconio_s.h>
+
 #endif /* _INC_CORECRT_WCONIO */
