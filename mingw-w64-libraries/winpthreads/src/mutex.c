@@ -26,7 +26,6 @@
 #endif
 
 #include <malloc.h>
-#include <stdbool.h>
 #include <stdio.h>
 
 #define WIN32_LEAN_AND_MEAN
@@ -64,7 +63,7 @@ typedef struct {
 
 /* Whether a mutex is still a static initializer (not a pointer to
    a mutex_impl_t). */
-static bool
+static BOOL
 is_static_initializer(pthread_mutex_t m)
 {
   /* Treat 0 as a static initializer as well (for normal mutexes),
@@ -148,7 +147,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
     /* Make sure there is an event object on which to wait. */
     if (mi->event == NULL) {
       /* Make an auto-reset event object. */
-      HANDLE ev = CreateEvent(NULL, false, false, NULL);
+      HANDLE ev = CreateEvent(NULL, FALSE, FALSE, NULL);
       if (ev == NULL) {
         switch (GetLastError()) {
         case ERROR_ACCESS_DENIED:
