@@ -100,7 +100,7 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
 
 /* Return the implementation part of a mutex, creating it if necessary.
    Return NULL on out-of-memory error. */
-static inline mutex_impl_t *
+static WINPTHREADS_INLINE mutex_impl_t *
 mutex_impl(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
@@ -116,7 +116,7 @@ mutex_impl(pthread_mutex_t *m)
 
 /* Lock a mutex. Give up after 'timeout' ms (with ETIMEDOUT),
    or never if timeout=INFINITE. */
-static inline int
+static WINPTHREADS_INLINE int
 pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
 {
   mutex_impl_t *mi = mutex_impl(m);
