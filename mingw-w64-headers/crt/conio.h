@@ -22,6 +22,11 @@ extern "C" {
   _CRTIMP char *__cdecl _cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _cputs(const char *_Str);
 
+#ifndef	NO_OLDNAMES
+  char *__cdecl cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl cputs(const char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
+
 /**
  * Functions to read/write single characters from/to console.
  */
@@ -31,6 +36,14 @@ extern "C" {
   _CRTIMP int __cdecl _getche(void);
   _CRTIMP int __cdecl _putch(int _Ch);
   _CRTIMP int __cdecl _ungetch(int _Ch);
+
+#ifndef	NO_OLDNAMES
+  int __cdecl kbhit(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl getch(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl getche(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl putch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl ungetch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
 
 #if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP int __cdecl _getch_nolock(void);
@@ -121,39 +134,7 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-#else /* !_UCRT */
-  _CRTIMP int __cdecl _cprintf(const char * __restrict__ _Format,...);
-  _CRTIMP int __cdecl _cprintf_l(const char * __restrict__ _Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _cprintf_p(const char * __restrict__ _Format,...);
-  _CRTIMP int __cdecl _cprintf_p_l(const char * __restrict__ _Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _vcprintf(const char * __restrict__ _Format,va_list _ArgList);
-  _CRTIMP int __cdecl _vcprintf_l(const char * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vcprintf_p(const char * __restrict__ _Format,va_list _ArgList);
-  _CRTIMP int __cdecl _vcprintf_p_l(const char * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _cscanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP int __cdecl _cscanf_l(const char * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#endif /* _UCRT */
-
-/**
- * Port I/O functions.
- *
- * These functions were removed from CRT in msvcr80.dll.
- * They are still available in i386 system versions of msvcrt.dll.
- */
-
-#if defined(_X86_) && !defined(__x86_64)
-  int __cdecl _inp(unsigned short);
-  unsigned short __cdecl _inpw(unsigned short);
-  unsigned long __cdecl _inpd(unsigned short);
-  int __cdecl _outp(unsigned short,int);
-  unsigned short __cdecl _outpw(unsigned short,unsigned short);
-  unsigned long __cdecl _outpd(unsigned short,unsigned long);
-#endif
-
 #ifndef	NO_OLDNAMES
-  char *__cdecl cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-
-#ifdef _UCRT
   __mingw_ovr int __cdecl cprintf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005
   {
     __builtin_va_list _ArgList;
@@ -172,49 +153,44 @@ extern "C" {
     __builtin_va_end(_ArgList);
     return _Ret;
   }
-#else
+#endif /* NO_OLDNAMES */
+#else /* !_UCRT */
+  _CRTIMP int __cdecl _cprintf(const char * __restrict__ _Format,...);
+  _CRTIMP int __cdecl _cprintf_l(const char * __restrict__ _Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl _cprintf_p(const char * __restrict__ _Format,...);
+  _CRTIMP int __cdecl _cprintf_p_l(const char * __restrict__ _Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl _vcprintf(const char * __restrict__ _Format,va_list _ArgList);
+  _CRTIMP int __cdecl _vcprintf_l(const char * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  _CRTIMP int __cdecl _vcprintf_p(const char * __restrict__ _Format,va_list _ArgList);
+  _CRTIMP int __cdecl _vcprintf_p_l(const char * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  _CRTIMP int __cdecl _cscanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP int __cdecl _cscanf_l(const char * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+#ifndef	NO_OLDNAMES
   int __cdecl cprintf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl cscanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-#endif
-  int __cdecl cputs(const char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl getch(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl getche(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl kbhit(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl putch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl ungetch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif /* NO_OLDNAMES */
+#endif /* _UCRT */
 
-#if (defined(_X86_) && !defined(__x86_64))
+/**
+ * Port I/O functions.
+ *
+ * These functions were removed from CRT in msvcr80.dll.
+ * They are still available in i386 system versions of msvcrt.dll.
+ */
+
+#if defined(_X86_) && !defined(__x86_64)
+  int __cdecl _inp(unsigned short);
+  unsigned short __cdecl _inpw(unsigned short);
+  unsigned long __cdecl _inpd(unsigned short);
+  int __cdecl _outp(unsigned short,int);
+  unsigned short __cdecl _outpw(unsigned short,unsigned short);
+  unsigned long __cdecl _outpd(unsigned short,unsigned long);
+#ifndef	NO_OLDNAMES
   int __cdecl inp(unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   unsigned short __cdecl inpw(unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl outp(unsigned short,int) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   unsigned short __cdecl outpw(unsigned short,unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-#endif
-
-    /* __cpuid moved to intrin.h per msdn */
-    /* __inbyte moved to intrin.h per msdn */
-    /* __inbytestring moved to intrin.h per msdn */
-    /* __indword moved to intrin.h per msdn */
-    /* __indwordstring moved to intrin.h per msdn */
-    /* __inword moved to intrin.h per msdn */
-    /* __inwordstring moved to intrin.h per msdn */
-    /* __outbyte moved to intrin.h per msdn */
-    /* __outbytestring moved to intrin.h per msdn */
-    /* __outdword moved to intrin.h per msdn */
-    /* __outdwordstring moved to intrin.h per msdn */
-    /* __outword moved to intrin.h per msdn */
-    /* __outwordstring moved to intrin.h per msdn */
-    /* __readcr0 moved to intrin.h per msdn */
-    /* __readcr2 moved to intrin.h per msdn */
-    /* __readcr3 moved to intrin.h per msdn */
-    /* __readcr4 moved to intrin.h per msdn */
-    /* __readcr8 moved to intrin.h per msdn */
-    /* __readmsr moved to intrin.h per msdn */
-    /* __writecr0 moved to intrin.h per msdn */
-    /* __writecr2 moved to intrin.h per msdn */
-    /* __writecr3 moved to intrin.h per msdn */
-    /* __writecr4 moved to intrin.h per msdn */
-    /* __writecr8 moved to intrin.h per msdn */
-    /* __writemsr moved to intrin.h per msdn */
+#endif /* NO_OLDNAMES */
 #endif
 
 #ifdef __cplusplus
