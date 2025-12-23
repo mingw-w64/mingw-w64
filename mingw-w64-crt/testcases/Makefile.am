@@ -40,6 +40,7 @@ testcase_progs = \
   t_nullptrexception \
   t_printf_g_width \
   t_readdir \
+  t_safe_flush \
   t_snprintf \
   t_snprintf0 \
   t_snprintf1 \
@@ -84,6 +85,11 @@ EXTRA_DIST = \
   t_stprintf_tmpl.h \
   t_swprintf_tmpl.h
 
+libprocdetach.dll.a: libprocdetach.o
+	$(LINK) -shared libprocdetach.o -Wl,--out-implib,$@ -o libprocdetach.dll
+
+t_safe_flush_LDADD = libprocdetach.dll.a
+
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_trycatch_LDFLAGS = -static
@@ -106,3 +112,6 @@ XFAIL_TESTS = \
 
 # Include the complex math testcase fragment.
 include complex/Makefile.am
+
+clean-local:
+	rm -f *.dll *.dll.a
