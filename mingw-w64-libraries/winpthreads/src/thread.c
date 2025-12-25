@@ -86,7 +86,16 @@ SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
   return EXCEPTION_CONTINUE_SEARCH;
 }
 
-#if !defined(_MSC_VER) && defined(__i386__)
+#if defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7)
+#define SEH_INLINE_ASM
+#ifdef __arm__
+#define ASM_EXCEPT "%%except"
+#else
+#define ASM_EXCEPT "@except"
+#endif
+#endif
+
+#if !defined(_MSC_VER) && (defined(__i386__) || defined(SEH_INLINE_ASM))
 static EXCEPTION_DISPOSITION __cdecl
 SetThreadName_SEH (EXCEPTION_RECORD *ExceptionRecord, PVOID EstablisherFrame, CONTEXT *ContextRecord, PVOID DispatcherContext)
 {
@@ -110,6 +119,9 @@ typedef struct _THREADNAME_INFO
   DWORD  dwFlags;	/* reserved for future use, must be zero */
 } THREADNAME_INFO;
 
+#if !defined(_MSC_VER) && !defined(__i386__) && defined(SEH_INLINE_ASM)
+WINPTHREADS_ATTRIBUTE((noinline)) /* required for asm .seh_handler directive */
+#endif
 static void
 SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
 {
@@ -152,8 +164,20 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
    __writefsdword (0, (DWORD) &exception_record); /* register our SEH handler */
    RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
    __writefsdword (0, (DWORD) exception_record.Next); /* unregister our SEH handler */
+#elif defined(SEH_INLINE_ASM)
+   /* On other platforms SEH handlers are registered at compile time.
+      Assembler directive .seh_handler statically register SEH handler for
+      the whole current function. It does not matter at which line is this
+      directive called. It always applies for the whole function, so also
+      for code before the directive itself. As this function does not do
+      anything else, we can register our SEH handler for the whole function.
+      This function has to be marked as noinline to ensure that the SEH
+      handler would not be registered for a caller.
+    */
+   asm volatile (".seh_handler %c0, " ASM_EXCEPT :: "i" (SetThreadName_SEH));
+   RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
 #else
-   /* TODO: SEH exception handling is not implemented for other platforms yet */
+   /* Other compilers / platforms do not provide SEH support */
 #endif
 #endif
 }
