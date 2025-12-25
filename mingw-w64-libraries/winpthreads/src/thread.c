@@ -74,18 +74,6 @@ static size_t idListCnt = 0;
 static size_t idListMax = 0;
 static pthread_t idListNextId = 0;
 
-static void *SetThreadName_VEH_handle = NULL;
-
-static LONG __stdcall
-SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
-{
-  if (ExceptionInfo->ExceptionRecord != NULL &&
-      ExceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_SET_THREAD_NAME)
-    return EXCEPTION_CONTINUE_EXECUTION;
-
-  return EXCEPTION_CONTINUE_SEARCH;
-}
-
 #if defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7)
 #define SEH_INLINE_ASM
 #ifdef __arm__
@@ -137,15 +125,8 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
 
    /* Exception has to be processed otherwise it will crash the process. */
 
-   /* First try via VEH */
-   if (SetThreadName_VEH_handle != NULL)
-     {
-       RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
-       return;
-     }
-
-   /* Then fallback via SEH */
 #if defined(_MSC_VER)
+   /* msvc supports __try / __except syntax, so use it */
    __try
      {
        RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *)&info);
@@ -476,36 +457,15 @@ replace_spin_keys (pthread_spinlock_t *old, pthread_spinlock_t new)
 static void WINAPI
 __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
-  static PVOID (WINAPI *AddVectoredExceptionHandlerFuncPtr) (ULONG, PVOID) = NULL;
-  static ULONG (WINAPI *RemoveVectoredExceptionHandlerFuncPtr) (PVOID) = NULL;
-  static BOOL haveVectoredExceptionHandlerFuncs = FALSE;
   _pthread_v *t = NULL;
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   if (dwReason == DLL_PROCESS_DETACH)
     {
-      if (lpreserved == NULL && SetThreadName_VEH_handle != NULL && haveVectoredExceptionHandlerFuncs)
-        {
-          RemoveVectoredExceptionHandlerFuncPtr (SetThreadName_VEH_handle);
-          SetThreadName_VEH_handle = NULL;
-        }
       free_pthread_mem ();
     }
   else if (dwReason == DLL_PROCESS_ATTACH)
     {
-      if (!haveVectoredExceptionHandlerFuncs)
-        {
-          HMODULE kernel32 = GetModuleHandleA("kernel32.dll");
-          if (kernel32)
-            {
-              AddVectoredExceptionHandlerFuncPtr = (PVOID (WINAPI *)(ULONG, PVOID))(void(*)(void)) GetProcAddress(kernel32, "AddVectoredExceptionHandler");
-              RemoveVectoredExceptionHandlerFuncPtr = (ULONG (WINAPI *)(PVOID))(void(*)(void)) GetProcAddress(kernel32, "RemoveVectoredExceptionHandler");
-              haveVectoredExceptionHandlerFuncs = AddVectoredExceptionHandlerFuncPtr != NULL && RemoveVectoredExceptionHandlerFuncPtr != NULL;
-            }
-        }
-      if (haveVectoredExceptionHandlerFuncs)
-        SetThreadName_VEH_handle = AddVectoredExceptionHandlerFuncPtr (1, &SetThreadName_VEH);
-      /* Can't do anything on error anyway, check for NULL later */
     }
   else if (dwReason == DLL_THREAD_DETACH)
     {
