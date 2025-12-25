@@ -77,9 +77,6 @@ __mingw_init_ehandler (void)
 
 #endif
 
-static EXCEPTION_DISPOSITION __cdecl
-__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord, struct _CONTEXT* ContextRecord);
-
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
 __attribute__((force_align_arg_pointer))
@@ -89,12 +86,6 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
 			   struct _CONTEXT* ContextRecord,
 			   void *DispatcherContext __attribute__ ((unused)))
-{
-  return __mingw_SEH_error_handler_helper (ExceptionRecord, ContextRecord);
-}
-
-static EXCEPTION_DISPOSITION __cdecl
-__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord, struct _CONTEXT* ContextRecord)
 {
   long action;
 
@@ -124,28 +115,5 @@ __mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord, str
     default:
       /* msvc CRT EXE exception handler just exit process with exception code */
       _exit(ExceptionRecord->ExceptionCode);
-    }
-}
-
-long CALLBACK
-_gnu_exception_handler (EXCEPTION_POINTERS *exception_data);
-
-long CALLBACK
-_gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
-{
-  EXCEPTION_DISPOSITION action = __mingw_SEH_error_handler_helper (exception_data->ExceptionRecord, exception_data->ContextRecord);
-  switch (action)
-    {
-    case ExceptionContinueExecution:
-      return EXCEPTION_CONTINUE_EXECUTION;
-
-    case ExceptionContinueSearch:
-      return EXCEPTION_CONTINUE_SEARCH;
-
-    /* unhandled */
-    case ExceptionNestedException:
-    case ExceptionCollidedUnwind:
-    default:
-      return EXCEPTION_CONTINUE_SEARCH;
     }
 }
