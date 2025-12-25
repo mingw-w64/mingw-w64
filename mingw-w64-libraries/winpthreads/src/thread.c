@@ -86,6 +86,22 @@ SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
   return EXCEPTION_CONTINUE_SEARCH;
 }
 
+#if !defined(_MSC_VER) && defined(__i386__)
+static EXCEPTION_DISPOSITION __cdecl
+SetThreadName_SEH (EXCEPTION_RECORD *ExceptionRecord, PVOID EstablisherFrame, CONTEXT *ContextRecord, PVOID DispatcherContext)
+{
+  /* Do not be confused with VEH handlers and CRT except filters which returns LONG value with UPPER_CASE constants.
+   * SEH handlers like this one return value from EXCEPTION_DISPOSITION enum which has CamelCase constants.
+   * UPPER_CASE EXCEPTION_CONTINUE_SEARCH and CamelCase ExceptionContinueSearch are different constants.
+   */
+  if (!(ExceptionRecord->ExceptionFlags & EXCEPTION_NONCONTINUABLE) &&
+      ExceptionRecord->ExceptionCode == EXCEPTION_SET_THREAD_NAME)
+    return ExceptionContinueExecution;
+
+  return ExceptionContinueSearch;
+}
+#endif
+
 typedef struct _THREADNAME_INFO
 {
   DWORD  dwType;	/* must be 0x1000 */
@@ -126,7 +142,19 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
      {
      }
 #else
-   /* FIXME: SEH exception handling is not support by gcc yet */
+   /* gcc does not support __try / __except syntax, so manually register SEH handler */
+#if defined(__i386__)
+   /* On 32-bit x86 is SEH handler registered and unregistered at runtime */
+   EXCEPTION_REGISTRATION_RECORD exception_record = {
+     .Next = (EXCEPTION_REGISTRATION_RECORD *) __readfsdword (0), /* current SEH handler */
+     .Handler = (PEXCEPTION_ROUTINE)(void*) SetThreadName_SEH,
+   };
+   __writefsdword (0, (DWORD) &exception_record); /* register our SEH handler */
+   RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
+   __writefsdword (0, (DWORD) exception_record.Next); /* unregister our SEH handler */
+#else
+   /* TODO: SEH exception handling is not implemented for other platforms yet */
+#endif
 #endif
 }
 
