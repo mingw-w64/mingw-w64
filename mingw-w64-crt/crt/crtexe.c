@@ -225,7 +225,7 @@ __tmainCRTStartup (void)
 	  _configthreadlocale (-1);
 
 	if (_initterm_e (__xi_a, __xi_z) != 0)
-	  return 255;
+	  _amsg_exit (10); /* _RT_ABORT */
 
 	startinfo.newmode = _newmode;
 #ifdef _UNICODE
