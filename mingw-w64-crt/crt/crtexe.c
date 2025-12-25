@@ -55,6 +55,7 @@ extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
 long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
+EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler (struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
@@ -90,6 +91,13 @@ int WinMainCRTStartup (void);
 __attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int WinMainCRTStartup (void)
 {
+#if defined(__i386__)
+  EXCEPTION_REGISTRATION_RECORD exception_record = {
+    .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
+    .Handler = __mingw_SEH_error_handler,
+  };
+  __writefsdword (0, (DWORD)&exception_record); /* register SEH handler */
+#endif
   int ret = 255;
 #ifdef SEH_INLINE_ASM
   asm ("\t.l_startw:\n");
@@ -109,6 +117,9 @@ int WinMainCRTStartup (void)
     "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
     "\t.text");
 #endif
+#if defined(__i386__)
+  __writefsdword (0, (DWORD)exception_record.Next); /* unregister SEH handler */
+#endif
   return ret;
 }
 
@@ -121,6 +132,13 @@ int __mingw_init_ehandler (void);
 __attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int mainCRTStartup (void)
 {
+#if defined(__i386__)
+  EXCEPTION_REGISTRATION_RECORD exception_record = {
+    .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
+    .Handler = __mingw_SEH_error_handler,
+  };
+  __writefsdword (0, (DWORD)&exception_record); /* register SEH handler */
+#endif
   int ret = 255;
 #ifdef SEH_INLINE_ASM
   asm ("\t.l_start:\n");
@@ -139,6 +157,9 @@ int mainCRTStartup (void)
     "\t.long 1\n"
     "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
     "\t.text");
+#endif
+#if defined(__i386__)
+  __writefsdword (0, (DWORD)exception_record.Next); /* unregister SEH handler */
 #endif
   return ret;
 }

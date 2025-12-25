@@ -1270,12 +1270,7 @@ int main(void)
 #endif
 
   puts("==== main thread ====");
-#if defined(_WIN32) && defined(__i386__)
-  /* FIXME: On Windows for 32-bit x86 processes is broken processing of SEH exceptions for main thread which cause that exceptions are not delivered to C signal handlers and instead crash process */
-  puts("\nbroken processing of SEH exceptions, skipping tests on main thread");
-#else
   ret |= test();
-#endif
 
   /* FIXME: Fix mingw-w64-crt testcases build system to properly link winpthreads */
 #ifndef _WIN32
