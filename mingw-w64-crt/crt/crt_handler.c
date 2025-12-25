@@ -85,6 +85,9 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
   void (*old_handler) (int);
   int reset_fpu = 0;
 
+  if (ExceptionRecord->ExceptionFlags & EXCEPTION_UNWINDING)
+    return ExceptionContinueSearch;
+
   switch (ExceptionRecord->ExceptionCode)
     {
     case EXCEPTION_ACCESS_VIOLATION:
