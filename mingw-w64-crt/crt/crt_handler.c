@@ -13,6 +13,10 @@
 #include <signal.h>
 #include <stdio.h>
 
+#define GCC_MAGIC (('G' << 16) | ('C' << 8) | 'C' | (1U << 29))
+
+EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
+
 #if defined(__x86_64__) && !defined(_MSC_VER) && !defined(__SEH__)
 
 #pragma pack(push,1)
@@ -28,8 +32,6 @@ typedef struct _UNWIND_INFO {
 PIMAGE_SECTION_HEADER _FindPESectionByName (const char *);
 PIMAGE_SECTION_HEADER _FindPESectionExec (size_t);
 PBYTE _GetPEImageBase (void);
-
-EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
 
 #define MAX_PDATA_ENTRIES 32
 static RUNTIME_FUNCTION emu_pdata[MAX_PDATA_ENTRIES];
@@ -73,6 +75,8 @@ __mingw_init_ehandler (void)
   return 1;
 }
 
+#endif
+
 extern void _fpreset (void);
 
 EXCEPTION_DISPOSITION __cdecl
@@ -87,6 +91,14 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 
   if (ExceptionRecord->ExceptionFlags & EXCEPTION_UNWINDING)
     return ExceptionContinueSearch;
+
+#ifdef __SEH__
+  if ((ExceptionRecord->ExceptionCode & 0x20ffffff) == GCC_MAGIC)
+    {
+      if ((ExceptionRecord->ExceptionFlags & EXCEPTION_NONCONTINUABLE) == 0)
+        return ExceptionContinueExecution;
+    }
+#endif
 
   switch (ExceptionRecord->ExceptionCode)
     {
@@ -151,6 +163,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  action = ExceptionContinueExecution;
 	}
       break;
+#ifdef _WIN64
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
     case EXCEPTION_FLT_STACK_CHECK:
@@ -159,20 +172,17 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = ExceptionContinueExecution;
       break;
+#endif
     default:
       break;
     }
   return action;
 }
 
-#endif
-
 LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler = NULL;
 
 long CALLBACK
 _gnu_exception_handler (EXCEPTION_POINTERS *exception_data);
-
-#define GCC_MAGIC (('G' << 16) | ('C' << 8) | 'C' | (1U << 29))
 
 long CALLBACK
 _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
