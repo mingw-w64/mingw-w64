@@ -186,21 +186,21 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) \
 	t_mbsrtowcs$(EXEEXT) t_nullptrexception$(EXEEXT) \
 	t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
-	t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) t_snprintf1$(EXEEXT) \
-	t_swprintf$(EXEEXT) t_swprintf0$(EXEEXT) t_swprintf1$(EXEEXT) \
-	t_snwprintf$(EXEEXT) t_snwprintf0$(EXEEXT) \
-	t_snwprintf1$(EXEEXT) t_stprintf_a$(EXEEXT) \
-	t_stprintf_u$(EXEEXT) t_stprintf0_a$(EXEEXT) \
-	t_stprintf0_u$(EXEEXT) t_stprintf1_a$(EXEEXT) \
-	t_stprintf1_u$(EXEEXT) t_setjmp$(EXEEXT) t_sigv$(EXEEXT) \
-	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
-	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
-	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) t_time$(EXEEXT) \
-	t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) \
-	t_stat_slash$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
-	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
-	t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) \
-	$(am__EXEEXT_1)
+	t_safe_flush$(EXEEXT) t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) \
+	t_snprintf1$(EXEEXT) t_swprintf$(EXEEXT) t_swprintf0$(EXEEXT) \
+	t_swprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
+	t_snwprintf0$(EXEEXT) t_snwprintf1$(EXEEXT) \
+	t_stprintf_a$(EXEEXT) t_stprintf_u$(EXEEXT) \
+	t_stprintf0_a$(EXEEXT) t_stprintf0_u$(EXEEXT) \
+	t_stprintf1_a$(EXEEXT) t_stprintf1_u$(EXEEXT) \
+	t_setjmp$(EXEEXT) t_sigv$(EXEEXT) t_speed_powl$(EXEEXT) \
+	t_stat$(EXEEXT) t_stat_f64$(EXEEXT) t_stat_t64$(EXEEXT) \
+	t_stat_t64_f64$(EXEEXT) t_stderr_buffering$(EXEEXT) \
+	t_stdint$(EXEEXT) t_time$(EXEEXT) t_tls1$(EXEEXT) \
+	t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) t_stat_slash$(EXEEXT) \
+	t_utime$(EXEEXT) t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) \
+	t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) \
+	t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -539,6 +539,9 @@ t_printf_g_width_LDADD = $(LDADD)
 t_readdir_SOURCES = t_readdir.c
 t_readdir_OBJECTS = t_readdir.$(OBJEXT)
 t_readdir_LDADD = $(LDADD)
+t_safe_flush_SOURCES = t_safe_flush.c
+t_safe_flush_OBJECTS = t_safe_flush.$(OBJEXT)
+t_safe_flush_DEPENDENCIES = libprocdetach.dll.a
 t_setjmp_SOURCES = t_setjmp.c
 t_setjmp_OBJECTS = t_setjmp.$(OBJEXT)
 t_setjmp_LDADD = $(LDADD)
@@ -1003,13 +1006,14 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_nullptrexception.Po \
 	./$(DEPDIR)/t_printf_g_width.Po ./$(DEPDIR)/t_readdir.Po \
-	./$(DEPDIR)/t_setjmp.Po ./$(DEPDIR)/t_sigv.Po \
-	./$(DEPDIR)/t_snprintf.Po ./$(DEPDIR)/t_snprintf0.Po \
-	./$(DEPDIR)/t_snprintf1.Po ./$(DEPDIR)/t_snwprintf.Po \
-	./$(DEPDIR)/t_snwprintf0.Po ./$(DEPDIR)/t_snwprintf1.Po \
-	./$(DEPDIR)/t_speed_powl.Po ./$(DEPDIR)/t_stat.Po \
-	./$(DEPDIR)/t_stat_f64.Po ./$(DEPDIR)/t_stat_slash.Po \
-	./$(DEPDIR)/t_stat_t64.Po ./$(DEPDIR)/t_stat_t64_f64.Po \
+	./$(DEPDIR)/t_safe_flush.Po ./$(DEPDIR)/t_setjmp.Po \
+	./$(DEPDIR)/t_sigv.Po ./$(DEPDIR)/t_snprintf.Po \
+	./$(DEPDIR)/t_snprintf0.Po ./$(DEPDIR)/t_snprintf1.Po \
+	./$(DEPDIR)/t_snwprintf.Po ./$(DEPDIR)/t_snwprintf0.Po \
+	./$(DEPDIR)/t_snwprintf1.Po ./$(DEPDIR)/t_speed_powl.Po \
+	./$(DEPDIR)/t_stat.Po ./$(DEPDIR)/t_stat_f64.Po \
+	./$(DEPDIR)/t_stat_slash.Po ./$(DEPDIR)/t_stat_t64.Po \
+	./$(DEPDIR)/t_stat_t64_f64.Po \
 	./$(DEPDIR)/t_stderr_buffering.Po ./$(DEPDIR)/t_stdint.Po \
 	./$(DEPDIR)/t_stprintf0_a.Po ./$(DEPDIR)/t_stprintf0_u.Po \
 	./$(DEPDIR)/t_stprintf1_a.Po ./$(DEPDIR)/t_stprintf1_u.Po \
@@ -1241,39 +1245,39 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c t_intrinc.c \
 	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
 	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_setjmp.c t_sigv.c \
-	t_snprintf.c t_snprintf0.c t_snprintf1.c t_snwprintf.c \
-	t_snwprintf0.c t_snwprintf1.c t_speed_powl.c t_stat.c \
-	t_stat_f64.c t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
-	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
-	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
-	t_time.c t_tls1.c t_tmain.c t_tmpfile.c $(t_trycatch_SOURCES) \
-	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
-	t_wctob.c t_wreaddir.c $(tests32_cabs_SOURCES) \
-	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
-	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
-	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
-	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
-	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
-	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
-	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
-	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
-	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
-	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
-	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
-	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
-	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
-	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
-	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
-	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
-	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
-	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
-	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
-	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
-	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
-	$(tests64_ctanh_SOURCES) tstmain_sys_xxx.c tstmainc.c \
-	$(tstmaincpp_SOURCES)
+	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
+	t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
+	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
+	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
+	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
+	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
+	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
+	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
+	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
+	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
+	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
+	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
+	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
+	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
+	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
+	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
+	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
+	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
+	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
+	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
+	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
+	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
+	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
+	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
+	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
+	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
+	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
+	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
+	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
+	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES) \
+	tstmain_sys_xxx.c tstmainc.c $(tstmaincpp_SOURCES)
 DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsld_a_SOURCES_DIST) \
@@ -1286,16 +1290,17 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c \
 	t_intrinc.c t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c \
 	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_setjmp.c t_sigv.c \
-	t_snprintf.c t_snprintf0.c t_snprintf1.c t_snwprintf.c \
-	t_snwprintf0.c t_snwprintf1.c t_speed_powl.c t_stat.c \
-	t_stat_f64.c t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
-	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
-	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
-	t_time.c t_tls1.c t_tmain.c t_tmpfile.c $(t_trycatch_SOURCES) \
-	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
-	t_wctob.c t_wreaddir.c $(am__tests32_cabs_SOURCES_DIST) \
+	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
+	t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
+	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
+	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
+	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
+	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
+	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
+	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
+	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
 	$(am__tests32_carg_SOURCES_DIST) \
@@ -1711,9 +1716,9 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_findfirst t_float t_fseeki64 t_fseeki64_ftelli64 t_fstat \
 	t_fstat_f64 t_fstat_t64 t_fstat_t64_f64 t_intrinc t_imagebase \
 	t_lfs t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
-	t_nullptrexception t_printf_g_width t_readdir t_snprintf \
-	t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 t_swprintf1 \
-	t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
+	t_nullptrexception t_printf_g_width t_readdir t_safe_flush \
+	t_snprintf t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 \
+	t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
 	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
 	t_stprintf1_u t_setjmp t_sigv t_speed_powl t_stat t_stat_f64 \
 	t_stat_t64 t_stat_t64_f64 t_stderr_buffering t_stdint t_time \
@@ -1726,6 +1731,7 @@ EXTRA_DIST = \
   t_stprintf_tmpl.h \
   t_swprintf_tmpl.h
 
+t_safe_flush_LDADD = libprocdetach.dll.a
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_trycatch_LDFLAGS = -static
@@ -2490,6 +2496,10 @@ t_readdir$(EXEEXT): $(t_readdir_OBJECTS) $(t_readdir_DEPENDENCIES) $(EXTRA_t_rea
 	@rm -f t_readdir$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_readdir_OBJECTS) $(t_readdir_LDADD) $(LIBS)
 
+t_safe_flush$(EXEEXT): $(t_safe_flush_OBJECTS) $(t_safe_flush_DEPENDENCIES) $(EXTRA_t_safe_flush_DEPENDENCIES) 
+	@rm -f t_safe_flush$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_safe_flush_OBJECTS) $(t_safe_flush_LDADD) $(LIBS)
+
 t_setjmp$(EXEEXT): $(t_setjmp_OBJECTS) $(t_setjmp_DEPENDENCIES) $(EXTRA_t_setjmp_DEPENDENCIES) 
 	@rm -f t_setjmp$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_setjmp_OBJECTS) $(t_setjmp_LDADD) $(LIBS)
@@ -2949,6 +2959,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_nullptrexception.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_printf_g_width.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_readdir.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_safe_flush.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_sigv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_snprintf.Po@am__quote@ # am--include-marker
@@ -6113,6 +6124,13 @@ t_readdir.log: t_readdir$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_safe_flush.log: t_safe_flush$(EXEEXT)
+	@p='t_safe_flush$(EXEEXT)'; \
+	b='t_safe_flush'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_snprintf.log: t_snprintf$(EXEEXT)
 	@p='t_snprintf$(EXEEXT)'; \
 	b='t_snprintf'; \
@@ -6794,7 +6812,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-checkLIBRARIES clean-checkPROGRAMS clean-generic \
-	mostlyclean-am
+	clean-local mostlyclean-am
 
 distclean: distclean-am
 		-rm -f ./$(DEPDIR)/t__fstat_all.Po
@@ -6825,6 +6843,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_nullptrexception.Po
 	-rm -f ./$(DEPDIR)/t_printf_g_width.Po
 	-rm -f ./$(DEPDIR)/t_readdir.Po
+	-rm -f ./$(DEPDIR)/t_safe_flush.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
@@ -7114,6 +7133,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_nullptrexception.Po
 	-rm -f ./$(DEPDIR)/t_printf_g_width.Po
 	-rm -f ./$(DEPDIR)/t_readdir.Po
+	-rm -f ./$(DEPDIR)/t_safe_flush.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
@@ -7351,22 +7371,28 @@ uninstall-am:
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--depfiles check check-TESTS \
 	check-am clean clean-checkLIBRARIES clean-checkPROGRAMS \
-	clean-generic cscopelist-am ctags ctags-am distclean \
-	distclean-compile distclean-generic distclean-tags distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am recheck tags tags-am \
-	uninstall uninstall-am
+	clean-generic clean-local cscopelist-am ctags ctags-am \
+	distclean distclean-compile distclean-generic distclean-tags \
+	distdir dvi dvi-am html html-am info info-am install \
+	install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am install-man \
+	install-pdf install-pdf-am install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
+	recheck tags tags-am uninstall uninstall-am
 
 .PRECIOUS: Makefile
 
 
+libprocdetach.dll.a: libprocdetach.o
+	$(LINK) -shared libprocdetach.o -Wl,--out-implib,$@ -o libprocdetach.dll
+
 # Include the complex math testcase fragment.
+
+clean-local:
+	rm -f *.dll *.dll.a
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
