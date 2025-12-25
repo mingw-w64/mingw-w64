@@ -73,11 +73,6 @@ int main()
   pthread_t pthread;
   HANDLE wthread;
 
-  /* FIXME: Disable all tests on i386 because mingw-w64 crt does not process unhandled GCC C++ SEH exceptions yet */
-#if defined(__i386__)
-  return 77;
-#endif
-
   {
     int tret = test();
     if (tret)

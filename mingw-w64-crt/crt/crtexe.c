@@ -5,6 +5,7 @@
  */
 
 #include <internal.h>
+#include <excpt.h>
 #include <process.h>
 #include <signal.h>
 #include <math.h>
@@ -53,7 +54,6 @@ static int managedapp;
 static int has_cctor = 0;
 
 extern void _pei386_runtime_relocator (void);
-long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
 EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler (struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
@@ -75,6 +75,36 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
   wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
   wprintf(L"Expression: %s\n", expression);
 #endif
+}
+
+#define GCC_MAGIC (('G' << 16) | ('C' << 8) | 'C' | (1U << 29))
+
+#if defined(__i386__) || defined(_X86_)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
+__attribute__((force_align_arg_pointer))
+#endif
+static LONG WINAPI
+cpp_unhandled_exception_filter (EXCEPTION_POINTERS *exception_data)
+{
+  /* C++ gcc SEH exception is thrown by the libgcc __cxa_throw() function
+   * (which calls _Unwind_RaiseException()) or _Unwind_ForcedUnwind() function
+   * as a normal continuable SEH exception with the STATUS_GCC_THROW (0x20474343)
+   * or STATUS_GCC_FORCED (0x22474343) exception code via the WinAPI RaiseException()
+   * call. Both _Unwind_RaiseException() and _Unwind_ForcedUnwind() are expected
+   * to return back to the caller (for example __cxa_throw()) if the exception
+   * was not handled. So if the gcc SEH exception reaches the application
+   * top-level exception handler then handler needs to return execution back to
+   * the place which called the RaiseException(). This is done by returning the
+   * EXCEPTION_CONTINUE_EXECUTION value from the handler itself.
+   * This is needed for proper propagation of unhandled C++ gcc exceptions
+   * into the std::terminate() call or into the application handler
+   * registered by the std::set_terminate() call.
+   */
+  if ((exception_data->ExceptionRecord->ExceptionCode & 0x20ffffff) == GCC_MAGIC &&
+      !(exception_data->ExceptionRecord->ExceptionFlags & EXCEPTION_NONCONTINUABLE))
+    return EXCEPTION_CONTINUE_EXECUTION;
+
+  return EXCEPTION_CONTINUE_SEARCH;
 }
 
 static void
@@ -224,7 +254,6 @@ __tmainCRTStartup (void)
 #if defined(__x86_64__) && !defined(__SEH__)
 	__mingw_init_ehandler ();
 #endif
-	SetUnhandledExceptionFilter (_gnu_exception_handler);
 	_set_invalid_parameter_handler (__mingw_invalidParameterHandler);
 	_fpreset ();
 
@@ -267,6 +296,7 @@ __tmainCRTStartup (void)
 	if (ret != 0)
 	  _amsg_exit (8); /* _RT_SPACEARG */
 
+	SetUnhandledExceptionFilter (cpp_unhandled_exception_filter);
 	_initterm (__xc_a, __xc_z);
 	__main (); /* C++ initialization. */
 
