@@ -23,7 +23,6 @@ extern "C" {
 #define ExceptionContinueSearch 1
 #define ExceptionNestedException 2
 #define ExceptionCollidedUnwind 3
-#define ExceptionExecuteHandler 4
 
 #if (defined(_X86_) && !defined(__x86_64))
   struct _EXCEPTION_RECORD;
