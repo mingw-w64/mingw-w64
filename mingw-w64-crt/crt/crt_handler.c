@@ -77,6 +77,9 @@ __mingw_init_ehandler (void)
 
 extern void _fpreset (void);
 
+static EXCEPTION_DISPOSITION __cdecl
+__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord);
+
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
 __attribute__((force_align_arg_pointer))
@@ -86,6 +89,12 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
 			   struct _CONTEXT* ContextRecord __attribute__ ((unused)),
 			   void *DispatcherContext __attribute__ ((unused)))
+{
+  return __mingw_SEH_error_handler_helper (ExceptionRecord);
+}
+
+static EXCEPTION_DISPOSITION __cdecl
+__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord)
 {
   EXCEPTION_DISPOSITION action = ExceptionContinueSearch;
   void (*old_handler) (int);
@@ -183,92 +192,19 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data);
 long CALLBACK
 _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 {
-  void (*old_handler) (int);
-  long action = EXCEPTION_CONTINUE_SEARCH;
-  int reset_fpu = 0;
-
-  switch (exception_data->ExceptionRecord->ExceptionCode)
+  EXCEPTION_DISPOSITION action = __mingw_SEH_error_handler_helper (exception_data->ExceptionRecord);
+  switch (action)
     {
-    case EXCEPTION_ACCESS_VIOLATION:
-      /* test if the user has set SIGSEGV */
-      old_handler = signal (SIGSEGV, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGSEGV, SIG_IGN);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGSEGV);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
+    case ExceptionContinueExecution:
+      return EXCEPTION_CONTINUE_EXECUTION;
 
-    case EXCEPTION_ILLEGAL_INSTRUCTION:
-    case EXCEPTION_PRIV_INSTRUCTION:
-      /* test if the user has set SIGILL */
-      old_handler = signal (SIGILL, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGILL, SIG_IGN);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGILL);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
+    case ExceptionContinueSearch:
+      return EXCEPTION_CONTINUE_SEARCH;
 
-    case EXCEPTION_FLT_INVALID_OPERATION:
-    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-    case EXCEPTION_FLT_DENORMAL_OPERAND:
-    case EXCEPTION_FLT_OVERFLOW:
-    case EXCEPTION_FLT_UNDERFLOW:
-    case EXCEPTION_FLT_INEXACT_RESULT:
-    case EXCEPTION_FLT_STACK_CHECK:
-#ifdef __i386__
-    case STATUS_FLOAT_MULTIPLE_TRAPS: /* 32-bit x86 SSE variant of EXCEPTION_FLT_INVALID_OPERATION, EXCEPTION_FLT_DIVIDE_BY_ZERO, EXCEPTION_FLT_DENORMAL_OPERAND */
-    case STATUS_FLOAT_MULTIPLE_FAULTS: /* 32-bit x86 SSE variant of EXCEPTION_FLT_OVERFLOW, EXCEPTION_FLT_UNDERFLOW, EXCEPTION_FLT_INEXACT_RESULT */
-#endif
-      reset_fpu = 1;
-      /* fall through. */
-
-    case EXCEPTION_INT_DIVIDE_BY_ZERO:
-    case EXCEPTION_INT_OVERFLOW:
-      /* test if the user has set SIGFPE */
-      old_handler = signal (SIGFPE, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  signal (SIGFPE, SIG_IGN);
-	  if (reset_fpu)
-	    _fpreset ();
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGFPE);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
-#ifdef _WIN64
-    case EXCEPTION_DATATYPE_MISALIGNMENT:
-    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-    case EXCEPTION_INVALID_HANDLE:
-    /*case EXCEPTION_POSSIBLE_DEADLOCK: */
-      action = EXCEPTION_CONTINUE_EXECUTION;
-      break;
-#endif
+    /* unhandled */
+    case ExceptionNestedException:
+    case ExceptionCollidedUnwind:
     default:
-      break;
+      return EXCEPTION_CONTINUE_SEARCH;
     }
-
-  return action;
 }
