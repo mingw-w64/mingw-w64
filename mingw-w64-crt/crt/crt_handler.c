@@ -82,7 +82,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   struct _CONTEXT* ContextRecord __attribute__ ((unused)),
 			   void *DispatcherContext __attribute__ ((unused)))
 {
-  EXCEPTION_DISPOSITION action = ExceptionContinueSearch; /* EXCEPTION_CONTINUE_SEARCH; */
+  EXCEPTION_DISPOSITION action = ExceptionContinueSearch;
   void (*old_handler) (int);
   int reset_fpu = 0;
 
@@ -96,16 +96,14 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  /* this is undefined if the signal was raised by anything other
 	     than raise ().  */
 	  signal (SIGSEGV, SIG_IGN);
-	  action = 0; //EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
       else if (old_handler != SIG_DFL)
 	{
 	  /* This means 'old' is a user defined function. Call it */
 	  (*old_handler) (SIGSEGV);
-	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
-      else
-        action = 4; /* EXCEPTION_EXECUTE_HANDLER; */
       break;
     case EXCEPTION_ILLEGAL_INSTRUCTION:
     case EXCEPTION_PRIV_INSTRUCTION:
@@ -116,16 +114,14 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  /* this is undefined if the signal was raised by anything other
 	     than raise ().  */
 	  signal (SIGILL, SIG_IGN);
-	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
       else if (old_handler != SIG_DFL)
 	{
 	  /* This means 'old' is a user defined function. Call it */
 	  (*old_handler) (SIGILL);
-	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
-      else
-        action = 4; /* EXCEPTION_EXECUTE_HANDLER;*/
       break;
     case EXCEPTION_FLT_INVALID_OPERATION:
     case EXCEPTION_FLT_DIVIDE_BY_ZERO:
@@ -144,13 +140,13 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  signal (SIGFPE, SIG_IGN);
 	  if (reset_fpu)
 	    _fpreset ();
-	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
       else if (old_handler != SIG_DFL)
 	{
 	  /* This means 'old' is a user defined function. Call it */
 	  (*old_handler) (SIGFPE);
-	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	  action = ExceptionContinueExecution;
 	}
       break;
     case EXCEPTION_DATATYPE_MISALIGNMENT:
@@ -159,7 +155,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
     case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
-      action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+      action = ExceptionContinueExecution;
       break;
     default:
       break;
