@@ -147,6 +147,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
       /* fall through. */
 
     case EXCEPTION_INT_DIVIDE_BY_ZERO:
+    case EXCEPTION_INT_OVERFLOW:
       /* test if the user has set SIGFPE */
       old_handler = signal (SIGFPE, SIG_DFL);
       if (old_handler == SIG_IGN)
@@ -167,7 +168,6 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
     case EXCEPTION_FLT_STACK_CHECK:
-    case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = ExceptionContinueExecution;
@@ -248,6 +248,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
       /* fall through. */
 
     case EXCEPTION_INT_DIVIDE_BY_ZERO:
+    case EXCEPTION_INT_OVERFLOW:
       /* test if the user has set SIGFPE */
       old_handler = signal (SIGFPE, SIG_DFL);
       if (old_handler == SIG_IGN)
@@ -268,7 +269,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
     case EXCEPTION_FLT_STACK_CHECK:
-    case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = EXCEPTION_CONTINUE_EXECUTION;

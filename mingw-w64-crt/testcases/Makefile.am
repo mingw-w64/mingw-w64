@@ -57,6 +57,7 @@ testcase_progs = \
   t_stprintf1_a \
   t_stprintf1_u \
   t_setjmp \
+  t_sigfpe \
   t_sigv \
   t_speed_powl \
   t_stat \
