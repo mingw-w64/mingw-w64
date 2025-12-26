@@ -67,6 +67,9 @@ static int has_cctor = 0;
 
 extern void _pei386_runtime_relocator (void);
 EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler (struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
+#if defined(__x86_64__) && !defined(SEH_INLINE_ASM)
+int __mingw_init_ehandler (void);
+#endif
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
@@ -128,55 +131,19 @@ safe_flush (void)
 static int __tmainCRTStartup (void);
 
 int WinMainCRTStartup (void);
-
 __attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int WinMainCRTStartup (void)
 {
-#if defined(__i386__)
-  EXCEPTION_REGISTRATION_RECORD exception_record = {
-    .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
-    .Handler = __mingw_SEH_error_handler,
-  };
-  __writefsdword (0, (DWORD)&exception_record); /* register SEH handler */
-#elif defined(SEH_INLINE_ASM)
-  asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* register SEH handler */
-#endif
   __mingw_app_type = 1;
-  int ret = __tmainCRTStartup ();
-#if defined(__i386__)
-  __writefsdword (0, (DWORD)exception_record.Next); /* unregister SEH handler */
-#elif defined(SEH_INLINE_ASM)
-  asm volatile ("nop"); /* needed for GAS to generate SEH handler correctly */
-#endif
-  return ret;
+  return __tmainCRTStartup ();
 }
 
 int mainCRTStartup (void);
-
-#if defined(__x86_64__) && !defined(__SEH__)
-int __mingw_init_ehandler (void);
-#endif
-
 __attribute__((used)) /* required due to GNU LD bug: https://sourceware.org/bugzilla/show_bug.cgi?id=30300 */
 int mainCRTStartup (void)
 {
-#if defined(__i386__)
-  EXCEPTION_REGISTRATION_RECORD exception_record = {
-    .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
-    .Handler = __mingw_SEH_error_handler,
-  };
-  __writefsdword (0, (DWORD)&exception_record); /* register SEH handler */
-#elif defined(SEH_INLINE_ASM)
-  asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* register SEH handler */
-#endif
   __mingw_app_type = 0;
-  int ret = __tmainCRTStartup ();
-#if defined(__i386__)
-  __writefsdword (0, (DWORD)exception_record.Next); /* unregister SEH handler */
-#elif defined(SEH_INLINE_ASM)
-  asm volatile ("nop"); /* needed for GAS to generate SEH handler correctly */
-#endif
-  return ret;
+  return __tmainCRTStartup ();
 }
 
 static
@@ -188,6 +155,22 @@ __attribute__((force_align_arg_pointer))
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
+    /* Registration of SEH error handler __mingw_SEH_error_handler used for
+     * delivering SEH exceptions to registered CRT signal handlers. */
+#if defined(__i386__)
+    EXCEPTION_REGISTRATION_RECORD exception_record = {
+      .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
+      .Handler = (PEXCEPTION_ROUTINE)(INT_PTR)__mingw_SEH_error_handler,
+    };
+    __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
+#elif defined(SEH_INLINE_ASM)
+    asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
+#elif defined(__x86_64__)
+    __mingw_init_ehandler (); /* dynamically register SEH error handler for all functions, it is active until program terminates */
+#else
+#error unsupported platform
+#endif
+
     void *lock_free = NULL;
     void *fiberid = ((PNT_TIB)NtCurrentTeb())->StackBase;
     BOOL nested = FALSE;
@@ -229,9 +212,6 @@ __tmainCRTStartup (void)
 	    abort ();
 
 	_pei386_runtime_relocator ();
-#if defined(__x86_64__) && !defined(__SEH__)
-	__mingw_init_ehandler ();
-#endif
 	_set_invalid_parameter_handler (__mingw_invalidParameterHandler);
 	_fpreset ();
 
@@ -300,6 +280,9 @@ __tmainCRTStartup (void)
     if (has_cctor == 0)
       _cexit ();
 
+#if defined(__i386__)
+  __writefsdword (0, (DWORD)exception_record.Next); /* dynamically unregister SEH error handler */
+#endif
   return ret;
 }
 
