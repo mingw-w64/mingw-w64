@@ -925,6 +925,7 @@ src_pre_msvcrt20=\
   misc/__tzname.c \
   misc/_beginthreadex.c \
   misc/_endthreadex.c \
+  misc/_setjmp3.S \
   stdio/_wfindfirst32.c \
   stdio/_wfindnext32.c \
   stdio/_wstat32.c \
