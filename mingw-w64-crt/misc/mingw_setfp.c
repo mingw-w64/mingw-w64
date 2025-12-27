@@ -121,15 +121,47 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
     unsigned long oldcw = 0, newcw = 0;
     unsigned long oldsw = 0, newsw = 0;
     unsigned int flags;
+    struct {
+        WORD control_word;
+        WORD unused1;
+        WORD status_word;
+        WORD unused2;
+        WORD tag_word;
+        WORD unused3;
+        DWORD instruction_pointer;
+        WORD code_segment;
+        WORD unused4;
+        DWORD operand_addr;
+        WORD data_segment;
+        WORD unused5;
+    } fenv;
 
     cw_mask &= _MCW_EM | _MCW_IC | _MCW_RC | _MCW_PC;
     sw_mask &= _MCW_EM;
 
+    if ((!sw || sw_mask == 0) && (!cw || cw_mask == 0))
+    {
+        /* Fast path: when we are not going to change sw/cw which is indicated
+         * by zero mask then load sw/cw via fast fnstsw/fnstcw instruction.
+         */
+        __asm__ __volatile__( "fnstsw %0" : "=m" (newsw) );
+        __asm__ __volatile__( "fnstcw %0" : "=m" (newcw) );
+    }
+    else
+    {
+        /* Slow path: when we are going to change sw/cw or we do not know yet then
+         * load whole x87 env via slow fnstenv as it is needed for changing sw/cw.
+         */
+        __asm__ __volatile__( "fnstenv %0" : "=m" (fenv) );
+        newsw = fenv.status_word;
+        newcw = fenv.control_word;
+    }
+
+    oldsw = newsw;
+    oldcw = newcw;
+
     if (sw)
     {
-        __asm__ __volatile__( "fnstsw %0" : "=m" (newsw) );
-        oldsw = newsw;
-
         flags = 0;
         if (newsw & 0x1) flags |= _SW_INVALID;
         if (newsw & 0x2) flags |= _SW_DENORMAL;
@@ -151,9 +183,6 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
 
     if (cw)
     {
-        __asm__ __volatile__( "fnstcw %0" : "=m" (newcw) );
-        oldcw = newcw;
-
         flags = 0;
         if (newcw & 0x1) flags |= _EM_INVALID;
         if (newcw & 0x2) flags |= _EM_DENORMAL;
@@ -198,35 +227,16 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
         if (*cw & _IC_AFFINE) newcw |= 0x1000;
     }
 
-    if (oldsw != newsw && (newsw & 0x3f))
+    /* For changing sw/cw always use fldenv.
+     * Do not use fldcw as it can generate pending floating-point exception.
+     */
+    if (oldsw != newsw || oldcw != newcw)
     {
-        struct {
-            WORD control_word;
-            WORD unused1;
-            WORD status_word;
-            WORD unused2;
-            WORD tag_word;
-            WORD unused3;
-            DWORD instruction_pointer;
-            WORD code_segment;
-            WORD unused4;
-            DWORD operand_addr;
-            WORD data_segment;
-            WORD unused5;
-        } fenv;
-
-        __asm__ __volatile__( "fnstenv %0" : "=m" (fenv) );
         fenv.control_word = newcw;
         fenv.status_word = newsw;
         __asm__ __volatile__( "fldenv %0" : : "m" (fenv) : "st", "st(1)",
                 "st(2)", "st(3)", "st(4)", "st(5)", "st(6)", "st(7)" );
-        return;
     }
-
-    if (oldsw != newsw)
-        __asm__ __volatile__( "fnclex" );
-    if (oldcw != newcw)
-        __asm__ __volatile__( "fldcw %0" : : "m" (newcw) );
 #elif defined(__aarch64__)
     ULONG_PTR old_fpsr = 0, fpsr = 0, old_fpcr = 0, fpcr = 0;
     unsigned int flags;
