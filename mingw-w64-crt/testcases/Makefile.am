@@ -114,4 +114,4 @@ XFAIL_TESTS = \
 include complex/Makefile.am
 
 clean-local:
-	rm -f *.dll *.dll.a
+	rm -f libprocdetach.dll libprocdetach.dll.a
