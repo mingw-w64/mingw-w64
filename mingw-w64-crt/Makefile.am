@@ -1236,6 +1236,7 @@ src_libmingwex=\
   misc/dirname.c \
   misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
   misc/feraiseexcept.c   misc/fesetenv.c            misc/fesetexceptflag.c  misc/fesetround.c            misc/fetestexcept.c    \
+  misc/feenableexcept.c  misc/fedisableexcept.c     misc/fegetexcept.c \
   misc/mingw_controlfp.c \
   misc/mingw_setfp.c \
   misc/feupdateenv.c                                misc/fwide.c            misc/getlogin.c              misc/getopt.c          \

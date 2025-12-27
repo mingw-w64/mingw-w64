@@ -99,6 +99,12 @@ extern int __cdecl fesetenv(const fenv_t * );
 extern int __cdecl feupdateenv(const fenv_t *);
 extern int __cdecl feholdexcept(fenv_t *);
 
+#ifdef _GNU_SOURCE
+extern int __cdecl feenableexcept(int excepts);
+extern int __cdecl fedisableexcept(int excepts);
+extern int __cdecl fegetexcept(void);
+#endif
+
 #ifdef __cplusplus
 }
 #endif
