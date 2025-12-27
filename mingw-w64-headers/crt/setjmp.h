@@ -194,7 +194,7 @@ _CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl _long
 
 #ifdef __i386__
 _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf); /* old i386 crtdll setjmp.h */
-_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ...); /* new i386 msvcrt20+ setjmp.h and setjmpex.h */
+_CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, int _Count, ... /*void *_UnwindFunc, int _TryLevel, 6xDWORD _UnwindData...*/); /* new i386 msvcrt20+ setjmp.h and setjmpex.h */
 #else
 #ifndef __aarch64__
 _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Frame); /* for non-i386 and non-aarch64 setjmp.h */
@@ -224,7 +224,7 @@ _CRT_END_C_HEADER
 #  undef setjmp
 #endif
 #if defined(__i386__)
-#  define setjmp(BUF) _setjmp3((BUF), 0)
+#  define setjmp(BUF) _setjmp3((BUF), 2, NULL /*UnwindFunc*/, -1 /*TryLevel*/)
 #elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH))
 #  if defined(__arm__) || defined(__aarch64__)
 #    define setjmp(BUF) __mingw_setjmp((BUF))
