@@ -147,6 +147,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
     case EXCEPTION_FLT_OVERFLOW:
     case EXCEPTION_FLT_UNDERFLOW:
     case EXCEPTION_FLT_INEXACT_RESULT:
+    case EXCEPTION_FLT_STACK_CHECK:
       reset_fpu = 1;
       /* fall through. */
 
@@ -171,7 +172,6 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 #ifdef _WIN64
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-    case EXCEPTION_FLT_STACK_CHECK:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = ExceptionContinueExecution;
@@ -248,6 +248,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     case EXCEPTION_FLT_OVERFLOW:
     case EXCEPTION_FLT_UNDERFLOW:
     case EXCEPTION_FLT_INEXACT_RESULT:
+    case EXCEPTION_FLT_STACK_CHECK:
       reset_fpu = 1;
       /* fall through. */
 
@@ -272,7 +273,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 #ifdef _WIN64
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-    case EXCEPTION_FLT_STACK_CHECK:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = EXCEPTION_CONTINUE_EXECUTION;

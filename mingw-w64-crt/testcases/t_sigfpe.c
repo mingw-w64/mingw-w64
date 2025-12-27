@@ -1189,14 +1189,8 @@ static int test(void)
 #endif
 
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
-#ifdef _WIN32
-  /* FIXME: On Windows loading of ten floating point values to x87 stack does not trigger SIGFPE for main thread and instead crashes process */
-  if (main_threadid != GetCurrentThreadId())
-#endif
-  {
   ret |= ten_x87_fld();
   ret |= ten_x87_fld();
-  }
 #endif
 
   return ret;
