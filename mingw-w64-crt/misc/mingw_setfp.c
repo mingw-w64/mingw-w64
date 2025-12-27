@@ -127,7 +127,7 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
 
     if (sw)
     {
-        __asm__ __volatile__( "fstsw %0" : "=m" (newsw) );
+        __asm__ __volatile__( "fnstsw %0" : "=m" (newsw) );
         oldsw = newsw;
 
         flags = 0;
@@ -151,7 +151,7 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
 
     if (cw)
     {
-        __asm__ __volatile__( "fstcw %0" : "=m" (newcw) );
+        __asm__ __volatile__( "fnstcw %0" : "=m" (newcw) );
         oldcw = newcw;
 
         flags = 0;
