@@ -81,6 +81,9 @@ __MINGW_USYMBOL(__mingw_longjmp):
 	vldr    d14, [r0, #0x60]     /* jmp_buf->D[6] */
 	vldr    d15, [r0, #0x68]     /* jmp_buf->D[7] */
 	mov     r0,  r1              /* retval */
+	cmp     r1,  #1
+	it      ls
+	movls   r0,  #1
 	bx      r2
 #elif defined(_ARM64_) || defined(__aarch64__)
 	ldp     x19, x20, [x0, #0x10] /* jmp_buf->X19, X20 */
@@ -99,7 +102,8 @@ __MINGW_USYMBOL(__mingw_longjmp):
 	ldp     d10, d11, [x0, #0x90] /* jmp_buf->D[2-3] */
 	ldp     d12, d13, [x0, #0xa0] /* jmp_buf->D[4-5] */
 	ldp     d14, d15, [x0, #0xb0] /* jmp_buf->D[6-7] */
-	mov     x0,  x1               /* retval */
+	cmp     w1,  #1
+	csinc   w0,  w1,  wzr,  hi    /* retval */
 	ret
 #endif
 #endif
