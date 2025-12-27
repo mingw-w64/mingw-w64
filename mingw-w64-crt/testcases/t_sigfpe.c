@@ -1139,11 +1139,8 @@ static int test(void)
     {
 #if defined(_WIN32) && defined(__i386__)
 #if __MSVCRT_VERSION__ < 0xa00
-      /* FIXME: On Windows for 32-bit x86 processes with pre-msvcr100 all SSE floating point exceptions do not trigger SIGFPE and instead crashes process */
-      if (0)
-#else
-      /* FIXME: On Windows for 32-bit x86 processes with msvcr100 and new (including UCRT) all SSE floating point exceptions do not trigger SIGFPE for main thread and instead crashes process */
-      if (main_threadid != GetCurrentThreadId())
+      /* FIXME: On Windows for 32-bit x86 processes with pre-msvcr100 all SSE floating point exceptions do not trigger SIGFPE for non-main thread and instead crashes process */
+      if (main_threadid == GetCurrentThreadId())
 #endif
 #endif
       {
