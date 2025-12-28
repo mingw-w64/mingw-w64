@@ -24,14 +24,15 @@ errno_t __cdecl getenv_s(size_t *pReturnValue, char *dstBuf, rsize_t dstSize, co
         return errno = EINVAL;
     }
 
+    /* After passing parameter validation, the errno is not changed. */
+
     if (!varName) {
         *pReturnValue = 0;
         if (dstBuf)
             dstBuf[0] = '\0';
-        return errno = EINVAL;
+        /* UCRT `getenv_s()` reports success in this case. */
+        return 0;
     }
-
-    /* After passing parameter validation, the errno is not changed. */
 
     /*
      * Function GetEnvironmentVariableA() is documented on:
