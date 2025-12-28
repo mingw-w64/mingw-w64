@@ -7392,7 +7392,7 @@ libprocdetach.dll.a: libprocdetach.o
 # Include the complex math testcase fragment.
 
 clean-local:
-	rm -f *.dll *.dll.a
+	rm -f libprocdetach.dll libprocdetach.dll.a
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
