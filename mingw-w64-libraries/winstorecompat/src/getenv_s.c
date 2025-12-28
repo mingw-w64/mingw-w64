@@ -63,6 +63,13 @@ errno_t __cdecl getenv_s(size_t *pReturnValue, char *dstBuf, rsize_t dstSize, co
         if (dstBuf)
             dstBuf[0] = '\0';
         return ERANGE;
+    } else if (dstSize == 0) {
+        /* If the GetEnvironmentVariable was called with a zero-length buffer
+         * then the return value is same as above case: buffer size including
+         * its terminating null character.
+         */
+        *pReturnValue = ret;
+        return 0;
     } else {
         /* If the GetEnvironmentVariable succeeds, the return value is the
          * number of characters stored in the buffer, not including the
