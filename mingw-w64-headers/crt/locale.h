@@ -101,6 +101,9 @@ extern "C" {
   /* Get the code page that the CRT currently uses for filenames. */
   unsigned int __cdecl __mingw_filename_cp(void);
 
+  /* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
+  int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
+
 #ifndef _WLOCALE_DEFINED
 #define _WLOCALE_DEFINED
   _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
