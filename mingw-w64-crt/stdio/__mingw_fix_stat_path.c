@@ -17,7 +17,7 @@ static const char* next_char (unsigned int cp, const char* p)
 {
   /* If it is a lead byte, skip the next byte except if it is \0.
    * If it is \0, it's not a valid DBCS string. */
-  return (IsDBCSLeadByteEx (cp, *p) && p[1] != '\0') ? p + 2 : p + 1;
+  return (__mingw_isleadbyte_cp (*p, cp) && p[1] != '\0') ? p + 2 : p + 1;
 }
 
 /**

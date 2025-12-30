@@ -78,7 +78,7 @@ int main (void) {
    * Try to convert lead bytes
    */
   for (int c = 0x80; c < 0x100; ++c) {
-    if (IsDBCSLeadByteEx (932, (BYTE) c)) {
+    if (__mingw_isleadbyte_cp ((BYTE) c, 932)) {
       assert (btowc (c) == WEOF);
     }
   }

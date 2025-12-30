@@ -113,7 +113,7 @@ do_get_path_info(struct path_info* info, char* path)
 
         if(dbcs_tb)
           dbcs_tb = 0;
-        else if(IsDBCSLeadByteEx(cp, *pos))
+        else if(__mingw_isleadbyte_cp(*pos, cp))
           dbcs_tb = 1;
         else
           dir_sep = IS_DIR_SEP(*pos);
@@ -157,7 +157,7 @@ do_get_path_info(struct path_info* info, char* path)
 
       if(dbcs_tb)
         dbcs_tb = 0;
-      else if(IsDBCSLeadByteEx(cp, *pos))
+      else if(__mingw_isleadbyte_cp(*pos, cp))
         dbcs_tb = 1;
       else
         dir_sep = IS_DIR_SEP(*pos);
