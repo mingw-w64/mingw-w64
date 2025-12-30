@@ -951,7 +951,7 @@ GetErrorMode@0
 ; Callback64@64
 ; Callback8@8
 ; CloseSystemHandle@4
-ConvertToGlobalHandle@4
+; ConvertToGlobalHandle@4
 ; CreateKernelThread@24
 ; FT_Exit0 ; no stdcall decoration in msvc thunk32.lib
 ; FT_Exit12 ; no stdcall decoration in msvc thunk32.lib
@@ -976,7 +976,7 @@ ConvertToGlobalHandle@4
 ; GetLSCallbackTarget@4
 ; GetLSCallbackTemplate@4
 ; GetProcessFlags@4
-GetProductName@8
+; GetProductName@8
 ; GetSLCallbackTarget@4
 ; GetSLCallbackTemplate@4
 ; HeapSetFlags@8
