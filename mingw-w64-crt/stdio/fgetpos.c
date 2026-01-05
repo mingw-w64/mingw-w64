@@ -26,13 +26,18 @@ int __cdecl fgetpos(FILE *__restrict__ _File, fpos_t *__restrict__ _Pos)
    * then fgetpos32() returns -1, sets pos32 to -1 and do not change errno.
    * Non-zero value in [63:32] bits of 64-bit position offset does not trigger
    * any error condition. In other error cases fgetpos32() returns -1,
-   * sets pos32 to -1 and errno to error value. */
+   * sets pos32 to -1 and errno to error value.
+   * Recent Windows versions have different behavior and returns -1 with errno
+   * set to EINVAL when position does not fit into 32 bits.
+   */
 
   errno = 0;
   ret = fgetpos32(_File, &pos32);
   if (ret != 0 || pos32 < 0)
   {
     if (errno == 0) /* This detects overflow when [31] bit is set. */
+      errno = EOVERFLOW;
+    else if (errno == EINVAL) /* Value does not fit into 32 bits. */
       errno = EOVERFLOW;
     *_Pos = pos32;
     return ret;
