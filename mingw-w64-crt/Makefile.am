@@ -896,7 +896,6 @@ src_pre_msvcrt20=\
   misc/__p__winver.c \
   misc/__timezone.c \
   misc/__tzname.c \
-  stdio/_telli64.c \
   stdio/_wfindfirst32.c \
   stdio/_wfindnext32.c \
   stdio/_wstat32.c \
@@ -915,6 +914,7 @@ src_pre_msvcrt40=\
   stdio/_fstat32i64.c \
   stdio/_lseeki64.c \
   stdio/_stat32i64.c \
+  stdio/_telli64.c \
   stdio/_wfindfirst32i64.c \
   stdio/_wfindnext32i64.c \
   stdio/_wstat32i64.c \
