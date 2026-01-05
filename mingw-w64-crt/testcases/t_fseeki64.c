@@ -12,6 +12,17 @@
         _assert("SetFilePointer(" #handle ", LARGE_INTEGER(" #offset "), " #method ") failed", __FILE__, __LINE__); \
 } while (0)
 
+#define assert_crt_fseeki64(expected, ...) do { \
+    __int64 ret = _fseeki64(__VA_ARGS__); \
+    if (ret == -1 && errno == ENOSPC) { \
+        /* skip the test for DISK FULL error */ \
+        printf("DISK FULL\n"); \
+        return 77; \
+    } \
+    if (ret != (expected)) \
+        _assert(#expected " == _fseeki64(" #__VA_ARGS__ ")", __FILE__, __LINE__); \
+} while (0)
+
 int main() {
     FILE *file;
     HANDLE handle;
@@ -26,49 +37,49 @@ int main() {
     assert(_setmode(fileno(file), _O_TEXT) != -1);
 
     /* absolute offset which fits into 32-bit signed type */
-    assert(_fseeki64(file, 0x10, SEEK_SET) == 0);
+    assert_crt_fseeki64(0, file, 0x10, SEEK_SET);
     assert(fputs("A\n", file) >= 0);
     assert(fputs("A", file) >= 0);
 
     /* relative offset which fits into 32-bit signed type, but absolute does not */
-    assert(_fseeki64(file, 0x7FFFFFFF, SEEK_CUR) == 0);
+    assert_crt_fseeki64(0, file, 0x7FFFFFFF, SEEK_CUR);
     assert(fputs("B\n", file) >= 0);
     assert(fputs("B", file) >= 0);
 
     /* absolute offset which fits into 32-bit unsigned type but does not into 32-bit signed type */
-    assert(_fseeki64(file, 0x90000000, SEEK_SET) == 0);
+    assert_crt_fseeki64(0, file, 0x90000000, SEEK_SET);
     assert(fputs("C\n", file) >= 0);
     assert(fputs("C", file) >= 0);
 
     /* TODO: SEEK_CUR does not work when current position does not fit into 32-bit signed type for pre-msvcrt40 */
 #if __MSVCRT_VERSION__ >= 0x400
     /* relative offset which fits into 32-bit unsigned type but absolute does not */
-    assert(_fseeki64(file, 0xFFFFFFFF, SEEK_CUR) == 0);
+    assert_crt_fseeki64(0, file, 0xFFFFFFFF, SEEK_CUR);
     assert(fputs("D\n", file) >= 0);
     assert(fputs("D", file) >= 0);
 #else
-    assert(_fseeki64(file, 0xFFFFFFFF, SEEK_CUR) == -1);
+    assert_crt_fseeki64(-1, file, 0xFFFFFFFF, SEEK_CUR);
     assert(errno == EOVERFLOW);
 #endif
 
     /* absolute offset which does not fit into 32-bit unsigned type */
-    assert(_fseeki64(file, 0x100000000, SEEK_SET) == 0);
+    assert_crt_fseeki64(0, file, 0x100000000, SEEK_SET);
     assert(fputs("E\n", file) >= 0);
     assert(fputs("E", file) >= 0);
 
     /* TODO: SEEK_CUR does not work when current position does not fit into 32-bit signed type for pre-msvcrt40 */
 #if __MSVCRT_VERSION__ >= 0x400
     /* relative offset which does not fit into 32-bit unsigned type */
-    assert(_fseeki64(file, 0x100000000, SEEK_CUR) == 0);
+    assert_crt_fseeki64(0, file, 0x100000000, SEEK_CUR);
     assert(fputs("F\n", file) >= 0);
     assert(fputs("F", file) >= 0);
 #else
-    assert(_fseeki64(file, 0x100000000, SEEK_CUR) == -1);
+    assert_crt_fseeki64(-1, file, 0x100000000, SEEK_CUR);
     assert(errno == EOVERFLOW);
 #endif
 
     /* last absolute write, without the nul byte */
-    assert(_fseeki64(file, 0x300000000, SEEK_SET) == 0);
+    assert_crt_fseeki64(0, file, 0x300000000, SEEK_SET);
     assert(fputs("_\n", file) >= 0);
     assert(fputs("_", file) >= 0);
 
