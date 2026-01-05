@@ -12,7 +12,7 @@
 /* Define 64-bit _lseeki64() function via 32-bit CRT _lseek() function and 64-bit WinAPI SetFilePointer() function */
 __int64 __cdecl _lseeki64(int fd, __int64 offset, int whence)
 {
-  const BOOL offset_overflowed = offset < LONG_MIN || offset > LONG_MAX;
+  BOOL offset_overflowed = offset < LONG_MIN || offset > LONG_MAX;
 
   if (!offset_overflowed)
   {
@@ -21,10 +21,13 @@ __int64 __cdecl _lseeki64(int fd, __int64 offset, int whence)
      * Just the return value of new offset is truncated to 32 bits.
      * _lseek() does not signal truncation, so check here just for offset
      * overflow for SEEK_SET. For all other cases call SetFilePointer()
-     * to retrieve new 64-bit file offset. */
+     * to retrieve new 64-bit file offset. On recent Windows versions
+     * when the current file position does not fit into the 32 bits then
+     * the _lseek() function returns error without setting new position. */
     errno = 0;
     long ret = _lseek(fd, offset, whence);
-    if (whence == SEEK_SET || (ret == -1 && errno))
+    offset_overflowed = (ret == -1 && errno);
+    if (whence == SEEK_SET && !offset_overflowed)
       return ret;
   }
 
