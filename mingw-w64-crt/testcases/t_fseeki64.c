@@ -5,11 +5,12 @@
 #include <fcntl.h>
 #include <windows.h>
 
-static void assert_winapi_seek(HANDLE handle, LONGLONG offset, DWORD method) {
-    LARGE_INTEGER li = { .QuadPart = offset };
-    li.LowPart = SetFilePointer(handle, li.LowPart, &li.HighPart, method);
-    assert(li.LowPart != INVALID_SET_FILE_POINTER || GetLastError() == NO_ERROR);
-}
+#define assert_winapi_seek(handle, offset, method) do { \
+    LARGE_INTEGER li = { .QuadPart = (offset) }; \
+    li.LowPart = SetFilePointer((handle), li.LowPart, &li.HighPart, (method)); \
+    if (li.LowPart == INVALID_SET_FILE_POINTER && GetLastError() != NO_ERROR) \
+        _assert("SetFilePointer(" #handle ", LARGE_INTEGER(" #offset "), " #method ") failed", __FILE__, __LINE__); \
+} while (0)
 
 int main() {
     FILE *file;
