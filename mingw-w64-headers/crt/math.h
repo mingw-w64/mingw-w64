@@ -698,6 +698,44 @@ __mingw_choose_expr (                                         \
 #endif
   extern long double __cdecl tanhl(long double);
 
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L) \
+    || defined(_CRTBLD)
+/* 7.12.4.8 */
+  double __cdecl acospi(double _X);
+  float __cdecl acospif(float _X);
+  long double __cdecl acospil(long double _X);
+
+/* 7.12.4.9 */
+  double __cdecl asinpi(double _X);
+  float __cdecl asinpif(float _X);
+  long double __cdecl asinpil(long double _X);
+
+/* 7.12.4.10 */
+  double __cdecl atanpi(double _X);
+  float __cdecl atanpif(float _X);
+  long double __cdecl atanpil(long double _X);
+
+/* 7.12.4.11 */
+  double __cdecl atan2pi(double _Y, double _X);
+  float __cdecl atan2pif(float _Y, float _X);
+  long double __cdecl atan2pil(long double _Y, long double _X);
+
+/* 7.12.4.12 */
+  double __cdecl cospi(double _X);
+  float __cdecl cospif(float _X);
+  long double __cdecl cospil(long double _X);
+
+/* 7.12.4.13 */
+  double __cdecl sinpi(double _X);
+  float __cdecl sinpif(float _X);
+  long double __cdecl sinpil(long double _X);
+
+/* 7.12.4.14 */
+  double __cdecl tanpi(double _X);
+  float __cdecl tanpif(float _X);
+  long double __cdecl tanpil(long double _X);
+#endif
+
 /* Inverse hyperbolic trig functions  */ 
 /* 7.12.5.1 */
   extern double __cdecl acosh (double);
@@ -1165,9 +1203,9 @@ _Decimal128 __cdecl atand128(_Decimal128 _X);
 _Decimal32 __cdecl atand32(_Decimal32 _X);
 
 /* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/atan2d64.3m.htm */
-_Decimal64 __cdecl atan2d64(_Decimal64 _X, _Decimal64 _Y);
-_Decimal128 __cdecl atan2d128(_Decimal128 _X, _Decimal128 _Y);
-_Decimal32 __cdecl atan2d32(_Decimal32 _X, _Decimal32 _Y);
+_Decimal64 __cdecl atan2d64(_Decimal64 _Y, _Decimal64 _X);
+_Decimal128 __cdecl atan2d128(_Decimal128 _Y, _Decimal128 _X);
+_Decimal32 __cdecl atan2d32(_Decimal32 _Y, _Decimal32 _X);
 
 /*** hyperbolics ***/
 /* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/coshd64.3m.htm */

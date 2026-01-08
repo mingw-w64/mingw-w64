@@ -1214,7 +1214,12 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
+  math/acospi.c         math/acospif.c     math/acospil.c \
+  math/asinpi.c         math/asinpif.c     math/asinpil.c \
+  math/atan2pi.c        math/atan2pif.c    math/atan2pil.c \
+  math/atanpi.c         math/atanpif.c     math/atanpil.c \
   math/coshl.c       \
+  math/cospi.c          math/cospif.c      math/cospil.c \
   math/fabsl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
@@ -1223,9 +1228,12 @@ src_libmingwex=\
   math/powi.c           math/powif.c       math/powil.c          \
   math/signbit.c        math/signbitf.c    math/signbitl.c       \
   math/signgam.c        \
-  math/sinhl.c          math/sqrtl.c       math/tanhl.c          \
+  math/sinhl.c          \
+  math/sinpi.c          math/sinpif.c      math/sinpil.c \
+  math/sqrtl.c          math/tanhl.c       \
+  math/tanpi.c          math/tanpif.c      math/tanpil.c \
   math/powi.def.h       math/sqrt.def.h    \
-  math/cephes_mconf.h   math/fp_consts.h   \
+  math/cephes_mconf.h   math/fp_consts.h   math/pi_const.h \
   \
   misc/_assert.c \
   misc/mingw_longjmp.S \
