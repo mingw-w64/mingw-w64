@@ -127,11 +127,7 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
      * simply leak the destructor list and whatever resources the destructors
      * would have released.
      *
-     * From Vista onwards, we could have used FlsAlloc to get a TLS key that
-     * runs a destructor on each thread that has a value attached ot it, but
-     * since MSVC doesn't run destructors on other threads in this case,
-     * users shouldn't assume it and we don't attempt to do anything potentially
-     * risky about it. TL;DR, threads with pending TLS destructors for a DLL
+     * TL;DR, threads with pending TLS destructors for a DLL
      * need to be joined before unloading the DLL.
      *
      * This gets called both when exiting cleanly (via exit or returning from
