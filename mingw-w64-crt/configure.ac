@@ -461,6 +461,58 @@ CFLAGS="$saved_CFLAGS"
 
 AC_SUBST(ADD_C_ONLY_WARNING_FLAGS)
 AC_SUBST(ADD_C_CXX_WARNING_FLAGS)
+
+# Initialize CPPFLAGS64 and CPPFLAGSARM64 with the default values from Makefile.am
+CPPFLAGS64="\$(AM_CPPFLAGS) -m64 -masm=att"
+CPPFLAGSARM64="\$(AM_CPPFLAGS)"
+
+# When cross-compiling with clang/llvm, the C preprocessor needs the -target
+# flag to define the correct target architecture macros. The -m32/-m64 flags
+# alone are insufficient - without -target, the preprocessor will use the
+# host architecture defines, causing F_NON_ARM64(), F_X64() and similar
+# architecture-specific macros in .def files to expand incorrectly.
+if test "$build" != "$host"; then
+  case "${CC}" in
+    *clang*|*llvm*)
+      case "$host" in
+        x86_64-*-mingw*)
+          CPPFLAGS64="$CPPFLAGS64 -target $host"
+          ;;
+        aarch64-*-mingw*)
+          CPPFLAGSARM64="$CPPFLAGSARM64 -target $host"
+          ;;
+      esac
+      ;;
+  esac
+fi
+AC_SUBST(CPPFLAGS64)
+AC_SUBST(CPPFLAGSARM64)
+
+# Initialize CPPFLAGS64 and CPPFLAGSARM64 with the default values from Makefile.am
+CPPFLAGS64="\$(AM_CPPFLAGS) -m64 -masm=att"
+CPPFLAGSARM64="\$(AM_CPPFLAGS)"
+
+# When cross-compiling with clang/llvm, the C preprocessor needs the -target
+# flag to define the correct target architecture macros. The -m32/-m64 flags
+# alone are insufficient - without -target, the preprocessor will use the
+# host architecture defines, causing F_NON_ARM64(), F_X64() and similar
+# architecture-specific macros in .def files to expand incorrectly.
+if test "$build" != "$host"; then
+  case "${CC}" in
+    *clang*|*llvm*)
+      case "$host" in
+        x86_64-*-mingw*)
+          CPPFLAGS64="$CPPFLAGS64 -target $host"
+          ;;
+        aarch64-*-mingw*)
+          CPPFLAGSARM64="$CPPFLAGSARM64 -target $host"
+          ;;
+      esac
+      ;;
+  esac
+fi
+AC_SUBST(CPPFLAGS64)
+AC_SUBST(CPPFLAGSARM64)
 AC_SUBST(ADD_CXX_ONLY_WARNING_FLAGS)
 
 AC_CONFIG_FILES([Makefile testcases/Makefile])
