@@ -37,6 +37,7 @@ errno_t __cdecl getenv_s(size_t *pReturnValue, char *dstBuf, rsize_t dstSize, co
      * Function GetEnvironmentVariableA() is documented on:
      * https://learn.microsoft.com/en-us/windows/win32/api/processenv/nf-processenv-getenvironmentvariablea
      */
+    SetLastError(ERROR_SUCCESS);
     ret = GetEnvironmentVariableA(varName, dstBuf, dstSize);
     if (ret == 0) {
         /* If the function fails, the return value is zero (e.g. specified
