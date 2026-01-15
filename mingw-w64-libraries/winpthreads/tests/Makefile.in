@@ -141,26 +141,26 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_misc/detach1$(EXEEXT) pthread_misc/equal1$(EXEEXT) \
 	pthread_misc/errno1$(EXEEXT) pthread_misc/eyal1$(EXEEXT) \
 	pthread_misc/inherit1$(EXEEXT) pthread_misc/kill1$(EXEEXT) \
-	pthread_misc/reuse1$(EXEEXT) pthread_misc/reuse2$(EXEEXT) \
-	pthread_misc/self1$(EXEEXT) pthread_misc/self2$(EXEEXT) \
-	pthread_misc/stress1$(EXEEXT) pthread_misc/valid1$(EXEEXT) \
-	pthread_misc/valid2$(EXEEXT) pthread_mutex/mutex1$(EXEEXT) \
-	pthread_mutex/mutex1e$(EXEEXT) pthread_mutex/mutex1n$(EXEEXT) \
-	pthread_mutex/mutex1r$(EXEEXT) pthread_mutex/mutex2$(EXEEXT) \
-	pthread_mutex/mutex2e$(EXEEXT) pthread_mutex/mutex2r$(EXEEXT) \
-	pthread_mutex/mutex3$(EXEEXT) pthread_mutex/mutex3e$(EXEEXT) \
-	pthread_mutex/mutex3r$(EXEEXT) pthread_mutex/mutex4$(EXEEXT) \
-	pthread_mutex/mutex5$(EXEEXT) pthread_mutex/mutex6$(EXEEXT) \
-	pthread_mutex/mutex6e$(EXEEXT) pthread_mutex/mutex6es$(EXEEXT) \
-	pthread_mutex/mutex6n$(EXEEXT) pthread_mutex/mutex6r$(EXEEXT) \
-	pthread_mutex/mutex6rs$(EXEEXT) pthread_mutex/mutex6s$(EXEEXT) \
-	pthread_mutex/mutex7$(EXEEXT) pthread_mutex/mutex7e$(EXEEXT) \
-	pthread_mutex/mutex7n$(EXEEXT) pthread_mutex/mutex7r$(EXEEXT) \
-	pthread_mutex/mutex8$(EXEEXT) pthread_mutex/mutex8e$(EXEEXT) \
-	pthread_mutex/mutex8n$(EXEEXT) pthread_mutex/mutex8r$(EXEEXT) \
-	pthread_once/once1$(EXEEXT) pthread_once/once2$(EXEEXT) \
-	pthread_once/once3$(EXEEXT) pthread_once/once4$(EXEEXT) \
-	pthread_rwlock/rwlock1$(EXEEXT) \
+	pthread_misc/name$(EXEEXT) pthread_misc/reuse1$(EXEEXT) \
+	pthread_misc/reuse2$(EXEEXT) pthread_misc/self1$(EXEEXT) \
+	pthread_misc/self2$(EXEEXT) pthread_misc/stress1$(EXEEXT) \
+	pthread_misc/valid1$(EXEEXT) pthread_misc/valid2$(EXEEXT) \
+	pthread_mutex/mutex1$(EXEEXT) pthread_mutex/mutex1e$(EXEEXT) \
+	pthread_mutex/mutex1n$(EXEEXT) pthread_mutex/mutex1r$(EXEEXT) \
+	pthread_mutex/mutex2$(EXEEXT) pthread_mutex/mutex2e$(EXEEXT) \
+	pthread_mutex/mutex2r$(EXEEXT) pthread_mutex/mutex3$(EXEEXT) \
+	pthread_mutex/mutex3e$(EXEEXT) pthread_mutex/mutex3r$(EXEEXT) \
+	pthread_mutex/mutex4$(EXEEXT) pthread_mutex/mutex5$(EXEEXT) \
+	pthread_mutex/mutex6$(EXEEXT) pthread_mutex/mutex6e$(EXEEXT) \
+	pthread_mutex/mutex6es$(EXEEXT) pthread_mutex/mutex6n$(EXEEXT) \
+	pthread_mutex/mutex6r$(EXEEXT) pthread_mutex/mutex6rs$(EXEEXT) \
+	pthread_mutex/mutex6s$(EXEEXT) pthread_mutex/mutex7$(EXEEXT) \
+	pthread_mutex/mutex7e$(EXEEXT) pthread_mutex/mutex7n$(EXEEXT) \
+	pthread_mutex/mutex7r$(EXEEXT) pthread_mutex/mutex8$(EXEEXT) \
+	pthread_mutex/mutex8e$(EXEEXT) pthread_mutex/mutex8n$(EXEEXT) \
+	pthread_mutex/mutex8r$(EXEEXT) pthread_once/once1$(EXEEXT) \
+	pthread_once/once2$(EXEEXT) pthread_once/once3$(EXEEXT) \
+	pthread_once/once4$(EXEEXT) pthread_rwlock/rwlock1$(EXEEXT) \
 	pthread_rwlock/rwlock2$(EXEEXT) \
 	pthread_rwlock/rwlock2_t$(EXEEXT) \
 	pthread_rwlock/rwlock3$(EXEEXT) \
@@ -519,6 +519,10 @@ pthread_misc_kill1_SOURCES = pthread_misc/kill1.c
 pthread_misc_kill1_OBJECTS = pthread_misc/kill1.$(OBJEXT)
 pthread_misc_kill1_LDADD = $(LDADD)
 pthread_misc_kill1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_misc_name_SOURCES = pthread_misc/name.c
+pthread_misc_name_OBJECTS = pthread_misc/name.$(OBJEXT)
+pthread_misc_name_LDADD = $(LDADD)
+pthread_misc_name_DEPENDENCIES = $(top_builddir)/libwinpthread.la
 pthread_misc_reuse1_SOURCES = pthread_misc/reuse1.c
 pthread_misc_reuse1_OBJECTS = pthread_misc/reuse1.$(OBJEXT)
 pthread_misc_reuse1_LDADD = $(LDADD)
@@ -887,7 +891,7 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_misc/$(DEPDIR)/errno1.Po \
 	pthread_misc/$(DEPDIR)/eyal1.Po \
 	pthread_misc/$(DEPDIR)/inherit1.Po \
-	pthread_misc/$(DEPDIR)/kill1.Po \
+	pthread_misc/$(DEPDIR)/kill1.Po pthread_misc/$(DEPDIR)/name.Po \
 	pthread_misc/$(DEPDIR)/reuse1.Po \
 	pthread_misc/$(DEPDIR)/reuse2.Po \
 	pthread_misc/$(DEPDIR)/self1.Po \
@@ -1005,35 +1009,36 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/detach1.c pthread_misc/equal1.c \
 	pthread_misc/errno1.c pthread_misc/eyal1.c \
 	pthread_misc/inherit1.c pthread_misc/kill1.c \
-	pthread_misc/reuse1.c pthread_misc/reuse2.c \
-	pthread_misc/self1.c pthread_misc/self2.c \
-	pthread_misc/stress1.c pthread_misc/valid1.c \
-	pthread_misc/valid2.c pthread_mutex/mutex1.c \
-	pthread_mutex/mutex1e.c pthread_mutex/mutex1n.c \
-	pthread_mutex/mutex1r.c pthread_mutex/mutex2.c \
-	pthread_mutex/mutex2e.c pthread_mutex/mutex2r.c \
-	pthread_mutex/mutex3.c pthread_mutex/mutex3e.c \
-	pthread_mutex/mutex3r.c pthread_mutex/mutex4.c \
-	pthread_mutex/mutex5.c pthread_mutex/mutex6.c \
-	pthread_mutex/mutex6e.c pthread_mutex/mutex6es.c \
-	pthread_mutex/mutex6n.c pthread_mutex/mutex6r.c \
-	pthread_mutex/mutex6rs.c pthread_mutex/mutex6s.c \
-	pthread_mutex/mutex7.c pthread_mutex/mutex7e.c \
-	pthread_mutex/mutex7n.c pthread_mutex/mutex7r.c \
-	pthread_mutex/mutex8.c pthread_mutex/mutex8e.c \
-	pthread_mutex/mutex8n.c pthread_mutex/mutex8r.c \
-	pthread_once/once1.c pthread_once/once2.c pthread_once/once3.c \
-	pthread_once/once4.c pthread_rwlock/rwlock1.c \
-	pthread_rwlock/rwlock2.c pthread_rwlock/rwlock2_t.c \
-	pthread_rwlock/rwlock3.c pthread_rwlock/rwlock3_t.c \
-	pthread_rwlock/rwlock4.c pthread_rwlock/rwlock4_t.c \
-	pthread_rwlock/rwlock5.c pthread_rwlock/rwlock5_t.c \
-	pthread_rwlock/rwlock6.c pthread_rwlock/rwlock6_t.c \
-	pthread_rwlock/rwlock6_t2.c pthread_rwlock/rwlock7.c \
-	pthread_rwlock/rwlock8.c pthread_spinlock/spin1.c \
-	pthread_spinlock/spin2.c pthread_spinlock/spin3.c \
-	pthread_spinlock/spin4.c pthread_tls/tsd1.c pthread_tls/tsd2.c \
-	sched/priority1.c sched/priority2.c semaphore/semaphore1.c \
+	pthread_misc/name.c pthread_misc/reuse1.c \
+	pthread_misc/reuse2.c pthread_misc/self1.c \
+	pthread_misc/self2.c pthread_misc/stress1.c \
+	pthread_misc/valid1.c pthread_misc/valid2.c \
+	pthread_mutex/mutex1.c pthread_mutex/mutex1e.c \
+	pthread_mutex/mutex1n.c pthread_mutex/mutex1r.c \
+	pthread_mutex/mutex2.c pthread_mutex/mutex2e.c \
+	pthread_mutex/mutex2r.c pthread_mutex/mutex3.c \
+	pthread_mutex/mutex3e.c pthread_mutex/mutex3r.c \
+	pthread_mutex/mutex4.c pthread_mutex/mutex5.c \
+	pthread_mutex/mutex6.c pthread_mutex/mutex6e.c \
+	pthread_mutex/mutex6es.c pthread_mutex/mutex6n.c \
+	pthread_mutex/mutex6r.c pthread_mutex/mutex6rs.c \
+	pthread_mutex/mutex6s.c pthread_mutex/mutex7.c \
+	pthread_mutex/mutex7e.c pthread_mutex/mutex7n.c \
+	pthread_mutex/mutex7r.c pthread_mutex/mutex8.c \
+	pthread_mutex/mutex8e.c pthread_mutex/mutex8n.c \
+	pthread_mutex/mutex8r.c pthread_once/once1.c \
+	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
+	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
+	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
+	pthread_rwlock/rwlock3_t.c pthread_rwlock/rwlock4.c \
+	pthread_rwlock/rwlock4_t.c pthread_rwlock/rwlock5.c \
+	pthread_rwlock/rwlock5_t.c pthread_rwlock/rwlock6.c \
+	pthread_rwlock/rwlock6_t.c pthread_rwlock/rwlock6_t2.c \
+	pthread_rwlock/rwlock7.c pthread_rwlock/rwlock8.c \
+	pthread_spinlock/spin1.c pthread_spinlock/spin2.c \
+	pthread_spinlock/spin3.c pthread_spinlock/spin4.c \
+	pthread_tls/tsd1.c pthread_tls/tsd2.c sched/priority1.c \
+	sched/priority2.c semaphore/semaphore1.c \
 	semaphore/semaphore2.c semaphore/semaphore3.c \
 	semaphore/semaphore4.c semaphore/semaphore4t.c \
 	semaphore/semaphore5.c
@@ -1071,35 +1076,36 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/detach1.c pthread_misc/equal1.c \
 	pthread_misc/errno1.c pthread_misc/eyal1.c \
 	pthread_misc/inherit1.c pthread_misc/kill1.c \
-	pthread_misc/reuse1.c pthread_misc/reuse2.c \
-	pthread_misc/self1.c pthread_misc/self2.c \
-	pthread_misc/stress1.c pthread_misc/valid1.c \
-	pthread_misc/valid2.c pthread_mutex/mutex1.c \
-	pthread_mutex/mutex1e.c pthread_mutex/mutex1n.c \
-	pthread_mutex/mutex1r.c pthread_mutex/mutex2.c \
-	pthread_mutex/mutex2e.c pthread_mutex/mutex2r.c \
-	pthread_mutex/mutex3.c pthread_mutex/mutex3e.c \
-	pthread_mutex/mutex3r.c pthread_mutex/mutex4.c \
-	pthread_mutex/mutex5.c pthread_mutex/mutex6.c \
-	pthread_mutex/mutex6e.c pthread_mutex/mutex6es.c \
-	pthread_mutex/mutex6n.c pthread_mutex/mutex6r.c \
-	pthread_mutex/mutex6rs.c pthread_mutex/mutex6s.c \
-	pthread_mutex/mutex7.c pthread_mutex/mutex7e.c \
-	pthread_mutex/mutex7n.c pthread_mutex/mutex7r.c \
-	pthread_mutex/mutex8.c pthread_mutex/mutex8e.c \
-	pthread_mutex/mutex8n.c pthread_mutex/mutex8r.c \
-	pthread_once/once1.c pthread_once/once2.c pthread_once/once3.c \
-	pthread_once/once4.c pthread_rwlock/rwlock1.c \
-	pthread_rwlock/rwlock2.c pthread_rwlock/rwlock2_t.c \
-	pthread_rwlock/rwlock3.c pthread_rwlock/rwlock3_t.c \
-	pthread_rwlock/rwlock4.c pthread_rwlock/rwlock4_t.c \
-	pthread_rwlock/rwlock5.c pthread_rwlock/rwlock5_t.c \
-	pthread_rwlock/rwlock6.c pthread_rwlock/rwlock6_t.c \
-	pthread_rwlock/rwlock6_t2.c pthread_rwlock/rwlock7.c \
-	pthread_rwlock/rwlock8.c pthread_spinlock/spin1.c \
-	pthread_spinlock/spin2.c pthread_spinlock/spin3.c \
-	pthread_spinlock/spin4.c pthread_tls/tsd1.c pthread_tls/tsd2.c \
-	sched/priority1.c sched/priority2.c semaphore/semaphore1.c \
+	pthread_misc/name.c pthread_misc/reuse1.c \
+	pthread_misc/reuse2.c pthread_misc/self1.c \
+	pthread_misc/self2.c pthread_misc/stress1.c \
+	pthread_misc/valid1.c pthread_misc/valid2.c \
+	pthread_mutex/mutex1.c pthread_mutex/mutex1e.c \
+	pthread_mutex/mutex1n.c pthread_mutex/mutex1r.c \
+	pthread_mutex/mutex2.c pthread_mutex/mutex2e.c \
+	pthread_mutex/mutex2r.c pthread_mutex/mutex3.c \
+	pthread_mutex/mutex3e.c pthread_mutex/mutex3r.c \
+	pthread_mutex/mutex4.c pthread_mutex/mutex5.c \
+	pthread_mutex/mutex6.c pthread_mutex/mutex6e.c \
+	pthread_mutex/mutex6es.c pthread_mutex/mutex6n.c \
+	pthread_mutex/mutex6r.c pthread_mutex/mutex6rs.c \
+	pthread_mutex/mutex6s.c pthread_mutex/mutex7.c \
+	pthread_mutex/mutex7e.c pthread_mutex/mutex7n.c \
+	pthread_mutex/mutex7r.c pthread_mutex/mutex8.c \
+	pthread_mutex/mutex8e.c pthread_mutex/mutex8n.c \
+	pthread_mutex/mutex8r.c pthread_once/once1.c \
+	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
+	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
+	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
+	pthread_rwlock/rwlock3_t.c pthread_rwlock/rwlock4.c \
+	pthread_rwlock/rwlock4_t.c pthread_rwlock/rwlock5.c \
+	pthread_rwlock/rwlock5_t.c pthread_rwlock/rwlock6.c \
+	pthread_rwlock/rwlock6_t.c pthread_rwlock/rwlock6_t2.c \
+	pthread_rwlock/rwlock7.c pthread_rwlock/rwlock8.c \
+	pthread_spinlock/spin1.c pthread_spinlock/spin2.c \
+	pthread_spinlock/spin3.c pthread_spinlock/spin4.c \
+	pthread_tls/tsd1.c pthread_tls/tsd2.c sched/priority1.c \
+	sched/priority2.c semaphore/semaphore1.c \
 	semaphore/semaphore2.c semaphore/semaphore3.c \
 	semaphore/semaphore4.c semaphore/semaphore4t.c \
 	semaphore/semaphore5.c
@@ -2020,6 +2026,12 @@ pthread_misc/kill1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
 pthread_misc/kill1$(EXEEXT): $(pthread_misc_kill1_OBJECTS) $(pthread_misc_kill1_DEPENDENCIES) $(EXTRA_pthread_misc_kill1_DEPENDENCIES) pthread_misc/$(am__dirstamp)
 	@rm -f pthread_misc/kill1$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(pthread_misc_kill1_OBJECTS) $(pthread_misc_kill1_LDADD) $(LIBS)
+pthread_misc/name.$(OBJEXT): pthread_misc/$(am__dirstamp) \
+	pthread_misc/$(DEPDIR)/$(am__dirstamp)
+
+pthread_misc/name$(EXEEXT): $(pthread_misc_name_OBJECTS) $(pthread_misc_name_DEPENDENCIES) $(EXTRA_pthread_misc_name_DEPENDENCIES) pthread_misc/$(am__dirstamp)
+	@rm -f pthread_misc/name$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_misc_name_OBJECTS) $(pthread_misc_name_LDADD) $(LIBS)
 pthread_misc/reuse1.$(OBJEXT): pthread_misc/$(am__dirstamp) \
 	pthread_misc/$(DEPDIR)/$(am__dirstamp)
 
@@ -2555,6 +2567,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/eyal1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/inherit1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/kill1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/name.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/reuse1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/reuse2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/self1.Po@am__quote@ # am--include-marker
@@ -3360,6 +3373,13 @@ pthread_misc/kill1.log: pthread_misc/kill1$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_misc/name.log: pthread_misc/name$(EXEEXT)
+	@p='pthread_misc/name$(EXEEXT)'; \
+	b='pthread_misc/name'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 pthread_misc/reuse1.log: pthread_misc/reuse1$(EXEEXT)
 	@p='pthread_misc/reuse1$(EXEEXT)'; \
 	b='pthread_misc/reuse1'; \
@@ -4023,6 +4043,7 @@ distclean: distclean-am
 	-rm -f pthread_misc/$(DEPDIR)/eyal1.Po
 	-rm -f pthread_misc/$(DEPDIR)/inherit1.Po
 	-rm -f pthread_misc/$(DEPDIR)/kill1.Po
+	-rm -f pthread_misc/$(DEPDIR)/name.Po
 	-rm -f pthread_misc/$(DEPDIR)/reuse1.Po
 	-rm -f pthread_misc/$(DEPDIR)/reuse2.Po
 	-rm -f pthread_misc/$(DEPDIR)/self1.Po
@@ -4205,6 +4226,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_misc/$(DEPDIR)/eyal1.Po
 	-rm -f pthread_misc/$(DEPDIR)/inherit1.Po
 	-rm -f pthread_misc/$(DEPDIR)/kill1.Po
+	-rm -f pthread_misc/$(DEPDIR)/name.Po
 	-rm -f pthread_misc/$(DEPDIR)/reuse1.Po
 	-rm -f pthread_misc/$(DEPDIR)/reuse2.Po
 	-rm -f pthread_misc/$(DEPDIR)/self1.Po
