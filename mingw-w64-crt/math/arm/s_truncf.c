@@ -11,6 +11,7 @@
  */
 
 #include <sys/cdefs.h>
+#include <math.h>
 
 /*
  * truncf(x)

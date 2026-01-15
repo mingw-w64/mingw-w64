@@ -16,6 +16,7 @@
 #include <sys/cdefs.h>
 
 #include <float.h>
+#include <math.h>
 #include <stdint.h>
 
 #include "../bsd_private_base.h"

@@ -22,6 +22,7 @@
  */
 
 #include <float.h>
+#include <math.h>
 
 #include "../bsd_private_base.h"
 
