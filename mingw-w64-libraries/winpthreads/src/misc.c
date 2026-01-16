@@ -55,9 +55,6 @@ static void winpthreads_init(void)
         _pthread_get_tick_count_64 =
             (ULONGLONG (WINAPI *)(VOID))(void*) GetProcAddress(mod, "GetTickCount64");
 
-        _pthread_set_thread_description =
-            (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
-
         /* <1us precision on Windows 10 */
         _pthread_get_system_time_best_as_file_time =
             (void (WINAPI *)(LPFILETIME))(void*) GetProcAddress(mod, "GetSystemTimePreciseAsFileTime");
@@ -66,6 +63,13 @@ static void winpthreads_init(void)
     if (!_pthread_get_system_time_best_as_file_time)
         /* >15ms precision on Windows 10 */
         _pthread_get_system_time_best_as_file_time = GetSystemTimeAsFileTime;
+
+    mod = GetModuleHandleA("kernelbase.dll");
+    if (mod)
+    {
+        _pthread_set_thread_description =
+            (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
+    }
 }
 #if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
 #pragma GCC diagnostic pop
