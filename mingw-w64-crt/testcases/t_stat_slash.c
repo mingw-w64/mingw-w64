@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
+#include <errno.h>
 #include <sys/stat.h>
 
 void
@@ -9,7 +10,7 @@ test (char *path)
   if (stat(path, &buf) == 0)
     printf ("OK [%s]\n", path);
   else {
-    printf ("ERROR [%s]\n", path);
+    printf ("ERROR [%s]: %d\n", path, errno);
     abort();
   }
 }
@@ -21,7 +22,7 @@ wtest (wchar_t *path)
   if (wstat(path, &buf) == 0)
     wprintf (L"OK [%ls]\n", path);
   else {
-    wprintf (L"ERROR [%ls]\n", path);
+    wprintf (L"ERROR [%ls]: %d\n", path, errno);
     abort();
   }
 }
