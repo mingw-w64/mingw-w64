@@ -96,21 +96,38 @@ _CRTIMP int __cdecl _toupper_l(int _C,_locale_t _Locale);
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
-  _CRTIMP int __cdecl _toupper(int _C);
-  _CRTIMP int __cdecl _tolower(int _C);
+/**
+ * POSIX functions.
+ */
+
+_CRTIMP int __cdecl __isascii(int _C);
+_CRTIMP int __cdecl __toascii(int _C);
+_CRTIMP int __cdecl _tolower(int _C);
+_CRTIMP int __cdecl _toupper(int _C);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define __isascii(_Char) ((unsigned)(_Char) < 0x80)
+#define __toascii(_Char) ((_Char) & 0x7f)
+#define _tolower(_Char)  ((_Char)-'A'+'a')
+#define _toupper(_Char)  ((_Char)-'a'+'A')
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+
+#ifndef	NO_OLDNAMES
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define isascii __isascii
+#define toascii __toascii
+#else
+_CRTIMP int __cdecl isascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP int __cdecl toascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+#endif /* !NO_OLDNAMES */
+
   _CRTIMP int __cdecl _isctype(int _C,int _Type);
   _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
-  _CRTIMP int __cdecl __isascii(int _C);
-  _CRTIMP int __cdecl __toascii(int _C);
   _CRTIMP int __cdecl __iscsymf(int _C);
   _CRTIMP int __cdecl __iscsym(int _C);
 
 #ifndef _CTYPE_DISABLE_MACROS
-#define _tolower(_Char) ((_Char)-'A'+'a')
-#define _toupper(_Char) ((_Char)-'a'+'A')
-#define __isascii(_Char) ((unsigned)(_Char) < 0x80)
-#define __toascii(_Char) ((_Char) & 0x7f)
-
 #define __iscsymf(_c) (isalpha(_c) || ((_c)=='_'))
 #define __iscsym(_c) (isalnum(_c) || ((_c)=='_'))
 #define __iswcsymf(_c) (iswalpha(_c) || ((_c)=='_'))
@@ -123,13 +140,9 @@ _CRTIMP int __cdecl _toupper_l(int _C,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
 #ifdef _CTYPE_DISABLE_MACROS
-  _CRTIMP int __cdecl isascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  _CRTIMP int __cdecl toascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP int __cdecl iscsym(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #else
-#define isascii __isascii
-#define toascii __toascii
 #define iscsymf __iscsymf
 #define iscsym __iscsym
 #endif
