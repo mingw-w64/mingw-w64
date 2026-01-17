@@ -57,27 +57,49 @@ extern "C" {
 #define _LEADBYTE 0x8000
 #define _ALPHA (0x0100|_UPPER|_LOWER)
 
-  _CRTIMP int __cdecl iswalpha(wint_t _C);
-  _CRTIMP int __cdecl iswupper(wint_t _C);
-  _CRTIMP int __cdecl iswlower(wint_t _C);
-  _CRTIMP int __cdecl iswdigit(wint_t _C);
-  _CRTIMP int __cdecl iswxdigit(wint_t _C);
-  _CRTIMP int __cdecl iswspace(wint_t _C);
-  _CRTIMP int __cdecl iswpunct(wint_t _C);
-  _CRTIMP int __cdecl iswalnum(wint_t _C);
-  _CRTIMP int __cdecl iswprint(wint_t _C);
-  _CRTIMP int __cdecl iswgraph(wint_t _C);
-  _CRTIMP int __cdecl iswcntrl(wint_t _C);
+/**
+ * Standard C functions.
+ */
+
+_CRTIMP int __cdecl iswctype(wint_t _C,wctype_t _Type);
+
+_CRTIMP int __cdecl iswalnum(wint_t _C);
+_CRTIMP int __cdecl iswalpha(wint_t _C);
+_CRTIMP int __cdecl iswblank(wint_t _C);
+_CRTIMP int __cdecl iswcntrl(wint_t _C);
+_CRTIMP int __cdecl iswdigit(wint_t _C);
+_CRTIMP int __cdecl iswgraph(wint_t _C);
+_CRTIMP int __cdecl iswlower(wint_t _C);
+_CRTIMP int __cdecl iswprint(wint_t _C);
+_CRTIMP int __cdecl iswpunct(wint_t _C);
+_CRTIMP int __cdecl iswspace(wint_t _C);
+_CRTIMP int __cdecl iswupper(wint_t _C);
+_CRTIMP int __cdecl iswxdigit(wint_t _C);
+
+_CRTIMP wint_t __cdecl towlower(wint_t _C);
+_CRTIMP wint_t __cdecl towupper(wint_t _C);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define iswalnum(_c)  (iswctype(_c,_ALPHA|_DIGIT))
+#define iswalpha(_c)  (iswctype(_c,_ALPHA))
+#define iswblank(_c)  (((_c) == '\t') || iswctype(_c,_BLANK))
+#define iswcntrl(_c)  (iswctype(_c,_CONTROL))
+#define iswdigit(_c)  (iswctype(_c,_DIGIT))
+#define iswgraph(_c)  (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
+#define iswlower(_c)  (iswctype(_c,_LOWER))
+#define iswprint(_c)  (iswctype(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT))
+#define iswpunct(_c)  (iswctype(_c,_PUNCT))
+#define iswspace(_c)  (iswctype(_c,_SPACE))
+#define iswupper(_c)  (iswctype(_c,_UPPER))
+#define iswxdigit(_c) (iswctype(_c,_HEX))
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+
   _CRTIMP int __cdecl iswascii(wint_t _C);
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   _CRTIMP int __cdecl isleadbyte(int _C);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-  _CRTIMP wint_t __cdecl towupper(wint_t _C);
-  _CRTIMP wint_t __cdecl towlower(wint_t _C);
-  _CRTIMP int __cdecl iswctype(wint_t _C,wctype_t _Type);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
-  _CRTIMP int __cdecl iswblank(wint_t _C);
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
   /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
    * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
@@ -110,19 +132,7 @@ extern "C" {
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
-#define iswalpha(_c) (iswctype(_c,_ALPHA))
-#define iswupper(_c) (iswctype(_c,_UPPER))
-#define iswlower(_c) (iswctype(_c,_LOWER))
-#define iswdigit(_c) (iswctype(_c,_DIGIT))
-#define iswxdigit(_c) (iswctype(_c,_HEX))
-#define iswspace(_c) (iswctype(_c,_SPACE))
-#define iswpunct(_c) (iswctype(_c,_PUNCT))
-#define iswalnum(_c) (iswctype(_c,_ALPHA|_DIGIT))
-#define iswprint(_c) (iswctype(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT))
-#define iswgraph(_c) (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
-#define iswcntrl(_c) (iswctype(_c,_CONTROL))
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
-#define iswblank(_c) (((_c) == '\t') || iswctype(_c,_BLANK))
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
 # define _iswalpha_l(_c,_p) (_iswctype_l(_c,_ALPHA,_p))
 # define _iswupper_l(_c,_p) (_iswctype_l(_c,_UPPER,_p))
