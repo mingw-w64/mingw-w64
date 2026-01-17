@@ -22,8 +22,6 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-#ifndef _CRT_CTYPEDATA_DEFINED
-#define _CRT_CTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
 
 #ifndef __PCTYPE_FUNC
@@ -36,10 +34,7 @@ extern "C" {
 #endif
 
 #endif
-#endif
 
-#ifndef _CRT_WCTYPEDATA_DEFINED
-#define _CRT_WCTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
 #if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
   extern const unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
@@ -49,7 +44,6 @@ extern "C" {
   _CRTIMP const wctype_t * __cdecl __pwctype_func(void);
 #ifndef _pwctype
 #define _pwctype (__pwctype_func())
-#endif
 #endif
 #endif
 
@@ -65,9 +59,6 @@ extern "C" {
 
 #define _LEADBYTE 0x8000
 #define _ALPHA (0x0100|_UPPER|_LOWER)
-
-#ifndef _WCTYPE_DEFINED
-#define _WCTYPE_DEFINED
 
   _CRTIMP int __cdecl iswalpha(wint_t _C);
   _CRTIMP int __cdecl iswupper(wint_t _C);
@@ -120,7 +111,6 @@ extern "C" {
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-#endif
 
 #ifndef _WCTYPE_INLINE_DEFINED
 #define _WCTYPE_INLINE_DEFINED
