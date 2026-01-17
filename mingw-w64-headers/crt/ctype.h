@@ -12,6 +12,18 @@
 extern "C" {
 #endif
 
+#ifndef _CTYPE_DISABLE_MACROS
+
+#ifndef MB_CUR_MAX
+#define MB_CUR_MAX ___mb_cur_max_func()
+#ifndef __mb_cur_max
+#define __mb_cur_max	(___mb_cur_max_func())
+#endif
+_CRTIMP int __cdecl ___mb_cur_max_func(void);
+#endif
+
+#endif /* !_CTYPE_DISABLE_MACROS */
+
   _CRTIMP int __cdecl isalpha(int _C);
   _CRTIMP int __cdecl isupper(int _C);
   _CRTIMP int __cdecl islower(int _C);
@@ -50,15 +62,6 @@ extern "C" {
   _CRTIMP int __cdecl __iscsym(int _C);
 
 #ifndef _CTYPE_DISABLE_MACROS
-
-#ifndef MB_CUR_MAX
-#define MB_CUR_MAX ___mb_cur_max_func()
-#ifndef __mb_cur_max
-#define __mb_cur_max	(___mb_cur_max_func())
-#endif
-_CRTIMP int __cdecl ___mb_cur_max_func(void);
-#endif
-
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
 #ifdef _UCRT
 #define _chvalidchk_l(_Char,_Flag,_Locale) (!_Locale ? __chvalidchk(_Char,_Flag) : ((_locale_t)_Locale)->locinfo->_locale_pctype[(unsigned char)(_Char)] & (_Flag))
