@@ -24,24 +24,34 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 
 #endif /* !_CTYPE_DISABLE_MACROS */
 
-  _CRTIMP int __cdecl isalpha(int _C);
-  _CRTIMP int __cdecl isupper(int _C);
-  _CRTIMP int __cdecl islower(int _C);
-  _CRTIMP int __cdecl isdigit(int _C);
-  _CRTIMP int __cdecl isxdigit(int _C);
-  _CRTIMP int __cdecl isspace(int _C);
-  _CRTIMP int __cdecl ispunct(int _C);
-  _CRTIMP int __cdecl isalnum(int _C);
-  _CRTIMP int __cdecl isprint(int _C);
-  _CRTIMP int __cdecl isgraph(int _C);
-  _CRTIMP int __cdecl iscntrl(int _C);
-  _CRTIMP int __cdecl toupper(int _C);
+/**
+ * Standard C functions.
+ */
+
+_CRTIMP int __cdecl isalnum(int _C);
+_CRTIMP int __cdecl isalpha(int _C);
+_CRTIMP int __cdecl isblank(int _C);
+_CRTIMP int __cdecl iscntrl(int _C);
+_CRTIMP int __cdecl isdigit(int _C);
+_CRTIMP int __cdecl isgraph(int _C);
+_CRTIMP int __cdecl islower(int _C);
+_CRTIMP int __cdecl isprint(int _C);
+_CRTIMP int __cdecl ispunct(int _C);
+_CRTIMP int __cdecl isspace(int _C);
+_CRTIMP int __cdecl isupper(int _C);
+_CRTIMP int __cdecl isxdigit(int _C);
+
+_CRTIMP int __cdecl tolower(int _C);
+_CRTIMP int __cdecl toupper(int _C);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+
   _CRTIMP int __cdecl _toupper(int _C);
-  _CRTIMP int __cdecl tolower(int _C);
   _CRTIMP int __cdecl _tolower(int _C);
   _CRTIMP int __cdecl _tolower_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl _isctype(int _C,int _Type);
-  _CRTIMP int __cdecl isblank(int _C);
   _CRTIMP int __cdecl _isalpha_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl _isupper_l(int _C,_locale_t _Locale);
   _CRTIMP int __cdecl _islower_l(int _C,_locale_t _Locale);
@@ -62,7 +72,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   _CRTIMP int __cdecl __iscsym(int _C);
 
 #ifndef _CTYPE_DISABLE_MACROS
-#define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
 #ifdef _UCRT
 #define _chvalidchk_l(_Char,_Flag,_Locale) (!_Locale ? __chvalidchk(_Char,_Flag) : ((_locale_t)_Locale)->locinfo->_locale_pctype[(unsigned char)(_Char)] & (_Flag))
 #define _ischartype_l(_Char,_Flag,_Locale) (((_Locale)!=NULL && (((_locale_t)(_Locale))->locinfo->_locale_mb_cur_max) > 1) ? _isctype_l(_Char,(_Flag),_Locale) : _chvalidchk_l(_Char,_Flag,_Locale))
