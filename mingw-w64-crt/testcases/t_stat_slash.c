@@ -31,7 +31,9 @@ main (int argc, char **argv)
 {
   wchar_t windir_wbuf[MAX_PATH + 1];
   char windir_abuf[MAX_PATH + 1];
-  
+
+  setvbuf (stdout, NULL, _IONBF, 0);
+
   if (GetWindowsDirectoryA(&windir_abuf[0], MAX_PATH))
   {
     strcat (&windir_abuf[0], "\\");
