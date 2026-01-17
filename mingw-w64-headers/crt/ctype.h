@@ -16,20 +16,6 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-  /* CRT stuff */
-#if 1
-  extern const unsigned char __newclmap[];
-  extern const unsigned char __newcumap[];
-  extern pthreadlocinfo __ptlocinfo;
-  extern pthreadmbcinfo __ptmbcinfo;
-  extern int __globallocalestatus;
-  extern int __locale_changed;
-  extern struct threadlocaleinfostruct __initiallocinfo;
-  extern _locale_tstruct __initiallocalestructinfo;
-  pthreadlocinfo __cdecl __updatetlocinfo(void);
-  pthreadmbcinfo __cdecl __updatetmbcinfo(void);
-#endif
-
 #ifndef _CTYPE_DEFINED
 #define _CTYPE_DEFINED
 

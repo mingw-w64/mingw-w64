@@ -23,12 +23,6 @@ extern "C" {
 #define _mbcasemap (__p__mbcasemap())
 #endif
 
-  extern pthreadmbcinfo __ptmbcinfo;
-  extern int __globallocalestatus;
-  extern int __locale_changed;
-  extern struct threadmbcinfostruct __initialmbcinfo;
-  pthreadmbcinfo __cdecl __updatetmbcinfo(void);
-
 #define _MS 0x01
 #define _MP 0x02
 #define _M1 0x04

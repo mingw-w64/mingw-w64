@@ -30,6 +30,7 @@ extern int _fmode;
 #undef _commode
 extern int _commode;
 extern int _dowildcard;
+extern int __globallocalestatus;
 
 static int __cdecl check_managed_app (void);
 
