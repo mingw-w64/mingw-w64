@@ -1,4 +1,4 @@
-#define _WCTYPE_INLINE_DEFINED
+#define _CTYPE_DISABLE_MACROS
 #include <wctype.h>
 
 int __cdecl iswblank (wint_t _C)

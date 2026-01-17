@@ -1,4 +1,4 @@
-#define _WCTYPE_INLINE_DEFINED
+#define _CTYPE_DISABLE_MACROS
 #include <wctype.h>
 
 int __cdecl _iswblank_l(wint_t _C, _locale_t _Locale)

@@ -109,11 +109,7 @@ extern "C" {
   _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
-#ifndef _WCTYPE_INLINE_DEFINED
-#define _WCTYPE_INLINE_DEFINED
-
-#undef _CRT_WCTYPE_NOINLINE
-#ifndef __cplusplus
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #define iswalpha(_c) (iswctype(_c,_ALPHA))
 #define iswupper(_c) (iswctype(_c,_UPPER))
 #define iswlower(_c) (iswctype(_c,_LOWER))
@@ -141,8 +137,7 @@ extern "C" {
 # define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
 # define _iswblank_l(_c,_p) (((_c) == '\t') || _iswctype_l(_c,_BLANK,_p))
 #endif  /* __MSVCRT_VERSION__ >= 0x800 */
-#endif
-#endif
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
 #ifdef __cplusplus
 }
