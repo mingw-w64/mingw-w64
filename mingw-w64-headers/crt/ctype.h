@@ -148,13 +148,22 @@ _CRTIMP int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif /* !NO_OLDNAMES */
 
-  _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
+/**
+ * Locale-specific versions of Microsoft functions.
+ *
+ * They are available since msvcr80.dll.
+ */
 
-#ifndef _CTYPE_DISABLE_MACROS
-#define _iscsymf_l(_c,_p) (_isalpha_l(_c,_p) || ((_c)=='_'))
-#define _iscsym_l(_c,_p) (_isalnum_l(_c,_p) || ((_c)=='_'))
+/* These are also available in msvcrt.dll since Windows Vista. */
+#if __MSVCRT_VERSION__ >= 0x0800 || (__MSVCRT_VERSION__ == 0x0600 && _WIN32_WINNT >= 0x0600)
+_CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define _iscsym_l(_c,_p)   (_isalnum_l(_c,_p) || ((_c)=='_'))
+#define _iscsymf_l(_c,_p)  (_isalpha_l(_c,_p) || ((_c)=='_'))
+#define _iswcsym_l(_c,_p)  (_iswalnum_l(_c,_p) || ((_c)=='_'))
 #define _iswcsymf_l(_c,_p) (_iswalpha_l(_c,_p) || ((_c)=='_'))
-#define _iswcsym_l(_c,_p) (_iswalnum_l(_c,_p) || ((_c)=='_'))
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
 #ifdef __cplusplus
