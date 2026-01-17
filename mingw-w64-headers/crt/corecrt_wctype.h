@@ -33,9 +33,6 @@ extern "C" {
 #define _pctype (__pctype_func())
 #endif
 
-#endif
-
-#ifndef _CTYPE_DISABLE_MACROS
 #if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
   extern const unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
 #define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
@@ -45,7 +42,7 @@ extern "C" {
 #ifndef _pwctype
 #define _pwctype (__pwctype_func())
 #endif
-#endif
+#endif /* !_CTYPE_DISABLE_MACROS */
 
 #define _UPPER 0x1
 #define _LOWER 0x2
