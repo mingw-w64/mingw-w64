@@ -12,9 +12,6 @@
 extern "C" {
 #endif
 
-#ifndef _CTYPE_DEFINED
-#define _CTYPE_DEFINED
-
   _CRTIMP int __cdecl isalpha(int _C);
   _CRTIMP int __cdecl isupper(int _C);
   _CRTIMP int __cdecl islower(int _C);
@@ -51,7 +48,6 @@ extern "C" {
   _CRTIMP int __cdecl __toascii(int _C);
   _CRTIMP int __cdecl __iscsymf(int _C);
   _CRTIMP int __cdecl __iscsym(int _C);
-#endif
 
 #ifndef _CTYPE_DISABLE_MACROS
 
@@ -99,7 +95,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 
 #ifndef	NO_OLDNAMES
-#ifndef _CTYPE_DEFINED
+#ifdef _CTYPE_DISABLE_MACROS
   _CRTIMP int __cdecl isascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP int __cdecl toascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
