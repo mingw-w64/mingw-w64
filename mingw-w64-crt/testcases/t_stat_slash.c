@@ -19,9 +19,9 @@ wtest (wchar_t *path)
 {
   struct stat buf;
   if (wstat(path, &buf) == 0)
-    wprintf (L"OK [%s]\n", path);
+    wprintf (L"OK [%ls]\n", path);
   else {
-    wprintf (L"ERROR [%s]\n", path);
+    wprintf (L"ERROR [%ls]\n", path);
     abort();
   }
 }
