@@ -34,15 +34,16 @@ _CRTIMP const wctype_t * __cdecl __pwctype_func(void);
 #define _pctype (__pctype_func())
 #endif
 
-#if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
-  extern const unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
-#define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
-#endif
-
 #ifndef _pwctype
 #define _pwctype (__pwctype_func())
 #endif
 #endif /* !_CTYPE_DISABLE_MACROS */
+
+#if __MSVCRT_VERSION__ >= 0x0600
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+extern _CRTIMP const unsigned short *_wctype;
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+#endif
 
 #define _UPPER 0x1
 #define _LOWER 0x2
