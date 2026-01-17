@@ -48,30 +48,31 @@ _CRTIMP int __cdecl toupper(int _C);
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
-  _CRTIMP int __cdecl _toupper(int _C);
-  _CRTIMP int __cdecl _tolower(int _C);
-  _CRTIMP int __cdecl _tolower_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isctype(int _C,int _Type);
-  _CRTIMP int __cdecl _isalpha_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isupper_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _islower_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isdigit_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isxdigit_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isspace_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _ispunct_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isalnum_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isprint_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isgraph_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _iscntrl_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _toupper_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
-  _CRTIMP int __cdecl _isblank_l(int _C,_locale_t _Locale);
-  _CRTIMP int __cdecl __isascii(int _C);
-  _CRTIMP int __cdecl __toascii(int _C);
-  _CRTIMP int __cdecl __iscsymf(int _C);
-  _CRTIMP int __cdecl __iscsym(int _C);
+/**
+ * Locale-specific versions of Standard C functions.
+ *
+ * They are available since msvcr80.dll.
+ */
 
-#ifndef _CTYPE_DISABLE_MACROS
+/* These are also available in msvcrt.dll since Windows Vista. */
+#if __MSVCRT_VERSION__ >= 0x0800 || (__MSVCRT_VERSION__ == 0x0600 && _WIN32_WINNT >= 0x0600)
+_CRTIMP int __cdecl _isalnum_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isalpha_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isblank_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _iscntrl_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isdigit_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isgraph_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _islower_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isprint_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _ispunct_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isspace_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isupper_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _isxdigit_l(int _C,_locale_t _Locale);
+
+_CRTIMP int __cdecl _tolower_l(int _C,_locale_t _Locale);
+_CRTIMP int __cdecl _toupper_l(int _C,_locale_t _Locale);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #ifdef _UCRT
 #define _chvalidchk_l(_Char,_Flag,_Locale) (!_Locale ? __chvalidchk(_Char,_Flag) : ((_locale_t)_Locale)->locinfo->_locale_pctype[(unsigned char)(_Char)] & (_Flag))
 #define _ischartype_l(_Char,_Flag,_Locale) (((_Locale)!=NULL && (((_locale_t)(_Locale))->locinfo->_locale_mb_cur_max) > 1) ? _isctype_l(_Char,(_Flag),_Locale) : _chvalidchk_l(_Char,_Flag,_Locale))
@@ -79,18 +80,32 @@ _CRTIMP int __cdecl toupper(int _C);
 #define _chvalidchk_l(_Char,_Flag,_Locale) (!_Locale ? __chvalidchk(_Char,_Flag) : ((_locale_t)_Locale)->locinfo->pctype[(unsigned char)(_Char)] & (_Flag))
 #define _ischartype_l(_Char,_Flag,_Locale) (((_Locale)!=NULL && (((_locale_t)(_Locale))->locinfo->mb_cur_max) > 1) ? _isctype_l(_Char,(_Flag),_Locale) : _chvalidchk_l(_Char,_Flag,_Locale))
 #endif
-#define _isalpha_l(_Char,_Locale) _ischartype_l(_Char,_ALPHA,_Locale)
-#define _isupper_l(_Char,_Locale) _ischartype_l(_Char,_UPPER,_Locale)
-#define _islower_l(_Char,_Locale) _ischartype_l(_Char,_LOWER,_Locale)
-#define _isdigit_l(_Char,_Locale) _ischartype_l(_Char,_DIGIT,_Locale)
+
+#define _isalnum_l(_Char,_Locale)  _ischartype_l(_Char,_ALPHA|_DIGIT,_Locale)
+#define _isalpha_l(_Char,_Locale)  _ischartype_l(_Char,_ALPHA,_Locale)
+#define _isblank_l(_Char,_Locale)  (((_Char) == '\t') || _ischartype_l(_Char,_BLANK,_Locale))
+#define _iscntrl_l(_Char,_Locale)  _ischartype_l(_Char,_CONTROL,_Locale)
+#define _isdigit_l(_Char,_Locale)  _ischartype_l(_Char,_DIGIT,_Locale)
+#define _isgraph_l(_Char,_Locale)  _ischartype_l(_Char,_PUNCT|_ALPHA|_DIGIT,_Locale)
+#define _islower_l(_Char,_Locale)  _ischartype_l(_Char,_LOWER,_Locale)
+#define _isprint_l(_Char,_Locale)  _ischartype_l(_Char,_BLANK|_PUNCT|_ALPHA|_DIGIT,_Locale)
+#define _ispunct_l(_Char,_Locale)  _ischartype_l(_Char,_PUNCT,_Locale)
+#define _isspace_l(_Char,_Locale)  _ischartype_l(_Char,_SPACE,_Locale)
+#define _isupper_l(_Char,_Locale)  _ischartype_l(_Char,_UPPER,_Locale)
 #define _isxdigit_l(_Char,_Locale) _ischartype_l(_Char,_HEX,_Locale)
-#define _isspace_l(_Char,_Locale) _ischartype_l(_Char,_SPACE,_Locale)
-#define _ispunct_l(_Char,_Locale) _ischartype_l(_Char,_PUNCT,_Locale)
-#define _isalnum_l(_Char,_Locale) _ischartype_l(_Char,_ALPHA|_DIGIT,_Locale)
-#define _isprint_l(_Char,_Locale) _ischartype_l(_Char,_BLANK|_PUNCT|_ALPHA|_DIGIT,_Locale)
-#define _isgraph_l(_Char,_Locale) _ischartype_l(_Char,_PUNCT|_ALPHA|_DIGIT,_Locale)
-#define _iscntrl_l(_Char,_Locale) _ischartype_l(_Char,_CONTROL,_Locale)
-#define _isblank_l(_Char,_Locale) (((_Char) == '\t') || _ischartype_l(_Char,_BLANK,_Locale))
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+#endif
+
+  _CRTIMP int __cdecl _toupper(int _C);
+  _CRTIMP int __cdecl _tolower(int _C);
+  _CRTIMP int __cdecl _isctype(int _C,int _Type);
+  _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
+  _CRTIMP int __cdecl __isascii(int _C);
+  _CRTIMP int __cdecl __toascii(int _C);
+  _CRTIMP int __cdecl __iscsymf(int _C);
+  _CRTIMP int __cdecl __iscsym(int _C);
+
+#ifndef _CTYPE_DISABLE_MACROS
 #define _tolower(_Char) ((_Char)-'A'+'a')
 #define _toupper(_Char) ((_Char)-'a'+'A')
 #define __isascii(_Char) ((unsigned)(_Char) < 0x80)
