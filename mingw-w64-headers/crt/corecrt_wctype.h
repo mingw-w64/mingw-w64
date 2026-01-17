@@ -154,17 +154,24 @@ _CRTIMP int __cdecl isleadbyte(int _C);
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
-#if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
-  /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
-   * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
-# ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-  _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
-# endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+/**
+ * Locale-specific versions of Microsoft functions.
+ *
+ * They are available since msvcr80.dll.
+ */
+
+/* These are only available since msvcr80.dll, never in msvcrt.dll. */
+#if __MSVCRT_VERSION__ >= 0x0800
+_CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
+_CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
 #endif
-#if __MSVCRT_VERSION__ >= 0x800
-  /* These are only available since msvcr80.dll, never in msvcrt.dll. */
-  _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
+
+/* These are also available in msvcrt.dll since Windows Vista. */
+#if __MSVCRT_VERSION__ >= 0x0800 || (__MSVCRT_VERSION__ == 0x0600 && _WIN32_WINNT >= 0x0600)
+/* These are only available for Desktop applications. */
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+_CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 #endif
 
 #ifdef __cplusplus
