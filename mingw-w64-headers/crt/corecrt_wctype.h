@@ -136,12 +136,24 @@ _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
-  _CRTIMP int __cdecl iswascii(wint_t _C);
+/**
+ * Microsoft-specific functions.
+ */
+
+_CRTIMP int __cdecl __iswcsym(wint_t _C);
+_CRTIMP int __cdecl __iswcsymf(wint_t _C);
+_CRTIMP int __cdecl iswascii(wint_t _C);
+
+/* These are only available for Desktop applications. */
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-  _CRTIMP int __cdecl isleadbyte(int _C);
+_CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
+_CRTIMP int __cdecl isleadbyte(int _C);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-  _CRTIMP int __cdecl __iswcsymf(wint_t _C);
-  _CRTIMP int __cdecl __iswcsym(wint_t _C);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define iswascii(_c) ((unsigned)(_c) < 0x80)
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
+
 #if __MSVCRT_VERSION__ >= 0x800 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x0600)
   /* These are available since msvcr80.dll (__MSVCRT_VERSION__ >= 0x800), and in
    * msvcrt.dll (__MSVCRT_VERSION__ == 0x600) since Vista (_WIN32_WINNT >= 0x0600). */
@@ -154,13 +166,6 @@ _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
 #endif
-#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-  _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
-#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-
-#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
-#define iswascii(_c) ((unsigned)(_c) < 0x80)
-#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
 #ifdef __cplusplus
 }
