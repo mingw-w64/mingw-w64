@@ -23,10 +23,11 @@ extern "C" {
 #endif
 
 #ifndef _CTYPE_DISABLE_MACROS
+_CRTIMP const unsigned short* __cdecl __pctype_func(void);
+_CRTIMP const wctype_t * __cdecl __pwctype_func(void);
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
-  _CRTIMP const unsigned short* __pctype_func(void);
 #endif
 
 #ifndef _pctype
@@ -38,7 +39,6 @@ extern "C" {
 #define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
 #endif
 
-  _CRTIMP const wctype_t * __cdecl __pwctype_func(void);
 #ifndef _pwctype
 #define _pwctype (__pwctype_func())
 #endif
