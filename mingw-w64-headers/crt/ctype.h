@@ -12,10 +12,6 @@
 extern "C" {
 #endif
 
-#ifndef WEOF
-#define WEOF (wint_t)(0xFFFF)
-#endif
-
 #ifndef _CTYPE_DEFINED
 #define _CTYPE_DEFINED
 
