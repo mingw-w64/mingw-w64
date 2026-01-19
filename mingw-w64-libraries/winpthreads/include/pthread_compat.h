@@ -60,6 +60,16 @@
 #ifndef WIN_PTHREADS_PTHREAD_COMPAT_H
 #define WIN_PTHREADS_PTHREAD_COMPAT_H
 
+#if defined(__cplusplus) && __cplusplus >= 201103L
+#define WINPTHREADS_STATIC_ASSERT(expr, msg) static_assert ((expr), msg)
+#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#define WINPTHREADS_STATIC_ASSERT(expr, msg) static_assert ((expr), msg)
+#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define WINPTHREADS_STATIC_ASSERT(expr, msg) _Static_assert ((expr), msg)
+#else
+#define WINPTHREADS_STATIC_ASSERT(expr, msg) extern int winpthreads_static_assert[((expr) ? 1 : -1)]
+#endif
+
 #if defined(_USE_32BIT_TIME_T)
 #define WINPTHREADS_TIME_BITS 32
 #else
