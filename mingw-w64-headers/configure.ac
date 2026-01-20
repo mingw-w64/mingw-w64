@@ -12,9 +12,6 @@ AM_MAINTAINER_MODE
 
 AC_CANONICAL_HOST
 
-# Checks for programs.
-AC_PROG_SED
-
 # Search for a usable widl.  If PATH is given, search there.  Otherwise, search
 # in $PATH.  In all cases, search for a canonicalized name first ($host-widl),
 # followed by a non-canonicalized name (widl).  If these fail, error out.
