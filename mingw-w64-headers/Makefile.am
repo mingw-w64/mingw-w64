@@ -9,7 +9,6 @@ gdiplusheaddir = $(baseheaddir)/gdiplus
 wrlheaddir = $(baseheaddir)/wrl
 wrlwrappersheaddir = $(baseheaddir)/wrl/wrappers
 mingwhelperheaddir = $(baseheaddir)/psdk_inc
-sdksheaddir = $(baseheaddir)/sdks
 
 basehead_HEADERS = @BASEHEAD_LIST@
 syshead_HEADERS = @SYSHEAD_LIST@
@@ -21,16 +20,12 @@ gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
 wrlhead_HEADERS = @WRLHEAD_LIST@
 wrlwrappershead_HEADERS = @WRLWRAPPERSHEAD_LIST@
 mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
-nodist_sdkshead_HEADERS = _mingw_ddk.h
-noinst_HEADERS = crt/sdks/_mingw_ddk.h.in
 
 ddkheaddir = $(baseheaddir)/ddk
 idlheaddir = $(baseheaddir)
 
 ddkhead_HEADERS = @DDKHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
-
-CLEANFILES = $(nodist_sdkshead_HEADERS)
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
 
@@ -413,6 +408,3 @@ include/prsht.h: ;
 include/wincrypt.h: ;
 
 endif
-
-_mingw_ddk.h: $(srcdir)/crt/sdks/_mingw_ddk.h.in
-	$(SED) s/MINGW_HAS_DDK$$/@MINGW_HAS_DDK@/ $< > $@

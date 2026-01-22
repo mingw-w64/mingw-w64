@@ -681,8 +681,8 @@ const char *__mingw_get_crt_info (void);
 #define __STDC_SECURE_LIB__ 200411L
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
 
-#ifndef __WIDL__
-#include "sdks/_mingw_ddk.h"
+#if @MINGW_HAS_DDK@
+#define MINGW_HAS_DDK_H 1
 #endif
 
 #endif /* MINGW_SDK_INIT */
