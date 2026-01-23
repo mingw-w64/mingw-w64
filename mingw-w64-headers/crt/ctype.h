@@ -130,8 +130,6 @@ _CRTIMP int __cdecl _isctype(int _C,int _Type);
 
 _CRTIMP int __cdecl __iscsym(int _C);
 _CRTIMP int __cdecl __iscsymf(int _C);
-_CRTIMP int __cdecl __iswcsym(wint_t _C);
-_CRTIMP int __cdecl __iswcsymf(wint_t _C);
 
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #define __iscsym(_c)   (isalnum(_c) || ((_c)=='_'))
@@ -156,17 +154,6 @@ _CRTIMP int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
  * They are available since msvcr80.dll.
  */
 
-/* These are only available since msvcr80.dll, never in msvcrt.dll. */
-#if __MSVCRT_VERSION__ >= 0x0800
-_CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
-_CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
-
-#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
-#define _iswcsym_l(_c,_p)  (_iswalnum_l(_c,_p) || ((_c)=='_'))
-#define _iswcsymf_l(_c,_p) (_iswalpha_l(_c,_p) || ((_c)=='_'))
-#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
-#endif
-
 /* These are also available in msvcrt.dll since Windows Vista. */
 #if __MSVCRT_VERSION__ >= 0x0800 || (__MSVCRT_VERSION__ == 0x0600 && _WIN32_WINNT >= 0x0600)
 _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
@@ -174,6 +161,8 @@ _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #define _iscsym_l(_c,_p)   (_isalnum_l(_c,_p) || ((_c)=='_'))
 #define _iscsymf_l(_c,_p)  (_isalpha_l(_c,_p) || ((_c)=='_'))
+#define _iswcsym_l(_c,_p)  (_iswalnum_l(_c,_p) || ((_c)=='_'))
+#define _iswcsymf_l(_c,_p) (_iswalpha_l(_c,_p) || ((_c)=='_'))
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
