@@ -146,7 +146,9 @@ _CRTIMP int __cdecl isleadbyte(int _C);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
-#define iswascii(_c) ((unsigned)(_c) < 0x80)
+#define __iswcsym(_c)  (iswalnum(_c) || ((_c)=='_'))
+#define __iswcsymf(_c) (iswalpha(_c) || ((_c)=='_'))
+#define iswascii(_c)   ((unsigned)(_c) < 0x80)
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
 /**
@@ -159,6 +161,11 @@ _CRTIMP int __cdecl isleadbyte(int _C);
 #if __MSVCRT_VERSION__ >= 0x0800
 _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
 _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
+
+#if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
+#define _iswcsym_l(_c,_p)  (_iswalnum_l(_c,_p) || ((_c)=='_'))
+#define _iswcsymf_l(_c,_p) (_iswalpha_l(_c,_p) || ((_c)=='_'))
+#endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
 /* These are also available in msvcrt.dll since Windows Vista. */

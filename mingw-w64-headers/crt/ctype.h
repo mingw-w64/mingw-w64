@@ -134,8 +134,6 @@ _CRTIMP int __cdecl __iscsymf(int _C);
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #define __iscsym(_c)   (isalnum(_c) || ((_c)=='_'))
 #define __iscsymf(_c)  (isalpha(_c) || ((_c)=='_'))
-#define __iswcsym(_c)  (iswalnum(_c) || ((_c)=='_'))
-#define __iswcsymf(_c) (iswalpha(_c) || ((_c)=='_'))
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 
 #ifndef	NO_OLDNAMES
@@ -159,10 +157,8 @@ _CRTIMP int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
 
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
-#define _iscsym_l(_c,_p)   (_isalnum_l(_c,_p) || ((_c)=='_'))
-#define _iscsymf_l(_c,_p)  (_isalpha_l(_c,_p) || ((_c)=='_'))
-#define _iswcsym_l(_c,_p)  (_iswalnum_l(_c,_p) || ((_c)=='_'))
-#define _iswcsymf_l(_c,_p) (_iswalpha_l(_c,_p) || ((_c)=='_'))
+#define _iscsym_l(_c,_p)  (_isalnum_l(_c,_p) || ((_c)=='_'))
+#define _iscsymf_l(_c,_p) (_isalpha_l(_c,_p) || ((_c)=='_'))
 #endif /* !_CTYPE_DISABLE_MACROS && !__cplusplus */
 #endif
 
