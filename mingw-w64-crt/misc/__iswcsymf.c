@@ -4,14 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <_mingw.h>
-#include <corecrt.h>
+#define _CTYPE_DISABLE_MACROS
+#include <wctype.h>
 
-#undef iswalpha
-_CRTIMP int __cdecl iswalpha(wint_t c);
-
-#undef __iswcsymf
-int __cdecl __iswcsymf(wint_t c);
 int __cdecl __iswcsymf(wint_t c)
 {
   return iswalpha(c) || c == L'_';
