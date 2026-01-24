@@ -12,12 +12,6 @@
 extern "C" {
 #endif
 
-#ifndef _WCTYPE_T_DEFINED
-#define _WCTYPE_T_DEFINED
-  typedef unsigned short wint_t;
-  typedef unsigned short wctype_t;
-#endif /* _WCTYPE_T_DEFINED */
-
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
 #endif
