@@ -436,6 +436,8 @@ src_ucrtbase=\
   misc/__p__osver_emul.c \
   misc/__initenv.c \
   misc/__winitenv.c \
+  misc/_iscsym_l.c \
+  misc/_iscsymf_l.c \
   misc/_onexit.c \
   misc/output_format.c \
   misc/ucrt-access.c \
@@ -1042,6 +1044,8 @@ src_pre_msvcr120_post_msvcr71=\
   misc/_iswblank_l.c
 
 src_post_msvcr71=\
+  misc/_iscsym_l.c \
+  misc/_iscsymf_l.c \
   stdio/msvcr80plus_ftruncate64.c \
   string/msvcr80plus_wcstok.c
 
