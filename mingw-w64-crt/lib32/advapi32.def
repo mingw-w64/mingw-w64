@@ -735,7 +735,7 @@ SaferSetLevelInformation@16
 SaferSetPolicyInformation@20
 SaferiChangeRegistryScope@8
 SaferiCompareTokenLevels@12
-SaferiIsDllAllowed@12
+SaferiIsDllAllowed@8
 SaferiIsExecutableFileType@8
 SaferiPopulateDefaultsInRegistry@8
 SaferiRecordEventLogEntry@12
