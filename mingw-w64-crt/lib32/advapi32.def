@@ -5,7 +5,7 @@
 ;
 LIBRARY "ADVAPI32.dll"
 EXPORTS
-ord_1000@8 @1000
+SaferiRegisterExtensionDll@8 @1000 NONAME
 I_ScGetCurrentGroupStateW@12
 A_SHAFinal@8
 A_SHAInit@4
