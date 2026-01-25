@@ -55,6 +55,9 @@ static void winpthreads_init(void)
         _pthread_get_tick_count_64 =
             (ULONGLONG (WINAPI *)(VOID))(void*) GetProcAddress(mod, "GetTickCount64");
 
+        _pthread_set_thread_description =
+            (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
+
         /* <1us precision on Windows 10 */
         _pthread_get_system_time_best_as_file_time =
             (void (WINAPI *)(LPFILETIME))(void*) GetProcAddress(mod, "GetSystemTimePreciseAsFileTime");
@@ -64,11 +67,18 @@ static void winpthreads_init(void)
         /* >15ms precision on Windows 10 */
         _pthread_get_system_time_best_as_file_time = GetSystemTimeAsFileTime;
 
-    mod = GetModuleHandleA("kernelbase.dll");
-    if (mod)
+    /* Although SetThreadDescription lives in kernel32.dll, on Windows Server 2016,
+     * Windows 10 LTSB 2016 and Windows 10 version 1607, it was only available in
+     * kernelbase.dll. So, load it from there for maximum coverage.
+     */
+    if (!_pthread_set_thread_description)
     {
-        _pthread_set_thread_description =
-            (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
+        mod = GetModuleHandleA("kernelbase.dll");
+        if (mod)
+        {
+            _pthread_set_thread_description =
+                (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
+        }
     }
 }
 #if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
