@@ -417,7 +417,7 @@ localeconv
 localtime
 log
 log10
-longjmp
+__crtdll_longjmp == longjmp ; crtdll.dll's longjmp is incompatible with msvcrt.dll longjmp, real longjmp provided as wrapper
 malloc
 mblen
 mbstowcs

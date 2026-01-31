@@ -1125,6 +1125,7 @@ src_crtdll=\
   $(src_pre_msvcr120) \
   misc/crtdll_stat.h \
   misc/crtdll__getmainargs.c \
+  misc/crtdll__longjmpex.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
   misc/__p__mbctype.c

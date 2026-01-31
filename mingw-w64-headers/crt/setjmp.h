@@ -25,8 +25,8 @@ _CRT_BEGIN_C_HEADER
     unsigned long Registration;
     unsigned long TryLevel;
     /* Following fields are only for new _setjmp3(), the are not for old _setjmp(). */
-    unsigned long Cookie;
-    unsigned long UnwindFunc;
+    unsigned long Cookie; /* 0x56433230 */
+    unsigned long UnwindFunc; /* void(__stdcall*)(const _JUMP_BUFFER *) */
     unsigned long UnwindData[6];
   } _JUMP_BUFFER;
 
