@@ -35,8 +35,62 @@
 
 #if defined(__i386__)
 __MINGW_USYMBOL(_setjmp3):
+        /* edx == -1 -> setjmp_common will NOT inspect SEH try_level */
+        /* edx != -1 -> setjmp_common will inspect SEH try_level */
+        /* Do not inspect SEH try_level when _Count >= 2 -> means that try_level is provided as _TryLevel param */
+        cmpl    $2,8(%esp)           /* _Count */
+        setge   %dl
+        movzbl  %dl,%edx
+        neg     %edx
+        pushl   4(%esp)
+        calll   __MINGW_LSYMBOL(setjmp_common)
+        popl    %ecx                 /* jmp_buf */
+
+        movl    %esp,16(%ecx)        /* jmp_buf.Esp */
+        movl    0(%esp),%eax
+        movl    %eax,20(%ecx)        /* jmp_buf.Eip */
+        movl    $0x56433230,32(%ecx) /* jmp_buf.Cookie */
+        movl    $0,36(%ecx)          /* jmp_buf.UnwindFunc */
+
+        movl    24(%ecx),%eax        /* load jmp_buf.Registration */
+        cmpl    $-1,%eax
+        je      .L_setjmp3_end
+
+        movl    8(%esp),%eax         /* _Count */
+        test    %eax,%eax
+        je      .L_setjmp3_end
+
+        movl    12(%esp),%edx        /* _UnwindFunc */
+        movl    %edx,36(%ecx)        /* jmp_buf.UnwindFunc */
+        decl    %eax
+        jz      .L_setjmp3_end
+
+        movl    16(%esp),%edx        /* _TryLevel */
+        movl    %edx,28(%ecx)        /* jmp_buf.TryLevel */
+        decl    %eax
+        jz      .L_setjmp3_end
+
+        cmpl    $6,%eax
+        jbe     .L_setjmp3_copy_unwind_data
+        movl    $6,%eax              /* array size of jmp_buf.UnwindData[] is 6 */
+        .L_setjmp3_copy_unwind_data:
+        pushl   %esi
+        pushl   %edi
+        leal    28(%esp),%esi        /* _UnwindData */
+        leal    40(%ecx),%edi        /* jmp_buf.UnwindData */
+        movl    %eax,%ecx
+        rep movsl (%esi),(%edi)
+        popl    %edi
+        popl    %esi
+
+        .L_setjmp3_end:
+        xorl    %eax,%eax
+        retl
+
 __MINGW_USYMBOL(__intrinsic_setjmp):
 __MINGW_USYMBOL(_setjmp):
+        xorl    %edx,%edx            /* edx != -1 -> setjmp_common will inspect SEH try_level */
+__MINGW_LSYMBOL(setjmp_common):
         movl    4(%esp),%ecx         /* jmp_buf */
         movl    %ebp,0(%ecx)         /* jmp_buf.Ebp */
         movl    %ebx,4(%ecx)         /* jmp_buf.Ebx */
@@ -47,6 +101,8 @@ __MINGW_USYMBOL(_setjmp):
         movl    %eax,20(%ecx)        /* jmp_buf.Eip */
         movl    %fs:0,%eax           /* current SEH record */
         movl    %eax,24(%ecx)        /* jmp_buf.Registration */
+        cmpl    $-1,%edx             /* setjmp_common was called to not inspect SEH try_level */
+        je      .L_setjmp_skip_SEH_try_level
         movl    $-1,%edx
         cmpl    $-1,%eax             /* SEH is top level -> do not inspect SEH try_level */
         je      .L_setjmp_skip_SEH_try_level
