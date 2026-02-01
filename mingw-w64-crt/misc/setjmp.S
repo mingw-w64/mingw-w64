@@ -45,6 +45,14 @@ __MINGW_USYMBOL(_setjmp):
         movl    %esp,16(%ecx)        /* jmp_buf.Esp */
         movl    0(%esp),%eax
         movl    %eax,20(%ecx)        /* jmp_buf.Eip */
+        movl    %fs:0,%eax           /* current SEH record */
+        movl    %eax,24(%ecx)        /* jmp_buf.Registration */
+        movl    $-1,%edx
+        cmpl    $-1,%eax             /* SEH is top level -> do not inspect SEH try_level */
+        je      .L_setjmp_skip_SEH_try_level
+        movl    12(%eax),%edx
+        .L_setjmp_skip_SEH_try_level:
+        movl    %edx,28(%ecx)        /* jmp_buf.TryLevel */
         xorl    %eax, %eax
         retl
 
