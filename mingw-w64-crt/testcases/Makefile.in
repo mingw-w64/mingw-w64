@@ -193,14 +193,15 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_stprintf_a$(EXEEXT) t_stprintf_u$(EXEEXT) \
 	t_stprintf0_a$(EXEEXT) t_stprintf0_u$(EXEEXT) \
 	t_stprintf1_a$(EXEEXT) t_stprintf1_u$(EXEEXT) \
-	t_setjmp$(EXEEXT) t_sigv$(EXEEXT) t_speed_powl$(EXEEXT) \
-	t_stat$(EXEEXT) t_stat_f64$(EXEEXT) t_stat_t64$(EXEEXT) \
-	t_stat_t64_f64$(EXEEXT) t_stderr_buffering$(EXEEXT) \
-	t_stdint$(EXEEXT) t_time$(EXEEXT) t_tls1$(EXEEXT) \
-	t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) t_stat_slash$(EXEEXT) \
-	t_utime$(EXEEXT) t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) \
-	t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) \
-	t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
+	t_setjmp$(EXEEXT) t_sigfpe$(EXEEXT) t_sigv$(EXEEXT) \
+	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
+	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
+	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) t_time$(EXEEXT) \
+	t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) \
+	t_stat_slash$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
+	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
+	t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) \
+	$(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -545,6 +546,9 @@ t_safe_flush_DEPENDENCIES = libprocdetach.dll.a
 t_setjmp_SOURCES = t_setjmp.c
 t_setjmp_OBJECTS = t_setjmp.$(OBJEXT)
 t_setjmp_LDADD = $(LDADD)
+t_sigfpe_SOURCES = t_sigfpe.c
+t_sigfpe_OBJECTS = t_sigfpe.$(OBJEXT)
+t_sigfpe_LDADD = $(LDADD)
 t_sigv_SOURCES = t_sigv.c
 t_sigv_OBJECTS = t_sigv.$(OBJEXT)
 t_sigv_LDADD = $(LDADD)
@@ -1007,13 +1011,13 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_nullptrexception.Po \
 	./$(DEPDIR)/t_printf_g_width.Po ./$(DEPDIR)/t_readdir.Po \
 	./$(DEPDIR)/t_safe_flush.Po ./$(DEPDIR)/t_setjmp.Po \
-	./$(DEPDIR)/t_sigv.Po ./$(DEPDIR)/t_snprintf.Po \
-	./$(DEPDIR)/t_snprintf0.Po ./$(DEPDIR)/t_snprintf1.Po \
-	./$(DEPDIR)/t_snwprintf.Po ./$(DEPDIR)/t_snwprintf0.Po \
-	./$(DEPDIR)/t_snwprintf1.Po ./$(DEPDIR)/t_speed_powl.Po \
-	./$(DEPDIR)/t_stat.Po ./$(DEPDIR)/t_stat_f64.Po \
-	./$(DEPDIR)/t_stat_slash.Po ./$(DEPDIR)/t_stat_t64.Po \
-	./$(DEPDIR)/t_stat_t64_f64.Po \
+	./$(DEPDIR)/t_sigfpe.Po ./$(DEPDIR)/t_sigv.Po \
+	./$(DEPDIR)/t_snprintf.Po ./$(DEPDIR)/t_snprintf0.Po \
+	./$(DEPDIR)/t_snprintf1.Po ./$(DEPDIR)/t_snwprintf.Po \
+	./$(DEPDIR)/t_snwprintf0.Po ./$(DEPDIR)/t_snwprintf1.Po \
+	./$(DEPDIR)/t_speed_powl.Po ./$(DEPDIR)/t_stat.Po \
+	./$(DEPDIR)/t_stat_f64.Po ./$(DEPDIR)/t_stat_slash.Po \
+	./$(DEPDIR)/t_stat_t64.Po ./$(DEPDIR)/t_stat_t64_f64.Po \
 	./$(DEPDIR)/t_stderr_buffering.Po ./$(DEPDIR)/t_stdint.Po \
 	./$(DEPDIR)/t_stprintf0_a.Po ./$(DEPDIR)/t_stprintf0_u.Po \
 	./$(DEPDIR)/t_stprintf1_a.Po ./$(DEPDIR)/t_stprintf1_u.Po \
@@ -1246,7 +1250,7 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
 	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
 	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
 	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
 	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
 	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
@@ -1291,7 +1295,7 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	t_intrinc.c t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c \
 	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
 	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
 	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
 	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
 	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
@@ -1720,11 +1724,11 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t_snprintf t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 \
 	t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
 	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
-	t_stprintf1_u t_setjmp t_sigv t_speed_powl t_stat t_stat_f64 \
-	t_stat_t64 t_stat_t64_f64 t_stderr_buffering t_stdint t_time \
-	t_tls1 t_tmpfile t_trycatch t_stat_slash t_utime t_vsscanf \
-	t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob t_wreaddir t_fseeko64 \
-	$(am__append_1)
+	t_stprintf1_u t_setjmp t_sigfpe t_sigv t_speed_powl t_stat \
+	t_stat_f64 t_stat_t64 t_stat_t64_f64 t_stderr_buffering \
+	t_stdint t_time t_tls1 t_tmpfile t_trycatch t_stat_slash \
+	t_utime t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob \
+	t_wreaddir t_fseeko64 $(am__append_1)
 EXTRA_DIST = \
   t_snprintf_tmpl.h \
   t_snwprintf_tmpl.h \
@@ -2504,6 +2508,10 @@ t_setjmp$(EXEEXT): $(t_setjmp_OBJECTS) $(t_setjmp_DEPENDENCIES) $(EXTRA_t_setjmp
 	@rm -f t_setjmp$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_setjmp_OBJECTS) $(t_setjmp_LDADD) $(LIBS)
 
+t_sigfpe$(EXEEXT): $(t_sigfpe_OBJECTS) $(t_sigfpe_DEPENDENCIES) $(EXTRA_t_sigfpe_DEPENDENCIES) 
+	@rm -f t_sigfpe$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_sigfpe_OBJECTS) $(t_sigfpe_LDADD) $(LIBS)
+
 t_sigv$(EXEEXT): $(t_sigv_OBJECTS) $(t_sigv_DEPENDENCIES) $(EXTRA_t_sigv_DEPENDENCIES) 
 	@rm -f t_sigv$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_sigv_OBJECTS) $(t_sigv_LDADD) $(LIBS)
@@ -2961,6 +2969,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_readdir.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_safe_flush.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_setjmp.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_sigfpe.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_sigv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_snprintf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_snprintf0.Po@am__quote@ # am--include-marker
@@ -6243,6 +6252,13 @@ t_setjmp.log: t_setjmp$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_sigfpe.log: t_sigfpe$(EXEEXT)
+	@p='t_sigfpe$(EXEEXT)'; \
+	b='t_sigfpe'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_sigv.log: t_sigv$(EXEEXT)
 	@p='t_sigv$(EXEEXT)'; \
 	b='t_sigv'; \
@@ -6845,6 +6861,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_readdir.Po
 	-rm -f ./$(DEPDIR)/t_safe_flush.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
+	-rm -f ./$(DEPDIR)/t_sigfpe.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
 	-rm -f ./$(DEPDIR)/t_snprintf0.Po
@@ -7135,6 +7152,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_readdir.Po
 	-rm -f ./$(DEPDIR)/t_safe_flush.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
+	-rm -f ./$(DEPDIR)/t_sigfpe.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
 	-rm -f ./$(DEPDIR)/t_snprintf0.Po
