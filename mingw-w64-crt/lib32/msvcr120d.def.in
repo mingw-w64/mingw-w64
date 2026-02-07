@@ -2108,7 +2108,7 @@ iswalpha
 iswascii
 iswblank
 iswcntrl
-iswctype
+__msvcrt_iswctype DATA == iswctype; mingw-w64 provides real iswctype as a wrapper around renamed __msvcrt_iswctype
 iswdigit
 iswgraph
 iswlower

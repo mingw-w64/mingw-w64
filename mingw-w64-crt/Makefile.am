@@ -1264,6 +1264,7 @@ src_libmingwex=\
   misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
+  misc/iswctype.c \
   misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
