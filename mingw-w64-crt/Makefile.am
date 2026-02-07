@@ -335,8 +335,16 @@ src_msvcrt_add_vscanf=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
   $(src_msvcrt_add_vscanf) \
-  misc/__iswcsym.c \
-  misc/__iswcsymf.c \
+  ctype/__iswcsym.c \
+  ctype/__iswcsymf.c \
+  ctype/_isblank_l.c \
+  ctype/_iswblank_l.c \
+  ctype/isblank.c \
+  ctype/isprint.c \
+  ctype/iswblank.c \
+  ctype/iswprint.c \
+  ctype/wctrans.c \
+  ctype/wctype.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
@@ -357,14 +365,6 @@ src_msvcrt=\
   misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
-  misc/isblank.c \
-  misc/isprint.c \
-  misc/iswblank.c \
-  misc/iswprint.c \
-  misc/_isblank_l.c \
-  misc/_iswblank_l.c \
-  misc/wctrans.c \
-  misc/wctype.c \
   secapi/_vscprintf_p.c \
   secapi/_vscwprintf_p.c \
   secapi/_vswprintf_p.c \
@@ -424,6 +424,9 @@ src_msvcrt_add_x86=\
 
 # Files included in libucrt*.a
 src_ucrtbase=\
+  ctype/_iscsym_l.c \
+  ctype/_iscsymf_l.c \
+  ctype/towctrans.c \
   misc/ucrt__getmainargs.c \
   misc/ucrt__wgetmainargs.c \
   misc/ucrt_amsg_exit.c \
@@ -438,11 +441,8 @@ src_ucrtbase=\
   misc/__p__osver_emul.c \
   misc/__initenv.c \
   misc/__winitenv.c \
-  misc/_iscsym_l.c \
-  misc/_iscsymf_l.c \
   misc/_onexit.c \
   misc/output_format.c \
-  misc/towctrans.c \
   misc/ucrt-access.c \
   stdio/msvcr80plus_ftruncate64.c \
   stdio/ucrt___local_stdio_printf_options.c \
@@ -566,6 +566,8 @@ endif
 src_msvcrt32=\
   $(src_msvcrt) \
   $(src_msvcrt_add_x86) \
+  ctype/__pctype_func.c \
+  ctype/__pwctype_func.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   math/i386__copysignf.c \
@@ -573,8 +575,6 @@ src_msvcrt32=\
   misc/___lc_handle_func.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
   misc/_aligned_free.c \
   misc/_aligned_malloc.c \
   misc/_aligned_offset_malloc.c \
@@ -638,6 +638,8 @@ src_msvcrt32=\
 src_msvcrt64=\
   $(src_msvcrt) \
   $(src_msvcrt_add_x86) \
+  ctype/__p__pctype.c \
+  ctype/__p__pwctype.c \
   misc/__daylight.c \
   misc/__dstbias.c \
   misc/__p___argc.c \
@@ -654,9 +656,7 @@ src_msvcrt64=\
   misc/__p__mbctype.c \
   misc/__p__osplatform.c \
   misc/__p__osver.c \
-  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
-  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__wenviron.c \
   misc/__p__winmajor.c \
@@ -701,6 +701,8 @@ src_msvcrt64=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
   $(src_msvcrt) \
+  ctype/__p__pctype.c \
+  ctype/__p__pwctype.c \
   misc/__p___argc.c \
   misc/__p___argv.c \
   misc/__p___wargv.c \
@@ -714,9 +716,7 @@ src_msvcrtarm32=\
   misc/__p__mbctype.c \
   misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
-  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
-  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__winmajor.c \
   misc/__p__winminor.c \
@@ -786,6 +786,8 @@ src_msvcrtarm32+=\
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm64
 src_msvcrtarm64=\
   $(src_msvcrt) \
+  ctype/__p__pctype.c \
+  ctype/__p__pwctype.c \
   math/arm-common/acosh.c \
   math/arm-common/acoshf.c \
   math/arm-common/acoshl.c \
@@ -840,9 +842,7 @@ src_msvcrtarm64=\
   misc/__p__mbctype.c \
   misc/__p__osplatform_emul.c \
   misc/__p__osver.c \
-  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
-  misc/__p__pwctype.c \
   misc/__p__wcmdln.c \
   misc/__p__winmajor.c \
   misc/__p__winminor.c \
@@ -880,6 +880,8 @@ src_msvcrtarm64+=stdio/scanf.S
 endif
 
 src_pre_msvcrt20=\
+  ctype/__p__pctype.c \
+  ctype/__p__pwctype.c \
   misc/__daylight.c \
   misc/__initenv.c \
   misc/__p___argc.c \
@@ -891,9 +893,7 @@ src_pre_msvcrt20=\
   misc/__p__environ.c \
   misc/__p__fmode.c \
   misc/__p__osver.c \
-  misc/__p__pctype.c \
   misc/__p__pgmptr.c \
-  misc/__p__pwctype.c \
   misc/__p__winmajor.c \
   misc/__p__winminor.c \
   misc/__p__winver.c \
@@ -932,9 +932,9 @@ src_pre_msvcrt60=\
   stdio/mingw_dummy__lock.c
 
 src_pre_msvcr70=\
+  ctype/__pctype_func.c \
+  ctype/__pwctype_func.c \
   misc/___mb_cur_max_func.c \
-  misc/__pctype_func.c \
-  misc/__pwctype_func.c \
   misc/_aligned_free.c \
   misc/_aligned_malloc.c \
   misc/_aligned_offset_malloc.c \
@@ -970,8 +970,8 @@ src_pre_msvcr71=\
   misc/_set_purecall_handler.c
 
 src_pre_msvcr80=\
-  misc/__iswcsym.c \
-  misc/__iswcsymf.c \
+  ctype/__iswcsym.c \
+  ctype/__iswcsymf.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
@@ -1036,22 +1036,22 @@ src_pre_msvcr110=\
 
 src_pre_msvcr120=\
   $(src_msvcrt_add_vscanf) \
+  ctype/isblank.c \
+  ctype/isprint.c \
+  ctype/iswblank.c \
+  ctype/iswprint.c \
+  ctype/wctrans.c \
+  ctype/wctype.c \
   math/i386__copysignf.c \
-  misc/isblank.c \
-  misc/isprint.c \
-  misc/iswblank.c \
-  misc/iswprint.c \
-  misc/wctrans.c \
-  misc/wctype.c \
   stdio/scanf.S
 
 src_pre_msvcr120_post_msvcr71=\
-  misc/_isblank_l.c \
-  misc/_iswblank_l.c
+  ctype/_isblank_l.c \
+  ctype/_iswblank_l.c
 
 src_post_msvcr71=\
-  misc/_iscsym_l.c \
-  misc/_iscsymf_l.c \
+  ctype/_iscsym_l.c \
+  ctype/_iscsymf_l.c \
   stdio/msvcr80plus_ftruncate64.c \
   string/msvcr80plus_wcstok.c
 
@@ -1066,7 +1066,7 @@ src_post_msvcr100=\
   stdio/msvcr110plus_wstat64i32.c
 
 src_post_msvcr110=\
-  misc/towctrans.c
+  ctype/towctrans.c
 
 src_crtdll=\
   $(src_pre_msvcrt20) \
@@ -1223,6 +1223,8 @@ src_libmingwex=\
   complex/conj.def.h    complex/cpow.def.h   complex/cproj.def.h   complex/creal.def.h   complex/csin.def.h          \
   complex/csinh.def.h   complex/csqrt.def.h  complex/ctan.def.h    complex/ctanh.def.h   \
   \
+  ctype/iswctype.c \
+  \
   gdtoa/gd_arith.h  gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
   gdtoa/arithchk.c  gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c      gdtoa/gethex.c     \
   gdtoa/g_ffmt.c    gdtoa/g__fmt.c   gdtoa/gmisc.c  gdtoa/g_xfmt.c   gdtoa/hd_init.c    gdtoa/hexnan.c     \
@@ -1274,7 +1276,6 @@ src_libmingwex=\
   misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
-  misc/iswctype.c \
   misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
