@@ -32,6 +32,7 @@ testcase_progs = \
   t_fstat_t64_f64 \
   t_intrinc \
   t_imagebase \
+  t_iswctype \
   t_lfs \
   t_lseeki64 \
   t_matherr \
