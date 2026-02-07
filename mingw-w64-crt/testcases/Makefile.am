@@ -73,6 +73,7 @@ testcase_progs = \
   t_tmpfile \
   t_trycatch \
   t_stat_slash \
+  t_towctrans \
   t_utime \
   t_vsscanf \
   t_wcrtomb \
