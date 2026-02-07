@@ -1489,7 +1489,7 @@ isdigit
 isgraph
 isleadbyte
 islower
-isprint
+; isprint ; replaced by emu, CRT version mishandles TAB character
 ispunct
 isspace
 isupper
@@ -1501,7 +1501,7 @@ __msvcrt_iswctype DATA == iswctype; mingw-w64 provides real iswctype as a wrappe
 iswdigit
 iswgraph
 iswlower
-iswprint
+; iswprint ; replaced by emu, CRT version mishandles TAB character
 iswpunct
 iswspace
 iswupper

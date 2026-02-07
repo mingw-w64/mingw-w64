@@ -358,7 +358,9 @@ src_msvcrt=\
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
   misc/isblank.c \
+  misc/isprint.c \
   misc/iswblank.c \
+  misc/iswprint.c \
   misc/_isblank_l.c \
   misc/_iswblank_l.c \
   misc/wctrans.c \
@@ -1035,7 +1037,9 @@ src_pre_msvcr120=\
   $(src_msvcrt_add_vscanf) \
   math/i386__copysignf.c \
   misc/isblank.c \
+  misc/isprint.c \
   misc/iswblank.c \
+  misc/iswprint.c \
   misc/wctrans.c \
   misc/wctype.c \
   stdio/scanf.S
