@@ -2139,7 +2139,7 @@ tmpnam
 tmpnam_s
 tolower
 toupper
-towctrans
+__msvcrt_towctrans DATA == towctrans ; mingw-w64 provides real towctrans as a wrapper around renamed __msvcrt_towctrans
 towlower
 towupper
 trunc

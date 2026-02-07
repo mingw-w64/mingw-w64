@@ -442,6 +442,7 @@ src_ucrtbase=\
   misc/_iscsymf_l.c \
   misc/_onexit.c \
   misc/output_format.c \
+  misc/towctrans.c \
   misc/ucrt-access.c \
   stdio/msvcr80plus_ftruncate64.c \
   stdio/ucrt___local_stdio_printf_options.c \
@@ -1064,6 +1065,9 @@ src_post_msvcr100=\
   stdio/msvcr110plus_wstat32.c \
   stdio/msvcr110plus_wstat64i32.c
 
+src_post_msvcr110=\
+  misc/towctrans.c
+
 src_crtdll=\
   $(src_pre_msvcrt20) \
   $(src_pre_msvcrt40) \
@@ -1182,12 +1186,14 @@ src_msvcr110=\
 src_msvcr120=\
   $(src_post_msvcr71) \
   $(src_post_msvcr80) \
-  $(src_post_msvcr100)
+  $(src_post_msvcr100) \
+  $(src_post_msvcr110)
 
 src_msvcr120_app=\
   $(src_post_msvcr71) \
   $(src_post_msvcr80) \
   $(src_post_msvcr100) \
+  $(src_post_msvcr110) \
   misc/__p___initenv.c \
   misc/__p___winitenv.c \
   misc/__p__environ.c \
