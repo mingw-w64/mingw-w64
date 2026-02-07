@@ -21,6 +21,7 @@
 
   iswctype(wc, wctype("alnum")) == iswalnum(wc)
   iswctype(wc, wctype("alpha")) == iswalpha(wc)
+  iswctype(wc, wctype("blank")) == iswblank(wc)
   iswctype(wc, wctype("cntrl")) == iswcntrl(wc)
   iswctype(wc, wctype("digit")) == iswdigit(wc)
   iswctype(wc, wctype("graph")) == iswgraph(wc)
@@ -44,6 +45,7 @@ static const struct {
 } cmap[] = {
   {"alnum",  _ALPHA|_DIGIT},
   {"alpha",  _ALPHA},
+  {"blank",  _BLANK},
   {"cntrl",  _CONTROL},
   {"digit",  _DIGIT},
   {"graph",  _ALPHA|_DIGIT|_PUNCT},
