@@ -21,6 +21,7 @@ testcase_progs = \
   t_ansi_io \
   t_assert \
   t_btowc \
+  t_ctype \
   t_findfirst \
   t_float  \
   t_fseeki64 \
@@ -77,6 +78,7 @@ testcase_progs = \
   t_wcsrtombs \
   t_wcstok_s \
   t_wctob \
+  t_wctype \
   t_wreaddir \
   t_fseeko64
 
