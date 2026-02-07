@@ -77,7 +77,7 @@ _CRTIMP wint_t __cdecl towupper(wint_t _C);
 #if !defined(_CTYPE_DISABLE_MACROS) && !defined(__cplusplus)
 #define iswalnum(_c)  (iswctype(_c,_ALPHA|_DIGIT))
 #define iswalpha(_c)  (iswctype(_c,_ALPHA))
-#define iswblank(_c)  (((_c) == '\t') || iswctype(_c,_BLANK))
+#define iswblank(_c)  (iswctype(_c,_BLANK))
 #define iswcntrl(_c)  (iswctype(_c,_CONTROL))
 #define iswdigit(_c)  (iswctype(_c,_DIGIT))
 #define iswgraph(_c)  (iswctype(_c,_PUNCT|_ALPHA|_DIGIT))
