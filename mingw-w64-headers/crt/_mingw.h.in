@@ -622,17 +622,17 @@ __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 #define __MINGW_FASTFAIL_IMPL 1
 #endif
 #if __MINGW_FASTFAIL_IMPL == 1
-void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int code);
-__MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int code)
+void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int _Code);
+__MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int _Code)
 {
 #if defined(__aarch64__) || defined(__arm64ec__)
-  register unsigned int w0 __asm__("w0") = code;
-  __asm__ __volatile__("brk #0xf003"::"r"(w0));
+  register unsigned int __w0 __asm__("w0") = _Code;
+  __asm__ __volatile__("brk #0xf003"::"r"(__w0));
 #elif defined(__i386__) || defined(__x86_64__)
-  __asm__ __volatile__("int {$}0x29"::"c"(code));
+  __asm__ __volatile__("int {$}0x29"::"c"(_Code));
 #elif defined(__arm__)
-  register unsigned int r0 __asm__("r0") = code;
-  __asm__ __volatile__("udf #0xfb"::"r"(r0));
+  register unsigned int __r0 __asm__("r0") = _Code;
+  __asm__ __volatile__("udf #0xfb"::"r"(__r0));
 #else
   __asm__ __volatile__("unimplemented");
 #endif
@@ -647,13 +647,13 @@ __MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned i
 #endif
 #if __MINGW_PREFETCH_IMPL == 1
 #if defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
-void __cdecl __prefetch(const void *addr);
-__MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *addr)
+void __cdecl __prefetch(const void *_Addr);
+__MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *_Addr)
 {
 #if defined(__arm__)
-  __asm__ __volatile__("pld [%0]"::"r"(addr));
+  __asm__ __volatile__("pld [%0]"::"r"(_Addr));
 #elif defined(__aarch64__) || defined(__arm64ec__)
-  __asm__ __volatile__("prfm pldl1keep, [%0]"::"r"(addr));
+  __asm__ __volatile__("prfm pldl1keep, [%0]"::"r"(_Addr));
 #endif
 }
 #endif /* defined(__arm__) || defined(__aarch64__) */
