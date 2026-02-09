@@ -109,12 +109,8 @@ AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_ddk],[yes],[
     DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
-    MINGW_HAS_DDK=1
-  ],[
-    MINGW_HAS_DDK=0
-  ])
+  ],[])
 AC_SUBST([DDKHEAD_LIST])
-AC_SUBST([MINGW_HAS_DDK])
 
 AC_MSG_CHECKING([if installing idl files is enabled])
 AC_ARG_ENABLE([idl],

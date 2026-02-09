@@ -1,9 +1,6 @@
 DDK sdk for x86 and x64 platforms.
 ----------------------------------
 
-You can check for existance of this optional package by verifying
-the definition of the macro MINGW_HAS_DDK_H.
-
 The DDK headers are from the ReactOS project, from their svn repo
 svn://svn.reactos.org/reactos/trunk/reactos/include/ddk/
 
