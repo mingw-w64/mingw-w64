@@ -668,12 +668,7 @@ const char *__mingw_get_crt_info (void);
 }
 #endif
 
-#endif /* _INC__MINGW_H */
-
-#ifndef MINGW_SDK_INIT
-#define MINGW_SDK_INIT
-
 #define __STDC_SECURE_LIB__ 200411L
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
 
-#endif /* MINGW_SDK_INIT */
+#endif /* _INC__MINGW_H */
