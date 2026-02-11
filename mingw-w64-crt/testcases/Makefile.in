@@ -178,17 +178,17 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	tstmain_sys_xxx$(EXEEXT) t__fstat_all$(EXEEXT) \
 	t__stat_all$(EXEEXT) t_aligned_alloc$(EXEEXT) \
 	t_ansi_io$(EXEEXT) t_assert$(EXEEXT) t_btowc$(EXEEXT) \
-	t_findfirst$(EXEEXT) t_float$(EXEEXT) t_fseeki64$(EXEEXT) \
-	t_fseeki64_ftelli64$(EXEEXT) t_fstat$(EXEEXT) \
-	t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
+	t_ctype$(EXEEXT) t_findfirst$(EXEEXT) t_float$(EXEEXT) \
+	t_fseeki64$(EXEEXT) t_fseeki64_ftelli64$(EXEEXT) \
+	t_fstat$(EXEEXT) t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
 	t_fstat_t64_f64$(EXEEXT) t_intrinc$(EXEEXT) \
-	t_imagebase$(EXEEXT) t_lfs$(EXEEXT) t_lseeki64$(EXEEXT) \
-	t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) \
-	t_mbsrtowcs$(EXEEXT) t_nullptrexception$(EXEEXT) \
-	t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
-	t_safe_flush$(EXEEXT) t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) \
-	t_snprintf1$(EXEEXT) t_swprintf$(EXEEXT) t_swprintf0$(EXEEXT) \
-	t_swprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
+	t_imagebase$(EXEEXT) t_iswctype$(EXEEXT) t_lfs$(EXEEXT) \
+	t_lseeki64$(EXEEXT) t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) \
+	t_mbrtowc$(EXEEXT) t_mbsrtowcs$(EXEEXT) \
+	t_nullptrexception$(EXEEXT) t_printf_g_width$(EXEEXT) \
+	t_readdir$(EXEEXT) t_safe_flush$(EXEEXT) t_snprintf$(EXEEXT) \
+	t_snprintf0$(EXEEXT) t_snprintf1$(EXEEXT) t_swprintf$(EXEEXT) \
+	t_swprintf0$(EXEEXT) t_swprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
 	t_snwprintf0$(EXEEXT) t_snwprintf1$(EXEEXT) \
 	t_stprintf_a$(EXEEXT) t_stprintf_u$(EXEEXT) \
 	t_stprintf0_a$(EXEEXT) t_stprintf0_u$(EXEEXT) \
@@ -198,10 +198,10 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
 	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) t_time$(EXEEXT) \
 	t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) \
-	t_stat_slash$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
-	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
-	t_wctob$(EXEEXT) t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) \
-	$(am__EXEEXT_1)
+	t_stat_slash$(EXEEXT) t_towctrans$(EXEEXT) t_utime$(EXEEXT) \
+	t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) \
+	t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) t_wctype$(EXEEXT) \
+	t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -473,6 +473,9 @@ t_assert_LDADD = $(LDADD)
 t_btowc_SOURCES = t_btowc.c
 t_btowc_OBJECTS = t_btowc.$(OBJEXT)
 t_btowc_LDADD = $(LDADD)
+t_ctype_SOURCES = t_ctype.c
+t_ctype_OBJECTS = t_ctype.$(OBJEXT)
+t_ctype_LDADD = $(LDADD)
 t_findfirst_SOURCES = t_findfirst.c
 t_findfirst_OBJECTS = t_findfirst.$(OBJEXT)
 t_findfirst_LDADD = $(LDADD)
@@ -508,6 +511,9 @@ t_intrinc_OBJECTS = t_intrinc-t_intrinc.$(OBJEXT)
 t_intrinc_LDADD = $(LDADD)
 t_intrinc_LINK = $(CCLD) $(t_intrinc_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+t_iswctype_SOURCES = t_iswctype.c
+t_iswctype_OBJECTS = t_iswctype.$(OBJEXT)
+t_iswctype_LDADD = $(LDADD)
 t_lfs_SOURCES = t_lfs.c
 t_lfs_OBJECTS = t_lfs.$(OBJEXT)
 t_lfs_LDADD = $(LDADD)
@@ -635,6 +641,9 @@ t_tmain_LINK = $(CCLD) $(t_tmain_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 t_tmpfile_SOURCES = t_tmpfile.c
 t_tmpfile_OBJECTS = t_tmpfile.$(OBJEXT)
 t_tmpfile_LDADD = $(LDADD)
+t_towctrans_SOURCES = t_towctrans.c
+t_towctrans_OBJECTS = t_towctrans.$(OBJEXT)
+t_towctrans_LDADD = $(LDADD)
 am_t_trycatch_OBJECTS = t_trycatch.$(OBJEXT)
 t_trycatch_OBJECTS = $(am_t_trycatch_OBJECTS)
 t_trycatch_LDADD = $(LDADD)
@@ -658,6 +667,9 @@ t_wcstok_s_LDADD = $(LDADD)
 t_wctob_SOURCES = t_wctob.c
 t_wctob_OBJECTS = t_wctob.$(OBJEXT)
 t_wctob_LDADD = $(LDADD)
+t_wctype_SOURCES = t_wctype.c
+t_wctype_OBJECTS = t_wctype.$(OBJEXT)
+t_wctype_LDADD = $(LDADD)
 t_wreaddir_SOURCES = t_wreaddir.c
 t_wreaddir_OBJECTS = t_wreaddir.$(OBJEXT)
 t_wreaddir_LDADD = $(LDADD)
@@ -998,12 +1010,13 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t__wstat_all-t__wstat_all.Po \
 	./$(DEPDIR)/t_aligned_alloc.Po ./$(DEPDIR)/t_ansi_io.Po \
 	./$(DEPDIR)/t_assert.Po ./$(DEPDIR)/t_btowc.Po \
-	./$(DEPDIR)/t_findfirst.Po ./$(DEPDIR)/t_float.Po \
-	./$(DEPDIR)/t_fseeki64.Po ./$(DEPDIR)/t_fseeki64_ftelli64.Po \
-	./$(DEPDIR)/t_fseeko64.Po ./$(DEPDIR)/t_fstat.Po \
-	./$(DEPDIR)/t_fstat_f64.Po ./$(DEPDIR)/t_fstat_t64.Po \
-	./$(DEPDIR)/t_fstat_t64_f64.Po ./$(DEPDIR)/t_imagebase.Po \
-	./$(DEPDIR)/t_intrinc-t_intrinc.Po ./$(DEPDIR)/t_lfs.Po \
+	./$(DEPDIR)/t_ctype.Po ./$(DEPDIR)/t_findfirst.Po \
+	./$(DEPDIR)/t_float.Po ./$(DEPDIR)/t_fseeki64.Po \
+	./$(DEPDIR)/t_fseeki64_ftelli64.Po ./$(DEPDIR)/t_fseeko64.Po \
+	./$(DEPDIR)/t_fstat.Po ./$(DEPDIR)/t_fstat_f64.Po \
+	./$(DEPDIR)/t_fstat_t64.Po ./$(DEPDIR)/t_fstat_t64_f64.Po \
+	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
+	./$(DEPDIR)/t_iswctype.Po ./$(DEPDIR)/t_lfs.Po \
 	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_matherr.Po \
 	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
 	./$(DEPDIR)/t_mbsrtowcs.Po \
@@ -1025,10 +1038,11 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_swprintf.Po ./$(DEPDIR)/t_swprintf0.Po \
 	./$(DEPDIR)/t_swprintf1.Po ./$(DEPDIR)/t_time.Po \
 	./$(DEPDIR)/t_tls1.Po ./$(DEPDIR)/t_tmain-t_tmain.Po \
-	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_trycatch.Po \
-	./$(DEPDIR)/t_utime.Po ./$(DEPDIR)/t_vsscanf.Po \
-	./$(DEPDIR)/t_wcrtomb.Po ./$(DEPDIR)/t_wcsrtombs.Po \
-	./$(DEPDIR)/t_wcstok_s.Po ./$(DEPDIR)/t_wctob.Po \
+	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_towctrans.Po \
+	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_utime.Po \
+	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
+	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
+	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wctype.Po \
 	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/tstmain_sys_xxx.Po \
 	./$(DEPDIR)/tstmainc.Po ./$(DEPDIR)/tstmaincpp.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
@@ -1244,21 +1258,22 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsf_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) t__fstat_all.c \
 	t__stat_all.c t__wstat_all.c t_aligned_alloc.c t_ansi_io.c \
-	t_assert.c t_btowc.c t_findfirst.c t_float.c t_fseeki64.c \
-	t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c t_fstat_f64.c \
-	t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c t_intrinc.c \
-	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
-	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
-	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
-	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
-	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	t_assert.c t_btowc.c t_ctype.c t_findfirst.c t_float.c \
+	t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c \
+	t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c \
+	t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c t_matherr.c \
+	t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
+	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
+	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
+	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
+	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
 	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
 	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
 	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
@@ -1289,21 +1304,22 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
 	t__fstat_all.c t__stat_all.c t__wstat_all.c t_aligned_alloc.c \
-	t_ansi_io.c t_assert.c t_btowc.c t_findfirst.c t_float.c \
-	t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c t_fstat.c \
-	t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c t_imagebase.c \
-	t_intrinc.c t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c \
-	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
-	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
-	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
-	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c $(t_trycatch_SOURCES) t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wreaddir.c \
+	t_ansi_io.c t_assert.c t_btowc.c t_ctype.c t_findfirst.c \
+	t_float.c t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c \
+	t_fstat.c t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c \
+	t_imagebase.c t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c \
+	t_matherr.c t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
+	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
+	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
+	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
+	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
 	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -1716,19 +1732,20 @@ AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLA
 #  tstwassert \
 #  testcases_tstwinmain_LDADD = -lgdi32
 testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
-	t__stat_all t_aligned_alloc t_ansi_io t_assert t_btowc \
+	t__stat_all t_aligned_alloc t_ansi_io t_assert t_btowc t_ctype \
 	t_findfirst t_float t_fseeki64 t_fseeki64_ftelli64 t_fstat \
 	t_fstat_f64 t_fstat_t64 t_fstat_t64_f64 t_intrinc t_imagebase \
-	t_lfs t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
-	t_nullptrexception t_printf_g_width t_readdir t_safe_flush \
-	t_snprintf t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 \
-	t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
-	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
-	t_stprintf1_u t_setjmp t_sigfpe t_sigv t_speed_powl t_stat \
-	t_stat_f64 t_stat_t64 t_stat_t64_f64 t_stderr_buffering \
-	t_stdint t_time t_tls1 t_tmpfile t_trycatch t_stat_slash \
-	t_utime t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob \
-	t_wreaddir t_fseeko64 $(am__append_1)
+	t_iswctype t_lfs t_lseeki64 t_matherr t_mbrlen t_mbrtowc \
+	t_mbsrtowcs t_nullptrexception t_printf_g_width t_readdir \
+	t_safe_flush t_snprintf t_snprintf0 t_snprintf1 t_swprintf \
+	t_swprintf0 t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 \
+	t_stprintf_a t_stprintf_u t_stprintf0_a t_stprintf0_u \
+	t_stprintf1_a t_stprintf1_u t_setjmp t_sigfpe t_sigv \
+	t_speed_powl t_stat t_stat_f64 t_stat_t64 t_stat_t64_f64 \
+	t_stderr_buffering t_stdint t_time t_tls1 t_tmpfile t_trycatch \
+	t_stat_slash t_towctrans t_utime t_vsscanf t_wcrtomb \
+	t_wcsrtombs t_wcstok_s t_wctob t_wctype t_wreaddir t_fseeko64 \
+	$(am__append_1)
 EXTRA_DIST = \
   t_snprintf_tmpl.h \
   t_snwprintf_tmpl.h \
@@ -2416,6 +2433,10 @@ t_btowc$(EXEEXT): $(t_btowc_OBJECTS) $(t_btowc_DEPENDENCIES) $(EXTRA_t_btowc_DEP
 	@rm -f t_btowc$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_btowc_OBJECTS) $(t_btowc_LDADD) $(LIBS)
 
+t_ctype$(EXEEXT): $(t_ctype_OBJECTS) $(t_ctype_DEPENDENCIES) $(EXTRA_t_ctype_DEPENDENCIES) 
+	@rm -f t_ctype$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_ctype_OBJECTS) $(t_ctype_LDADD) $(LIBS)
+
 t_findfirst$(EXEEXT): $(t_findfirst_OBJECTS) $(t_findfirst_DEPENDENCIES) $(EXTRA_t_findfirst_DEPENDENCIES) 
 	@rm -f t_findfirst$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_findfirst_OBJECTS) $(t_findfirst_LDADD) $(LIBS)
@@ -2459,6 +2480,10 @@ t_imagebase$(EXEEXT): $(t_imagebase_OBJECTS) $(t_imagebase_DEPENDENCIES) $(EXTRA
 t_intrinc$(EXEEXT): $(t_intrinc_OBJECTS) $(t_intrinc_DEPENDENCIES) $(EXTRA_t_intrinc_DEPENDENCIES) 
 	@rm -f t_intrinc$(EXEEXT)
 	$(AM_V_CCLD)$(t_intrinc_LINK) $(t_intrinc_OBJECTS) $(t_intrinc_LDADD) $(LIBS)
+
+t_iswctype$(EXEEXT): $(t_iswctype_OBJECTS) $(t_iswctype_DEPENDENCIES) $(EXTRA_t_iswctype_DEPENDENCIES) 
+	@rm -f t_iswctype$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_iswctype_OBJECTS) $(t_iswctype_LDADD) $(LIBS)
 
 t_lfs$(EXEEXT): $(t_lfs_OBJECTS) $(t_lfs_DEPENDENCIES) $(EXTRA_t_lfs_DEPENDENCIES) 
 	@rm -f t_lfs$(EXEEXT)
@@ -2624,6 +2649,10 @@ t_tmpfile$(EXEEXT): $(t_tmpfile_OBJECTS) $(t_tmpfile_DEPENDENCIES) $(EXTRA_t_tmp
 	@rm -f t_tmpfile$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_tmpfile_OBJECTS) $(t_tmpfile_LDADD) $(LIBS)
 
+t_towctrans$(EXEEXT): $(t_towctrans_OBJECTS) $(t_towctrans_DEPENDENCIES) $(EXTRA_t_towctrans_DEPENDENCIES) 
+	@rm -f t_towctrans$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_towctrans_OBJECTS) $(t_towctrans_LDADD) $(LIBS)
+
 t_trycatch$(EXEEXT): $(t_trycatch_OBJECTS) $(t_trycatch_DEPENDENCIES) $(EXTRA_t_trycatch_DEPENDENCIES) 
 	@rm -f t_trycatch$(EXEEXT)
 	$(AM_V_CXXLD)$(t_trycatch_LINK) $(t_trycatch_OBJECTS) $(t_trycatch_LDADD) $(LIBS)
@@ -2651,6 +2680,10 @@ t_wcstok_s$(EXEEXT): $(t_wcstok_s_OBJECTS) $(t_wcstok_s_DEPENDENCIES) $(EXTRA_t_
 t_wctob$(EXEEXT): $(t_wctob_OBJECTS) $(t_wctob_DEPENDENCIES) $(EXTRA_t_wctob_DEPENDENCIES) 
 	@rm -f t_wctob$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_wctob_OBJECTS) $(t_wctob_LDADD) $(LIBS)
+
+t_wctype$(EXEEXT): $(t_wctype_OBJECTS) $(t_wctype_DEPENDENCIES) $(EXTRA_t_wctype_DEPENDENCIES) 
+	@rm -f t_wctype$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_wctype_OBJECTS) $(t_wctype_LDADD) $(LIBS)
 
 t_wreaddir$(EXEEXT): $(t_wreaddir_OBJECTS) $(t_wreaddir_DEPENDENCIES) $(EXTRA_t_wreaddir_DEPENDENCIES) 
 	@rm -f t_wreaddir$(EXEEXT)
@@ -2946,6 +2979,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ansi_io.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_btowc.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_findfirst.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_float.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fseeki64.Po@am__quote@ # am--include-marker
@@ -2957,6 +2991,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_t64_f64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_imagebase.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrinc-t_intrinc.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_iswctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lfs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lseeki64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_matherr.Po@am__quote@ # am--include-marker
@@ -2998,6 +3033,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmain-t_tmain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmpfile.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_towctrans.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_trycatch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_utime.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_vsscanf.Po@am__quote@ # am--include-marker
@@ -3005,6 +3041,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcsrtombs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcstok_s.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctob.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wreaddir.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tstmain_sys_xxx.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tstmainc.Po@am__quote@ # am--include-marker
@@ -6000,6 +6037,13 @@ t_btowc.log: t_btowc$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_ctype.log: t_ctype$(EXEEXT)
+	@p='t_ctype$(EXEEXT)'; \
+	b='t_ctype'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_findfirst.log: t_findfirst$(EXEEXT)
 	@p='t_findfirst$(EXEEXT)'; \
 	b='t_findfirst'; \
@@ -6066,6 +6110,13 @@ t_intrinc.log: t_intrinc$(EXEEXT)
 t_imagebase.log: t_imagebase$(EXEEXT)
 	@p='t_imagebase$(EXEEXT)'; \
 	b='t_imagebase'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_iswctype.log: t_iswctype$(EXEEXT)
+	@p='t_iswctype$(EXEEXT)'; \
+	b='t_iswctype'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6350,6 +6401,13 @@ t_stat_slash.log: t_stat_slash$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_towctrans.log: t_towctrans$(EXEEXT)
+	@p='t_towctrans$(EXEEXT)'; \
+	b='t_towctrans'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_utime.log: t_utime$(EXEEXT)
 	@p='t_utime$(EXEEXT)'; \
 	b='t_utime'; \
@@ -6388,6 +6446,13 @@ t_wcstok_s.log: t_wcstok_s$(EXEEXT)
 t_wctob.log: t_wctob$(EXEEXT)
 	@p='t_wctob$(EXEEXT)'; \
 	b='t_wctob'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_wctype.log: t_wctype$(EXEEXT)
+	@p='t_wctype$(EXEEXT)'; \
+	b='t_wctype'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6838,6 +6903,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
+	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64.Po
@@ -6849,6 +6915,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
 	-rm -f ./$(DEPDIR)/t_intrinc-t_intrinc.Po
+	-rm -f ./$(DEPDIR)/t_iswctype.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
 	-rm -f ./$(DEPDIR)/t_matherr.Po
@@ -6890,6 +6957,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_tls1.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
+	-rm -f ./$(DEPDIR)/t_towctrans.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
@@ -6897,6 +6965,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
+	-rm -f ./$(DEPDIR)/t_wctype.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
 	-rm -f ./$(DEPDIR)/tstmain_sys_xxx.Po
 	-rm -f ./$(DEPDIR)/tstmainc.Po
@@ -7129,6 +7198,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
+	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64.Po
@@ -7140,6 +7210,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
 	-rm -f ./$(DEPDIR)/t_intrinc-t_intrinc.Po
+	-rm -f ./$(DEPDIR)/t_iswctype.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
 	-rm -f ./$(DEPDIR)/t_matherr.Po
@@ -7181,6 +7252,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_tls1.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
+	-rm -f ./$(DEPDIR)/t_towctrans.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
@@ -7188,6 +7260,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
+	-rm -f ./$(DEPDIR)/t_wctype.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
 	-rm -f ./$(DEPDIR)/tstmain_sys_xxx.Po
 	-rm -f ./$(DEPDIR)/tstmainc.Po
