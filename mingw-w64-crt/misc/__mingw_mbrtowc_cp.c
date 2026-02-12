@@ -26,8 +26,8 @@
  *    ___mb_cur_max_func
  *
  *  - for double-byte code pages, we need to recognize leading bytes in order
- *    to correctly convert multibyte characters; this can be done with Win32
- *    function IsDBCSLeadByteEx or CRT function isleadbyte
+ *    to correctly convert multibyte characters; use mingw-w64's portable
+ *    __mingw_isleadbyte_cp for this
  *
  * crtdll.dll's ___lc_codepage_func is quite expensive as it obtains this
  * information by parsing return value of setlocale(LC_CTYPE, NULL). Using
@@ -93,7 +93,7 @@ size_t __mingw_mbrtowc_cp (
     conversion_state.bytes[1] = mbs[0];
     bytes_consumed = 1;
     length = 2;
-  } else if (mb_cur_max == 2 && isleadbyte ((unsigned char) mbs[0])) {
+  } else if (mb_cur_max == 2 && __mingw_isleadbyte_cp ((unsigned char) mbs[0], cp)) {
     conversion_state.bytes[0] = mbs[0];
 
     /* We need to examine mbs[1] */
