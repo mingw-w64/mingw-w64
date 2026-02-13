@@ -11,6 +11,7 @@
 #ifndef _WIN64
 #include <fcntl.h>
 #include <windows.h>
+int __cdecl fstat32(int fd, struct _stat32 *stat);
 #endif
 
 /* When the file time does not fit into the st_Xtime field:
@@ -52,8 +53,10 @@ int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat)
 #else
   /* mingw-w64 _wstat64() on 32-bit systems is implemented as wrapper around the _wstat32().
    * Therefore mingw-w64 _wstat32() implementation cannot call _wstat64().
-   * This _wstat32 implementation uses _fstat32() with handle obtained from CreateFileW().
-   * _fstat requires only FILE_READ_ATTRIBUTES access and FILE_FLAG_BACKUP_SEMANTICS is
+   * This _wstat32() implementation uses mingw-w64 fstat32() with handle obtained from CreateFileW().
+   * mingw-w64 fstat32() is a wrapper around the CRT _fstat32() and which fixes the S_IFMT to
+   * S_IFDIR for directories. The CRT _fstat32() returns S_IFREG for directories.
+   * _fstat32() requires only FILE_READ_ATTRIBUTES access and FILE_FLAG_BACKUP_SEMANTICS is
    * required for opening directory via CreateFileW().
    * Using just FILE_READ_ATTRIBUTES access allows to open also path which is was denied for
    * reading by another process. msvcrt.dll _wstat32() also allows to be called on such path.
@@ -87,7 +90,7 @@ int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat)
     CloseHandle(handle);
     return -1;
   }
-  ret = _fstat32(fd, _Stat);
+  ret = fstat32(fd, _Stat);
   err = errno;
   close(fd);
   errno = err;
