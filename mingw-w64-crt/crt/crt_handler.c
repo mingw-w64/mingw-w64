@@ -77,10 +77,8 @@ __mingw_init_ehandler (void)
 
 #endif
 
-extern void _fpreset (void);
-
 static EXCEPTION_DISPOSITION __cdecl
-__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord);
+__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord, struct _CONTEXT* ContextRecord);
 
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
@@ -89,103 +87,44 @@ __attribute__((force_align_arg_pointer))
 EXCEPTION_DISPOSITION __cdecl
 __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
-			   struct _CONTEXT* ContextRecord __attribute__ ((unused)),
+			   struct _CONTEXT* ContextRecord,
 			   void *DispatcherContext __attribute__ ((unused)))
 {
-  return __mingw_SEH_error_handler_helper (ExceptionRecord);
+  return __mingw_SEH_error_handler_helper (ExceptionRecord, ContextRecord);
 }
 
 static EXCEPTION_DISPOSITION __cdecl
-__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord)
+__mingw_SEH_error_handler_helper (struct _EXCEPTION_RECORD* ExceptionRecord, struct _CONTEXT* ContextRecord)
 {
-  EXCEPTION_DISPOSITION action = ExceptionContinueSearch;
-  void (*old_handler) (int);
-  int reset_fpu = 0;
+  long action;
 
   if (ExceptionRecord->ExceptionFlags & EXCEPTION_UNWINDING)
     return ExceptionContinueSearch;
 
-  switch (ExceptionRecord->ExceptionCode)
+  /* Despite that the CRT _XcptFilter() function is SEH __except filter function,
+   * it directly executes the handler registered by CRT signal() function. Normally
+   * the SEH __except handler is called based on the SEH __except filter result.
+   *
+   * If the CRT signal handler function (called by _XcptFilter() function) returns
+   * then the CRT _XcptFilter() returns back to us and the action is set to:
+   * EXCEPTION_CONTINUE_EXECUTION - execution of the process should continue
+   * EXCEPTION_EXECUTE_HANDLER - execution of the process should be aborted
+   * EXCEPTION_CONTINUE_SEARCH - parent SEH handler should be called
+   */
+  action = _XcptFilter(ExceptionRecord->ExceptionCode, &(EXCEPTION_POINTERS){.ExceptionRecord = ExceptionRecord, .ContextRecord = ContextRecord});
+  switch (action)
     {
-    case EXCEPTION_ACCESS_VIOLATION:
-      /* test if the user has set SIGSEGV */
-      old_handler = signal (SIGSEGV, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGSEGV, SIG_IGN);
-	  action = ExceptionContinueExecution;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGSEGV);
-	  action = ExceptionContinueExecution;
-	}
-      break;
-    case EXCEPTION_ILLEGAL_INSTRUCTION:
-    case EXCEPTION_PRIV_INSTRUCTION:
-      /* test if the user has set SIGILL */
-      old_handler = signal (SIGILL, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGILL, SIG_IGN);
-	  action = ExceptionContinueExecution;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGILL);
-	  action = ExceptionContinueExecution;
-	}
-      break;
-    case EXCEPTION_FLT_INVALID_OPERATION:
-    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-    case EXCEPTION_FLT_DENORMAL_OPERAND:
-    case EXCEPTION_FLT_OVERFLOW:
-    case EXCEPTION_FLT_UNDERFLOW:
-    case EXCEPTION_FLT_INEXACT_RESULT:
-    case EXCEPTION_FLT_STACK_CHECK:
-#ifdef __i386__
-    case STATUS_FLOAT_MULTIPLE_TRAPS: /* 32-bit x86 SSE variant of EXCEPTION_FLT_INVALID_OPERATION, EXCEPTION_FLT_DIVIDE_BY_ZERO, EXCEPTION_FLT_DENORMAL_OPERAND */
-    case STATUS_FLOAT_MULTIPLE_FAULTS: /* 32-bit x86 SSE variant of EXCEPTION_FLT_OVERFLOW, EXCEPTION_FLT_UNDERFLOW, EXCEPTION_FLT_INEXACT_RESULT */
-#endif
-      reset_fpu = 1;
-      /* fall through. */
+    case EXCEPTION_CONTINUE_SEARCH:
+      return ExceptionContinueSearch;
 
-    case EXCEPTION_INT_DIVIDE_BY_ZERO:
-    case EXCEPTION_INT_OVERFLOW:
-      /* test if the user has set SIGFPE */
-      old_handler = signal (SIGFPE, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  signal (SIGFPE, SIG_IGN);
-	  if (reset_fpu)
-	    _fpreset ();
-	  action = ExceptionContinueExecution;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGFPE);
-	  action = ExceptionContinueExecution;
-	}
-      break;
-#ifdef _WIN64
-    case EXCEPTION_DATATYPE_MISALIGNMENT:
-    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-    case EXCEPTION_INVALID_HANDLE:
-    /*case EXCEPTION_POSSIBLE_DEADLOCK: */
-      action = ExceptionContinueExecution;
-      break;
-#endif
+    case EXCEPTION_CONTINUE_EXECUTION:
+      return ExceptionContinueExecution;
+
+    case EXCEPTION_EXECUTE_HANDLER:
     default:
-      break;
+      /* msvc CRT EXE exception handler just exit process with exception code */
+      _exit(ExceptionRecord->ExceptionCode);
     }
-  return action;
 }
 
 long CALLBACK
@@ -194,7 +133,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data);
 long CALLBACK
 _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 {
-  EXCEPTION_DISPOSITION action = __mingw_SEH_error_handler_helper (exception_data->ExceptionRecord);
+  EXCEPTION_DISPOSITION action = __mingw_SEH_error_handler_helper (exception_data->ExceptionRecord, exception_data->ContextRecord);
   switch (action)
     {
     case ExceptionContinueExecution:
