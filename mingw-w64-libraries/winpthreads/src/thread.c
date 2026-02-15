@@ -1544,16 +1544,10 @@ pthread_create_wrapper (void *args)
   if (!setjmp(tv->jb))
     {
       intptr_t trslt = (intptr_t) 128;
-      /* Provide to this thread a default exception handler.  */
-      #ifdef __SEH__
-	asm ("\t.tl_start:\n");
-      #endif      /* Call function and save return value */
       pthread_mutex_unlock (&mtx_pthr_locked);
+      /* Call function and save return value */
       if (tv->func)
         trslt = (intptr_t) tv->func(tv->ret_arg);
-      #ifdef __SEH__
-        asm ("\tnop\n\t.tl_end: nop\n");
-      #endif
       pthread_mutex_lock (&mtx_pthr_locked);
       tv->ret_arg = (void*) trslt;
       /* Clean up destructors */
@@ -1590,19 +1584,6 @@ pthread_create_wrapper (void *args)
    Sleep (0);
   _endthreadex (rslt);
   return rslt;
-
-#if defined(__SEH__)
-  asm(
-#ifdef __arm__
-    "\t.seh_handler __C_specific_handler, %except\n"
-#else
-    "\t.seh_handler __C_specific_handler, @except\n"
-#endif
-    "\t.seh_handlerdata\n"
-    "\t.long 1\n"
-    "\t.rva .tl_start, .tl_end, _gnu_exception_handler ,.tl_end\n"
-    "\t.text\n");
-#endif
 }
 
 int
