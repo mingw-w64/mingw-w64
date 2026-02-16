@@ -73,6 +73,7 @@ _register_thread_local_exe_atexit_callback
 _resetstkoflw
 _seh_filter_dll
 _seh_filter_exe
+_XcptFilter == _seh_filter_exe
 _set_abort_behavior
 _set_app_type
 __set_app_type == _set_app_type

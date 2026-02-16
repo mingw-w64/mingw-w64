@@ -577,6 +577,7 @@ __p__daylight == __daylight
 __p__dstbias == __dstbias
 __p__timezone == __timezone
 __p__tzname == __tzname
+_XcptFilter == _seh_filter_exe
 #endif
 
 ; This is list of printf/scanf symbol aliases with __ms_ prefix
