@@ -2559,10 +2559,12 @@ JET_ERR JET_API JetOpenTableW(
 
 #define JetOpenTable __MINGW_NAME_AW(JetOpenTable)
 
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetOpenTemporaryTable(
   JET_SESID sesid,
   JET_OPENTEMPORARYTABLE* popentemporarytable
 );
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetOpenTempTable(
   JET_SESID sesid,
