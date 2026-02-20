@@ -37,8 +37,8 @@ extern "C" {
 #define MAX_IRQS 7
 #define MAX_DMA_CHANNELS 7
 
-#define DWORD_MAX 0xFFFFFFFF
-#define DWORDLONG_MAX 0xFFFFFFFFFFFFFFFF
+#define DWORD_MAX __MSABI_LONG(0xffffffffu)
+#define DWORDLONG_MAX 0xffffffffffffffffull
 
 #define CONFIGMG_VERSION 0x0400
 
