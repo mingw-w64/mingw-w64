@@ -243,6 +243,8 @@
 #define _FPE_STACKOVERFLOW	0x8a
 #define _FPE_STACKUNDERFLOW	0x8b
 #define _FPE_EXPLICITGEN	0x8c    /* raise( SIGFPE ); */
+#define _FPE_MULTIPLE_TRAPS	0x8d
+#define _FPE_MULTIPLE_FAULTS	0x8e
 
 #ifndef	__STRICT_ANSI__
 #define CW_DEFAULT _CW_DEFAULT
