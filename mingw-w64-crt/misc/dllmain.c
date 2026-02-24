@@ -1,4 +1,4 @@
-#include <oscalls.h>
+#include <windows.h>
 #define _DECL_DLLMAIN
 #include <process.h>
 

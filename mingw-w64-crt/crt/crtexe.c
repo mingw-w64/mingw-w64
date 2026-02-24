@@ -4,7 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <oscalls.h>
 #include <internal.h>
 #include <process.h>
 #include <signal.h>
