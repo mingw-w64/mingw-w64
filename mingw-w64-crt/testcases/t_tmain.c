@@ -8,7 +8,7 @@
 int
 _tmain (void)
 {
-  volatile void *wmainptr = wmain;
+  void *volatile wmainptr = wmain;
   (void)wmainptr;
   return 0;
 }
