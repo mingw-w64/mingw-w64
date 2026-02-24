@@ -33,7 +33,7 @@ static DWORD WINAPI thread_main(LPVOID user_data) {
 static void spawn_thread(void) {
     HANDLE handle_event;
 
-    assert(handle_event = CreateEvent(NULL, TRUE, FALSE, NULL));
+    assert(handle_event = CreateEventA(NULL, TRUE, FALSE, NULL));
     assert(CreateThread(NULL, 0, thread_main, handle_event, 0, NULL) != NULL);
     assert(WaitForSingleObject(handle_event, INFINITE) == WAIT_OBJECT_0);
     assert(CloseHandle(handle_event));
