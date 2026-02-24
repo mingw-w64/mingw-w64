@@ -19,7 +19,7 @@ static intptr_t __cdecl emu__wfindfirst64(const wchar_t *path, struct _wfinddata
     HANDLE handle;
 
     handle = FindFirstFileW(path, &win32_find_data);
-    win32_find_data_to_crt_find_data(handle != INVALID_HANDLE_VALUE, &win32_find_data, find_data);
+    win32_find_data_to_crt_find_data(handle != NULL && handle != INVALID_HANDLE_VALUE, &win32_find_data, find_data);
     return (intptr_t)handle;
 }
 

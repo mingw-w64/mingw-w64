@@ -25,7 +25,7 @@ static int __cdecl emu__wstat64(const wchar_t *path, struct _stat64 *stat)
     stat->st_gid = st.st_gid;
     stat->st_rdev = st.st_rdev;
     handle = FindFirstFileW(path, &fi);
-    if (handle != INVALID_HANDLE_VALUE) {
+    if (handle != NULL && handle != INVALID_HANDLE_VALUE) {
         FindClose(handle);
         stat->st_size = ((_off64_t)fi.nFileSizeHigh << 32) | fi.nFileSizeLow;
         stat->st_atime = filetime_to_time64(&fi.ftLastAccessTime);

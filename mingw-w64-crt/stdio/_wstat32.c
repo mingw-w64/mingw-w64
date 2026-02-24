@@ -66,7 +66,7 @@ int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat)
   int err;
   HANDLE handle;
   handle = CreateFileW(_Name, FILE_READ_ATTRIBUTES, FILE_SHARE_VALID_FLAGS, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
-  if (handle == INVALID_HANDLE_VALUE) {
+  if (handle == NULL || handle == INVALID_HANDLE_VALUE) {
     switch (GetLastError()) {
     case ERROR_PATH_NOT_FOUND:
     case ERROR_FILE_NOT_FOUND:
