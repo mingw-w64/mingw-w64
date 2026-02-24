@@ -14,7 +14,7 @@
 
 CRITICAL_SECTION cs;
 
-static unsigned int __stdcall thread_main(void *user_data) {
+static DWORD WINAPI thread_main(LPVOID user_data) {
     HANDLE handle_event = (HANDLE) user_data;
 
     /* This thread acquires a critical section and then
@@ -34,7 +34,7 @@ static void spawn_thread(void) {
     HANDLE handle_event;
 
     assert(handle_event = CreateEvent(NULL, TRUE, FALSE, NULL));
-    assert(_beginthreadex(NULL, 0, thread_main, handle_event, 0, NULL) != 0);
+    assert(CreateThread(NULL, 0, thread_main, handle_event, 0, NULL) != NULL);
     assert(WaitForSingleObject(handle_event, INFINITE) == WAIT_OBJECT_0);
     assert(CloseHandle(handle_event));
 }
