@@ -11,8 +11,75 @@
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 
+#include <_mingw.h>
 #include <wtypesbase.h>
 #include <specstrings.h>
+
+#define INT8_MIN (-128)
+#define INT8_MAX 127
+#define UINT8_MAX 255
+#define BYTE_MAX 255
+#define INT16_MIN (-32768)
+#define INT16_MAX 32767
+#define SHORT_MIN (-32768)
+#define SHORT_MAX 32767
+#define UINT16_MAX 65535
+#define USHORT_MAX 65535
+#define WORD_MAX 65535
+#define INT32_MIN (-0x7fffffff - 1)
+#define INT32_MAX 0x7fffffff
+#define INT_MIN (-0x7fffffff - 1)
+#define INT_MAX 0x7fffffff
+#define UINT32_MAX 0xffffffffu
+#define UINT_MAX 0xffffffffu
+#define DWORD_MAX __MSABI_LONG(0xffffffffu)
+#define INT64_MIN (-0x7fffffffffffffff - 1)
+#define INT64_MAX 0x7fffffffffffffff
+#define LONGLONG_MIN (-0x7fffffffffffffffll - 1)
+#define LONG64_MIN (-0x7fffffffffffffffll - 1)
+#define LONGLONG_MAX 0x7fffffffffffffffll
+#define LONG64_MAX 0x7fffffffffffffffll
+#define UINT64_MAX 0xffffffffffffffffu
+#define ULONGLONG_MAX 0xffffffffffffffffull
+#define ULONG64_MAX 0xffffffffffffffffull
+#define DWORDLONG_MAX 0xffffffffffffffffull
+#define DWORD64_MAX 0xffffffffffffffffull
+
+#ifdef __LP64__
+#define LONG_MIN (-0x7fffffffffffffff - 1)
+#define LONG_MAX 0x7fffffffffffffff
+#define ULONG_MAX 0xffffffffffffffffu
+#else
+#define LONG_MIN (-0x7fffffffl - 1)
+#define LONG_MAX 0x7fffffffl
+#define ULONG_MAX 0xfffffffful
+#endif
+
+#ifdef _WIN64
+#define PTRDIFF_T_MIN (-0x7fffffffffffffff - 1)
+#define PTRDIFF_T_MAX 0x7fffffffffffffff
+#define SIZE_T_MAX 0xffffffffffffffffu
+#define INT_PTR_MIN (-0x7fffffffffffffffll - 1)
+#define INT_PTR_MAX 0x7fffffffffffffffll
+#define UINT_PTR_MAX 0xffffffffffffffffull
+#define LONG_PTR_MIN (-0x7fffffffffffffffll - 1)
+#define LONG_PTR_MAX 0x7fffffffffffffffll
+#define ULONG_PTR_MAX 0xffffffffffffffffull
+#else
+#define PTRDIFF_T_MIN (-0x7fffffff - 1)
+#define PTRDIFF_T_MAX 0x7fffffff
+#define SIZE_T_MAX 0xffffffffu
+#define INT_PTR_MIN (-0x7fffffff - 1)
+#define INT_PTR_MAX 0x7fffffff
+#define UINT_PTR_MAX 0xffffffffu
+#define LONG_PTR_MIN (-0x7fffffffl - 1)
+#define LONG_PTR_MAX 0x7fffffffl
+#define ULONG_PTR_MAX 0xfffffffful
+#endif
+#define SSIZE_T_MIN LONG_PTR_MIN
+#define SSIZE_T_MAX LONG_PTR_MAX
+#define _SIZE_T_MAX ULONG_PTR_MAX
+#define DWORD_PTR_MAX ULONG_PTR_MAX
 
 #define INTSAFE_E_ARITHMETIC_OVERFLOW ((HRESULT)0x80070216)
 
