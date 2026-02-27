@@ -495,13 +495,13 @@ __fin)))
 #define fpclassify(x) \
 __mingw_choose_expr (                                         \
   __mingw_types_compatible_p (__typeof__ (x), double),            \
-    __fpclassify(x),                                            \
+    __fpclassify((double)(x)),                                      \
     __mingw_choose_expr (                                     \
       __mingw_types_compatible_p (__typeof__ (x), float),         \
-        __fpclassifyf(x),                                       \
+        __fpclassifyf((float)(x)),                                  \
     __mingw_choose_expr (                                     \
       __mingw_types_compatible_p (__typeof__ (x), long double),   \
-        __fpclassifyl(x),                                       \
+        __fpclassifyl((long double)(x)),                            \
     __dfp_expansion(__fpclassify,(__builtin_trap(),0),x))))
 
 
