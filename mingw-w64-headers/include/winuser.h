@@ -6792,7 +6792,7 @@ typedef struct tagINPUT_TRANSFORM {
 } INPUT_TRANSFORM;
 
 /* Do these functions belong here? */
-WINUSERAPI WINBOOL WINAPI GetPointerInputTransform(UINT32 pointerId, UINT32 historyCount, UINT32 *inputTransform);
+WINUSERAPI WINBOOL WINAPI GetPointerInputTransform(UINT32 pointerId, UINT32 historyCount, INPUT_TRANSFORM *inputTransform);
 WINUSERAPI WINBOOL WINAPI IsMousePointerEnabled(void);
 #endif /*(_WIN32_WINNT >= 0x0602)*/
 #endif
