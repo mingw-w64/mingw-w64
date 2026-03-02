@@ -171,6 +171,7 @@ src_msvcrt_common=\
   include/msvcrt.h \
   include/msvcrt_or_emu_glue.h \
   include/mingw-wchar.h \
+  misc/__mingw_isleadbyte_cp.c \
   misc/__mingw_mbrtowc_cp.c \
   misc/__mingw_wcrtomb_cp.c \
   misc/_onexit.c \
@@ -431,6 +432,7 @@ src_ucrtbase=\
   ctype/_iscsym_l.c \
   ctype/_iscsymf_l.c \
   ctype/towctrans.c \
+  misc/__mingw_isleadbyte_cp.c \
   misc/ucrt__getmainargs.c \
   misc/ucrt__wgetmainargs.c \
   misc/ucrt_amsg_exit.c \
@@ -1291,7 +1293,7 @@ src_libmingwex=\
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/mingw-access.c \
   misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
-  misc/__mingw_filename_cp.c misc/__mingw_isleadbyte_cp.c \
+  misc/__mingw_filename_cp.c  \
   \
   ssp/chk_fail.c         ssp/gets_chk.c             ssp/memcpy_chk.c        ssp/memmove_chk.c \
   ssp/mempcpy_chk.c \
