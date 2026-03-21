@@ -25,22 +25,7 @@
 extern "C" {
 #endif
 
-#ifndef WINBASEAPI
-#ifdef _KERNEL32_
-#define WINBASEAPI
-#else
-#define WINBASEAPI DECLSPEC_IMPORT
-#endif
-#endif
-
-#ifndef WINADVAPI
-#ifdef _ADVAPI32_
-#define WINADVAPI
-#else
-#define WINADVAPI DECLSPEC_IMPORT
-#endif
-#endif
-
+#include <apisetcconv.h>
 #include <minwinbase.h>
 #include <libloaderapi.h>
 #include <processthreadsapi.h>
@@ -2444,7 +2429,7 @@ WINBASEAPI void        WINAPI SwitchToFiber(LPVOID);
 WINBASEAPI BOOL        WINAPI SwitchToThread(void);
 WINBASEAPI BOOL        WINAPI SystemTimeToFileTime(const SYSTEMTIME*,LPFILETIME);
 WINBASEAPI BOOL        WINAPI TerminateJobObject(HANDLE,UINT);
-WINBASEAPI BOOL        WINAPI TerminateProcess(HANDLE,DWORD);
+WINBASEAPI BOOL        WINAPI TerminateProcess(HANDLE,UINT);
 WINBASEAPI BOOL        WINAPI TerminateThread(HANDLE,DWORD);
 WINBASEAPI DWORD       WINAPI TlsAlloc(void);
 WINBASEAPI BOOL        WINAPI TlsFree(DWORD);
@@ -2475,12 +2460,12 @@ WINBASEAPI BOOL        WINAPI UpdateResourceW(HANDLE,LPCWSTR,LPCWSTR,WORD,LPVOID
 WINBASEAPI BOOL        WINAPI VerifyVersionInfoA(LPOSVERSIONINFOEXA,DWORD,DWORDLONG);
 WINBASEAPI BOOL        WINAPI VerifyVersionInfoW(LPOSVERSIONINFOEXW,DWORD,DWORDLONG);
 #define                       VerifyVersionInfo WINELIB_NAME_AW(VerifyVersionInfo)
-WINBASEAPI LPVOID      WINAPI VirtualAlloc(LPVOID,SIZE_T,DWORD,DWORD);
-WINBASEAPI LPVOID      WINAPI VirtualAlloc2(HANDLE,LPVOID,SIZE_T,DWORD,DWORD,MEM_EXTENDED_PARAMETER*,ULONG);
-WINBASEAPI LPVOID      WINAPI VirtualAlloc2FromApp(HANDLE,LPVOID,SIZE_T,DWORD,DWORD,MEM_EXTENDED_PARAMETER*,ULONG);
-WINBASEAPI LPVOID      WINAPI VirtualAllocEx(HANDLE,LPVOID,SIZE_T,DWORD,DWORD);
-WINBASEAPI LPVOID      WINAPI VirtualAllocExNuma(HANDLE,void*,SIZE_T,DWORD,DWORD,DWORD);
-WINBASEAPI LPVOID      WINAPI VirtualAllocFromApp(LPVOID,SIZE_T,DWORD,DWORD);
+WINBASEAPI void *      WINAPI VirtualAlloc(void*,SIZE_T,DWORD,DWORD) __WINE_ALLOC_SIZE(2);
+WINBASEAPI void *      WINAPI VirtualAlloc2(HANDLE,void*,SIZE_T,DWORD,DWORD,MEM_EXTENDED_PARAMETER*,ULONG) __WINE_ALLOC_SIZE(3);
+WINBASEAPI void *      WINAPI VirtualAlloc2FromApp(HANDLE,void*,SIZE_T,DWORD,DWORD,MEM_EXTENDED_PARAMETER*,ULONG) __WINE_ALLOC_SIZE(3);
+WINBASEAPI void *      WINAPI VirtualAllocEx(HANDLE,void*,SIZE_T,DWORD,DWORD) __WINE_ALLOC_SIZE(3);
+WINBASEAPI void *      WINAPI VirtualAllocExNuma(HANDLE,void*,SIZE_T,DWORD,DWORD,DWORD) __WINE_ALLOC_SIZE(3);
+WINBASEAPI void *      WINAPI VirtualAllocFromApp(void*,SIZE_T,DWORD,DWORD) __WINE_ALLOC_SIZE(2);
 WINBASEAPI BOOL        WINAPI VirtualFree(LPVOID,SIZE_T,DWORD);
 WINBASEAPI BOOL        WINAPI VirtualFreeEx(HANDLE,LPVOID,SIZE_T,DWORD);
 WINBASEAPI BOOL        WINAPI VirtualLock(LPVOID,SIZE_T);
@@ -2623,9 +2608,11 @@ static inline LPSTR WINAPI lstrcatA( LPSTR dst, LPCSTR src )
 
 /* strncpy/wcsncpy don't do what you think, don't use them */
 #undef strncpy
-#undef wcsncpy
 #define strncpy(d,s,n) error do_not_use_strncpy_use_lstrcpynA_or_memcpy_instead
+#ifdef __WINE_WCHAR_H
+#undef wcsncpy
 #define wcsncpy(d,s,n) error do_not_use_wcsncpy_use_lstrcpynW_or_memcpy_instead
+#endif
 
 #endif /* !defined(__WINESRC__) || defined(WINE_NO_INLINE_STRING) */
 

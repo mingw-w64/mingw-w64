@@ -19,6 +19,10 @@
 #ifndef _PROCESSTHREADSAPI_H
 #define _PROCESSTHREADSAPI_H
 
+#include <apisetcconv.h>
+#include <minwindef.h>
+#include <minwinbase.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
