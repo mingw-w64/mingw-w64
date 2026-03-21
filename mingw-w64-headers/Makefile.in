@@ -615,6 +615,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.graphics.capture.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.directx.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.directx.direct3d11.idl \
+@HAVE_WIDL_TRUE@  include/windows.graphics.display.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.effects.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.holographic.idl \
 @HAVE_WIDL_TRUE@  include/windows.graphics.idl \
@@ -664,6 +665,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.ui.composition.interop.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.notifications.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.text.core.idl \
+@HAVE_WIDL_TRUE@  include/windows.ui.text.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.core.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.viewmanagement.idl \
 @HAVE_WIDL_TRUE@  include/windows.ui.windowmanagement.idl \
