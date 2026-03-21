@@ -316,6 +316,7 @@ IDL_SRCS = \
   include/windows.graphics.capture.interop.idl \
   include/windows.graphics.directx.idl \
   include/windows.graphics.directx.direct3d11.idl \
+  include/windows.graphics.display.idl \
   include/windows.graphics.effects.idl \
   include/windows.graphics.holographic.idl \
   include/windows.graphics.idl \
@@ -365,6 +366,8 @@ IDL_SRCS = \
   include/windows.ui.composition.interop.idl \
   include/windows.ui.core.idl \
   include/windows.ui.notifications.idl \
+  include/windows.ui.text.core.idl \
+  include/windows.ui.text.idl \
   include/windows.ui.viewmanagement.core.idl \
   include/windows.ui.viewmanagement.idl \
   include/windows.ui.windowmanagement.idl \
