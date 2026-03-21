@@ -268,6 +268,14 @@ extern "C" {
 #endif
 #endif
 
+#ifndef DECLSPEC_CHPE_PATCHABLE
+#ifdef __arm64ec__
+#define DECLSPEC_CHPE_PATCHABLE __declspec(hybrid_patchable)
+#else
+#define DECLSPEC_CHPE_PATCHABLE
+#endif
+#endif
+
 #define DECLSPEC_DEPRECATED_DDK
 #define PRAGMA_DEPRECATED_DDK 0
 
