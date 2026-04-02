@@ -540,7 +540,6 @@ src_ucrtbase32=\
   math/log10f.c \
   math/logf.c \
   math/modff.c \
-  math/powf.c \
   math/sincos.c \
   math/sincosf.c \
   math/sinhf.c \
