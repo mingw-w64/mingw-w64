@@ -43,6 +43,9 @@ extern "C" {
 #ifndef _CRT_MEMORY_DEFINED
 #define _CRT_MEMORY_DEFINED
   _CRTIMP void *__cdecl _memccpy(void *_Dst,const void *_Src,int _Val,size_t _MaxCount);
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+  void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size);
+#endif
   _CONST_RETURN void *__cdecl memchr(const void *_Buf ,int _Val,size_t _MaxCount);
   _CRTIMP int __cdecl _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
   _CRTIMP int __cdecl _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
@@ -52,7 +55,9 @@ extern "C" {
   void * __cdecl mempcpy (void *_Dst, const void *_Src, size_t _Size);
   void * __cdecl memset(void *_Dst,int _Val,size_t _Size);
 #ifndef	NO_OLDNAMES
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
   void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
   int __cdecl memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
@@ -71,6 +76,17 @@ extern "C" {
   _CRTIMP char *__cdecl _strdup(const char *_Src);
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma pop_macro("_strdup")
+#endif
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma push_macro("strdup")
+#undef strdup
+#endif
+  char *__cdecl strdup(const char *_Src);
+#if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
+#pragma pop_macro("strdup")
+#endif
+  char *__cdecl strndup(const char *_Src,size_t _MaxCount);
 #endif
   _CONST_RETURN char *__cdecl strchr(const char *_Str,int _Val);
   _CRTIMP int __cdecl _stricmp(const char *_Str1,const char *_Str2);
@@ -112,6 +128,7 @@ extern "C" {
   _CRTIMP size_t __cdecl _strxfrm_l(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma push_macro("strdup")
 #undef strdup
@@ -119,6 +136,7 @@ extern "C" {
   char *__cdecl strdup(const char *_Src) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma pop_macro("strdup")
+#endif
 #endif
   int __cdecl strcmpi(const char *_Str1,const char *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl stricmp(const char *_Str1,const char *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
