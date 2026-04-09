@@ -1958,21 +1958,19 @@ static int token_winrt( int token, const char *str, YYSTYPE *yylval )
     return token_ident( str, yylval );
 }
 
-static void winrt_enable( int ns_prefix )
+static void winrt_enable(void)
 {
     if (!list_empty( &import_stack ) && !winrt_mode) error_loc( "WinRT IDL file imported in non-winrt mode.\n" );
-
-    use_abi_namespace = ns_prefix;
     winrt_mode = TRUE;
 }
 
-#line 1969 "tools/widl/parser.yy.c"
+#line 1967 "tools/widl/parser.yy.c"
 /*
  **************************************************************************
  * The flexer starts here
  **************************************************************************
  */
-#line 1975 "tools/widl/parser.yy.c"
+#line 1973 "tools/widl/parser.yy.c"
 
 #define INITIAL 0
 #define ATTR 1
@@ -2220,9 +2218,9 @@ YY_DECL
 		}
 
 	{
-#line 203 "tools/widl/parser.l"
+#line 201 "tools/widl/parser.l"
 
-#line 2225 "tools/widl/parser.yy.c"
+#line 2223 "tools/widl/parser.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -2281,7 +2279,7 @@ case 1:
 (yy_c_buf_p) = yy_cp = yy_bp + 9;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 205 "tools/widl/parser.l"
+#line 203 "tools/widl/parser.l"
 {
                                                     yy_pop_state();
                                                     yylloc->first_line -= 1;
@@ -2290,11 +2288,13 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 210 "tools/widl/parser.l"
+#line 208 "tools/widl/parser.l"
 {
                                                     yy_pop_state();
                                                     yylloc->first_line -= 1;
-                                                    winrt_enable( TRUE );
+                                                    winrt_enable();
+                                                    if (list_empty( &import_stack )) use_abi_namespace = TRUE;
+
                                                 }
 	YY_BREAK
 case 3:
@@ -2303,7 +2303,7 @@ YY_RULE_SETUP
 {
                                                     yy_pop_state();
                                                     yylloc->first_line -= 1;
-                                                    winrt_enable( FALSE );
+                                                    winrt_enable();
                                                 }
 	YY_BREAK
 case 4:
