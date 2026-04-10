@@ -118,9 +118,9 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
 #if defined(__arm64ec__)
     __mingw_setfp_sse(cw, cw_mask, sw, sw_mask);
 #elif defined(__i386__) || defined(__x86_64__)
-    unsigned long oldcw = 0, newcw = 0;
-    unsigned long oldsw = 0, newsw = 0;
+    unsigned long newcw = 0, newsw = 0;
     unsigned int flags;
+    int use_fnstenv_fldenv;
     struct {
         WORD control_word;
         WORD unused1;
@@ -139,7 +139,9 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
     cw_mask &= _MCW_EM | _MCW_IC | _MCW_RC | _MCW_PC;
     sw_mask &= _MCW_EM;
 
-    if ((!sw || sw_mask == 0) && (!cw || cw_mask == 0))
+    use_fnstenv_fldenv = ((sw && sw_mask != 0) || (cw && cw_mask != 0));
+
+    if (!use_fnstenv_fldenv)
     {
         /* Fast path: when we are not going to change sw/cw which is indicated
          * by zero mask then load sw/cw via fast fnstsw/fnstcw instruction.
@@ -151,14 +153,14 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
     {
         /* Slow path: when we are going to change sw/cw or we do not know yet then
          * load whole x87 env via slow fnstenv as it is needed for changing sw/cw.
+         * Note that fnstenv masks all floating-point exceptions after storing the
+         * x87 env. And after the fnstenv call, it is always required to restore
+         * masking of previous floating-point exceptions via the fldenv call.
          */
         __asm__ __volatile__( "fnstenv %0" : "=m" (fenv) );
         newsw = fenv.status_word;
         newcw = fenv.control_word;
     }
-
-    oldsw = newsw;
-    oldcw = newcw;
 
     if (sw)
     {
@@ -229,8 +231,10 @@ void __mingw_setfp( unsigned int *cw, unsigned int cw_mask,
 
     /* For changing sw/cw always use fldenv.
      * Do not use fldcw as it can generate pending floating-point exception.
+     * When the fnstenv was called then it is required to call fldenv to
+     * restore previous floating-point exceptions.
      */
-    if (oldsw != newsw || oldcw != newcw)
+    if (use_fnstenv_fldenv)
     {
         fenv.control_word = newcw;
         fenv.status_word = newsw;
