@@ -4,5 +4,8 @@
 
 int __cdecl fedisableexcept(int excepts)
 {
-  return __mingw_controlfp(excepts & FE_ALL_EXCEPT, excepts & FE_ALL_EXCEPT) & FE_ALL_EXCEPT;
+  if (excepts & ~FE_ALL_EXCEPT) return -1;
+  int old_excepts = fegetexcept();
+  __mingw_controlfp(excepts, excepts);
+  return old_excepts;
 }
