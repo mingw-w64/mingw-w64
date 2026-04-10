@@ -7,7 +7,14 @@
 #include "internal.h"
 
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
-/* Internal MinGW version of _control87_2 */
+/* Internal MinGW version of MS __control87_2 with following differences:
+ * - Availability:
+ *   - MinGW provides both i386 and x64 implementation
+ *   - MS provides only i386 implementation and only for msvcr80+
+ * - Usage of x87 fwait instruction which triggers pending x87 exceptions:
+ *   - MinGW does not call it
+ *   - MS calls it before reading x87 cw
+ */
 int __mingw_control87_2( unsigned int newval, unsigned int mask,
                          unsigned int *x86_cw, unsigned int *sse2_cw )
 {
@@ -30,7 +37,20 @@ int __mingw_control87_2( unsigned int newval, unsigned int mask,
 }
 #endif
 
-/* Internal MinGW version of _control87 */
+/* Internal MinGW version of MS _control87 with following differences:
+ * - Usage of x87 fwait instruction which triggers pending x87 exceptions:
+ *   - MinGW does not call it
+ *   - MS x64 does not call it
+ *   - MS i386 calls it before reading x87 cw
+ * - Source of the flags:
+ *   - MinGW i386 and x64 returns from both x87 and SSE2
+ *   - MS i386 msvcrt from Vista+ and msvcr80+ returns from both x87 and SSE2
+ *   - MS i386 msvcrt before Vista and pre-msvcr80 returns from x87
+ *   - MS x64 returns from SSE2
+ * This makes behavior of MinGW version same for all builds,
+ * always returns information from both x87 and SSE2 and
+ * never triggers pending x87 exceptions.
+ */
 unsigned int __mingw_controlfp(unsigned int newval, unsigned int mask)
 {
     unsigned int flags = 0;
