@@ -623,6 +623,18 @@ jobs:
           make -j$(nproc)
           make -j$(nproc) install
           make -j$(nproc) check -k -O --no-print-directory TESTS=
+      - name: Test i386 Interlocked functions
+        if: matrix.arch == 'i686'
+        run: |
+          export PATH=/llvm-mingw/bin:$PATH
+          ${{matrix.arch}}-w64-mingw32-clang -std=c99 -march=i386 -c -o t_intrinc.o mingw-w64-crt/testcases/t_intrinc.c
+          if ${{matrix.arch}}-w64-mingw32-objdump -d t_intrinc.o | grep -qiE 'cmpxchg|xadd'; then
+            echo "Error: i386 object contains i486+ instructions:"
+            ${{matrix.arch}}-w64-mingw32-objdump -d t_intrinc.o | grep -iE 'cmpxchg|xadd'
+            exit 1
+          fi
+          ${{matrix.arch}}-w64-mingw32-clang -std=c99 -march=i386 -o t_intrinc.exe mingw-w64-crt/testcases/t_intrinc.c
+          ./t_intrinc.exe
       - name: Run mingw-w64-crt testcases
         if: matrix.arch != 'armv7'
         run: |
