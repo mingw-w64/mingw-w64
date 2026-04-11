@@ -712,6 +712,12 @@ jobs:
           make -j$(nproc) install
           make -j$(nproc) check -k -O --no-print-directory TESTS=
           make -j$(nproc) check -k -O --no-print-directory || { cat testcases/test-suite.log; exit 1; }
+      - name: Test i386 Interlocked functions
+        if: matrix.arch == 'i686'
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          ${{matrix.arch}}-w64-mingw32-gcc -std=c99 -march=i386 -o t_intrinc.exe mingw-w64-crt/testcases/t_intrinc.c
+          ./t_intrinc.exe
       - name: Build and test winpthreads
         run: |
           export PATH=/gcc-mingw/bin:$PATH
