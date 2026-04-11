@@ -1664,12 +1664,44 @@ short _InterlockedCompareExchange16(short volatile *Destination, short ExChange,
 #define __INTRINSIC_DEFINED__InterlockedCompareExchange16
 #endif /* __INTRINSIC_PROLOG */
 
+/* On i386, fall back to the kernel32 Interlocked exports because GCC
+   cannot inline the __sync_* builtins (no CMPXCHG/XADD).  __asm__
+   labels avoid collisions with the winnt.h Interlocked macros.
+   GCC prepends _ to __asm__ label strings on i386; Clang does not. */
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+#ifdef __clang__
+#define __MINGW_K32_ASM(name) __asm__("_" name)
+#else
+#define __MINGW_K32_ASM(name) __asm__(name)
+#endif
+__LONG32 __attribute__((__dllimport__, __stdcall__))
+__mingw_k32_InterlockedExchangeAdd(__LONG32 volatile *, __LONG32)
+    __MINGW_K32_ASM("InterlockedExchangeAdd@8");
+__LONG32 __attribute__((__dllimport__, __stdcall__))
+__mingw_k32_InterlockedCompareExchange(__LONG32 volatile *, __LONG32, __LONG32)
+    __MINGW_K32_ASM("InterlockedCompareExchange@12");
+__LONG32 __attribute__((__dllimport__, __stdcall__))
+__mingw_k32_InterlockedIncrement(__LONG32 volatile *)
+    __MINGW_K32_ASM("InterlockedIncrement@4");
+__LONG32 __attribute__((__dllimport__, __stdcall__))
+__mingw_k32_InterlockedDecrement(__LONG32 volatile *)
+    __MINGW_K32_ASM("InterlockedDecrement@4");
+__LONG32 __attribute__((__dllimport__, __stdcall__))
+__mingw_k32_InterlockedExchange(__LONG32 volatile *, __LONG32)
+    __MINGW_K32_ASM("InterlockedExchange@8");
+#undef __MINGW_K32_ASM
+#endif
+
 #if __INTRINSIC_PROLOG(_InterlockedExchangeAdd)
 __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value);
 #if !__has_builtin(_InterlockedExchangeAdd)
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+    return __mingw_k32_InterlockedExchangeAdd(Addend, Value);
+#else
     return __sync_fetch_and_add(Addend, Value);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedExchangeAdd
@@ -1680,7 +1712,11 @@ __LONG32 _InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 Ex
 #if !__has_builtin(_InterlockedCompareExchange)
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 ExChange, __LONG32 Comperand) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+    return __mingw_k32_InterlockedCompareExchange(Destination, ExChange, Comperand);
+#else
     return __sync_val_compare_and_swap(Destination, Comperand, ExChange);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedCompareExchange
@@ -1691,7 +1727,11 @@ __LONG32 _InterlockedIncrement(__LONG32 volatile *Addend);
 #if !__has_builtin(_InterlockedIncrement)
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedIncrement(__LONG32 volatile *Addend) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+   return __mingw_k32_InterlockedIncrement(Addend);
+#else
    return __sync_add_and_fetch(Addend, 1);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedIncrement
@@ -1702,7 +1742,11 @@ __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend);
 #if !__has_builtin(_InterlockedDecrement)
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+   return __mingw_k32_InterlockedDecrement(Addend);
+#else
    return __sync_sub_and_fetch(Addend, 1);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedDecrement
@@ -1735,7 +1779,11 @@ __LONG32 _InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value);
 #if !__has_builtin(_InterlockedExchange)
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+    return __mingw_k32_InterlockedExchange(Target, Value);
+#else
     return __sync_lock_test_and_set(Target, Value);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedExchange
@@ -1757,7 +1805,14 @@ void *_InterlockedCompareExchangePointer(void * volatile *Destination, void *ExC
 #if !__has_builtin(_InterlockedCompareExchangePointer)
 __INTRINSICS_USEINLINE 
 void *_InterlockedCompareExchangePointer(void *volatile *Destination, void *ExChange, void *Comperand) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+    return (void *)(long)__mingw_k32_InterlockedCompareExchange(
+        (__LONG32 volatile *)Destination,
+        (__LONG32)(long)ExChange,
+        (__LONG32)(long)Comperand);
+#else
     return __sync_val_compare_and_swap(Destination, Comperand, ExChange);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedCompareExchangePointer
@@ -1768,7 +1823,13 @@ void *_InterlockedExchangePointer(void *volatile *Target,void *Value);
 #if !__has_builtin(_InterlockedExchangePointer)
 __INTRINSICS_USEINLINE 
 void *_InterlockedExchangePointer(void *volatile *Target,void *Value) {
+#if defined(__i386__) && !defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4)
+    return (void *)(long)__mingw_k32_InterlockedExchange(
+        (__LONG32 volatile *)Target,
+        (__LONG32)(long)Value);
+#else
     return __sync_lock_test_and_set(Target, Value);
+#endif
 }
 #endif
 #define __INTRINSIC_DEFINED__InterlockedExchangePointer
