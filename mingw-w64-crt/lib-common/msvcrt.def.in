@@ -1898,6 +1898,41 @@ F_I386(_libm_sse2_sin_precise)
 F_I386(_libm_sse2_sqrt_precise)
 F_I386(_libm_sse2_tan_precise)
 
+; These symbols were added in Windows 11 21H2 OS system version of msvcrt.dll
+#ifdef __i386__
+; protected: virtual void __thiscall bad_cast::_Doraise(void)const
+?_Doraise@bad_cast@@MBEXXZ
+; protected: virtual void __thiscall bad_typeid::_Doraise(void)const
+?_Doraise@bad_typeid@@MBEXXZ
+; void __cdecl _inconsistency(void)
+?_inconsistency@@YAXXZ
+; int __cdecl _is_exception_typeof(class type_info const &,struct _EXCEPTION_POINTERS *)
+?_is_exception_typeof@@YAHABVtype_info@@PAU_EXCEPTION_POINTERS@@@Z
+; public: char const *__thiscall type_info::name(struct __type_info_node *)const
+?name@type_info@@QBEPBDPAU__type_info_node@@@Z ; has WINAPI (@4)
+#endif
+#ifdef __x86_64__
+; protected: virtual void __cdecl bad_cast::_Doraise(void)const __ptr64
+?_Doraise@bad_cast@@MEBAXXZ
+; protected: virtual void __cdecl bad_typeid::_Doraise(void)const __ptr64
+?_Doraise@bad_typeid@@MEBAXXZ
+; void __cdecl _inconsistency(void)
+?_inconsistency@@YAXXZ
+; int __cdecl _is_exception_typeof(class type_info const &__ptr64 ,struct _EXCEPTION_POINTERS *__ptr64)
+?_is_exception_typeof@@YAHAEBVtype_info@@PEAU_EXCEPTION_POINTERS@@@Z
+; public: char const *__ptr64 __cdecl type_info::name(struct __type_info_node *__ptr64)const __ptr64
+?name@type_info@@QEBAPEBDPEAU__type_info_node@@@Z
+#endif
+F_X86_ANY(__BuildCatchObject)
+F_X86_ANY(__BuildCatchObjectHelper)
+F_X64(__CxxFrameHandler4)
+F_X86_ANY(__TypeMatch)
+F_I386(_freefls@4 == __freefls@4) ; rename i386 __freefls@4 to _freefls@4 for ABI compatibility with msvcr80+
+F_X64(_freefls)
+F_X86_ANY(_get_terminate)
+F_X86_ANY(_get_unexpected)
+F_X64(_ungetc_nolock) ; also available on all arm64 systems but only for i386-chpe32 binaries
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This is end of the list of symbols available in the Windows OS system versions of msvcrt.dll ;
 ; All symbols defined below this line are not available in any version of msvcrt.dll library   ;
