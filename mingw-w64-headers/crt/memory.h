@@ -41,6 +41,9 @@ extern "C" {
   _SECIMP errno_t __cdecl memcpy_s (void *_dest,size_t _numberOfElements,const void *_src,size_t _count);
   void * __cdecl mempcpy (void *_Dst, const void *_Src, size_t _Size);
   void * __cdecl memset(void *_Dst,int _Val,size_t _Size);
+#if !defined(__STRICT_ANSI__) || __STDC_VERSION__ + 0 >= 202311L
+  void * __cdecl memset_explicit(void *_Dst,int _Val,size_t _Size);
+#endif
 
 #ifndef	NO_OLDNAMES
   void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;

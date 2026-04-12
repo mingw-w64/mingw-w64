@@ -1278,7 +1278,7 @@ src_libmingwex=\
   misc/gettimeofday.c    misc/__mingw_has_sse.c      \
   misc/ftime32.c         misc/ftime64.c              \
   misc/memalignment.c \
-  misc/mempcpy.c         misc/mingw-aligned-malloc.c \
+  misc/mempcpy.c         misc/memset_explicit.c      misc/mingw-aligned-malloc.c \
   misc/strndup.c \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
