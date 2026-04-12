@@ -1466,6 +1466,7 @@ lib32_LIBRARIES = lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
+EXTRA_lib32_libkernel32_a_DEPENDENCIES=lib32/kernel32.def
 
 lib32_DATA =
 if !W32API
