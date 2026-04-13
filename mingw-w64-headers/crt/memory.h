@@ -30,7 +30,7 @@ extern "C" {
 #ifndef _CRT_MEMORY_DEFINED
 #define _CRT_MEMORY_DEFINED
   _CRTIMP void *__cdecl _memccpy(void *_Dst,const void *_Src,int _Val,size_t _MaxCount);
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#if !defined(__STRICT_ANSI__) || defined(_GNU_SOURCE) || __STDC_VERSION__ + 0 >= 202311L || _XOPEN_SOURCE + 0 >= 600
   void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size);
 #endif
   _CONST_RETURN void *__cdecl memchr(const void *_Buf ,int _Val,size_t _MaxCount);
@@ -43,9 +43,7 @@ extern "C" {
   void * __cdecl memset(void *_Dst,int _Val,size_t _Size);
 
 #ifndef	NO_OLDNAMES
-#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
   void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-#endif
   int __cdecl memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
