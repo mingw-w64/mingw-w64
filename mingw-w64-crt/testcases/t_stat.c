@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     struct stat64 st64;
     DWORD raw_ver;
     unsigned ver;
-    unsigned type;
+    unsigned is_not_nt;
 
     mingw_test_init ();
 
@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
 
     raw_ver = GetVersion();
     ver = ((raw_ver & 0xff) << 8) | ((raw_ver & 0xff00) >> 8);
-    type = (raw_ver >> 30) ^ 2;
+    is_not_nt = (raw_ver >> 31);
 
-    if (type != VER_PLATFORM_WIN32_NT)
+    if (is_not_nt)
         return 77;
 
     snprintf(buffer, sizeof(buffer), "\\\\.\\%s", windows_dir_path);
