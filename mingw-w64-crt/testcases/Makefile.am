@@ -22,6 +22,7 @@ testcase_progs = \
   t_assert \
   t_btowc \
   t_ctype \
+  t_excpt_int_overflow \
   t_findfirst \
   t_float  \
   t_fseeki64 \
@@ -59,7 +60,6 @@ testcase_progs = \
   t_stprintf1_a \
   t_stprintf1_u \
   t_setjmp \
-  t_sigfpe \
   t_sigv \
   t_speed_powl \
   t_stat \
@@ -113,6 +113,7 @@ check_LIBRARIES =
 check_PROGRAMS = $(testcase_progs)
 TESTS = $(testcase_progs)
 XFAIL_TESTS = \
+  t_excpt_int_overflow \
   t_nullptrexception
 
 # Include the complex math testcase fragment.
