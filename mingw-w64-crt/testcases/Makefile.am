@@ -22,6 +22,8 @@ testcase_progs = \
   t_assert \
   t_btowc \
   t_ctype \
+  t_excpt_int_divzero \
+  t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
   t_excpt_int_overflow_thrd \
   t_findfirst \
@@ -114,6 +116,8 @@ check_LIBRARIES =
 check_PROGRAMS = $(testcase_progs)
 TESTS = $(testcase_progs)
 XFAIL_TESTS = \
+  t_excpt_int_divzero \
+  t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
   t_excpt_int_overflow_thrd \
   t_nullptrexception
