@@ -31,7 +31,7 @@ static HINSTANCE hPwdLib = NULL;
 static POINT pt_orig;
 static BOOL checking_pwd = FALSE;
 static BOOL closing = FALSE;
-static BOOL w95 = FALSE;
+static BOOL w9x = FALSE;
 
 typedef void (*PVFV)(void);
 typedef BOOL (WINAPI *VERIFYPWDPROC)(HWND);
@@ -97,10 +97,10 @@ int APIENTRY tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst,
 
   /* check if we are running on Win9x
    * distinguish between Win9x and older system via major OS ver */
-  w95 = !isNT && majOSVer >= 0x04;
+  w9x = !isNT && majOSVer >= 0x04;
 
   /* check if we are going to check for passwords */
-  if (w95)
+  if (w9x)
     {
       HKEY hKey;
       if (RegOpenKey(HKEY_CURRENT_USER, REGSTR_PATH_SCREENSAVE ,&hKey) ==
@@ -194,7 +194,7 @@ static int LaunchScreenSaver(HWND hParent)
   HDC hdc;
 
   /* don't allow other tasks to get into the foreground */
-  if (w95 && !fChildPreview)
+  if (w9x && !fChildPreview)
     SystemParametersInfo(SPI_SCREENSAVERRUNNING, TRUE, &foo, 0);
 
   msg.wParam = 0;
@@ -244,7 +244,7 @@ static int LaunchScreenSaver(HWND hParent)
 
 restore:
   /* restore system */
-  if (w95 && !fChildPreview)
+  if (w9x && !fChildPreview)
     SystemParametersInfo(SPI_SCREENSAVERRUNNING, FALSE, &foo, 0);
   FreeLibrary(hPwdLib);
   return msg.wParam;
