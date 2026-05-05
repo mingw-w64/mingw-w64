@@ -14,6 +14,7 @@
 #define INITGUID
 #include <basetyps.h>
 
+#include <activscp.h>
 #include <credentialprovider.h>
 #include <httprequest.h>
 #include <functiondiscoverykeys.h>

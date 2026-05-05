@@ -136,7 +136,7 @@ src_libgdiplus=libsrc/gdiplus.c
 src_adsiid=libsrc/activeds-uuid.c
 
 src_libuuid=\
-  libsrc/ativscp-uuid.c   libsrc/atsmedia-uuid.c    libsrc/bth-uuid.c         libsrc/cguid-uuid.c     libsrc/comcat-uuid.c   \
+  libsrc/atsmedia-uuid.c    libsrc/bth-uuid.c         libsrc/cguid-uuid.c     libsrc/comcat-uuid.c   \
   libsrc/ctxtcall-uuid.c \
   libsrc/devguid.c        libsrc/docobj-uuid.c      libsrc/dxva-uuid.c        libsrc/exdisp-uuid.c    libsrc/extras-uuid.c   \
   libsrc/fwp-uuid.c       libsrc/guid_nul.c         libsrc/hlguids-uuid.c     libsrc/hlink-uuid.c     libsrc/mlang-uuid.c    \
