@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-void *__stack_chk_guard;
+uintptr_t __stack_chk_guard;
 
 #if defined __SSP__ || defined __SSP_STRONG__ || defined __SSP_ALL__
 // This function requires `no_stack_protector` because it changes the
@@ -35,18 +35,18 @@ static void __cdecl init(void)
   // which tries to load the function dynamically, and falls back on
   // using RtlGenRandom if not available.
   if (rand_s(&ui) == 0) {
-    __stack_chk_guard = (void*)(intptr_t)ui;
+    __stack_chk_guard = ui;
 #if __SIZEOF_POINTER__ > 4
     rand_s(&ui);
-    __stack_chk_guard = (void*)(((intptr_t)__stack_chk_guard) << 32 | ui);
+    __stack_chk_guard = __stack_chk_guard << 32 | ui;
 #endif
     return;
   }
 
   // If rand_s failed (it shouldn't), hardcode a nonzero default stack guard.
 #if __SIZEOF_POINTER__ > 4
-  __stack_chk_guard = (void*)0xdeadbeefdeadbeefULL;
+  __stack_chk_guard = 0xdeadbeefdeadbeefULL;
 #else
-  __stack_chk_guard = (void*)0xdeadbeef;
+  __stack_chk_guard = 0xdeadbeef;
 #endif
 }
