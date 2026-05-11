@@ -1,14 +1,10 @@
 /*
- * spin1.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,22 +26,26 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Create a simple spinlock object, lock it, and then unlock it again.
- * This is the simplest test of the pthread mutex family that we can do.
- *
  */
 
 #include "test.h"
 
-pthread_spinlock_t lock;
+/**
+ * Test Summary:
+ *
+ * Create spinlock object and test basic assumptions about lock ownership
+ * and lifetime.
+ */
 
 int main(void)
 {
+  pthread_spinlock_t lock;
+
   assert(pthread_spin_init(&lock, PTHREAD_PROCESS_PRIVATE) == 0);
   assert(pthread_spin_lock(&lock) == 0);
+  assert(pthread_spin_lock(&lock) == EDEADLK);
+  assert(pthread_spin_trylock(&lock) == EBUSY);
+  assert(pthread_spin_destroy(&lock) == EBUSY);
   assert(pthread_spin_unlock(&lock) == 0);
   assert(pthread_spin_destroy(&lock) == 0);
   assert(pthread_spin_lock(&lock) == EINVAL);
