@@ -1,14 +1,10 @@
 /*
- * spin3.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,43 +26,40 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Thread A locks spin - thread B tries to unlock.
- * This should result in a EPERM as adviced in the spec.
- *
  */
 
 #include "test.h"
 
-static int wasHere = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M create spinlock object S and locks it.
+ *
+ * Thread A attempts to unlock S; since S is owned by M,
+ * `pthread_spin_unlock` must fail with `EPERM`.
+ *
+ * Thread M unlocks and destroys S.
+ */
 
-static pthread_spinlock_t spin;
-
-void *unlocker(void *arg)
+static void *thread(void *arg)
 {
-  int expectedResult = (int) (size_t) arg;
-
-  wasHere++;
-  assert(pthread_spin_unlock(&spin) == (int) expectedResult);
-  wasHere++;
-
-  return NULL;
+  assert(pthread_spin_unlock((pthread_spinlock_t *) arg) == EPERM);
+  return arg;
 }
 
 int main(void)
 {
+  pthread_spinlock_t spin;
   pthread_t t;
+  void *result;
 
-  wasHere = 0;
   assert(pthread_spin_init(&spin, PTHREAD_PROCESS_PRIVATE) == 0);
   assert(pthread_spin_lock(&spin) == 0);
-  assert(pthread_create(&t, NULL, unlocker, (void *) EPERM) == 0);
-  assert(pthread_join(t, NULL) == 0);
+  assert(pthread_create(&t, NULL, thread, &spin) == 0);
+  assert(pthread_join(t, &result) == 0);
+  assert(result == &spin);
   assert(pthread_spin_unlock(&spin) == 0);
   assert(pthread_spin_destroy(&spin) == 0);
-  assert(wasHere == 2);
 
   return 0;
 }
