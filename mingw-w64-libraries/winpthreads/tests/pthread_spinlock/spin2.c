@@ -1,14 +1,10 @@
 /*
- * spin2.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,38 +26,40 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Declare a spinlock object, lock it, trylock it,
- * and then unlock it again.
- *
  */
 
 #include "test.h"
 
-static int washere = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M create spinlock object S and locks it.
+ *
+ * Thread A attempts to lock S; since S is locked by M,
+ * `pthread_spin_trylock` must fail with `EBUSY`.
+ *
+ * Thread M unlocks and destroys S.
+ */
 
-void *func(void *arg)
+static void *thread(void *arg)
 {
   assert(pthread_spin_trylock((pthread_spinlock_t *) arg) == EBUSY);
-  washere = 1;
-
-  return 0;
+  return arg;
 }
 
 int main(void)
 {
-  static pthread_spinlock_t lock;
+  pthread_spinlock_t lock;
   pthread_t t;
+  void *result;
 
   assert(pthread_spin_init(&lock, PTHREAD_PROCESS_PRIVATE) == 0);
   assert(pthread_spin_lock(&lock) == 0);
-  assert(pthread_create(&t, NULL, func, &lock) == 0);
-  assert(pthread_join(t, NULL) == 0);
+  assert(pthread_create(&t, NULL, thread, &lock) == 0);
+  assert(pthread_join(t, &result) == 0);
+  assert(result == &lock);
   assert(pthread_spin_unlock(&lock) == 0);
   assert(pthread_spin_destroy(&lock) == 0);
-  assert(washere == 1);
 
   return 0;
 }
