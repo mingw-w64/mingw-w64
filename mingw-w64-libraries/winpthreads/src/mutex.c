@@ -231,7 +231,7 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
 
   if (unlikely(mi->type != Normal)) {
     if (mi->state == Unlocked)
-      return EINVAL;
+      return EPERM;
     if (mi->owner != GetCurrentThreadId())
       return EPERM;
     if (mi->rec_lock > 0) {
