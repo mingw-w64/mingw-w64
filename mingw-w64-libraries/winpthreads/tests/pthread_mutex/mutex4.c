@@ -76,7 +76,14 @@ main()
    */
   assert(pthread_create(&t, NULL, unlocker, (void *) 0) == 0);
   assert(pthread_join(t, NULL) == 0);
-  assert(pthread_mutex_unlock(&mutex1) == EPERM);
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Out implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
+  assert(pthread_mutex_unlock(&mutex1) == 0);
   assert(wasHere == 2);
 
   wasHere = 0;
@@ -89,7 +96,14 @@ main()
    */
   assert(pthread_create(&t, NULL, unlocker, (void *) 0) == 0);
   assert(pthread_join(t, NULL) == 0);
-  assert(pthread_mutex_unlock(&mutex1) == EPERM);
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Out implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
+  assert(pthread_mutex_unlock(&mutex1) == 0);
   assert(wasHere == 2);
 
   wasHere = 0;

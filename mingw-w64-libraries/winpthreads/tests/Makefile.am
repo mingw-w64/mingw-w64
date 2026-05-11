@@ -174,8 +174,5 @@ TESTS = $(check_PROGRAMS)
 
 # TODO: investigate why these tests fail
 XFAIL_TESTS =              \
-	pthread_mutex/mutex4   \
-	pthread_mutex/mutex7   \
-	pthread_mutex/mutex7n  \
 	pthread_spinlock/spin1 \
 	pthread_spinlock/spin3

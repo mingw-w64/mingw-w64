@@ -57,7 +57,14 @@ void * locker(void * arg)
   assert(pthread_mutex_trylock(&mutex) == EBUSY);
   lockCount++;
   assert(pthread_mutex_unlock(&mutex) == 0);
-  assert(pthread_mutex_unlock(&mutex) == EPERM);
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Out implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
+  assert(pthread_mutex_unlock(&mutex) == 0);
 
   return 0;
 }
