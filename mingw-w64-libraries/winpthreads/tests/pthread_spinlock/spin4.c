@@ -1,14 +1,10 @@
 /*
- * spin4.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,70 +26,73 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Declare a static spinlock object, lock it, spin on it,
- * and then unlock it again.
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
-pthread_spinlock_t lock = PTHREAD_SPINLOCK_INITIALIZER;
+/**
+ * Test Summary:
+ *
+ * Main thread M statically initializes spin lock S and creates two threads
+ * A and B.
+ *
+ * Threads A and B both try to lock S and unlock S. Since S is statically
+ * initialized, `pthread_spin_lock` must perform actual initialization.
+ * Only one thread must complete initialization and both A and B must use
+ * the same spinlock object to perform synchronization.
+ *
+ * After both A and B terminate, M verifies that A and B used the same spinlock
+ * object, and then destroys it.
+ */
 
-struct _timeb currSysTimeStart;
-struct _timeb currSysTimeStop;
+static struct timespec ThreadAEntryTime;
+static struct timespec ThreadBEntryTime;
 
-#define GetDurationMilliSecs(_TStart, _TStop) \
-  ((_TStop.time * 1000 + _TStop.millitm) - (_TStart.time * 1000 + _TStart.millitm))
-
-static int washere = 0;
-
-void *func(void *arg)
+static void *ThreadA(void *arg)
 {
-  _ftime(&currSysTimeStart);
-  washere = 1;
-  assert(pthread_spin_lock(&lock) == 0);
-  assert(pthread_spin_unlock(&lock) == 0);
-  _ftime(&currSysTimeStop);
+  pthread_spinlock_t lock;
 
-  return (void *) (size_t) GetDurationMilliSecs(currSysTimeStart, currSysTimeStop);
+  assert(pthread_spin_lock((pthread_spinlock_t *) arg) == 0);
+  assert (clock_gettime (CLOCK_REALTIME, &ThreadAEntryTime) == 0);
+  lock = *(pthread_spinlock_t *) arg;
+  assert(pthread_spin_unlock((pthread_spinlock_t *) arg) == 0);
+
+  return (void *) lock;
+}
+
+static void *ThreadB(void *arg)
+{
+  pthread_spinlock_t lock;
+
+  assert(pthread_spin_lock((pthread_spinlock_t *) arg) == 0);
+  assert (clock_gettime (CLOCK_REALTIME, &ThreadBEntryTime) == 0);
+  lock = *(pthread_spinlock_t *) arg;
+  assert(pthread_spin_unlock((pthread_spinlock_t *) arg) == 0);
+
+  return (void *) lock;
 }
 
 int main(void)
 {
-  intptr_t result = 0;
-  pthread_t t;
-  int CPUs;
-  struct _timeb sysTime;
+  pthread_spinlock_t lock = PTHREAD_SPINLOCK_INITIALIZER;
 
-  if ((CPUs = pthread_num_processors_np()) == 1)
-    {
-      printf("Test not run - it requires multiple CPUs.\n");
-      exit(0);
-    }
+  pthread_t threadA;
+  pthread_spinlock_t threadALock;
 
-  assert(pthread_spin_lock(&lock) == 0);
-  assert(pthread_create(&t, NULL, func, NULL) == 0);
+  pthread_t threadB;
+  pthread_spinlock_t threadBLock;
 
-  while (washere == 0)
-    {
-      sched_yield();
-    }
+  assert(pthread_create(&threadA, NULL, ThreadA, &lock) == 0);
+  assert(pthread_create(&threadB, NULL, ThreadB, &lock) == 0);
 
-  do
-    {
-      sched_yield();
-      _ftime(&sysTime);
-    }
-  while (GetDurationMilliSecs(currSysTimeStart, sysTime) <= 1000);
+  assert(pthread_join(threadA, (void **) &threadALock) == 0);
+  assert(pthread_join(threadB, (void **) &threadBLock) == 0);
 
-  assert(pthread_spin_unlock(&lock) == 0);
-  assert(pthread_join(t, (void **) &result) == 0);
-  assert(result > 1000);
+  wprintf(L"Thread A lock entry time: %.0f.%ld\n", (double) ThreadAEntryTime.tv_sec, ThreadAEntryTime.tv_nsec);
+  wprintf(L"Thread B lock entry time: %.0f.%ld\n", (double) ThreadBEntryTime.tv_sec, ThreadBEntryTime.tv_nsec);
+
+  assert(threadALock == threadBLock);
   assert(pthread_spin_destroy(&lock) == 0);
-  assert(washere == 1);
 
   return 0;
 }
