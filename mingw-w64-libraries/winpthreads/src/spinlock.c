@@ -39,40 +39,34 @@
    without breaking binary compatibility.) */
 typedef intptr_t spinlock_word_t;
 
-int
-pthread_spin_init (pthread_spinlock_t *lock, int pshared)
+int pthread_spin_init (pthread_spinlock_t *lock, int pshared)
 {
   spinlock_word_t *lk = (spinlock_word_t *)lock;
   *lk = -1;
   return 0;
 }
 
-
-int
-pthread_spin_destroy (pthread_spinlock_t *lock)
+int pthread_spin_destroy (pthread_spinlock_t *lock)
 {
   return 0;
 }
 
-int
-pthread_spin_lock (pthread_spinlock_t *lock)
+int pthread_spin_lock (pthread_spinlock_t *lock)
 {
   spinlock_word_t *lk = (spinlock_word_t *)lock;
-  while (unlikely(InterlockedExchangePointer((PVOID*)lk, 0) == 0))
+  while (unlikely(InterlockedExchangePointer((PVOID*)lk, 0) == 0)) {
     YieldProcessor();
+  }
   return 0;
 }
 
-int
-pthread_spin_trylock (pthread_spinlock_t *lock)
+int pthread_spin_trylock (pthread_spinlock_t *lock)
 {
   spinlock_word_t *lk = (spinlock_word_t *)lock;
   return InterlockedExchangePointer((PVOID*)lk, 0) == 0 ? EBUSY : 0;
 }
 
-
-int
-pthread_spin_unlock (pthread_spinlock_t *lock)
+int pthread_spin_unlock (pthread_spinlock_t *lock)
 {
   spinlock_word_t *lk = (spinlock_word_t *)lock;
 #if defined(__GNUC__) || defined(__clang__)
