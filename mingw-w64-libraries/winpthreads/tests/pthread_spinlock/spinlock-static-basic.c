@@ -33,8 +33,8 @@
 /**
  * Test Summary:
  *
- * This test is equivalent to `spin1.c`, except it uses statically initialized
- * `pthread_spinlock_t` object.
+ * This test is equivalent to `spinlock-basic.c`, except it uses statically
+ * initialized `pthread_spinlock_t` object.
  */
 
 int main(void)

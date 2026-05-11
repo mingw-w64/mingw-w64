@@ -155,10 +155,10 @@ check_PROGRAMS =               \
 	pthread_rwlock/rwlock6_t2  \
 	pthread_rwlock/rwlock7     \
 	pthread_rwlock/rwlock8     \
-	pthread_spinlock/spin1     \
-	pthread_spinlock/spin2     \
-	pthread_spinlock/spin3     \
-	pthread_spinlock/spin4     \
+	pthread_spinlock/spinlock-basic        \
+	pthread_spinlock/spinlock-threaded     \
+	pthread_spinlock/spinlock-static-basic \
+	pthread_spinlock/spinlock-static-race  \
 	pthread_tls/tsd1           \
 	pthread_tls/tsd2           \
 	sched/priority1            \
