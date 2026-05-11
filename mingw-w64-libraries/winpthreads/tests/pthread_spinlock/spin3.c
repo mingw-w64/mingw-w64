@@ -33,33 +33,21 @@
 /**
  * Test Summary:
  *
- * Main thread M create spinlock object S and locks it.
- *
- * Thread A attempts to unlock S; since S is owned by M,
- * `pthread_spin_unlock` must fail with `EPERM`.
- *
- * Thread M unlocks and destroys S.
+ * This test is equivalent to `spin1.c`, except it uses statically initialized
+ * `pthread_spinlock_t` object.
  */
-
-static void *thread(void *arg)
-{
-  assert(pthread_spin_unlock((pthread_spinlock_t *) arg) == EPERM);
-  return arg;
-}
 
 int main(void)
 {
-  pthread_spinlock_t spin;
-  pthread_t t;
-  void *result;
+  pthread_spinlock_t lock = PTHREAD_SPINLOCK_INITIALIZER;
 
-  assert(pthread_spin_init(&spin, PTHREAD_PROCESS_PRIVATE) == 0);
-  assert(pthread_spin_lock(&spin) == 0);
-  assert(pthread_create(&t, NULL, thread, &spin) == 0);
-  assert(pthread_join(t, &result) == 0);
-  assert(result == &spin);
-  assert(pthread_spin_unlock(&spin) == 0);
-  assert(pthread_spin_destroy(&spin) == 0);
+  assert(pthread_spin_lock(&lock) == 0);
+  assert(pthread_spin_lock(&lock) == EDEADLK);
+  assert(pthread_spin_trylock(&lock) == EBUSY);
+  assert(pthread_spin_destroy(&lock) == EBUSY);
+  assert(pthread_spin_unlock(&lock) == 0);
+  assert(pthread_spin_destroy(&lock) == 0);
+  assert(pthread_spin_lock(&lock) == EINVAL);
 
   return 0;
 }

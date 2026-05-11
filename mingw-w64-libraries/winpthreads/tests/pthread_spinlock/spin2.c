@@ -38,12 +38,20 @@
  * Thread A attempts to lock S; since S is locked by M,
  * `pthread_spin_trylock` must fail with `EBUSY`.
  *
+ * Thread A attempts to unlock S; since S is owned by M,
+ * `pthread_spin_unlock` must fail with `EPERM`.
+ *
+ * Thread A attempts to destroy S; since S is locked by M,
+ * `pthread_spin_destroy` must fail with `EBUSY`.
+ *
  * Thread M unlocks and destroys S.
  */
 
 static void *thread(void *arg)
 {
   assert(pthread_spin_trylock((pthread_spinlock_t *) arg) == EBUSY);
+  assert(pthread_spin_unlock((pthread_spinlock_t *) arg) == EPERM);
+  assert(pthread_spin_destroy((pthread_spinlock_t *) arg) == EBUSY);
   return arg;
 }
 
