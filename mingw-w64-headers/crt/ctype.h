@@ -12,18 +12,6 @@
 extern "C" {
 #endif
 
-#ifndef _CTYPE_DISABLE_MACROS
-
-#ifndef MB_CUR_MAX
-#define MB_CUR_MAX ___mb_cur_max_func()
-#ifndef __mb_cur_max
-#define __mb_cur_max	(___mb_cur_max_func())
-#endif
-_CRTIMP int __cdecl ___mb_cur_max_func(void);
-#endif
-
-#endif /* !_CTYPE_DISABLE_MACROS */
-
 /**
  * Standard C functions.
  */
