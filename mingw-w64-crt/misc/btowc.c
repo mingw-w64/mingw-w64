@@ -6,14 +6,10 @@
 
 #define __LARGE_MBSTATE_T
 
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <locale.h>
-#include <limits.h>
+#include <limits.h> /* MB_LEN_MAX */
 #include <wchar.h>
-#include <stdio.h>
-#include <windows.h>
+#include <stdio.h>  /* EOF        */
+#include <stdlib.h> /* MB_CUR_MAX */
 
 wint_t btowc (int c)
 {
