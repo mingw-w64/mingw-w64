@@ -26,3 +26,4 @@ float _strtof_l( const char *nptr, char **endptr, _locale_t _Locale)
   }
   return ret;
 }
+float (*__MINGW_IMP_SYMBOL(_strtof_l))(const char *, char **, _locale_t) = _strtof_l;
