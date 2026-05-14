@@ -577,6 +577,8 @@ src_msvcrt32=\
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   misc/i386__XcptFilter.c \
+  misc/i386__beginthread.c \
+  misc/i386__beginthreadex.c \
   math/i386__copysignf.c \
   misc/___lc_codepage_func.c \
   misc/___lc_handle_func.c \
@@ -1032,6 +1034,8 @@ src_pre_msvcr90=\
 
 src_pre_msvcr100=\
   misc/i386__XcptFilter.c \
+  misc/i386__beginthread.c \
+  misc/i386__beginthreadex.c \
   misc/_invalid_parameter_noinfo_noreturn.c \
   misc/imaxdiv.c
 

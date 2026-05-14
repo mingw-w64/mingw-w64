@@ -903,7 +903,7 @@ _acmdln DATA
 _aexit_rtn DATA
 _amsg_exit
 __msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapper around renamed __msvcrt_assert symbol
-_beginthread
+__msvcrt_beginthread == _beginthread ; rename _beginthread as it does not handle SSE floating point exceptions, real _beginthread provided by emu
 _c_exit
 _cabs
 _cexit

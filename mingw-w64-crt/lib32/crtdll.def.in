@@ -115,7 +115,7 @@ _basemajor_dll DATA
 _baseminor_dll DATA
 _baseversion_dll DATA
 _beep
-_beginthread
+__msvcrt_beginthread == _beginthread ; rename _beginthread as it does not handle SSE floating point exceptions, real _beginthread provided by emu
 _c_exit
 _cabs DATA
 _cexit

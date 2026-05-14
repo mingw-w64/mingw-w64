@@ -429,8 +429,8 @@ _atol_l
 _atoldbl
 _atoldbl_l
 _beep
-_beginthread
-_beginthreadex
+__msvcrt_beginthread == _beginthread ; rename _beginthread as it does not handle SSE floating point exceptions, real _beginthread provided by emu
+__msvcrt_beginthreadex == _beginthreadex ; rename _beginthreadex as it does not handle SSE floating point exceptions, real _beginthreadex provided by emu
 _byteswap_uint64
 _byteswap_ulong
 _byteswap_ushort

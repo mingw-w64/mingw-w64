@@ -1085,8 +1085,8 @@ __msvcrt_assert DATA == _assert ; mingw-w64 provides _assert() function as wrapp
 _atodbl
 _atoldbl
 _beep
-_beginthread
-_beginthreadex
+__msvcrt_beginthread == _beginthread ; rename _beginthread as it does not handle SSE floating point exceptions, real _beginthread provided by emu
+__msvcrt_beginthreadex == _beginthreadex ; rename _beginthreadex as it does not handle SSE floating point exceptions, real _beginthreadex provided by emu
 _c_exit
 _cabs
 _calloc_dbg
