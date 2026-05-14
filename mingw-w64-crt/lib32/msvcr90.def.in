@@ -180,7 +180,7 @@ _NLG_Dispatch2 ; msvc symbol is without decoration but callee pop stack (like st
 _NLG_Return ; msvc symbol is without decoration but callee pop stack (like stdcall @12)
 _NLG_Return2
 _Strftime
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __AdjustPointer
 __BuildCatchObject
 __BuildCatchObjectHelper

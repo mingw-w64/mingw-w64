@@ -220,7 +220,7 @@ _NLG_Return2
 _Strftime
 _VCrtDbgReportA
 _VCrtDbgReportW
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __AdjustPointer
 __BuildCatchObject
 __BuildCatchObjectHelper

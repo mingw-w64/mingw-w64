@@ -90,7 +90,7 @@ _CItan
 _CItanh
 _HUGE_dll DATA
 _HUGE DATA == _HUGE_dll
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __GetMainArgs
 __doserrno
 __fpecode

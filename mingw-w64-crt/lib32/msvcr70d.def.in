@@ -166,7 +166,7 @@ _Getmonths
 _Gettnames
 _HUGE DATA
 _Strftime
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __CxxCallUnwindDtor
 __CxxCallUnwindVecDtor
 __CxxDetectRethrow

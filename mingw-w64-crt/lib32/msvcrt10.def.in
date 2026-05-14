@@ -881,7 +881,7 @@ _CIsqrt
 _CItan
 _CItanh
 _HUGE DATA
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __STRINGTOLD
 __argc DATA
 __argv DATA

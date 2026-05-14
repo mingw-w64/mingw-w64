@@ -576,6 +576,7 @@ src_msvcrt32=\
   ctype/__pwctype_func.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
+  misc/i386__XcptFilter.c \
   math/i386__copysignf.c \
   misc/___lc_codepage_func.c \
   misc/___lc_handle_func.c \
@@ -1030,6 +1031,7 @@ src_pre_msvcr90=\
   stdio/_getc_nolock.c
 
 src_pre_msvcr100=\
+  misc/i386__XcptFilter.c \
   misc/_invalid_parameter_noinfo_noreturn.c \
   misc/imaxdiv.c
 

@@ -891,7 +891,7 @@ _CItan
 _CItanh
 _CxxThrowException@8
 _HUGE DATA
-_XcptFilter
+__msvcrt_XcptFilter == _XcptFilter ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
 __CxxFrameHandler
 __CxxLongjmpUnwind@4
 __STRINGTOLD

@@ -443,7 +443,8 @@ _Getmonths
 _Gettnames
 _HUGE DATA
 _Strftime
-_XcptFilter
+F_I386(__msvcrt_XcptFilter == _XcptFilter) ; rename _XcptFilter as it does not handle SSE floating point exceptions, real _XcptFilter provided by emu
+F_NON_I386(_XcptFilter)
 F_X86_ANY(__CxxFrameHandler)
 F_I386(__CxxLongjmpUnwind@4)
 __RTCastToVoid
