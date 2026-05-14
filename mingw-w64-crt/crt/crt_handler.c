@@ -79,6 +79,10 @@ __mingw_init_ehandler (void)
 
 extern void _fpreset (void);
 
+#if defined(__i386__)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
+__attribute__((force_align_arg_pointer))
+#endif
 EXCEPTION_DISPOSITION __cdecl
 __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
