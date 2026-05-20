@@ -171,8 +171,3 @@ check_PROGRAMS =               \
 	semaphore/semaphore5
 
 TESTS = $(check_PROGRAMS)
-
-# TODO: investigate why these tests fail
-XFAIL_TESTS =              \
-	pthread_spinlock/spin1 \
-	pthread_spinlock/spin3
