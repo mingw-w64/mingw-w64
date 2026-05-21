@@ -3221,6 +3221,12 @@ __buildmemorybarrier()
 #define SID_RECOMMENDED_SUB_AUTHORITIES (1)
 #ifndef __WIDL__
 #define SECURITY_MAX_SID_SIZE (sizeof (SID) - sizeof (DWORD) + (SID_MAX_SUB_AUTHORITIES *sizeof (DWORD)))
+
+    typedef union _SE_SID {
+      SID Sid;
+      BYTE Buffer[SECURITY_MAX_SID_SIZE];
+    } SE_SID, *PSE_SID;
+
 #endif
 
 #define SID_HASH_SIZE 32
