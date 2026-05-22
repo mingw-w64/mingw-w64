@@ -4467,13 +4467,13 @@ lib32/%.def: lib-common/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib64/%.def: lib-common/%.def.in
-	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
 
 libarm32/%.def: lib-common/%.def.in
-	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
 
 libarm64/%.def: lib-common/%.def.in
-	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |$$)/\1\2/' > $@
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
 
 # Don't compile these, but install as is:
 #
