@@ -114,7 +114,11 @@ int WinMainCRTStartup (void)
 #endif
     "\t.seh_handlerdata\n"
     "\t.long 1\n"
+#ifdef __arm64ec__
+    "\t.rva .l_startw, .l_endw, \"#_gnu_exception_handler\" ,.l_endw\n"
+#else
     "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
+#endif
     "\t.text");
 #endif
 #if defined(__i386__)
@@ -155,7 +159,11 @@ int mainCRTStartup (void)
 #endif
     "\t.seh_handlerdata\n"
     "\t.long 1\n"
+#ifdef __arm64ec__
+    "\t.rva .l_start, .l_end, \"#_gnu_exception_handler\" ,.l_end\n"
+#else
     "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
+#endif
     "\t.text");
 #endif
 #if defined(__i386__)
