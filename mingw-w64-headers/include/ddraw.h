@@ -1019,6 +1019,9 @@ typedef struct _DDPIXELFORMAT {
 #define DDWAITVB_BLOCKBEGINEVENT	0x00000002
 #define DDWAITVB_BLOCKEND		0x00000004
 
+/* SetGammaRamp flags */
+#define DDSGR_CALIBRATE 0x00000001
+
 typedef struct _DDSURFACEDESC
 {
 	DWORD	dwSize;		/* 0: size of the DDSURFACEDESC structure*/
