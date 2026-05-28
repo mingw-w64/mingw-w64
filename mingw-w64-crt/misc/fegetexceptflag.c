@@ -15,9 +15,10 @@
 int fegetexceptflag(fexcept_t *status, int excepts)
 {
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
-    unsigned int x87, sse;
+    unsigned int x87, sse = 0;
     __mingw_setfp(NULL, 0, &x87, 0);
-    __mingw_setfp_sse(NULL, 0, &sse, 0);
+    if (__mingw_has_sse())
+        __mingw_setfp_sse(NULL, 0, &sse, 0);
     *status = fenv_encode(x87 & excepts, sse & excepts);
 #else
     *status = fenv_encode(0, __mingw_statusfp() & excepts);
