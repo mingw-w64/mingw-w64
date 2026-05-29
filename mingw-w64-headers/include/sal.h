@@ -570,6 +570,7 @@
 #define __deref_opt_out_bcount(x)
 #define __deref_out
 #define __deref_out_ecount(size)
+#define __deref_out_ecount_full(size)
 #define __deref_out_opt
 
 #define __range(x,y)
