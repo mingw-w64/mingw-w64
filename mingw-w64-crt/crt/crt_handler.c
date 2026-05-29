@@ -19,7 +19,8 @@ EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(struct _EXCEPTION_RECORD
 
 #pragma pack(push,1)
 typedef struct _UNWIND_INFO {
-  BYTE VersionAndFlags;
+  BYTE Version:3;
+  BYTE Flags:5;
   BYTE PrologSize;
   BYTE CountOfUnwindCodes;
   BYTE FrameRegisterAndOffset;
@@ -54,7 +55,8 @@ __mingw_init_ehandler (void)
   /* Fill tables and entries.  */
   while (e < MAX_PDATA_ENTRIES && (pSec = _FindPESectionExec (e)) != NULL)
     {
-      emu_xdata[e].VersionAndFlags = 9; /* UNW_FLAG_EHANDLER | UNW_VERSION */
+      emu_xdata[e].Version = 1;
+      emu_xdata[e].Flags = UNW_FLAG_EHANDLER;
       emu_xdata[e].AddressOfExceptionHandler =
 	(DWORD)(size_t) ((LPBYTE)__mingw_SEH_error_handler - _ImageBase);
       emu_pdata[e].BeginAddress = pSec->VirtualAddress;
