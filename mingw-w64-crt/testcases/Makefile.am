@@ -22,6 +22,7 @@ testcase_progs = \
   t_assert \
   t_btowc \
   t_ctype \
+  t_excpt_gcc_cpp \
   t_excpt_int_divzero \
   t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
