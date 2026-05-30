@@ -49,8 +49,9 @@ void test_apc()
 {
     long i, rc, data[5];
     HANDLE thread;
+    unsigned thrAddr; /* Dummy variable to pass a valid location to _beginthreadex (Win98). */
 
-    thread = (HANDLE) _beginthreadex(NULL, 0, start_address, NULL, 0, NULL);
+    thread = (HANDLE) _beginthreadex(NULL, 0, start_address, NULL, 0, &thrAddr);
     if (thread == NULL) {
         exit(1);
     }

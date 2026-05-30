@@ -1612,6 +1612,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   struct _pthread_v *tv;
   unsigned int ssize = 0;
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
+  unsigned thrAddr; /* Dummy variable to pass a valid location to _beginthreadex (Win98). */
 
   if (attr && attr->s_size > UINT_MAX)
     return EINVAL;
@@ -1668,7 +1669,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   /* Make sure tv->h has value of INVALID_HANDLE_VALUE */
   _ReadWriteBarrier();
 
-  thrd = (HANDLE) _beginthreadex(NULL, ssize, pthread_create_wrapper, tv, 0x4/*CREATE_SUSPEND*/, NULL);
+  thrd = (HANDLE) _beginthreadex(NULL, ssize, pthread_create_wrapper, tv, 0x4/*CREATE_SUSPEND*/, &thrAddr);
   if (thrd == INVALID_HANDLE_VALUE)
     thrd = 0;
   /* Failed */
