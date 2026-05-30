@@ -45,7 +45,7 @@ extern "C" {
 #endif
 #endif
 
-  typedef	void (*__p_sig_fn_t)(int);
+  typedef	void (__cdecl *__p_sig_fn_t)(int);
 
 #define SIG_DFL (__p_sig_fn_t)0
 #define SIG_IGN (__p_sig_fn_t)1
