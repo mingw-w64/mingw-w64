@@ -4,6 +4,10 @@
 
 jmp_buf buf;
 
+#if defined(__i386__)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
+__attribute__((force_align_arg_pointer))
+#endif
 void __attribute__((noreturn)) catchSigSegV( int sig )
 {
  longjmp(buf, 1);
