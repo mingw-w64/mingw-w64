@@ -91,7 +91,8 @@ SetThreadName_SEH (EXCEPTION_RECORD *ExceptionRecord, PVOID EstablisherFrame, CO
    * SEH handlers like this one return value from EXCEPTION_DISPOSITION enum which has CamelCase constants.
    * UPPER_CASE EXCEPTION_CONTINUE_SEARCH and CamelCase ExceptionContinueSearch are different constants.
    */
-  if (!(ExceptionRecord->ExceptionFlags & EXCEPTION_NONCONTINUABLE) &&
+  if (!(ExceptionRecord->ExceptionFlags & EXCEPTION_UNWINDING) &&
+      !(ExceptionRecord->ExceptionFlags & EXCEPTION_NONCONTINUABLE) &&
       ExceptionRecord->ExceptionCode == EXCEPTION_SET_THREAD_NAME)
     return ExceptionContinueExecution;
 
