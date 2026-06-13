@@ -8,12 +8,17 @@
 #include <excpt.h>
 #include <stdlib.h>
 
+/* This is SEH exception handler which handles only SEH exceptions for
+ * C signals and dispatches them to the registered C signal handler.
+ * Calling the appropriate C signal handler which was registered by the
+ * CRT signal() function is done by the CRT _XcptFilter() function.
+ */
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
 __attribute__((force_align_arg_pointer))
 #endif
 static EXCEPTION_DISPOSITION __cdecl
-__mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
+__mingw_SEH_signal_dispatcher (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
 			   struct _CONTEXT* ContextRecord,
 			   void *DispatcherContext __attribute__ ((unused)))

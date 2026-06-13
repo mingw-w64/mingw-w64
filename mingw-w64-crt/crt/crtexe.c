@@ -146,16 +146,16 @@ __attribute__((force_align_arg_pointer))
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
-    /* Registration of SEH error handler __mingw_SEH_error_handler used for
+    /* Registration of SEH error handler __mingw_SEH_signal_dispatcher used for
      * delivering SEH exceptions to registered CRT signal handlers. */
 #if defined(__i386__)
     EXCEPTION_REGISTRATION_RECORD exception_record = {
       .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
-      .Handler = (PEXCEPTION_ROUTINE)(INT_PTR)__mingw_SEH_error_handler,
+      .Handler = (PEXCEPTION_ROUTINE)(INT_PTR)__mingw_SEH_signal_dispatcher,
     };
     __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
 #elif defined(SEH_INLINE_ASM)
-    asm volatile (".seh_handler %c0, " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
+    asm volatile (".seh_handler %c0, " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_signal_dispatcher)); /* statically register SEH error handler, it is active only in the current function */
 #endif
 
     void *lock_free = NULL;
