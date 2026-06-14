@@ -79,7 +79,7 @@ size_t __mingw_wcrtomb_cp (
     cp, 0, &wc, 1, buffer, mb_cur_max, NULL, &defaultCharacterUsed
   );
 
-  if (ret == 0 || ret > mb_cur_max || defaultCharacterUsed) {
+  if (ret <= 0 || ret > mb_cur_max || defaultCharacterUsed) {
     goto eilseq;
   }
 
