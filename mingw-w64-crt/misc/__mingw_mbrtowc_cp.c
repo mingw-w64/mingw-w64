@@ -133,6 +133,15 @@ size_t __mingw_mbrtowc_cp (
   int ret = MultiByteToWideChar (
     cp, MB_ERR_INVALID_CHARS, conversion_state.bytes, length, &wcOut, 1
   );
+  if (ret == 0) {
+    /* Older Windows versons do not support MB_ERR_INVALID_CHARS.
+     * WinNT 3.x signals ERROR_INVALID_PARAMETER and WinNT 4.0 signals ERROR_INVALID_FLAGS.
+     * Fallback case when MB_ERR_INVALID_CHARS is not supported.
+     */
+    DWORD error = GetLastError ();
+    if (error == ERROR_INVALID_PARAMETER || error == ERROR_INVALID_FLAGS)
+      ret = MultiByteToWideChar (cp, 0, conversion_state.bytes, length, &wcOut, 1);
+  }
 
   if (ret != 1) {
     goto eilseq;
