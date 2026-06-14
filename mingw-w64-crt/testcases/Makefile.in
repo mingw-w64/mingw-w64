@@ -185,7 +185,8 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 	t_excpt_int_divzero$(EXEEXT) t_excpt_int_divzero_thrd$(EXEEXT) \
 	t_excpt_int_overflow$(EXEEXT) \
 	t_excpt_int_overflow_thrd$(EXEEXT) t_findfirst$(EXEEXT) \
-	t_float$(EXEEXT) t_fseeki64$(EXEEXT) \
+	t_float$(EXEEXT) t_format_Z$(EXEEXT) t_format_Z0$(EXEEXT) \
+	t_format_Z1$(EXEEXT) t_fseeki64$(EXEEXT) \
 	t_fseeki64_ftelli64$(EXEEXT) t_fstat$(EXEEXT) \
 	t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
 	t_fstat_t64_f64$(EXEEXT) t_intrinc$(EXEEXT) \
@@ -505,6 +506,15 @@ t_findfirst_LDADD = $(LDADD)
 t_float_SOURCES = t_float.c
 t_float_OBJECTS = t_float.$(OBJEXT)
 t_float_LDADD = $(LDADD)
+t_format_Z_SOURCES = t_format_Z.c
+t_format_Z_OBJECTS = t_format_Z.$(OBJEXT)
+t_format_Z_LDADD = $(LDADD)
+t_format_Z0_SOURCES = t_format_Z0.c
+t_format_Z0_OBJECTS = t_format_Z0.$(OBJEXT)
+t_format_Z0_LDADD = $(LDADD)
+t_format_Z1_SOURCES = t_format_Z1.c
+t_format_Z1_OBJECTS = t_format_Z1.$(OBJEXT)
+t_format_Z1_LDADD = $(LDADD)
 t_fseeki64_SOURCES = t_fseeki64.c
 t_fseeki64_OBJECTS = t_fseeki64.$(OBJEXT)
 t_fseeki64_LDADD = $(LDADD)
@@ -1039,14 +1049,16 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_excpt_int_overflow.Po \
 	./$(DEPDIR)/t_excpt_int_overflow_thrd.Po \
 	./$(DEPDIR)/t_findfirst.Po ./$(DEPDIR)/t_float.Po \
-	./$(DEPDIR)/t_fseeki64.Po ./$(DEPDIR)/t_fseeki64_ftelli64.Po \
-	./$(DEPDIR)/t_fseeko64.Po ./$(DEPDIR)/t_fstat.Po \
-	./$(DEPDIR)/t_fstat_f64.Po ./$(DEPDIR)/t_fstat_t64.Po \
-	./$(DEPDIR)/t_fstat_t64_f64.Po ./$(DEPDIR)/t_imagebase.Po \
-	./$(DEPDIR)/t_intrinc-t_intrinc.Po ./$(DEPDIR)/t_iswctype.Po \
-	./$(DEPDIR)/t_lfs.Po ./$(DEPDIR)/t_lseeki64.Po \
-	./$(DEPDIR)/t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
-	./$(DEPDIR)/t_mbrtowc.Po ./$(DEPDIR)/t_mbsrtowcs.Po \
+	./$(DEPDIR)/t_format_Z.Po ./$(DEPDIR)/t_format_Z0.Po \
+	./$(DEPDIR)/t_format_Z1.Po ./$(DEPDIR)/t_fseeki64.Po \
+	./$(DEPDIR)/t_fseeki64_ftelli64.Po ./$(DEPDIR)/t_fseeko64.Po \
+	./$(DEPDIR)/t_fstat.Po ./$(DEPDIR)/t_fstat_f64.Po \
+	./$(DEPDIR)/t_fstat_t64.Po ./$(DEPDIR)/t_fstat_t64_f64.Po \
+	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
+	./$(DEPDIR)/t_iswctype.Po ./$(DEPDIR)/t_lfs.Po \
+	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_matherr.Po \
+	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
+	./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_nullptrexception.Po \
 	./$(DEPDIR)/t_printf_g_width.Po ./$(DEPDIR)/t_readdir.Po \
@@ -1288,45 +1300,45 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	t_assert.c t_btowc.c t_ctype.c t_excpt_gcc_cpp.c \
 	t_excpt_int_divzero.c t_excpt_int_divzero_thrd.c \
 	t_excpt_int_overflow.c t_excpt_int_overflow_thrd.c \
-	t_findfirst.c t_float.c t_fseeki64.c t_fseeki64_ftelli64.c \
-	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
-	t_fstat_t64_f64.c t_imagebase.c t_intrinc.c t_iswctype.c \
-	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
-	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
-	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
-	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
-	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_utime.c \
-	t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
-	t_wctype.c t_wreaddir.c $(tests32_cabs_SOURCES) \
-	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
-	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
-	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
-	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
-	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
-	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
-	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
-	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
-	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
-	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
-	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
-	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
-	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
-	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
-	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
-	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
-	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
-	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
-	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
-	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
-	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
-	$(tests64_ctanh_SOURCES) tstmain_sys_xxx.c tstmainc.c \
-	$(tstmaincpp_SOURCES)
+	t_findfirst.c t_float.c t_format_Z.c t_format_Z0.c \
+	t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c \
+	t_fstat.c t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c \
+	t_imagebase.c t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c \
+	t_matherr.c t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
+	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
+	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
+	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
+	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
+	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
+	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
+	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
+	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
+	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
+	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
+	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
+	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
+	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
+	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
+	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
+	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
+	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
+	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
+	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
+	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
+	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
+	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
+	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
+	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
+	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
+	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES) \
+	tstmain_sys_xxx.c tstmainc.c $(tstmaincpp_SOURCES)
 DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsld_a_SOURCES_DIST) \
@@ -1337,22 +1349,23 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	t_ansi_io.c t_assert.c t_btowc.c t_ctype.c t_excpt_gcc_cpp.c \
 	t_excpt_int_divzero.c t_excpt_int_divzero_thrd.c \
 	t_excpt_int_overflow.c t_excpt_int_overflow_thrd.c \
-	t_findfirst.c t_float.c t_fseeki64.c t_fseeki64_ftelli64.c \
-	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
-	t_fstat_t64_f64.c t_imagebase.c t_intrinc.c t_iswctype.c \
-	t_lfs.c t_lseeki64.c t_matherr.c t_mbrlen.c t_mbrtowc.c \
-	t_mbsrtowcs.c t_municode.c t_nullptrexception.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
-	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
-	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
-	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
-	t_stat_t64_f64.c t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls1.c t_tmain.c \
-	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_utime.c \
-	t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
-	t_wctype.c t_wreaddir.c $(am__tests32_cabs_SOURCES_DIST) \
+	t_findfirst.c t_float.c t_format_Z.c t_format_Z0.c \
+	t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c \
+	t_fstat.c t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c \
+	t_imagebase.c t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c \
+	t_matherr.c t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
+	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
+	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
+	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
+	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
+	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
 	$(am__tests32_carg_SOURCES_DIST) \
@@ -1767,9 +1780,10 @@ testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
 	t__stat_all t_aligned_alloc t_ansi_io t_assert t_btowc t_ctype \
 	t_excpt_gcc_cpp t_excpt_int_divzero t_excpt_int_divzero_thrd \
 	t_excpt_int_overflow t_excpt_int_overflow_thrd t_findfirst \
-	t_float t_fseeki64 t_fseeki64_ftelli64 t_fstat t_fstat_f64 \
-	t_fstat_t64 t_fstat_t64_f64 t_intrinc t_imagebase t_iswctype \
-	t_lfs t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
+	t_float t_format_Z t_format_Z0 t_format_Z1 t_fseeki64 \
+	t_fseeki64_ftelli64 t_fstat t_fstat_f64 t_fstat_t64 \
+	t_fstat_t64_f64 t_intrinc t_imagebase t_iswctype t_lfs \
+	t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
 	t_nullptrexception t_printf_g_width t_readdir t_safe_flush \
 	t_snprintf t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 \
 	t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
@@ -2501,6 +2515,18 @@ t_float$(EXEEXT): $(t_float_OBJECTS) $(t_float_DEPENDENCIES) $(EXTRA_t_float_DEP
 	@rm -f t_float$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_float_OBJECTS) $(t_float_LDADD) $(LIBS)
 
+t_format_Z$(EXEEXT): $(t_format_Z_OBJECTS) $(t_format_Z_DEPENDENCIES) $(EXTRA_t_format_Z_DEPENDENCIES) 
+	@rm -f t_format_Z$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_format_Z_OBJECTS) $(t_format_Z_LDADD) $(LIBS)
+
+t_format_Z0$(EXEEXT): $(t_format_Z0_OBJECTS) $(t_format_Z0_DEPENDENCIES) $(EXTRA_t_format_Z0_DEPENDENCIES) 
+	@rm -f t_format_Z0$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_format_Z0_OBJECTS) $(t_format_Z0_LDADD) $(LIBS)
+
+t_format_Z1$(EXEEXT): $(t_format_Z1_OBJECTS) $(t_format_Z1_DEPENDENCIES) $(EXTRA_t_format_Z1_DEPENDENCIES) 
+	@rm -f t_format_Z1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_format_Z1_OBJECTS) $(t_format_Z1_LDADD) $(LIBS)
+
 t_fseeki64$(EXEEXT): $(t_fseeki64_OBJECTS) $(t_fseeki64_DEPENDENCIES) $(EXTRA_t_fseeki64_DEPENDENCIES) 
 	@rm -f t_fseeki64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_fseeki64_OBJECTS) $(t_fseeki64_LDADD) $(LIBS)
@@ -3043,6 +3069,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_overflow_thrd.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_findfirst.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_float.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z0.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fseeki64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fseeki64_ftelli64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fseeko64.Po@am__quote@ # am--include-marker
@@ -6154,6 +6183,27 @@ t_float.log: t_float$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_format_Z.log: t_format_Z$(EXEEXT)
+	@p='t_format_Z$(EXEEXT)'; \
+	b='t_format_Z'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_format_Z0.log: t_format_Z0$(EXEEXT)
+	@p='t_format_Z0$(EXEEXT)'; \
+	b='t_format_Z0'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_format_Z1.log: t_format_Z1$(EXEEXT)
+	@p='t_format_Z1$(EXEEXT)'; \
+	b='t_format_Z1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_fseeki64.log: t_fseeki64$(EXEEXT)
 	@p='t_fseeki64$(EXEEXT)'; \
 	b='t_fseeki64'; \
@@ -7008,6 +7058,9 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow_thrd.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
+	-rm -f ./$(DEPDIR)/t_format_Z.Po
+	-rm -f ./$(DEPDIR)/t_format_Z0.Po
+	-rm -f ./$(DEPDIR)/t_format_Z1.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64_ftelli64.Po
 	-rm -f ./$(DEPDIR)/t_fseeko64.Po
@@ -7308,6 +7361,9 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow_thrd.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
+	-rm -f ./$(DEPDIR)/t_format_Z.Po
+	-rm -f ./$(DEPDIR)/t_format_Z0.Po
+	-rm -f ./$(DEPDIR)/t_format_Z1.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64.Po
 	-rm -f ./$(DEPDIR)/t_fseeki64_ftelli64.Po
 	-rm -f ./$(DEPDIR)/t_fseeko64.Po
