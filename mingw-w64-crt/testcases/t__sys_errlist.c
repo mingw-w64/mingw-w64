@@ -10,10 +10,12 @@ int main(int argc, char **argv)
 {
   char **s = (char **) _sys_errlist;
 
-  if (s)
+  if (s) {
     printf ("Msg 0: %s\n", s[0]);
-  else
+  } else {
     printf ("Error list empty.\n");
+    _exit (EXIT_FAILURE);
+  }
 
   return 0;
 }
