@@ -26,7 +26,8 @@ int main()
     const unsigned processors = si.dwNumberOfProcessors;
 
     // Make a thread for every processor and assign the thread to it
-    HANDLE threads[processors];
+    HANDLE *threads = new HANDLE[processors];
+
     for (unsigned i = 0; i < processors; i++) {
         threads[i] = (HANDLE)_beginthreadex(0, 0, thread_fn, 0, CREATE_SUSPENDED, 0);
         SetThreadAffinityMask(threads[i], 1 << i);
@@ -41,7 +42,12 @@ int main()
     for (unsigned i = 0; i < processors; i++)
         CloseHandle(threads[i]);
 
-    std::cout << "How is it possible that tls_value is " << tls_value << " != 0 ?" << std::endl;
+    delete[] threads;
+
+    if (tls_value != 0) {
+        std::cout << "How is it possible that tls_value is " << tls_value << " != 0 ?" << std::endl;
+        std::terminate ();
+    }
 
     return 0;
 }

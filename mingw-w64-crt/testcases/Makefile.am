@@ -110,6 +110,7 @@ testcase_progs = \
 if !ARM64EC
 testcase_progs += \
   t_iostream \
+  t_tls \
   t_wrongret
 endif
 
@@ -120,6 +121,7 @@ t_iostream_SOURCES = t_iostream.cpp
 t_isfine_SOURCES = t_isfine.cpp
 t_main_cpp_SOURCES = t_main_cpp.cpp
 t_staticconstmember_SOURCES = t_staticconstmember.cpp
+t_tls_SOURCES = t_tls.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 t_wrongret_SOURCES = t_wrongret.cpp
 
@@ -129,6 +131,7 @@ t_iostream_LDFLAGS = $(AM_LDFLAGS)
 t_isfine_LDFLAGS = $(AM_LDFLAGS)
 t_main_cpp_LDFLAGS = $(AM_LDFLAGS)
 t_staticconstmember_LDFLAGS = $(AM_LDFLAGS)
+t_tls_LDFLAGS = $(AM_LDFLAGS)
 t_trycatch_LDFLAGS = $(AM_LDFLAGS)
 t_wrongret_LDFLAGS = $(AM_LDFLAGS)
 
@@ -137,6 +140,7 @@ t_iostream_LDFLAGS += -static
 t_isfine_LDFLAGS += -static
 t_main_cpp_LDFLAGS += -static
 t_staticconstmember_LDFLAGS += -static
+t_tls_LDFLAGS += -static
 t_trycatch_LDFLAGS += -static
 t_wrongret_LDFLAGS += -static
 endif
