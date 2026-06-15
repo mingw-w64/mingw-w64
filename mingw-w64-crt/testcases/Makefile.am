@@ -11,7 +11,8 @@ libprocdetach.dll: libprocdetach.o
 # The following tests are compiled but not run with `make check`.
 testcase_compile_only = \
   t_intrin \
-  t_intrin_cpp
+  t_intrin_cpp \
+  t_winmain
 
 # Note that this list is usually sorted in alphabetical order.
 # An exception is when variants of the same test are grouped together.
@@ -166,6 +167,9 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 
 # Compile t_tls_c11 in C11 mode
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
+
+# Link t_winmain against gdi32.dll
+t_winmain_LDADD = -lgdi32
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
