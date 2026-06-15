@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <malloc.h>
+#include <stdlib.h>
 
 void *(*my_malloc)(size_t) = malloc;
 void (*my_free)(void *) = free;

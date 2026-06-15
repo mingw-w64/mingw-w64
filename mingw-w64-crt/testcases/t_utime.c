@@ -1,9 +1,9 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include <time.h>
 #include <utime.h>
-#include <sys/stat.h>
-#include <assert.h>
 
 int main() {
     FILE *file;

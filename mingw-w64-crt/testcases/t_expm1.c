@@ -2,9 +2,7 @@
  *
  * http://pubs.opengroup.org/onlinepubs/9699919799/functions/expm1.html
  */
-#ifndef __USE_MINGW_ANSI_STDIO
 #define __USE_MINGW_ANSI_STDIO 1
-#endif
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

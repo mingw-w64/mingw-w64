@@ -1,7 +1,11 @@
+// CRT headers
+#include <process.h>
+
+// Standard C++ headers
+#include <iostream>
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#include <iostream>
-#include <process.h>
 
 int __thread tls_value = 0;
 

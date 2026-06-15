@@ -1,7 +1,9 @@
-#include <stdio.h>
 #include <assert.h>
-#include <sys/types.h>
+#include <stdio.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #define _WIN32_WINNT_NT35 MAKEWORD(50, 3) /* really decimal, not hex */

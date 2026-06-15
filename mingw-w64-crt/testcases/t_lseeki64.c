@@ -1,6 +1,6 @@
-#include <stdio.h>
 #include <assert.h>
 #include <io.h>
+#include <stdio.h>
 
 int main() {
     FILE *file;

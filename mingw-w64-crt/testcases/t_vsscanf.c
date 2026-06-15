@@ -1,7 +1,6 @@
 #define __USE_MINGW_ANSI_STDIO 0
-
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include <string.h>
 
 __attribute__((__format__(scanf, 2, 3)))

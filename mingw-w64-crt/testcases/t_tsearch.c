@@ -1,6 +1,6 @@
+#include <search.h>
 #include <stdio.h>
 #include <string.h>
-#include <search.h>
 
 static int node_cmp (const void *a, const void *b)
 {

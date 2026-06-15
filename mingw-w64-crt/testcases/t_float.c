@@ -1,6 +1,6 @@
+#include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
-#include <inttypes.h>
 
 volatile long double in1 = -1.0L / 0.0L;
 volatile long double in2 = 1.0L / 0.0L;

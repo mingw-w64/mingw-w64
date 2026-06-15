@@ -1,9 +1,9 @@
 #define COMPILETIME_CHECK
 
-#include <uchar.h>
 #if !defined(COMPILETIME_CHECK)
 #include <stdlib.h>
 #endif
+#include <uchar.h>
 
 int main (void)
 {

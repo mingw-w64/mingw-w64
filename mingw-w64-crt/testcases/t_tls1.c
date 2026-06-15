@@ -7,9 +7,11 @@
  mingw-w64-crt r973.
 */
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #if defined(_MSC_VER) /* MS Visual Studio */

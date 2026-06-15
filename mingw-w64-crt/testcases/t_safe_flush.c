@@ -1,10 +1,12 @@
+#include <assert.h>
+#include <fcntl.h>
+#include <io.h>
+#include <process.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include <process.h>
-#include <io.h>
-#include <fcntl.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <versionhelpers.h>
 

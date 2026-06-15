@@ -1,8 +1,8 @@
+#include <assert.h>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <wchar.h>
-#include <assert.h>
-#include <errno.h>
 
 static int handler_called = 0;
 static int handler_errno = -1;

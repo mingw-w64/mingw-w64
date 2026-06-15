@@ -1,10 +1,10 @@
+#include <assert.h>
+#include <fcntl.h>
+#include <io.h>
+#include <process.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include <process.h>
-#include <io.h>
-#include <fcntl.h>
 
 int main(int argc, char *argv[]) {
     if (argc != 2 || strcmp(argv[1], "assert_test") != 0) {

@@ -1,16 +1,19 @@
 #define _GNU_SOURCE /* for feenableexcept and fedisableexcept */
-#include <stdio.h>
-#include <stdint.h>
+#include <assert.h>
+#include <fenv.h>
+#include <float.h>
+#include <limits.h>
+#include <pthread.h>
 #include <setjmp.h>
 #include <signal.h>
-#include <assert.h>
-#include <limits.h>
-#include <float.h>
-#include <fenv.h>
-#include <pthread.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifdef _WIN32
 #include <process.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #endif
 

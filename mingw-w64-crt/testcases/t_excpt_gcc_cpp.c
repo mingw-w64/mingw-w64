@@ -1,6 +1,8 @@
-#include <stdio.h>
 #include <process.h>
 #include <pthread.h>
+#include <stdio.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #define STATUS_USER_DEFINED     (1U << 29)

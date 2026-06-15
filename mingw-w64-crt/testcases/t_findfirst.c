@@ -1,8 +1,8 @@
+#include <errno.h>
+#include <io.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
 #include <string.h>
-#include <io.h>
 
 #define A(x) x
 #define W(x) L##x

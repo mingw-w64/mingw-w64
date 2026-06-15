@@ -1,7 +1,10 @@
-#include <windows.h>
-#include <stdio.h>
 #include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 
 void
 test (char *path)

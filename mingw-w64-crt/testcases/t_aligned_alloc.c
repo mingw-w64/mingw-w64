@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdint.h>
 #include <assert.h>
-#include <string.h>
 #include <malloc.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 
 #define TEST(a, b, msg, ...) do { \
   if ((a) != (b)) { \

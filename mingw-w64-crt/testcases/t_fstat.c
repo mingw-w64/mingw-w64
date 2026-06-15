@@ -1,9 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <assert.h>
 #include <fcntl.h>
-#include <sys/types.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #define TMPTMPL "mingw-w64-fstat-XXXXXX"

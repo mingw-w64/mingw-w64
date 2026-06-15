@@ -1,6 +1,8 @@
-#include <stdio.h>
 #include <limits.h>
 #include <process.h>
+#include <stdio.h>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 /* This test is run as XFAIL, so it has to return non-zero on success (as the crash is expected) and zero on error */

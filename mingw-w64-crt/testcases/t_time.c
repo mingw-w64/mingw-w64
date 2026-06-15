@@ -1,9 +1,9 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include <sys/timeb.h>
-#include <assert.h>
+#include <time.h>
 
 int __cdecl ftime32(struct __timeb32 *tb32);
 int __cdecl ftime64(struct __timeb64 *tb64);
