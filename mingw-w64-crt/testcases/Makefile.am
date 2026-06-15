@@ -8,6 +8,8 @@ AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
+# Note that this list is usually sorted in alphabetical order.
+# An exception is when variants of the same test are grouped together.
 testcase_progs = \
   t__fstat_all \
   t__stat_all \
@@ -29,12 +31,13 @@ testcase_progs = \
   t_format_Z1 \
   t_fseeki64 \
   t_fseeki64_ftelli64 \
+  t_fseeko64 \
   t_fstat \
   t_fstat_f64 \
   t_fstat_t64 \
   t_fstat_t64_f64 \
-  t_intrinc \
   t_imagebase \
+  t_intrinc \
   t_iswctype \
   t_lfs \
   t_lseeki64 \
@@ -48,37 +51,37 @@ testcase_progs = \
   t_printf_g_width \
   t_readdir \
   t_safe_flush \
+  t_setjmp \
+  t_sigfpe \
+  t_sigv \
   t_snprintf \
   t_snprintf0 \
   t_snprintf1 \
-  t_swprintf \
-  t_swprintf0 \
-  t_swprintf1 \
   t_snwprintf \
   t_snwprintf0 \
   t_snwprintf1 \
+  t_speed_powl \
+  t_stat \
+  t_stat_f64 \
+  t_stat_t64 \
+  t_stat_t64_f64 \
+  t_stat_slash \
+  t_stderr_buffering \
+  t_stdint \
   t_stprintf_a \
   t_stprintf_u \
   t_stprintf0_a \
   t_stprintf0_u \
   t_stprintf1_a \
   t_stprintf1_u \
-  t_setjmp \
-  t_sigfpe \
-  t_sigv \
-  t_speed_powl \
-  t_stat \
-  t_stat_f64 \
-  t_stat_t64 \
-  t_stat_t64_f64 \
-  t_stderr_buffering \
-  t_stdint \
+  t_swprintf \
+  t_swprintf0 \
+  t_swprintf1 \
   t_time \
   t_tls1 \
   t_tmpfile \
-  t_trycatch \
-  t_stat_slash \
   t_towctrans \
+  t_trycatch \
   t_utime \
   t_vsscanf \
   t_wcrtomb \
@@ -86,8 +89,7 @@ testcase_progs = \
   t_wcstok_s \
   t_wctob \
   t_wctype \
-  t_wreaddir \
-  t_fseeko64
+  t_wreaddir
 
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
