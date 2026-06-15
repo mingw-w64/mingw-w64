@@ -14,6 +14,11 @@ testcase_compile_only = \
   t_intrin_cpp \
   t_winmain
 
+# FIXME:
+#
+# t_try1.cpp: this test is completely broken as it uses broken macros `__try1`
+#  and `__except1` from exept.h.
+
 # Note that this list is usually sorted in alphabetical order.
 # An exception is when variants of the same test are grouped together.
 testcase_progs = \
