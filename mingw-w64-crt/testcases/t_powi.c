@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-int main(int argc, void **argv)
+int main(int argc, char **argv)
 {
     int i;
     double x, x2, z = pow(10.0, 15);

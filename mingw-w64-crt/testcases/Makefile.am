@@ -56,6 +56,7 @@ testcase_progs = \
   t_mbsrtowcs \
   t_nullptrexception \
   t_pow \
+  t_powi \
   t_printf \
   t_printf_g_width \
   t_readdir \
