@@ -9,11 +9,9 @@ libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
 testcase_progs = \
-  tstmainc \
-  tstmaincpp \
-  tstmain_sys_xxx \
   t__fstat_all \
   t__stat_all \
+  t__sys_errlist \
   t_aligned_alloc \
   t_ansi_io \
   t_assert \
@@ -40,6 +38,8 @@ testcase_progs = \
   t_iswctype \
   t_lfs \
   t_lseeki64 \
+  t_main \
+  t_main_cpp \
   t_matherr \
   t_mbrlen \
   t_mbrtowc \
@@ -92,7 +92,7 @@ testcase_progs = \
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
-tstmaincpp_SOURCES = tstmaincpp.cpp
+t_main_cpp_SOURCES = t_main_cpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 
 # Compile t_intrinc in C99 mode
