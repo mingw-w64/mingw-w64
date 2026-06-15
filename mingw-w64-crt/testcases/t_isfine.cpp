@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <math.h>
 
+// mingw-w64 headers
+#include "libtest.h"
+
 class f {
 public:
   f(float a) { x = a; }
@@ -14,6 +17,8 @@ protected:
 
 int main(int argc, char **argv)
 {
+  mingw_test_init ();
+
   f m((float) argc);
 
   if (!m.is_finite ())

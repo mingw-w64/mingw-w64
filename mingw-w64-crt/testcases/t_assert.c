@@ -6,7 +6,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char *argv[]) {
+    mingw_test_init ();
+
     if (argc != 2 || strcmp(argv[1], "assert_test") != 0) {
         int exit_code;
         int pipefd[2];
@@ -46,9 +51,6 @@ int main(int argc, char *argv[]) {
     _setmode(fileno(stderr), _O_U8TEXT);
 
     /* call assert, it prints to stderr, parent process will check that our stderr is not empty */
-#if __MSVCRT_VERSION__ > 0x800
-    _set_abort_behavior(0, _CALL_REPORTFAULT); /* assert() will not call Dr. Watson */
-#endif
     assert(0);
 
     /* assert(0) does not return, this process pass when returns non-zero */

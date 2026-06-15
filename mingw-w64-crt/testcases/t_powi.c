@@ -1,10 +1,17 @@
 #include <math.h>
 #include <stdio.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char **argv)
 {
     int i;
-    double x, x2, z = pow(10.0, 15);
+    double x, x2, z;
+
+    mingw_test_init ();
+
+    z = pow(10.0, 15);
 
     for(i = -300; i < -290; i++) {
         x = pow(10.0, i);

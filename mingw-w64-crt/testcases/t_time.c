@@ -5,6 +5,9 @@
 #include <sys/timeb.h>
 #include <time.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int __cdecl ftime32(struct __timeb32 *tb32);
 int __cdecl ftime64(struct __timeb64 *tb64);
 
@@ -24,6 +27,8 @@ int main()
   int ret1, ret2, ret3;
   const char *str;
   const wchar_t *wstr;
+
+  mingw_test_init ();
 
   time (&t);
   _time32 (&t32);

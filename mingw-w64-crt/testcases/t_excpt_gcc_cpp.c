@@ -5,6 +5,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define STATUS_USER_DEFINED     (1U << 29)
 #define GCC_MAGIC               (('G' << 16) | ('C' << 8) | 'C')
 #define GCC_EXCEPTION(TYPE)     (STATUS_USER_DEFINED | ((TYPE) << 24) | GCC_MAGIC)
@@ -74,6 +77,8 @@ int main()
   int ret = 0;
   pthread_t pthread;
   HANDLE wthread;
+
+  mingw_test_init ();
 
   {
     int tret = test();

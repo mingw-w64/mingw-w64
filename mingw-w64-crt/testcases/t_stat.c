@@ -6,6 +6,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define _WIN32_WINNT_NT35 MAKEWORD(50, 3) /* really decimal, not hex */
 
 #define type(mode) (S_ISDIR(mode) ? "DIR" : S_ISFIFO(mode) ? "FIFO" : S_ISCHR(mode) ? "CHR" : S_ISBLK(mode) ? "BLK" : S_ISREG(mode) ? "REG" : "UNKN")
@@ -19,6 +22,8 @@ int main(int argc, char *argv[])
     DWORD raw_ver;
     unsigned ver;
     unsigned type;
+
+    mingw_test_init ();
 
     if (0 == stat(argv[0], &st))
         printf("mode = %x\n", st.st_mode);

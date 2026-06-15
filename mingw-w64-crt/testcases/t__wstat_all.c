@@ -4,6 +4,9 @@
 #include <sys/stat.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int wmain(int argc, wchar_t *wargv[]) {
 	int ret;
 	struct _stat st = {};
@@ -11,6 +14,9 @@ int wmain(int argc, wchar_t *wargv[]) {
 	struct _stat32i64 st32i64 = {};
 	struct _stat64 st64 = {};
 	struct _stat64i32 st64i32 = {};
+
+	mingw_test_init ();
+
 	errno = 0;
 	ret = _wstat(argc >= 2 ? wargv[1] : wargv[0], &st);
 	printf("_wstat:\n");

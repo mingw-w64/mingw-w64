@@ -2,8 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(void) {
     char buffer[64];
+
+    mingw_test_init ();
 
     // Test the %g width specifier
     // This should output "(    100000)" with 4 leading spaces

@@ -7,6 +7,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+// mingw-w64 headers
+#include "libtest.h"
+
 int __thread tls_value = 0;
 
 unsigned __stdcall thread_fn(void*)
@@ -20,6 +23,8 @@ unsigned __stdcall thread_fn(void*)
 // some value rather than tying it to the actual # of cores...
 int main()
 {
+    mingw_test_init ();
+
     // Get the number of processors available to use
     SYSTEM_INFO si;
     GetSystemInfo(&si);

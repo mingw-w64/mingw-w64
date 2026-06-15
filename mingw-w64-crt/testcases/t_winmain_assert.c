@@ -8,8 +8,12 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+  mingw_test_init ();
   assert (lpCmdLine != NULL);
   return 0;
 }

@@ -5,6 +5,9 @@
 #include <time.h>
 #include <utime.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main() {
     FILE *file;
     int fd;
@@ -15,6 +18,7 @@ int main() {
     struct _stat32 st32;
     struct _stat64 st64;
 
+    mingw_test_init ();
 
     /* mingw-w64 64-bit _futime64() and _fstat64() functions are not compatible
      * with msvcrt10-40 32-bit futime() and fstat() functions and test is failing.

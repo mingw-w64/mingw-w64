@@ -6,9 +6,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char **argv)
 {
-  char **s = (char **) _sys_errlist;
+  char **s;
+
+  mingw_test_init ();
+
+  s = _sys_errlist;
 
   if (s) {
     printf ("Msg 0: %s\n", s[0]);

@@ -15,6 +15,9 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
+/* mingw-w64 headers */
+#include "libtest.h"
 #endif
 
 #if defined(__i386__)
@@ -1207,6 +1210,10 @@ int main(void)
   pthread_t pthread;
 #ifdef _WIN32
   HANDLE wthread;
+#endif
+
+#ifdef _WIN32
+  mingw_test_init ();
 #endif
 
 #if defined(_WIN32)

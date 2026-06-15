@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 jmp_buf buf;
 
 #if defined(__i386__)
@@ -19,6 +22,8 @@ int *ptr = 0;
 int main(void)
 {
  volatile int v;
+
+ mingw_test_init ();
 
  signal(SIGSEGV, catchSigSegV);
 

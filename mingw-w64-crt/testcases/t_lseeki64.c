@@ -2,9 +2,14 @@
 #include <io.h>
 #include <stdio.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main() {
     FILE *file;
     int fd;
+
+    mingw_test_init ();
 
     /* create temporary file which is automatically deleted when process terminates */
     file = tmpfile();

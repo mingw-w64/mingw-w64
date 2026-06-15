@@ -10,6 +10,9 @@
 #include <string.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * This test is for mingw-w64's implementation of wcsrtombs function.
  *
@@ -27,9 +30,12 @@ wchar_t MixedText[] = L"日NI本HON語GO";
 wchar_t BadText[] = {L'テ', L'く', WEOF, L'ト'};
 
 int main (void) {
+  mingw_test_init ();
+
 #ifdef _UCRT
   return 77;
 #endif
+
   const wchar_t *original_text = NULL;
   const wchar_t *text = NULL;
   size_t         text_length = 0;

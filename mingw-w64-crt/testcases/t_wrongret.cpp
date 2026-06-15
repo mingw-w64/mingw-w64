@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+// mingw-w64 headers
+#include "libtest.h"
+
 int F()
 {
 
@@ -12,5 +15,6 @@ int F()
 
 int main()
 {
+        mingw_test_init ();
         std::cout << F() << std::endl; // prints something other than 12345
 }

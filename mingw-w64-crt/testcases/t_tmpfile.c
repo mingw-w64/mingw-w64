@@ -2,8 +2,13 @@
 #include <direct.h>
 #include <stdio.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main() {
     FILE *file;
+
+    mingw_test_init ();
 
     /* ensure that tmpfile() works also when cwd is in C:\Windows or C:\ but do not fail if caller has no access to C:\ */
     if (chdir("C:\\Windows\\") != 0)

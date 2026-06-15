@@ -4,10 +4,14 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char *argv[]) {
     int fd;
     FILE *file;
     fpos_t pos;
+    mingw_test_init ();
     ftello64(stdin);
     _ftelli64(stdin);
     fgetpos64(stdin, &pos);

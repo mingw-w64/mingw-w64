@@ -8,6 +8,9 @@
 #include <locale.h>
 #include <wctype.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * Test Summary:
  *
@@ -22,6 +25,8 @@
  */
 
 int main (void) {
+  mingw_test_init ();
+
   if (setlocale (LC_ALL, "English_United States") == NULL) {
     return 77;
   }

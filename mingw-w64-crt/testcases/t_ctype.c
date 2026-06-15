@@ -10,7 +10,9 @@
 #include <locale.h>
 #include <stdlib.h>
 
+/* mingw-w64 headers */
 #include "ctype-test.h"
+#include "libtest.h"
 
 /**
  * Test conformance of ctype.h functions to POSIX specification.
@@ -19,6 +21,8 @@
  */
 
 int main (void) {
+  mingw_test_init ();
+
   assert (setlocale (LC_ALL, "C") != NULL);
 
   for (int i = 0; i < (int) _countof (CharTypeTable); ++i) {

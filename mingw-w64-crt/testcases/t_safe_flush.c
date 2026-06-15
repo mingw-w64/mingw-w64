@@ -10,6 +10,9 @@
 #include <windows.h>
 #include <versionhelpers.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define STRING "hello world!"
 
 /* child process */
@@ -137,6 +140,8 @@ int parent_main(const char *argv0) {
 /* common */
 
 int main(int argc, char *argv[]) {
+    mingw_test_init ();
+
     if (!IsWindowsVistaOrGreater()) {
         /* This test requires at least Windows Vista (where
          * CRITICAL_SECTIONs were made shutdown-aware)

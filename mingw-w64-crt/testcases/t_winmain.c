@@ -6,6 +6,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define TITLE "WinMain"
 #define WIDTH 250
 #define HEIGHT 250
@@ -38,6 +41,8 @@ int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpCmd
   HWND hwnd;
   MSG messages;
   WNDCLASSEX wincl;
+
+  mingw_test_init ();
 
   wincl.hInstance = hThisInstance;
   wincl.lpszClassName = szClassName;

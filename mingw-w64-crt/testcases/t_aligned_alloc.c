@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define TEST(xfail, a, b, msg, ...) do { \
   if ((a) != (b)) { \
     fprintf(stderr, "%s:%d: ", __FILE__, __LINE__); \
@@ -49,6 +52,7 @@ int main() {
   void *ptr;
   size_t size;
 
+  mingw_test_init ();
 
   /*
    * Surprisingly this malloc/_msize test is failing on msvcrt10.dll and msvcrt20.dll

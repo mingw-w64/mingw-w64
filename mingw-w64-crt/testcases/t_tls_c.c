@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #if __STDC_VERSION__ >= 201112L
 #define __threadlocal__ _Thread_local
 #else
@@ -16,6 +19,8 @@ int main (void)
    * Random number to increment `tvar` by.
    */
   int x;
+
+  mingw_test_init ();
 
   srand (time (NULL));
   x = rand ();

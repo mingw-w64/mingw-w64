@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * This test is for mingw-w64's implementation of mbrtowc function.
  *
@@ -33,9 +36,12 @@ char Multibyte[] = {(char) 0x81, (char) 0x81};
 char InvalidMultibyte[] = {(char) 0x81, 0};
 
 int main (void) {
+  mingw_test_init ();
+
 #ifdef _UCRT
   return 77;
 #endif
+
   mbstate_t state = {0};
   wchar_t   wc = WEOF;
 

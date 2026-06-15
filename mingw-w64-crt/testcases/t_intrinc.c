@@ -3,6 +3,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define TEST(cond, msg, ...) do { \
   if (!(cond)) { \
     fprintf(stderr, "%s:%d: " msg "\n", __FILE__, __LINE__, ##__VA_ARGS__); \
@@ -15,6 +18,8 @@ int main()
   LONG val;
   void *ptr;
   void *old;
+
+  mingw_test_init ();
 
   /* InterlockedIncrement */
   val = 0;

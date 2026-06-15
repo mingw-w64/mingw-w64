@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * This test is for mingw-w64's implementation of mbsrtowcs function.
  *
@@ -31,9 +34,12 @@ unsigned char MixedText[] = {0x93, 0xFA, 'n', 'i', 0x96, 0x7B, 'h', 'o', 'n', 0x
 unsigned char BadText[] = {0x93, 0xFA, 0x96, 0x7B, 0x8C, 0x0};
 
 int main (void) {
+  mingw_test_init ();
+
 #ifdef _UCRT
   return 77;
 #endif
+
   mbstate_t state = {0};
   wchar_t   buffer[BUFSIZ];
 

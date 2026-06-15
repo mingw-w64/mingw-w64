@@ -5,6 +5,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #ifndef __MSVCRT_VERSION__
 #define __MSVCRT_VERSION__ 0x0000
 #endif
@@ -92,7 +95,11 @@ static __attribute__((noinline)) void test(int cnt)
 
 int main (int argc, char **argv)
 {
-  int e = (argc > 1 ? atoi(argv[1]) : 20000000);
+  int e;
+
+  mingw_test_init ();
+
+  e = (argc > 1 ? atoi(argv[1]) : 20000000);
 
   /**
    * Test `pow` function in libmingwex.

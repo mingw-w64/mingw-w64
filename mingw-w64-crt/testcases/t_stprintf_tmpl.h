@@ -3,6 +3,9 @@
 #include <tchar.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main() {
   int i;
   TCHAR buffer[10] = { _T('X'), _T('X'), _T('X'), _T('X'), _T('X'), _T('X'), _T('X'), _T('X'), _T('X'), _T('X') };
@@ -16,7 +19,9 @@ int main() {
    * %hs takes char* string
    * %ls takes wchar_t* string
    */
-  int ret = _stprintf(buffer, _T("%sBB%hs%ls"), _T("AA"), "CC", L"DD");
+  int ret;
+  mingw_test_init ();
+  ret = _stprintf(buffer, _T("%sBB%hs%ls"), _T("AA"), "CC", L"DD");
   if (sizeof(buffer) != exp_sizeof_buffer) {
     fprintf(stderr, "sizeof(buffer): expected=%d got=%d\n", exp_sizeof_buffer, (int)sizeof(buffer));
     return 1;

@@ -8,6 +8,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define TMPTMPL "mingw-w64-fstat-XXXXXX"
 static char dirpath[MAX_PATH + sizeof(TMPTMPL)];
 
@@ -19,6 +22,8 @@ int main()
     struct stat64 st64;
     HANDLE handle;
     int dirfd;
+
+    mingw_test_init ();
 
     assert(fstat(0, &st) == 0);
     printf("fstat(0): mode = %08o\n", st.st_mode);

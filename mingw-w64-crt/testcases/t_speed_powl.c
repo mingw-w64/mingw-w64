@@ -5,8 +5,13 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main()
 {
+  mingw_test_init ();
+
   long double ld = 1.0L;
   long double sum = 0.0L;
 

@@ -3,6 +3,9 @@
 #include <string.h>
 #include <sys/stat.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char *argv[]) {
 	int ret;
 	struct _stat st = {};
@@ -10,6 +13,9 @@ int main(int argc, char *argv[]) {
 	struct _stat32i64 st32i64 = {};
 	struct _stat64 st64 = {};
 	struct _stat64i32 st64i32 = {};
+
+	mingw_test_init ();
+
 	errno = 0;
 	ret = _stat(argc >= 2 ? argv[1] : argv[0], &st);
 	printf("_stat:\n");

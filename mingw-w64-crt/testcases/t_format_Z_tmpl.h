@@ -3,6 +3,9 @@
 #include <wchar.h>
 #include <ntdef.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define ARRAY_COUNT(a) (sizeof(a)/sizeof(a[0]))
 #define DEF_STRING(str) { sizeof(str)-sizeof(str[0]), sizeof(str)-sizeof(str[0]), str }
 
@@ -37,6 +40,8 @@ int main() {
 	size_t i;
 
 	(void)ws1; /* avoid "warning: unused variable" on some builds */
+
+	mingw_test_init ();
 
 	/*
 	 * These tests do not work with msvcrt20.dll, msvcrt40.dll and msvcr40d.dll

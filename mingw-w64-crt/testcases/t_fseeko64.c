@@ -7,6 +7,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 static const char *writebuf = "TESTVECTORSTRING";
 #define TMPTMPL "mingw-w64-fseeko64-XXXXXX"
 static char szPath[MAX_PATH + sizeof(TMPTMPL)];
@@ -45,6 +48,8 @@ static int testread(const char *path){
   FILE *fd;
   char *readbuff;
   int ret;
+
+  mingw_test_init ();
 
   readbuff = calloc(strlen(writebuf) + 1, sizeof(char));
   if (!readbuff) return 1;

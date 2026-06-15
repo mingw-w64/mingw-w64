@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define A(x) x
 #define W(x) L##x
 
@@ -49,6 +52,7 @@ DEFINE_TEST(W, "%ls", wtest64,    _wfinddata64_t,    _wfindfirst64,    _wfindnex
 int main(int argc, char **argv)
 {
   int ret = 0;
+  mingw_test_init ();
   ret |= test ();
   ret |= testi64 ();
   ret |= test32 ();

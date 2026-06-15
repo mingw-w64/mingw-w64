@@ -3,6 +3,9 @@
 #include <math.h>
 #include <stdio.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 volatile long double in1 = -1.0L / 0.0L;
 volatile long double in2 = 1.0L / 0.0L;
 
@@ -53,6 +56,8 @@ volatile float ld3 = 3.51F;
 
 int main()
 {
+  mingw_test_init ();
+
   printf ("sizeof(float)=%"printfmt", sizeof(double)=%"printfmt", sizeof(long double)=%"printfmt"\n", sizeof (float), sizeof(double), sizeof(long double));
   printf ("%g %g %g\n", (double) ld1, (double) ld2, (double) ld3);
 

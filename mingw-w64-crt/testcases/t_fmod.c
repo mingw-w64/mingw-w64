@@ -2,10 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main()
 {
  int res = 0;
  int i;
+
+ mingw_test_init ();
 
  for (i = 0; i < 5; i++)
    {

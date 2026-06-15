@@ -12,7 +12,12 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main (void) {
+  mingw_test_init ();
+
   /**
    * Test "C" locale
    */

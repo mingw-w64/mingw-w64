@@ -9,9 +9,14 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define STRING "hello world!\n"
 
 int main(int argc, char *argv[]) {
+    mingw_test_init ();
+
     if (argc != 2 || strcmp(argv[1], "stderr_buffering_test") != 0) {
         int exit_code;
         int pipefd[2];

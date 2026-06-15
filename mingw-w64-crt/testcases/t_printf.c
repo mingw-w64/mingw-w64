@@ -1,7 +1,11 @@
 #include <stdio.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char **argv)
 {
+  mingw_test_init ();
   printf ("%I32d\n", argc);
   printf ("%I32d\n", (long) argc);
   printf ("%I64d\n", (long long) argc);

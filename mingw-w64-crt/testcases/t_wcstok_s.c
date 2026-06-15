@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 static int handler_called = 0;
 static int handler_errno = -1;
 static void handler(const wchar_t *expression __attribute__((unused)), const wchar_t *function __attribute__((unused)), const wchar_t *file __attribute__((unused)), unsigned int line __attribute__((unused)), uintptr_t reserved __attribute__((unused))) {
@@ -17,6 +20,7 @@ int main() {
     wchar_t *state;
     wchar_t *token;
 
+    mingw_test_init ();
     _set_invalid_parameter_handler(handler);
 
     /* wcstok normal usage without errors */

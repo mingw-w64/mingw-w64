@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * This test is for mingw-w64's implementation of wcrtomb function.
  *
@@ -31,9 +34,12 @@ static void set_conversion_state (mbstate_t *state, int bytes) {
 }
 
 int main (void) {
+  mingw_test_init ();
+
 #ifdef _UCRT
   return 77;
 #endif
+
   mbstate_t state = {0};
 
   /**

@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /**
  * FIXME: calling `twalk` after `tdestroy` walks the tree as if tree was not
  *  destroyed. That is, it dereferences freed nodes.
@@ -44,6 +47,8 @@ int main (int argc, char **argv)
 
  void *root = NULL;
  void *nodep;
+
+ mingw_test_init ();
 
  tsearch("aaa", &root, node_cmp);
  tsearch("bbb", &root, node_cmp);

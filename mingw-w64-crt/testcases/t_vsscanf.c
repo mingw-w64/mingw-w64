@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 __attribute__((__format__(scanf, 2, 3)))
 static int call_vsscanf(const char *str, const char *format, ...)
 {
@@ -17,6 +20,9 @@ static int call_vsscanf(const char *str, const char *format, ...)
 int main()
 {
   char b[51];
+
+  mingw_test_init ();
+
   call_vsscanf(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY",
     "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
@@ -28,5 +34,6 @@ int main()
     &b[41],&b[42],&b[43],&b[44],&b[45],&b[46],&b[47],&b[48],&b[49],&b[50]
   );
   printf("b=%.51s\n", b);
+
   return memcmp(b, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY", 51);
 }

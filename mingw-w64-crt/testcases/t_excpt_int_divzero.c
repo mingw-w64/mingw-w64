@@ -5,6 +5,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 /* This test is run as XFAIL, so it has to return non-zero on success (as the crash is expected) and zero on error */
 #define FAILURE 0
 
@@ -28,7 +31,7 @@ int main(void)
   puts("Division by zero is ignored on ARM");
   return 77;
 #endif
-  SetErrorMode(SetErrorMode(0) | SEM_NOGPFAULTERRORBOX);
+  mingw_test_init ();
 #ifdef RUN_TEST_IN_THREAD
   HANDLE thread = (HANDLE)_beginthreadex(NULL, 0, test, NULL, 0, &(unsigned){0} /*out: ThreadId*/);
   if (!thread)

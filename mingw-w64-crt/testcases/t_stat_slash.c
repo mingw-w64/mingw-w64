@@ -6,6 +6,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 void
 test (char *path)
 {
@@ -36,7 +39,7 @@ main (int argc, char **argv)
   wchar_t windir_wbuf[MAX_PATH + 1];
   char windir_abuf[MAX_PATH + 1];
 
-  setvbuf (stdout, NULL, _IONBF, 0);
+  mingw_test_init ();
 
   if (GetWindowsDirectoryA(&windir_abuf[0], MAX_PATH))
   {

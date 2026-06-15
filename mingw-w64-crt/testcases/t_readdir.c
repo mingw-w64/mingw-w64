@@ -6,10 +6,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char **argv)
 {
   struct dirent *di;
-  DIR *h = opendir (".");
+  DIR *h;
+
+  mingw_test_init ();
+
+  h = opendir (".");
 
   if (!h)
     return 1;

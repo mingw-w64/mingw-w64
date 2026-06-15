@@ -6,10 +6,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main(int argc, char **argv)
 {
   struct _wdirent *di;
-  _WDIR *h = _wopendir (L".");
+  _WDIR *h;
+
+  mingw_test_init ();
+
+  h = _wopendir (L".");
 
   if (!h)
     return 1;

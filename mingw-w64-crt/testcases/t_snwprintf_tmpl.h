@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <wchar.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 int main() {
   int i;
   wchar_t buffer[11] = L"XXXXXXXXXX";
-  int ret = snwprintf(buffer, 3, L"%ls", L"AAA");
+  int ret;
+  mingw_test_init ();
+  ret = snwprintf(buffer, 3, L"%ls", L"AAA");
   if (ret != 3 || wmemcmp(buffer, L"AA\0XXXXXXX", 10) != 0) {
     fprintf(stderr, "ret: expected=3 got=%d\n", ret);
     fprintf(stderr, "buffer:");

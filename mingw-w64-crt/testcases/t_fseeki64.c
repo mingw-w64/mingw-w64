@@ -7,6 +7,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define assert_winapi_seek(handle, offset, method) do { \
     LARGE_INTEGER li = { .QuadPart = (offset) }; \
     li.LowPart = SetFilePointer((handle), li.LowPart, &li.HighPart, (method)); \
@@ -30,6 +33,8 @@ int main() {
     HANDLE handle;
     char buf[5];
     DWORD len;
+
+    mingw_test_init ();
 
     /* create temporary file which is automatically deleted when process terminates */
     file = tmpfile();

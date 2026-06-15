@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* mingw-w64 headers */
+#include "libtest.h"
+
 #define STR_VALUE(arg) #arg
 #define MINUS_ZERO -0.
 #define N_TESTS 5
@@ -14,6 +17,8 @@
 int main()
 {
   int res = 0;
+
+  mingw_test_init ();
 
 #define TEST(func, dtype, fmt) do { \
     int i; \
