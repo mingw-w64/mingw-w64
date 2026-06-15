@@ -97,14 +97,21 @@ testcase_progs = \
 t_main_cpp_SOURCES = t_main_cpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
 
+# On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
+# PATH) may be regular native aarch64, but we build and run arm64ec binaries.
+t_main_cpp_LDFLAGS = $(AM_LDFLAGS)
+t_trycatch_LDFLAGS = $(AM_LDFLAGS)
+
+if ARM64EC
+t_main_cpp_LDFLAGS += -static
+t_trycatch_LDFLAGS += -static
+endif
+
 # Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
 
 # Link t_safe_flush against libprocdetach.dll
 t_safe_flush_LDADD = libprocdetach.dll
-
-# Link t_trycatch statically to make it easier to run it on arm64ec
-t_trycatch_LDFLAGS = -static
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
