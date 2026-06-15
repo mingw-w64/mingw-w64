@@ -8,6 +8,11 @@ AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
+# The following tests are compiled but not run with `make check`.
+testcase_compile_only = \
+  t_intrin \
+  t_intrin_cpp
+
 # Note that this list is usually sorted in alphabetical order.
 # An exception is when variants of the same test are grouped together.
 testcase_progs = \
@@ -119,6 +124,7 @@ endif
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
+t_intrin_cpp_SOURCES = t_intrin_cpp.cpp
 t_iostream_SOURCES = t_iostream.cpp
 t_isfine_SOURCES = t_isfine.cpp
 t_main_cpp_SOURCES = t_main_cpp.cpp
@@ -129,6 +135,7 @@ t_wrongret_SOURCES = t_wrongret.cpp
 
 # On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
 # PATH) may be regular native aarch64, but we build and run arm64ec binaries.
+t_intrin_cpp_LDFLAGS = $(AM_LDFLAGS)
 t_iostream_LDFLAGS = $(AM_LDFLAGS)
 t_isfine_LDFLAGS = $(AM_LDFLAGS)
 t_main_cpp_LDFLAGS = $(AM_LDFLAGS)
@@ -138,6 +145,7 @@ t_trycatch_LDFLAGS = $(AM_LDFLAGS)
 t_wrongret_LDFLAGS = $(AM_LDFLAGS)
 
 if ARM64EC
+t_intrin_cpp_LDFLAGS += -static
 t_iostream_LDFLAGS += -static
 t_isfine_LDFLAGS += -static
 t_main_cpp_LDFLAGS += -static
@@ -174,6 +182,7 @@ endif
 check_LIBRARIES =
 
 check_PROGRAMS = \
+  $(testcase_compile_only) \
   $(testcase_progs)
 
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
