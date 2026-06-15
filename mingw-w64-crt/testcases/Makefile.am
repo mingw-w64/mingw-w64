@@ -94,6 +94,7 @@ testcase_progs = \
   t_tmpfile \
   t_towctrans \
   t_trycatch \
+  t_tsearch \
   t_utime \
   t_vsscanf \
   t_wcrtomb \
@@ -179,7 +180,8 @@ XFAIL_TESTS = \
   t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
   t_excpt_int_overflow_thrd \
-  t_nullptrexception
+  t_nullptrexception \
+  t_tsearch
 
 # Include the complex math testcase fragment.
 include complex/Makefile.am

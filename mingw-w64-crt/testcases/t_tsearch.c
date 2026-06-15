@@ -1,6 +1,13 @@
+#define _GNU_SOURCE
 #include <search.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
+/**
+ * FIXME: calling `twalk` after `tdestroy` walks the tree as if tree was not
+ *  destroyed. That is, it dereferences freed nodes.
+ */
 
 static int node_cmp (const void *a, const void *b)
 {
@@ -16,17 +23,25 @@ static int node_any (const void *a, const void *b)
 static void
 noop_free (void *arg)
 {
+  return;
 }
+
+/* Number of nodes printed by `print_node` in a call to `twalk` */
+static int nodes_printed;
 
 void print_node (const void *ptr, VISIT order, int level)
 {
  const char *s = *(const char **) ptr;
- if (order == postorder || order == leaf)
+ if (order == postorder || order == leaf) {
+   nodes_printed += 1;
    printf("%s\n", s);
+ }
 }
 
 int main (int argc, char **argv)
 {
+ int exit_code = EXIT_SUCCESS;
+
  void *root = NULL;
  void *nodep;
 
@@ -34,7 +49,12 @@ int main (int argc, char **argv)
  tsearch("bbb", &root, node_cmp);
  tsearch("ccc", &root, node_cmp);
  printf("---------- tree after insertion of 3 nodes:\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 3) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 3);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
@@ -44,7 +64,12 @@ int main (int argc, char **argv)
    tdelete(key, &root, node_cmp);
  }
  printf("---------- tree after deletion of all nodes using tfind()+tdelete():\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 0) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 0);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
@@ -52,14 +77,24 @@ int main (int argc, char **argv)
  tsearch("eee", &root, node_cmp);
  tsearch("fff", &root, node_cmp);
  printf("---------- tree after insertion of 3 new nodes:\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 3) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 3);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
  while (tdelete(NULL, &root, node_any) != NULL)
    ;
  printf("---------- tree after deletion of all nodes using tdelete() only:\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 0) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 0);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
@@ -67,17 +102,27 @@ int main (int argc, char **argv)
  tsearch("hhh", &root, node_cmp);
  tsearch("iii", &root, node_cmp);
  printf("---------- tree after insertion of 3 new nodes:\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 3) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 3);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
  tdestroy(root, noop_free);
- printf("---------- tree after deletion of all nodes using tdeosty() only:\n");
+ printf("---------- tree after deletion of all nodes using tdestroy() only:\n");
+ nodes_printed = 0;
  twalk(root, print_node);
+ if (nodes_printed != 0) {
+  printf ("ERROR: printed %d nodes when expected %d\n", nodes_printed, 0);
+  exit_code = EXIT_FAILURE;
+ }
 
  printf("----------\n");
 
- printf("Passed\n");
+ printf("Done\n");
 
- return 0;
+ return exit_code;
 }
