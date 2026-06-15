@@ -1,3 +1,4 @@
+#define __MINGW_USE_ANSI_STDIO 1
 #include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
@@ -111,7 +112,7 @@ int main()
   ARG3_FCT (fma, 2.0, 1.5);
   printf ("%g is%s nan\n", (double) in1, isnan (in1) ? "" :" not");
   printf ("%g is%s inf\n", (double) in1, isinf (in1) ? "" :" not");
-  __mingw_printf ("Ld:%Lg d:%g f:%g\n", ld1, ld2, (double) ld3);
+  printf ("Ld:%Lg d:%g f:%g\n", ld1, ld2, (double) ld3);
 
   return 0;
 }
