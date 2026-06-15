@@ -1,15 +1,12 @@
+# Compiler flags valid for both C and C++
 TEST_CFLAGS=-Wno-format -Wno-unused-parameter -Wno-error=unused-function
+
 AM_CFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS) -Wno-missing-prototypes
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS)
 
-# Testsuite options
-#
-
-#old
-#  tstwassert_win \
-#  tstwinmain \
-#  tstwassert \
-#  testcases_tstwinmain_LDADD = -lgdi32
+# Used by t_safe_flush
+libprocdetach.dll: libprocdetach.o
+	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
 testcase_progs = \
   tstmainc \
@@ -92,37 +89,43 @@ testcase_progs = \
   t_wreaddir \
   t_fseeko64
 
-EXTRA_DIST = \
-  t_snprintf_tmpl.h \
-  t_snwprintf_tmpl.h \
-  t_stprintf_tmpl.h \
-  t_swprintf_tmpl.h
-
-CLEANFILES = \
-  libprocdetach.dll
-
-libprocdetach.dll: libprocdetach.o
-	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
-
-t_safe_flush_LDADD = libprocdetach.dll
-
+# Most of the tests are C programs, but there are some C++ tests as well.
+# For C++ targets, we have to explicitly specify source files so that
+# Automake does not assume .c extension.
 tstmaincpp_SOURCES = tstmaincpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
-t_trycatch_LDFLAGS = -static
+
+# Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
 
+# Link t_safe_flush against libprocdetach.dll
+t_safe_flush_LDADD = libprocdetach.dll
+
+# Link t_trycatch statically to make it easier to run it on arm64ec
+t_trycatch_LDFLAGS = -static
+
 if ENABLE_TESTS_UNICODE
-  testcase_progs += t_municode t_tmain t__wstat_all
+  # The following tests require compiler support for -municode option
+  testcase_progs += \
+    t__wstat_all \
+    t_municode \
+    t_tmain
+
   t_municode_CFLAGS = -municode $(AM_CFLAGS)
   t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
   t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
 endif
 
+check_LIBRARIES =
+
+check_PROGRAMS = \
+  $(testcase_progs)
+
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
 # may not be check_PROGRAMS.
-check_LIBRARIES =
-check_PROGRAMS = $(testcase_progs)
-TESTS = $(testcase_progs)
+TESTS = \
+  $(testcase_progs)
+
 XFAIL_TESTS = \
   t_excpt_int_divzero \
   t_excpt_int_divzero_thrd \
@@ -132,3 +135,12 @@ XFAIL_TESTS = \
 
 # Include the complex math testcase fragment.
 include complex/Makefile.am
+
+EXTRA_DIST = \
+  t_snprintf_tmpl.h \
+  t_snwprintf_tmpl.h \
+  t_stprintf_tmpl.h \
+  t_swprintf_tmpl.h
+
+CLEANFILES = \
+  libprocdetach.dll
