@@ -4,14 +4,12 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <assert.h>
-#include <string.h>
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-  int argc = strlen (lpCmdLine);
-  assert (argc & 1);
+  assert (lpCmdLine != NULL);
   return 0;
 }

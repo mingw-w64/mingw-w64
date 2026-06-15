@@ -103,6 +103,7 @@ testcase_progs = \
   t_wcstok_s \
   t_wctob \
   t_wctype \
+  t_winmain_assert \
   t_wreaddir
 
 # FIXME: the following tests are disabled on arm64ec; linking them statically
