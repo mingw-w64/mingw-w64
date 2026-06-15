@@ -18,14 +18,20 @@ int *ptr = 0;
 int main(void)
 {
  volatile int v;
+
  signal(SIGSEGV, catchSigSegV);
+
  if (!setjmp(buf))
  {
   puts("Ready to catch");
   v = *ptr;
   puts("Bad");
  }
-  else puts("Ok");
+ else
+ {
+  puts("Ok");
+ }
+
  (void)v;
  return 0;
 }

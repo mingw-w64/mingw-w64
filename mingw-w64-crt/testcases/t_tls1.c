@@ -27,6 +27,7 @@ __threadlocal__ int tvar = 0;
 int main (int argc, char **argv)
 {
   (void)argv;
+
   if (argc != 1)
     {
       printf("not referencing tvar\n");
@@ -37,7 +38,8 @@ int main (int argc, char **argv)
       ++tvar;
       printf("   .. done (%i)\n", tvar);
     }
+
   printf("exiting....\n");
+
   exit (0);
 }
-

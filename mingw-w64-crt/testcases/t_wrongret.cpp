@@ -14,4 +14,3 @@ int main()
 {
         std::cout << F() << std::endl; // prints something other than 12345
 }
-

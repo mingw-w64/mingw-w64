@@ -12,10 +12,12 @@ protected:
   float x;
 };
 
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
   f m((float) argc);
+
   if (!m.is_finite ())
-   abort ();
+    abort ();
+
   return 0;
 }

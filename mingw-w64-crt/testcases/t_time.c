@@ -29,7 +29,7 @@ int main()
   _time32 (&t32);
   _time64 (&t64);
   printf ("time:      0x%I64xULL\n_time32:   0x%I32x\n_time64:   0x%I64xULL\n",
-	(unsigned long long) t, (unsigned int) t32, (unsigned long long) t64);
+  (unsigned long long) t, (unsigned int) t32, (unsigned long long) t64);
   htm = _localtime32 (&t32);
   if (!htm) printf ("Failed _localtime32\n");
   else printf ("_localtime32: %s", asctime (htm));

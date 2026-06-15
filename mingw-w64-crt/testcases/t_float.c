@@ -43,7 +43,7 @@ volatile float ld3 = 3.51F;
    printf (" %g", (double) NAME##f (ld3, &i)); \
    printf ("=%d\n", i); \
   } while(0)
-  
+
 #ifdef __WIN64__
 #define printfmt PRIu64
 #else

@@ -9,7 +9,11 @@
 int main(int argc, char **argv)
 {
   char **s = (char **) _sys_errlist;
-  if (s) printf ("Msg 0: %s\n", s[0]);
-  else printf ("Error list empty.\n");
+
+  if (s)
+    printf ("Msg 0: %s\n", s[0]);
+  else
+    printf ("Error list empty.\n");
+
   return 0;
 }

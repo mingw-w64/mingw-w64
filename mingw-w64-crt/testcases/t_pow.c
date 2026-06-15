@@ -20,9 +20,9 @@ static __attribute__((noinline)) double pow_by_log_exp (double x, double y)
     long v = (long) y;
     x = exp(y * log (-x));
     if ((double) v == y && (v&1) != 0)
-	{
-	  x = -x;
-	}
+    {
+      x = -x;
+    }
     return x;
   }
   return exp(y * log(x));
@@ -67,4 +67,3 @@ int main (int argc, char **argv)
   printf ("pow(2.0, -1) = %g\n", (*fpow)(2.0,-1.0));
   return 0;
 }
-

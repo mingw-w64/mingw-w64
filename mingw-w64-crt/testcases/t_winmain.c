@@ -14,7 +14,7 @@
 
 void Draw(HDC hdc);
 
-LRESULT CALLBACK WindowProc(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)
+LRESULT CALLBACK WindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
   PAINTSTRUCT ps;
   switch (Msg)
@@ -35,7 +35,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)
 
 char szClassName[] = "WinMain";
 
-int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
+int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
   HWND hwnd;
   MSG messages;
@@ -57,8 +57,10 @@ int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLi
 
   if (!RegisterClassEx(&wincl)) return 0;
 
-  hwnd = CreateWindowEx(0, szClassName, TITLE, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, WIDTH, HEIGHT,
-			HWND_DESKTOP, NULL, hThisInstance, NULL);
+  hwnd = CreateWindowEx(
+    0, szClassName, TITLE, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
+    WIDTH, HEIGHT, HWND_DESKTOP, NULL, hThisInstance, NULL
+  );
 
   ShowWindow(hwnd,nCmdShow);
 

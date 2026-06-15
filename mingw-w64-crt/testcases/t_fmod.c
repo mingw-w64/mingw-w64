@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int
-main ()
+int main()
 {
  int res = 0;
  int i;
@@ -17,8 +16,8 @@ main ()
     printf ("fmod(%d, "#y") = %.18f\n", 1 << i, m); \
     if (m >= y) \
       { \
-	res |= 1; \
-	printf ("which is bogus!\n"); \
+        res |= 1; \
+        printf ("which is bogus!\n"); \
       } \
   } while (0)
 
@@ -29,4 +28,3 @@ main ()
 
   return res;
 }
-

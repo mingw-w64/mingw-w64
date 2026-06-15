@@ -10,6 +10,6 @@ int main (int argc, char **argv)
 
   printf ("%Id %p\n", (intptr_t) argc, argv[0]);
   fprintf (stdout, "%Id %p %" PRIuPTR "\n", (intptr_t) argc, argv[0], (intptr_t) argv[0]);
+
   return 0;
 }
-

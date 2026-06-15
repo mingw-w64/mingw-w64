@@ -7,4 +7,3 @@ int main()
   printf ("%x\n", __ImageBase);
   return 0;
 }
-

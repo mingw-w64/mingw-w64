@@ -10,9 +10,9 @@
 #include <string.h>
 #include <assert.h>
 
-int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
+int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-  int argc = strlen (lpCmdLine);  
+  int argc = strlen (lpCmdLine);
   assert (argc & 1);
   return 0;
 }
