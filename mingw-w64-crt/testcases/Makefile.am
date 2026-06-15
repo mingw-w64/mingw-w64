@@ -18,6 +18,7 @@ testcase_progs = \
   t_ansi_io \
   t_assert \
   t_btowc \
+  t_char16_t \
   t_ctype \
   t_excpt_gcc_cpp \
   t_excpt_int_divzero \
