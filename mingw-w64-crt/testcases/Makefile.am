@@ -24,8 +24,11 @@ testcase_progs = \
   t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
   t_excpt_int_overflow_thrd \
+  t_exp_denormal \
+  t_expm1 \
   t_findfirst \
   t_float  \
+  t_fmod \
   t_format_Z \
   t_format_Z0 \
   t_format_Z1 \
@@ -38,7 +41,9 @@ testcase_progs = \
   t_fstat_t64_f64 \
   t_imagebase \
   t_intrinc \
+  t_isfine \
   t_iswctype \
+  t_ivma \
   t_lfs \
   t_lseeki64 \
   t_main \
@@ -48,6 +53,7 @@ testcase_progs = \
   t_mbrtowc \
   t_mbsrtowcs \
   t_nullptrexception \
+  t_printf \
   t_printf_g_width \
   t_readdir \
   t_safe_flush \
@@ -66,6 +72,7 @@ testcase_progs = \
   t_stat_t64 \
   t_stat_t64_f64 \
   t_stat_slash \
+  t_staticconstmember \
   t_stderr_buffering \
   t_stdint \
   t_stprintf_a \
@@ -91,20 +98,41 @@ testcase_progs = \
   t_wctype \
   t_wreaddir
 
+# FIXME: the following tests are disabled on arm64ec; linking them statically
+# with msvcrt.dll results in link error due to references to functions not
+# available in msvcrt.dll, e.g. _strftime_l.
+if !ARM64EC
+testcase_progs += \
+  t_iostream \
+  t_wrongret
+endif
+
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
+t_iostream_SOURCES = t_iostream.cpp
+t_isfine_SOURCES = t_isfine.cpp
 t_main_cpp_SOURCES = t_main_cpp.cpp
+t_staticconstmember_SOURCES = t_staticconstmember.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
+t_wrongret_SOURCES = t_wrongret.cpp
 
 # On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
 # PATH) may be regular native aarch64, but we build and run arm64ec binaries.
+t_iostream_LDFLAGS = $(AM_LDFLAGS)
+t_isfine_LDFLAGS = $(AM_LDFLAGS)
 t_main_cpp_LDFLAGS = $(AM_LDFLAGS)
+t_staticconstmember_LDFLAGS = $(AM_LDFLAGS)
 t_trycatch_LDFLAGS = $(AM_LDFLAGS)
+t_wrongret_LDFLAGS = $(AM_LDFLAGS)
 
 if ARM64EC
+t_iostream_LDFLAGS += -static
+t_isfine_LDFLAGS += -static
 t_main_cpp_LDFLAGS += -static
+t_staticconstmember_LDFLAGS += -static
 t_trycatch_LDFLAGS += -static
+t_wrongret_LDFLAGS += -static
 endif
 
 # Compile t_intrinc in C99 mode
