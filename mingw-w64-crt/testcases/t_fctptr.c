@@ -1,17 +1,11 @@
-#include <malloc.h>
+#include <assert.h>
 #include <stdlib.h>
 
-void *(*my_malloc)(size_t) = malloc;
-void (*my_free)(void *) = free;
+void (__cdecl *exit_ptr)(int) = exit;
 
 int main()
 {
-  void *p = (*my_malloc) (1024);
-
-  if (!p)
-    abort();
-
-  (*my_free)(p);
-
-  return 0;
+  assert (exit_ptr != NULL);
+  exit_ptr (EXIT_SUCCESS);
+  _exit (EXIT_FAILURE);
 }

@@ -27,6 +27,7 @@ testcase_progs = \
   t_excpt_int_overflow_thrd \
   t_exp_denormal \
   t_expm1 \
+  t_fctptr \
   t_findfirst \
   t_float  \
   t_fmod \
