@@ -4,6 +4,21 @@ TEST_CFLAGS=-Wno-format -Wno-unused-parameter -Wno-error=unused-function
 AM_CFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS) -Wno-missing-prototypes
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS)
 
+# Link all test programs against libtest.a; for targets with their own
+# target-specifc *_LDADD variable, make sure to add $(LDADD).
+LDADD = $(builddir)/libtest.a
+
+check_LIBRARIES = \
+  libtest.a
+
+# libtest.a is a static library containing helper function for use by tests
+# programs.
+#
+# When you write a new test, please include libtest.h and add a call to
+# mingw_test_init() function upon entry to main().
+libtest_a_SOURCES = \
+  libtest.c libtest.h
+
 # Used by t_safe_flush
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
@@ -165,7 +180,7 @@ endif
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
 
 # Link t_safe_flush against libprocdetach.dll
-t_safe_flush_LDADD = libprocdetach.dll
+t_safe_flush_LDADD = libprocdetach.dll $(LDADD)
 
 # Compile t_tls_ansi in C89 mode
 t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
@@ -174,7 +189,7 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
 # Link t_winmain against gdi32.dll
-t_winmain_LDADD = -lgdi32
+t_winmain_LDADD = -lgdi32 $(LDADD)
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
@@ -187,8 +202,6 @@ if ENABLE_TESTS_UNICODE
   t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
   t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
 endif
-
-check_LIBRARIES =
 
 check_PROGRAMS = \
   $(testcase_compile_only) \
