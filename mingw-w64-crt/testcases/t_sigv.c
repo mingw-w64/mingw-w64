@@ -1,6 +1,7 @@
 #include <setjmp.h>
 #include <signal.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 jmp_buf buf;
 
@@ -25,7 +26,8 @@ int main(void)
  {
   puts("Ready to catch");
   v = *ptr;
-  puts("Bad");
+  puts("ERROR: program continued");
+  _exit (EXIT_FAILURE);
  }
  else
  {
