@@ -1,47 +1,30 @@
-/*
- need gcc-4.3.4 (gcc-4_3-branch r149015)
-   or gcc-4.4.1 (gcc-4_4-branch r149016)
-   or gcc-4.5.x (trunk r149593) or newer
- which have a properly fixed gcc/emutls.c,
- along with mingw-w64-headers r960 and
- mingw-w64-crt r973.
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
+#include <time.h>
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-#if defined(_MSC_VER) /* MS Visual Studio */
-#define __threadlocal__ __declspec(thread)
-#elif defined(__GNUC__) && ((__GNUC__ > 4) \
-  || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3)) || defined(__clang__)
-/* gcc >= 4.3, also needs binutils >= 2.19 */
-#define __threadlocal__ __thread
+#if __STDC_VERSION__ >= 201112L
+#define __threadlocal__ _Thread_local
 #else
-#error No keyword for TLS vars is defined.
+#define __threadlocal__ __thread
 #endif
 
 __threadlocal__ int tvar = 0;
 
-int main (int argc, char **argv)
+int main (void)
 {
-  (void)argv;
+  /**
+   * Random number to increment `tvar` by.
+   */
+  int x;
 
-  if (argc != 1)
-    {
-      printf("not referencing tvar\n");
-    }
-  else
-    {
-      printf("incrementing tvar..\n");
-      ++tvar;
-      printf("   .. done (%i)\n", tvar);
-    }
+  srand (time (NULL));
+  x = rand ();
+  tvar += x;
 
-  printf("exiting....\n");
+  if (tvar != x) {
+    fprintf (stderr, "tvar has value %d when expected %d\n", tvar, x);
+    _exit (EXIT_FAILURE);
+  }
 
-  exit (0);
+  return 0;
 }
