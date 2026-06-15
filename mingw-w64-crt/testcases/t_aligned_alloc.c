@@ -53,7 +53,7 @@ int main() {
    * returns wrong value when using those two CRT libraries.
    */
 #if __MSVCRT_VERSION__ >= 0x100 && __MSVCRT_VERSION__ <= 0x200
-  return 0;
+  return 77;
 #endif
 
 
