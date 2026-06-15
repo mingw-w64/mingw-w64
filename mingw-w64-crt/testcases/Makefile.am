@@ -49,6 +49,7 @@ testcase_progs = \
   t_lfs \
   t_lseeki64 \
   t_main \
+  t_main_assert \
   t_main_cpp \
   t_matherr \
   t_mbrlen \

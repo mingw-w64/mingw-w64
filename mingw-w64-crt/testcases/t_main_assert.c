@@ -9,8 +9,8 @@
 
 int main(int argc, char **argv)
 {
-  printf ("Is argc (%d) < 3 ?\n", argc);
-  assert (argc < 3);
-  printf ("No assert !\n");
+  assert (argc >= 1);
+  assert (argv != NULL);
+  assert (argv[0] != NULL);
   return 0;
 }
