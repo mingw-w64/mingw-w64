@@ -85,7 +85,8 @@ testcase_progs = \
   t_swprintf0 \
   t_swprintf1 \
   t_time \
-  t_tls1 \
+  t_tls_ansi \
+  t_tls_c11 \
   t_tmpfile \
   t_towctrans \
   t_trycatch \
@@ -140,6 +141,12 @@ t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
 
 # Link t_safe_flush against libprocdetach.dll
 t_safe_flush_LDADD = libprocdetach.dll
+
+# Compile t_tls_ansi in C89 mode
+t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
+
+# Compile t_tls_c11 in C11 mode
+t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
