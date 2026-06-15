@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void foo (int d)
 {
@@ -9,12 +10,14 @@ int main()
 {
   try {
     foo (10);
-    printf ("Hmm...\n");
+    fwprintf (stderr, L"Failed to throw an exception?\n");
+    _exit (EXIT_FAILURE);
   } catch (int ex) {
-    printf ("catch %d==10\n", ex);
+    if (ex != 10) {
+      fwprintf (stderr, L"ex=%d\n", ex);
+      _exit (EXIT_FAILURE);
+    }
   }
-
-  printf ("Done.\n");
 
   return 0;
 }
