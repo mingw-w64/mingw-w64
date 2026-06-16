@@ -21,8 +21,8 @@
 extern "C" {
 #endif
 
-_CRTIMP void __cdecl __MINGW_ATTRIB_NORETURN _wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
-void __cdecl __MINGW_ATTRIB_NORETURN _assert (const char *_Message, const char *_File, unsigned _Line);
+_CRTIMP void __cdecl _wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
+void __cdecl _assert (const char *_Message, const char *_File, unsigned _Line);
 
 #ifdef __cplusplus
 }
@@ -53,4 +53,3 @@ void __cdecl __MINGW_ATTRIB_NORETURN _assert (const char *_Message, const char *
   (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif /* _UNICODE||UNICODE */
 #endif /* !defined (NDEBUG) */
-

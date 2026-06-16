@@ -8,7 +8,6 @@
 #include <stdlib.h>
 
 /* _wassert is not available on XP, so forward it to _assert if needed */
-__MINGW_ATTRIB_NORETURN
 static void __cdecl emu__wassert(const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
     static char static_message_buf[128]; /* thread unsafe */
@@ -41,7 +40,6 @@ static void __cdecl emu__wassert(const wchar_t *_Message, const wchar_t *_File, 
     _assert(message, file, _Line);
 }
 
-#define NORETURN
 #define RETT void
 #define FUNC _wassert
 #define ARGS const wchar_t * message, const wchar_t * file, unsigned line
