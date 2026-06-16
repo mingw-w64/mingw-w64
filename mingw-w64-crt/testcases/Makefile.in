@@ -135,35 +135,57 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@ENABLE_TESTS_UNICODE_TRUE@am__append_1 = t_municode t_tmain t__wstat_all
-check_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
-TESTS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
+
+# FIXME: the following tests are disabled on arm64ec; linking them statically
+# with msvcrt.dll results in link error due to references to functions not
+# available in msvcrt.dll, e.g. _strftime_l.
+@ARM64EC_FALSE@am__append_1 = \
+@ARM64EC_FALSE@  t_iostream \
+@ARM64EC_FALSE@  t_tls_cpp \
+@ARM64EC_FALSE@  t_wrongret
+
+@ARM64EC_TRUE@am__append_2 = -static
+@ARM64EC_TRUE@am__append_3 = -static
+@ARM64EC_TRUE@am__append_4 = -static
+@ARM64EC_TRUE@am__append_5 = -static
+@ARM64EC_TRUE@am__append_6 = -static
+@ARM64EC_TRUE@am__append_7 = -static
+@ARM64EC_TRUE@am__append_8 = -static
+@ARM64EC_TRUE@am__append_9 = -static
+@ENABLE_TESTS_UNICODE_TRUE@am__append_10 = \
+@ENABLE_TESTS_UNICODE_TRUE@    t__wstat_all \
+@ENABLE_TESTS_UNICODE_TRUE@    t_municode \
+@ENABLE_TESTS_UNICODE_TRUE@    t_tmain
+
+check_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_4) $(am__EXEEXT_6) \
+	$(am__EXEEXT_8)
+TESTS = $(am__EXEEXT_4) $(am__EXEEXT_6) $(am__EXEEXT_8)
 XFAIL_TESTS = t_excpt_int_divzero$(EXEEXT) \
 	t_excpt_int_divzero_thrd$(EXEEXT) \
 	t_excpt_int_overflow$(EXEEXT) \
 	t_excpt_int_overflow_thrd$(EXEEXT) t_nullptrexception$(EXEEXT) \
-	$(am__EXEEXT_7) $(am__EXEEXT_7)
+	t_tsearch$(EXEEXT) $(am__EXEEXT_9) $(am__EXEEXT_9)
 
 # Build the libraries
-@LIB32_TRUE@am__append_2 = $(newcomplex_test_lib32)
+@LIB32_TRUE@am__append_11 = $(newcomplex_test_lib32)
 
 # Build the programs during make check.
-@LIB32_TRUE@am__append_3 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_12 = $(newcomplex_tests32)
 
 # Declare the tests.
-@LIB32_TRUE@am__append_4 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_13 = $(newcomplex_tests32)
 # Remove these when completed.
-@LIB32_TRUE@am__append_5 = 
+@LIB32_TRUE@am__append_14 = 
 
 # Build the libraries
-@LIB64_TRUE@am__append_6 = $(newcomplex_test_lib64)
+@LIB64_TRUE@am__append_15 = $(newcomplex_test_lib64)
 
 # Build the programs during make check.
-@LIB64_TRUE@am__append_7 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_16 = $(newcomplex_tests64)
 
 # Declare the tests.
-@LIB64_TRUE@am__append_8 = $(newcomplex_tests64)
-@LIB64_TRUE@am__append_9 = 
+@LIB64_TRUE@am__append_17 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_18 = 
 subdir = testcases
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -174,43 +196,52 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-@ENABLE_TESTS_UNICODE_TRUE@am__EXEEXT_1 = t_municode$(EXEEXT) \
-@ENABLE_TESTS_UNICODE_TRUE@	t_tmain$(EXEEXT) \
-@ENABLE_TESTS_UNICODE_TRUE@	t__wstat_all$(EXEEXT)
-am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
-	tstmain_sys_xxx$(EXEEXT) t__fstat_all$(EXEEXT) \
-	t__stat_all$(EXEEXT) t_aligned_alloc$(EXEEXT) \
+am__EXEEXT_1 = t_intrin$(EXEEXT) t_intrin_cpp$(EXEEXT) \
+	t_winmain$(EXEEXT)
+@ARM64EC_FALSE@am__EXEEXT_2 = t_iostream$(EXEEXT) t_tls_cpp$(EXEEXT) \
+@ARM64EC_FALSE@	t_wrongret$(EXEEXT)
+@ENABLE_TESTS_UNICODE_TRUE@am__EXEEXT_3 = t__wstat_all$(EXEEXT) \
+@ENABLE_TESTS_UNICODE_TRUE@	t_municode$(EXEEXT) \
+@ENABLE_TESTS_UNICODE_TRUE@	t_tmain$(EXEEXT)
+am__EXEEXT_4 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
+	t__sys_errlist$(EXEEXT) t_aligned_alloc$(EXEEXT) \
 	t_ansi_io$(EXEEXT) t_assert$(EXEEXT) t_btowc$(EXEEXT) \
-	t_ctype$(EXEEXT) t_excpt_gcc_cpp$(EXEEXT) \
+	t_char16_t$(EXEEXT) t_ctype$(EXEEXT) t_excpt_gcc_cpp$(EXEEXT) \
 	t_excpt_int_divzero$(EXEEXT) t_excpt_int_divzero_thrd$(EXEEXT) \
 	t_excpt_int_overflow$(EXEEXT) \
-	t_excpt_int_overflow_thrd$(EXEEXT) t_findfirst$(EXEEXT) \
-	t_float$(EXEEXT) t_format_Z$(EXEEXT) t_format_Z0$(EXEEXT) \
-	t_format_Z1$(EXEEXT) t_fseeki64$(EXEEXT) \
-	t_fseeki64_ftelli64$(EXEEXT) t_fstat$(EXEEXT) \
-	t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
-	t_fstat_t64_f64$(EXEEXT) t_intrinc$(EXEEXT) \
-	t_imagebase$(EXEEXT) t_iswctype$(EXEEXT) t_lfs$(EXEEXT) \
-	t_lseeki64$(EXEEXT) t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) \
-	t_mbrtowc$(EXEEXT) t_mbsrtowcs$(EXEEXT) \
-	t_nullptrexception$(EXEEXT) t_printf_g_width$(EXEEXT) \
-	t_readdir$(EXEEXT) t_safe_flush$(EXEEXT) t_snprintf$(EXEEXT) \
-	t_snprintf0$(EXEEXT) t_snprintf1$(EXEEXT) t_swprintf$(EXEEXT) \
-	t_swprintf0$(EXEEXT) t_swprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
+	t_excpt_int_overflow_thrd$(EXEEXT) t_exp_denormal$(EXEEXT) \
+	t_expm1$(EXEEXT) t_fctptr$(EXEEXT) t_findfirst$(EXEEXT) \
+	t_float$(EXEEXT) t_fmod$(EXEEXT) t_format_Z$(EXEEXT) \
+	t_format_Z0$(EXEEXT) t_format_Z1$(EXEEXT) t_fseeki64$(EXEEXT) \
+	t_fseeki64_ftelli64$(EXEEXT) t_fseeko64$(EXEEXT) \
+	t_fstat$(EXEEXT) t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
+	t_fstat_t64_f64$(EXEEXT) t_imagebase$(EXEEXT) \
+	t_intrinc$(EXEEXT) t_isfine$(EXEEXT) t_iswctype$(EXEEXT) \
+	t_ivma$(EXEEXT) t_lfs$(EXEEXT) t_lseeki64$(EXEEXT) \
+	t_main$(EXEEXT) t_main_assert$(EXEEXT) t_main_cpp$(EXEEXT) \
+	t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) \
+	t_mbsrtowcs$(EXEEXT) t_nullptrexception$(EXEEXT) \
+	t_pow$(EXEEXT) t_powi$(EXEEXT) t_printf$(EXEEXT) \
+	t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
+	t_safe_flush$(EXEEXT) t_setjmp$(EXEEXT) t_sigfpe$(EXEEXT) \
+	t_sigv$(EXEEXT) t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) \
+	t_snprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
 	t_snwprintf0$(EXEEXT) t_snwprintf1$(EXEEXT) \
+	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
+	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
+	t_stat_slash$(EXEEXT) t_staticconstmember$(EXEEXT) \
+	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) \
 	t_stprintf_a$(EXEEXT) t_stprintf_u$(EXEEXT) \
 	t_stprintf0_a$(EXEEXT) t_stprintf0_u$(EXEEXT) \
 	t_stprintf1_a$(EXEEXT) t_stprintf1_u$(EXEEXT) \
-	t_setjmp$(EXEEXT) t_sigfpe$(EXEEXT) t_sigv$(EXEEXT) \
-	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
-	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
-	t_stderr_buffering$(EXEEXT) t_stdint$(EXEEXT) t_time$(EXEEXT) \
-	t_tls1$(EXEEXT) t_tmpfile$(EXEEXT) t_trycatch$(EXEEXT) \
-	t_stat_slash$(EXEEXT) t_towctrans$(EXEEXT) t_utime$(EXEEXT) \
-	t_vsscanf$(EXEEXT) t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) \
-	t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) t_wctype$(EXEEXT) \
-	t_wreaddir$(EXEEXT) t_fseeko64$(EXEEXT) $(am__EXEEXT_1)
-@LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
+	t_swprintf$(EXEEXT) t_swprintf0$(EXEEXT) t_swprintf1$(EXEEXT) \
+	t_time$(EXEEXT) t_tls_ansi$(EXEEXT) t_tls_c11$(EXEEXT) \
+	t_tmpfile$(EXEEXT) t_towctrans$(EXEEXT) t_trycatch$(EXEEXT) \
+	t_tsearch$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
+	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
+	t_wctob$(EXEEXT) t_wctype$(EXEEXT) t_winmain_assert$(EXEEXT) \
+	t_wreaddir$(EXEEXT) $(am__EXEEXT_2) $(am__EXEEXT_3)
+@LIB32_TRUE@am__EXEEXT_5 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
 @LIB32_TRUE@	tests32/carg$(EXEEXT) tests32/casin$(EXEEXT) \
@@ -222,8 +253,8 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 @LIB32_TRUE@	tests32/csin$(EXEEXT) tests32/csinh$(EXEEXT) \
 @LIB32_TRUE@	tests32/csqrt$(EXEEXT) tests32/ctan$(EXEEXT) \
 @LIB32_TRUE@	tests32/ctanh$(EXEEXT)
-@LIB32_TRUE@am__EXEEXT_4 = $(am__EXEEXT_3)
-@LIB64_TRUE@am__EXEEXT_5 = tests64/cimag$(EXEEXT) \
+@LIB32_TRUE@am__EXEEXT_6 = $(am__EXEEXT_5)
+@LIB64_TRUE@am__EXEEXT_7 = tests64/cimag$(EXEEXT) \
 @LIB64_TRUE@	tests64/creal$(EXEEXT) tests64/cabs$(EXEEXT) \
 @LIB64_TRUE@	tests64/cacos$(EXEEXT) tests64/cacosh$(EXEEXT) \
 @LIB64_TRUE@	tests64/carg$(EXEEXT) tests64/casin$(EXEEXT) \
@@ -235,12 +266,16 @@ am__EXEEXT_2 = tstmainc$(EXEEXT) tstmaincpp$(EXEEXT) \
 @LIB64_TRUE@	tests64/csin$(EXEEXT) tests64/csinh$(EXEEXT) \
 @LIB64_TRUE@	tests64/csqrt$(EXEEXT) tests64/ctan$(EXEEXT) \
 @LIB64_TRUE@	tests64/ctanh$(EXEEXT)
-@LIB64_TRUE@am__EXEEXT_6 = $(am__EXEEXT_5)
+@LIB64_TRUE@am__EXEEXT_8 = $(am__EXEEXT_7)
 ARFLAGS = cru
 AM_V_AR = $(am__v_AR_@AM_V@)
 am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
 am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
+libtest_a_AR = $(AR) $(ARFLAGS)
+libtest_a_LIBADD =
+am_libtest_a_OBJECTS = libtest.$(OBJEXT)
+libtest_a_OBJECTS = $(am_libtest_a_OBJECTS)
 tests32_libnewcomplextests_a_AR = $(AR) $(ARFLAGS)
 tests32_libnewcomplextests_a_LIBADD =
 am__tests32_libnewcomplextests_a_SOURCES_DIST =  \
@@ -461,568 +496,794 @@ tests64_libnewcomplextestsld_a_OBJECTS =  \
 t__fstat_all_SOURCES = t__fstat_all.c
 t__fstat_all_OBJECTS = t__fstat_all.$(OBJEXT)
 t__fstat_all_LDADD = $(LDADD)
+t__fstat_all_DEPENDENCIES = $(builddir)/libtest.a
 t__stat_all_SOURCES = t__stat_all.c
 t__stat_all_OBJECTS = t__stat_all.$(OBJEXT)
 t__stat_all_LDADD = $(LDADD)
+t__stat_all_DEPENDENCIES = $(builddir)/libtest.a
+t__sys_errlist_SOURCES = t__sys_errlist.c
+t__sys_errlist_OBJECTS = t__sys_errlist.$(OBJEXT)
+t__sys_errlist_LDADD = $(LDADD)
+t__sys_errlist_DEPENDENCIES = $(builddir)/libtest.a
 t__wstat_all_SOURCES = t__wstat_all.c
 t__wstat_all_OBJECTS = t__wstat_all-t__wstat_all.$(OBJEXT)
 t__wstat_all_LDADD = $(LDADD)
+t__wstat_all_DEPENDENCIES = $(builddir)/libtest.a
 t__wstat_all_LINK = $(CCLD) $(t__wstat_all_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 t_aligned_alloc_SOURCES = t_aligned_alloc.c
 t_aligned_alloc_OBJECTS = t_aligned_alloc.$(OBJEXT)
 t_aligned_alloc_LDADD = $(LDADD)
+t_aligned_alloc_DEPENDENCIES = $(builddir)/libtest.a
 t_ansi_io_SOURCES = t_ansi_io.c
 t_ansi_io_OBJECTS = t_ansi_io.$(OBJEXT)
 t_ansi_io_LDADD = $(LDADD)
+t_ansi_io_DEPENDENCIES = $(builddir)/libtest.a
 t_assert_SOURCES = t_assert.c
 t_assert_OBJECTS = t_assert.$(OBJEXT)
 t_assert_LDADD = $(LDADD)
+t_assert_DEPENDENCIES = $(builddir)/libtest.a
 t_btowc_SOURCES = t_btowc.c
 t_btowc_OBJECTS = t_btowc.$(OBJEXT)
 t_btowc_LDADD = $(LDADD)
+t_btowc_DEPENDENCIES = $(builddir)/libtest.a
+t_char16_t_SOURCES = t_char16_t.c
+t_char16_t_OBJECTS = t_char16_t.$(OBJEXT)
+t_char16_t_LDADD = $(LDADD)
+t_char16_t_DEPENDENCIES = $(builddir)/libtest.a
 t_ctype_SOURCES = t_ctype.c
 t_ctype_OBJECTS = t_ctype.$(OBJEXT)
 t_ctype_LDADD = $(LDADD)
+t_ctype_DEPENDENCIES = $(builddir)/libtest.a
 t_excpt_gcc_cpp_SOURCES = t_excpt_gcc_cpp.c
 t_excpt_gcc_cpp_OBJECTS = t_excpt_gcc_cpp.$(OBJEXT)
 t_excpt_gcc_cpp_LDADD = $(LDADD)
+t_excpt_gcc_cpp_DEPENDENCIES = $(builddir)/libtest.a
 t_excpt_int_divzero_SOURCES = t_excpt_int_divzero.c
 t_excpt_int_divzero_OBJECTS = t_excpt_int_divzero.$(OBJEXT)
 t_excpt_int_divzero_LDADD = $(LDADD)
+t_excpt_int_divzero_DEPENDENCIES = $(builddir)/libtest.a
 t_excpt_int_divzero_thrd_SOURCES = t_excpt_int_divzero_thrd.c
 t_excpt_int_divzero_thrd_OBJECTS = t_excpt_int_divzero_thrd.$(OBJEXT)
 t_excpt_int_divzero_thrd_LDADD = $(LDADD)
+t_excpt_int_divzero_thrd_DEPENDENCIES = $(builddir)/libtest.a
 t_excpt_int_overflow_SOURCES = t_excpt_int_overflow.c
 t_excpt_int_overflow_OBJECTS = t_excpt_int_overflow.$(OBJEXT)
 t_excpt_int_overflow_LDADD = $(LDADD)
+t_excpt_int_overflow_DEPENDENCIES = $(builddir)/libtest.a
 t_excpt_int_overflow_thrd_SOURCES = t_excpt_int_overflow_thrd.c
 t_excpt_int_overflow_thrd_OBJECTS =  \
 	t_excpt_int_overflow_thrd.$(OBJEXT)
 t_excpt_int_overflow_thrd_LDADD = $(LDADD)
+t_excpt_int_overflow_thrd_DEPENDENCIES = $(builddir)/libtest.a
+t_exp_denormal_SOURCES = t_exp_denormal.c
+t_exp_denormal_OBJECTS = t_exp_denormal.$(OBJEXT)
+t_exp_denormal_LDADD = $(LDADD)
+t_exp_denormal_DEPENDENCIES = $(builddir)/libtest.a
+t_expm1_SOURCES = t_expm1.c
+t_expm1_OBJECTS = t_expm1.$(OBJEXT)
+t_expm1_LDADD = $(LDADD)
+t_expm1_DEPENDENCIES = $(builddir)/libtest.a
+t_fctptr_SOURCES = t_fctptr.c
+t_fctptr_OBJECTS = t_fctptr.$(OBJEXT)
+t_fctptr_LDADD = $(LDADD)
+t_fctptr_DEPENDENCIES = $(builddir)/libtest.a
 t_findfirst_SOURCES = t_findfirst.c
 t_findfirst_OBJECTS = t_findfirst.$(OBJEXT)
 t_findfirst_LDADD = $(LDADD)
+t_findfirst_DEPENDENCIES = $(builddir)/libtest.a
 t_float_SOURCES = t_float.c
 t_float_OBJECTS = t_float.$(OBJEXT)
 t_float_LDADD = $(LDADD)
+t_float_DEPENDENCIES = $(builddir)/libtest.a
+t_fmod_SOURCES = t_fmod.c
+t_fmod_OBJECTS = t_fmod.$(OBJEXT)
+t_fmod_LDADD = $(LDADD)
+t_fmod_DEPENDENCIES = $(builddir)/libtest.a
 t_format_Z_SOURCES = t_format_Z.c
 t_format_Z_OBJECTS = t_format_Z.$(OBJEXT)
 t_format_Z_LDADD = $(LDADD)
+t_format_Z_DEPENDENCIES = $(builddir)/libtest.a
 t_format_Z0_SOURCES = t_format_Z0.c
 t_format_Z0_OBJECTS = t_format_Z0.$(OBJEXT)
 t_format_Z0_LDADD = $(LDADD)
+t_format_Z0_DEPENDENCIES = $(builddir)/libtest.a
 t_format_Z1_SOURCES = t_format_Z1.c
 t_format_Z1_OBJECTS = t_format_Z1.$(OBJEXT)
 t_format_Z1_LDADD = $(LDADD)
+t_format_Z1_DEPENDENCIES = $(builddir)/libtest.a
 t_fseeki64_SOURCES = t_fseeki64.c
 t_fseeki64_OBJECTS = t_fseeki64.$(OBJEXT)
 t_fseeki64_LDADD = $(LDADD)
+t_fseeki64_DEPENDENCIES = $(builddir)/libtest.a
 t_fseeki64_ftelli64_SOURCES = t_fseeki64_ftelli64.c
 t_fseeki64_ftelli64_OBJECTS = t_fseeki64_ftelli64.$(OBJEXT)
 t_fseeki64_ftelli64_LDADD = $(LDADD)
+t_fseeki64_ftelli64_DEPENDENCIES = $(builddir)/libtest.a
 t_fseeko64_SOURCES = t_fseeko64.c
 t_fseeko64_OBJECTS = t_fseeko64.$(OBJEXT)
 t_fseeko64_LDADD = $(LDADD)
+t_fseeko64_DEPENDENCIES = $(builddir)/libtest.a
 t_fstat_SOURCES = t_fstat.c
 t_fstat_OBJECTS = t_fstat.$(OBJEXT)
 t_fstat_LDADD = $(LDADD)
+t_fstat_DEPENDENCIES = $(builddir)/libtest.a
 t_fstat_f64_SOURCES = t_fstat_f64.c
 t_fstat_f64_OBJECTS = t_fstat_f64.$(OBJEXT)
 t_fstat_f64_LDADD = $(LDADD)
+t_fstat_f64_DEPENDENCIES = $(builddir)/libtest.a
 t_fstat_t64_SOURCES = t_fstat_t64.c
 t_fstat_t64_OBJECTS = t_fstat_t64.$(OBJEXT)
 t_fstat_t64_LDADD = $(LDADD)
+t_fstat_t64_DEPENDENCIES = $(builddir)/libtest.a
 t_fstat_t64_f64_SOURCES = t_fstat_t64_f64.c
 t_fstat_t64_f64_OBJECTS = t_fstat_t64_f64.$(OBJEXT)
 t_fstat_t64_f64_LDADD = $(LDADD)
+t_fstat_t64_f64_DEPENDENCIES = $(builddir)/libtest.a
 t_imagebase_SOURCES = t_imagebase.c
 t_imagebase_OBJECTS = t_imagebase.$(OBJEXT)
 t_imagebase_LDADD = $(LDADD)
+t_imagebase_DEPENDENCIES = $(builddir)/libtest.a
+t_intrin_SOURCES = t_intrin.c
+t_intrin_OBJECTS = t_intrin.$(OBJEXT)
+t_intrin_LDADD = $(LDADD)
+t_intrin_DEPENDENCIES = $(builddir)/libtest.a
+am_t_intrin_cpp_OBJECTS = t_intrin_cpp.$(OBJEXT)
+t_intrin_cpp_OBJECTS = $(am_t_intrin_cpp_OBJECTS)
+t_intrin_cpp_LDADD = $(LDADD)
+t_intrin_cpp_DEPENDENCIES = $(builddir)/libtest.a
+t_intrin_cpp_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_intrin_cpp_LDFLAGS) $(LDFLAGS) -o $@
 t_intrinc_SOURCES = t_intrinc.c
 t_intrinc_OBJECTS = t_intrinc-t_intrinc.$(OBJEXT)
 t_intrinc_LDADD = $(LDADD)
+t_intrinc_DEPENDENCIES = $(builddir)/libtest.a
 t_intrinc_LINK = $(CCLD) $(t_intrinc_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_t_iostream_OBJECTS = t_iostream.$(OBJEXT)
+t_iostream_OBJECTS = $(am_t_iostream_OBJECTS)
+t_iostream_LDADD = $(LDADD)
+t_iostream_DEPENDENCIES = $(builddir)/libtest.a
+t_iostream_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_iostream_LDFLAGS) $(LDFLAGS) -o $@
+am_t_isfine_OBJECTS = t_isfine.$(OBJEXT)
+t_isfine_OBJECTS = $(am_t_isfine_OBJECTS)
+t_isfine_LDADD = $(LDADD)
+t_isfine_DEPENDENCIES = $(builddir)/libtest.a
+t_isfine_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_isfine_LDFLAGS) $(LDFLAGS) -o $@
 t_iswctype_SOURCES = t_iswctype.c
 t_iswctype_OBJECTS = t_iswctype.$(OBJEXT)
 t_iswctype_LDADD = $(LDADD)
+t_iswctype_DEPENDENCIES = $(builddir)/libtest.a
+t_ivma_SOURCES = t_ivma.c
+t_ivma_OBJECTS = t_ivma.$(OBJEXT)
+t_ivma_LDADD = $(LDADD)
+t_ivma_DEPENDENCIES = $(builddir)/libtest.a
 t_lfs_SOURCES = t_lfs.c
 t_lfs_OBJECTS = t_lfs.$(OBJEXT)
 t_lfs_LDADD = $(LDADD)
+t_lfs_DEPENDENCIES = $(builddir)/libtest.a
 t_lseeki64_SOURCES = t_lseeki64.c
 t_lseeki64_OBJECTS = t_lseeki64.$(OBJEXT)
 t_lseeki64_LDADD = $(LDADD)
+t_lseeki64_DEPENDENCIES = $(builddir)/libtest.a
+t_main_SOURCES = t_main.c
+t_main_OBJECTS = t_main.$(OBJEXT)
+t_main_LDADD = $(LDADD)
+t_main_DEPENDENCIES = $(builddir)/libtest.a
+t_main_assert_SOURCES = t_main_assert.c
+t_main_assert_OBJECTS = t_main_assert.$(OBJEXT)
+t_main_assert_LDADD = $(LDADD)
+t_main_assert_DEPENDENCIES = $(builddir)/libtest.a
+am_t_main_cpp_OBJECTS = t_main_cpp.$(OBJEXT)
+t_main_cpp_OBJECTS = $(am_t_main_cpp_OBJECTS)
+t_main_cpp_LDADD = $(LDADD)
+t_main_cpp_DEPENDENCIES = $(builddir)/libtest.a
+t_main_cpp_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_main_cpp_LDFLAGS) $(LDFLAGS) -o $@
 t_matherr_SOURCES = t_matherr.c
 t_matherr_OBJECTS = t_matherr.$(OBJEXT)
 t_matherr_LDADD = $(LDADD)
+t_matherr_DEPENDENCIES = $(builddir)/libtest.a
 t_mbrlen_SOURCES = t_mbrlen.c
 t_mbrlen_OBJECTS = t_mbrlen.$(OBJEXT)
 t_mbrlen_LDADD = $(LDADD)
+t_mbrlen_DEPENDENCIES = $(builddir)/libtest.a
 t_mbrtowc_SOURCES = t_mbrtowc.c
 t_mbrtowc_OBJECTS = t_mbrtowc.$(OBJEXT)
 t_mbrtowc_LDADD = $(LDADD)
+t_mbrtowc_DEPENDENCIES = $(builddir)/libtest.a
 t_mbsrtowcs_SOURCES = t_mbsrtowcs.c
 t_mbsrtowcs_OBJECTS = t_mbsrtowcs.$(OBJEXT)
 t_mbsrtowcs_LDADD = $(LDADD)
+t_mbsrtowcs_DEPENDENCIES = $(builddir)/libtest.a
 t_municode_SOURCES = t_municode.c
 t_municode_OBJECTS = t_municode-t_municode.$(OBJEXT)
 t_municode_LDADD = $(LDADD)
+t_municode_DEPENDENCIES = $(builddir)/libtest.a
 t_municode_LINK = $(CCLD) $(t_municode_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 t_nullptrexception_SOURCES = t_nullptrexception.c
 t_nullptrexception_OBJECTS = t_nullptrexception.$(OBJEXT)
 t_nullptrexception_LDADD = $(LDADD)
+t_nullptrexception_DEPENDENCIES = $(builddir)/libtest.a
+t_pow_SOURCES = t_pow.c
+t_pow_OBJECTS = t_pow.$(OBJEXT)
+t_pow_LDADD = $(LDADD)
+t_pow_DEPENDENCIES = $(builddir)/libtest.a
+t_powi_SOURCES = t_powi.c
+t_powi_OBJECTS = t_powi.$(OBJEXT)
+t_powi_LDADD = $(LDADD)
+t_powi_DEPENDENCIES = $(builddir)/libtest.a
+t_printf_SOURCES = t_printf.c
+t_printf_OBJECTS = t_printf.$(OBJEXT)
+t_printf_LDADD = $(LDADD)
+t_printf_DEPENDENCIES = $(builddir)/libtest.a
 t_printf_g_width_SOURCES = t_printf_g_width.c
 t_printf_g_width_OBJECTS = t_printf_g_width.$(OBJEXT)
 t_printf_g_width_LDADD = $(LDADD)
+t_printf_g_width_DEPENDENCIES = $(builddir)/libtest.a
 t_readdir_SOURCES = t_readdir.c
 t_readdir_OBJECTS = t_readdir.$(OBJEXT)
 t_readdir_LDADD = $(LDADD)
+t_readdir_DEPENDENCIES = $(builddir)/libtest.a
 t_safe_flush_SOURCES = t_safe_flush.c
 t_safe_flush_OBJECTS = t_safe_flush.$(OBJEXT)
-t_safe_flush_DEPENDENCIES = libprocdetach.dll
+t_safe_flush_DEPENDENCIES = libprocdetach.dll $(LDADD)
 t_setjmp_SOURCES = t_setjmp.c
 t_setjmp_OBJECTS = t_setjmp.$(OBJEXT)
 t_setjmp_LDADD = $(LDADD)
+t_setjmp_DEPENDENCIES = $(builddir)/libtest.a
 t_sigfpe_SOURCES = t_sigfpe.c
 t_sigfpe_OBJECTS = t_sigfpe.$(OBJEXT)
 t_sigfpe_LDADD = $(LDADD)
+t_sigfpe_DEPENDENCIES = $(builddir)/libtest.a
 t_sigv_SOURCES = t_sigv.c
 t_sigv_OBJECTS = t_sigv.$(OBJEXT)
 t_sigv_LDADD = $(LDADD)
+t_sigv_DEPENDENCIES = $(builddir)/libtest.a
 t_snprintf_SOURCES = t_snprintf.c
 t_snprintf_OBJECTS = t_snprintf.$(OBJEXT)
 t_snprintf_LDADD = $(LDADD)
+t_snprintf_DEPENDENCIES = $(builddir)/libtest.a
 t_snprintf0_SOURCES = t_snprintf0.c
 t_snprintf0_OBJECTS = t_snprintf0.$(OBJEXT)
 t_snprintf0_LDADD = $(LDADD)
+t_snprintf0_DEPENDENCIES = $(builddir)/libtest.a
 t_snprintf1_SOURCES = t_snprintf1.c
 t_snprintf1_OBJECTS = t_snprintf1.$(OBJEXT)
 t_snprintf1_LDADD = $(LDADD)
+t_snprintf1_DEPENDENCIES = $(builddir)/libtest.a
 t_snwprintf_SOURCES = t_snwprintf.c
 t_snwprintf_OBJECTS = t_snwprintf.$(OBJEXT)
 t_snwprintf_LDADD = $(LDADD)
+t_snwprintf_DEPENDENCIES = $(builddir)/libtest.a
 t_snwprintf0_SOURCES = t_snwprintf0.c
 t_snwprintf0_OBJECTS = t_snwprintf0.$(OBJEXT)
 t_snwprintf0_LDADD = $(LDADD)
+t_snwprintf0_DEPENDENCIES = $(builddir)/libtest.a
 t_snwprintf1_SOURCES = t_snwprintf1.c
 t_snwprintf1_OBJECTS = t_snwprintf1.$(OBJEXT)
 t_snwprintf1_LDADD = $(LDADD)
+t_snwprintf1_DEPENDENCIES = $(builddir)/libtest.a
 t_speed_powl_SOURCES = t_speed_powl.c
 t_speed_powl_OBJECTS = t_speed_powl.$(OBJEXT)
 t_speed_powl_LDADD = $(LDADD)
+t_speed_powl_DEPENDENCIES = $(builddir)/libtest.a
 t_stat_SOURCES = t_stat.c
 t_stat_OBJECTS = t_stat.$(OBJEXT)
 t_stat_LDADD = $(LDADD)
+t_stat_DEPENDENCIES = $(builddir)/libtest.a
 t_stat_f64_SOURCES = t_stat_f64.c
 t_stat_f64_OBJECTS = t_stat_f64.$(OBJEXT)
 t_stat_f64_LDADD = $(LDADD)
+t_stat_f64_DEPENDENCIES = $(builddir)/libtest.a
 t_stat_slash_SOURCES = t_stat_slash.c
 t_stat_slash_OBJECTS = t_stat_slash.$(OBJEXT)
 t_stat_slash_LDADD = $(LDADD)
+t_stat_slash_DEPENDENCIES = $(builddir)/libtest.a
 t_stat_t64_SOURCES = t_stat_t64.c
 t_stat_t64_OBJECTS = t_stat_t64.$(OBJEXT)
 t_stat_t64_LDADD = $(LDADD)
+t_stat_t64_DEPENDENCIES = $(builddir)/libtest.a
 t_stat_t64_f64_SOURCES = t_stat_t64_f64.c
 t_stat_t64_f64_OBJECTS = t_stat_t64_f64.$(OBJEXT)
 t_stat_t64_f64_LDADD = $(LDADD)
+t_stat_t64_f64_DEPENDENCIES = $(builddir)/libtest.a
+am_t_staticconstmember_OBJECTS = t_staticconstmember.$(OBJEXT)
+t_staticconstmember_OBJECTS = $(am_t_staticconstmember_OBJECTS)
+t_staticconstmember_LDADD = $(LDADD)
+t_staticconstmember_DEPENDENCIES = $(builddir)/libtest.a
+t_staticconstmember_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_staticconstmember_LDFLAGS) $(LDFLAGS) -o $@
 t_stderr_buffering_SOURCES = t_stderr_buffering.c
 t_stderr_buffering_OBJECTS = t_stderr_buffering.$(OBJEXT)
 t_stderr_buffering_LDADD = $(LDADD)
+t_stderr_buffering_DEPENDENCIES = $(builddir)/libtest.a
 t_stdint_SOURCES = t_stdint.c
 t_stdint_OBJECTS = t_stdint.$(OBJEXT)
 t_stdint_LDADD = $(LDADD)
+t_stdint_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf0_a_SOURCES = t_stprintf0_a.c
 t_stprintf0_a_OBJECTS = t_stprintf0_a.$(OBJEXT)
 t_stprintf0_a_LDADD = $(LDADD)
+t_stprintf0_a_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf0_u_SOURCES = t_stprintf0_u.c
 t_stprintf0_u_OBJECTS = t_stprintf0_u.$(OBJEXT)
 t_stprintf0_u_LDADD = $(LDADD)
+t_stprintf0_u_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf1_a_SOURCES = t_stprintf1_a.c
 t_stprintf1_a_OBJECTS = t_stprintf1_a.$(OBJEXT)
 t_stprintf1_a_LDADD = $(LDADD)
+t_stprintf1_a_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf1_u_SOURCES = t_stprintf1_u.c
 t_stprintf1_u_OBJECTS = t_stprintf1_u.$(OBJEXT)
 t_stprintf1_u_LDADD = $(LDADD)
+t_stprintf1_u_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf_a_SOURCES = t_stprintf_a.c
 t_stprintf_a_OBJECTS = t_stprintf_a.$(OBJEXT)
 t_stprintf_a_LDADD = $(LDADD)
+t_stprintf_a_DEPENDENCIES = $(builddir)/libtest.a
 t_stprintf_u_SOURCES = t_stprintf_u.c
 t_stprintf_u_OBJECTS = t_stprintf_u.$(OBJEXT)
 t_stprintf_u_LDADD = $(LDADD)
+t_stprintf_u_DEPENDENCIES = $(builddir)/libtest.a
 t_swprintf_SOURCES = t_swprintf.c
 t_swprintf_OBJECTS = t_swprintf.$(OBJEXT)
 t_swprintf_LDADD = $(LDADD)
+t_swprintf_DEPENDENCIES = $(builddir)/libtest.a
 t_swprintf0_SOURCES = t_swprintf0.c
 t_swprintf0_OBJECTS = t_swprintf0.$(OBJEXT)
 t_swprintf0_LDADD = $(LDADD)
+t_swprintf0_DEPENDENCIES = $(builddir)/libtest.a
 t_swprintf1_SOURCES = t_swprintf1.c
 t_swprintf1_OBJECTS = t_swprintf1.$(OBJEXT)
 t_swprintf1_LDADD = $(LDADD)
+t_swprintf1_DEPENDENCIES = $(builddir)/libtest.a
 t_time_SOURCES = t_time.c
 t_time_OBJECTS = t_time.$(OBJEXT)
 t_time_LDADD = $(LDADD)
-t_tls1_SOURCES = t_tls1.c
-t_tls1_OBJECTS = t_tls1.$(OBJEXT)
-t_tls1_LDADD = $(LDADD)
+t_time_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_ansi_SOURCES = t_tls_ansi.c
+t_tls_ansi_OBJECTS = t_tls_ansi-t_tls_ansi.$(OBJEXT)
+t_tls_ansi_LDADD = $(LDADD)
+t_tls_ansi_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_ansi_LINK = $(CCLD) $(t_tls_ansi_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+t_tls_c11_SOURCES = t_tls_c11.c
+t_tls_c11_OBJECTS = t_tls_c11-t_tls_c11.$(OBJEXT)
+t_tls_c11_LDADD = $(LDADD)
+t_tls_c11_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_c11_LINK = $(CCLD) $(t_tls_c11_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+am_t_tls_cpp_OBJECTS = t_tls_cpp.$(OBJEXT)
+t_tls_cpp_OBJECTS = $(am_t_tls_cpp_OBJECTS)
+t_tls_cpp_LDADD = $(LDADD)
+t_tls_cpp_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_cpp_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_tls_cpp_LDFLAGS) $(LDFLAGS) -o $@
 t_tmain_SOURCES = t_tmain.c
 t_tmain_OBJECTS = t_tmain-t_tmain.$(OBJEXT)
 t_tmain_LDADD = $(LDADD)
+t_tmain_DEPENDENCIES = $(builddir)/libtest.a
 t_tmain_LINK = $(CCLD) $(t_tmain_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 t_tmpfile_SOURCES = t_tmpfile.c
 t_tmpfile_OBJECTS = t_tmpfile.$(OBJEXT)
 t_tmpfile_LDADD = $(LDADD)
+t_tmpfile_DEPENDENCIES = $(builddir)/libtest.a
 t_towctrans_SOURCES = t_towctrans.c
 t_towctrans_OBJECTS = t_towctrans.$(OBJEXT)
 t_towctrans_LDADD = $(LDADD)
+t_towctrans_DEPENDENCIES = $(builddir)/libtest.a
 am_t_trycatch_OBJECTS = t_trycatch.$(OBJEXT)
 t_trycatch_OBJECTS = $(am_t_trycatch_OBJECTS)
 t_trycatch_LDADD = $(LDADD)
+t_trycatch_DEPENDENCIES = $(builddir)/libtest.a
 t_trycatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(t_trycatch_LDFLAGS) $(LDFLAGS) -o $@
+t_tsearch_SOURCES = t_tsearch.c
+t_tsearch_OBJECTS = t_tsearch.$(OBJEXT)
+t_tsearch_LDADD = $(LDADD)
+t_tsearch_DEPENDENCIES = $(builddir)/libtest.a
 t_utime_SOURCES = t_utime.c
 t_utime_OBJECTS = t_utime.$(OBJEXT)
 t_utime_LDADD = $(LDADD)
+t_utime_DEPENDENCIES = $(builddir)/libtest.a
 t_vsscanf_SOURCES = t_vsscanf.c
 t_vsscanf_OBJECTS = t_vsscanf.$(OBJEXT)
 t_vsscanf_LDADD = $(LDADD)
+t_vsscanf_DEPENDENCIES = $(builddir)/libtest.a
 t_wcrtomb_SOURCES = t_wcrtomb.c
 t_wcrtomb_OBJECTS = t_wcrtomb.$(OBJEXT)
 t_wcrtomb_LDADD = $(LDADD)
+t_wcrtomb_DEPENDENCIES = $(builddir)/libtest.a
 t_wcsrtombs_SOURCES = t_wcsrtombs.c
 t_wcsrtombs_OBJECTS = t_wcsrtombs.$(OBJEXT)
 t_wcsrtombs_LDADD = $(LDADD)
+t_wcsrtombs_DEPENDENCIES = $(builddir)/libtest.a
 t_wcstok_s_SOURCES = t_wcstok_s.c
 t_wcstok_s_OBJECTS = t_wcstok_s.$(OBJEXT)
 t_wcstok_s_LDADD = $(LDADD)
+t_wcstok_s_DEPENDENCIES = $(builddir)/libtest.a
 t_wctob_SOURCES = t_wctob.c
 t_wctob_OBJECTS = t_wctob.$(OBJEXT)
 t_wctob_LDADD = $(LDADD)
+t_wctob_DEPENDENCIES = $(builddir)/libtest.a
 t_wctype_SOURCES = t_wctype.c
 t_wctype_OBJECTS = t_wctype.$(OBJEXT)
 t_wctype_LDADD = $(LDADD)
+t_wctype_DEPENDENCIES = $(builddir)/libtest.a
+t_winmain_SOURCES = t_winmain.c
+t_winmain_OBJECTS = t_winmain.$(OBJEXT)
+t_winmain_DEPENDENCIES = $(LDADD)
+t_winmain_assert_SOURCES = t_winmain_assert.c
+t_winmain_assert_OBJECTS = t_winmain_assert.$(OBJEXT)
+t_winmain_assert_LDADD = $(LDADD)
+t_winmain_assert_DEPENDENCIES = $(builddir)/libtest.a
 t_wreaddir_SOURCES = t_wreaddir.c
 t_wreaddir_OBJECTS = t_wreaddir.$(OBJEXT)
 t_wreaddir_LDADD = $(LDADD)
+t_wreaddir_DEPENDENCIES = $(builddir)/libtest.a
+am_t_wrongret_OBJECTS = t_wrongret.$(OBJEXT)
+t_wrongret_OBJECTS = $(am_t_wrongret_OBJECTS)
+t_wrongret_LDADD = $(LDADD)
+t_wrongret_DEPENDENCIES = $(builddir)/libtest.a
+t_wrongret_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_wrongret_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cabs_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cabs_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cabs-main.$(OBJEXT)
 tests32_cabs_OBJECTS = $(am_tests32_cabs_OBJECTS)
-@LIB32_TRUE@tests32_cabs_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cabs_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cabs_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cabs_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cacos_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cacos_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cacos-main.$(OBJEXT)
 tests32_cacos_OBJECTS = $(am_tests32_cacos_OBJECTS)
-@LIB32_TRUE@tests32_cacos_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cacos_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cacos_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cacos_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cacosh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cacosh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cacosh-main.$(OBJEXT)
 tests32_cacosh_OBJECTS = $(am_tests32_cacosh_OBJECTS)
-@LIB32_TRUE@tests32_cacosh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cacosh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cacosh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cacosh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_carg_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_carg_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_carg-main.$(OBJEXT)
 tests32_carg_OBJECTS = $(am_tests32_carg_OBJECTS)
-@LIB32_TRUE@tests32_carg_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_carg_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_carg_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_carg_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_casin_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_casin_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_casin-main.$(OBJEXT)
 tests32_casin_OBJECTS = $(am_tests32_casin_OBJECTS)
-@LIB32_TRUE@tests32_casin_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_casin_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_casin_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_casin_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_casinh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_casinh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_casinh-main.$(OBJEXT)
 tests32_casinh_OBJECTS = $(am_tests32_casinh_OBJECTS)
-@LIB32_TRUE@tests32_casinh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_casinh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_casinh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_casinh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_catan_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_catan_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_catan-main.$(OBJEXT)
 tests32_catan_OBJECTS = $(am_tests32_catan_OBJECTS)
-@LIB32_TRUE@tests32_catan_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_catan_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_catan_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_catan_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_catanh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_catanh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_catanh-main.$(OBJEXT)
 tests32_catanh_OBJECTS = $(am_tests32_catanh_OBJECTS)
-@LIB32_TRUE@tests32_catanh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_catanh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_catanh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_catanh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_ccos_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_ccos_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_ccos-main.$(OBJEXT)
 tests32_ccos_OBJECTS = $(am_tests32_ccos_OBJECTS)
-@LIB32_TRUE@tests32_ccos_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_ccos_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_ccos_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_ccos_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_ccosh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_ccosh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_ccosh-main.$(OBJEXT)
 tests32_ccosh_OBJECTS = $(am_tests32_ccosh_OBJECTS)
-@LIB32_TRUE@tests32_ccosh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_ccosh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_ccosh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_ccosh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cexp_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cexp_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cexp-main.$(OBJEXT)
 tests32_cexp_OBJECTS = $(am_tests32_cexp_OBJECTS)
-@LIB32_TRUE@tests32_cexp_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cexp_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cexp_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cexp_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cimag_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cimag_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cimag-main.$(OBJEXT)
 tests32_cimag_OBJECTS = $(am_tests32_cimag_OBJECTS)
-@LIB32_TRUE@tests32_cimag_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cimag_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cimag_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cimag_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_clog_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_clog_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_clog-main.$(OBJEXT)
 tests32_clog_OBJECTS = $(am_tests32_clog_OBJECTS)
-@LIB32_TRUE@tests32_clog_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_clog_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_clog_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_clog_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_conj_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_conj_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_conj-main.$(OBJEXT)
 tests32_conj_OBJECTS = $(am_tests32_conj_OBJECTS)
-@LIB32_TRUE@tests32_conj_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_conj_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_conj_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_conj_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cpow_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cpow_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cpow-main.$(OBJEXT)
 tests32_cpow_OBJECTS = $(am_tests32_cpow_OBJECTS)
-@LIB32_TRUE@tests32_cpow_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cpow_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cpow_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cpow_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_cproj_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_cproj_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_cproj-main.$(OBJEXT)
 tests32_cproj_OBJECTS = $(am_tests32_cproj_OBJECTS)
-@LIB32_TRUE@tests32_cproj_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_cproj_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_cproj_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_cproj_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_creal_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_creal_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_creal-main.$(OBJEXT)
 tests32_creal_OBJECTS = $(am_tests32_creal_OBJECTS)
-@LIB32_TRUE@tests32_creal_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_creal_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_creal_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_creal_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_csin_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_csin_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_csin-main.$(OBJEXT)
 tests32_csin_OBJECTS = $(am_tests32_csin_OBJECTS)
-@LIB32_TRUE@tests32_csin_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_csin_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_csin_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_csin_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_csinh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_csinh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_csinh-main.$(OBJEXT)
 tests32_csinh_OBJECTS = $(am_tests32_csinh_OBJECTS)
-@LIB32_TRUE@tests32_csinh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_csinh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_csinh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_csinh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_csqrt_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_csqrt_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_csqrt-main.$(OBJEXT)
 tests32_csqrt_OBJECTS = $(am_tests32_csqrt_OBJECTS)
-@LIB32_TRUE@tests32_csqrt_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_csqrt_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_csqrt_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_csqrt_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_ctan_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_ctan_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_ctan-main.$(OBJEXT)
 tests32_ctan_OBJECTS = $(am_tests32_ctan_OBJECTS)
-@LIB32_TRUE@tests32_ctan_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_ctan_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_ctan_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_ctan_LDFLAGS) $(LDFLAGS) -o $@
 am__tests32_ctanh_SOURCES_DIST = complex/main.c
 @LIB32_TRUE@am_tests32_ctanh_OBJECTS =  \
 @LIB32_TRUE@	complex/tests32_ctanh-main.$(OBJEXT)
 tests32_ctanh_OBJECTS = $(am_tests32_ctanh_OBJECTS)
-@LIB32_TRUE@tests32_ctanh_DEPENDENCIES = $(newcomplex_test_lib32)
+@LIB32_TRUE@tests32_ctanh_DEPENDENCIES = $(newcomplex_test_lib32) \
+@LIB32_TRUE@	$(LDADD)
 tests32_ctanh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests32_ctanh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cabs_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cabs_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cabs-main.$(OBJEXT)
 tests64_cabs_OBJECTS = $(am_tests64_cabs_OBJECTS)
-@LIB64_TRUE@tests64_cabs_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cabs_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cabs_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cabs_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cacos_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cacos_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cacos-main.$(OBJEXT)
 tests64_cacos_OBJECTS = $(am_tests64_cacos_OBJECTS)
-@LIB64_TRUE@tests64_cacos_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cacos_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cacos_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cacos_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cacosh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cacosh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cacosh-main.$(OBJEXT)
 tests64_cacosh_OBJECTS = $(am_tests64_cacosh_OBJECTS)
-@LIB64_TRUE@tests64_cacosh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cacosh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cacosh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cacosh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_carg_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_carg_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_carg-main.$(OBJEXT)
 tests64_carg_OBJECTS = $(am_tests64_carg_OBJECTS)
-@LIB64_TRUE@tests64_carg_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_carg_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_carg_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_carg_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_casin_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_casin_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_casin-main.$(OBJEXT)
 tests64_casin_OBJECTS = $(am_tests64_casin_OBJECTS)
-@LIB64_TRUE@tests64_casin_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_casin_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_casin_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_casin_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_casinh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_casinh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_casinh-main.$(OBJEXT)
 tests64_casinh_OBJECTS = $(am_tests64_casinh_OBJECTS)
-@LIB64_TRUE@tests64_casinh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_casinh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_casinh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_casinh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_catan_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_catan_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_catan-main.$(OBJEXT)
 tests64_catan_OBJECTS = $(am_tests64_catan_OBJECTS)
-@LIB64_TRUE@tests64_catan_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_catan_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_catan_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_catan_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_catanh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_catanh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_catanh-main.$(OBJEXT)
 tests64_catanh_OBJECTS = $(am_tests64_catanh_OBJECTS)
-@LIB64_TRUE@tests64_catanh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_catanh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_catanh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_catanh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_ccos_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_ccos_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_ccos-main.$(OBJEXT)
 tests64_ccos_OBJECTS = $(am_tests64_ccos_OBJECTS)
-@LIB64_TRUE@tests64_ccos_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_ccos_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_ccos_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_ccos_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_ccosh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_ccosh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_ccosh-main.$(OBJEXT)
 tests64_ccosh_OBJECTS = $(am_tests64_ccosh_OBJECTS)
-@LIB64_TRUE@tests64_ccosh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_ccosh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_ccosh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_ccosh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cexp_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cexp_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cexp-main.$(OBJEXT)
 tests64_cexp_OBJECTS = $(am_tests64_cexp_OBJECTS)
-@LIB64_TRUE@tests64_cexp_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cexp_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cexp_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cexp_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cimag_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cimag_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cimag-main.$(OBJEXT)
 tests64_cimag_OBJECTS = $(am_tests64_cimag_OBJECTS)
-@LIB64_TRUE@tests64_cimag_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cimag_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cimag_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cimag_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_clog_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_clog_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_clog-main.$(OBJEXT)
 tests64_clog_OBJECTS = $(am_tests64_clog_OBJECTS)
-@LIB64_TRUE@tests64_clog_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_clog_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_clog_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_clog_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_conj_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_conj_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_conj-main.$(OBJEXT)
 tests64_conj_OBJECTS = $(am_tests64_conj_OBJECTS)
-@LIB64_TRUE@tests64_conj_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_conj_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_conj_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_conj_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cpow_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cpow_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cpow-main.$(OBJEXT)
 tests64_cpow_OBJECTS = $(am_tests64_cpow_OBJECTS)
-@LIB64_TRUE@tests64_cpow_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cpow_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cpow_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cpow_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_cproj_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_cproj_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_cproj-main.$(OBJEXT)
 tests64_cproj_OBJECTS = $(am_tests64_cproj_OBJECTS)
-@LIB64_TRUE@tests64_cproj_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_cproj_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_cproj_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_cproj_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_creal_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_creal_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_creal-main.$(OBJEXT)
 tests64_creal_OBJECTS = $(am_tests64_creal_OBJECTS)
-@LIB64_TRUE@tests64_creal_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_creal_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_creal_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_creal_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_csin_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_csin_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_csin-main.$(OBJEXT)
 tests64_csin_OBJECTS = $(am_tests64_csin_OBJECTS)
-@LIB64_TRUE@tests64_csin_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_csin_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_csin_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_csin_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_csinh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_csinh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_csinh-main.$(OBJEXT)
 tests64_csinh_OBJECTS = $(am_tests64_csinh_OBJECTS)
-@LIB64_TRUE@tests64_csinh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_csinh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_csinh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_csinh_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_csqrt_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_csqrt_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_csqrt-main.$(OBJEXT)
 tests64_csqrt_OBJECTS = $(am_tests64_csqrt_OBJECTS)
-@LIB64_TRUE@tests64_csqrt_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_csqrt_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_csqrt_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_csqrt_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_ctan_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_ctan_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_ctan-main.$(OBJEXT)
 tests64_ctan_OBJECTS = $(am_tests64_ctan_OBJECTS)
-@LIB64_TRUE@tests64_ctan_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_ctan_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_ctan_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_ctan_LDFLAGS) $(LDFLAGS) -o $@
 am__tests64_ctanh_SOURCES_DIST = complex/main.c
 @LIB64_TRUE@am_tests64_ctanh_OBJECTS =  \
 @LIB64_TRUE@	complex/tests64_ctanh-main.$(OBJEXT)
 tests64_ctanh_OBJECTS = $(am_tests64_ctanh_OBJECTS)
-@LIB64_TRUE@tests64_ctanh_DEPENDENCIES = $(newcomplex_test_lib64)
+@LIB64_TRUE@tests64_ctanh_DEPENDENCIES = $(newcomplex_test_lib64) \
+@LIB64_TRUE@	$(LDADD)
 tests64_ctanh_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(tests64_ctanh_LDFLAGS) $(LDFLAGS) -o $@
-tstmain_sys_xxx_SOURCES = tstmain_sys_xxx.c
-tstmain_sys_xxx_OBJECTS = tstmain_sys_xxx.$(OBJEXT)
-tstmain_sys_xxx_LDADD = $(LDADD)
-tstmainc_SOURCES = tstmainc.c
-tstmainc_OBJECTS = tstmainc.$(OBJEXT)
-tstmainc_LDADD = $(LDADD)
-am_tstmaincpp_OBJECTS = tstmaincpp.$(OBJEXT)
-tstmaincpp_OBJECTS = $(am_tstmaincpp_OBJECTS)
-tstmaincpp_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -1038,29 +1299,38 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
-	./$(DEPDIR)/t__stat_all.Po \
+am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
+	./$(DEPDIR)/t__fstat_all.Po ./$(DEPDIR)/t__stat_all.Po \
+	./$(DEPDIR)/t__sys_errlist.Po \
 	./$(DEPDIR)/t__wstat_all-t__wstat_all.Po \
 	./$(DEPDIR)/t_aligned_alloc.Po ./$(DEPDIR)/t_ansi_io.Po \
 	./$(DEPDIR)/t_assert.Po ./$(DEPDIR)/t_btowc.Po \
-	./$(DEPDIR)/t_ctype.Po ./$(DEPDIR)/t_excpt_gcc_cpp.Po \
+	./$(DEPDIR)/t_char16_t.Po ./$(DEPDIR)/t_ctype.Po \
+	./$(DEPDIR)/t_excpt_gcc_cpp.Po \
 	./$(DEPDIR)/t_excpt_int_divzero.Po \
 	./$(DEPDIR)/t_excpt_int_divzero_thrd.Po \
 	./$(DEPDIR)/t_excpt_int_overflow.Po \
 	./$(DEPDIR)/t_excpt_int_overflow_thrd.Po \
-	./$(DEPDIR)/t_findfirst.Po ./$(DEPDIR)/t_float.Po \
+	./$(DEPDIR)/t_exp_denormal.Po ./$(DEPDIR)/t_expm1.Po \
+	./$(DEPDIR)/t_fctptr.Po ./$(DEPDIR)/t_findfirst.Po \
+	./$(DEPDIR)/t_float.Po ./$(DEPDIR)/t_fmod.Po \
 	./$(DEPDIR)/t_format_Z.Po ./$(DEPDIR)/t_format_Z0.Po \
 	./$(DEPDIR)/t_format_Z1.Po ./$(DEPDIR)/t_fseeki64.Po \
 	./$(DEPDIR)/t_fseeki64_ftelli64.Po ./$(DEPDIR)/t_fseeko64.Po \
 	./$(DEPDIR)/t_fstat.Po ./$(DEPDIR)/t_fstat_f64.Po \
 	./$(DEPDIR)/t_fstat_t64.Po ./$(DEPDIR)/t_fstat_t64_f64.Po \
-	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
-	./$(DEPDIR)/t_iswctype.Po ./$(DEPDIR)/t_lfs.Po \
-	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_matherr.Po \
+	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrin.Po \
+	./$(DEPDIR)/t_intrin_cpp.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
+	./$(DEPDIR)/t_iostream.Po ./$(DEPDIR)/t_isfine.Po \
+	./$(DEPDIR)/t_iswctype.Po ./$(DEPDIR)/t_ivma.Po \
+	./$(DEPDIR)/t_lfs.Po ./$(DEPDIR)/t_lseeki64.Po \
+	./$(DEPDIR)/t_main.Po ./$(DEPDIR)/t_main_assert.Po \
+	./$(DEPDIR)/t_main_cpp.Po ./$(DEPDIR)/t_matherr.Po \
 	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
 	./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
-	./$(DEPDIR)/t_nullptrexception.Po \
+	./$(DEPDIR)/t_nullptrexception.Po ./$(DEPDIR)/t_pow.Po \
+	./$(DEPDIR)/t_powi.Po ./$(DEPDIR)/t_printf.Po \
 	./$(DEPDIR)/t_printf_g_width.Po ./$(DEPDIR)/t_readdir.Po \
 	./$(DEPDIR)/t_safe_flush.Po ./$(DEPDIR)/t_setjmp.Po \
 	./$(DEPDIR)/t_sigfpe.Po ./$(DEPDIR)/t_sigv.Po \
@@ -1070,20 +1340,23 @@ am__depfiles_remade = ./$(DEPDIR)/t__fstat_all.Po \
 	./$(DEPDIR)/t_speed_powl.Po ./$(DEPDIR)/t_stat.Po \
 	./$(DEPDIR)/t_stat_f64.Po ./$(DEPDIR)/t_stat_slash.Po \
 	./$(DEPDIR)/t_stat_t64.Po ./$(DEPDIR)/t_stat_t64_f64.Po \
+	./$(DEPDIR)/t_staticconstmember.Po \
 	./$(DEPDIR)/t_stderr_buffering.Po ./$(DEPDIR)/t_stdint.Po \
 	./$(DEPDIR)/t_stprintf0_a.Po ./$(DEPDIR)/t_stprintf0_u.Po \
 	./$(DEPDIR)/t_stprintf1_a.Po ./$(DEPDIR)/t_stprintf1_u.Po \
 	./$(DEPDIR)/t_stprintf_a.Po ./$(DEPDIR)/t_stprintf_u.Po \
 	./$(DEPDIR)/t_swprintf.Po ./$(DEPDIR)/t_swprintf0.Po \
 	./$(DEPDIR)/t_swprintf1.Po ./$(DEPDIR)/t_time.Po \
-	./$(DEPDIR)/t_tls1.Po ./$(DEPDIR)/t_tmain-t_tmain.Po \
-	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_towctrans.Po \
-	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_utime.Po \
+	./$(DEPDIR)/t_tls_ansi-t_tls_ansi.Po \
+	./$(DEPDIR)/t_tls_c11-t_tls_c11.Po ./$(DEPDIR)/t_tls_cpp.Po \
+	./$(DEPDIR)/t_tmain-t_tmain.Po ./$(DEPDIR)/t_tmpfile.Po \
+	./$(DEPDIR)/t_towctrans.Po ./$(DEPDIR)/t_trycatch.Po \
+	./$(DEPDIR)/t_tsearch.Po ./$(DEPDIR)/t_utime.Po \
 	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
 	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
 	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wctype.Po \
-	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/tstmain_sys_xxx.Po \
-	./$(DEPDIR)/tstmainc.Po ./$(DEPDIR)/tstmaincpp.Po \
+	./$(DEPDIR)/t_winmain.Po ./$(DEPDIR)/t_winmain_assert.Po \
+	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/t_wrongret.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -1290,32 +1563,39 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
+SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	$(tests32_libnewcomplextestsf_a_SOURCES) \
 	$(tests32_libnewcomplextestsld_a_SOURCES) \
 	$(tests64_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsf_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) t__fstat_all.c \
-	t__stat_all.c t__wstat_all.c t_aligned_alloc.c t_ansi_io.c \
-	t_assert.c t_btowc.c t_ctype.c t_excpt_gcc_cpp.c \
-	t_excpt_int_divzero.c t_excpt_int_divzero_thrd.c \
-	t_excpt_int_overflow.c t_excpt_int_overflow_thrd.c \
-	t_findfirst.c t_float.c t_format_Z.c t_format_Z0.c \
-	t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c \
-	t_fstat.c t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c \
-	t_imagebase.c t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c \
-	t_matherr.c t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
-	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
-	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
-	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
-	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
-	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t__stat_all.c t__sys_errlist.c t__wstat_all.c \
+	t_aligned_alloc.c t_ansi_io.c t_assert.c t_btowc.c \
+	t_char16_t.c t_ctype.c t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
+	t_excpt_int_divzero_thrd.c t_excpt_int_overflow.c \
+	t_excpt_int_overflow_thrd.c t_exp_denormal.c t_expm1.c \
+	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
+	t_format_Z0.c t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c \
+	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
+	t_fstat_t64_f64.c t_imagebase.c t_intrin.c \
+	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
+	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
+	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
+	t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_pow.c t_powi.c t_printf.c \
+	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
+	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
+	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
+	t_stat_t64_f64.c $(t_staticconstmember_SOURCES) \
 	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
 	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
 	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
-	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
-	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
-	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
+	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
+	t_tmain.c t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) \
+	t_tsearch.c t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c \
+	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
+	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
 	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
 	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
 	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
@@ -1337,34 +1617,41 @@ SOURCES = $(tests32_libnewcomplextests_a_SOURCES) \
 	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
 	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
 	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
-	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES) \
-	tstmain_sys_xxx.c tstmainc.c $(tstmaincpp_SOURCES)
-DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
+	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES)
+DIST_SOURCES = $(libtest_a_SOURCES) \
+	$(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsld_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
-	t__fstat_all.c t__stat_all.c t__wstat_all.c t_aligned_alloc.c \
-	t_ansi_io.c t_assert.c t_btowc.c t_ctype.c t_excpt_gcc_cpp.c \
-	t_excpt_int_divzero.c t_excpt_int_divzero_thrd.c \
-	t_excpt_int_overflow.c t_excpt_int_overflow_thrd.c \
-	t_findfirst.c t_float.c t_format_Z.c t_format_Z0.c \
-	t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c t_fseeko64.c \
-	t_fstat.c t_fstat_f64.c t_fstat_t64.c t_fstat_t64_f64.c \
-	t_imagebase.c t_intrinc.c t_iswctype.c t_lfs.c t_lseeki64.c \
-	t_matherr.c t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
-	t_nullptrexception.c t_printf_g_width.c t_readdir.c \
-	t_safe_flush.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
-	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
-	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
-	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
+	t__fstat_all.c t__stat_all.c t__sys_errlist.c t__wstat_all.c \
+	t_aligned_alloc.c t_ansi_io.c t_assert.c t_btowc.c \
+	t_char16_t.c t_ctype.c t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
+	t_excpt_int_divzero_thrd.c t_excpt_int_overflow.c \
+	t_excpt_int_overflow_thrd.c t_exp_denormal.c t_expm1.c \
+	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
+	t_format_Z0.c t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c \
+	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
+	t_fstat_t64_f64.c t_imagebase.c t_intrin.c \
+	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
+	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
+	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
+	t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
+	t_nullptrexception.c t_pow.c t_powi.c t_printf.c \
+	t_printf_g_width.c t_readdir.c t_safe_flush.c t_setjmp.c \
+	t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c t_snprintf1.c \
+	t_snwprintf.c t_snwprintf0.c t_snwprintf1.c t_speed_powl.c \
+	t_stat.c t_stat_f64.c t_stat_slash.c t_stat_t64.c \
+	t_stat_t64_f64.c $(t_staticconstmember_SOURCES) \
 	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
 	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
 	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
-	t_time.c t_tls1.c t_tmain.c t_tmpfile.c t_towctrans.c \
-	$(t_trycatch_SOURCES) t_utime.c t_vsscanf.c t_wcrtomb.c \
-	t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c t_wreaddir.c \
+	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
+	t_tmain.c t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) \
+	t_tsearch.c t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c \
+	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
+	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
 	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -1408,8 +1695,7 @@ DIST_SOURCES = $(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_csinh_SOURCES_DIST) \
 	$(am__tests64_csqrt_SOURCES_DIST) \
 	$(am__tests64_ctan_SOURCES_DIST) \
-	$(am__tests64_ctanh_SOURCES_DIST) tstmain_sys_xxx.c tstmainc.c \
-	$(tstmaincpp_SOURCES)
+	$(am__tests64_ctanh_SOURCES_DIST)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -1617,7 +1903,7 @@ am__set_TESTS_bases = \
 AM_TESTSUITE_SUMMARY_HEADER = ' for $(PACKAGE_STRING)'
 RECHECK_LOGS = $(TEST_LOGS)
 AM_RECURSIVE_TARGETS = check recheck
-am__EXEEXT_7 =
+am__EXEEXT_9 =
 TEST_SUITE_LOG = test-suite.log
 TEST_EXTENSIONS = @EXEEXT@ .test
 LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
@@ -1764,56 +2050,101 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+
+# Compiler flags valid for both C and C++
 TEST_CFLAGS = -Wno-format -Wno-unused-parameter -Wno-error=unused-function
 AM_CFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS) -Wno-missing-prototypes
 AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS)
 
-# Testsuite options
+# Link all test programs against libtest.a; for targets with their own
+# target-specifc *_LDADD variable, make sure to add $(LDADD).
+LDADD = $(builddir)/libtest.a
+check_LIBRARIES = libtest.a $(am__append_11) $(am__append_15)
+
+# libtest.a is a static library containing helper function for use by tests
+# programs.
 #
+# When you write a new test, please include libtest.h and add a call to
+# mingw_test_init() function upon entry to main().
+libtest_a_SOURCES = \
+  libtest.c libtest.h
 
-#old
-#  tstwassert_win \
-#  tstwinmain \
-#  tstwassert \
-#  testcases_tstwinmain_LDADD = -lgdi32
-testcase_progs = tstmainc tstmaincpp tstmain_sys_xxx t__fstat_all \
-	t__stat_all t_aligned_alloc t_ansi_io t_assert t_btowc t_ctype \
+
+# The following tests are compiled but not run with `make check`.
+testcase_compile_only = \
+  t_intrin \
+  t_intrin_cpp \
+  t_winmain
+
+
+# FIXME:
+#
+# t_try1.cpp: this test is completely broken as it uses broken macros `__try1`
+#  and `__except1` from exept.h.
+
+# Note that this list is usually sorted in alphabetical order.
+# An exception is when variants of the same test are grouped together.
+testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
+	t_aligned_alloc t_ansi_io t_assert t_btowc t_char16_t t_ctype \
 	t_excpt_gcc_cpp t_excpt_int_divzero t_excpt_int_divzero_thrd \
-	t_excpt_int_overflow t_excpt_int_overflow_thrd t_findfirst \
-	t_float t_format_Z t_format_Z0 t_format_Z1 t_fseeki64 \
-	t_fseeki64_ftelli64 t_fstat t_fstat_f64 t_fstat_t64 \
-	t_fstat_t64_f64 t_intrinc t_imagebase t_iswctype t_lfs \
-	t_lseeki64 t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
-	t_nullptrexception t_printf_g_width t_readdir t_safe_flush \
-	t_snprintf t_snprintf0 t_snprintf1 t_swprintf t_swprintf0 \
-	t_swprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 t_stprintf_a \
-	t_stprintf_u t_stprintf0_a t_stprintf0_u t_stprintf1_a \
-	t_stprintf1_u t_setjmp t_sigfpe t_sigv t_speed_powl t_stat \
-	t_stat_f64 t_stat_t64 t_stat_t64_f64 t_stderr_buffering \
-	t_stdint t_time t_tls1 t_tmpfile t_trycatch t_stat_slash \
-	t_towctrans t_utime t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s \
-	t_wctob t_wctype t_wreaddir t_fseeko64 $(am__append_1)
-EXTRA_DIST = \
-  t_snprintf_tmpl.h \
-  t_snwprintf_tmpl.h \
-  t_stprintf_tmpl.h \
-  t_swprintf_tmpl.h
+	t_excpt_int_overflow t_excpt_int_overflow_thrd t_exp_denormal \
+	t_expm1 t_fctptr t_findfirst t_float t_fmod t_format_Z \
+	t_format_Z0 t_format_Z1 t_fseeki64 t_fseeki64_ftelli64 \
+	t_fseeko64 t_fstat t_fstat_f64 t_fstat_t64 t_fstat_t64_f64 \
+	t_imagebase t_intrinc t_isfine t_iswctype t_ivma t_lfs \
+	t_lseeki64 t_main t_main_assert t_main_cpp t_matherr t_mbrlen \
+	t_mbrtowc t_mbsrtowcs t_nullptrexception t_pow t_powi t_printf \
+	t_printf_g_width t_readdir t_safe_flush t_setjmp t_sigfpe \
+	t_sigv t_snprintf t_snprintf0 t_snprintf1 t_snwprintf \
+	t_snwprintf0 t_snwprintf1 t_speed_powl t_stat t_stat_f64 \
+	t_stat_t64 t_stat_t64_f64 t_stat_slash t_staticconstmember \
+	t_stderr_buffering t_stdint t_stprintf_a t_stprintf_u \
+	t_stprintf0_a t_stprintf0_u t_stprintf1_a t_stprintf1_u \
+	t_swprintf t_swprintf0 t_swprintf1 t_time t_tls_ansi t_tls_c11 \
+	t_tmpfile t_towctrans t_trycatch t_tsearch t_utime t_vsscanf \
+	t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob t_wctype \
+	t_winmain_assert t_wreaddir $(am__append_1) $(am__append_10)
 
-CLEANFILES = \
-  libprocdetach.dll
-
-t_safe_flush_LDADD = libprocdetach.dll
-tstmaincpp_SOURCES = tstmaincpp.cpp
+# Most of the tests are C programs, but there are some C++ tests as well.
+# For C++ targets, we have to explicitly specify source files so that
+# Automake does not assume .c extension.
+t_intrin_cpp_SOURCES = t_intrin_cpp.cpp
+t_iostream_SOURCES = t_iostream.cpp
+t_isfine_SOURCES = t_isfine.cpp
+t_main_cpp_SOURCES = t_main_cpp.cpp
+t_staticconstmember_SOURCES = t_staticconstmember.cpp
+t_tls_cpp_SOURCES = t_tls_cpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
-t_trycatch_LDFLAGS = -static
+t_wrongret_SOURCES = t_wrongret.cpp
+
+# On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
+# PATH) may be regular native aarch64, but we build and run arm64ec binaries.
+t_intrin_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_2)
+t_iostream_LDFLAGS = $(AM_LDFLAGS) $(am__append_3)
+t_isfine_LDFLAGS = $(AM_LDFLAGS) $(am__append_4)
+t_main_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_5)
+t_staticconstmember_LDFLAGS = $(AM_LDFLAGS) $(am__append_6)
+t_tls_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_7)
+t_trycatch_LDFLAGS = $(AM_LDFLAGS) $(am__append_8)
+t_wrongret_LDFLAGS = $(AM_LDFLAGS) $(am__append_9)
+
+# Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
+
+# Link t_safe_flush against libprocdetach.dll
+t_safe_flush_LDADD = libprocdetach.dll $(LDADD)
+
+# Compile t_tls_ansi in C89 mode
+t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
+
+# Compile t_tls_c11 in C11 mode
+t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
+
+# Link t_winmain against gdi32.dll
+t_winmain_LDADD = -lgdi32 $(LDADD)
 @ENABLE_TESTS_UNICODE_TRUE@t_municode_CFLAGS = -municode $(AM_CFLAGS)
 @ENABLE_TESTS_UNICODE_TRUE@t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
 @ENABLE_TESTS_UNICODE_TRUE@t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
-
-# Do not specify TESTS = check_PROGRAMS, because some TESTS
-# may not be check_PROGRAMS.
-check_LIBRARIES = $(am__append_2) $(am__append_6)
 
 # Complex library check sources.
 check_complex_lib_sources = \
@@ -2108,6 +2439,17 @@ complex_inc = -I$(top_srcdir)/complex
 @LIB64_TRUE@tests64_ctanh_CPPFLAGS = $(CPPFLAGS64) -DTESTFUNC=ctanh $(complex_inc)
 @LIB64_TRUE@tests64_ctanh_LDFLAGS = $(LDFLAGS64) $(AM_LDFLAGS)
 @LIB64_TRUE@tests64_ctanh_LDADD = $(newcomplex_test_lib64) $(LDADD)
+
+# Include the complex math testcase fragment.
+EXTRA_DIST = \
+  t_snprintf_tmpl.h \
+  t_snwprintf_tmpl.h \
+  t_stprintf_tmpl.h \
+  t_swprintf_tmpl.h
+
+CLEANFILES = \
+  libprocdetach.dll
+
 all: all-am
 
 .SUFFIXES:
@@ -2148,6 +2490,11 @@ clean-checkPROGRAMS:
 
 clean-checkLIBRARIES:
 	-test -z "$(check_LIBRARIES)" || rm -f $(check_LIBRARIES)
+
+libtest.a: $(libtest_a_OBJECTS) $(libtest_a_DEPENDENCIES) $(EXTRA_libtest_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libtest.a
+	$(AM_V_AR)$(libtest_a_AR) libtest.a $(libtest_a_OBJECTS) $(libtest_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libtest.a
 complex/$(am__dirstamp):
 	@$(MKDIR_P) complex
 	@: > complex/$(am__dirstamp)
@@ -2463,6 +2810,10 @@ t__stat_all$(EXEEXT): $(t__stat_all_OBJECTS) $(t__stat_all_DEPENDENCIES) $(EXTRA
 	@rm -f t__stat_all$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t__stat_all_OBJECTS) $(t__stat_all_LDADD) $(LIBS)
 
+t__sys_errlist$(EXEEXT): $(t__sys_errlist_OBJECTS) $(t__sys_errlist_DEPENDENCIES) $(EXTRA_t__sys_errlist_DEPENDENCIES) 
+	@rm -f t__sys_errlist$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t__sys_errlist_OBJECTS) $(t__sys_errlist_LDADD) $(LIBS)
+
 t__wstat_all$(EXEEXT): $(t__wstat_all_OBJECTS) $(t__wstat_all_DEPENDENCIES) $(EXTRA_t__wstat_all_DEPENDENCIES) 
 	@rm -f t__wstat_all$(EXEEXT)
 	$(AM_V_CCLD)$(t__wstat_all_LINK) $(t__wstat_all_OBJECTS) $(t__wstat_all_LDADD) $(LIBS)
@@ -2482,6 +2833,10 @@ t_assert$(EXEEXT): $(t_assert_OBJECTS) $(t_assert_DEPENDENCIES) $(EXTRA_t_assert
 t_btowc$(EXEEXT): $(t_btowc_OBJECTS) $(t_btowc_DEPENDENCIES) $(EXTRA_t_btowc_DEPENDENCIES) 
 	@rm -f t_btowc$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_btowc_OBJECTS) $(t_btowc_LDADD) $(LIBS)
+
+t_char16_t$(EXEEXT): $(t_char16_t_OBJECTS) $(t_char16_t_DEPENDENCIES) $(EXTRA_t_char16_t_DEPENDENCIES) 
+	@rm -f t_char16_t$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_char16_t_OBJECTS) $(t_char16_t_LDADD) $(LIBS)
 
 t_ctype$(EXEEXT): $(t_ctype_OBJECTS) $(t_ctype_DEPENDENCIES) $(EXTRA_t_ctype_DEPENDENCIES) 
 	@rm -f t_ctype$(EXEEXT)
@@ -2507,6 +2862,18 @@ t_excpt_int_overflow_thrd$(EXEEXT): $(t_excpt_int_overflow_thrd_OBJECTS) $(t_exc
 	@rm -f t_excpt_int_overflow_thrd$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_excpt_int_overflow_thrd_OBJECTS) $(t_excpt_int_overflow_thrd_LDADD) $(LIBS)
 
+t_exp_denormal$(EXEEXT): $(t_exp_denormal_OBJECTS) $(t_exp_denormal_DEPENDENCIES) $(EXTRA_t_exp_denormal_DEPENDENCIES) 
+	@rm -f t_exp_denormal$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_exp_denormal_OBJECTS) $(t_exp_denormal_LDADD) $(LIBS)
+
+t_expm1$(EXEEXT): $(t_expm1_OBJECTS) $(t_expm1_DEPENDENCIES) $(EXTRA_t_expm1_DEPENDENCIES) 
+	@rm -f t_expm1$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_expm1_OBJECTS) $(t_expm1_LDADD) $(LIBS)
+
+t_fctptr$(EXEEXT): $(t_fctptr_OBJECTS) $(t_fctptr_DEPENDENCIES) $(EXTRA_t_fctptr_DEPENDENCIES) 
+	@rm -f t_fctptr$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_fctptr_OBJECTS) $(t_fctptr_LDADD) $(LIBS)
+
 t_findfirst$(EXEEXT): $(t_findfirst_OBJECTS) $(t_findfirst_DEPENDENCIES) $(EXTRA_t_findfirst_DEPENDENCIES) 
 	@rm -f t_findfirst$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_findfirst_OBJECTS) $(t_findfirst_LDADD) $(LIBS)
@@ -2514,6 +2881,10 @@ t_findfirst$(EXEEXT): $(t_findfirst_OBJECTS) $(t_findfirst_DEPENDENCIES) $(EXTRA
 t_float$(EXEEXT): $(t_float_OBJECTS) $(t_float_DEPENDENCIES) $(EXTRA_t_float_DEPENDENCIES) 
 	@rm -f t_float$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_float_OBJECTS) $(t_float_LDADD) $(LIBS)
+
+t_fmod$(EXEEXT): $(t_fmod_OBJECTS) $(t_fmod_DEPENDENCIES) $(EXTRA_t_fmod_DEPENDENCIES) 
+	@rm -f t_fmod$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_fmod_OBJECTS) $(t_fmod_LDADD) $(LIBS)
 
 t_format_Z$(EXEEXT): $(t_format_Z_OBJECTS) $(t_format_Z_DEPENDENCIES) $(EXTRA_t_format_Z_DEPENDENCIES) 
 	@rm -f t_format_Z$(EXEEXT)
@@ -2559,13 +2930,33 @@ t_imagebase$(EXEEXT): $(t_imagebase_OBJECTS) $(t_imagebase_DEPENDENCIES) $(EXTRA
 	@rm -f t_imagebase$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_imagebase_OBJECTS) $(t_imagebase_LDADD) $(LIBS)
 
+t_intrin$(EXEEXT): $(t_intrin_OBJECTS) $(t_intrin_DEPENDENCIES) $(EXTRA_t_intrin_DEPENDENCIES) 
+	@rm -f t_intrin$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_intrin_OBJECTS) $(t_intrin_LDADD) $(LIBS)
+
+t_intrin_cpp$(EXEEXT): $(t_intrin_cpp_OBJECTS) $(t_intrin_cpp_DEPENDENCIES) $(EXTRA_t_intrin_cpp_DEPENDENCIES) 
+	@rm -f t_intrin_cpp$(EXEEXT)
+	$(AM_V_CXXLD)$(t_intrin_cpp_LINK) $(t_intrin_cpp_OBJECTS) $(t_intrin_cpp_LDADD) $(LIBS)
+
 t_intrinc$(EXEEXT): $(t_intrinc_OBJECTS) $(t_intrinc_DEPENDENCIES) $(EXTRA_t_intrinc_DEPENDENCIES) 
 	@rm -f t_intrinc$(EXEEXT)
 	$(AM_V_CCLD)$(t_intrinc_LINK) $(t_intrinc_OBJECTS) $(t_intrinc_LDADD) $(LIBS)
 
+t_iostream$(EXEEXT): $(t_iostream_OBJECTS) $(t_iostream_DEPENDENCIES) $(EXTRA_t_iostream_DEPENDENCIES) 
+	@rm -f t_iostream$(EXEEXT)
+	$(AM_V_CXXLD)$(t_iostream_LINK) $(t_iostream_OBJECTS) $(t_iostream_LDADD) $(LIBS)
+
+t_isfine$(EXEEXT): $(t_isfine_OBJECTS) $(t_isfine_DEPENDENCIES) $(EXTRA_t_isfine_DEPENDENCIES) 
+	@rm -f t_isfine$(EXEEXT)
+	$(AM_V_CXXLD)$(t_isfine_LINK) $(t_isfine_OBJECTS) $(t_isfine_LDADD) $(LIBS)
+
 t_iswctype$(EXEEXT): $(t_iswctype_OBJECTS) $(t_iswctype_DEPENDENCIES) $(EXTRA_t_iswctype_DEPENDENCIES) 
 	@rm -f t_iswctype$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_iswctype_OBJECTS) $(t_iswctype_LDADD) $(LIBS)
+
+t_ivma$(EXEEXT): $(t_ivma_OBJECTS) $(t_ivma_DEPENDENCIES) $(EXTRA_t_ivma_DEPENDENCIES) 
+	@rm -f t_ivma$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_ivma_OBJECTS) $(t_ivma_LDADD) $(LIBS)
 
 t_lfs$(EXEEXT): $(t_lfs_OBJECTS) $(t_lfs_DEPENDENCIES) $(EXTRA_t_lfs_DEPENDENCIES) 
 	@rm -f t_lfs$(EXEEXT)
@@ -2574,6 +2965,18 @@ t_lfs$(EXEEXT): $(t_lfs_OBJECTS) $(t_lfs_DEPENDENCIES) $(EXTRA_t_lfs_DEPENDENCIE
 t_lseeki64$(EXEEXT): $(t_lseeki64_OBJECTS) $(t_lseeki64_DEPENDENCIES) $(EXTRA_t_lseeki64_DEPENDENCIES) 
 	@rm -f t_lseeki64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_lseeki64_OBJECTS) $(t_lseeki64_LDADD) $(LIBS)
+
+t_main$(EXEEXT): $(t_main_OBJECTS) $(t_main_DEPENDENCIES) $(EXTRA_t_main_DEPENDENCIES) 
+	@rm -f t_main$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_main_OBJECTS) $(t_main_LDADD) $(LIBS)
+
+t_main_assert$(EXEEXT): $(t_main_assert_OBJECTS) $(t_main_assert_DEPENDENCIES) $(EXTRA_t_main_assert_DEPENDENCIES) 
+	@rm -f t_main_assert$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_main_assert_OBJECTS) $(t_main_assert_LDADD) $(LIBS)
+
+t_main_cpp$(EXEEXT): $(t_main_cpp_OBJECTS) $(t_main_cpp_DEPENDENCIES) $(EXTRA_t_main_cpp_DEPENDENCIES) 
+	@rm -f t_main_cpp$(EXEEXT)
+	$(AM_V_CXXLD)$(t_main_cpp_LINK) $(t_main_cpp_OBJECTS) $(t_main_cpp_LDADD) $(LIBS)
 
 t_matherr$(EXEEXT): $(t_matherr_OBJECTS) $(t_matherr_DEPENDENCIES) $(EXTRA_t_matherr_DEPENDENCIES) 
 	@rm -f t_matherr$(EXEEXT)
@@ -2598,6 +3001,18 @@ t_municode$(EXEEXT): $(t_municode_OBJECTS) $(t_municode_DEPENDENCIES) $(EXTRA_t_
 t_nullptrexception$(EXEEXT): $(t_nullptrexception_OBJECTS) $(t_nullptrexception_DEPENDENCIES) $(EXTRA_t_nullptrexception_DEPENDENCIES) 
 	@rm -f t_nullptrexception$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_nullptrexception_OBJECTS) $(t_nullptrexception_LDADD) $(LIBS)
+
+t_pow$(EXEEXT): $(t_pow_OBJECTS) $(t_pow_DEPENDENCIES) $(EXTRA_t_pow_DEPENDENCIES) 
+	@rm -f t_pow$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_pow_OBJECTS) $(t_pow_LDADD) $(LIBS)
+
+t_powi$(EXEEXT): $(t_powi_OBJECTS) $(t_powi_DEPENDENCIES) $(EXTRA_t_powi_DEPENDENCIES) 
+	@rm -f t_powi$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_powi_OBJECTS) $(t_powi_LDADD) $(LIBS)
+
+t_printf$(EXEEXT): $(t_printf_OBJECTS) $(t_printf_DEPENDENCIES) $(EXTRA_t_printf_DEPENDENCIES) 
+	@rm -f t_printf$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_printf_OBJECTS) $(t_printf_LDADD) $(LIBS)
 
 t_printf_g_width$(EXEEXT): $(t_printf_g_width_OBJECTS) $(t_printf_g_width_DEPENDENCIES) $(EXTRA_t_printf_g_width_DEPENDENCIES) 
 	@rm -f t_printf_g_width$(EXEEXT)
@@ -2671,6 +3086,10 @@ t_stat_t64_f64$(EXEEXT): $(t_stat_t64_f64_OBJECTS) $(t_stat_t64_f64_DEPENDENCIES
 	@rm -f t_stat_t64_f64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_stat_t64_f64_OBJECTS) $(t_stat_t64_f64_LDADD) $(LIBS)
 
+t_staticconstmember$(EXEEXT): $(t_staticconstmember_OBJECTS) $(t_staticconstmember_DEPENDENCIES) $(EXTRA_t_staticconstmember_DEPENDENCIES) 
+	@rm -f t_staticconstmember$(EXEEXT)
+	$(AM_V_CXXLD)$(t_staticconstmember_LINK) $(t_staticconstmember_OBJECTS) $(t_staticconstmember_LDADD) $(LIBS)
+
 t_stderr_buffering$(EXEEXT): $(t_stderr_buffering_OBJECTS) $(t_stderr_buffering_DEPENDENCIES) $(EXTRA_t_stderr_buffering_DEPENDENCIES) 
 	@rm -f t_stderr_buffering$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_stderr_buffering_OBJECTS) $(t_stderr_buffering_LDADD) $(LIBS)
@@ -2719,9 +3138,17 @@ t_time$(EXEEXT): $(t_time_OBJECTS) $(t_time_DEPENDENCIES) $(EXTRA_t_time_DEPENDE
 	@rm -f t_time$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_time_OBJECTS) $(t_time_LDADD) $(LIBS)
 
-t_tls1$(EXEEXT): $(t_tls1_OBJECTS) $(t_tls1_DEPENDENCIES) $(EXTRA_t_tls1_DEPENDENCIES) 
-	@rm -f t_tls1$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_tls1_OBJECTS) $(t_tls1_LDADD) $(LIBS)
+t_tls_ansi$(EXEEXT): $(t_tls_ansi_OBJECTS) $(t_tls_ansi_DEPENDENCIES) $(EXTRA_t_tls_ansi_DEPENDENCIES) 
+	@rm -f t_tls_ansi$(EXEEXT)
+	$(AM_V_CCLD)$(t_tls_ansi_LINK) $(t_tls_ansi_OBJECTS) $(t_tls_ansi_LDADD) $(LIBS)
+
+t_tls_c11$(EXEEXT): $(t_tls_c11_OBJECTS) $(t_tls_c11_DEPENDENCIES) $(EXTRA_t_tls_c11_DEPENDENCIES) 
+	@rm -f t_tls_c11$(EXEEXT)
+	$(AM_V_CCLD)$(t_tls_c11_LINK) $(t_tls_c11_OBJECTS) $(t_tls_c11_LDADD) $(LIBS)
+
+t_tls_cpp$(EXEEXT): $(t_tls_cpp_OBJECTS) $(t_tls_cpp_DEPENDENCIES) $(EXTRA_t_tls_cpp_DEPENDENCIES) 
+	@rm -f t_tls_cpp$(EXEEXT)
+	$(AM_V_CXXLD)$(t_tls_cpp_LINK) $(t_tls_cpp_OBJECTS) $(t_tls_cpp_LDADD) $(LIBS)
 
 t_tmain$(EXEEXT): $(t_tmain_OBJECTS) $(t_tmain_DEPENDENCIES) $(EXTRA_t_tmain_DEPENDENCIES) 
 	@rm -f t_tmain$(EXEEXT)
@@ -2738,6 +3165,10 @@ t_towctrans$(EXEEXT): $(t_towctrans_OBJECTS) $(t_towctrans_DEPENDENCIES) $(EXTRA
 t_trycatch$(EXEEXT): $(t_trycatch_OBJECTS) $(t_trycatch_DEPENDENCIES) $(EXTRA_t_trycatch_DEPENDENCIES) 
 	@rm -f t_trycatch$(EXEEXT)
 	$(AM_V_CXXLD)$(t_trycatch_LINK) $(t_trycatch_OBJECTS) $(t_trycatch_LDADD) $(LIBS)
+
+t_tsearch$(EXEEXT): $(t_tsearch_OBJECTS) $(t_tsearch_DEPENDENCIES) $(EXTRA_t_tsearch_DEPENDENCIES) 
+	@rm -f t_tsearch$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_tsearch_OBJECTS) $(t_tsearch_LDADD) $(LIBS)
 
 t_utime$(EXEEXT): $(t_utime_OBJECTS) $(t_utime_DEPENDENCIES) $(EXTRA_t_utime_DEPENDENCIES) 
 	@rm -f t_utime$(EXEEXT)
@@ -2767,9 +3198,21 @@ t_wctype$(EXEEXT): $(t_wctype_OBJECTS) $(t_wctype_DEPENDENCIES) $(EXTRA_t_wctype
 	@rm -f t_wctype$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_wctype_OBJECTS) $(t_wctype_LDADD) $(LIBS)
 
+t_winmain$(EXEEXT): $(t_winmain_OBJECTS) $(t_winmain_DEPENDENCIES) $(EXTRA_t_winmain_DEPENDENCIES) 
+	@rm -f t_winmain$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_winmain_OBJECTS) $(t_winmain_LDADD) $(LIBS)
+
+t_winmain_assert$(EXEEXT): $(t_winmain_assert_OBJECTS) $(t_winmain_assert_DEPENDENCIES) $(EXTRA_t_winmain_assert_DEPENDENCIES) 
+	@rm -f t_winmain_assert$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_winmain_assert_OBJECTS) $(t_winmain_assert_LDADD) $(LIBS)
+
 t_wreaddir$(EXEEXT): $(t_wreaddir_OBJECTS) $(t_wreaddir_DEPENDENCIES) $(EXTRA_t_wreaddir_DEPENDENCIES) 
 	@rm -f t_wreaddir$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_wreaddir_OBJECTS) $(t_wreaddir_LDADD) $(LIBS)
+
+t_wrongret$(EXEEXT): $(t_wrongret_OBJECTS) $(t_wrongret_DEPENDENCIES) $(EXTRA_t_wrongret_DEPENDENCIES) 
+	@rm -f t_wrongret$(EXEEXT)
+	$(AM_V_CXXLD)$(t_wrongret_LINK) $(t_wrongret_OBJECTS) $(t_wrongret_LDADD) $(LIBS)
 complex/tests32_cabs-main.$(OBJEXT): complex/$(am__dirstamp) \
 	complex/$(DEPDIR)/$(am__dirstamp)
 
@@ -3035,18 +3478,6 @@ tests64/ctanh$(EXEEXT): $(tests64_ctanh_OBJECTS) $(tests64_ctanh_DEPENDENCIES) $
 	@rm -f tests64/ctanh$(EXEEXT)
 	$(AM_V_CCLD)$(tests64_ctanh_LINK) $(tests64_ctanh_OBJECTS) $(tests64_ctanh_LDADD) $(LIBS)
 
-tstmain_sys_xxx$(EXEEXT): $(tstmain_sys_xxx_OBJECTS) $(tstmain_sys_xxx_DEPENDENCIES) $(EXTRA_tstmain_sys_xxx_DEPENDENCIES) 
-	@rm -f tstmain_sys_xxx$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(tstmain_sys_xxx_OBJECTS) $(tstmain_sys_xxx_LDADD) $(LIBS)
-
-tstmainc$(EXEEXT): $(tstmainc_OBJECTS) $(tstmainc_DEPENDENCIES) $(EXTRA_tstmainc_DEPENDENCIES) 
-	@rm -f tstmainc$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(tstmainc_OBJECTS) $(tstmainc_LDADD) $(LIBS)
-
-tstmaincpp$(EXEEXT): $(tstmaincpp_OBJECTS) $(tstmaincpp_DEPENDENCIES) $(EXTRA_tstmaincpp_DEPENDENCIES) 
-	@rm -f tstmaincpp$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(tstmaincpp_OBJECTS) $(tstmaincpp_LDADD) $(LIBS)
-
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f complex/*.$(OBJEXT)
@@ -3054,21 +3485,28 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t__fstat_all.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t__stat_all.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t__sys_errlist.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t__wstat_all-t__wstat_all.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_aligned_alloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ansi_io.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_btowc.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_char16_t.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_gcc_cpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_divzero.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_divzero_thrd.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_overflow.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_overflow_thrd.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_exp_denormal.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_expm1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fctptr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_findfirst.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_float.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fmod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z0.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_format_Z1.Po@am__quote@ # am--include-marker
@@ -3080,16 +3518,27 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_t64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_t64_f64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_imagebase.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrin.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrin_cpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrinc-t_intrinc.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_iostream.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_isfine.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_iswctype.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ivma.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lfs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lseeki64.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main_assert.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main_cpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbrlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbrtowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbsrtowcs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_municode-t_municode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_nullptrexception.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_pow.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_powi.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_printf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_printf_g_width.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_readdir.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_safe_flush.Po@am__quote@ # am--include-marker
@@ -3108,6 +3557,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_slash.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_t64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stat_t64_f64.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_staticconstmember.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stderr_buffering.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stdint.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_stprintf0_a.Po@am__quote@ # am--include-marker
@@ -3120,11 +3570,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_swprintf0.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_swprintf1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_time.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls1.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_ansi-t_tls_ansi.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_c11-t_tls_c11.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_cpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmain-t_tmain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmpfile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_towctrans.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_trycatch.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_utime.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_vsscanf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcrtomb.Po@am__quote@ # am--include-marker
@@ -3132,10 +3585,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcstok_s.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctype.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_winmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_winmain_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wreaddir.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tstmain_sys_xxx.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tstmainc.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tstmaincpp.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wrongret.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/tests32_cabs-main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/tests32_cacos-main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/tests32_cacosh-main.Po@am__quote@ # am--include-marker
@@ -5225,6 +5678,34 @@ t_municode-t_municode.obj: t_municode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_municode_CFLAGS) $(CFLAGS) -c -o t_municode-t_municode.obj `if test -f 't_municode.c'; then $(CYGPATH_W) 't_municode.c'; else $(CYGPATH_W) '$(srcdir)/t_municode.c'; fi`
 
+t_tls_ansi-t_tls_ansi.o: t_tls_ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_ansi_CFLAGS) $(CFLAGS) -MT t_tls_ansi-t_tls_ansi.o -MD -MP -MF $(DEPDIR)/t_tls_ansi-t_tls_ansi.Tpo -c -o t_tls_ansi-t_tls_ansi.o `test -f 't_tls_ansi.c' || echo '$(srcdir)/'`t_tls_ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_tls_ansi-t_tls_ansi.Tpo $(DEPDIR)/t_tls_ansi-t_tls_ansi.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_tls_ansi.c' object='t_tls_ansi-t_tls_ansi.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_ansi_CFLAGS) $(CFLAGS) -c -o t_tls_ansi-t_tls_ansi.o `test -f 't_tls_ansi.c' || echo '$(srcdir)/'`t_tls_ansi.c
+
+t_tls_ansi-t_tls_ansi.obj: t_tls_ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_ansi_CFLAGS) $(CFLAGS) -MT t_tls_ansi-t_tls_ansi.obj -MD -MP -MF $(DEPDIR)/t_tls_ansi-t_tls_ansi.Tpo -c -o t_tls_ansi-t_tls_ansi.obj `if test -f 't_tls_ansi.c'; then $(CYGPATH_W) 't_tls_ansi.c'; else $(CYGPATH_W) '$(srcdir)/t_tls_ansi.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_tls_ansi-t_tls_ansi.Tpo $(DEPDIR)/t_tls_ansi-t_tls_ansi.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_tls_ansi.c' object='t_tls_ansi-t_tls_ansi.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_ansi_CFLAGS) $(CFLAGS) -c -o t_tls_ansi-t_tls_ansi.obj `if test -f 't_tls_ansi.c'; then $(CYGPATH_W) 't_tls_ansi.c'; else $(CYGPATH_W) '$(srcdir)/t_tls_ansi.c'; fi`
+
+t_tls_c11-t_tls_c11.o: t_tls_c11.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_c11_CFLAGS) $(CFLAGS) -MT t_tls_c11-t_tls_c11.o -MD -MP -MF $(DEPDIR)/t_tls_c11-t_tls_c11.Tpo -c -o t_tls_c11-t_tls_c11.o `test -f 't_tls_c11.c' || echo '$(srcdir)/'`t_tls_c11.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_tls_c11-t_tls_c11.Tpo $(DEPDIR)/t_tls_c11-t_tls_c11.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_tls_c11.c' object='t_tls_c11-t_tls_c11.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_c11_CFLAGS) $(CFLAGS) -c -o t_tls_c11-t_tls_c11.o `test -f 't_tls_c11.c' || echo '$(srcdir)/'`t_tls_c11.c
+
+t_tls_c11-t_tls_c11.obj: t_tls_c11.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_c11_CFLAGS) $(CFLAGS) -MT t_tls_c11-t_tls_c11.obj -MD -MP -MF $(DEPDIR)/t_tls_c11-t_tls_c11.Tpo -c -o t_tls_c11-t_tls_c11.obj `if test -f 't_tls_c11.c'; then $(CYGPATH_W) 't_tls_c11.c'; else $(CYGPATH_W) '$(srcdir)/t_tls_c11.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_tls_c11-t_tls_c11.Tpo $(DEPDIR)/t_tls_c11-t_tls_c11.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_tls_c11.c' object='t_tls_c11-t_tls_c11.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tls_c11_CFLAGS) $(CFLAGS) -c -o t_tls_c11-t_tls_c11.obj `if test -f 't_tls_c11.c'; then $(CYGPATH_W) 't_tls_c11.c'; else $(CYGPATH_W) '$(srcdir)/t_tls_c11.c'; fi`
+
 t_tmain-t_tmain.o: t_tmain.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tmain_CFLAGS) $(CFLAGS) -MT t_tmain-t_tmain.o -MD -MP -MF $(DEPDIR)/t_tmain-t_tmain.Tpo -c -o t_tmain-t_tmain.o `test -f 't_tmain.c' || echo '$(srcdir)/'`t_tmain.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_tmain-t_tmain.Tpo $(DEPDIR)/t_tmain-t_tmain.Po
@@ -6064,27 +6545,6 @@ recheck: all $(check_PROGRAMS) $(check_LIBRARIES)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
-tstmainc.log: tstmainc$(EXEEXT)
-	@p='tstmainc$(EXEEXT)'; \
-	b='tstmainc'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-tstmaincpp.log: tstmaincpp$(EXEEXT)
-	@p='tstmaincpp$(EXEEXT)'; \
-	b='tstmaincpp'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-tstmain_sys_xxx.log: tstmain_sys_xxx$(EXEEXT)
-	@p='tstmain_sys_xxx$(EXEEXT)'; \
-	b='tstmain_sys_xxx'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t__fstat_all.log: t__fstat_all$(EXEEXT)
 	@p='t__fstat_all$(EXEEXT)'; \
 	b='t__fstat_all'; \
@@ -6095,6 +6555,13 @@ t__fstat_all.log: t__fstat_all$(EXEEXT)
 t__stat_all.log: t__stat_all$(EXEEXT)
 	@p='t__stat_all$(EXEEXT)'; \
 	b='t__stat_all'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t__sys_errlist.log: t__sys_errlist$(EXEEXT)
+	@p='t__sys_errlist$(EXEEXT)'; \
+	b='t__sys_errlist'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6123,6 +6590,13 @@ t_assert.log: t_assert$(EXEEXT)
 t_btowc.log: t_btowc$(EXEEXT)
 	@p='t_btowc$(EXEEXT)'; \
 	b='t_btowc'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_char16_t.log: t_char16_t$(EXEEXT)
+	@p='t_char16_t$(EXEEXT)'; \
+	b='t_char16_t'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6169,6 +6643,27 @@ t_excpt_int_overflow_thrd.log: t_excpt_int_overflow_thrd$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_exp_denormal.log: t_exp_denormal$(EXEEXT)
+	@p='t_exp_denormal$(EXEEXT)'; \
+	b='t_exp_denormal'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_expm1.log: t_expm1$(EXEEXT)
+	@p='t_expm1$(EXEEXT)'; \
+	b='t_expm1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_fctptr.log: t_fctptr$(EXEEXT)
+	@p='t_fctptr$(EXEEXT)'; \
+	b='t_fctptr'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_findfirst.log: t_findfirst$(EXEEXT)
 	@p='t_findfirst$(EXEEXT)'; \
 	b='t_findfirst'; \
@@ -6179,6 +6674,13 @@ t_findfirst.log: t_findfirst$(EXEEXT)
 t_float.log: t_float$(EXEEXT)
 	@p='t_float$(EXEEXT)'; \
 	b='t_float'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_fmod.log: t_fmod$(EXEEXT)
+	@p='t_fmod$(EXEEXT)'; \
+	b='t_fmod'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6218,6 +6720,13 @@ t_fseeki64_ftelli64.log: t_fseeki64_ftelli64$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_fseeko64.log: t_fseeko64$(EXEEXT)
+	@p='t_fseeko64$(EXEEXT)'; \
+	b='t_fseeko64'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_fstat.log: t_fstat$(EXEEXT)
 	@p='t_fstat$(EXEEXT)'; \
 	b='t_fstat'; \
@@ -6246,13 +6755,6 @@ t_fstat_t64_f64.log: t_fstat_t64_f64$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_intrinc.log: t_intrinc$(EXEEXT)
-	@p='t_intrinc$(EXEEXT)'; \
-	b='t_intrinc'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_imagebase.log: t_imagebase$(EXEEXT)
 	@p='t_imagebase$(EXEEXT)'; \
 	b='t_imagebase'; \
@@ -6260,9 +6762,30 @@ t_imagebase.log: t_imagebase$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_intrinc.log: t_intrinc$(EXEEXT)
+	@p='t_intrinc$(EXEEXT)'; \
+	b='t_intrinc'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_isfine.log: t_isfine$(EXEEXT)
+	@p='t_isfine$(EXEEXT)'; \
+	b='t_isfine'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_iswctype.log: t_iswctype$(EXEEXT)
 	@p='t_iswctype$(EXEEXT)'; \
 	b='t_iswctype'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_ivma.log: t_ivma$(EXEEXT)
+	@p='t_ivma$(EXEEXT)'; \
+	b='t_ivma'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6277,6 +6800,27 @@ t_lfs.log: t_lfs$(EXEEXT)
 t_lseeki64.log: t_lseeki64$(EXEEXT)
 	@p='t_lseeki64$(EXEEXT)'; \
 	b='t_lseeki64'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_main.log: t_main$(EXEEXT)
+	@p='t_main$(EXEEXT)'; \
+	b='t_main'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_main_assert.log: t_main_assert$(EXEEXT)
+	@p='t_main_assert$(EXEEXT)'; \
+	b='t_main_assert'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_main_cpp.log: t_main_cpp$(EXEEXT)
+	@p='t_main_cpp$(EXEEXT)'; \
+	b='t_main_cpp'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6316,6 +6860,27 @@ t_nullptrexception.log: t_nullptrexception$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_pow.log: t_pow$(EXEEXT)
+	@p='t_pow$(EXEEXT)'; \
+	b='t_pow'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_powi.log: t_powi$(EXEEXT)
+	@p='t_powi$(EXEEXT)'; \
+	b='t_powi'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_printf.log: t_printf$(EXEEXT)
+	@p='t_printf$(EXEEXT)'; \
+	b='t_printf'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_printf_g_width.log: t_printf_g_width$(EXEEXT)
 	@p='t_printf_g_width$(EXEEXT)'; \
 	b='t_printf_g_width'; \
@@ -6333,6 +6898,27 @@ t_readdir.log: t_readdir$(EXEEXT)
 t_safe_flush.log: t_safe_flush$(EXEEXT)
 	@p='t_safe_flush$(EXEEXT)'; \
 	b='t_safe_flush'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_setjmp.log: t_setjmp$(EXEEXT)
+	@p='t_setjmp$(EXEEXT)'; \
+	b='t_setjmp'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_sigfpe.log: t_sigfpe$(EXEEXT)
+	@p='t_sigfpe$(EXEEXT)'; \
+	b='t_sigfpe'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_sigv.log: t_sigv$(EXEEXT)
+	@p='t_sigv$(EXEEXT)'; \
+	b='t_sigv'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6358,27 +6944,6 @@ t_snprintf1.log: t_snprintf1$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_swprintf.log: t_swprintf$(EXEEXT)
-	@p='t_swprintf$(EXEEXT)'; \
-	b='t_swprintf'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_swprintf0.log: t_swprintf0$(EXEEXT)
-	@p='t_swprintf0$(EXEEXT)'; \
-	b='t_swprintf0'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_swprintf1.log: t_swprintf1$(EXEEXT)
-	@p='t_swprintf1$(EXEEXT)'; \
-	b='t_swprintf1'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_snwprintf.log: t_snwprintf$(EXEEXT)
 	@p='t_snwprintf$(EXEEXT)'; \
 	b='t_snwprintf'; \
@@ -6396,6 +6961,69 @@ t_snwprintf0.log: t_snwprintf0$(EXEEXT)
 t_snwprintf1.log: t_snwprintf1$(EXEEXT)
 	@p='t_snwprintf1$(EXEEXT)'; \
 	b='t_snwprintf1'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_speed_powl.log: t_speed_powl$(EXEEXT)
+	@p='t_speed_powl$(EXEEXT)'; \
+	b='t_speed_powl'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stat.log: t_stat$(EXEEXT)
+	@p='t_stat$(EXEEXT)'; \
+	b='t_stat'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stat_f64.log: t_stat_f64$(EXEEXT)
+	@p='t_stat_f64$(EXEEXT)'; \
+	b='t_stat_f64'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stat_t64.log: t_stat_t64$(EXEEXT)
+	@p='t_stat_t64$(EXEEXT)'; \
+	b='t_stat_t64'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stat_t64_f64.log: t_stat_t64_f64$(EXEEXT)
+	@p='t_stat_t64_f64$(EXEEXT)'; \
+	b='t_stat_t64_f64'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stat_slash.log: t_stat_slash$(EXEEXT)
+	@p='t_stat_slash$(EXEEXT)'; \
+	b='t_stat_slash'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_staticconstmember.log: t_staticconstmember$(EXEEXT)
+	@p='t_staticconstmember$(EXEEXT)'; \
+	b='t_staticconstmember'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stderr_buffering.log: t_stderr_buffering$(EXEEXT)
+	@p='t_stderr_buffering$(EXEEXT)'; \
+	b='t_stderr_buffering'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_stdint.log: t_stdint$(EXEEXT)
+	@p='t_stdint$(EXEEXT)'; \
+	b='t_stdint'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6442,72 +7070,23 @@ t_stprintf1_u.log: t_stprintf1_u$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_setjmp.log: t_setjmp$(EXEEXT)
-	@p='t_setjmp$(EXEEXT)'; \
-	b='t_setjmp'; \
+t_swprintf.log: t_swprintf$(EXEEXT)
+	@p='t_swprintf$(EXEEXT)'; \
+	b='t_swprintf'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_sigfpe.log: t_sigfpe$(EXEEXT)
-	@p='t_sigfpe$(EXEEXT)'; \
-	b='t_sigfpe'; \
+t_swprintf0.log: t_swprintf0$(EXEEXT)
+	@p='t_swprintf0$(EXEEXT)'; \
+	b='t_swprintf0'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_sigv.log: t_sigv$(EXEEXT)
-	@p='t_sigv$(EXEEXT)'; \
-	b='t_sigv'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_speed_powl.log: t_speed_powl$(EXEEXT)
-	@p='t_speed_powl$(EXEEXT)'; \
-	b='t_speed_powl'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stat.log: t_stat$(EXEEXT)
-	@p='t_stat$(EXEEXT)'; \
-	b='t_stat'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stat_f64.log: t_stat_f64$(EXEEXT)
-	@p='t_stat_f64$(EXEEXT)'; \
-	b='t_stat_f64'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stat_t64.log: t_stat_t64$(EXEEXT)
-	@p='t_stat_t64$(EXEEXT)'; \
-	b='t_stat_t64'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stat_t64_f64.log: t_stat_t64_f64$(EXEEXT)
-	@p='t_stat_t64_f64$(EXEEXT)'; \
-	b='t_stat_t64_f64'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stderr_buffering.log: t_stderr_buffering$(EXEEXT)
-	@p='t_stderr_buffering$(EXEEXT)'; \
-	b='t_stderr_buffering'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stdint.log: t_stdint$(EXEEXT)
-	@p='t_stdint$(EXEEXT)'; \
-	b='t_stdint'; \
+t_swprintf1.log: t_swprintf1$(EXEEXT)
+	@p='t_swprintf1$(EXEEXT)'; \
+	b='t_swprintf1'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6519,9 +7098,16 @@ t_time.log: t_time$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_tls1.log: t_tls1$(EXEEXT)
-	@p='t_tls1$(EXEEXT)'; \
-	b='t_tls1'; \
+t_tls_ansi.log: t_tls_ansi$(EXEEXT)
+	@p='t_tls_ansi$(EXEEXT)'; \
+	b='t_tls_ansi'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_tls_c11.log: t_tls_c11$(EXEEXT)
+	@p='t_tls_c11$(EXEEXT)'; \
+	b='t_tls_c11'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6533,6 +7119,13 @@ t_tmpfile.log: t_tmpfile$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_towctrans.log: t_towctrans$(EXEEXT)
+	@p='t_towctrans$(EXEEXT)'; \
+	b='t_towctrans'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_trycatch.log: t_trycatch$(EXEEXT)
 	@p='t_trycatch$(EXEEXT)'; \
 	b='t_trycatch'; \
@@ -6540,16 +7133,9 @@ t_trycatch.log: t_trycatch$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_stat_slash.log: t_stat_slash$(EXEEXT)
-	@p='t_stat_slash$(EXEEXT)'; \
-	b='t_stat_slash'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_towctrans.log: t_towctrans$(EXEEXT)
-	@p='t_towctrans$(EXEEXT)'; \
-	b='t_towctrans'; \
+t_tsearch.log: t_tsearch$(EXEEXT)
+	@p='t_tsearch$(EXEEXT)'; \
+	b='t_tsearch'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6603,6 +7189,13 @@ t_wctype.log: t_wctype$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_winmain_assert.log: t_winmain_assert$(EXEEXT)
+	@p='t_winmain_assert$(EXEEXT)'; \
+	b='t_winmain_assert'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_wreaddir.log: t_wreaddir$(EXEEXT)
 	@p='t_wreaddir$(EXEEXT)'; \
 	b='t_wreaddir'; \
@@ -6610,9 +7203,30 @@ t_wreaddir.log: t_wreaddir$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t_fseeko64.log: t_fseeko64$(EXEEXT)
-	@p='t_fseeko64$(EXEEXT)'; \
-	b='t_fseeko64'; \
+t_iostream.log: t_iostream$(EXEEXT)
+	@p='t_iostream$(EXEEXT)'; \
+	b='t_iostream'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_tls_cpp.log: t_tls_cpp$(EXEEXT)
+	@p='t_tls_cpp$(EXEEXT)'; \
+	b='t_tls_cpp'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_wrongret.log: t_wrongret$(EXEEXT)
+	@p='t_wrongret$(EXEEXT)'; \
+	b='t_wrongret'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t__wstat_all.log: t__wstat_all$(EXEEXT)
+	@p='t__wstat_all$(EXEEXT)'; \
+	b='t__wstat_all'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -6627,13 +7241,6 @@ t_municode.log: t_municode$(EXEEXT)
 t_tmain.log: t_tmain$(EXEEXT)
 	@p='t_tmain$(EXEEXT)'; \
 	b='t_tmain'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-t__wstat_all.log: t__wstat_all$(EXEEXT)
-	@p='t__wstat_all$(EXEEXT)'; \
-	b='t__wstat_all'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -7043,21 +7650,28 @@ clean-am: clean-checkLIBRARIES clean-checkPROGRAMS clean-generic \
 	mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/t__fstat_all.Po
+		-rm -f ./$(DEPDIR)/libtest.Po
+	-rm -f ./$(DEPDIR)/t__fstat_all.Po
 	-rm -f ./$(DEPDIR)/t__stat_all.Po
+	-rm -f ./$(DEPDIR)/t__sys_errlist.Po
 	-rm -f ./$(DEPDIR)/t__wstat_all-t__wstat_all.Po
 	-rm -f ./$(DEPDIR)/t_aligned_alloc.Po
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
+	-rm -f ./$(DEPDIR)/t_char16_t.Po
 	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_excpt_gcc_cpp.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero_thrd.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow_thrd.Po
+	-rm -f ./$(DEPDIR)/t_exp_denormal.Po
+	-rm -f ./$(DEPDIR)/t_expm1.Po
+	-rm -f ./$(DEPDIR)/t_fctptr.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
+	-rm -f ./$(DEPDIR)/t_fmod.Po
 	-rm -f ./$(DEPDIR)/t_format_Z.Po
 	-rm -f ./$(DEPDIR)/t_format_Z0.Po
 	-rm -f ./$(DEPDIR)/t_format_Z1.Po
@@ -7069,16 +7683,27 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_fstat_t64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
+	-rm -f ./$(DEPDIR)/t_intrin.Po
+	-rm -f ./$(DEPDIR)/t_intrin_cpp.Po
 	-rm -f ./$(DEPDIR)/t_intrinc-t_intrinc.Po
+	-rm -f ./$(DEPDIR)/t_iostream.Po
+	-rm -f ./$(DEPDIR)/t_isfine.Po
 	-rm -f ./$(DEPDIR)/t_iswctype.Po
+	-rm -f ./$(DEPDIR)/t_ivma.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
+	-rm -f ./$(DEPDIR)/t_main.Po
+	-rm -f ./$(DEPDIR)/t_main_assert.Po
+	-rm -f ./$(DEPDIR)/t_main_cpp.Po
 	-rm -f ./$(DEPDIR)/t_matherr.Po
 	-rm -f ./$(DEPDIR)/t_mbrlen.Po
 	-rm -f ./$(DEPDIR)/t_mbrtowc.Po
 	-rm -f ./$(DEPDIR)/t_mbsrtowcs.Po
 	-rm -f ./$(DEPDIR)/t_municode-t_municode.Po
 	-rm -f ./$(DEPDIR)/t_nullptrexception.Po
+	-rm -f ./$(DEPDIR)/t_pow.Po
+	-rm -f ./$(DEPDIR)/t_powi.Po
+	-rm -f ./$(DEPDIR)/t_printf.Po
 	-rm -f ./$(DEPDIR)/t_printf_g_width.Po
 	-rm -f ./$(DEPDIR)/t_readdir.Po
 	-rm -f ./$(DEPDIR)/t_safe_flush.Po
@@ -7097,6 +7722,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_stat_slash.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_staticconstmember.Po
 	-rm -f ./$(DEPDIR)/t_stderr_buffering.Po
 	-rm -f ./$(DEPDIR)/t_stdint.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_a.Po
@@ -7109,11 +7735,14 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_swprintf0.Po
 	-rm -f ./$(DEPDIR)/t_swprintf1.Po
 	-rm -f ./$(DEPDIR)/t_time.Po
-	-rm -f ./$(DEPDIR)/t_tls1.Po
+	-rm -f ./$(DEPDIR)/t_tls_ansi-t_tls_ansi.Po
+	-rm -f ./$(DEPDIR)/t_tls_c11-t_tls_c11.Po
+	-rm -f ./$(DEPDIR)/t_tls_cpp.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_towctrans.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
+	-rm -f ./$(DEPDIR)/t_tsearch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
@@ -7121,10 +7750,10 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
 	-rm -f ./$(DEPDIR)/t_wctype.Po
+	-rm -f ./$(DEPDIR)/t_winmain.Po
+	-rm -f ./$(DEPDIR)/t_winmain_assert.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
-	-rm -f ./$(DEPDIR)/tstmain_sys_xxx.Po
-	-rm -f ./$(DEPDIR)/tstmainc.Po
-	-rm -f ./$(DEPDIR)/tstmaincpp.Po
+	-rm -f ./$(DEPDIR)/t_wrongret.Po
 	-rm -f complex/$(DEPDIR)/tests32_cabs-main.Po
 	-rm -f complex/$(DEPDIR)/tests32_cacos-main.Po
 	-rm -f complex/$(DEPDIR)/tests32_cacosh-main.Po
@@ -7346,21 +7975,28 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/t__fstat_all.Po
+		-rm -f ./$(DEPDIR)/libtest.Po
+	-rm -f ./$(DEPDIR)/t__fstat_all.Po
 	-rm -f ./$(DEPDIR)/t__stat_all.Po
+	-rm -f ./$(DEPDIR)/t__sys_errlist.Po
 	-rm -f ./$(DEPDIR)/t__wstat_all-t__wstat_all.Po
 	-rm -f ./$(DEPDIR)/t_aligned_alloc.Po
 	-rm -f ./$(DEPDIR)/t_ansi_io.Po
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
+	-rm -f ./$(DEPDIR)/t_char16_t.Po
 	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_excpt_gcc_cpp.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero_thrd.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_overflow_thrd.Po
+	-rm -f ./$(DEPDIR)/t_exp_denormal.Po
+	-rm -f ./$(DEPDIR)/t_expm1.Po
+	-rm -f ./$(DEPDIR)/t_fctptr.Po
 	-rm -f ./$(DEPDIR)/t_findfirst.Po
 	-rm -f ./$(DEPDIR)/t_float.Po
+	-rm -f ./$(DEPDIR)/t_fmod.Po
 	-rm -f ./$(DEPDIR)/t_format_Z.Po
 	-rm -f ./$(DEPDIR)/t_format_Z0.Po
 	-rm -f ./$(DEPDIR)/t_format_Z1.Po
@@ -7372,16 +8008,27 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_fstat_t64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
+	-rm -f ./$(DEPDIR)/t_intrin.Po
+	-rm -f ./$(DEPDIR)/t_intrin_cpp.Po
 	-rm -f ./$(DEPDIR)/t_intrinc-t_intrinc.Po
+	-rm -f ./$(DEPDIR)/t_iostream.Po
+	-rm -f ./$(DEPDIR)/t_isfine.Po
 	-rm -f ./$(DEPDIR)/t_iswctype.Po
+	-rm -f ./$(DEPDIR)/t_ivma.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
+	-rm -f ./$(DEPDIR)/t_main.Po
+	-rm -f ./$(DEPDIR)/t_main_assert.Po
+	-rm -f ./$(DEPDIR)/t_main_cpp.Po
 	-rm -f ./$(DEPDIR)/t_matherr.Po
 	-rm -f ./$(DEPDIR)/t_mbrlen.Po
 	-rm -f ./$(DEPDIR)/t_mbrtowc.Po
 	-rm -f ./$(DEPDIR)/t_mbsrtowcs.Po
 	-rm -f ./$(DEPDIR)/t_municode-t_municode.Po
 	-rm -f ./$(DEPDIR)/t_nullptrexception.Po
+	-rm -f ./$(DEPDIR)/t_pow.Po
+	-rm -f ./$(DEPDIR)/t_powi.Po
+	-rm -f ./$(DEPDIR)/t_printf.Po
 	-rm -f ./$(DEPDIR)/t_printf_g_width.Po
 	-rm -f ./$(DEPDIR)/t_readdir.Po
 	-rm -f ./$(DEPDIR)/t_safe_flush.Po
@@ -7400,6 +8047,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_stat_slash.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64.Po
 	-rm -f ./$(DEPDIR)/t_stat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_staticconstmember.Po
 	-rm -f ./$(DEPDIR)/t_stderr_buffering.Po
 	-rm -f ./$(DEPDIR)/t_stdint.Po
 	-rm -f ./$(DEPDIR)/t_stprintf0_a.Po
@@ -7412,11 +8060,14 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_swprintf0.Po
 	-rm -f ./$(DEPDIR)/t_swprintf1.Po
 	-rm -f ./$(DEPDIR)/t_time.Po
-	-rm -f ./$(DEPDIR)/t_tls1.Po
+	-rm -f ./$(DEPDIR)/t_tls_ansi-t_tls_ansi.Po
+	-rm -f ./$(DEPDIR)/t_tls_c11-t_tls_c11.Po
+	-rm -f ./$(DEPDIR)/t_tls_cpp.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_towctrans.Po
 	-rm -f ./$(DEPDIR)/t_trycatch.Po
+	-rm -f ./$(DEPDIR)/t_tsearch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
@@ -7424,10 +8075,10 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
 	-rm -f ./$(DEPDIR)/t_wctype.Po
+	-rm -f ./$(DEPDIR)/t_winmain.Po
+	-rm -f ./$(DEPDIR)/t_winmain_assert.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
-	-rm -f ./$(DEPDIR)/tstmain_sys_xxx.Po
-	-rm -f ./$(DEPDIR)/tstmainc.Po
-	-rm -f ./$(DEPDIR)/tstmaincpp.Po
+	-rm -f ./$(DEPDIR)/t_wrongret.Po
 	-rm -f complex/$(DEPDIR)/tests32_cabs-main.Po
 	-rm -f complex/$(DEPDIR)/tests32_cacos-main.Po
 	-rm -f complex/$(DEPDIR)/tests32_cacosh-main.Po
@@ -7640,10 +8291,11 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
+# Used by t_safe_flush
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
-# Include the complex math testcase fragment.
+@ENABLE_TESTS_UNICODE_TRUE@  # The following tests require compiler support for -municode option
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
