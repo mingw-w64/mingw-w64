@@ -42,7 +42,7 @@ static void __cdecl mingw_test_invalid_parameter_handler (
   fprintf(stderr, "\n");
   (void)pReserved;
   /* Ensure that this handler does not return, as the whole handler replaces calling of Dr. Watson */
-	abort ();
+  abort ();
 }
 
 static int __cdecl mingw_test_fini (void) {
