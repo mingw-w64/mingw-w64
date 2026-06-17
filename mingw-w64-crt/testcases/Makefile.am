@@ -188,8 +188,8 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 # Compile t_tls_c11 in C11 mode
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
-# Link t_winmain against gdi32.dll
-t_winmain_LDADD = -lgdi32 $(LDADD)
+# t_winmain is a GUI App; use -mwindows to properly link it and set subsystem
+t_winmain_CFLAGS = $(AM_CFLAGS) -mwindows
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
