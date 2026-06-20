@@ -63,7 +63,7 @@ static RETT __cdecl __MINGW64_PASTE(init_,FUNC)(ARGS);
 #ifdef NORETURN
 __MINGW_ATTRIB_NORETURN
 #endif
-RETT (__cdecl *volatile __MINGW_IMP_SYMBOL(FUNC))(ARGS) = __MINGW64_PASTE(init_,FUNC);
+RETT (__cdecl *__MINGW_IMP_SYMBOL(FUNC))(ARGS) = __MINGW64_PASTE(init_,FUNC);
 
 #ifdef NORETURN
 __MINGW_ATTRIB_NORETURN
@@ -82,7 +82,7 @@ static RETT __cdecl __MINGW64_PASTE(init_,FUNC)(ARGS)
     if (!func)
         func = __MINGW64_PASTE(emu_,FUNC);
 
-    (void)InterlockedExchangePointer((PVOID volatile *)&__MINGW_IMP_SYMBOL(FUNC), func);
+    (void)InterlockedExchangePointer((PVOID*)&__MINGW_IMP_SYMBOL(FUNC), func);
 
 #ifndef NORETURN
     return

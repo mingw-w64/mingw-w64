@@ -21,13 +21,13 @@ int __cdecl ftruncate64(int fd, _off64_t length)
 #if defined(__i386__) || defined(__x86_64__)
     extern int __cdecl __mingw_ftruncate64(int fd, _off64_t length);
 
-    static errno_t (__cdecl *volatile chsize_s_ptr)(int, __int64);
-    static volatile long init = 0;
+    static errno_t (__cdecl *chsize_s_ptr)(int, __int64);
+    static long init = 0;
 
     if (!init) {
         HMODULE msvcrt = __mingw_get_msvcrt_handle();
         FARPROC func = msvcrt ? GetProcAddress(msvcrt, "_chsize_s") : NULL;
-        (void)InterlockedExchangePointer((PVOID volatile *)&chsize_s_ptr, func);
+        (void)InterlockedExchangePointer((PVOID*)&chsize_s_ptr, func);
         (void)InterlockedExchange(&init, 1);
     }
 
