@@ -25,7 +25,7 @@ static __time64_t __cdecl emu__mktime64(struct tm *tmptr)
      * thread-safe call, the race condition is not a problem.
      */
     {
-        static volatile long tzset_called = 0;
+        static long tzset_called = 0;
         if (!tzset_called) {
             _tzset();
             (void)InterlockedExchange(&tzset_called, 1);
