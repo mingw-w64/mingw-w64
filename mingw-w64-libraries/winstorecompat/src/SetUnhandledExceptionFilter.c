@@ -22,8 +22,6 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#define _WIN32_WINNT 0x501 /* SetUnhandledExceptionFilter is XP+ */
-
 #define SetUnhandledExceptionFilter __SetUnhandledExceptionFilter
 #include <windef.h>
 #include <winbase.h>
