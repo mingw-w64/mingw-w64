@@ -45,7 +45,7 @@ static void resolve_scprintf(void)
     if (!func)
         func = emu_scprintf;
 
-    __MINGW_IMP_SYMBOL(_scprintf) = func;
+    (void)InterlockedExchangePointer((PVOID*)&__MINGW_IMP_SYMBOL(_scprintf), func);
 }
 
 /* gcc does not provide an easy way to call another variadic function with reusing current arguments
