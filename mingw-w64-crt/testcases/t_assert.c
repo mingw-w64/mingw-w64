@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
         ssize_t size;
         char buf[512];
 
-        assert(_pipe(pipefd, sizeof(buf), O_NOINHERIT) == 0);
+        assert(_pipe(pipefd, 0, O_NOINHERIT) == 0);
 
         /* set stderr fd to write side of pipe, will be used by _spawnl() */
         assert((back_errfd = dup(STDERR_FILENO)) >= 0);

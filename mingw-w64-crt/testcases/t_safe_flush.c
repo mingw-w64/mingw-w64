@@ -100,7 +100,7 @@ int parent_main(const char *argv0) {
     size_t size = 0;
     char buf[512];
 
-    assert(_pipe(pipefd, sizeof(buf), O_NOINHERIT) == 0);
+    assert(_pipe(pipefd, 0, O_NOINHERIT) == 0);
 
     /* set stdout fd to write side of pipe, will be used by _spawnl() */
     assert((back_outfd = dup(STDOUT_FILENO)) >= 0);
