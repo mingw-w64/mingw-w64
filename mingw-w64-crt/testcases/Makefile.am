@@ -189,7 +189,7 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
 # t_winmain is a GUI App; use -mwindows to properly link it and set subsystem
-t_winmain_CFLAGS = $(AM_CFLAGS) -mwindows
+t_winmain_LDFLAGS = $(AM_LDFLAGS) -mwindows
 
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
