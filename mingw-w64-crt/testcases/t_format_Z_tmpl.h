@@ -54,7 +54,7 @@ int main() {
 	 */
 
 #if __MSVCRT_VERSION__ >= 0x200 && __MSVCRT_VERSION__ <= 0x400
-	return 0;
+	return 77;
 #endif
 
 	memset(abuf, 0xff, sizeof(abuf));
