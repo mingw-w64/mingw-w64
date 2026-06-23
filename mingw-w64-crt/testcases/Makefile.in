@@ -916,10 +916,10 @@ t_wctype_OBJECTS = t_wctype.$(OBJEXT)
 t_wctype_LDADD = $(LDADD)
 t_wctype_DEPENDENCIES = $(builddir)/libtest.a
 t_winmain_SOURCES = t_winmain.c
-t_winmain_OBJECTS = t_winmain-t_winmain.$(OBJEXT)
+t_winmain_OBJECTS = t_winmain.$(OBJEXT)
 t_winmain_LDADD = $(LDADD)
 t_winmain_DEPENDENCIES = $(builddir)/libtest.a
-t_winmain_LINK = $(CCLD) $(t_winmain_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+t_winmain_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(t_winmain_LDFLAGS) \
 	$(LDFLAGS) -o $@
 t_winmain_assert_SOURCES = t_winmain_assert.c
 t_winmain_assert_OBJECTS = t_winmain_assert.$(OBJEXT)
@@ -1358,9 +1358,8 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
 	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
 	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wctype.Po \
-	./$(DEPDIR)/t_winmain-t_winmain.Po \
-	./$(DEPDIR)/t_winmain_assert.Po ./$(DEPDIR)/t_wreaddir.Po \
-	./$(DEPDIR)/t_wrongret.Po \
+	./$(DEPDIR)/t_winmain.Po ./$(DEPDIR)/t_winmain_assert.Po \
+	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/t_wrongret.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -2145,7 +2144,7 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
 # t_winmain is a GUI App; use -mwindows to properly link it and set subsystem
-t_winmain_CFLAGS = $(AM_CFLAGS) -mwindows
+t_winmain_LDFLAGS = $(AM_LDFLAGS) -mwindows
 @ENABLE_TESTS_UNICODE_TRUE@t_municode_CFLAGS = -municode $(AM_CFLAGS)
 @ENABLE_TESTS_UNICODE_TRUE@t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
 @ENABLE_TESTS_UNICODE_TRUE@t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
@@ -3589,7 +3588,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcstok_s.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wctype.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_winmain-t_winmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_winmain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_winmain_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wreaddir.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wrongret.Po@am__quote@ # am--include-marker
@@ -5724,20 +5723,6 @@ t_tmain-t_tmain.obj: t_tmain.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_tmain_CFLAGS) $(CFLAGS) -c -o t_tmain-t_tmain.obj `if test -f 't_tmain.c'; then $(CYGPATH_W) 't_tmain.c'; else $(CYGPATH_W) '$(srcdir)/t_tmain.c'; fi`
 
-t_winmain-t_winmain.o: t_winmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_winmain_CFLAGS) $(CFLAGS) -MT t_winmain-t_winmain.o -MD -MP -MF $(DEPDIR)/t_winmain-t_winmain.Tpo -c -o t_winmain-t_winmain.o `test -f 't_winmain.c' || echo '$(srcdir)/'`t_winmain.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_winmain-t_winmain.Tpo $(DEPDIR)/t_winmain-t_winmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_winmain.c' object='t_winmain-t_winmain.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_winmain_CFLAGS) $(CFLAGS) -c -o t_winmain-t_winmain.o `test -f 't_winmain.c' || echo '$(srcdir)/'`t_winmain.c
-
-t_winmain-t_winmain.obj: t_winmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_winmain_CFLAGS) $(CFLAGS) -MT t_winmain-t_winmain.obj -MD -MP -MF $(DEPDIR)/t_winmain-t_winmain.Tpo -c -o t_winmain-t_winmain.obj `if test -f 't_winmain.c'; then $(CYGPATH_W) 't_winmain.c'; else $(CYGPATH_W) '$(srcdir)/t_winmain.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_winmain-t_winmain.Tpo $(DEPDIR)/t_winmain-t_winmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_winmain.c' object='t_winmain-t_winmain.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_winmain_CFLAGS) $(CFLAGS) -c -o t_winmain-t_winmain.obj `if test -f 't_winmain.c'; then $(CYGPATH_W) 't_winmain.c'; else $(CYGPATH_W) '$(srcdir)/t_winmain.c'; fi`
-
 complex/tests32_cabs-main.o: complex/main.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(tests32_cabs_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT complex/tests32_cabs-main.o -MD -MP -MF complex/$(DEPDIR)/tests32_cabs-main.Tpo -c -o complex/tests32_cabs-main.o `test -f 'complex/main.c' || echo '$(srcdir)/'`complex/main.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) complex/$(DEPDIR)/tests32_cabs-main.Tpo complex/$(DEPDIR)/tests32_cabs-main.Po
@@ -7768,7 +7753,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
 	-rm -f ./$(DEPDIR)/t_wctype.Po
-	-rm -f ./$(DEPDIR)/t_winmain-t_winmain.Po
+	-rm -f ./$(DEPDIR)/t_winmain.Po
 	-rm -f ./$(DEPDIR)/t_winmain_assert.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
 	-rm -f ./$(DEPDIR)/t_wrongret.Po
@@ -8093,7 +8078,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
 	-rm -f ./$(DEPDIR)/t_wctob.Po
 	-rm -f ./$(DEPDIR)/t_wctype.Po
-	-rm -f ./$(DEPDIR)/t_winmain-t_winmain.Po
+	-rm -f ./$(DEPDIR)/t_winmain.Po
 	-rm -f ./$(DEPDIR)/t_winmain_assert.Po
 	-rm -f ./$(DEPDIR)/t_wreaddir.Po
 	-rm -f ./$(DEPDIR)/t_wrongret.Po
