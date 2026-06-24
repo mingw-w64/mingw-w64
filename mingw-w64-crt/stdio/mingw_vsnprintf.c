@@ -57,11 +57,10 @@ int __cdecl __vsnprintf(APICHAR *buf, size_t length, const APICHAR *fmt, va_list
   buf[retval < (int) length ? retval : (int)length] = '\0';
 
 #if defined(__BUILD_WIDEAPI) && defined(__BUILD_WIDEAPI_ISO)
-  /* For wide api ISO C95+ vswprintf() when requested length
-   * is equal or larger than buffer length, returns negative
-   * value as required by ISO C95+.
+  /* ISO C95+ fails when n or more data wide chars are needed.  length was
+   * already decremented once for the terminator, so use > not >= here.
    */
-  if( retval >= (int) length )
+  if( retval > (int) length )
     retval = -1;
 #endif
 
