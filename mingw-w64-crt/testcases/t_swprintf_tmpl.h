@@ -11,7 +11,7 @@ int main() {
   mingw_test_init ();
   ret = swprintf(buffer, 3, L"%ls", L"AAA");
   if (ret >= 0 || wmemcmp(buffer, L"AA\0XXXXXXX", 10) != 0) {
-    fprintf(stderr, "ret: expected=<0 got=%d\n", ret);
+    fprintf(stderr, "ret: expected<0 got=%d\n", ret);
     fprintf(stderr, "buffer:");
     for (i = 0; i < 10; i++) {
       fprintf(stderr, " 0x%02x", (int)(wint_t)buffer[i]);
@@ -32,7 +32,7 @@ int main() {
     }
     ret = swprintf(exact, 9, L".%8x", 0xd8c7bc89U);
     if (ret >= 0) {
-      fprintf(stderr, "exact-fit n=9: ret expected=<0 got=%d\n", ret);
+      fprintf(stderr, "exact-fit n=9: ret expected<0 got=%d\n", ret);
       return 1;
     }
   }
