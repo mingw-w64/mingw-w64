@@ -15,6 +15,9 @@ unsigned int* (__cdecl *__MINGW_IMP_SYMBOL(__p__osplatform))(void) = __p__osplat
 #include <windows.h>
 #include <msvcrt.h>
 
+#define GET_OSPLATFORM_HELPER_ONLY
+#include "__p__osplatform_emul.c"
+
 static unsigned int* _osplatform_ptr;
 static unsigned int _osplatform_static;
 
@@ -23,16 +26,13 @@ unsigned int* __cdecl __p__osplatform(void)
     if (!_osplatform_ptr)
     {
         HMODULE msvcrt = __mingw_get_msvcrt_handle();
-        if (msvcrt)
-            _osplatform_ptr = (unsigned int*)GetProcAddress(msvcrt, "_osplatform");
-        if (!_osplatform_ptr)
+        unsigned int* ptr = msvcrt ? (unsigned int*)GetProcAddress(msvcrt, "_osplatform") : NULL;
+        if (!ptr)
         {
-            OSVERSIONINFOA osvi;
-            osvi.dwOSVersionInfoSize = sizeof(osvi);
-            if (GetVersionExA(&osvi))
-                _osplatform_static = osvi.dwPlatformId;
-            _osplatform_ptr = &_osplatform_static;
+            _osplatform_static = get_osplatform_helper();
+            ptr = &_osplatform_static;
         }
+        (void)InterlockedExchangePointer((PVOID*)&_osplatform_ptr, ptr);
     }
     return _osplatform_ptr;
 }
