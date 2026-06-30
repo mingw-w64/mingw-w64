@@ -2559,6 +2559,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
              * There are some other changes between versions regarding nul chars.
              * - msvcrt since Vista, msvcr80+ and UCRT do not accept nul chars in ANSI_STRING for wprintf.
              *   If encountering a nul char, it stops processing the format string and returns -1.
+             *   The buffer-based swprintf function always puts the terminating nul char.
+             *   And msvcr* version, but not UCRT version, also sets nul char to the last member of buffer.
              * - msvcrt before Vista, crtdll and msvcrt10 accept nul char in ANSI_STRING for wprintf,
              *   but the first nul char and everything after it in ANSI_STRING content is discarded.
              * - msvcrt20 does not support %Z format at all.
@@ -2592,8 +2594,36 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
             {
               const ANSI_STRING *s = va_arg( argv, ANSI_STRING * );
               const char *buf = (s && s->Buffer) ? (const char *)s->Buffer : "(null)";
+    #ifdef __BUILD_WIDEAPI
+              const int len = (s && s->Buffer) ? strnlen( (const char *)s->Buffer, s->Length ) : ( sizeof( "(null)" ) - 1 );
+    #else
               const int len = (s && s->Buffer) ? s->Length : ( sizeof( "(null)" ) - 1 );
+    #endif
               __pformat_putchars( buf, len, &stream );
+    #ifdef __BUILD_WIDEAPI
+              if( s && s->Buffer && len != s->Length )
+              {
+                if( !(stream.flags & PFORMAT_TO_FILE) )
+                {
+                  /*
+                   * Put nul char to the output queue. __pformat is always
+                   * called with --length, so there is always place for term.
+                   * Variable stream.count contains current value which would
+                   * be returned by snprintf() call. Which means that if it
+                   * less than stream.quota limit, it points after the last
+                   * char in buffer. If it is stream.quota limit or more than
+                   * overflow occurred and the position for nul term char is
+                   * indicated by stream.quota.
+                   */
+                  const int term_pos = stream.quota > stream.count ? stream.count : stream.quota;
+                  ((wchar_t *)(stream.dest))[term_pos] = L'\0';
+                }
+                /* set return value to -1 and stop processing of fmt input */
+                stream.count = -1;
+                fmt = L"";
+                break;
+              }
+    #endif
             }
             goto format_scan;
 

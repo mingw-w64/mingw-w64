@@ -36,10 +36,14 @@ int main() {
 	char abuf2[45];
 	wchar_t wbuf[55];
 	wchar_t wbuf2[50];
+	wchar_t wbuf3[23];
+	wchar_t wbuf4[4];
 	int ret;
 	size_t i;
 
 	(void)ws1; /* avoid "warning: unused variable" on some builds */
+	(void)wbuf3; /* avoid "warning: unused variable" on some builds */
+	(void)wbuf4; /* avoid "warning: unused variable" on some builds */
 
 	mingw_test_init ();
 
@@ -108,6 +112,37 @@ int main() {
 		return 1;
 	}
 	printf("OK wbuf2\n");
+
+	/* msvcr80+ and UCRT stop processing the format string at the first nul byte in ANSI_STRING buffer and returns -1 */
+#if __USE_MINGW_ANSI_STDIO == 1 || __MSVCRT_VERSION__ >= 0x800 || defined(_UCRT)
+	memset(wbuf3, 0xff, sizeof(wbuf3));
+	ret = swprintf(wbuf3, ARRAY_COUNT(wbuf3), L"prefix%hZsuffix", &as0);
+	if (ret != -1 || wmemcmp(wbuf3, L"prefixTEST\x0000\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF\xFFFF", ARRAY_COUNT(wbuf3)-1) != 0 ||
+#if __USE_MINGW_ANSI_STDIO == 1 || defined(_UCRT)
+	    wbuf3[ARRAY_COUNT(wbuf3)-1] != L'\xFFFF' /* UCRT does not touch the last char in buffer */
+#else /* __MSVCRT_VERSION__ >= 0x800 && __MSVCRT_VERSION__ <= 0xC00 */
+	    wbuf3[ARRAY_COUNT(wbuf3)-1] != L'\x0000' /* msvcr80-msvcr120 clears the last char in buffer */
+#endif
+	   ) {
+		fprintf(stderr, "ret: expected=%d got=%d\n", -1, ret);
+		fprintf(stderr, "wbuf3:\n");
+		PRINT_WIDE_BUF(wbuf3);
+		fprintf(stderr, "\n");
+		return 1;
+	}
+	printf("OK wbuf3\n");
+
+	memset(wbuf4, 0xff, sizeof(wbuf4));
+	ret = swprintf(wbuf4, ARRAY_COUNT(wbuf4), L"%hZ", &as0);
+	if (ret != -1 || wmemcmp(wbuf4, L"TES\x0000", ARRAY_COUNT(wbuf4)) != 0) {
+		fprintf(stderr, "ret: expected=%d got=%d\n", -1, ret);
+		fprintf(stderr, "wbuf4:\n");
+		PRINT_WIDE_BUF(wbuf4);
+		fprintf(stderr, "\n");
+		return 1;
+	}
+	printf("OK wbuf4\n");
+#endif
 
 	return 0;
 }
