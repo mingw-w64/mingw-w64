@@ -106,7 +106,9 @@ extern "C" {
 #define CRED_TYPE_DOMAIN_PASSWORD 2
 #define CRED_TYPE_DOMAIN_CERTIFICATE 3
 #define CRED_TYPE_DOMAIN_VISIBLE_PASSWORD 4
-#define CRED_TYPE_MAXIMUM 5
+#define CRED_TYPE_GENERIC_CERTIFICATE 5
+#define CRED_TYPE_DOMAIN_EXTENDED 6
+#define CRED_TYPE_MAXIMUM 7
 #define CRED_TYPE_MAXIMUM_EX (CRED_TYPE_MAXIMUM+1000)
 
 #define CRED_MAX_CREDENTIAL_BLOB_SIZE 512
@@ -251,6 +253,9 @@ extern "C" {
 
 #define CredWrite __MINGW_NAME_AW(CredWrite)
 #define CredRead __MINGW_NAME_AW(CredRead)
+
+#define CRED_ENUMERATE_ALL_CREDENTIALS 0x1
+
 #define CredEnumerate __MINGW_NAME_AW(CredEnumerate)
 #define CredWriteDomainCredentials __MINGW_NAME_AW(CredWriteDomainCredentials)
 #define CredReadDomainCredentials __MINGW_NAME_AW(CredReadDomainCredentials)
