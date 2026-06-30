@@ -9,7 +9,7 @@
  * So fix the pre-msvcr100 behavior by catching those two exceptions manually and propagating them to __mingw_SEH_error_handler() which correctly process them.
  * x87 floating point exceptions and also 64-bit x86 processes are correctly handled by msvcr* libraries. */
 
-EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(EXCEPTION_RECORD *, PVOID, CONTEXT *, PVOID);
+#include "../crt/seh_signal_dispatcher.h"
 
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */

@@ -115,14 +115,14 @@ src_libtaskschd=libsrc/taskschd.c
 src_libntoskrnl=libsrc/memcmp.c
 src_libdloadhelper=libsrc/dloadhelper.c misc/delay-f.c
 
-src_libmingw32=include/internal.h include/sect_attribs.h \
+src_libmingw32=include/internal.h include/sect_attribs.h crt/seh_signal_dispatcher.h \
   crt/crtexewin.c     crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
   crt/charmax.c       crt/ucrtexewin.c crt/dllargv.c    crt/_newmode.c  crt/tlssup.c             crt/xncommod.c \
   crt/cinitexe.c      crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
   crt/usermatherr.c   \
-  crt/xtxtmode.c      crt/crt_handler.c    \
+  crt/xtxtmode.c      \
   crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   \
   crt/cxa_atexit.c    crt/cxa_thread_atexit.c crt/tls_atexit.c
 

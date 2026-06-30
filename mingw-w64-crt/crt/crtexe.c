@@ -24,14 +24,9 @@
 #else
 #define ASM_SEH_EXCEPT "@except"
 #endif
-#ifdef __arm64ec__
-#define ASM_SEH_PREFIX "\"#"
-#define ASM_SEH_SUFFIX "\""
-#else
-#define ASM_SEH_PREFIX ""
-#define ASM_SEH_SUFFIX ""
 #endif
-#endif
+
+#include "seh_signal_dispatcher.h"
 
 extern IMAGE_DOS_HEADER __ImageBase;
 
@@ -66,7 +61,6 @@ static int managedapp;
 static int has_cctor = 0;
 
 extern void _pei386_runtime_relocator (void);
-EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler (struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
@@ -161,7 +155,7 @@ __tmainCRTStartup (void)
     };
     __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
 #elif defined(SEH_INLINE_ASM)
-    asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
+    asm volatile (".seh_handler %c0, " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
 #endif
 
     void *lock_free = NULL;

@@ -8,13 +8,11 @@
 #include <excpt.h>
 #include <stdlib.h>
 
-EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
-
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
 __attribute__((force_align_arg_pointer))
 #endif
-EXCEPTION_DISPOSITION __cdecl
+static EXCEPTION_DISPOSITION __cdecl
 __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   void *EstablisherFrame  __attribute__ ((unused)),
 			   struct _CONTEXT* ContextRecord,
@@ -35,7 +33,8 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
    * EXCEPTION_EXECUTE_HANDLER - execution of the process should be aborted
    * EXCEPTION_CONTINUE_SEARCH - parent SEH handler should be called
    */
-  action = _XcptFilter(ExceptionRecord->ExceptionCode, &(EXCEPTION_POINTERS){.ExceptionRecord = ExceptionRecord, .ContextRecord = ContextRecord});
+  action = _XcptFilter(ExceptionRecord->ExceptionCode,
+      &(EXCEPTION_POINTERS){.ExceptionRecord = ExceptionRecord, .ContextRecord = ContextRecord});
   switch (action)
     {
     case EXCEPTION_CONTINUE_SEARCH:
