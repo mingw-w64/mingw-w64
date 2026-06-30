@@ -1,0 +1,20 @@
+;
+; Definition file of loadperf.dll
+; Based on mingw-w64-crt/lib-common/loadperf.def
+; Excluding undocumented LpAcquireInstallationMutex/LpReleaseInstallationMutex
+; Written by Samuel Therrien, 2026
+;
+LIBRARY "loadperf.dll"
+EXPORTS
+BackupPerfRegistryToFileW@8
+InstallPerfDllA@12
+InstallPerfDllW@12
+LoadPerfCounterTextStringsA@8
+LoadPerfCounterTextStringsW@8
+RestorePerfRegistryFromFileW@8
+SetServiceAsTrustedA@8
+SetServiceAsTrustedW@8
+UnloadPerfCounterTextStringsA@8
+UnloadPerfCounterTextStringsW@8
+UpdatePerfNameFilesA@16
+UpdatePerfNameFilesW@16

@@ -1,0 +1,15 @@
+;
+; Definition file of sfc.dll
+; Based on mingw-w64-crt/lib64/sfc.def
+; Excluding undocumented SfcWLEventLogoff/SfcWLEventLogon
+; Written by Samuel Therrien, 2026
+;
+LIBRARY "sfc.dll"
+EXPORTS
+SRSetRestorePoint@8
+SRSetRestorePointA@8
+SRSetRestorePointW@8
+SfcGetNextProtectedFile@8
+SfcIsFileProtected@8
+SfcIsKeyProtected@12
+SfpVerifyFile@12
