@@ -50,7 +50,9 @@ int __cdecl __sprintf(APICHAR *buf, const APICHAR *fmt, ...)
 {
   register int retval;
   va_list argv; va_start( argv, fmt );
-  buf[retval = __pformat( PFORMAT_NOLIMIT, buf, 0, fmt, argv )] = '\0';
+  retval = __pformat( PFORMAT_NOLIMIT, buf, 0, fmt, argv );
+  if( retval >= 0 )
+    buf[retval] = '\0';
   va_end( argv );
   return retval;
 }

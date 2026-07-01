@@ -49,6 +49,8 @@ int __cdecl __vsprintf (APICHAR *, const APICHAR *, va_list) __MINGW_NOTHROW;
 int __cdecl __vsprintf(APICHAR *buf, const APICHAR *fmt, va_list argv)
 {
   register int retval;
-  buf[retval = __pformat( PFORMAT_NOLIMIT, buf, 0, fmt, argv )] = '\0';
+  retval = __pformat( PFORMAT_NOLIMIT, buf, 0, fmt, argv );
+  if( retval >= 0 )
+    buf[retval] = '\0';
   return retval;
 }

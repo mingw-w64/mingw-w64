@@ -54,7 +54,10 @@ int __cdecl __vsnprintf(APICHAR *buf, size_t length, const APICHAR *fmt, va_list
    * then add the requisite NUL terminator.
    */
   retval = __pformat( 0, buf, --length, fmt, argv );
-  buf[retval < (int) length ? retval : (int)length] = '\0';
+  if( retval >= 0 && retval < (int) length )
+    buf[retval] = '\0';
+  else if( retval >= (int) length )
+    buf[length] = '\0';
 
 #if defined(__BUILD_WIDEAPI) && defined(__BUILD_WIDEAPI_ISO)
   /* ISO C95+ fails when n or more data wide chars are needed.  length was
