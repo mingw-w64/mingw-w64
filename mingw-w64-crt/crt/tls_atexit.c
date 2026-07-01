@@ -86,18 +86,21 @@ int __mingw_cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso) {
   return 0;
 }
 
-static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
-  if (dwReason == DLL_PROCESS_DETACH) {
-    dtor_obj **p = (dtor_obj **)TlsGetValue(tls_dtors_slot);
-    run_dtor_list(p);
-    free(p);
-    TlsSetValue(tls_dtors_slot, NULL);
-    TlsFree(tls_dtors_slot);
-    run_dtor_list(&global_dtors);
-  }
+static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID lpReserved) {
+  if (dwReason != DLL_PROCESS_DETACH)
+    return;
+  if (lpReserved != NULL)  /* Process is terminating.  */
+    return;
+
+  dtor_obj **p = (dtor_obj **)TlsGetValue(tls_dtors_slot);
+  run_dtor_list(p);
+  free(p);
+  TlsSetValue(tls_dtors_slot, NULL);
+  TlsFree(tls_dtors_slot);
+  run_dtor_list(&global_dtors);
 }
 
-static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
+static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID lpReserved) {
   dtor_obj **p;
   switch (dwReason) {
   case DLL_PROCESS_ATTACH:
@@ -142,7 +145,7 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
      * standard says, but differs from what MSVC does with a dynamically
      * linked CRT (which still runs TLS destructors for the main thread).
      */
-    if (__mingw_module_is_dll) {
+    if (__mingw_module_is_dll && lpReserved == NULL) {
       p = (dtor_obj **)TlsGetValue(tls_dtors_slot);
       run_dtor_list(p);
       free(p);

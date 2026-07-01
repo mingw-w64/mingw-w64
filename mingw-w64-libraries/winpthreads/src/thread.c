@@ -463,7 +463,8 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason == DLL_PROCESS_DETACH)
     {
-      free_pthread_mem ();
+      if (lpreserved == NULL)  /* FreeLibrary is called.  */
+        free_pthread_mem ();
     }
   else if (dwReason == DLL_PROCESS_ATTACH)
     {

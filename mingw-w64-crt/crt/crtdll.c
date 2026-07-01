@@ -122,7 +122,8 @@ i__leave:
 	}
       else
 	{
-          _execute_onexit_table(&atexit_table);
+          if (lpreserved == NULL)  /* FreeLibrary is called.  */
+            _execute_onexit_table(&atexit_table);
 	  __native_startup_state = __uninitialized;
 	}
       if (! nested)
