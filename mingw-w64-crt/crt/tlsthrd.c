@@ -131,7 +131,6 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
       __mingwthr_cs_init = 1;
       break;
     case DLL_PROCESS_DETACH:
-      __mingwthr_run_key_dtors();
       if (__mingwthr_cs_init == 1)
         {
           __mingwthr_key_t volatile *keyp, *t;
