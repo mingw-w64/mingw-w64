@@ -88,6 +88,7 @@ int __FLT_ABI(test_function_cexp) ()
   DEFINE_TEST (        __FLT_NAN, __FLT_CST(42.42),       __FLT_NAN,       __FLT_NAN, 0, 0)
   DEFINE_TEST (        __FLT_NAN,         INFINITY,       __FLT_NAN,       __FLT_NAN, 0, 0)
   DEFINE_TEST (        __FLT_NAN,        __FLT_NAN,       __FLT_NAN,       __FLT_NAN, 0, 0)
+  DEFINE_TEST (__FLT_MAXLOG + __FLT_CST(1.0),   __FLT_CST(0.0),        INFINITY,  __FLT_CST(0.0), 0, 0)
 
   TESTS_END
 

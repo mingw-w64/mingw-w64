@@ -102,6 +102,11 @@ __FLT_ABI(cexp) (__FLT_TYPE __complex__ z)
     __real__ ret = exp_val * c_x;
     __imag__ ret = exp_val * s_x;
   }
+  else if (i_class == FP_ZERO)
+  {
+    __real__ ret = exp_val;
+    __imag__ ret = __imag__ z;
+  }
   else
   {
     __real__ ret = __FLT_ABI(copysign) (exp_val, c_x);
