@@ -153,9 +153,11 @@ __tmainCRTStartup (void)
       .Next = (EXCEPTION_REGISTRATION_RECORD *)__readfsdword (0),
       .Handler = (PEXCEPTION_ROUTINE)(INT_PTR)__mingw_SEH_signal_dispatcher,
     };
-    __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
+    /* dynamically register SEH error handler; it is active until manually unregistered */
+    __writefsdword (0, (DWORD)&exception_record);
 #elif defined(SEH_INLINE_ASM)
-    asm volatile (".seh_handler %c0, " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_signal_dispatcher)); /* statically register SEH error handler, it is active only in the current function */
+    /* statically register SEH error handler; it is active only in the current function */
+    asm volatile (".seh_handler %c0, " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_signal_dispatcher));
 #endif
 
     void *lock_free = NULL;
@@ -251,7 +253,7 @@ __tmainCRTStartup (void)
       has_cctor = 1;
     if (! nested)
       (VOID)InterlockedExchangePointer (&__native_startup_lock, NULL);
-    
+
     if (__dyn_tls_init_callback != NULL)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
 
@@ -320,7 +322,7 @@ static int duplicate_ppstrings (int ac, _TCHAR ***av)
 	int i;
 	_TCHAR **n = (_TCHAR **) malloc (sizeof (_TCHAR *) * (ac + 1));
 	if (!n) return 1;
-	
+
 	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
