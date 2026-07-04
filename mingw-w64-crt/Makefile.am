@@ -26,6 +26,7 @@ AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_CCASFLAGS=@CFGUARD_CFLAGS@
 CPPFLAGSARM32=$(AM_CPPFLAGS) -mfpu=vfpv3
 CPPFLAGSARM64=$(AM_CPPFLAGS)
+CPPFLAGSARM64EC=$(AM_CPPFLAGS) -target arm64ec-windows-gnu
 if ARM64X
     AM_CFLAGS += -marm64x
     AM_CXXFLAGS += -marm64x
@@ -2606,9 +2607,14 @@ test.c
 
 libarm64_LIBRARIES = libarm64/libkernel32.a
 libarm64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm64) lib-common/kernel32.def.in
-libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.def && $(AR) $(ARFLAGS)
 libarm64_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include)
-EXTRA_libarm64_libkernel32_a_DEPENDENCIES=libarm64/kernel32.def
+EXTRA_libarm64_libkernel32_a_DEPENDENCIES=libarm64/kernel32.gen.def
+if ARM64X
+EXTRA_libarm64_libkernel32_a_DEPENDENCIES += libarm64/kernel32.arm64ec.def
+libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.arm64ec.def -N libarm64/kernel32.gen.def && $(AR) $(ARFLAGS)
+else
+libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.gen.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_DATA =
 if !W32API
@@ -2627,18 +2633,30 @@ libarm64_libbits_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libshell32.a
 libarm64_libshell32_a_SOURCES = $(src_libshell32)
+if ARM64X
+libarm64_libshell32_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/shell32.def -N $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
+else
 libarm64_libshell32_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
+endif
 libarm64_libshell32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libdinput.a
 libarm64_libdinput_a_SOURCES = $(src_libdinput)
 libarm64_libdinput_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+if ARM64X
+libarm64_libdinput_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput.def -N $(top_srcdir)/lib-common/dinput.def && $(AR) $(ARFLAGS)
+else
 libarm64_libdinput_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libdinput8.a
 libarm64_libdinput8_a_SOURCES = $(src_libdinput8)
 libarm64_libdinput8_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+if ARM64X
+libarm64_libdinput8_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput8.def -N $(top_srcdir)/lib-common/dinput8.def && $(AR) $(ARFLAGS)
+else
 libarm64_libdinput8_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput8.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libdmoguids.a
 libarm64_libdmoguids_a_SOURCES = $(src_libdmoguids)
@@ -2675,7 +2693,11 @@ libarm64_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libwindowscodecs.a
 libarm64_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
 libarm64_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+if ARM64X
+libarm64_libwindowscodecs_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/windowscodecs.def -N $(top_srcdir)/lib-common/windowscodecs.def && $(AR) $(ARFLAGS)
+else
 libarm64_libwindowscodecs_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/windowscodecs.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libwbemuuid.a
 libarm64_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
@@ -2688,7 +2710,11 @@ libarm64_libdxguid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libksuser.a
 libarm64_libksuser_a_SOURCES = $(src_libksuser)
 libarm64_libksuser_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+if ARM64X
+libarm64_libksuser_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/ksuser.def -N $(top_srcdir)/lib-common/ksuser.def && $(AR) $(ARFLAGS)
+else
 libarm64_libksuser_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/ksuser.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libksguid.a
 libarm64_libksguid_a_SOURCES = $(src_libksguid)
@@ -2734,13 +2760,22 @@ libarm64_libwiaguid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 libarm64_LIBRARIES += libarm64/libgdiplus.a
 libarm64_libgdiplus_a_SOURCES = $(src_libgdiplus)
 libarm64_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+if ARM64X
+libarm64_libgdiplus_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/gdiplus.def -N $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
+else
 libarm64_libgdiplus_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libws2_32.a
 libarm64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/ws2_32.def.in
 libarm64_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
-libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.def && $(AR) $(ARFLAGS)
-EXTRA_libarm64_libws2_32_a_DEPENDENCIES=libarm64/ws2_32.def
+EXTRA_libarm64_libws2_32_a_DEPENDENCIES = libarm64/ws2_32.gen.def
+if ARM64X
+EXTRA_libarm64_libws2_32_a_DEPENDENCIES += libarm64/ws2_32.arm64ec.def
+libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.arm64ec.def -N libarm64/ws2_32.gen.def && $(AR) $(ARFLAGS)
+else
+libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.gen.def && $(AR) $(ARFLAGS)
+endif
 
 libarm64_LIBRARIES += libarm64/libadsiid.a
 libarm64_libadsiid_a_SOURCES = $(src_adsiid)
@@ -2786,12 +2821,15 @@ libarm64_LIBRARIES += libarm64/libmingwthrd.a
 libarm64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
-processed_defs += libarm64/msvcrt.def libarm64/ucrtbase.def libarm64/ucrtbased.def \
+processed_defs += libarm64/msvcrt.gen.def libarm64/ucrtbase.def libarm64/ucrtbased.def \
 				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/oleaut32.def \
-				  libarm64/user32.def libarm64/winhvplatform.def libarm64/ws2_32.def \
+				  libarm64/user32.def libarm64/winhvplatform.def libarm64/ws2_32.gen.def \
 				  libarm64/api-ms-win-crt-math-l1-1-0.def libarm64/api-ms-win-crt-private-l1-1-0.def libarm64/api-ms-win-crt-runtime-l1-1-0.def \
 				  libarm64/api-ms-win-crt-filesystem-l1-1-0.def libarm64/api-ms-win-crt-time-l1-1-0.def \
 				  libarm64/vcruntime140.def libarm64/vcruntime140d.def libarm64/vcruntime140_app.def
+if ARM64X
+processed_defs += libarm64/msvcrt.arm64ec.def libarm64/ws2_32.arm64ec.def
+endif
 
 endif
 
@@ -2823,26 +2861,61 @@ libarm64_DATA += libarm64/libvcruntime140d.a
 libarm64_DATA += libarm64/libvcruntime140_app.a
 endif
 
+dx64_DATA =
+dx64_DATA += libarm64/libxinput.a
+dx64_DATA += libarm64/libd3dcompiler.a
+
+if ARM64X
+libarm64/lib%.a: libarm64/%.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+libarm64/lib%.a: lib-common/%.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+libarm64/lib%_def.a: lib-common/%.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+libarm64/lib%.a: libarm64/%.gen.def libarm64/%.arm64ec.def
+	$(AM_V_GEN)$(DTDEFARM64) libarm64/$*.arm64ec.def -N $<
+
+libarm64/lib%_def.a: libarm64/%.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+libarm64/lib%_def.a: libarm64/%.gen.def libarm64/%.arm64ec.def
+	$(AM_V_GEN)$(DTDEFARM64) libarm64/$*.arm64ec.def -N $<
+
+libarm64/libxinput.a: lib-common/xinput1_4.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+libarm64/libd3dcompiler.a: lib-common/d3dcompiler_47.def
+	$(AM_V_GEN)$(DTDEFARM64) $< -N $<
+
+else
+
 libarm64/lib%.a: libarm64/%.def
 	$(AM_V_GEN)$(DTDEFARM64) $<
 
 libarm64/lib%.a: lib-common/%.def
 	$(AM_V_GEN)$(DTDEFARM64) $<
 
-libarm64/lib%_def.a: libarm64/%.def
-	$(AM_V_GEN)$(DTDEFARM64) $<
-
 libarm64/lib%_def.a: lib-common/%.def
 	$(AM_V_GEN)$(DTDEFARM64) $<
 
-dx64_DATA =
-dx64_DATA += libarm64/libxinput.a
-dx64_DATA += libarm64/libd3dcompiler.a
+libarm64/lib%.a: libarm64/%.gen.def
+	$(AM_V_GEN)$(DTDEFARM64) $<
+
+libarm64/lib%_def.a: libarm64/%.def
+	$(AM_V_GEN)$(DTDEFARM64) $<
+
+libarm64/lib%_def.a: libarm64/%.gen.def
+	$(AM_V_GEN)$(DTDEFARM64) $<
 
 libarm64/libxinput.a: lib-common/xinput1_4.def
 	$(AM_V_GEN)$(DTDEFARM64) $<
+
 libarm64/libd3dcompiler.a: lib-common/d3dcompiler_47.def
 	$(AM_V_GEN)$(DTDEFARM64) $<
+endif
 
 endif
 # End ARM 64-bit runtime
@@ -4472,8 +4545,11 @@ lib64/%.def: lib64/%.def.in
 libarm32/%.def: libarm32/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
-libarm64/%.def: libarm64/%.def.in
+libarm64/%.gen.def: libarm64/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
+
+libarm64/%.arm64ec.def: libarm64/%.def.in
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64EC) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
 
 lib32/%.def: lib-common/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGS32) $< -Wp,-w -P -I$(top_srcdir)/def-include > $@
@@ -4484,8 +4560,11 @@ lib64/%.def: lib-common/%.def.in
 libarm32/%.def: lib-common/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM32) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
 
-libarm64/%.def: lib-common/%.def.in
+libarm64/%.gen.def: lib-common/%.def.in
 	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
+
+libarm64/%.arm64ec.def: lib-common/%.def.in
+	$(AM_V_GEN)$(MKDIR_P) $(@D) && $(CPP) -x c $(CPPFLAGSARM64EC) $< -Wp,-w -P -I$(top_srcdir)/def-include | sed -E 's/^([^ ]+)@[0-9]+( |\r?$$)/\1\2/' > $@
 
 # Don't compile these, but install as is:
 #
