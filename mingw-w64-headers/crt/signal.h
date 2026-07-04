@@ -57,7 +57,13 @@ extern "C" {
   extern void **__cdecl __pxcptinfoptrs(void);
 #define _pxcptinfoptrs (*__pxcptinfoptrs())
 
+  /* mingw-w64 provides signal support for:
+   * - all builds for i386 platform
+   * - SEH builds for non-i386 platforms
+   */
+#if defined(__i386__) || (defined(__SEH__) && (!defined(__clang__) || __clang_major__ >= 7))
   __p_sig_fn_t __cdecl signal(int _SigNum,__p_sig_fn_t _Func);
+#endif
   int __cdecl raise(int _SigNum);
 
 #ifdef __cplusplus

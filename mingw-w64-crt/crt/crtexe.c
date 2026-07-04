@@ -162,8 +162,6 @@ __tmainCRTStartup (void)
     __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
 #elif defined(SEH_INLINE_ASM)
     asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
-#else
-#error unsupported platform
 #endif
 
     void *lock_free = NULL;
