@@ -20,11 +20,17 @@ else
 endif
 
 AM_CPPFLAGS=$(sysincludes)
-AM_CFLAGS=-pipe -std=gnu99 -fno-builtin -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x600 -D__USE_MINGW_ANSI_STDIO=0 @IMAGEBASE_CFLAGS@ @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+COMMON_CFLAGS=-pipe -std=gnu99 -fno-builtin -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x600 -D__USE_MINGW_ANSI_STDIO=0 @IMAGEBASE_CFLAGS@ @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS=$(COMMON_CFLAGS)
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_CCASFLAGS=@CFGUARD_CFLAGS@
 CPPFLAGSARM32=$(AM_CPPFLAGS) -mfpu=vfpv3
 CPPFLAGSARM64=$(AM_CPPFLAGS)
+if ARM64X
+    AM_CFLAGS += -marm64x
+    AM_CXXFLAGS += -marm64x
+    AM_CCASFLAGS += -marm64x
+endif
 CPPFLAGS32=$(AM_CPPFLAGS) -m32 -masm=att
 CPPFLAGS64=$(AM_CPPFLAGS) -m64 -masm=att
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
@@ -880,13 +886,12 @@ src_msvcrtarm64=\
   stdio/_wstat32.c \
   stdio/_wstat32i64.c \
   stdio/gets.c \
+  stdio/scanf.S \
   string/msvcr80plus_wcstok.c
 
 if ARM64EC
 src_msvcrtarm64+=math/fabsf.c
 src_msvcrtarm64_x64=libarm64/stdio/scanf.x86_64.o
-else
-src_msvcrtarm64+=stdio/scanf.S
 endif
 
 src_pre_msvcrt20=\
@@ -2589,7 +2594,7 @@ libarm64/%.o: crt/%.c
 	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
 
 libarm64/%.x86_64.o: %.S
-	$(AM_V_CC)$(MKDIR_P) $(@D) && $(COMPILE) $(CPPFLAGSARM64) -target x86_64-windows-gnu -c $< -o $@
+	$(AM_V_CC)$(MKDIR_P) $(@D) && $(CC) $(COMMON_CFLAGS) $(CPPFLAGSARM64) -target x86_64-windows-gnu -c $< -o $@
 
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.

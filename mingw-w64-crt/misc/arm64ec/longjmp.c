@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef __arm64ec__
+
 #undef __MSVCRT_VERSION__
 #define _UCRT
 
@@ -29,3 +31,5 @@ void __cdecl longjmp( jmp_buf b, int retval )
 }
 
 void (__cdecl *__MINGW_IMP_SYMBOL(longjmp))( jmp_buf b, int retval ) = longjmp;
+
+#endif

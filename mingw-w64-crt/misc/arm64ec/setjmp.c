@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef __arm64ec__
+
 #undef __MSVCRT_VERSION__
 #define _UCRT
 
@@ -105,3 +107,5 @@ int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame )
          "b \"#do_setjmpex\"\n\t"
          ".seh_endproc" );
 }
+
+#endif

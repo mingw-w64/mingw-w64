@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef __arm64ec__
+
 #define EXPORT_SYM(x) .globl x; x:
 
 /*
@@ -106,3 +108,5 @@ EXPORT_SYM(__icall_helper_arm64ec)
 	.seh_endepilogue
 	br	x11
 	.seh_endproc
+
+#endif

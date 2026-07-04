@@ -25,7 +25,7 @@
              expanded as variadic arguments when calling func
 */
 
-#if defined (__x86_64__)
+#if defined(__x86_64__) && !defined(__arm64ec__)
 
     .text
     .align 16

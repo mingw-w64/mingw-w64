@@ -170,6 +170,18 @@ AS_VAR_IF([enable_libarm64],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64]) || AS_VAR_TEST_SET([LIBARM32])],
     [AC_MSG_WARN([Building the runtime to use libarm64 with lib32, lib64 or libarm32 is unsupported.])])])
 
+AC_MSG_CHECKING([whether to build the ARM64X libraries])
+AC_ARG_ENABLE([arm64x],
+  [AS_HELP_STRING([--enable-arm64x], [Enable hybrid ARM64X (ARM64 and ARM64EC) libraries])],
+  [],
+  [AS_VAR_SET([enable_arm64x],[no])])
+AC_MSG_RESULT([$enable_arm64x])
+AS_CASE([$enable_arm64x],
+  [no],[],
+  [yes],[AS_VAR_SET([ARM64X])],
+  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
+AM_CONDITIONAL([ARM64X], [AS_VAR_TEST_SET([ARM64X])])
+
 AS_CASE([$host_cpu],
   [x86_64],[
     libx8664suffx=lib
@@ -210,7 +222,7 @@ AC_SUBST([LIBX8632SUFFIXDIR],[$libx8632suffx])
 AC_SUBST([LIBARM64SUFFIXDIR],[$libarm64suffx])
 AC_SUBST([LIBARM32SUFFIXDIR],[$libarm32suffx])
 
-AM_CONDITIONAL([ARM64EC],[test $host_cpu = arm64ec])
+AM_CONDITIONAL([ARM64EC],[test $host_cpu = arm64ec -o x$enable_arm64x = xyes])
 
 # Checks for features.
 

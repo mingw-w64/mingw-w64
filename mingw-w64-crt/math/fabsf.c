@@ -3,6 +3,9 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#ifndef __aarch64__
+
 float fabsf (float x);
 
 float
@@ -16,3 +19,5 @@ fabsf (float x)
   return __builtin_fabsf(x);
 #endif
 }
+
+#endif
