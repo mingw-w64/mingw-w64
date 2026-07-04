@@ -6,76 +6,9 @@
 
 #include <windows.h>
 #include <excpt.h>
-#include <string.h>
 #include <stdlib.h>
-#include <malloc.h>
-#include <memory.h>
-#include <signal.h>
-#include <stdio.h>
 
 EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler(struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
-
-#if defined(__x86_64__) && !defined(_MSC_VER) && !defined(__SEH__)
-
-#pragma pack(push,1)
-typedef struct _UNWIND_INFO {
-  BYTE Version:3;
-  BYTE Flags:5;
-  BYTE PrologSize;
-  BYTE CountOfUnwindCodes;
-  BYTE FrameRegisterAndOffset;
-  ULONG AddressOfExceptionHandler;
-} UNWIND_INFO,*PUNWIND_INFO;
-#pragma pack(pop)
-
-PIMAGE_SECTION_HEADER _FindPESectionByName (const char *);
-PIMAGE_SECTION_HEADER _FindPESectionExec (size_t);
-PBYTE _GetPEImageBase (void);
-
-#define MAX_PDATA_ENTRIES 32
-static RUNTIME_FUNCTION emu_pdata[MAX_PDATA_ENTRIES];
-static UNWIND_INFO emu_xdata[MAX_PDATA_ENTRIES];
-
-int __mingw_init_ehandler (void);
-int
-__mingw_init_ehandler (void)
-{
-  static int was_here = 0;
-  size_t e = 0;
-  PIMAGE_SECTION_HEADER pSec;
-  PBYTE _ImageBase = _GetPEImageBase ();
-  
-  if (was_here || !_ImageBase)
-    return was_here;
-  was_here = 1;
-  if (_FindPESectionByName (".pdata") != NULL)
-    return 1;
-
-  e = 0;
-  /* Fill tables and entries.  */
-  while (e < MAX_PDATA_ENTRIES && (pSec = _FindPESectionExec (e)) != NULL)
-    {
-      emu_xdata[e].Version = 1;
-      emu_xdata[e].Flags = UNW_FLAG_EHANDLER;
-      emu_xdata[e].AddressOfExceptionHandler =
-	(DWORD)(size_t) ((LPBYTE)__mingw_SEH_error_handler - _ImageBase);
-      emu_pdata[e].BeginAddress = pSec->VirtualAddress;
-      emu_pdata[e].EndAddress = pSec->VirtualAddress + pSec->Misc.VirtualSize;
-      emu_pdata[e].UnwindData =
-	(DWORD)(size_t)((LPBYTE)&emu_xdata[e] - _ImageBase);
-      ++e;
-    }
-#ifdef _DEBUG_CRT
-  if (!e || e > MAX_PDATA_ENTRIES)
-    abort ();
-#endif
-  /* RtlAddFunctionTable.  */
-  if (e != 0)
-    RtlAddFunctionTable (emu_pdata, e, (DWORD64)_ImageBase);
-  return 1;
-}
-
-#endif
 
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */

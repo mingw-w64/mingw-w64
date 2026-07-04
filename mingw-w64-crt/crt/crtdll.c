@@ -17,9 +17,6 @@
 #include <sect_attribs.h>
 #include <locale.h>
 
-#if defined(__x86_64__) && !defined(__SEH__)
-extern int __mingw_init_ehandler (void);
-#endif
 extern void __main ();
 extern void _pei386_runtime_relocator (void);
 extern _PIFV __xi_a[];
@@ -72,9 +69,6 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  __native_startup_state = __initializing;
 	  
 	  _pei386_runtime_relocator ();
-#if defined(__x86_64__) && !defined(__SEH__)
-	  __mingw_init_ehandler ();
-#endif
 	  ret = _initialize_onexit_table (&atexit_table);
 	  if (ret != 0)
 	    goto i__leave;

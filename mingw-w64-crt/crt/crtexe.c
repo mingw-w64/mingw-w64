@@ -67,9 +67,6 @@ static int has_cctor = 0;
 
 extern void _pei386_runtime_relocator (void);
 EXCEPTION_DISPOSITION __cdecl __mingw_SEH_error_handler (struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);
-#if defined(__x86_64__) && !defined(SEH_INLINE_ASM)
-int __mingw_init_ehandler (void);
-#endif
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
@@ -165,8 +162,6 @@ __tmainCRTStartup (void)
     __writefsdword (0, (DWORD)&exception_record); /* dynamically register SEH error handler, it is active until manually unregistered */
 #elif defined(SEH_INLINE_ASM)
     asm volatile (".seh_handler " ASM_SEH_PREFIX "%c0" ASM_SEH_SUFFIX ", " ASM_SEH_EXCEPT :: "i" (__mingw_SEH_error_handler)); /* statically register SEH error handler, it is active only in the current function */
-#elif defined(__x86_64__)
-    __mingw_init_ehandler (); /* dynamically register SEH error handler for all functions, it is active until program terminates */
 #else
 #error unsupported platform
 #endif
