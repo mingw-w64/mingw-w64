@@ -95,25 +95,18 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return;
-  /* As TLS variables are detroyed already by DLL_THREAD_DETACH
-     call, we have to avoid access on the possible DLL_PROCESS_DETACH
-     call the already destroyed TLS vars.
-     TODO: The used local thread based variables have to be handled
-     manually, so that we can control their lifetime here.  */
+
 #if !defined (DISABLE_MS_TLS)
-  if (dwReason != DLL_PROCESS_DETACH)
+  for (pnode = *dtor_list_ptr; pnode != NULL; pnode = pnext)
     {
-      for (pnode = *dtor_list_ptr; pnode != NULL; pnode = pnext)
+      for (i = pnode->count - 1; i >= 0; --i)
         {
-          for (i = pnode->count - 1; i >= 0; --i)
-	    {
-	      if (pnode->funcs[i] != NULL)
-	        (*pnode->funcs[i])();
-	    }
-          pnext = pnode->next;
-          if (pnext != NULL)
-	    free ((void *) pnode);
+          if (pnode->funcs[i] != NULL)
+            (*pnode->funcs[i])();
         }
+      pnext = pnode->next;
+      if (pnext != NULL)
+        free ((void *) pnode);
     }
 #endif
 }
