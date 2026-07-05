@@ -14,6 +14,7 @@
 #include <memory.h>
 #include <malloc.h>
 #include <corecrt_startup.h>
+#include <thread_local.h>
 
 #define FUNCS_PER_NODE 30
 
@@ -23,19 +24,20 @@ typedef struct TlsDtorNode {
   _PVFV funcs[FUNCS_PER_NODE];
 } TlsDtorNode;
 
-#ifndef __CRT_THREAD
-#ifdef HAVE_ATTRIBUTE_THREAD
-#define __CRT_THREAD	__declspec(thread)
-#else
-#define __CRT_THREAD    __thread
-#endif
-#endif
-
 #define DISABLE_MS_TLS 1
 
 #if !defined (DISABLE_MS_TLS)
-static __CRT_THREAD TlsDtorNode *dtor_list;
-static __CRT_THREAD TlsDtorNode dtor_list_head;
+static TlsDtorNode **get_dtor_list_ptr (void)
+{
+  TlsDtorNode **dtor_list_ptr = __MINGW_ALLOC_THREAD_LOCAL_OR_NULL(TlsDtorNode*);
+  return dtor_list_ptr;
+}
+
+static TlsDtorNode *get_dtor_list_head_ptr (void)
+{
+  TlsDtorNode *dtor_list_head_ptr = __MINGW_ALLOC_THREAD_LOCAL_OR_NULL(TlsDtorNode);
+  return dtor_list_head_ptr;
+}
 #endif
 
 int __cdecl __tlregdtor (_PVFV);
@@ -43,6 +45,15 @@ int __cdecl __tlregdtor (_PVFV);
 int __cdecl
 __tlregdtor (_PVFV func)
 {
+#if !defined (DISABLE_MS_TLS)
+  TlsDtorNode **dtor_list_ptr = get_dtor_list_ptr();
+  TlsDtorNode *dtor_list_head_ptr = get_dtor_list_head_ptr();
+  if (!dtor_list_ptr || !dtor_list_head_ptr)
+    return -1;
+  #define dtor_list (*dtor_list_ptr)
+  #define dtor_list_head (*dtor_list_head_ptr)
+#endif
+
   if (!func)
     return 0;
 #if !defined (DISABLE_MS_TLS)
@@ -65,6 +76,10 @@ __tlregdtor (_PVFV func)
   dtor_list->funcs[dtor_list->count++] = func;
 #endif
   return 0;
+#if !defined (DISABLE_MS_TLS)
+  #undef dtor_list
+  #undef dtor_list_head
+#endif
 }
 
 static void WINAPI
@@ -73,6 +88,9 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
 #if !defined (DISABLE_MS_TLS)
   TlsDtorNode *pnode, *pnext;
   int i;
+  TlsDtorNode **dtor_list_ptr = get_dtor_list_ptr();
+  if (!dtor_list_ptr)
+    return;
 #endif
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
@@ -85,7 +103,7 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
 #if !defined (DISABLE_MS_TLS)
   if (dwReason != DLL_PROCESS_DETACH)
     {
-      for (pnode = dtor_list; pnode != NULL; pnode = pnext)
+      for (pnode = *dtor_list_ptr; pnode != NULL; pnode = pnext)
         {
           for (i = pnode->count - 1; i >= 0; --i)
 	    {
