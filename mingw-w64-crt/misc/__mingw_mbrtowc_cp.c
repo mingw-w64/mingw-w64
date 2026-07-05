@@ -133,15 +133,31 @@ size_t __mingw_mbrtowc_cp (
   int ret = MultiByteToWideChar (
     cp, MB_ERR_INVALID_CHARS, conversion_state.bytes, length, &wcOut, 1
   );
+#ifdef __i386__
   if (ret == 0) {
     /* Older Windows versons do not support MB_ERR_INVALID_CHARS.
      * WinNT 3.x signals ERROR_INVALID_PARAMETER and WinNT 4.0 signals ERROR_INVALID_FLAGS.
      * Fallback case when MB_ERR_INVALID_CHARS is not supported.
      */
     DWORD error = GetLastError ();
-    if (error == ERROR_INVALID_PARAMETER || error == ERROR_INVALID_FLAGS)
+    if (error == ERROR_INVALID_PARAMETER || error == ERROR_INVALID_FLAGS) {
       ret = MultiByteToWideChar (cp, 0, conversion_state.bytes, length, &wcOut, 1);
+      if (ret == 1) {
+        /* Without the MB_ERR_INVALID_CHARS flag, MultiByteToWideChar will
+         * successfully convert invalid code unit sequence. When this occurs,
+         * it produces one '?' character for each input code unit. We need to
+         * do round-trip conversion back to `cp` via WideCharToMultiByte to
+         * validate that converted multibyte sequence was valid.
+         */
+        char buffer[2] = {0, 0}; /* length <= 2 */
+        int ret2 = WideCharToMultiByte (cp, 0, &wcOut, 1, buffer, length, NULL, NULL);
+        if (ret2 != length || memcmp (buffer, conversion_state.bytes, length) != 0) {
+          ret = 0; /* indicate failure */
+        }
+      }
+    }
   }
+#endif
 
   if (ret != 1) {
     goto eilseq;
