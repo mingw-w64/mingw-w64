@@ -28,6 +28,31 @@ libnontls.dll: libnontls.o
 	$(LINK) -shared -Wl,--kill-at -o $@ $^
 t_nontls_dll.exe: libnontls.dll
 
+# Used by t_tls_dll
+libtls01.dll: libtls01.o
+	$(LINK) -shared -o $@ $^
+libtls02.dll: libtls02.o
+	$(LINK) -shared -o $@ $^
+libtls03.dll: libtls03.o
+	$(LINK) -shared -o $@ $^
+libtls04.dll: libtls04.o
+	$(LINK) -shared -o $@ $^
+libtls05.dll: libtls05.o
+	$(LINK) -shared -o $@ $^
+libtls06.dll: libtls06.o
+	$(LINK) -shared -o $@ $^
+libtls07.dll: libtls07.o
+	$(LINK) -shared -o $@ $^
+libtls08.dll: libtls08.o
+	$(LINK) -shared -o $@ $^
+libtls09.dll: libtls09.o
+	$(LINK) -shared -o $@ $^
+libtls10.dll: libtls10.o
+	$(LINK) -shared -o $@ $^
+libtls11.dll: libtls11.o
+	$(LINK) -shared -o $@ $^
+t_tls_dll.exe: libtls01.dll libtls02.dll libtls03.dll libtls04.dll libtls05.dll libtls06.dll libtls07.dll libtls08.dll libtls09.dll libtls10.dll libtls11.dll
+
 # The following tests are compiled but not run with `make check`.
 testcase_compile_only = \
   t_intrin \
@@ -89,6 +114,7 @@ testcase_progs = \
   t_mbsrtowcs \
   t_nontls_dll \
   t_nontls_exe \
+  t_tls_dll \
   t_nullptrexception \
   t_pow \
   t_powi \
@@ -249,4 +275,15 @@ EXTRA_DIST = \
 
 CLEANFILES = \
   libnontls.dll \
-  libprocdetach.dll
+  libprocdetach.dll \
+  libtls01.dll \
+  libtls02.dll \
+  libtls03.dll \
+  libtls04.dll \
+  libtls05.dll \
+  libtls06.dll \
+  libtls07.dll \
+  libtls08.dll \
+  libtls09.dll \
+  libtls10.dll \
+  libtls11.dll
