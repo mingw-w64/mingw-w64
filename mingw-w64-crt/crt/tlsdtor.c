@@ -38,8 +38,6 @@ static __CRT_THREAD TlsDtorNode *dtor_list;
 static __CRT_THREAD TlsDtorNode dtor_list_head;
 #endif
 
-void WINAPI __dyn_tls_dtor (HANDLE, DWORD, LPVOID);
-
 int __cdecl __tlregdtor (_PVFV);
 
 int __cdecl
@@ -69,7 +67,7 @@ __tlregdtor (_PVFV func)
   return 0;
 }
 
-void WINAPI
+static void WINAPI
 __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOID lpreserved __attribute__((unused)))
 {
 #if !defined (DISABLE_MS_TLS)
