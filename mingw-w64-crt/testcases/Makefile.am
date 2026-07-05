@@ -88,6 +88,7 @@ testcase_progs = \
   t_mbrtowc \
   t_mbsrtowcs \
   t_nontls_dll \
+  t_nontls_exe \
   t_nullptrexception \
   t_pow \
   t_powi \
