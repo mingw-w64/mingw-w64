@@ -23,6 +23,11 @@ libtest_a_SOURCES = \
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
+# Used by t_nontls_dll
+libnontls.dll: libnontls.o
+	$(LINK) -shared -Wl,--kill-at -o $@ $^
+t_nontls_dll.exe: libnontls.dll
+
 # The following tests are compiled but not run with `make check`.
 testcase_compile_only = \
   t_intrin \
@@ -82,6 +87,7 @@ testcase_progs = \
   t_mbrlen \
   t_mbrtowc \
   t_mbsrtowcs \
+  t_nontls_dll \
   t_nullptrexception \
   t_pow \
   t_powi \
@@ -241,4 +247,5 @@ EXTRA_DIST = \
   t_swprintf_tmpl.h
 
 CLEANFILES = \
+  libnontls.dll \
   libprocdetach.dll
