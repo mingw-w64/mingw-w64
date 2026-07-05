@@ -209,7 +209,7 @@ __tmainCRTStartup (void)
 	 * Here we add an exit handler to flush streams safely.
 	 */
 	if (atexit (safe_flush) != 0)
-	    abort ();
+	  _amsg_exit (26); /* _RT_STDIOINIT */
 
 	_pei386_runtime_relocator ();
 	_set_invalid_parameter_handler (__mingw_invalidParameterHandler);
