@@ -107,6 +107,7 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
       pnext = pnode->next;
       if (pnext != NULL)
         free ((void *) pnode);
+      *dtor_list_ptr = pnext;
     }
 #endif
 }
