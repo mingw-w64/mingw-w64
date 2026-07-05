@@ -120,7 +120,8 @@ __mingwthr_run_key_dtors (void)
 
 WINBOOL
 __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
-		     DWORD reason, LPVOID reserved)
+		     DWORD reason,
+		     LPVOID __UNUSED_PARAM(reserved))
 {
   switch (reason)
     {
@@ -130,8 +131,6 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
       __mingwthr_cs_init = 1;
       break;
     case DLL_PROCESS_DETACH:
-      if (reserved != NULL)  /* Process is terminating.  */
-        break;
       __mingwthr_run_key_dtors();
       if (__mingwthr_cs_init == 1)
         {
