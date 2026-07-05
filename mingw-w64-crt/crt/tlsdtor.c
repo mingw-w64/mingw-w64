@@ -24,9 +24,6 @@ typedef struct TlsDtorNode {
   _PVFV funcs[FUNCS_PER_NODE];
 } TlsDtorNode;
 
-#define DISABLE_MS_TLS 1
-
-#if !defined (DISABLE_MS_TLS)
 static TlsDtorNode **get_dtor_list_ptr (void)
 {
   TlsDtorNode **dtor_list_ptr = __MINGW_ALLOC_THREAD_LOCAL_OR_NULL(TlsDtorNode*);
@@ -38,25 +35,22 @@ static TlsDtorNode *get_dtor_list_head_ptr (void)
   TlsDtorNode *dtor_list_head_ptr = __MINGW_ALLOC_THREAD_LOCAL_OR_NULL(TlsDtorNode);
   return dtor_list_head_ptr;
 }
-#endif
 
 int __cdecl __tlregdtor (_PVFV);
 
 int __cdecl
 __tlregdtor (_PVFV func)
 {
-#if !defined (DISABLE_MS_TLS)
   TlsDtorNode **dtor_list_ptr = get_dtor_list_ptr();
   TlsDtorNode *dtor_list_head_ptr = get_dtor_list_head_ptr();
   if (!dtor_list_ptr || !dtor_list_head_ptr)
     return -1;
   #define dtor_list (*dtor_list_ptr)
   #define dtor_list_head (*dtor_list_head_ptr)
-#endif
 
   if (!func)
     return 0;
-#if !defined (DISABLE_MS_TLS)
+
   if (dtor_list == NULL)
     {
       dtor_list = &dtor_list_head;
@@ -74,29 +68,24 @@ __tlregdtor (_PVFV func)
       dtor_list->count = 0;
     }
   dtor_list->funcs[dtor_list->count++] = func;
-#endif
+
   return 0;
-#if !defined (DISABLE_MS_TLS)
   #undef dtor_list
   #undef dtor_list_head
-#endif
 }
 
 static void WINAPI
 __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOID lpreserved __attribute__((unused)))
 {
-#if !defined (DISABLE_MS_TLS)
   TlsDtorNode *pnode, *pnext;
   int i;
   TlsDtorNode **dtor_list_ptr = get_dtor_list_ptr();
   if (!dtor_list_ptr)
     return;
-#endif
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return;
 
-#if !defined (DISABLE_MS_TLS)
   for (pnode = *dtor_list_ptr; pnode != NULL; pnode = pnext)
     {
       for (i = pnode->count - 1; i >= 0; --i)
@@ -109,7 +98,6 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
         free ((void *) pnode);
       *dtor_list_ptr = pnext;
     }
-#endif
 }
 
 static _CRTALLOC(".CRT$XLD") PIMAGE_TLS_CALLBACK __xl_d = __dyn_tls_dtor;
