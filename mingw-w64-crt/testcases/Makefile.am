@@ -27,6 +27,7 @@ libprocdetach.dll: libprocdetach.o
 testcase_compile_only = \
   t_intrin \
   t_intrin_cpp \
+  t_scrnsave \
   t_winmain
 
 # FIXME:
@@ -191,6 +192,12 @@ t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 # t_winmain is a GUI App; use -mwindows to properly link it and set subsystem
 t_winmain_LDFLAGS = $(AM_LDFLAGS) -mwindows
 
+# t_scrnsave and t_scrnsavw are GUI screenserver applications
+t_scrnsave_LDFLAGS = $(AM_LDFLAGS) -mwindows
+t_scrnsave_LDADD = $(LDADD) -lscrnsave
+t_scrnsavw_LDFLAGS = $(AM_LDFLAGS) -mwindows
+t_scrnsavw_LDADD = $(LDADD) -lscrnsavw
+
 if ENABLE_TESTS_UNICODE
   # The following tests require compiler support for -municode option
   testcase_progs += \
@@ -198,7 +205,11 @@ if ENABLE_TESTS_UNICODE
     t_municode \
     t_tmain
 
+  testcase_compile_only += \
+    t_scrnsavw
+
   t_municode_CFLAGS = -municode $(AM_CFLAGS)
+  t_scrnsavw_CFLAGS = -municode $(AM_CFLAGS)
   t_tmain_CFLAGS = -municode -D_UNICODE $(AM_CFLAGS)
   t__wstat_all_CFLAGS = -municode $(AM_CFLAGS)
 endif
