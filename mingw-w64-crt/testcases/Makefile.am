@@ -115,6 +115,9 @@ testcase_progs = \
   t_nontls_dll \
   t_nontls_exe \
   t_tls_dll \
+  t_tls_exe_dtor \
+  t_tls_exe_dyn \
+  t_tls_exe_native \
   t_nullptrexception \
   t_pow \
   t_powi \
