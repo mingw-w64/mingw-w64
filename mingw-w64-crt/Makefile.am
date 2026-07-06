@@ -342,6 +342,7 @@ src_msvcrt=\
   ctype/__iswcsymf.c \
   ctype/_isblank_l.c \
   ctype/_iswblank_l.c \
+  ctype/_ispunct_l.c \
   ctype/isblank.c \
   ctype/isprint.c \
   ctype/iswblank.c \
