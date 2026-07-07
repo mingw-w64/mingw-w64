@@ -94,6 +94,7 @@ extern "C" {
 
 #define BCRYPT_3DES_ALGORITHM       L"3DES"
 #define BCRYPT_AES_ALGORITHM        L"AES"
+#define BCRYPT_CHACHA20_POLY1305_ALGORITHM L"CHACHA20_POLY1305"
 #define BCRYPT_DES_ALGORITHM        L"DES"
 #define BCRYPT_DH_ALGORITHM         L"DH"
 #define BCRYPT_DSA_ALGORITHM        L"DSA"
@@ -108,6 +109,7 @@ extern "C" {
 #define BCRYPT_MD2_ALGORITHM        L"MD2"
 #define BCRYPT_MD4_ALGORITHM        L"MD4"
 #define BCRYPT_MD5_ALGORITHM        L"MD5"
+#define BCRYPT_PBKDF2_ALGORITHM     L"PBKDF2"
 #define BCRYPT_RC2_ALGORITHM        L"RC2"
 #define BCRYPT_RC4_ALGORITHM        L"RC4"
 #define BCRYPT_RNG_ALGORITHM        L"RNG"
@@ -117,7 +119,6 @@ extern "C" {
 #define BCRYPT_SHA256_ALGORITHM     L"SHA256"
 #define BCRYPT_SHA384_ALGORITHM     L"SHA384"
 #define BCRYPT_SHA512_ALGORITHM     L"SHA512"
-#define BCRYPT_PBKDF2_ALGORITHM     L"PBKDF2"
 
 #define BCRYPT_CHAIN_MODE_NA        L"ChainingModeN/A"
 #define BCRYPT_CHAIN_MODE_CBC       L"ChainingModeCBC"
@@ -129,6 +130,7 @@ extern "C" {
 #define BCRYPT_ECC_CURVE_NAME             L"ECCCurveName"
 #define BCRYPT_ECC_CURVE_25519            L"curve25519"
 #define BCRYPT_ECC_CURVE_BRAINPOOLP256R1  L"brainpoolP256r1"
+#define BCRYPT_ECC_CURVE_BRAINPOOLP384R1  L"brainpoolP384r1"
 #define BCRYPT_ECC_CURVE_SECP256R1        L"secP256r1"
 #define BCRYPT_ECC_CURVE_SECP384R1        L"secP384r1"
 #define BCRYPT_ECC_CURVE_SECP521R1        L"secP521r1"
@@ -188,6 +190,7 @@ static const WCHAR MS_PLATFORM_CRYPTO_PROVIDER[] = \
 
 static const WCHAR BCRYPT_3DES_ALGORITHM[] = {'3','D','E','S',0};
 static const WCHAR BCRYPT_AES_ALGORITHM[] = {'A','E','S',0};
+static const WCHAR BCRYPT_CHACHA20_POLY1305_ALGORITHM[] = {'C','H','A','C','H','A','2','0','_','P','O','L','Y','1','3','0','5',0};
 static const WCHAR BCRYPT_DES_ALGORITHM[] = {'D','E','S',0};
 static const WCHAR BCRYPT_DH_ALGORITHM[] = {'D','H',0};
 static const WCHAR BCRYPT_DSA_ALGORITHM[] = {'D','S','A',0};
@@ -202,6 +205,7 @@ static const WCHAR BCRYPT_ECDSA_P521_ALGORITHM[] = {'E','C','D','S','A','_','P',
 static const WCHAR BCRYPT_MD2_ALGORITHM[] = {'M','D','2',0};
 static const WCHAR BCRYPT_MD4_ALGORITHM[] = {'M','D','4',0};
 static const WCHAR BCRYPT_MD5_ALGORITHM[] = {'M','D','5',0};
+static const WCHAR BCRYPT_PBKDF2_ALGORITHM[] = {'P','B','K','D','F','2',0};
 static const WCHAR BCRYPT_RC2_ALGORITHM[] = {'R','C','2',0};
 static const WCHAR BCRYPT_RC4_ALGORITHM[] = {'R','C','4',0};
 static const WCHAR BCRYPT_RNG_ALGORITHM[] = {'R','N','G',0};
@@ -211,7 +215,6 @@ static const WCHAR BCRYPT_SHA1_ALGORITHM[] = {'S','H','A','1',0};
 static const WCHAR BCRYPT_SHA256_ALGORITHM[] = {'S','H','A','2','5','6',0};
 static const WCHAR BCRYPT_SHA384_ALGORITHM[] = {'S','H','A','3','8','4',0};
 static const WCHAR BCRYPT_SHA512_ALGORITHM[] = {'S','H','A','5','1','2',0};
-static const WCHAR BCRYPT_PBKDF2_ALGORITHM[] = {'P','B','K','D','F','2',0};
 
 static const WCHAR BCRYPT_CHAIN_MODE_NA[] = {'C','h','a','i','n','i','n','g','M','o','d','e','N','/','A',0};
 static const WCHAR BCRYPT_CHAIN_MODE_CBC[] = {'C','h','a','i','n','i','n','g','M','o','d','e','C','B','C',0};
@@ -223,6 +226,7 @@ static const WCHAR BCRYPT_CHAIN_MODE_GCM[] = {'C','h','a','i','n','i','n','g','M
 static const WCHAR BCRYPT_ECC_CURVE_NAME[] = {'E','C','C','C','u','r','v','e','N','a','m','e',0};
 static const WCHAR BCRYPT_ECC_CURVE_25519[] = {'c','u','r','v','e','2','5','5','1','9',0};
 static const WCHAR BCRYPT_ECC_CURVE_BRAINPOOLP256R1[] = {'b','r','a','i','n','p','o','o','l','P','2','5','6','r','1',0};
+static const WCHAR BCRYPT_ECC_CURVE_BRAINPOOLP384R1[] = {'b','r','a','i','n','p','o','o','l','P','3','8','4','r','1',0};
 static const WCHAR BCRYPT_ECC_CURVE_SECP256R1[] = {'s','e','c','P','2','5','6','r','1',0};
 static const WCHAR BCRYPT_ECC_CURVE_SECP384R1[] = {'s','e','c','P','3','8','4','r','1',0};
 static const WCHAR BCRYPT_ECC_CURVE_SECP521R1[] = {'s','e','c','P','5','2','1','r','1',0};
@@ -252,6 +256,9 @@ static const WCHAR BCRYPT_DH_PARAMETERS[] = {'D','H','P','a','r','a','m','e','t'
 
 #define BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC  0x504b4345
 #define BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC 0x564b4345
+
+#define BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC  0x50444345
+#define BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC 0x56444345
 
 #define BCRYPT_CIPHER_OPERATION                 0x00000001
 #define BCRYPT_HASH_OPERATION                   0x00000002
@@ -549,6 +556,7 @@ typedef PVOID BCRYPT_SECRET_HANDLE;
 #define BCRYPT_TLS1_2_KDF_ALG_HANDLE        ((BCRYPT_ALG_HANDLE)0x00000371)
 #define BCRYPT_XTS_AES_ALG_HANDLE           ((BCRYPT_ALG_HANDLE)0x00000381)
 #define BCRYPT_HKDF_ALG_HANDLE              ((BCRYPT_ALG_HANDLE)0x00000391)
+#define BCRYPT_CHACHA20_POLY1305_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x000003a1)
 
 /* Flags for BCryptGenRandom */
 #define BCRYPT_RNG_USE_ENTROPY_IN_BUFFER 0x00000001
