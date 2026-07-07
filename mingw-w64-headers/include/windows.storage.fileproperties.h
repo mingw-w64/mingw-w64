@@ -35,6 +35,108 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties ABI::Windows::Storage::FileProperties::IDocumentProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IDocumentProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties ABI::Windows::Storage::FileProperties::IImageProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IImageProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties ABI::Windows::Storage::FileProperties::IMusicProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IMusicProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties ABI::Windows::Storage::FileProperties::IStorageItemExtraProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IStorageItemExtraProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties ABI::Windows::Storage::FileProperties::IStorageItemContentProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IStorageItemContentProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties ABI::Windows::Storage::FileProperties::IVideoProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IVideoProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CBasicProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CFileProperties_CBasicProperties_FWD_DEFINED__
 #ifdef __cplusplus
@@ -52,6 +154,107 @@ typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CBasicProperties __x_AB
 #endif /* defined __cplusplus */
 #endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CBasicProperties_FWD_DEFINED__ */
 
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CDocumentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CDocumentProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                class DocumentProperties;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CDocumentProperties __x_ABI_CWindows_CStorage_CFileProperties_CDocumentProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CDocumentProperties_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CImageProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CImageProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                class ImageProperties;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CImageProperties __x_ABI_CWindows_CStorage_CFileProperties_CImageProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CImageProperties_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CMusicProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CMusicProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                class MusicProperties;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CMusicProperties __x_ABI_CWindows_CStorage_CFileProperties_CMusicProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CMusicProperties_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CStorageItemContentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CStorageItemContentProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                class StorageItemContentProperties;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CStorageItemContentProperties __x_ABI_CWindows_CStorage_CFileProperties_CStorageItemContentProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CStorageItemContentProperties_FWD_DEFINED__ */
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CVideoProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CVideoProperties_FWD_DEFINED__
+#ifdef __cplusplus
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                class VideoProperties;
+            }
+        }
+    }
+}
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CVideoProperties __x_ABI_CWindows_CStorage_CFileProperties_CVideoProperties;
+#endif /* defined __cplusplus */
+#endif /* defined ____x_ABI_CWindows_CStorage_CFileProperties_CVideoProperties_FWD_DEFINED__ */
+
+#ifndef ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 #define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CBasicProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CBasicProperties;
@@ -60,11 +263,91 @@ typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileP
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties ABI::Windows::Foundation::IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_HSTRING_FWD_DEFINED__
+#define ____FIIterable_1_HSTRING_FWD_DEFINED__
+typedef interface __FIIterable_1_HSTRING __FIIterable_1_HSTRING;
+#ifdef __cplusplus
+#define __FIIterable_1_HSTRING ABI::Windows::Foundation::Collections::IIterable<HSTRING >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties;
 #ifdef __cplusplus
 #define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::BasicProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* >
 #endif /* __cplusplus */
 #endif
 
@@ -81,6 +364,96 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasi
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xe0000
+#endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation_ENUM_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation_ENUM_DEFINED__
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                enum PhotoOrientation {
+                    PhotoOrientation_Unspecified = 0,
+                    PhotoOrientation_Normal = 1,
+                    PhotoOrientation_FlipHorizontal = 2,
+                    PhotoOrientation_Rotate180 = 3,
+                    PhotoOrientation_FlipVertical = 4,
+                    PhotoOrientation_Transpose = 5,
+                    PhotoOrientation_Rotate270 = 6,
+                    PhotoOrientation_Transverse = 7,
+                    PhotoOrientation_Rotate90 = 8
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation {
+    PhotoOrientation_Unspecified = 0,
+    PhotoOrientation_Normal = 1,
+    PhotoOrientation_FlipHorizontal = 2,
+    PhotoOrientation_Rotate180 = 3,
+    PhotoOrientation_FlipVertical = 4,
+    PhotoOrientation_Transpose = 5,
+    PhotoOrientation_Rotate270 = 6,
+    PhotoOrientation_Transverse = 7,
+    PhotoOrientation_Rotate90 = 8
+};
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define PhotoOrientation __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif /* ____x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation_ENUM_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation;
+#endif /* __cplusplus */
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation_ENUM_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation_ENUM_DEFINED__
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                enum VideoOrientation {
+                    VideoOrientation_Normal = 0,
+                    VideoOrientation_Rotate90 = 90,
+                    VideoOrientation_Rotate180 = 180,
+                    VideoOrientation_Rotate270 = 270
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation {
+    VideoOrientation_Normal = 0,
+    VideoOrientation_Rotate90 = 90,
+    VideoOrientation_Rotate180 = 180,
+    VideoOrientation_Rotate270 = 270
+};
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define VideoOrientation __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif /* ____x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation_ENUM_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+#ifndef __cplusplus
+typedef enum __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation;
+#endif /* __cplusplus */
 
 #ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties_FWD_DEFINED__
@@ -99,6 +472,132 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties ABI::Windows::Storage::FileProperties::IDocumentProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IDocumentProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties ABI::Windows::Storage::FileProperties::IImageProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IImageProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties ABI::Windows::Storage::FileProperties::IMusicProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IMusicProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties ABI::Windows::Storage::FileProperties::IStorageItemExtraProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IStorageItemExtraProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties ABI::Windows::Storage::FileProperties::IStorageItemContentProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IStorageItemContentProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties;
+#ifdef __cplusplus
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties ABI::Windows::Storage::FileProperties::IVideoProperties
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                interface IVideoProperties;
+            }
+        }
+    }
+}
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIMap_2_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIIterable_1_HSTRING_FWD_DEFINED__
+#define ____FIIterable_1_HSTRING_FWD_DEFINED__
+typedef interface __FIIterable_1_HSTRING __FIIterable_1_HSTRING;
+#ifdef __cplusplus
+#define __FIIterable_1_HSTRING ABI::Windows::Foundation::Collections::IIterable<HSTRING >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+#define ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* >
+#endif /* __cplusplus */
+#endif
+
 #ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 #define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties_FWD_DEFINED__
 typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties;
@@ -107,13 +606,41 @@ typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasi
 #endif /* __cplusplus */
 #endif
 
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* >
+#endif /* __cplusplus */
+#endif
+
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_FWD_DEFINED__
+typedef interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties;
+#ifdef __cplusplus
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* >
+#endif /* __cplusplus */
+#endif
+
 /*****************************************************************************
  * IBasicProperties interface
  */
-#if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xe0000
-#endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties_INTERFACE_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties_INTERFACE_DEFINED__
@@ -263,6 +790,1618 @@ static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIBasicPropertie
 #endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties_INTERFACE_DEFINED__ */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
 
+/*****************************************************************************
+ * IDocumentProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties, 0x7eab19bc, 0x1821, 0x4923, 0xb4,0xa9, 0x0a,0xea,0x40,0x4d,0x00,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("7eab19bc-1821-4923-b4a9-0aea404d0070")
+                IDocumentProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Author(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Title(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Title(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Keywords(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Comment(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Comment(
+                        HSTRING value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties, 0x7eab19bc, 0x1821, 0x4923, 0xb4,0xa9, 0x0a,0xea,0x40,0x4d,0x00,0x70)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IDocumentProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Author)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Keywords)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Comment)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Comment)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties *This,
+        HSTRING value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentPropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IDocumentProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Author(This,value) (This)->lpVtbl->get_Author(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Title(This,value) (This)->lpVtbl->get_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Title(This,value) (This)->lpVtbl->put_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Keywords(This,value) (This)->lpVtbl->get_Keywords(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Comment(This,value) (This)->lpVtbl->get_Comment(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Comment(This,value) (This)->lpVtbl->put_Comment(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IDocumentProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Author(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Author(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Keywords(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Keywords(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Comment(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Comment(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Comment(__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Comment(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IDocumentProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties
+#define IDocumentPropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentPropertiesVtbl
+#define IDocumentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties
+#define IDocumentProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_QueryInterface
+#define IDocumentProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_AddRef
+#define IDocumentProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_Release
+#define IDocumentProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetIids
+#define IDocumentProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetRuntimeClassName
+#define IDocumentProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_GetTrustLevel
+#define IDocumentProperties_get_Author __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Author
+#define IDocumentProperties_get_Title __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Title
+#define IDocumentProperties_put_Title __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Title
+#define IDocumentProperties_get_Keywords __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Keywords
+#define IDocumentProperties_get_Comment __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_get_Comment
+#define IDocumentProperties_put_Comment __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_put_Comment
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IImageProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties, 0x523c9424, 0xfcff, 0x4275, 0xaf,0xee, 0xec,0xdb,0x9a,0xb4,0x79,0x73);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("523c9424-fcff-4275-afee-ecdb9ab47973")
+                IImageProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Rating(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Rating(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Keywords(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_DateTaken(
+                        ABI::Windows::Foundation::DateTime *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_DateTaken(
+                        ABI::Windows::Foundation::DateTime value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Width(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Height(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Title(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Title(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Latitude(
+                        ABI::Windows::Foundation::IReference<DOUBLE > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Longitude(
+                        ABI::Windows::Foundation::IReference<DOUBLE > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_CameraManufacturer(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_CameraManufacturer(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_CameraModel(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_CameraModel(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Orientation(
+                        ABI::Windows::Storage::FileProperties::PhotoOrientation *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_PeopleNames(
+                        ABI::Windows::Foundation::Collections::IVectorView<HSTRING > **value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties, 0x523c9424, 0xfcff, 0x4275, 0xaf,0xee, 0xec,0xdb,0x9a,0xb4,0x79,0x73)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIImagePropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IImageProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Keywords)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_DateTaken)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __x_ABI_CWindows_CFoundation_CDateTime *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_DateTaken)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __x_ABI_CWindows_CFoundation_CDateTime value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Width)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Height)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Latitude)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __FIReference_1_DOUBLE **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Longitude)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __FIReference_1_DOUBLE **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_CameraManufacturer)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_CameraManufacturer)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_CameraModel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_CameraModel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Orientation)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_PeopleNames)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties *This,
+        __FIVectorView_1_HSTRING **value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIImagePropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIImagePropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IImageProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Rating(This,value) (This)->lpVtbl->get_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Rating(This,value) (This)->lpVtbl->put_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Keywords(This,value) (This)->lpVtbl->get_Keywords(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_DateTaken(This,value) (This)->lpVtbl->get_DateTaken(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_DateTaken(This,value) (This)->lpVtbl->put_DateTaken(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Width(This,value) (This)->lpVtbl->get_Width(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Height(This,value) (This)->lpVtbl->get_Height(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Title(This,value) (This)->lpVtbl->get_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Title(This,value) (This)->lpVtbl->put_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Latitude(This,value) (This)->lpVtbl->get_Latitude(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Longitude(This,value) (This)->lpVtbl->get_Longitude(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraManufacturer(This,value) (This)->lpVtbl->get_CameraManufacturer(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraManufacturer(This,value) (This)->lpVtbl->put_CameraManufacturer(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraModel(This,value) (This)->lpVtbl->get_CameraModel(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraModel(This,value) (This)->lpVtbl->put_CameraModel(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Orientation(This,value) (This)->lpVtbl->get_Orientation(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_PeopleNames(This,value) (This)->lpVtbl->get_PeopleNames(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IImageProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,UINT32 value) {
+    return This->lpVtbl->put_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Keywords(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Keywords(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_DateTaken(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__x_ABI_CWindows_CFoundation_CDateTime *value) {
+    return This->lpVtbl->get_DateTaken(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_DateTaken(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__x_ABI_CWindows_CFoundation_CDateTime value) {
+    return This->lpVtbl->put_DateTaken(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Width(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Width(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Height(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Height(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Latitude(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__FIReference_1_DOUBLE **value) {
+    return This->lpVtbl->get_Latitude(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Longitude(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__FIReference_1_DOUBLE **value) {
+    return This->lpVtbl->get_Longitude(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraManufacturer(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_CameraManufacturer(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraManufacturer(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING value) {
+    return This->lpVtbl->put_CameraManufacturer(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraModel(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_CameraModel(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraModel(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,HSTRING value) {
+    return This->lpVtbl->put_CameraModel(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Orientation(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CPhotoOrientation *value) {
+    return This->lpVtbl->get_Orientation(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_PeopleNames(__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties* This,__FIVectorView_1_HSTRING **value) {
+    return This->lpVtbl->get_PeopleNames(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IImageProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties
+#define IImagePropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIImagePropertiesVtbl
+#define IImageProperties __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties
+#define IImageProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_QueryInterface
+#define IImageProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_AddRef
+#define IImageProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_Release
+#define IImageProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetIids
+#define IImageProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetRuntimeClassName
+#define IImageProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_GetTrustLevel
+#define IImageProperties_get_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Rating
+#define IImageProperties_put_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Rating
+#define IImageProperties_get_Keywords __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Keywords
+#define IImageProperties_get_DateTaken __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_DateTaken
+#define IImageProperties_put_DateTaken __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_DateTaken
+#define IImageProperties_get_Width __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Width
+#define IImageProperties_get_Height __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Height
+#define IImageProperties_get_Title __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Title
+#define IImageProperties_put_Title __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_Title
+#define IImageProperties_get_Latitude __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Latitude
+#define IImageProperties_get_Longitude __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Longitude
+#define IImageProperties_get_CameraManufacturer __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraManufacturer
+#define IImageProperties_put_CameraManufacturer __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraManufacturer
+#define IImageProperties_get_CameraModel __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_CameraModel
+#define IImageProperties_put_CameraModel __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_put_CameraModel
+#define IImageProperties_get_Orientation __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_Orientation
+#define IImageProperties_get_PeopleNames __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_get_PeopleNames
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IMusicProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties, 0xbc8aab62, 0x66ec, 0x419a, 0xbc,0x5d, 0xca,0x65,0xa4,0xcb,0x46,0xda);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("bc8aab62-66ec-419a-bc5d-ca65a4cb46da")
+                IMusicProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Album(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Album(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Artist(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Artist(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Genre(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_TrackNumber(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_TrackNumber(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Title(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Title(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Rating(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Rating(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Duration(
+                        ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Bitrate(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_AlbumArtist(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_AlbumArtist(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Composers(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Conductors(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Subtitle(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Subtitle(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Producers(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Publisher(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Publisher(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Writers(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Year(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Year(
+                        UINT32 value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties, 0xbc8aab62, 0x66ec, 0x419a, 0xbc,0x5d, 0xca,0x65,0xa4,0xcb,0x46,0xda)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIMusicPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IMusicProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Album)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Album)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Artist)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Artist)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Genre)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_TrackNumber)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_TrackNumber)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Duration)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Bitrate)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_AlbumArtist)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_AlbumArtist)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Composers)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Conductors)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Subtitle)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Subtitle)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Producers)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Publisher)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Publisher)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Writers)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Year)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Year)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties *This,
+        UINT32 value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIMusicPropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIMusicPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMusicProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Album(This,value) (This)->lpVtbl->get_Album(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Album(This,value) (This)->lpVtbl->put_Album(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Artist(This,value) (This)->lpVtbl->get_Artist(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Artist(This,value) (This)->lpVtbl->put_Artist(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Genre(This,value) (This)->lpVtbl->get_Genre(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_TrackNumber(This,value) (This)->lpVtbl->get_TrackNumber(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_TrackNumber(This,value) (This)->lpVtbl->put_TrackNumber(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Title(This,value) (This)->lpVtbl->get_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Title(This,value) (This)->lpVtbl->put_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Rating(This,value) (This)->lpVtbl->get_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Rating(This,value) (This)->lpVtbl->put_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Duration(This,value) (This)->lpVtbl->get_Duration(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Bitrate(This,value) (This)->lpVtbl->get_Bitrate(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_AlbumArtist(This,value) (This)->lpVtbl->get_AlbumArtist(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_AlbumArtist(This,value) (This)->lpVtbl->put_AlbumArtist(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Composers(This,value) (This)->lpVtbl->get_Composers(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Conductors(This,value) (This)->lpVtbl->get_Conductors(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Subtitle(This,value) (This)->lpVtbl->get_Subtitle(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Subtitle(This,value) (This)->lpVtbl->put_Subtitle(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Producers(This,value) (This)->lpVtbl->get_Producers(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Publisher(This,value) (This)->lpVtbl->get_Publisher(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Publisher(This,value) (This)->lpVtbl->put_Publisher(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Writers(This,value) (This)->lpVtbl->get_Writers(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Year(This,value) (This)->lpVtbl->get_Year(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Year(This,value) (This)->lpVtbl->put_Year(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMusicProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Album(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Album(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Album(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Album(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Artist(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Artist(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Artist(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Artist(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Genre(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Genre(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_TrackNumber(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_TrackNumber(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_TrackNumber(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 value) {
+    return This->lpVtbl->put_TrackNumber(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 value) {
+    return This->lpVtbl->put_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Duration(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_Duration(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Bitrate(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Bitrate(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_AlbumArtist(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_AlbumArtist(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_AlbumArtist(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_AlbumArtist(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Composers(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Composers(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Conductors(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Conductors(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Subtitle(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Subtitle(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Subtitle(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Subtitle(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Producers(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Producers(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Publisher(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Publisher(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Publisher(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Publisher(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Writers(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Writers(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Year(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Year(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Year(__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties* This,UINT32 value) {
+    return This->lpVtbl->put_Year(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IMusicProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties
+#define IMusicPropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIMusicPropertiesVtbl
+#define IMusicProperties __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties
+#define IMusicProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_QueryInterface
+#define IMusicProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_AddRef
+#define IMusicProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_Release
+#define IMusicProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetIids
+#define IMusicProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetRuntimeClassName
+#define IMusicProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_GetTrustLevel
+#define IMusicProperties_get_Album __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Album
+#define IMusicProperties_put_Album __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Album
+#define IMusicProperties_get_Artist __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Artist
+#define IMusicProperties_put_Artist __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Artist
+#define IMusicProperties_get_Genre __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Genre
+#define IMusicProperties_get_TrackNumber __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_TrackNumber
+#define IMusicProperties_put_TrackNumber __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_TrackNumber
+#define IMusicProperties_get_Title __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Title
+#define IMusicProperties_put_Title __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Title
+#define IMusicProperties_get_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Rating
+#define IMusicProperties_put_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Rating
+#define IMusicProperties_get_Duration __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Duration
+#define IMusicProperties_get_Bitrate __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Bitrate
+#define IMusicProperties_get_AlbumArtist __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_AlbumArtist
+#define IMusicProperties_put_AlbumArtist __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_AlbumArtist
+#define IMusicProperties_get_Composers __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Composers
+#define IMusicProperties_get_Conductors __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Conductors
+#define IMusicProperties_get_Subtitle __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Subtitle
+#define IMusicProperties_put_Subtitle __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Subtitle
+#define IMusicProperties_get_Producers __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Producers
+#define IMusicProperties_get_Publisher __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Publisher
+#define IMusicProperties_put_Publisher __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Publisher
+#define IMusicProperties_get_Writers __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Writers
+#define IMusicProperties_get_Year __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_get_Year
+#define IMusicProperties_put_Year __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_put_Year
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IStorageItemExtraProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties, 0xc54361b2, 0x54cd, 0x432b, 0xbd,0xbc, 0x4b,0x19,0xc4,0xb4,0x70,0xd7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("c54361b2-54cd-432b-bdbc-4b19c4b470d7")
+                IStorageItemExtraProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE RetrievePropertiesAsync(
+                        ABI::Windows::Foundation::Collections::IIterable<HSTRING > *propertiesToRetrieve,
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE SavePropertiesAsync(
+                        ABI::Windows::Foundation::Collections::IIterable<ABI::Windows::Foundation::Collections::IKeyValuePair<HSTRING,IInspectable* >* > *propertiesToSave,
+                        ABI::Windows::Foundation::IAsyncAction **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE SavePropertiesAsyncOverloadDefault(
+                        ABI::Windows::Foundation::IAsyncAction **operation) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties, 0xc54361b2, 0x54cd, 0x432b, 0xbd,0xbc, 0x4b,0x19,0xc4,0xb4,0x70,0xd7)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IStorageItemExtraProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *RetrievePropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        __FIIterable_1_HSTRING *propertiesToRetrieve,
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable **operation);
+
+    HRESULT (STDMETHODCALLTYPE *SavePropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *propertiesToSave,
+        __x_ABI_CWindows_CFoundation_CIAsyncAction **operation);
+
+    HRESULT (STDMETHODCALLTYPE *SavePropertiesAsyncOverloadDefault)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties *This,
+        __x_ABI_CWindows_CFoundation_CIAsyncAction **operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IStorageItemExtraProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_RetrievePropertiesAsync(This,propertiesToRetrieve,operation) (This)->lpVtbl->RetrievePropertiesAsync(This,propertiesToRetrieve,operation)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsync(This,propertiesToSave,operation) (This)->lpVtbl->SavePropertiesAsync(This,propertiesToSave,operation)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsyncOverloadDefault(This,operation) (This)->lpVtbl->SavePropertiesAsyncOverloadDefault(This,operation)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IStorageItemExtraProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_RetrievePropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,__FIIterable_1_HSTRING *propertiesToRetrieve,__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable **operation) {
+    return This->lpVtbl->RetrievePropertiesAsync(This,propertiesToRetrieve,operation);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable *propertiesToSave,__x_ABI_CWindows_CFoundation_CIAsyncAction **operation) {
+    return This->lpVtbl->SavePropertiesAsync(This,propertiesToSave,operation);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsyncOverloadDefault(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties* This,__x_ABI_CWindows_CFoundation_CIAsyncAction **operation) {
+    return This->lpVtbl->SavePropertiesAsyncOverloadDefault(This,operation);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IStorageItemExtraProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties
+#define IStorageItemExtraPropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl
+#define IStorageItemExtraProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties
+#define IStorageItemExtraProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_QueryInterface
+#define IStorageItemExtraProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_AddRef
+#define IStorageItemExtraProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_Release
+#define IStorageItemExtraProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetIids
+#define IStorageItemExtraProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetRuntimeClassName
+#define IStorageItemExtraProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_GetTrustLevel
+#define IStorageItemExtraProperties_RetrievePropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_RetrievePropertiesAsync
+#define IStorageItemExtraProperties_SavePropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsync
+#define IStorageItemExtraProperties_SavePropertiesAsyncOverloadDefault __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_SavePropertiesAsyncOverloadDefault
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IStorageItemContentProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties, 0x05294bad, 0xbc38, 0x48bf, 0x85,0xd7, 0x77,0x0e,0x0e,0x2a,0xe0,0xba);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("05294bad-bc38-48bf-85d7-770e0e2ae0ba")
+                IStorageItemContentProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE GetMusicPropertiesAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetVideoPropertiesAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetImagePropertiesAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > **operation) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE GetDocumentPropertiesAsync(
+                        ABI::Windows::Foundation::IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > **operation) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties, 0x05294bad, 0xbc38, 0x48bf, 0x85,0xd7, 0x77,0x0e,0x0e,0x2a,0xe0,0xba)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IStorageItemContentProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMusicPropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties **operation);
+
+    HRESULT (STDMETHODCALLTYPE *GetVideoPropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties **operation);
+
+    HRESULT (STDMETHODCALLTYPE *GetImagePropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties **operation);
+
+    HRESULT (STDMETHODCALLTYPE *GetDocumentPropertiesAsync)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties **operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentPropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IStorageItemContentProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetMusicPropertiesAsync(This,operation) (This)->lpVtbl->GetMusicPropertiesAsync(This,operation)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetVideoPropertiesAsync(This,operation) (This)->lpVtbl->GetVideoPropertiesAsync(This,operation)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetImagePropertiesAsync(This,operation) (This)->lpVtbl->GetImagePropertiesAsync(This,operation)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetDocumentPropertiesAsync(This,operation) (This)->lpVtbl->GetDocumentPropertiesAsync(This,operation)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IStorageItemContentProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetMusicPropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties **operation) {
+    return This->lpVtbl->GetMusicPropertiesAsync(This,operation);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetVideoPropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties **operation) {
+    return This->lpVtbl->GetVideoPropertiesAsync(This,operation);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetImagePropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties **operation) {
+    return This->lpVtbl->GetImagePropertiesAsync(This,operation);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetDocumentPropertiesAsync(__x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties **operation) {
+    return This->lpVtbl->GetDocumentPropertiesAsync(This,operation);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IStorageItemContentProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties
+#define IStorageItemContentPropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentPropertiesVtbl
+#define IStorageItemContentProperties __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties
+#define IStorageItemContentProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_QueryInterface
+#define IStorageItemContentProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_AddRef
+#define IStorageItemContentProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_Release
+#define IStorageItemContentProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetIids
+#define IStorageItemContentProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetRuntimeClassName
+#define IStorageItemContentProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetTrustLevel
+#define IStorageItemContentProperties_GetMusicPropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetMusicPropertiesAsync
+#define IStorageItemContentProperties_GetVideoPropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetVideoPropertiesAsync
+#define IStorageItemContentProperties_GetImagePropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetImagePropertiesAsync
+#define IStorageItemContentProperties_GetDocumentPropertiesAsync __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_GetDocumentPropertiesAsync
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IVideoProperties interface
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties, 0x719ae507, 0x68de, 0x4db8, 0x97,0xde, 0x49,0x99,0x8c,0x05,0x9f,0x2f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            namespace FileProperties {
+                MIDL_INTERFACE("719ae507-68de-4db8-97de-49998c059f2f")
+                IVideoProperties : public IInspectable
+                {
+                    virtual HRESULT STDMETHODCALLTYPE get_Rating(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Rating(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Keywords(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Width(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Height(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Duration(
+                        ABI::Windows::Foundation::TimeSpan *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Latitude(
+                        ABI::Windows::Foundation::IReference<DOUBLE > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Longitude(
+                        ABI::Windows::Foundation::IReference<DOUBLE > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Title(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Title(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Subtitle(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Subtitle(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Producers(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Publisher(
+                        HSTRING *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Publisher(
+                        HSTRING value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Writers(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Year(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE put_Year(
+                        UINT32 value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Bitrate(
+                        UINT32 *value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Directors(
+                        ABI::Windows::Foundation::Collections::IVector<HSTRING > **value) = 0;
+
+                    virtual HRESULT STDMETHODCALLTYPE get_Orientation(
+                        ABI::Windows::Storage::FileProperties::VideoOrientation *value) = 0;
+
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties, 0x719ae507, 0x68de, 0x4db8, 0x97,0xde, 0x49,0x99,0x8c,0x05,0x9f,0x2f)
+#endif
+#else
+typedef struct __x_ABI_CWindows_CStorage_CFileProperties_CIVideoPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IVideoProperties methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Rating)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Keywords)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Width)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Height)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Duration)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __x_ABI_CWindows_CFoundation_CTimeSpan *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Latitude)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIReference_1_DOUBLE **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Longitude)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIReference_1_DOUBLE **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Title)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Subtitle)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Subtitle)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Producers)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Publisher)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Publisher)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        HSTRING value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Writers)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Year)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *put_Year)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Bitrate)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        UINT32 *value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Directors)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __FIVector_1_HSTRING **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Orientation)(
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation *value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CFileProperties_CIVideoPropertiesVtbl;
+
+interface __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties {
+    CONST_VTBL __x_ABI_CWindows_CStorage_CFileProperties_CIVideoPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IVideoProperties methods ***/
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Rating(This,value) (This)->lpVtbl->get_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Rating(This,value) (This)->lpVtbl->put_Rating(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Keywords(This,value) (This)->lpVtbl->get_Keywords(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Width(This,value) (This)->lpVtbl->get_Width(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Height(This,value) (This)->lpVtbl->get_Height(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Duration(This,value) (This)->lpVtbl->get_Duration(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Latitude(This,value) (This)->lpVtbl->get_Latitude(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Longitude(This,value) (This)->lpVtbl->get_Longitude(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Title(This,value) (This)->lpVtbl->get_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Title(This,value) (This)->lpVtbl->put_Title(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Subtitle(This,value) (This)->lpVtbl->get_Subtitle(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Subtitle(This,value) (This)->lpVtbl->put_Subtitle(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Producers(This,value) (This)->lpVtbl->get_Producers(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Publisher(This,value) (This)->lpVtbl->get_Publisher(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Publisher(This,value) (This)->lpVtbl->put_Publisher(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Writers(This,value) (This)->lpVtbl->get_Writers(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Year(This,value) (This)->lpVtbl->get_Year(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Year(This,value) (This)->lpVtbl->put_Year(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Bitrate(This,value) (This)->lpVtbl->get_Bitrate(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Directors(This,value) (This)->lpVtbl->get_Directors(This,value)
+#define __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Orientation(This,value) (This)->lpVtbl->get_Orientation(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_QueryInterface(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_AddRef(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_Release(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetIids(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetRuntimeClassName(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetTrustLevel(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IVideoProperties methods ***/
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Rating(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 value) {
+    return This->lpVtbl->put_Rating(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Keywords(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Keywords(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Width(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Width(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Height(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Height(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Duration(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__x_ABI_CWindows_CFoundation_CTimeSpan *value) {
+    return This->lpVtbl->get_Duration(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Latitude(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIReference_1_DOUBLE **value) {
+    return This->lpVtbl->get_Latitude(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Longitude(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIReference_1_DOUBLE **value) {
+    return This->lpVtbl->get_Longitude(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Title(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Title(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Subtitle(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Subtitle(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Subtitle(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Subtitle(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Producers(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Producers(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Publisher(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING *value) {
+    return This->lpVtbl->get_Publisher(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Publisher(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,HSTRING value) {
+    return This->lpVtbl->put_Publisher(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Writers(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Writers(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Year(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Year(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Year(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 value) {
+    return This->lpVtbl->put_Year(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Bitrate(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,UINT32 *value) {
+    return This->lpVtbl->get_Bitrate(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Directors(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__FIVector_1_HSTRING **value) {
+    return This->lpVtbl->get_Directors(This,value);
+}
+static inline HRESULT __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Orientation(__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CVideoOrientation *value) {
+    return This->lpVtbl->get_Orientation(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Storage_FileProperties
+#define IID_IVideoProperties IID___x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties
+#define IVideoPropertiesVtbl __x_ABI_CWindows_CStorage_CFileProperties_CIVideoPropertiesVtbl
+#define IVideoProperties __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties
+#define IVideoProperties_QueryInterface __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_QueryInterface
+#define IVideoProperties_AddRef __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_AddRef
+#define IVideoProperties_Release __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_Release
+#define IVideoProperties_GetIids __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetIids
+#define IVideoProperties_GetRuntimeClassName __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetRuntimeClassName
+#define IVideoProperties_GetTrustLevel __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_GetTrustLevel
+#define IVideoProperties_get_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Rating
+#define IVideoProperties_put_Rating __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Rating
+#define IVideoProperties_get_Keywords __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Keywords
+#define IVideoProperties_get_Width __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Width
+#define IVideoProperties_get_Height __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Height
+#define IVideoProperties_get_Duration __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Duration
+#define IVideoProperties_get_Latitude __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Latitude
+#define IVideoProperties_get_Longitude __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Longitude
+#define IVideoProperties_get_Title __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Title
+#define IVideoProperties_put_Title __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Title
+#define IVideoProperties_get_Subtitle __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Subtitle
+#define IVideoProperties_put_Subtitle __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Subtitle
+#define IVideoProperties_get_Producers __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Producers
+#define IVideoProperties_get_Publisher __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Publisher
+#define IVideoProperties_put_Publisher __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Publisher
+#define IVideoProperties_get_Writers __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Writers
+#define IVideoProperties_get_Year __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Year
+#define IVideoProperties_put_Year __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_put_Year
+#define IVideoProperties_get_Bitrate __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Bitrate
+#define IVideoProperties_get_Directors __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Directors
+#define IVideoProperties_get_Orientation __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_get_Orientation
+#endif /* WIDL_using_Windows_Storage_FileProperties */
+#endif
+
+#endif
+
+#endif  /* ____x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties_INTERFACE_DEFINED__ */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
 /*
  * Class Windows.Storage.FileProperties.BasicProperties
  */
@@ -278,6 +2417,359 @@ extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FilePropertie
 #endif
 #endif /* RUNTIMECLASS_Windows_Storage_FileProperties_BasicProperties_DEFINED */
 #endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.FileProperties.DocumentProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_FileProperties_DocumentProperties_DEFINED
+#define RUNTIMECLASS_Windows_Storage_FileProperties_DocumentProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_FileProperties_DocumentProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','D','o','c','u','m','e','n','t','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_DocumentProperties[] = L"Windows.Storage.FileProperties.DocumentProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_DocumentProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','D','o','c','u','m','e','n','t','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_FileProperties_DocumentProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.FileProperties.ImageProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_FileProperties_ImageProperties_DEFINED
+#define RUNTIMECLASS_Windows_Storage_FileProperties_ImageProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_FileProperties_ImageProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','I','m','a','g','e','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_ImageProperties[] = L"Windows.Storage.FileProperties.ImageProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_ImageProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','I','m','a','g','e','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_FileProperties_ImageProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.FileProperties.MusicProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_FileProperties_MusicProperties_DEFINED
+#define RUNTIMECLASS_Windows_Storage_FileProperties_MusicProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_FileProperties_MusicProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','M','u','s','i','c','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_MusicProperties[] = L"Windows.Storage.FileProperties.MusicProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_MusicProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','M','u','s','i','c','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_FileProperties_MusicProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.FileProperties.StorageItemContentProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_FileProperties_StorageItemContentProperties_DEFINED
+#define RUNTIMECLASS_Windows_Storage_FileProperties_StorageItemContentProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_FileProperties_StorageItemContentProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','S','t','o','r','a','g','e','I','t','e','m','C','o','n','t','e','n','t','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_StorageItemContentProperties[] = L"Windows.Storage.FileProperties.StorageItemContentProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_StorageItemContentProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','S','t','o','r','a','g','e','I','t','e','m','C','o','n','t','e','n','t','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_FileProperties_StorageItemContentProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*
+ * Class Windows.Storage.FileProperties.VideoProperties
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#ifndef RUNTIMECLASS_Windows_Storage_FileProperties_VideoProperties_DEFINED
+#define RUNTIMECLASS_Windows_Storage_FileProperties_VideoProperties_DEFINED
+#if !defined(_MSC_VER) && !defined(__MINGW32__)
+static const WCHAR RuntimeClass_Windows_Storage_FileProperties_VideoProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','V','i','d','e','o','P','r','o','p','e','r','t','i','e','s',0};
+#elif defined(__GNUC__) && !defined(__cplusplus)
+const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_VideoProperties[] = L"Windows.Storage.FileProperties.VideoProperties";
+#else
+extern const DECLSPEC_SELECTANY WCHAR RuntimeClass_Windows_Storage_FileProperties_VideoProperties[] = {'W','i','n','d','o','w','s','.','S','t','o','r','a','g','e','.','F','i','l','e','P','r','o','p','e','r','t','i','e','s','.','V','i','d','e','o','P','r','o','p','e','r','t','i','e','s',0};
+#endif
+#endif /* RUNTIMECLASS_Windows_Storage_FileProperties_VideoProperties_DEFINED */
+#endif /* WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000 */
+
+/*****************************************************************************
+ * IMap<HSTRING,IInspectable* > interface
+ */
+#ifndef ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIMap_2_HSTRING_IInspectable, 0x1b0d3570, 0x0877, 0x5ec2, 0x8a,0x2c, 0x3b,0x95,0x39,0x50,0x6a,0xca);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("1b0d3570-0877-5ec2-8a2c-3b9539506aca")
+                IMap<HSTRING,IInspectable* > : IMap_impl<HSTRING, IInspectable* >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIMap_2_HSTRING_IInspectable, 0x1b0d3570, 0x0877, 0x5ec2, 0x8a,0x2c, 0x3b,0x95,0x39,0x50,0x6a,0xca)
+#endif
+#else
+typedef struct __FIMap_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IMap<HSTRING,IInspectable* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Lookup)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        IInspectable **value);
+
+    HRESULT (STDMETHODCALLTYPE *get_Size)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        unsigned int *size);
+
+    HRESULT (STDMETHODCALLTYPE *HasKey)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        boolean *found);
+
+    HRESULT (STDMETHODCALLTYPE *GetView)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        __FIMapView_2_HSTRING_IInspectable **view);
+
+    HRESULT (STDMETHODCALLTYPE *Insert)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key,
+        IInspectable *value,
+        boolean *replaced);
+
+    HRESULT (STDMETHODCALLTYPE *Remove)(
+        __FIMap_2_HSTRING_IInspectable *This,
+        HSTRING key);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        __FIMap_2_HSTRING_IInspectable *This);
+
+    END_INTERFACE
+} __FIMap_2_HSTRING_IInspectableVtbl;
+
+interface __FIMap_2_HSTRING_IInspectable {
+    CONST_VTBL __FIMap_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIMap_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIMap_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIMap_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIMap_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIMap_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IMap<HSTRING,IInspectable* > methods ***/
+#define __FIMap_2_HSTRING_IInspectable_Lookup(This,key,value) (This)->lpVtbl->Lookup(This,key,value)
+#define __FIMap_2_HSTRING_IInspectable_get_Size(This,size) (This)->lpVtbl->get_Size(This,size)
+#define __FIMap_2_HSTRING_IInspectable_HasKey(This,key,found) (This)->lpVtbl->HasKey(This,key,found)
+#define __FIMap_2_HSTRING_IInspectable_GetView(This,view) (This)->lpVtbl->GetView(This,view)
+#define __FIMap_2_HSTRING_IInspectable_Insert(This,key,value,replaced) (This)->lpVtbl->Insert(This,key,value,replaced)
+#define __FIMap_2_HSTRING_IInspectable_Remove(This,key) (This)->lpVtbl->Remove(This,key)
+#define __FIMap_2_HSTRING_IInspectable_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_QueryInterface(__FIMap_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIMap_2_HSTRING_IInspectable_AddRef(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIMap_2_HSTRING_IInspectable_Release(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_GetIids(__FIMap_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(__FIMap_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_GetTrustLevel(__FIMap_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IMap<HSTRING,IInspectable* > methods ***/
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_Lookup(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,IInspectable **value) {
+    return This->lpVtbl->Lookup(This,key,value);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_get_Size(__FIMap_2_HSTRING_IInspectable* This,unsigned int *size) {
+    return This->lpVtbl->get_Size(This,size);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_HasKey(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,boolean *found) {
+    return This->lpVtbl->HasKey(This,key,found);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_GetView(__FIMap_2_HSTRING_IInspectable* This,__FIMapView_2_HSTRING_IInspectable **view) {
+    return This->lpVtbl->GetView(This,view);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_Insert(__FIMap_2_HSTRING_IInspectable* This,HSTRING key,IInspectable *value,boolean *replaced) {
+    return This->lpVtbl->Insert(This,key,value,replaced);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_Remove(__FIMap_2_HSTRING_IInspectable* This,HSTRING key) {
+    return This->lpVtbl->Remove(This,key);
+}
+static inline HRESULT __FIMap_2_HSTRING_IInspectable_Clear(__FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IMap_HSTRING_IInspectable IID___FIMap_2_HSTRING_IInspectable
+#define IMap_HSTRING_IInspectableVtbl __FIMap_2_HSTRING_IInspectableVtbl
+#define IMap_HSTRING_IInspectable __FIMap_2_HSTRING_IInspectable
+#define IMap_HSTRING_IInspectable_QueryInterface __FIMap_2_HSTRING_IInspectable_QueryInterface
+#define IMap_HSTRING_IInspectable_AddRef __FIMap_2_HSTRING_IInspectable_AddRef
+#define IMap_HSTRING_IInspectable_Release __FIMap_2_HSTRING_IInspectable_Release
+#define IMap_HSTRING_IInspectable_GetIids __FIMap_2_HSTRING_IInspectable_GetIids
+#define IMap_HSTRING_IInspectable_GetRuntimeClassName __FIMap_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IMap_HSTRING_IInspectable_GetTrustLevel __FIMap_2_HSTRING_IInspectable_GetTrustLevel
+#define IMap_HSTRING_IInspectable_Lookup __FIMap_2_HSTRING_IInspectable_Lookup
+#define IMap_HSTRING_IInspectable_get_Size __FIMap_2_HSTRING_IInspectable_get_Size
+#define IMap_HSTRING_IInspectable_HasKey __FIMap_2_HSTRING_IInspectable_HasKey
+#define IMap_HSTRING_IInspectable_GetView __FIMap_2_HSTRING_IInspectable_GetView
+#define IMap_HSTRING_IInspectable_Insert __FIMap_2_HSTRING_IInspectable_Insert
+#define IMap_HSTRING_IInspectable_Remove __FIMap_2_HSTRING_IInspectable_Remove
+#define IMap_HSTRING_IInspectable_Clear __FIMap_2_HSTRING_IInspectable_Clear
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable, 0x7344f356, 0x8399, 0x5756, 0xa2,0xf8, 0xab,0xd5,0x0c,0x41,0x46,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("7344f356-8399-5756-a2f8-abd50c4146ff")
+            IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable, 0x7344f356, 0x8399, 0x5756, 0xa2,0xf8, 0xab,0xd5,0x0c,0x41,0x46,0xff)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *This,
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectableVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_QueryInterface(__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_AddRef(__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Release(__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Invoke(__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable* This,__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable IID___FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectableVtbl __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectableVtbl
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable_QueryInterface __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_QueryInterface
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable_AddRef __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_AddRef
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable_Release __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Release
+#define IAsyncOperationCompletedHandler_IMap_HSTRING_IInspectable_Invoke __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::BasicProperties* > interface
@@ -370,6 +2862,638 @@ static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CF
 #endif
 
 #endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CBasicProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties, 0x4452ed4c, 0x642b, 0x501b, 0x96,0x17, 0x7d,0x68,0xb4,0xac,0x3c,0x66);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("4452ed4c-642b-501b-9617-7d68b4ac3c66")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::DocumentProperties*, ABI::Windows::Storage::FileProperties::IDocumentProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties, 0x4452ed4c, 0x642b, 0x501b, 0x96,0x17, 0x7d,0x68,0xb4,0xac,0x3c,0x66)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_DocumentProperties IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties
+#define IAsyncOperationCompletedHandler_DocumentPropertiesVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl
+#define IAsyncOperationCompletedHandler_DocumentProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties
+#define IAsyncOperationCompletedHandler_DocumentProperties_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface
+#define IAsyncOperationCompletedHandler_DocumentProperties_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef
+#define IAsyncOperationCompletedHandler_DocumentProperties_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release
+#define IAsyncOperationCompletedHandler_DocumentProperties_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties, 0xc63729bc, 0xe4c3, 0x564c, 0xb1,0x37, 0x2c,0xb4,0xf5,0x96,0x6a,0x83);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("c63729bc-e4c3-564c-b137-2cb4f5966a83")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::ImageProperties*, ABI::Windows::Storage::FileProperties::IImageProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties, 0xc63729bc, 0xe4c3, 0x564c, 0xb1,0x37, 0x2c,0xb4,0xf5,0x96,0x6a,0x83)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_ImageProperties IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties
+#define IAsyncOperationCompletedHandler_ImagePropertiesVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl
+#define IAsyncOperationCompletedHandler_ImageProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties
+#define IAsyncOperationCompletedHandler_ImageProperties_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface
+#define IAsyncOperationCompletedHandler_ImageProperties_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef
+#define IAsyncOperationCompletedHandler_ImageProperties_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Release
+#define IAsyncOperationCompletedHandler_ImageProperties_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties, 0xd84e1312, 0xd661, 0x5b7f, 0x95,0x66, 0x74,0x21,0xbd,0xed,0xc1,0xea);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("d84e1312-d661-5b7f-9566-7421bdedc1ea")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::MusicProperties*, ABI::Windows::Storage::FileProperties::IMusicProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties, 0xd84e1312, 0xd661, 0x5b7f, 0x95,0x66, 0x74,0x21,0xbd,0xed,0xc1,0xea)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_MusicProperties IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties
+#define IAsyncOperationCompletedHandler_MusicPropertiesVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl
+#define IAsyncOperationCompletedHandler_MusicProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties
+#define IAsyncOperationCompletedHandler_MusicProperties_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface
+#define IAsyncOperationCompletedHandler_MusicProperties_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef
+#define IAsyncOperationCompletedHandler_MusicProperties_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Release
+#define IAsyncOperationCompletedHandler_MusicProperties_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* > interface
+ */
+#ifndef ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties, 0x43401d34, 0x61ab, 0x5cf2, 0x92,0x1f, 0x55,0xb6,0x16,0x63,0x1d,0x1d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("43401d34-61ab-5cf2-921f-55b616631d1d")
+            IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* > : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::VideoProperties*, ABI::Windows::Storage::FileProperties::IVideoProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties, 0x43401d34, 0x61ab, 0x5cf2, 0x92,0x1f, 0x55,0xb6,0x16,0x63,0x1d,0x1d)
+#endif
+#else
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *This);
+
+    /*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *info,
+        AsyncStatus status);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties {
+    CONST_VTBL __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+#define __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Invoke(This,info,status) (This)->lpVtbl->Invoke(This,info,status)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Release(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAsyncOperationCompletedHandler<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+static inline HRESULT __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Invoke(__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties* This,__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *info,AsyncStatus status) {
+    return This->lpVtbl->Invoke(This,info,status);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperationCompletedHandler_VideoProperties IID___FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties
+#define IAsyncOperationCompletedHandler_VideoPropertiesVtbl __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl
+#define IAsyncOperationCompletedHandler_VideoProperties __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties
+#define IAsyncOperationCompletedHandler_VideoProperties_QueryInterface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface
+#define IAsyncOperationCompletedHandler_VideoProperties_AddRef __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef
+#define IAsyncOperationCompletedHandler_VideoProperties_Release __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Release
+#define IAsyncOperationCompletedHandler_VideoProperties_Invoke __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_Invoke
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IIterable<HSTRING > interface
+ */
+#ifndef ____FIIterable_1_HSTRING_INTERFACE_DEFINED__
+#define ____FIIterable_1_HSTRING_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIIterable_1_HSTRING, 0xe2fcc7c1, 0x3bfc, 0x5a0b, 0xb2,0xb0, 0x72,0xe7,0x69,0xd1,0xcb,0x7e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            namespace Collections {
+                template<>
+                MIDL_INTERFACE("e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e")
+                IIterable<HSTRING > : IIterable_impl<HSTRING >
+                {
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIIterable_1_HSTRING, 0xe2fcc7c1, 0x3bfc, 0x5a0b, 0xb2,0xb0, 0x72,0xe7,0x69,0xd1,0xcb,0x7e)
+#endif
+#else
+typedef struct __FIIterable_1_HSTRINGVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIIterable_1_HSTRING *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIIterable_1_HSTRING *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIIterable_1_HSTRING *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIIterable_1_HSTRING *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIIterable_1_HSTRING *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIIterable_1_HSTRING *This,
+        TrustLevel *trustLevel);
+
+    /*** IIterable<HSTRING > methods ***/
+    HRESULT (STDMETHODCALLTYPE *First)(
+        __FIIterable_1_HSTRING *This,
+        __FIIterator_1_HSTRING **value);
+
+    END_INTERFACE
+} __FIIterable_1_HSTRINGVtbl;
+
+interface __FIIterable_1_HSTRING {
+    CONST_VTBL __FIIterable_1_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIIterable_1_HSTRING_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIIterable_1_HSTRING_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIIterable_1_HSTRING_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIIterable_1_HSTRING_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIIterable_1_HSTRING_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIIterable_1_HSTRING_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IIterable<HSTRING > methods ***/
+#define __FIIterable_1_HSTRING_First(This,value) (This)->lpVtbl->First(This,value)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIIterable_1_HSTRING_QueryInterface(__FIIterable_1_HSTRING* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIIterable_1_HSTRING_AddRef(__FIIterable_1_HSTRING* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIIterable_1_HSTRING_Release(__FIIterable_1_HSTRING* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIIterable_1_HSTRING_GetIids(__FIIterable_1_HSTRING* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIIterable_1_HSTRING_GetRuntimeClassName(__FIIterable_1_HSTRING* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIIterable_1_HSTRING_GetTrustLevel(__FIIterable_1_HSTRING* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IIterable<HSTRING > methods ***/
+static inline HRESULT __FIIterable_1_HSTRING_First(__FIIterable_1_HSTRING* This,__FIIterator_1_HSTRING **value) {
+    return This->lpVtbl->First(This,value);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation_Collections
+#define IID_IIterable_HSTRING IID___FIIterable_1_HSTRING
+#define IIterable_HSTRINGVtbl __FIIterable_1_HSTRINGVtbl
+#define IIterable_HSTRING __FIIterable_1_HSTRING
+#define IIterable_HSTRING_QueryInterface __FIIterable_1_HSTRING_QueryInterface
+#define IIterable_HSTRING_AddRef __FIIterable_1_HSTRING_AddRef
+#define IIterable_HSTRING_Release __FIIterable_1_HSTRING_Release
+#define IIterable_HSTRING_GetIids __FIIterable_1_HSTRING_GetIids
+#define IIterable_HSTRING_GetRuntimeClassName __FIIterable_1_HSTRING_GetRuntimeClassName
+#define IIterable_HSTRING_GetTrustLevel __FIIterable_1_HSTRING_GetTrustLevel
+#define IIterable_HSTRING_First __FIIterable_1_HSTRING_First
+#endif /* WIDL_using_Windows_Foundation_Collections */
+#endif
+
+#endif
+
+#endif  /* ____FIIterable_1_HSTRING_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > interface
+ */
+#ifndef ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable, 0x127e39c7, 0x07c1, 0x58e5, 0xb4,0x8e, 0x3a,0x47,0x29,0x83,0x9f,0xec);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("127e39c7-07c1-58e5-b48e-3a4729839fec")
+            IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > : IAsyncOperation_impl<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable, 0x127e39c7, 0x07c1, 0x58e5, 0xb4,0x8e, 0x3a,0x47,0x29,0x83,0x9f,0xec)
+#endif
+#else
+typedef struct __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectableVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        __FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable *This,
+        __FIMap_2_HSTRING_IInspectable **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectableVtbl;
+
+interface __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable {
+    CONST_VTBL __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectableVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_QueryInterface(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_AddRef(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_Release(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetIids(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetRuntimeClassName(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetTrustLevel(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Foundation::Collections::IMap<HSTRING,IInspectable* >* > methods ***/
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_put_Completed(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_get_Completed(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,__FIAsyncOperationCompletedHandler_1___FIMap_2_HSTRING_IInspectable **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetResults(__FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable* This,__FIMap_2_HSTRING_IInspectable **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_IMap_HSTRING_IInspectable IID___FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable
+#define IAsyncOperation_IMap_HSTRING_IInspectableVtbl __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectableVtbl
+#define IAsyncOperation_IMap_HSTRING_IInspectable __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable
+#define IAsyncOperation_IMap_HSTRING_IInspectable_QueryInterface __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_QueryInterface
+#define IAsyncOperation_IMap_HSTRING_IInspectable_AddRef __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_AddRef
+#define IAsyncOperation_IMap_HSTRING_IInspectable_Release __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_Release
+#define IAsyncOperation_IMap_HSTRING_IInspectable_GetIids __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetIids
+#define IAsyncOperation_IMap_HSTRING_IInspectable_GetRuntimeClassName __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetRuntimeClassName
+#define IAsyncOperation_IMap_HSTRING_IInspectable_GetTrustLevel __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetTrustLevel
+#define IAsyncOperation_IMap_HSTRING_IInspectable_put_Completed __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_put_Completed
+#define IAsyncOperation_IMap_HSTRING_IInspectable_get_Completed __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_get_Completed
+#define IAsyncOperation_IMap_HSTRING_IInspectable_GetResults __FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1___FIMap_2_HSTRING_IInspectable_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IAsyncOperation<ABI::Windows::Storage::FileProperties::BasicProperties* > interface
@@ -511,8 +3635,572 @@ static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__C
 
 #endif  /* ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CBasicProperties_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties, 0x6c86e97c, 0x5699, 0x5700, 0x8d,0x35, 0xd3,0x50,0xad,0x3e,0x4d,0xf2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("6c86e97c-5699-5700-8d35-d350ad3e4df2")
+            IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::DocumentProperties*, ABI::Windows::Storage::FileProperties::IDocumentProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties, 0x6c86e97c, 0x5699, 0x5700, 0x8d,0x35, 0xd3,0x50,0xad,0x3e,0x4d,0xf2)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetIids(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::DocumentProperties* > methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CDocumentProperties **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetResults(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_DocumentProperties IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties
+#define IAsyncOperation_DocumentPropertiesVtbl __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentPropertiesVtbl
+#define IAsyncOperation_DocumentProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties
+#define IAsyncOperation_DocumentProperties_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_QueryInterface
+#define IAsyncOperation_DocumentProperties_AddRef __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_AddRef
+#define IAsyncOperation_DocumentProperties_Release __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_Release
+#define IAsyncOperation_DocumentProperties_GetIids __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetIids
+#define IAsyncOperation_DocumentProperties_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetRuntimeClassName
+#define IAsyncOperation_DocumentProperties_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetTrustLevel
+#define IAsyncOperation_DocumentProperties_put_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_put_Completed
+#define IAsyncOperation_DocumentProperties_get_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_get_Completed
+#define IAsyncOperation_DocumentProperties_GetResults __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CDocumentProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties, 0xfcd07511, 0xe7f8, 0x5bda, 0x8c,0x04, 0x79,0x5a,0x63,0x9d,0xae,0x8f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("fcd07511-e7f8-5bda-8c04-795a639dae8f")
+            IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::ImageProperties*, ABI::Windows::Storage::FileProperties::IImageProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties, 0xfcd07511, 0xe7f8, 0x5bda, 0x8c,0x04, 0x79,0x5a,0x63,0x9d,0xae,0x8f)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_Release(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetIids(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::ImageProperties* > methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CImageProperties **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetResults(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_ImageProperties IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties
+#define IAsyncOperation_ImagePropertiesVtbl __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImagePropertiesVtbl
+#define IAsyncOperation_ImageProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties
+#define IAsyncOperation_ImageProperties_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_QueryInterface
+#define IAsyncOperation_ImageProperties_AddRef __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_AddRef
+#define IAsyncOperation_ImageProperties_Release __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_Release
+#define IAsyncOperation_ImageProperties_GetIids __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetIids
+#define IAsyncOperation_ImageProperties_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetRuntimeClassName
+#define IAsyncOperation_ImageProperties_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetTrustLevel
+#define IAsyncOperation_ImageProperties_put_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_put_Completed
+#define IAsyncOperation_ImageProperties_get_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_get_Completed
+#define IAsyncOperation_ImageProperties_GetResults __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CImageProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties, 0x0d023b76, 0x20a7, 0x56f3, 0x84,0xab, 0xce,0x31,0xe6,0x54,0x4b,0x71);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("0d023b76-20a7-56f3-84ab-ce31e6544b71")
+            IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::MusicProperties*, ABI::Windows::Storage::FileProperties::IMusicProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties, 0x0d023b76, 0x20a7, 0x56f3, 0x84,0xab, 0xce,0x31,0xe6,0x54,0x4b,0x71)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_Release(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetIids(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::MusicProperties* > methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CMusicProperties **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetResults(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_MusicProperties IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties
+#define IAsyncOperation_MusicPropertiesVtbl __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicPropertiesVtbl
+#define IAsyncOperation_MusicProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties
+#define IAsyncOperation_MusicProperties_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_QueryInterface
+#define IAsyncOperation_MusicProperties_AddRef __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_AddRef
+#define IAsyncOperation_MusicProperties_Release __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_Release
+#define IAsyncOperation_MusicProperties_GetIids __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetIids
+#define IAsyncOperation_MusicProperties_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetRuntimeClassName
+#define IAsyncOperation_MusicProperties_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetTrustLevel
+#define IAsyncOperation_MusicProperties_put_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_put_Completed
+#define IAsyncOperation_MusicProperties_get_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_get_Completed
+#define IAsyncOperation_MusicProperties_GetResults __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CMusicProperties_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > interface
+ */
+#ifndef ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__
+#define ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties, 0x447d4590, 0xd3f9, 0x58bf, 0xac,0x58, 0x6f,0x9a,0x50,0x83,0x9e,0xfe);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
+            template<>
+            MIDL_INTERFACE("447d4590-d3f9-58bf-ac58-6f9a50839efe")
+            IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Storage::FileProperties::VideoProperties*, ABI::Windows::Storage::FileProperties::IVideoProperties* > >
+            {
+            };
+        }
+    }
+}
+extern "C" {
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties, 0x447d4590, 0xd3f9, 0x58bf, 0xac,0x58, 0x6f,0x9a,0x50,0x83,0x9e,0xfe)
+#endif
+#else
+typedef struct __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This);
+
+    /*** IInspectable methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetIids)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        ULONG *iidCount,
+        IID **iids);
+
+    HRESULT (STDMETHODCALLTYPE *GetRuntimeClassName)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        HSTRING *className);
+
+    HRESULT (STDMETHODCALLTYPE *GetTrustLevel)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        TrustLevel *trustLevel);
+
+    /*** IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+    HRESULT (STDMETHODCALLTYPE *put_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *handler);
+
+    HRESULT (STDMETHODCALLTYPE *get_Completed)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties **handler);
+
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties *This,
+        __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties **results);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl;
+
+interface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties {
+    CONST_VTBL __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_Release(This) (This)->lpVtbl->Release(This)
+/*** IInspectable methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
+#define __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetResults(This,results) (This)->lpVtbl->GetResults(This,results)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_Release(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInspectable methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetIids(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,ULONG *iidCount,IID **iids) {
+    return This->lpVtbl->GetIids(This,iidCount,iids);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetRuntimeClassName(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,HSTRING *className) {
+    return This->lpVtbl->GetRuntimeClassName(This,className);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetTrustLevel(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,TrustLevel *trustLevel) {
+    return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncOperation<ABI::Windows::Storage::FileProperties::VideoProperties* > methods ***/
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_put_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties *handler) {
+    return This->lpVtbl->put_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_get_Completed(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,__FIAsyncOperationCompletedHandler_1_Windows__CStorage__CFileProperties__CVideoProperties **handler) {
+    return This->lpVtbl->get_Completed(This,handler);
+}
+static inline HRESULT __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetResults(__FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties* This,__x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties **results) {
+    return This->lpVtbl->GetResults(This,results);
+}
+#endif
+#ifdef WIDL_using_Windows_Foundation
+#define IID_IAsyncOperation_VideoProperties IID___FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties
+#define IAsyncOperation_VideoPropertiesVtbl __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoPropertiesVtbl
+#define IAsyncOperation_VideoProperties __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties
+#define IAsyncOperation_VideoProperties_QueryInterface __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_QueryInterface
+#define IAsyncOperation_VideoProperties_AddRef __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_AddRef
+#define IAsyncOperation_VideoProperties_Release __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_Release
+#define IAsyncOperation_VideoProperties_GetIids __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetIids
+#define IAsyncOperation_VideoProperties_GetRuntimeClassName __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetRuntimeClassName
+#define IAsyncOperation_VideoProperties_GetTrustLevel __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetTrustLevel
+#define IAsyncOperation_VideoProperties_put_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_put_Completed
+#define IAsyncOperation_VideoProperties_get_Completed __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_get_Completed
+#define IAsyncOperation_VideoProperties_GetResults __FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_GetResults
+#endif /* WIDL_using_Windows_Foundation */
+#endif
+
+#endif
+
+#endif  /* ____FIAsyncOperation_1_Windows__CStorage__CFileProperties__CVideoProperties_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER HSTRING_UserSize     (ULONG *, ULONG, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserMarshal  (ULONG *, unsigned char *, HSTRING *);
+unsigned char * __RPC_USER HSTRING_UserUnmarshal(ULONG *, unsigned char *, HSTRING *);
+void            __RPC_USER HSTRING_UserFree     (ULONG *, HSTRING *);
 
 /* End additional prototypes */
 

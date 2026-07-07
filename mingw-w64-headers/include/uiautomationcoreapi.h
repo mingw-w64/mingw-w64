@@ -560,6 +560,7 @@ HRESULT WINAPI UiaEventAddWindow(HUIAEVENT huiaevent, HWND hwnd);
 HRESULT WINAPI UiaEventRemoveWindow(HUIAEVENT huiaevent, HWND hwnd);
 WINBOOL WINAPI UiaHasServerSideProvider(HWND hwnd);
 WINBOOL WINAPI UiaClientsAreListening(void);
+HRESULT WINAPI UiaDisconnectAllProviders(void);
 
 #ifdef __cplusplus
 }

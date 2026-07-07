@@ -18,6 +18,14 @@
 
 /* Forward declarations */
 
+#ifndef __ITfFunction_FWD_DEFINED__
+#define __ITfFunction_FWD_DEFINED__
+typedef interface ITfFunction ITfFunction;
+#ifdef __cplusplus
+interface ITfFunction;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ITfFunctionProvider_FWD_DEFINED__
 #define __ITfFunctionProvider_FWD_DEFINED__
 typedef interface ITfFunctionProvider ITfFunctionProvider;
@@ -774,6 +782,83 @@ typedef struct TF_PROPERTYVAL {
     GUID guidId;
     VARIANT varValue;
 } TF_PROPERTYVAL;
+/*****************************************************************************
+ * ITfFunction interface
+ */
+#ifndef __ITfFunction_INTERFACE_DEFINED__
+#define __ITfFunction_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfFunction, 0xdb593490, 0x098f, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("db593490-098f-11d3-8df0-00105a2799b5")
+ITfFunction : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDisplayName(
+        BSTR *name) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfFunction, 0xdb593490, 0x098f, 0x11d3, 0x8d,0xf0, 0x00,0x10,0x5a,0x27,0x99,0xb5)
+#endif
+#else
+typedef struct ITfFunctionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfFunction *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfFunction *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfFunction *This);
+
+    /*** ITfFunction methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDisplayName)(
+        ITfFunction *This,
+        BSTR *name);
+
+    END_INTERFACE
+} ITfFunctionVtbl;
+
+interface ITfFunction {
+    CONST_VTBL ITfFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfFunction_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfFunction_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfFunction_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfFunction methods ***/
+#define ITfFunction_GetDisplayName(This,name) (This)->lpVtbl->GetDisplayName(This,name)
+#else
+/*** IUnknown methods ***/
+static inline HRESULT ITfFunction_QueryInterface(ITfFunction* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static inline ULONG ITfFunction_AddRef(ITfFunction* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static inline ULONG ITfFunction_Release(ITfFunction* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfFunction methods ***/
+static inline HRESULT ITfFunction_GetDisplayName(ITfFunction* This,BSTR *name) {
+    return This->lpVtbl->GetDisplayName(This,name);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ITfFunction_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * ITfFunctionProvider interface
  */
