@@ -42,15 +42,34 @@ int main (void) {
 
   /**
    * Test SBCS code page
-   * NOTE: code page 28591 is ISO-8859-1
    */
-  assert (setlocale (LC_ALL, "English_United States.28591") != NULL);
+  assert (setlocale (LC_ALL, "English_United States.1252") != NULL);
   assert (MB_CUR_MAX == 1);
 
   /**
-   * All values in range [0,255] are valid and must convert to themselves
+   * All values in range [0,127] are valid ASCII characters
    */
-  for (wchar_t wc = 0; wc < 0x100; ++wc) {
+  for (wchar_t wc = 0; wc < 0x80; ++wc) {
+    assert (wctob (wc) == wc);
+  }
+
+  /**
+   * All values in range [128,159] are valid characters
+   */
+  for (wchar_t wc = 0x80; wc < 0xA0; ++wc) {
+    int c = wctob (wc);
+
+    if (wc == 0x81 || wc == 0x8D || wc == 0x8F || wc == 0x90 || wc == 0x9D) {
+      assert ((unsigned char) c == wc);
+    } else {
+      assert (c == EOF || (unsigned char) c != wc);
+    }
+  }
+
+  /**
+   * All values in range [160,255] are valid and must convert to themselves
+   */
+  for (wchar_t wc = 0xA0; wc < 0x100; ++wc) {
     assert (wctob (wc) == wc);
   }
 

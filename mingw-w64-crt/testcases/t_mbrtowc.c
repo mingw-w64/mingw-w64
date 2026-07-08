@@ -87,20 +87,46 @@ int main (void) {
 
   /**
    * Test SBCS code page
-   * NOTE: Code page 28951 is ISO-8859-1
    */
-  assert (setlocale (LC_ALL, "English_United States.28591") != NULL);
+  assert (setlocale (LC_ALL, "English_United States.1252") != NULL);
   assert (MB_CUR_MAX == 1);
 
   /**
-   * All bytes must be valid
-   *
-   * We test ISO-8859-1 so that all bytes must convert to themselves
+   * All bytes in range [0,127] are valid ASCII characters
    */
-  for (unsigned char c = 0;; ++c) {
+  for (unsigned char c = 0; c < 0x80; ++c) {
     wc = WEOF;
 
     assert (mbrtowc (&wc, (char *) &c, MB_CUR_MAX, &state) == !!c);
+    assert (wc == c);
+    assert (mbsinit (&state));
+    assert (errno == 0);
+  }
+
+  /**
+   * All bytes in range [128,159] are valid characters
+   */
+  for (unsigned char c = 0x80; c < 0xA0; ++c) {
+    wc = WEOF;
+
+    assert (mbrtowc (&wc, (char *) &c, MB_CUR_MAX, &state) == 1);
+    if (c == 0x81 || c == 0x8D || c == 0x8F || c == 0x90 || c == 0x9D) {
+      assert (wc == c);
+    } else {
+      assert (wc != WEOF);
+      assert (wc != c);
+    }
+    assert (mbsinit (&state));
+    assert (errno == 0);
+  }
+
+  /**
+   * All bytes in range [160,255] are valid and must convert to themselves
+   */
+  for (unsigned char c = 0xA0;; ++c) {
+    wc = WEOF;
+
+    assert (mbrtowc (&wc, (char *) &c, MB_CUR_MAX, &state) == 1);
     assert (wc == c);
     assert (mbsinit (&state));
     assert (errno == 0);
