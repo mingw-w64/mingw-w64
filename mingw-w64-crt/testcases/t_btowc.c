@@ -41,7 +41,11 @@ int main (void) {
   /**
    * Test SBCS code page
    */
-  assert (setlocale (LC_ALL, ".1252") != NULL);
+  if (setlocale (LC_ALL, ".1252") == NULL) {
+    wprintf (L"Skipping tests for SBCS code page 1252\n");
+    goto skip_sbcs;
+  }
+
   assert (MB_CUR_MAX == 1);
 
   /**
@@ -58,6 +62,7 @@ int main (void) {
     assert (btowc (c) != WEOF);
   }
 
+skip_sbcs:
   /**
    * Disable tests for DBCS code pages with msvcrt10.dll since it does not
    * support multibyte characters.
@@ -69,7 +74,11 @@ int main (void) {
   /**
    * Test DBCS code page
    */
-  assert (setlocale (LC_ALL, ".932") != NULL);
+  if (setlocale (LC_ALL, ".932") == NULL) {
+    wprintf (L"Skipping tests for DBCS code page 932\n");
+    goto skip_dbcs;
+  }
+
   assert (MB_CUR_MAX == 2);
 
   /**
@@ -87,6 +96,8 @@ int main (void) {
       assert (btowc (c) == WEOF);
     }
   }
+
+skip_dbcs:
 #endif
 #ifdef _UCRT
   /**
