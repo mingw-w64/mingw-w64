@@ -112,7 +112,7 @@ int main (void) {
 
       assert (wcrtomb (&c, wc, &state) == (size_t) -1);
       assert (c == EOF);
-      assert (errno = EILSEQ);
+      assert (errno == EILSEQ);
       assert (mbsinit (&state));
 
       // reset errno
@@ -196,7 +196,7 @@ int main (void) {
       assert (wcrtomb (&c, wc, &state) == (size_t) -1);
       /* This assertion fails with CRT's version */
       assert (c == EOF);
-      assert (errno = EILSEQ);
+      assert (errno == EILSEQ);
       assert (mbsinit (&state));
 
       // reset errno
@@ -263,7 +263,7 @@ skip_sbcs:
       assert (wcrtomb (&c, wc, &state) == (size_t) -1);
       /* This assertion fails with CRT's version */
       assert (c == EOF);
-      assert (errno = EILSEQ);
+      assert (errno == EILSEQ);
       assert (mbsinit (&state));
 
       // reset errno
