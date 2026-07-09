@@ -42,6 +42,10 @@ __MINGW_SELECTANY int* __mingw_reference_charmax = &__mingw_initcharmax;
 
 _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
 
+/**
+ * Standard C declarations.
+ */
+
 #define LC_ALL 0
 #define LC_COLLATE 1
 #define LC_CTYPE 2
@@ -83,6 +87,9 @@ _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
 #endif
   };
 
+_CRTIMP char *__cdecl setlocale(int _Category,const char *_Locale);
+_CRTIMP struct lconv *__cdecl localeconv(void);
+
 #define _ENABLE_PER_THREAD_LOCALE 0x1
 #define _DISABLE_PER_THREAD_LOCALE 0x2
 #define _ENABLE_PER_THREAD_LOCALE_GLOBAL 0x10
@@ -91,8 +98,6 @@ _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
 #define _DISABLE_PER_THREAD_LOCALE_NEW 0x200
 
   _CRTIMP int __cdecl _configthreadlocale(int _Flag);
-  _CRTIMP char *__cdecl setlocale(int _Category,const char *_Locale);
-  _CRTIMP struct lconv *__cdecl localeconv(void);
   _CRTIMP _locale_t __cdecl _get_current_locale(void);
   _CRTIMP _locale_t __cdecl _create_locale(int _Category,const char *_Locale);
   _CRTIMP void __cdecl _free_locale(_locale_t _Locale);
