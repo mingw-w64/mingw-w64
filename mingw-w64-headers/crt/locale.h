@@ -6,7 +6,7 @@
 #ifndef _INC_LOCALE
 #define _INC_LOCALE
 
-#include <crtdefs.h>
+#include <_mingw_locale.h>
 
 #ifdef __cplusplus
 #include <stdio.h>
@@ -103,15 +103,6 @@ extern "C" {
 
   /* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
   int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
-
-#ifndef _WLOCALE_DEFINED
-#define _WLOCALE_DEFINED
-  _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
-#endif
-
-#if __MSVCRT_VERSION__ >= 0xB00
-  _CRTIMP _locale_t __cdecl _wcreate_locale(int _Category, const wchar_t *_Locale);
-#endif
 
 #ifdef __CHAR_UNSIGNED__
 /* Pull in the constructor from 'charmax.c'.  */

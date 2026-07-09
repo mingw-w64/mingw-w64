@@ -11,6 +11,7 @@
 #include <corecrt_wconio.h>
 #include <corecrt_wstdlib.h>
 #include <corecrt_wctype.h>
+#include <_mingw_locale.h>
 
 #if __USE_MINGW_ANSI_STDIO && !defined (__USE_MINGW_STRTOX) && !defined(_CRTBLD)
 #define __USE_MINGW_STRTOX 1
@@ -206,15 +207,6 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
   _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
   _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#endif
-
-#ifndef _WLOCALE_DEFINED
-#define _WLOCALE_DEFINED
-  _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
-#endif
-
-#if __MSVCRT_VERSION__ >= 0xB00
-  _CRTIMP _locale_t __cdecl _wcreate_locale(int _Category, const wchar_t *_Locale);
 #endif
 
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
@@ -1206,4 +1198,3 @@ void __cdecl __mingw_str_free(void *ptr);
 #include <sec_api/wchar_s.h>
 
 #endif /* _INC_WCHAR */
-
