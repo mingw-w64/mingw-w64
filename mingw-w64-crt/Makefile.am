@@ -356,12 +356,12 @@ src_msvcrt=\
   ctype/iswprint.c \
   ctype/wctrans.c \
   ctype/wctype.c \
+  locale/_configthreadlocale.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
   misc/_aligned_offset_recalloc.c \
   misc/_aligned_recalloc.c \
-  misc/_configthreadlocale.c \
   misc/_get_daylight.c \
   misc/_get_dstbias.c \
   misc/_get_pgmptr.c \
@@ -582,14 +582,17 @@ src_msvcrt32=\
   $(src_msvcrt_add_x86) \
   ctype/__pctype_func.c \
   ctype/__pwctype_func.c \
+  locale/___lc_codepage_func.c \
+  locale/___lc_handle_func.c \
+  locale/_create_locale.c \
+  locale/_free_locale.c \
+  locale/_get_current_locale.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   misc/i386__XcptFilter.c \
   misc/i386__beginthread.c \
   misc/i386__beginthreadex.c \
   math/i386__copysignf.c \
-  misc/___lc_codepage_func.c \
-  misc/___lc_handle_func.c \
   misc/___mb_cur_max_func.c \
   misc/__p__osplatform.c \
   misc/_aligned_free.c \
@@ -597,13 +600,10 @@ src_msvcrt32=\
   misc/_aligned_offset_malloc.c \
   misc/_aligned_offset_realloc.c \
   misc/_aligned_realloc.c \
-  misc/_create_locale.c \
   misc/_ctime64.c \
   misc/_difftime64.c \
-  misc/_free_locale.c \
   misc/_ftime64.c \
   misc/_futime64.c \
-  misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_get_fmode.c \
   misc/_gmtime64.c \
@@ -657,6 +657,9 @@ src_msvcrt64=\
   $(src_msvcrt_add_x86) \
   ctype/__p__pctype.c \
   ctype/__p__pwctype.c \
+  locale/_create_locale.c \
+  locale/_free_locale.c \
+  locale/_get_current_locale.c \
   misc/__daylight.c \
   misc/__dstbias.c \
   misc/__p___argc.c \
@@ -682,9 +685,6 @@ src_msvcrt64=\
   misc/__p__wpgmptr.c \
   misc/__timezone.c \
   misc/__tzname.c \
-  misc/_create_locale.c \
-  misc/_free_locale.c \
-  misc/_get_current_locale.c \
   misc/_get_doserrno.c \
   misc/_get_fmode.c \
   misc/_initterm_e.c \
@@ -941,7 +941,7 @@ src_pre_msvcrt40=\
   stdio/fsetpos.c
 
 src_pre_msvcrt60=\
-  misc/___lc_codepage_func_emul.c \
+  locale/___lc_codepage_func_emul.c \
   misc/__badioinfo.c \
   misc/__p__osplatform_emul.c \
   stdio/atoll.c \
@@ -988,12 +988,12 @@ src_pre_msvcr71=\
 src_pre_msvcr80=\
   ctype/__iswcsym.c \
   ctype/__iswcsymf.c \
+  locale/_configthreadlocale.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
   misc/_aligned_offset_recalloc.c \
   misc/_aligned_recalloc.c \
-  misc/_configthreadlocale.c \
   misc/_difftime64.c \
   misc/_get_daylight.c \
   misc/_get_doserrno.c \
@@ -1154,8 +1154,8 @@ src_msvcrtd=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
-  misc/___lc_codepage_func.c \
-  misc/___lc_handle_func.c \
+  locale/___lc_codepage_func.c \
+  locale/___lc_handle_func.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c
 
