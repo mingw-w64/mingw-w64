@@ -137,11 +137,15 @@ _CRTIMP _locale_t __cdecl __create_locale(int _Category,const char *_Locale);
 _CRTIMP void __cdecl __free_locale(_locale_t _Locale);
 #endif
 
-  /* Get the code page that the CRT currently uses for filenames. */
-  unsigned int __cdecl __mingw_filename_cp(void);
+/**
+ * mingw-w64's private functions.
+ */
 
-  /* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
-  int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
+/* Get the code page that the CRT currently uses for filenames. */
+unsigned int __cdecl __mingw_filename_cp(void);
+
+/* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
+int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
 
 #ifdef __cplusplus
 }
