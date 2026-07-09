@@ -148,7 +148,7 @@ _CRTIMP void __cdecl __free_locale(_locale_t _Locale);
 /* Get the code page that the CRT currently uses for filenames. */
 unsigned int __cdecl __mingw_filename_cp(void);
 
-/* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
+/* Variant of _isleadbyte_l() function which takes codepage (instead of _locale_t). */
 int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
 
 #ifdef __cplusplus
