@@ -30,6 +30,18 @@ extern "C" {
 #endif
 #endif
 
+/**
+ * Internal CRT stuff.
+ */
+
+#ifdef __CHAR_UNSIGNED__
+/* Pull in the constructor from 'charmax.c'.  */
+extern int __mingw_initcharmax;
+__MINGW_SELECTANY int* __mingw_reference_charmax = &__mingw_initcharmax;
+#endif
+
+_CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
+
 #define LC_ALL 0
 #define LC_COLLATE 1
 #define LC_CTYPE 2
@@ -88,19 +100,12 @@ extern "C" {
   _CRTIMP _locale_t __cdecl __create_locale(int _Category,const char *_Locale);
   _CRTIMP void __cdecl __free_locale(_locale_t _Locale);
 
-  _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
 
   /* Get the code page that the CRT currently uses for filenames. */
   unsigned int __cdecl __mingw_filename_cp(void);
 
   /* Variant of _isleadbyte_l() function which takes codepage (instead of locale_t). */
   int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp);
-
-#ifdef __CHAR_UNSIGNED__
-/* Pull in the constructor from 'charmax.c'.  */
-extern int __mingw_initcharmax;
-__MINGW_SELECTANY int* __mingw_reference_charmax = &__mingw_initcharmax;
-#endif
 
 #ifdef __cplusplus
 }
