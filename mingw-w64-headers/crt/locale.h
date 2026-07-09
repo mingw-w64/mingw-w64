@@ -90,6 +90,17 @@ _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
 _CRTIMP char *__cdecl setlocale(int _Category,const char *_Locale);
 _CRTIMP struct lconv *__cdecl localeconv(void);
 
+/**
+ * Microsoft-specific declarations: thread locales.
+ *
+ * They are available since msvcr80.dll.
+ */
+
+/**
+ * FIXME: we expose `_configthreadlocale` for msvcrt.dll in order to avoid
+ *   breaking packages which use it unconditionally (e.g. libc++).
+ */
+#if __MSVCRT_VERSION__ >= 0x0800 || __MSVCRT_VERSION__ == 0x0600
 #define _ENABLE_PER_THREAD_LOCALE 0x1
 #define _DISABLE_PER_THREAD_LOCALE 0x2
 #define _ENABLE_PER_THREAD_LOCALE_GLOBAL 0x10
@@ -97,7 +108,9 @@ _CRTIMP struct lconv *__cdecl localeconv(void);
 #define _ENABLE_PER_THREAD_LOCALE_NEW 0x100
 #define _DISABLE_PER_THREAD_LOCALE_NEW 0x200
 
-  _CRTIMP int __cdecl _configthreadlocale(int _Flag);
+_CRTIMP int __cdecl _configthreadlocale(int _Flag);
+#endif
+
   _CRTIMP _locale_t __cdecl _get_current_locale(void);
   _CRTIMP _locale_t __cdecl _create_locale(int _Category,const char *_Locale);
   _CRTIMP void __cdecl _free_locale(_locale_t _Locale);

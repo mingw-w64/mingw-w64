@@ -31,6 +31,7 @@
 extern IMAGE_DOS_HEADER __ImageBase;
 
 int *__cdecl __p__commode(void);
+int __cdecl _configthreadlocale(int);
 
 #undef _fmode
 extern int _fmode;
