@@ -21,7 +21,9 @@
 extern "C" {
 #endif
 
+#if __MSVCRT_VERSION__ >= 0x200
 _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
+#endif
 
 #if __MSVCRT_VERSION__ >= 0xB00
 _CRTIMP _locale_t __cdecl _wcreate_locale(int _Category, const wchar_t *_Locale);
