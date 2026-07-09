@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#undef __MSVCRT_VERSION__
+#define __MSVCRT_VERSION__ 0x0800
 #include <locale.h>
 
 static _locale_t __cdecl emu__create_locale(int category, const char *locale)

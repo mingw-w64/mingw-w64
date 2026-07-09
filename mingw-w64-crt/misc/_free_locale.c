@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#undef __MSVCRT_VERSION__
+#define __MSVCRT_VERSION__ 0x0800
 #include <locale.h>
 
 static void __cdecl emu__free_locale(_locale_t locale)

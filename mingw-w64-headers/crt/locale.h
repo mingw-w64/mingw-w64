@@ -111,13 +111,31 @@ _CRTIMP struct lconv *__cdecl localeconv(void);
 _CRTIMP int __cdecl _configthreadlocale(int _Flag);
 #endif
 
-  _CRTIMP _locale_t __cdecl _get_current_locale(void);
-  _CRTIMP _locale_t __cdecl _create_locale(int _Category,const char *_Locale);
-  _CRTIMP void __cdecl _free_locale(_locale_t _Locale);
-  _CRTIMP _locale_t __cdecl __get_current_locale(void);
-  _CRTIMP _locale_t __cdecl __create_locale(int _Category,const char *_Locale);
-  _CRTIMP void __cdecl __free_locale(_locale_t _Locale);
+/**
+ * Microsoft-specific declarations: locale objects.
+ *
+ * They are available since msvcr80.dll.
+ * They are also available in msvcrt.dll since Windows 8.
+ */
 
+/**
+ * FIXME: functions which use `_locale_t` objects are available in msvcrt.dll
+ *   since Windows Vista, while `_create_locale` etc. are only available since
+ *   Windows 8. We expose them for Vista and later in order to avoid breaking
+ *   packages which use them unconditionally (e.g. libc++).
+ */
+#if __MSVCRT_VERSION__ >= 0x0800 || (__MSVCRT_VERSION__ == 0x0600 && _WIN32_WINNT >= 0x0600)
+_CRTIMP _locale_t __cdecl _get_current_locale(void);
+_CRTIMP _locale_t __cdecl _create_locale(int _Category,const char *_Locale);
+_CRTIMP void __cdecl _free_locale(_locale_t _Locale);
+
+/**
+ * Aliases with two underscores are deprecated; do not use in new code.
+ */
+_CRTIMP _locale_t __cdecl __get_current_locale(void);
+_CRTIMP _locale_t __cdecl __create_locale(int _Category,const char *_Locale);
+_CRTIMP void __cdecl __free_locale(_locale_t _Locale);
+#endif
 
   /* Get the code page that the CRT currently uses for filenames. */
   unsigned int __cdecl __mingw_filename_cp(void);
