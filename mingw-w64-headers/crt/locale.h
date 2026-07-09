@@ -75,7 +75,11 @@ _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
     char n_sep_by_space;
     char p_sign_posn;
     char n_sign_posn;
-#if __MSVCRT_VERSION__ >= 0xA00 || _WIN32_WINNT >= 0x601
+    /**
+     * These _W_* members are available since msvcr100.dll;
+     * they are also available in msvcrt.dll since Windows 7.
+     */
+#if __MSVCRT_VERSION__ >= 0xA00 || (__MSVCRT_VERSION__ == 0x600 && _WIN32_WINNT >= 0x601)
     wchar_t* _W_decimal_point;
     wchar_t* _W_thousands_sep;
     wchar_t* _W_int_curr_symbol;
