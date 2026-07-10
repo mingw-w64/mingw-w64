@@ -671,6 +671,8 @@ LIBARM32SUFFIXDIR
 LIBARM64SUFFIXDIR
 LIBX8632SUFFIXDIR
 LIBX8664SUFFIXDIR
+ARM64X_FALSE
+ARM64X_TRUE
 LIBARM64_FALSE
 LIBARM64_TRUE
 LIBARM32_FALSE
@@ -813,6 +815,7 @@ enable_lib32
 enable_lib64
 enable_libarm32
 enable_libarm64
+enable_arm64x
 enable_wildcard
 enable_private_exports
 enable_delay_import_libs
@@ -1478,6 +1481,7 @@ Optional Features:
   --enable-lib64          Build the Win64 libraries
   --enable-libarm32       Build the WinARM32 libraries
   --enable-libarm64       Build the WinARM64 libraries
+  --enable-arm64x         Enable hybrid ARM64X (ARM64 and ARM64EC) libraries
   --enable-wildcard       Enable command line globbing
   --enable-private-exports
                           Enable exporting private internal functions
@@ -2552,8 +2556,7 @@ ac_cxx_conftest_cxx11_main='
   test_template<::test_template<int>> v(test_template<int>(12));
 }
 {
-  // Unicode literals
-  char const *utf8 = u8"UTF-8 string \u2500";
+  // Unicode literals.  Do not test u8"..." as C++20 would reject it.
   char16_t const *utf16 = u"UTF-8 string \u2500";
   char32_t const *utf32 = U"UTF-32 string \u2500";
 }
@@ -6603,6 +6606,36 @@ printf "%s\n" "$as_me: WARNING: Building the runtime to use libarm64 with lib32,
 fi
 fi
 
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to build the ARM64X libraries" >&5
+printf %s "checking whether to build the ARM64X libraries... " >&6; }
+# Check whether --enable-arm64x was given.
+if test ${enable_arm64x+y}
+then :
+  enableval=$enable_arm64x;
+else case e in #(
+  e) enable_arm64x=no ;;
+esac
+fi
+
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $enable_arm64x" >&5
+printf "%s\n" "$enable_arm64x" >&6; }
+case $enable_arm64x in #(
+  no) :
+     ;; #(
+  yes) :
+    ARM64X= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if test ${ARM64X+y}; then
+  ARM64X_TRUE=
+  ARM64X_FALSE='#'
+else
+  ARM64X_TRUE='#'
+  ARM64X_FALSE=
+fi
+
+
 case $host_cpu in #(
   x86_64) :
 
@@ -6656,7 +6689,7 @@ LIBARM64SUFFIXDIR=$libarm64suffx
 LIBARM32SUFFIXDIR=$libarm32suffx
 
 
- if test $host_cpu = arm64ec; then
+ if test $host_cpu = arm64ec -o x$enable_arm64x = xyes; then
   ARM64EC_TRUE=
   ARM64EC_FALSE='#'
 else
@@ -7308,6 +7341,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBARM64_TRUE}" && test -z "${LIBARM64_FALSE}"; then
   as_fn_error $? "conditional \"LIBARM64\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ARM64X_TRUE}" && test -z "${ARM64X_FALSE}"; then
+  as_fn_error $? "conditional \"ARM64X\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ARM64EC_TRUE}" && test -z "${ARM64EC_FALSE}"; then
