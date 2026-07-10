@@ -13,7 +13,7 @@
 #include <sect_attribs.h>
 
 __attribute__((used))
-ULONG _tls_index = 0;
+ULONG _tls_index = -1; /* -1 as uninitialized value */
 
 /* TLS raw template data start and end. 
    We use here pointer-types for start/end so that tls-data remains
