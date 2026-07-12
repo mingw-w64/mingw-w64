@@ -174,20 +174,15 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_rwlock/rwlock6_t2$(EXEEXT) \
 	pthread_rwlock/rwlock7$(EXEEXT) \
 	pthread_rwlock/rwlock8$(EXEEXT) \
-	pthread_spinlock/spin1$(EXEEXT) \
-	pthread_spinlock/spin2$(EXEEXT) \
-	pthread_spinlock/spin3$(EXEEXT) \
-	pthread_spinlock/spin4$(EXEEXT) pthread_tls/tsd1$(EXEEXT) \
-	pthread_tls/tsd2$(EXEEXT) sched/priority1$(EXEEXT) \
-	sched/priority2$(EXEEXT) semaphore/semaphore1$(EXEEXT) \
-	semaphore/semaphore2$(EXEEXT) semaphore/semaphore3$(EXEEXT) \
-	semaphore/semaphore4$(EXEEXT) semaphore/semaphore4t$(EXEEXT) \
-	semaphore/semaphore5$(EXEEXT)
-XFAIL_TESTS = pthread_mutex/mutex4$(EXEEXT) \
-	pthread_mutex/mutex6e$(EXEEXT) pthread_mutex/mutex6es$(EXEEXT) \
-	pthread_mutex/mutex7$(EXEEXT) pthread_mutex/mutex7e$(EXEEXT) \
-	pthread_mutex/mutex7n$(EXEEXT) pthread_spinlock/spin1$(EXEEXT) \
-	pthread_spinlock/spin3$(EXEEXT)
+	pthread_spinlock/spinlock-basic$(EXEEXT) \
+	pthread_spinlock/spinlock-threaded$(EXEEXT) \
+	pthread_spinlock/spinlock-static-basic$(EXEEXT) \
+	pthread_spinlock/spinlock-static-race$(EXEEXT) \
+	pthread_tls/tsd1$(EXEEXT) pthread_tls/tsd2$(EXEEXT) \
+	sched/priority1$(EXEEXT) sched/priority2$(EXEEXT) \
+	semaphore/semaphore1$(EXEEXT) semaphore/semaphore2$(EXEEXT) \
+	semaphore/semaphore3$(EXEEXT) semaphore/semaphore4$(EXEEXT) \
+	semaphore/semaphore4t$(EXEEXT) semaphore/semaphore5$(EXEEXT)
 subdir = tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -748,25 +743,33 @@ pthread_rwlock_rwlock8_OBJECTS = pthread_rwlock/rwlock8.$(OBJEXT)
 pthread_rwlock_rwlock8_LDADD = $(LDADD)
 pthread_rwlock_rwlock8_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_spinlock_spin1_SOURCES = pthread_spinlock/spin1.c
-pthread_spinlock_spin1_OBJECTS = pthread_spinlock/spin1.$(OBJEXT)
-pthread_spinlock_spin1_LDADD = $(LDADD)
-pthread_spinlock_spin1_DEPENDENCIES =  \
+pthread_spinlock_spinlock_basic_SOURCES =  \
+	pthread_spinlock/spinlock-basic.c
+pthread_spinlock_spinlock_basic_OBJECTS =  \
+	pthread_spinlock/spinlock-basic.$(OBJEXT)
+pthread_spinlock_spinlock_basic_LDADD = $(LDADD)
+pthread_spinlock_spinlock_basic_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_spinlock_spin2_SOURCES = pthread_spinlock/spin2.c
-pthread_spinlock_spin2_OBJECTS = pthread_spinlock/spin2.$(OBJEXT)
-pthread_spinlock_spin2_LDADD = $(LDADD)
-pthread_spinlock_spin2_DEPENDENCIES =  \
+pthread_spinlock_spinlock_static_basic_SOURCES =  \
+	pthread_spinlock/spinlock-static-basic.c
+pthread_spinlock_spinlock_static_basic_OBJECTS =  \
+	pthread_spinlock/spinlock-static-basic.$(OBJEXT)
+pthread_spinlock_spinlock_static_basic_LDADD = $(LDADD)
+pthread_spinlock_spinlock_static_basic_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_spinlock_spin3_SOURCES = pthread_spinlock/spin3.c
-pthread_spinlock_spin3_OBJECTS = pthread_spinlock/spin3.$(OBJEXT)
-pthread_spinlock_spin3_LDADD = $(LDADD)
-pthread_spinlock_spin3_DEPENDENCIES =  \
+pthread_spinlock_spinlock_static_race_SOURCES =  \
+	pthread_spinlock/spinlock-static-race.c
+pthread_spinlock_spinlock_static_race_OBJECTS =  \
+	pthread_spinlock/spinlock-static-race.$(OBJEXT)
+pthread_spinlock_spinlock_static_race_LDADD = $(LDADD)
+pthread_spinlock_spinlock_static_race_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_spinlock_spin4_SOURCES = pthread_spinlock/spin4.c
-pthread_spinlock_spin4_OBJECTS = pthread_spinlock/spin4.$(OBJEXT)
-pthread_spinlock_spin4_LDADD = $(LDADD)
-pthread_spinlock_spin4_DEPENDENCIES =  \
+pthread_spinlock_spinlock_threaded_SOURCES =  \
+	pthread_spinlock/spinlock-threaded.c
+pthread_spinlock_spinlock_threaded_OBJECTS =  \
+	pthread_spinlock/spinlock-threaded.$(OBJEXT)
+pthread_spinlock_spinlock_threaded_LDADD = $(LDADD)
+pthread_spinlock_spinlock_threaded_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
 pthread_tls_tsd1_SOURCES = pthread_tls/tsd1.c
 pthread_tls_tsd1_OBJECTS = pthread_tls/tsd1.$(OBJEXT)
@@ -944,10 +947,10 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po \
 	pthread_rwlock/$(DEPDIR)/rwlock7.Po \
 	pthread_rwlock/$(DEPDIR)/rwlock8.Po \
-	pthread_spinlock/$(DEPDIR)/spin1.Po \
-	pthread_spinlock/$(DEPDIR)/spin2.Po \
-	pthread_spinlock/$(DEPDIR)/spin3.Po \
-	pthread_spinlock/$(DEPDIR)/spin4.Po \
+	pthread_spinlock/$(DEPDIR)/spinlock-basic.Po \
+	pthread_spinlock/$(DEPDIR)/spinlock-static-basic.Po \
+	pthread_spinlock/$(DEPDIR)/spinlock-static-race.Po \
+	pthread_spinlock/$(DEPDIR)/spinlock-threaded.Po \
 	pthread_tls/$(DEPDIR)/tsd1.Po pthread_tls/$(DEPDIR)/tsd2.Po \
 	sched/$(DEPDIR)/priority1.Po sched/$(DEPDIR)/priority2.Po \
 	semaphore/$(DEPDIR)/semaphore1.Po \
@@ -1035,13 +1038,14 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_rwlock/rwlock5_t.c pthread_rwlock/rwlock6.c \
 	pthread_rwlock/rwlock6_t.c pthread_rwlock/rwlock6_t2.c \
 	pthread_rwlock/rwlock7.c pthread_rwlock/rwlock8.c \
-	pthread_spinlock/spin1.c pthread_spinlock/spin2.c \
-	pthread_spinlock/spin3.c pthread_spinlock/spin4.c \
-	pthread_tls/tsd1.c pthread_tls/tsd2.c sched/priority1.c \
-	sched/priority2.c semaphore/semaphore1.c \
-	semaphore/semaphore2.c semaphore/semaphore3.c \
-	semaphore/semaphore4.c semaphore/semaphore4t.c \
-	semaphore/semaphore5.c
+	pthread_spinlock/spinlock-basic.c \
+	pthread_spinlock/spinlock-static-basic.c \
+	pthread_spinlock/spinlock-static-race.c \
+	pthread_spinlock/spinlock-threaded.c pthread_tls/tsd1.c \
+	pthread_tls/tsd2.c sched/priority1.c sched/priority2.c \
+	semaphore/semaphore1.c semaphore/semaphore2.c \
+	semaphore/semaphore3.c semaphore/semaphore4.c \
+	semaphore/semaphore4t.c semaphore/semaphore5.c
 DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	benchtests/benchtest2.c benchtests/benchtest3.c \
 	benchtests/benchtest4.c benchtests/benchtest5.c \
@@ -1102,13 +1106,14 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_rwlock/rwlock5_t.c pthread_rwlock/rwlock6.c \
 	pthread_rwlock/rwlock6_t.c pthread_rwlock/rwlock6_t2.c \
 	pthread_rwlock/rwlock7.c pthread_rwlock/rwlock8.c \
-	pthread_spinlock/spin1.c pthread_spinlock/spin2.c \
-	pthread_spinlock/spin3.c pthread_spinlock/spin4.c \
-	pthread_tls/tsd1.c pthread_tls/tsd2.c sched/priority1.c \
-	sched/priority2.c semaphore/semaphore1.c \
-	semaphore/semaphore2.c semaphore/semaphore3.c \
-	semaphore/semaphore4.c semaphore/semaphore4t.c \
-	semaphore/semaphore5.c
+	pthread_spinlock/spinlock-basic.c \
+	pthread_spinlock/spinlock-static-basic.c \
+	pthread_spinlock/spinlock-static-race.c \
+	pthread_spinlock/spinlock-threaded.c pthread_tls/tsd1.c \
+	pthread_tls/tsd2.c sched/priority1.c sched/priority2.c \
+	semaphore/semaphore1.c semaphore/semaphore2.c \
+	semaphore/semaphore3.c semaphore/semaphore4.c \
+	semaphore/semaphore4t.c semaphore/semaphore5.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -2368,30 +2373,34 @@ pthread_spinlock/$(am__dirstamp):
 pthread_spinlock/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) pthread_spinlock/$(DEPDIR)
 	@: > pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
-pthread_spinlock/spin1.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+pthread_spinlock/spinlock-basic.$(OBJEXT):  \
+	pthread_spinlock/$(am__dirstamp) \
 	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
 
-pthread_spinlock/spin1$(EXEEXT): $(pthread_spinlock_spin1_OBJECTS) $(pthread_spinlock_spin1_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin1_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
-	@rm -f pthread_spinlock/spin1$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin1_OBJECTS) $(pthread_spinlock_spin1_LDADD) $(LIBS)
-pthread_spinlock/spin2.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+pthread_spinlock/spinlock-basic$(EXEEXT): $(pthread_spinlock_spinlock_basic_OBJECTS) $(pthread_spinlock_spinlock_basic_DEPENDENCIES) $(EXTRA_pthread_spinlock_spinlock_basic_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spinlock-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spinlock_basic_OBJECTS) $(pthread_spinlock_spinlock_basic_LDADD) $(LIBS)
+pthread_spinlock/spinlock-static-basic.$(OBJEXT):  \
+	pthread_spinlock/$(am__dirstamp) \
 	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
 
-pthread_spinlock/spin2$(EXEEXT): $(pthread_spinlock_spin2_OBJECTS) $(pthread_spinlock_spin2_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin2_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
-	@rm -f pthread_spinlock/spin2$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin2_OBJECTS) $(pthread_spinlock_spin2_LDADD) $(LIBS)
-pthread_spinlock/spin3.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+pthread_spinlock/spinlock-static-basic$(EXEEXT): $(pthread_spinlock_spinlock_static_basic_OBJECTS) $(pthread_spinlock_spinlock_static_basic_DEPENDENCIES) $(EXTRA_pthread_spinlock_spinlock_static_basic_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spinlock-static-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spinlock_static_basic_OBJECTS) $(pthread_spinlock_spinlock_static_basic_LDADD) $(LIBS)
+pthread_spinlock/spinlock-static-race.$(OBJEXT):  \
+	pthread_spinlock/$(am__dirstamp) \
 	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
 
-pthread_spinlock/spin3$(EXEEXT): $(pthread_spinlock_spin3_OBJECTS) $(pthread_spinlock_spin3_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin3_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
-	@rm -f pthread_spinlock/spin3$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin3_OBJECTS) $(pthread_spinlock_spin3_LDADD) $(LIBS)
-pthread_spinlock/spin4.$(OBJEXT): pthread_spinlock/$(am__dirstamp) \
+pthread_spinlock/spinlock-static-race$(EXEEXT): $(pthread_spinlock_spinlock_static_race_OBJECTS) $(pthread_spinlock_spinlock_static_race_DEPENDENCIES) $(EXTRA_pthread_spinlock_spinlock_static_race_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spinlock-static-race$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spinlock_static_race_OBJECTS) $(pthread_spinlock_spinlock_static_race_LDADD) $(LIBS)
+pthread_spinlock/spinlock-threaded.$(OBJEXT):  \
+	pthread_spinlock/$(am__dirstamp) \
 	pthread_spinlock/$(DEPDIR)/$(am__dirstamp)
 
-pthread_spinlock/spin4$(EXEEXT): $(pthread_spinlock_spin4_OBJECTS) $(pthread_spinlock_spin4_DEPENDENCIES) $(EXTRA_pthread_spinlock_spin4_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
-	@rm -f pthread_spinlock/spin4$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spin4_OBJECTS) $(pthread_spinlock_spin4_LDADD) $(LIBS)
+pthread_spinlock/spinlock-threaded$(EXEEXT): $(pthread_spinlock_spinlock_threaded_OBJECTS) $(pthread_spinlock_spinlock_threaded_DEPENDENCIES) $(EXTRA_pthread_spinlock_spinlock_threaded_DEPENDENCIES) pthread_spinlock/$(am__dirstamp)
+	@rm -f pthread_spinlock/spinlock-threaded$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_spinlock_spinlock_threaded_OBJECTS) $(pthread_spinlock_spinlock_threaded_LDADD) $(LIBS)
 pthread_tls/$(am__dirstamp):
 	@$(MKDIR_P) pthread_tls
 	@: > pthread_tls/$(am__dirstamp)
@@ -2620,10 +2629,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock7.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_rwlock/$(DEPDIR)/rwlock8.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin1.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin2.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin3.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spin4.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spinlock-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spinlock-static-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spinlock-static-race.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_spinlock/$(DEPDIR)/spinlock-threaded.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_tls/$(DEPDIR)/tsd1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_tls/$(DEPDIR)/tsd2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@sched/$(DEPDIR)/priority1.Po@am__quote@ # am--include-marker
@@ -3744,30 +3753,30 @@ pthread_rwlock/rwlock8.log: pthread_rwlock/rwlock8$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_spinlock/spin1.log: pthread_spinlock/spin1$(EXEEXT)
-	@p='pthread_spinlock/spin1$(EXEEXT)'; \
-	b='pthread_spinlock/spin1'; \
+pthread_spinlock/spinlock-basic.log: pthread_spinlock/spinlock-basic$(EXEEXT)
+	@p='pthread_spinlock/spinlock-basic$(EXEEXT)'; \
+	b='pthread_spinlock/spinlock-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_spinlock/spin2.log: pthread_spinlock/spin2$(EXEEXT)
-	@p='pthread_spinlock/spin2$(EXEEXT)'; \
-	b='pthread_spinlock/spin2'; \
+pthread_spinlock/spinlock-threaded.log: pthread_spinlock/spinlock-threaded$(EXEEXT)
+	@p='pthread_spinlock/spinlock-threaded$(EXEEXT)'; \
+	b='pthread_spinlock/spinlock-threaded'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_spinlock/spin3.log: pthread_spinlock/spin3$(EXEEXT)
-	@p='pthread_spinlock/spin3$(EXEEXT)'; \
-	b='pthread_spinlock/spin3'; \
+pthread_spinlock/spinlock-static-basic.log: pthread_spinlock/spinlock-static-basic$(EXEEXT)
+	@p='pthread_spinlock/spinlock-static-basic$(EXEEXT)'; \
+	b='pthread_spinlock/spinlock-static-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_spinlock/spin4.log: pthread_spinlock/spin4$(EXEEXT)
-	@p='pthread_spinlock/spin4$(EXEEXT)'; \
-	b='pthread_spinlock/spin4'; \
+pthread_spinlock/spinlock-static-race.log: pthread_spinlock/spinlock-static-race$(EXEEXT)
+	@p='pthread_spinlock/spinlock-static-race$(EXEEXT)'; \
+	b='pthread_spinlock/spinlock-static-race'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -4096,10 +4105,10 @@ distclean: distclean-am
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock7.Po
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock8.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin1.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin2.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin3.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin4.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-basic.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-static-basic.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-static-race.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-threaded.Po
 	-rm -f pthread_tls/$(DEPDIR)/tsd1.Po
 	-rm -f pthread_tls/$(DEPDIR)/tsd2.Po
 	-rm -f sched/$(DEPDIR)/priority1.Po
@@ -4279,10 +4288,10 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock6_t2.Po
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock7.Po
 	-rm -f pthread_rwlock/$(DEPDIR)/rwlock8.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin1.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin2.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin3.Po
-	-rm -f pthread_spinlock/$(DEPDIR)/spin4.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-basic.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-static-basic.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-static-race.Po
+	-rm -f pthread_spinlock/$(DEPDIR)/spinlock-threaded.Po
 	-rm -f pthread_tls/$(DEPDIR)/tsd1.Po
 	-rm -f pthread_tls/$(DEPDIR)/tsd2.Po
 	-rm -f sched/$(DEPDIR)/priority1.Po
