@@ -31,5 +31,3 @@ const IMAGE_TLS_DIRECTORY _tls_used = {
   (ULONG_PTR) &_tls_index, (ULONG_PTR) (&__xl_a+1),
   (ULONG) 0, (ULONG) 0
 };
-
-int __mingw_initltssuo_force = 0;
