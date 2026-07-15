@@ -119,7 +119,6 @@ SQLDescribeColW
 ValidateErrorQueue
 SQLErrorW
 SQLExecDirectW
-g_hHeapMalloc DATA
 SQLGetCursorNameW
 SQLPrepareW
 SQLSetCursorNameW

@@ -186,4 +186,3 @@ SearchStatusCode@8
 VFreeErrors@4
 VRetrieveDriverErrorsRowCol@24
 ValidateErrorQueue@8
-g_hHeapMalloc
