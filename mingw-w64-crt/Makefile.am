@@ -77,7 +77,6 @@ d3dcsxd=d3dcsxd_43
 d3dcompiler=d3dcompiler_47
 
 # can move this into libsrc/dummy_libm.c or similar
-BUILT_SOURCES = _libm_dummy.c
 _libm_dummy.c:
 	$(AM_V_GEN)echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
 
@@ -4589,7 +4588,8 @@ noinst_HEADERS = libsrc/dxerr.c \
 # Cleaning options
 #
 
-CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA) $(processed_defs)
+BUILT_SOURCES = _libm_dummy.c $(processed_defs)
+CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA)
 
 # Distribution options
 #
