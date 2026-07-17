@@ -2821,14 +2821,18 @@ libarm64_LIBRARIES += libarm64/libmingwthrd.a
 libarm64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
-processed_defs += libarm64/msvcrt.gen.def libarm64/ucrtbase.def libarm64/ucrtbased.def \
-				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/oleaut32.def \
-				  libarm64/user32.def libarm64/winhvplatform.def libarm64/ws2_32.gen.def \
-				  libarm64/api-ms-win-crt-math-l1-1-0.def libarm64/api-ms-win-crt-private-l1-1-0.def libarm64/api-ms-win-crt-runtime-l1-1-0.def \
-				  libarm64/api-ms-win-crt-filesystem-l1-1-0.def libarm64/api-ms-win-crt-time-l1-1-0.def \
-				  libarm64/vcruntime140.def libarm64/vcruntime140d.def libarm64/vcruntime140_app.def
+arm64_processed_defs = libarm64/msvcrt.gen.def libarm64/ucrtbase.gen.def libarm64/ucrtbased.gen.def \
+	libarm64/advapi32.gen.def libarm64/clbcatq.gen.def libarm64/kernel32.gen.def libarm64/ole32.gen.def \
+	libarm64/oleaut32.gen.def libarm64/user32.gen.def libarm64/winhvplatform.gen.def libarm64/ws2_32.gen.def \
+	libarm64/api-ms-win-crt-math-l1-1-0.gen.def libarm64/api-ms-win-crt-private-l1-1-0.gen.def \
+	libarm64/api-ms-win-crt-runtime-l1-1-0.gen.def libarm64/api-ms-win-crt-filesystem-l1-1-0.gen.def \
+	libarm64/api-ms-win-crt-time-l1-1-0.gen.def libarm64/vcruntime140.gen.def libarm64/vcruntime140d.gen.def \
+	libarm64/vcruntime140_app.gen.def libarm64/api-ms-win-crt-convert-l1-1-0.gen.def libarm64/ntdll.gen.def \
+	libarm64/ntdllcrt.gen.def
+
+processed_defs += $(arm64_processed_defs)
 if ARM64X
-processed_defs += libarm64/msvcrt.arm64ec.def libarm64/ws2_32.arm64ec.def
+processed_defs += $(arm64_processed_defs:.gen.def=.arm64ec.def)
 endif
 
 endif
