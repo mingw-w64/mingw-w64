@@ -16,8 +16,6 @@
 static _CRTALLOC(".CRT$XDA") const _PVFV __xd_a = 0;
 static _CRTALLOC(".CRT$XDZ") const _PVFV __xd_z = 0;
 
-extern int _CRT_MT;
-
 void WINAPI __dyn_tls_init (HANDLE, DWORD, LPVOID);
 
 void WINAPI
@@ -25,10 +23,6 @@ __dyn_tls_init (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
 {
   _PVFV *pfunc;
   uintptr_t ps;
-
-  /* We don't let us trick here.  */
-  if (_CRT_MT != 2)
-   _CRT_MT = 2;
 
   if (dwReason != DLL_THREAD_ATTACH)
     {

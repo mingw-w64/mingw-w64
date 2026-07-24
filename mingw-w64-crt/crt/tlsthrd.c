@@ -20,6 +20,8 @@
 int ___w64_mingwthr_remove_key_dtor (DWORD key);
 int ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *));
 
+extern int _CRT_MT;
+
 /* To protect the thread/key association data structure modifications. */
 static CRITICAL_SECTION __mingwthr_cs;
 static volatile int __mingwthr_cs_init = 0;
@@ -143,6 +145,9 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
   switch (reason)
     {
     case DLL_PROCESS_ATTACH:
+      /* We don't let us trick here.  */
+      if (_CRT_MT != 2)
+        _CRT_MT = 2;
       if (__mingwthr_cs_init == 0)
         InitializeCriticalSection (&__mingwthr_cs);
       __mingwthr_cs_init = 1;
