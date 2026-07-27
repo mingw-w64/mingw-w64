@@ -800,18 +800,21 @@ lib32_libmingw32_a_AR = $(AR) $(ARFLAGS)
 lib32_libmingw32_a_LIBADD =
 am__lib32_libmingw32_a_SOURCES_DIST = include/internal.h \
 	include/sect_attribs.h crt/seh_signal_dispatcher.h \
-	crt/crtexewin.c crt/dll_argv.c crt/gccmain.c crt/natstart.c \
-	crt/pseudo-reloc-list.c crt/wildcard.c crt/charmax.c \
-	crt/ucrtexewin.c crt/dllargv.c crt/_newmode.c crt/tlssup.c \
-	crt/xncommod.c crt/cinitexe.c crt/merr.c crt/pesect.c \
-	crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
-	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/tlsdyn.c crt/tlsdtor.c \
-	crt/tlsthrd.c crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
+	crt/crtexewin.c crt/dll_argv.c crt/gcc_main.c \
+	crt/gcc_ctors_dtors.c crt/natstart.c crt/pseudo-reloc-list.c \
+	crt/wildcard.c crt/charmax.c crt/ucrtexewin.c crt/dllargv.c \
+	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
+	crt/merr.c crt/pesect.c crt/udllargc.c crt/xthdloc.c \
+	crt/mingw_custom.c crt/mingw_helpers.c crt/pseudo-reloc.c \
+	crt/udll_argv.c crt/usermatherr.c crt/xtxtmode.c \
+	crt/crtdll_atexit_register.c crt/tlsdyn.c crt/tlsdtor.c \
+	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
+	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
 	crt/cxa_thread_atexit.c crt/tls_atexit.c crt/CRT_fp10.c
 am__objects_32 = crt/lib32_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/lib32_libmingw32_a-dll_argv.$(OBJEXT) \
-	crt/lib32_libmingw32_a-gccmain.$(OBJEXT) \
+	crt/lib32_libmingw32_a-gcc_main.$(OBJEXT) \
+	crt/lib32_libmingw32_a-gcc_ctors_dtors.$(OBJEXT) \
 	crt/lib32_libmingw32_a-natstart.$(OBJEXT) \
 	crt/lib32_libmingw32_a-pseudo-reloc-list.$(OBJEXT) \
 	crt/lib32_libmingw32_a-wildcard.$(OBJEXT) \
@@ -832,8 +835,11 @@ am__objects_32 = crt/lib32_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/lib32_libmingw32_a-udll_argv.$(OBJEXT) \
 	crt/lib32_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/lib32_libmingw32_a-xtxtmode.$(OBJEXT) \
+	crt/lib32_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tlsdyn.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tlsdtor.$(OBJEXT) \
+	crt/lib32_libmingw32_a-tlsthrd_register.$(OBJEXT) \
+	crt/lib32_libmingw32_a-tls_atexit_register.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tlsthrd.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tlsmthread.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tlsmcrt.$(OBJEXT) \
@@ -3771,18 +3777,21 @@ lib64_libmingw32_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingw32_a_LIBADD =
 am__lib64_libmingw32_a_SOURCES_DIST = include/internal.h \
 	include/sect_attribs.h crt/seh_signal_dispatcher.h \
-	crt/crtexewin.c crt/dll_argv.c crt/gccmain.c crt/natstart.c \
-	crt/pseudo-reloc-list.c crt/wildcard.c crt/charmax.c \
-	crt/ucrtexewin.c crt/dllargv.c crt/_newmode.c crt/tlssup.c \
-	crt/xncommod.c crt/cinitexe.c crt/merr.c crt/pesect.c \
-	crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
-	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/tlsdyn.c crt/tlsdtor.c \
-	crt/tlsthrd.c crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
+	crt/crtexewin.c crt/dll_argv.c crt/gcc_main.c \
+	crt/gcc_ctors_dtors.c crt/natstart.c crt/pseudo-reloc-list.c \
+	crt/wildcard.c crt/charmax.c crt/ucrtexewin.c crt/dllargv.c \
+	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
+	crt/merr.c crt/pesect.c crt/udllargc.c crt/xthdloc.c \
+	crt/mingw_custom.c crt/mingw_helpers.c crt/pseudo-reloc.c \
+	crt/udll_argv.c crt/usermatherr.c crt/xtxtmode.c \
+	crt/crtdll_atexit_register.c crt/tlsdyn.c crt/tlsdtor.c \
+	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
+	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
 	crt/cxa_thread_atexit.c crt/tls_atexit.c crt/CRT_fp10.c
 am__objects_183 = crt/lib64_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/lib64_libmingw32_a-dll_argv.$(OBJEXT) \
-	crt/lib64_libmingw32_a-gccmain.$(OBJEXT) \
+	crt/lib64_libmingw32_a-gcc_main.$(OBJEXT) \
+	crt/lib64_libmingw32_a-gcc_ctors_dtors.$(OBJEXT) \
 	crt/lib64_libmingw32_a-natstart.$(OBJEXT) \
 	crt/lib64_libmingw32_a-pseudo-reloc-list.$(OBJEXT) \
 	crt/lib64_libmingw32_a-wildcard.$(OBJEXT) \
@@ -3803,8 +3812,11 @@ am__objects_183 = crt/lib64_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/lib64_libmingw32_a-udll_argv.$(OBJEXT) \
 	crt/lib64_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/lib64_libmingw32_a-xtxtmode.$(OBJEXT) \
+	crt/lib64_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tlsdyn.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tlsdtor.$(OBJEXT) \
+	crt/lib64_libmingw32_a-tlsthrd_register.$(OBJEXT) \
+	crt/lib64_libmingw32_a-tls_atexit_register.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tlsthrd.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tlsmthread.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tlsmcrt.$(OBJEXT) \
@@ -5606,18 +5618,21 @@ libarm32_libmingw32_a_AR = $(AR) $(ARFLAGS)
 libarm32_libmingw32_a_LIBADD =
 am__libarm32_libmingw32_a_SOURCES_DIST = include/internal.h \
 	include/sect_attribs.h crt/seh_signal_dispatcher.h \
-	crt/crtexewin.c crt/dll_argv.c crt/gccmain.c crt/natstart.c \
-	crt/pseudo-reloc-list.c crt/wildcard.c crt/charmax.c \
-	crt/ucrtexewin.c crt/dllargv.c crt/_newmode.c crt/tlssup.c \
-	crt/xncommod.c crt/cinitexe.c crt/merr.c crt/pesect.c \
-	crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
-	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/tlsdyn.c crt/tlsdtor.c \
-	crt/tlsthrd.c crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
+	crt/crtexewin.c crt/dll_argv.c crt/gcc_main.c \
+	crt/gcc_ctors_dtors.c crt/natstart.c crt/pseudo-reloc-list.c \
+	crt/wildcard.c crt/charmax.c crt/ucrtexewin.c crt/dllargv.c \
+	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
+	crt/merr.c crt/pesect.c crt/udllargc.c crt/xthdloc.c \
+	crt/mingw_custom.c crt/mingw_helpers.c crt/pseudo-reloc.c \
+	crt/udll_argv.c crt/usermatherr.c crt/xtxtmode.c \
+	crt/crtdll_atexit_register.c crt/tlsdyn.c crt/tlsdtor.c \
+	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
+	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
 	crt/cxa_thread_atexit.c crt/tls_atexit.c
 am__objects_275 = crt/libarm32_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-dll_argv.$(OBJEXT) \
-	crt/libarm32_libmingw32_a-gccmain.$(OBJEXT) \
+	crt/libarm32_libmingw32_a-gcc_main.$(OBJEXT) \
+	crt/libarm32_libmingw32_a-gcc_ctors_dtors.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-natstart.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-pseudo-reloc-list.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-wildcard.$(OBJEXT) \
@@ -5638,8 +5653,11 @@ am__objects_275 = crt/libarm32_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-udll_argv.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-xtxtmode.$(OBJEXT) \
+	crt/libarm32_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tlsdyn.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tlsdtor.$(OBJEXT) \
+	crt/libarm32_libmingw32_a-tlsthrd_register.$(OBJEXT) \
+	crt/libarm32_libmingw32_a-tls_atexit_register.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tlsthrd.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tlsmthread.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tlsmcrt.$(OBJEXT) \
@@ -7109,18 +7127,21 @@ libarm64_libmingw32_a_AR = $(AR) $(ARFLAGS)
 libarm64_libmingw32_a_LIBADD =
 am__libarm64_libmingw32_a_SOURCES_DIST = include/internal.h \
 	include/sect_attribs.h crt/seh_signal_dispatcher.h \
-	crt/crtexewin.c crt/dll_argv.c crt/gccmain.c crt/natstart.c \
-	crt/pseudo-reloc-list.c crt/wildcard.c crt/charmax.c \
-	crt/ucrtexewin.c crt/dllargv.c crt/_newmode.c crt/tlssup.c \
-	crt/xncommod.c crt/cinitexe.c crt/merr.c crt/pesect.c \
-	crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
-	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/tlsdyn.c crt/tlsdtor.c \
-	crt/tlsthrd.c crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
+	crt/crtexewin.c crt/dll_argv.c crt/gcc_main.c \
+	crt/gcc_ctors_dtors.c crt/natstart.c crt/pseudo-reloc-list.c \
+	crt/wildcard.c crt/charmax.c crt/ucrtexewin.c crt/dllargv.c \
+	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
+	crt/merr.c crt/pesect.c crt/udllargc.c crt/xthdloc.c \
+	crt/mingw_custom.c crt/mingw_helpers.c crt/pseudo-reloc.c \
+	crt/udll_argv.c crt/usermatherr.c crt/xtxtmode.c \
+	crt/crtdll_atexit_register.c crt/tlsdyn.c crt/tlsdtor.c \
+	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
+	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
 	crt/cxa_thread_atexit.c crt/tls_atexit.c
 am__objects_341 = crt/libarm64_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-dll_argv.$(OBJEXT) \
-	crt/libarm64_libmingw32_a-gccmain.$(OBJEXT) \
+	crt/libarm64_libmingw32_a-gcc_main.$(OBJEXT) \
+	crt/libarm64_libmingw32_a-gcc_ctors_dtors.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-natstart.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-pseudo-reloc-list.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-wildcard.$(OBJEXT) \
@@ -7141,8 +7162,11 @@ am__objects_341 = crt/libarm64_libmingw32_a-crtexewin.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-udll_argv.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-xtxtmode.$(OBJEXT) \
+	crt/libarm64_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tlsdyn.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tlsdtor.$(OBJEXT) \
+	crt/libarm64_libmingw32_a-tlsthrd_register.$(OBJEXT) \
+	crt/libarm64_libmingw32_a-tls_atexit_register.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tlsthrd.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tlsmthread.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tlsmcrt.$(OBJEXT) \
@@ -8528,12 +8552,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po \
+	crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-crtexewin.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-cxa_atexit.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-cxa_thread_atexit.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-dll_argv.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-dllargv.Po \
-	crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po \
+	crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po \
+	crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-merr.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-mingw_custom.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-mingw_helpers.Po \
@@ -8542,12 +8568,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc-list.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit.Po \
+	crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlsdtor.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlsmcrt.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlsmthread.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlssup.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd.Po \
+	crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po \
@@ -8561,12 +8589,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po \
+	crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-crtexewin.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-cxa_atexit.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-cxa_thread_atexit.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po \
-	crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po \
+	crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po \
+	crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-merr.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-mingw_custom.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po \
@@ -8575,12 +8605,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc-list.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit.Po \
+	crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlsdtor.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlsmcrt.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlsmthread.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd.Po \
+	crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po \
@@ -8593,12 +8625,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-cinitexe.Po \
+	crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-crtexewin.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_atexit.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_thread_atexit.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-dll_argv.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-dllargv.Po \
-	crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po \
+	crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po \
+	crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-merr.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_custom.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_helpers.Po \
@@ -8607,12 +8641,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc-list.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit.Po \
+	crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdtor.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmcrt.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmthread.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlssup.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd.Po \
+	crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po \
@@ -8625,12 +8661,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-cinitexe.Po \
+	crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-crtexewin.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_atexit.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_thread_atexit.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-dll_argv.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-dllargv.Po \
-	crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po \
+	crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po \
+	crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-merr.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_custom.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_helpers.Po \
@@ -8639,12 +8677,14 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc-list.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit.Po \
+	crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdtor.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmcrt.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmthread.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlssup.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd.Po \
+	crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po \
@@ -13779,14 +13819,16 @@ src_libtaskschd = libsrc/taskschd.c
 src_libntoskrnl = libsrc/memcmp.c
 src_libdloadhelper = libsrc/dloadhelper.c misc/delay-f.c
 src_libmingw32 = include/internal.h include/sect_attribs.h crt/seh_signal_dispatcher.h \
-  crt/crtexewin.c     crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
+  crt/crtexewin.c     crt/dll_argv.c  crt/gcc_main.c    crt/gcc_ctors_dtors.c    crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
   crt/charmax.c       crt/ucrtexewin.c crt/dllargv.c    crt/_newmode.c  crt/tlssup.c             crt/xncommod.c \
   crt/cinitexe.c      crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
   crt/usermatherr.c   \
   crt/xtxtmode.c      \
+  crt/crtdll_atexit_register.c \
   crt/tlsdyn.c        crt/tlsdtor.c        \
+  crt/tlsthrd_register.c crt/tls_atexit_register.c \
   crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   \
   crt/cxa_atexit.c    crt/cxa_thread_atexit.c crt/tls_atexit.c
 
@@ -18020,7 +18062,9 @@ crt/lib32_libmingw32_a-crtexewin.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-dll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib32_libmingw32_a-gccmain.$(OBJEXT): crt/$(am__dirstamp) \
+crt/lib32_libmingw32_a-gcc_main.$(OBJEXT): crt/$(am__dirstamp) \
+	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib32_libmingw32_a-gcc_ctors_dtors.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-natstart.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
@@ -18062,10 +18106,16 @@ crt/lib32_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib32_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-tlsdyn.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-tlsdtor.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib32_libmingw32_a-tlsthrd_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib32_libmingw32_a-tls_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-tlsthrd.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-tlsmthread.$(OBJEXT): crt/$(am__dirstamp) \
@@ -22062,7 +22112,9 @@ crt/lib64_libmingw32_a-crtexewin.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-dll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib64_libmingw32_a-gccmain.$(OBJEXT): crt/$(am__dirstamp) \
+crt/lib64_libmingw32_a-gcc_main.$(OBJEXT): crt/$(am__dirstamp) \
+	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib64_libmingw32_a-gcc_ctors_dtors.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-natstart.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
@@ -22104,10 +22156,16 @@ crt/lib64_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib64_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-tlsdyn.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-tlsdtor.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib64_libmingw32_a-tlsthrd_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
+crt/lib64_libmingw32_a-tls_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-tlsthrd.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-tlsmthread.$(OBJEXT): crt/$(am__dirstamp) \
@@ -24512,8 +24570,10 @@ crt/libarm32_libmingw32_a-crtexewin.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-dll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/libarm32_libmingw32_a-gccmain.$(OBJEXT): crt/$(am__dirstamp) \
+crt/libarm32_libmingw32_a-gcc_main.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm32_libmingw32_a-gcc_ctors_dtors.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-natstart.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-pseudo-reloc-list.$(OBJEXT):  \
@@ -24554,10 +24614,16 @@ crt/libarm32_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm32_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-tlsdyn.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-tlsdtor.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm32_libmingw32_a-tlsthrd_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm32_libmingw32_a-tls_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-tlsthrd.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-tlsmthread.$(OBJEXT): crt/$(am__dirstamp) \
@@ -26570,8 +26636,10 @@ crt/libarm64_libmingw32_a-crtexewin.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-dll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/libarm64_libmingw32_a-gccmain.$(OBJEXT): crt/$(am__dirstamp) \
+crt/libarm64_libmingw32_a-gcc_main.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm64_libmingw32_a-gcc_ctors_dtors.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-natstart.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-pseudo-reloc-list.$(OBJEXT):  \
@@ -26612,10 +26680,16 @@ crt/libarm64_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm64_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-tlsdyn.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-tlsdtor.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm64_libmingw32_a-tlsthrd_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
+crt/libarm64_libmingw32_a-tls_atexit_register.$(OBJEXT):  \
+	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-tlsthrd.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-tlsmthread.$(OBJEXT): crt/$(am__dirstamp) \
@@ -28491,12 +28565,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-crtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-cxa_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-cxa_thread_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-dll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-dllargv.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-merr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-mingw_custom.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-mingw_helpers.Po@am__quote@ # am--include-marker
@@ -28505,12 +28581,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc-list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsdtor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsmcrt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsmthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlssup.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
@@ -28524,12 +28602,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-crtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-cxa_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-cxa_thread_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-merr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-mingw_custom.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po@am__quote@ # am--include-marker
@@ -28538,12 +28618,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc-list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsdtor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsmcrt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsmthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
@@ -28556,12 +28638,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-crtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_thread_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-dll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-dllargv.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-merr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_custom.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_helpers.Po@am__quote@ # am--include-marker
@@ -28570,12 +28654,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc-list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdtor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmcrt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlssup.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
@@ -28588,12 +28674,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-crtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_thread_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-dll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-dllargv.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-merr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_custom.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_helpers.Po@am__quote@ # am--include-marker
@@ -28602,12 +28690,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc-list.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdtor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmcrt.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlssup.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
@@ -38604,19 +38694,33 @@ crt/lib32_libmingw32_a-dll_argv.obj: crt/dll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-dll_argv.obj `if test -f 'crt/dll_argv.c'; then $(CYGPATH_W) 'crt/dll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/dll_argv.c'; fi`
 
-crt/lib32_libmingw32_a-gccmain.o: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gccmain.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Tpo -c -o crt/lib32_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/lib32_libmingw32_a-gccmain.o' libtool=no @AMDEPBACKSLASH@
+crt/lib32_libmingw32_a-gcc_main.o: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gcc_main.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Tpo -c -o crt/lib32_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/lib32_libmingw32_a-gcc_main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
 
-crt/lib32_libmingw32_a-gccmain.obj: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gccmain.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Tpo -c -o crt/lib32_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/lib32_libmingw32_a-gccmain.obj' libtool=no @AMDEPBACKSLASH@
+crt/lib32_libmingw32_a-gcc_main.obj: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gcc_main.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Tpo -c -o crt/lib32_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/lib32_libmingw32_a-gcc_main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+
+crt/lib32_libmingw32_a-gcc_ctors_dtors.o: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gcc_ctors_dtors.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/lib32_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/lib32_libmingw32_a-gcc_ctors_dtors.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+
+crt/lib32_libmingw32_a-gcc_ctors_dtors.obj: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-gcc_ctors_dtors.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/lib32_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/lib32_libmingw32_a-gcc_ctors_dtors.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
 
 crt/lib32_libmingw32_a-natstart.o: crt/natstart.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-natstart.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-natstart.Tpo -c -o crt/lib32_libmingw32_a-natstart.o `test -f 'crt/natstart.c' || echo '$(srcdir)/'`crt/natstart.c
@@ -38898,6 +39002,20 @@ crt/lib32_libmingw32_a-xtxtmode.obj: crt/xtxtmode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-xtxtmode.obj `if test -f 'crt/xtxtmode.c'; then $(CYGPATH_W) 'crt/xtxtmode.c'; else $(CYGPATH_W) '$(srcdir)/crt/xtxtmode.c'; fi`
 
+crt/lib32_libmingw32_a-crtdll_atexit_register.o: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-crtdll_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/lib32_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/lib32_libmingw32_a-crtdll_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+
+crt/lib32_libmingw32_a-crtdll_atexit_register.obj: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-crtdll_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/lib32_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/lib32_libmingw32_a-crtdll_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+
 crt/lib32_libmingw32_a-tlsdyn.o: crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tlsdyn.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Tpo -c -o crt/lib32_libmingw32_a-tlsdyn.o `test -f 'crt/tlsdyn.c' || echo '$(srcdir)/'`crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Po
@@ -38925,6 +39043,34 @@ crt/lib32_libmingw32_a-tlsdtor.obj: crt/tlsdtor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsdtor.c' object='crt/lib32_libmingw32_a-tlsdtor.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tlsdtor.obj `if test -f 'crt/tlsdtor.c'; then $(CYGPATH_W) 'crt/tlsdtor.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsdtor.c'; fi`
+
+crt/lib32_libmingw32_a-tlsthrd_register.o: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tlsthrd_register.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Tpo -c -o crt/lib32_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/lib32_libmingw32_a-tlsthrd_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+
+crt/lib32_libmingw32_a-tlsthrd_register.obj: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tlsthrd_register.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Tpo -c -o crt/lib32_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/lib32_libmingw32_a-tlsthrd_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+
+crt/lib32_libmingw32_a-tls_atexit_register.o: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tls_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Tpo -c -o crt/lib32_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/lib32_libmingw32_a-tls_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+
+crt/lib32_libmingw32_a-tls_atexit_register.obj: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tls_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Tpo -c -o crt/lib32_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/lib32_libmingw32_a-tls_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
 
 crt/lib32_libmingw32_a-tlsthrd.o: crt/tlsthrd.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-tlsthrd.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd.Tpo -c -o crt/lib32_libmingw32_a-tlsthrd.o `test -f 'crt/tlsthrd.c' || echo '$(srcdir)/'`crt/tlsthrd.c
@@ -63524,19 +63670,33 @@ crt/lib64_libmingw32_a-dll_argv.obj: crt/dll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-dll_argv.obj `if test -f 'crt/dll_argv.c'; then $(CYGPATH_W) 'crt/dll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/dll_argv.c'; fi`
 
-crt/lib64_libmingw32_a-gccmain.o: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gccmain.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Tpo -c -o crt/lib64_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/lib64_libmingw32_a-gccmain.o' libtool=no @AMDEPBACKSLASH@
+crt/lib64_libmingw32_a-gcc_main.o: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gcc_main.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Tpo -c -o crt/lib64_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/lib64_libmingw32_a-gcc_main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
 
-crt/lib64_libmingw32_a-gccmain.obj: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gccmain.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Tpo -c -o crt/lib64_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/lib64_libmingw32_a-gccmain.obj' libtool=no @AMDEPBACKSLASH@
+crt/lib64_libmingw32_a-gcc_main.obj: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gcc_main.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Tpo -c -o crt/lib64_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/lib64_libmingw32_a-gcc_main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+
+crt/lib64_libmingw32_a-gcc_ctors_dtors.o: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gcc_ctors_dtors.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/lib64_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/lib64_libmingw32_a-gcc_ctors_dtors.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+
+crt/lib64_libmingw32_a-gcc_ctors_dtors.obj: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-gcc_ctors_dtors.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/lib64_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/lib64_libmingw32_a-gcc_ctors_dtors.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
 
 crt/lib64_libmingw32_a-natstart.o: crt/natstart.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-natstart.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo -c -o crt/lib64_libmingw32_a-natstart.o `test -f 'crt/natstart.c' || echo '$(srcdir)/'`crt/natstart.c
@@ -63818,6 +63978,20 @@ crt/lib64_libmingw32_a-xtxtmode.obj: crt/xtxtmode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-xtxtmode.obj `if test -f 'crt/xtxtmode.c'; then $(CYGPATH_W) 'crt/xtxtmode.c'; else $(CYGPATH_W) '$(srcdir)/crt/xtxtmode.c'; fi`
 
+crt/lib64_libmingw32_a-crtdll_atexit_register.o: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-crtdll_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/lib64_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/lib64_libmingw32_a-crtdll_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+
+crt/lib64_libmingw32_a-crtdll_atexit_register.obj: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-crtdll_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/lib64_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/lib64_libmingw32_a-crtdll_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+
 crt/lib64_libmingw32_a-tlsdyn.o: crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tlsdyn.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Tpo -c -o crt/lib64_libmingw32_a-tlsdyn.o `test -f 'crt/tlsdyn.c' || echo '$(srcdir)/'`crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Po
@@ -63845,6 +64019,34 @@ crt/lib64_libmingw32_a-tlsdtor.obj: crt/tlsdtor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsdtor.c' object='crt/lib64_libmingw32_a-tlsdtor.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tlsdtor.obj `if test -f 'crt/tlsdtor.c'; then $(CYGPATH_W) 'crt/tlsdtor.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsdtor.c'; fi`
+
+crt/lib64_libmingw32_a-tlsthrd_register.o: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tlsthrd_register.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Tpo -c -o crt/lib64_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/lib64_libmingw32_a-tlsthrd_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+
+crt/lib64_libmingw32_a-tlsthrd_register.obj: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tlsthrd_register.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Tpo -c -o crt/lib64_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/lib64_libmingw32_a-tlsthrd_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+
+crt/lib64_libmingw32_a-tls_atexit_register.o: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tls_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Tpo -c -o crt/lib64_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/lib64_libmingw32_a-tls_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+
+crt/lib64_libmingw32_a-tls_atexit_register.obj: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tls_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Tpo -c -o crt/lib64_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/lib64_libmingw32_a-tls_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
 
 crt/lib64_libmingw32_a-tlsthrd.o: crt/tlsthrd.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-tlsthrd.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd.Tpo -c -o crt/lib64_libmingw32_a-tlsthrd.o `test -f 'crt/tlsthrd.c' || echo '$(srcdir)/'`crt/tlsthrd.c
@@ -78028,19 +78230,33 @@ crt/libarm32_libmingw32_a-dll_argv.obj: crt/dll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-dll_argv.obj `if test -f 'crt/dll_argv.c'; then $(CYGPATH_W) 'crt/dll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/dll_argv.c'; fi`
 
-crt/libarm32_libmingw32_a-gccmain.o: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gccmain.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Tpo -c -o crt/libarm32_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/libarm32_libmingw32_a-gccmain.o' libtool=no @AMDEPBACKSLASH@
+crt/libarm32_libmingw32_a-gcc_main.o: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gcc_main.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Tpo -c -o crt/libarm32_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/libarm32_libmingw32_a-gcc_main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
 
-crt/libarm32_libmingw32_a-gccmain.obj: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gccmain.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Tpo -c -o crt/libarm32_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/libarm32_libmingw32_a-gccmain.obj' libtool=no @AMDEPBACKSLASH@
+crt/libarm32_libmingw32_a-gcc_main.obj: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gcc_main.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Tpo -c -o crt/libarm32_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/libarm32_libmingw32_a-gcc_main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+
+crt/libarm32_libmingw32_a-gcc_ctors_dtors.o: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gcc_ctors_dtors.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/libarm32_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/libarm32_libmingw32_a-gcc_ctors_dtors.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+
+crt/libarm32_libmingw32_a-gcc_ctors_dtors.obj: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-gcc_ctors_dtors.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/libarm32_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/libarm32_libmingw32_a-gcc_ctors_dtors.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
 
 crt/libarm32_libmingw32_a-natstart.o: crt/natstart.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-natstart.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-natstart.Tpo -c -o crt/libarm32_libmingw32_a-natstart.o `test -f 'crt/natstart.c' || echo '$(srcdir)/'`crt/natstart.c
@@ -78322,6 +78538,20 @@ crt/libarm32_libmingw32_a-xtxtmode.obj: crt/xtxtmode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-xtxtmode.obj `if test -f 'crt/xtxtmode.c'; then $(CYGPATH_W) 'crt/xtxtmode.c'; else $(CYGPATH_W) '$(srcdir)/crt/xtxtmode.c'; fi`
 
+crt/libarm32_libmingw32_a-crtdll_atexit_register.o: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-crtdll_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/libarm32_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/libarm32_libmingw32_a-crtdll_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+
+crt/libarm32_libmingw32_a-crtdll_atexit_register.obj: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-crtdll_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/libarm32_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/libarm32_libmingw32_a-crtdll_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+
 crt/libarm32_libmingw32_a-tlsdyn.o: crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tlsdyn.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Tpo -c -o crt/libarm32_libmingw32_a-tlsdyn.o `test -f 'crt/tlsdyn.c' || echo '$(srcdir)/'`crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Po
@@ -78349,6 +78579,34 @@ crt/libarm32_libmingw32_a-tlsdtor.obj: crt/tlsdtor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsdtor.c' object='crt/libarm32_libmingw32_a-tlsdtor.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-tlsdtor.obj `if test -f 'crt/tlsdtor.c'; then $(CYGPATH_W) 'crt/tlsdtor.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsdtor.c'; fi`
+
+crt/libarm32_libmingw32_a-tlsthrd_register.o: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tlsthrd_register.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Tpo -c -o crt/libarm32_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/libarm32_libmingw32_a-tlsthrd_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+
+crt/libarm32_libmingw32_a-tlsthrd_register.obj: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tlsthrd_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Tpo -c -o crt/libarm32_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/libarm32_libmingw32_a-tlsthrd_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+
+crt/libarm32_libmingw32_a-tls_atexit_register.o: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tls_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Tpo -c -o crt/libarm32_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/libarm32_libmingw32_a-tls_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+
+crt/libarm32_libmingw32_a-tls_atexit_register.obj: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tls_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Tpo -c -o crt/libarm32_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/libarm32_libmingw32_a-tls_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
 
 crt/libarm32_libmingw32_a-tlsthrd.o: crt/tlsthrd.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-tlsthrd.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd.Tpo -c -o crt/libarm32_libmingw32_a-tlsthrd.o `test -f 'crt/tlsthrd.c' || echo '$(srcdir)/'`crt/tlsthrd.c
@@ -90138,19 +90396,33 @@ crt/libarm64_libmingw32_a-dll_argv.obj: crt/dll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-dll_argv.obj `if test -f 'crt/dll_argv.c'; then $(CYGPATH_W) 'crt/dll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/dll_argv.c'; fi`
 
-crt/libarm64_libmingw32_a-gccmain.o: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gccmain.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Tpo -c -o crt/libarm64_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/libarm64_libmingw32_a-gccmain.o' libtool=no @AMDEPBACKSLASH@
+crt/libarm64_libmingw32_a-gcc_main.o: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gcc_main.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Tpo -c -o crt/libarm64_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/libarm64_libmingw32_a-gcc_main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gccmain.o `test -f 'crt/gccmain.c' || echo '$(srcdir)/'`crt/gccmain.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gcc_main.o `test -f 'crt/gcc_main.c' || echo '$(srcdir)/'`crt/gcc_main.c
 
-crt/libarm64_libmingw32_a-gccmain.obj: crt/gccmain.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gccmain.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Tpo -c -o crt/libarm64_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gccmain.c' object='crt/libarm64_libmingw32_a-gccmain.obj' libtool=no @AMDEPBACKSLASH@
+crt/libarm64_libmingw32_a-gcc_main.obj: crt/gcc_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gcc_main.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Tpo -c -o crt/libarm64_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_main.c' object='crt/libarm64_libmingw32_a-gcc_main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gccmain.obj `if test -f 'crt/gccmain.c'; then $(CYGPATH_W) 'crt/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt/gccmain.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gcc_main.obj `if test -f 'crt/gcc_main.c'; then $(CYGPATH_W) 'crt/gcc_main.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_main.c'; fi`
+
+crt/libarm64_libmingw32_a-gcc_ctors_dtors.o: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gcc_ctors_dtors.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/libarm64_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/libarm64_libmingw32_a-gcc_ctors_dtors.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gcc_ctors_dtors.o `test -f 'crt/gcc_ctors_dtors.c' || echo '$(srcdir)/'`crt/gcc_ctors_dtors.c
+
+crt/libarm64_libmingw32_a-gcc_ctors_dtors.obj: crt/gcc_ctors_dtors.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-gcc_ctors_dtors.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Tpo -c -o crt/libarm64_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/gcc_ctors_dtors.c' object='crt/libarm64_libmingw32_a-gcc_ctors_dtors.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-gcc_ctors_dtors.obj `if test -f 'crt/gcc_ctors_dtors.c'; then $(CYGPATH_W) 'crt/gcc_ctors_dtors.c'; else $(CYGPATH_W) '$(srcdir)/crt/gcc_ctors_dtors.c'; fi`
 
 crt/libarm64_libmingw32_a-natstart.o: crt/natstart.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-natstart.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-natstart.Tpo -c -o crt/libarm64_libmingw32_a-natstart.o `test -f 'crt/natstart.c' || echo '$(srcdir)/'`crt/natstart.c
@@ -90432,6 +90704,20 @@ crt/libarm64_libmingw32_a-xtxtmode.obj: crt/xtxtmode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-xtxtmode.obj `if test -f 'crt/xtxtmode.c'; then $(CYGPATH_W) 'crt/xtxtmode.c'; else $(CYGPATH_W) '$(srcdir)/crt/xtxtmode.c'; fi`
 
+crt/libarm64_libmingw32_a-crtdll_atexit_register.o: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-crtdll_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/libarm64_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/libarm64_libmingw32_a-crtdll_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-crtdll_atexit_register.o `test -f 'crt/crtdll_atexit_register.c' || echo '$(srcdir)/'`crt/crtdll_atexit_register.c
+
+crt/libarm64_libmingw32_a-crtdll_atexit_register.obj: crt/crtdll_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-crtdll_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Tpo -c -o crt/libarm64_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/crtdll_atexit_register.c' object='crt/libarm64_libmingw32_a-crtdll_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-crtdll_atexit_register.obj `if test -f 'crt/crtdll_atexit_register.c'; then $(CYGPATH_W) 'crt/crtdll_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/crtdll_atexit_register.c'; fi`
+
 crt/libarm64_libmingw32_a-tlsdyn.o: crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tlsdyn.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Tpo -c -o crt/libarm64_libmingw32_a-tlsdyn.o `test -f 'crt/tlsdyn.c' || echo '$(srcdir)/'`crt/tlsdyn.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Po
@@ -90459,6 +90745,34 @@ crt/libarm64_libmingw32_a-tlsdtor.obj: crt/tlsdtor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsdtor.c' object='crt/libarm64_libmingw32_a-tlsdtor.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-tlsdtor.obj `if test -f 'crt/tlsdtor.c'; then $(CYGPATH_W) 'crt/tlsdtor.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsdtor.c'; fi`
+
+crt/libarm64_libmingw32_a-tlsthrd_register.o: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tlsthrd_register.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Tpo -c -o crt/libarm64_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/libarm64_libmingw32_a-tlsthrd_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-tlsthrd_register.o `test -f 'crt/tlsthrd_register.c' || echo '$(srcdir)/'`crt/tlsthrd_register.c
+
+crt/libarm64_libmingw32_a-tlsthrd_register.obj: crt/tlsthrd_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tlsthrd_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Tpo -c -o crt/libarm64_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tlsthrd_register.c' object='crt/libarm64_libmingw32_a-tlsthrd_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-tlsthrd_register.obj `if test -f 'crt/tlsthrd_register.c'; then $(CYGPATH_W) 'crt/tlsthrd_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tlsthrd_register.c'; fi`
+
+crt/libarm64_libmingw32_a-tls_atexit_register.o: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tls_atexit_register.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Tpo -c -o crt/libarm64_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/libarm64_libmingw32_a-tls_atexit_register.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-tls_atexit_register.o `test -f 'crt/tls_atexit_register.c' || echo '$(srcdir)/'`crt/tls_atexit_register.c
+
+crt/libarm64_libmingw32_a-tls_atexit_register.obj: crt/tls_atexit_register.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tls_atexit_register.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Tpo -c -o crt/libarm64_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/tls_atexit_register.c' object='crt/libarm64_libmingw32_a-tls_atexit_register.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-tls_atexit_register.obj `if test -f 'crt/tls_atexit_register.c'; then $(CYGPATH_W) 'crt/tls_atexit_register.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit_register.c'; fi`
 
 crt/libarm64_libmingw32_a-tlsthrd.o: crt/tlsthrd.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-tlsthrd.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd.Tpo -c -o crt/libarm64_libmingw32_a-tlsthrd.o `test -f 'crt/tlsthrd.c' || echo '$(srcdir)/'`crt/tlsthrd.c
@@ -101080,12 +101394,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-mingw_helpers.Po
@@ -101094,12 +101410,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po
@@ -101113,12 +101431,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
@@ -101127,12 +101447,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po
@@ -101145,12 +101467,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_helpers.Po
@@ -101159,12 +101483,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po
@@ -101177,12 +101503,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_helpers.Po
@@ -101191,12 +101519,14 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po
@@ -105929,12 +106259,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-mingw_helpers.Po
@@ -105943,12 +106275,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po
@@ -105962,12 +106296,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
@@ -105976,12 +106312,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po
@@ -105994,12 +106332,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-mingw_helpers.Po
@@ -106008,12 +106348,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po
@@ -106026,12 +106368,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cinitexe.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-crtdll_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-crtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-cxa_thread_atexit.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-dll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-dllargv.Po
-	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gccmain.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_ctors_dtors.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-gcc_main.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-merr.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_custom.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-mingw_helpers.Po
@@ -106040,12 +106384,14 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc-list.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-pseudo-reloc.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tls_atexit_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdtor.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsdyn.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmcrt.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsmthread.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlssup.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd.Po
+	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-tlsthrd_register.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po
