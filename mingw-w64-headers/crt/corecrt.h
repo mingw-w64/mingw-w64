@@ -9,6 +9,10 @@
 
 #include <_mingw.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef __WIDL__
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
@@ -491,6 +495,10 @@ typedef struct tagLC_ID {
 
 #ifndef __WIDL__
 #pragma pack(pop)
+#endif
+
+#ifdef __cplusplus
+}  /* extern "C" */
 #endif
 
 #endif /* _INC_CORECRT */
