@@ -48,9 +48,6 @@ __tlregdtor (_PVFV func)
   #define dtor_list (*dtor_list_ptr)
   #define dtor_list_head (*dtor_list_head_ptr)
 
-  if (!func)
-    return 0;
-
   if (dtor_list == NULL)
     {
       dtor_list = &dtor_list_head;
