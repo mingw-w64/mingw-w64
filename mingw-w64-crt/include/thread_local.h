@@ -56,12 +56,12 @@
     (expr) \
   )
 #define ___MINGW_ALLOC_THREAD_LOCAL_HELPER(fallback, type, ...) ({ \
-  extern char _tls_start; \
+  extern char *_tls_start; \
   extern unsigned long _tls_index; \
   __attribute__((__section__(".tls$"))) static __typeof__(type) __mingw_tls_var __VA_ARGS__; \
   ___MINGW_DEREF_IF_ARRAY(__mingw_tls_var, \
     ((__builtin_constant_p(fallback) && (fallback) == (__typeof__(type) *)-1) || _tls_index != (unsigned long)-1) ? \
-    (__typeof__(type) *)(((char ***)NtCurrentTeb())[11][_tls_index] + ((char *)&__mingw_tls_var - &_tls_start)) : \
+    (__typeof__(type) *)(((char ***)NtCurrentTeb())[11][_tls_index] + ((char *)&__mingw_tls_var - (char *)&_tls_start)) : \
     (fallback) \
   ); \
 })
