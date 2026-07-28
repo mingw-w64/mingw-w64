@@ -15,10 +15,6 @@ void set_process_or_thread_detach_var(int *var)
   process_or_thread_detach_var = var;
 }
 
-#if defined(__i386__)
-/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
-__attribute__((force_align_arg_pointer))
-#endif
 static void __cdecl oneshot_dtor_tls_callback(void)
 {
   if (process_or_thread_detach_var)

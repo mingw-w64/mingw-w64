@@ -13,10 +13,6 @@
 
 static int thread_detach = 0;
 
-#if defined(__i386__)
-/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
-__attribute__((force_align_arg_pointer))
-#endif
 static void __cdecl dtor_tls_callback(void)
 {
   thread_detach++;
