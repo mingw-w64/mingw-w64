@@ -38,7 +38,7 @@ static __attribute__((section(".CRT$XLB"), used)) PIMAGE_TLS_CALLBACK register_p
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked */
 extern const IMAGE_TLS_DIRECTORY _tls_used;
-static __attribute__((used)) const IMAGE_TLS_DIRECTORY *const _include_tls_used = &_tls_used;
+static __attribute__((destructor)) void _include_tls_used(void) { asm volatile ("" :: "r" (&_tls_used)); }
 
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
