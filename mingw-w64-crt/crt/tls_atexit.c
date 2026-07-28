@@ -93,6 +93,10 @@ static void run_thread_dtor_list(void) {
   TlsSetValue(tls_dtors_slot, NULL);
 }
 
+#if defined(__i386__)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
+__attribute__((force_align_arg_pointer))
+#endif
 static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   if (dwReason == DLL_PROCESS_DETACH) {
     run_thread_dtor_list();
