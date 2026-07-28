@@ -531,8 +531,13 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
  * Force a reference to __xl_f to prevent whole program optimization
  * from discarding the variable. */
 #if defined(__GNUC__)
+/* Pointer to _tls_used has to be passed into volatile context inside
+ * some function which is not optimized out to make TLS code working
+ * with GNU LD --gc-sections switch, due to bug:
+ * https://sourceware.org/pipermail/binutils/2026-July/150496.html
+ */
 extern const IMAGE_TLS_DIRECTORY _tls_used;
-static __attribute__((used)) const IMAGE_TLS_DIRECTORY *const _include_tls_used = &_tls_used;
+static __attribute__((destructor)) void _include_tls_used(void) { asm volatile ("" :: "r" (&_tls_used)); }
 #elif defined(_MSC_VER)
 /* On x86, symbols are prefixed with an underscore. */
 # if defined(_M_IX86)
