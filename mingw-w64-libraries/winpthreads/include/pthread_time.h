@@ -79,9 +79,9 @@ WINPTHREAD_API int __cdecl nanosleep64(const struct _timespec64 *request, struct
 WINPTHREAD_NANOSLEEP_DECL int __cdecl nanosleep(const struct timespec *request, struct timespec *remain)
 {
 #if WINPTHREADS_TIME_BITS == 32
-  return nanosleep32 ((struct _timespec32 *)request, (struct _timespec32 *)remain);
+  return nanosleep32 ((const struct _timespec32 *)request, (struct _timespec32 *)remain);
 #else
-  return nanosleep64 ((struct _timespec64 *)request, (struct _timespec64 *)remain);
+  return nanosleep64 ((const struct _timespec64 *)request, (struct _timespec64 *)remain);
 #endif
 }
 
@@ -90,9 +90,9 @@ WINPTHREAD_API int __cdecl clock_nanosleep64(clockid_t clock_id, int flags, cons
 WINPTHREAD_CLOCK_DECL int __cdecl clock_nanosleep(clockid_t clock_id, int flags, const struct timespec *request, struct timespec *remain)
 {
 #if WINPTHREADS_TIME_BITS == 32
-  return clock_nanosleep32 (clock_id, flags, (struct _timespec32 *)request, (struct _timespec32 *)remain);
+  return clock_nanosleep32 (clock_id, flags, (const struct _timespec32 *)request, (struct _timespec32 *)remain);
 #else
-  return clock_nanosleep64 (clock_id, flags, (struct _timespec64 *)request, (struct _timespec64 *)remain);
+  return clock_nanosleep64 (clock_id, flags, (const struct _timespec64 *)request, (struct _timespec64 *)remain);
 #endif
 }
 
@@ -123,9 +123,9 @@ WINPTHREAD_API int __cdecl clock_settime64(clockid_t clock_id, const struct _tim
 WINPTHREAD_CLOCK_DECL int __cdecl clock_settime(clockid_t clock_id, const struct timespec *tp)
 {
 #if WINPTHREADS_TIME_BITS == 32
-  return clock_settime32 (clock_id, (struct _timespec32 *)tp);
+  return clock_settime32 (clock_id, (const struct _timespec32 *)tp);
 #else
-  return clock_settime64 (clock_id, (struct _timespec64 *)tp);
+  return clock_settime64 (clock_id, (const struct _timespec64 *)tp);
 #endif
 }
 
