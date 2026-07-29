@@ -42,6 +42,13 @@ int main(void)
 {
   mingw_test_init();
 
+  /* Prevent register_dyn_tls_callback to be garbage collected by the GNU LD --gc-sections switch.
+   * Its pointer has to be stored into some volatile variable and then variable to be accessed.
+   * This is needed for older GNU LD versions which do not KEEP ".CRT$XD*" sections.
+   */
+  static void (__cdecl **volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
+  (void)include_register_dyn_tls_callback;
+
   /* Asserts that PE image is valid for parsing DataDirectory[] */
   extern IMAGE_DOS_HEADER __ImageBase;
   assert(__ImageBase.e_magic == IMAGE_DOS_SIGNATURE);

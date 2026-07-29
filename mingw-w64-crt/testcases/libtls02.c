@@ -9,9 +9,12 @@
 
 static int process_or_thread_attach = 0;
 
+static void include_register_dyn_tls_callback(void);
+
 __attribute__((dllexport))
 int get_process_or_thread_attach(void)
 {
+  include_register_dyn_tls_callback();
   return process_or_thread_attach;
 }
 
@@ -30,3 +33,13 @@ static __attribute__((section(".CRT$XDB"), used)) _PVFV register_dyn_tls_callbac
 /* Force tlsdyn.c (__dyn_tls_init symbol) to be linked */
 extern void WINAPI __dyn_tls_init(HANDLE, DWORD, LPVOID);
 static __attribute__((used)) void (WINAPI *const _include_dyn_tls_init)(HANDLE, DWORD, LPVOID) = &__dyn_tls_init;
+
+/* Prevent register_dyn_tls_callback to be garbage collected by the GNU LD --gc-sections switch.
+ * Its pointer has to be stored into some volatile variable and then variable to be accessed.
+ * This is needed for older GNU LD versions which do not KEEP ".CRT$XD*" sections.
+ */
+static void include_register_dyn_tls_callback(void)
+{
+  static void (__cdecl **volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
+  (void)include_register_dyn_tls_callback;
+}
