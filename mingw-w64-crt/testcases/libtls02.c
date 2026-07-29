@@ -28,7 +28,7 @@ static void __cdecl dyn_tls_callback(void)
 }
 
 /* Register dyn_tls_callback as CRT dyn TLS callback with the highest priority (=B) */
-static __attribute__((section(".CRT$XDB"), used)) _PVFV register_dyn_tls_callback = &dyn_tls_callback;
+static __attribute__((section(".CRT$XDB"), used)) const _PVFV register_dyn_tls_callback = &dyn_tls_callback;
 
 /* Force tlsdyn.c (__dyn_tls_init symbol) to be linked */
 extern void WINAPI __dyn_tls_init(HANDLE, DWORD, LPVOID);
@@ -40,6 +40,6 @@ static __attribute__((used)) void (WINAPI *const _include_dyn_tls_init)(HANDLE, 
  */
 static void include_register_dyn_tls_callback(void)
 {
-  static void (__cdecl **volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
+  static void (__cdecl *const *volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
   (void)include_register_dyn_tls_callback;
 }

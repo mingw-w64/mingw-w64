@@ -34,7 +34,7 @@ static void WINAPI pe_tls_callback(HANDLE handle __attribute__((unused)), DWORD 
 }
 
 /* Register pe_tls_callback as PE TLS callback with the highest priority (=B) */
-static __attribute__((section(".CRT$XLB"), used)) PIMAGE_TLS_CALLBACK register_pe_tls_callback = pe_tls_callback;
+static __attribute__((section(".CRT$XLB"), used)) const PIMAGE_TLS_CALLBACK register_pe_tls_callback = pe_tls_callback;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked */
 extern const IMAGE_TLS_DIRECTORY _tls_used;

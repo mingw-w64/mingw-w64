@@ -23,7 +23,7 @@ static void __cdecl dyn_tls_callback(void)
 }
 
 /* Register dyn_tls_callback as CRT dyn TLS callback with the highest priority (=B) */
-static __attribute__((section(".CRT$XDB"), used)) void (__cdecl*register_dyn_tls_callback)(void) = &dyn_tls_callback;
+static __attribute__((section(".CRT$XDB"), used)) void (__cdecl *const register_dyn_tls_callback)(void) = &dyn_tls_callback;
 
 /* Force tlsdyn.c (__dyn_tls_init symbol) to be linked */
 extern void WINAPI __dyn_tls_init(HANDLE, DWORD, LPVOID);
@@ -46,7 +46,7 @@ int main(void)
    * Its pointer has to be stored into some volatile variable and then variable to be accessed.
    * This is needed for older GNU LD versions which do not KEEP ".CRT$XD*" sections.
    */
-  static void (__cdecl **volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
+  static void (__cdecl *const *volatile const include_register_dyn_tls_callback)(void) = &register_dyn_tls_callback;
   (void)include_register_dyn_tls_callback;
 
   /* Asserts that PE image is valid for parsing DataDirectory[] */

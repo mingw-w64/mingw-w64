@@ -17,7 +17,7 @@ static void WINAPI callback(HANDLE handle, DWORD reason, LPVOID reserved) {
   if (!__mingw_atexit_tls_callback_ptr(handle, reason, reserved))
     _amsg_exit(16); /* _RT_THREAD - not enough space for thread data */
 }
-static _CRTALLOC(".CRT$XLB") PIMAGE_TLS_CALLBACK callback_ptr = callback;
+static _CRTALLOC(".CRT$XLB") const PIMAGE_TLS_CALLBACK callback_ptr = callback;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
 extern const IMAGE_TLS_DIRECTORY _tls_used;

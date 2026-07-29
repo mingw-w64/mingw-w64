@@ -100,7 +100,7 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
     }
 }
 
-static _CRTALLOC(".CRT$XLD") PIMAGE_TLS_CALLBACK __xl_d = __dyn_tls_dtor;
+static _CRTALLOC(".CRT$XLD") const PIMAGE_TLS_CALLBACK __xl_d = __dyn_tls_dtor;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
 extern const IMAGE_TLS_DIRECTORY _tls_used;

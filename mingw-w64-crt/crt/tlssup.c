@@ -22,8 +22,8 @@ ULONG _tls_index = -1; /* -1 as uninitialized value */
 _CRTALLOC(".tls") char *_tls_start = NULL;
 _CRTALLOC(".tls$ZZZ") char *_tls_end = NULL;
 
-_CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
-_CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
+_CRTALLOC(".CRT$XLA") const PIMAGE_TLS_CALLBACK __xl_a = 0;
+_CRTALLOC(".CRT$XLZ") const PIMAGE_TLS_CALLBACK __xl_z = 0;
 
 /* This is placed next to `__xl_z` so it will not be garbage-collected by the
    linker. The linker should have retained `_tls_used` but it's only fixed in
