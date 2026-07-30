@@ -48,4 +48,10 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#ifdef __cplusplus
+extern "C++" inline void* memchr(void* __s, int __c, size_t __n)
+{ return const_cast<void*>(memchr(const_cast<const void*>(__s), __c, __n)); }
+#endif
+
 #endif

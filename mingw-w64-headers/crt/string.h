@@ -14,6 +14,11 @@
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+/* Tell libstdc++ and libc++ we have provided the correct ISO C++ overloads */
+#define __CORRECT_ISO_CPP_STRING_H_PROTO
+#endif
+
 #ifndef _NLSCMP_DEFINED
 #define _NLSCMP_DEFINED
 #define _NLSCMPERROR 2147483647
@@ -121,6 +126,22 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+}
+#endif
+
+#ifdef __CORRECT_ISO_CPP_STRING_H_PROTO
+extern "C++" {
+  inline char* strchr(char* __s, int __n)
+  { return const_cast<char*>(strchr(const_cast<const char*>(__s), __n)); }
+
+  inline char* strpbrk(char* __s1, const char* __s2)
+  { return const_cast<char*>(strpbrk(const_cast<const char*>(__s1), __s2)); }
+
+  inline char* strrchr(char* __s, int __n)
+  { return const_cast<char*>(strrchr(const_cast<const char*>(__s), __n)); }
+
+  inline char* strstr(char* __s1, const char* __s2)
+  { return const_cast<char*>(strstr(const_cast<const char*>(__s1), __s2)); }
 }
 #endif
 
