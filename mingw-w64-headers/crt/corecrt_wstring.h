@@ -12,6 +12,11 @@
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+/* Tell libstdc++ and libc++ we have provided the correct ISO C++ overloads */
+#define __CORRECT_ISO_CPP_WCHAR_H_PROTO
+#endif
+
 #define _WSTRING_DEFINED /* Legacy guard */
 
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
@@ -90,6 +95,26 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+}
+#endif
+
+/**
+ * ISO C++ requires both const and non-const versions of these functions.
+ * The const versions have been declared above. The non-const versions are declared here.
+ */
+#ifdef __CORRECT_ISO_CPP_WCHAR_H_PROTO
+extern "C++" {
+  inline wchar_t* wcschr(wchar_t* __p, wchar_t __c)
+  { return const_cast<wchar_t*>(wcschr(const_cast<const wchar_t*>(__p), __c)); }
+
+  inline wchar_t* wcspbrk(wchar_t* __s1, const wchar_t* __s2)
+  { return const_cast<wchar_t*>(wcspbrk(const_cast<const wchar_t*>(__s1), __s2)); }
+
+  inline wchar_t* wcsrchr(wchar_t* __p, wchar_t __c)
+  { return const_cast<wchar_t*>(wcsrchr(const_cast<const wchar_t*>(__p), __c)); }
+
+  inline wchar_t* wcsstr(wchar_t* __s1, const wchar_t* __s2)
+  { return const_cast<wchar_t*>(wcsstr(const_cast<const wchar_t*>(__s1), __s2)); }
 }
 #endif
 

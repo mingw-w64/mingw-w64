@@ -1027,6 +1027,11 @@ __MINGW_ASM_CALL(__mingw_vsnwprintf);
   int __cdecl fwide(FILE *stream,int mode);
   __MINGW_EXTENSION long long __cdecl wcstoll(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
   __MINGW_EXTENSION unsigned long long __cdecl wcstoull(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
+
+#ifdef __CORRECT_ISO_CPP_WCHAR_H_PROTO
+  extern "C++" inline wchar_t* wmemchr(wchar_t* __p, wchar_t __c, size_t __n)
+  { return const_cast<wchar_t*>(wmemchr(const_cast<const wchar_t*>(__p), __c, __n)); }
+#endif
 #endif /* __NO_ISOCEXT */
 
   void *__cdecl memmove(void *_Dst,const void *_Src,size_t _MaxCount);
