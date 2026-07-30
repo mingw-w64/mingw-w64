@@ -70,17 +70,6 @@ extern "C" {
 #define _ftccpy _tccpy
 #define _ftccmp _tccmp
 
-#ifndef _CONST_RETURN
-#ifdef __cplusplus
-#define _CONST_RETURN const
-#define _CRT_CONST_CORRECT_OVERLOADS
-#else
-#define _CONST_RETURN
-#endif
-#endif
-
-#define _WConst_return _CONST_RETURN
-
 #endif /* __CYGWIN__ */
 
 #ifdef _UNICODE

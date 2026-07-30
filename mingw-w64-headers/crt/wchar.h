@@ -155,12 +155,6 @@ _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
 #endif
 #endif
 
-#ifndef _CONST_RETURN
-#define _CONST_RETURN
-#endif
-
-#define _WConst_return _CONST_RETURN
-
 #ifndef _WDIRECT_DEFINED
 #define _WDIRECT_DEFINED
 

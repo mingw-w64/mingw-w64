@@ -396,10 +396,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #endif
 #endif
 
-#ifndef _CONST_RETURN
-#define _CONST_RETURN
-#endif
-
 #ifndef UNALIGNED
 #if defined(__ia64__) || defined(__x86_64__)
 #define UNALIGNED __unaligned
