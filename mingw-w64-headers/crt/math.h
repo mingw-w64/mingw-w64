@@ -151,8 +151,6 @@ extern "C" {
 #define HUGE_VAL _HUGE
 #endif /* __GNUC__ */
 
-#ifndef _EXCEPTION_DEFINED
-#define _EXCEPTION_DEFINED
   struct _exception {
     int type;
     const char *name;
@@ -166,7 +164,6 @@ extern "C" {
   void __mingw_setusermatherr (int (__cdecl *)(struct _exception *));
   _CRTIMP void __setusermatherr(int (__cdecl *)(struct _exception *));
   #define __setusermatherr __mingw_setusermatherr
-#endif
 
 #define MATH_ERRNO 1
 #define MATH_ERREXCEPT 2
@@ -278,10 +275,7 @@ extern "C" {
   _CRTIMP double __cdecl _y0(double _X);
   _CRTIMP double __cdecl _y1(double _X);
   _CRTIMP double __cdecl _yn(int _X,double _Y);
-#ifndef _CRT_MATHERR_DEFINED
-#define _CRT_MATHERR_DEFINED
   _CRTIMP int __cdecl _matherr (struct _exception *);
-#endif
 
 /* These are also declared in Mingw float.h; needed here as well to work 
    around GCC build issues.  */

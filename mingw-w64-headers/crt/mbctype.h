@@ -46,8 +46,6 @@ extern "C" {
 #define _MB_CP_UTF8 65001
 #endif
 
-#ifndef _MBCTYPE_DEFINED
-#define _MBCTYPE_DEFINED
 #if __MSVCRT_VERSION__ >= 0x0200
   _CRTIMP int __cdecl _setmbcp(int _CodePage);
   _CRTIMP int __cdecl _getmbcp(void);
@@ -86,7 +84,6 @@ extern "C" {
   _CRTIMP int __cdecl _ismbslead_l(const unsigned char *_Str,const unsigned char *_Pos,_locale_t _Locale);
   _CRTIMP int __cdecl _ismbstrail(const unsigned char *_Str,const unsigned char *_Pos);
   _CRTIMP int __cdecl _ismbstrail_l(const unsigned char *_Str,const unsigned char *_Pos,_locale_t _Locale);
-#endif
 #endif
 
 _CRTIMP void __cdecl _mbccpy (unsigned char *dest, const unsigned char *src) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;

@@ -33,8 +33,6 @@ extern "C" {
 #define _FILE_DEFINED
 #endif
 
-#ifndef _MBSTRING_DEFINED
-#define _MBSTRING_DEFINED
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma push_macro("_mbsdup")
 #undef _mbsdup
@@ -154,8 +152,6 @@ extern "C" {
 #define _mbccmp(_cpc1,_cpc2) _mbsncmp((_cpc1),(_cpc2),1)
 
 #ifdef __cplusplus
-#ifndef _CPP_MBCS_INLINES_DEFINED
-#define _CPP_MBCS_INLINES_DEFINED
   extern "C++" {
     static inline unsigned char *__cdecl _mbschr(unsigned char *_String,unsigned int _Char) { return ((unsigned char *)_mbschr((const unsigned char *)_String,_Char)); }
     static inline unsigned char *__cdecl _mbschr_l(unsigned char *_String,unsigned int _Char,_locale_t _Locale) { return ((unsigned char *)_mbschr_l((const unsigned char *)_String,_Char,_Locale)); }
@@ -166,7 +162,6 @@ extern "C" {
     static inline unsigned char *__cdecl _mbsstr(unsigned char *_String,const unsigned char *_Match) { return ((unsigned char *)_mbsstr((const unsigned char *)_String,_Match)); }
     static inline unsigned char *__cdecl _mbsstr_l(unsigned char *_String,const unsigned char *_Match,_locale_t _Locale) { return ((unsigned char *)_mbsstr_l((const unsigned char *)_String,_Match,_Locale)); }
   }
-#endif
 #endif
 
 #if __MSVCRT_VERSION__ >= 0x0200
@@ -203,7 +198,6 @@ extern "C" {
   _CRTIMP unsigned int __cdecl _mbctolower_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP unsigned int __cdecl _mbctoupper(unsigned int _Ch);
   _CRTIMP unsigned int __cdecl _mbctoupper_l(unsigned int _Ch,_locale_t _Locale);
-#endif
 
 #ifndef _MBLEADTRAIL_DEFINED
 #define _MBLEADTRAIL_DEFINED

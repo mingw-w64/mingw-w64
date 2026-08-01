@@ -13,10 +13,7 @@
 extern "C" {
 #endif
 
-#ifndef _SIG_ATOMIC_T_DEFINED
-#define _SIG_ATOMIC_T_DEFINED
   typedef int sig_atomic_t;
-#endif
 
 #define NSIG 23
 

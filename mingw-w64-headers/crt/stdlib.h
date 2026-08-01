@@ -54,9 +54,6 @@ extern "C" {
 #endif
 #endif
 
-#ifndef _DIV_T_DEFINED
-#define _DIV_T_DEFINED
-
   typedef struct _div_t {
     int quot;
     int rem;
@@ -66,7 +63,6 @@ extern "C" {
     long quot;
     long rem;
   } ldiv_t;
-#endif
 
 #ifndef _CRT_DOUBLE_DEC
 #define _CRT_DOUBLE_DEC

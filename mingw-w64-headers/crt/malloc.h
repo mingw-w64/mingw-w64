@@ -46,15 +46,12 @@ extern "C" {
 #define _FREEENTRY 0
 #define _USEDENTRY 1
 
-#ifndef _HEAPINFO_DEFINED
-#define _HEAPINFO_DEFINED
  /* The structure used to walk through the heap with _heapwalk.  */
   typedef struct _heapinfo {
     int *_pentry;
     size_t _size;
     int _useflag;
   } _HEAPINFO;
-#endif
 
 #define _amblksiz (*__p__amblksiz())
   _CRTIMP unsigned int *__cdecl __p__amblksiz(void);
@@ -242,10 +239,7 @@ size_t __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset);
 #endif
 
 #ifdef HEAPHOOK
-#ifndef _HEAPHOOK_DEFINED
-#define _HEAPHOOK_DEFINED
   typedef int (__cdecl *_HEAPHOOK)(int,size_t,void *,void **);
-#endif
 
   _CRTIMP _HEAPHOOK __cdecl _setheaphook(_HEAPHOOK _NewHook);
 

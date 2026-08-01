@@ -21,11 +21,8 @@
 extern "C" {
 #endif
 
-#ifndef _WIO_S_DEFINED
-#define _WIO_S_DEFINED
   _SECIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
   _SECIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
-#endif
 
 #ifndef _WSTDIO_S_DEFINED
 #define _WSTDIO_S_DEFINED
@@ -344,8 +341,6 @@ extern "C" {
   }
 #endif
 
-#ifndef _WTIME_S_DEFINED
-#define _WTIME_S_DEFINED
   _SECIMP errno_t __cdecl _wasctime_s (wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   _SECIMP errno_t __cdecl _wctime32_s (wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
   _SECIMP errno_t __cdecl _wstrdate_s (wchar_t *_Buf,size_t _SizeInWords);
@@ -357,7 +352,6 @@ extern "C" {
   errno_t __cdecl _wctime_s(wchar_t *, size_t, const time_t *);
 #ifndef _USE_32BIT_TIME_T
 __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime64_s(_Buffer,_SizeInWords,_Time); }
-#endif
 #endif
 #endif
 

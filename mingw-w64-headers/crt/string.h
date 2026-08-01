@@ -19,10 +19,7 @@ extern "C" {
 #define __CORRECT_ISO_CPP_STRING_H_PROTO
 #endif
 
-#ifndef _NLSCMP_DEFINED
-#define _NLSCMP_DEFINED
 #define _NLSCMPERROR 2147483647
-#endif
 
 #ifndef NULL
 #ifdef __cplusplus

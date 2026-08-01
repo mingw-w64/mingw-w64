@@ -38,8 +38,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _FSIZE_T_DEFINED
 #endif
 
-#ifndef _FINDDATA_T_DEFINED
-
   struct _finddata32_t {
     unsigned attrib;
     __time32_t time_create;
@@ -99,9 +97,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _findnexti64 _findnext64
 #endif /* _USE_32BIT_TIME_T */
 #endif /* _CRTBLD */
-
-#define _FINDDATA_T_DEFINED
-#endif /* _FINDDATA_T_DEFINED */
 
 #ifndef _WFINDDATA_T_DEFINED
 
