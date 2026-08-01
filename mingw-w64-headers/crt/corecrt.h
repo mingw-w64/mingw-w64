@@ -162,6 +162,15 @@ typedef __time64_t time_t;
 
 #define _WConst_return _CONST_RETURN
 
+#if defined(__LIBMSVCRT__)
+/* When building mingw-w64, this should be blank.  */
+#define _SECIMP
+#else
+#ifndef _SECIMP
+#define _SECIMP __declspec(dllimport)
+#endif /* _SECIMP */
+#endif /* defined(__LIBMSVCRT__) */
+
 #ifdef _DEBUG
 _CRTIMP void __cdecl _invalid_parameter(const wchar_t *expression, const wchar_t *function_name, const wchar_t *file_name, unsigned int line_number, __UINTPTR_TYPE__ reserved);
 #endif

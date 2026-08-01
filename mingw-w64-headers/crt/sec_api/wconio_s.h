@@ -9,15 +9,6 @@
 
 #include <corecrt_wconio.h>
 
-#if defined(__LIBMSVCRT__)
-/* When building mingw-w64, this should be blank.  */
-#define _SECIMP
-#else
-#ifndef _SECIMP
-#define _SECIMP __declspec(dllimport)
-#endif /* _SECIMP */
-#endif /* defined(__LIBMSVCRT__) */
-
 #ifdef __cplusplus
 extern "C" {
 #endif

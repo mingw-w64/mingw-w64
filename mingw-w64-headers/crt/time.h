@@ -12,15 +12,6 @@
 #error Only Win32 target is supported!
 #endif
 
-#if defined(__LIBMSVCRT__)
-/* When building mingw-w64, this should be blank.  */
-#define _SECIMP
-#else
-#ifndef _SECIMP
-#define _SECIMP __declspec(dllimport)
-#endif /* _SECIMP */
-#endif /* defined(__LIBMSVCRT__) */
-
 /* Adding timespec definition.  */
 #include <sys/timeb.h>
 
