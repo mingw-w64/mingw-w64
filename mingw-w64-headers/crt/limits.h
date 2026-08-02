@@ -3,10 +3,10 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <crtdefs.h>
-
 #ifndef _INC_LIMITS
 #define _INC_LIMITS
+
+#include <crtdefs.h>
 
 /*
  * File system limits

@@ -3,8 +3,8 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifndef _INC_UTIME
-#define _INC_UTIME
+#ifndef _INC_SYS_UTIME
+#define _INC_SYS_UTIME
 
 #ifndef _WIN32
 #error Only Win32 target is supported!

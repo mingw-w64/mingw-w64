@@ -3,12 +3,11 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <crtdefs.h>
-
-#include <io.h>
-
 #ifndef _INC_FCNTL
 #define _INC_FCNTL
+
+#include <crtdefs.h>
+#include <io.h>
 
 #define _O_RDONLY 0x0000
 #define _O_WRONLY 0x0001

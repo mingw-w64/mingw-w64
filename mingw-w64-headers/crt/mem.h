@@ -8,5 +8,9 @@
  *
  * mem.h maps to string.h
  */
+#ifndef _INC_MEM
+#define _INC_MEM
+
 #include <string.h>
 
+#endif /* _INC_MEM */

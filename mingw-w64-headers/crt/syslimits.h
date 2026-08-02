@@ -7,7 +7,11 @@
    If we can use it ok unmodified, then we install this text.
    If fixincludes fixes it, then the fixed version is installed
    instead of this text.  */
+#ifndef _INC_SYSLIMITS
+#define _INC_SYSLIMITS
 
 #define _GCC_NEXT_LIMITS_H		/* tell gcc's limits.h to recurse */
 #include_next <limits.h>
 #undef _GCC_NEXT_LIMITS_H
+
+#endif /* _INC_SYSLIMITS */

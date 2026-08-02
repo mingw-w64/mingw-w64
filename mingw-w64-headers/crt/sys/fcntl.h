@@ -8,6 +8,9 @@
  *
  * This fcntl.h maps to the root fcntl.h
  */
+#ifndef _INC_SYS_FCNTL
+#define _INC_SYS_FCNTL
 
 #include <fcntl.h>
 
+#endif /* _INC_SYS_FCNTL */

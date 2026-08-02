@@ -3,11 +3,11 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <crtdefs.h>
-#include <sal.h>
-
 #ifndef _INC_CRTDBG
 #define _INC_CRTDBG
+
+#include <crtdefs.h>
+#include <sal.h>
 
 #pragma pack(push,_CRT_PACKING)
 

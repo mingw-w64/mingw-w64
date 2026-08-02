@@ -3,10 +3,10 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <crtdefs.h>
-
 #ifndef _INC_TCHAR
 #define _INC_TCHAR
+
+#include <crtdefs.h>
 
 #ifdef _STRSAFE_H_INCLUDED_
 #error Need to include strsafe.h after tchar.h

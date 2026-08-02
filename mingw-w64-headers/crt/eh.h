@@ -3,17 +3,15 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+#ifndef _EH_H_
+#define _EH_H_
 
 #ifndef __cplusplus
 #error eh.h is only for C++!
 #endif
 
-#include <typeinfo>
-
 #include <crtdefs.h>
-
-#ifndef _EH_H_
-#define _EH_H_
+#include <typeinfo>
 
 #ifndef RC_INVOKED
 

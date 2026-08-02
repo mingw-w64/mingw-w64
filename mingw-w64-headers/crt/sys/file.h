@@ -9,5 +9,9 @@
  * This file.h maps to the root fcntl.h
  * TODO?
  */
+#ifndef _INC_SYS_FILE
+#define _INC_SYS_FILE
+
 #include <fcntl.h>
 
+#endif /* _INC_SYS_FILE */

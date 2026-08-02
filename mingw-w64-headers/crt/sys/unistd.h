@@ -8,5 +8,9 @@
  *
  * unistd.h maps (roughly) to io.h
  */
+#ifndef _INC_SYS_UNISTD
+#define _INC_SYS_UNISTD
+
 #include <io.h>
 
+#endif /* _INC_SYS_UNISTD */

@@ -3,10 +3,11 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-
-#include <crtdefs.h>
 #ifndef	_SYS_CDEFS_H
 #define _SYS_CDEFS_H
+
+#include <crtdefs.h>
+
 #ifdef	__cplusplus
 #define	__BEGIN_DECLS	extern "C" {
 #define	__END_DECLS	}
