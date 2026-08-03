@@ -118,6 +118,7 @@ testcase_progs = \
   t_tls_exe_dtor \
   t_tls_exe_dyn \
   t_tls_exe_native \
+  t_tls_exe_var \
   t_nullptrexception \
   t_pow \
   t_powi \
