@@ -7,9 +7,8 @@
 #define _YMATH
 #include <yvals.h>
 _C_STD_BEGIN
-_C_LIB_DECL
 
-#pragma pack(push,_CRT_PACKING)
+_CRT_BEGIN_C_HEADER
 
 #define _DENORM (-2)
 #define _FINITE (-1)
@@ -45,8 +44,7 @@ _CRTIMP short __cdecl _LDtest(long double *);
 _CRTIMP short __cdecl _LExp(long double *,long double,short);
 _CRTIMP long double __cdecl _LSinh(long double,long double);
 extern _CRTIMP _Dconst _LDenorm,_LInf,_LNan,_LSnan;
-_END_C_LIB_DECL
+_CRT_END_C_HEADER
 _C_STD_END
 
-#pragma pack(pop)
 #endif

@@ -8,9 +8,7 @@
 
 #include <corecrt.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef __cplusplus
 /* Tell libstdc++ and libc++ we have provided the correct ISO C++ overloads */
@@ -94,9 +92,7 @@ extern "C" {
   int __cdecl wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 /**
  * ISO C++ requires both const and non-const versions of these functions.

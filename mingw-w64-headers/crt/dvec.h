@@ -16,8 +16,6 @@
 #include <fvec.h>
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
 #if defined(_ENABLE_VEC_DEBUG)
 #include <iostream>
 #endif
@@ -843,6 +841,5 @@ inline F64vec2 IntToF64vec2(const F64vec2 &a,int b) { return _mm_cvtsi32_sd(a,b)
 
 #endif /* ifdef __SSE__ */
 
-#pragma pack(pop)
 #endif
 #endif

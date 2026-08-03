@@ -8,11 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   typedef enum {
     _FpCompareEqual,_FpCompareGreater,_FpCompareLess,_FpCompareUnordered
@@ -153,9 +149,6 @@ extern "C" {
 
   _CRTIMP int __cdecl _fpieee_flt(unsigned long _ExceptionCode,struct _EXCEPTION_POINTERS *_PtExceptionPtr,int (__cdecl *_Handler)(_FPIEEE_RECORD *));
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif

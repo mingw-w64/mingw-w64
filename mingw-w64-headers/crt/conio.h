@@ -11,9 +11,7 @@
 #include <corecrt_wconio.h>
 #include <stddef.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /**
  * Functions to read/write strings from/to console.
@@ -193,9 +191,7 @@ extern "C" {
 #endif /* NO_OLDNAMES */
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <sec_api/conio_s.h>
 

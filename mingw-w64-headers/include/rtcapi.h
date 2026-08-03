@@ -8,8 +8,6 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
 #define _RTCINTERNAL_DEPRECATED
 
 #ifdef __cplusplus
@@ -89,5 +87,4 @@ extern "C" {
 }
 #endif
 
-#pragma pack(pop)
 #endif

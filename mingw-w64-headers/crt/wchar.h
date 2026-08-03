@@ -18,11 +18,7 @@
 #define __USE_MINGW_STRTOX 1
 #endif
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef WCHAR_MIN  /* also in stdint.h */
 #define WCHAR_MIN 0U
@@ -1102,11 +1098,7 @@ void __cdecl __mingw_str_free(void *ptr);
 
 #endif /* __MINGW_MBWC_CONVERT_DEFINED */
 
-#ifdef __cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #include <sec_api/wchar_s.h>
 

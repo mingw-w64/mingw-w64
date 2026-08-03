@@ -264,9 +264,7 @@
 
 #ifndef RC_INVOKED
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /* Set the FPU control word as cw = (cw & ~unMask) | (unNew & unMask),
  * i.e. change the bits in unMask to have the values they have in unNew,
@@ -324,9 +322,7 @@ _CRTIMP int __cdecl __MINGW_NOTHROW _isnan (double);
 extern long double __cdecl _chgsignl (long double);
 #endif /* _SIGN_DEFINED */
 
-#ifdef	__cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif	/* Not RC_INVOKED */
 

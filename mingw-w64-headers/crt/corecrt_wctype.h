@@ -8,9 +8,7 @@
 
 #include <corecrt.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
@@ -176,8 +174,6 @@ _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

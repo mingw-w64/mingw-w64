@@ -9,9 +9,7 @@
 #include <crtdefs.h>
 #include <ctype.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _mbctype
   _CRTIMP unsigned char * __cdecl __p__mbctype(void);
@@ -89,7 +87,6 @@ extern "C" {
 _CRTIMP void __cdecl _mbccpy (unsigned char *dest, const unsigned char *src) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 _CRTIMP void __cdecl _mbccpy_l(unsigned char *dest,const unsigned char *src,_locale_t locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

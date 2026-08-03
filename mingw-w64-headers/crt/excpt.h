@@ -8,11 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   struct _EXCEPTION_POINTERS;
 
@@ -122,9 +118,6 @@ typedef enum _EXCEPTION_DISPOSITION {
 #define __except1
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif

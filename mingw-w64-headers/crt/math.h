@@ -14,8 +14,6 @@
 
 struct _exception;
 
-#pragma pack(push,_CRT_PACKING)
-
 #define	_DOMAIN		1	/* domain error in argument */
 #define	_SING		2	/* singularity */
 #define	_OVERFLOW	3	/* range overflow */
@@ -105,9 +103,7 @@ template <typename type1> struct __mingw_types_compatible_p<type1, const type1> 
 #endif
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __MINGW_SOFTMATH
 #define __MINGW_SOFTMATH
@@ -1444,13 +1440,9 @@ int __cdecl isnand32(_Decimal32 _X);
 
 #endif /* __STDC_WANT_DEC_FP__ */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif	/* Not RC_INVOKED */
-
-#pragma pack(pop)
 
 #endif /* End _MATH_H_ */
 

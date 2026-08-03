@@ -12,11 +12,7 @@
 #error Only Win32 target is supported!
 #endif
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _CRTIMP
 #define _CRTIMP __declspec(dllimport)
@@ -129,11 +125,7 @@ struct itimerspec {
 #endif
 #endif /* _CRTBLD */
 
-#ifdef __cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #include <sec_api/sys/timeb_s.h>
 #endif

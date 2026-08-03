@@ -9,11 +9,7 @@
 #include <crtdefs.h>
 #include <string.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma push_macro("_getcwd")
@@ -457,12 +453,7 @@ int sopen(const char * __filename, int __flags, int __share, ...)
 #endif /* __MINGW_FORTIFY_VA_ARG */
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
-#ifdef __cplusplus
-}
-#endif
-
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #endif /* End _IO_H_ */
 

@@ -9,9 +9,7 @@
 
 #include <conio.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /**
  * Functions to read/write strings from/to console.
@@ -31,8 +29,6 @@ extern "C" {
   _CRTIMP int __cdecl _cscanf_s(const char *_Format,...);
   _CRTIMP int __cdecl _cscanf_s_l(const char *_Format,_locale_t _Locale,...);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

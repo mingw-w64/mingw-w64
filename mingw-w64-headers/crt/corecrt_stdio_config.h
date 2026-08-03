@@ -9,9 +9,7 @@
 
 #include <corecrt.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 unsigned __int64* __cdecl __local_stdio_printf_options(void);
 unsigned __int64* __cdecl __local_stdio_scanf_options(void);
@@ -35,7 +33,6 @@ unsigned __int64* __cdecl __local_stdio_scanf_options(void);
 #define _CRT_INTERNAL_LOCAL_SCANF_OPTIONS   (*__local_stdio_scanf_options())
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif /* _STDIO_CONFIG_DEFINED */

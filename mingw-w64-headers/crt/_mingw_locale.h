@@ -17,9 +17,7 @@
  * but since there is no corecrt_wlocale.h, we name it _mingw_locale.h instead.
  */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if __MSVCRT_VERSION__ >= 0x200
 _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
@@ -29,8 +27,6 @@ _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
 _CRTIMP _locale_t __cdecl _wcreate_locale(int _Category, const wchar_t *_Locale);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* _INC_MINGW_LOCALE */

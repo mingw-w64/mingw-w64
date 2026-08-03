@@ -13,9 +13,8 @@
 #include <sys/types.h>
 
 #ifndef _POSIX_
-#ifdef __cplusplus
-extern "C" {
-#endif
+
+_CRT_BEGIN_C_HEADER
 
 #ifndef _P_WAIT
 #define _P_WAIT 0
@@ -200,8 +199,7 @@ extern "C" {
 #endif
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif
 #endif

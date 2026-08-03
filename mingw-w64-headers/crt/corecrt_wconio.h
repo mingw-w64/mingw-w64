@@ -11,9 +11,7 @@
 #include <corecrt_stdio_config.h>
 #include <stddef.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
@@ -137,9 +135,7 @@ _CRTIMP int __cdecl _cwscanf(const wchar_t * __restrict__ _Format,...) __MINGW_A
 _CRTIMP int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif /* _UCRT */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <sec_api/wconio_s.h>
 

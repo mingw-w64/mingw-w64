@@ -17,8 +17,6 @@ extern "C" {
 #include <fenv.h>
 #include <windows.h>
 
-#pragma pack(push,_CRT_PACKING)
-
 #define __IOINFO_TM_ANSI 0
 #define __IOINFO_TM_UTF8 1
 #define __IOINFO_TM_UTF16LE 2
@@ -311,5 +309,4 @@ static inline unsigned int __mingw_statusfp(void)
 }
 #endif
 
-#pragma pack(pop)
 #endif

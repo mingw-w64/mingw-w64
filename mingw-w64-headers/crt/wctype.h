@@ -8,17 +8,13 @@
 
 #include <corecrt_wctype.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   typedef wchar_t wctrans_t;
   _CRTIMP wint_t __cdecl towctrans(wint_t,wctrans_t);
   _CRTIMP wctrans_t __cdecl wctrans(const char *);
   _CRTIMP wctype_t __cdecl wctype(const char *);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

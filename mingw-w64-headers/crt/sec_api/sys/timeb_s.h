@@ -9,9 +9,7 @@
 
 #include <sys/timeb.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   _CRTIMP errno_t __cdecl _ftime32_s(struct __timeb32 *_Time);
   _CRTIMP errno_t __cdecl _ftime64_s(struct __timeb64 *_Time);
@@ -22,8 +20,6 @@ extern "C" {
 #define _ftime_s _ftime32_s
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

@@ -73,7 +73,7 @@ _C_STD_BEGIN
 #define FL_NAN 4
 #define FL_NEG 8
 
-_C_LIB_DECL
+_CRT_BEGIN_C_HEADER
 
 _CRTIMP int __cdecl _Stopfx(const char **,char **);
 _CRTIMP int __cdecl _Stoflt(const char *,const char *,char **,long[],int);
@@ -103,6 +103,6 @@ _CRTIMP long double __cdecl _LPoly(long double,const long double *,int);
 
 extern __declspec(dllimport) _Dconst _LEps,_LRteps;
 extern __declspec(dllimport) long double _LXbig;
-_END_C_LIB_DECL
+_CRT_END_C_HEADER
 _C_STD_END
 #endif

@@ -9,9 +9,7 @@
 
 #include <time.h>
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #include <_timeval.h>
 
@@ -43,9 +41,7 @@ int __cdecl gettimeofday(struct timeval *__restrict__,
                          void *__restrict__  /* tzp (unused) */);
 #endif
 
-#ifdef  __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 /* Adding timespec definition.  */
 #include <sys/timeb.h>

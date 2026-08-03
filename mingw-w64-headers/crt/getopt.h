@@ -15,9 +15,7 @@
 /* All the headers include this file. */
 #include <crtdefs.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 extern int optind;		/* index of first non-option in argv      */
 extern int optopt;		/* single option character, as parsed     */
@@ -28,9 +26,8 @@ extern char *optarg;		/* pointer to argument of current option  */
 
 extern int getopt(int nargc, char * const *nargv, const char *options);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 /*
  * POSIX requires the `getopt' API to be specified in `unistd.h';
  * thus, `unistd.h' includes this header.  However, we do not want
@@ -57,9 +54,7 @@ extern int optreset;
 #if !defined(__UNISTD_H_SOURCED__) && !defined(__GETOPT_LONG_H__)
 #define __GETOPT_LONG_H__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 struct option		/* specification for a long form option...	*/
 {
@@ -90,8 +85,6 @@ extern int getopt_long_only(int nargc, char * const *nargv, const char *options,
 # define HAVE_DECL_GETOPT	1
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* !defined(__UNISTD_H_SOURCED__) && !defined(__GETOPT_LONG_H__) */

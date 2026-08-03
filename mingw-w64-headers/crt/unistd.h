@@ -37,9 +37,7 @@
 
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #pragma push_macro("sleep")
 #undef sleep
@@ -82,9 +80,7 @@ int truncate64(const char *, _off64_t);
 #endif
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP || WINSTORECOMPAT */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <pthread_unistd.h>
 

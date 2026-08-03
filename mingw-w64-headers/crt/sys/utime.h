@@ -12,11 +12,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _CRTIMP
 #define _CRTIMP __declspec(dllimport)
@@ -117,9 +113,6 @@ extern "C" {
 
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif

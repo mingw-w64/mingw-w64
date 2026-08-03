@@ -15,13 +15,9 @@
 #include <assert.h>
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
 #if defined(_ENABLE_VEC_DEBUG)
 #include <iostream>
 #endif
-
-#pragma pack(pop)
 
 #ifdef __SSE__
 

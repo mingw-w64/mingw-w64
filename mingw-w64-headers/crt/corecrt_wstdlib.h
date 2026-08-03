@@ -8,9 +8,7 @@
 
 #include <corecrt.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma push_macro("_wdupenv_s")
@@ -47,8 +45,7 @@ extern "C" {
   _CRTIMP errno_t __cdecl _wsplitpath_s(const wchar_t *_FullPath,wchar_t *_Drive,size_t _DriveSizeInWords,wchar_t *_Dir,size_t _DirSizeInWords,wchar_t *_Filename,size_t _FilenameSizeInWords,wchar_t *_Ext,size_t _ExtSizeInWords);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_SPLITPATH(errno_t,_wsplitpath_s,wchar_t,_Dest)
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif /* _INC_CORECRT_WSTDLIB */
 

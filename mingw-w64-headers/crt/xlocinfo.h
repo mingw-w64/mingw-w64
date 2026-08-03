@@ -10,10 +10,8 @@
 #include <wchar.h>
 #include <yvals.h>
 
-#pragma pack(push,_CRT_PACKING)
-
 _C_STD_BEGIN
-_C_LIB_DECL
+_CRT_BEGIN_C_HEADER
 
 #define _XA 0x100
 #define _XS 0x000
@@ -81,19 +79,18 @@ _CRTIMP short __cdecl _Getwctype(wchar_t,const _Ctypevec *);
 _CRTIMP const wchar_t *__cdecl _Getwctypes(const wchar_t *,const wchar_t *,short*,const _Ctypevec*);
 _CRTIMP wchar_t __cdecl _Towlower(wchar_t,const _Ctypevec *);
 _CRTIMP wchar_t __cdecl _Towupper(wchar_t,const _Ctypevec *);
-_END_C_LIB_DECL
+_CRT_END_C_HEADER
 _C_STD_END
 
-_C_LIB_DECL
+_CRT_BEGIN_C_HEADER
 _CRTIMP void *__cdecl _Gettnames();
 _CRTIMP char *__cdecl _Getdays();
 _CRTIMP char *__cdecl _Getmonths();
 _CRTIMP size_t __cdecl _Strftime(char *,size_t _Maxsize,const char *,const struct tm *,void *);
-_END_C_LIB_DECL
+_CRT_END_C_HEADER
 
-_C_LIB_DECL
+_CRT_BEGIN_C_HEADER
 _locale_t __cdecl _GetLocaleForCP(unsigned int);
-_END_C_LIB_DECL
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif

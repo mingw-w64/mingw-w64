@@ -9,9 +9,7 @@
 #include <crtdefs.h>
 #include <pthread_signal.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   typedef int sig_atomic_t;
 
@@ -57,7 +55,6 @@ extern "C" {
   __p_sig_fn_t __cdecl signal(int _SigNum,__p_sig_fn_t _Func);
   int __cdecl raise(int _SigNum);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

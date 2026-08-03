@@ -42,9 +42,7 @@
 
 #define I _Complex_I
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef RC_INVOKED
 
@@ -211,8 +209,6 @@ __CRT_INLINE long double __MINGW_ATTRIB_CONST cabsl (long double _Complex _Z)
 
 #endif /* RC_INVOKED */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* _COMPLEX_H */

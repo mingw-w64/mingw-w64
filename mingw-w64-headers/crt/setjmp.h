@@ -8,7 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
+_CRT_BEGIN_C_HEADER
 
 #ifndef NULL
 #ifdef __cplusplus
@@ -20,10 +20,6 @@
 #else
 #define NULL ((void *)0)
 #endif
-#endif
-
-#ifdef __cplusplus
-extern "C" {
 #endif
 
 #if defined(__i386__)
@@ -225,11 +221,8 @@ __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_b
 
 void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif /* _INC_SETJMP */
 
 /*

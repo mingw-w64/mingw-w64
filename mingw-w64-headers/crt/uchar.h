@@ -43,9 +43,7 @@ typedef uint_least32_t char32_t;
 #define __STDC_UTF_32__ 1
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef _UCRT
 _CRTIMP size_t mbrtoc16 (char16_t *__restrict__ _Pc16, const char *__restrict__ _S, size_t _N, mbstate_t *__restrict__ _Ps);
@@ -54,9 +52,7 @@ _CRTIMP size_t mbrtoc32 (char32_t *__restrict__ _Pc32, const char *__restrict__ 
 _CRTIMP size_t c32rtomb (char *__restrict__ _S, char32_t _C32, mbstate_t *__restrict__ _Ps);
 #endif  /* _UCRT */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* __UCHAR_H */
 

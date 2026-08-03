@@ -9,9 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   struct FTW {
     int base;
@@ -83,8 +81,6 @@ extern "C" {
   int ftw64 (const char *, int (*) (const char *, const struct stat64 *, int), int);
   int nftw64 (const char *, int (*) (const char *, const struct stat64 *, int , struct FTW *), int, int);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

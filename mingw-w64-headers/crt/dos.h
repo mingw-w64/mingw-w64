@@ -9,11 +9,7 @@
 #include <crtdefs.h>
 #include <io.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
 #ifndef _DISKFREE_T_DEFINED
@@ -50,9 +46,6 @@ extern "C" {
 #define diskfree_t _diskfree_t
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
-#pragma pack(pop)
 #endif

@@ -16,11 +16,7 @@
 
 #ifndef RC_INVOKED
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 struct dirent
 {
@@ -123,11 +119,7 @@ long __cdecl __MINGW_NOTHROW _wtelldir (_WDIR*);
 void __cdecl __MINGW_NOTHROW _wseekdir (_WDIR*, long);
 
 
-#ifdef	__cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #endif	/* Not RC_INVOKED */
 

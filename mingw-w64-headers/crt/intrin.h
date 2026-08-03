@@ -62,9 +62,8 @@
 /* Make sure _mm_malloc and _mm_free are defined.  */
 #include <malloc.h>
 #endif
-#if defined(__cplusplus)
-extern "C" {
-#endif
+
+_CRT_BEGIN_C_HEADER
 
 #include <x86intrin.h>
 #include <cpuid.h>
@@ -76,9 +75,7 @@ extern "C" {
 #undef _lrotl
 #undef _lrotr
 
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif
 
@@ -106,46 +103,30 @@ typedef union __m128i { char v[16]; } __m128i;
 #if (defined(_X86_) || (defined(__x86_64) && !defined(__arm64ec__)))
 
 #if defined(__MMX__) || defined(__MINGW_FORCE_SYS_INTRINS)
-#if defined(__cplusplus)
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 #include <mmintrin.h>
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
 #endif
 
 /* Note: mm3dnow.h intentionally not included; 3DNow! is deprecated. */
 
 /* NOTE: it's not included by MS version, but we do it to try work around C++/C linkage differences */
 #if defined(__SSE__) || defined(__MINGW_FORCE_SYS_INTRINS)
-#if defined(__cplusplus)
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 #include <xmmintrin.h>
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
 #endif
 
 #if defined(__SSE2__) || defined(__MINGW_FORCE_SYS_INTRINS)
-#if defined(__cplusplus)
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 #include <emmintrin.h>
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
 #endif
 
 #if defined(__SSE3__) || defined(__MINGW_FORCE_SYS_INTRINS)
-#if defined(__cplusplus)
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 #include <pmmintrin.h>
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
 #endif
 
 #endif
@@ -248,9 +229,7 @@ extern "C" {
 #define __MACHINECE __MACHINEZ
 #endif
 
-#if defined(__cplusplus)
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __CYGWIN__
 	/* Put all declarations potentially colliding with POSIX headers here.
@@ -1701,9 +1680,8 @@ extern "C" {
 #endif
 #endif
 
-#if defined(__cplusplus)
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif
 
 #endif /* end __INTRIN_H_ */

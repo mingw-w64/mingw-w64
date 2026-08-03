@@ -9,16 +9,12 @@
 
 #include <crtdefs.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
  char * __cdecl __MINGW_NOTHROW basename (char *);
  char * __cdecl __MINGW_NOTHROW dirname (char *);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif
 

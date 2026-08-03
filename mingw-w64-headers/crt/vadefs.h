@@ -8,15 +8,7 @@
 
 #include <_mingw.h>
 
-#ifndef __WIDL__
-#undef _CRT_PACKING
-#define _CRT_PACKING 8
-#pragma pack(push,_CRT_PACKING)
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if defined (__GNUC__)
 #ifndef __GNUC_VA_LIST
@@ -95,13 +87,7 @@ extern "C" {
 
 #endif /* compiler ifdefs */
 
-#ifdef __cplusplus
-}
-#endif
-
-#ifndef __WIDL__
-#pragma pack(pop)
-#endif
+_CRT_END_C_HEADER
 
 #endif /* _INC_VADEFS */
 

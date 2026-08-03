@@ -13,8 +13,9 @@
 #include <crtdefs.h>
 #pragma push_macro("new")
 #undef new
-extern "C" {
 #endif
+
+_CRT_BEGIN_C_HEADER
 
 #ifndef __PLACEMENT_NEW_INLINE
 #define __PLACEMENT_NEW_INLINE
@@ -31,8 +32,9 @@ _CRTIMP _PNH __cdecl _set_new_handler(_PNH _NewHandler);
 #define _NO_ANSI_NEW_HANDLER ((new_handler)-1)
 #define _NO_ANSI_NEW_HANDLER_M ((_new_handler_m)-1)
 
+_CRT_END_C_HEADER
+
 #ifdef __cplusplus
-}
 #pragma pop_macro("new")
 #endif
 

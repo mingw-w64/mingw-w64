@@ -8,8 +8,6 @@
 #ifndef _INC_TYPEINFO
 #define _INC_TYPEINFO
 
-#pragma pack(push,_CRT_PACKING)
-
 #ifndef RC_INVOKED
 
 #ifndef __cplusplus
@@ -28,5 +26,4 @@ typedef bad_typeid Bad_typeid;
 #endif
 #endif
 
-#pragma pack(pop)
 #endif

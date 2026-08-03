@@ -8,9 +8,7 @@
 
 #include <crtdefs.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _CRT_ERRNO_DEFINED
 #define _CRT_ERRNO_DEFINED
@@ -235,7 +233,6 @@ _CRTIMP errno_t __cdecl _get_errno(int *_Value);
 #define EOVERFLOW 132
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

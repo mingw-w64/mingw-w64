@@ -8,9 +8,7 @@
 
 #include <wchar.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   _SECIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
   _SECIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
@@ -359,8 +357,6 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   _SECIMP errno_t __cdecl wmemmove_s(wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
 
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

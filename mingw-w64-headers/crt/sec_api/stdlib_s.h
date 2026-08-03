@@ -8,9 +8,7 @@
 
 #include <stdlib.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma push_macro("_dupenv_s")
@@ -62,8 +60,6 @@ extern "C" {
 
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif

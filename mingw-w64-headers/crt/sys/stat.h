@@ -13,11 +13,7 @@
 #include <crtdefs.h>
 #include <io.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _CRTIMP
 #define _CRTIMP __declspec(dllimport)
@@ -189,11 +185,7 @@ int __cdecl wstat64(const wchar_t *_Filename, struct stat64 *_Stat);
 
 #endif
 
-#ifdef __cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #endif /* _INC_STAT */
 

@@ -9,9 +9,7 @@
 #include <crtdefs.h>
 #include <stddef.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _CRT_ALGO_DEFINED
 #define _CRT_ALGO_DEFINED
@@ -66,9 +64,7 @@ void __cdecl twalk (const void *, void (*)(const void *, VISIT, int));
 void __cdecl tdestroy(void *, void (*)(void *))  __MINGW_ATTRIB_NONNULL (2);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <sec_api/search_s.h>
 

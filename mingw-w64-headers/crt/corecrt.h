@@ -9,14 +9,12 @@
 
 #include <_mingw.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __WIDL__
+/* Obsolete because of buggy behaviour */
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
-#pragma pack(push,_CRT_PACKING)
 #endif
 
 #ifdef __ERRCODE_DEFINED_MS
@@ -493,12 +491,6 @@ typedef struct tagLC_ID {
 #endif /* !WINAPI_FAMILY */
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
-#ifndef __WIDL__
-#pragma pack(pop)
-#endif
-
-#ifdef __cplusplus
-}  /* extern "C" */
-#endif
+_CRT_END_C_HEADER
 
 #endif /* _INC_CORECRT */

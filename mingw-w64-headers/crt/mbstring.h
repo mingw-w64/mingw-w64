@@ -8,11 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef _FILE_DEFINED
   struct _iobuf {
@@ -232,11 +228,7 @@ extern "C" {
   _CRTIMP unsigned int __cdecl _mbctokata(unsigned int _Ch);
   _CRTIMP unsigned int __cdecl _mbctokata_l(unsigned int _Ch,_locale_t _Locale);
 
-#ifdef __cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #include <sec_api/mbstring_s.h>
 

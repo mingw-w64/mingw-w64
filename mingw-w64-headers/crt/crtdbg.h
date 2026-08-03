@@ -9,7 +9,7 @@
 #include <crtdefs.h>
 #include <sal.h>
 
-#pragma pack(push,_CRT_PACKING)
+_CRT_BEGIN_C_HEADER
 
 #ifndef NULL
 #ifdef __cplusplus
@@ -21,10 +21,6 @@
 #else
 #define NULL ((void *)0)
 #endif
-#endif
-
-#ifdef __cplusplus
-extern "C" {
 #endif
 
   typedef void *_HFILE;
@@ -436,8 +432,8 @@ _CRTIMP int __cdecl _CrtGetCheckCount(void);
 
 #endif /* _DEBUG */
 
-#ifdef __cplusplus
-}
+_CRT_END_C_HEADER
+
 /*
   void *__cdecl operator new[](size_t _Size);
   inline void *__cdecl operator new(size_t _Size,int,const char *,int) { return ::operator new(_Size); }
@@ -446,9 +442,6 @@ _CRTIMP int __cdecl _CrtGetCheckCount(void);
   inline void __cdecl operator delete(void *_P,int,const char *,int) { ::operator delete(_P); }
   inline void __cdecl operator delete[](void *_P,int,const char *,int) { ::operator delete[](_P); }
  */
-#endif
-
-#pragma pack(pop)
 
 #include <sec_api/crtdbg_s.h>
 

@@ -8,9 +8,7 @@
 
 #include <corecrt_wctype.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /**
  * Standard C functions.
@@ -138,7 +136,6 @@ int __cdecl _iscsymf_l(wint_t _C, _locale_t _Locale);
 _CRTIMP int __cdecl _isctype_l(int _C,int _Type,_locale_t _Locale);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

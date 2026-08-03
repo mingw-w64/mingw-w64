@@ -8,9 +8,7 @@
 
 #include <tchar.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef _UNICODE
 
@@ -271,7 +269,6 @@ extern "C" {
 #endif
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

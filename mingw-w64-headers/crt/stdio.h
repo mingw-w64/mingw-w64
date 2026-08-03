@@ -8,7 +8,7 @@
 
 #include <corecrt_stdio_config.h>
 
-#pragma pack(push,_CRT_PACKING)
+_CRT_BEGIN_C_HEADER
 
 #pragma push_macro("snprintf")
 #undef snprintf
@@ -18,10 +18,6 @@
 #undef snwprintf
 #pragma push_macro("vsnwprintf")
 #undef vsnwprintf
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #define BUFSIZ 512
 #define _NFILE _NSTREAM_
@@ -1324,16 +1320,12 @@ void __cdecl __mingw_str_free(void *ptr);
 #endif
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
-#ifdef __cplusplus
-}
-#endif
-
 #pragma pop_macro("snprintf")
 #pragma pop_macro("vsnprintf")
 #pragma pop_macro("snwprintf")
 #pragma pop_macro("vsnwprintf")
 
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #include <sec_api/stdio_s.h>
 

@@ -12,9 +12,7 @@
 #error Need to include strsafe.h after tchar.h
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __CYGWIN__
 
@@ -74,15 +72,11 @@ extern "C" {
 
 #ifdef _UNICODE
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <wchar.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __CYGWIN__
 
@@ -501,15 +495,11 @@ extern "C" {
 
 #else /* _UNICODE */
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #include <string.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #define _TEOF EOF
 
@@ -793,17 +783,13 @@ extern "C" {
 
 #ifdef _MBCS
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #ifndef __CYGWIN__
 
 #include <mbstring.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifndef __TCHAR_DEFINED
   typedef char _TCHAR;
@@ -1173,9 +1159,7 @@ extern "C" {
 #define _T(x) __T(x)
 #define _TEXT(x) __T(x)
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #ifndef __CYGWIN__
 #include <sec_api/tchar_s.h>

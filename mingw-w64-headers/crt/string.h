@@ -10,9 +10,7 @@
 #include <corecrt_memory.h>
 #include <corecrt_wstring.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef __cplusplus
 /* Tell libstdc++ and libc++ we have provided the correct ISO C++ overloads */
@@ -122,9 +120,7 @@ extern "C" {
   char *__cdecl strupr(char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #ifdef __CORRECT_ISO_CPP_STRING_H_PROTO
 extern "C++" {
@@ -145,9 +141,8 @@ extern "C++" {
 #include <sec_api/string_s.h>
 
 #if __MINGW_FORTIFY_LEVEL > 0
-#ifdef __cplusplus
-extern "C" {
-#endif
+
+_CRT_BEGIN_C_HEADER
 
 __mingw_bos_declare;
 
@@ -232,9 +227,8 @@ wchar_t * wcscat(wchar_t * __restrict__ __dst, const wchar_t * __restrict__ __sr
   return __mingw_call_wcscat(__dst, __src);
 }
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
 #endif

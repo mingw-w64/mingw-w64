@@ -8,11 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #ifdef _WIN64
 #define _HEAP_MAXREQ 0xFFFFFFFFFFFFFFE0
@@ -251,10 +247,6 @@ size_t __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset);
 #define _HEAP_EXPAND 6
 #endif
 
-#ifdef __cplusplus
-}
-#endif
-
-#pragma pack(pop)
+_CRT_END_C_HEADER
 
 #endif /* _MALLOC_H_ */

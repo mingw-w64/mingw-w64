@@ -9,9 +9,7 @@
 
 #include <corecrt.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 typedef enum _crt_app_type {
     _crt_unknown_app,
@@ -67,7 +65,6 @@ _CRTIMP int __cdecl _execute_onexit_table(_onexit_table_t*);
 _CRTIMP int __cdecl _crt_atexit(_PVFV func);
 _CRTIMP int __cdecl _crt_at_quick_exit(_PVFV func);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

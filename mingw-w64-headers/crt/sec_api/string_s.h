@@ -8,9 +8,7 @@
 
 #include <string.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
   _CRTIMP errno_t __cdecl _strset_s(char *_Dst,size_t _DstSize,int _Value);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _strset_s, char, _Dst, int, _Value)
@@ -90,7 +88,6 @@ extern "C" {
   }
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

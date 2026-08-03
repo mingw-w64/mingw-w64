@@ -55,9 +55,7 @@ typedef struct
 /* Type representing exception flags. */
 typedef unsigned long fexcept_t;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /* The FE_DFL_ENV macro is required by standard.
    fesetenv will use the environment set at app startup.*/
@@ -105,9 +103,8 @@ extern int __cdecl fedisableexcept(int _Excepts);
 extern int __cdecl fegetexcept(void);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif	/* Not RC_INVOKED */
 
 #endif /* ndef _FENV_H */

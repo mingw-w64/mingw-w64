@@ -13,9 +13,7 @@
 #define __need_wchar_t
 #include <stddef.h>
 
-#ifdef	__cplusplus
-extern	"C"	{
-#endif
+_CRT_BEGIN_C_HEADER
 
 typedef struct {
 	intmax_t quot;
@@ -343,8 +341,6 @@ intmax_t __cdecl wcstoimax (const wchar_t* __restrict__ nptr,
 uintmax_t __cdecl wcstoumax (const wchar_t* __restrict__ nptr,
 			     wchar_t** __restrict__ endptr, int base);
 
-#ifdef	__cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* ndef _INTTYPES_H */

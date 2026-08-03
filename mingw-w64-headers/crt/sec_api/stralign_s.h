@@ -8,9 +8,7 @@
 
 #include <stralign.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 #if !defined(_X86_) && defined(_WSTRING_S_DEFINED)
 #if defined(__cplusplus) && defined(_WConst_Return)
@@ -21,7 +19,6 @@ extern "C" {
 #endif
 #endif
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
+
 #endif

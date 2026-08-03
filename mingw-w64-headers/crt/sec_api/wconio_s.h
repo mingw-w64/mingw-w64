@@ -9,9 +9,7 @@
 
 #include <corecrt_wconio.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+_CRT_BEGIN_C_HEADER
 
 /**
  * Functions to read/write strings from/to console.
@@ -31,8 +29,6 @@ _SECIMP int __cdecl _vcwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,va_
 _CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
 _CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #endif /* _INC_WCONIO_S */
