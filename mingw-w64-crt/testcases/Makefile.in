@@ -227,9 +227,9 @@ am__EXEEXT_5 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_mbsrtowcs$(EXEEXT) t_nontls_dll$(EXEEXT) \
 	t_nontls_exe$(EXEEXT) t_tls_dll$(EXEEXT) \
 	t_tls_exe_dtor$(EXEEXT) t_tls_exe_dyn$(EXEEXT) \
-	t_tls_exe_native$(EXEEXT) t_nullptrexception$(EXEEXT) \
-	t_pow$(EXEEXT) t_powi$(EXEEXT) t_printf$(EXEEXT) \
-	t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
+	t_tls_exe_native$(EXEEXT) t_tls_exe_var$(EXEEXT) \
+	t_nullptrexception$(EXEEXT) t_pow$(EXEEXT) t_powi$(EXEEXT) \
+	t_printf$(EXEEXT) t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
 	t_safe_flush$(EXEEXT) t_setjmp$(EXEEXT) t_sigfpe$(EXEEXT) \
 	t_sigv$(EXEEXT) t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) \
 	t_snprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
@@ -904,6 +904,10 @@ t_tls_exe_native_SOURCES = t_tls_exe_native.c
 t_tls_exe_native_OBJECTS = t_tls_exe_native.$(OBJEXT)
 t_tls_exe_native_LDADD = $(LDADD)
 t_tls_exe_native_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_exe_var_SOURCES = t_tls_exe_var.c
+t_tls_exe_var_OBJECTS = t_tls_exe_var.$(OBJEXT)
+t_tls_exe_var_LDADD = $(LDADD)
+t_tls_exe_var_DEPENDENCIES = $(builddir)/libtest.a
 t_tmain_SOURCES = t_tmain.c
 t_tmain_OBJECTS = t_tmain-t_tmain.$(OBJEXT)
 t_tmain_LDADD = $(LDADD)
@@ -1397,14 +1401,15 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_tls_c11-t_tls_c11.Po ./$(DEPDIR)/t_tls_cpp.Po \
 	./$(DEPDIR)/t_tls_dll.Po ./$(DEPDIR)/t_tls_exe_dtor.Po \
 	./$(DEPDIR)/t_tls_exe_dyn.Po ./$(DEPDIR)/t_tls_exe_native.Po \
-	./$(DEPDIR)/t_tmain-t_tmain.Po ./$(DEPDIR)/t_tmpfile.Po \
-	./$(DEPDIR)/t_towctrans.Po ./$(DEPDIR)/t_trycatch.Po \
-	./$(DEPDIR)/t_tsearch.Po ./$(DEPDIR)/t_utime.Po \
-	./$(DEPDIR)/t_vsscanf.Po ./$(DEPDIR)/t_wcrtomb.Po \
-	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
-	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wctype.Po \
-	./$(DEPDIR)/t_winmain.Po ./$(DEPDIR)/t_winmain_assert.Po \
-	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/t_wrongret.Po \
+	./$(DEPDIR)/t_tls_exe_var.Po ./$(DEPDIR)/t_tmain-t_tmain.Po \
+	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_towctrans.Po \
+	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_tsearch.Po \
+	./$(DEPDIR)/t_utime.Po ./$(DEPDIR)/t_vsscanf.Po \
+	./$(DEPDIR)/t_wcrtomb.Po ./$(DEPDIR)/t_wcsrtombs.Po \
+	./$(DEPDIR)/t_wcstok_s.Po ./$(DEPDIR)/t_wctob.Po \
+	./$(DEPDIR)/t_wctype.Po ./$(DEPDIR)/t_winmain.Po \
+	./$(DEPDIR)/t_winmain_assert.Po ./$(DEPDIR)/t_wreaddir.Po \
+	./$(DEPDIR)/t_wrongret.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -1642,10 +1647,10 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
 	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
 	t_tls_dll.c t_tls_exe_dtor.c t_tls_exe_dyn.c \
-	t_tls_exe_native.c t_tmain.c t_tmpfile.c t_towctrans.c \
-	$(t_trycatch_SOURCES) t_tsearch.c t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c \
-	t_winmain.c t_winmain_assert.c t_wreaddir.c \
+	t_tls_exe_native.c t_tls_exe_var.c t_tmain.c t_tmpfile.c \
+	t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c t_utime.c \
+	t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
+	t_wctype.c t_winmain.c t_winmain_assert.c t_wreaddir.c \
 	$(t_wrongret_SOURCES) $(tests32_cabs_SOURCES) \
 	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
 	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
@@ -1701,10 +1706,10 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
 	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
 	t_tls_dll.c t_tls_exe_dtor.c t_tls_exe_dyn.c \
-	t_tls_exe_native.c t_tmain.c t_tmpfile.c t_towctrans.c \
-	$(t_trycatch_SOURCES) t_tsearch.c t_utime.c t_vsscanf.c \
-	t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c t_wctype.c \
-	t_winmain.c t_winmain_assert.c t_wreaddir.c \
+	t_tls_exe_native.c t_tls_exe_var.c t_tmain.c t_tmpfile.c \
+	t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c t_utime.c \
+	t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
+	t_wctype.c t_winmain.c t_winmain_assert.c t_wreaddir.c \
 	$(t_wrongret_SOURCES) $(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -2144,7 +2149,7 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_imagebase t_intrinc t_isfine t_iswctype t_ivma t_lfs \
 	t_lseeki64 t_main t_main_assert t_main_cpp t_matherr t_mbrlen \
 	t_mbrtowc t_mbsrtowcs t_nontls_dll t_nontls_exe t_tls_dll \
-	t_tls_exe_dtor t_tls_exe_dyn t_tls_exe_native \
+	t_tls_exe_dtor t_tls_exe_dyn t_tls_exe_native t_tls_exe_var \
 	t_nullptrexception t_pow t_powi t_printf t_printf_g_width \
 	t_readdir t_safe_flush t_setjmp t_sigfpe t_sigv t_snprintf \
 	t_snprintf0 t_snprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 \
@@ -3253,6 +3258,10 @@ t_tls_exe_native$(EXEEXT): $(t_tls_exe_native_OBJECTS) $(t_tls_exe_native_DEPEND
 	@rm -f t_tls_exe_native$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_tls_exe_native_OBJECTS) $(t_tls_exe_native_LDADD) $(LIBS)
 
+t_tls_exe_var$(EXEEXT): $(t_tls_exe_var_OBJECTS) $(t_tls_exe_var_DEPENDENCIES) $(EXTRA_t_tls_exe_var_DEPENDENCIES) 
+	@rm -f t_tls_exe_var$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_tls_exe_var_OBJECTS) $(t_tls_exe_var_LDADD) $(LIBS)
+
 t_tmain$(EXEEXT): $(t_tmain_OBJECTS) $(t_tmain_DEPENDENCIES) $(EXTRA_t_tmain_DEPENDENCIES) 
 	@rm -f t_tmain$(EXEEXT)
 	$(AM_V_CCLD)$(t_tmain_LINK) $(t_tmain_OBJECTS) $(t_tmain_LDADD) $(LIBS)
@@ -3684,6 +3693,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_dtor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_dyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_native.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_var.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmain-t_tmain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tmpfile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_towctrans.Po@am__quote@ # am--include-marker
@@ -7020,6 +7030,13 @@ t_tls_exe_native.log: t_tls_exe_native$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_tls_exe_var.log: t_tls_exe_var$(EXEEXT)
+	@p='t_tls_exe_var$(EXEEXT)'; \
+	b='t_tls_exe_var'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_nullptrexception.log: t_nullptrexception$(EXEEXT)
 	@p='t_nullptrexception$(EXEEXT)'; \
 	b='t_nullptrexception'; \
@@ -7913,6 +7930,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_tls_exe_dtor.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dyn.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_var.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_towctrans.Po
@@ -8246,6 +8264,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_tls_exe_dtor.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dyn.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_var.Po
 	-rm -f ./$(DEPDIR)/t_tmain-t_tmain.Po
 	-rm -f ./$(DEPDIR)/t_tmpfile.Po
 	-rm -f ./$(DEPDIR)/t_towctrans.Po
