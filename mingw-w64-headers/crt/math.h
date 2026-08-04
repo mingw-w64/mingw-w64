@@ -275,7 +275,7 @@ extern "C" {
   _CRTIMP double __cdecl _y0(double _X);
   _CRTIMP double __cdecl _y1(double _X);
   _CRTIMP double __cdecl _yn(int _X,double _Y);
-  _CRTIMP int __cdecl _matherr (struct _exception *);
+  int __cdecl _matherr (struct _exception *);
 
 /* These are also declared in Mingw float.h; needed here as well to work 
    around GCC build issues.  */
