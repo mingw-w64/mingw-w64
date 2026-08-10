@@ -214,12 +214,27 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NO_OPTIMIZE
 #endif
 
-#if __MINGW_GNUC_PREREQ (4, 4)
-#define __MINGW_PRAGMA_PARAM(x) _Pragma (#x)
+/**
+ * ISO C++11 & ISO C99 requires _Pragma to be implemented.
+ * GCC supports _Pragma since 3.0 (https://gcc.gnu.org/pipermail/gcc/2002-March/078934.html)
+ * Clang at least since 3.0 supports _Pragma, and pretends to be GCC 4.2, so no special handling is needed.
+ *
+ * Fallback to _Pragma instead of empty, in hope that some compilers may actually support it, but don't define __GNUC__.
+ * This also avoids silent ABI breakage.
+ *
+ * NOTE: Clang and MSVC expands macros inside #pragma, _Pragma, and __pragma, but GCC does not.
+ * This is why we need a helper macro to force the expansion.
+ */
+#if (defined(__cplusplus) && __cplusplus >= 201103L) \
+    || (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) \
+    || __MINGW_GNUC_PREREQ (3, 0)
+#define __MINGW_PRAGMA_PARAM_IMPL(x) _Pragma (#x)
+#define __MINGW_PRAGMA_PARAM(x) __MINGW_PRAGMA_PARAM_IMPL(x)
 #elif __MINGW_MSC_PREREQ (13, 1)
 #define __MINGW_PRAGMA_PARAM(x) __pragma (x)
 #else
-#define __MINGW_PRAGMA_PARAM(x)
+#define __MINGW_PRAGMA_PARAM_IMPL(x) _Pragma (#x)
+#define __MINGW_PRAGMA_PARAM(x) __MINGW_PRAGMA_PARAM_IMPL(x)
 #endif
 
 #define __MINGW_BROKEN_INTERFACE(x) \
@@ -302,6 +317,14 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define __nothrow
 #endif
 #endif /* __nothrow */
+
+#ifdef __cplusplus
+#define _CRT_BEGIN_C_HEADER extern "C" {
+#define _CRT_END_C_HEADER   }
+#else
+#define _CRT_BEGIN_C_HEADER
+#define _CRT_END_C_HEADER
+#endif
 
 #include <vadefs.h>	/* other headers depend on this include */
 
@@ -474,7 +497,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #undef  _CRT_glob
 #define _CRT_glob _dowildcard
 
-
 #if defined(_MSC_VER) && !defined(_MSC_EXTENSIONS)
 #define NONAMELESSUNION		1
 #endif
@@ -584,10 +606,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+_CRT_BEGIN_C_HEADER
 
 #ifdef __MINGW_INTRIN_INLINE
 
@@ -660,9 +679,7 @@ __MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *_Addr)
 /* mingw-w64 specific functions: */
 const char *__mingw_get_crt_info (void);
 
-#ifdef __cplusplus
-}
-#endif
+_CRT_END_C_HEADER
 
 #define __STDC_SECURE_LIB__ 200411L
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
