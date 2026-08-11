@@ -98,6 +98,7 @@ testcase_progs = \
   t_fstat_f64 \
   t_fstat_t64 \
   t_fstat_t64_f64 \
+  t_global_ctors \
   t_imagebase \
   t_intrinc \
   t_isfine \
@@ -213,6 +214,10 @@ t_tls_cpp_LDFLAGS += -static
 t_trycatch_LDFLAGS += -static
 t_wrongret_LDFLAGS += -static
 endif
+
+# Test only for -static -lgcc
+t_global_ctors_LDFLAGS = $(AM_LDFLAGS) -static
+t_global_ctors_LDADD = @TARGET_LIBGCC_FILE_NAME@ $(LDADD)
 
 # Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)

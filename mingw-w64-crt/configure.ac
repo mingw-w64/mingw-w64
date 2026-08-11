@@ -78,6 +78,10 @@ rm -f test.def libtest.a
 AC_MSG_RESULT([$dlltool_has_temp_prefix])
 AM_CONDITIONAL([DLLTOOL_HAS_TEMP_PREFIX],[test $dlltool_has_temp_prefix = yes])
 
+# Find libgcc for testcases/t_global_ctors.
+AS_VAR_SET([TARGET_LIBGCC_FILE_NAME], [`$CC -print-libgcc-file-name`])
+AC_SUBST([TARGET_LIBGCC_FILE_NAME])
+
 AC_MSG_CHECKING([whether to build a w32api package for Cygwin])
 AC_ARG_ENABLE([w32api],
   [AS_HELP_STRING([--enable-w32api],
