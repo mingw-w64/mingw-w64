@@ -28,6 +28,11 @@ libnontls.dll: libnontls.o
 	$(LINK) -shared -Wl,--kill-at -o $@ $^
 t_nontls_dll.exe: libnontls.dll
 
+# Used by t_global_ctors
+libglbctors.dll: libglbctors.o
+	$(LINK) -shared -o $@ $^
+t_global_ctors.exe: libglbctors.dll
+
 # Used by t_tls_dll
 libtls01.dll: libtls01.o
 	$(LINK) -shared -o $@ $^
@@ -283,6 +288,7 @@ EXTRA_DIST = \
   t_swprintf_tmpl.h
 
 CLEANFILES = \
+  libglbctors.dll \
   libnontls.dll \
   libprocdetach.dll \
   libtls01.dll \
