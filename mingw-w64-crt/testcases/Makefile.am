@@ -25,7 +25,7 @@ libprocdetach.dll: libprocdetach.o
 
 # Used by t_nontls_dll
 libnontls.dll: libnontls.o
-	$(LINK) -shared -Wl,--kill-at -o $@ $^
+	$(LINK) -shared -o $@ $^
 t_nontls_dll.exe: libnontls.dll
 
 # Used by t_global_ctors
