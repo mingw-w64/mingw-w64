@@ -1,4 +1,4 @@
-/* This is simple DLL library which uses mingw cxa thread dtor TLS callback */
+/* This is simple DLL library which uses cxa thread dtor TLS callback */
 
 #include <stdio.h>
 
