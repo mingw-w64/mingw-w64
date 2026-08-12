@@ -27,6 +27,11 @@ static void WINAPI pe_tls_callback(HANDLE handle __attribute__((unused)), DWORD 
   } else if (reason == DLL_THREAD_ATTACH) {
     thread_attach++;
   } else if (reason == DLL_PROCESS_DETACH) {
+    if (process_detach != 0) {
+      printf("Error after main: PE TLS callback for DLL_PROCESS_DETACH was called more times\n");
+      /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
+      TerminateProcess(GetCurrentProcess(), 1);
+    }
     process_detach++;
   } else if (reason == DLL_THREAD_DETACH) {
     thread_detach++;
@@ -129,6 +134,11 @@ int main(void)
     } else {
       printf("PE TLS callback for DLL_THREAD_DETACH was called\n");
     }
+  }
+
+  if (process_detach != 0) {
+    printf("Error: PE TLS callback for DLL_PROCESS_DETACH was called before exiting process\n");
+    ret = 1;
   }
 
   if (ret) printf("FAILED\n"); else printf("PASSED\n");
