@@ -219,12 +219,12 @@ am__EXEEXT_5 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_format_Z0$(EXEEXT) t_format_Z1$(EXEEXT) t_fseeki64$(EXEEXT) \
 	t_fseeki64_ftelli64$(EXEEXT) t_fseeko64$(EXEEXT) \
 	t_fstat$(EXEEXT) t_fstat_f64$(EXEEXT) t_fstat_t64$(EXEEXT) \
-	t_fstat_t64_f64$(EXEEXT) t_imagebase$(EXEEXT) \
-	t_intrinc$(EXEEXT) t_isfine$(EXEEXT) t_iswctype$(EXEEXT) \
-	t_ivma$(EXEEXT) t_lfs$(EXEEXT) t_lseeki64$(EXEEXT) \
-	t_main$(EXEEXT) t_main_assert$(EXEEXT) t_main_cpp$(EXEEXT) \
-	t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) \
-	t_mbsrtowcs$(EXEEXT) t_nontls_dll$(EXEEXT) \
+	t_fstat_t64_f64$(EXEEXT) t_global_ctors$(EXEEXT) \
+	t_imagebase$(EXEEXT) t_intrinc$(EXEEXT) t_isfine$(EXEEXT) \
+	t_iswctype$(EXEEXT) t_ivma$(EXEEXT) t_lfs$(EXEEXT) \
+	t_lseeki64$(EXEEXT) t_main$(EXEEXT) t_main_assert$(EXEEXT) \
+	t_main_cpp$(EXEEXT) t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) \
+	t_mbrtowc$(EXEEXT) t_mbsrtowcs$(EXEEXT) t_nontls_dll$(EXEEXT) \
 	t_nontls_exe$(EXEEXT) t_tls_dll$(EXEEXT) \
 	t_tls_exe_dtor$(EXEEXT) t_tls_exe_dyn$(EXEEXT) \
 	t_tls_exe_native$(EXEEXT) t_tls_exe_var$(EXEEXT) \
@@ -627,6 +627,11 @@ t_fstat_t64_f64_SOURCES = t_fstat_t64_f64.c
 t_fstat_t64_f64_OBJECTS = t_fstat_t64_f64.$(OBJEXT)
 t_fstat_t64_f64_LDADD = $(LDADD)
 t_fstat_t64_f64_DEPENDENCIES = $(builddir)/libtest.a
+t_global_ctors_SOURCES = t_global_ctors.c
+t_global_ctors_OBJECTS = t_global_ctors.$(OBJEXT)
+t_global_ctors_DEPENDENCIES = $(LDADD)
+t_global_ctors_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(t_global_ctors_LDFLAGS) $(LDFLAGS) -o $@
 t_imagebase_SOURCES = t_imagebase.c
 t_imagebase_OBJECTS = t_imagebase.$(OBJEXT)
 t_imagebase_LDADD = $(LDADD)
@@ -1367,15 +1372,15 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_fseeki64_ftelli64.Po ./$(DEPDIR)/t_fseeko64.Po \
 	./$(DEPDIR)/t_fstat.Po ./$(DEPDIR)/t_fstat_f64.Po \
 	./$(DEPDIR)/t_fstat_t64.Po ./$(DEPDIR)/t_fstat_t64_f64.Po \
-	./$(DEPDIR)/t_imagebase.Po ./$(DEPDIR)/t_intrin.Po \
-	./$(DEPDIR)/t_intrin_cpp.Po ./$(DEPDIR)/t_intrinc-t_intrinc.Po \
-	./$(DEPDIR)/t_iostream.Po ./$(DEPDIR)/t_isfine.Po \
-	./$(DEPDIR)/t_iswctype.Po ./$(DEPDIR)/t_ivma.Po \
-	./$(DEPDIR)/t_lfs.Po ./$(DEPDIR)/t_lseeki64.Po \
-	./$(DEPDIR)/t_main.Po ./$(DEPDIR)/t_main_assert.Po \
-	./$(DEPDIR)/t_main_cpp.Po ./$(DEPDIR)/t_matherr.Po \
-	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
-	./$(DEPDIR)/t_mbsrtowcs.Po \
+	./$(DEPDIR)/t_global_ctors.Po ./$(DEPDIR)/t_imagebase.Po \
+	./$(DEPDIR)/t_intrin.Po ./$(DEPDIR)/t_intrin_cpp.Po \
+	./$(DEPDIR)/t_intrinc-t_intrinc.Po ./$(DEPDIR)/t_iostream.Po \
+	./$(DEPDIR)/t_isfine.Po ./$(DEPDIR)/t_iswctype.Po \
+	./$(DEPDIR)/t_ivma.Po ./$(DEPDIR)/t_lfs.Po \
+	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_main.Po \
+	./$(DEPDIR)/t_main_assert.Po ./$(DEPDIR)/t_main_cpp.Po \
+	./$(DEPDIR)/t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
+	./$(DEPDIR)/t_mbrtowc.Po ./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_nontls_dll.Po ./$(DEPDIR)/t_nontls_exe.Po \
 	./$(DEPDIR)/t_nullptrexception.Po ./$(DEPDIR)/t_pow.Po \
@@ -1630,7 +1635,7 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
 	t_format_Z0.c t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c \
 	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
-	t_fstat_t64_f64.c t_imagebase.c t_intrin.c \
+	t_fstat_t64_f64.c t_global_ctors.c t_imagebase.c t_intrin.c \
 	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
 	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
 	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
@@ -1689,7 +1694,7 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
 	t_format_Z0.c t_format_Z1.c t_fseeki64.c t_fseeki64_ftelli64.c \
 	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
-	t_fstat_t64_f64.c t_imagebase.c t_intrin.c \
+	t_fstat_t64_f64.c t_global_ctors.c t_imagebase.c t_intrin.c \
 	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
 	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
 	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
@@ -2053,6 +2058,7 @@ SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+TARGET_LIBGCC_FILE_NAME = @TARGET_LIBGCC_FILE_NAME@
 TARGET_SYSTEM_ROOT = @TARGET_SYSTEM_ROOT@
 VERSION = @VERSION@
 abs_builddir = @abs_builddir@
@@ -2146,21 +2152,21 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_expm1 t_fctptr t_findfirst t_float t_fmod t_format_Z \
 	t_format_Z0 t_format_Z1 t_fseeki64 t_fseeki64_ftelli64 \
 	t_fseeko64 t_fstat t_fstat_f64 t_fstat_t64 t_fstat_t64_f64 \
-	t_imagebase t_intrinc t_isfine t_iswctype t_ivma t_lfs \
-	t_lseeki64 t_main t_main_assert t_main_cpp t_matherr t_mbrlen \
-	t_mbrtowc t_mbsrtowcs t_nontls_dll t_nontls_exe t_tls_dll \
-	t_tls_exe_dtor t_tls_exe_dyn t_tls_exe_native t_tls_exe_var \
-	t_nullptrexception t_pow t_powi t_printf t_printf_g_width \
-	t_readdir t_safe_flush t_setjmp t_sigfpe t_sigv t_snprintf \
-	t_snprintf0 t_snprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 \
-	t_speed_powl t_stat t_stat_f64 t_stat_t64 t_stat_t64_f64 \
-	t_stat_slash t_staticconstmember t_stderr_buffering t_stdint \
-	t_stprintf_a t_stprintf_u t_stprintf0_a t_stprintf0_u \
-	t_stprintf1_a t_stprintf1_u t_swprintf t_swprintf0 t_swprintf1 \
-	t_time t_tls_ansi t_tls_c11 t_tmpfile t_towctrans t_trycatch \
-	t_tsearch t_utime t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s \
-	t_wctob t_wctype t_winmain_assert t_wreaddir $(am__append_1) \
-	$(am__append_10)
+	t_global_ctors t_imagebase t_intrinc t_isfine t_iswctype \
+	t_ivma t_lfs t_lseeki64 t_main t_main_assert t_main_cpp \
+	t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs t_nontls_dll \
+	t_nontls_exe t_tls_dll t_tls_exe_dtor t_tls_exe_dyn \
+	t_tls_exe_native t_tls_exe_var t_nullptrexception t_pow t_powi \
+	t_printf t_printf_g_width t_readdir t_safe_flush t_setjmp \
+	t_sigfpe t_sigv t_snprintf t_snprintf0 t_snprintf1 t_snwprintf \
+	t_snwprintf0 t_snwprintf1 t_speed_powl t_stat t_stat_f64 \
+	t_stat_t64 t_stat_t64_f64 t_stat_slash t_staticconstmember \
+	t_stderr_buffering t_stdint t_stprintf_a t_stprintf_u \
+	t_stprintf0_a t_stprintf0_u t_stprintf1_a t_stprintf1_u \
+	t_swprintf t_swprintf0 t_swprintf1 t_time t_tls_ansi t_tls_c11 \
+	t_tmpfile t_towctrans t_trycatch t_tsearch t_utime t_vsscanf \
+	t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob t_wctype \
+	t_winmain_assert t_wreaddir $(am__append_1) $(am__append_10)
 
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
@@ -2184,6 +2190,10 @@ t_staticconstmember_LDFLAGS = $(AM_LDFLAGS) $(am__append_6)
 t_tls_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_7)
 t_trycatch_LDFLAGS = $(AM_LDFLAGS) $(am__append_8)
 t_wrongret_LDFLAGS = $(AM_LDFLAGS) $(am__append_9)
+
+# Test only for -static -lgcc
+t_global_ctors_LDFLAGS = $(AM_LDFLAGS) -static
+t_global_ctors_LDADD = @TARGET_LIBGCC_FILE_NAME@ $(LDADD)
 
 # Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)
@@ -2512,6 +2522,7 @@ EXTRA_DIST = \
   t_swprintf_tmpl.h
 
 CLEANFILES = \
+  libglbctors.dll \
   libnontls.dll \
   libprocdetach.dll \
   libtls01.dll \
@@ -3001,6 +3012,10 @@ t_fstat_t64$(EXEEXT): $(t_fstat_t64_OBJECTS) $(t_fstat_t64_DEPENDENCIES) $(EXTRA
 t_fstat_t64_f64$(EXEEXT): $(t_fstat_t64_f64_OBJECTS) $(t_fstat_t64_f64_DEPENDENCIES) $(EXTRA_t_fstat_t64_f64_DEPENDENCIES) 
 	@rm -f t_fstat_t64_f64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_fstat_t64_f64_OBJECTS) $(t_fstat_t64_f64_LDADD) $(LIBS)
+
+t_global_ctors$(EXEEXT): $(t_global_ctors_OBJECTS) $(t_global_ctors_DEPENDENCIES) $(EXTRA_t_global_ctors_DEPENDENCIES) 
+	@rm -f t_global_ctors$(EXEEXT)
+	$(AM_V_CCLD)$(t_global_ctors_LINK) $(t_global_ctors_OBJECTS) $(t_global_ctors_LDADD) $(LIBS)
 
 t_imagebase$(EXEEXT): $(t_imagebase_OBJECTS) $(t_imagebase_DEPENDENCIES) $(EXTRA_t_imagebase_DEPENDENCIES) 
 	@rm -f t_imagebase$(EXEEXT)
@@ -3629,6 +3644,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_f64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_t64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_fstat_t64_f64.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_global_ctors.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_imagebase.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_intrin_cpp.Po@am__quote@ # am--include-marker
@@ -6890,6 +6906,13 @@ t_fstat_t64_f64.log: t_fstat_t64_f64$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_global_ctors.log: t_global_ctors$(EXEEXT)
+	@p='t_global_ctors$(EXEEXT)'; \
+	b='t_global_ctors'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_imagebase.log: t_imagebase$(EXEEXT)
 	@p='t_imagebase$(EXEEXT)'; \
 	b='t_imagebase'; \
@@ -7866,6 +7889,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_fstat_f64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_global_ctors.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
 	-rm -f ./$(DEPDIR)/t_intrin.Po
 	-rm -f ./$(DEPDIR)/t_intrin_cpp.Po
@@ -8200,6 +8224,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_fstat_f64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64.Po
 	-rm -f ./$(DEPDIR)/t_fstat_t64_f64.Po
+	-rm -f ./$(DEPDIR)/t_global_ctors.Po
 	-rm -f ./$(DEPDIR)/t_imagebase.Po
 	-rm -f ./$(DEPDIR)/t_intrin.Po
 	-rm -f ./$(DEPDIR)/t_intrin_cpp.Po
@@ -8501,6 +8526,11 @@ libprocdetach.dll: libprocdetach.o
 libnontls.dll: libnontls.o
 	$(LINK) -shared -Wl,--kill-at -o $@ $^
 t_nontls_dll.exe: libnontls.dll
+
+# Used by t_global_ctors
+libglbctors.dll: libglbctors.o
+	$(LINK) -shared -o $@ $^
+t_global_ctors.exe: libglbctors.dll
 
 # Used by t_tls_dll
 libtls01.dll: libtls01.o

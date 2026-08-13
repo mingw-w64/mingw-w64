@@ -683,6 +683,7 @@ LIB32_FALSE
 LIB32_TRUE
 W32API_FALSE
 W32API_TRUE
+TARGET_LIBGCC_FILE_NAME
 DLLTOOL_HAS_TEMP_PREFIX_FALSE
 DLLTOOL_HAS_TEMP_PREFIX_TRUE
 AS
@@ -6373,6 +6374,10 @@ else
   DLLTOOL_HAS_TEMP_PREFIX_TRUE='#'
   DLLTOOL_HAS_TEMP_PREFIX_FALSE=
 fi
+
+
+# Find libgcc for testcases/t_global_ctors.
+TARGET_LIBGCC_FILE_NAME=`$CC -print-libgcc-file-name`
 
 
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to build a w32api package for Cygwin" >&5
