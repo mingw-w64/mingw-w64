@@ -14,12 +14,12 @@ jobs:
           - msvcrt
     steps:
       - name: Check out llvm-mingw build scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: mstorsjo/llvm-mingw
           ref: 20260224
       - name: Check out the mingw-w64 version to be tested
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: mingw-w64
       - name: Regenerate mingw-w64 files
@@ -56,7 +56,7 @@ jobs:
           mv llvm-mingw $NAME
           tar -Jcf ../$NAME.tar.xz --format=ustar --numeric-owner --owner=0 --group=0 --sort=name $NAME
           mv $NAME llvm-mingw
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: linux-${{matrix.crt}}-x86_64-toolchain
           path: |
@@ -92,19 +92,19 @@ jobs:
             zip -9rq ../$NAME.zip $NAME
             rm -rf $NAME
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: windows-${{matrix.crt}}-i686-toolchain
           path: |
             llvm-mingw-*-i686.zip
           retention-days: 7
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: windows-${{matrix.crt}}-x86_64-toolchain
           path: |
             llvm-mingw-*-x86_64.zip
           retention-days: 7
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: windows-${{matrix.crt}}-aarch64-toolchain
           path: |
@@ -135,7 +135,7 @@ jobs:
           install: >-
             unzip
             make
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-${{matrix.crt}}-${{matrix.arch}}-toolchain
       - name: Unpack toolchain
@@ -145,7 +145,7 @@ jobs:
           mv llvm-mingw-* /llvm-mingw
           echo /llvm-mingw/bin >> $GITHUB_PATH
       - name: Check out llvm-mingw tests
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: mstorsjo/llvm-mingw
           ref: 20260224
@@ -186,7 +186,7 @@ jobs:
           - { arch: aarch64, target_arch: aarch64 }
     runs-on: ${{startsWith(matrix.arch, 'a') && 'windows-11-arm' || 'windows-latest'}}
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-ucrt-${{matrix.arch}}-toolchain
       - name: Unpack toolchain
@@ -198,7 +198,7 @@ jobs:
           echo "c:\llvm-mingw\python\bin" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
           echo "PYTHON_EXE=c:/llvm-mingw/python/bin/python3.exe" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
       - name: Check out llvm-mingw scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: mstorsjo/llvm-mingw
           ref: 20260224
@@ -244,7 +244,7 @@ jobs:
           - armv7
           - aarch64
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: linux-ucrt-x86_64-toolchain
       - name: Unpack cross toolchain
@@ -254,7 +254,7 @@ jobs:
           sudo mv llvm-mingw* /opt/llvm-mingw
           echo /opt/llvm-mingw/bin >> $GITHUB_PATH
       - name: Checkout ffmpeg
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ffmpeg/ffmpeg
           ref: n6.1.2
@@ -294,7 +294,7 @@ jobs:
             diffutils
           pacboy: >-
             nasm:p
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-ucrt-${{matrix.arch}}-toolchain
       - name: Unpack toolchain
@@ -304,13 +304,13 @@ jobs:
           mv llvm-mingw-* /llvm-mingw
           echo /llvm-mingw/bin >> $GITHUB_PATH
       - name: Checkout ffmpeg
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ffmpeg/ffmpeg
           ref: n6.1.2
           path: ffmpeg
       - name: Cache FATE samples
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: fate-samples
           key: fate-samples
@@ -341,7 +341,7 @@ jobs:
           sudo apt-get update && sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev autoconf automake
       - name: Cache tarballs
         id: cache-gnu
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /opt/gnu
           key: binutils-2.42-gcc-14.1.0
@@ -375,7 +375,7 @@ jobs:
           make -j$(nproc) all-gcc
           make install-strip-gcc
       - name: Check out the mingw-w64 version to be tested
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: mingw-w64
       - name: Build the mingw-w64 runtime
@@ -412,7 +412,7 @@ jobs:
           NAME=gcc-mingw-${{matrix.crt}}-${{matrix.arch}}
           mv prefix $NAME
           tar -Jcf $NAME.tar.xz --format=ustar --numeric-owner --owner=0 --group=0 --sort=name $NAME
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: linux-${{matrix.crt}}-${{matrix.arch}}-gcc-toolchain
           path: |
@@ -432,7 +432,7 @@ jobs:
           - i686
           - x86_64
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: linux-${{matrix.crt}}-${{matrix.arch}}-gcc-toolchain
       - name: Unpack cross toolchain
@@ -443,7 +443,7 @@ jobs:
           echo /opt/gcc-mingw/bin >> $GITHUB_PATH
       - name: Cache tarballs
         id: cache-gnu
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /opt/gnu
           key: binutils-2.42-gcc-14.1.0
@@ -525,7 +525,7 @@ jobs:
           NAME=gcc-mingw-${{matrix.crt}}-${{matrix.arch}}
           mv prefix $NAME
           zip -9rq $NAME.zip $NAME
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: windows-${{matrix.crt}}-${{matrix.arch}}-gcc-toolchain
           path: |
@@ -545,7 +545,7 @@ jobs:
           - i686
           - x86_64
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-${{matrix.crt}}-${{matrix.arch}}-gcc-toolchain
       - name: Unpack toolchain
@@ -555,7 +555,7 @@ jobs:
           mv gcc-mingw-* c:\gcc-mingw
           echo "c:\gcc-mingw\bin" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
       - name: Check out llvm-mingw tests
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: mstorsjo/llvm-mingw
           ref: 20260224
@@ -604,7 +604,7 @@ jobs:
           rm llvm-mingw-*.zip
           mv llvm-mingw-* /llvm-mingw
           echo /llvm-mingw/bin >> $GITHUB_PATH
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build mingw-w64-crt and tests
         run: |
           export PATH=/llvm-mingw/bin:$PATH
@@ -683,7 +683,7 @@ jobs:
             make
             autoconf
             automake
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: windows-${{ matrix.crt == 'ucrtbase' && 'ucrt' || matrix.crt }}-${{matrix.arch}}-gcc-toolchain
       - name: Unpack toolchain
@@ -692,7 +692,7 @@ jobs:
           rm gcc-mingw-*.zip
           mv gcc-mingw-* /gcc-mingw
           echo /gcc-mingw/bin >> $GITHUB_PATH
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build mingw-w64-crt and run testcases
         run: |
           export PATH=/gcc-mingw/bin:$PATH
