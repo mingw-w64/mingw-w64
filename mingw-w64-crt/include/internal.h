@@ -145,7 +145,6 @@ extern "C" {
 
   BOOL __cdecl _ValidateImageBase (PBYTE pImageBase);
   PIMAGE_SECTION_HEADER __cdecl _FindPESection (PBYTE pImageBase, DWORD_PTR rva);
-  BOOL __cdecl _IsNonwritableInCurrentImage (PBYTE pTarget);
 
 #if defined(__SSE__)
 # define __mingw_has_sse()  1
