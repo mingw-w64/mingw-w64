@@ -9,6 +9,7 @@
 #include <corecrt.h>
 #include <corecrt_wconio.h>
 #include <corecrt_wctype.h>
+#include <corecrt_wio.h>
 #include <corecrt_wstdio.h>
 #include <corecrt_wstdlib.h>
 #include <corecrt_wstring.h>
@@ -23,76 +24,6 @@ _CRT_BEGIN_C_HEADER
 #ifndef WCHAR_MIN  /* also in stdint.h */
 #define WCHAR_MIN 0U
 #define WCHAR_MAX 0xffffU
-#endif
-
-#ifndef _FSIZE_T_DEFINED
-  typedef unsigned long _fsize_t;
-#define _FSIZE_T_DEFINED
-#endif
-
-#ifndef _WFINDDATA_T_DEFINED
-  struct _wfinddata32_t {
-    unsigned attrib;
-    __time32_t time_create;
-    __time32_t time_access;
-    __time32_t time_write;
-    _fsize_t size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata32i64_t {
-    unsigned attrib;
-    __time32_t time_create;
-    __time32_t time_access;
-    __time32_t time_write;
-    __MINGW_EXTENSION __int64 size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata64i32_t {
-    unsigned attrib;
-    __time64_t time_create;
-    __time64_t time_access;
-    __time64_t time_write;
-    _fsize_t size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata64_t {
-    unsigned attrib;
-    __time64_t time_create;
-    __time64_t time_access;
-    __time64_t time_write;
-    __MINGW_EXTENSION __int64 size;
-    wchar_t name[260];
-  };
-/* #endif */
-
-/*
- * To prevent ABI issues, the mingw-w64 runtime should not call these
- * functions. Instead it should call the fixed-size variants.
- */
-#ifndef _CRTBLD
-#ifdef _USE_32BIT_TIME_T
-#define _wfinddata_t _wfinddata32_t
-#define _wfinddatai64_t _wfinddata32i64_t
-
-#define _wfindfirst _wfindfirst32
-#define _wfindnext _wfindnext32
-#define _wfindfirst32i64 _wfindfirsti64
-#define _wfindnext32i64 _wfindnexti64
-#else
-#define _wfinddata_t _wfinddata64i32_t
-#define _wfinddatai64_t _wfinddata64_t
-
-#define _wfindfirst _wfindfirst64i32
-#define _wfindnext _wfindnext64i32
-#define _wfindfirsti64 _wfindfirst64
-#define _wfindnexti64 _wfindnext64
-#endif
-#endif /* _CRTBLD */
-
-#define _WFINDDATA_T_DEFINED
 #endif
 
 #ifndef _WDIRECT_DEFINED
@@ -119,28 +50,6 @@ _CRT_BEGIN_C_HEADER
   _CRTIMP int __cdecl _wchdir(const wchar_t *_Path);
   _CRTIMP int __cdecl _wmkdir(const wchar_t *_Path);
   _CRTIMP int __cdecl _wrmdir(const wchar_t *_Path);
-#endif
-
-#ifndef _WIO_DEFINED
-#define _WIO_DEFINED
-
-  _CRTIMP int __cdecl _waccess(const wchar_t *_Filename,int _AccessMode);
-  _CRTIMP int __cdecl _wchmod(const wchar_t *_Filename,int _Mode);
-  _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename,struct _wfinddata32_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext32(intptr_t _FindHandle,struct _wfinddata32_t *_FindData);
-  _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
-  _CRTIMP int __cdecl _wrename(const wchar_t *_OldFilename,const wchar_t *_NewFilename);
-  _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
-  _CRTIMP intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData);
-  _CRTIMP intptr_t __cdecl _wfindfirst64(const wchar_t *_Filename,struct _wfinddata64_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext32i64(intptr_t _FindHandle,struct _wfinddata32i64_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext64i32(intptr_t _FindHandle,struct _wfinddata64i32_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext64(intptr_t _FindHandle,struct _wfinddata64_t *_FindData);
-  _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
-  _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
 
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP

@@ -8,6 +8,7 @@
 
 #include <crtdefs.h>
 #include <string.h>
+#include <corecrt_wio.h>
 
 _CRT_BEGIN_C_HEADER
 
@@ -18,11 +19,6 @@ _CRT_BEGIN_C_HEADER
 _CRTIMP char* __cdecl _getcwd (char*, int);
 #if defined(_DEBUG) && defined(_CRTDBG_MAP_ALLOC)
 #pragma pop_macro("_getcwd")
-#endif
-
-#ifndef _FSIZE_T_DEFINED
-  typedef unsigned long _fsize_t;
-#define _FSIZE_T_DEFINED
 #endif
 
   struct _finddata32_t {
@@ -85,97 +81,12 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #endif /* _USE_32BIT_TIME_T */
 #endif /* _CRTBLD */
 
-#ifndef _WFINDDATA_T_DEFINED
-
-  struct _wfinddata32_t {
-    unsigned attrib;
-    __time32_t time_create;
-    __time32_t time_access;
-    __time32_t time_write;
-    _fsize_t size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata32i64_t {
-    unsigned attrib;
-    __time32_t time_create;
-    __time32_t time_access;
-    __time32_t time_write;
-    __MINGW_EXTENSION __int64 size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata64i32_t {
-    unsigned attrib;
-    __time64_t time_create;
-    __time64_t time_access;
-    __time64_t time_write;
-    _fsize_t size;
-    wchar_t name[260];
-  };
-
-  struct _wfinddata64_t {
-    unsigned attrib;
-    __time64_t time_create;
-    __time64_t time_access;
-    __time64_t time_write;
-    __MINGW_EXTENSION __int64 size;
-    wchar_t name[260];
-  };
-
-/*
- * To prevent ABI issues, the mingw-w64 runtime should not call these
- * functions. Instead it should call the fixed-size variants.
- */
-#ifndef _CRTBLD
-#ifdef _USE_32BIT_TIME_T
-#define _wfinddata_t _wfinddata32_t
-#define _wfinddatai64_t _wfinddata32i64_t
-
-#define _wfindfirst _wfindfirst32
-#define _wfindnext _wfindnext32
-#define _wfindfirsti64 _wfindfirst32i64
-#define _wfindnexti64 _wfindnext32i64
-#else
-#define _wfinddata_t _wfinddata64i32_t
-#define _wfinddatai64_t _wfinddata64_t
-
-#define _wfindfirst _wfindfirst64i32
-#define _wfindnext _wfindnext64i32
-#define _wfindfirsti64 _wfindfirst64
-#define _wfindnexti64 _wfindnext64
-#endif /* _USE_32BIT_TIME_T */
-#endif /* _CRTBLD */
-
-#define _WFINDDATA_T_DEFINED
-#endif /* _WFINDDATA_T_DEFINED */
-
 #define _A_NORMAL 0x00
 #define _A_RDONLY 0x01
 #define _A_HIDDEN 0x02
 #define _A_SYSTEM 0x04
 #define _A_SUBDIR 0x10
 #define _A_ARCH 0x20
-
-#ifndef _SIZE_T_DEFINED
-#define _SIZE_T_DEFINED
-#undef size_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef unsigned __int64 size_t;
-#else
-  typedef unsigned int size_t;
-#endif /* _WIN64 */
-#endif /* _SIZE_T_DEFINED */
-
-#ifndef _SSIZE_T_DEFINED
-#define _SSIZE_T_DEFINED
-#undef ssize_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 ssize_t;
-#else
-  typedef int ssize_t;
-#endif /* _WIN64 */
-#endif /* _SSIZE_T_DEFINED */
 
 #include <_mingw_off_t.h>
 
@@ -261,33 +172,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _open(const char *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
-#ifndef _WIO_DEFINED
-#define _WIO_DEFINED
-  _CRTIMP int __cdecl _waccess(const wchar_t *_Filename,int _AccessMode);
-  _SECIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
-  _CRTIMP int __cdecl _wchmod(const wchar_t *_Filename,int _Mode);
-  _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename,struct _wfinddata32_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext32(intptr_t _FindHandle,struct _wfinddata32_t *_FindData);
-  _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
-  _CRTIMP int __cdecl _wrename(const wchar_t *_OldFilename,const wchar_t *_NewFilename);
-  _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _SECIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName, size_t _SizeInWords);
-
-  _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
-  intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData);
-  _CRTIMP intptr_t __cdecl _wfindfirst64(const wchar_t *_Filename,struct _wfinddata64_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext32i64(intptr_t _FindHandle,struct _wfinddata32i64_t *_FindData);
-  int __cdecl _wfindnext64i32(intptr_t _FindHandle,struct _wfinddata64i32_t *_FindData);
-  _CRTIMP int __cdecl _wfindnext64(intptr_t _FindHandle,struct _wfinddata64_t *_FindData);
-
-  _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
-
-  _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-
-#endif
-
   int __cdecl __lock_fhandle(int _Filehandle);
   void __cdecl _unlock_fhandle(int _Filehandle);
   _CRTIMP intptr_t __cdecl _get_osfhandle(int _FileHandle);
@@ -362,8 +246,6 @@ int read(int __fh, void * __dst, unsigned int __n)
 
 #if __MINGW_FORTIFY_VA_ARG
 
-#define _O_CREAT 0x0100
-
 _CRTIMP int __cdecl __mingw_call__open(const char *, int, ...) __MINGW_ASM_CRT_CALL(_open);
 _CRTIMP int __cdecl __mingw_call__open_warn_toomany(const char *, int, ...) __MINGW_ASM_CRT_CALL(_open)
   __attribute__((__warning__("_open(): too many arguments")));
@@ -398,42 +280,6 @@ int _sopen(const char * __filename, int __flags, int __share, ...)
   if (__builtin_va_arg_pack_len() < 1)
     return __mingw_call__sopen(__filename, __flags, __share, 0);
   return __mingw_call__sopen(__filename, __flags, __share, __builtin_va_arg_pack());
-}
-
-_CRTIMP int __cdecl __mingw_call__wopen(const wchar_t *, int, ...) __MINGW_ASM_CRT_CALL(_wopen);
-_CRTIMP int __cdecl __mingw_call__wopen_warn_toomany(const wchar_t *, int, ...) __MINGW_ASM_CRT_CALL(_wopen)
-  __attribute__((__warning__("_wopen(): too many arguments")));
-_CRTIMP int __cdecl __mingw_call__wopen_warn_missing(const wchar_t *, int, ...) __MINGW_ASM_CRT_CALL(_wopen)
-  __attribute__((__warning__("_wopen(..._O_CREAT...): missing argument")));
-
-__mingw_bos_extern_ovr
-int _wopen(const wchar_t * __filename, int __flags, ...)
-{
-  if (__builtin_va_arg_pack_len() > 1)
-    return __mingw_call__wopen_warn_toomany(__filename, __flags, __builtin_va_arg_pack());
-  if (__builtin_va_arg_pack_len() < 1 && __builtin_constant_p(__flags & _O_CREAT) && (__flags & _O_CREAT))
-    return __mingw_call__wopen_warn_missing(__filename, __flags, 0);
-  if (__builtin_va_arg_pack_len() < 1)
-    return __mingw_call__wopen(__filename, __flags, 0);
-  return __mingw_call__wopen(__filename, __flags, __builtin_va_arg_pack());
-}
-
-_CRTIMP int __cdecl __mingw_call__wsopen(const wchar_t *, int, int, ...) __MINGW_ASM_CRT_CALL(_wsopen);
-_CRTIMP int __cdecl __mingw_call__wsopen_warn_toomany(const wchar_t *, int, int, ...) __MINGW_ASM_CRT_CALL(_wsopen)
-  __attribute__((__warning__("_wsopen(): too many arguments")));
-_CRTIMP int __cdecl __mingw_call__wsopen_warn_missing(const wchar_t *, int, int, ...) __MINGW_ASM_CRT_CALL(_wsopen)
-  __attribute__((__warning__("_wsopen(..._O_CREAT...): missing argument")));
-
-__mingw_bos_extern_ovr
-int _wsopen(const wchar_t * __filename, int __flags, int __share, ...)
-{
-  if (__builtin_va_arg_pack_len() > 1)
-    return __mingw_call__wsopen_warn_toomany(__filename, __flags, __share, __builtin_va_arg_pack());
-  if (__builtin_va_arg_pack_len() < 1 && __builtin_constant_p(__flags & _O_CREAT) && (__flags & _O_CREAT))
-    return __mingw_call__wsopen_warn_missing(__filename, __flags, __share, 0);
-  if (__builtin_va_arg_pack_len() < 1)
-    return __mingw_call__wsopen(__filename, __flags, __share, 0);
-  return __mingw_call__wsopen(__filename, __flags, __share, __builtin_va_arg_pack());
 }
 
 #ifndef NO_OLDNAMES
