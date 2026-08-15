@@ -4,10 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <windows.h>
-#include <stdlib.h>
-#include <setjmp.h>
-
+int __cdecl atexit (void (__cdecl *)(void));
 typedef void (*func_ptr) (void);
 extern func_ptr __CTOR_LIST__[];
 extern func_ptr __DTOR_LIST__[];
