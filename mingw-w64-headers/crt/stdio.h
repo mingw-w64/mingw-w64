@@ -882,40 +882,6 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
   int __cdecl rmtmp(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
-#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-#ifndef _WSPAWN_DEFINED
-#define _WSPAWN_DEFINED
-  _CRTIMP intptr_t __cdecl _wspawnl(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-  _CRTIMP intptr_t __cdecl _wspawnle(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-  _CRTIMP intptr_t __cdecl _wspawnlp(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-  _CRTIMP intptr_t __cdecl _wspawnlpe(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-  _CRTIMP intptr_t __cdecl _wspawnv(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
-  _CRTIMP intptr_t __cdecl _wspawnve(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
-  _CRTIMP intptr_t __cdecl _wspawnvp(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
-  _CRTIMP intptr_t __cdecl _wspawnvpe(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
-#endif
-
-#ifndef _P_WAIT
-#define _P_WAIT 0
-#define _P_NOWAIT 1
-#define _OLD_P_OVERLAY 2
-#define _P_NOWAITO 3
-#define _P_DETACH 4
-#define _P_OVERLAY 2
-
-#define _WAIT_CHILD 0
-#define _WAIT_GRANDCHILD 1
-#endif
-
-#ifndef _SPAWNV_DEFINED
-#define _SPAWNV_DEFINED
-  _CRTIMP intptr_t __cdecl _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-  _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-#endif
-#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-
 #pragma pop_macro("snprintf")
 #pragma pop_macro("vsnprintf")
 #pragma pop_macro("snwprintf")
