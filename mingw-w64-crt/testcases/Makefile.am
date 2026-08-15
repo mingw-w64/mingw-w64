@@ -38,6 +38,11 @@ libnontls.dll: libnontls.o
 	$(LINK) -shared -o $@ $^
 t_nontls_dll.exe: libnontls.dll
 
+# Used by t_noatexit_dll
+libnoatexit.dll: libnoatexit.o
+	$(LINK) -shared -o $@ $^
+t_noatexit_dll.exe: libnoatexit.dll
+
 # Used by t_global_ctors
 libglbctors.dll: libglbctors.o
 	$(LINK) -shared -static -o $@ $^ @TARGET_LIBGCC_FILE_NAME@
@@ -128,6 +133,7 @@ testcase_progs = \
   t_mbrlen \
   t_mbrtowc \
   t_mbsrtowcs \
+  t_noatexit_dll \
   t_nontls_dll \
   t_nontls_exe \
   t_tls_dll \
