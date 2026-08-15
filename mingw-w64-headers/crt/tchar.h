@@ -12,8 +12,6 @@
 #error Need to include strsafe.h after tchar.h
 #endif
 
-_CRT_BEGIN_C_HEADER
-
 #ifndef __CYGWIN__
 
 #define _ftcscat _tcscat
@@ -72,21 +70,9 @@ _CRT_BEGIN_C_HEADER
 
 #ifdef _UNICODE
 
-_CRT_END_C_HEADER
-
 #include <wchar.h>
 
 _CRT_BEGIN_C_HEADER
-
-#ifndef __CYGWIN__
-
-#ifndef _WCTYPE_T_DEFINED
-#define _WCTYPE_T_DEFINED
-  typedef unsigned short wint_t;
-  typedef unsigned short wctype_t;
-#endif
-
-#endif /* __CYGWIN__ */
 
 #ifndef __TCHAR_DEFINED
 #define __TCHAR_DEFINED
@@ -493,13 +479,11 @@ _CRT_BEGIN_C_HEADER
 
 #endif /* __CYGWIN__ */
 
-#else /* _UNICODE */
-
 _CRT_END_C_HEADER
 
-#include <string.h>
+#else /* _UNICODE */
 
-_CRT_BEGIN_C_HEADER
+#include <string.h>
 
 #define _TEOF EOF
 
@@ -783,13 +767,9 @@ _CRT_BEGIN_C_HEADER
 
 #ifdef _MBCS
 
-_CRT_END_C_HEADER
-
 #ifndef __CYGWIN__
 
 #include <mbstring.h>
-
-_CRT_BEGIN_C_HEADER
 
 #ifndef __TCHAR_DEFINED
   typedef char _TCHAR;
@@ -881,6 +861,8 @@ _CRT_BEGIN_C_HEADER
 #define _tccpy_l _mbccpy_l
 #else
 
+_CRT_BEGIN_C_HEADER
+
   _CRTIMP _CONST_RETURN char *__cdecl _tcschr(const char *_Str,unsigned int _Val);
   _CRTIMP size_t __cdecl _tcscspn(const char *_Str,const char *_Control);
   _CRTIMP char *__cdecl _tcsncat(char *_Dst,const char *_Src,size_t _MaxCount);
@@ -941,6 +923,8 @@ _CRT_BEGIN_C_HEADER
   _CRTIMP char *__cdecl _tcsupr_l(char *_Str,_locale_t _Locale);
   _CRTIMP size_t __cdecl _tclen(const char *_Str);
   _CRTIMP void __cdecl _tccpy(char *_DstCh,const char *_SrcCh);
+
+_CRT_END_C_HEADER
 
 #ifdef __cplusplus
 #ifndef _CPP_TCHAR_INLINES_DEFINED
@@ -1158,8 +1142,6 @@ _CRT_BEGIN_C_HEADER
 
 #define _T(x) __T(x)
 #define _TEXT(x) __T(x)
-
-_CRT_END_C_HEADER
 
 #ifndef __CYGWIN__
 #include <sec_api/tchar_s.h>

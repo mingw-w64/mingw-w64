@@ -23,26 +23,6 @@ _CRT_BEGIN_C_HEADER
   typedef long clock_t;
 #endif
 
-#ifndef _SIZE_T_DEFINED
-#define _SIZE_T_DEFINED
-#undef size_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef unsigned __int64 size_t;
-#else
-  typedef unsigned int size_t;
-#endif
-#endif
-
-#ifndef _SSIZE_T_DEFINED
-#define _SSIZE_T_DEFINED
-#undef ssize_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 ssize_t;
-#else
-  typedef int ssize_t;
-#endif
-#endif
-
 #ifndef NULL
 #ifdef __cplusplus
 #ifndef _WIN64

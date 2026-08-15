@@ -100,26 +100,6 @@ extern "C" {
 #define MIDL_uhyper /* __MINGW_EXTENSION */ unsigned __int64
 #endif
 
-#ifndef _SIZE_T_DEFINED
-#define _SIZE_T_DEFINED
-#undef size_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef unsigned __int64 size_t;
-#else
-  typedef unsigned int size_t;
-#endif
-#endif
-
-#ifndef _SSIZE_T_DEFINED
-#define _SSIZE_T_DEFINED
-#undef ssize_t
-#ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 ssize_t;
-#else
-  typedef int ssize_t;
-#endif
-#endif
-
 #ifdef __RPC_WIN32__
 #if defined(_ARM_)
 #define __RPC_CALLEE
