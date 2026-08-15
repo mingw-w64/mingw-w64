@@ -23,18 +23,18 @@ __do_global_dtors (void)
 
   while (*p)
     {
-      (*(p)) ();
       p++;
+      (*(p-1)) ();
     }
 }
 
 void
 __do_global_ctors (void)
 {
-  unsigned long nptrs = (unsigned long) (ptrdiff_t) __CTOR_LIST__[0];
-  unsigned long i;
+  __SIZE_TYPE__ nptrs = (__SIZE_TYPE__) __CTOR_LIST__[0];
+  __SIZE_TYPE__ i;
 
-  if (nptrs == (unsigned long) -1)
+  if (nptrs == (__SIZE_TYPE__) -1)
     {
       for (nptrs = 0; __CTOR_LIST__[nptrs + 1] != 0; nptrs++);
     }
@@ -47,12 +47,11 @@ __do_global_ctors (void)
   atexit (__do_global_dtors);
 }
 
-static int initialized = 0;
-
 __attribute__((used)) /* required for gcc -flto -Ofast */
 void
 __main (void)
 {
+  static int initialized = 0;
   if (!initialized)
     {
       initialized = 1;
