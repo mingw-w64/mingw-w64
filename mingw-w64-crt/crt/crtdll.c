@@ -17,7 +17,8 @@
 #include <sect_attribs.h>
 #include <locale.h>
 
-extern void __main ();
+extern void __cdecl __mingw_dll_do_global_ctors (void);
+extern void __cdecl __mingw_dll_do_global_dtors (void);
 extern void _pei386_runtime_relocator (void);
 extern _PIFV __xi_a[];
 extern _PIFV __xi_z[];
@@ -96,7 +97,7 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  if (ret != 0)
 	    goto i__leave;
 	  _initterm (__xc_a, __xc_z);
-	  __main ();
+	  __mingw_dll_do_global_ctors ();
 
 	  __native_startup_state = __initialized;
 	}
@@ -145,6 +146,7 @@ i__leave:
 	    __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved);
 	  if (__mingw_dll_atexit_table_func_ptr != NULL)
 	    __mingw_dll_atexit_table_func_ptr (1 /*execute*/);
+	  __mingw_dll_do_global_dtors ();
 
 	  __native_startup_state = __uninitialized;
 	}

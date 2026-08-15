@@ -4,11 +4,14 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifndef _MINGW_DLL_
 int __cdecl atexit (void (__cdecl *)(void));
+#endif
 typedef void (*func_ptr) (void);
 extern func_ptr __CTOR_LIST__[];
 extern func_ptr __DTOR_LIST__[];
 
+#ifndef _MINGW_DLL_
 /* WARNING: All these functions must be in one translation unit.
  * Otherwise linker can throw error "multiple definitions of __do_global_dtors"
  * when linking with static libgcc library which also provides these symbols.
@@ -16,6 +19,10 @@ extern func_ptr __DTOR_LIST__[];
 void __do_global_dtors (void);
 void __do_global_ctors (void);
 void __main (void);
+#else
+void __cdecl __mingw_dll_do_global_dtors (void);
+void __cdecl __mingw_dll_do_global_ctors (void);
+#endif
 
 /* __do_global_dtors is gcc ABI function which has to be exported.
  * It executes all gcc dtors from __DTOR_LIST__ list under guard
@@ -31,8 +38,13 @@ void __main (void);
  *
  * WARNING: Do not change ABI, name or behavior of this function.
  */
+#ifndef _MINGW_DLL_
 void
 __do_global_dtors (void)
+#else
+void __cdecl
+__mingw_dll_do_global_dtors (void)
+#endif
 {
   /* static initialization and incrementation before invocation of dtor
    * ensures that repeated calls to __do_global_dtors() will not invoke
@@ -61,11 +73,26 @@ __do_global_dtors (void)
  *
  * WARNING: Do not change ABI, name or behavior of this function.
  */
+#ifndef _MINGW_DLL_
 void
 __do_global_ctors (void)
+#else
+void __cdecl
+__mingw_dll_do_global_ctors (void)
+#endif
 {
   __SIZE_TYPE__ nptrs = (__SIZE_TYPE__) __CTOR_LIST__[0];
   __SIZE_TYPE__ i;
+
+#ifdef _MINGW_DLL_
+  /* Repeated calls to mingw DLL variant of this function
+   * does not invoke ctors functions multiple times.
+   */
+  static int initialized = 0;
+  if (initialized)
+    return;
+  initialized = 1;
+#endif
 
   if (nptrs == (__SIZE_TYPE__) -1)
     {
@@ -77,9 +104,16 @@ __do_global_ctors (void)
       __CTOR_LIST__[i] ();
     }
 
+  /* mingw DLL variant of this function does not schedule execution of
+   * __do_global_dtors. Instead mingw DLL startup code calls the
+   * __do_global_dtors explicitly.
+   */
+#ifndef _MINGW_DLL_
   atexit (__do_global_dtors);
+#endif
 }
 
+#ifndef _MINGW_DLL_
 /* __main is gcc ABI function which has to be exported.
  * It calls __do_global_ctors function under the guard.
  *
@@ -125,3 +159,4 @@ __main (void)
       __do_global_ctors ();
     }
 }
+#endif
