@@ -36,11 +36,6 @@ typedef int ssize_t;
 #endif
 #endif
 
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
-#endif
-
 #ifndef _HRESULT_DEFINED
 #define _HRESULT_DEFINED
 typedef __LONG32 HRESULT;

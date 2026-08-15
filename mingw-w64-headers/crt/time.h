@@ -18,34 +18,6 @@
 
 _CRT_BEGIN_C_HEADER
 
-#ifndef _CRTIMP
-#define _CRTIMP __declspec(dllimport)
-#endif
-
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-  typedef unsigned short wchar_t;
-#endif
-
-#ifndef _TIME32_T_DEFINED
-#define _TIME32_T_DEFINED
-  typedef long __time32_t;
-#endif
-
-#ifndef _TIME64_T_DEFINED
-#define _TIME64_T_DEFINED
-  __MINGW_EXTENSION typedef __int64 __time64_t;
-#endif
-
-#ifndef _TIME_T_DEFINED
-#define _TIME_T_DEFINED
-#ifdef _USE_32BIT_TIME_T
-  typedef __time32_t time_t;
-#else
-  typedef __time64_t time_t;
-#endif
-#endif
-
 #ifndef _CLOCK_T_DEFINED
 #define _CLOCK_T_DEFINED
   typedef long clock_t;

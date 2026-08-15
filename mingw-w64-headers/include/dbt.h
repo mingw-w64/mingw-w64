@@ -15,11 +15,6 @@
 #define DBTFAR far
 #endif
 
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
-#endif
-
 #include <guiddef.h>
 
 #define BSF_QUERY 0x00000001

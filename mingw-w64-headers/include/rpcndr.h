@@ -100,11 +100,6 @@ extern "C" {
 #define MIDL_uhyper /* __MINGW_EXTENSION */ unsigned __int64
 #endif
 
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-  typedef unsigned short wchar_t;
-#endif
-
 #ifndef _SIZE_T_DEFINED
 #define _SIZE_T_DEFINED
 #undef size_t

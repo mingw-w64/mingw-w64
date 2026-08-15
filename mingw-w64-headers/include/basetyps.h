@@ -89,9 +89,4 @@
 typedef unsigned __LONG32 error_status_t;
 #endif
 
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
-#endif
-
 #endif

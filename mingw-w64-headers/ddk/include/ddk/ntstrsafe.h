@@ -26,11 +26,6 @@ typedef unsigned int size_t;
 #endif
 #endif
 
-#ifndef _WCHAR_T_DEFINED
-#define _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
-#endif
-
 #ifndef _NTSTATUS_DEFINED
 #define _NTSTATUS_DEFINED
 typedef __LONG32 NTSTATUS;

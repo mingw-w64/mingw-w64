@@ -12,32 +12,6 @@
 
 #include <crtdefs.h>
 
-#ifdef _USE_32BIT_TIME_T
-#ifdef _WIN64
-#undef _USE_32BIT_TIME_T
-#endif
-#endif
-
-#ifndef _TIME32_T_DEFINED
-#define _TIME32_T_DEFINED
-typedef long	__time32_t;
-#endif
-
-#ifndef _TIME64_T_DEFINED
-#define _TIME64_T_DEFINED
-__MINGW_EXTENSION
-typedef __int64	__time64_t;
-#endif
-
-#ifndef _TIME_T_DEFINED
-#define _TIME_T_DEFINED
-#ifdef _USE_32BIT_TIME_T
-typedef __time32_t time_t;
-#else
-typedef __time64_t time_t;
-#endif
-#endif
-
 #ifndef _INO_T_DEFINED
 #define _INO_T_DEFINED
 typedef unsigned short _ino_t;
