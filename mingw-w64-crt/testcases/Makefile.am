@@ -30,7 +30,7 @@ t_nontls_dll.exe: libnontls.dll
 
 # Used by t_global_ctors
 libglbctors.dll: libglbctors.o
-	$(LINK) -shared -o $@ $^
+	$(LINK) -shared -static -o $@ $^ @TARGET_LIBGCC_FILE_NAME@
 t_global_ctors.exe: libglbctors.dll
 
 # Used by t_tls_dll
