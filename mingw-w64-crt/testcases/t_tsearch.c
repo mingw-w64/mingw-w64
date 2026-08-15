@@ -117,6 +117,7 @@ int main (int argc, char **argv)
  printf("----------\n");
 
  tdestroy(root, noop_free);
+ root = NULL;
  printf("---------- tree after deletion of all nodes using tdestroy() only:\n");
  nodes_printed = 0;
  twalk(root, print_node);

@@ -294,8 +294,7 @@ XFAIL_TESTS = \
   t_excpt_int_divzero_thrd \
   t_excpt_int_overflow \
   t_excpt_int_overflow_thrd \
-  t_nullptrexception \
-  t_tsearch
+  t_nullptrexception
 
 # Include the complex math testcase fragment.
 include complex/Makefile.am
