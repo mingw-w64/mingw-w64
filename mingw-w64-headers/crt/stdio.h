@@ -25,25 +25,6 @@ _CRT_BEGIN_C_HEADER
 #define _IOB_ENTRIES 20
 #define EOF (-1)
 
-#ifndef _FILE_DEFINED
-  struct _iobuf {
-#ifdef _UCRT
-    void *_Placeholder;
-#else
-    char *_ptr;
-    int _cnt;
-    char *_base;
-    int _flag;
-    int _file;
-    int _charbuf;
-    int _bufsiz;
-    char *_tmpfname;
-#endif
-  };
-  typedef struct _iobuf FILE;
-#define _FILE_DEFINED
-#endif
-
 #ifdef _POSIX_
 #define _P_tmpdir "/"
 #define _wP_tmpdir L"/"
