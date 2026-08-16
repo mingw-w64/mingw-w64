@@ -60,7 +60,6 @@ _CRT_BEGIN_C_HEADER
 #if !defined(__STRICT_ANSI__) || defined(_GNU_SOURCE) || __STDC_VERSION__ + 0 >= 202311L || _POSIX_C_SOURCE + 0 >= 200809L || _XOPEN_SOURCE + 0 >= 700
   char *__cdecl strndup(const char *_Src,size_t _MaxCount);
 #endif
-  _CONST_RETURN char *__cdecl strchr(const char *_Str,int _Val);
   _CRTIMP int __cdecl _stricmp(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _strcmpi(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl _stricmp_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
@@ -84,11 +83,8 @@ _CRT_BEGIN_C_HEADER
   char *strncpy(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *__cdecl _strnset(char *_Str,int _Val,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *__cdecl _strnset_l(char *str,int c,size_t count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CONST_RETURN char *__cdecl strpbrk(const char *_Str,const char *_Control);
-  _CONST_RETURN char *__cdecl strrchr(const char *_Str,int _Ch);
   _CRTIMP char *__cdecl _strrev(char *_Str);
   size_t __cdecl strspn(const char *_Str,const char *_Control);
-  _CONST_RETURN char *__cdecl strstr(const char *_Str,const char *_SubStr);
   _CRTIMP char *__cdecl strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #pragma push_macro("strtok_r")
 #undef strtok_r
@@ -122,20 +118,29 @@ _CRT_BEGIN_C_HEADER
 
 _CRT_END_C_HEADER
 
-#ifdef __CORRECT_ISO_CPP_STRING_H_PROTO
+#ifdef __cplusplus
 extern "C++" {
-  inline char* strchr(char* __s, int __n)
-  { return const_cast<char*>(strchr(const_cast<const char*>(__s), __n)); }
+  const char* __cdecl strchr(const char*, int) __MINGW_ASM_CALL(strchr);
+  inline char* __cdecl strchr(char* _Str, int _Val)
+  { return const_cast<char*>(strchr(const_cast<const char*>(_Str), _Val)); }
 
-  inline char* strpbrk(char* __s1, const char* __s2)
-  { return const_cast<char*>(strpbrk(const_cast<const char*>(__s1), __s2)); }
+  const char* __cdecl strpbrk(const char*, const char*) __MINGW_ASM_CALL(strpbrk);
+  inline char* __cdecl strpbrk(char* _Str, const char* _Control)
+  { return const_cast<char*>(strpbrk(const_cast<const char*>(_Str), _Control)); }
 
-  inline char* strrchr(char* __s, int __n)
-  { return const_cast<char*>(strrchr(const_cast<const char*>(__s), __n)); }
+  const char* __cdecl strrchr(const char*, int) __MINGW_ASM_CALL(strrchr);
+  inline char* __cdecl strrchr(char* _Str, int _Val)
+  { return const_cast<char*>(strrchr(const_cast<const char*>(_Str), _Val)); }
 
-  inline char* strstr(char* __s1, const char* __s2)
-  { return const_cast<char*>(strstr(const_cast<const char*>(__s1), __s2)); }
+  const char* __cdecl strstr(const char*, const char*) __MINGW_ASM_CALL(strstr);
+  inline char* __cdecl strstr(char* _Str, const char* _SubStr)
+  { return const_cast<char*>(strstr(const_cast<const char*>(_Str), _SubStr)); }
 }
+#else
+  char* __cdecl strchr(const char* _Str, int _Val);
+  char* __cdecl strpbrk(const char* _Str, const char* _Control);
+  char* __cdecl strrchr(const char* _Str, int _Val);
+  char* __cdecl strstr(const char* _Str, const char* _SubStr);
 #endif
 
 #include <sec_api/string_s.h>

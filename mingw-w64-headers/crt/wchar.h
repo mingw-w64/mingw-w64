@@ -183,7 +183,6 @@ _CRT_BEGIN_C_HEADER
 
 #ifndef __NO_ISOCEXT /* these need static lib libmingwex.a */
   wchar_t *__cdecl wmemset(wchar_t *s, wchar_t c, size_t n);
-  _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *s, wchar_t c, size_t n);
   int __cdecl wmemcmp(const wchar_t *s1, const wchar_t *s2,size_t n);
   wchar_t *__cdecl wmemcpy(wchar_t * __restrict__ s1,const wchar_t * __restrict__ s2,size_t n) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   wchar_t * __cdecl wmempcpy (wchar_t *_Dst, const wchar_t *_Src, size_t _Size);
@@ -192,16 +191,25 @@ _CRT_BEGIN_C_HEADER
   __MINGW_EXTENSION long long __cdecl wcstoll(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
   __MINGW_EXTENSION unsigned long long __cdecl wcstoull(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
 
-#ifdef __CORRECT_ISO_CPP_WCHAR_H_PROTO
-  extern "C++" inline wchar_t* wmemchr(wchar_t* __p, wchar_t __c, size_t __n)
-  { return const_cast<wchar_t*>(wmemchr(const_cast<const wchar_t*>(__p), __c, __n)); }
+#ifdef __cplusplus
+  extern "C++" {
+    const wchar_t* __cdecl wmemchr(const wchar_t*, wchar_t, size_t) __MINGW_ASM_CALL(wmemchr);
+    inline wchar_t* __cdecl wmemchr(wchar_t* _Buf, wchar_t _Val, size_t _MaxCount)
+    { return const_cast<wchar_t*>(wmemchr(const_cast<const wchar_t*>(_Buf), _Val, _MaxCount)); }
+  }
+#else
+  wchar_t* __cdecl wmemchr(const wchar_t* _Buf, wchar_t _Val, size_t _MaxCount);
 #endif
+
 #endif /* __NO_ISOCEXT */
 
   void *__cdecl memmove(void *_Dst,const void *_Src,size_t _MaxCount);
   void *__cdecl memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl fwide(FILE *_F,int _M) { (void)_F; return (_M); }
+#ifdef __cplusplus
+  extern "C++"
+#endif
   __CRT_INLINE _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) {
     if (_S) {
       for ( ; 0 < _N; ++_S, --_N)

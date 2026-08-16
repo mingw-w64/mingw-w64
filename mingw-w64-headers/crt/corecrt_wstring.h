@@ -26,7 +26,6 @@ _CRT_BEGIN_C_HEADER
 #pragma pop_macro("_wcsdup")
 #endif
   wchar_t *__cdecl wcscat(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CONST_RETURN wchar_t *__cdecl wcschr(const wchar_t *_Str,wchar_t _Ch);
   int __cdecl wcscmp(const wchar_t *_Str1,const wchar_t *_Str2);
   wchar_t *__cdecl wcscpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   size_t __cdecl wcscspn(const wchar_t *_Str,const wchar_t *_Control);
@@ -36,10 +35,7 @@ _CRT_BEGIN_C_HEADER
   int __cdecl wcsncmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
   wchar_t *__cdecl wcsncpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   wchar_t *__cdecl _wcsncpy_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  _CONST_RETURN wchar_t *__cdecl wcspbrk(const wchar_t *_Str,const wchar_t *_Control);
-  _CONST_RETURN wchar_t *__cdecl wcsrchr(const wchar_t *_Str,wchar_t _Ch);
   size_t __cdecl wcsspn(const wchar_t *_Str,const wchar_t *_Control);
-  _CONST_RETURN wchar_t *__cdecl wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
   _CRTIMP wchar_t *__cdecl wcstok(wchar_t * __restrict__ _Str,const wchar_t * __restrict__ _Delim,wchar_t ** __restrict__ _Ptr) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wchar_t *__cdecl _wcstok(wchar_t * __restrict__ _Str,const wchar_t * __restrict__ _Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #if defined(_CRT_NON_CONFORMING_WCSTOK) && !defined(__cplusplus)
@@ -94,24 +90,29 @@ _CRT_BEGIN_C_HEADER
 
 _CRT_END_C_HEADER
 
-/**
- * ISO C++ requires both const and non-const versions of these functions.
- * The const versions have been declared above. The non-const versions are declared here.
- */
-#ifdef __CORRECT_ISO_CPP_WCHAR_H_PROTO
+#ifdef __cplusplus
 extern "C++" {
-  inline wchar_t* wcschr(wchar_t* __p, wchar_t __c)
-  { return const_cast<wchar_t*>(wcschr(const_cast<const wchar_t*>(__p), __c)); }
+  const wchar_t* __cdecl wcschr(const wchar_t*, wchar_t) __MINGW_ASM_CALL(wcschr);
+  inline wchar_t* wcschr(wchar_t* _Str, wchar_t _Ch)
+  { return const_cast<wchar_t*>(wcschr(const_cast<const wchar_t*>(_Str), _Ch)); }
 
-  inline wchar_t* wcspbrk(wchar_t* __s1, const wchar_t* __s2)
-  { return const_cast<wchar_t*>(wcspbrk(const_cast<const wchar_t*>(__s1), __s2)); }
+  const wchar_t* __cdecl wcspbrk(const wchar_t*, const wchar_t*) __MINGW_ASM_CALL(wcspbrk);
+  inline wchar_t* wcspbrk(wchar_t* _Str, const wchar_t* _Control)
+  { return const_cast<wchar_t*>(wcspbrk(const_cast<const wchar_t*>(_Str), _Control)); }
 
-  inline wchar_t* wcsrchr(wchar_t* __p, wchar_t __c)
-  { return const_cast<wchar_t*>(wcsrchr(const_cast<const wchar_t*>(__p), __c)); }
+  const wchar_t* __cdecl wcsrchr(const wchar_t*, wchar_t) __MINGW_ASM_CALL(wcsrchr);
+  inline wchar_t* wcsrchr(wchar_t* _Str, wchar_t _Ch)
+  { return const_cast<wchar_t*>(wcsrchr(const_cast<const wchar_t*>(_Str), _Ch)); }
 
-  inline wchar_t* wcsstr(wchar_t* __s1, const wchar_t* __s2)
-  { return const_cast<wchar_t*>(wcsstr(const_cast<const wchar_t*>(__s1), __s2)); }
+  const wchar_t* __cdecl wcsstr(const wchar_t*, const wchar_t*) __MINGW_ASM_CALL(wcsstr);
+  inline wchar_t* wcsstr(wchar_t* _Str, const wchar_t* _SubStr)
+  { return const_cast<wchar_t*>(wcsstr(const_cast<const wchar_t*>(_Str), _SubStr)); }
 }
+#else
+  wchar_t* __cdecl wcschr(const wchar_t* _Str, wchar_t _Ch);
+  wchar_t* __cdecl wcspbrk(const wchar_t* _Str, const wchar_t* _Control);
+  wchar_t* __cdecl wcsrchr(const wchar_t* _Str, wchar_t _Ch);
+  wchar_t* __cdecl wcsstr(const wchar_t* _Str, const wchar_t* _SubStr);
 #endif
 
 #endif

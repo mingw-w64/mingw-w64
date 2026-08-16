@@ -14,7 +14,6 @@ _CRT_BEGIN_C_HEADER
 #if !defined(__STRICT_ANSI__) || defined(_GNU_SOURCE) || __STDC_VERSION__ + 0 >= 202311L || _XOPEN_SOURCE + 0 >= 600
   void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size);
 #endif
-  _CONST_RETURN void *__cdecl memchr(const void *_Buf ,int _Val,size_t _MaxCount);
   _CRTIMP int __cdecl _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
   _CRTIMP int __cdecl _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
   int __cdecl memcmp(const void *_Buf1,const void *_Buf2,size_t _Size);
@@ -34,8 +33,13 @@ _CRT_BEGIN_C_HEADER
 _CRT_END_C_HEADER
 
 #ifdef __cplusplus
-extern "C++" inline void* memchr(void* __s, int __c, size_t __n)
-{ return const_cast<void*>(memchr(const_cast<const void*>(__s), __c, __n)); }
+extern "C++" {
+  const void* __cdecl memchr(const void*, int, size_t) __MINGW_ASM_CALL(memchr);
+  inline void* __cdecl memchr(void* _Buf, int _Val, size_t _MaxCount)
+  { return const_cast<void*>(memchr(const_cast<const void*>(_Buf), _Val, _MaxCount)); }
+}
+#else
+  void* __cdecl memchr(const void* _Buf, int _Val, size_t _MaxCount);
 #endif
 
 #endif
