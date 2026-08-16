@@ -23,6 +23,11 @@ libtest_a_SOURCES = \
 libprocdetach.dll: libprocdetach.o
 	$(LINK) -shared libprocdetach.o -o libprocdetach.dll
 
+# Used by t_tls_dll_native
+libtlsnat.dll: libtlsnat.o
+	$(LINK) -shared -o $@ $^
+t_tls_dll_native.exe: libtlsnat.dll
+
 # Used by t_tls_dll_native_process_detach
 libtlsnatprocdet.dll: libtlsnatprocdet.o
 	$(LINK) -shared -o $@ $^
@@ -126,6 +131,7 @@ testcase_progs = \
   t_nontls_dll \
   t_nontls_exe \
   t_tls_dll \
+  t_tls_dll_native \
   t_tls_dll_native_process_detach \
   t_tls_exe_dtor \
   t_tls_exe_dyn \
@@ -243,6 +249,9 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 # Compile t_tls_c11 in C11 mode
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
+# Link t_tls_dll_native against libtlsnat.dll
+t_tls_dll_native_LDADD = libtlsnat.dll $(LDADD)
+
 # Link t_tls_dll_native_process_detach against libtlsnatprocdet.dll
 t_tls_dll_native_process_detach_LDADD = libtlsnatprocdet.dll $(LDADD)
 
@@ -312,4 +321,5 @@ CLEANFILES = \
   libtls09.dll \
   libtls10.dll \
   libtls11.dll \
+  libtlsnat.dll \
   libtlsnatprocdet.dll
