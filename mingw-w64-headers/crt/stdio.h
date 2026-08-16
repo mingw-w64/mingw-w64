@@ -22,7 +22,11 @@ _CRT_BEGIN_C_HEADER
 #define BUFSIZ 512
 #define _NFILE _NSTREAM_
 #define _NSTREAM_ 512
+#ifdef _UCRT
+#define _IOB_ENTRIES 3
+#else
 #define _IOB_ENTRIES 20
+#endif
 #define EOF (-1)
 
 #ifdef _POSIX_
