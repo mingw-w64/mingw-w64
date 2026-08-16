@@ -208,4 +208,4 @@ i__leave:
   return retcode ;
 }
 
-char __mingw_module_is_dll = 1;
+const char __mingw_module_is_dll = 1;

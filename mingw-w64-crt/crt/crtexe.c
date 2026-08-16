@@ -338,4 +338,4 @@ int __cdecl atexit (_PVFV func)
     return _crt_atexit(func);
 }
 
-char __mingw_module_is_dll = 0;
+const char __mingw_module_is_dll = 0;

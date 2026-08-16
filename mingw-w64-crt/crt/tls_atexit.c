@@ -30,7 +30,7 @@ struct dtor_obj {
 };
 
 HANDLE __dso_handle;
-extern char __mingw_module_is_dll;
+extern const char __mingw_module_is_dll;
 
 static CRITICAL_SECTION lock;
 static int inited = 0;

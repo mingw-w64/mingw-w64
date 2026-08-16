@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <corecrt_startup.h>
 
-extern char __mingw_module_is_dll;
+extern const char __mingw_module_is_dll;
 
 int __cdecl at_quick_exit(void (__cdecl *func)(void))
 {
