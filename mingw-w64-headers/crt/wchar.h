@@ -26,15 +26,6 @@ _CRT_BEGIN_C_HEADER
 #define WCHAR_MAX 0xffffU
 #endif
 
-#if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
-  typedef struct _Mbstatet {
-    unsigned long _Wchar;
-    unsigned short _Byte, _State;
-  } _Mbstatet;
-  typedef _Mbstatet mbstate_t;
-#else
-  typedef int mbstate_t;
-#endif
   typedef wchar_t _Wint_t;
 
   _CRTIMP wint_t __cdecl btowc(int);

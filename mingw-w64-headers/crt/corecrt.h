@@ -141,6 +141,16 @@ typedef __time64_t time_t;
 #endif
 #endif /* _TIME_T_DEFINED */
 
+#if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
+  typedef struct _Mbstatet {
+    unsigned long _Wchar;
+    unsigned short _Byte, _State;
+  } _Mbstatet;
+  typedef _Mbstatet mbstate_t;
+#else
+  typedef int mbstate_t;
+#endif
+
 #ifndef _CRT_SECURE_CPP_NOTHROW
 #define _CRT_SECURE_CPP_NOTHROW throw()
 #endif
