@@ -167,7 +167,7 @@ XFAIL_TESTS = t_excpt_int_divzero$(EXEEXT) \
 	t_excpt_int_divzero_thrd$(EXEEXT) \
 	t_excpt_int_overflow$(EXEEXT) \
 	t_excpt_int_overflow_thrd$(EXEEXT) t_nullptrexception$(EXEEXT) \
-	t_tsearch$(EXEEXT) $(am__EXEEXT_10) $(am__EXEEXT_10)
+	$(am__EXEEXT_10) $(am__EXEEXT_10)
 
 # Build the libraries
 @LIB32_TRUE@am__append_12 = $(newcomplex_test_lib32)
