@@ -7,11 +7,6 @@
 /* mingw-w64 headers */
 #include "libtest.h"
 
-/**
- * FIXME: calling `twalk` after `tdestroy` walks the tree as if tree was not
- *  destroyed. That is, it dereferences freed nodes.
- */
-
 static int node_cmp (const void *a, const void *b)
 {
  return strcmp((const char *) a, (const char *) b);
