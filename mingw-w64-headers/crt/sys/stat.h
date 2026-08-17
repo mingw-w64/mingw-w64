@@ -36,13 +36,10 @@ _CRT_BEGIN_C_HEADER
   _CRTIMP int __cdecl _stat32i64(const char *_Name,struct _stat32i64 *_Stat);
   _CRTIMP int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
 
-#ifndef _WSTAT_DEFINED
-#define _WSTAT_DEFINED
   _CRTIMP int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat);
   _CRTIMP int __cdecl _wstat32i64(const wchar_t *_Name,struct _stat32i64 *_Stat);
   _CRTIMP int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
   _CRTIMP int __cdecl _wstat64(const wchar_t *_Name,struct _stat64 *_Stat);
-#endif
 
 #ifndef	NO_OLDNAMES
 #define	_S_IFBLK	0x6000	/* Block: Is this ever set under w32? */

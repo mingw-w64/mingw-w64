@@ -16,6 +16,7 @@
 #include <corecrt_wstdlib.h>
 #include <corecrt_wstring.h>
 #include <corecrt_wtime.h>
+#include <sys/stat.h>
 #include <_mingw_locale.h>
 
 _CRT_BEGIN_C_HEADER
@@ -23,36 +24,6 @@ _CRT_BEGIN_C_HEADER
 #ifndef WCHAR_MIN  /* also in stdint.h */
 #define WCHAR_MIN 0U
 #define WCHAR_MAX 0xffffU
-#endif
-
-#if !defined(_POSIX_) || defined(__GNUC__)
-#ifndef _INO_T_DEFINED
-#define _INO_T_DEFINED
-  typedef unsigned short _ino_t;
-#ifndef	NO_OLDNAMES
-  typedef unsigned short ino_t;
-#endif
-#endif
-
-#ifndef _DEV_T_DEFINED
-#define _DEV_T_DEFINED
-  typedef unsigned int _dev_t;
-#ifndef	NO_OLDNAMES
-  typedef unsigned int dev_t;
-#endif
-#endif
-
-#include <_mingw_off_t.h>
-#include <_mingw_stat64.h>
-
-#ifndef _WSTAT_DEFINED
-#define _WSTAT_DEFINED
-
-  _CRTIMP int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat);
-  _CRTIMP int __cdecl _wstat32i64(const wchar_t *_Name,struct _stat32i64 *_Stat);
-  _CRTIMP int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
-  _CRTIMP int __cdecl _wstat64(const wchar_t *_Name,struct _stat64 *_Stat);
-#endif
 #endif
 
 #if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
