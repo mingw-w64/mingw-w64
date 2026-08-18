@@ -3207,12 +3207,11 @@ am__lib32_libucrt_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
 	stdio/ucrt_wprintf.c stdio/ucrt_wscanf.c string/ucrt__wcstok.c \
 	math/fabsf.c math/nextafterl.c math/nexttoward.c \
 	math/nexttowardf.c math/coshf.c math/expf.c math/log10f.c \
-	math/logf.c math/modff.c math/powf.c math/sincos.c \
-	math/sincosf.c math/sinhf.c math/sqrtf.c math/tanhf.c \
-	math/x86/acosf.c math/x86/asinf.c math/x86/atan2f.c \
-	math/x86/atanf.c math/x86/ceilf.S math/x86/cosf.c \
-	math/x86/floorf.S math/x86/fmodf.c math/x86/sinf.c \
-	math/x86/tanf.c
+	math/logf.c math/modff.c math/sincos.c math/sincosf.c \
+	math/sinhf.c math/sqrtf.c math/tanhf.c math/x86/acosf.c \
+	math/x86/asinf.c math/x86/atan2f.c math/x86/atanf.c \
+	math/x86/ceilf.S math/x86/cosf.c math/x86/floorf.S \
+	math/x86/fmodf.c math/x86/sinf.c math/x86/tanf.c
 am__objects_155 = ctype/lib32_libucrt_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libucrt_extra_a-_iscsymf_l.$(OBJEXT) \
 	ctype/lib32_libucrt_extra_a-towctrans.$(OBJEXT) \
@@ -3288,7 +3287,6 @@ am__objects_156 = $(am__objects_155) \
 	math/lib32_libucrt_extra_a-log10f.$(OBJEXT) \
 	math/lib32_libucrt_extra_a-logf.$(OBJEXT) \
 	math/lib32_libucrt_extra_a-modff.$(OBJEXT) \
-	math/lib32_libucrt_extra_a-powf.$(OBJEXT) \
 	math/lib32_libucrt_extra_a-sincos.$(OBJEXT) \
 	math/lib32_libucrt_extra_a-sincosf.$(OBJEXT) \
 	math/lib32_libucrt_extra_a-sinhf.$(OBJEXT) \
@@ -9958,7 +9956,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-nextafterl.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-nexttoward.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-nexttowardf.Po \
-	math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-sincos.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-sincosf.Po \
 	math/$(DEPDIR)/lib32_libucrt_extra_a-sinhf.Po \
@@ -14239,7 +14236,6 @@ src_ucrtbase32 = \
   math/log10f.c \
   math/logf.c \
   math/modff.c \
-  math/powf.c \
   math/sincos.c \
   math/sincosf.c \
   math/sinhf.c \
@@ -21425,8 +21421,6 @@ math/lib32_libucrt_extra_a-log10f.$(OBJEXT): math/$(am__dirstamp) \
 math/lib32_libucrt_extra_a-logf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libucrt_extra_a-modff.$(OBJEXT): math/$(am__dirstamp) \
-	math/$(DEPDIR)/$(am__dirstamp)
-math/lib32_libucrt_extra_a-powf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libucrt_extra_a-sincos.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
@@ -29960,7 +29954,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-nextafterl.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-nexttoward.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-nexttowardf.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-sincos.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-sincosf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libucrt_extra_a-sinhf.Po@am__quote@ # am--include-marker
@@ -60276,20 +60269,6 @@ math/lib32_libucrt_extra_a-modff.obj: math/modff.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/modff.c' object='math/lib32_libucrt_extra_a-modff.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libucrt_extra_a-modff.obj `if test -f 'math/modff.c'; then $(CYGPATH_W) 'math/modff.c'; else $(CYGPATH_W) '$(srcdir)/math/modff.c'; fi`
-
-math/lib32_libucrt_extra_a-powf.o: math/powf.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libucrt_extra_a-powf.o -MD -MP -MF math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Tpo -c -o math/lib32_libucrt_extra_a-powf.o `test -f 'math/powf.c' || echo '$(srcdir)/'`math/powf.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Tpo math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/powf.c' object='math/lib32_libucrt_extra_a-powf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libucrt_extra_a-powf.o `test -f 'math/powf.c' || echo '$(srcdir)/'`math/powf.c
-
-math/lib32_libucrt_extra_a-powf.obj: math/powf.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libucrt_extra_a-powf.obj -MD -MP -MF math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Tpo -c -o math/lib32_libucrt_extra_a-powf.obj `if test -f 'math/powf.c'; then $(CYGPATH_W) 'math/powf.c'; else $(CYGPATH_W) '$(srcdir)/math/powf.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Tpo math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/powf.c' object='math/lib32_libucrt_extra_a-powf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libucrt_extra_a-powf.obj `if test -f 'math/powf.c'; then $(CYGPATH_W) 'math/powf.c'; else $(CYGPATH_W) '$(srcdir)/math/powf.c'; fi`
 
 math/lib32_libucrt_extra_a-sincos.o: math/sincos.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libucrt_extra_a-sincos.o -MD -MP -MF math/$(DEPDIR)/lib32_libucrt_extra_a-sincos.Tpo -c -o math/lib32_libucrt_extra_a-sincos.o `test -f 'math/sincos.c' || echo '$(srcdir)/'`math/sincos.c
@@ -102729,7 +102708,6 @@ distclean: distclean-recursive
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nextafterl.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nexttoward.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nexttowardf.Po
-	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sincos.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sincosf.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sinhf.Po
@@ -107590,7 +107568,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nextafterl.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nexttoward.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-nexttowardf.Po
-	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-powf.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sincos.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sincosf.Po
 	-rm -f math/$(DEPDIR)/lib32_libucrt_extra_a-sinhf.Po
