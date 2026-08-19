@@ -1192,7 +1192,7 @@ localeconv
 localtime
 log
 log10
-longjmp
+__msvcrt10_longjmp == longjmp ; msvcrt10.dll's longjmp is incompatible with msvcrt.dll longjmp, real longjmp provided as wrapper
 malloc
 mblen
 mbstowcs

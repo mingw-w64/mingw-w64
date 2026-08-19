@@ -1141,7 +1141,8 @@ src_msvcrt10=\
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
-  misc/crtdll__getmainargs.c
+  misc/crtdll__getmainargs.c \
+  misc/msvcrt10__longjmpex.c
 
 src_msvcrt20=\
   $(src_pre_msvcrt40) \
