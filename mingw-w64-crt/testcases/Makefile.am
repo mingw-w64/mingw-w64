@@ -127,6 +127,7 @@ testcase_progs = \
   t_iswctype \
   t_ivma \
   t_lfs \
+  t_longjmp_unwind \
   t_lseeki64 \
   t_main \
   t_main_assert \
