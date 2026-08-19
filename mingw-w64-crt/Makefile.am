@@ -507,7 +507,6 @@ src_ucrtbase=\
 
 # Files included in libucrtapp.a
 src_ucrtapp=\
-  misc/__C_specific_handler.c \
   misc/longjmp.S \
   misc/setjmp.S \
   string/memchr.c \
