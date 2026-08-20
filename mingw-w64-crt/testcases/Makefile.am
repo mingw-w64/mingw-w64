@@ -156,6 +156,7 @@ testcase_progs = \
   t_readdir \
   t_safe_flush \
   t_setjmp \
+  t_setjmpex \
   t_sigfpe \
   t_sigv \
   t_snprintf \

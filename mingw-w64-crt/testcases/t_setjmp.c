@@ -1,4 +1,8 @@
+#ifdef TEST_SETJMPEX
+#include <setjmpex.h>
+#else
 #include <setjmp.h>
+#endif
 #include <stdio.h>
 
 /* mingw-w64 headers */
