@@ -199,6 +199,7 @@ IDL_SRCS = \
   include/netcfgx.idl \
   include/netfw.idl \
   include/netlistmgr.idl \
+  include/notificationactivationcallback.idl \
   include/objectarray.idl \
   include/objidl.idl \
   include/objidlbase.idl \

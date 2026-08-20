@@ -1,0 +1,33 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10)")
+
+import "oaidl.idl";
+
+typedef struct NOTIFICATION_USER_INPUT_DATA {
+  LPCWSTR Key;
+  LPCWSTR Value;
+} NOTIFICATION_USER_INPUT_DATA;
+
+[
+    object,
+    uuid("53e31837-6600-4a81-9395-75cffe746f94"),
+    pointer_default(ref)
+]
+interface INotificationActivationCallback : IUnknown
+{
+    HRESULT Activate(
+        [in, string] LPCWSTR app_user_model_id,
+        [in, string, unique] LPCWSTR invoked_args,
+        [in, size_is(count), unique] const NOTIFICATION_USER_INPUT_DATA *data,
+        [in] ULONG count);
+}
+
+cpp_quote("#endif /* NTDDI_WIN10 */")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
