@@ -967,8 +967,8 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_ARMENIAN                             0x2b
 #define LANG_ASSAMESE                             0x4d
 #define LANG_AZERI                                0x2c
-#define LANG_AZERBAIJANI			  0x2c
-#define LANG_BANGLA				  0x45
+#define LANG_AZERBAIJANI                          0x2c
+#define LANG_BANGLA                               0x45
 #define LANG_BASHKIR                              0x6d
 #define LANG_BASQUE                               0x2d
 #define LANG_BELARUSIAN                           0x23
@@ -978,8 +978,8 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_BOSNIAN_NEUTRAL                    0x781a
 #define LANG_BULGARIAN                            0x02
 #define LANG_CATALAN                              0x03
-#define LANG_CENTRAL_KURDISH			  0x92
-#define LANG_CHEROKEE				  0x5c
+#define LANG_CENTRAL_KURDISH                      0x92
+#define LANG_CHEROKEE                             0x5c
 #define LANG_CHINESE                              0x04
 #define LANG_CHINESE_SIMPLIFIED                   0x04
 #define LANG_CHINESE_TRADITIONAL                0x7c04
@@ -998,7 +998,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_FINNISH                              0x0b
 #define LANG_FRENCH                               0x0c
 #define LANG_FRISIAN                              0x62
-#define LANG_FULAH				  0x67
+#define LANG_FULAH                                0x67
 #define LANG_GALICIAN                             0x56
 #define LANG_GEORGIAN                             0x37
 #define LANG_GERMAN                               0x07
@@ -1044,22 +1044,22 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_NEPALI                               0x61
 #define LANG_NORWEGIAN                            0x14
 #define LANG_OCCITAN                              0x82
-#define LANG_ODIA				  0x48
+#define LANG_ODIA                                 0x48
 #define LANG_ORIYA                                0x48
 #define LANG_PASHTO                               0x63
 #define LANG_PERSIAN                              0x29
 #define LANG_POLISH                               0x15
 #define LANG_PORTUGUESE                           0x16
-#define LANG_PULAR				  0x67
+#define LANG_PULAR                                0x67
 #define LANG_PUNJABI                              0x46
 #define LANG_QUECHUA                              0x6b
 #define LANG_ROMANIAN                             0x18
 #define LANG_ROMANSH                              0x17
 #define LANG_RUSSIAN                              0x19
-#define LANG_SAKHA				  0x85
+#define LANG_SAKHA                                0x85
 #define LANG_SAMI                                 0x3b
 #define LANG_SANSKRIT                             0x4f
-#define LANG_SCOTTISH_GAELIC			  0x91
+#define LANG_SCOTTISH_GAELIC                      0x91
 #define LANG_SERBIAN                              0x1a
 #define LANG_SERBIAN_NEUTRAL                    0x7c1a
 #define LANG_SINDHI                               0x59
@@ -1079,7 +1079,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_THAI                                 0x1e
 #define LANG_TIBETAN                              0x51
 #define LANG_TIGRIGNA                             0x73
-#define LANG_TIGRINYA				  0x73
+#define LANG_TIGRINYA                             0x73
 #define LANG_TSWANA                               0x32
 #define LANG_TURKISH                              0x1f
 #define LANG_TURKMEN                              0x42
@@ -1088,7 +1088,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define LANG_UPPER_SORBIAN                        0x2e
 #define LANG_URDU                                 0x20
 #define LANG_UZBEK                                0x43
-#define LANG_VALENCIAN				  0x03
+#define LANG_VALENCIAN                            0x03
 #define LANG_VIETNAMESE                           0x2a
 #define LANG_WELSH                                0x52
 #define LANG_WOLOF                                0x88
@@ -1279,7 +1279,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_SAMI_SKOLT_FINLAND                0x08
 #define SUBLANG_SAMI_INARI_FINLAND                0x09
 #define SUBLANG_SANSKRIT_INDIA                    0x01
-#define SUBLANG_SCOTTISH_GAELIC                    0x01
+#define SUBLANG_SCOTTISH_GAELIC                   0x01
 #define SUBLANG_SERBIAN_LATIN                     0x02
 #define SUBLANG_SERBIAN_CYRILLIC                  0x03
 #define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN  0x06
@@ -1371,7 +1371,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SORT_CHINESE_UNICODE                      0x1
 #define SORT_CHINESE_PRC                          0x2
 #define SORT_CHINESE_BOPOMOFO                     0x3
-#define SORT_CHINESE_RADICALSTROKE		  0x4
+#define SORT_CHINESE_RADICALSTROKE                0x4
 
 #define SORT_KOREAN_KSC                           0x0
 #define SORT_KOREAN_UNICODE                       0x1
