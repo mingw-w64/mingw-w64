@@ -1265,7 +1265,6 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_QUECHUA_ECUADOR                   0x02
 #define SUBLANG_QUECHUA_PERU                      0x03
 #define SUBLANG_ROMANIAN_ROMANIA                  0x01
-/* ??? #define SUBLANG_ROMANIAN_MOLDOVA                  0x01 ??? */
 #define SUBLANG_ROMANSH_SWITZERLAND               0x01
 #define SUBLANG_RUSSIAN_RUSSIA                    0x01
 #define SUBLANG_SAKHA_RUSSIA                      0x01
