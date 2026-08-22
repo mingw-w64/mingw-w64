@@ -1333,7 +1333,6 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_TELUGU_INDIA                      0x01
 #define SUBLANG_THAI_THAILAND                     0x01
 #define SUBLANG_TIBETAN_PRC                       0x01
-#define SUBLANG_TIBETAN_BHUTAN                    0x02
 #define SUBLANG_TIGRIGNA_ERITREA                  0x02
 #define SUBLANG_TIGRINYA_ERITREA                  0x02
 #define SUBLANG_TIGRINYA_ETHIOPIA                 0x01
