@@ -1164,7 +1164,6 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_ENGLISH_AUS                       0x03
 #define SUBLANG_ENGLISH_CAN                       0x04
 #define SUBLANG_ENGLISH_NZ                        0x05
-#define SUBLANG_ENGLISH_IRELAND                   0x06
 #define SUBLANG_ENGLISH_EIRE                      0x06
 #define SUBLANG_ENGLISH_SOUTH_AFRICA              0x07
 #define SUBLANG_ENGLISH_JAMAICA                   0x08
@@ -1199,7 +1198,6 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_GREENLANDIC_GREENLAND             0x01
 #define SUBLANG_GUJARATI_INDIA                    0x01
 #define SUBLANG_HAUSA_NIGERIA_LATIN               0x01
-#define SUBLANG_HAUSA_NIGERIA    SUBLANG_HAUSA_NIGERIA_LATIN	/* SUBLANG_HAUSA_NIGERIA_LATIN is what MS defines */
 #define SUBLANG_HAWAIIAN_US                       0x01
 #define SUBLANG_HEBREW_ISRAEL                     0x01
 #define SUBLANG_HINDI_INDIA                       0x01
@@ -1224,11 +1222,7 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_KOREAN                            0x01
 #define SUBLANG_KYRGYZ_KYRGYZSTAN                 0x01
 #define SUBLANG_LAO_LAO                           0x01
-#define SUBLANG_LAO_LAO_PDR            SUBLANG_LAO_LAO		/* SUBLANG_LAO_LAO is what MS defines */
 #define SUBLANG_LATVIAN_LATVIA                    0x01
-#if (WINVER >= 0x0600)
-#define SUBLANG_LITHUANIAN_LITHUANIA              0x01
-#endif /* WINVER >= 0x0600 */
 #define SUBLANG_LITHUANIAN                        0x01
 #define SUBLANG_LOWER_SORBIAN_GERMANY             0x02
 #define SUBLANG_LUXEMBOURGISH_LUXEMBOURG          0x01
@@ -1254,9 +1248,6 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_PERSIAN_IRAN                      0x01
 #define SUBLANG_POLISH_POLAND                     0x01
 #define SUBLANG_PORTUGUESE_BRAZILIAN              0x01
-#if (WINVER >= 0x0600)
-#define SUBLANG_PORTUGUESE_PORTUGAL               0x02
-#endif /* WINVER >= 0x0600 */
 #define SUBLANG_PORTUGUESE                        0x02
 #define SUBLANG_PULAR_SENEGAL                     0x02
 #define SUBLANG_PUNJABI_INDIA                     0x01
@@ -1317,13 +1308,9 @@ __MINGW_CXX14_CONSTEXPR inline ENUMTYPE& operator ^= (ENUMTYPE& a, ENUMTYPE b) {
 #define SUBLANG_SPANISH_PUERTO_RICO               0x14
 #define SUBLANG_SPANISH_US                        0x15
 #define SUBLANG_SWAHILI_KENYA                     0x01
-#if (WINVER >= 0x0600)
-#define SUBLANG_SWEDISH_SWEDEN                    0x01
-#endif /* WINVER >= 0x0600 */
 #define SUBLANG_SWEDISH                           0x01
 #define SUBLANG_SWEDISH_FINLAND                   0x02
-#define SUBLANG_SYRIAC                            0x01
-#define SUBLANG_SYRIAC_SYRIA            SUBLANG_SYRIAC		/* SUBLANG_SYRIAC_SYRIA is what MSDN mentions */
+#define SUBLANG_SYRIAC_SYRIA                      0x01
 #define SUBLANG_TAJIK_TAJIKISTAN                  0x01
 #define SUBLANG_TAMAZIGHT_ALGERIA_LATIN           0x02
 #define SUBLANG_TAMAZIGHT_MOROCCO_TIFINAGH        0x04
