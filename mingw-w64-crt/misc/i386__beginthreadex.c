@@ -45,7 +45,8 @@ uintptr_t __cdecl _beginthreadex(void *security, unsigned stack_size, _beginthre
   }
   thread_args[0] = (void *)start_address;
   thread_args[1] = arglist;
-  ret = __msvcrt_beginthreadex(security, stack_size, thread_func, thread_args, initflag, thrdaddr);
+  /* pre-msvcr70 versions of _beginthreadex do not change NULL thrdaddr to dummy stack value */
+  ret = __msvcrt_beginthreadex(security, stack_size, thread_func, thread_args, initflag, thrdaddr ?: &(unsigned){0});
   if (!ret)
     free(thread_args);
   return ret;
