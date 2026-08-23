@@ -256,14 +256,8 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   void __cdecl __MINGW_NOTHROW quick_exit(int _Code) __MINGW_ATTRIB_NORETURN;
 #endif
 
-#if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   /* C99 function name */
   void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE __MINGW_ATTRIB_NORETURN void  __cdecl _Exit(int status)
-  {  _exit(status); }
-#endif /* !__CRT__NO_INLINE */
-#endif /* Not  __NO_ISOCEXT */
 
 #pragma push_macro("abort")
 #undef abort

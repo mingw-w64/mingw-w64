@@ -243,6 +243,9 @@ putwchar == _fputwchar
 #endif
 
 ; This is list of symbol aliases for C99 functions
+#ifndef UCRTBASE
+_Exit == _exit
+#endif
 ; ADD_UNDERSCORE(logb)
 #ifdef WITH_NEXTAFTER_ALIAS
 ADD_UNDERSCORE(nextafter)

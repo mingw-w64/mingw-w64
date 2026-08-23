@@ -1315,7 +1315,6 @@ src_libmingwex=\
   ssp/stpcpy_chk.c       ssp/strcpy_chk.c           ssp/strncat_chk.c       ssp/strncpy_chk.c \
   \
   stdio/strtok_r.c \
-  stdio/_Exit.c \
   stdio/asprintf.c \
   stdio/mingw_ftruncate64.c      stdio/lltoa.c             stdio/lltow.c \
   stdio/__mingw_fix_stat.h stdio/__mingw_fix_stat_finish.c stdio/__mingw_fix_fstat_finish.c \
