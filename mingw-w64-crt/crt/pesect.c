@@ -8,9 +8,7 @@
 
 extern IMAGE_DOS_HEADER __ImageBase;
 
-WINBOOL _ValidateImageBase (PBYTE);
-
-WINBOOL
+static WINBOOL
 _ValidateImageBase (PBYTE pImageBase)
 {
   PIMAGE_DOS_HEADER pDOSHeader;

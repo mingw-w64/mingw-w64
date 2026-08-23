@@ -141,8 +141,6 @@ extern "C" {
 #include <crtdbg.h>
 #include <errno.h>
 
-  BOOL __cdecl _ValidateImageBase (PBYTE pImageBase);
-
 #if defined(__SSE__)
 # define __mingw_has_sse()  1
 #elif defined(__i386__)
