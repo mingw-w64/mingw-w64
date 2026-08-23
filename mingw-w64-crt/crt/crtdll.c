@@ -68,7 +68,8 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	}
       if (__native_startup_state != __uninitialized)
 	{
-	  _amsg_exit (31);
+	  ret = 1;
+	  goto i__leave;
 	}
       else
 	{
@@ -121,6 +122,7 @@ i__leave:
       void *lock_free = NULL;
       void *fiberid = ((PNT_TIB)NtCurrentTeb ())->StackBase;
       BOOL nested = FALSE;
+      BOOL failed = FALSE;
 
       while ((lock_free = InterlockedCompareExchangePointer (&__native_startup_lock, fiberid, NULL)) != 0)
 	{
@@ -133,7 +135,7 @@ i__leave:
 	}
       if (__native_startup_state != __initialized)
 	{
-	  _amsg_exit (31);
+	  failed = TRUE;
 	}
       else
 	{
@@ -149,6 +151,10 @@ i__leave:
       if (! nested)
 	{
 	  (void) InterlockedExchangePointer (&__native_startup_lock, NULL);
+	}
+      if (failed)
+	{
+	  return FALSE;
 	}
     }
   else if (dwReason == DLL_THREAD_DETACH)
