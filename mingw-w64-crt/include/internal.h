@@ -142,7 +142,6 @@ extern "C" {
 #include <errno.h>
 
   BOOL __cdecl _ValidateImageBase (PBYTE pImageBase);
-  PIMAGE_SECTION_HEADER __cdecl _FindPESection (PBYTE pImageBase, DWORD_PTR rva);
 
 #if defined(__SSE__)
 # define __mingw_has_sse()  1

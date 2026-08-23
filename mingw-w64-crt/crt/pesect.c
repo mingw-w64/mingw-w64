@@ -29,9 +29,7 @@ _ValidateImageBase (PBYTE pImageBase)
   return TRUE;
 }
 
-PIMAGE_SECTION_HEADER _FindPESection (PBYTE, DWORD_PTR);
-
-PIMAGE_SECTION_HEADER
+static PIMAGE_SECTION_HEADER
 _FindPESection (PBYTE pImageBase, DWORD_PTR rva)
 {
   PIMAGE_NT_HEADERS pNTHeader;
