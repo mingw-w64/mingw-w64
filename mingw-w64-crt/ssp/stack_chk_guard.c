@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-uintptr_t __stack_chk_guard;
+uintptr_t __stack_chk_guard = 0;
 
 #if defined __SSP__ || defined __SSP_STRONG__ || defined __SSP_ALL__
 // This function requires `no_stack_protector` because it changes the
