@@ -51,7 +51,7 @@ if DLLTOOL_HAS_TEMP_PREFIX
   AM_DLLTOOLFLAGS += --temp-prefix $(basename $@)
 endif
 if DELAY_IMPORT_LIBS
-  AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
+  AM_DLLTOOLFLAGS += --output-delaylib $(basename $@).delayimp.a
 endif
 DTLIBARM32=$(DTDEFARM32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIBARM64=$(DTDEFARM64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
