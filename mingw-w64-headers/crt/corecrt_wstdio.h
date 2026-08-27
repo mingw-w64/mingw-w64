@@ -715,4 +715,6 @@ void __cdecl __mingw_str_free(void * _Ptr);
 
 _CRT_END_C_HEADER
 
+#include <sec_api/wstdio_s.h>
+
 #endif /* _INC_CORECRT_WSTDIO */
