@@ -23,6 +23,8 @@ _CRT_BEGIN_C_HEADER
 
 _CRTIMP wchar_t *__cdecl _cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 _CRTIMP int __cdecl _cputws(const wchar_t *_String);
+_SECIMP errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
+__DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _cgetws_s, wchar_t, _Buffer, size_t*, _SizeRead)
 
 /**
  * Functions to read/write single characters from/to console.
@@ -43,6 +45,13 @@ _CRTIMP wint_t __cdecl _ungetwch_nolock(wint_t _WCh);
 /**
  * Formatted console I/O functions.
  */
+
+_SECIMP int __cdecl _cwprintf_s (const wchar_t *_Format,...);
+_SECIMP int __cdecl _cwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,...);
+_SECIMP int __cdecl _vcwprintf_s (const wchar_t *_Format,va_list _ArgList);
+_SECIMP int __cdecl _vcwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
+_CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
+_CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
 
 #ifdef _UCRT
 int __cdecl __conio_common_vcwprintf(unsigned __int64 _Options, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList);
@@ -136,7 +145,5 @@ _CRTIMP int __cdecl _cwscanf_l(const wchar_t * __restrict__ _Format,_locale_t _L
 #endif /* _UCRT */
 
 _CRT_END_C_HEADER
-
-#include <sec_api/wconio_s.h>
 
 #endif /* _INC_CORECRT_WCONIO */
