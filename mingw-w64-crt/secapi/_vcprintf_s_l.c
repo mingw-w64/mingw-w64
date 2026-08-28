@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/conio_s.h>
+#include <conio.h>
 
 static int __cdecl _int_vcprintf_s_l (const char *, _locale_t, va_list);
 static int __cdecl _stub (const char *, _locale_t, va_list);

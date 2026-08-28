@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/conio_s.h>
+#include <conio.h>
 
 static errno_t __cdecl _int_cgets_s (char *, size_t, size_t *);
 static errno_t __cdecl _stub (char *, size_t, size_t *);

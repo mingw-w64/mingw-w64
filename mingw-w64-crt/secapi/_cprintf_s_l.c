@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/conio_s.h>
+#include <conio.h>
 
 int __cdecl (*__MINGW_IMP_SYMBOL(_cprintf_s_l))(const char *, _locale_t, ...) = 
  _cprintf_s_l;
