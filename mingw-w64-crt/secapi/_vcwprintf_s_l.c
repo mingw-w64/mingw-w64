@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/wchar_s.h>
+#include <wchar.h>
 
 static int __cdecl _int_vcwprintf_s_l (const wchar_t *, _locale_t, va_list);
 static int __cdecl _stub (const wchar_t *, _locale_t, va_list);
