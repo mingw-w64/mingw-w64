@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/stdio_s.h>
+#include <stdio.h>
 
 static errno_t __cdecl _int_strerror_s (char *, size_t, int);
 static errno_t __cdecl _stub (char *, size_t, int);

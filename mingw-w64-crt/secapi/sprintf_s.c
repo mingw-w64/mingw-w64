@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-#include <sec_api/stdio_s.h>
+#include <stdio.h>
 
 int __cdecl (*__MINGW_IMP_SYMBOL(sprintf_s))(char *, size_t, const char *,...) = sprintf_s;
 

@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <msvcrt.h>
 #include <stdio.h>
-#include <sec_api/stdio_s.h>
+#include <stdio.h>
 
 static int __cdecl _int_vsprintf_s (char *, size_t, const char *, va_list);
 static int __cdecl _stub (char *, size_t, const char *, va_list);

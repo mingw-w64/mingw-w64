@@ -1,4 +1,4 @@
-#include <sec_api/stdio_s.h>
+#include <stdio.h>
 
 int __cdecl _vscprintf_p(const char *format, va_list arglist)
 {

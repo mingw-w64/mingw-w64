@@ -1,4 +1,4 @@
-#include <sec_api/stdio_s.h>
+#include <stdio.h>
 
 int __cdecl _vscwprintf_p(const wchar_t *format, va_list arglist)
 {
