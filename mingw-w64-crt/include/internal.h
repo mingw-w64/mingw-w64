@@ -302,6 +302,17 @@ static inline unsigned int __mingw_statusfp(void)
 
 #endif
 
+#if defined(__GNUC__) && __GNUC__ >= 8
+#define PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN     \
+    _Pragma("GCC diagnostic push")                          \
+    _Pragma("GCC diagnostic ignored \"-Wattribute-alias\"")
+#define PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END       \
+    _Pragma ("GCC diagnostic pop")
+#else
+#define PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
+#define PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
+#endif
+
 #ifdef __cplusplus
 }
 #endif

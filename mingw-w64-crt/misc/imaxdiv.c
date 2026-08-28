@@ -17,6 +17,7 @@
 
 #include	<inttypes.h>
 #include	<stdlib.h>
+#include	"internal.h"
 
 imaxdiv_t
 __cdecl
@@ -29,19 +30,11 @@ imaxdiv(intmax_t numer, intmax_t denom)
 }
 imaxdiv_t (__cdecl *__MINGW_IMP_SYMBOL(imaxdiv))(intmax_t, intmax_t) = imaxdiv;
 
-/*
- * avoid gcc 8+ warning:
- * 'lldiv' alias between functions of incompatible types 'lldiv_t(long long int,  long long int)' {aka 'struct <anonymous>(long long int,  long long int)'} and 'imaxdiv_t(intmax_t,  intmax_t)' {aka 'struct <anonymous>(long long int,  long long int)'}
- */
-#if defined(__GNUC__) && __GNUC__ >= 8
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wattribute-alias"
-#endif
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 lldiv_t __attribute__ ((alias ("imaxdiv")))
 __cdecl
 lldiv (long long, long long); 
 extern lldiv_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(imaxdiv)))))
 (__cdecl *__MINGW_IMP_SYMBOL(lldiv))(long long, long long);
-#if defined(__GNUC__) && __GNUC__ >= 8
-#pragma GCC diagnostic pop
-#endif
+
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
