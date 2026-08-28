@@ -22,7 +22,7 @@ intptr_t (__cdecl *__MINGW_IMP_SYMBOL(_wfindfirst32))(const wchar_t *, struct _w
 #ifndef _WIN64
 #undef _wfindfirst
 PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
-intptr_t __attribute__ ((alias ("_wfindfirst32"))) __cdecl _wfindfirst(const char *, struct _wfinddata32_t *);
-extern intptr_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_wfindfirst32))))) (__cdecl *__MINGW_IMP_SYMBOL(_wfindfirst))(const char *, struct _wfinddata32_t *);
+intptr_t __attribute__ ((alias ("_wfindfirst32"))) __cdecl _wfindfirst(const wchar_t *, struct _wfinddata32_t *);
+extern intptr_t __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(_wfindfirst32))))) (__cdecl *__MINGW_IMP_SYMBOL(_wfindfirst))(const wchar_t *, struct _wfinddata32_t *);
 PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif
