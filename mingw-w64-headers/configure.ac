@@ -68,7 +68,6 @@ AS_VAR_IF([enable_crt],[yes],[
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
   SECHEAD_LIST=$srcdir/crt/sec_api/*.h
-  SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
 ])
 GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h
 WRLHEAD_LIST=$srcdir/include/wrl/*.h
@@ -85,7 +84,6 @@ AC_SUBST([KHRHEAD_LIST])
 AC_SUBST([MINGWHELPERHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
-AC_SUBST([SECSYSHEAD_LIST])
 
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],

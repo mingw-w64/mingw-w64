@@ -44,6 +44,8 @@ _CRT_BEGIN_C_HEADER
 
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
   _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
+  _CRTIMP errno_t __cdecl _ftime64_s(struct __timeb64 *_Time);
+  _CRTIMP errno_t __cdecl _ftime32_s(struct __timeb32 *_Time);
 
 /*
  * To prevent ABI issues, the mingw-w64 runtime should not call the
@@ -53,9 +55,11 @@ _CRT_BEGIN_C_HEADER
 #ifndef _USE_32BIT_TIME_T
 #define _timeb __timeb64
 #define _ftime _ftime64
+#define _ftime_s _ftime64_s
 #else
 #define _timeb __timeb32
 #define _ftime _ftime32
+#define _ftime_s _ftime32_s
 #endif
 #endif /* _CRTBLD */
 
@@ -98,5 +102,4 @@ struct itimerspec {
 
 _CRT_END_C_HEADER
 
-#include <sec_api/sys/timeb_s.h>
 #endif
