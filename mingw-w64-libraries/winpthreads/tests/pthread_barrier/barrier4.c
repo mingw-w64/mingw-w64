@@ -104,6 +104,8 @@ main()
       assert(pthread_barrier_destroy(&barrier) == 0);
     }
 
+  (void) otherThreadCount;
+
   assert(pthread_mutex_destroy(&mx) == 0);
 
   return 0;
