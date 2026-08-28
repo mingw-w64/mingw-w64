@@ -662,6 +662,7 @@ jobs:
               --with-default-msvcrt=${{matrix.crt}} \
               --enable-silent-rules \
               ${{ (startsWith(matrix.arch, 'a') && '--disable-lib32 --disable-lib64') || (matrix.arch == 'x86_64' && '--disable-lib32') || '--disable-lib64' }} \
+              ${{(matrix.arch == 'aarch64' || matrix.arch == 'arm64ec') && '--enable-arm64x' || ''}} \
               CPPFLAGS="-Werror"
           make -j$(nproc)
           make -j$(nproc) install
