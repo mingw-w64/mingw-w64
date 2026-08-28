@@ -165,6 +165,8 @@ _CRT_BEGIN_C_HEADER
 #define _malloca_dbg(s,t,f,l) _malloca(s)
 #define _freea_dbg(p,t) _freea(p)
 
+#define _dupenv_s_dbg(ps1,size,s2,t,f,l) _dupenv_s(ps1,size,s2)
+#define _wdupenv_s_dbg(ps1,size,s2,t,f,l) _wdupenv_s(ps1,size,s2)
 #define _strdup_dbg(s,t,f,l) _strdup(s)
 #define _wcsdup_dbg(s,t,f,l) _wcsdup(s)
 #define _mbsdup_dbg(s,t,f,l) _mbsdup(s)
@@ -442,7 +444,5 @@ _CRT_END_C_HEADER
   inline void __cdecl operator delete(void *_P,int,const char *,int) { ::operator delete(_P); }
   inline void __cdecl operator delete[](void *_P,int,const char *,int) { ::operator delete[](_P); }
  */
-
-#include <sec_api/crtdbg_s.h>
 
 #endif
