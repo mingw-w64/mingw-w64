@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include "__mingw_fix_stat.h"
+#include "internal.h"
 
 int __cdecl fstat64i32(int fd, struct _stat64i32 *stat);
 int __cdecl wstat64i32(const wchar_t *_Filename, struct _stat64i32 *_Stat);
@@ -21,6 +22,8 @@ int (__cdecl *__MINGW_IMP_SYMBOL(wstat64i32))(const wchar_t *, struct _stat64i32
 #undef stat
 #undef wstat
 struct stat;
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 int __attribute__ ((alias ("wstat64i32"))) __cdecl wstat(const wchar_t *name, struct stat *stat);
 extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(wstat64i32))))) (__cdecl *__MINGW_IMP_SYMBOL(wstat))(const wchar_t *name, struct stat *stat);
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif

@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <errno.h>
 #include "__mingw_fix_stat.h"
+#include "internal.h"
 
 /* For pre-msvcr110 builds, we cannot use _fstat32() as it does
  * not signal EOVERFLOW when file size does not fit into the st_size field,
@@ -45,6 +46,8 @@ int (__cdecl *__MINGW_IMP_SYMBOL(fstat32))(int, struct _stat32 *) = fstat32;
 #ifndef _WIN64
 #undef stat
 struct stat;
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 int __attribute__ ((alias ("fstat32"))) __cdecl fstat(int fd, struct stat *stat);
 extern int __attribute__ ((alias (__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(fstat32))))) (__cdecl *__MINGW_IMP_SYMBOL(fstat))(int fd, struct stat *stat);
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif

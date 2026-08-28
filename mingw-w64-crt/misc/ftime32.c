@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <errno.h>
 #include <sys/timeb.h>
+#include "internal.h"
 
 int __cdecl ftime32(struct __timeb32 *tb32);
 int __cdecl ftime32(struct __timeb32 *tb32)
@@ -34,5 +35,7 @@ int __cdecl ftime32(struct __timeb32 *tb32)
 
 /* On 32-bit systems is ftime ABI using 32-bit time_t */
 #ifndef _WIN64
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 int __attribute__ ((alias("ftime32"))) __cdecl ftime(struct timeb *);
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif

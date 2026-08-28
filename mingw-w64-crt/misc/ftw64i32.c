@@ -9,11 +9,15 @@
 #define STRUCT_STAT struct _stat64i32
 #include "ftw.c"
 
+#include "internal.h"
+
 /* On 64-bit systems is stat ABI compatible with stat64i32 */
 #ifdef _WIN64
 #undef nftw
 #undef ftw
 struct stat;
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 int __attribute__ ((alias ("nftw64i32"))) __cdecl nftw(const char *, int (*) (const char *, const struct stat *, int, struct FTW *), int, int);
 int __attribute__ ((alias ("ftw64i32"))) __cdecl ftw(const char *, int (*) (const char *, const struct stat *, int), int);
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif

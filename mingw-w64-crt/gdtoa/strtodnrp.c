@@ -89,7 +89,12 @@ __mingw_strtod (const char * __restrict__ src, char ** __restrict__ endptr)
 /* For systems other than x86, where long double == double, provide the
  * long double functions as aliases to __strtod. */
 
+#undef Long
+#undef Bias
+#include "internal.h"
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 long double __cdecl
 __mingw_strtold (const char * __restrict__ src, char ** __restrict__ endptr)
   __attribute__((alias("__strtod")));
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif

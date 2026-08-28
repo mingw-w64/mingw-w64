@@ -5,6 +5,7 @@
  */
 
 #include <sys/timeb.h>
+#include "internal.h"
 
 int __cdecl ftime64(struct __timeb64 *tb64);
 int __cdecl ftime64(struct __timeb64 *tb64)
@@ -15,5 +16,7 @@ int __cdecl ftime64(struct __timeb64 *tb64)
 
 /* On 64-bit systems is ftime ABI using 64-bit time_t */
 #ifdef _WIN64
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_BEGIN
 int __attribute__ ((alias("ftime64"))) __cdecl ftime(struct timeb *);
+PRAGMA_DIAGNOSTIC_IGNORED_ATTRIBUTE_ALIAS_END
 #endif
