@@ -1,7 +1,6 @@
 
 baseheaddir = $(includedir)
 sysheaddir = $(baseheaddir)/sys
-secheaddir = $(baseheaddir)/sec_api
 glheaddir = $(baseheaddir)/GL
 khrheaddir = $(baseheaddir)/KHR
 gdiplusheaddir = $(baseheaddir)/gdiplus
@@ -11,7 +10,6 @@ mingwhelperheaddir = $(baseheaddir)/psdk_inc
 
 basehead_HEADERS = @BASEHEAD_LIST@
 syshead_HEADERS = @SYSHEAD_LIST@
-sechead_HEADERS = @SECHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
 khrhead_HEADERS = @KHRHEAD_LIST@
 gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
@@ -50,7 +48,6 @@ EXTRA_HEADERS = \
   crt/*.h \
   crt/*.inl \
   crt/sys/*.h \
-  crt/sec_api/*.h \
   ddk/include/ddk/*.h \
   tlb/*.tlb
 
