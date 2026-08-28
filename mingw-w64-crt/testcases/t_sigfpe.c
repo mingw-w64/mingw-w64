@@ -1218,6 +1218,7 @@ int main(void)
 
 #if defined(_WIN32)
   main_threadid = GetCurrentThreadId();
+  (void) main_threadid;
 #endif
 
 #ifdef _WIN32
