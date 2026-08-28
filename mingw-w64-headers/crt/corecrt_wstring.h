@@ -13,6 +13,7 @@ _CRT_BEGIN_C_HEADER
 #ifdef __cplusplus
 /* Tell libstdc++ and libc++ we have provided the correct ISO C++ overloads */
 #define __CORRECT_ISO_CPP_WCHAR_H_PROTO
+#define _WCHAR_H_CPLUSPLUS_98_CONFORMANCE_
 #endif
 
 #define _WSTRING_DEFINED /* Legacy guard */
