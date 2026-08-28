@@ -361,7 +361,11 @@ jobs:
           cd binutils-*
           mkdir build
           cd build
-          ../configure --prefix=$(pwd)/../../prefix --target=${{matrix.arch}}-w64-mingw32 --disable-werror --disable-multilib
+          ../configure \
+              --prefix=$(pwd)/../../prefix \
+              --target=${{matrix.arch}}-w64-mingw32 \
+              --disable-werror \
+              --disable-multilib
           make -j$(nproc)
           make install-strip
           echo $(pwd)/../../prefix/bin >> $GITHUB_PATH
@@ -371,7 +375,12 @@ jobs:
           cd gcc-*
           mkdir build
           cd build
-          ../configure --prefix=$(pwd)/../../prefix --target=${{matrix.arch}}-w64-mingw32 --enable-languages=c,c++ --disable-multilib --enable-threads=posix
+          ../configure \
+              --prefix=$(pwd)/../../prefix \
+              --target=${{matrix.arch}}-w64-mingw32 \
+              --enable-languages=c,c++ \
+              --disable-multilib \
+              --enable-threads=posix
           make -j$(nproc) all-gcc
           make install-strip-gcc
       - name: Check out the mingw-w64 version to be tested
@@ -385,20 +394,31 @@ jobs:
           autoreconf
           mkdir build
           cd build
-          ../configure --prefix=$PREFIX --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}}
+          ../configure \
+              --prefix=$PREFIX \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --with-default-msvcrt=${{matrix.crt}}
           make install
           cd ../../mingw-w64-crt
           autoreconf
           mkdir build
           cd build
-          ../configure --prefix=$PREFIX --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}} ${{ matrix.arch == 'i686' && '--enable-lib32 --disable-lib64' || '--disable-lib32 --enable-lib64' }} CPPFLAGS="-Werror"
+          ../configure \
+              --prefix=$PREFIX \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --with-default-msvcrt=${{matrix.crt}} \
+              ${{ matrix.arch == 'i686' && '--enable-lib32 --disable-lib64' || '--disable-lib32 --enable-lib64' }} \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make install
           cd ../../mingw-w64-libraries/winpthreads
           autoreconf
           mkdir build
           cd build
-          ../configure --prefix=$PREFIX --host=${{matrix.arch}}-w64-mingw32 CPPFLAGS="-Werror"
+          ../configure \
+              --prefix=$PREFIX \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make install
       - name: Build the GCC runtimes
@@ -494,7 +514,12 @@ jobs:
           cd binutils-*
           mkdir build
           cd build
-          ../configure --prefix=$(pwd)/../../prefix --host=${{matrix.arch}}-w64-mingw32 --target=${{matrix.arch}}-w64-mingw32 --disable-werror --disable-multilib
+          ../configure \
+              --prefix=$(pwd)/../../prefix \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --target=${{matrix.arch}}-w64-mingw32 \
+              --disable-werror \
+              --disable-multilib
           make -j$(nproc)
           make install-strip
           echo $(pwd)/../../prefix/bin >> $GITHUB_PATH
@@ -504,7 +529,16 @@ jobs:
           cd gcc-*
           mkdir build
           cd build
-          ../configure --prefix=$(pwd)/../../prefix --host=${{matrix.arch}}-w64-mingw32 --target=${{matrix.arch}}-w64-mingw32 --enable-languages=c,c++ --disable-multilib --enable-threads=posix --with-gmp=$(pwd)/../../prefix --with-native-system-header-dir=/opt/gcc-mingw/${{matrix.arch}}-w64-mingw32/include --disable-bootstrap
+          ../configure \
+              --prefix=$(pwd)/../../prefix \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --target=${{matrix.arch}}-w64-mingw32 \
+              --enable-languages=c,c++ \
+              --disable-multilib \
+              --enable-threads=posix \
+              --with-gmp=$(pwd)/../../prefix \
+              --with-native-system-header-dir=/opt/gcc-mingw/${{matrix.arch}}-w64-mingw32/include \
+              --disable-bootstrap
           make -j$(nproc) all-gcc
           make install-strip-gcc
       - name: Transplant the mingw-w64 installation from the cross compiler to the native one
@@ -612,14 +646,23 @@ jobs:
           autoreconf
           mkdir build
           cd build
-          ../configure --prefix=/llvm-mingw --with-default-msvcrt=${{matrix.crt}}
+          ../configure \
+              --prefix=/llvm-mingw \
+              --with-default-msvcrt=${{matrix.crt}}
           make install
           cd ../..
           cd mingw-w64-crt
           autoreconf
           mkdir build
           cd build
-          ../configure --disable-dependency-tracking --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}} --enable-silent-rules ${{ (startsWith(matrix.arch, 'a') && '--disable-lib32 --disable-lib64') || (matrix.arch == 'x86_64' && '--disable-lib32') || '--disable-lib64' }} CPPFLAGS="-Werror"
+          ../configure \
+              --disable-dependency-tracking \
+              --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --with-default-msvcrt=${{matrix.crt}} \
+              --enable-silent-rules \
+              ${{ (startsWith(matrix.arch, 'a') && '--disable-lib32 --disable-lib64') || (matrix.arch == 'x86_64' && '--disable-lib32') || '--disable-lib64' }} \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make -j$(nproc) install
           make -j$(nproc) check -k -O --no-print-directory TESTS=
@@ -648,7 +691,12 @@ jobs:
           autoreconf
           mkdir build
           cd build
-          ../configure --disable-dependency-tracking --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --enable-silent-rules CPPFLAGS="-Werror"
+          ../configure \
+              --disable-dependency-tracking \
+              --prefix=/llvm-mingw/${{matrix.arch}}-w64-mingw32 \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --enable-silent-rules \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make -j$(nproc) check -k -O --no-print-directory TESTS=
       - name: Test winpthreads
@@ -700,14 +748,23 @@ jobs:
           autoreconf
           mkdir build
           cd build
-          ../configure --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}}
+          ../configure \
+              --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 \
+              --with-default-msvcrt=${{matrix.crt}}
           make install
           cd ../..
           cd mingw-w64-crt
           autoreconf
           mkdir build
           cd build
-          ../configure --disable-dependency-tracking --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --with-default-msvcrt=${{matrix.crt}} --enable-silent-rules ${{ matrix.arch == 'x86_64' && '--disable-lib32' || '--disable-lib64' }} CPPFLAGS="-Werror"
+          ../configure \
+              --disable-dependency-tracking \
+              --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --with-default-msvcrt=${{matrix.crt}} \
+              --enable-silent-rules \
+              ${{ matrix.arch == 'x86_64' && '--disable-lib32' || '--disable-lib64' }} \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make -j$(nproc) install
           make -j$(nproc) check -k -O --no-print-directory TESTS=
@@ -725,7 +782,12 @@ jobs:
           autoreconf
           mkdir build
           cd build
-          ../configure --disable-dependency-tracking --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 --host=${{matrix.arch}}-w64-mingw32 --enable-silent-rules CPPFLAGS="-Werror"
+          ../configure \
+              --disable-dependency-tracking
+              --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 \
+              --host=${{matrix.arch}}-w64-mingw32 \
+              --enable-silent-rules \
+              CPPFLAGS="-Werror"
           make -j$(nproc)
           make -j$(nproc) check -k -O --no-print-directory TESTS=
           make -j$(nproc) check -k -O --no-print-directory || { cat tests/test-suite.log; exit 1; }
