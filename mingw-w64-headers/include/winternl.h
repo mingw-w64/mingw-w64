@@ -1127,7 +1127,6 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   NTSTATUS NTAPI RtlCharToInteger (PCSZ String,ULONG Base,PULONG Value);
   NTSTATUS NTAPI RtlConvertSidToUnicodeString(PUNICODE_STRING UnicodeString,PSID Sid,BOOLEAN AllocateDestinationString);
   ULONG NTAPI RtlUniform(PULONG Seed);
-  VOID NTAPI RtlUnwind (PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
   BOOL NTAPI RtlDosPathNameToNtPathName_U(PCWSTR DosPathName, PUNICODE_STRING NtPathName, PCWSTR *NtFileNamePart, VOID *DirectoryInfo);
   BOOLEAN NTAPI RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive);
   BOOLEAN NTAPI RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING target, LPCSTR src);
