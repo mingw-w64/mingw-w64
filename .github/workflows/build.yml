@@ -784,7 +784,7 @@ jobs:
           mkdir build
           cd build
           ../configure \
-              --disable-dependency-tracking
+              --disable-dependency-tracking \
               --prefix=/gcc-mingw/${{matrix.arch}}-w64-mingw32 \
               --host=${{matrix.arch}}-w64-mingw32 \
               --enable-silent-rules \
