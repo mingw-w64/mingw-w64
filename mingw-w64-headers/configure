@@ -615,8 +615,6 @@ DEFAULT_MSVCRT_VERSION
 DEFAULT_WIN32_WINNT
 IDLHEAD_LIST
 DDKHEAD_LIST
-SECSYSHEAD_LIST
-SECHEAD_LIST
 SYSHEAD_LIST
 MINGWHELPERHEAD_LIST
 KHRHEAD_LIST
@@ -2819,8 +2817,6 @@ then :
 
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
-  SECHEAD_LIST=$srcdir/crt/sec_api/*.h
-  SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
 
 fi
 GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h
@@ -2829,8 +2825,6 @@ WRLWRAPPERSHEAD_LIST=$srcdir/include/wrl/wrappers/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
 KHRHEAD_LIST=$srcdir/include/KHR/*.h
 MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
-
-
 
 
 
