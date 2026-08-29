@@ -12,18 +12,6 @@
 
 _CRT_BEGIN_C_HEADER
 
-#ifndef NULL
-#ifdef __cplusplus
-#ifndef _WIN64
-#define NULL 0
-#else
-#define NULL 0LL
-#endif  /* W64 */
-#else
-#define NULL ((void *)0)
-#endif
-#endif
-
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 

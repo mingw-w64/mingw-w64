@@ -1352,18 +1352,6 @@ _CRT_END_C_HEADER
 
 #define _istlegal(_c) (1)
 
-#ifndef NULL
-#ifdef __cplusplus
-#ifndef _WIN64
-#define NULL 0
-#else
-#define NULL 0LL
-#endif  /* W64 */
-#else
-#define NULL ((void *)0)
-#endif
-#endif
-
 #define _strdec(_cpc1,_cpc2) ((_cpc1)>=(_cpc2) ? NULL : (_cpc2)-1)
 #define _strinc(_pc) ((_pc)+1)
 #define _strnextc(_cpc) ((unsigned int) *(const unsigned char *)(_cpc))

@@ -188,6 +188,18 @@ typedef __time64_t time_t;
 #endif
 #endif
 
+#ifndef NULL
+#ifdef __cplusplus
+#ifndef _WIN64
+#define NULL 0
+#else
+#define NULL 0LL
+#endif  /* W64 */
+#else
+#define NULL ((void *)0)
+#endif
+#endif
+
 #if defined(__LIBMSVCRT__)
 /* When building mingw-w64, this should be blank.  */
 #define _SECIMP

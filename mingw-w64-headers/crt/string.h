@@ -19,18 +19,6 @@ _CRT_BEGIN_C_HEADER
 
 #define _NLSCMPERROR 2147483647
 
-#ifndef NULL
-#ifdef __cplusplus
-#ifndef _WIN64
-#define NULL 0
-#else
-#define NULL 0LL
-#endif  /* W64 */
-#else
-#define NULL ((void *)0)
-#endif
-#endif
-
   char * __cdecl _strset(char *_Str,int _Val) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char * __cdecl _strset_l(char *_Str,int _Val,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char * __cdecl strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
