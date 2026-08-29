@@ -112,7 +112,6 @@ src_libwindowscodecs=libsrc/windowscodecs.c
 src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
 src_libksguid=libsrc/ksuser.c
-src_liblargeint=libsrc/largeint.c
 src_liblocationapi=libsrc/locationapi.c
 src_libsapi=libsrc/sapi.c
 src_libsensorsapi=libsrc/sensorsapi.c
@@ -1644,10 +1643,6 @@ lib32_libgmon_a_SOURCES = profile/mcount.c \
   profile/mcountFunc.S
 lib32_libgmon_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
-lib32_LIBRARIES += lib32/liblargeint.a
-lib32_liblargeint_a_SOURCES = $(src_liblargeint)
-lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-
 lib32_LIBRARIES += lib32/libmingw32.a
 lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include)
 lib32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
@@ -2067,10 +2062,6 @@ lib64_libgmon_a_SOURCES = profile/mcount.c \
   profile/mcountFunc.S
 lib64_libgmon_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
-lib64_LIBRARIES += lib64/liblargeint.a
-lib64_liblargeint_a_SOURCES = $(src_liblargeint)
-lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include)
 lib64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
@@ -2440,10 +2431,6 @@ libarm32_libm_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 #  profile/mcountFunc.S
 #libarm32_libgmon_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
-libarm32_LIBRARIES += libarm32/liblargeint.a
-libarm32_liblargeint_a_SOURCES = $(src_liblargeint)
-libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
-
 libarm32_LIBRARIES += libarm32/libmingw32.a
 libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 $(extra_include)
 libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
@@ -2798,10 +2785,6 @@ libarm64_libm_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 #  profile/gmon.h   profile/gmon.c \
 #  profile/mcountFunc.S
 #libarm64_libgmon_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
-
-libarm64_LIBRARIES += libarm64/liblargeint.a
-libarm64_liblargeint_a_SOURCES = $(src_liblargeint)
-libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmingw32.a
 libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 $(extra_include)
