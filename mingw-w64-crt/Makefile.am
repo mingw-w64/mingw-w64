@@ -3,7 +3,6 @@
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
 # Done: 32-bit runtime compatibility
 # Done: fix make dist
-# TODO: Use $(TAR) instead of tar?
 #
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
@@ -1464,13 +1463,6 @@ lib32/gcrt2.o: lib32/gcrt0.o
 lib32/%.o: crt/%.c
 	$(AM_V_CC)$(COMPILE) $(CPPFLAGS32) -c $< -o $@
 
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-
-temp= \
-test.c
-
 lib32_LIBRARIES = lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
@@ -2260,13 +2252,6 @@ libarm32/gcrt2.o: libarm32/gcrt0.o
 libarm32/%.o: crt/%.c
 	$(AM_V_CC)$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
 
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-
-temp= \
-test.c
-
 libarm32_LIBRARIES = libarm32/libkernel32.a
 libarm32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm32) lib-common/kernel32.def.in
 libarm32_libkernel32_a_AR = $(DTDEFARM32) libarm32/kernel32.def && $(AR) $(ARFLAGS)
@@ -2579,13 +2564,6 @@ libarm64/%.o: crt/%.c
 
 libarm64/%.x86_64.o: %.S
 	$(AM_V_CC)$(MKDIR_P) $(@D) && $(CC) $(COMMON_CFLAGS) $(CPPFLAGSARM64) -target x86_64-windows-gnu -c $< -o $@
-
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-
-temp= \
-test.c
 
 libarm64_LIBRARIES = libarm64/libkernel32.a
 libarm64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm64) lib-common/kernel32.def.in
