@@ -4,7 +4,6 @@
 # Done: 32-bit runtime compatibility
 # Done: fix make dist
 # TODO: Use $(TAR) instead of tar?
-# TODO: Find a better way to handle dxerr.c -- make it dxerr.h and add to sources list?
 #
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
@@ -100,8 +99,8 @@ src_libshell32=libsrc/shell32.c
 src_libdinput=libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
 src_libdmoguids=libsrc/dmoguids.c
-src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
-src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
+src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c libsrc/dxerr.def.h
+src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c libsrc/dxerr.def.h
 src_libmfuuid=libsrc/mfuuid.c
 src_libmsxml2=libsrc/msxml2.c
 src_libmsxml6=libsrc/msxml6.c
@@ -1470,7 +1469,6 @@ lib32/%.o: crt/%.c
 #
 
 temp= \
-dxerr.c \
 test.c
 
 lib32_LIBRARIES = lib32/libkernel32.a
@@ -2267,7 +2265,6 @@ libarm32/%.o: crt/%.c
 #
 
 temp= \
-dxerr.c \
 test.c
 
 libarm32_LIBRARIES = libarm32/libkernel32.a
@@ -2588,7 +2585,6 @@ libarm64/%.x86_64.o: %.S
 #
 
 temp= \
-dxerr.c \
 test.c
 
 libarm64_LIBRARIES = libarm64/libkernel32.a
@@ -4564,7 +4560,7 @@ dist_libsrc_DATA = \
 # Installation options
 #
 
-noinst_HEADERS = libsrc/dxerr.c \
+noinst_HEADERS = \
  include/internal.h include/sect_attribs.h
 
 

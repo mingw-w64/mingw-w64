@@ -15,4 +15,4 @@
 #define DXTrace	DXTraceA
 #define DXERROR9(v,n,d) {v, n, d},
 #define DXERROR9LAST(v,n,d) {v, n, d}
-#include "dxerr.c"
+#include "dxerr.def.h"

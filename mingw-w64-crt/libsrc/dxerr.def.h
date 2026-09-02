@@ -1,6 +1,6 @@
 /*
 
-	dxerr.c - DirectX 8 & 9 Error Functions
+	dxerr.def.h - DirectX 8 & 9 Error Functions
 
 	Written by Filip Navara <xnavara@volny.cz>
 
@@ -723,7 +723,7 @@ HRESULT __stdcall DXTrace(char *strFile, DWORD dwLine, HRESULT hr,
 #if 0
 	const TCHAR *ErrorName = DXGetErrorString9(hr);
 	TCHAR *DebugMessage;
-   
+
 	DebugMessage = (TCHAR *)malloc((strlen(strFile) + (strMsg ? _tcslen(strMsg) : 0) + _tcslen(ErrorName) + 48) * sizeof(TCHAR));
 	if (DebugMessage == 0)
 		return hr;
@@ -738,10 +738,10 @@ HRESULT __stdcall DXTrace(char *strFile, DWORD dwLine, HRESULT hr,
 		DebugMessage = (TCHAR *)malloc((strlen(strFile) + (strMsg ? _tcslen(strMsg) : 0) + _tcslen(ErrorName) + 60) * sizeof(TCHAR));
 		if (DebugMessage == 0)
 			return DXERROR_NOT_ENOUGH_MEMORY;
-		wsprintf(DebugMessage, 
+		wsprintf(DebugMessage,
 		   TEXT("File: %hs\nLine: %Lu\nError Code: %s(0x%Lx)\nCalling: %s\n"
 		   "Do you want to debug the application?"), strFile, dwLine,
-		   ErrorName, hr, (strMsg ? strMsg : TEXT("")));		
+		   ErrorName, hr, (strMsg ? strMsg : TEXT("")));
 		Result = MessageBox(0, DebugMessage, TEXT("Unexpected error encountred"), MB_YESNO | MB_ICONDXERROR);
 		if (Result == 0)
 			return hr;
@@ -756,16 +756,16 @@ HRESULT __stdcall DXTrace(char *strFile, DWORD dwLine, HRESULT hr,
 #else
 	const TCHAR *ErrorName = DXGetErrorString(hr);
 	TCHAR DebugMessage[4096];
-   
+
 	wsprintf(DebugMessage, TEXT("%hs(%Lu): %s (hr=%s(0x%Lx))"), strFile, dwLine, (strMsg ? strMsg : TEXT("")), ErrorName, hr);
 	OutputDebugString(DebugMessage);
 	if (bPopMsgBox)
 	{
 	    int Result;
-		wsprintf(DebugMessage, 
+		wsprintf(DebugMessage,
 		   TEXT("File: %hs\nLine: %Lu\nError Code: %s(0x%Lx)\nCalling: %s\n"
 		   "Do you want to debug the application?"), strFile, dwLine,
-		   ErrorName, hr, (strMsg ? strMsg : TEXT("")));		
+		   ErrorName, hr, (strMsg ? strMsg : TEXT("")));
 		Result = MessageBox(0, DebugMessage, TEXT("Unexpected error encountred"), MB_YESNO | MB_ICONERROR);
 		if (Result == IDYES)
 			DebugBreak();
