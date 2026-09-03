@@ -39,11 +39,11 @@ _CRT_BEGIN_C_HEADER
 #ifndef _CRT_DOUBLE_DEC
 #define _CRT_DOUBLE_DEC
 
-#pragma pack(4)
+#pragma pack(push, 4)
   typedef struct {
     unsigned char ld[10];
   } _LDOUBLE;
-#pragma pack()
+#pragma pack(pop)
 
 #define _PTR_LD(x) ((unsigned char *)(&(x)->ld))
 
@@ -64,11 +64,11 @@ _CRT_BEGIN_C_HEADER
 
 #pragma pop_macro("long")
 
-#pragma pack(4)
+#pragma pack(push, 4)
   typedef struct {
     unsigned char ld12[12];
   } _LDBL12;
-#pragma pack()
+#pragma pack(pop)
 #endif
 
 #define RAND_MAX 0x7fff

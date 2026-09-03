@@ -84,7 +84,7 @@
  * is better to just keep these definitions here.
  */
 
-#include <pshpack1.h>
+#pragma pack(push, 1)
 /* workaround gcc bug */
 #if defined(__GNUC__) && !defined(__clang__)
 #define ATTRIB_GCC_STRUCT __attribute__((gcc_struct))
@@ -103,7 +103,7 @@ typedef union ATTRIB_GCC_STRUCT __uI128 {
   __tI128 t128;
   __tI128_2 t128_2;
 } __uI128;
-#include <poppack.h>
+#pragma pack(pop)
 
 #ifndef _VALUES_H
 /*

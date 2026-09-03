@@ -117,7 +117,7 @@ DFP = -1^s x tttt x [ 10 ^ (eeee - (6176(base10))]
 
 */
 
-#include <pshpack1.h>
+#pragma pack(push, 1)
 #ifdef __GNUC__
 #define structpack __attribute__((gcc_struct))
 #else
@@ -202,7 +202,7 @@ typedef type0d64 _Decimal64;
 typedef type0d128 _Decimal128;
 #endif /* _MSC_VER */
 
-#include <poppack.h>
+#pragma pack(pop)
 
 typedef union ud32 {
   _Decimal32 d;
