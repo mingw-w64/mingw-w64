@@ -19,8 +19,6 @@
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
 # Done: 32-bit runtime compatibility
 # Done: fix make dist
-# TODO: Use $(TAR) instead of tar?
-# TODO: Find a better way to handle dxerr.c -- make it dxerr.h and add to sources list?
 #
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
@@ -617,14 +615,16 @@ am__objects_19 = libsrc/lib32_libdmoguids_a-dmoguids.$(OBJEXT)
 lib32_libdmoguids_a_OBJECTS = $(am_lib32_libdmoguids_a_OBJECTS)
 lib32_libdxerr8_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxerr8_a_LIBADD =
-am__lib32_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c
+am__lib32_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c \
+	libsrc/dxerr.def.h
 am__objects_20 = libsrc/lib32_libdxerr8_a-dxerr8.$(OBJEXT) \
 	libsrc/lib32_libdxerr8_a-dxerr8w.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libdxerr8_a_OBJECTS = $(am__objects_20)
 lib32_libdxerr8_a_OBJECTS = $(am_lib32_libdxerr8_a_OBJECTS)
 lib32_libdxerr9_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxerr9_a_LIBADD =
-am__lib32_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c
+am__lib32_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c \
+	libsrc/dxerr.def.h
 am__objects_21 = libsrc/lib32_libdxerr9_a-dxerr9.$(OBJEXT) \
 	libsrc/lib32_libdxerr9_a-dxerr9w.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libdxerr9_a_OBJECTS = $(am__objects_21)
@@ -3546,14 +3546,16 @@ am__objects_169 = libsrc/lib64_libdmoguids_a-dmoguids.$(OBJEXT)
 lib64_libdmoguids_a_OBJECTS = $(am_lib64_libdmoguids_a_OBJECTS)
 lib64_libdxerr8_a_AR = $(AR) $(ARFLAGS)
 lib64_libdxerr8_a_LIBADD =
-am__lib64_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c
+am__lib64_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c \
+	libsrc/dxerr.def.h
 am__objects_170 = libsrc/lib64_libdxerr8_a-dxerr8.$(OBJEXT) \
 	libsrc/lib64_libdxerr8_a-dxerr8w.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libdxerr8_a_OBJECTS = $(am__objects_170)
 lib64_libdxerr8_a_OBJECTS = $(am_lib64_libdxerr8_a_OBJECTS)
 lib64_libdxerr9_a_AR = $(AR) $(ARFLAGS)
 lib64_libdxerr9_a_LIBADD =
-am__lib64_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c
+am__lib64_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c \
+	libsrc/dxerr.def.h
 am__objects_171 = libsrc/lib64_libdxerr9_a-dxerr9.$(OBJEXT) \
 	libsrc/lib64_libdxerr9_a-dxerr9w.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libdxerr9_a_OBJECTS = $(am__objects_171)
@@ -5424,7 +5426,7 @@ libarm32_libdmoguids_a_OBJECTS = $(am_libarm32_libdmoguids_a_OBJECTS)
 libarm32_libdxerr8_a_AR = $(AR) $(ARFLAGS)
 libarm32_libdxerr8_a_LIBADD =
 am__libarm32_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c \
-	libsrc/dxerr8w.c
+	libsrc/dxerr8w.c libsrc/dxerr.def.h
 am__objects_261 = libsrc/libarm32_libdxerr8_a-dxerr8.$(OBJEXT) \
 	libsrc/libarm32_libdxerr8_a-dxerr8w.$(OBJEXT)
 @LIBARM32_TRUE@am_libarm32_libdxerr8_a_OBJECTS = $(am__objects_261)
@@ -5432,7 +5434,7 @@ libarm32_libdxerr8_a_OBJECTS = $(am_libarm32_libdxerr8_a_OBJECTS)
 libarm32_libdxerr9_a_AR = $(AR) $(ARFLAGS)
 libarm32_libdxerr9_a_LIBADD =
 am__libarm32_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c \
-	libsrc/dxerr9w.c
+	libsrc/dxerr9w.c libsrc/dxerr.def.h
 am__objects_262 = libsrc/libarm32_libdxerr9_a-dxerr9.$(OBJEXT) \
 	libsrc/libarm32_libdxerr9_a-dxerr9w.$(OBJEXT)
 @LIBARM32_TRUE@am_libarm32_libdxerr9_a_OBJECTS = $(am__objects_262)
@@ -6923,7 +6925,7 @@ libarm64_libdmoguids_a_OBJECTS = $(am_libarm64_libdmoguids_a_OBJECTS)
 libarm64_libdxerr8_a_AR = $(AR) $(ARFLAGS)
 libarm64_libdxerr8_a_LIBADD =
 am__libarm64_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c \
-	libsrc/dxerr8w.c
+	libsrc/dxerr8w.c libsrc/dxerr.def.h
 am__objects_327 = libsrc/libarm64_libdxerr8_a-dxerr8.$(OBJEXT) \
 	libsrc/libarm64_libdxerr8_a-dxerr8w.$(OBJEXT)
 @LIBARM64_TRUE@am_libarm64_libdxerr8_a_OBJECTS = $(am__objects_327)
@@ -6931,7 +6933,7 @@ libarm64_libdxerr8_a_OBJECTS = $(am_libarm64_libdxerr8_a_OBJECTS)
 libarm64_libdxerr9_a_AR = $(AR) $(ARFLAGS)
 libarm64_libdxerr9_a_LIBADD =
 am__libarm64_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c \
-	libsrc/dxerr9w.c
+	libsrc/dxerr9w.c libsrc/dxerr.def.h
 am__objects_328 = libsrc/libarm64_libdxerr9_a-dxerr9.$(OBJEXT) \
 	libsrc/libarm64_libdxerr9_a-dxerr9w.$(OBJEXT)
 @LIBARM64_TRUE@am_libarm64_libdxerr9_a_OBJECTS = $(am__objects_328)
@@ -13722,8 +13724,8 @@ src_libshell32 = libsrc/shell32.c
 src_libdinput = libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 src_libdinput8 = libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
 src_libdmoguids = libsrc/dmoguids.c
-src_libdxerr8 = libsrc/dxerr8.c libsrc/dxerr8w.c
-src_libdxerr9 = libsrc/dxerr9.c libsrc/dxerr9w.c
+src_libdxerr8 = libsrc/dxerr8.c libsrc/dxerr8w.c libsrc/dxerr.def.h
+src_libdxerr9 = libsrc/dxerr9.c libsrc/dxerr9w.c libsrc/dxerr.def.h
 src_libmfuuid = libsrc/mfuuid.c
 src_libmsxml2 = libsrc/msxml2.c
 src_libmsxml6 = libsrc/msxml6.c
@@ -14973,30 +14975,6 @@ src_intrincsarm64 =
 @LIBARM32_TRUE@@W32API_TRUE@crt32_DATA = 
 @LIB32_TRUE@COMPILE32 = $(COMPILE) $(CPPFLAGS32) $(extra_include) -D_SYSCRT=1
 @LIBARM32_TRUE@COMPILE32 = $(COMPILE) $(CPPFLAGSARM32) $(extra_include) -D_SYSCRT=1
-
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-@LIB32_TRUE@temp = \
-@LIB32_TRUE@dxerr.c \
-@LIB32_TRUE@test.c
-
-
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-@LIBARM32_TRUE@temp = \
-@LIBARM32_TRUE@dxerr.c \
-@LIBARM32_TRUE@test.c
-
-
-# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
-# The source files that I did compile somewhere I just guessed at anyway.
-#
-@LIBARM64_TRUE@temp = \
-@LIBARM64_TRUE@dxerr.c \
-@LIBARM64_TRUE@test.c
-
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libbits.a \
 @LIB32_TRUE@	lib32/libshell32.a lib32/libdinput.a \
 @LIB32_TRUE@	lib32/libdinput8.a lib32/libdmoguids.a \
@@ -17060,7 +17038,7 @@ dist_libsrc_DATA = \
 
 # Installation options
 #
-noinst_HEADERS = libsrc/dxerr.c \
+noinst_HEADERS = \
  include/internal.h include/sect_attribs.h
 
 
