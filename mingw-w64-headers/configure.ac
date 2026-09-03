@@ -65,7 +65,7 @@ AC_ARG_ENABLE([crt],
 AM_CONDITIONAL([ENABLE_CRT],[test x$enable_crt=xyes])
 AC_MSG_RESULT([$enable_crt])
 AS_VAR_IF([enable_crt],[yes],[
-  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
 ])
 GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h

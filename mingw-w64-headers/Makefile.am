@@ -46,7 +46,6 @@ EXTRA_HEADERS = \
   include/wrl/*.h \
   include/wrl/wrappers/*.h \
   crt/*.h \
-  crt/*.inl \
   crt/sys/*.h \
   ddk/include/ddk/*.h \
   tlb/*.tlb
