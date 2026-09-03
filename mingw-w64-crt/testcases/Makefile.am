@@ -2,7 +2,7 @@
 TEST_CFLAGS=-Wno-format -Wno-unused-parameter -Wno-error=unused-function
 
 AM_CFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS) -Wno-missing-prototypes
-AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ $(TEST_CFLAGS)
+AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ $(TEST_CFLAGS)
 
 # Link all test programs against libtest.a; for targets with their own
 # target-specifc *_LDADD variable, make sure to add $(LDADD).

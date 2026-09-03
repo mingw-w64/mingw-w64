@@ -243,19 +243,6 @@ AS_CASE([$enable_wildcard],
 AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard_value],[Define as -1 to enable command line globbing or 0 to disable it.])
 AC_MSG_RESULT([$enable_wildcard])
 
-AC_MSG_CHECKING([whether to enable private exports])
-AC_ARG_ENABLE([private-exports],
-  [AS_HELP_STRING([--enable-private-exports],
-    [Enable exporting private internal functions])],
-  [],
-  [enable_private_exports=no])
-AS_CASE([$enable_private_exports],
-  [yes],[],
-  [no],[],
-  [AC_MSG_ERROR([Please only use --enable-private-exports  or --disable-private-exports, without any additional arguments.])])
-AM_CONDITIONAL([PRIVATE_EXPORTS],[test $enable_private_exports = yes])
-AC_MSG_RESULT([$enable_private_exports])
-
 AC_MSG_CHECKING([whether to enable delay import libs])
 AC_ARG_ENABLE([delay-import-libs],
   [AS_HELP_STRING([--enable-delay-import-libs],
@@ -298,13 +285,12 @@ AC_SUBST([CFGUARD_CFLAGS])
 AC_MSG_CHECKING([whether to enable experimental features])
 AC_ARG_ENABLE([experimental],
   [AS_HELP_STRING([--enable-experimental],
-    [Enable experimental features, valid options are comma separated combination of all, dfp, printf128, registeredprintf.])],
+    [Enable experimental features, valid options are comma separated combination of all, dfp, printf128.])],
     [experimental_features=$enable_experimental],
     [experimental_features="no"])
 
 enable_dfp=no
 enable_printf128=no
-enable_registeredprintf=no
 experiment_list=$($AWK 'BEGIN{OFS=" "; len = split(ARGV@<:@1@:>@,str,","); for(; len != 0; len--) print str@<:@len@:>@ }' "$experimental_features")
 
 for arg in $experiment_list
@@ -312,10 +298,9 @@ do
 AS_CASE([$arg],
   [dfp],[enable_dfp=yes],
   [printf128],[enable_printf128=yes],
-  [registeredprintf],[enable_registeredprintf=yes],
-  [all], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; ],
-  [yes], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; ],
-  [no],  [enable_dfp=no; enable_printf128=no; enable_registeredprintf=no; ],
+  [all], [enable_dfp=yes; enable_printf128=yes; ],
+  [yes], [enable_dfp=yes; enable_printf128=yes; ],
+  [no],  [enable_dfp=no; enable_printf128=no; ],
   [AC_MSG_ERROR([Unknown option "$arg"])]
 )
 done
@@ -323,10 +308,8 @@ done
 AC_MSG_RESULT([$experimental_features])
 AM_CONDITIONAL([ENABLE_DFP],[ test "$enable_dfp" = "yes" ])
 AM_CONDITIONAL([ENABLE_PRINTF128],[ test "$enable_printf128" = "yes" ])
-AM_CONDITIONAL([ENABLE_REGISTEREDPRINTF],[ test "$enable_registeredprintf" = "yes" ])
 AM_COND_IF([ENABLE_DFP],[AC_DEFINE([__ENABLE_DFP],[1],[Build DFP support])])
 AM_COND_IF([ENABLE_PRINTF128],[AC_DEFINE([__ENABLE_PRINTF128],[1],[Build DFP support])])
-AM_COND_IF([ENABLE_REGISTEREDPRINTF],[AC_DEFINE([__ENABLE_REGISTEREDPRINTF],[1],[Build DFP support])])
 
 AC_MSG_CHECKING([whether the compiler supports -municode])
 AC_ARG_ENABLE([tests-unicode],
@@ -477,7 +460,6 @@ CFLAGS="$saved_CFLAGS"
 
 AC_SUBST(ADD_C_ONLY_WARNING_FLAGS)
 AC_SUBST(ADD_C_CXX_WARNING_FLAGS)
-AC_SUBST(ADD_CXX_ONLY_WARNING_FLAGS)
 
 AC_CONFIG_FILES([Makefile testcases/Makefile])
 AC_OUTPUT
@@ -497,14 +479,12 @@ AC_MSG_NOTICE([  WinARM64 runtime.....: $enable_libarm64])
 AC_MSG_NOTICE([  Win32 runtime........: $enable_lib32])
 AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])
 AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])
-AC_MSG_NOTICE([  C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS])
 AC_MSG_NOTICE([  Default msvcrt.......: $with_default_msvcrt])
 AC_MSG_NOTICE([  Control Flow Guard...: $enable_cfguard])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([  DFP printf...........: $enable_dfp])
 AC_MSG_NOTICE([  128-bit printf.......: $enable_printf128])
-AC_MSG_NOTICE([  Custom printf........: $enable_registeredprintf])
 AC_MSG_NOTICE([])
 
 

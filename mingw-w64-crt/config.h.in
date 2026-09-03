@@ -64,6 +64,3 @@
 
 /* Build DFP support */
 #undef __ENABLE_PRINTF128
-
-/* Build DFP support */
-#undef __ENABLE_REGISTEREDPRINTF
