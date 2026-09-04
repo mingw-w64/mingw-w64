@@ -647,14 +647,11 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
-ADD_CXX_ONLY_WARNING_FLAGS
 ADD_C_CXX_WARNING_FLAGS
 ADD_C_ONLY_WARNING_FLAGS
 IMAGEBASE_CFLAGS
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
-ENABLE_REGISTEREDPRINTF_FALSE
-ENABLE_REGISTEREDPRINTF_TRUE
 ENABLE_PRINTF128_FALSE
 ENABLE_PRINTF128_TRUE
 ENABLE_DFP_FALSE
@@ -663,8 +660,6 @@ CFGUARD_CFLAGS
 MSVCRT_LIB
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
-PRIVATE_EXPORTS_FALSE
-PRIVATE_EXPORTS_TRUE
 ARM64EC_FALSE
 ARM64EC_TRUE
 LIBARM32SUFFIXDIR
@@ -818,7 +813,6 @@ enable_libarm32
 enable_libarm64
 enable_arm64x
 enable_wildcard
-enable_private_exports
 enable_delay_import_libs
 with_default_msvcrt
 enable_cfguard
@@ -1484,15 +1478,12 @@ Optional Features:
   --enable-libarm64       Build the WinARM64 libraries
   --enable-arm64x         Enable hybrid ARM64X (ARM64 and ARM64EC) libraries
   --enable-wildcard       Enable command line globbing
-  --enable-private-exports
-                          Enable exporting private internal functions
   --enable-delay-import-libs
                           Enable creation of delay-import libraries
   --enable-cfguard        Enable building with Control Flow Guard support
                           (Clang)
   --enable-experimental   Enable experimental features, valid options are
-                          comma separated combination of all, dfp, printf128,
-                          registeredprintf.
+                          comma separated combination of all, dfp, printf128.
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -6730,36 +6721,6 @@ printf "%s\n" "#define __ENABLE_GLOBBING $enable_wildcard_value" >>confdefs.h
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $enable_wildcard" >&5
 printf "%s\n" "$enable_wildcard" >&6; }
 
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to enable private exports" >&5
-printf %s "checking whether to enable private exports... " >&6; }
-# Check whether --enable-private-exports was given.
-if test ${enable_private_exports+y}
-then :
-  enableval=$enable_private_exports;
-else case e in #(
-  e) enable_private_exports=no ;;
-esac
-fi
-
-case $enable_private_exports in #(
-  yes) :
-     ;; #(
-  no) :
-     ;; #(
-  *) :
-    as_fn_error $? "Please only use --enable-private-exports  or --disable-private-exports, without any additional arguments." "$LINENO" 5 ;;
-esac
- if test $enable_private_exports = yes; then
-  PRIVATE_EXPORTS_TRUE=
-  PRIVATE_EXPORTS_FALSE='#'
-else
-  PRIVATE_EXPORTS_TRUE='#'
-  PRIVATE_EXPORTS_FALSE=
-fi
-
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $enable_private_exports" >&5
-printf "%s\n" "$enable_private_exports" >&6; }
-
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to enable delay import libs" >&5
 printf %s "checking whether to enable delay import libs... " >&6; }
 # Check whether --enable-delay-import-libs was given.
@@ -6847,7 +6808,6 @@ fi
 
 enable_dfp=no
 enable_printf128=no
-enable_registeredprintf=no
 experiment_list=$($AWK 'BEGIN{OFS=" "; len = split(ARGV[1],str,","); for(; len != 0; len--) print str[len] }' "$experimental_features")
 
 for arg in $experiment_list
@@ -6857,14 +6817,12 @@ case $arg in #(
     enable_dfp=yes ;; #(
   printf128) :
     enable_printf128=yes ;; #(
-  registeredprintf) :
-    enable_registeredprintf=yes ;; #(
   all) :
-    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+    enable_dfp=yes; enable_printf128=yes;  ;; #(
   yes) :
-    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+    enable_dfp=yes; enable_printf128=yes;  ;; #(
   no) :
-    enable_dfp=no; enable_printf128=no; enable_registeredprintf=no;  ;; #(
+    enable_dfp=no; enable_printf128=no;  ;; #(
   *) :
     as_fn_error $? "Unknown option \"$arg\"" "$LINENO" 5
  ;;
@@ -6889,14 +6847,6 @@ else
   ENABLE_PRINTF128_FALSE=
 fi
 
- if  test "$enable_registeredprintf" = "yes" ; then
-  ENABLE_REGISTEREDPRINTF_TRUE=
-  ENABLE_REGISTEREDPRINTF_FALSE='#'
-else
-  ENABLE_REGISTEREDPRINTF_TRUE='#'
-  ENABLE_REGISTEREDPRINTF_FALSE=
-fi
-
 if test -z "$ENABLE_DFP_TRUE"; then :
 
 printf "%s\n" "#define __ENABLE_DFP 1" >>confdefs.h
@@ -6905,11 +6855,6 @@ fi
 if test -z "$ENABLE_PRINTF128_TRUE"; then :
 
 printf "%s\n" "#define __ENABLE_PRINTF128 1" >>confdefs.h
-
-fi
-if test -z "$ENABLE_REGISTEREDPRINTF_TRUE"; then :
-
-printf "%s\n" "#define __ENABLE_REGISTEREDPRINTF 1" >>confdefs.h
 
 fi
 
@@ -7126,27 +7071,6 @@ case $warning_level in #(
 esac
 
 saved_CFLAGS="$CFLAGS"
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -Wpragma-pack" >&5
-printf %s "checking whether the compiler supports -Wpragma-pack... " >&6; }
-CFLAGS="$CFLAGS -Wpragma-pack"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-_ACEOF
-if ac_fn_c_try_compile "$LINENO"
-then :
-  supports_wpragma_pack=yes
-else case e in #(
-  e) supports_wpragma_pack=no ;;
-esac
-fi
-rm -f core conftest.err conftest.$ac_objext conftest.beam conftest.$ac_ext
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $supports_wpragma_pack" >&5
-printf "%s\n" "$supports_wpragma_pack" >&6; }
-if test "$supports_wpragma_pack" = "yes"; then
-    ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-pragma-pack"
-fi
-CFLAGS="$saved_CFLAGS"
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -Warray-bounds" >&5
 printf %s "checking whether the compiler supports -Warray-bounds... " >&6; }
 CFLAGS="$CFLAGS -Warray-bounds"
@@ -7168,7 +7092,6 @@ if test "$supports_warray_bounds" = "yes"; then
     ADD_C_CXX_WARNING_FLAGS="$ADD_C_CXX_WARNING_FLAGS -Wno-array-bounds"
 fi
 CFLAGS="$saved_CFLAGS"
-
 
 
 
@@ -7356,10 +7279,6 @@ if test -z "${ARM64EC_TRUE}" && test -z "${ARM64EC_FALSE}"; then
   as_fn_error $? "conditional \"ARM64EC\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${PRIVATE_EXPORTS_TRUE}" && test -z "${PRIVATE_EXPORTS_FALSE}"; then
-  as_fn_error $? "conditional \"PRIVATE_EXPORTS\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
 if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
   as_fn_error $? "conditional \"DELAY_IMPORT_LIBS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
@@ -7370,10 +7289,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_PRINTF128_TRUE}" && test -z "${ENABLE_PRINTF128_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_PRINTF128\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_REGISTEREDPRINTF_TRUE}" && test -z "${ENABLE_REGISTEREDPRINTF_FALSE}"; then
-  as_fn_error $? "conditional \"ENABLE_REGISTEREDPRINTF\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
@@ -8734,8 +8649,6 @@ printf "%s\n" "$as_me:   Win32 runtime........: $enable_lib32" >&6;}
 printf "%s\n" "$as_me:   Win64 runtime........: $enable_lib64" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS" >&5
 printf "%s\n" "$as_me:   C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS" >&6;}
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}:   C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS" >&5
-printf "%s\n" "$as_me:   C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&5
 printf "%s\n" "$as_me:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   Default msvcrt.......: $with_default_msvcrt" >&5
@@ -8748,8 +8661,6 @@ printf "%s\n" "$as_me: " >&6;}
 printf "%s\n" "$as_me:   DFP printf...........: $enable_dfp" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}:   128-bit printf.......: $enable_printf128" >&5
 printf "%s\n" "$as_me:   128-bit printf.......: $enable_printf128" >&6;}
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}:   Custom printf........: $enable_registeredprintf" >&5
-printf "%s\n" "$as_me:   Custom printf........: $enable_registeredprintf" >&6;}
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: " >&5
 printf "%s\n" "$as_me: " >&6;}
 

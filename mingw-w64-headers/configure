@@ -2815,7 +2815,7 @@ printf "%s\n" "$enable_crt" >&6; }
 if test "x$enable_crt" = xyes
 then :
 
-  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
 
 fi

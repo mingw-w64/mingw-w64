@@ -13539,7 +13539,6 @@ am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
 ACLOCAL = @ACLOCAL@
-ADD_CXX_ONLY_WARNING_FLAGS = @ADD_CXX_ONLY_WARNING_FLAGS@
 ADD_C_CXX_WARNING_FLAGS = @ADD_C_CXX_WARNING_FLAGS@
 ADD_C_ONLY_WARNING_FLAGS = @ADD_C_ONLY_WARNING_FLAGS@
 AMTAR = @AMTAR@
@@ -13668,8 +13667,7 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = $(sysincludes)
 COMMON_CFLAGS = -pipe -std=gnu99 -fno-builtin -D_CRTBLD -D_WIN32_WINNT=0x0f00 -D__MSVCRT_VERSION__=0x600 -D__USE_MINGW_ANSI_STDIO=0 @IMAGEBASE_CFLAGS@ @CFGUARD_CFLAGS@ @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CFLAGS = $(COMMON_CFLAGS) $(am__append_1)
-AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@ \
-	$(am__append_2)
+AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ $(am__append_2)
 AM_CCASFLAGS = @CFGUARD_CFLAGS@ $(am__append_3)
 CPPFLAGSARM32 = $(AM_CPPFLAGS) -mfpu=vfpv3
 CPPFLAGSARM64 = $(AM_CPPFLAGS)
