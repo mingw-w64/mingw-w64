@@ -4552,7 +4552,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 #
 
 EXTRA_DIST = $(srcdir)/ChangeLog.*
-EXTRA_DIST += revstamp.h \
+EXTRA_DIST += \
   $(top_srcdir)/lib-common/*.def \
   $(top_srcdir)/lib32/*.def \
   $(top_srcdir)/lib64/*.def \
