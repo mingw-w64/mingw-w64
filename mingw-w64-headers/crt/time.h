@@ -163,15 +163,12 @@ time_t __CRTDECL _mkgmtime(struct tm *_Tm) __MINGW_ASM_CALL(_mkgmtime64);
 
 #include <_timeval.h>
 
-#ifndef _TIMEZONE_DEFINED /* also in sys/time.h */
-#define _TIMEZONE_DEFINED
 struct timezone {
   int tz_minuteswest;
   int tz_dsttime;
 };
 
-  extern int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z);
-#endif /* _TIMEZONE_DEFINED */
+int __cdecl mingw_gettimeofday(struct timeval* _Tv, struct timezone* _Tz);
 
 #if defined(_POSIX_C_SOURCE) && !defined(_POSIX_THREAD_SAFE_FUNCTIONS)
 #define _POSIX_THREAD_SAFE_FUNCTIONS 200112L
