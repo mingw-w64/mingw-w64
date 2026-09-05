@@ -17047,10 +17047,10 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 
 # Distribution options
 #
-EXTRA_DIST = $(srcdir)/ChangeLog.* revstamp.h \
-	$(top_srcdir)/lib-common/*.def $(top_srcdir)/lib32/*.def \
-	$(top_srcdir)/lib64/*.def $(top_srcdir)/libarm32/*.def \
-	$(top_srcdir)/lib32/*.mri $(top_srcdir)/lib-common/*.mri \
+EXTRA_DIST = $(srcdir)/ChangeLog.* $(top_srcdir)/lib-common/*.def \
+	$(top_srcdir)/lib32/*.def $(top_srcdir)/lib64/*.def \
+	$(top_srcdir)/libarm32/*.def $(top_srcdir)/lib32/*.mri \
+	$(top_srcdir)/lib-common/*.mri \
 	$(top_srcdir)/lib-common/*.def.in $(top_srcdir)/lib32/*.def.in \
 	$(top_srcdir)/lib64/*.def.in $(top_srcdir)/libarm32/*.def.in \
 	$(top_srcdir)/def-include/*.def.in \
