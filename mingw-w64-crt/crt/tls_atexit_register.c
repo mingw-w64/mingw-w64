@@ -11,10 +11,10 @@
 #include <sect_attribs.h>
 #include <internal.h>
 
-const int __mingw_atexit_tls_callback_caller_provider = 1;
-extern WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID);
+const int __mingw_cxa_tls_callback_caller_provider = 1;
+extern WINBOOL (WINAPI *const __mingw_cxa_tls_callback_ptr)(HANDLE,DWORD,LPVOID);
 static void WINAPI callback(HANDLE handle, DWORD reason, LPVOID reserved) {
-  if (!__mingw_atexit_tls_callback_ptr(handle, reason, reserved))
+  if (!__mingw_cxa_tls_callback_ptr(handle, reason, reserved))
     _amsg_exit(16); /* _RT_THREAD - not enough space for thread data */
 }
 static _CRTALLOC(".CRT$XLB") const PIMAGE_TLS_CALLBACK callback_ptr = callback;

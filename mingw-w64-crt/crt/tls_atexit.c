@@ -169,8 +169,8 @@ static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __U
   }
   return TRUE;
 }
-WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) = tls_callback;
+WINBOOL (WINAPI *const __mingw_cxa_tls_callback_ptr)(HANDLE,DWORD,LPVOID) = tls_callback;
 
-/* Force inclusion of code which calls __mingw_atexit_tls_callback */
-extern const int __mingw_atexit_tls_callback_caller_provider;
-static __attribute__((used)) const void *const _include_mingw_atexit_tls_callback_caller = &__mingw_atexit_tls_callback_caller_provider;
+/* Force inclusion of code which calls __mingw_cxa_tls_callback_ptr */
+extern const int __mingw_cxa_tls_callback_caller_provider;
+static __attribute__((used)) const void *const _include_mingw_cxa_tls_callback_caller = &__mingw_cxa_tls_callback_caller_provider;
