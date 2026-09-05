@@ -149,18 +149,13 @@ static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __U
      * but none get called for the main executable. This matches what the
      * standard says, but differs from what MSVC does with a dynamically
      * linked CRT (which still runs TLS destructors for the main thread).
+     *
+     * For DLLs, run dtors when detached. For EXEs, run dtors via the
+     * thread local atexit callback, to make sure they don't run when
+     * exiting the process with _exit or ExitProcess.
      */
-    if (__mingw_module_is_dll) {
-      run_thread_dtor_list();
-      /* For DLLs, run dtors when detached. For EXEs, run dtors via the
-       * thread local atexit callback, to make sure they don't run when
-       * exiting the process with _exit or ExitProcess. */
-      run_dtor_list(&global_dtors);
-      if (tls_dtors_slot != TLS_OUT_OF_INDEXES) {
-        TlsFree(tls_dtors_slot);
-        tls_dtors_slot = TLS_OUT_OF_INDEXES;
-      }
-    }
+    if (__mingw_module_is_dll)
+      tls_atexit_callback(NULL, DLL_PROCESS_DETACH, NULL);
     if (inited == 1) {
       inited = 0;
       DeleteCriticalSection(&lock);
