@@ -13,6 +13,7 @@
 #include <sect_attribs.h>
 #include <memory.h>
 #include <malloc.h>
+#include <process.h>
 #include <corecrt_startup.h>
 #include <thread_local.h>
 
@@ -97,7 +98,12 @@ __dyn_tls_dtor (HANDLE hDllHandle __attribute__((unused)), DWORD dwReason, LPVOI
     }
 }
 
+const _tls_callback_type __dyn_tls_dtor_callback = __dyn_tls_dtor;
 static _CRTALLOC(".CRT$XLD") const PIMAGE_TLS_CALLBACK __xl_d = __dyn_tls_dtor;
+
+/* Force inclusion of code which registers __dyn_tls_dtor_callback for EXE builds */
+extern const uintptr_t __mingw_register_thread_local_exe_atexit_callback_provider;
+static __attribute__((used)) const void *const _include_dyn_tls_dtor_callback_caller = &__mingw_register_thread_local_exe_atexit_callback_provider;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
 extern const IMAGE_TLS_DIRECTORY _tls_used;

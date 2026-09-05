@@ -6,6 +6,7 @@
 
 #include <process.h>
 
+const _tls_callback_type __dyn_tls_dtor_callback __attribute__((common)); /* tentative */
 const _tls_callback_type __mingw_cxa_atexit_callback_ptr __attribute__((common)); /* tentative */
 
 #if defined(__i386__)
@@ -14,6 +15,8 @@ __attribute__((force_align_arg_pointer))
 #endif
 static void __stdcall tls_exe_atexit_callback(void *handle, unsigned long reason, void *reserved)
 {
+  if (__dyn_tls_dtor_callback)
+    __dyn_tls_dtor_callback(handle, reason, reserved);
   if (__mingw_cxa_atexit_callback_ptr)
     __mingw_cxa_atexit_callback_ptr(handle, reason, reserved);
 }
