@@ -29,8 +29,8 @@ extern _PVFV __xc_z[];
 /* TLS initialization hook.  */
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* tentative */
 
-void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
-const int __mingw_TLScallback_caller_provider = 1; /* crtdll.c calls __mingw_TLScallback_ptr */
+void (WINAPI *const __w64_mingwthr_callback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
+const int __w64_mingwthr_callback_caller_provider = 1; /* crtdll.c calls __w64_mingwthr_callback_ptr */
 
 WINBOOL (WINAPI *const __mingw_atexit_tls_callback_ptr)(HANDLE,DWORD,LPVOID) __attribute__((common)); /* tentative */
 const int __mingw_atexit_tls_callback_caller_provider = 1; /* crtdll.c calls __mingw_atexit_tls_callback_ptr */
@@ -77,8 +77,8 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  __native_startup_state = __initializing;
 	  
 	  _pei386_runtime_relocator ();
-	  if (__mingw_TLScallback_ptr != NULL)
-	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
+	  if (__w64_mingwthr_callback_ptr != NULL)
+	    __w64_mingwthr_callback_ptr (hDllHandle, dwReason, lpreserved);
 	  if (__mingw_dll_atexit_table_func_ptr != NULL)
 	    {
 	      ret = __mingw_dll_atexit_table_func_ptr (0 /*init*/);
@@ -140,8 +140,8 @@ i__leave:
 	}
       else
 	{
-	  if (__mingw_TLScallback_ptr != NULL)
-	    __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
+	  if (__w64_mingwthr_callback_ptr != NULL)
+	    __w64_mingwthr_callback_ptr (hDllHandle, dwReason, lpreserved);
 	  if (__mingw_atexit_tls_callback_ptr != NULL)
 	    __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved);
 	  if (__mingw_dll_atexit_table_func_ptr != NULL)
@@ -161,8 +161,8 @@ i__leave:
     }
   else if (dwReason == DLL_THREAD_DETACH)
     {
-      if (__mingw_TLScallback_ptr != NULL)
-	 __mingw_TLScallback_ptr (hDllHandle, dwReason, lpreserved);
+      if (__w64_mingwthr_callback_ptr != NULL)
+	 __w64_mingwthr_callback_ptr (hDllHandle, dwReason, lpreserved);
       if (__mingw_atexit_tls_callback_ptr != NULL)
 	{
 	  if (! __mingw_atexit_tls_callback_ptr (hDllHandle, dwReason, lpreserved))

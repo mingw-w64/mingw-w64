@@ -10,9 +10,9 @@
 #include <windows.h>
 #include <sect_attribs.h>
 
-const int __mingw_TLScallback_caller_provider = 1;
-extern void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID);
-static void WINAPI tls_callback(HANDLE handle, DWORD reason, LPVOID reserved) { __mingw_TLScallback_ptr(handle, reason, reserved); }
+const int __w64_mingwthr_callback_caller_provider = 1;
+extern void (WINAPI *const __w64_mingwthr_callback_ptr)(HANDLE,DWORD,LPVOID);
+static void WINAPI tls_callback(HANDLE handle, DWORD reason, LPVOID reserved) { __w64_mingwthr_callback_ptr(handle, reason, reserved); }
 static _CRTALLOC(".CRT$XLD") const PIMAGE_TLS_CALLBACK tls_callback_ptr = tls_callback;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
