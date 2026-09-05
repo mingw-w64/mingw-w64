@@ -96,6 +96,7 @@ testcase_progs = \
   t_assert \
   t_btowc \
   t_char16_t \
+  t_cpp_dtor_atexit_order \
   t_ctype \
   t_excpt_gcc_cpp \
   t_excpt_int_divzero \
@@ -211,6 +212,7 @@ endif
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
+t_cpp_dtor_atexit_order_SOURCES = t_cpp_dtor_atexit_order.cpp
 t_intrin_cpp_SOURCES = t_intrin_cpp.cpp
 t_iostream_SOURCES = t_iostream.cpp
 t_isfine_SOURCES = t_isfine.cpp
@@ -222,6 +224,7 @@ t_wrongret_SOURCES = t_wrongret.cpp
 
 # On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
 # PATH) may be regular native aarch64, but we build and run arm64ec binaries.
+t_cpp_dtor_atexit_order_LDFLAGS = $(AM_LDFLAGS)
 t_intrin_cpp_LDFLAGS = $(AM_LDFLAGS)
 t_iostream_LDFLAGS = $(AM_LDFLAGS)
 t_isfine_LDFLAGS = $(AM_LDFLAGS)
@@ -232,6 +235,7 @@ t_trycatch_LDFLAGS = $(AM_LDFLAGS)
 t_wrongret_LDFLAGS = $(AM_LDFLAGS)
 
 if ARM64EC
+t_cpp_dtor_atexit_order_LDFLAGS += -static
 t_intrin_cpp_LDFLAGS += -static
 t_iostream_LDFLAGS += -static
 t_isfine_LDFLAGS += -static
