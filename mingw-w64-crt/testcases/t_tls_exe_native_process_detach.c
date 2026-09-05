@@ -9,6 +9,8 @@
 /* mingw-w64 headers */
 #include "libtest.h"
 
+static int main_success = 0;
+
 #if defined(__i386__)
 /* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
 __attribute__((force_align_arg_pointer))
@@ -18,7 +20,7 @@ static void WINAPI pe_tls_callback(HANDLE handle __attribute__((unused)), DWORD 
   if (reason == DLL_PROCESS_DETACH) {
     printf("SUCCESS: PE TLS callback for DLL_PROCESS_DETACH was called\n");
     /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
-    TerminateProcess(GetCurrentProcess(), 0);
+    TerminateProcess(GetCurrentProcess(), main_success ? 0 : 1);
   }
 }
 
@@ -35,9 +37,11 @@ int main(void)
 
   if (_osplatform == VER_PLATFORM_WIN32_WINDOWS) {
     printf("PE TLS callbacks are not supported on Win9x\n");
-    return 77;
+    /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
+    TerminateProcess(GetCurrentProcess(), 77);
   }
 
   printf("Checking if the PE TLS callback for DLL_PROCESS_DETACH would be called...\n");
+  main_success = 1;
   return 1; /* TLS callback changes return code to 0 */
 }
