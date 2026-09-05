@@ -17,7 +17,8 @@ int main(void)
 
   if (_osplatform == VER_PLATFORM_WIN32_WINDOWS) {
     printf("PE TLS callbacks are not supported on Win9x\n");
-    return 77;
+    /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
+    TerminateProcess(GetCurrentProcess(), 77);
   }
 
   /* Force linking libtlsnatprocdet.dll library */
