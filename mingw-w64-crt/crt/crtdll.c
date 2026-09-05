@@ -216,4 +216,8 @@ i__leave:
   return retcode ;
 }
 
+/* not available for DLL builds, must be non-tentative to not be overridden */
+void (__cdecl *const __mingw_register_thread_local_exe_atexit_callback_ptr)(void) = NULL;
+extern const uintptr_t __mingw_register_thread_local_exe_atexit_callback_provider __attribute__((alias("__mingw_register_thread_local_exe_atexit_callback_ptr")));
+
 const char __mingw_module_is_dll = 1;

@@ -51,6 +51,8 @@ extern _PVFV __xc_z[];
 /* TLS initialization hook.  */
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* tentative */
 
+void (__cdecl *const __mingw_register_thread_local_exe_atexit_callback_ptr)(void) __attribute__((common)); /* tentative */
+
 extern int __mingw_app_type;
 
 static int argc;
@@ -257,6 +259,9 @@ __tmainCRTStartup (void)
 
     if (__dyn_tls_init_callback != NULL)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
+
+    if (__mingw_register_thread_local_exe_atexit_callback_ptr != NULL)
+      __mingw_register_thread_local_exe_atexit_callback_ptr ();
 
 #ifdef _UNICODE
     __winitenv = envp;

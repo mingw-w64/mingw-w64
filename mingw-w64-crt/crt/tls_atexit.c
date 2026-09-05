@@ -93,10 +93,38 @@ static void run_thread_dtor_list(void) {
   TlsSetValue(tls_dtors_slot, NULL);
 }
 
-#if defined(__i386__)
-/* We need to make sure that we align the stack to 16 bytes for the sake of SSE */
-__attribute__((force_align_arg_pointer))
-#endif
+/*
+ * For EXE builds the tls_atexit_callback() function is called by the exit()
+ * function before it calls atexit callbacks. For UCRT builds this is achieved
+ * by UCRT directly, for non-UCRT builds this is achieved by the mingw-w64
+ * exit() wrapper function. The tls_atexit_callback() function is called
+ * indirectly via the __mingw_cxa_atexit_callback_ptr from the mingw-w64
+ * callback registered by the CRT _register_thread_local_exe_atexit_callback.
+ * If the process does not call CRT exit function and is terminated by different
+ * way (e.g. _exit(), _Exit() or ExitProcess()) then the tls_atexit_callback()
+ * function is not called at all.
+ *
+ * For DLL builds the tls_atexit_callback() function is called explicitly from
+ * the tls_callback() function which is below. This function is called also when
+ * process is terminated by different way (e.g. _exit(), _Exit() or ExitProcess())
+ * not just by exit() function.
+ *
+ * Reason for these differences is the fact that for DLL builds the tls_callback()
+ * function is called before invocation of atexit callbacks, but for EXE builds
+ * it is called after all atexit callbacks. For DLL builds, all atexit callbacks
+ * are executed from the DLL entry point when DLL_PROCESS_DETACH event happens
+ * and for EXE builds, they are executed from the CRT exit() function which is
+ * called before execution of native PE TLS callbacks.
+ *
+ * For EXE builds the tls_callback() function is called PE TLS callback and
+ * hence after all atexit callbacks. For DLL builds the tls_callback() function
+ * is called from DLL entry point before all atexit callbacks. Note that for
+ * DLL builds also PE TLS callbacks are executed before all atexit callbacks.
+ *
+ * mingw cxa dtors (executed by tls_atexit_callback) has to be run before atexit
+ * callbacks because it is required for execution of global C++ destructors.
+ * So this is why the different behavior for DLL and EXE builds is needed.
+ */
 static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   if (dwReason == DLL_PROCESS_DETACH) {
     run_thread_dtor_list();
@@ -107,7 +135,23 @@ static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD 
     }
   }
 }
+const _tls_callback_type __mingw_cxa_atexit_callback_ptr = tls_atexit_callback;
 
+/* Force inclusion of code which registers __mingw_cxa_atexit_callback_ptr for EXE builds */
+extern const uintptr_t __mingw_register_thread_local_exe_atexit_callback_provider;
+static __attribute__((used)) const void *const _include_mingw_cxa_atexit_callback_caller = &__mingw_register_thread_local_exe_atexit_callback_provider;
+
+
+/*
+ * For EXE builds the tls_callback is called PE TLS callback. If the CRT exit
+ * function was called then the PE TLS callback for DLL_PROCESS_DETACH event
+ * is called after execution of exit function and so after execution of all
+ * registered atexit callbacks.
+ *
+ * For DLL builds the tls_callback is called from DLL entry point. And for
+ * the DLL_PROCESS_DETACH event, the tls_callback is called before execution
+ * of atexit callbacks.
+ */
 static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   switch (dwReason) {
   case DLL_PROCESS_ATTACH:
@@ -117,18 +161,6 @@ static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __U
         return FALSE;
       InitializeCriticalSection(&lock);
       __dso_handle = hDllHandle;
-      /*
-       * We can only call _register_thread_local_exe_atexit_callback once
-       * in a process; if we call it a second time the process terminates.
-       * When DLLs are unloaded, this callback is invoked before we run the
-       * _onexit tables, but for exes, we need to ask this to be called before
-       * all other registered atexit functions.
-       * Since we are registered as a normal TLS callback, we will be called
-       * another time later as well, but that doesn't matter, it's safe to
-       * invoke this with DLL_PROCESS_DETACH twice.
-       */
-      if (!__mingw_module_is_dll)
-        _register_thread_local_exe_atexit_callback(tls_atexit_callback);
     }
     inited = 1;
     break;
@@ -150,9 +182,11 @@ static WINBOOL WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __U
      * standard says, but differs from what MSVC does with a dynamically
      * linked CRT (which still runs TLS destructors for the main thread).
      *
-     * For DLLs, run dtors when detached. For EXEs, run dtors via the
-     * thread local atexit callback, to make sure they don't run when
-     * exiting the process with _exit or ExitProcess.
+     * For DLLs, run dtors when detached explicitly by tls_atexit_callback().
+     * For EXEs, run dtors via the thread local atexit callback, to make sure
+     * they don't run when exiting the process with _exit or ExitProcess.
+     * mingw-w64 thread local atexit callback calls the tls_atexit_callback()
+     * and is registered for EXEs by _register_thread_local_exe_atexit_callback.
      */
     if (__mingw_module_is_dll)
       tls_atexit_callback(NULL, DLL_PROCESS_DETACH, NULL);
