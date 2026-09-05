@@ -11,8 +11,9 @@
 #include <sect_attribs.h>
 
 const int __mingw_TLScallback_caller_provider = 1;
-void WINAPI __mingw_TLScallback(HANDLE, DWORD, LPVOID);
-static _CRTALLOC(".CRT$XLD") const PIMAGE_TLS_CALLBACK __mingw_TLScallback_ptr = __mingw_TLScallback;
+extern void (WINAPI *const __mingw_TLScallback_ptr)(HANDLE,DWORD,LPVOID);
+static void WINAPI tls_callback(HANDLE handle, DWORD reason, LPVOID reserved) { __mingw_TLScallback_ptr(handle, reason, reserved); }
+static _CRTALLOC(".CRT$XLD") const PIMAGE_TLS_CALLBACK tls_callback_ptr = tls_callback;
 
 /* Force tlssup.c (_tls_used symbol for .tls linker section) to be linked.  */
 extern const IMAGE_TLS_DIRECTORY _tls_used;

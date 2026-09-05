@@ -136,8 +136,7 @@ __mingwthr_remove_all_key_dtors (void)
   LeaveCriticalSection (&__mingwthr_cs);
 }
 
-void WINAPI __mingw_TLScallback(HANDLE, DWORD, LPVOID);
-void WINAPI
+static void WINAPI
 __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
 		     DWORD reason,
 		     LPVOID __UNUSED_PARAM(reserved))
