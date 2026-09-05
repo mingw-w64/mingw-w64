@@ -763,7 +763,7 @@ cosh
 ctime
 difftime
 div
-exit
+__msvcrt_exit DATA == exit ; mingw-w64 provides exit() function as wrapper around renamed __msvcrt_exit symbol
 exp
 fabs
 fclose

@@ -1943,7 +1943,7 @@ erfcf
 ; erfcl ; Can't use long double functions from the CRT on x86
 erff
 ; erfl ; Can't use long double functions from the CRT on x86
-exit
+__msvcrt_exit DATA == exit ; mingw-w64 provides exit() function as wrapper around renamed __msvcrt_exit symbol
 exp
 exp2
 exp2f

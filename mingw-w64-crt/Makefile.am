@@ -182,6 +182,7 @@ src_msvcrt_common=\
   misc/__mingw_mbrtowc_cp.c \
   misc/__mingw_wcrtomb_cp.c \
   misc/_onexit.c \
+  misc/exit.c \
   misc/mbrlen.c \
   misc/mbrtowc.c \
   misc/mbsinit.c \

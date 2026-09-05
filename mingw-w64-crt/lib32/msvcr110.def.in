@@ -1804,7 +1804,7 @@ clock
 cos DATA
 cosh ; If we implement cosh, we can set it to DATA only.
 div
-exit
+__msvcrt_exit DATA == exit ; mingw-w64 provides exit() function as wrapper around renamed __msvcrt_exit symbol
 exp DATA
 fabs DATA
 fclose

@@ -1918,7 +1918,7 @@ erfcf
 erfcl
 erff
 erfl
-exit
+__msvcrt_exit DATA == exit ; mingw-w64 provides exit() function as wrapper around renamed __msvcrt_exit symbol
 exp
 exp2
 exp2f

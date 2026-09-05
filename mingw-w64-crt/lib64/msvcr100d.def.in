@@ -1689,7 +1689,7 @@ cosf DATA ; overwritten
 cosh
 coshf DATA ; overwritten
 div
-exit
+__msvcrt_exit DATA == exit ; mingw-w64 provides exit() function as wrapper around renamed __msvcrt_exit symbol
 exp DATA ; overwritten
 expf DATA ; overwritten
 fabs DATA ; overwritten
