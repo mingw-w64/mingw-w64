@@ -140,17 +140,15 @@ __main (void)
    * So the function __main() should expects that constructors were already
    * called and must prevent multiple execution of them.
    *
-   * Also application or DLL library can be build with the custom entry point
+   * Also application or DLL library can be built with the custom entry point
    * which does not call mingw-w64 startup code but calls this __main() function
    * manually and therefore this __main() function has to execute all global
    * C++ constructors and has to schedule calls for global C++ destructors.
    *
-   * gcc ABI function __do_global_ctors() do that: execute all global C++
-   * constructors and has to schedule calls for global C++ destructors.
-   * But it does not contain guard to prevent duplicate execution. On the other
-   * hand, gcc ABI function __main() can be called multiple times and will not
-   * call constructors or destructor multiple times. So call __do_global_ctors()
-   * under own guard.
+   * gcc ABI function __do_global_ctors() does that. But it does not contain a
+   * guard to prevent duplicate execution. On the other hand, gcc ABI function
+   * __main() can be called multiple times and will not call constructors or
+   * destructor multiple times. So call __do_global_ctors() under a local guard.
    */
   static int initialized = 0;
   if (!initialized)
