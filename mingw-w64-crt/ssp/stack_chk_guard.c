@@ -10,6 +10,11 @@
 
 uintptr_t __stack_chk_guard = 0;
 
+#if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wprio-ctor-dtor"
+#endif
+
 #if defined __SSP__ || defined __SSP_STRONG__ || defined __SSP_ALL__
 // This function requires `no_stack_protector` because it changes the
 // value of `__stack_chk_guard`, causing stack checks to fail before
@@ -21,7 +26,7 @@ __attribute__((__no_stack_protector__))
          -fstack-protector* options from CFLAGS.
 # endif
 #endif
-__attribute__((__constructor__))
+__attribute__((constructor(0)))
 static void __cdecl init(void)
 {
   unsigned int ui;
@@ -50,3 +55,7 @@ static void __cdecl init(void)
   __stack_chk_guard = 0xdeadbeef;
 #endif
 }
+
+#if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
+#pragma GCC diagnostic pop
+#endif
