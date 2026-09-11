@@ -33,8 +33,8 @@
 /**
  * Test Summary:
  *
- * This test is equivalent to `mutex1r.c`, except it uses statically initialized
- * `pthread_mutex_t` object.
+ * This test is equivalent to `recursive-basic.c`, except it uses statically
+ * initialized `pthread_mutex_t` object.
  */
 
 int main(void)

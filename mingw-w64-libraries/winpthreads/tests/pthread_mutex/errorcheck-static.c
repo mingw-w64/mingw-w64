@@ -33,26 +33,20 @@
 /**
  * Test Summary:
  *
- * This test is equivalent to `mutex1.c`, except it uses statically initialized
- * `pthread_mutex_t` object.
+ * This test is equivalent to `errorcheck-basic.c`, except it uses statically
+ * initialized `pthread_mutex_t` object.
  */
 
 int main(void)
 {
-  pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+  pthread_mutex_t mutex = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER;
 
   assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_mutex_lock(&mutex) == EDEADLK);
   assert(pthread_mutex_trylock(&mutex) == EBUSY);
   assert(pthread_mutex_destroy(&mutex) == EBUSY);
   assert(pthread_mutex_unlock(&mutex) == 0);
-  /**
-   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
-   * not owned by the calling thread is undefined behavior.
-   *
-   * Our implementation for NORMAL mutexes does not check ownership at all,
-   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
-   */
-  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_unlock(&mutex) == EPERM);
   assert(pthread_mutex_destroy(&mutex) == 0);
   assert(mutex == (pthread_mutex_t)0);
   assert(pthread_mutex_lock(&mutex) == EINVAL);

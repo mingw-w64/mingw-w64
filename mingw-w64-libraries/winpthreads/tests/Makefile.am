@@ -110,36 +110,36 @@ check_PROGRAMS =               \
 	pthread_misc/stress1       \
 	pthread_misc/valid1        \
 	pthread_misc/valid2        \
-	pthread_mutex/mutex1       \
-	pthread_mutex/mutex1e      \
-	pthread_mutex/mutex1n      \
-	pthread_mutex/mutex1r      \
-	pthread_mutex/mutex2       \
-	pthread_mutex/mutex2e      \
-	pthread_mutex/mutex2r      \
-	pthread_mutex/mutex3       \
-	pthread_mutex/mutex3e      \
-	pthread_mutex/mutex3r      \
-	pthread_mutex/mutex4       \
-	pthread_mutex/mutex4e      \
-	pthread_mutex/mutex4n      \
-	pthread_mutex/mutex4r      \
-	pthread_mutex/mutex5       \
-	pthread_mutex/mutex6       \
-	pthread_mutex/mutex6e      \
-	pthread_mutex/mutex6es     \
-	pthread_mutex/mutex6n      \
-	pthread_mutex/mutex6r      \
-	pthread_mutex/mutex6rs     \
-	pthread_mutex/mutex6s      \
-	pthread_mutex/mutex7       \
-	pthread_mutex/mutex7e      \
-	pthread_mutex/mutex7n      \
-	pthread_mutex/mutex7r      \
-	pthread_mutex/mutex8       \
-	pthread_mutex/mutex8e      \
-	pthread_mutex/mutex8n      \
-	pthread_mutex/mutex8r      \
+	pthread_mutex/default-basic                    \
+	pthread_mutex/default-lock-recursive           \
+	pthread_mutex/default-static                   \
+	pthread_mutex/default-static-lock-recursive    \
+	pthread_mutex/default-timedlock                \
+	pthread_mutex/default-trylock                  \
+	pthread_mutex/default-trylock-recursive        \
+	pthread_mutex/default-unlock                   \
+	pthread_mutex/errorcheck-basic                 \
+	pthread_mutex/errorcheck-lock-recursive        \
+	pthread_mutex/errorcheck-static                \
+	pthread_mutex/errorcheck-static-lock-recursive \
+	pthread_mutex/errorcheck-timedlock             \
+	pthread_mutex/errorcheck-trylock               \
+	pthread_mutex/errorcheck-trylock-recursive     \
+	pthread_mutex/errorcheck-unlock                \
+	pthread_mutex/mutex-types                      \
+	pthread_mutex/normal-basic                     \
+	pthread_mutex/normal-lock-recursive            \
+	pthread_mutex/normal-timedlock                 \
+	pthread_mutex/normal-trylock-recursive         \
+	pthread_mutex/normal-unlock                    \
+	pthread_mutex/recursive-basic                  \
+	pthread_mutex/recursive-lock-recursive         \
+	pthread_mutex/recursive-static                 \
+	pthread_mutex/recursive-static-lock-recursive  \
+	pthread_mutex/recursive-timedlock              \
+	pthread_mutex/recursive-trylock                \
+	pthread_mutex/recursive-trylock-recursive      \
+	pthread_mutex/recursive-unlock                 \
 	pthread_once/once1         \
 	pthread_once/once2         \
 	pthread_once/once3         \
