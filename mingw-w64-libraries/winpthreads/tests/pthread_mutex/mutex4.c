@@ -82,7 +82,7 @@ int main(void)
    * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
    * not owned by the calling thread is undefined behavior.
    *
-   * Out implementation for NORMAL mutexes does not check ownership at all,
+   * Our implementation for NORMAL mutexes does not check ownership at all,
    * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
    */
   assert(pthread_mutex_unlock(&mutex1) == 0);
@@ -102,7 +102,7 @@ int main(void)
    * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
    * not owned by the calling thread is undefined behavior.
    *
-   * Out implementation for NORMAL mutexes does not check ownership at all,
+   * Our implementation for NORMAL mutexes does not check ownership at all,
    * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
    */
   assert(pthread_mutex_unlock(&mutex1) == 0);
