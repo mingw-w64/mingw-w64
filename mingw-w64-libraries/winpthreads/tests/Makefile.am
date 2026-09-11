@@ -129,7 +129,10 @@ check_PROGRAMS =               \
 	pthread_mutex/mutex-types                      \
 	pthread_mutex/normal-basic                     \
 	pthread_mutex/normal-lock-recursive            \
+	pthread_mutex/normal-static                    \
+	pthread_mutex/normal-static-lock-recursive     \
 	pthread_mutex/normal-timedlock                 \
+	pthread_mutex/normal-trylock                   \
 	pthread_mutex/normal-trylock-recursive         \
 	pthread_mutex/normal-unlock                    \
 	pthread_mutex/recursive-basic                  \
