@@ -1,14 +1,10 @@
 /*
- * mutex3r.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,40 +26,41 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Declare a static mutex object, lock it, trylock it,
- * and then unlock it again.
- *
- * Depends on API functions:
- *  pthread_mutex_lock()
- *  pthread_mutex_trylock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
 
-pthread_mutex_t mutex1 = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
+/**
+ * Test Summary:
+ *
+ * Main thread M creates mutex L with type `PTHREAD_MUTEX_RECURSIVE` and
+ * locks it.
+ *
+ * Thread A attempts to lock L; since M owns L, call to `pthread_mutex_trylock`
+ * must fail with EBUSY.
+ *
+ * Thread M unlocks and destroys L.
+ */
 
-static int washere = 0;
-
-void *func(void *arg)
+static void *ThreadA(void *arg)
 {
-  assert(pthread_mutex_trylock(&mutex1) == EBUSY);
-  washere = 1;
-  return 0;
+  pthread_mutex_t *mutex = arg;
+  assert(pthread_mutex_trylock(mutex) == EBUSY);
+  return arg;
 }
 
 int main(void)
 {
-  pthread_t t;
+  pthread_mutex_t mutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
+  pthread_t thread;
+  void *result;
 
-  assert(pthread_mutex_lock(&mutex1) == 0);
-  assert(pthread_create(&t, NULL, func, NULL) == 0);
-  assert(pthread_join(t, NULL) == 0);
-  assert(pthread_mutex_unlock(&mutex1) == 0);
-  assert(washere == 1);
+  assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
+  assert(pthread_join(thread, &result) == 0);
+  assert(result == &mutex);
+  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_destroy(&mutex) == 0);
 
   return 0;
 }
