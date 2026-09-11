@@ -61,18 +61,15 @@ typedef struct {
                             ID of the owning thread if the mutex is locked. */
 } mutex_impl_t;
 
-/* Whether a mutex is still a static initializer (not a pointer to
-   a mutex_impl_t). */
-static BOOL
-is_static_initializer(pthread_mutex_t m)
-{ 
+/* Whether a mutex is still a static initializer (not a pointer to a mutex_impl_t). */
+static BOOL is_static_initializer(pthread_mutex_t m)
+{
   return (uintptr_t)m >= (uintptr_t)-3;
 }
 
 /* Create and return the implementation part of a mutex from a static
    initialiser. Return NULL on out-of-memory error. */
-static WINPTHREADS_ATTRIBUTE((noinline)) mutex_impl_t *
-mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
+static WINPTHREADS_ATTRIBUTE((noinline)) mutex_impl_t *mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
 {
   mutex_impl_t *new_mi = malloc(sizeof(mutex_impl_t));
   if (new_mi == NULL)
@@ -95,8 +92,7 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
 
 /* Return the implementation part of a mutex, creating it if necessary.
    Return NULL on out-of-memory error. */
-static WINPTHREADS_INLINE mutex_impl_t *
-mutex_impl(pthread_mutex_t *m)
+static WINPTHREADS_INLINE mutex_impl_t *mutex_impl(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
   if (is_static_initializer((pthread_mutex_t)mi)) {
@@ -111,8 +107,7 @@ mutex_impl(pthread_mutex_t *m)
 
 /* Lock a mutex. Give up after 'timeout' ms (with ETIMEDOUT),
    or never if timeout=INFINITE. */
-static WINPTHREADS_INLINE int
-pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
+static WINPTHREADS_INLINE int pthread_mutex_lock_intern(pthread_mutex_t *m, DWORD timeout)
 {
   mutex_impl_t *mi = mutex_impl(m);
   if (mi == NULL)
@@ -164,7 +159,6 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
          that we are woken up but someone else grabs the lock before us,
          and we have to go back to sleep again. In that case, the total
          wait may be longer than expected. */
-
       unsigned r = _pthread_wait_for_single_object(mi->event, timeout);
       switch (r) {
       case WAIT_TIMEOUT:
@@ -183,8 +177,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
   return 0;
 }
 
-int
-pthread_mutex_lock (pthread_mutex_t *m)
+int pthread_mutex_lock(pthread_mutex_t *m)
 {
   return pthread_mutex_lock_intern (m, INFINITE);
 }
@@ -261,14 +254,12 @@ int pthread_mutex_trylock(pthread_mutex_t *m)
   }
 }
 
-int
-pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
+int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
   pthread_mutex_t init = PTHREAD_MUTEX_INITIALIZER;
   if (a != NULL) {
     int pshared;
-    if (pthread_mutexattr_getpshared(a, &pshared) == 0
-        && pshared == PTHREAD_PROCESS_SHARED)
+    if (pthread_mutexattr_getpshared(a, &pshared) == 0 && pshared == PTHREAD_PROCESS_SHARED)
       return ENOSYS;
 
     int type;
@@ -290,7 +281,7 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
   return 0;
 }
 
-int pthread_mutex_destroy (pthread_mutex_t *m)
+int pthread_mutex_destroy(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
   if (!is_static_initializer((pthread_mutex_t)mi)) {
@@ -330,69 +321,78 @@ int pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *type)
 
 int pthread_mutexattr_settype(pthread_mutexattr_t *a, int type)
 {
-    if (!a || (type != PTHREAD_MUTEX_NORMAL && type != PTHREAD_MUTEX_RECURSIVE && type != PTHREAD_MUTEX_ERRORCHECK))
-      return EINVAL;
-    *a &= ~3;
-    *a |= type;
+  if (!a)
+    return EINVAL;
 
-    return 0;
+  if (type != PTHREAD_MUTEX_NORMAL && type != PTHREAD_MUTEX_RECURSIVE && type != PTHREAD_MUTEX_ERRORCHECK)
+    return EINVAL;
+
+  *a &= ~3;
+  *a |= type;
+
+  return 0;
 }
 
 int pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *type)
 {
-    if (!a || !type)
-      return EINVAL;
-    *type = (*a & 4 ? PTHREAD_PROCESS_SHARED : PTHREAD_PROCESS_PRIVATE);
+  if (!a || !type)
+    return EINVAL;
 
-    return 0;
+  *type = (*a & 4 ? PTHREAD_PROCESS_SHARED : PTHREAD_PROCESS_PRIVATE);
+
+  return 0;
 }
 
-int pthread_mutexattr_setpshared(pthread_mutexattr_t * a, int type)
+int pthread_mutexattr_setpshared(pthread_mutexattr_t *a, int type)
 {
-    int r = 0;
-    if (!a || (type != PTHREAD_PROCESS_SHARED
-	&& type != PTHREAD_PROCESS_PRIVATE))
-      return EINVAL;
-    if (type == PTHREAD_PROCESS_SHARED)
-    {
-      type = PTHREAD_PROCESS_PRIVATE;
-      r = ENOSYS;
-    }
-    type = (type == PTHREAD_PROCESS_SHARED ? 4 : 0);
+  int r = 0;
 
-    *a &= ~4;
-    *a |= type;
+  if (!a)
+    return EINVAL;
 
-    return r;
+  if (type != PTHREAD_PROCESS_SHARED && type != PTHREAD_PROCESS_PRIVATE)
+    return EINVAL;
+
+  if (type == PTHREAD_PROCESS_SHARED) {
+    type = PTHREAD_PROCESS_PRIVATE;
+    r = ENOSYS;
+  }
+
+  type = (type == PTHREAD_PROCESS_SHARED ? 4 : 0);
+
+  *a &= ~4;
+  *a |= type;
+
+  return r;
 }
 
 int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *type)
 {
-    *type = *a & (8 + 16);
-
-    return 0;
+  *type = *a & (8 + 16);
+  return 0;
 }
 
 int pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int type)
 {
-    if ((type & (8 + 16)) != 8 + 16) return EINVAL;
+  if ((type & (8 + 16)) != 8 + 16)
+    return EINVAL;
 
-    *a &= ~(8 + 16);
-    *a |= type;
+  *a &= ~(8 + 16);
+  *a |= type;
 
-    return 0;
+  return 0;
 }
 
-int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int * prio)
+int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int *prio)
 {
-    *prio = *a / PTHREAD_PRIO_MULT;
-    return 0;
+  *prio = *a / PTHREAD_PRIO_MULT;
+  return 0;
 }
 
 int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int prio)
 {
-    *a &= (PTHREAD_PRIO_MULT - 1);
-    *a += prio * PTHREAD_PRIO_MULT;
+  *a &= (PTHREAD_PRIO_MULT - 1);
+  *a += prio * PTHREAD_PRIO_MULT;
 
-    return 0;
+  return 0;
 }
