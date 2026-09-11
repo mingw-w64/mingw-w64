@@ -38,6 +38,52 @@
 /* internal header files */
 #include "misc.h"
 
+/**
+ * Reference:
+ *
+ * pthread_mutex_init(), pthread_mutex_destroy():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutex_destroy.html>
+ *
+ * pthread_mutex_lock(), pthread_mutex_trylock(), pthread_mutex_unlock():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutex_lock.html>
+ *
+ * pthread_mutex_timedlock(), pthread_mutex_clocklock():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutex_clocklock.html>
+ *
+ * pthread_mutex_getprioceiling(), pthread_mutex_setprioceiling():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutex_getprioceiling.html>
+ *
+ * pthread_mutex_consistent():
+ * <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutex_consistent.html>
+ *
+ * pthread_mutexattr_init(), pthread_mutexattr_destroy():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_destroy.html>
+ *
+ * pthread_mutexattr_gettype(), pthread_mutexattr_settype():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_gettype.html>
+ *
+ * pthread_mutexattr_getpshared(), pthread_mutexattr_setpshared():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_getpshared.html>
+ *
+ * pthread_mutexattr_getprotocol(), pthread_mutexattr_setprotocol():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_getprotocol.html>
+ *
+ * pthread_mutexattr_getprioceiling(), pthread_mutexattr_setprioceiling():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_getprioceiling.html>
+ *
+ * pthread_mutexattr_getrobust(), pthread_mutexattr_setrobust():
+ *  <https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/pthread_mutexattr_getrobust.html>
+ *
+ * The following functions are not implemented:
+ *
+ * - pthread_mutex_clocklock()
+ * - pthread_mutex_getprioceiling()
+ * - pthread_mutex_setprioceiling()
+ * - pthread_mutex_consistent()
+ * - pthread_mutexattr_getrobust()
+ * - pthread_mutexattr_setrobust()
+ */
+
 typedef enum {
   Unlocked,        /* Not locked. */
   Locked,          /* Locked but without waiters. */
