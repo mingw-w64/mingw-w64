@@ -415,13 +415,53 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 
 int pthread_mutex_destroy(pthread_mutex_t *m)
 {
-  mutex_impl_t *mi = (mutex_impl_t *)*m;
-  if (!STATIC_MUTEX_INITIALIZER(mi)) {
-    CloseHandle(mi->event);
-    free(mi);
-    /* Sabotage attempts to re-use the mutex before initialising it again. */
-    *m = (pthread_mutex_t)NULL;
+  /**
+   * POSIX:
+   *
+   * If an implementation detects that the value specified by the mutex argument
+   * to pthread_mutex_destroy() does not refer to an initialized mutex, it is
+   * recommended that the function should fail and report an [EINVAL] error.
+   */
+  if (unlikely (m == NULL)) {
+    return EINVAL;
   }
+
+  mutex_impl_t *mi = (mutex_impl_t *)*m;
+
+  if (unlikely (mi == NULL)) {
+    return EINVAL;
+  }
+
+  /**
+   * If `m` points to a static initializer, attempt to immediately invalidate
+   * it in order to reduce window for other functions to attempt using it.
+   */
+  if (unlikely (STATIC_MUTEX_INITIALIZER (mi))) {
+    mutex_impl_t *mutex = InterlockedCompareExchangePointer ((void **)m, NULL, mi);
+
+    if (likely (mutex == mi) || unlikely (mutex == NULL)) {
+      return 0;
+    }
+
+    mi = mutex;
+  }
+
+  /**
+   * POSIX:
+   *
+   * If an implementation detects that the value specified by the mutex
+   * argument to pthread_mutex_destroy() refers to a locked mutex or a mutex
+   * that is referenced, it is recommended that the function should fail and
+   * report an [EBUSY] error.
+   */
+  if (InterlockedCompareExchange ((LONG *)&mi->state, Locked, Unlocked) != Unlocked) {
+    return EBUSY;
+  }
+
+  InterlockedExchangePointer ((void **)m, NULL);
+
+  CloseHandle (mi->event);
+  free (mi);
 
   return 0;
 }
