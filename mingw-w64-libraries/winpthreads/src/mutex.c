@@ -117,27 +117,35 @@ typedef struct {
  */
 #define STATIC_MUTEX_INITIALIZER(m) ((uintptr_t)(m) >= (uintptr_t)-3)
 
-/* Return the implementation part of a mutex, creating it if necessary.
-   Return NULL on out-of-memory error. */
-static WINPTHREADS_INLINE mutex_impl_t *mutex_impl(pthread_mutex_t *m)
+/**
+ * Obtain pointer to `mutex_impl_t` structure pointed to by `m`.
+ *
+ * If `m` points to statically initialzied `pthread_mutex_t` object,
+ * allocate `mutex_impl_t` structure and store its address in `*m`.
+ *
+ * On success, stores pointer to `mutex_impl_t` structure in `*mi`.
+ *
+ * Returns zero on success and an error-code on failure.
+ */
+static WINPTHREADS_INLINE int mutex_impl(pthread_mutex_t *m, mutex_impl_t **mi)
 {
-  mutex_impl_t *mi = (mutex_impl_t *)*m;
+  *mi = (mutex_impl_t *)*m;
 
   /**
    * We need to avoid race condition when more than one thread attempts to use
    * same statically initialized `pthread_mutex_t` object at the same time.
    *
-   * Store newly initialized mutex in local variable `mi`, and only then store
-   * it in `m`.
+   * Store newly initialized mutex in `mi`, which is a local variable supplied
+   * by the caller, and only then store it in `m`.
    *
    * If some other thread was faster then us, destroy newly created mutex
    * and use mutex pointed to by `m`.
    */
-  if (unlikely (STATIC_MUTEX_INITIALIZER (mi))) {
+  if (unlikely (STATIC_MUTEX_INITIALIZER (*mi))) {
     pthread_mutexattr_t mutexAttr;
     int mutexType;
 
-    mutex_impl_t *volatile initializer = mi;
+    mutex_impl_t *volatile initializer = *mi;
 
     switch ((pthread_mutex_t)initializer) {
       case PTHREAD_NORMAL_MUTEX_INITIALIZER:
@@ -156,38 +164,47 @@ static WINPTHREADS_INLINE mutex_impl_t *mutex_impl(pthread_mutex_t *m)
     int error_code = pthread_mutexattr_init (&mutexAttr);
 
     if (error_code) {
-      return NULL;
+      return error_code;
     }
 
     pthread_mutexattr_settype (&mutexAttr, mutexType);
-    error_code = pthread_mutex_init ((pthread_mutex_t *)&mi, &mutexAttr);
+    error_code = pthread_mutex_init ((pthread_mutex_t *)mi, &mutexAttr);
     pthread_mutexattr_destroy (&mutexAttr);
 
     if (error_code) {
-      return NULL;
+      return error_code;
     }
 
-    void *mutex = InterlockedCompareExchangePointer ((void **)m, mi, initializer);
+    void *mutex = InterlockedCompareExchangePointer ((void **)m, *mi, initializer);
 
     /**
      * Some other thread was faster than us.
      */
     if (unlikely (mutex != initializer)) {
-      pthread_mutex_destroy ((pthread_mutex_t *)&mi);
-      mi = mutex;
+      pthread_mutex_destroy ((pthread_mutex_t *)mi);
+      *mi = mutex;
     }
   }
 
-  return mi;
+  if (unlikely (*mi == NULL)) {
+    return EINVAL;
+  }
+
+  return 0;
 }
 
 /* Lock a mutex. Give up after 'timeout' ms (with ETIMEDOUT),
    or never if timeout=INFINITE. */
 static WINPTHREADS_INLINE int pthread_mutex_lock_intern(pthread_mutex_t *m, DWORD timeout)
 {
-  mutex_impl_t *mi = mutex_impl(m);
-  if (mi == NULL)
-    return ENOMEM;
+  mutex_impl_t *mi = NULL;
+
+  int error_code = mutex_impl (m, &mi);
+
+  if (error_code) {
+    return error_code;
+  }
+
   mutex_state_t old_state = InterlockedExchange((long *)&mi->state, Locked);
   if (unlikely(old_state != Unlocked)) {
     /* The mutex is already locked. */
@@ -271,11 +288,13 @@ int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts)
 
 int pthread_mutex_unlock(pthread_mutex_t *m)
 {
-  /* Here m might an initialiser of an error-checking or recursive mutex, in
-     which case the behaviour is well-defined, so we can't skip this check. */
-  mutex_impl_t *mi = mutex_impl(m);
-  if (mi == NULL)
-    return ENOMEM;
+  mutex_impl_t *mi = NULL;
+
+  int error_code = mutex_impl (m, &mi);
+
+  if (error_code) {
+    return error_code;
+  }
 
   if (unlikely(mi->type != Normal)) {
     if (mi->state == Unlocked)
@@ -297,9 +316,13 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
 
 int pthread_mutex_trylock(pthread_mutex_t *m)
 {
-  mutex_impl_t *mi = mutex_impl(m);
-  if (mi == NULL)
-    return ENOMEM;
+  mutex_impl_t *mi = NULL;
+
+  int error_code = mutex_impl (m, &mi);
+
+  if (error_code) {
+    return error_code;
+  }
 
   if (InterlockedCompareExchange((long *)&mi->state, Locked, Unlocked) == Unlocked) {
     if (mi->type != Normal)
