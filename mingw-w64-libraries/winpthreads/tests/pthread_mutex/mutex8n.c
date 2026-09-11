@@ -29,16 +29,16 @@
  * Timed thread should timeout.
  *
  * Depends on API functions:
- *	pthread_create()
- *	pthread_mutexattr_init()
- *	pthread_mutexattr_destroy()
- *	pthread_mutexattr_settype()
- *	pthread_mutexattr_gettype()
- *	pthread_mutex_init()
- *	pthread_mutex_destroy()
- *	pthread_mutex_lock()
- *	pthread_mutex_timedlock()
- *	pthread_mutex_unlock()
+ *  pthread_create()
+ *  pthread_mutexattr_init()
+ *  pthread_mutexattr_destroy()
+ *  pthread_mutexattr_settype()
+ *  pthread_mutexattr_gettype()
+ *  pthread_mutex_init()
+ *  pthread_mutex_destroy()
+ *  pthread_mutex_lock()
+ *  pthread_mutex_timedlock()
+ *  pthread_mutex_unlock()
  */
 
 #include "test.h"
@@ -49,28 +49,24 @@ static int lockCount = 0;
 static pthread_mutex_t mutex;
 static pthread_mutexattr_t mxAttr;
 
-void * locker(void * arg)
+void *locker(void *arg)
 {
   struct timespec abstime = { 0, 0 };
   struct _timeb currSysTime;
   const DWORD NANOSEC_PER_MILLISEC = 1000000;
 
   _ftime(&currSysTime);
-
   abstime.tv_sec = currSysTime.time;
   abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
-
   abstime.tv_sec += 1;
 
   assert(pthread_mutex_timedlock(&mutex, &abstime) == ETIMEDOUT);
-
   lockCount++;
 
   return 0;
 }
 
-int
-main()
+int main(void)
 {
   pthread_t t;
   int mxType = -1;
@@ -81,17 +77,13 @@ main()
   assert(mxType == PTHREAD_MUTEX_NORMAL);
 
   assert(pthread_mutex_init(&mutex, &mxAttr) == 0);
-
   assert(pthread_mutex_lock(&mutex) == 0);
 
   assert(pthread_create(&t, NULL, locker, NULL) == 0);
-
   Sleep(2000);
-
   assert(lockCount == 1);
 
   assert(pthread_mutex_unlock(&mutex) == 0);
 
   return 0;
 }
-
