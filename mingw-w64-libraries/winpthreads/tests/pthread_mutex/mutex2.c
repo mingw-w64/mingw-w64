@@ -1,14 +1,10 @@
 /*
- * mutex2.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,39 +26,36 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Declare a static mutex object, lock it,
- * and then unlock it again.
- *
- * Depends on API functions:
- *  pthread_mutex_lock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
 
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+/**
+ * Test Summary:
+ *
+ * This test is equivalent to `mutex1.c`, except it uses statically initialized
+ * `pthread_mutex_t` object.
+ */
 
 int main(void)
 {
-  assert(mutex == PTHREAD_MUTEX_INITIALIZER);
-  fprintf (stderr, "Try lock\n");
+  pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
   assert(pthread_mutex_lock(&mutex) == 0);
-  fprintf(stderr, "Mutex locked\n");
-
-  assert(mutex != PTHREAD_MUTEX_INITIALIZER);
-  assert(mutex);
-
+  assert(pthread_mutex_trylock(&mutex) == EBUSY);
+  assert(pthread_mutex_destroy(&mutex) == EBUSY);
   assert(pthread_mutex_unlock(&mutex) == 0);
-  fprintf(stderr, "Mutex unlocked\n");
-
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Our implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
+  assert(pthread_mutex_unlock(&mutex) == 0);
   assert(pthread_mutex_destroy(&mutex) == 0);
-  fprintf(stderr, "Mutex destroyed\n");
-
-  assert(!mutex);
+  assert(mutex == (pthread_mutex_t)0);
+  assert(pthread_mutex_lock(&mutex) == EINVAL);
 
   return 0;
 }
