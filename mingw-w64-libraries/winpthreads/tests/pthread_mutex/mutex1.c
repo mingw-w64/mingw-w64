@@ -1,14 +1,10 @@
 /*
- * mutex1.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,31 +26,40 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Create a simple mutex object, lock it, and then unlock it again.
- * This is the simplest test of the pthread mutex family that we can do.
- *
- * Depends on API functions:
- *  pthread_mutex_init()
- *  pthread_mutex_lock()
- *  pthread_mutex_unlock()
- *  pthread_mutex_destroy()
  */
 
 #include "test.h"
 
+/**
+ * Test Summary:
+ *
+ * Create default-type mutex object and test basic assumptions about mutex
+ * ownership and lifetime.
+ *
+ * In winpthreads, default mutex type corresponds to `PTHREAD_MUTEX_NORMAL`.
+ */
+
 int main(void)
 {
-  static pthread_mutex_t mutex;
+  pthread_mutex_t mutex;
 
   assert(pthread_mutex_init(&mutex, NULL) == 0);
-  assert(mutex);
+  assert(mutex != (pthread_mutex_t)0);
   assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_mutex_trylock(&mutex) == EBUSY);
+  assert(pthread_mutex_destroy(&mutex) == EBUSY);
+  assert(pthread_mutex_unlock(&mutex) == 0);
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Our implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
   assert(pthread_mutex_unlock(&mutex) == 0);
   assert(pthread_mutex_destroy(&mutex) == 0);
-  assert(!mutex);
+  assert(mutex == (pthread_mutex_t)0);
+  assert(pthread_mutex_lock(&mutex) == EINVAL);
 
   return 0;
 }

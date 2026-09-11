@@ -1,14 +1,10 @@
 /*
- * mutex1r.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,37 +26,38 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * As for mutex1.c but with type set to PTHREAD_MUTEX_RECURSIVE.
- *
- * Create a simple mutex object, lock it, unlock it, then destroy it.
- * This is the simplest test of the pthread mutex family that we can do.
- *
- * Depends on API functions:
- *  pthread_mutexattr_settype()
- *  pthread_mutex_init()
- *  pthread_mutex_destroy()
  */
 
 #include "test.h"
 
+/**
+ * Test Summary:
+ *
+ * Create mutex object with type `PTHREAD_MUTEX_RECURSIVE` and test basic
+ * assumptions about mutex ownership and lifetime.
+ */
+
 int main(void)
 {
-  static pthread_mutexattr_t mxAttr;
+  pthread_mutexattr_t mutexAttr;
+  pthread_mutex_t mutex;
 
-  assert(pthread_mutexattr_init(&mxAttr) == 0);
-  assert(pthread_mutexattr_settype(&mxAttr, PTHREAD_MUTEX_RECURSIVE) == 0);
-
-  static pthread_mutex_t mutex;
-
-  assert(pthread_mutex_init(&mutex, &mxAttr) == 0);
-  assert(mutex);
+  assert(pthread_mutexattr_init(&mutexAttr) == 0);
+  assert(pthread_mutexattr_settype(&mutexAttr, PTHREAD_MUTEX_RECURSIVE) == 0);
+  assert(pthread_mutex_init(&mutex, &mutexAttr) == 0);
+  assert(mutex != (pthread_mutex_t)0);
   assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_mutex_trylock(&mutex) == 0);
+  assert(pthread_mutex_destroy(&mutex) == EBUSY);
   assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_unlock(&mutex) == EPERM);
   assert(pthread_mutex_destroy(&mutex) == 0);
-  assert(!mutex);
+  assert(mutex == (pthread_mutex_t)0);
+  assert(pthread_mutex_lock(&mutex) == EINVAL);
+  assert(pthread_mutexattr_destroy(&mutexAttr) == 0);
 
   return 0;
 }
