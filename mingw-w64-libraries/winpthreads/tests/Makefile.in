@@ -145,22 +145,42 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_misc/reuse2$(EXEEXT) pthread_misc/self1$(EXEEXT) \
 	pthread_misc/self2$(EXEEXT) pthread_misc/stress1$(EXEEXT) \
 	pthread_misc/valid1$(EXEEXT) pthread_misc/valid2$(EXEEXT) \
-	pthread_mutex/mutex1$(EXEEXT) pthread_mutex/mutex1e$(EXEEXT) \
-	pthread_mutex/mutex1n$(EXEEXT) pthread_mutex/mutex1r$(EXEEXT) \
-	pthread_mutex/mutex2$(EXEEXT) pthread_mutex/mutex2e$(EXEEXT) \
-	pthread_mutex/mutex2r$(EXEEXT) pthread_mutex/mutex3$(EXEEXT) \
-	pthread_mutex/mutex3e$(EXEEXT) pthread_mutex/mutex3r$(EXEEXT) \
-	pthread_mutex/mutex4$(EXEEXT) pthread_mutex/mutex5$(EXEEXT) \
-	pthread_mutex/mutex6$(EXEEXT) pthread_mutex/mutex6e$(EXEEXT) \
-	pthread_mutex/mutex6es$(EXEEXT) pthread_mutex/mutex6n$(EXEEXT) \
-	pthread_mutex/mutex6r$(EXEEXT) pthread_mutex/mutex6rs$(EXEEXT) \
-	pthread_mutex/mutex6s$(EXEEXT) pthread_mutex/mutex7$(EXEEXT) \
-	pthread_mutex/mutex7e$(EXEEXT) pthread_mutex/mutex7n$(EXEEXT) \
-	pthread_mutex/mutex7r$(EXEEXT) pthread_mutex/mutex8$(EXEEXT) \
-	pthread_mutex/mutex8e$(EXEEXT) pthread_mutex/mutex8n$(EXEEXT) \
-	pthread_mutex/mutex8r$(EXEEXT) pthread_once/once1$(EXEEXT) \
-	pthread_once/once2$(EXEEXT) pthread_once/once3$(EXEEXT) \
-	pthread_once/once4$(EXEEXT) pthread_rwlock/rwlock1$(EXEEXT) \
+	pthread_mutex/default-basic$(EXEEXT) \
+	pthread_mutex/default-lock-recursive$(EXEEXT) \
+	pthread_mutex/default-static$(EXEEXT) \
+	pthread_mutex/default-static-lock-recursive$(EXEEXT) \
+	pthread_mutex/default-timedlock$(EXEEXT) \
+	pthread_mutex/default-trylock$(EXEEXT) \
+	pthread_mutex/default-trylock-recursive$(EXEEXT) \
+	pthread_mutex/default-unlock$(EXEEXT) \
+	pthread_mutex/errorcheck-basic$(EXEEXT) \
+	pthread_mutex/errorcheck-lock-recursive$(EXEEXT) \
+	pthread_mutex/errorcheck-static$(EXEEXT) \
+	pthread_mutex/errorcheck-static-lock-recursive$(EXEEXT) \
+	pthread_mutex/errorcheck-timedlock$(EXEEXT) \
+	pthread_mutex/errorcheck-trylock$(EXEEXT) \
+	pthread_mutex/errorcheck-trylock-recursive$(EXEEXT) \
+	pthread_mutex/errorcheck-unlock$(EXEEXT) \
+	pthread_mutex/mutex-types$(EXEEXT) \
+	pthread_mutex/normal-basic$(EXEEXT) \
+	pthread_mutex/normal-lock-recursive$(EXEEXT) \
+	pthread_mutex/normal-static$(EXEEXT) \
+	pthread_mutex/normal-static-lock-recursive$(EXEEXT) \
+	pthread_mutex/normal-timedlock$(EXEEXT) \
+	pthread_mutex/normal-trylock$(EXEEXT) \
+	pthread_mutex/normal-trylock-recursive$(EXEEXT) \
+	pthread_mutex/normal-unlock$(EXEEXT) \
+	pthread_mutex/recursive-basic$(EXEEXT) \
+	pthread_mutex/recursive-lock-recursive$(EXEEXT) \
+	pthread_mutex/recursive-static$(EXEEXT) \
+	pthread_mutex/recursive-static-lock-recursive$(EXEEXT) \
+	pthread_mutex/recursive-timedlock$(EXEEXT) \
+	pthread_mutex/recursive-trylock$(EXEEXT) \
+	pthread_mutex/recursive-trylock-recursive$(EXEEXT) \
+	pthread_mutex/recursive-unlock$(EXEEXT) \
+	pthread_once/once1$(EXEEXT) pthread_once/once2$(EXEEXT) \
+	pthread_once/once3$(EXEEXT) pthread_once/once4$(EXEEXT) \
+	pthread_rwlock/rwlock1$(EXEEXT) \
 	pthread_rwlock/rwlock2$(EXEEXT) \
 	pthread_rwlock/rwlock2_t$(EXEEXT) \
 	pthread_rwlock/rwlock3$(EXEEXT) \
@@ -546,116 +566,229 @@ pthread_misc_valid2_SOURCES = pthread_misc/valid2.c
 pthread_misc_valid2_OBJECTS = pthread_misc/valid2.$(OBJEXT)
 pthread_misc_valid2_LDADD = $(LDADD)
 pthread_misc_valid2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex1_SOURCES = pthread_mutex/mutex1.c
-pthread_mutex_mutex1_OBJECTS = pthread_mutex/mutex1.$(OBJEXT)
-pthread_mutex_mutex1_LDADD = $(LDADD)
-pthread_mutex_mutex1_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex1e_SOURCES = pthread_mutex/mutex1e.c
-pthread_mutex_mutex1e_OBJECTS = pthread_mutex/mutex1e.$(OBJEXT)
-pthread_mutex_mutex1e_LDADD = $(LDADD)
-pthread_mutex_mutex1e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex1n_SOURCES = pthread_mutex/mutex1n.c
-pthread_mutex_mutex1n_OBJECTS = pthread_mutex/mutex1n.$(OBJEXT)
-pthread_mutex_mutex1n_LDADD = $(LDADD)
-pthread_mutex_mutex1n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex1r_SOURCES = pthread_mutex/mutex1r.c
-pthread_mutex_mutex1r_OBJECTS = pthread_mutex/mutex1r.$(OBJEXT)
-pthread_mutex_mutex1r_LDADD = $(LDADD)
-pthread_mutex_mutex1r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex2_SOURCES = pthread_mutex/mutex2.c
-pthread_mutex_mutex2_OBJECTS = pthread_mutex/mutex2.$(OBJEXT)
-pthread_mutex_mutex2_LDADD = $(LDADD)
-pthread_mutex_mutex2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex2e_SOURCES = pthread_mutex/mutex2e.c
-pthread_mutex_mutex2e_OBJECTS = pthread_mutex/mutex2e.$(OBJEXT)
-pthread_mutex_mutex2e_LDADD = $(LDADD)
-pthread_mutex_mutex2e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex2r_SOURCES = pthread_mutex/mutex2r.c
-pthread_mutex_mutex2r_OBJECTS = pthread_mutex/mutex2r.$(OBJEXT)
-pthread_mutex_mutex2r_LDADD = $(LDADD)
-pthread_mutex_mutex2r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex3_SOURCES = pthread_mutex/mutex3.c
-pthread_mutex_mutex3_OBJECTS = pthread_mutex/mutex3.$(OBJEXT)
-pthread_mutex_mutex3_LDADD = $(LDADD)
-pthread_mutex_mutex3_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex3e_SOURCES = pthread_mutex/mutex3e.c
-pthread_mutex_mutex3e_OBJECTS = pthread_mutex/mutex3e.$(OBJEXT)
-pthread_mutex_mutex3e_LDADD = $(LDADD)
-pthread_mutex_mutex3e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex3r_SOURCES = pthread_mutex/mutex3r.c
-pthread_mutex_mutex3r_OBJECTS = pthread_mutex/mutex3r.$(OBJEXT)
-pthread_mutex_mutex3r_LDADD = $(LDADD)
-pthread_mutex_mutex3r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex4_SOURCES = pthread_mutex/mutex4.c
-pthread_mutex_mutex4_OBJECTS = pthread_mutex/mutex4.$(OBJEXT)
-pthread_mutex_mutex4_LDADD = $(LDADD)
-pthread_mutex_mutex4_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex5_SOURCES = pthread_mutex/mutex5.c
-pthread_mutex_mutex5_OBJECTS = pthread_mutex/mutex5.$(OBJEXT)
-pthread_mutex_mutex5_LDADD = $(LDADD)
-pthread_mutex_mutex5_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6_SOURCES = pthread_mutex/mutex6.c
-pthread_mutex_mutex6_OBJECTS = pthread_mutex/mutex6.$(OBJEXT)
-pthread_mutex_mutex6_LDADD = $(LDADD)
-pthread_mutex_mutex6_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6e_SOURCES = pthread_mutex/mutex6e.c
-pthread_mutex_mutex6e_OBJECTS = pthread_mutex/mutex6e.$(OBJEXT)
-pthread_mutex_mutex6e_LDADD = $(LDADD)
-pthread_mutex_mutex6e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6es_SOURCES = pthread_mutex/mutex6es.c
-pthread_mutex_mutex6es_OBJECTS = pthread_mutex/mutex6es.$(OBJEXT)
-pthread_mutex_mutex6es_LDADD = $(LDADD)
-pthread_mutex_mutex6es_DEPENDENCIES =  \
+pthread_mutex_default_basic_SOURCES = pthread_mutex/default-basic.c
+pthread_mutex_default_basic_OBJECTS =  \
+	pthread_mutex/default-basic.$(OBJEXT)
+pthread_mutex_default_basic_LDADD = $(LDADD)
+pthread_mutex_default_basic_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6n_SOURCES = pthread_mutex/mutex6n.c
-pthread_mutex_mutex6n_OBJECTS = pthread_mutex/mutex6n.$(OBJEXT)
-pthread_mutex_mutex6n_LDADD = $(LDADD)
-pthread_mutex_mutex6n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6r_SOURCES = pthread_mutex/mutex6r.c
-pthread_mutex_mutex6r_OBJECTS = pthread_mutex/mutex6r.$(OBJEXT)
-pthread_mutex_mutex6r_LDADD = $(LDADD)
-pthread_mutex_mutex6r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6rs_SOURCES = pthread_mutex/mutex6rs.c
-pthread_mutex_mutex6rs_OBJECTS = pthread_mutex/mutex6rs.$(OBJEXT)
-pthread_mutex_mutex6rs_LDADD = $(LDADD)
-pthread_mutex_mutex6rs_DEPENDENCIES =  \
+pthread_mutex_default_lock_recursive_SOURCES =  \
+	pthread_mutex/default-lock-recursive.c
+pthread_mutex_default_lock_recursive_OBJECTS =  \
+	pthread_mutex/default-lock-recursive.$(OBJEXT)
+pthread_mutex_default_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_default_lock_recursive_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-pthread_mutex_mutex6s_SOURCES = pthread_mutex/mutex6s.c
-pthread_mutex_mutex6s_OBJECTS = pthread_mutex/mutex6s.$(OBJEXT)
-pthread_mutex_mutex6s_LDADD = $(LDADD)
-pthread_mutex_mutex6s_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex7_SOURCES = pthread_mutex/mutex7.c
-pthread_mutex_mutex7_OBJECTS = pthread_mutex/mutex7.$(OBJEXT)
-pthread_mutex_mutex7_LDADD = $(LDADD)
-pthread_mutex_mutex7_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex7e_SOURCES = pthread_mutex/mutex7e.c
-pthread_mutex_mutex7e_OBJECTS = pthread_mutex/mutex7e.$(OBJEXT)
-pthread_mutex_mutex7e_LDADD = $(LDADD)
-pthread_mutex_mutex7e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex7n_SOURCES = pthread_mutex/mutex7n.c
-pthread_mutex_mutex7n_OBJECTS = pthread_mutex/mutex7n.$(OBJEXT)
-pthread_mutex_mutex7n_LDADD = $(LDADD)
-pthread_mutex_mutex7n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex7r_SOURCES = pthread_mutex/mutex7r.c
-pthread_mutex_mutex7r_OBJECTS = pthread_mutex/mutex7r.$(OBJEXT)
-pthread_mutex_mutex7r_LDADD = $(LDADD)
-pthread_mutex_mutex7r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex8_SOURCES = pthread_mutex/mutex8.c
-pthread_mutex_mutex8_OBJECTS = pthread_mutex/mutex8.$(OBJEXT)
-pthread_mutex_mutex8_LDADD = $(LDADD)
-pthread_mutex_mutex8_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex8e_SOURCES = pthread_mutex/mutex8e.c
-pthread_mutex_mutex8e_OBJECTS = pthread_mutex/mutex8e.$(OBJEXT)
-pthread_mutex_mutex8e_LDADD = $(LDADD)
-pthread_mutex_mutex8e_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex8n_SOURCES = pthread_mutex/mutex8n.c
-pthread_mutex_mutex8n_OBJECTS = pthread_mutex/mutex8n.$(OBJEXT)
-pthread_mutex_mutex8n_LDADD = $(LDADD)
-pthread_mutex_mutex8n_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-pthread_mutex_mutex8r_SOURCES = pthread_mutex/mutex8r.c
-pthread_mutex_mutex8r_OBJECTS = pthread_mutex/mutex8r.$(OBJEXT)
-pthread_mutex_mutex8r_LDADD = $(LDADD)
-pthread_mutex_mutex8r_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_default_static_SOURCES = pthread_mutex/default-static.c
+pthread_mutex_default_static_OBJECTS =  \
+	pthread_mutex/default-static.$(OBJEXT)
+pthread_mutex_default_static_LDADD = $(LDADD)
+pthread_mutex_default_static_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_default_static_lock_recursive_SOURCES =  \
+	pthread_mutex/default-static-lock-recursive.c
+pthread_mutex_default_static_lock_recursive_OBJECTS =  \
+	pthread_mutex/default-static-lock-recursive.$(OBJEXT)
+pthread_mutex_default_static_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_default_static_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_default_timedlock_SOURCES =  \
+	pthread_mutex/default-timedlock.c
+pthread_mutex_default_timedlock_OBJECTS =  \
+	pthread_mutex/default-timedlock.$(OBJEXT)
+pthread_mutex_default_timedlock_LDADD = $(LDADD)
+pthread_mutex_default_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_default_trylock_SOURCES =  \
+	pthread_mutex/default-trylock.c
+pthread_mutex_default_trylock_OBJECTS =  \
+	pthread_mutex/default-trylock.$(OBJEXT)
+pthread_mutex_default_trylock_LDADD = $(LDADD)
+pthread_mutex_default_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_default_trylock_recursive_SOURCES =  \
+	pthread_mutex/default-trylock-recursive.c
+pthread_mutex_default_trylock_recursive_OBJECTS =  \
+	pthread_mutex/default-trylock-recursive.$(OBJEXT)
+pthread_mutex_default_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_default_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_default_unlock_SOURCES = pthread_mutex/default-unlock.c
+pthread_mutex_default_unlock_OBJECTS =  \
+	pthread_mutex/default-unlock.$(OBJEXT)
+pthread_mutex_default_unlock_LDADD = $(LDADD)
+pthread_mutex_default_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_basic_SOURCES =  \
+	pthread_mutex/errorcheck-basic.c
+pthread_mutex_errorcheck_basic_OBJECTS =  \
+	pthread_mutex/errorcheck-basic.$(OBJEXT)
+pthread_mutex_errorcheck_basic_LDADD = $(LDADD)
+pthread_mutex_errorcheck_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_lock_recursive_SOURCES =  \
+	pthread_mutex/errorcheck-lock-recursive.c
+pthread_mutex_errorcheck_lock_recursive_OBJECTS =  \
+	pthread_mutex/errorcheck-lock-recursive.$(OBJEXT)
+pthread_mutex_errorcheck_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_errorcheck_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_static_SOURCES =  \
+	pthread_mutex/errorcheck-static.c
+pthread_mutex_errorcheck_static_OBJECTS =  \
+	pthread_mutex/errorcheck-static.$(OBJEXT)
+pthread_mutex_errorcheck_static_LDADD = $(LDADD)
+pthread_mutex_errorcheck_static_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_static_lock_recursive_SOURCES =  \
+	pthread_mutex/errorcheck-static-lock-recursive.c
+pthread_mutex_errorcheck_static_lock_recursive_OBJECTS =  \
+	pthread_mutex/errorcheck-static-lock-recursive.$(OBJEXT)
+pthread_mutex_errorcheck_static_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_errorcheck_static_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_timedlock_SOURCES =  \
+	pthread_mutex/errorcheck-timedlock.c
+pthread_mutex_errorcheck_timedlock_OBJECTS =  \
+	pthread_mutex/errorcheck-timedlock.$(OBJEXT)
+pthread_mutex_errorcheck_timedlock_LDADD = $(LDADD)
+pthread_mutex_errorcheck_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_trylock_SOURCES =  \
+	pthread_mutex/errorcheck-trylock.c
+pthread_mutex_errorcheck_trylock_OBJECTS =  \
+	pthread_mutex/errorcheck-trylock.$(OBJEXT)
+pthread_mutex_errorcheck_trylock_LDADD = $(LDADD)
+pthread_mutex_errorcheck_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_trylock_recursive_SOURCES =  \
+	pthread_mutex/errorcheck-trylock-recursive.c
+pthread_mutex_errorcheck_trylock_recursive_OBJECTS =  \
+	pthread_mutex/errorcheck-trylock-recursive.$(OBJEXT)
+pthread_mutex_errorcheck_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_errorcheck_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_errorcheck_unlock_SOURCES =  \
+	pthread_mutex/errorcheck-unlock.c
+pthread_mutex_errorcheck_unlock_OBJECTS =  \
+	pthread_mutex/errorcheck-unlock.$(OBJEXT)
+pthread_mutex_errorcheck_unlock_LDADD = $(LDADD)
+pthread_mutex_errorcheck_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_mutex_types_SOURCES = pthread_mutex/mutex-types.c
+pthread_mutex_mutex_types_OBJECTS =  \
+	pthread_mutex/mutex-types.$(OBJEXT)
+pthread_mutex_mutex_types_LDADD = $(LDADD)
+pthread_mutex_mutex_types_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_basic_SOURCES = pthread_mutex/normal-basic.c
+pthread_mutex_normal_basic_OBJECTS =  \
+	pthread_mutex/normal-basic.$(OBJEXT)
+pthread_mutex_normal_basic_LDADD = $(LDADD)
+pthread_mutex_normal_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_lock_recursive_SOURCES =  \
+	pthread_mutex/normal-lock-recursive.c
+pthread_mutex_normal_lock_recursive_OBJECTS =  \
+	pthread_mutex/normal-lock-recursive.$(OBJEXT)
+pthread_mutex_normal_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_normal_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_static_SOURCES = pthread_mutex/normal-static.c
+pthread_mutex_normal_static_OBJECTS =  \
+	pthread_mutex/normal-static.$(OBJEXT)
+pthread_mutex_normal_static_LDADD = $(LDADD)
+pthread_mutex_normal_static_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_static_lock_recursive_SOURCES =  \
+	pthread_mutex/normal-static-lock-recursive.c
+pthread_mutex_normal_static_lock_recursive_OBJECTS =  \
+	pthread_mutex/normal-static-lock-recursive.$(OBJEXT)
+pthread_mutex_normal_static_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_normal_static_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_timedlock_SOURCES =  \
+	pthread_mutex/normal-timedlock.c
+pthread_mutex_normal_timedlock_OBJECTS =  \
+	pthread_mutex/normal-timedlock.$(OBJEXT)
+pthread_mutex_normal_timedlock_LDADD = $(LDADD)
+pthread_mutex_normal_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_trylock_SOURCES = pthread_mutex/normal-trylock.c
+pthread_mutex_normal_trylock_OBJECTS =  \
+	pthread_mutex/normal-trylock.$(OBJEXT)
+pthread_mutex_normal_trylock_LDADD = $(LDADD)
+pthread_mutex_normal_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_trylock_recursive_SOURCES =  \
+	pthread_mutex/normal-trylock-recursive.c
+pthread_mutex_normal_trylock_recursive_OBJECTS =  \
+	pthread_mutex/normal-trylock-recursive.$(OBJEXT)
+pthread_mutex_normal_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_normal_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_normal_unlock_SOURCES = pthread_mutex/normal-unlock.c
+pthread_mutex_normal_unlock_OBJECTS =  \
+	pthread_mutex/normal-unlock.$(OBJEXT)
+pthread_mutex_normal_unlock_LDADD = $(LDADD)
+pthread_mutex_normal_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_basic_SOURCES =  \
+	pthread_mutex/recursive-basic.c
+pthread_mutex_recursive_basic_OBJECTS =  \
+	pthread_mutex/recursive-basic.$(OBJEXT)
+pthread_mutex_recursive_basic_LDADD = $(LDADD)
+pthread_mutex_recursive_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_lock_recursive_SOURCES =  \
+	pthread_mutex/recursive-lock-recursive.c
+pthread_mutex_recursive_lock_recursive_OBJECTS =  \
+	pthread_mutex/recursive-lock-recursive.$(OBJEXT)
+pthread_mutex_recursive_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_recursive_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_static_SOURCES =  \
+	pthread_mutex/recursive-static.c
+pthread_mutex_recursive_static_OBJECTS =  \
+	pthread_mutex/recursive-static.$(OBJEXT)
+pthread_mutex_recursive_static_LDADD = $(LDADD)
+pthread_mutex_recursive_static_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_static_lock_recursive_SOURCES =  \
+	pthread_mutex/recursive-static-lock-recursive.c
+pthread_mutex_recursive_static_lock_recursive_OBJECTS =  \
+	pthread_mutex/recursive-static-lock-recursive.$(OBJEXT)
+pthread_mutex_recursive_static_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_recursive_static_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_timedlock_SOURCES =  \
+	pthread_mutex/recursive-timedlock.c
+pthread_mutex_recursive_timedlock_OBJECTS =  \
+	pthread_mutex/recursive-timedlock.$(OBJEXT)
+pthread_mutex_recursive_timedlock_LDADD = $(LDADD)
+pthread_mutex_recursive_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_trylock_SOURCES =  \
+	pthread_mutex/recursive-trylock.c
+pthread_mutex_recursive_trylock_OBJECTS =  \
+	pthread_mutex/recursive-trylock.$(OBJEXT)
+pthread_mutex_recursive_trylock_LDADD = $(LDADD)
+pthread_mutex_recursive_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_trylock_recursive_SOURCES =  \
+	pthread_mutex/recursive-trylock-recursive.c
+pthread_mutex_recursive_trylock_recursive_OBJECTS =  \
+	pthread_mutex/recursive-trylock-recursive.$(OBJEXT)
+pthread_mutex_recursive_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_recursive_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_recursive_unlock_SOURCES =  \
+	pthread_mutex/recursive-unlock.c
+pthread_mutex_recursive_unlock_OBJECTS =  \
+	pthread_mutex/recursive-unlock.$(OBJEXT)
+pthread_mutex_recursive_unlock_LDADD = $(LDADD)
+pthread_mutex_recursive_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
 pthread_once_once1_SOURCES = pthread_once/once1.c
 pthread_once_once1_OBJECTS = pthread_once/once1.$(OBJEXT)
 pthread_once_once1_LDADD = $(LDADD)
@@ -902,33 +1035,39 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_misc/$(DEPDIR)/stress1.Po \
 	pthread_misc/$(DEPDIR)/valid1.Po \
 	pthread_misc/$(DEPDIR)/valid2.Po \
-	pthread_mutex/$(DEPDIR)/mutex1.Po \
-	pthread_mutex/$(DEPDIR)/mutex1e.Po \
-	pthread_mutex/$(DEPDIR)/mutex1n.Po \
-	pthread_mutex/$(DEPDIR)/mutex1r.Po \
-	pthread_mutex/$(DEPDIR)/mutex2.Po \
-	pthread_mutex/$(DEPDIR)/mutex2e.Po \
-	pthread_mutex/$(DEPDIR)/mutex2r.Po \
-	pthread_mutex/$(DEPDIR)/mutex3.Po \
-	pthread_mutex/$(DEPDIR)/mutex3e.Po \
-	pthread_mutex/$(DEPDIR)/mutex3r.Po \
-	pthread_mutex/$(DEPDIR)/mutex4.Po \
-	pthread_mutex/$(DEPDIR)/mutex5.Po \
-	pthread_mutex/$(DEPDIR)/mutex6.Po \
-	pthread_mutex/$(DEPDIR)/mutex6e.Po \
-	pthread_mutex/$(DEPDIR)/mutex6es.Po \
-	pthread_mutex/$(DEPDIR)/mutex6n.Po \
-	pthread_mutex/$(DEPDIR)/mutex6r.Po \
-	pthread_mutex/$(DEPDIR)/mutex6rs.Po \
-	pthread_mutex/$(DEPDIR)/mutex6s.Po \
-	pthread_mutex/$(DEPDIR)/mutex7.Po \
-	pthread_mutex/$(DEPDIR)/mutex7e.Po \
-	pthread_mutex/$(DEPDIR)/mutex7n.Po \
-	pthread_mutex/$(DEPDIR)/mutex7r.Po \
-	pthread_mutex/$(DEPDIR)/mutex8.Po \
-	pthread_mutex/$(DEPDIR)/mutex8e.Po \
-	pthread_mutex/$(DEPDIR)/mutex8n.Po \
-	pthread_mutex/$(DEPDIR)/mutex8r.Po \
+	pthread_mutex/$(DEPDIR)/default-basic.Po \
+	pthread_mutex/$(DEPDIR)/default-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/default-static.Po \
+	pthread_mutex/$(DEPDIR)/default-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/default-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/default-trylock.Po \
+	pthread_mutex/$(DEPDIR)/default-unlock.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-basic.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-static-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-static.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-trylock.Po \
+	pthread_mutex/$(DEPDIR)/errorcheck-unlock.Po \
+	pthread_mutex/$(DEPDIR)/mutex-types.Po \
+	pthread_mutex/$(DEPDIR)/normal-basic.Po \
+	pthread_mutex/$(DEPDIR)/normal-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/normal-static-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/normal-static.Po \
+	pthread_mutex/$(DEPDIR)/normal-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/normal-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/normal-trylock.Po \
+	pthread_mutex/$(DEPDIR)/normal-unlock.Po \
+	pthread_mutex/$(DEPDIR)/recursive-basic.Po \
+	pthread_mutex/$(DEPDIR)/recursive-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/recursive-static-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/recursive-static.Po \
+	pthread_mutex/$(DEPDIR)/recursive-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/recursive-trylock.Po \
+	pthread_mutex/$(DEPDIR)/recursive-unlock.Po \
 	pthread_once/$(DEPDIR)/once1.Po \
 	pthread_once/$(DEPDIR)/once2.Po \
 	pthread_once/$(DEPDIR)/once3.Po \
@@ -1016,20 +1155,37 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
-	pthread_mutex/mutex1.c pthread_mutex/mutex1e.c \
-	pthread_mutex/mutex1n.c pthread_mutex/mutex1r.c \
-	pthread_mutex/mutex2.c pthread_mutex/mutex2e.c \
-	pthread_mutex/mutex2r.c pthread_mutex/mutex3.c \
-	pthread_mutex/mutex3e.c pthread_mutex/mutex3r.c \
-	pthread_mutex/mutex4.c pthread_mutex/mutex5.c \
-	pthread_mutex/mutex6.c pthread_mutex/mutex6e.c \
-	pthread_mutex/mutex6es.c pthread_mutex/mutex6n.c \
-	pthread_mutex/mutex6r.c pthread_mutex/mutex6rs.c \
-	pthread_mutex/mutex6s.c pthread_mutex/mutex7.c \
-	pthread_mutex/mutex7e.c pthread_mutex/mutex7n.c \
-	pthread_mutex/mutex7r.c pthread_mutex/mutex8.c \
-	pthread_mutex/mutex8e.c pthread_mutex/mutex8n.c \
-	pthread_mutex/mutex8r.c pthread_once/once1.c \
+	pthread_mutex/default-basic.c \
+	pthread_mutex/default-lock-recursive.c \
+	pthread_mutex/default-static.c \
+	pthread_mutex/default-static-lock-recursive.c \
+	pthread_mutex/default-timedlock.c \
+	pthread_mutex/default-trylock.c \
+	pthread_mutex/default-trylock-recursive.c \
+	pthread_mutex/default-unlock.c \
+	pthread_mutex/errorcheck-basic.c \
+	pthread_mutex/errorcheck-lock-recursive.c \
+	pthread_mutex/errorcheck-static.c \
+	pthread_mutex/errorcheck-static-lock-recursive.c \
+	pthread_mutex/errorcheck-timedlock.c \
+	pthread_mutex/errorcheck-trylock.c \
+	pthread_mutex/errorcheck-trylock-recursive.c \
+	pthread_mutex/errorcheck-unlock.c pthread_mutex/mutex-types.c \
+	pthread_mutex/normal-basic.c \
+	pthread_mutex/normal-lock-recursive.c \
+	pthread_mutex/normal-static.c \
+	pthread_mutex/normal-static-lock-recursive.c \
+	pthread_mutex/normal-timedlock.c \
+	pthread_mutex/normal-trylock.c \
+	pthread_mutex/normal-trylock-recursive.c \
+	pthread_mutex/normal-unlock.c pthread_mutex/recursive-basic.c \
+	pthread_mutex/recursive-lock-recursive.c \
+	pthread_mutex/recursive-static.c \
+	pthread_mutex/recursive-static-lock-recursive.c \
+	pthread_mutex/recursive-timedlock.c \
+	pthread_mutex/recursive-trylock.c \
+	pthread_mutex/recursive-trylock-recursive.c \
+	pthread_mutex/recursive-unlock.c pthread_once/once1.c \
 	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
 	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
 	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
@@ -1084,20 +1240,37 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
-	pthread_mutex/mutex1.c pthread_mutex/mutex1e.c \
-	pthread_mutex/mutex1n.c pthread_mutex/mutex1r.c \
-	pthread_mutex/mutex2.c pthread_mutex/mutex2e.c \
-	pthread_mutex/mutex2r.c pthread_mutex/mutex3.c \
-	pthread_mutex/mutex3e.c pthread_mutex/mutex3r.c \
-	pthread_mutex/mutex4.c pthread_mutex/mutex5.c \
-	pthread_mutex/mutex6.c pthread_mutex/mutex6e.c \
-	pthread_mutex/mutex6es.c pthread_mutex/mutex6n.c \
-	pthread_mutex/mutex6r.c pthread_mutex/mutex6rs.c \
-	pthread_mutex/mutex6s.c pthread_mutex/mutex7.c \
-	pthread_mutex/mutex7e.c pthread_mutex/mutex7n.c \
-	pthread_mutex/mutex7r.c pthread_mutex/mutex8.c \
-	pthread_mutex/mutex8e.c pthread_mutex/mutex8n.c \
-	pthread_mutex/mutex8r.c pthread_once/once1.c \
+	pthread_mutex/default-basic.c \
+	pthread_mutex/default-lock-recursive.c \
+	pthread_mutex/default-static.c \
+	pthread_mutex/default-static-lock-recursive.c \
+	pthread_mutex/default-timedlock.c \
+	pthread_mutex/default-trylock.c \
+	pthread_mutex/default-trylock-recursive.c \
+	pthread_mutex/default-unlock.c \
+	pthread_mutex/errorcheck-basic.c \
+	pthread_mutex/errorcheck-lock-recursive.c \
+	pthread_mutex/errorcheck-static.c \
+	pthread_mutex/errorcheck-static-lock-recursive.c \
+	pthread_mutex/errorcheck-timedlock.c \
+	pthread_mutex/errorcheck-trylock.c \
+	pthread_mutex/errorcheck-trylock-recursive.c \
+	pthread_mutex/errorcheck-unlock.c pthread_mutex/mutex-types.c \
+	pthread_mutex/normal-basic.c \
+	pthread_mutex/normal-lock-recursive.c \
+	pthread_mutex/normal-static.c \
+	pthread_mutex/normal-static-lock-recursive.c \
+	pthread_mutex/normal-timedlock.c \
+	pthread_mutex/normal-trylock.c \
+	pthread_mutex/normal-trylock-recursive.c \
+	pthread_mutex/normal-unlock.c pthread_mutex/recursive-basic.c \
+	pthread_mutex/recursive-lock-recursive.c \
+	pthread_mutex/recursive-static.c \
+	pthread_mutex/recursive-static-lock-recursive.c \
+	pthread_mutex/recursive-timedlock.c \
+	pthread_mutex/recursive-trylock.c \
+	pthread_mutex/recursive-trylock-recursive.c \
+	pthread_mutex/recursive-unlock.c pthread_once/once1.c \
 	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
 	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
 	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
@@ -2085,168 +2258,229 @@ pthread_mutex/$(am__dirstamp):
 pthread_mutex/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) pthread_mutex/$(DEPDIR)
 	@: > pthread_mutex/$(DEPDIR)/$(am__dirstamp)
-pthread_mutex/mutex1.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-basic.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex1$(EXEEXT): $(pthread_mutex_mutex1_OBJECTS) $(pthread_mutex_mutex1_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex1$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1_OBJECTS) $(pthread_mutex_mutex1_LDADD) $(LIBS)
-pthread_mutex/mutex1e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-basic$(EXEEXT): $(pthread_mutex_default_basic_OBJECTS) $(pthread_mutex_default_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_default_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_basic_OBJECTS) $(pthread_mutex_default_basic_LDADD) $(LIBS)
+pthread_mutex/default-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex1e$(EXEEXT): $(pthread_mutex_mutex1e_OBJECTS) $(pthread_mutex_mutex1e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex1e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1e_OBJECTS) $(pthread_mutex_mutex1e_LDADD) $(LIBS)
-pthread_mutex/mutex1n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-lock-recursive$(EXEEXT): $(pthread_mutex_default_lock_recursive_OBJECTS) $(pthread_mutex_default_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_default_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_lock_recursive_OBJECTS) $(pthread_mutex_default_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/default-static.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex1n$(EXEEXT): $(pthread_mutex_mutex1n_OBJECTS) $(pthread_mutex_mutex1n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex1n$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1n_OBJECTS) $(pthread_mutex_mutex1n_LDADD) $(LIBS)
-pthread_mutex/mutex1r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-static$(EXEEXT): $(pthread_mutex_default_static_OBJECTS) $(pthread_mutex_default_static_DEPENDENCIES) $(EXTRA_pthread_mutex_default_static_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-static$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_static_OBJECTS) $(pthread_mutex_default_static_LDADD) $(LIBS)
+pthread_mutex/default-static-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex1r$(EXEEXT): $(pthread_mutex_mutex1r_OBJECTS) $(pthread_mutex_mutex1r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex1r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex1r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex1r_OBJECTS) $(pthread_mutex_mutex1r_LDADD) $(LIBS)
-pthread_mutex/mutex2.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-static-lock-recursive$(EXEEXT): $(pthread_mutex_default_static_lock_recursive_OBJECTS) $(pthread_mutex_default_static_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_default_static_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-static-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_static_lock_recursive_OBJECTS) $(pthread_mutex_default_static_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/default-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex2$(EXEEXT): $(pthread_mutex_mutex2_OBJECTS) $(pthread_mutex_mutex2_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex2$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2_OBJECTS) $(pthread_mutex_mutex2_LDADD) $(LIBS)
-pthread_mutex/mutex2e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-timedlock$(EXEEXT): $(pthread_mutex_default_timedlock_OBJECTS) $(pthread_mutex_default_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_default_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_timedlock_OBJECTS) $(pthread_mutex_default_timedlock_LDADD) $(LIBS)
+pthread_mutex/default-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex2e$(EXEEXT): $(pthread_mutex_mutex2e_OBJECTS) $(pthread_mutex_mutex2e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex2e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2e_OBJECTS) $(pthread_mutex_mutex2e_LDADD) $(LIBS)
-pthread_mutex/mutex2r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-trylock$(EXEEXT): $(pthread_mutex_default_trylock_OBJECTS) $(pthread_mutex_default_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_default_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_trylock_OBJECTS) $(pthread_mutex_default_trylock_LDADD) $(LIBS)
+pthread_mutex/default-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex2r$(EXEEXT): $(pthread_mutex_mutex2r_OBJECTS) $(pthread_mutex_mutex2r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex2r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex2r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex2r_OBJECTS) $(pthread_mutex_mutex2r_LDADD) $(LIBS)
-pthread_mutex/mutex3.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-trylock-recursive$(EXEEXT): $(pthread_mutex_default_trylock_recursive_OBJECTS) $(pthread_mutex_default_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_default_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_trylock_recursive_OBJECTS) $(pthread_mutex_default_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/default-unlock.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex3$(EXEEXT): $(pthread_mutex_mutex3_OBJECTS) $(pthread_mutex_mutex3_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex3$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3_OBJECTS) $(pthread_mutex_mutex3_LDADD) $(LIBS)
-pthread_mutex/mutex3e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/default-unlock$(EXEEXT): $(pthread_mutex_default_unlock_OBJECTS) $(pthread_mutex_default_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_default_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/default-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_default_unlock_OBJECTS) $(pthread_mutex_default_unlock_LDADD) $(LIBS)
+pthread_mutex/errorcheck-basic.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex3e$(EXEEXT): $(pthread_mutex_mutex3e_OBJECTS) $(pthread_mutex_mutex3e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex3e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3e_OBJECTS) $(pthread_mutex_mutex3e_LDADD) $(LIBS)
-pthread_mutex/mutex3r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-basic$(EXEEXT): $(pthread_mutex_errorcheck_basic_OBJECTS) $(pthread_mutex_errorcheck_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_basic_OBJECTS) $(pthread_mutex_errorcheck_basic_LDADD) $(LIBS)
+pthread_mutex/errorcheck-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex3r$(EXEEXT): $(pthread_mutex_mutex3r_OBJECTS) $(pthread_mutex_mutex3r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex3r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex3r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex3r_OBJECTS) $(pthread_mutex_mutex3r_LDADD) $(LIBS)
-pthread_mutex/mutex4.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-lock-recursive$(EXEEXT): $(pthread_mutex_errorcheck_lock_recursive_OBJECTS) $(pthread_mutex_errorcheck_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_lock_recursive_OBJECTS) $(pthread_mutex_errorcheck_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/errorcheck-static.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex4$(EXEEXT): $(pthread_mutex_mutex4_OBJECTS) $(pthread_mutex_mutex4_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex4_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex4$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex4_OBJECTS) $(pthread_mutex_mutex4_LDADD) $(LIBS)
-pthread_mutex/mutex5.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-static$(EXEEXT): $(pthread_mutex_errorcheck_static_OBJECTS) $(pthread_mutex_errorcheck_static_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_static_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-static$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_static_OBJECTS) $(pthread_mutex_errorcheck_static_LDADD) $(LIBS)
+pthread_mutex/errorcheck-static-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex5$(EXEEXT): $(pthread_mutex_mutex5_OBJECTS) $(pthread_mutex_mutex5_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex5_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex5$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex5_OBJECTS) $(pthread_mutex_mutex5_LDADD) $(LIBS)
-pthread_mutex/mutex6.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-static-lock-recursive$(EXEEXT): $(pthread_mutex_errorcheck_static_lock_recursive_OBJECTS) $(pthread_mutex_errorcheck_static_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_static_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-static-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_static_lock_recursive_OBJECTS) $(pthread_mutex_errorcheck_static_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/errorcheck-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6$(EXEEXT): $(pthread_mutex_mutex6_OBJECTS) $(pthread_mutex_mutex6_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6_OBJECTS) $(pthread_mutex_mutex6_LDADD) $(LIBS)
-pthread_mutex/mutex6e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-timedlock$(EXEEXT): $(pthread_mutex_errorcheck_timedlock_OBJECTS) $(pthread_mutex_errorcheck_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_timedlock_OBJECTS) $(pthread_mutex_errorcheck_timedlock_LDADD) $(LIBS)
+pthread_mutex/errorcheck-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6e$(EXEEXT): $(pthread_mutex_mutex6e_OBJECTS) $(pthread_mutex_mutex6e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6e_OBJECTS) $(pthread_mutex_mutex6e_LDADD) $(LIBS)
-pthread_mutex/mutex6es.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-trylock$(EXEEXT): $(pthread_mutex_errorcheck_trylock_OBJECTS) $(pthread_mutex_errorcheck_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_trylock_OBJECTS) $(pthread_mutex_errorcheck_trylock_LDADD) $(LIBS)
+pthread_mutex/errorcheck-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6es$(EXEEXT): $(pthread_mutex_mutex6es_OBJECTS) $(pthread_mutex_mutex6es_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6es_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6es$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6es_OBJECTS) $(pthread_mutex_mutex6es_LDADD) $(LIBS)
-pthread_mutex/mutex6n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-trylock-recursive$(EXEEXT): $(pthread_mutex_errorcheck_trylock_recursive_OBJECTS) $(pthread_mutex_errorcheck_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_trylock_recursive_OBJECTS) $(pthread_mutex_errorcheck_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/errorcheck-unlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6n$(EXEEXT): $(pthread_mutex_mutex6n_OBJECTS) $(pthread_mutex_mutex6n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6n$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6n_OBJECTS) $(pthread_mutex_mutex6n_LDADD) $(LIBS)
-pthread_mutex/mutex6r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/errorcheck-unlock$(EXEEXT): $(pthread_mutex_errorcheck_unlock_OBJECTS) $(pthread_mutex_errorcheck_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_errorcheck_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/errorcheck-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_errorcheck_unlock_OBJECTS) $(pthread_mutex_errorcheck_unlock_LDADD) $(LIBS)
+pthread_mutex/mutex-types.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6r$(EXEEXT): $(pthread_mutex_mutex6r_OBJECTS) $(pthread_mutex_mutex6r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6r_OBJECTS) $(pthread_mutex_mutex6r_LDADD) $(LIBS)
-pthread_mutex/mutex6rs.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/mutex-types$(EXEEXT): $(pthread_mutex_mutex_types_OBJECTS) $(pthread_mutex_mutex_types_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex_types_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/mutex-types$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex_types_OBJECTS) $(pthread_mutex_mutex_types_LDADD) $(LIBS)
+pthread_mutex/normal-basic.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6rs$(EXEEXT): $(pthread_mutex_mutex6rs_OBJECTS) $(pthread_mutex_mutex6rs_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6rs_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6rs$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6rs_OBJECTS) $(pthread_mutex_mutex6rs_LDADD) $(LIBS)
-pthread_mutex/mutex6s.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-basic$(EXEEXT): $(pthread_mutex_normal_basic_OBJECTS) $(pthread_mutex_normal_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_basic_OBJECTS) $(pthread_mutex_normal_basic_LDADD) $(LIBS)
+pthread_mutex/normal-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex6s$(EXEEXT): $(pthread_mutex_mutex6s_OBJECTS) $(pthread_mutex_mutex6s_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex6s_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex6s$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex6s_OBJECTS) $(pthread_mutex_mutex6s_LDADD) $(LIBS)
-pthread_mutex/mutex7.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-lock-recursive$(EXEEXT): $(pthread_mutex_normal_lock_recursive_OBJECTS) $(pthread_mutex_normal_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_lock_recursive_OBJECTS) $(pthread_mutex_normal_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/normal-static.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex7$(EXEEXT): $(pthread_mutex_mutex7_OBJECTS) $(pthread_mutex_mutex7_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex7$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7_OBJECTS) $(pthread_mutex_mutex7_LDADD) $(LIBS)
-pthread_mutex/mutex7e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-static$(EXEEXT): $(pthread_mutex_normal_static_OBJECTS) $(pthread_mutex_normal_static_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_static_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-static$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_static_OBJECTS) $(pthread_mutex_normal_static_LDADD) $(LIBS)
+pthread_mutex/normal-static-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex7e$(EXEEXT): $(pthread_mutex_mutex7e_OBJECTS) $(pthread_mutex_mutex7e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex7e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7e_OBJECTS) $(pthread_mutex_mutex7e_LDADD) $(LIBS)
-pthread_mutex/mutex7n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-static-lock-recursive$(EXEEXT): $(pthread_mutex_normal_static_lock_recursive_OBJECTS) $(pthread_mutex_normal_static_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_static_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-static-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_static_lock_recursive_OBJECTS) $(pthread_mutex_normal_static_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/normal-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex7n$(EXEEXT): $(pthread_mutex_mutex7n_OBJECTS) $(pthread_mutex_mutex7n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex7n$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7n_OBJECTS) $(pthread_mutex_mutex7n_LDADD) $(LIBS)
-pthread_mutex/mutex7r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-timedlock$(EXEEXT): $(pthread_mutex_normal_timedlock_OBJECTS) $(pthread_mutex_normal_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_timedlock_OBJECTS) $(pthread_mutex_normal_timedlock_LDADD) $(LIBS)
+pthread_mutex/normal-trylock.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex7r$(EXEEXT): $(pthread_mutex_mutex7r_OBJECTS) $(pthread_mutex_mutex7r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex7r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex7r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex7r_OBJECTS) $(pthread_mutex_mutex7r_LDADD) $(LIBS)
-pthread_mutex/mutex8.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-trylock$(EXEEXT): $(pthread_mutex_normal_trylock_OBJECTS) $(pthread_mutex_normal_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_trylock_OBJECTS) $(pthread_mutex_normal_trylock_LDADD) $(LIBS)
+pthread_mutex/normal-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex8$(EXEEXT): $(pthread_mutex_mutex8_OBJECTS) $(pthread_mutex_mutex8_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex8$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8_OBJECTS) $(pthread_mutex_mutex8_LDADD) $(LIBS)
-pthread_mutex/mutex8e.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-trylock-recursive$(EXEEXT): $(pthread_mutex_normal_trylock_recursive_OBJECTS) $(pthread_mutex_normal_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_trylock_recursive_OBJECTS) $(pthread_mutex_normal_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/normal-unlock.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex8e$(EXEEXT): $(pthread_mutex_mutex8e_OBJECTS) $(pthread_mutex_mutex8e_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8e_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex8e$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8e_OBJECTS) $(pthread_mutex_mutex8e_LDADD) $(LIBS)
-pthread_mutex/mutex8n.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/normal-unlock$(EXEEXT): $(pthread_mutex_normal_unlock_OBJECTS) $(pthread_mutex_normal_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_normal_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/normal-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_normal_unlock_OBJECTS) $(pthread_mutex_normal_unlock_LDADD) $(LIBS)
+pthread_mutex/recursive-basic.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex8n$(EXEEXT): $(pthread_mutex_mutex8n_OBJECTS) $(pthread_mutex_mutex8n_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8n_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex8n$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8n_OBJECTS) $(pthread_mutex_mutex8n_LDADD) $(LIBS)
-pthread_mutex/mutex8r.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+pthread_mutex/recursive-basic$(EXEEXT): $(pthread_mutex_recursive_basic_OBJECTS) $(pthread_mutex_recursive_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_basic_OBJECTS) $(pthread_mutex_recursive_basic_LDADD) $(LIBS)
+pthread_mutex/recursive-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
-pthread_mutex/mutex8r$(EXEEXT): $(pthread_mutex_mutex8r_OBJECTS) $(pthread_mutex_mutex8r_DEPENDENCIES) $(EXTRA_pthread_mutex_mutex8r_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
-	@rm -f pthread_mutex/mutex8r$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pthread_mutex_mutex8r_OBJECTS) $(pthread_mutex_mutex8r_LDADD) $(LIBS)
+pthread_mutex/recursive-lock-recursive$(EXEEXT): $(pthread_mutex_recursive_lock_recursive_OBJECTS) $(pthread_mutex_recursive_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_lock_recursive_OBJECTS) $(pthread_mutex_recursive_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/recursive-static.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-static$(EXEEXT): $(pthread_mutex_recursive_static_OBJECTS) $(pthread_mutex_recursive_static_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_static_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-static$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_static_OBJECTS) $(pthread_mutex_recursive_static_LDADD) $(LIBS)
+pthread_mutex/recursive-static-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-static-lock-recursive$(EXEEXT): $(pthread_mutex_recursive_static_lock_recursive_OBJECTS) $(pthread_mutex_recursive_static_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_static_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-static-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_static_lock_recursive_OBJECTS) $(pthread_mutex_recursive_static_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/recursive-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-timedlock$(EXEEXT): $(pthread_mutex_recursive_timedlock_OBJECTS) $(pthread_mutex_recursive_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_timedlock_OBJECTS) $(pthread_mutex_recursive_timedlock_LDADD) $(LIBS)
+pthread_mutex/recursive-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-trylock$(EXEEXT): $(pthread_mutex_recursive_trylock_OBJECTS) $(pthread_mutex_recursive_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_trylock_OBJECTS) $(pthread_mutex_recursive_trylock_LDADD) $(LIBS)
+pthread_mutex/recursive-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-trylock-recursive$(EXEEXT): $(pthread_mutex_recursive_trylock_recursive_OBJECTS) $(pthread_mutex_recursive_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_trylock_recursive_OBJECTS) $(pthread_mutex_recursive_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/recursive-unlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/recursive-unlock$(EXEEXT): $(pthread_mutex_recursive_unlock_OBJECTS) $(pthread_mutex_recursive_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/recursive-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_unlock_OBJECTS) $(pthread_mutex_recursive_unlock_LDADD) $(LIBS)
 pthread_once/$(am__dirstamp):
 	@$(MKDIR_P) pthread_once
 	@: > pthread_once/$(am__dirstamp)
@@ -2584,33 +2818,39 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/stress1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid2.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1n.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex1r.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex2r.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex3r.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex4.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex5.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6es.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6n.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6r.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6rs.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex6s.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7n.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex7r.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8e.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8n.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex8r.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-static-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/errorcheck-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/mutex-types.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-static-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/normal-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-static-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-unlock.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once3.Po@am__quote@ # am--include-marker
@@ -3438,191 +3678,233 @@ pthread_misc/valid2.log: pthread_misc/valid2$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex1.log: pthread_mutex/mutex1$(EXEEXT)
-	@p='pthread_mutex/mutex1$(EXEEXT)'; \
-	b='pthread_mutex/mutex1'; \
+pthread_mutex/default-basic.log: pthread_mutex/default-basic$(EXEEXT)
+	@p='pthread_mutex/default-basic$(EXEEXT)'; \
+	b='pthread_mutex/default-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex1e.log: pthread_mutex/mutex1e$(EXEEXT)
-	@p='pthread_mutex/mutex1e$(EXEEXT)'; \
-	b='pthread_mutex/mutex1e'; \
+pthread_mutex/default-lock-recursive.log: pthread_mutex/default-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/default-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/default-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex1n.log: pthread_mutex/mutex1n$(EXEEXT)
-	@p='pthread_mutex/mutex1n$(EXEEXT)'; \
-	b='pthread_mutex/mutex1n'; \
+pthread_mutex/default-static.log: pthread_mutex/default-static$(EXEEXT)
+	@p='pthread_mutex/default-static$(EXEEXT)'; \
+	b='pthread_mutex/default-static'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex1r.log: pthread_mutex/mutex1r$(EXEEXT)
-	@p='pthread_mutex/mutex1r$(EXEEXT)'; \
-	b='pthread_mutex/mutex1r'; \
+pthread_mutex/default-static-lock-recursive.log: pthread_mutex/default-static-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/default-static-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/default-static-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex2.log: pthread_mutex/mutex2$(EXEEXT)
-	@p='pthread_mutex/mutex2$(EXEEXT)'; \
-	b='pthread_mutex/mutex2'; \
+pthread_mutex/default-timedlock.log: pthread_mutex/default-timedlock$(EXEEXT)
+	@p='pthread_mutex/default-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/default-timedlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex2e.log: pthread_mutex/mutex2e$(EXEEXT)
-	@p='pthread_mutex/mutex2e$(EXEEXT)'; \
-	b='pthread_mutex/mutex2e'; \
+pthread_mutex/default-trylock.log: pthread_mutex/default-trylock$(EXEEXT)
+	@p='pthread_mutex/default-trylock$(EXEEXT)'; \
+	b='pthread_mutex/default-trylock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex2r.log: pthread_mutex/mutex2r$(EXEEXT)
-	@p='pthread_mutex/mutex2r$(EXEEXT)'; \
-	b='pthread_mutex/mutex2r'; \
+pthread_mutex/default-trylock-recursive.log: pthread_mutex/default-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/default-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/default-trylock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex3.log: pthread_mutex/mutex3$(EXEEXT)
-	@p='pthread_mutex/mutex3$(EXEEXT)'; \
-	b='pthread_mutex/mutex3'; \
+pthread_mutex/default-unlock.log: pthread_mutex/default-unlock$(EXEEXT)
+	@p='pthread_mutex/default-unlock$(EXEEXT)'; \
+	b='pthread_mutex/default-unlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex3e.log: pthread_mutex/mutex3e$(EXEEXT)
-	@p='pthread_mutex/mutex3e$(EXEEXT)'; \
-	b='pthread_mutex/mutex3e'; \
+pthread_mutex/errorcheck-basic.log: pthread_mutex/errorcheck-basic$(EXEEXT)
+	@p='pthread_mutex/errorcheck-basic$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex3r.log: pthread_mutex/mutex3r$(EXEEXT)
-	@p='pthread_mutex/mutex3r$(EXEEXT)'; \
-	b='pthread_mutex/mutex3r'; \
+pthread_mutex/errorcheck-lock-recursive.log: pthread_mutex/errorcheck-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/errorcheck-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex4.log: pthread_mutex/mutex4$(EXEEXT)
-	@p='pthread_mutex/mutex4$(EXEEXT)'; \
-	b='pthread_mutex/mutex4'; \
+pthread_mutex/errorcheck-static.log: pthread_mutex/errorcheck-static$(EXEEXT)
+	@p='pthread_mutex/errorcheck-static$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-static'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex5.log: pthread_mutex/mutex5$(EXEEXT)
-	@p='pthread_mutex/mutex5$(EXEEXT)'; \
-	b='pthread_mutex/mutex5'; \
+pthread_mutex/errorcheck-static-lock-recursive.log: pthread_mutex/errorcheck-static-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/errorcheck-static-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-static-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6.log: pthread_mutex/mutex6$(EXEEXT)
-	@p='pthread_mutex/mutex6$(EXEEXT)'; \
-	b='pthread_mutex/mutex6'; \
+pthread_mutex/errorcheck-timedlock.log: pthread_mutex/errorcheck-timedlock$(EXEEXT)
+	@p='pthread_mutex/errorcheck-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-timedlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6e.log: pthread_mutex/mutex6e$(EXEEXT)
-	@p='pthread_mutex/mutex6e$(EXEEXT)'; \
-	b='pthread_mutex/mutex6e'; \
+pthread_mutex/errorcheck-trylock.log: pthread_mutex/errorcheck-trylock$(EXEEXT)
+	@p='pthread_mutex/errorcheck-trylock$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-trylock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6es.log: pthread_mutex/mutex6es$(EXEEXT)
-	@p='pthread_mutex/mutex6es$(EXEEXT)'; \
-	b='pthread_mutex/mutex6es'; \
+pthread_mutex/errorcheck-trylock-recursive.log: pthread_mutex/errorcheck-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/errorcheck-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-trylock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6n.log: pthread_mutex/mutex6n$(EXEEXT)
-	@p='pthread_mutex/mutex6n$(EXEEXT)'; \
-	b='pthread_mutex/mutex6n'; \
+pthread_mutex/errorcheck-unlock.log: pthread_mutex/errorcheck-unlock$(EXEEXT)
+	@p='pthread_mutex/errorcheck-unlock$(EXEEXT)'; \
+	b='pthread_mutex/errorcheck-unlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6r.log: pthread_mutex/mutex6r$(EXEEXT)
-	@p='pthread_mutex/mutex6r$(EXEEXT)'; \
-	b='pthread_mutex/mutex6r'; \
+pthread_mutex/mutex-types.log: pthread_mutex/mutex-types$(EXEEXT)
+	@p='pthread_mutex/mutex-types$(EXEEXT)'; \
+	b='pthread_mutex/mutex-types'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6rs.log: pthread_mutex/mutex6rs$(EXEEXT)
-	@p='pthread_mutex/mutex6rs$(EXEEXT)'; \
-	b='pthread_mutex/mutex6rs'; \
+pthread_mutex/normal-basic.log: pthread_mutex/normal-basic$(EXEEXT)
+	@p='pthread_mutex/normal-basic$(EXEEXT)'; \
+	b='pthread_mutex/normal-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex6s.log: pthread_mutex/mutex6s$(EXEEXT)
-	@p='pthread_mutex/mutex6s$(EXEEXT)'; \
-	b='pthread_mutex/mutex6s'; \
+pthread_mutex/normal-lock-recursive.log: pthread_mutex/normal-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/normal-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/normal-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex7.log: pthread_mutex/mutex7$(EXEEXT)
-	@p='pthread_mutex/mutex7$(EXEEXT)'; \
-	b='pthread_mutex/mutex7'; \
+pthread_mutex/normal-static.log: pthread_mutex/normal-static$(EXEEXT)
+	@p='pthread_mutex/normal-static$(EXEEXT)'; \
+	b='pthread_mutex/normal-static'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex7e.log: pthread_mutex/mutex7e$(EXEEXT)
-	@p='pthread_mutex/mutex7e$(EXEEXT)'; \
-	b='pthread_mutex/mutex7e'; \
+pthread_mutex/normal-static-lock-recursive.log: pthread_mutex/normal-static-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/normal-static-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/normal-static-lock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex7n.log: pthread_mutex/mutex7n$(EXEEXT)
-	@p='pthread_mutex/mutex7n$(EXEEXT)'; \
-	b='pthread_mutex/mutex7n'; \
+pthread_mutex/normal-timedlock.log: pthread_mutex/normal-timedlock$(EXEEXT)
+	@p='pthread_mutex/normal-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/normal-timedlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex7r.log: pthread_mutex/mutex7r$(EXEEXT)
-	@p='pthread_mutex/mutex7r$(EXEEXT)'; \
-	b='pthread_mutex/mutex7r'; \
+pthread_mutex/normal-trylock.log: pthread_mutex/normal-trylock$(EXEEXT)
+	@p='pthread_mutex/normal-trylock$(EXEEXT)'; \
+	b='pthread_mutex/normal-trylock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex8.log: pthread_mutex/mutex8$(EXEEXT)
-	@p='pthread_mutex/mutex8$(EXEEXT)'; \
-	b='pthread_mutex/mutex8'; \
+pthread_mutex/normal-trylock-recursive.log: pthread_mutex/normal-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/normal-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/normal-trylock-recursive'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex8e.log: pthread_mutex/mutex8e$(EXEEXT)
-	@p='pthread_mutex/mutex8e$(EXEEXT)'; \
-	b='pthread_mutex/mutex8e'; \
+pthread_mutex/normal-unlock.log: pthread_mutex/normal-unlock$(EXEEXT)
+	@p='pthread_mutex/normal-unlock$(EXEEXT)'; \
+	b='pthread_mutex/normal-unlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex8n.log: pthread_mutex/mutex8n$(EXEEXT)
-	@p='pthread_mutex/mutex8n$(EXEEXT)'; \
-	b='pthread_mutex/mutex8n'; \
+pthread_mutex/recursive-basic.log: pthread_mutex/recursive-basic$(EXEEXT)
+	@p='pthread_mutex/recursive-basic$(EXEEXT)'; \
+	b='pthread_mutex/recursive-basic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-pthread_mutex/mutex8r.log: pthread_mutex/mutex8r$(EXEEXT)
-	@p='pthread_mutex/mutex8r$(EXEEXT)'; \
-	b='pthread_mutex/mutex8r'; \
+pthread_mutex/recursive-lock-recursive.log: pthread_mutex/recursive-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/recursive-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/recursive-lock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-static.log: pthread_mutex/recursive-static$(EXEEXT)
+	@p='pthread_mutex/recursive-static$(EXEEXT)'; \
+	b='pthread_mutex/recursive-static'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-static-lock-recursive.log: pthread_mutex/recursive-static-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/recursive-static-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/recursive-static-lock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-timedlock.log: pthread_mutex/recursive-timedlock$(EXEEXT)
+	@p='pthread_mutex/recursive-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/recursive-timedlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-trylock.log: pthread_mutex/recursive-trylock$(EXEEXT)
+	@p='pthread_mutex/recursive-trylock$(EXEEXT)'; \
+	b='pthread_mutex/recursive-trylock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-trylock-recursive.log: pthread_mutex/recursive-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/recursive-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/recursive-trylock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/recursive-unlock.log: pthread_mutex/recursive-unlock$(EXEEXT)
+	@p='pthread_mutex/recursive-unlock$(EXEEXT)'; \
+	b='pthread_mutex/recursive-unlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -4060,33 +4342,39 @@ distclean: distclean-am
 	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex4.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex5.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6es.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6rs.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6s.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex-types.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-unlock.Po
 	-rm -f pthread_once/$(DEPDIR)/once1.Po
 	-rm -f pthread_once/$(DEPDIR)/once2.Po
 	-rm -f pthread_once/$(DEPDIR)/once3.Po
@@ -4243,33 +4531,39 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex1r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex2r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex3r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex4.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex5.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6es.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6rs.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex6s.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex7r.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8e.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8n.Po
-	-rm -f pthread_mutex/$(DEPDIR)/mutex8r.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/default-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/errorcheck-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/mutex-types.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/normal-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-static-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-static.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/recursive-unlock.Po
 	-rm -f pthread_once/$(DEPDIR)/once1.Po
 	-rm -f pthread_once/$(DEPDIR)/once2.Po
 	-rm -f pthread_once/$(DEPDIR)/once3.Po
