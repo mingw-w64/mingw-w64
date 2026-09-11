@@ -1,9 +1,4 @@
 /*
- * mutex4.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
@@ -31,54 +26,39 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Thread A locks mutex - thread B tries to unlock.
- *
- * Depends on API functions:
- *  pthread_mutex_lock()
- *  pthread_mutex_trylock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
 
-static int wasHere = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M creates default-type mutex L and locks it.
+ *
+ * Thread A attempts to unlock L; the call to `pthread_mutex_unlock` must
+ * succeed (see comment below).
+ *
+ * Thread M unlocks and destroys L.
+ */
 
-static pthread_mutex_t mutex1;
-
-void *unlocker(void *arg)
+static void *ThreadA(void *arg)
 {
-  int expectedResult = (int) (size_t) arg;
-  int h;
-
-  wasHere++;
-  h = pthread_mutex_unlock(&mutex1);
-  printf("*** %d==%d\n\n", h, expectedResult);
-  fflush(stdout);
-  assert(h == expectedResult);
-  wasHere++;
-
-  return NULL;
+  pthread_mutex_t *mutex = arg;
+  assert(pthread_mutex_unlock(mutex) == 0);
+  return arg;
 }
 
 int main(void)
 {
-  pthread_t t;
-  pthread_mutexattr_t ma;
+  pthread_mutex_t mutex;
+  pthread_t thread;
+  void *result;
 
-  assert(pthread_mutexattr_init(&ma) == 0);
-
-  wasHere = 0;
-  assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_DEFAULT) == 0);
-  assert(pthread_mutex_init(&mutex1, &ma) == 0);
-  assert(pthread_mutex_lock(&mutex1) == 0);
-  /*
-   * NORMAL (fast) mutexes don't check ownership.
-   */
-  assert(pthread_create(&t, NULL, unlocker, (void *) 0) == 0);
-  assert(pthread_join(t, NULL) == 0);
+  assert(pthread_mutex_init(&mutex, NULL) == 0);
+  assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
+  assert(pthread_join(thread, &result) == 0);
+  assert(result == &mutex);
   /**
    * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
    * not owned by the calling thread is undefined behavior.
@@ -86,8 +66,8 @@ int main(void)
    * Our implementation for NORMAL mutexes does not check ownership at all,
    * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
    */
-  assert(pthread_mutex_unlock(&mutex1) == 0);
-  assert(wasHere == 2);
+  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_destroy(&mutex) == 0);
 
   return 0;
 }
