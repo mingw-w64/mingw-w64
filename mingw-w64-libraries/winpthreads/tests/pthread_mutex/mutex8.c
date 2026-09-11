@@ -1,12 +1,10 @@
 /*
- * mutex8.c
- *
- *
  * Pthreads-win32 - POSIX Threads Library for Win32
  * Copyright (C) 1998 Ben Elliston and Ross Johnson
  * Copyright (C) 1999,2000,2001 Ross Johnson
+ * Copyright (C) 2026 mingw-w64 project
  *
- * Contact Email: rpj@ise.canberra.edu.au
+ * Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,55 +19,46 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- * --------------------------------------------------------------------------
- *
- * Test the default (type not set) mutex type exercising timedlock.
- * Thread locks mutex, another thread timedlocks the mutex.
- * Timed thread should timeout.
- *
- * Depends on API functions:
- *  pthread_mutex_lock()
- *  pthread_mutex_timedlock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
-static int lockCount = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M creates default-type mutex L and locks it.
+ *
+ * Thread A attempts to lock L with one second timeout; the call to
+ * `pthread_mutex_timedlock` must fail with ETIMEDOUT.
+ *
+ * Thread M unlocks and destroys L.
+ */
 
-static pthread_mutex_t mutex;
-
-void *locker(void *arg)
+static void *ThreadA(void *arg)
 {
+  pthread_mutex_t *mutex = arg;
   struct timespec abstime = {0, 0};
-  struct _timeb currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
 
-  _ftime(&currSysTime);
-  abstime.tv_sec = currSysTime.time;
-  abstime.tv_nsec = NANOSEC_PER_MILLISEC * currSysTime.millitm;
+  assert(clock_gettime(CLOCK_REALTIME, &abstime) == 0);
   abstime.tv_sec += 1;
+  assert(pthread_mutex_timedlock(mutex, &abstime) == ETIMEDOUT);
 
-  assert(pthread_mutex_timedlock(&mutex, &abstime) == ETIMEDOUT);
-  lockCount++;
-
-  return 0;
+  return arg;
 }
 
 int main(void)
 {
-  pthread_t t;
+  pthread_mutex_t mutex;
+  pthread_t thread;
+  void *result;
 
   assert(pthread_mutex_init(&mutex, NULL) == 0);
   assert(pthread_mutex_lock(&mutex) == 0);
-
-  assert(pthread_create(&t, NULL, locker, NULL) == 0);
-  Sleep(2000);
-  assert(lockCount == 1);
-
+  assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
+  assert(pthread_join(thread, &result) == 0);
+  assert(result == &mutex);
   assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_destroy(&mutex) == 0);
 
   return 0;
 }
