@@ -1,14 +1,10 @@
 /*
- * mutex6n.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,73 +26,87 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Tests PTHREAD_MUTEX_NORMAL mutex type.
- * Thread locks mutex twice (recursive lock).
- * The thread should deadlock.
- *
- * Depends on API functions:
- *  pthread_create()
- *  pthread_mutexattr_init()
- *  pthread_mutexattr_settype()
- *  pthread_mutexattr_gettype()
- *  pthread_mutex_init()
- *  pthread_mutex_lock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
 
-static int lockCount = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M creates mutex L with type `PTHREAD_MUTEX_NORMAL`.
+ *
+ * Thread A locks L.
+ *
+ * Thread A attempts to lock L again; this must result in a dead lock.
+ *
+ * Thread M unlocks and destroys L.
+ */
 
-static pthread_mutex_t mutex;
-static pthread_mutexattr_t mxAttr;
+static LONG IsThreadABlocked = FALSE;
 
-void *locker(void *arg)
+static void *ThreadA(void *arg)
 {
-  assert(pthread_mutex_lock(&mutex) == 0);
-  lockCount++;
+  pthread_mutex_t *mutex = arg;
 
-  /* Should wait here (deadlocked) */
-  assert(pthread_mutex_lock(&mutex) == 0);
-  lockCount++;
-  assert(pthread_mutex_unlock(&mutex) == 0);
+  assert(pthread_mutex_lock(mutex) == 0);
+  /**
+   * Signal thread M that thread A locked L.
+   */
+  InterlockedExchange(&IsThreadABlocked, TRUE);
+  /**
+   * Attempt to recursively lock NORMAL mutex must result in a dead lock.
+   * Wait for main thread to unlock...
+   */
+  assert(pthread_mutex_lock(mutex) == 0);
+  /**
+   * Signal thread M that thread A was unblocked.
+   */
+  InterlockedExchange(&IsThreadABlocked, FALSE);
+  assert(pthread_mutex_unlock(mutex) == 0);
 
-  return (void *) 555;
+  return arg;
 }
 
 int main(void)
 {
-  pthread_t t;
-  int mxType = -1;
+  pthread_mutexattr_t mutexAttr;
+  pthread_mutex_t mutex;
+  pthread_t thread;
+  int mutexType;
+  void *result;
 
-  assert(pthread_mutexattr_init(&mxAttr) == 0);
-  assert(pthread_mutexattr_settype(&mxAttr, PTHREAD_MUTEX_NORMAL) == 0);
-  assert(pthread_mutexattr_gettype(&mxAttr, &mxType) == 0);
-  assert(mxType == PTHREAD_MUTEX_NORMAL);
-
-  assert(pthread_mutex_init(&mutex, &mxAttr) == 0);
-
-  assert(pthread_create(&t, NULL, locker, NULL) == 0);
-
-  Sleep(1000);
-
-  assert(lockCount == 1);
-
-  /*
-   * Should succeed even though we don't own the lock
-   * because FAST mutexes don't check ownership.
+  assert(pthread_mutexattr_init(&mutexAttr) == 0);
+  assert(pthread_mutexattr_settype(&mutexAttr, PTHREAD_MUTEX_NORMAL) == 0);
+  assert(pthread_mutexattr_gettype(&mutexAttr, &mutexType) == 0);
+  assert(mutexType == PTHREAD_MUTEX_NORMAL);
+  assert(pthread_mutex_init(&mutex, &mutexAttr) == 0);
+  assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
+  /**
+   * Wait until thread A locks L.
    */
-  assert(pthread_mutex_unlock(&mutex) == 0);
+  while (!IsThreadABlocked) {
+    YieldProcessor();
+  }
+  Sleep(10);
+  /**
+   * Thread A must be deadlocked.
+   */
+  assert(IsThreadABlocked);
+  /**
+   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
+   * not owned by the calling thread is undefined behavior.
+   *
+   * Our implementation for NORMAL mutexes does not check ownership at all,
+   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
+   */
+  do {
+    assert(pthread_mutex_unlock(&mutex) == 0);
+    YieldProcessor();
+  } while (IsThreadABlocked);
+  assert(pthread_join (thread, &result) == 0);
+  assert(result == &mutex);
+  assert(pthread_mutex_destroy(&mutex) == 0);
+  assert(pthread_mutexattr_destroy(&mutexAttr) == 0);
 
-  Sleep (1000);
-
-  assert(lockCount == 2);
-
-  exit(0);
-
-  /* Never reached */
   return 0;
 }

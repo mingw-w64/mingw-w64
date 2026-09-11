@@ -1,14 +1,10 @@
 /*
- * mutex6rs.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
+ *      Copyright(C) 2026 mingw-w64 project
  *
- *      Contact Email: rpj@callisto.canberra.edu.au
+ *      Contact Email: mingw-w64-public@lists.sourceforge.net
  *
  *      The current list of contributors is contained
  *      in the file CONTRIBUTORS included with the source
@@ -30,60 +26,51 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- *
- * --------------------------------------------------------------------------
- *
- * Tests PTHREAD_MUTEX_RECURSIVE static mutex type.
- * Thread locks mutex twice (recursive lock).
- * Both locks and unlocks should succeed.
- *
- * Depends on API functions:
- *  pthread_create()
- *  pthread_join()
- *  pthread_mutexattr_init()
- *  pthread_mutexattr_destroy()
- *  pthread_mutexattr_settype()
- *  pthread_mutexattr_gettype()
- *  pthread_mutex_init()
- *  pthread_mutex_destroy()
- *  pthread_mutex_lock()
- *  pthread_mutex_unlock()
  */
 
 #include "test.h"
 
-static int lockCount = 0;
+/**
+ * Test Summary:
+ *
+ * Main thread M creates (statically initialized) mutex L with type
+ * `PTHREAD_MUTEX_RECURSIVE`.
+ *
+ * Thread A locks L.
+ *
+ * Thread A attempts to lock L again; the call to `pthread_mutex_lock` must
+ * succeed.
+ *
+ * Thread A unlocks L.
+ *
+ * Thread A attempts to unlock L again; the call to `pthread_mutex_unlock` must
+ * succeed.
+ *
+ * Thread M destroys L.
+ */
 
-static pthread_mutex_t mutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
-
-void *locker(void *arg)
+static void *ThreadA(void *arg)
 {
-  assert(pthread_mutex_lock(&mutex) == 0);
-  lockCount++;
-  assert(pthread_mutex_lock(&mutex) == 0);
-  lockCount++;
-  assert(pthread_mutex_unlock(&mutex) == 0);
-  assert(pthread_mutex_unlock(&mutex) == 0);
+  pthread_mutex_t *mutex = arg;
 
-  return (void *) 555;
+  assert(pthread_mutex_lock(mutex) == 0);
+  assert(pthread_mutex_lock(mutex) == 0);
+  assert(pthread_mutex_unlock(mutex) == 0);
+  assert(pthread_mutex_unlock(mutex) == 0);
+
+  return arg;
 }
 
 int main(void)
 {
-  pthread_t t;
-  intptr_t result = 0;
+  pthread_mutex_t mutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
+  pthread_t thread;
+  void *result;
 
-  assert(mutex == PTHREAD_RECURSIVE_MUTEX_INITIALIZER);
-
-  assert(pthread_create(&t, NULL, locker, NULL) == 0);
-  assert(pthread_join(t, (void **) &result) == 0);
-  assert(result == 555);
-  assert(lockCount == 2);
-
+  assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
+  assert(pthread_join (thread, &result) == 0);
+  assert(result == &mutex);
   assert(pthread_mutex_destroy(&mutex) == 0);
 
-  exit(0);
-
-  /* Never reached */
   return 0;
 }
