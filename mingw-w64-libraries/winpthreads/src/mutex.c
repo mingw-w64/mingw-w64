@@ -234,17 +234,27 @@ int pthread_mutex_lock(pthread_mutex_t *m)
 
 int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts)
 {
-  unsigned long long patience;
-  if (ts != NULL) {
-    unsigned long long end = _pthread_time_in_ms_from_timespec(ts);
-    unsigned long long now = _pthread_time_in_ms();
-    patience = end > now ? end - now : 0;
-    if (patience > 0xffffffff)
-      patience = INFINITE;
-  } else {
+  /**
+   * The pthread_mutex_timedlock() function shall fail if:
+   *
+   * [EINVAL]
+   *  The process or thread would have blocked, and the abstime parameter
+   *  specified a nanoseconds field value less than zero or greater than
+   *  or equal to 1000 million.
+   */
+  if (ts->tv_nsec < 0 || ts->tv_nsec >= 1000000000) {
+    return EINVAL;
+  }
+
+  unsigned __int64 end = _pthread_time_in_ms_from_timespec (ts);
+  unsigned __int64 now = _pthread_time_in_ms ();
+  unsigned __int64 patience = end > now ? end - now : 0;
+
+  if (patience > 0xffffffff) {
     patience = INFINITE;
   }
-  return pthread_mutex_lock_intern(m, patience);
+
+  return pthread_mutex_lock_intern(m, (DWORD) patience);
 }
 
 int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts)
