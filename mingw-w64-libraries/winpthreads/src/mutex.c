@@ -186,8 +186,7 @@ int pthread_mutex_lock(pthread_mutex_t *m)
   return pthread_mutex_lock_intern (m, INFINITE);
 }
 
-/* Internal version which always uses `struct _timespec64`. */
-static int __pthread_mutex_timedlock(pthread_mutex_t *m, const struct _timespec64 *ts)
+int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts)
 {
   unsigned long long patience;
   if (ts != NULL) {
@@ -202,15 +201,10 @@ static int __pthread_mutex_timedlock(pthread_mutex_t *m, const struct _timespec6
   return pthread_mutex_lock_intern(m, patience);
 }
 
-int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts)
-{
-  return __pthread_mutex_timedlock (m, ts);
-}
-
 int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts)
 {
   struct _timespec64 ts64 = {.tv_sec = ts->tv_sec, .tv_nsec = ts->tv_nsec};
-  return __pthread_mutex_timedlock (m, &ts64);
+  return pthread_mutex_timedlock64 (m, &ts64);
 }
 
 int pthread_mutex_unlock(pthread_mutex_t *m)
