@@ -100,7 +100,7 @@ typedef enum {
 typedef struct {
   mutex_state_t state;
   mutex_type_t type;
-  HANDLE event;       /* Auto-reset event, or NULL if not yet allocated. */
+  HANDLE event;       /* Auto-reset event. */
   unsigned rec_lock;  /* For recursive mutexes, the number of times the
                          mutex has been locked in excess by the same thread. */
   volatile DWORD owner;  /* For recursive and error-checking mutexes, the
@@ -117,42 +117,68 @@ typedef struct {
  */
 #define STATIC_MUTEX_INITIALIZER(m) ((uintptr_t)(m) >= (uintptr_t)-3)
 
-/* Create and return the implementation part of a mutex from a static
-   initialiser. Return NULL on out-of-memory error. */
-static WINPTHREADS_ATTRIBUTE((noinline)) mutex_impl_t *mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
-{
-  mutex_impl_t *new_mi = malloc(sizeof(mutex_impl_t));
-  if (new_mi == NULL)
-    return NULL;
-  new_mi->state = Unlocked;
-  new_mi->type = (mi == (void *)PTHREAD_RECURSIVE_MUTEX_INITIALIZER ? Recursive
-                  : mi == (void *)PTHREAD_ERRORCHECK_MUTEX_INITIALIZER ? Errorcheck
-                  : Normal);
-  new_mi->event = NULL;
-  new_mi->rec_lock = 0;
-  new_mi->owner = (DWORD)-1;
-  if (InterlockedCompareExchangePointer((PVOID volatile *)m, new_mi, mi) == mi) {
-    return new_mi;
-  } else {
-    /* Someone created the struct before us. */
-    free(new_mi);
-    return (mutex_impl_t *)*m;
-  }
-}
-
 /* Return the implementation part of a mutex, creating it if necessary.
    Return NULL on out-of-memory error. */
 static WINPTHREADS_INLINE mutex_impl_t *mutex_impl(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
-  if (STATIC_MUTEX_INITIALIZER(mi)) {
-    return mutex_impl_init(m, mi);
-  } else {
-    /* mi cannot be null here; avoid a test in the fast path. */
-    if (mi == NULL)
-      UNREACHABLE();
-    return mi;
+
+  /**
+   * We need to avoid race condition when more than one thread attempts to use
+   * same statically initialized `pthread_mutex_t` object at the same time.
+   *
+   * Store newly initialized mutex in local variable `mi`, and only then store
+   * it in `m`.
+   *
+   * If some other thread was faster then us, destroy newly created mutex
+   * and use mutex pointed to by `m`.
+   */
+  if (unlikely (STATIC_MUTEX_INITIALIZER (mi))) {
+    pthread_mutexattr_t mutexAttr;
+    int mutexType;
+
+    mutex_impl_t *volatile initializer = mi;
+
+    switch ((pthread_mutex_t)initializer) {
+      case PTHREAD_NORMAL_MUTEX_INITIALIZER:
+        mutexType = PTHREAD_MUTEX_NORMAL;
+        break;
+      case PTHREAD_ERRORCHECK_MUTEX_INITIALIZER:
+        mutexType = PTHREAD_MUTEX_ERRORCHECK;
+        break;
+      case PTHREAD_RECURSIVE_MUTEX_INITIALIZER:
+        mutexType = PTHREAD_MUTEX_RECURSIVE;
+        break;
+      default:
+        UNREACHABLE ();
+    }
+
+    int error_code = pthread_mutexattr_init (&mutexAttr);
+
+    if (error_code) {
+      return NULL;
+    }
+
+    pthread_mutexattr_settype (&mutexAttr, mutexType);
+    error_code = pthread_mutex_init ((pthread_mutex_t *)&mi, &mutexAttr);
+    pthread_mutexattr_destroy (&mutexAttr);
+
+    if (error_code) {
+      return NULL;
+    }
+
+    void *mutex = InterlockedCompareExchangePointer ((void **)m, mi, initializer);
+
+    /**
+     * Some other thread was faster than us.
+     */
+    if (unlikely (mutex != initializer)) {
+      pthread_mutex_destroy ((pthread_mutex_t *)&mi);
+      mi = mutex;
+    }
   }
+
+  return mi;
 }
 
 /* Lock a mutex. Give up after 'timeout' ms (with ETIMEDOUT),
@@ -183,26 +209,6 @@ static WINPTHREADS_INLINE int pthread_mutex_lock_intern(pthread_mutex_t *m, DWOR
         }
       }
     }
-
-    /* Make sure there is an event object on which to wait. */
-    if (mi->event == NULL) {
-      /* Make an auto-reset event object. */
-      HANDLE ev = CreateEvent(NULL, FALSE, FALSE, NULL);
-      if (ev == NULL) {
-        switch (GetLastError()) {
-        case ERROR_ACCESS_DENIED:
-          return EPERM;
-        default:
-          return ENOMEM;    /* Probably accurate enough. */
-        }
-      }
-      if (InterlockedCompareExchangePointer(&mi->event, ev, NULL) != NULL) {
-        /* Someone created the event before us. */
-        CloseHandle(ev);
-      }
-    }
-
-    /* At this point, mi->event is non-NULL. */
 
     while (InterlockedExchange((long *)&mi->state, Waiting) != Unlocked) {
       /* For timed locking attempts, it is possible (although unlikely)
@@ -284,7 +290,7 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
   }
   if (unlikely(InterlockedExchange((long *)&mi->state, Unlocked) == Waiting)) {
     if (!SetEvent(mi->event))
-      return EPERM;
+      return EINVAL;
   }
   return 0;
 }
@@ -310,28 +316,77 @@ int pthread_mutex_trylock(pthread_mutex_t *m)
 
 int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
-  pthread_mutex_t init = PTHREAD_MUTEX_INITIALIZER;
-  if (a != NULL) {
-    int pshared;
-    if (pthread_mutexattr_getpshared(a, &pshared) == 0 && pshared == PTHREAD_PROCESS_SHARED)
-      return ENOSYS;
+  int pshared = PTHREAD_PROCESS_PRIVATE;
+  int type    = PTHREAD_MUTEX_DEFAULT;
 
-    int type;
-    if (pthread_mutexattr_gettype(a, &type) == 0) {
-      switch (type) {
-      case PTHREAD_MUTEX_ERRORCHECK:
-        init = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER;
-        break;
-      case PTHREAD_MUTEX_RECURSIVE:
-        init = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
-        break;
-      default:
-        init = PTHREAD_MUTEX_INITIALIZER;
-        break;
-      }
+  if (a != NULL) {
+    /**
+     * POSIX:
+     *
+     * If an implementation detects that the value specified by the attr
+     * argument to pthread_mutex_init() does not refer to an initialized mutex
+     * attributes object, it is recommended that the function should fail and
+     * report an [EINVAL] error.
+     */
+    if (pthread_mutexattr_getpshared (a, &pshared) != 0) {
+      return EINVAL;
+    }
+
+    if (pthread_mutexattr_gettype (a, &type) != 0) {
+      return EINVAL;
+    }
+
+    if (pshared == PTHREAD_PROCESS_SHARED) {
+      return ENOSYS;
     }
   }
-  *m = init;
+
+  mutex_impl_t *mi = calloc (1, sizeof (mutex_impl_t));
+
+  /**
+   * The pthread_mutex_init() function shall fail if:
+   *
+   * [ENOMEM]
+   *   Insufficient memory exists to initialize the mutex.
+   */
+  if (mi == NULL) {
+    return ENOMEM;
+  }
+
+  mi->event = CreateEventW (NULL, FALSE, FALSE, NULL);
+
+  /**
+   * The pthread_mutex_init() function shall fail if:
+   *
+   * [EAGAIN]
+   *   The system lacked the necessary resources (other than memory) to
+   *   initialize another mutex.
+   */
+  if (mi->event == NULL) {
+    free (mi);
+    return EAGAIN;
+  }
+
+  switch (type) {
+    case PTHREAD_MUTEX_RECURSIVE:
+      mi->type = Recursive;
+      break;
+    case PTHREAD_MUTEX_ERRORCHECK:
+      mi->type = Errorcheck;
+      break;
+    case PTHREAD_MUTEX_NORMAL:
+      mi->type = Normal;
+      break;
+    default:
+      UNREACHABLE ();
+  }
+
+  mi->owner    = (DWORD)-1;
+  mi->state    = Unlocked;
+  mi->rec_lock = 0;
+
+  *m = (pthread_mutex_t)mi;
+
   return 0;
 }
 
@@ -339,8 +394,7 @@ int pthread_mutex_destroy(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
   if (!STATIC_MUTEX_INITIALIZER(mi)) {
-    if (mi->event != NULL)
-      CloseHandle(mi->event);
+    CloseHandle(mi->event);
     free(mi);
     /* Sabotage attempts to re-use the mutex before initialising it again. */
     *m = (pthread_mutex_t)NULL;
