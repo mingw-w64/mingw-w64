@@ -1,9 +1,4 @@
 /*
- * mutex4.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
@@ -71,21 +66,11 @@ int main(void)
   assert(pthread_mutexattr_init(&ma) == 0);
 
   wasHere = 0;
-  assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_DEFAULT) == 0);
+  assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_ERRORCHECK) == 0);
   assert(pthread_mutex_init(&mutex1, &ma) == 0);
   assert(pthread_mutex_lock(&mutex1) == 0);
-  /*
-   * NORMAL (fast) mutexes don't check ownership.
-   */
-  assert(pthread_create(&t, NULL, unlocker, (void *) 0) == 0);
+  assert(pthread_create(&t, NULL, unlocker, (void *) EPERM) == 0);
   assert(pthread_join(t, NULL) == 0);
-  /**
-   * POSIX states that calling `pthread_mutex_unlock` on NORMAL mutex that is
-   * not owned by the calling thread is undefined behavior.
-   *
-   * Our implementation for NORMAL mutexes does not check ownership at all,
-   * so call to `pthread_mutex_unlock` on a valid NORMAL mutex always succeeds.
-   */
   assert(pthread_mutex_unlock(&mutex1) == 0);
   assert(wasHere == 2);
 

@@ -121,6 +121,9 @@ check_PROGRAMS =               \
 	pthread_mutex/mutex3e      \
 	pthread_mutex/mutex3r      \
 	pthread_mutex/mutex4       \
+	pthread_mutex/mutex4e      \
+	pthread_mutex/mutex4n      \
+	pthread_mutex/mutex4r      \
 	pthread_mutex/mutex5       \
 	pthread_mutex/mutex6       \
 	pthread_mutex/mutex6e      \

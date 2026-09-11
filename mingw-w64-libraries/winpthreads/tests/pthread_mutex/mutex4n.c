@@ -1,9 +1,4 @@
 /*
- * mutex4.c
- *
- *
- * --------------------------------------------------------------------------
- *
  *      Pthreads-win32 - POSIX Threads Library for Win32
  *      Copyright(C) 1998 John E. Bossom
  *      Copyright(C) 1999,2005 Pthreads-win32 contributors
@@ -71,7 +66,7 @@ int main(void)
   assert(pthread_mutexattr_init(&ma) == 0);
 
   wasHere = 0;
-  assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_DEFAULT) == 0);
+  assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_NORMAL) == 0);
   assert(pthread_mutex_init(&mutex1, &ma) == 0);
   assert(pthread_mutex_lock(&mutex1) == 0);
   /*
