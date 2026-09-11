@@ -61,11 +61,15 @@ typedef struct {
                             ID of the owning thread if the mutex is locked. */
 } mutex_impl_t;
 
-/* Whether a mutex is still a static initializer (not a pointer to a mutex_impl_t). */
-static BOOL is_static_initializer(pthread_mutex_t m)
-{
-  return (uintptr_t)m >= (uintptr_t)-3;
-}
+/**
+ * Evaluates to non-zero if `m` is a static initializer for `pthread_mutex_t`:
+ *
+ * PTHREAD_DEFAULT_MUTEX_INITIALIZER:    -1
+ * PTHREAD_NORMAL_MUTEX_INITIALIZER:     -1
+ * PTHREAD_ERRORCHECK_MUTEX_INITIALIZER: -2
+ * PTHREAD_RECURSIVE_MUTEX_INITIALIZER:  -3
+ */
+#define STATIC_MUTEX_INITIALIZER(m) ((uintptr_t)(m) >= (uintptr_t)-3)
 
 /* Create and return the implementation part of a mutex from a static
    initialiser. Return NULL on out-of-memory error. */
@@ -95,7 +99,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) mutex_impl_t *mutex_impl_init(pthread_m
 static WINPTHREADS_INLINE mutex_impl_t *mutex_impl(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
-  if (is_static_initializer((pthread_mutex_t)mi)) {
+  if (STATIC_MUTEX_INITIALIZER(mi)) {
     return mutex_impl_init(m, mi);
   } else {
     /* mi cannot be null here; avoid a test in the fast path. */
@@ -284,7 +288,7 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 int pthread_mutex_destroy(pthread_mutex_t *m)
 {
   mutex_impl_t *mi = (mutex_impl_t *)*m;
-  if (!is_static_initializer((pthread_mutex_t)mi)) {
+  if (!STATIC_MUTEX_INITIALIZER(mi)) {
     if (mi->event != NULL)
       CloseHandle(mi->event);
     free(mi);
