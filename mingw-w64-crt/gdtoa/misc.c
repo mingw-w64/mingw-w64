@@ -59,6 +59,8 @@ static long dtoa_CS_init = 0;
    2 = initialized
    3 = deleted
 */
+
+__attribute__((destructor))
 static void dtoa_lock_cleanup (void)
 {
 	long last_CS_init = InterlockedExchange (&dtoa_CS_init,3);
@@ -80,7 +82,6 @@ static void dtoa_lock (unsigned int n)
 			int i;
 			for (i = 0; i < NLOCKS;  i++)
 				InitializeCriticalSection (&dtoa_CritSec[i]);
-			atexit (dtoa_lock_cleanup);
 			(void)InterlockedExchange (&dtoa_CS_init, 2);
 		}
 	}
