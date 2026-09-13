@@ -139,6 +139,7 @@ testcase_progs = \
   t_tls_dll \
   t_tls_dll_native \
   t_tls_dll_native_process_detach \
+  t_tls_exe_cxa_atexit_order \
   t_tls_exe_dtor \
   t_tls_exe_dtor_atexit_order \
   t_tls_exe_dyn \
