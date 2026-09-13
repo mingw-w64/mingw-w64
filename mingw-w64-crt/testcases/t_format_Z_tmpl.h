@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>
-#include <ntdef.h>
+#include <winternl.h>
 
 /* mingw-w64 headers */
 #include "libtest.h"
