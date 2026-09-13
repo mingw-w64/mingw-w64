@@ -76,16 +76,13 @@ static void dtoa_lock (unsigned int n)
 		return;
 	}
 	else if (0 == dtoa_CS_init) {
-		long last_CS_init = InterlockedExchange (&dtoa_CS_init, 1);
-		if (0 == last_CS_init) {
+		if (0 == InterlockedCompareExchange (&dtoa_CS_init, 1, 0)) {
 			int i;
 			for (i = 0; i < NLOCKS;  i++)
 				InitializeCriticalSection (&dtoa_CritSec[i]);
 			atexit (dtoa_lock_cleanup);
-			dtoa_CS_init = 2;
+			(void)InterlockedExchange (&dtoa_CS_init, 2);
 		}
-		else if (2 == last_CS_init)
-			dtoa_CS_init = 2;
 	}
 	/*  Another thread is initializing. Wait. */
 	while (1 == dtoa_CS_init)
