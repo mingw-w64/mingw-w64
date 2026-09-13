@@ -13,6 +13,12 @@
 
 extern int __cdecl __tlregdtor(void (__cdecl*func)(void));
 
+/* Tentative symbol __mingw_register_thread_local_exe_atexit_callback_ptr is
+ * mingw-w64 internal symbol only for EXE applications. It is non-NULL if the
+ * EXE application is using __tlregdtor.
+ */
+void (__cdecl *const __mingw_register_thread_local_exe_atexit_callback_ptr)(void) __attribute__((common)); /* tentative */
+
 static int thread_dtor_counter = 0;
 static int process_dtor_counter = 0;
 
@@ -67,6 +73,11 @@ int main(void)
     ret = 1;
   } else {
     printf("PE TLS section is present\n");
+  }
+
+  if (!__mingw_register_thread_local_exe_atexit_callback_ptr) {
+    printf("Error: __mingw_register_thread_local_exe_atexit_callback_ptr is NULL\n");
+    ret = 1;
   }
 
   if (_osplatform == VER_PLATFORM_WIN32_WINDOWS) {
