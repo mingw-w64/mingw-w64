@@ -38,7 +38,7 @@ int main()
 
     strcat(dirpath, TMPTMPL);
     assert(mkdtemp(dirpath));
-    atexit(remove_dirpath);
+    assert(atexit(remove_dirpath) == 0);
     printf("mkdtemp(): path=%s\n", dirpath);
 
     handle = CreateFileA(dirpath, FILE_READ_ATTRIBUTES | DELETE, FILE_SHARE_VALID_FLAGS, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS | FILE_FLAG_DELETE_ON_CLOSE, NULL);
