@@ -36,13 +36,19 @@ int main(int argc, char *argv[]) {
         assert(process != -1);
 
         size = read(pipefd[0], buf, sizeof(buf));
-        close(pipefd[0]);
         assert(size > 0); /* some data were written by child process */
         assert(strnlen(buf, sizeof(buf)) > 0);
 
         /* wait until child process exits */
         assert(_cwait(&exit_code, process, _WAIT_CHILD) == process);
         assert(exit_code != 0);
+
+        /* read the rest of data in the pipe and write it to stdout */
+        if (size < (ssize_t)sizeof(buf)) {
+            size += read(pipefd[0], &buf[size], sizeof(buf) - size);
+        }
+        close(pipefd[0]);
+        write(STDOUT_FILENO, buf, size);
 
         return 0;
     }
