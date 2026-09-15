@@ -187,6 +187,7 @@ testcase_progs = \
   t_tsearch \
   t_utime \
   t_vsscanf \
+  t_wassert \
   t_wcrtomb \
   t_wcsrtombs \
   t_wcstok_s \
