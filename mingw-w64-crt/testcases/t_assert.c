@@ -53,9 +53,6 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    /* change stderr to translated UNICODE mode */
-    _setmode(fileno(stderr), _O_U8TEXT);
-
     /* call assert, it prints to stderr, parent process will check that our stderr is not empty */
     assert(0);
 
