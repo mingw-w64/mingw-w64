@@ -250,9 +250,10 @@ am__EXEEXT_5 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_time$(EXEEXT) t_tls_ansi$(EXEEXT) t_tls_c11$(EXEEXT) \
 	t_tmpfile$(EXEEXT) t_towctrans$(EXEEXT) t_trycatch$(EXEEXT) \
 	t_tsearch$(EXEEXT) t_utime$(EXEEXT) t_vsscanf$(EXEEXT) \
-	t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) t_wcstok_s$(EXEEXT) \
-	t_wctob$(EXEEXT) t_wctype$(EXEEXT) t_winmain_assert$(EXEEXT) \
-	t_wreaddir$(EXEEXT) $(am__EXEEXT_3) $(am__EXEEXT_4)
+	t_wassert$(EXEEXT) t_wcrtomb$(EXEEXT) t_wcsrtombs$(EXEEXT) \
+	t_wcstok_s$(EXEEXT) t_wctob$(EXEEXT) t_wctype$(EXEEXT) \
+	t_winmain_assert$(EXEEXT) t_wreaddir$(EXEEXT) $(am__EXEEXT_3) \
+	$(am__EXEEXT_4)
 @LIB32_TRUE@am__EXEEXT_6 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -969,6 +970,10 @@ t_vsscanf_SOURCES = t_vsscanf.c
 t_vsscanf_OBJECTS = t_vsscanf.$(OBJEXT)
 t_vsscanf_LDADD = $(LDADD)
 t_vsscanf_DEPENDENCIES = $(builddir)/libtest.a
+t_wassert_SOURCES = t_wassert.c
+t_wassert_OBJECTS = t_wassert.$(OBJEXT)
+t_wassert_LDADD = $(LDADD)
+t_wassert_DEPENDENCIES = $(builddir)/libtest.a
 t_wcrtomb_SOURCES = t_wcrtomb.c
 t_wcrtomb_OBJECTS = t_wcrtomb.$(OBJEXT)
 t_wcrtomb_LDADD = $(LDADD)
@@ -1438,11 +1443,11 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_towctrans.Po \
 	./$(DEPDIR)/t_trycatch.Po ./$(DEPDIR)/t_tsearch.Po \
 	./$(DEPDIR)/t_utime.Po ./$(DEPDIR)/t_vsscanf.Po \
-	./$(DEPDIR)/t_wcrtomb.Po ./$(DEPDIR)/t_wcsrtombs.Po \
-	./$(DEPDIR)/t_wcstok_s.Po ./$(DEPDIR)/t_wctob.Po \
-	./$(DEPDIR)/t_wctype.Po ./$(DEPDIR)/t_winmain.Po \
-	./$(DEPDIR)/t_winmain_assert.Po ./$(DEPDIR)/t_wreaddir.Po \
-	./$(DEPDIR)/t_wrongret.Po \
+	./$(DEPDIR)/t_wassert.Po ./$(DEPDIR)/t_wcrtomb.Po \
+	./$(DEPDIR)/t_wcsrtombs.Po ./$(DEPDIR)/t_wcstok_s.Po \
+	./$(DEPDIR)/t_wctob.Po ./$(DEPDIR)/t_wctype.Po \
+	./$(DEPDIR)/t_winmain.Po ./$(DEPDIR)/t_winmain_assert.Po \
+	./$(DEPDIR)/t_wreaddir.Po ./$(DEPDIR)/t_wrongret.Po \
 	complex/$(DEPDIR)/tests32_cabs-main.Po \
 	complex/$(DEPDIR)/tests32_cacos-main.Po \
 	complex/$(DEPDIR)/tests32_cacosh-main.Po \
@@ -1684,31 +1689,31 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	t_tls_exe_dyn.c t_tls_exe_native.c \
 	t_tls_exe_native_process_detach.c t_tls_exe_var.c t_tmain.c \
 	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c \
-	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
-	t_wctob.c t_wctype.c t_winmain.c t_winmain_assert.c \
-	t_wreaddir.c $(t_wrongret_SOURCES) $(tests32_cabs_SOURCES) \
-	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
-	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
-	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
-	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
-	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
-	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
-	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
-	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
-	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
-	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
-	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
-	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
-	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
-	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
-	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
-	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
-	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
-	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
-	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
-	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
-	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
-	$(tests64_ctanh_SOURCES)
+	t_utime.c t_vsscanf.c t_wassert.c t_wcrtomb.c t_wcsrtombs.c \
+	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
+	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
+	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
+	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
+	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
+	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
+	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
+	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
+	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
+	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
+	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
+	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
+	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
+	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
+	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
+	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
+	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
+	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
+	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
+	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
+	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
+	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
+	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
+	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES)
 DIST_SOURCES = $(libtest_a_SOURCES) \
 	$(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
@@ -1745,9 +1750,9 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	t_tls_exe_dyn.c t_tls_exe_native.c \
 	t_tls_exe_native_process_detach.c t_tls_exe_var.c t_tmain.c \
 	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c \
-	t_utime.c t_vsscanf.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c \
-	t_wctob.c t_wctype.c t_winmain.c t_winmain_assert.c \
-	t_wreaddir.c $(t_wrongret_SOURCES) \
+	t_utime.c t_vsscanf.c t_wassert.c t_wcrtomb.c t_wcsrtombs.c \
+	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
+	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
 	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -2198,9 +2203,9 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_stprintf_a t_stprintf_u t_stprintf0_a t_stprintf0_u \
 	t_stprintf1_a t_stprintf1_u t_swprintf t_swprintf0 t_swprintf1 \
 	t_time t_tls_ansi t_tls_c11 t_tmpfile t_towctrans t_trycatch \
-	t_tsearch t_utime t_vsscanf t_wcrtomb t_wcsrtombs t_wcstok_s \
-	t_wctob t_wctype t_winmain_assert t_wreaddir $(am__append_1) \
-	$(am__append_10)
+	t_tsearch t_utime t_vsscanf t_wassert t_wcrtomb t_wcsrtombs \
+	t_wcstok_s t_wctob t_wctype t_winmain_assert t_wreaddir \
+	$(am__append_1) $(am__append_10)
 
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
@@ -3363,6 +3368,10 @@ t_vsscanf$(EXEEXT): $(t_vsscanf_OBJECTS) $(t_vsscanf_DEPENDENCIES) $(EXTRA_t_vss
 	@rm -f t_vsscanf$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_vsscanf_OBJECTS) $(t_vsscanf_LDADD) $(LIBS)
 
+t_wassert$(EXEEXT): $(t_wassert_OBJECTS) $(t_wassert_DEPENDENCIES) $(EXTRA_t_wassert_DEPENDENCIES) 
+	@rm -f t_wassert$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_wassert_OBJECTS) $(t_wassert_LDADD) $(LIBS)
+
 t_wcrtomb$(EXEEXT): $(t_wcrtomb_OBJECTS) $(t_wcrtomb_DEPENDENCIES) $(EXTRA_t_wcrtomb_DEPENDENCIES) 
 	@rm -f t_wcrtomb$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_wcrtomb_OBJECTS) $(t_wcrtomb_LDADD) $(LIBS)
@@ -3779,6 +3788,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_utime.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_vsscanf.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wassert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcsrtombs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_wcstok_s.Po@am__quote@ # am--include-marker
@@ -7451,6 +7461,13 @@ t_vsscanf.log: t_vsscanf$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_wassert.log: t_wassert$(EXEEXT)
+	@p='t_wassert$(EXEEXT)'; \
+	b='t_wassert'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_wcrtomb.log: t_wcrtomb$(EXEEXT)
 	@p='t_wcrtomb$(EXEEXT)'; \
 	b='t_wcrtomb'; \
@@ -8056,6 +8073,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_tsearch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
+	-rm -f ./$(DEPDIR)/t_wassert.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po
@@ -8395,6 +8413,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_tsearch.Po
 	-rm -f ./$(DEPDIR)/t_utime.Po
 	-rm -f ./$(DEPDIR)/t_vsscanf.Po
+	-rm -f ./$(DEPDIR)/t_wassert.Po
 	-rm -f ./$(DEPDIR)/t_wcrtomb.Po
 	-rm -f ./$(DEPDIR)/t_wcsrtombs.Po
 	-rm -f ./$(DEPDIR)/t_wcstok_s.Po

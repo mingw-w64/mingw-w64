@@ -889,13 +889,13 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/_assert.c \
-	misc/mingw_longjmp.S misc/mingw_getsp.S misc/alarm.c \
-	misc/delay-f.c misc/delay-n.c misc/delayimp.c misc/dirent.c \
-	misc/dirname.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feenableexcept.c \
+	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
+	misc/delayimp.c misc/dirent.c misc/dirname.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feenableexcept.c \
 	misc/fedisableexcept.c misc/fegetexcept.c \
 	misc/mingw_controlfp.c misc/mingw_setfp.c misc/feupdateenv.c \
 	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
@@ -1097,7 +1097,6 @@ am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpi.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpif.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpil.$(OBJEXT) \
-	misc/lib32_libmingwex_a-_assert.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib32_libmingwex_a-alarm.$(OBJEXT) \
@@ -3856,13 +3855,13 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/_assert.c \
-	misc/mingw_longjmp.S misc/mingw_getsp.S misc/alarm.c \
-	misc/delay-f.c misc/delay-n.c misc/delayimp.c misc/dirent.c \
-	misc/dirname.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feenableexcept.c \
+	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
+	misc/delayimp.c misc/dirent.c misc/dirname.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feenableexcept.c \
 	misc/fedisableexcept.c misc/fegetexcept.c \
 	misc/mingw_controlfp.c misc/mingw_setfp.c misc/feupdateenv.c \
 	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
@@ -4064,7 +4063,6 @@ am__objects_182 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpi.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpif.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpil.$(OBJEXT) \
-	misc/lib64_libmingwex_a-_assert.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib64_libmingwex_a-alarm.$(OBJEXT) \
@@ -5686,13 +5684,13 @@ am__libarm32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/_assert.c \
-	misc/mingw_longjmp.S misc/mingw_getsp.S misc/alarm.c \
-	misc/delay-f.c misc/delay-n.c misc/delayimp.c misc/dirent.c \
-	misc/dirname.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feenableexcept.c \
+	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
+	misc/delayimp.c misc/dirent.c misc/dirname.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feenableexcept.c \
 	misc/fedisableexcept.c misc/fegetexcept.c \
 	misc/mingw_controlfp.c misc/mingw_setfp.c misc/feupdateenv.c \
 	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
@@ -5877,7 +5875,6 @@ am__objects_273 = crt/libarm32_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpi.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpif.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpil.$(OBJEXT) \
-	misc/libarm32_libmingwex_a-_assert.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-alarm.$(OBJEXT) \
@@ -7187,13 +7184,13 @@ am__libarm64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/_assert.c \
-	misc/mingw_longjmp.S misc/mingw_getsp.S misc/alarm.c \
-	misc/delay-f.c misc/delay-n.c misc/delayimp.c misc/dirent.c \
-	misc/dirname.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feenableexcept.c \
+	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
+	misc/delayimp.c misc/dirent.c misc/dirname.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feenableexcept.c \
 	misc/fedisableexcept.c misc/fegetexcept.c \
 	misc/mingw_controlfp.c misc/mingw_setfp.c misc/feupdateenv.c \
 	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
@@ -7378,7 +7375,6 @@ am__objects_338 = crt/libarm64_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpi.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpif.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpil.$(OBJEXT) \
-	misc/libarm64_libmingwex_a-_assert.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-alarm.$(OBJEXT) \
@@ -10682,7 +10678,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po \
-	misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po \
@@ -11214,7 +11209,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po \
-	misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po \
@@ -11401,7 +11395,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po \
-	misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po \
@@ -11561,7 +11554,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po \
-	misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po \
@@ -14816,7 +14808,6 @@ src_libmingwex = \
   math/powi.def.h       math/sqrt.def.h    \
   math/cephes_mconf.h   math/fp_consts.h   math/pi_const.h \
   \
-  misc/_assert.c \
   misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \
@@ -18303,8 +18294,6 @@ math/lib32_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
-misc/lib32_libmingwex_a-_assert.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -22322,8 +22311,6 @@ math/lib64_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
-misc/lib64_libmingwex_a-_assert.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -24767,8 +24754,6 @@ math/libarm32_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/libarm32_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
-misc/libarm32_libmingwex_a-_assert.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_getsp.$(OBJEXT):  \
@@ -26822,8 +26807,6 @@ math/libarm64_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/libarm64_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
-misc/libarm64_libmingwex_a-_assert.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_getsp.$(OBJEXT):  \
@@ -30592,7 +30575,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31124,7 +31106,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31311,7 +31292,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31471,7 +31451,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -40775,20 +40754,6 @@ math/lib32_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/tanpil.c' object='math/lib32_libmingwex_a-tanpil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
-
-misc/lib32_libmingwex_a-_assert.o: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-_assert.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Tpo -c -o misc/lib32_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/lib32_libmingwex_a-_assert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-
-misc/lib32_libmingwex_a-_assert.obj: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-_assert.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Tpo -c -o misc/lib32_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/lib32_libmingwex_a-_assert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
 
 misc/lib32_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Tpo -c -o misc/lib32_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -65696,20 +65661,6 @@ math/lib64_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
 
-misc/lib64_libmingwex_a-_assert.o: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-_assert.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Tpo -c -o misc/lib64_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/lib64_libmingwex_a-_assert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-
-misc/lib64_libmingwex_a-_assert.obj: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-_assert.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Tpo -c -o misc/lib64_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/lib64_libmingwex_a-_assert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-
 misc/lib64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Tpo -c -o misc/lib64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po
@@ -80200,20 +80151,6 @@ math/libarm32_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/libarm32_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
 
-misc/libarm32_libmingwex_a-_assert.o: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-_assert.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Tpo -c -o misc/libarm32_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/libarm32_libmingwex_a-_assert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-
-misc/libarm32_libmingwex_a-_assert.obj: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-_assert.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Tpo -c -o misc/libarm32_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/libarm32_libmingwex_a-_assert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-
 misc/libarm32_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Tpo -c -o misc/libarm32_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po
@@ -92324,20 +92261,6 @@ math/libarm64_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/libarm64_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
 
-misc/libarm64_libmingwex_a-_assert.o: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-_assert.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Tpo -c -o misc/libarm64_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/libarm64_libmingwex_a-_assert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-_assert.o `test -f 'misc/_assert.c' || echo '$(srcdir)/'`misc/_assert.c
-
-misc/libarm64_libmingwex_a-_assert.obj: misc/_assert.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-_assert.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Tpo -c -o misc/libarm64_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_assert.c' object='misc/libarm64_libmingwex_a-_assert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-_assert.obj `if test -f 'misc/_assert.c'; then $(CYGPATH_W) 'misc/_assert.c'; else $(CYGPATH_W) '$(srcdir)/misc/_assert.c'; fi`
-
 misc/libarm64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Tpo -c -o misc/libarm64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po
@@ -103226,7 +103149,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
@@ -103758,7 +103680,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
@@ -103945,7 +103866,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po
@@ -104105,7 +104025,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po
@@ -108078,7 +107997,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
@@ -108610,7 +108528,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
@@ -108797,7 +108714,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po
@@ -108957,7 +108873,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-_assert.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po
