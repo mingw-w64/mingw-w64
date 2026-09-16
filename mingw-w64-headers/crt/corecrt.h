@@ -141,6 +141,7 @@ typedef __time64_t time_t;
 #endif
 #endif /* _TIME_T_DEFINED */
 
+#ifndef __CYGWIN__ /* Cygwin defines mbstate_t themselves */
 #if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
   typedef struct _Mbstatet {
     unsigned long _Wchar;
@@ -149,6 +150,7 @@ typedef __time64_t time_t;
   typedef _Mbstatet mbstate_t;
 #else
   typedef int mbstate_t;
+#endif
 #endif
 
 #ifndef _CRT_SECURE_CPP_NOTHROW
