@@ -110,6 +110,10 @@ check_PROGRAMS =               \
 	pthread_misc/stress1       \
 	pthread_misc/valid1        \
 	pthread_misc/valid2        \
+	pthread_mutex/attr-prioceiling                 \
+	pthread_mutex/attr-protocol                    \
+	pthread_mutex/attr-pshared                     \
+	pthread_mutex/attr-type                        \
 	pthread_mutex/default-basic                    \
 	pthread_mutex/default-lock-recursive           \
 	pthread_mutex/default-static                   \
