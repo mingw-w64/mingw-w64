@@ -49,6 +49,7 @@ static void *ThreadA(void *arg)
 
 int main(void)
 {
+  struct timespec abstime;
   pthread_mutexattr_t mutexAttr;
   pthread_mutex_t mutex;
   pthread_t thread;
@@ -60,7 +61,9 @@ int main(void)
   assert(pthread_mutexattr_gettype(&mutexAttr, &mutexType) == 0);
   assert(mutexType == PTHREAD_MUTEX_ERRORCHECK);
   assert(pthread_mutex_init(&mutex, &mutexAttr) == 0);
-  assert(pthread_mutex_lock(&mutex) == 0);
+  assert(clock_gettime(CLOCK_REALTIME, &abstime) == 0);
+  abstime.tv_sec += 1;
+  assert(pthread_mutex_timedlock(&mutex, &abstime) == 0);
   assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
   assert(pthread_join(thread, &result) == 0);
   assert(result == &mutex);
