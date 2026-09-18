@@ -97,7 +97,7 @@ typedef union WinpthreadsMutexAttributes WinpthreadsMutexAttributes;
 /**
  * Mutex type-specific "init" routine.
  */
-typedef int (* FuncMutexInit) (WinpthreadsMutex **, const pthread_mutexattr_t *);
+typedef int (* FuncMutexInit) (WinpthreadsMutex **, const WinpthreadsMutexAttributes *);
 
 /**
  * Mutex type-specific "destroy" routine.
@@ -424,7 +424,7 @@ static WINPTHREADS_INLINE int WinpthreadsTimedWait (HANDLE handle, LONG *lockSta
  * - A thread can unlock mutex owned by another thread.
  */
 
-static int WinpthreadsNormalMutexInit (WinpthreadsMutex **wMutex, const pthread_mutexattr_t *attr) {
+static int WinpthreadsNormalMutexInit (WinpthreadsMutex **wMutex, const WinpthreadsMutexAttributes *wMutexAttr) {
   WinpthreadsNormalMutex *mutex = malloc (sizeof (WinpthreadsNormalMutex));
 
   /**
@@ -455,7 +455,7 @@ static int WinpthreadsNormalMutexInit (WinpthreadsMutex **wMutex, const pthread_
   *wMutex = (WinpthreadsMutex *) mutex;
 
   return 0;
-  UNREFERENCED_PARAMETER (attr);
+  UNREFERENCED_PARAMETER (wMutexAttr);
 }
 
 static void WinpthreadsNormalMutexDestroy (WinpthreadsMutex *wMutex) {
@@ -529,7 +529,7 @@ static const WinpthreadsMutexVtable WinpthreadsNormalMutexVtable = {
  * - Attempt to unlock an unlocked mutex fails with EPERM.
  */
 
-static int WinpthreadsErrorCheckMutexInit (WinpthreadsMutex **wMutex, const pthread_mutexattr_t *attr) {
+static int WinpthreadsErrorCheckMutexInit (WinpthreadsMutex **wMutex, const WinpthreadsMutexAttributes *wMutexAttr) {
   WinpthreadsErrorCheckMutex *mutex = malloc (sizeof (WinpthreadsErrorCheckMutex));
 
   /**
@@ -562,7 +562,7 @@ static int WinpthreadsErrorCheckMutexInit (WinpthreadsMutex **wMutex, const pthr
   *wMutex = (WinpthreadsMutex *) mutex;
 
   return 0;
-  UNREFERENCED_PARAMETER (attr);
+  UNREFERENCED_PARAMETER (wMutexAttr);
 }
 
 static void WinpthreadsErrorCheckMutexDestroy (WinpthreadsMutex *wMutex) {
@@ -659,7 +659,7 @@ static const WinpthreadsMutexVtable WinpthreadsErrorCheckMutexVtable = {
  * - Attempt to unlock an unlocked mutex fails with EPERM.
  */
 
-static int WinpthreadsRecursiveMutexInit (WinpthreadsMutex **wMutex, const pthread_mutexattr_t *attr) {
+static int WinpthreadsRecursiveMutexInit (WinpthreadsMutex **wMutex, const WinpthreadsMutexAttributes *wMutexAttr) {
   WinpthreadsRecursiveMutex *mutex = malloc (sizeof (WinpthreadsRecursiveMutex));
 
   /**
@@ -693,7 +693,7 @@ static int WinpthreadsRecursiveMutexInit (WinpthreadsMutex **wMutex, const pthre
   *wMutex = (WinpthreadsMutex *) mutex;
 
   return 0;
-  UNREFERENCED_PARAMETER (attr);
+  UNREFERENCED_PARAMETER (wMutexAttr);
 }
 
 static void WinpthreadsRecursiveMutexDestroy (WinpthreadsMutex *wMutex) {
@@ -852,34 +852,24 @@ static WINPTHREADS_INLINE int WinpthreadsMutexGet(pthread_mutex_t *m, Winpthread
    * and use mutex pointed to by `m`.
    */
   if (unlikely (STATIC_MUTEX_INITIALIZER (*wMutex))) {
-    pthread_mutexattr_t mutexAttr;
-    int mutexType;
-
+    WinpthreadsMutexAttributes wMutexAttr = WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT;
     WinpthreadsMutex *volatile initializer = *wMutex;
 
     switch ((pthread_mutex_t)initializer) {
       case PTHREAD_NORMAL_MUTEX_INITIALIZER:
-        mutexType = PTHREAD_MUTEX_NORMAL;
+        wMutexAttr.Attributes.Type = PTHREAD_MUTEX_NORMAL;
         break;
       case PTHREAD_ERRORCHECK_MUTEX_INITIALIZER:
-        mutexType = PTHREAD_MUTEX_ERRORCHECK;
+        wMutexAttr.Attributes.Type = PTHREAD_MUTEX_ERRORCHECK;
         break;
       case PTHREAD_RECURSIVE_MUTEX_INITIALIZER:
-        mutexType = PTHREAD_MUTEX_RECURSIVE;
+        wMutexAttr.Attributes.Type = PTHREAD_MUTEX_RECURSIVE;
         break;
       default:
         UNREACHABLE ();
     }
 
-    int error_code = pthread_mutexattr_init (&mutexAttr);
-
-    if (error_code) {
-      return error_code;
-    }
-
-    pthread_mutexattr_settype (&mutexAttr, mutexType);
-    error_code = pthread_mutex_init ((pthread_mutex_t *)wMutex, &mutexAttr);
-    pthread_mutexattr_destroy (&mutexAttr);
+    int error_code = pthread_mutex_init ((pthread_mutex_t *)wMutex, &wMutexAttr.Value);
 
     if (error_code) {
       return error_code;
@@ -1005,10 +995,13 @@ int pthread_mutex_trylock(pthread_mutex_t *m)
 
 int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
-  int pshared = PTHREAD_PROCESS_PRIVATE;
-  int type    = PTHREAD_MUTEX_DEFAULT;
+  WinpthreadsMutexAttributes wMutexAttr = WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT;
 
   if (a != NULL) {
+    int value;
+
+    wMutexAttr.Value = *a;
+
     /**
      * POSIX:
      *
@@ -1017,22 +1010,30 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
      * attributes object, it is recommended that the function should fail and
      * report an [EINVAL] error.
      */
-    if (pthread_mutexattr_getpshared (a, &pshared) != 0) {
+    if (pthread_mutexattr_gettype (&wMutexAttr.Value, &value) != 0) {
       return EINVAL;
     }
 
-    if (pthread_mutexattr_gettype (a, &type) != 0) {
+    if (pthread_mutexattr_getpshared (&wMutexAttr.Value, &value) != 0) {
       return EINVAL;
     }
 
-    if (pshared == PTHREAD_PROCESS_SHARED) {
+    if (pthread_mutexattr_getprotocol (&wMutexAttr.Value, &value) != 0) {
+      return EINVAL;
+    }
+
+    if (pthread_mutexattr_getprioceiling (&wMutexAttr.Value, &value) != 0) {
+      return EINVAL;
+    }
+
+    if (wMutexAttr.Attributes.Shared) {
       return ENOSYS;
     }
   }
 
   const WinpthreadsMutexVtable *wMutexVtable = NULL;
 
-  switch (type) {
+  switch (wMutexAttr.Attributes.Type) {
     case PTHREAD_MUTEX_NORMAL:
       wMutexVtable = &WinpthreadsNormalMutexVtable;
       break;
@@ -1048,7 +1049,7 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 
   WinpthreadsMutex *wMutex = NULL;
 
-  int error_code = wMutexVtable->Init (&wMutex, a);
+  int error_code = wMutexVtable->Init (&wMutex, &wMutexAttr);
 
   if (error_code) {
     return error_code;
