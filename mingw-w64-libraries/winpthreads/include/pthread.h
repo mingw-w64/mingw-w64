@@ -117,25 +117,11 @@ extern "C" {
 #define PTHREAD_DESTRUCTOR_ITERATIONS 256
 #define PTHREAD_KEYS_MAX (1<<20)
 
-#define PTHREAD_MUTEX_NORMAL 0
-#define PTHREAD_MUTEX_ERRORCHECK 1
-#define PTHREAD_MUTEX_RECURSIVE 2
-#define PTHREAD_MUTEX_DEFAULT PTHREAD_MUTEX_NORMAL
-
-#define PTHREAD_MUTEX_SHARED 1
-#define PTHREAD_MUTEX_PRIVATE 0
-
 #define PTHREAD_PRIO_NONE 0
 #define PTHREAD_PRIO_INHERIT 8
 #define PTHREAD_PRIO_PROTECT 16
 #define PTHREAD_PROCESS_SHARED 1
 #define PTHREAD_PROCESS_PRIVATE 0
-
-#define PTHREAD_MUTEX_FAST_NP		PTHREAD_MUTEX_NORMAL
-#define PTHREAD_MUTEX_TIMED_NP		PTHREAD_MUTEX_FAST_NP
-#define PTHREAD_MUTEX_ADAPTIVE_NP	PTHREAD_MUTEX_FAST_NP
-#define PTHREAD_MUTEX_ERRORCHECK_NP	PTHREAD_MUTEX_ERRORCHECK
-#define PTHREAD_MUTEX_RECURSIVE_NP	PTHREAD_MUTEX_RECURSIVE
 
 WINPTHREAD_API void * pthread_timechange_handler_np(void * dummy);
 WINPTHREAD_API int    pthread_delay32_np (const struct _timespec32 *interval);
@@ -160,14 +146,11 @@ WINPTHREAD_API int    pthread_set_num_processors_np(int n);
 #define pthread_atfork(F1,F2,F3) 0
 
 /* unsupported stuff: */
-#define pthread_mutex_getprioceiling(M, P) ENOTSUP
-#define pthread_mutex_setprioceiling(M, P) ENOTSUP
 #define pthread_getcpuclockid(T, C) ENOTSUP
 #define pthread_attr_getguardsize(A, S) ENOTSUP
 #define pthread_attr_setguardsize(A, S) ENOTSUP
 
 typedef long pthread_once_t;
-typedef unsigned pthread_mutexattr_t;
 typedef unsigned pthread_key_t;
 typedef void *pthread_barrierattr_t;
 typedef int pthread_condattr_t;
@@ -224,22 +207,79 @@ WINPTHREAD_API int pthread_setschedparam(pthread_t thread, int pol, const struct
 WINPTHREAD_API int pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol);
 WINPTHREAD_API int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol);
 
+/**
+ * Mutex (pthread_mutex_t) declarations, definitons and functions.
+ */
+
+#define PTHREAD_MUTEX_DEFAULT    PTHREAD_MUTEX_NORMAL
+#define PTHREAD_MUTEX_NORMAL     0
+#define PTHREAD_MUTEX_ERRORCHECK 1
+#define PTHREAD_MUTEX_RECURSIVE  2
+
+/**
+ * Implementation-defined mutex types.
+ */
+#define PTHREAD_MUTEX_ADAPTIVE_NP   PTHREAD_MUTEX_NORMAL
+#define PTHREAD_MUTEX_FAST_NP       PTHREAD_MUTEX_NORMAL
+#define PTHREAD_MUTEX_TIMED_NP      PTHREAD_MUTEX_NORMAL
+#define PTHREAD_MUTEX_ERRORCHECK_NP PTHREAD_MUTEX_ERRORCHECK
+#define PTHREAD_MUTEX_RECURSIVE_NP  PTHREAD_MUTEX_RECURSIVE
+
+/**
+ * Not POSIX; pthread-win32 compatibility?
+ */
+#define PTHREAD_MUTEX_PRIVATE 0
+#define PTHREAD_MUTEX_SHARED  1
+
+typedef unsigned pthread_mutexattr_t;
+
+WINPTHREAD_API int pthread_mutexattr_init(pthread_mutexattr_t *);
+WINPTHREAD_API int pthread_mutexattr_destroy(pthread_mutexattr_t *);
+WINPTHREAD_API int pthread_mutexattr_settype(pthread_mutexattr_t *, int);
+WINPTHREAD_API int pthread_mutexattr_gettype(const pthread_mutexattr_t *, int *);
+WINPTHREAD_API int pthread_mutexattr_setpshared(pthread_mutexattr_t *, int);
+WINPTHREAD_API int pthread_mutexattr_getpshared(const pthread_mutexattr_t *, int *);
+WINPTHREAD_API int pthread_mutexattr_setprotocol(pthread_mutexattr_t *, int);
+WINPTHREAD_API int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *, int *);
+WINPTHREAD_API int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *, int);
+WINPTHREAD_API int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *, int *);
+
+typedef intptr_t pthread_mutex_t;
+
+#define PTHREAD_MUTEX_INITIALIZER            PTHREAD_DEFAULT_MUTEX_INITIALIZER
+#define PTHREAD_DEFAULT_MUTEX_INITIALIZER    PTHREAD_NORMAL_MUTEX_INITIALIZER
+#define PTHREAD_NORMAL_MUTEX_INITIALIZER     (pthread_mutex_t)-1
+#define PTHREAD_ERRORCHECK_MUTEX_INITIALIZER (pthread_mutex_t)-2
+#define PTHREAD_RECURSIVE_MUTEX_INITIALIZER  (pthread_mutex_t)-3
+
+WINPTHREAD_API int pthread_mutex_init(pthread_mutex_t *, const pthread_mutexattr_t *);
+WINPTHREAD_API int pthread_mutex_destroy(pthread_mutex_t *);
+WINPTHREAD_API int pthread_mutex_lock(pthread_mutex_t *);
+WINPTHREAD_API int pthread_mutex_trylock(pthread_mutex_t *);
+WINPTHREAD_API int pthread_mutex_unlock(pthread_mutex_t *);
+WINPTHREAD_API int pthread_mutex_timedlock32(pthread_mutex_t *, const struct _timespec32 *);
+WINPTHREAD_API int pthread_mutex_timedlock64(pthread_mutex_t *, const struct _timespec64 *);
+WINPTHREAD_MUTEX_DECL int pthread_mutex_timedlock(pthread_mutex_t *_M, const struct timespec *_T)
+{
+#if WINPTHREADS_TIME_BITS == 32
+  return pthread_mutex_timedlock32 (_M, (const struct _timespec32 *) _T);
+#else
+  return pthread_mutex_timedlock64 (_M, (const struct _timespec64 *) _T);
+#endif
+}
+
+/**
+ * Not implemented.
+ */
+#define pthread_mutex_setprioceiling(M, P) ENOTSUP
+#define pthread_mutex_getprioceiling(M, P) ENOTSUP
+
 /* synchronization objects */
 typedef intptr_t pthread_spinlock_t;
-typedef intptr_t pthread_mutex_t;
 typedef intptr_t pthread_cond_t;
 typedef intptr_t pthread_rwlock_t;
 typedef void	*pthread_barrier_t;
 
-#define PTHREAD_MUTEX_NORMAL 0
-#define PTHREAD_MUTEX_ERRORCHECK 1
-#define PTHREAD_MUTEX_RECURSIVE 2
-
-#define PTHREAD_MUTEX_INITIALIZER            (pthread_mutex_t)-1
-#define PTHREAD_RECURSIVE_MUTEX_INITIALIZER  (pthread_mutex_t)-3
-#define PTHREAD_ERRORCHECK_MUTEX_INITIALIZER (pthread_mutex_t)-2
-#define PTHREAD_NORMAL_MUTEX_INITIALIZER     (pthread_mutex_t)-1
-#define PTHREAD_DEFAULT_MUTEX_INITIALIZER    PTHREAD_NORMAL_MUTEX_INITIALIZER
 #define PTHREAD_COND_INITIALIZER             (pthread_cond_t)-1
 #define PTHREAD_RWLOCK_INITIALIZER           (pthread_rwlock_t)-1
 #define PTHREAD_SPINLOCK_INITIALIZER         (pthread_spinlock_t)-1
@@ -327,22 +367,6 @@ WINPTHREAD_COND_DECL int pthread_cond_timedwait_relative_np(pthread_cond_t *cv, 
 #endif
 }
 
-WINPTHREAD_API int pthread_mutex_lock(pthread_mutex_t *m);
-WINPTHREAD_API int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts);
-WINPTHREAD_API int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts);
-WINPTHREAD_MUTEX_DECL int pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts)
-{
-#if WINPTHREADS_TIME_BITS == 32
-  return pthread_mutex_timedlock32 (m, (const struct _timespec32 *) ts);
-#else
-  return pthread_mutex_timedlock64 (m, (const struct _timespec64 *) ts);
-#endif
-}
-WINPTHREAD_API int pthread_mutex_unlock(pthread_mutex_t *m);
-WINPTHREAD_API int pthread_mutex_trylock(pthread_mutex_t *m);
-WINPTHREAD_API int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a);
-WINPTHREAD_API int pthread_mutex_destroy(pthread_mutex_t *m);
-
 WINPTHREAD_API int pthread_barrier_destroy(pthread_barrier_t *b);
 WINPTHREAD_API int pthread_barrier_init(pthread_barrier_t *b, const void *attr, unsigned int count);
 WINPTHREAD_API int pthread_barrier_wait(pthread_barrier_t *b);
@@ -369,16 +393,6 @@ WINPTHREAD_API int pthread_attr_setstackaddr(pthread_attr_t *attr, void *stack);
 WINPTHREAD_API int pthread_attr_getstacksize(const pthread_attr_t *attr, size_t *size);
 WINPTHREAD_API int pthread_attr_setstacksize(pthread_attr_t *attr, size_t size);
 
-WINPTHREAD_API int pthread_mutexattr_init(pthread_mutexattr_t *a);
-WINPTHREAD_API int pthread_mutexattr_destroy(pthread_mutexattr_t *a);
-WINPTHREAD_API int pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *type);
-WINPTHREAD_API int pthread_mutexattr_settype(pthread_mutexattr_t *a, int type);
-WINPTHREAD_API int pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *type);
-WINPTHREAD_API int pthread_mutexattr_setpshared(pthread_mutexattr_t * a, int type);
-WINPTHREAD_API int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *type);
-WINPTHREAD_API int pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int type);
-WINPTHREAD_API int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int * prio);
-WINPTHREAD_API int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int prio);
 WINPTHREAD_API int pthread_getconcurrency(void);
 WINPTHREAD_API int pthread_setconcurrency(int new_level);
 
