@@ -1094,106 +1094,6 @@ static WINPTHREADS_INLINE int WinpthreadsMutexGet(pthread_mutex_t *m, Winpthread
   return 0;
 }
 
-int pthread_mutex_lock(pthread_mutex_t *m)
-{
-  WinpthreadsMutex *wMutex = NULL;
-
-  int error_code = WinpthreadsMutexGet (m, &wMutex);
-
-  if (error_code) {
-    return error_code;
-  }
-
-  return wMutex->Base.Vtable->Lock (wMutex, NULL);
-}
-
-int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts)
-{
-  WinpthreadsMutex *wMutex = NULL;
-
-  int error_code = WinpthreadsMutexGet (m, &wMutex);
-
-  if (error_code) {
-    return error_code;
-  }
-
-  /**
-   * POSIX:
-   *
-   * Under no circumstance shall the function fail with a timeout if the mutex
-   * can be locked immediately. The validity of the abstime parameter need
-   * not be checked if the mutex can be locked immediately.
-   */
-  error_code = wMutex->Base.Vtable->TryLock (wMutex, FALSE);
-
-  switch (error_code) {
-    /**
-     * Some thread owns the mutex.
-     */
-    case EBUSY:
-      break;
-    /**
-     * Recursive lock count limit has been reached.
-     */
-    case EAGAIN:
-    /**
-     * The calling thread owns the mutex now.
-     */
-    case 0:
-    /**
-     * An unexpected error has occurred.
-     */
-    default:
-      return error_code;
-  }
-
-  /**
-   * The pthread_mutex_timedlock() function shall fail if:
-   *
-   * [EINVAL]
-   *  The process or thread would have blocked, and the abstime parameter
-   *  specified a nanoseconds field value less than zero or greater than
-   *  or equal to 1000 million.
-   */
-  if (ts->tv_nsec < 0 || ts->tv_nsec >= 1000000000) {
-    return EINVAL;
-  }
-
-  return wMutex->Base.Vtable->Lock (wMutex, ts);
-}
-
-int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts)
-{
-  struct _timespec64 ts64 = {.tv_sec = ts->tv_sec, .tv_nsec = ts->tv_nsec};
-  return pthread_mutex_timedlock64 (m, &ts64);
-}
-
-int pthread_mutex_unlock(pthread_mutex_t *m)
-{
-  WinpthreadsMutex *wMutex = NULL;
-
-  int error_code = WinpthreadsMutexGet (m, &wMutex);
-
-  if (error_code) {
-    return error_code;
-  }
-
-  return wMutex->Base.Vtable->Unlock (wMutex);
-}
-
-int pthread_mutex_trylock(pthread_mutex_t *m)
-{
-  WinpthreadsMutex *wMutex = NULL;
-
-  int error_code = WinpthreadsMutexGet (m, &wMutex);
-
-  if (error_code) {
-    return error_code;
-  }
-
-  return wMutex->Base.Vtable->TryLock (wMutex, FALSE);
-}
-
 int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
   WinpthreadsMutexAttributes wMutexAttr = WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT;
@@ -1306,4 +1206,104 @@ int pthread_mutex_destroy(pthread_mutex_t *m)
   wMutex->Base.Vtable->Destroy (wMutex);
 
   return 0;
+}
+
+int pthread_mutex_lock(pthread_mutex_t *m)
+{
+  WinpthreadsMutex *wMutex = NULL;
+
+  int error_code = WinpthreadsMutexGet (m, &wMutex);
+
+  if (error_code) {
+    return error_code;
+  }
+
+  return wMutex->Base.Vtable->Lock (wMutex, NULL);
+}
+
+int pthread_mutex_trylock(pthread_mutex_t *m)
+{
+  WinpthreadsMutex *wMutex = NULL;
+
+  int error_code = WinpthreadsMutexGet (m, &wMutex);
+
+  if (error_code) {
+    return error_code;
+  }
+
+  return wMutex->Base.Vtable->TryLock (wMutex, FALSE);
+}
+
+int pthread_mutex_timedlock64(pthread_mutex_t *m, const struct _timespec64 *ts)
+{
+  WinpthreadsMutex *wMutex = NULL;
+
+  int error_code = WinpthreadsMutexGet (m, &wMutex);
+
+  if (error_code) {
+    return error_code;
+  }
+
+  /**
+   * POSIX:
+   *
+   * Under no circumstance shall the function fail with a timeout if the mutex
+   * can be locked immediately. The validity of the abstime parameter need
+   * not be checked if the mutex can be locked immediately.
+   */
+  error_code = wMutex->Base.Vtable->TryLock (wMutex, FALSE);
+
+  switch (error_code) {
+    /**
+     * Some thread owns the mutex.
+     */
+    case EBUSY:
+      break;
+    /**
+     * Recursive lock count limit has been reached.
+     */
+    case EAGAIN:
+    /**
+     * The calling thread owns the mutex now.
+     */
+    case 0:
+    /**
+     * An unexpected error has occurred.
+     */
+    default:
+      return error_code;
+  }
+
+  /**
+   * The pthread_mutex_timedlock() function shall fail if:
+   *
+   * [EINVAL]
+   *  The process or thread would have blocked, and the abstime parameter
+   *  specified a nanoseconds field value less than zero or greater than
+   *  or equal to 1000 million.
+   */
+  if (ts->tv_nsec < 0 || ts->tv_nsec >= 1000000000) {
+    return EINVAL;
+  }
+
+  return wMutex->Base.Vtable->Lock (wMutex, ts);
+}
+
+int pthread_mutex_timedlock32(pthread_mutex_t *m, const struct _timespec32 *ts)
+{
+  struct _timespec64 ts64 = {.tv_sec = ts->tv_sec, .tv_nsec = ts->tv_nsec};
+  return pthread_mutex_timedlock64 (m, &ts64);
+}
+
+int pthread_mutex_unlock(pthread_mutex_t *m)
+{
+  WinpthreadsMutex *wMutex = NULL;
+
+  int error_code = WinpthreadsMutexGet (m, &wMutex);
+
+  if (error_code) {
+    return error_code;
+  }
+
+  return wMutex->Base.Vtable->Unlock (wMutex);
 }
