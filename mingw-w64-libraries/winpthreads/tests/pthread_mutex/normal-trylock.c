@@ -46,7 +46,7 @@ int main(void)
   pthread_t thread;
   void *result;
 
-  assert(pthread_mutex_lock(&mutex) == 0);
+  assert(pthread_mutex_trylock(&mutex) == 0);
   assert(pthread_create(&thread, NULL, ThreadA, &mutex) == 0);
   assert(pthread_join(thread, &result) == 0);
   assert(result == &mutex);
