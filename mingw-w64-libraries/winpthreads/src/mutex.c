@@ -814,6 +814,207 @@ static const WinpthreadsMutexVtable WinpthreadsRecursiveMutexVtable = {
 };
 
 /*******************************************************************************
+ * Implementation for public `pthread_mutexattr_*` functions.
+ */
+
+int pthread_mutexattr_init(pthread_mutexattr_t *a)
+{
+  *a = WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT.Value;
+  return 0;
+}
+
+int pthread_mutexattr_destroy(pthread_mutexattr_t *a)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  memset (a, 0, sizeof (pthread_mutexattr_t));
+  return 0;
+}
+
+int pthread_mutexattr_settype(pthread_mutexattr_t *a, int value)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (value) {
+    case PTHREAD_MUTEX_NORMAL:
+    case PTHREAD_MUTEX_ERRORCHECK:
+    case PTHREAD_MUTEX_RECURSIVE:
+      wMutexAttr->Attributes.Type = value;
+      return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *value)
+{
+  if (a == NULL || value == NULL) {
+    return EINVAL;
+  }
+
+  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (wMutexAttr->Attributes.Type) {
+    case PTHREAD_MUTEX_NORMAL:
+    case PTHREAD_MUTEX_ERRORCHECK:
+    case PTHREAD_MUTEX_RECURSIVE:
+      *value = wMutexAttr->Attributes.Type;
+      return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_setpshared(pthread_mutexattr_t *a, int value)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (value) {
+    case PTHREAD_PROCESS_PRIVATE:
+    case PTHREAD_PROCESS_SHARED:
+      wMutexAttr->Attributes.Shared = value;
+      return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *value)
+{
+  if (a == NULL || value == NULL) {
+    return EINVAL;
+  }
+
+  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  *value = !!wMutexAttr->Attributes.Shared;
+  return 0;
+}
+
+int pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int value)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (value) {
+    case PTHREAD_PRIO_NONE:
+      wMutexAttr->Attributes.Protocol = value;
+      return 0;
+    /**
+     * POSIX realtime extensions are not implemented.
+     *
+     * The pthread_mutexattr_setprotocol() function shall fail if:
+     *
+     * [ENOTSUP]
+     *   The value specified by protocol is an unsupported value.
+     */
+    case PTHREAD_PRIO_INHERIT:
+    case PTHREAD_PRIO_PROTECT:
+      return ENOTSUP;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *value)
+{
+  if (a == NULL || value == NULL) {
+    return EINVAL;
+  }
+
+  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (wMutexAttr->Attributes.Protocol) {
+    case PTHREAD_PRIO_NONE:
+    case PTHREAD_PRIO_INHERIT:
+    case PTHREAD_PRIO_PROTECT:
+      *value = wMutexAttr->Attributes.Protocol;
+      return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int value)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  if (value >= THREAD_PRIORITY_IDLE && value <= THREAD_PRIORITY_TIME_CRITICAL) {
+    wMutexAttr->Attributes.PriorityCeiling = value;
+    return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int *value)
+{
+  if (a == NULL || value == NULL) {
+    return EINVAL;
+  }
+
+  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  int priorityCeiling = wMutexAttr->Attributes.PriorityCeiling;
+
+  if (priorityCeiling >= THREAD_PRIORITY_IDLE && priorityCeiling <= THREAD_PRIORITY_TIME_CRITICAL) {
+    *value = priorityCeiling;
+    return 0;
+  }
+
+  return EINVAL;
+}
+
+/*******************************************************************************
  * Implementation for public `pthread_mutex_*` functions.
  */
 
@@ -1105,201 +1306,4 @@ int pthread_mutex_destroy(pthread_mutex_t *m)
   wMutex->Base.Vtable->Destroy (wMutex);
 
   return 0;
-}
-
-int pthread_mutexattr_init(pthread_mutexattr_t *a)
-{
-  *a = WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT.Value;
-  return 0;
-}
-
-int pthread_mutexattr_destroy(pthread_mutexattr_t *a)
-{
-  if (a == NULL) {
-    return EINVAL;
-  }
-
-  memset (a, 0, sizeof (pthread_mutexattr_t));
-  return 0;
-}
-
-int pthread_mutexattr_gettype(const pthread_mutexattr_t *a, int *value)
-{
-  if (a == NULL || value == NULL) {
-    return EINVAL;
-  }
-
-  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  switch (wMutexAttr->Attributes.Type) {
-    case PTHREAD_MUTEX_NORMAL:
-    case PTHREAD_MUTEX_ERRORCHECK:
-    case PTHREAD_MUTEX_RECURSIVE:
-      *value = wMutexAttr->Attributes.Type;
-      return 0;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_settype(pthread_mutexattr_t *a, int value)
-{
-  if (a == NULL) {
-    return EINVAL;
-  }
-
-  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  switch (value) {
-    case PTHREAD_MUTEX_NORMAL:
-    case PTHREAD_MUTEX_ERRORCHECK:
-    case PTHREAD_MUTEX_RECURSIVE:
-      wMutexAttr->Attributes.Type = value;
-      return 0;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_getpshared(const pthread_mutexattr_t *a, int *value)
-{
-  if (a == NULL || value == NULL) {
-    return EINVAL;
-  }
-
-  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  *value = !!wMutexAttr->Attributes.Shared;
-  return 0;
-}
-
-int pthread_mutexattr_setpshared(pthread_mutexattr_t *a, int value)
-{
-  if (a == NULL) {
-    return EINVAL;
-  }
-
-  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  switch (value) {
-    case PTHREAD_PROCESS_PRIVATE:
-    case PTHREAD_PROCESS_SHARED:
-      wMutexAttr->Attributes.Shared = value;
-      return 0;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *a, int *value)
-{
-  if (a == NULL || value == NULL) {
-    return EINVAL;
-  }
-
-  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  switch (wMutexAttr->Attributes.Protocol) {
-    case PTHREAD_PRIO_NONE:
-    case PTHREAD_PRIO_INHERIT:
-    case PTHREAD_PRIO_PROTECT:
-      *value = wMutexAttr->Attributes.Protocol;
-      return 0;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_setprotocol(pthread_mutexattr_t *a, int value)
-{
-  if (a == NULL) {
-    return EINVAL;
-  }
-
-  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  switch (value) {
-    case PTHREAD_PRIO_NONE:
-      wMutexAttr->Attributes.Protocol = value;
-      return 0;
-    /**
-     * POSIX realtime extensions are not implemented.
-     *
-     * The pthread_mutexattr_setprotocol() function shall fail if:
-     *
-     * [ENOTSUP]
-     *   The value specified by protocol is an unsupported value.
-     */
-    case PTHREAD_PRIO_INHERIT:
-    case PTHREAD_PRIO_PROTECT:
-      return ENOTSUP;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int *value)
-{
-  if (a == NULL || value == NULL) {
-    return EINVAL;
-  }
-
-  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  int priorityCeiling = wMutexAttr->Attributes.PriorityCeiling;
-
-  if (priorityCeiling >= THREAD_PRIORITY_IDLE && priorityCeiling <= THREAD_PRIORITY_TIME_CRITICAL) {
-    *value = priorityCeiling;
-    return 0;
-  }
-
-  return EINVAL;
-}
-
-int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *a, int value)
-{
-  if (a == NULL) {
-    return EINVAL;
-  }
-
-  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
-
-  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
-    return EINVAL;
-  }
-
-  if (value >= THREAD_PRIORITY_IDLE && value <= THREAD_PRIORITY_TIME_CRITICAL) {
-    wMutexAttr->Attributes.PriorityCeiling = value;
-    return 0;
-  }
-
-  return EINVAL;
 }
