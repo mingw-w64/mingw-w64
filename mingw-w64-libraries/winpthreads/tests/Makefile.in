@@ -145,6 +145,10 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_misc/reuse2$(EXEEXT) pthread_misc/self1$(EXEEXT) \
 	pthread_misc/self2$(EXEEXT) pthread_misc/stress1$(EXEEXT) \
 	pthread_misc/valid1$(EXEEXT) pthread_misc/valid2$(EXEEXT) \
+	pthread_mutex/attr-prioceiling$(EXEEXT) \
+	pthread_mutex/attr-protocol$(EXEEXT) \
+	pthread_mutex/attr-pshared$(EXEEXT) \
+	pthread_mutex/attr-type$(EXEEXT) \
 	pthread_mutex/default-basic$(EXEEXT) \
 	pthread_mutex/default-lock-recursive$(EXEEXT) \
 	pthread_mutex/default-static$(EXEEXT) \
@@ -566,6 +570,30 @@ pthread_misc_valid2_SOURCES = pthread_misc/valid2.c
 pthread_misc_valid2_OBJECTS = pthread_misc/valid2.$(OBJEXT)
 pthread_misc_valid2_LDADD = $(LDADD)
 pthread_misc_valid2_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+pthread_mutex_attr_prioceiling_SOURCES =  \
+	pthread_mutex/attr-prioceiling.c
+pthread_mutex_attr_prioceiling_OBJECTS =  \
+	pthread_mutex/attr-prioceiling.$(OBJEXT)
+pthread_mutex_attr_prioceiling_LDADD = $(LDADD)
+pthread_mutex_attr_prioceiling_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_attr_protocol_SOURCES = pthread_mutex/attr-protocol.c
+pthread_mutex_attr_protocol_OBJECTS =  \
+	pthread_mutex/attr-protocol.$(OBJEXT)
+pthread_mutex_attr_protocol_LDADD = $(LDADD)
+pthread_mutex_attr_protocol_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_attr_pshared_SOURCES = pthread_mutex/attr-pshared.c
+pthread_mutex_attr_pshared_OBJECTS =  \
+	pthread_mutex/attr-pshared.$(OBJEXT)
+pthread_mutex_attr_pshared_LDADD = $(LDADD)
+pthread_mutex_attr_pshared_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_attr_type_SOURCES = pthread_mutex/attr-type.c
+pthread_mutex_attr_type_OBJECTS = pthread_mutex/attr-type.$(OBJEXT)
+pthread_mutex_attr_type_LDADD = $(LDADD)
+pthread_mutex_attr_type_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
 pthread_mutex_default_basic_SOURCES = pthread_mutex/default-basic.c
 pthread_mutex_default_basic_OBJECTS =  \
 	pthread_mutex/default-basic.$(OBJEXT)
@@ -1035,6 +1063,10 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_misc/$(DEPDIR)/stress1.Po \
 	pthread_misc/$(DEPDIR)/valid1.Po \
 	pthread_misc/$(DEPDIR)/valid2.Po \
+	pthread_mutex/$(DEPDIR)/attr-prioceiling.Po \
+	pthread_mutex/$(DEPDIR)/attr-protocol.Po \
+	pthread_mutex/$(DEPDIR)/attr-pshared.Po \
+	pthread_mutex/$(DEPDIR)/attr-type.Po \
 	pthread_mutex/$(DEPDIR)/default-basic.Po \
 	pthread_mutex/$(DEPDIR)/default-lock-recursive.Po \
 	pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po \
@@ -1155,6 +1187,8 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
+	pthread_mutex/attr-prioceiling.c pthread_mutex/attr-protocol.c \
+	pthread_mutex/attr-pshared.c pthread_mutex/attr-type.c \
 	pthread_mutex/default-basic.c \
 	pthread_mutex/default-lock-recursive.c \
 	pthread_mutex/default-static.c \
@@ -1240,6 +1274,8 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
+	pthread_mutex/attr-prioceiling.c pthread_mutex/attr-protocol.c \
+	pthread_mutex/attr-pshared.c pthread_mutex/attr-type.c \
 	pthread_mutex/default-basic.c \
 	pthread_mutex/default-lock-recursive.c \
 	pthread_mutex/default-static.c \
@@ -2258,6 +2294,31 @@ pthread_mutex/$(am__dirstamp):
 pthread_mutex/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) pthread_mutex/$(DEPDIR)
 	@: > pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+pthread_mutex/attr-prioceiling.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/attr-prioceiling$(EXEEXT): $(pthread_mutex_attr_prioceiling_OBJECTS) $(pthread_mutex_attr_prioceiling_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_prioceiling_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/attr-prioceiling$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_prioceiling_OBJECTS) $(pthread_mutex_attr_prioceiling_LDADD) $(LIBS)
+pthread_mutex/attr-protocol.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/attr-protocol$(EXEEXT): $(pthread_mutex_attr_protocol_OBJECTS) $(pthread_mutex_attr_protocol_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_protocol_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/attr-protocol$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_protocol_OBJECTS) $(pthread_mutex_attr_protocol_LDADD) $(LIBS)
+pthread_mutex/attr-pshared.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/attr-pshared$(EXEEXT): $(pthread_mutex_attr_pshared_OBJECTS) $(pthread_mutex_attr_pshared_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_pshared_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/attr-pshared$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_pshared_OBJECTS) $(pthread_mutex_attr_pshared_LDADD) $(LIBS)
+pthread_mutex/attr-type.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/attr-type$(EXEEXT): $(pthread_mutex_attr_type_OBJECTS) $(pthread_mutex_attr_type_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_type_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/attr-type$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_type_OBJECTS) $(pthread_mutex_attr_type_LDADD) $(LIBS)
 pthread_mutex/default-basic.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
@@ -2818,6 +2879,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/stress1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_misc/$(DEPDIR)/valid2.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-prioceiling.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-protocol.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-pshared.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-type.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-basic.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-lock-recursive.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po@am__quote@ # am--include-marker
@@ -3678,6 +3743,34 @@ pthread_misc/valid2.log: pthread_misc/valid2$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/attr-prioceiling.log: pthread_mutex/attr-prioceiling$(EXEEXT)
+	@p='pthread_mutex/attr-prioceiling$(EXEEXT)'; \
+	b='pthread_mutex/attr-prioceiling'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/attr-protocol.log: pthread_mutex/attr-protocol$(EXEEXT)
+	@p='pthread_mutex/attr-protocol$(EXEEXT)'; \
+	b='pthread_mutex/attr-protocol'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/attr-pshared.log: pthread_mutex/attr-pshared$(EXEEXT)
+	@p='pthread_mutex/attr-pshared$(EXEEXT)'; \
+	b='pthread_mutex/attr-pshared'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/attr-type.log: pthread_mutex/attr-type$(EXEEXT)
+	@p='pthread_mutex/attr-type$(EXEEXT)'; \
+	b='pthread_mutex/attr-type'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 pthread_mutex/default-basic.log: pthread_mutex/default-basic$(EXEEXT)
 	@p='pthread_mutex/default-basic$(EXEEXT)'; \
 	b='pthread_mutex/default-basic'; \
@@ -4342,6 +4435,10 @@ distclean: distclean-am
 	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-prioceiling.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-protocol.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-pshared.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-type.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po
@@ -4531,6 +4628,10 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_misc/$(DEPDIR)/stress1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid1.Po
 	-rm -f pthread_misc/$(DEPDIR)/valid2.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-prioceiling.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-protocol.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-pshared.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-type.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-static-lock-recursive.Po
