@@ -208,7 +208,7 @@ WINPTHREAD_API int pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol);
 WINPTHREAD_API int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol);
 
 /**
- * Mutex (pthread_mutex_t) declarations, definitons and functions.
+ * Mutex (pthread_mutex_t) declarations, definitions and functions.
  */
 
 #define PTHREAD_MUTEX_DEFAULT    PTHREAD_MUTEX_NORMAL

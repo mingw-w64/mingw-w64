@@ -80,7 +80,7 @@ typedef struct {
 /**
  * Obtain pointer to `WinpthreadsSpinlock` structure pointed to by `lock`.
  *
- * If `lock` points to statically initialzied `pthread_spinlock_t` object,
+ * If `lock` points to statically initialized `pthread_spinlock_t` object,
  * allocate `WinpthreadsSpinlock` structure and store its address in `*lock`.
  *
  * On success, stores pointer to `WinpthreadsSpinlock` structure in `*spinlock`.

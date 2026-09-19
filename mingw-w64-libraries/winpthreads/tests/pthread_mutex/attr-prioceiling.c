@@ -46,7 +46,7 @@ static void DoTest (int value, int expectedValue, int expectedReturn1, int expec
 
 int main (void) {
   /**
-   * Any valid `THRAED_PRIORITY_*` value can be set for prioceiling attribute.
+   * Any valid `THREAD_PRIORITY_*` value can be set for prioceiling attribute.
    *
    * Currently, it has no effect; POSIX realtime extensions are not implemented.
    */
