@@ -248,9 +248,9 @@ typedef intptr_t pthread_mutex_t;
 
 #define PTHREAD_MUTEX_INITIALIZER            PTHREAD_DEFAULT_MUTEX_INITIALIZER
 #define PTHREAD_DEFAULT_MUTEX_INITIALIZER    PTHREAD_NORMAL_MUTEX_INITIALIZER
-#define PTHREAD_NORMAL_MUTEX_INITIALIZER     (pthread_mutex_t)-1
-#define PTHREAD_ERRORCHECK_MUTEX_INITIALIZER (pthread_mutex_t)-2
-#define PTHREAD_RECURSIVE_MUTEX_INITIALIZER  (pthread_mutex_t)-3
+#define PTHREAD_NORMAL_MUTEX_INITIALIZER     ((pthread_mutex_t)-1)
+#define PTHREAD_ERRORCHECK_MUTEX_INITIALIZER ((pthread_mutex_t)-2)
+#define PTHREAD_RECURSIVE_MUTEX_INITIALIZER  ((pthread_mutex_t)-3)
 
 WINPTHREAD_API int pthread_mutex_init(pthread_mutex_t *, const pthread_mutexattr_t *);
 WINPTHREAD_API int pthread_mutex_destroy(pthread_mutex_t *);
@@ -280,9 +280,9 @@ typedef intptr_t pthread_cond_t;
 typedef intptr_t pthread_rwlock_t;
 typedef void	*pthread_barrier_t;
 
-#define PTHREAD_COND_INITIALIZER             (pthread_cond_t)-1
-#define PTHREAD_RWLOCK_INITIALIZER           (pthread_rwlock_t)-1
-#define PTHREAD_SPINLOCK_INITIALIZER         (pthread_spinlock_t)-1
+#define PTHREAD_COND_INITIALIZER             ((pthread_cond_t)-1)
+#define PTHREAD_RWLOCK_INITIALIZER           ((pthread_rwlock_t)-1)
+#define PTHREAD_SPINLOCK_INITIALIZER         ((pthread_spinlock_t)-1)
 
 WINPTHREAD_API extern void (**_pthread_key_dest)(void *);
 WINPTHREAD_API int         pthread_key_create(pthread_key_t *key, void (* dest)(void *));
