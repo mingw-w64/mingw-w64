@@ -171,7 +171,7 @@ int pthread_spin_init (pthread_spinlock_t *lock, int pshared)
   }
 
   wSpinlock->ThreadId = THREAD_ID_NO_OWNER;
-  wSpinlock->Event    = CreateEventA (NULL, FALSE, TRUE, NULL);
+  wSpinlock->Event    = CreateEventW (NULL, FALSE, TRUE, NULL);
 
   /**
    * The pthread_spin_init() function shall fail if:
