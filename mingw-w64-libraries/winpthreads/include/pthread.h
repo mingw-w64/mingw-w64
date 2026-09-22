@@ -274,15 +274,30 @@ WINPTHREAD_MUTEX_DECL int pthread_mutex_timedlock(pthread_mutex_t *_M, const str
 #define pthread_mutex_setprioceiling(M, P) ENOTSUP
 #define pthread_mutex_getprioceiling(M, P) ENOTSUP
 
-/* synchronization objects */
+/**
+ * Spinlock (pthread_spinlock_t) declarations, definitions and functions.
+ *
+ * NOTE: they are not really spinlocks; they are nearly equivalent to stalled
+ *   error-checking mutexes.
+ */
+
 typedef intptr_t pthread_spinlock_t;
+
+#define PTHREAD_SPINLOCK_INITIALIZER ((pthread_spinlock_t)-1)
+
+WINPTHREAD_API int pthread_spin_init(pthread_spinlock_t *, int);
+WINPTHREAD_API int pthread_spin_destroy(pthread_spinlock_t *);
+WINPTHREAD_API int pthread_spin_lock(pthread_spinlock_t *);
+WINPTHREAD_API int pthread_spin_trylock(pthread_spinlock_t *);
+WINPTHREAD_API int pthread_spin_unlock(pthread_spinlock_t *);
+
+/* synchronization objects */
 typedef intptr_t pthread_cond_t;
 typedef intptr_t pthread_rwlock_t;
 typedef void	*pthread_barrier_t;
 
-#define PTHREAD_COND_INITIALIZER             ((pthread_cond_t)-1)
-#define PTHREAD_RWLOCK_INITIALIZER           ((pthread_rwlock_t)-1)
-#define PTHREAD_SPINLOCK_INITIALIZER         ((pthread_spinlock_t)-1)
+#define PTHREAD_COND_INITIALIZER   ((pthread_cond_t)-1)
+#define PTHREAD_RWLOCK_INITIALIZER ((pthread_rwlock_t)-1)
 
 WINPTHREAD_API extern void (**_pthread_key_dest)(void *);
 WINPTHREAD_API int         pthread_key_create(pthread_key_t *key, void (* dest)(void *));
@@ -370,13 +385,6 @@ WINPTHREAD_COND_DECL int pthread_cond_timedwait_relative_np(pthread_cond_t *cv, 
 WINPTHREAD_API int pthread_barrier_destroy(pthread_barrier_t *b);
 WINPTHREAD_API int pthread_barrier_init(pthread_barrier_t *b, const void *attr, unsigned int count);
 WINPTHREAD_API int pthread_barrier_wait(pthread_barrier_t *b);
-
-WINPTHREAD_API int pthread_spin_init(pthread_spinlock_t *l, int pshared);
-WINPTHREAD_API int pthread_spin_destroy(pthread_spinlock_t *l);
-/* No-fair spinlock due to lack of knowledge of thread number.  */
-WINPTHREAD_API int pthread_spin_lock(pthread_spinlock_t *l);
-WINPTHREAD_API int pthread_spin_trylock(pthread_spinlock_t *l);
-WINPTHREAD_API int pthread_spin_unlock(pthread_spinlock_t *l);
 
 WINPTHREAD_API int pthread_attr_init(pthread_attr_t *attr);
 WINPTHREAD_API int pthread_attr_destroy(pthread_attr_t *attr);
