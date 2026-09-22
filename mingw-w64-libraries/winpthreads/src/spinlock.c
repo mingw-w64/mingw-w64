@@ -48,9 +48,40 @@
  */
 
 /**
+ * Spinlock lock state.
+ */
+typedef enum {
+  /**
+   * Spinlock is unlocked.
+   */
+  Unlocked,
+  /**
+   * Spinlock is locked.
+   *
+   * This state inicates that there are no blocked threads waiting for
+   * the spinlock to be released.
+   *
+   * While in this state, if any thread blocks waiting for the spinlock to be
+   * released, the lock state will change to `LockedWithBlocking`.
+   */
+  Locked,
+  /**
+   * Spinlock is locked.
+   *
+   * This state indicates that there can be one or more blocked threads
+   * waiting for the spinlock to be released.
+   */
+  LockedWithBlocking,
+} WinpthreadsSpinlockLockState;
+
+/**
  * Internal structure pointed to by `pthread_spinlock_t` objects.
  */
 typedef struct {
+  /**
+   * One of `WinpthreadsSpinlockLockState` values.
+   */
+  LONG State;
   /**
    * This value is used to indicate that spin lock has no owner.
    */
@@ -62,15 +93,8 @@ typedef struct {
   /**
    * Auto-reset event.
    *
-   * This event is created in signaled state, which means any thread can
-   * `WaitForSingleObject` on it; only one thread will be released at a time,
-   * after which this event will be automatically put into non-signaled state.
-   *
-   * The released thread owns the lock; it unlocks it by calling `SetEvent` on
-   * this event, which puts this event into signaled state, allowing system
-   * release another thread which waits on it.
-   *
-   * The cycle repeats until this event is destroyed.
+   * When a thread releases the spinlock and `State` is `LockedWithBlocking`,
+   * this event will be signaled in order to release one blocked thread.
    */
   HANDLE Event;
 } WinpthreadsSpinlock;
@@ -170,8 +194,9 @@ int pthread_spin_init (pthread_spinlock_t *lock, int pshared)
     return ENOMEM;
   }
 
+  wSpinlock->State    = Unlocked;
   wSpinlock->ThreadId = THREAD_ID_NO_OWNER;
-  wSpinlock->Event    = CreateEventW (NULL, FALSE, TRUE, NULL);
+  wSpinlock->Event    = CreateEventW (NULL, FALSE, FALSE, NULL);
 
   /**
    * The pthread_spin_init() function shall fail if:
@@ -221,29 +246,17 @@ int pthread_spin_destroy (pthread_spinlock_t *lock)
     return 0;
   }
 
-  switch (_pthread_wait_for_single_object (wSpinlock->Event, 0)) {
-    /**
-     * `wSpinlock->Event` was in signaled state, which means it was unlocked;
-     * we are holding the lock now which prevents other threads from locking it.
-     */
-    case WAIT_OBJECT_0:
-      break;
-    /**
-     * `wSpinlock->Event` was in not-signaled state, which means some thread
-     * holds the lock.
-     *
-     * POSIX:
-     *
-     * If an implementation detects that the value specified by the lock argument
-     * to pthread_spin_destroy() or pthread_spin_init() refers to a locked spin
-     * lock object, or detects that the value specified by the lock argument to
-     * pthread_spin_init() refers to an already initialized spin lock object,
-     * it is recommended that the function should fail and report an [EBUSY] error.
-     */
-    case WAIT_TIMEOUT:
-      return EBUSY;
-    default:
-      return EINVAL;
+  /**
+   * POSIX:
+   *
+   * If an implementation detects that the value specified by the lock argument
+   * to pthread_spin_destroy() or pthread_spin_init() refers to a locked spin
+   * lock object, or detects that the value specified by the lock argument to
+   * pthread_spin_init() refers to an already initialized spin lock object,
+   * it is recommended that the function should fail and report an [EBUSY] error.
+   */
+  if (unlikely (InterlockedCompareExchange (&wSpinlock->State, Locked, Unlocked) != Unlocked)) {
+    return EBUSY;
   }
 
   /**
@@ -279,17 +292,37 @@ int pthread_spin_lock (pthread_spinlock_t *lock)
     return EDEADLK;
   }
 
-  switch (_pthread_wait_for_single_object (wSpinlock->Event, INFINITE)) {
-    /**
-     * We are holding the lock now and `wSpinlock->Event` was reset to
-     * non-signaled state.
-     */
-    case WAIT_OBJECT_0:
-      break;
-    default:
-      return EINVAL;
+  /**
+   * Try fast path.
+   */
+  if (InterlockedCompareExchange (&wSpinlock->State, Locked, Unlocked) == Unlocked) {
+    goto locked;
   }
 
+  /**
+   * Setting `wSpinlock->State` to `LockedWithBlocking` causes
+   * `pthread_spin_unlock` to signal `wSpinlock->Event`.
+   */
+  LONG oldLockState = InterlockedExchange (&wSpinlock->State, LockedWithBlocking);
+
+  if (likely (oldLockState != Unlocked)) {
+    do {
+      switch (_pthread_wait_for_single_object (wSpinlock->Event, INFINITE)) {
+        /**
+         * `wSpinlock->Event` was signaled.
+         *
+         * There is a small chance that another thread grabs the lock faster
+         * than we do; lock state is updated before wait handle is signaled.
+         */
+        case WAIT_OBJECT_0:
+          break;
+        default:
+          return EINVAL;
+      }
+    } while (unlikely (InterlockedExchange (&wSpinlock->State, LockedWithBlocking) != Unlocked));
+  }
+
+locked:
   wSpinlock->ThreadId = threadId;
 
   return 0;
@@ -306,30 +339,13 @@ int pthread_spin_trylock (pthread_spinlock_t *lock)
   }
 
   /**
-   * Unlike `pthread_spin_lock`, no deadlock can occur even if calling thread
-   * owns the lock.
+   * The pthread_spin_trylock() function shall fail if:
+   *
+   * [EBUSY]
+   *  A thread currently holds the lock.
    */
-  switch (_pthread_wait_for_single_object (wSpinlock->Event, 0)) {
-    /**
-     * `wSpinlock->Event` was in signaled state, which means it was unlocked;
-     * we are holding the lock now and `wSpinlock->Event` was reset to
-     * non-signaled state.
-     */
-    case WAIT_OBJECT_0:
-      break;
-    /**
-     * `wSpinlock->Event` was in non-signaled state, which means some thread
-     * holds the lock.
-     *
-     * The pthread_spin_trylock() function shall fail if:
-     *
-     * [EBUSY]
-     *  A thread currently holds the lock.
-     */
-    case WAIT_TIMEOUT:
-      return EBUSY;
-    default:
-      return EINVAL;
+  if (InterlockedCompareExchange (&wSpinlock->State, Locked, Unlocked) != Unlocked) {
+    return EBUSY;
   }
 
   wSpinlock->ThreadId = GetCurrentThreadId ();
@@ -363,8 +379,14 @@ int pthread_spin_unlock (pthread_spinlock_t *lock)
 
   wSpinlock->ThreadId = THREAD_ID_NO_OWNER;
 
-  if (!SetEvent (wSpinlock->Event)) {
-    return EINVAL;
+  /**
+   * If `wSpinlock->State` is `LockedWithBlocking`, then some other thread is
+   * waiting for `wSpinlock->Event` to become signaled.
+   */
+  if (InterlockedExchange (&wSpinlock->State, Unlocked) == LockedWithBlocking) {
+    if (!SetEvent (wSpinlock->Event)) {
+      return EINVAL;
+    }
   }
 
   return 0;
