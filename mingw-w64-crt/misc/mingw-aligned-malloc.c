@@ -35,6 +35,7 @@ void *
 __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
 {
   void *p0, *p;
+  size_t total_size;
 
   if (NOT_POWER_OF_TWO (alignment))
     {
@@ -51,7 +52,13 @@ __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
      machine, since malloc is already 8-byte aligned, as long
      as we enforce alignment >= 8 ...but oh well.  */
 
-  p0 = malloc (size + (alignment + GAP (offset) + sizeof (void *)));
+  if (__builtin_add_overflow (size, alignment + GAP (offset) + sizeof (void *),
+			      &total_size))
+    {
+      errno = ENOMEM;
+      return ((void *) 0);
+    }
+  p0 = malloc (total_size);
   if (!p0)
     return ((void *) 0);
   p = PTR_ALIGN (p0, alignment, offset);
@@ -77,6 +84,7 @@ __mingw_aligned_offset_realloc (void *memblock, size_t size,
 				size_t alignment, size_t offset)
 {
   void *p0, *p;
+  size_t total_size;
   ptrdiff_t shift;
 
   if (!memblock)
@@ -98,7 +106,13 @@ __mingw_aligned_offset_realloc (void *memblock, size_t size,
     goto bad;
   shift = CP (memblock) - CP (p0);
 
-  p0 = realloc (p0, size + (alignment + GAP (offset) + sizeof (void *)));
+  if (__builtin_add_overflow (size, alignment + GAP (offset) + sizeof (void *),
+			      &total_size))
+    {
+      errno = ENOMEM;
+      return ((void *) 0);
+    }
+  p0 = realloc (p0, total_size);
   if (!p0)
     return ((void *) 0);
   p = PTR_ALIGN (p0, alignment, offset);
