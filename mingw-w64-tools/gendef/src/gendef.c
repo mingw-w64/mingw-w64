@@ -737,6 +737,7 @@ dump_def (void)
   while ((exp = gExp) != NULL)
     {
       sImportname *pimpname;
+      int has_info = 0;
       int seen_ret;
       seen_ret = 1;
       gExp = exp->next;
@@ -759,6 +760,7 @@ dump_def (void)
 	  uint32_t at = 0;
 	  if (gendef_getsymbol_info (pimpname->dll, pimpname->name, &isD, &at))
 	    {
+	      has_info = 1;
 	      exp->beData = isD;
 	      if (!isD)
 		exp->retpop = at;
@@ -770,6 +772,7 @@ dump_def (void)
 	  uint32_t at = 0;
 	  if (gendef_getsymbol_info (exp->forward, NULL, &isD, &at))
 	    {
+	      has_info = 1;
 	      exp->beData = isD;
 	      if (!isD)
 	        exp->retpop = at;
@@ -842,7 +845,7 @@ dump_def (void)
       if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration() && exp->name[0] == '?')
         fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
 
-      if (exp->name[0] != 0 && (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ()))
+      if (exp->name[0] != 0 && (has_info || exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ()))
 	{
 	}
       else if (pimpname)

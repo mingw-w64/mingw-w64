@@ -49,7 +49,7 @@ static int add_path_def (const char *path);
 static sImpDef *is_def_loaded (const char *);
 static sImpDef *gendef_loaddef (const char *);
 static FILE *fopen_def (const char *name);
-static uint32_t get_uint32_by_str (const char *txt);
+static uint32_t get_uint32_by_str (const char **txt_ptr);
 
 int
 gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData, uint32_t *at)
@@ -91,7 +91,7 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
   id = gendef_loaddef (def);
   if (id)
     {
-      char *t = id->data;
+      const char *t = id->data;
       while (t != NULL && *t != 0)
 	{
 	  t = strchr (t, '\n');
@@ -99,10 +99,18 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
 	    t++;
 	  if (t && strncmp (t, symbolname, symlen) == 0)
 	    {
-	      if ((t[symlen] > 0 && t[symlen] <= 0x20) || t[symlen] == '@')
+	      if ((t[symlen] >= 0 && t[symlen] <= 0x20) || t[symlen] == '@')
 		{
-		  t += symlen + 1;
-		  *at = get_uint32_by_str (t);
+		  *at = -1;
+		  t += symlen;
+		  if (*t == '@')
+		    {
+		      t++;
+		      const char *old_t = t;
+		      int num = get_uint32_by_str (&t);
+		      if (old_t != t)
+			*at = num;
+		    }
 		  while (*t != 0 && *t != '\n')
 		    {
 		      if (!strncmp (t, "DATA", 4))
@@ -228,8 +236,9 @@ is_def_loaded (const char *dname)
 }
 
 static uint32_t
-get_uint32_by_str (const char *txt)
+get_uint32_by_str (const char **txt_ptr)
 {
+  const char *txt = *txt_ptr;
   uint32_t ret = 0;
   while (*txt != 0 && *txt >= '0' && *txt <= '9')
     {
@@ -237,6 +246,7 @@ get_uint32_by_str (const char *txt)
       ret += (uint32_t) (txt[0] - '0');
       ++txt;
     }
+  *txt_ptr = txt;
   return ret;
 }
 
