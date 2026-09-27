@@ -204,6 +204,8 @@ _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jm
 
 #if defined(__arm__) || defined(__aarch64__)
 int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
+#endif
+#if defined(__i386__) || defined(__arm__) || defined(__aarch64__)
 __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_buf _Buf, int _Value);
 #endif
 
@@ -252,6 +254,8 @@ _CRT_END_C_HEADER
 #endif
 #if defined(_INC_SETJMPEX) && defined(__i386__)
 #  define longjmp _longjmpex
+#elif !defined(_INC_SETJMPEX) && defined(__USE_MINGW_SETJMP_NON_SEH) && defined(__i386__)
+#  define longjmp __mingw_longjmp
 #elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH)) && (defined(__arm__) || defined(__aarch64__))
 #  define longjmp __mingw_longjmp
 #else

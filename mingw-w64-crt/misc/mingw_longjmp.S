@@ -55,11 +55,25 @@ __MINGW_USYMBOL(__mingw_setjmp):
 	mov     x0,  #0
 	ret
 #endif
+#endif
 
+#if defined(__i386__) || defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
 	.globl __MINGW_USYMBOL(__mingw_longjmp)
 	.def	__MINGW_USYMBOL(__mingw_longjmp);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(__mingw_longjmp):
-#if defined(_ARM_) || defined(__arm__)
+#if defined(__i386__)
+	movl    4(%esp),%ecx         /* jmp_buf */
+	movl    8(%esp),%eax         /* retval */
+	cmpl    $1,%eax              /* check that retval is non-zero */
+	adcl    $0,%eax              /* if not then increase by one via CF */
+	movl    0(%ecx),%ebp         /* jmp_buf->Ebp */
+	movl    4(%ecx),%ebx         /* jmp_buf->Ebx */
+	movl    8(%ecx),%edi         /* jmp_buf->Edi */
+	movl    12(%ecx),%esi        /* jmp_buf->Esi */
+	movl    16(%ecx),%esp        /* jmp_buf->Esp */
+	addl    $4,%esp              /* get rid of return address */
+	jmpl    *20(%ecx)            /* jmp_buf->Eip */
+#elif defined(_ARM_) || defined(__arm__)
 	ldr     r4,  [r0, #0x4]      /* jmp_buf->R4 */
 	ldr     r5,  [r0, #0x8]      /* jmp_buf->R5 */
 	ldr     r6,  [r0, #0xc]      /* jmp_buf->R6 */
