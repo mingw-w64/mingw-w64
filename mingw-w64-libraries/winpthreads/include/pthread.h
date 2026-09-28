@@ -257,6 +257,7 @@ WINPTHREAD_API int pthread_mutex_destroy(pthread_mutex_t *);
 WINPTHREAD_API int pthread_mutex_lock(pthread_mutex_t *);
 WINPTHREAD_API int pthread_mutex_trylock(pthread_mutex_t *);
 WINPTHREAD_API int pthread_mutex_unlock(pthread_mutex_t *);
+WINPTHREAD_API int pthread_mutex_consistent(pthread_mutex_t *);
 WINPTHREAD_API int pthread_mutex_timedlock32(pthread_mutex_t *, const struct _timespec32 *);
 WINPTHREAD_API int pthread_mutex_timedlock64(pthread_mutex_t *, const struct _timespec64 *);
 WINPTHREAD_MUTEX_DECL int pthread_mutex_timedlock(pthread_mutex_t *_M, const struct timespec *_T)

@@ -50,6 +50,7 @@ int main(void)
   assert(pthread_mutex_lock(&mutex) == EDEADLK);
   assert(pthread_mutex_trylock(&mutex) == EBUSY);
   assert(pthread_mutex_destroy(&mutex) == EBUSY);
+  assert(pthread_mutex_consistent(&mutex) == EINVAL);
   assert(pthread_mutex_unlock(&mutex) == 0);
   assert(pthread_mutex_unlock(&mutex) == EPERM);
   assert(pthread_mutex_destroy(&mutex) == 0);

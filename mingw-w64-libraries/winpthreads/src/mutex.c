@@ -79,7 +79,6 @@
  * - pthread_mutex_clocklock()
  * - pthread_mutex_getprioceiling()
  * - pthread_mutex_setprioceiling()
- * - pthread_mutex_consistent()
  * - pthread_mutexattr_getrobust()
  * - pthread_mutexattr_setrobust()
  */
@@ -125,6 +124,11 @@ typedef int (* FuncMutexTryLock) (WinpthreadsMutex *, BOOL);
 typedef int (* FuncMutexUnlock) (WinpthreadsMutex *);
 
 /**
+ * Mutex type-specific "mark protected state as consistent" routine.
+ */
+typedef int (* FuncMutexSetConsistentState) (WinpthreadsMutex *);
+
+/**
  * Implementation for specific Mutex type.
  */
 typedef struct {
@@ -133,6 +137,7 @@ typedef struct {
   FuncMutexLock Lock;
   FuncMutexTryLock TryLock;
   FuncMutexUnlock Unlock;
+  FuncMutexSetConsistentState SetConsistentState;
 } WinpthreadsMutexVtable;
 
 /**
@@ -411,6 +416,23 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
   return 0;
 }
 
+/**
+ * Common implementation for `pthread_mutex_consistent` for stalled mutexes.
+ *
+ * Always fails with `EINVAL`.
+ */
+static int WinpthreadsStalledMutexSetConsistentState (WinpthreadsMutex *wMutex) {
+  /**
+   * The pthread_mutex_consistent() function shall fail if:
+   *
+   * [EINVAL]
+   *   The mutex object referenced by mutex is not robust or does not protect
+   *   an inconsistent state.
+   */
+  return EINVAL;
+  UNREFERENCED_PARAMETER (wMutex);
+}
+
 /*******************************************************************************
  * Normal Mutex (PTHREAD_MUTEX_NORMAL) implementation.
  *
@@ -519,6 +541,7 @@ static const WinpthreadsMutexVtable WinpthreadsNormalMutexVtable = {
   .Lock    = WinpthreadsNormalMutexLock,
   .TryLock = WinpthreadsNormalMutexTryLock,
   .Unlock  = WinpthreadsNormalMutexUnlock,
+  .SetConsistentState = WinpthreadsStalledMutexSetConsistentState,
 };
 
 /*******************************************************************************
@@ -649,6 +672,7 @@ static const WinpthreadsMutexVtable WinpthreadsErrorCheckMutexVtable = {
   .Lock    = WinpthreadsErrorCheckMutexLock,
   .TryLock = WinpthreadsErrorCheckMutexTryLock,
   .Unlock  = WinpthreadsErrorCheckMutexUnlock,
+  .SetConsistentState = WinpthreadsStalledMutexSetConsistentState,
 };
 
 /*******************************************************************************
@@ -815,6 +839,7 @@ static const WinpthreadsMutexVtable WinpthreadsRecursiveMutexVtable = {
   .Lock    = WinpthreadsRecursiveMutexLock,
   .TryLock = WinpthreadsRecursiveMutexTryLock,
   .Unlock  = WinpthreadsRecursiveMutexUnlock,
+  .SetConsistentState = WinpthreadsStalledMutexSetConsistentState,
 };
 
 /*******************************************************************************
@@ -1310,4 +1335,17 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
   }
 
   return wMutex->Base.Vtable->Unlock (wMutex);
+}
+
+int pthread_mutex_consistent(pthread_mutex_t *m)
+{
+  WinpthreadsMutex *wMutex = NULL;
+
+  int error_code = WinpthreadsMutexGet (m, &wMutex);
+
+  if (error_code) {
+    return error_code;
+  }
+
+  return wMutex->Base.Vtable->SetConsistentState (wMutex);
 }
