@@ -351,7 +351,9 @@ F_I386(_setjmp3 == _setjmp)
 
 #ifdef UCRTBASE
 F_NON_ARM64(_setjmp == __intrinsic_setjmp)
+F_ARM32(__intrinsic_setjmpex == __intrinsic_setjmp)
 F64(_setjmpex == __intrinsic_setjmpex)
+F_ARM32(_setjmpex == __intrinsic_setjmp)
 #endif
 
 #ifndef NO_STRCMPI_ALIAS
