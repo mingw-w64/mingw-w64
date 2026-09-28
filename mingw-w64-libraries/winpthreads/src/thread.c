@@ -523,6 +523,25 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     }
 }
 
+#ifdef DLL_EXPORT
+
+/* For DLL builds register TLS hook via DllMain(). Entrypoint DllMain()
+ * works on all Windows versions (Win32s, Win9x, WinNT) for all cases.
+ *
+ * Callbacks defined via PIMAGE_TLS_CALLBACK are not called on Win9x
+ * systems, and also they are not called on pre-Vista systems when
+ * DLL library is loaded at runtime by LoadLibrary() call.
+ */
+
+BOOL WINAPI
+DllMain (HANDLE hDllHandle, DWORD dwReason, LPVOID lpReserved)
+{
+  __dyn_tls_pthread (hDllHandle, dwReason, lpReserved);
+  return TRUE;
+}
+
+#else
+
 /* TLS-runtime section variable.  */
 
 /* Force a reference to _tls_used to make the linker create the TLS
@@ -561,6 +580,8 @@ static __attribute__((used))
 #endif
 WINPTHREADS_ATTRIBUTE((WINPTHREADS_SECTION(".CRT$XLF")))
 const PIMAGE_TLS_CALLBACK __xl_f = __dyn_tls_pthread;
+
+#endif
 
 /* Internal collect-once structure.  */
 typedef struct collect_once_t {
@@ -1039,7 +1060,7 @@ __pthread_self_lite (void)
   t = (struct _pthread_v *) pop_pthread_mem ();
 
   /* If cannot initialize main thread, then the only thing we can do is return null pthread_t */
-  if (!__xl_f || !t)
+  if (!t)
     return 0;
 
   t->p_state = PTHREAD_DEFAULT_ATTR /*| PTHREAD_CREATE_DETACHED*/;
