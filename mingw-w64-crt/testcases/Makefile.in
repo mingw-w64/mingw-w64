@@ -152,12 +152,13 @@ host_triplet = @host@
 @ARM64EC_TRUE@am__append_7 = -static
 @ARM64EC_TRUE@am__append_8 = -static
 @ARM64EC_TRUE@am__append_9 = -static
-@ENABLE_TESTS_UNICODE_TRUE@am__append_10 = \
+@ARM64EC_TRUE@am__append_10 = -static
+@ENABLE_TESTS_UNICODE_TRUE@am__append_11 = \
 @ENABLE_TESTS_UNICODE_TRUE@    t__wstat_all \
 @ENABLE_TESTS_UNICODE_TRUE@    t_municode \
 @ENABLE_TESTS_UNICODE_TRUE@    t_tmain
 
-@ENABLE_TESTS_UNICODE_TRUE@am__append_11 = \
+@ENABLE_TESTS_UNICODE_TRUE@am__append_12 = \
 @ENABLE_TESTS_UNICODE_TRUE@    t_scrnsavw
 
 check_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_5) $(am__EXEEXT_7) \
@@ -170,25 +171,25 @@ XFAIL_TESTS = t_excpt_int_divzero$(EXEEXT) \
 	$(am__EXEEXT_10) $(am__EXEEXT_10)
 
 # Build the libraries
-@LIB32_TRUE@am__append_12 = $(newcomplex_test_lib32)
+@LIB32_TRUE@am__append_13 = $(newcomplex_test_lib32)
 
 # Build the programs during make check.
-@LIB32_TRUE@am__append_13 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_14 = $(newcomplex_tests32)
 
 # Declare the tests.
-@LIB32_TRUE@am__append_14 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_15 = $(newcomplex_tests32)
 # Remove these when completed.
-@LIB32_TRUE@am__append_15 = 
+@LIB32_TRUE@am__append_16 = 
 
 # Build the libraries
-@LIB64_TRUE@am__append_16 = $(newcomplex_test_lib64)
+@LIB64_TRUE@am__append_17 = $(newcomplex_test_lib64)
 
 # Build the programs during make check.
-@LIB64_TRUE@am__append_17 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_18 = $(newcomplex_tests64)
 
 # Declare the tests.
-@LIB64_TRUE@am__append_18 = $(newcomplex_tests64)
-@LIB64_TRUE@am__append_19 = 
+@LIB64_TRUE@am__append_19 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_20 = 
 subdir = testcases
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -210,7 +211,8 @@ am__EXEEXT_2 = t_intrin$(EXEEXT) t_intrin_cpp$(EXEEXT) \
 am__EXEEXT_5 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t__sys_errlist$(EXEEXT) t_aligned_alloc$(EXEEXT) \
 	t_ansi_io$(EXEEXT) t_assert$(EXEEXT) t_btowc$(EXEEXT) \
-	t_char16_t$(EXEEXT) t_ctype$(EXEEXT) t_excpt_gcc_cpp$(EXEEXT) \
+	t_char16_t$(EXEEXT) t_cpp_dtor_atexit_order$(EXEEXT) \
+	t_ctype$(EXEEXT) t_excpt_gcc_cpp$(EXEEXT) \
 	t_excpt_int_divzero$(EXEEXT) t_excpt_int_divzero_thrd$(EXEEXT) \
 	t_excpt_int_overflow$(EXEEXT) \
 	t_excpt_int_overflow_thrd$(EXEEXT) t_exp_denormal$(EXEEXT) \
@@ -229,7 +231,8 @@ am__EXEEXT_5 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_nontls_exe$(EXEEXT) t_tls_dll$(EXEEXT) \
 	t_tls_dll_native$(EXEEXT) \
 	t_tls_dll_native_process_detach$(EXEEXT) \
-	t_tls_exe_dtor$(EXEEXT) t_tls_exe_dyn$(EXEEXT) \
+	t_tls_exe_cxa_atexit_order$(EXEEXT) t_tls_exe_dtor$(EXEEXT) \
+	t_tls_exe_dtor_atexit_order$(EXEEXT) t_tls_exe_dyn$(EXEEXT) \
 	t_tls_exe_native$(EXEEXT) \
 	t_tls_exe_native_process_detach$(EXEEXT) \
 	t_tls_exe_var$(EXEEXT) t_nullptrexception$(EXEEXT) \
@@ -544,6 +547,14 @@ t_char16_t_SOURCES = t_char16_t.c
 t_char16_t_OBJECTS = t_char16_t.$(OBJEXT)
 t_char16_t_LDADD = $(LDADD)
 t_char16_t_DEPENDENCIES = $(builddir)/libtest.a
+am_t_cpp_dtor_atexit_order_OBJECTS =  \
+	t_cpp_dtor_atexit_order.$(OBJEXT)
+t_cpp_dtor_atexit_order_OBJECTS =  \
+	$(am_t_cpp_dtor_atexit_order_OBJECTS)
+t_cpp_dtor_atexit_order_LDADD = $(LDADD)
+t_cpp_dtor_atexit_order_DEPENDENCIES = $(builddir)/libtest.a
+t_cpp_dtor_atexit_order_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(t_cpp_dtor_atexit_order_LDFLAGS) $(LDFLAGS) -o $@
 t_ctype_SOURCES = t_ctype.c
 t_ctype_OBJECTS = t_ctype.$(OBJEXT)
 t_ctype_LDADD = $(LDADD)
@@ -916,10 +927,20 @@ t_tls_dll_native_process_detach_OBJECTS =  \
 	t_tls_dll_native_process_detach.$(OBJEXT)
 t_tls_dll_native_process_detach_DEPENDENCIES = libtlsnatprocdet.dll \
 	$(LDADD)
+t_tls_exe_cxa_atexit_order_SOURCES = t_tls_exe_cxa_atexit_order.c
+t_tls_exe_cxa_atexit_order_OBJECTS =  \
+	t_tls_exe_cxa_atexit_order.$(OBJEXT)
+t_tls_exe_cxa_atexit_order_LDADD = $(LDADD)
+t_tls_exe_cxa_atexit_order_DEPENDENCIES = $(builddir)/libtest.a
 t_tls_exe_dtor_SOURCES = t_tls_exe_dtor.c
 t_tls_exe_dtor_OBJECTS = t_tls_exe_dtor.$(OBJEXT)
 t_tls_exe_dtor_LDADD = $(LDADD)
 t_tls_exe_dtor_DEPENDENCIES = $(builddir)/libtest.a
+t_tls_exe_dtor_atexit_order_SOURCES = t_tls_exe_dtor_atexit_order.c
+t_tls_exe_dtor_atexit_order_OBJECTS =  \
+	t_tls_exe_dtor_atexit_order.$(OBJEXT)
+t_tls_exe_dtor_atexit_order_LDADD = $(LDADD)
+t_tls_exe_dtor_atexit_order_DEPENDENCIES = $(builddir)/libtest.a
 t_tls_exe_dyn_SOURCES = t_tls_exe_dyn.c
 t_tls_exe_dyn_OBJECTS = t_tls_exe_dyn.$(OBJEXT)
 t_tls_exe_dyn_LDADD = $(LDADD)
@@ -1387,7 +1408,8 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t__wstat_all-t__wstat_all.Po \
 	./$(DEPDIR)/t_aligned_alloc.Po ./$(DEPDIR)/t_ansi_io.Po \
 	./$(DEPDIR)/t_assert.Po ./$(DEPDIR)/t_btowc.Po \
-	./$(DEPDIR)/t_char16_t.Po ./$(DEPDIR)/t_ctype.Po \
+	./$(DEPDIR)/t_char16_t.Po \
+	./$(DEPDIR)/t_cpp_dtor_atexit_order.Po ./$(DEPDIR)/t_ctype.Po \
 	./$(DEPDIR)/t_excpt_gcc_cpp.Po \
 	./$(DEPDIR)/t_excpt_int_divzero.Po \
 	./$(DEPDIR)/t_excpt_int_divzero_thrd.Po \
@@ -1436,8 +1458,10 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_tls_c11-t_tls_c11.Po ./$(DEPDIR)/t_tls_cpp.Po \
 	./$(DEPDIR)/t_tls_dll.Po ./$(DEPDIR)/t_tls_dll_native.Po \
 	./$(DEPDIR)/t_tls_dll_native_process_detach.Po \
-	./$(DEPDIR)/t_tls_exe_dtor.Po ./$(DEPDIR)/t_tls_exe_dyn.Po \
-	./$(DEPDIR)/t_tls_exe_native.Po \
+	./$(DEPDIR)/t_tls_exe_cxa_atexit_order.Po \
+	./$(DEPDIR)/t_tls_exe_dtor.Po \
+	./$(DEPDIR)/t_tls_exe_dtor_atexit_order.Po \
+	./$(DEPDIR)/t_tls_exe_dyn.Po ./$(DEPDIR)/t_tls_exe_native.Po \
 	./$(DEPDIR)/t_tls_exe_native_process_detach.Po \
 	./$(DEPDIR)/t_tls_exe_var.Po ./$(DEPDIR)/t_tmain-t_tmain.Po \
 	./$(DEPDIR)/t_tmpfile.Po ./$(DEPDIR)/t_towctrans.Po \
@@ -1662,7 +1686,8 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) t__fstat_all.c \
 	t__stat_all.c t__sys_errlist.c t__wstat_all.c \
 	t_aligned_alloc.c t_ansi_io.c t_assert.c t_btowc.c \
-	t_char16_t.c t_ctype.c t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
+	t_char16_t.c $(t_cpp_dtor_atexit_order_SOURCES) t_ctype.c \
+	t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
 	t_excpt_int_divzero_thrd.c t_excpt_int_overflow.c \
 	t_excpt_int_overflow_thrd.c t_exp_denormal.c t_expm1.c \
 	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
@@ -1685,35 +1710,36 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
 	t_swprintf0.c t_swprintf1.c t_time.c t_tls_ansi.c t_tls_c11.c \
 	$(t_tls_cpp_SOURCES) t_tls_dll.c t_tls_dll_native.c \
-	t_tls_dll_native_process_detach.c t_tls_exe_dtor.c \
-	t_tls_exe_dyn.c t_tls_exe_native.c \
-	t_tls_exe_native_process_detach.c t_tls_exe_var.c t_tmain.c \
-	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c \
-	t_utime.c t_vsscanf.c t_wassert.c t_wcrtomb.c t_wcsrtombs.c \
-	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
-	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
-	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
-	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
-	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
-	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
-	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
-	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
-	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
-	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
-	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
-	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
-	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
-	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
-	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
-	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
-	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
-	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
-	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
-	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
-	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
-	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
-	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
-	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES)
+	t_tls_dll_native_process_detach.c t_tls_exe_cxa_atexit_order.c \
+	t_tls_exe_dtor.c t_tls_exe_dtor_atexit_order.c t_tls_exe_dyn.c \
+	t_tls_exe_native.c t_tls_exe_native_process_detach.c \
+	t_tls_exe_var.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_tsearch.c t_utime.c t_vsscanf.c \
+	t_wassert.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
+	t_wctype.c t_winmain.c t_winmain_assert.c t_wreaddir.c \
+	$(t_wrongret_SOURCES) $(tests32_cabs_SOURCES) \
+	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
+	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
+	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
+	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
+	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
+	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
+	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
+	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
+	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
+	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
+	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
+	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
+	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
+	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
+	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
+	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
+	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
+	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
+	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
+	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
+	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
+	$(tests64_ctanh_SOURCES)
 DIST_SOURCES = $(libtest_a_SOURCES) \
 	$(am__tests32_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests32_libnewcomplextestsf_a_SOURCES_DIST) \
@@ -1723,7 +1749,8 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
 	t__fstat_all.c t__stat_all.c t__sys_errlist.c t__wstat_all.c \
 	t_aligned_alloc.c t_ansi_io.c t_assert.c t_btowc.c \
-	t_char16_t.c t_ctype.c t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
+	t_char16_t.c $(t_cpp_dtor_atexit_order_SOURCES) t_ctype.c \
+	t_excpt_gcc_cpp.c t_excpt_int_divzero.c \
 	t_excpt_int_divzero_thrd.c t_excpt_int_overflow.c \
 	t_excpt_int_overflow_thrd.c t_exp_denormal.c t_expm1.c \
 	t_fctptr.c t_findfirst.c t_float.c t_fmod.c t_format_Z.c \
@@ -1746,14 +1773,14 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
 	t_swprintf0.c t_swprintf1.c t_time.c t_tls_ansi.c t_tls_c11.c \
 	$(t_tls_cpp_SOURCES) t_tls_dll.c t_tls_dll_native.c \
-	t_tls_dll_native_process_detach.c t_tls_exe_dtor.c \
-	t_tls_exe_dyn.c t_tls_exe_native.c \
-	t_tls_exe_native_process_detach.c t_tls_exe_var.c t_tmain.c \
-	t_tmpfile.c t_towctrans.c $(t_trycatch_SOURCES) t_tsearch.c \
-	t_utime.c t_vsscanf.c t_wassert.c t_wcrtomb.c t_wcsrtombs.c \
-	t_wcstok_s.c t_wctob.c t_wctype.c t_winmain.c \
-	t_winmain_assert.c t_wreaddir.c $(t_wrongret_SOURCES) \
-	$(am__tests32_cabs_SOURCES_DIST) \
+	t_tls_dll_native_process_detach.c t_tls_exe_cxa_atexit_order.c \
+	t_tls_exe_dtor.c t_tls_exe_dtor_atexit_order.c t_tls_exe_dyn.c \
+	t_tls_exe_native.c t_tls_exe_native_process_detach.c \
+	t_tls_exe_var.c t_tmain.c t_tmpfile.c t_towctrans.c \
+	$(t_trycatch_SOURCES) t_tsearch.c t_utime.c t_vsscanf.c \
+	t_wassert.c t_wcrtomb.c t_wcsrtombs.c t_wcstok_s.c t_wctob.c \
+	t_wctype.c t_winmain.c t_winmain_assert.c t_wreaddir.c \
+	$(t_wrongret_SOURCES) $(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
 	$(am__tests32_carg_SOURCES_DIST) \
@@ -2160,7 +2187,7 @@ AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ $(TEST_CFLAGS)
 # Link all test programs against libtest.a; for targets with their own
 # target-specifc *_LDADD variable, make sure to add $(LDADD).
 LDADD = $(builddir)/libtest.a
-check_LIBRARIES = libtest.a $(am__append_12) $(am__append_16)
+check_LIBRARIES = libtest.a $(am__append_13) $(am__append_17)
 
 # libtest.a is a static library containing helper function for use by tests
 # programs.
@@ -2173,7 +2200,7 @@ libtest_a_SOURCES = \
 
 # The following tests are compiled but not run with `make check`.
 testcase_compile_only = t_intrin t_intrin_cpp t_scrnsave t_winmain \
-	$(am__append_11)
+	$(am__append_12)
 
 # FIXME:
 #
@@ -2183,8 +2210,9 @@ testcase_compile_only = t_intrin t_intrin_cpp t_scrnsave t_winmain \
 # Note that this list is usually sorted in alphabetical order.
 # An exception is when variants of the same test are grouped together.
 testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
-	t_aligned_alloc t_ansi_io t_assert t_btowc t_char16_t t_ctype \
-	t_excpt_gcc_cpp t_excpt_int_divzero t_excpt_int_divzero_thrd \
+	t_aligned_alloc t_ansi_io t_assert t_btowc t_char16_t \
+	t_cpp_dtor_atexit_order t_ctype t_excpt_gcc_cpp \
+	t_excpt_int_divzero t_excpt_int_divzero_thrd \
 	t_excpt_int_overflow t_excpt_int_overflow_thrd t_exp_denormal \
 	t_expm1 t_fctptr t_findfirst t_float t_fmod t_format_Z \
 	t_format_Z0 t_format_Z1 t_fseeki64 t_fseeki64_ftelli64 \
@@ -2193,7 +2221,8 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_ivma t_lfs t_lseeki64 t_main t_main_assert t_main_cpp \
 	t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs t_noatexit_dll \
 	t_nontls_dll t_nontls_exe t_tls_dll t_tls_dll_native \
-	t_tls_dll_native_process_detach t_tls_exe_dtor t_tls_exe_dyn \
+	t_tls_dll_native_process_detach t_tls_exe_cxa_atexit_order \
+	t_tls_exe_dtor t_tls_exe_dtor_atexit_order t_tls_exe_dyn \
 	t_tls_exe_native t_tls_exe_native_process_detach t_tls_exe_var \
 	t_nullptrexception t_pow t_powi t_printf t_printf_g_width \
 	t_readdir t_safe_flush t_setjmp t_sigfpe t_sigv t_snprintf \
@@ -2205,11 +2234,12 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_time t_tls_ansi t_tls_c11 t_tmpfile t_towctrans t_trycatch \
 	t_tsearch t_utime t_vsscanf t_wassert t_wcrtomb t_wcsrtombs \
 	t_wcstok_s t_wctob t_wctype t_winmain_assert t_wreaddir \
-	$(am__append_1) $(am__append_10)
+	$(am__append_1) $(am__append_11)
 
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
+t_cpp_dtor_atexit_order_SOURCES = t_cpp_dtor_atexit_order.cpp
 t_intrin_cpp_SOURCES = t_intrin_cpp.cpp
 t_iostream_SOURCES = t_iostream.cpp
 t_isfine_SOURCES = t_isfine.cpp
@@ -2221,14 +2251,15 @@ t_wrongret_SOURCES = t_wrongret.cpp
 
 # On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
 # PATH) may be regular native aarch64, but we build and run arm64ec binaries.
-t_intrin_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_2)
-t_iostream_LDFLAGS = $(AM_LDFLAGS) $(am__append_3)
-t_isfine_LDFLAGS = $(AM_LDFLAGS) $(am__append_4)
-t_main_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_5)
-t_staticconstmember_LDFLAGS = $(AM_LDFLAGS) $(am__append_6)
-t_tls_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_7)
-t_trycatch_LDFLAGS = $(AM_LDFLAGS) $(am__append_8)
-t_wrongret_LDFLAGS = $(AM_LDFLAGS) $(am__append_9)
+t_cpp_dtor_atexit_order_LDFLAGS = $(AM_LDFLAGS) $(am__append_2)
+t_intrin_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_3)
+t_iostream_LDFLAGS = $(AM_LDFLAGS) $(am__append_4)
+t_isfine_LDFLAGS = $(AM_LDFLAGS) $(am__append_5)
+t_main_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_6)
+t_staticconstmember_LDFLAGS = $(AM_LDFLAGS) $(am__append_7)
+t_tls_cpp_LDFLAGS = $(AM_LDFLAGS) $(am__append_8)
+t_trycatch_LDFLAGS = $(AM_LDFLAGS) $(am__append_9)
+t_wrongret_LDFLAGS = $(AM_LDFLAGS) $(am__append_10)
 
 # Test only for -static -lgcc
 t_global_ctors_LDFLAGS = $(AM_LDFLAGS) -static
@@ -2972,6 +3003,10 @@ t_char16_t$(EXEEXT): $(t_char16_t_OBJECTS) $(t_char16_t_DEPENDENCIES) $(EXTRA_t_
 	@rm -f t_char16_t$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_char16_t_OBJECTS) $(t_char16_t_LDADD) $(LIBS)
 
+t_cpp_dtor_atexit_order$(EXEEXT): $(t_cpp_dtor_atexit_order_OBJECTS) $(t_cpp_dtor_atexit_order_DEPENDENCIES) $(EXTRA_t_cpp_dtor_atexit_order_DEPENDENCIES) 
+	@rm -f t_cpp_dtor_atexit_order$(EXEEXT)
+	$(AM_V_CXXLD)$(t_cpp_dtor_atexit_order_LINK) $(t_cpp_dtor_atexit_order_OBJECTS) $(t_cpp_dtor_atexit_order_LDADD) $(LIBS)
+
 t_ctype$(EXEEXT): $(t_ctype_OBJECTS) $(t_ctype_DEPENDENCIES) $(EXTRA_t_ctype_DEPENDENCIES) 
 	@rm -f t_ctype$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_ctype_OBJECTS) $(t_ctype_LDADD) $(LIBS)
@@ -3320,9 +3355,17 @@ t_tls_dll_native_process_detach$(EXEEXT): $(t_tls_dll_native_process_detach_OBJE
 	@rm -f t_tls_dll_native_process_detach$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_tls_dll_native_process_detach_OBJECTS) $(t_tls_dll_native_process_detach_LDADD) $(LIBS)
 
+t_tls_exe_cxa_atexit_order$(EXEEXT): $(t_tls_exe_cxa_atexit_order_OBJECTS) $(t_tls_exe_cxa_atexit_order_DEPENDENCIES) $(EXTRA_t_tls_exe_cxa_atexit_order_DEPENDENCIES) 
+	@rm -f t_tls_exe_cxa_atexit_order$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_tls_exe_cxa_atexit_order_OBJECTS) $(t_tls_exe_cxa_atexit_order_LDADD) $(LIBS)
+
 t_tls_exe_dtor$(EXEEXT): $(t_tls_exe_dtor_OBJECTS) $(t_tls_exe_dtor_DEPENDENCIES) $(EXTRA_t_tls_exe_dtor_DEPENDENCIES) 
 	@rm -f t_tls_exe_dtor$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_tls_exe_dtor_OBJECTS) $(t_tls_exe_dtor_LDADD) $(LIBS)
+
+t_tls_exe_dtor_atexit_order$(EXEEXT): $(t_tls_exe_dtor_atexit_order_OBJECTS) $(t_tls_exe_dtor_atexit_order_DEPENDENCIES) $(EXTRA_t_tls_exe_dtor_atexit_order_DEPENDENCIES) 
+	@rm -f t_tls_exe_dtor_atexit_order$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_tls_exe_dtor_atexit_order_OBJECTS) $(t_tls_exe_dtor_atexit_order_LDADD) $(LIBS)
 
 t_tls_exe_dyn$(EXEEXT): $(t_tls_exe_dyn_OBJECTS) $(t_tls_exe_dyn_DEPENDENCIES) $(EXTRA_t_tls_exe_dyn_DEPENDENCIES) 
 	@rm -f t_tls_exe_dyn$(EXEEXT)
@@ -3689,6 +3732,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_char16_t.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_cpp_dtor_atexit_order.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_gcc_cpp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_excpt_int_divzero.Po@am__quote@ # am--include-marker
@@ -3776,7 +3820,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_dll.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_dll_native.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_dll_native_process_detach.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_cxa_atexit_order.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_dtor.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_dtor_atexit_order.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_dyn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_native.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_tls_exe_native_process_detach.Po@am__quote@ # am--include-marker
@@ -6824,6 +6870,13 @@ t_char16_t.log: t_char16_t$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_cpp_dtor_atexit_order.log: t_cpp_dtor_atexit_order$(EXEEXT)
+	@p='t_cpp_dtor_atexit_order$(EXEEXT)'; \
+	b='t_cpp_dtor_atexit_order'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_ctype.log: t_ctype$(EXEEXT)
 	@p='t_ctype$(EXEEXT)'; \
 	b='t_ctype'; \
@@ -7125,9 +7178,23 @@ t_tls_dll_native_process_detach.log: t_tls_dll_native_process_detach$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_tls_exe_cxa_atexit_order.log: t_tls_exe_cxa_atexit_order$(EXEEXT)
+	@p='t_tls_exe_cxa_atexit_order$(EXEEXT)'; \
+	b='t_tls_exe_cxa_atexit_order'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_tls_exe_dtor.log: t_tls_exe_dtor$(EXEEXT)
 	@p='t_tls_exe_dtor$(EXEEXT)'; \
 	b='t_tls_exe_dtor'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_tls_exe_dtor_atexit_order.log: t_tls_exe_dtor_atexit_order$(EXEEXT)
+	@p='t_tls_exe_dtor_atexit_order$(EXEEXT)'; \
+	b='t_tls_exe_dtor_atexit_order'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -7974,6 +8041,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
 	-rm -f ./$(DEPDIR)/t_char16_t.Po
+	-rm -f ./$(DEPDIR)/t_cpp_dtor_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_excpt_gcc_cpp.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero.Po
@@ -8061,7 +8129,9 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_tls_dll.Po
 	-rm -f ./$(DEPDIR)/t_tls_dll_native.Po
 	-rm -f ./$(DEPDIR)/t_tls_dll_native_process_detach.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_cxa_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dtor.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_dtor_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dyn.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native_process_detach.Po
@@ -8314,6 +8384,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_assert.Po
 	-rm -f ./$(DEPDIR)/t_btowc.Po
 	-rm -f ./$(DEPDIR)/t_char16_t.Po
+	-rm -f ./$(DEPDIR)/t_cpp_dtor_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_ctype.Po
 	-rm -f ./$(DEPDIR)/t_excpt_gcc_cpp.Po
 	-rm -f ./$(DEPDIR)/t_excpt_int_divzero.Po
@@ -8401,7 +8472,9 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_tls_dll.Po
 	-rm -f ./$(DEPDIR)/t_tls_dll_native.Po
 	-rm -f ./$(DEPDIR)/t_tls_dll_native_process_detach.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_cxa_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dtor.Po
+	-rm -f ./$(DEPDIR)/t_tls_exe_dtor_atexit_order.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_dyn.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native.Po
 	-rm -f ./$(DEPDIR)/t_tls_exe_native_process_detach.Po
