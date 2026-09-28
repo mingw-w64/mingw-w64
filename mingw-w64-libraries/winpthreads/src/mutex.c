@@ -79,8 +79,6 @@
  * - pthread_mutex_clocklock()
  * - pthread_mutex_getprioceiling()
  * - pthread_mutex_setprioceiling()
- * - pthread_mutexattr_getrobust()
- * - pthread_mutexattr_setrobust()
  */
 
 /**
@@ -161,7 +159,12 @@ union WinpthreadsMutexAttributes {
      * Currently, winpthreads only supports `PTHREAD_PROCESS_PRIVATE`.
      */
     int Shared          : 1;
-    int Reserved        : 3;
+    /**
+     * Zero for `PTHREAD_MUTEX_STALLED` and non-zero for
+     * `PTHREAD_MUTEX_ROBUST`.
+     */
+    int Robust          : 1;
+    int Reserved        : 2;
     /**
      * Can be one of the following values:
      *
@@ -199,6 +202,7 @@ WINPTHREADS_STATIC_ASSERT (sizeof ((WinpthreadsMutexAttributes) {}.Attributes) =
 #define WINPTHREADS_MUTEX_ATTRIBUTES_DEFAULT ((WinpthreadsMutexAttributes) { \
     .Attributes.Type            = PTHREAD_MUTEX_NORMAL,                      \
     .Attributes.Shared          = PTHREAD_PROCESS_PRIVATE,                   \
+    .Attributes.Robust          = PTHREAD_MUTEX_STALLED,                     \
     .Attributes.Reserved        = 0,                                         \
     .Attributes.Protocol        = PTHREAD_PRIO_NONE,                         \
     .Attributes.PriorityCeiling = THREAD_PRIORITY_NORMAL,                    \
@@ -434,7 +438,8 @@ static int WinpthreadsStalledMutexSetConsistentState (WinpthreadsMutex *wMutex) 
 }
 
 /*******************************************************************************
- * Normal Mutex (PTHREAD_MUTEX_NORMAL) implementation.
+ * Normal (PTHREAD_MUTEX_NORMAL) Stalled (PTHREAD_MUTEX_STALLED) Mutex
+ * implementation.
  *
  * Normal Mutexes have the following properties:
  *
@@ -545,7 +550,8 @@ static const WinpthreadsMutexVtable WinpthreadsNormalMutexVtable = {
 };
 
 /*******************************************************************************
- * Error Checking Mutex (PTHREAD_MUTEX_ERRORCHECK) implementation.
+ * Error Checking (PTHREAD_MUTEX_ERRORCHECK) Stalled (PTHREAD_MUTEX_STALLED)
+ * Mutex implementation.
  *
  * Error Checking Mutexes have the following properties:
  *
@@ -676,7 +682,8 @@ static const WinpthreadsMutexVtable WinpthreadsErrorCheckMutexVtable = {
 };
 
 /*******************************************************************************
- * Recursive Mutex (PTHREAD_MUTEX_RECURSIVE) implementation.
+ * Recursive (PTHREAD_MUTEX_RECURSIVE) Stalled (PTHREAD_MUTEX_STALLED) Mutex
+ * implementation.
  *
  * Recursive Mutexes have the following properties:
  *
@@ -1043,6 +1050,44 @@ int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *a, int *value)
   return EINVAL;
 }
 
+int pthread_mutexattr_setrobust(pthread_mutexattr_t *a, int value)
+{
+  if (a == NULL) {
+    return EINVAL;
+  }
+
+  WinpthreadsMutexAttributes *wMutexAttr = (WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  switch (value) {
+    case PTHREAD_MUTEX_STALLED:
+    case PTHREAD_MUTEX_ROBUST:
+      wMutexAttr->Attributes.Robust = value;
+      return 0;
+  }
+
+  return EINVAL;
+}
+
+int pthread_mutexattr_getrobust(const pthread_mutexattr_t *a, int *value)
+{
+  if (a == NULL || value == NULL) {
+    return EINVAL;
+  }
+
+  const WinpthreadsMutexAttributes *wMutexAttr = (const WinpthreadsMutexAttributes *) a;
+
+  if (wMutexAttr->Attributes.Magic != WINPTHREADS_MUTEX_ATTRIBUTES_MAGIC) {
+    return EINVAL;
+  }
+
+  *value = !!wMutexAttr->Attributes.Robust;
+  return 0;
+}
+
 /*******************************************************************************
  * Implementation for public `pthread_mutex_*` functions.
  */
@@ -1148,6 +1193,10 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
       return EINVAL;
     }
 
+    if (pthread_mutexattr_getrobust (&wMutexAttr.Value, &value) != 0) {
+      return EINVAL;
+    }
+
     if (pthread_mutexattr_getprotocol (&wMutexAttr.Value, &value) != 0) {
       return EINVAL;
     }
@@ -1165,13 +1214,25 @@ int pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a)
 
   switch (wMutexAttr.Attributes.Type) {
     case PTHREAD_MUTEX_NORMAL:
-      wMutexVtable = &WinpthreadsNormalMutexVtable;
+      if (wMutexAttr.Attributes.Robust) {
+        return ENOSYS;
+      } else {
+        wMutexVtable = &WinpthreadsNormalMutexVtable;
+      }
       break;
     case PTHREAD_MUTEX_ERRORCHECK:
-      wMutexVtable = &WinpthreadsErrorCheckMutexVtable;
+      if (wMutexAttr.Attributes.Robust) {
+        return ENOSYS;
+      } else {
+        wMutexVtable = &WinpthreadsErrorCheckMutexVtable;
+      }
       break;
     case PTHREAD_MUTEX_RECURSIVE:
-      wMutexVtable = &WinpthreadsRecursiveMutexVtable;
+      if (wMutexAttr.Attributes.Robust) {
+        return ENOSYS;
+      } else {
+        wMutexVtable = &WinpthreadsRecursiveMutexVtable;
+      }
       break;
     default:
       UNREACHABLE ();

@@ -113,6 +113,7 @@ check_PROGRAMS =               \
 	pthread_mutex/attr-prioceiling                 \
 	pthread_mutex/attr-protocol                    \
 	pthread_mutex/attr-pshared                     \
+	pthread_mutex/attr-robust                      \
 	pthread_mutex/attr-type                        \
 	pthread_mutex/default-basic                    \
 	pthread_mutex/default-lock-recursive           \

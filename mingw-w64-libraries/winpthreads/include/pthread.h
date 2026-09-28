@@ -231,6 +231,9 @@ WINPTHREAD_API int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int 
 #define PTHREAD_MUTEX_PRIVATE 0
 #define PTHREAD_MUTEX_SHARED  1
 
+#define PTHREAD_MUTEX_STALLED 0
+#define PTHREAD_MUTEX_ROBUST  1
+
 typedef unsigned pthread_mutexattr_t;
 
 WINPTHREAD_API int pthread_mutexattr_init(pthread_mutexattr_t *);
@@ -243,6 +246,8 @@ WINPTHREAD_API int pthread_mutexattr_setprotocol(pthread_mutexattr_t *, int);
 WINPTHREAD_API int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *, int *);
 WINPTHREAD_API int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *, int);
 WINPTHREAD_API int pthread_mutexattr_getprioceiling(const pthread_mutexattr_t *, int *);
+WINPTHREAD_API int pthread_mutexattr_setrobust(pthread_mutexattr_t *, int);
+WINPTHREAD_API int pthread_mutexattr_getrobust(const pthread_mutexattr_t *, int *);
 
 typedef intptr_t pthread_mutex_t;
 
