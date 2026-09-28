@@ -148,6 +148,30 @@ check_PROGRAMS =               \
 	pthread_mutex/recursive-trylock                \
 	pthread_mutex/recursive-trylock-recursive      \
 	pthread_mutex/recursive-unlock                 \
+	pthread_mutex/robust-errorcheck-basic               \
+	pthread_mutex/robust-errorcheck-lock-recursive      \
+	pthread_mutex/robust-errorcheck-state-recoverable   \
+	pthread_mutex/robust-errorcheck-state-unrecoverable \
+	pthread_mutex/robust-errorcheck-timedlock           \
+	pthread_mutex/robust-errorcheck-trylock             \
+	pthread_mutex/robust-errorcheck-trylock-recursive   \
+	pthread_mutex/robust-errorcheck-unlock              \
+	pthread_mutex/robust-normal-basic                   \
+	pthread_mutex/robust-normal-lock-recursive          \
+	pthread_mutex/robust-normal-state-recoverable       \
+	pthread_mutex/robust-normal-state-unrecoverable     \
+	pthread_mutex/robust-normal-timedlock               \
+	pthread_mutex/robust-normal-trylock                 \
+	pthread_mutex/robust-normal-trylock-recursive       \
+	pthread_mutex/robust-normal-unlock                  \
+	pthread_mutex/robust-recursive-basic                \
+	pthread_mutex/robust-recursive-lock-recursive       \
+	pthread_mutex/robust-recursive-state-recoverable    \
+	pthread_mutex/robust-recursive-state-unrecoverable  \
+	pthread_mutex/robust-recursive-timedlock            \
+	pthread_mutex/robust-recursive-trylock              \
+	pthread_mutex/robust-recursive-trylock-recursive    \
+	pthread_mutex/robust-recursive-unlock               \
 	pthread_once/once1         \
 	pthread_once/once2         \
 	pthread_once/once3         \

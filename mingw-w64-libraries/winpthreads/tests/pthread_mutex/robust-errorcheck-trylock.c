@@ -25,33 +25,39 @@
 /**
  * Test Summary:
  *
- * Test functions `pthread_mutexattr_setrobust` and
- * `pthread_mutexattr_getrobust`.
+ * Main thread M creates robust error checking mutex L and locks it.
+ *
+ * Thread A attempts to lock L; since M owns L, call to `pthread_mutex_trylock`
+ * must fail with EBUSY.
+ *
+ * Thread M unlocks and destroys L.
  */
 
-static void DoTest (int value, int expectedValue, int expectedReturn1, int expectedReturn2) {
-  pthread_mutexattr_t mutexAttr;
-  pthread_mutex_t mutex;
-
-  assert (pthread_mutexattr_init (&mutexAttr) == 0);
-  assert (pthread_mutexattr_setrobust (&mutexAttr, value) == expectedReturn1);
-  assert (pthread_mutexattr_getrobust (&mutexAttr, &value) == 0);
-  assert (value == expectedValue);
-  assert (pthread_mutex_init (&mutex, &mutexAttr) == expectedReturn2);
-  if (expectedReturn2 == 0) {
-    assert (pthread_mutex_destroy (&mutex) == 0);
-  }
-  assert (pthread_mutexattr_destroy (&mutexAttr) == 0);
+static void *ThreadA (void *arg)
+{
+  pthread_mutex_t *mutex = arg;
+  assert (pthread_mutex_trylock (mutex) == EBUSY);
+  return arg;
 }
 
-int main (void) {
-  DoTest (PTHREAD_MUTEX_STALLED, PTHREAD_MUTEX_STALLED, 0, 0);
-  DoTest (PTHREAD_MUTEX_ROBUST, PTHREAD_MUTEX_ROBUST, 0, 0);
+int main (void)
+{
+  pthread_mutexattr_t mutexAttr;
+  pthread_mutex_t mutex;
+  pthread_t thread;
+  void *result;
 
-  /**
-   * Try setting an invalid value; default attribute value must be used.
-   */
-  DoTest (0xFF, PTHREAD_MUTEX_STALLED, EINVAL, 0);
+  assert (pthread_mutexattr_init (&mutexAttr) == 0);
+  assert (pthread_mutexattr_settype (&mutexAttr, PTHREAD_MUTEX_ERRORCHECK) == 0);
+  assert (pthread_mutexattr_setrobust (&mutexAttr, PTHREAD_MUTEX_ROBUST) == 0);
+  assert (pthread_mutex_init (&mutex, &mutexAttr) == 0);
+  assert (pthread_mutex_trylock (&mutex) == 0);
+  assert (pthread_create (&thread, NULL, ThreadA, &mutex) == 0);
+  assert (pthread_join (thread, &result) == 0);
+  assert (result == &mutex);
+  assert (pthread_mutex_unlock (&mutex) == 0);
+  assert (pthread_mutex_destroy (&mutex) == 0);
+  assert (pthread_mutexattr_destroy (&mutexAttr) == 0);
 
   return 0;
 }

@@ -25,33 +25,31 @@
 /**
  * Test Summary:
  *
- * Test functions `pthread_mutexattr_setrobust` and
- * `pthread_mutexattr_getrobust`.
+ * Create robust error checking mutex and test basic assumptions about mutex
+ * ownership and lifetime.
  */
 
-static void DoTest (int value, int expectedValue, int expectedReturn1, int expectedReturn2) {
+int main (void)
+{
   pthread_mutexattr_t mutexAttr;
   pthread_mutex_t mutex;
 
   assert (pthread_mutexattr_init (&mutexAttr) == 0);
-  assert (pthread_mutexattr_setrobust (&mutexAttr, value) == expectedReturn1);
-  assert (pthread_mutexattr_getrobust (&mutexAttr, &value) == 0);
-  assert (value == expectedValue);
-  assert (pthread_mutex_init (&mutex, &mutexAttr) == expectedReturn2);
-  if (expectedReturn2 == 0) {
-    assert (pthread_mutex_destroy (&mutex) == 0);
-  }
+  assert (pthread_mutexattr_settype (&mutexAttr, PTHREAD_MUTEX_ERRORCHECK) == 0);
+  assert (pthread_mutexattr_setrobust (&mutexAttr, PTHREAD_MUTEX_ROBUST) == 0);
+  assert (pthread_mutex_init (&mutex, &mutexAttr) == 0);
+  assert (mutex != (pthread_mutex_t) 0);
+  assert (pthread_mutex_lock (&mutex) == 0);
+  assert (pthread_mutex_lock (&mutex) == EDEADLK);
+  assert (pthread_mutex_trylock (&mutex) == EBUSY);
+  assert (pthread_mutex_destroy (&mutex) == EBUSY);
+  assert (pthread_mutex_consistent (&mutex) == EINVAL);
+  assert (pthread_mutex_unlock (&mutex) == 0);
+  assert (pthread_mutex_unlock (&mutex) == EPERM);
+  assert (pthread_mutex_destroy (&mutex) == 0);
+  assert (mutex == (pthread_mutex_t) 0);
+  assert (pthread_mutex_lock (&mutex) == EINVAL);
   assert (pthread_mutexattr_destroy (&mutexAttr) == 0);
-}
-
-int main (void) {
-  DoTest (PTHREAD_MUTEX_STALLED, PTHREAD_MUTEX_STALLED, 0, 0);
-  DoTest (PTHREAD_MUTEX_ROBUST, PTHREAD_MUTEX_ROBUST, 0, 0);
-
-  /**
-   * Try setting an invalid value; default attribute value must be used.
-   */
-  DoTest (0xFF, PTHREAD_MUTEX_STALLED, EINVAL, 0);
 
   return 0;
 }
