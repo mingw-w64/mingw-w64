@@ -331,13 +331,17 @@ WINPTHREADS_STATIC_ASSERT (offsetof (WinpthreadsMutexBase, Vtable) == offsetof (
  */
 
 /**
- * Wait until `handle` becomes signaled or timeout specified by `waitUntil`
- * has expired. If `waitUntil` is `NULL`, this function waits indefinitely until
- * `handle` becomes signaled.
+ * Common wait logic for stalled mutexes.
+ *
+ * Wait until `event` becomes signaled or timeout specified by `waitUntil`
+ * has expired.
+ *
+ * If `waitUntil` is `NULL`, this function waits indefinitely until `event`
+ * becomes signaled.
  *
  * Returns zero on success and an error-code on failure.
  */
-static WINPTHREADS_INLINE int WinpthreadsTimedWait (HANDLE handle, LONG *lockState, const struct _timespec64 *waitUntil) {
+static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LONG *lockState, const struct _timespec64 *waitUntil) {
   unsigned __int64 waitStartTime = 0;
   unsigned __int64 waitEndTime   = 0;
   unsigned __int64 waitTimeout   = INFINITE;
@@ -359,20 +363,20 @@ static WINPTHREADS_INLINE int WinpthreadsTimedWait (HANDLE handle, LONG *lockSta
   /**
    * Setting lock state to `LockedWithBlocking` prevents the fast lock path
    * (`lockState` cannot be set to `Locked`) and it causes
-   * `Winpthreads*MutexUnlock` functions to signal `handle`.
+   * `Winpthreads*MutexUnlock` functions to signal `event`.
    */
   LONG oldLockState = InterlockedExchange (lockState, LockedWithBlocking);
 
   while (oldLockState != Unlocked) {
-    switch (_pthread_wait_for_single_object (handle, (DWORD) waitTimeout)) {
+    switch (_pthread_wait_for_single_object (event, (DWORD) waitTimeout)) {
       /**
-       * `handle` was in signaled state (unlocked) or it became signaled
+       * `event` was in signaled state (unlocked) or it became signaled
        * within `waitTimeout`.
        */
       case WAIT_OBJECT_0:
         break;
       /**
-       * `handle` was not signaled (unlocked) before `waitTimeout` expired.
+       * `event` was not signaled (unlocked) before `waitTimeout` expired.
        */
       case WAIT_TIMEOUT:
         return ETIMEDOUT;
@@ -382,7 +386,7 @@ static WINPTHREADS_INLINE int WinpthreadsTimedWait (HANDLE handle, LONG *lockSta
 
     /**
      * There is a small chance that another thread grabs the lock faster
-     * than we do; lock state is updated before wait handle is signaled.
+     * than we do; lock state is updated before event is signaled.
      */
     oldLockState = InterlockedExchange (lockState, LockedWithBlocking);
 
@@ -479,7 +483,7 @@ static int WinpthreadsNormalMutexLock (WinpthreadsMutex *wMutex, const struct _t
     return 0;
   }
 
-  return WinpthreadsTimedWait (mutex->Event, &mutex->LockState, waitUntil);
+  return WinpthreadsStalledMutexTimedLock (mutex->Event, &mutex->LockState, waitUntil);
 }
 
 static int WinpthreadsNormalMutexTryLock (WinpthreadsMutex *wMutex, BOOL exclusiveLock) {
@@ -592,7 +596,7 @@ static int WinpthreadsErrorCheckMutexLock (WinpthreadsMutex *wMutex, const struc
     goto done;
   }
 
-  int error_code = WinpthreadsTimedWait (mutex->Event, &mutex->LockState, waitUntil);
+  int error_code = WinpthreadsStalledMutexTimedLock (mutex->Event, &mutex->LockState, waitUntil);
 
   if (error_code) {
     return error_code;
@@ -731,7 +735,7 @@ static int WinpthreadsRecursiveMutexLock (WinpthreadsMutex *wMutex, const struct
     goto done;
   }
 
-  int error_code = WinpthreadsTimedWait (mutex->Event, &mutex->LockState, waitUntil);
+  int error_code = WinpthreadsStalledMutexTimedLock (mutex->Event, &mutex->LockState, waitUntil);
 
   if (error_code) {
     return error_code;
