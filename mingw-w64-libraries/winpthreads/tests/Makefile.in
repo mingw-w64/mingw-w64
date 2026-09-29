@@ -148,6 +148,7 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_mutex/attr-prioceiling$(EXEEXT) \
 	pthread_mutex/attr-protocol$(EXEEXT) \
 	pthread_mutex/attr-pshared$(EXEEXT) \
+	pthread_mutex/attr-robust$(EXEEXT) \
 	pthread_mutex/attr-type$(EXEEXT) \
 	pthread_mutex/default-basic$(EXEEXT) \
 	pthread_mutex/default-lock-recursive$(EXEEXT) \
@@ -182,6 +183,30 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_mutex/recursive-trylock$(EXEEXT) \
 	pthread_mutex/recursive-trylock-recursive$(EXEEXT) \
 	pthread_mutex/recursive-unlock$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-basic$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-lock-recursive$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-state-recoverable$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-state-unrecoverable$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-timedlock$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-trylock$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-trylock-recursive$(EXEEXT) \
+	pthread_mutex/robust-errorcheck-unlock$(EXEEXT) \
+	pthread_mutex/robust-normal-basic$(EXEEXT) \
+	pthread_mutex/robust-normal-lock-recursive$(EXEEXT) \
+	pthread_mutex/robust-normal-state-recoverable$(EXEEXT) \
+	pthread_mutex/robust-normal-state-unrecoverable$(EXEEXT) \
+	pthread_mutex/robust-normal-timedlock$(EXEEXT) \
+	pthread_mutex/robust-normal-trylock$(EXEEXT) \
+	pthread_mutex/robust-normal-trylock-recursive$(EXEEXT) \
+	pthread_mutex/robust-normal-unlock$(EXEEXT) \
+	pthread_mutex/robust-recursive-basic$(EXEEXT) \
+	pthread_mutex/robust-recursive-lock-recursive$(EXEEXT) \
+	pthread_mutex/robust-recursive-state-recoverable$(EXEEXT) \
+	pthread_mutex/robust-recursive-state-unrecoverable$(EXEEXT) \
+	pthread_mutex/robust-recursive-timedlock$(EXEEXT) \
+	pthread_mutex/robust-recursive-trylock$(EXEEXT) \
+	pthread_mutex/robust-recursive-trylock-recursive$(EXEEXT) \
+	pthread_mutex/robust-recursive-unlock$(EXEEXT) \
 	pthread_once/once1$(EXEEXT) pthread_once/once2$(EXEEXT) \
 	pthread_once/once3$(EXEEXT) pthread_once/once4$(EXEEXT) \
 	pthread_rwlock/rwlock1$(EXEEXT) \
@@ -589,6 +614,12 @@ pthread_mutex_attr_pshared_OBJECTS =  \
 pthread_mutex_attr_pshared_LDADD = $(LDADD)
 pthread_mutex_attr_pshared_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
+pthread_mutex_attr_robust_SOURCES = pthread_mutex/attr-robust.c
+pthread_mutex_attr_robust_OBJECTS =  \
+	pthread_mutex/attr-robust.$(OBJEXT)
+pthread_mutex_attr_robust_LDADD = $(LDADD)
+pthread_mutex_attr_robust_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
 pthread_mutex_attr_type_SOURCES = pthread_mutex/attr-type.c
 pthread_mutex_attr_type_OBJECTS = pthread_mutex/attr-type.$(OBJEXT)
 pthread_mutex_attr_type_LDADD = $(LDADD)
@@ -816,6 +847,174 @@ pthread_mutex_recursive_unlock_OBJECTS =  \
 	pthread_mutex/recursive-unlock.$(OBJEXT)
 pthread_mutex_recursive_unlock_LDADD = $(LDADD)
 pthread_mutex_recursive_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_basic_SOURCES =  \
+	pthread_mutex/robust-errorcheck-basic.c
+pthread_mutex_robust_errorcheck_basic_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-basic.$(OBJEXT)
+pthread_mutex_robust_errorcheck_basic_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_lock_recursive_SOURCES =  \
+	pthread_mutex/robust-errorcheck-lock-recursive.c
+pthread_mutex_robust_errorcheck_lock_recursive_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-lock-recursive.$(OBJEXT)
+pthread_mutex_robust_errorcheck_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_state_recoverable_SOURCES =  \
+	pthread_mutex/robust-errorcheck-state-recoverable.c
+pthread_mutex_robust_errorcheck_state_recoverable_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-state-recoverable.$(OBJEXT)
+pthread_mutex_robust_errorcheck_state_recoverable_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_state_recoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_state_unrecoverable_SOURCES =  \
+	pthread_mutex/robust-errorcheck-state-unrecoverable.c
+pthread_mutex_robust_errorcheck_state_unrecoverable_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-state-unrecoverable.$(OBJEXT)
+pthread_mutex_robust_errorcheck_state_unrecoverable_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_state_unrecoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_timedlock_SOURCES =  \
+	pthread_mutex/robust-errorcheck-timedlock.c
+pthread_mutex_robust_errorcheck_timedlock_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-timedlock.$(OBJEXT)
+pthread_mutex_robust_errorcheck_timedlock_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_trylock_SOURCES =  \
+	pthread_mutex/robust-errorcheck-trylock.c
+pthread_mutex_robust_errorcheck_trylock_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-trylock.$(OBJEXT)
+pthread_mutex_robust_errorcheck_trylock_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_trylock_recursive_SOURCES =  \
+	pthread_mutex/robust-errorcheck-trylock-recursive.c
+pthread_mutex_robust_errorcheck_trylock_recursive_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-trylock-recursive.$(OBJEXT)
+pthread_mutex_robust_errorcheck_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_errorcheck_unlock_SOURCES =  \
+	pthread_mutex/robust-errorcheck-unlock.c
+pthread_mutex_robust_errorcheck_unlock_OBJECTS =  \
+	pthread_mutex/robust-errorcheck-unlock.$(OBJEXT)
+pthread_mutex_robust_errorcheck_unlock_LDADD = $(LDADD)
+pthread_mutex_robust_errorcheck_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_basic_SOURCES =  \
+	pthread_mutex/robust-normal-basic.c
+pthread_mutex_robust_normal_basic_OBJECTS =  \
+	pthread_mutex/robust-normal-basic.$(OBJEXT)
+pthread_mutex_robust_normal_basic_LDADD = $(LDADD)
+pthread_mutex_robust_normal_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_lock_recursive_SOURCES =  \
+	pthread_mutex/robust-normal-lock-recursive.c
+pthread_mutex_robust_normal_lock_recursive_OBJECTS =  \
+	pthread_mutex/robust-normal-lock-recursive.$(OBJEXT)
+pthread_mutex_robust_normal_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_normal_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_state_recoverable_SOURCES =  \
+	pthread_mutex/robust-normal-state-recoverable.c
+pthread_mutex_robust_normal_state_recoverable_OBJECTS =  \
+	pthread_mutex/robust-normal-state-recoverable.$(OBJEXT)
+pthread_mutex_robust_normal_state_recoverable_LDADD = $(LDADD)
+pthread_mutex_robust_normal_state_recoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_state_unrecoverable_SOURCES =  \
+	pthread_mutex/robust-normal-state-unrecoverable.c
+pthread_mutex_robust_normal_state_unrecoverable_OBJECTS =  \
+	pthread_mutex/robust-normal-state-unrecoverable.$(OBJEXT)
+pthread_mutex_robust_normal_state_unrecoverable_LDADD = $(LDADD)
+pthread_mutex_robust_normal_state_unrecoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_timedlock_SOURCES =  \
+	pthread_mutex/robust-normal-timedlock.c
+pthread_mutex_robust_normal_timedlock_OBJECTS =  \
+	pthread_mutex/robust-normal-timedlock.$(OBJEXT)
+pthread_mutex_robust_normal_timedlock_LDADD = $(LDADD)
+pthread_mutex_robust_normal_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_trylock_SOURCES =  \
+	pthread_mutex/robust-normal-trylock.c
+pthread_mutex_robust_normal_trylock_OBJECTS =  \
+	pthread_mutex/robust-normal-trylock.$(OBJEXT)
+pthread_mutex_robust_normal_trylock_LDADD = $(LDADD)
+pthread_mutex_robust_normal_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_trylock_recursive_SOURCES =  \
+	pthread_mutex/robust-normal-trylock-recursive.c
+pthread_mutex_robust_normal_trylock_recursive_OBJECTS =  \
+	pthread_mutex/robust-normal-trylock-recursive.$(OBJEXT)
+pthread_mutex_robust_normal_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_normal_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_normal_unlock_SOURCES =  \
+	pthread_mutex/robust-normal-unlock.c
+pthread_mutex_robust_normal_unlock_OBJECTS =  \
+	pthread_mutex/robust-normal-unlock.$(OBJEXT)
+pthread_mutex_robust_normal_unlock_LDADD = $(LDADD)
+pthread_mutex_robust_normal_unlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_basic_SOURCES =  \
+	pthread_mutex/robust-recursive-basic.c
+pthread_mutex_robust_recursive_basic_OBJECTS =  \
+	pthread_mutex/robust-recursive-basic.$(OBJEXT)
+pthread_mutex_robust_recursive_basic_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_basic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_lock_recursive_SOURCES =  \
+	pthread_mutex/robust-recursive-lock-recursive.c
+pthread_mutex_robust_recursive_lock_recursive_OBJECTS =  \
+	pthread_mutex/robust-recursive-lock-recursive.$(OBJEXT)
+pthread_mutex_robust_recursive_lock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_lock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_state_recoverable_SOURCES =  \
+	pthread_mutex/robust-recursive-state-recoverable.c
+pthread_mutex_robust_recursive_state_recoverable_OBJECTS =  \
+	pthread_mutex/robust-recursive-state-recoverable.$(OBJEXT)
+pthread_mutex_robust_recursive_state_recoverable_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_state_recoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_state_unrecoverable_SOURCES =  \
+	pthread_mutex/robust-recursive-state-unrecoverable.c
+pthread_mutex_robust_recursive_state_unrecoverable_OBJECTS =  \
+	pthread_mutex/robust-recursive-state-unrecoverable.$(OBJEXT)
+pthread_mutex_robust_recursive_state_unrecoverable_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_state_unrecoverable_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_timedlock_SOURCES =  \
+	pthread_mutex/robust-recursive-timedlock.c
+pthread_mutex_robust_recursive_timedlock_OBJECTS =  \
+	pthread_mutex/robust-recursive-timedlock.$(OBJEXT)
+pthread_mutex_robust_recursive_timedlock_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_timedlock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_trylock_SOURCES =  \
+	pthread_mutex/robust-recursive-trylock.c
+pthread_mutex_robust_recursive_trylock_OBJECTS =  \
+	pthread_mutex/robust-recursive-trylock.$(OBJEXT)
+pthread_mutex_robust_recursive_trylock_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_trylock_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_trylock_recursive_SOURCES =  \
+	pthread_mutex/robust-recursive-trylock-recursive.c
+pthread_mutex_robust_recursive_trylock_recursive_OBJECTS =  \
+	pthread_mutex/robust-recursive-trylock-recursive.$(OBJEXT)
+pthread_mutex_robust_recursive_trylock_recursive_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_trylock_recursive_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_mutex_robust_recursive_unlock_SOURCES =  \
+	pthread_mutex/robust-recursive-unlock.c
+pthread_mutex_robust_recursive_unlock_OBJECTS =  \
+	pthread_mutex/robust-recursive-unlock.$(OBJEXT)
+pthread_mutex_robust_recursive_unlock_LDADD = $(LDADD)
+pthread_mutex_robust_recursive_unlock_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
 pthread_once_once1_SOURCES = pthread_once/once1.c
 pthread_once_once1_OBJECTS = pthread_once/once1.$(OBJEXT)
@@ -1066,6 +1265,7 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_mutex/$(DEPDIR)/attr-prioceiling.Po \
 	pthread_mutex/$(DEPDIR)/attr-protocol.Po \
 	pthread_mutex/$(DEPDIR)/attr-pshared.Po \
+	pthread_mutex/$(DEPDIR)/attr-robust.Po \
 	pthread_mutex/$(DEPDIR)/attr-type.Po \
 	pthread_mutex/$(DEPDIR)/default-basic.Po \
 	pthread_mutex/$(DEPDIR)/default-lock-recursive.Po \
@@ -1100,6 +1300,30 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po \
 	pthread_mutex/$(DEPDIR)/recursive-trylock.Po \
 	pthread_mutex/$(DEPDIR)/recursive-unlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-basic.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-state-recoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-state-unrecoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock.Po \
+	pthread_mutex/$(DEPDIR)/robust-errorcheck-unlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-basic.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-state-recoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-state-unrecoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-trylock.Po \
+	pthread_mutex/$(DEPDIR)/robust-normal-unlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-basic.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-lock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-state-recoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-state-unrecoverable.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-timedlock.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-trylock-recursive.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-trylock.Po \
+	pthread_mutex/$(DEPDIR)/robust-recursive-unlock.Po \
 	pthread_once/$(DEPDIR)/once1.Po \
 	pthread_once/$(DEPDIR)/once2.Po \
 	pthread_once/$(DEPDIR)/once3.Po \
@@ -1188,8 +1412,8 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
 	pthread_mutex/attr-prioceiling.c pthread_mutex/attr-protocol.c \
-	pthread_mutex/attr-pshared.c pthread_mutex/attr-type.c \
-	pthread_mutex/default-basic.c \
+	pthread_mutex/attr-pshared.c pthread_mutex/attr-robust.c \
+	pthread_mutex/attr-type.c pthread_mutex/default-basic.c \
 	pthread_mutex/default-lock-recursive.c \
 	pthread_mutex/default-static.c \
 	pthread_mutex/default-static-lock-recursive.c \
@@ -1219,7 +1443,31 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_mutex/recursive-timedlock.c \
 	pthread_mutex/recursive-trylock.c \
 	pthread_mutex/recursive-trylock-recursive.c \
-	pthread_mutex/recursive-unlock.c pthread_once/once1.c \
+	pthread_mutex/recursive-unlock.c \
+	pthread_mutex/robust-errorcheck-basic.c \
+	pthread_mutex/robust-errorcheck-lock-recursive.c \
+	pthread_mutex/robust-errorcheck-state-recoverable.c \
+	pthread_mutex/robust-errorcheck-state-unrecoverable.c \
+	pthread_mutex/robust-errorcheck-timedlock.c \
+	pthread_mutex/robust-errorcheck-trylock.c \
+	pthread_mutex/robust-errorcheck-trylock-recursive.c \
+	pthread_mutex/robust-errorcheck-unlock.c \
+	pthread_mutex/robust-normal-basic.c \
+	pthread_mutex/robust-normal-lock-recursive.c \
+	pthread_mutex/robust-normal-state-recoverable.c \
+	pthread_mutex/robust-normal-state-unrecoverable.c \
+	pthread_mutex/robust-normal-timedlock.c \
+	pthread_mutex/robust-normal-trylock.c \
+	pthread_mutex/robust-normal-trylock-recursive.c \
+	pthread_mutex/robust-normal-unlock.c \
+	pthread_mutex/robust-recursive-basic.c \
+	pthread_mutex/robust-recursive-lock-recursive.c \
+	pthread_mutex/robust-recursive-state-recoverable.c \
+	pthread_mutex/robust-recursive-state-unrecoverable.c \
+	pthread_mutex/robust-recursive-timedlock.c \
+	pthread_mutex/robust-recursive-trylock.c \
+	pthread_mutex/robust-recursive-trylock-recursive.c \
+	pthread_mutex/robust-recursive-unlock.c pthread_once/once1.c \
 	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
 	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
 	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
@@ -1275,8 +1523,8 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
 	pthread_mutex/attr-prioceiling.c pthread_mutex/attr-protocol.c \
-	pthread_mutex/attr-pshared.c pthread_mutex/attr-type.c \
-	pthread_mutex/default-basic.c \
+	pthread_mutex/attr-pshared.c pthread_mutex/attr-robust.c \
+	pthread_mutex/attr-type.c pthread_mutex/default-basic.c \
 	pthread_mutex/default-lock-recursive.c \
 	pthread_mutex/default-static.c \
 	pthread_mutex/default-static-lock-recursive.c \
@@ -1306,7 +1554,31 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_mutex/recursive-timedlock.c \
 	pthread_mutex/recursive-trylock.c \
 	pthread_mutex/recursive-trylock-recursive.c \
-	pthread_mutex/recursive-unlock.c pthread_once/once1.c \
+	pthread_mutex/recursive-unlock.c \
+	pthread_mutex/robust-errorcheck-basic.c \
+	pthread_mutex/robust-errorcheck-lock-recursive.c \
+	pthread_mutex/robust-errorcheck-state-recoverable.c \
+	pthread_mutex/robust-errorcheck-state-unrecoverable.c \
+	pthread_mutex/robust-errorcheck-timedlock.c \
+	pthread_mutex/robust-errorcheck-trylock.c \
+	pthread_mutex/robust-errorcheck-trylock-recursive.c \
+	pthread_mutex/robust-errorcheck-unlock.c \
+	pthread_mutex/robust-normal-basic.c \
+	pthread_mutex/robust-normal-lock-recursive.c \
+	pthread_mutex/robust-normal-state-recoverable.c \
+	pthread_mutex/robust-normal-state-unrecoverable.c \
+	pthread_mutex/robust-normal-timedlock.c \
+	pthread_mutex/robust-normal-trylock.c \
+	pthread_mutex/robust-normal-trylock-recursive.c \
+	pthread_mutex/robust-normal-unlock.c \
+	pthread_mutex/robust-recursive-basic.c \
+	pthread_mutex/robust-recursive-lock-recursive.c \
+	pthread_mutex/robust-recursive-state-recoverable.c \
+	pthread_mutex/robust-recursive-state-unrecoverable.c \
+	pthread_mutex/robust-recursive-timedlock.c \
+	pthread_mutex/robust-recursive-trylock.c \
+	pthread_mutex/robust-recursive-trylock-recursive.c \
+	pthread_mutex/robust-recursive-unlock.c pthread_once/once1.c \
 	pthread_once/once2.c pthread_once/once3.c pthread_once/once4.c \
 	pthread_rwlock/rwlock1.c pthread_rwlock/rwlock2.c \
 	pthread_rwlock/rwlock2_t.c pthread_rwlock/rwlock3.c \
@@ -2313,6 +2585,12 @@ pthread_mutex/attr-pshared.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 pthread_mutex/attr-pshared$(EXEEXT): $(pthread_mutex_attr_pshared_OBJECTS) $(pthread_mutex_attr_pshared_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_pshared_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
 	@rm -f pthread_mutex/attr-pshared$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_pshared_OBJECTS) $(pthread_mutex_attr_pshared_LDADD) $(LIBS)
+pthread_mutex/attr-robust.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/attr-robust$(EXEEXT): $(pthread_mutex_attr_robust_OBJECTS) $(pthread_mutex_attr_robust_DEPENDENCIES) $(EXTRA_pthread_mutex_attr_robust_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/attr-robust$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_attr_robust_OBJECTS) $(pthread_mutex_attr_robust_LDADD) $(LIBS)
 pthread_mutex/attr-type.$(OBJEXT): pthread_mutex/$(am__dirstamp) \
 	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
 
@@ -2542,6 +2820,174 @@ pthread_mutex/recursive-unlock.$(OBJEXT):  \
 pthread_mutex/recursive-unlock$(EXEEXT): $(pthread_mutex_recursive_unlock_OBJECTS) $(pthread_mutex_recursive_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_recursive_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
 	@rm -f pthread_mutex/recursive-unlock$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(pthread_mutex_recursive_unlock_OBJECTS) $(pthread_mutex_recursive_unlock_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-basic.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-basic$(EXEEXT): $(pthread_mutex_robust_errorcheck_basic_OBJECTS) $(pthread_mutex_robust_errorcheck_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_basic_OBJECTS) $(pthread_mutex_robust_errorcheck_basic_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-lock-recursive$(EXEEXT): $(pthread_mutex_robust_errorcheck_lock_recursive_OBJECTS) $(pthread_mutex_robust_errorcheck_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_lock_recursive_OBJECTS) $(pthread_mutex_robust_errorcheck_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-state-recoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-state-recoverable$(EXEEXT): $(pthread_mutex_robust_errorcheck_state_recoverable_OBJECTS) $(pthread_mutex_robust_errorcheck_state_recoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_state_recoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-state-recoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_state_recoverable_OBJECTS) $(pthread_mutex_robust_errorcheck_state_recoverable_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-state-unrecoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-state-unrecoverable$(EXEEXT): $(pthread_mutex_robust_errorcheck_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_errorcheck_state_unrecoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_state_unrecoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-state-unrecoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_errorcheck_state_unrecoverable_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-timedlock$(EXEEXT): $(pthread_mutex_robust_errorcheck_timedlock_OBJECTS) $(pthread_mutex_robust_errorcheck_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_timedlock_OBJECTS) $(pthread_mutex_robust_errorcheck_timedlock_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-trylock$(EXEEXT): $(pthread_mutex_robust_errorcheck_trylock_OBJECTS) $(pthread_mutex_robust_errorcheck_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_trylock_OBJECTS) $(pthread_mutex_robust_errorcheck_trylock_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-trylock-recursive$(EXEEXT): $(pthread_mutex_robust_errorcheck_trylock_recursive_OBJECTS) $(pthread_mutex_robust_errorcheck_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_trylock_recursive_OBJECTS) $(pthread_mutex_robust_errorcheck_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-errorcheck-unlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-errorcheck-unlock$(EXEEXT): $(pthread_mutex_robust_errorcheck_unlock_OBJECTS) $(pthread_mutex_robust_errorcheck_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_errorcheck_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-errorcheck-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_errorcheck_unlock_OBJECTS) $(pthread_mutex_robust_errorcheck_unlock_LDADD) $(LIBS)
+pthread_mutex/robust-normal-basic.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-basic$(EXEEXT): $(pthread_mutex_robust_normal_basic_OBJECTS) $(pthread_mutex_robust_normal_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_basic_OBJECTS) $(pthread_mutex_robust_normal_basic_LDADD) $(LIBS)
+pthread_mutex/robust-normal-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-lock-recursive$(EXEEXT): $(pthread_mutex_robust_normal_lock_recursive_OBJECTS) $(pthread_mutex_robust_normal_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_lock_recursive_OBJECTS) $(pthread_mutex_robust_normal_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-normal-state-recoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-state-recoverable$(EXEEXT): $(pthread_mutex_robust_normal_state_recoverable_OBJECTS) $(pthread_mutex_robust_normal_state_recoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_state_recoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-state-recoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_state_recoverable_OBJECTS) $(pthread_mutex_robust_normal_state_recoverable_LDADD) $(LIBS)
+pthread_mutex/robust-normal-state-unrecoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-state-unrecoverable$(EXEEXT): $(pthread_mutex_robust_normal_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_normal_state_unrecoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_state_unrecoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-state-unrecoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_normal_state_unrecoverable_LDADD) $(LIBS)
+pthread_mutex/robust-normal-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-timedlock$(EXEEXT): $(pthread_mutex_robust_normal_timedlock_OBJECTS) $(pthread_mutex_robust_normal_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_timedlock_OBJECTS) $(pthread_mutex_robust_normal_timedlock_LDADD) $(LIBS)
+pthread_mutex/robust-normal-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-trylock$(EXEEXT): $(pthread_mutex_robust_normal_trylock_OBJECTS) $(pthread_mutex_robust_normal_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_trylock_OBJECTS) $(pthread_mutex_robust_normal_trylock_LDADD) $(LIBS)
+pthread_mutex/robust-normal-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-trylock-recursive$(EXEEXT): $(pthread_mutex_robust_normal_trylock_recursive_OBJECTS) $(pthread_mutex_robust_normal_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_trylock_recursive_OBJECTS) $(pthread_mutex_robust_normal_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-normal-unlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-normal-unlock$(EXEEXT): $(pthread_mutex_robust_normal_unlock_OBJECTS) $(pthread_mutex_robust_normal_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_normal_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-normal-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_normal_unlock_OBJECTS) $(pthread_mutex_robust_normal_unlock_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-basic.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-basic$(EXEEXT): $(pthread_mutex_robust_recursive_basic_OBJECTS) $(pthread_mutex_robust_recursive_basic_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_basic_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-basic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_basic_OBJECTS) $(pthread_mutex_robust_recursive_basic_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-lock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-lock-recursive$(EXEEXT): $(pthread_mutex_robust_recursive_lock_recursive_OBJECTS) $(pthread_mutex_robust_recursive_lock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_lock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-lock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_lock_recursive_OBJECTS) $(pthread_mutex_robust_recursive_lock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-state-recoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-state-recoverable$(EXEEXT): $(pthread_mutex_robust_recursive_state_recoverable_OBJECTS) $(pthread_mutex_robust_recursive_state_recoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_state_recoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-state-recoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_state_recoverable_OBJECTS) $(pthread_mutex_robust_recursive_state_recoverable_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-state-unrecoverable.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-state-unrecoverable$(EXEEXT): $(pthread_mutex_robust_recursive_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_recursive_state_unrecoverable_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_state_unrecoverable_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-state-unrecoverable$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_state_unrecoverable_OBJECTS) $(pthread_mutex_robust_recursive_state_unrecoverable_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-timedlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-timedlock$(EXEEXT): $(pthread_mutex_robust_recursive_timedlock_OBJECTS) $(pthread_mutex_robust_recursive_timedlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_timedlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-timedlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_timedlock_OBJECTS) $(pthread_mutex_robust_recursive_timedlock_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-trylock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-trylock$(EXEEXT): $(pthread_mutex_robust_recursive_trylock_OBJECTS) $(pthread_mutex_robust_recursive_trylock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_trylock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-trylock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_trylock_OBJECTS) $(pthread_mutex_robust_recursive_trylock_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-trylock-recursive.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-trylock-recursive$(EXEEXT): $(pthread_mutex_robust_recursive_trylock_recursive_OBJECTS) $(pthread_mutex_robust_recursive_trylock_recursive_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_trylock_recursive_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-trylock-recursive$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_trylock_recursive_OBJECTS) $(pthread_mutex_robust_recursive_trylock_recursive_LDADD) $(LIBS)
+pthread_mutex/robust-recursive-unlock.$(OBJEXT):  \
+	pthread_mutex/$(am__dirstamp) \
+	pthread_mutex/$(DEPDIR)/$(am__dirstamp)
+
+pthread_mutex/robust-recursive-unlock$(EXEEXT): $(pthread_mutex_robust_recursive_unlock_OBJECTS) $(pthread_mutex_robust_recursive_unlock_DEPENDENCIES) $(EXTRA_pthread_mutex_robust_recursive_unlock_DEPENDENCIES) pthread_mutex/$(am__dirstamp)
+	@rm -f pthread_mutex/robust-recursive-unlock$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_mutex_robust_recursive_unlock_OBJECTS) $(pthread_mutex_robust_recursive_unlock_LDADD) $(LIBS)
 pthread_once/$(am__dirstamp):
 	@$(MKDIR_P) pthread_once
 	@: > pthread_once/$(am__dirstamp)
@@ -2882,6 +3328,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-prioceiling.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-protocol.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-pshared.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-robust.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/attr-type.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-basic.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/default-lock-recursive.Po@am__quote@ # am--include-marker
@@ -2916,6 +3363,30 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-trylock.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/recursive-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-state-recoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-state-unrecoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-errorcheck-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-state-recoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-state-unrecoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-normal-unlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-lock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-state-recoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-state-unrecoverable.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-timedlock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-trylock-recursive.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-trylock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_mutex/$(DEPDIR)/robust-recursive-unlock.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_once/$(DEPDIR)/once3.Po@am__quote@ # am--include-marker
@@ -3764,6 +4235,13 @@ pthread_mutex/attr-pshared.log: pthread_mutex/attr-pshared$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/attr-robust.log: pthread_mutex/attr-robust$(EXEEXT)
+	@p='pthread_mutex/attr-robust$(EXEEXT)'; \
+	b='pthread_mutex/attr-robust'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 pthread_mutex/attr-type.log: pthread_mutex/attr-type$(EXEEXT)
 	@p='pthread_mutex/attr-type$(EXEEXT)'; \
 	b='pthread_mutex/attr-type'; \
@@ -3998,6 +4476,174 @@ pthread_mutex/recursive-trylock-recursive.log: pthread_mutex/recursive-trylock-r
 pthread_mutex/recursive-unlock.log: pthread_mutex/recursive-unlock$(EXEEXT)
 	@p='pthread_mutex/recursive-unlock$(EXEEXT)'; \
 	b='pthread_mutex/recursive-unlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-basic.log: pthread_mutex/robust-errorcheck-basic$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-basic$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-basic'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-lock-recursive.log: pthread_mutex/robust-errorcheck-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-lock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-state-recoverable.log: pthread_mutex/robust-errorcheck-state-recoverable$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-state-recoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-state-recoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-state-unrecoverable.log: pthread_mutex/robust-errorcheck-state-unrecoverable$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-state-unrecoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-state-unrecoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-timedlock.log: pthread_mutex/robust-errorcheck-timedlock$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-timedlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-trylock.log: pthread_mutex/robust-errorcheck-trylock$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-trylock$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-trylock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-trylock-recursive.log: pthread_mutex/robust-errorcheck-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-trylock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-errorcheck-unlock.log: pthread_mutex/robust-errorcheck-unlock$(EXEEXT)
+	@p='pthread_mutex/robust-errorcheck-unlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-errorcheck-unlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-basic.log: pthread_mutex/robust-normal-basic$(EXEEXT)
+	@p='pthread_mutex/robust-normal-basic$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-basic'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-lock-recursive.log: pthread_mutex/robust-normal-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-normal-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-lock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-state-recoverable.log: pthread_mutex/robust-normal-state-recoverable$(EXEEXT)
+	@p='pthread_mutex/robust-normal-state-recoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-state-recoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-state-unrecoverable.log: pthread_mutex/robust-normal-state-unrecoverable$(EXEEXT)
+	@p='pthread_mutex/robust-normal-state-unrecoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-state-unrecoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-timedlock.log: pthread_mutex/robust-normal-timedlock$(EXEEXT)
+	@p='pthread_mutex/robust-normal-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-timedlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-trylock.log: pthread_mutex/robust-normal-trylock$(EXEEXT)
+	@p='pthread_mutex/robust-normal-trylock$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-trylock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-trylock-recursive.log: pthread_mutex/robust-normal-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-normal-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-trylock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-normal-unlock.log: pthread_mutex/robust-normal-unlock$(EXEEXT)
+	@p='pthread_mutex/robust-normal-unlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-normal-unlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-basic.log: pthread_mutex/robust-recursive-basic$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-basic$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-basic'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-lock-recursive.log: pthread_mutex/robust-recursive-lock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-lock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-lock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-state-recoverable.log: pthread_mutex/robust-recursive-state-recoverable$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-state-recoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-state-recoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-state-unrecoverable.log: pthread_mutex/robust-recursive-state-unrecoverable$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-state-unrecoverable$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-state-unrecoverable'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-timedlock.log: pthread_mutex/robust-recursive-timedlock$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-timedlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-timedlock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-trylock.log: pthread_mutex/robust-recursive-trylock$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-trylock$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-trylock'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-trylock-recursive.log: pthread_mutex/robust-recursive-trylock-recursive$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-trylock-recursive$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-trylock-recursive'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_mutex/robust-recursive-unlock.log: pthread_mutex/robust-recursive-unlock$(EXEEXT)
+	@p='pthread_mutex/robust-recursive-unlock$(EXEEXT)'; \
+	b='pthread_mutex/robust-recursive-unlock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -4438,6 +5084,7 @@ distclean: distclean-am
 	-rm -f pthread_mutex/$(DEPDIR)/attr-prioceiling.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-protocol.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-pshared.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-robust.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-type.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
@@ -4472,6 +5119,30 @@ distclean: distclean-am
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock.Po
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-unlock.Po
 	-rm -f pthread_once/$(DEPDIR)/once1.Po
 	-rm -f pthread_once/$(DEPDIR)/once2.Po
 	-rm -f pthread_once/$(DEPDIR)/once3.Po
@@ -4631,6 +5302,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_mutex/$(DEPDIR)/attr-prioceiling.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-protocol.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-pshared.Po
+	-rm -f pthread_mutex/$(DEPDIR)/attr-robust.Po
 	-rm -f pthread_mutex/$(DEPDIR)/attr-type.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-basic.Po
 	-rm -f pthread_mutex/$(DEPDIR)/default-lock-recursive.Po
@@ -4665,6 +5337,30 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock-recursive.Po
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-trylock.Po
 	-rm -f pthread_mutex/$(DEPDIR)/recursive-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-errorcheck-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-normal-unlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-basic.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-lock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-state-recoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-state-unrecoverable.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-timedlock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-trylock-recursive.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-trylock.Po
+	-rm -f pthread_mutex/$(DEPDIR)/robust-recursive-unlock.Po
 	-rm -f pthread_once/$(DEPDIR)/once1.Po
 	-rm -f pthread_once/$(DEPDIR)/once2.Po
 	-rm -f pthread_once/$(DEPDIR)/once3.Po
