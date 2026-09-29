@@ -1,0 +1,34 @@
+_cnd_timedwait32
+F32(cnd_timedwait == _cnd_timedwait32)
+_cnd_timedwait64
+F64(cnd_timedwait == _cnd_timedwait64)
+_mtx_timedlock32
+F32(mtx_timedlock == _mtx_timedlock32)
+_mtx_timedlock64
+F64(mtx_timedlock == _mtx_timedlock64)
+_thrd_sleep32
+F32(thrd_sleep == _thrd_sleep32)
+_thrd_sleep64
+F64(thrd_sleep == _thrd_sleep64)
+call_once
+cnd_broadcast
+cnd_destroy
+cnd_init
+cnd_signal
+cnd_wait
+mtx_destroy
+mtx_init
+mtx_lock
+mtx_trylock
+mtx_unlock
+thrd_create
+thrd_current
+thrd_detach
+thrd_equal
+thrd_exit
+thrd_join
+thrd_yield
+tss_create
+tss_delete
+tss_get
+tss_set

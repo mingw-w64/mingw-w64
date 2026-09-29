@@ -1,0 +1,5 @@
+LIBRARY "VCRUNTIME140_THREADS_APP.dll"
+EXPORTS
+
+#include "func.def.in"
+#include "vcruntime140_threads-common.def.in"

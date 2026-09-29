@@ -1676,7 +1676,8 @@ processed_defs += lib32/crtdll.def lib32/msvcrt10.def lib32/msvcrt20.def lib32/m
 				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def lib32/ucrtbased.def \
 				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
 				  lib32/api-ms-win-crt-filesystem-l1-1-0.def lib32/api-ms-win-crt-time-l1-1-0.def \
-				  lib32/vcruntime140.def lib32/vcruntime140d.def lib32/vcruntime140_app.def
+				  lib32/vcruntime140.def lib32/vcruntime140d.def lib32/vcruntime140_app.def \
+				  lib32/vcruntime140_threads.def lib32/vcruntime140_threadsd.def lib32/vcruntime140_threads_app.def
 
 endif
 
@@ -1817,6 +1818,9 @@ lib32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include)
 lib32_DATA += lib32/libvcruntime140.a
 lib32_DATA += lib32/libvcruntime140d.a
 lib32_DATA += lib32/libvcruntime140_app.a
+lib32_DATA += lib32/libvcruntime140_threads.a
+lib32_DATA += lib32/libvcruntime140_threadsd.a
+lib32_DATA += lib32/libvcruntime140_threads_app.a
 endif
 
 lib32/lib%.a: lib32/%.def
@@ -2096,7 +2100,8 @@ processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr80d.def lib64/ms
 				  lib64/oleaut32.def lib64/user32.def lib64/winhvplatform.def lib64/ws2_32.def \
 				  lib64/api-ms-win-crt-math-l1-1-0.def lib64/api-ms-win-crt-private-l1-1-0.def lib64/api-ms-win-crt-runtime-l1-1-0.def \
 				  lib64/api-ms-win-crt-filesystem-l1-1-0.def lib64/api-ms-win-crt-time-l1-1-0.def \
-				  lib64/vcruntime140.def lib64/vcruntime140d.def lib64/vcruntime140_app.def
+				  lib64/vcruntime140.def lib64/vcruntime140d.def lib64/vcruntime140_app.def \
+				  lib64/vcruntime140_threads.def lib64/vcruntime140_threadsd.def lib64/vcruntime140_threads_app.def
 
 endif
 
@@ -2183,6 +2188,9 @@ lib64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include)
 lib64_DATA += lib64/libvcruntime140.a
 lib64_DATA += lib64/libvcruntime140d.a
 lib64_DATA += lib64/libvcruntime140_app.a
+lib64_DATA += lib64/libvcruntime140_threads.a
+lib64_DATA += lib64/libvcruntime140_threadsd.a
+lib64_DATA += lib64/libvcruntime140_threads_app.a
 endif
 
 lib64/lib%.a: lib64/%.def
@@ -2803,9 +2811,10 @@ arm64_processed_defs = libarm64/msvcrt.gen.def libarm64/ucrtbase.gen.def libarm6
 	libarm64/oleaut32.gen.def libarm64/user32.gen.def libarm64/winhvplatform.gen.def libarm64/ws2_32.gen.def \
 	libarm64/api-ms-win-crt-math-l1-1-0.gen.def libarm64/api-ms-win-crt-private-l1-1-0.gen.def \
 	libarm64/api-ms-win-crt-runtime-l1-1-0.gen.def libarm64/api-ms-win-crt-filesystem-l1-1-0.gen.def \
-	libarm64/api-ms-win-crt-time-l1-1-0.gen.def libarm64/vcruntime140.gen.def libarm64/vcruntime140d.gen.def \
-	libarm64/vcruntime140_app.gen.def libarm64/api-ms-win-crt-convert-l1-1-0.gen.def libarm64/ntdll.gen.def \
-	libarm64/ntdllcrt.gen.def
+	libarm64/api-ms-win-crt-time-l1-1-0.gen.def libarm64/api-ms-win-crt-convert-l1-1-0.gen.def \
+	libarm64/vcruntime140.gen.def libarm64/vcruntime140d.gen.def libarm64/vcruntime140_app.gen.def \
+	libarm64/vcruntime140_threads.gen.def libarm64/vcruntime140_threadsd.gen.def libarm64/vcruntime140_threads_app.gen.def \
+	libarm64/ntdll.gen.def libarm64/ntdllcrt.gen.def
 
 processed_defs += $(arm64_processed_defs)
 if ARM64X
@@ -2840,6 +2849,9 @@ libarm64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_in
 libarm64_DATA += libarm64/libvcruntime140.a
 libarm64_DATA += libarm64/libvcruntime140d.a
 libarm64_DATA += libarm64/libvcruntime140_app.a
+libarm64_DATA += libarm64/libvcruntime140_threads.a
+libarm64_DATA += libarm64/libvcruntime140_threadsd.a
+libarm64_DATA += libarm64/libvcruntime140_threads_app.a
 endif
 
 dx64_DATA =
