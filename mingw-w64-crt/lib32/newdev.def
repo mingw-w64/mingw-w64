@@ -1,5 +1,11 @@
 LIBRARY newdev.dll
 EXPORTS
+DiInstallDevice@24
+DiInstallDriverA@16
+DiInstallDriverW@16
+DiRollbackDriver@20
+DiShowUpdateDevice@20
+DiUninstallDevice@20
 UpdateDriverForPlugAndPlayDevicesA
 UpdateDriverForPlugAndPlayDevicesW
 UpdateDriverForPlugAndPlayDevicesA@20==UpdateDriverForPlugAndPlayDevicesA
