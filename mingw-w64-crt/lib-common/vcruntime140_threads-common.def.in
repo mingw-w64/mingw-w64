@@ -1,3 +1,6 @@
+#ifdef __arm__
+#error vcruntime140_threads is not available for arm32
+#endif
 _cnd_timedwait32
 F32(cnd_timedwait == _cnd_timedwait32)
 _cnd_timedwait64

@@ -4529,8 +4529,10 @@ endif
 	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(AM_V_at)$(RANLIB) $@
 
-# The same as libucrt.a above, but without the -private lib and with vcruntime140 lib.
-%/libucrt_vcruntime140.a: lib-common/ucrt_vcruntime140.mri %/libucrt_common.a %/libvcruntime140.a
+# The same as libucrt.a above, but without the -private lib and with vcruntime140 + vcruntime140_threads lib (for non-arm32)
+libarm32/libucrt_vcruntime140.a: %/libucrt_vcruntime140.a: libarm32/ucrt_vcruntime140.mri %/libucrt_common.a %/libvcruntime140.a
+lib32/libucrt_vcruntime140.a lib64/libucrt_vcruntime140.a libarm64/libucrt_vcruntime140.a: %/libucrt_vcruntime140.a: lib-common/ucrt_vcruntime140.mri %/libucrt_common.a %/libvcruntime140.a %/libvcruntime140_threads.a
+%/libucrt_vcruntime140.a:
 	$(AM_V_at)rm -f $@
 	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(AM_V_at)$(RANLIB) $@
