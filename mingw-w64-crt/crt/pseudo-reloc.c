@@ -209,9 +209,6 @@ __mingw_GetSectionForAddress (LPVOID p)
   DWORD_PTR rva;
 
   pImageBase = (PBYTE) &__ImageBase;
-  if (! _ValidateImageBase (pImageBase))
-    return NULL;
-
   rva = (DWORD_PTR) (((PBYTE) p) - pImageBase);
   return _FindPESection (pImageBase, rva);
 }
@@ -223,9 +220,6 @@ __mingw_GetSectionCount (void)
   PIMAGE_NT_HEADERS pNTHeader;
 
   pImageBase = (PBYTE) &__ImageBase;
-  if (! _ValidateImageBase (pImageBase))
-    return 0;
-
   pNTHeader = (PIMAGE_NT_HEADERS) (pImageBase + ((PIMAGE_DOS_HEADER) pImageBase)->e_lfanew);
 
   return (int) pNTHeader->FileHeader.NumberOfSections;
@@ -236,8 +230,6 @@ _GetPEImageBase (void)
 {
   PBYTE pImageBase;
   pImageBase = (PBYTE) &__ImageBase;
-  if (! _ValidateImageBase (pImageBase))
-    return NULL;
   return pImageBase;
 }
 
@@ -564,6 +556,8 @@ _pei386_runtime_relocator (void)
     return;
   ++was_init;
 #ifdef __MINGW64_VERSION_MAJOR
+  if (! _ValidateImageBase ((PBYTE) &__ImageBase))
+    return;
   mSecs = __mingw_GetSectionCount ();
   if (!mSecs)
     return;
