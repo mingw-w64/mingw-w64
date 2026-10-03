@@ -565,6 +565,8 @@ _pei386_runtime_relocator (void)
   ++was_init;
 #ifdef __MINGW64_VERSION_MAJOR
   mSecs = __mingw_GetSectionCount ();
+  if (!mSecs)
+    return;
   the_secs = (sSecInfo *) alloca (sizeof (sSecInfo) * (size_t) mSecs);
   maxSections = 0;
 #endif /* __MINGW64_VERSION_MAJOR */
