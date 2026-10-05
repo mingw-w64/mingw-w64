@@ -156,11 +156,14 @@ i686: https://download.microsoft.com/download/1/6/b/16b06f60-3b20-4ff2-b699-5e9b
 amd64: https://download.microsoft.com/download/1/6/b/16b06f60-3b20-4ff2-b699-5e9b7962f9ae/VSU_4/vcredist_x64.exe
 arm32: https://download.microsoft.com/download/1/6/b/16b06f60-3b20-4ff2-b699-5e9b7962f9ae/VSU4/vcredist_arm.exe
 
-msvcr120.dll
-info: https://www.microsoft.com/en-us/download/details.aspx?id=40784
-i686: https://download.microsoft.com/download/2/e/6/2e61cfa4-993b-4dd4-91da-3737cd5cd6e3/vcredist_x86.exe
-amd64: https://download.microsoft.com/download/2/e/6/2e61cfa4-993b-4dd4-91da-3737cd5cd6e3/vcredist_x64.exe
-arm32: https://download.microsoft.com/download/2/e/6/2e61cfa4-993b-4dd4-91da-3737cd5cd6e3/vcredist_arm.exe
+msvcr120.dll 12.0.40660.0
+info: https://support.microsoft.com/en-us/help/3179560
+arm32: https://download.microsoft.com/download/0/5/6/056dcda9-d667-4e27-8001-8a0c6971d6b1/vcredist_arm.exe
+
+msvcr120.dll 12.0.40664.0
+info: https://support.microsoft.com/en-us/help/4032938
+i686: https://download.visualstudio.microsoft.com/download/pr/10912113/5da66ddebb0ad32ebd4b922fd82e8e25/vcredist_x86.exe
+amd64: https://download.visualstudio.microsoft.com/download/pr/10912041/cee5d6bca2ddbcd039da727bf4acb48a/vcredist_x64.exe
 
 msvcr120_app.dll
 info: https://devblogs.microsoft.com/cppblog/c-runtime-for-sideloaded-windows-8-1-apps/
