@@ -17,8 +17,8 @@ Windows ME                              I       R        R        I        R    
 Windows 2000                            I       R        R        I        R        I      I(*)     R       R       R       R       -        -        -          -                -
 Windows XP                              I       R        R        I        R        I      I(*)     R       R       R       R       -        -        -          -                -
 Windows Server 2003                     I       R        R        I        R        I      I(*)     R       R       R       R       -        -        -          -                -
-Windows XP SP2                          I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -           R(2019/16.7)
-Windows XP x64 / Server 2003 SP1        I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -           R(2019/16.7)
+Windows XP SP2                          I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -          R(2019/14.27)
+Windows XP x64 / Server 2003 SP1        I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -          R(2019/14.27)
 Windows Vista / Server 2008             I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -                W
 Windows Server Core 2008                -       R        R        R        R        I      I(*)     R       R       R       R       R        R        R          -                W
 Windows 7 / Server 2008 R2              I       R        R        I        R        I      I(*)     R       R       R       R       R        R        R          -                W
@@ -33,7 +33,7 @@ Windows 11 / Server 2025                I       R        R        I        R    
 Windows Server Core 2025                -       R        R        R        R        I      I(*)     R       R       R       R       R        R        R          R                I
 
 amd64                                 crtdll msvcrt10 msvcrt1x msvcrt20 msvcrt2x msvcrt40 msvcrt msvcr70 msvcr71 msvcr80 msvcr90 msvcr100 msvcr110 msvcr120 msvcr120_app api-ms-win-crt-*.dll
-Windows XP x64 / Server 2003 SP1        -       -        -        -        -        -      I(*)     -       -       R       R       R        R        R          -           R(2019/16.7)
+Windows XP x64 / Server 2003 SP1        -       -        -        -        -        -      I(*)     -       -       R       R       R        R        R          -          R(2019/14.27)
 Windows Vista / Server 2008             -       -        -        -        -        -      I(*)     -       -       R       R       R        R        R          -                W
 Windows 7 / Server 2008 R2              -       -        -        -        -        -      I(*)     -       -       R       R       R        R        R          -                W
 Windows 8 / Server 2012                 -       -        -        -        -        -      I(*)     -       -       R       R       R        R        R          -                W
@@ -174,9 +174,17 @@ info: https://support.microsoft.com/en-us/help/2999226
 info: https://www.microsoft.com/en-us/download/details.aspx?id=48234
 i686 + amd64 + arm32: https://download.microsoft.com/download/c/5/d/c5d68aa1-f62e-422a-9084-4ad85ceb8d4d/WindowsUCRT.zip
 
-api-ms-win-crt-*.dll Microsoft Visual C++ Redistributable for Visual Studio 2019 16.7 package (with UCRT version 14.27.29114.0)
+api-ms-win-crt-*.dll Microsoft Visual C++ 2015-2019 Redistributable 14.27.29114.0 package with UCRT 10.0.10586.15 for Windows XP SP2 / Server 2003 SP1
 i686: https://download.visualstudio.microsoft.com/download/pr/56f631e5-4252-4f28-8ecc-257c7bf412b8/D305BAA965C9CD1B44EBCD53635EE9ECC6D85B54210E2764C8836F4E9DEFA345/VC_redist.x86.exe
 amd64: https://download.visualstudio.microsoft.com/download/pr/722d59e4-0671-477e-b9b1-b8da7d4bd60b/591CBE3A269AFBCC025681B968A29CD191DF3C6204712CBDC9BA1CB632BA6068/VC_redist.x64.exe
 
 Note:
-Microsoft Visual C++ Redistributable for Visual Studio 2019 16.7 package (with UCRT version 14.27.29114.0) is really the latest UCRT compatible package for Windows XP SP2/SP3 and Windows XP x64 SP1/SP2 and Windows Server 2003 SP1/SP2 systems. There is available redistributable Visual Studio 2019 16.8 Preview 2 package (with UCRT version 14.28.29213.0) which has higher build number than the 16.7 version, but it is only beta preview version and moreover it was released before the final 16.7 release. So the last released version compatible with those systems is really 16.7 version.
+The Microsoft Visual C++ 2015-2019 Redistributable version 14.27.29114.0 package,
+marked for Visual Studio 2019 version 16.7, contains UCRT version 10.0.10586.15 and
+is the latest UCRT-compatible package for Windows XP SP2/SP3, Windows XP x64 SP1/SP2,
+and Windows Server 2003 SP1/SP2 systems.
+Although the Microsoft Visual C++ 2015-2019 Redistributable version 14.28.29213.0 package,
+marked for Visual Studio 2019 16.8 Preview 2, has a higher number but is only a beta preview.
+Furthermore, that beta preview was released on August 12, 2020, which predates the final
+stable 14.27 release on October 26, 2020. Therefore, version 14.27.29114.0 remains the
+final stable release compatible with these operating systems.
