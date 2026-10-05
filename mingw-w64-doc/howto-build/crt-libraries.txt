@@ -167,7 +167,7 @@ info: https://devblogs.microsoft.com/cppblog/c-runtime-for-sideloaded-windows-8-
 i686 + amd64 + arm32: https://download.microsoft.com/download/5/f/0/5f0f8404-9329-44a9-8176-ed6f7f746f25/vclibs_redist_packages.zip
 
 api-ms-win-crt-*.dll Windows Update KB2999226 for Windows Vista / Server 2008, Windows 7 / Server 2008 R2, Windows 8 / Server 2012 and Windows 8.1 / Server 2012 R2
-info: https://support.microsoft.com/help/2999226
+info: https://support.microsoft.com/en-us/help/2999226
 info: https://www.microsoft.com/en-us/download/details.aspx?id=48234
 i686 + amd64 + arm32: https://download.microsoft.com/download/c/5/d/c5d68aa1-f62e-422a-9084-4ad85ceb8d4d/WindowsUCRT.zip
 
