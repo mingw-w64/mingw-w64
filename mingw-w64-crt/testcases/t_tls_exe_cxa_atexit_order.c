@@ -43,6 +43,11 @@ int main(void)
 {
   mingw_test_init();
 
+  if (_osplatform == VER_PLATFORM_WIN32_WINDOWS) {
+    printf("__mingw_cxa_atexit in EXE is not supported on Win9x (due to PE TLS callbacks)\n");
+    return 77;
+  }
+
   /* Register two atexit callbacks, one before __mingw_cxa_atexit() call and one after __mingw_cxa_atexit() call.
    * The mingw_cxa_atexit callback must be called before any atexit callback independently of the registration order. */
 
