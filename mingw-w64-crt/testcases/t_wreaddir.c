@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 /* mingw-w64 headers */
 #include "libtest.h"
@@ -15,6 +16,11 @@ int main(int argc, char **argv)
   _WDIR *h;
 
   mingw_test_init ();
+
+  if (_osplatform != VER_PLATFORM_WIN32_NT) {
+    printf("_wopendir is not supported on non-NT systems\n");
+    return 77;
+  }
 
   h = _wopendir (L".");
 

@@ -25,7 +25,9 @@ void
 wtest (wchar_t *path)
 {
   struct stat buf;
-  if (wstat(path, &buf) == 0)
+  if (_osplatform != VER_PLATFORM_WIN32_NT)
+    wprintf (L"SKIP: wstat is not supported on non-NT systems\n");
+  else if (wstat(path, &buf) == 0)
     wprintf (L"OK [%ls]\n", path);
   else {
     wprintf (L"ERROR [%ls]: %d\n", path, errno);

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
 /* mingw-w64 headers */
 #include "libtest.h"
@@ -59,11 +60,13 @@ int main(int argc, char **argv)
   ret |= test32i64 ();
   ret |= test64i32 ();
   ret |= test64 ();
+  if (_osplatform == VER_PLATFORM_WIN32_NT) {
   ret |= wtest ();
   ret |= wtesti64 ();
   ret |= wtest32 ();
   ret |= wtest32i64 ();
   ret |= wtest64i32 ();
   ret |= wtest64 ();
+  }
   return ret;
 }
