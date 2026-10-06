@@ -41,6 +41,11 @@ int main()
     assert(atexit(remove_dirpath) == 0);
     printf("mkdtemp(): path=%s\n", dirpath);
 
+    if (_osplatform != VER_PLATFORM_WIN32_NT) {
+        printf("CreateFileA() for opening a directory is not supported on non-NT systems\n");
+        return 77;
+    }
+
     handle = CreateFileA(dirpath, FILE_READ_ATTRIBUTES | DELETE, FILE_SHARE_VALID_FLAGS, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS | FILE_FLAG_DELETE_ON_CLOSE, NULL);
     assert(handle != INVALID_HANDLE_VALUE);
 
