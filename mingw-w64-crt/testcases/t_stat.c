@@ -30,14 +30,6 @@ int main(int argc, char *argv[])
     if (0 == stat64(argv[0], &st64))
         printf("mode = %x\n", st64.st_mode);
 
-    assert(stat("nul", &st) == 0);
-    printf("nul: %s\n", type(st.st_mode));
-    assert(S_ISCHR(st.st_mode));
-
-    assert(stat("NUL", &st) == 0);
-    printf("NUL: %s\n", type(st.st_mode));
-    assert(S_ISCHR(st.st_mode));
-
     if (!GetWindowsDirectoryA(windows_dir_path, MAX_PATH))
         return 77;
 
@@ -47,6 +39,14 @@ int main(int argc, char *argv[])
 
     if (is_not_nt)
         return 77;
+
+    assert(stat("nul", &st) == 0);
+    printf("nul: %s\n", type(st.st_mode));
+    assert(S_ISCHR(st.st_mode));
+
+    assert(stat("NUL", &st) == 0);
+    printf("NUL: %s\n", type(st.st_mode));
+    assert(S_ISCHR(st.st_mode));
 
     snprintf(buffer, sizeof(buffer), "\\\\.\\%s", windows_dir_path);
     assert(stat(buffer, &st) == 0);
