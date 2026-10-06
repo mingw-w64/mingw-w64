@@ -1,5 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
+#include <io.h>
+#include <windows.h>
 
 /* mingw-w64 headers */
 #include "libtest.h"
@@ -12,6 +14,19 @@ int main() {
     /* create temporary file which is automatically deleted when process terminates */
     file = tmpfile();
     assert(file);
+
+    /* check if the filesystem supports large files (>= 4GB) */
+    BOOL fs_supports_large_files = TRUE;
+    int fd = fileno(file);
+    assert(fd >= 0);
+    HANDLE handle = (HANDLE)_get_osfhandle(fd);
+    assert(handle != INVALID_HANDLE_VALUE);
+    LARGE_INTEGER li = { .QuadPart = 0x200000000 };
+    li.LowPart = SetFilePointer(handle, li.LowPart, &li.HighPart, FILE_BEGIN);
+    if (li.LowPart == INVALID_SET_FILE_POINTER && GetLastError() != NO_ERROR) {
+        fs_supports_large_files = FALSE;
+    }
+    SetFilePointer(handle, 0, NULL, FILE_BEGIN);
 
     /* absolute offset which fits into 32-bit signed type */
     assert(_fseeki64(file, 0x10, SEEK_SET) == 0);
@@ -30,6 +45,8 @@ int main() {
     assert(_fseeki64(file, 0x90000000, SEEK_SET) == 0);
     assert(_ftelli64(file) == 0x90000000);
 
+    if (fs_supports_large_files) {
+
     /* relative offset which fits into 32-bit unsigned type but absolute does not */
     assert(_fseeki64(file, 0xFFFFFFFF, SEEK_CUR) == 0);
     assert(_ftelli64(file) == 0xFFFFFFFFLL + 0x90000000);
@@ -41,6 +58,8 @@ int main() {
     /* relative offset which does not fit into 32-bit unsigned type */
     assert(_fseeki64(file, 0x100000000, SEEK_CUR) == 0);
     assert(_ftelli64(file) == 0x200000000);
+
+    }
 
     return 0;
 }
