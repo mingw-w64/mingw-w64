@@ -116,6 +116,8 @@ int main (void) {
     assert (mbrtowc (&wc, (char *) &c, MB_CUR_MAX, &state) == 1);
     if (c == 0x81 || c == 0x8D || c == 0x8F || c == 0x90 || c == 0x9D) {
       assert (wc == c);
+    } else if (c == 0x80 || c == 0x8E || c == 0x9E) { /* Added in WinNT4 and Win98 */
+      assert (wc != WEOF);
     } else {
       assert (wc != WEOF);
       assert (wc != c);

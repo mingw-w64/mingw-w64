@@ -65,6 +65,8 @@ int main (void) {
 
     if (wc == 0x81 || wc == 0x8D || wc == 0x8F || wc == 0x90 || wc == 0x9D) {
       assert ((unsigned char) c == wc);
+    } else if (wc == 0x80 || wc == 0x8E || wc == 0x9E) { /* Added in WinNT4 and Win98 */
+      /* for old versions c is wc, for new versions c is EOF */
     } else {
       assert (c == EOF || (unsigned char) c != wc);
     }
