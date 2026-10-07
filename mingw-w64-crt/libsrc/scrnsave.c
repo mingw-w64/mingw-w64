@@ -429,6 +429,9 @@ static BOOL RegisterClasses(void)
 void WINAPI ScreenSaverChangePassword(HWND hParent)
 {
 #if defined(__i386__) && !defined(UNICODE)
+  if (!w9x)
+    return;
+
   /* load Master Password Router (MPR) */
   HINSTANCE hMpr = LoadLibrary(TEXT("MPR.DLL"));
 
