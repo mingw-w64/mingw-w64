@@ -107,14 +107,19 @@ int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame )
          "b \"#do_setjmpex\"\n\t"
          ".seh_endproc" );
 }
+int (*__MINGW_IMP_SYMBOL(__intrinsic_setjmpex))( jmp_buf buf, void * frame ) = __intrinsic_setjmpex;
 
 #undef setjmp
 int __attribute__((alias("__intrinsic_setjmpex"))) setjmp( jmp_buf buf, void * frame );
+extern int __attribute__((alias(__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex)))))(*__MINGW_IMP_SYMBOL(setjmp))( jmp_buf buf, void * frame );
 
 int __attribute__((alias("__intrinsic_setjmpex"))) __intrinsic_setjmp( jmp_buf buf, void * frame );
+extern int __attribute__((alias(__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex)))))(*__MINGW_IMP_SYMBOL(__intrinsic_setjmp))( jmp_buf buf, void * frame );
 
 int __attribute__((alias("__intrinsic_setjmpex"))) _setjmp( jmp_buf buf, void * frame );
+extern int __attribute__((alias(__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex)))))(*__MINGW_IMP_SYMBOL(_setjmp))( jmp_buf buf, void * frame );
 
 int __attribute__((alias("__intrinsic_setjmpex"))) _setjmpex( jmp_buf buf, void * frame );
+extern int __attribute__((alias(__MINGW64_STRINGIFY(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex)))))(*__MINGW_IMP_SYMBOL(_setjmpex))( jmp_buf buf, void * frame );
 
 #endif

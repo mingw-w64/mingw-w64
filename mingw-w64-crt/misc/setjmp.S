@@ -13,11 +13,19 @@
         .def    __MINGW_USYMBOL(__intrinsic_setjmp); .scl 2; .type 32; .endef
         .globl  __MINGW_USYMBOL(_setjmp)
         .def    __MINGW_USYMBOL(_setjmp); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(__intrinsic_setjmp))
+        .set    __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(__intrinsic_setjmp)), __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp))
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp))
+#ifndef __i386__
+        .set    __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp)), __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmpex))
+#endif
 #endif
 
 #ifdef __x86_64__
         .globl  __MINGW_USYMBOL(setjmp)
         .def    __MINGW_USYMBOL(setjmp); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(setjmp))
+        .set    __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(setjmp)), __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp))
 #endif
 
 #ifndef __i386__
@@ -25,11 +33,29 @@
         .def    __MINGW_USYMBOL(__intrinsic_setjmpex); .scl 2; .type 32; .endef
         .globl  __MINGW_USYMBOL(_setjmpex)
         .def    __MINGW_USYMBOL(_setjmpex); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex))
+        .set    __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(__intrinsic_setjmpex)), __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmpex))
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmpex))
+.data
+__MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmpex)):
+#ifdef _WIN64
+        .quad   __MINGW_USYMBOL(_setjmpex)
+#else
+        .long   __MINGW_USYMBOL(_setjmpex)
+#endif
+.text
 #endif
 
 #ifdef __i386__
         .globl  __MINGW_USYMBOL(_setjmp3)
         .def    __MINGW_USYMBOL(_setjmp3); .scl 2; .type 32; .endef
+        .globl  __MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp3))
+.data
+__MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp3)):
+        .long   __MINGW_USYMBOL(_setjmp3)
+__MINGW_USYMBOL(__MINGW_IMP_SYMBOL(_setjmp)):
+        .long   __MINGW_USYMBOL(_setjmp)
+.text
 #endif
 
 
