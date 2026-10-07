@@ -495,11 +495,15 @@ lstrlenW@4
 ; BaseRtlDestroyHandleTable@4
 ; BaseRtlFreeHandle@8
 ; BaseRtlInitializeHandleTable@8
+; DESTROYFIODATA@4
 ; Free32bDLLCbEntries@8
 ; Get16DLLAddress@8
 ; GetDOSFileHandle@4
 ; GetUserNameA@8 ; MSDN says this is exported from advapi32.dll
 ; GetUserNameW@8 ; MSDN says this is exported from advapi32.dll
+; INITIALIZEFIODATA@8 ; in Win32s 1.1
+; INITIALIZEFIODATA@12 ; in Win32s 1.15-1.20
+; INITIALIZEFILEIODATA@12 ; in Win32s 1.25 and up
 ; OpenThread@4 ; Win32s OpenThread takes one DWORD threadid argument, Windows ME and Windows 2000+ contain "OpenThread" symbol but ABI is "OpenThread@12"
 ; PrivateFreeLibrary@4
 ; PrivateLoadLibrary@4
