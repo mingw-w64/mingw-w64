@@ -686,6 +686,15 @@ jobs:
           export PATH=/llvm-mingw/bin:$PATH
           cd mingw-w64-crt/build
           make -j$(nproc) check -k -O --no-print-directory || { cat testcases/test-suite.log; exit 1; }
+      - name: Run mingw-w64-crt testcases for ucrtapp
+        if: matrix.arch != 'armv7' && matrix.crt == 'ucrt'
+        continue-on-error: true
+        run: |
+          export PATH=/llvm-mingw/bin:$PATH
+          cd mingw-w64-crt/build
+          make -j$(nproc) -C testcases clean
+          make -j$(nproc) check -k -O --no-print-directory LDFLAGS='-static -lucrtapp' TESTS=
+          make -j$(nproc) check -k -O --no-print-directory LDFLAGS='-static -lucrtapp' || { cat testcases/test-suite.log; exit 1; }
       - name: Build winpthreads and tests
         run: |
           export PATH=/llvm-mingw/bin:$PATH
@@ -777,6 +786,14 @@ jobs:
           export PATH=/gcc-mingw/bin:$PATH
           ${{matrix.arch}}-w64-mingw32-gcc -std=c99 -march=i386 -o t_intrinc.exe mingw-w64-crt/testcases/t_intrinc.c mingw-w64-crt/testcases/libtest.c
           ./t_intrinc.exe
+      - name: Run testcases for ucrtapp
+        if: matrix.crt == 'ucrt'
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          cd mingw-w64-crt/build
+          make -j$(nproc) -C testcases clean
+          make -j$(nproc) check -k -O --no-print-directory LDFLAGS='-static -mcrtdll=ucrtapp' TESTS=
+          make -j$(nproc) check -k -O --no-print-directory LDFLAGS='-static -mcrtdll=ucrtapp' || { cat testcases/test-suite.log; exit 1; }
       - name: Build and test winpthreads
         run: |
           export PATH=/gcc-mingw/bin:$PATH
