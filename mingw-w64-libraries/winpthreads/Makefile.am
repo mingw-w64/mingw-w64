@@ -17,11 +17,9 @@ include_HEADERS =          \
 
 libwinpthread_la_SOURCES =      \
   src/barrier.c   src/barrier.h \
-  src/clock.c                   \
   src/cond.c      src/cond.h    \
   src/misc.c      src/misc.h    \
   src/mutex.c                   \
-  src/nanosleep.c               \
   src/rwlock.c    src/rwlock.h  \
   src/sem.c       src/sem.h     \
   src/spinlock.c                \
