@@ -60,7 +60,7 @@ static WINPTHREADS_INLINE int lc_set_errno(int result)
  *         If the function fails, the return value is -1,
  *         with errno set to indicate the error.
  */
-static int __clock_getres(clockid_t clock_id, struct _timespec64 *res)
+int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
 {
     clockid_t id = clock_id;
 
@@ -127,7 +127,7 @@ static int __clock_getres(clockid_t clock_id, struct _timespec64 *res)
  *         If the function fails, the return value is -1,
  *         with errno set to indicate the error.
  */
-static int __clock_gettime(clockid_t clock_id, struct _timespec64 *tp)
+int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
 {
     unsigned __int64 t;
     LARGE_INTEGER pf, pc;
@@ -224,7 +224,7 @@ static int __clock_gettime(clockid_t clock_id, struct _timespec64 *tp)
  *         If the function fails, the return value is -1,
  *         with errno set to indicate the error.
  */
-static int __clock_nanosleep(clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain)
+int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain)
 {
     struct _timespec64 tp;
 
@@ -237,7 +237,7 @@ static int __clock_nanosleep(clockid_t clock_id, int flags, const struct _timesp
     }
 
     /* TIMER_ABSTIME = 1 */
-    __clock_gettime(CLOCK_REALTIME, &tp);
+    clock_gettime64(CLOCK_REALTIME, &tp);
 
     tp.tv_sec = request->tv_sec - tp.tv_sec;
     tp.tv_nsec = request->tv_nsec - tp.tv_nsec;
@@ -258,7 +258,7 @@ static int __clock_nanosleep(clockid_t clock_id, int flags, const struct _timesp
  *         If the function fails, the return value is -1,
  *         with errno set to indicate the error.
  */
-static int __clock_settime(clockid_t clock_id, const struct _timespec64 *tp)
+int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
 {
     SYSTEMTIME st;
 
@@ -285,30 +285,6 @@ static int __clock_settime(clockid_t clock_id, const struct _timespec64 *tp)
 }
 
 /**
- * Versions to use with 64-bit time_t (struct _timespec64)
- */
-
-int clock_getres64 (clockid_t clock_id, struct _timespec64 *tp)
-{
-    return __clock_getres (clock_id, tp);
-}
-
-int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
-{
-    return __clock_gettime (clock_id, tp);
-}
-
-int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
-{
-    return __clock_settime (clock_id, tp);
-}
-
-int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain)
-{
-    return __clock_nanosleep (clock_id, flags, request, remain);
-}
-
-/**
  * Versions to use with 32-bit time_t (struct _timespec32)
  */
 
@@ -316,7 +292,7 @@ int clock_getres32 (clockid_t clock_id, struct _timespec32 *tp)
 {
     struct _timespec64 tp64;
 
-    int error_code = __clock_getres (clock_id, &tp64);
+    int error_code = clock_getres64 (clock_id, &tp64);
 
     if (error_code == 0) {
         tp->tv_sec = (__time32_t) tp64.tv_sec;
@@ -330,7 +306,7 @@ int clock_gettime32 (clockid_t clock_id, struct _timespec32 *tp)
 {
     struct _timespec64 tp64;
 
-    int error_code = __clock_gettime (clock_id, &tp64);
+    int error_code = clock_gettime64 (clock_id, &tp64);
 
     if (error_code == 0) {
         if (tp64.tv_sec > INT_MAX) {
@@ -348,7 +324,7 @@ int clock_gettime32 (clockid_t clock_id, struct _timespec32 *tp)
 int clock_settime32 (clockid_t clock_id, const struct _timespec32 *tp)
 {
     struct _timespec64 tp64 = {.tv_sec = tp->tv_sec, .tv_nsec = tp->tv_nsec};
-    return __clock_settime (clock_id, &tp64);
+    return clock_settime64 (clock_id, &tp64);
 }
 
 int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *request, struct _timespec32 *remain)
@@ -359,7 +335,7 @@ int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *
     };
     struct _timespec64 remain64;
 
-    int error_code = __clock_nanosleep (clock_id, flags, &request64, &remain64);
+    int error_code = clock_nanosleep64 (clock_id, flags, &request64, &remain64);
 
     if (error_code == -1) {
         if (errno == EINTR && remain != NULL) {
