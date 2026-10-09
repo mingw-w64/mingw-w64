@@ -44,7 +44,7 @@ unsigned __int64 _pthread_time_in_ms (void);
 /**
  * Get absolute time from `ts`, in millseconds.
  */
-unsigned long long _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts);
+unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts);
 
 /**
  * Get difference between current system time and absolute time `ts`,

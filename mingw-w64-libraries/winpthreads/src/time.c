@@ -33,6 +33,7 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
+#include "misc.h"
 #include "winpthreads-time.h"
 
 /**
@@ -41,7 +42,9 @@
  * This file contains all time-related definitions used by the library.
  */
 
+#define POW10_3 1000
 #define POW10_4 10000
+#define POW10_6 1000000
 
 /**
  * Number of 100ns intervals between the beginning of the Windows epoch
@@ -66,14 +69,28 @@ unsigned __int64 _pthread_time_in_ms (void)
   return (value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_4;
 }
 
-unsigned long long _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts)
+unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts)
 {
-  unsigned long long t = (unsigned long long) ts->tv_sec * 1000LL;
+  unsigned __int64 msFromSec  = ts->tv_sec;
+  unsigned __int64 msFromNsec = (ts->tv_nsec + POW10_6 - 1) / POW10_6;
 
-  /* The +999999 is here to ensure that the division always rounds up */
-  t += (unsigned long long) (ts->tv_nsec + 999999) / 1000000;
+  /**
+   * Check for overflow.
+   */
+  if (unlikely (msFromSec > (_UI64_MAX / POW10_3))) {
+    return _UI64_MAX;
+  }
 
-  return t;
+  msFromSec *= POW10_3;
+
+  /**
+   * Check for overflow.
+   */
+  if (unlikely (msFromNsec > _UI64_MAX - msFromSec)) {
+    return _UI64_MAX;
+  }
+
+  return msFromSec + msFromNsec;
 }
 
 unsigned long long _pthread_rel_time_in_ms (const struct _timespec64 *ts)
