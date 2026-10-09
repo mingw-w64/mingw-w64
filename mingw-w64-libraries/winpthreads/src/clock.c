@@ -131,50 +131,58 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
  */
 int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
 {
-    unsigned __int64 t;
-    LARGE_INTEGER pf, pc;
-    union {
-        unsigned __int64 u64;
-        FILETIME ft;
-    }  ct, et, kt, ut;
-
     switch (clock_id) {
     case CLOCK_REALTIME:
         {
-            _pthread_get_system_time_best_as_file_time(&ct.ft);
+            FILETIME fileTime;
 
-            t = ct.u64 - DELTA_EPOCH_IN_100NS;
-            tp->tv_sec = t / POW10_7;
-            tp->tv_nsec = ((int) (t % POW10_7)) * 100;
+            _pthread_get_system_time_best_as_file_time(&fileTime);
+
+            ULARGE_INTEGER value = {
+                .HighPart = fileTime.dwHighDateTime,
+                .LowPart  = fileTime.dwLowDateTime
+            };
+
+            tp->tv_sec = (__time64_t) ((value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_7);
+            tp->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
 
             return 0;
         }
 
     case CLOCK_REALTIME_COARSE:
         {
-            GetSystemTimeAsFileTime(&ct.ft);
+            FILETIME fileTime;
 
-            t = ct.u64 - DELTA_EPOCH_IN_100NS;
-            tp->tv_sec = t / POW10_7;
-            tp->tv_nsec = ((int) (t % POW10_7)) * 100;
+            GetSystemTimeAsFileTime(&fileTime);
+
+            ULARGE_INTEGER value = {
+                .HighPart = fileTime.dwHighDateTime,
+                .LowPart  = fileTime.dwLowDateTime
+            };
+
+            tp->tv_sec = (__time64_t) ((value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_7);
+            tp->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
 
             return 0;
         }
 
     case CLOCK_MONOTONIC:
         {
-            if (QueryPerformanceFrequency(&pf) == 0) {
+            LARGE_INTEGER pf;
+            LARGE_INTEGER pc;
+
+            if (!QueryPerformanceFrequency(&pf)) {
                 _set_errno(EINVAL);
                 return -1;
             }
 
-            if (QueryPerformanceCounter(&pc) == 0) {
+            if (!QueryPerformanceCounter(&pc)) {
                 _set_errno(EINVAL);
                 return -1;
             }
 
-            tp->tv_sec = pc.QuadPart / pf.QuadPart;
-            tp->tv_nsec = (int) (((pc.QuadPart % pf.QuadPart) * POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
+            tp->tv_sec = (__time64_t) (pc.QuadPart / pf.QuadPart);
+            tp->tv_nsec = (long) (((pc.QuadPart % pf.QuadPart) * POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
 
             if (tp->tv_nsec >= POW10_9) {
                 tp->tv_sec++;
@@ -186,28 +194,70 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
 
     case CLOCK_PROCESS_CPUTIME_ID:
         {
-            if (0 == GetProcessTimes(GetCurrentProcess(), &ct.ft, &et.ft, &kt.ft, &ut.ft)) {
-                _set_errno(EINVAL);
+            FILETIME creationTime;
+            FILETIME exitTime;
+            FILETIME kernelTime;
+            FILETIME userTime;
+
+            /**
+             * Function `GetProcessTimes` is available on Win9x systems,
+             * but it always fails.
+             *
+             * `ENOTSUP` is the most fitting error code, although this error
+             * condition is not specified by POSIX.
+             */
+            if (!GetProcessTimes(GetCurrentProcess(), &creationTime, &exitTime, &kernelTime, &userTime)) {
+                _set_errno(ENOTSUP);
                 return -1;
             }
 
-            t = kt.u64 + ut.u64;
-            tp->tv_sec = t / POW10_7;
-            tp->tv_nsec = ((int) (t % POW10_7)) * 100;
+            ULARGE_INTEGER kernelValue = {
+                .HighPart = kernelTime.dwHighDateTime,
+                .LowPart  = kernelTime.dwLowDateTime
+            };
+            ULARGE_INTEGER userValue = {
+                .HighPart = userTime.dwHighDateTime,
+                .LowPart  = userTime.dwLowDateTime
+            };
+            ULONGLONG value = kernelValue.QuadPart + userValue.QuadPart;
+
+            tp->tv_sec = (__time64_t)  (value / POW10_7);
+            tp->tv_nsec = (long) ((value % POW10_7) * 100);
 
             return 0;
         }
 
     case CLOCK_THREAD_CPUTIME_ID:
         {
-            if (0 == GetThreadTimes(GetCurrentThread(), &ct.ft, &et.ft, &kt.ft, &ut.ft)) {
-                _set_errno(EINVAL);
+            FILETIME creationTime;
+            FILETIME exitTime;
+            FILETIME kernelTime;
+            FILETIME userTime;
+
+            /**
+             * Function `GetThreadTimes` is available on Win9x systems,
+             * but it always fails.
+             *
+             * `ENOTSUP` is the most fitting error code, although this error
+             * condition is not specified by POSIX.
+             */
+            if (!GetThreadTimes(GetCurrentThread(), &creationTime, &exitTime, &kernelTime, &userTime)) {
+                _set_errno(ENOTSUP);
                 return -1;
             }
 
-            t = kt.u64 + ut.u64;
-            tp->tv_sec = t / POW10_7;
-            tp->tv_nsec = ((int) (t % POW10_7)) * 100;
+            ULARGE_INTEGER kernelValue = {
+                .HighPart = kernelTime.dwHighDateTime,
+                .LowPart  = kernelTime.dwLowDateTime
+            };
+            ULARGE_INTEGER userValue = {
+                .HighPart = userTime.dwHighDateTime,
+                .LowPart  = userTime.dwLowDateTime
+            };
+            ULONGLONG value = kernelValue.QuadPart + userValue.QuadPart;
+
+            tp->tv_sec = (__time64_t) (value / POW10_7);
+            tp->tv_nsec = (long) ((value % POW10_7) * 100);
 
             return 0;
         }
