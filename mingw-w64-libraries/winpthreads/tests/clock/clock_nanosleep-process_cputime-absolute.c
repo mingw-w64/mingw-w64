@@ -50,7 +50,16 @@ int main(void)
   int error_code;
 
   assert(clock_getres(CLOCK_PROCESS_CPUTIME_ID, &res) == 0);
-  assert(clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts1) == 0);
+  errno = 0;
+  error_code = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts1);
+  assert(error_code == 0 || (error_code = errno) == ENOTSUP);
+  /**
+   * `CLOCK_PROCESS_CPUTIME_ID` is not supported on Win9x.
+   */
+  if (error_code == ENOTSUP) {
+    wprintf(L"CLOCK_PROCESS_CPUTIME_ID is not supported.\n");
+    return 77;
+  }
   request.tv_sec  = ts1.tv_sec;
   request.tv_nsec = ts1.tv_nsec + res.tv_nsec * (res.tv_nsec / POW10_6 > 0 ? 10 : POW10_6);
   if (request.tv_nsec >= POW10_9) {

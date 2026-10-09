@@ -35,8 +35,18 @@ int main(void)
 {
   struct timespec ts1;
   struct timespec ts2;
+  int error_code;
 
-  assert(clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts1) == 0);
+  errno = 0;
+  error_code = clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts1);
+  assert(error_code == 0 || (error_code = errno) == ENOTSUP);
+  /**
+   * `CLOCK_THREAD_CPUTIME_ID` is not supported on Win9x.
+   */
+  if (error_code == ENOTSUP) {
+    wprintf(L"CLOCK_THREAD_CPUTIME_ID is not supported.\n");
+    return 77;
+  }
   /**
    * `CLOCK_THREAD_CPUTIME_ID` does not include time thread spent sleeping.
    */
