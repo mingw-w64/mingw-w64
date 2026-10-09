@@ -32,15 +32,6 @@
  */
 #define DELTA_EPOCH_IN_100NS INT64_C(116444736000000000)
 
-static WINPTHREADS_INLINE int lc_set_errno(int result)
-{
-    if (result != 0) {
-        errno = result;
-        return -1;
-    }
-    return 0;
-}
-
 /**
  * Get the resolution of the specified clock clock_id and
  * stores it in the struct timespec pointed to by res.
@@ -75,7 +66,8 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
             LARGE_INTEGER pf;
 
             if (QueryPerformanceFrequency(&pf) == 0) {
-                return lc_set_errno(EINVAL);
+                _set_errno(EINVAL);
+                return -1;
             }
 
             res->tv_sec = 0;
@@ -106,7 +98,8 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
         break;
     }
 
-    return lc_set_errno(EINVAL);
+    _set_errno(EINVAL);
+    return -1;
 }
 
 /**
@@ -162,11 +155,13 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     case CLOCK_MONOTONIC:
         {
             if (QueryPerformanceFrequency(&pf) == 0) {
-                return lc_set_errno(EINVAL);
+                _set_errno(EINVAL);
+                return -1;
             }
 
             if (QueryPerformanceCounter(&pc) == 0) {
-                return lc_set_errno(EINVAL);
+                _set_errno(EINVAL);
+                return -1;
             }
 
             tp->tv_sec = pc.QuadPart / pf.QuadPart;
@@ -183,7 +178,8 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     case CLOCK_PROCESS_CPUTIME_ID:
         {
             if (0 == GetProcessTimes(GetCurrentProcess(), &ct.ft, &et.ft, &kt.ft, &ut.ft)) {
-                return lc_set_errno(EINVAL);
+                _set_errno(EINVAL);
+                return -1;
             }
 
             t = kt.u64 + ut.u64;
@@ -196,7 +192,8 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     case CLOCK_THREAD_CPUTIME_ID:
         {
             if (0 == GetThreadTimes(GetCurrentThread(), &ct.ft, &et.ft, &kt.ft, &ut.ft)) {
-                return lc_set_errno(EINVAL);
+                _set_errno(EINVAL);
+                return -1;
             }
 
             t = kt.u64 + ut.u64;
@@ -210,7 +207,8 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
         break;
     }
 
-    return lc_set_errno(EINVAL);
+    _set_errno(EINVAL);
+    return -1;
 }
 
 /**
@@ -229,7 +227,8 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
     struct _timespec64 tp;
 
     if (clock_id != CLOCK_REALTIME) {
-        return lc_set_errno(EINVAL);
+        _set_errno(EINVAL);
+        return -1;
     }
 
     if (flags == 0) {
@@ -268,17 +267,20 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
     }  t;
 
     if (clock_id != CLOCK_REALTIME) {
-        return lc_set_errno(EINVAL);
+        _set_errno(EINVAL);
+        return -1;
     }
 
     t.u64 = tp->tv_sec * (__int64) POW10_7 + tp->tv_nsec / 100 + DELTA_EPOCH_IN_100NS;
 
     if (FileTimeToSystemTime(&t.ft, &st) == 0) {
-        return lc_set_errno(EINVAL);
+        _set_errno(EINVAL);
+        return -1;
     }
 
     if (SetSystemTime(&st) == 0) {
-        return lc_set_errno(EPERM);
+        _set_errno(EPERM);
+        return -1;
     }
 
     return 0;
