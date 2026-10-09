@@ -37,11 +37,11 @@ check_PROGRAMS =               \
 	benchtests/benchtest3      \
 	benchtests/benchtest4      \
 	benchtests/benchtest5      \
-	clock/t_clock_getres       \
-	clock/t_clock_gettime      \
-	clock/t_clock_nanosleep    \
-	clock/t_clock_settime      \
-	clock/t_nanosleep          \
+	clock/clock_getres         \
+	clock/clock_gettime        \
+	clock/clock_nanosleep      \
+	clock/clock_settime        \
+	clock/nanosleep            \
 	exceptions/exception1      \
 	exceptions/exception2      \
 	exceptions/exception3      \
