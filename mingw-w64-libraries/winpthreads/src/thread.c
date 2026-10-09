@@ -699,7 +699,18 @@ pthread_timechange_handler_np(void *dummy)
 static int
 __pthread_delay_np (const struct _timespec64 *interval)
 {
-  DWORD to = (!interval ? 0 : dwMilliSecs (_pthread_time_in_ms_from_timespec (interval)));
+  DWORD to = 0;
+
+  if (interval != NULL) {
+    unsigned __int64 ms = _pthread_time_in_ms_from_timespec (interval);
+
+    if (ms >= INFINITE) {
+      to = INFINITE;
+    } else {
+      to = (DWORD) ms;
+    }
+  }
+
   struct _pthread_v *s = __pthread_self_lite ();
 
   if (!to)

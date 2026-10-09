@@ -441,7 +441,13 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
   }
   else
   {
-    dwr = dwMilliSecs(_pthread_time_in_ms_from_timespec(t));
+    unsigned __int64 ms = _pthread_time_in_ms_from_timespec(t);
+
+    if (ms >= INFINITE) {
+      dwr = INFINITE;
+    } else {
+      dwr = (DWORD) ms;
+    }
   }
 
 tryagain:

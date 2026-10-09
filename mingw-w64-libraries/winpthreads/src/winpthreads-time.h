@@ -64,16 +64,4 @@ unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts);
  */
 unsigned __int64 _pthread_get_tick_count (__int64 *frequency);
 
-/**
- * Return `ms` as an `unsigned long` value.
- */
-static WINPTHREADS_INLINE unsigned long dwMilliSecs (unsigned long long ms)
-{
-  if (ms >= 0xffffffffULL) {
-    return 0xfffffffful;
-  }
-
-  return (unsigned long) ms;
-}
-
 #endif /* WINPTHREADS_TIME_H */
