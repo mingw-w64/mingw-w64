@@ -283,29 +283,77 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
  */
 int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain)
 {
-    struct _timespec64 tp;
-
-    if (clock_id != CLOCK_REALTIME) {
+    /**
+     * The clock_nanosleep() function shall fail if:
+     *
+     * [EINVAL]
+     *   The request argument specified a nanosecond value less than zero or
+     *   greater than or equal to 1000 million.
+     */
+    if (request->tv_sec < 0 || request->tv_nsec < 0 || request->tv_nsec >= POW10_9) {
         _set_errno(EINVAL);
         return -1;
     }
 
-    if (flags == 0) {
+    switch (clock_id) {
+        /**
+         * Currently, only `CLOCK_REALTIME` is supported.
+         */
+        case CLOCK_REALTIME:
+            break;
+        case CLOCK_MONOTONIC:
+        /**
+         * The clock_nanosleep() function shall fail if:
+         *
+         * [EINVAL]
+         *   the clock_id argument does not specify a known clock,
+         *   or specifies the CPU-time clock of the calling thread.
+         */
+        case CLOCK_PROCESS_CPUTIME_ID:
+        case CLOCK_THREAD_CPUTIME_ID:
+        default:
+            _set_errno(EINVAL);
+            return -1;
+    }
+
+    /**
+     * Calling `clock_nanosleep` with `CLOCK_REALTIME` and zero `flags`
+     * is the same as calling `nanosleep`.
+     */
+    if ((flags & TIMER_ABSTIME) == 0) {
         return nanosleep64(request, remain);
     }
 
-    /* TIMER_ABSTIME = 1 */
-    clock_gettime64(CLOCK_REALTIME, &tp);
+    /**
+     * Calculate sleep time from the current time and absolute time `request`.
+     */
+    struct _timespec64 sleepTime;
 
-    tp.tv_sec = request->tv_sec - tp.tv_sec;
-    tp.tv_nsec = request->tv_nsec - tp.tv_nsec;
+    clock_gettime64(clock_id, &sleepTime);
 
-    if (tp.tv_nsec < 0) {
-        tp.tv_nsec += POW10_9;
-        tp.tv_sec--;
+    /**
+     * Timeout already expired.
+     */
+    if (sleepTime.tv_sec > request->tv_sec) {
+        return 0;
     }
 
-    return nanosleep64(&tp, remain);
+    sleepTime.tv_sec = request->tv_sec - sleepTime.tv_sec;
+    sleepTime.tv_nsec = request->tv_nsec - sleepTime.tv_nsec;
+
+    if (sleepTime.tv_nsec < 0) {
+        /**
+         * Timeout already expired.
+         */
+        if (sleepTime.tv_sec == 0) {
+            return 0;
+        }
+
+        sleepTime.tv_nsec += POW10_9;
+        sleepTime.tv_sec--;
+    }
+
+    return nanosleep64(&sleepTime, remain);
 }
 
 /**
@@ -433,7 +481,7 @@ int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *
     int error_code = clock_nanosleep64 (clock_id, flags, &request64, &remain64);
 
     if (error_code == -1) {
-        if (errno == EINTR && remain != NULL) {
+        if (unlikely (errno == EINTR) && remain != NULL) {
             assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
             remain->tv_sec = (__time32_t) remain64.tv_sec;
             assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
