@@ -318,26 +318,60 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
  */
 int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
 {
-    SYSTEMTIME st;
-
-    union {
-        unsigned __int64 u64;
-        FILETIME ft;
-    }  t;
-
-    if (clock_id != CLOCK_REALTIME) {
+    /**
+     * The clock_settime() function shall fail if:
+     *
+     * [EINVAL]
+     *   The tp argument specified a nanosecond value less than zero or
+     *   greater than or equal to 1000 million.
+     */
+    if (tp->tv_sec < 0 || tp->tv_nsec < 0 || tp->tv_nsec >= POW10_9) {
         _set_errno(EINVAL);
         return -1;
     }
 
-    t.u64 = tp->tv_sec * (__int64) POW10_7 + tp->tv_nsec / 100 + DELTA_EPOCH_IN_100NS;
+    switch (clock_id) {
+        case CLOCK_REALTIME:
+        case CLOCK_REALTIME_COARSE:
+            break;
+        /**
+         * The clock_settime() function shall fail if:
+         *
+         * [EINVAL]
+         *   The value of the clock_id argument is CLOCK_MONOTONIC.
+         */
+        case CLOCK_MONOTONIC:
+        /**
+         * Setting CPU clocks is not supported.
+         */
+        case CLOCK_PROCESS_CPUTIME_ID:
+        case CLOCK_THREAD_CPUTIME_ID:
+        /**
+         * The clock_settime() function shall fail if:
+         *
+         * [EINVAL]
+         *   The clock_id argument does not specify a known clock.
+         */
+        default:
+            _set_errno(EINVAL);
+            return -1;
+    }
 
-    if (FileTimeToSystemTime(&t.ft, &st) == 0) {
+    ULARGE_INTEGER value = {
+        .QuadPart = DELTA_EPOCH_IN_100NS + (tp->tv_sec * POW10_7) + (tp->tv_nsec / 100)
+    };
+    FILETIME fileTime = {
+        .dwHighDateTime = value.HighPart,
+        .dwLowDateTime  = value.LowPart
+    };
+    SYSTEMTIME systemTime;
+
+    if (!FileTimeToSystemTime(&fileTime, &systemTime)) {
         _set_errno(EINVAL);
         return -1;
     }
 
-    if (SetSystemTime(&st) == 0) {
+    if (!SetSystemTime(&systemTime)) {
         _set_errno(EPERM);
         return -1;
     }
