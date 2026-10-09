@@ -22,6 +22,7 @@
 #include "pthread_time.h"
 /* internal header files */
 #include "misc.h"
+#include "winpthreads-time.h"
 
 #define POW10_7 10000000
 #define POW10_9 1000000000

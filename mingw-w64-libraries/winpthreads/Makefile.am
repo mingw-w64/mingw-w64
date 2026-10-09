@@ -26,6 +26,7 @@ libwinpthread_la_SOURCES =      \
   src/sem.c       src/sem.h     \
   src/spinlock.c                \
   src/sched.c                   \
+  src/time.c      src/winpthreads-time.h  \
   src/thread.c    src/thread.h  \
   src/wpth_ver.h                \
   src/version.rc

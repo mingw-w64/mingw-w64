@@ -78,21 +78,9 @@ static DWORD DUMMY_WRITABLE_DWORD;
   } while (0)
 
 #define VALID(x)    if (!(p)) return EINVAL;
-
-/* ms can be 64 bit, solve wrap-around issues: */
-static WINPTHREADS_INLINE unsigned long dwMilliSecs(unsigned long long ms)
-{
-  if (ms >= 0xffffffffULL) return 0xfffffffful;
-  return (unsigned long) ms;
-}
-
-unsigned long long _pthread_time_in_ms(void);
-unsigned long long _pthread_time_in_ms_from_timespec(const struct _timespec64 *ts);
-unsigned long long _pthread_rel_time_in_ms(const struct _timespec64 *ts);
 unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
-extern void (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME);
 extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
 
 #if defined(__GNUC__) || defined(__clang__)

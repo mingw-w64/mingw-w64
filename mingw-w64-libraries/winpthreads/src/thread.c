@@ -50,6 +50,7 @@
 /* internal header files */
 #include "misc.h"
 #include "thread.h"
+#include "winpthreads-time.h"
 
 static _pthread_v *__pthread_self_lite (void);
 

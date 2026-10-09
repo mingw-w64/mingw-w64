@@ -37,6 +37,7 @@
 #include "misc.h"
 #include "sem.h"
 #include "thread.h"
+#include "winpthreads-time.h"
 
 int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
 

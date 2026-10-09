@@ -45,6 +45,7 @@
 #include "cond.h"
 #include "misc.h"
 #include "thread.h"
+#include "winpthreads-time.h"
 
 #include "pthread_compat.h"
 

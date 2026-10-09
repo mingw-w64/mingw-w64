@@ -23,6 +23,7 @@
 /* internal header files */
 #include "misc.h"
 #include "thread.h"
+#include "winpthreads-time.h"
 
 #define POW10_3         1000
 #define POW10_4         10000
