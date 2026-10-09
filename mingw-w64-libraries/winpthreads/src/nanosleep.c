@@ -56,7 +56,7 @@ int nanosleep64(const struct _timespec64 *request, struct _timespec64 *remain)
     /**
      * Total sleep time in milliseconds.
      */
-    unsigned __int64 totalSleepTime = _pthread_time_in_ms_from_timespec(request);
+    unsigned __int64 totalSleepTime = winpthreads_timespec_ms(request);
 
     if (totalSleepTime == 0) {
         return 0;

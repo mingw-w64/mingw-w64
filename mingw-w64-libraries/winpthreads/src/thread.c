@@ -702,7 +702,7 @@ __pthread_delay_np (const struct _timespec64 *interval)
   DWORD to = 0;
 
   if (interval != NULL) {
-    unsigned __int64 ms = _pthread_time_in_ms_from_timespec (interval);
+    unsigned __int64 ms = winpthreads_timespec_ms (interval);
 
     if (ms >= INFINITE) {
       to = INFINITE;

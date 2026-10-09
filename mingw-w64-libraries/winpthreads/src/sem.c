@@ -233,7 +233,7 @@ __sem_timedwait (sem_t *sem, const struct _timespec64 *t)
 
   if (!t)
     return sem_wait (sem);
-  dwr = _pthread_rel_time_in_ms (t);
+  dwr = winpthreads_wait_time_ms (t);
 
   if (sem_std_enter (sem, &sv, 1) != 0)
     return -1;

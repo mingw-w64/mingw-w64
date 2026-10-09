@@ -39,12 +39,12 @@ extern ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
 /**
  * Get current system time, in milliseconds.
  */
-unsigned __int64 _pthread_time_in_ms (void);
+unsigned __int64 winpthreads_system_time_ms (void);
 
 /**
  * Get absolute time from `ts`, in millseconds.
  */
-unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts);
+unsigned __int64 winpthreads_timespec_ms (const struct _timespec64 *ts);
 
 /**
  * Get difference between current system time and absolute time `ts`,
@@ -53,7 +53,7 @@ unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts
  * The value is returned as an `unsigned`; it is expected to be used with
  * functions such as `WaitFor*` and `Sleep`, which take `DWORD` values.
  */
-unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts);
+unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts);
 
 /**
  * Get current time using some monotonic clock, in milliseconds.
@@ -62,6 +62,6 @@ unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts);
  * initialized to zero; this variable then can be passed to subsequent calls
  * to this function.
  */
-unsigned __int64 _pthread_get_tick_count (__int64 *frequency);
+unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency);
 
 #endif /* WINPTHREADS_TIME_H */

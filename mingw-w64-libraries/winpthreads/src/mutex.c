@@ -488,8 +488,8 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
   unsigned __int64 waitTimeout   = INFINITE;
 
   if (waitUntil != NULL) {
-    waitStartTime = _pthread_time_in_ms ();
-    waitEndTime   = _pthread_time_in_ms_from_timespec (waitUntil);
+    waitStartTime = winpthreads_system_time_ms ();
+    waitEndTime   = winpthreads_timespec_ms (waitUntil);
     waitTimeout   = 0;
 
     if (waitStartTime < waitEndTime) {
@@ -539,7 +539,7 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
      * Update `waitTimeout`, if not `INFINITE`.
      */
     if (waitTimeout != INFINITE) {
-      waitStartTime = _pthread_time_in_ms ();
+      waitStartTime = winpthreads_system_time_ms ();
 
       if (waitStartTime >= waitEndTime) {
         return ETIMEDOUT;
@@ -593,8 +593,8 @@ static WINPTHREADS_INLINE int WinpthreadsRobustMutexTimedLock (HANDLE mutex, LON
   }
 
   if (waitUntil != NULL) {
-    waitStartTime = _pthread_time_in_ms ();
-    waitEndTime   = _pthread_time_in_ms_from_timespec (waitUntil);
+    waitStartTime = winpthreads_system_time_ms ();
+    waitEndTime   = winpthreads_timespec_ms (waitUntil);
 
     if (waitStartTime < waitEndTime) {
       waitTimeout = waitEndTime - waitStartTime;

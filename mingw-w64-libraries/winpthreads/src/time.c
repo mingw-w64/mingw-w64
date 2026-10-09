@@ -55,7 +55,7 @@
 VOID (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;
 ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID) = NULL;
 
-unsigned __int64 _pthread_time_in_ms (void)
+unsigned __int64 winpthreads_system_time_ms (void)
 {
   FILETIME fileTime;
 
@@ -69,7 +69,7 @@ unsigned __int64 _pthread_time_in_ms (void)
   return (value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_4;
 }
 
-unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts)
+unsigned __int64 winpthreads_timespec_ms (const struct _timespec64 *ts)
 {
   unsigned __int64 msFromSec  = ts->tv_sec;
   unsigned __int64 msFromNsec = (ts->tv_nsec + POW10_6 - 1) / POW10_6;
@@ -93,10 +93,10 @@ unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts
   return msFromSec + msFromNsec;
 }
 
-unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts)
+unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts)
 {
-  unsigned __int64 msCurrent  = _pthread_time_in_ms ();
-  unsigned __int64 msAbsolute = _pthread_time_in_ms_from_timespec (ts);
+  unsigned __int64 msCurrent  = winpthreads_system_time_ms ();
+  unsigned __int64 msAbsolute = winpthreads_timespec_ms (ts);
 
   /**
    * Check for underflow.
@@ -114,7 +114,7 @@ unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts)
   return (unsigned) diff;
 }
 
-unsigned __int64 _pthread_get_tick_count (__int64 *frequency)
+unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency)
 {
   LARGE_INTEGER performanceFrequency = {.QuadPart = 0};
   LARGE_INTEGER performanceCounter   = {.QuadPart = 0};

@@ -119,7 +119,7 @@ _pthread_wait_for_single_object (void *handle, unsigned long timeout)
   if (timeout == INFINITE || timeout == 0)
     return WaitForSingleObject ((HANDLE) handle, (DWORD) timeout);
 
-  start_time = _pthread_get_tick_count (&frequency);
+  start_time = winpthreads_windows_time_ms (&frequency);
   end_time = start_time + timeout;
   wait_time = timeout;
 
@@ -131,7 +131,7 @@ _pthread_wait_for_single_object (void *handle, unsigned long timeout)
     if (result != WAIT_TIMEOUT)
       break;
 
-    current_time = _pthread_get_tick_count (&frequency);
+    current_time = winpthreads_windows_time_ms (&frequency);
     if (current_time >= end_time)
       break;
 
@@ -159,7 +159,7 @@ _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigne
   if (timeout == INFINITE || timeout == 0)
     return WaitForMultipleObjects ((DWORD) count, (HANDLE *) handles, all, (DWORD) timeout);
 
-  start_time = _pthread_get_tick_count (&frequency);
+  start_time = winpthreads_windows_time_ms (&frequency);
   end_time = start_time + timeout;
   wait_time = timeout;
 
@@ -171,7 +171,7 @@ _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigne
     if (result != WAIT_TIMEOUT)
       break;
 
-    current_time = _pthread_get_tick_count (&frequency);
+    current_time = winpthreads_windows_time_ms (&frequency);
     if (current_time >= end_time)
       break;
 

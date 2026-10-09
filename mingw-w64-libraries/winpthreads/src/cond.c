@@ -437,11 +437,11 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
 
   if (rel == 0)
   {
-    dwr = _pthread_rel_time_in_ms(t);
+    dwr = winpthreads_wait_time_ms(t);
   }
   else
   {
-    unsigned __int64 ms = _pthread_time_in_ms_from_timespec(t);
+    unsigned __int64 ms = winpthreads_timespec_ms(t);
 
     if (ms >= INFINITE) {
       dwr = INFINITE;
