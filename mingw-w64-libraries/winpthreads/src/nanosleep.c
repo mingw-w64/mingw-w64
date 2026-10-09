@@ -23,11 +23,11 @@
 /* internal header files */
 #include "thread.h"
 
-#define POW10_3                 1000
-#define POW10_4                 10000
-#define POW10_6                 1000000
-#define POW10_9                 1000000000
-#define MAX_SLEEP_IN_MS         4294967294UL
+#define POW10_3         1000
+#define POW10_4         10000
+#define POW10_6         1000000
+#define POW10_9         1000000000
+#define MAX_SLEEP_IN_MS 4294967294UL
 
 /**
  * Sleep for the specified time.
@@ -52,12 +52,18 @@ static int __nanosleep(const struct _timespec64 *request, struct _timespec64 *re
         return -1;
     }
 
-    if (remain != NULL) GetSystemTimeAsFileTime(&_start.ft);
+    if (remain != NULL) {
+        GetSystemTimeAsFileTime(&_start.ft);
+    }
 
     want = u64 = request->tv_sec * POW10_3 + request->tv_nsec / POW10_6;
+
     while (u64 > 0 && rc == 0) {
-        if (u64 >= MAX_SLEEP_IN_MS) ms = MAX_SLEEP_IN_MS;
-        else ms = (unsigned long) u64;
+        if (u64 >= MAX_SLEEP_IN_MS){
+            ms = MAX_SLEEP_IN_MS;
+        } else {
+            ms = (unsigned long) u64;
+        }
 
         u64 -= ms;
         rc = _pthread_delay_np_ms(ms);
@@ -68,8 +74,11 @@ static int __nanosleep(const struct _timespec64 *request, struct _timespec64 *re
             GetSystemTimeAsFileTime(&_end.ft);
             real = (_end.ns100 - _start.ns100) / POW10_4;
 
-            if (real >= want) u64 = 0;
-            else u64 = want - real;
+            if (real >= want) {
+                u64 = 0;
+            } else {
+                u64 = want - real;
+            }
 
             remain->tv_sec = u64 / POW10_3;
             remain->tv_nsec = (long) (u64 % POW10_3) * POW10_6;
@@ -95,13 +104,14 @@ int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
     };
     struct _timespec64 remain64 = {0};
 
-    if (__nanosleep (&request64, &remain64) == -1)
+    if (__nanosleep (&request64, &remain64) == -1) {
         return -1;
+    }
 
     assert (remain64.tv_sec <= INT_MAX);
 
     if (remain != NULL) {
-        remain->tv_sec = (__time32_t)remain64.tv_sec;
+        remain->tv_sec = (__time32_t) remain64.tv_sec;
         remain->tv_nsec = remain64.tv_nsec;
     }
 
