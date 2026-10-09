@@ -314,36 +314,35 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
 
 int clock_getres32 (clockid_t clock_id, struct _timespec32 *tp)
 {
-    struct _timespec64 tp64 = {0};
+    struct _timespec64 tp64;
 
-    if (__clock_getres (clock_id, &tp64) == -1) {
-        return -1;
+    int error_code = __clock_getres (clock_id, &tp64);
+
+    if (error_code == 0) {
+        tp->tv_sec = (__time32_t) tp64.tv_sec;
+        tp->tv_nsec = tp64.tv_nsec;
     }
 
-    tp->tv_sec = (__time32_t) tp64.tv_sec;
-    tp->tv_nsec = tp64.tv_nsec;
-
-    return 0;
+    return error_code;
 }
 
 int clock_gettime32 (clockid_t clock_id, struct _timespec32 *tp)
 {
-    struct _timespec64 tp64 = {0};
+    struct _timespec64 tp64;
 
-    if (__clock_gettime (clock_id, &tp64) == -1) {
-        return -1;
+    int error_code = __clock_gettime (clock_id, &tp64);
+
+    if (error_code == 0) {
+        if (tp64.tv_sec > INT_MAX) {
+            _set_errno (EOVERFLOW);
+            return -1;
+        }
+
+        tp->tv_sec  = (__time32_t) tp64.tv_sec;
+        tp->tv_nsec = tp64.tv_nsec;
     }
 
-    if (tp64.tv_sec > INT_MAX)
-    {
-        _set_errno (EOVERFLOW);
-        return -1;
-    }
-
-    tp->tv_sec = (__time32_t) tp64.tv_sec;
-    tp->tv_nsec = tp64.tv_nsec;
-
-    return 0;
+    return error_code;
 }
 
 int clock_settime32 (clockid_t clock_id, const struct _timespec32 *tp)
@@ -358,18 +357,18 @@ int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *
         .tv_sec = request->tv_sec,
         .tv_nsec = request->tv_nsec
     };
-    struct _timespec64 remain64 = {0};
+    struct _timespec64 remain64;
 
-    if (__clock_nanosleep (clock_id, flags, &request64, &remain64) == -1) {
-        return -1;
+    int error_code = __clock_nanosleep (clock_id, flags, &request64, &remain64);
+
+    if (error_code == -1) {
+        if (errno == EINTR && remain != NULL) {
+            assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
+            remain->tv_sec = (__time32_t) remain64.tv_sec;
+            assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
+            remain->tv_nsec = remain64.tv_nsec;
+        }
     }
 
-    assert (remain64.tv_sec <= INT_MAX);
-
-    if (remain != NULL) {
-        remain->tv_sec = (__time32_t) remain64.tv_sec;
-        remain->tv_nsec = remain64.tv_nsec;
-    }
-
-    return 0;
+    return error_code;
 }
