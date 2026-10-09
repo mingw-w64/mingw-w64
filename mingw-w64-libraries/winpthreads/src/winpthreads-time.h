@@ -39,7 +39,7 @@ extern ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
 /**
  * Get current system time, in milliseconds.
  */
-unsigned long long _pthread_time_in_ms (void);
+unsigned __int64 _pthread_time_in_ms (void);
 
 /**
  * Get absolute time from `ts`, in millseconds.

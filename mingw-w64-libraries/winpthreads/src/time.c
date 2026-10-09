@@ -24,6 +24,7 @@
 #include "config.h"
 #endif
 
+#include <stdint.h>
 #include <time.h>
 
 #define WIN32_LEAN_AND_MEAN
@@ -40,16 +41,29 @@
  * This file contains all time-related definitions used by the library.
  */
 
+#define POW10_4 10000
+
+/**
+ * Number of 100ns intervals between the beginning of the Windows epoch
+ * (Jan. 1, 1601) and the Unix epoch (Jan. 1, 1970)
+ */
+#define DELTA_EPOCH_IN_100NS INT64_C(116444736000000000)
+
 VOID (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;
 ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID) = NULL;
 
-unsigned long long _pthread_time_in_ms (void)
+unsigned __int64 _pthread_time_in_ms (void)
 {
-  FILETIME ft;
+  FILETIME fileTime;
 
-  GetSystemTimeAsFileTime (&ft);
+  _pthread_get_system_time_best_as_file_time (&fileTime);
 
-  return (((unsigned long long) ft.dwHighDateTime << 32) + ft.dwLowDateTime - 0x19DB1DED53E8000ULL) / 10000ULL;
+  ULARGE_INTEGER value = {
+    .HighPart = fileTime.dwHighDateTime,
+    .LowPart  = fileTime.dwLowDateTime
+  };
+
+  return (value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_4;
 }
 
 unsigned long long _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts)
