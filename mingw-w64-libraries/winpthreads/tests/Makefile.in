@@ -93,13 +93,30 @@ host_triplet = @host@
 check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	benchtests/benchtest2$(EXEEXT) benchtests/benchtest3$(EXEEXT) \
 	benchtests/benchtest4$(EXEEXT) benchtests/benchtest5$(EXEEXT) \
-	clock/t_clock_getres$(EXEEXT) clock/t_clock_gettime$(EXEEXT) \
-	clock/t_clock_nanosleep$(EXEEXT) \
-	clock/t_clock_settime$(EXEEXT) clock/t_nanosleep$(EXEEXT) \
-	exceptions/exception1$(EXEEXT) exceptions/exception2$(EXEEXT) \
-	exceptions/exception3$(EXEEXT) misc/loadfree$(EXEEXT) \
-	misc/tryentercs$(EXEEXT) misc/tryentercs2$(EXEEXT) \
-	pthread_barrier/barrier1$(EXEEXT) \
+	clock/clock_getres-realtime$(EXEEXT) \
+	clock/clock_getres-monotonic$(EXEEXT) \
+	clock/clock_getres-process_cputime$(EXEEXT) \
+	clock/clock_getres-thread_cputime$(EXEEXT) \
+	clock/clock_gettime-realtime$(EXEEXT) \
+	clock/clock_gettime-monotonic$(EXEEXT) \
+	clock/clock_gettime-process_cputime$(EXEEXT) \
+	clock/clock_gettime-thread_cputime$(EXEEXT) \
+	clock/clock_nanosleep-realtime-absolute$(EXEEXT) \
+	clock/clock_nanosleep-realtime-relative$(EXEEXT) \
+	clock/clock_nanosleep-monotonic-absolute$(EXEEXT) \
+	clock/clock_nanosleep-monotonic-relative$(EXEEXT) \
+	clock/clock_nanosleep-process_cputime-absolute$(EXEEXT) \
+	clock/clock_nanosleep-process_cputime-relative$(EXEEXT) \
+	clock/clock_nanosleep-thread_cputime-absolute$(EXEEXT) \
+	clock/clock_nanosleep-thread_cputime-relative$(EXEEXT) \
+	clock/clock_settime-realtime$(EXEEXT) \
+	clock/clock_settime-monotonic$(EXEEXT) \
+	clock/clock_settime-process_cputime$(EXEEXT) \
+	clock/clock_settime-thread_cputime$(EXEEXT) \
+	clock/nanosleep$(EXEEXT) exceptions/exception1$(EXEEXT) \
+	exceptions/exception2$(EXEEXT) exceptions/exception3$(EXEEXT) \
+	misc/loadfree$(EXEEXT) misc/tryentercs$(EXEEXT) \
+	misc/tryentercs2$(EXEEXT) pthread_barrier/barrier1$(EXEEXT) \
 	pthread_barrier/barrier2$(EXEEXT) \
 	pthread_barrier/barrier3$(EXEEXT) \
 	pthread_barrier/barrier4$(EXEEXT) \
@@ -274,27 +291,146 @@ benchtests_benchtest4_DEPENDENCIES = libbenchlib.a $(LDADD)
 benchtests_benchtest5_SOURCES = benchtests/benchtest5.c
 benchtests_benchtest5_OBJECTS = benchtests/benchtest5.$(OBJEXT)
 benchtests_benchtest5_DEPENDENCIES = libbenchlib.a $(LDADD)
-clock_t_clock_getres_SOURCES = clock/t_clock_getres.c
-clock_t_clock_getres_OBJECTS = clock/t_clock_getres.$(OBJEXT)
-clock_t_clock_getres_LDADD = $(LDADD)
-clock_t_clock_getres_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-clock_t_clock_gettime_SOURCES = clock/t_clock_gettime.c
-clock_t_clock_gettime_OBJECTS = clock/t_clock_gettime.$(OBJEXT)
-clock_t_clock_gettime_LDADD = $(LDADD)
-clock_t_clock_gettime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-clock_t_clock_nanosleep_SOURCES = clock/t_clock_nanosleep.c
-clock_t_clock_nanosleep_OBJECTS = clock/t_clock_nanosleep.$(OBJEXT)
-clock_t_clock_nanosleep_LDADD = $(LDADD)
-clock_t_clock_nanosleep_DEPENDENCIES =  \
+clock_clock_getres_monotonic_SOURCES = clock/clock_getres-monotonic.c
+clock_clock_getres_monotonic_OBJECTS =  \
+	clock/clock_getres-monotonic.$(OBJEXT)
+clock_clock_getres_monotonic_LDADD = $(LDADD)
+clock_clock_getres_monotonic_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
-clock_t_clock_settime_SOURCES = clock/t_clock_settime.c
-clock_t_clock_settime_OBJECTS = clock/t_clock_settime.$(OBJEXT)
-clock_t_clock_settime_LDADD = $(LDADD)
-clock_t_clock_settime_DEPENDENCIES = $(top_builddir)/libwinpthread.la
-clock_t_nanosleep_SOURCES = clock/t_nanosleep.c
-clock_t_nanosleep_OBJECTS = clock/t_nanosleep.$(OBJEXT)
-clock_t_nanosleep_LDADD = $(LDADD)
-clock_t_nanosleep_DEPENDENCIES = $(top_builddir)/libwinpthread.la
+clock_clock_getres_process_cputime_SOURCES =  \
+	clock/clock_getres-process_cputime.c
+clock_clock_getres_process_cputime_OBJECTS =  \
+	clock/clock_getres-process_cputime.$(OBJEXT)
+clock_clock_getres_process_cputime_LDADD = $(LDADD)
+clock_clock_getres_process_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_getres_realtime_SOURCES = clock/clock_getres-realtime.c
+clock_clock_getres_realtime_OBJECTS =  \
+	clock/clock_getres-realtime.$(OBJEXT)
+clock_clock_getres_realtime_LDADD = $(LDADD)
+clock_clock_getres_realtime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_getres_thread_cputime_SOURCES =  \
+	clock/clock_getres-thread_cputime.c
+clock_clock_getres_thread_cputime_OBJECTS =  \
+	clock/clock_getres-thread_cputime.$(OBJEXT)
+clock_clock_getres_thread_cputime_LDADD = $(LDADD)
+clock_clock_getres_thread_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_gettime_monotonic_SOURCES =  \
+	clock/clock_gettime-monotonic.c
+clock_clock_gettime_monotonic_OBJECTS =  \
+	clock/clock_gettime-monotonic.$(OBJEXT)
+clock_clock_gettime_monotonic_LDADD = $(LDADD)
+clock_clock_gettime_monotonic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_gettime_process_cputime_SOURCES =  \
+	clock/clock_gettime-process_cputime.c
+clock_clock_gettime_process_cputime_OBJECTS =  \
+	clock/clock_gettime-process_cputime.$(OBJEXT)
+clock_clock_gettime_process_cputime_LDADD = $(LDADD)
+clock_clock_gettime_process_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_gettime_realtime_SOURCES = clock/clock_gettime-realtime.c
+clock_clock_gettime_realtime_OBJECTS =  \
+	clock/clock_gettime-realtime.$(OBJEXT)
+clock_clock_gettime_realtime_LDADD = $(LDADD)
+clock_clock_gettime_realtime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_gettime_thread_cputime_SOURCES =  \
+	clock/clock_gettime-thread_cputime.c
+clock_clock_gettime_thread_cputime_OBJECTS =  \
+	clock/clock_gettime-thread_cputime.$(OBJEXT)
+clock_clock_gettime_thread_cputime_LDADD = $(LDADD)
+clock_clock_gettime_thread_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_monotonic_absolute_SOURCES =  \
+	clock/clock_nanosleep-monotonic-absolute.c
+clock_clock_nanosleep_monotonic_absolute_OBJECTS =  \
+	clock/clock_nanosleep-monotonic-absolute.$(OBJEXT)
+clock_clock_nanosleep_monotonic_absolute_LDADD = $(LDADD)
+clock_clock_nanosleep_monotonic_absolute_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_monotonic_relative_SOURCES =  \
+	clock/clock_nanosleep-monotonic-relative.c
+clock_clock_nanosleep_monotonic_relative_OBJECTS =  \
+	clock/clock_nanosleep-monotonic-relative.$(OBJEXT)
+clock_clock_nanosleep_monotonic_relative_LDADD = $(LDADD)
+clock_clock_nanosleep_monotonic_relative_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_process_cputime_absolute_SOURCES =  \
+	clock/clock_nanosleep-process_cputime-absolute.c
+clock_clock_nanosleep_process_cputime_absolute_OBJECTS =  \
+	clock/clock_nanosleep-process_cputime-absolute.$(OBJEXT)
+clock_clock_nanosleep_process_cputime_absolute_LDADD = $(LDADD)
+clock_clock_nanosleep_process_cputime_absolute_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_process_cputime_relative_SOURCES =  \
+	clock/clock_nanosleep-process_cputime-relative.c
+clock_clock_nanosleep_process_cputime_relative_OBJECTS =  \
+	clock/clock_nanosleep-process_cputime-relative.$(OBJEXT)
+clock_clock_nanosleep_process_cputime_relative_LDADD = $(LDADD)
+clock_clock_nanosleep_process_cputime_relative_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_realtime_absolute_SOURCES =  \
+	clock/clock_nanosleep-realtime-absolute.c
+clock_clock_nanosleep_realtime_absolute_OBJECTS =  \
+	clock/clock_nanosleep-realtime-absolute.$(OBJEXT)
+clock_clock_nanosleep_realtime_absolute_LDADD = $(LDADD)
+clock_clock_nanosleep_realtime_absolute_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_realtime_relative_SOURCES =  \
+	clock/clock_nanosleep-realtime-relative.c
+clock_clock_nanosleep_realtime_relative_OBJECTS =  \
+	clock/clock_nanosleep-realtime-relative.$(OBJEXT)
+clock_clock_nanosleep_realtime_relative_LDADD = $(LDADD)
+clock_clock_nanosleep_realtime_relative_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_thread_cputime_absolute_SOURCES =  \
+	clock/clock_nanosleep-thread_cputime-absolute.c
+clock_clock_nanosleep_thread_cputime_absolute_OBJECTS =  \
+	clock/clock_nanosleep-thread_cputime-absolute.$(OBJEXT)
+clock_clock_nanosleep_thread_cputime_absolute_LDADD = $(LDADD)
+clock_clock_nanosleep_thread_cputime_absolute_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_nanosleep_thread_cputime_relative_SOURCES =  \
+	clock/clock_nanosleep-thread_cputime-relative.c
+clock_clock_nanosleep_thread_cputime_relative_OBJECTS =  \
+	clock/clock_nanosleep-thread_cputime-relative.$(OBJEXT)
+clock_clock_nanosleep_thread_cputime_relative_LDADD = $(LDADD)
+clock_clock_nanosleep_thread_cputime_relative_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_settime_monotonic_SOURCES =  \
+	clock/clock_settime-monotonic.c
+clock_clock_settime_monotonic_OBJECTS =  \
+	clock/clock_settime-monotonic.$(OBJEXT)
+clock_clock_settime_monotonic_LDADD = $(LDADD)
+clock_clock_settime_monotonic_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_settime_process_cputime_SOURCES =  \
+	clock/clock_settime-process_cputime.c
+clock_clock_settime_process_cputime_OBJECTS =  \
+	clock/clock_settime-process_cputime.$(OBJEXT)
+clock_clock_settime_process_cputime_LDADD = $(LDADD)
+clock_clock_settime_process_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_settime_realtime_SOURCES = clock/clock_settime-realtime.c
+clock_clock_settime_realtime_OBJECTS =  \
+	clock/clock_settime-realtime.$(OBJEXT)
+clock_clock_settime_realtime_LDADD = $(LDADD)
+clock_clock_settime_realtime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_clock_settime_thread_cputime_SOURCES =  \
+	clock/clock_settime-thread_cputime.c
+clock_clock_settime_thread_cputime_OBJECTS =  \
+	clock/clock_settime-thread_cputime.$(OBJEXT)
+clock_clock_settime_thread_cputime_LDADD = $(LDADD)
+clock_clock_settime_thread_cputime_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+clock_nanosleep_SOURCES = clock/nanosleep.c
+clock_nanosleep_OBJECTS = clock/nanosleep.$(OBJEXT)
+clock_nanosleep_LDADD = $(LDADD)
+clock_nanosleep_DEPENDENCIES = $(top_builddir)/libwinpthread.la
 exceptions_exception1_SOURCES = exceptions/exception1.c
 exceptions_exception1_OBJECTS = exceptions/exception1.$(OBJEXT)
 exceptions_exception1_LDADD = $(LDADD)
@@ -1192,11 +1328,27 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	benchtests/$(DEPDIR)/benchtest3.Po \
 	benchtests/$(DEPDIR)/benchtest4.Po \
 	benchtests/$(DEPDIR)/benchtest5.Po \
-	clock/$(DEPDIR)/t_clock_getres.Po \
-	clock/$(DEPDIR)/t_clock_gettime.Po \
-	clock/$(DEPDIR)/t_clock_nanosleep.Po \
-	clock/$(DEPDIR)/t_clock_settime.Po \
-	clock/$(DEPDIR)/t_nanosleep.Po \
+	clock/$(DEPDIR)/clock_getres-monotonic.Po \
+	clock/$(DEPDIR)/clock_getres-process_cputime.Po \
+	clock/$(DEPDIR)/clock_getres-realtime.Po \
+	clock/$(DEPDIR)/clock_getres-thread_cputime.Po \
+	clock/$(DEPDIR)/clock_gettime-monotonic.Po \
+	clock/$(DEPDIR)/clock_gettime-process_cputime.Po \
+	clock/$(DEPDIR)/clock_gettime-realtime.Po \
+	clock/$(DEPDIR)/clock_gettime-thread_cputime.Po \
+	clock/$(DEPDIR)/clock_nanosleep-monotonic-absolute.Po \
+	clock/$(DEPDIR)/clock_nanosleep-monotonic-relative.Po \
+	clock/$(DEPDIR)/clock_nanosleep-process_cputime-absolute.Po \
+	clock/$(DEPDIR)/clock_nanosleep-process_cputime-relative.Po \
+	clock/$(DEPDIR)/clock_nanosleep-realtime-absolute.Po \
+	clock/$(DEPDIR)/clock_nanosleep-realtime-relative.Po \
+	clock/$(DEPDIR)/clock_nanosleep-thread_cputime-absolute.Po \
+	clock/$(DEPDIR)/clock_nanosleep-thread_cputime-relative.Po \
+	clock/$(DEPDIR)/clock_settime-monotonic.Po \
+	clock/$(DEPDIR)/clock_settime-process_cputime.Po \
+	clock/$(DEPDIR)/clock_settime-realtime.Po \
+	clock/$(DEPDIR)/clock_settime-thread_cputime.Po \
+	clock/$(DEPDIR)/nanosleep.Po \
 	exceptions/$(DEPDIR)/exception1.Po \
 	exceptions/$(DEPDIR)/exception2.Po \
 	exceptions/$(DEPDIR)/exception3.Po misc/$(DEPDIR)/loadfree.Po \
@@ -1376,38 +1528,55 @@ am__v_CCLD_1 =
 SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	benchtests/benchtest2.c benchtests/benchtest3.c \
 	benchtests/benchtest4.c benchtests/benchtest5.c \
-	clock/t_clock_getres.c clock/t_clock_gettime.c \
-	clock/t_clock_nanosleep.c clock/t_clock_settime.c \
-	clock/t_nanosleep.c exceptions/exception1.c \
-	exceptions/exception2.c exceptions/exception3.c \
-	misc/loadfree.c misc/tryentercs.c misc/tryentercs2.c \
-	pthread_barrier/barrier1.c pthread_barrier/barrier2.c \
-	pthread_barrier/barrier3.c pthread_barrier/barrier4.c \
-	pthread_barrier/barrier5.c pthread_barrier/barrier6.c \
-	pthread_cancel/cancel1.c pthread_cancel/cancel2.c \
-	pthread_cancel/cancel3.c pthread_cancel/cancel4.c \
-	pthread_cancel/cancel5.c pthread_cancel/cancel6a.c \
-	pthread_cancel/cancel6d.c pthread_cancel/cancel7.c \
-	pthread_cancel/cancel8.c pthread_cleanup/cleanup0.c \
-	pthread_cleanup/cleanup1.c pthread_cleanup/cleanup2.c \
-	pthread_cleanup/cleanup3.c pthread_cond/condvar1.c \
-	pthread_cond/condvar1_1.c pthread_cond/condvar1_2.c \
-	pthread_cond/condvar2.c pthread_cond/condvar2_1.c \
-	pthread_cond/condvar3.c pthread_cond/condvar3_1.c \
-	pthread_cond/condvar3_2.c pthread_cond/condvar3_3.c \
-	pthread_cond/condvar4.c pthread_cond/condvar5.c \
-	pthread_cond/condvar6.c pthread_cond/condvar7.c \
-	pthread_cond/condvar8.c pthread_cond/condvar9.c \
-	pthread_create/create1.c pthread_create/create2.c \
-	pthread_create/create3.c pthread_exit/exit2.c \
-	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
-	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
-	pthread_misc/context1.c pthread_misc/count1.c \
-	pthread_misc/delay1.c pthread_misc/delay2.c \
-	pthread_misc/detach1.c pthread_misc/equal1.c \
-	pthread_misc/errno1.c pthread_misc/eyal1.c \
-	pthread_misc/inherit1.c pthread_misc/kill1.c \
-	pthread_misc/name.c pthread_misc/reuse1.c \
+	clock/clock_getres-monotonic.c \
+	clock/clock_getres-process_cputime.c \
+	clock/clock_getres-realtime.c \
+	clock/clock_getres-thread_cputime.c \
+	clock/clock_gettime-monotonic.c \
+	clock/clock_gettime-process_cputime.c \
+	clock/clock_gettime-realtime.c \
+	clock/clock_gettime-thread_cputime.c \
+	clock/clock_nanosleep-monotonic-absolute.c \
+	clock/clock_nanosleep-monotonic-relative.c \
+	clock/clock_nanosleep-process_cputime-absolute.c \
+	clock/clock_nanosleep-process_cputime-relative.c \
+	clock/clock_nanosleep-realtime-absolute.c \
+	clock/clock_nanosleep-realtime-relative.c \
+	clock/clock_nanosleep-thread_cputime-absolute.c \
+	clock/clock_nanosleep-thread_cputime-relative.c \
+	clock/clock_settime-monotonic.c \
+	clock/clock_settime-process_cputime.c \
+	clock/clock_settime-realtime.c \
+	clock/clock_settime-thread_cputime.c clock/nanosleep.c \
+	exceptions/exception1.c exceptions/exception2.c \
+	exceptions/exception3.c misc/loadfree.c misc/tryentercs.c \
+	misc/tryentercs2.c pthread_barrier/barrier1.c \
+	pthread_barrier/barrier2.c pthread_barrier/barrier3.c \
+	pthread_barrier/barrier4.c pthread_barrier/barrier5.c \
+	pthread_barrier/barrier6.c pthread_cancel/cancel1.c \
+	pthread_cancel/cancel2.c pthread_cancel/cancel3.c \
+	pthread_cancel/cancel4.c pthread_cancel/cancel5.c \
+	pthread_cancel/cancel6a.c pthread_cancel/cancel6d.c \
+	pthread_cancel/cancel7.c pthread_cancel/cancel8.c \
+	pthread_cleanup/cleanup0.c pthread_cleanup/cleanup1.c \
+	pthread_cleanup/cleanup2.c pthread_cleanup/cleanup3.c \
+	pthread_cond/condvar1.c pthread_cond/condvar1_1.c \
+	pthread_cond/condvar1_2.c pthread_cond/condvar2.c \
+	pthread_cond/condvar2_1.c pthread_cond/condvar3.c \
+	pthread_cond/condvar3_1.c pthread_cond/condvar3_2.c \
+	pthread_cond/condvar3_3.c pthread_cond/condvar4.c \
+	pthread_cond/condvar5.c pthread_cond/condvar6.c \
+	pthread_cond/condvar7.c pthread_cond/condvar8.c \
+	pthread_cond/condvar9.c pthread_create/create1.c \
+	pthread_create/create2.c pthread_create/create3.c \
+	pthread_exit/exit2.c pthread_exit/exit3.c pthread_exit/exit4.c \
+	pthread_exit/exit5.c pthread_join/join1.c pthread_join/join2.c \
+	pthread_join/join3.c pthread_misc/context1.c \
+	pthread_misc/count1.c pthread_misc/delay1.c \
+	pthread_misc/delay2.c pthread_misc/detach1.c \
+	pthread_misc/equal1.c pthread_misc/errno1.c \
+	pthread_misc/eyal1.c pthread_misc/inherit1.c \
+	pthread_misc/kill1.c pthread_misc/name.c pthread_misc/reuse1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
@@ -1487,38 +1656,55 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	benchtests/benchtest2.c benchtests/benchtest3.c \
 	benchtests/benchtest4.c benchtests/benchtest5.c \
-	clock/t_clock_getres.c clock/t_clock_gettime.c \
-	clock/t_clock_nanosleep.c clock/t_clock_settime.c \
-	clock/t_nanosleep.c exceptions/exception1.c \
-	exceptions/exception2.c exceptions/exception3.c \
-	misc/loadfree.c misc/tryentercs.c misc/tryentercs2.c \
-	pthread_barrier/barrier1.c pthread_barrier/barrier2.c \
-	pthread_barrier/barrier3.c pthread_barrier/barrier4.c \
-	pthread_barrier/barrier5.c pthread_barrier/barrier6.c \
-	pthread_cancel/cancel1.c pthread_cancel/cancel2.c \
-	pthread_cancel/cancel3.c pthread_cancel/cancel4.c \
-	pthread_cancel/cancel5.c pthread_cancel/cancel6a.c \
-	pthread_cancel/cancel6d.c pthread_cancel/cancel7.c \
-	pthread_cancel/cancel8.c pthread_cleanup/cleanup0.c \
-	pthread_cleanup/cleanup1.c pthread_cleanup/cleanup2.c \
-	pthread_cleanup/cleanup3.c pthread_cond/condvar1.c \
-	pthread_cond/condvar1_1.c pthread_cond/condvar1_2.c \
-	pthread_cond/condvar2.c pthread_cond/condvar2_1.c \
-	pthread_cond/condvar3.c pthread_cond/condvar3_1.c \
-	pthread_cond/condvar3_2.c pthread_cond/condvar3_3.c \
-	pthread_cond/condvar4.c pthread_cond/condvar5.c \
-	pthread_cond/condvar6.c pthread_cond/condvar7.c \
-	pthread_cond/condvar8.c pthread_cond/condvar9.c \
-	pthread_create/create1.c pthread_create/create2.c \
-	pthread_create/create3.c pthread_exit/exit2.c \
-	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
-	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
-	pthread_misc/context1.c pthread_misc/count1.c \
-	pthread_misc/delay1.c pthread_misc/delay2.c \
-	pthread_misc/detach1.c pthread_misc/equal1.c \
-	pthread_misc/errno1.c pthread_misc/eyal1.c \
-	pthread_misc/inherit1.c pthread_misc/kill1.c \
-	pthread_misc/name.c pthread_misc/reuse1.c \
+	clock/clock_getres-monotonic.c \
+	clock/clock_getres-process_cputime.c \
+	clock/clock_getres-realtime.c \
+	clock/clock_getres-thread_cputime.c \
+	clock/clock_gettime-monotonic.c \
+	clock/clock_gettime-process_cputime.c \
+	clock/clock_gettime-realtime.c \
+	clock/clock_gettime-thread_cputime.c \
+	clock/clock_nanosleep-monotonic-absolute.c \
+	clock/clock_nanosleep-monotonic-relative.c \
+	clock/clock_nanosleep-process_cputime-absolute.c \
+	clock/clock_nanosleep-process_cputime-relative.c \
+	clock/clock_nanosleep-realtime-absolute.c \
+	clock/clock_nanosleep-realtime-relative.c \
+	clock/clock_nanosleep-thread_cputime-absolute.c \
+	clock/clock_nanosleep-thread_cputime-relative.c \
+	clock/clock_settime-monotonic.c \
+	clock/clock_settime-process_cputime.c \
+	clock/clock_settime-realtime.c \
+	clock/clock_settime-thread_cputime.c clock/nanosleep.c \
+	exceptions/exception1.c exceptions/exception2.c \
+	exceptions/exception3.c misc/loadfree.c misc/tryentercs.c \
+	misc/tryentercs2.c pthread_barrier/barrier1.c \
+	pthread_barrier/barrier2.c pthread_barrier/barrier3.c \
+	pthread_barrier/barrier4.c pthread_barrier/barrier5.c \
+	pthread_barrier/barrier6.c pthread_cancel/cancel1.c \
+	pthread_cancel/cancel2.c pthread_cancel/cancel3.c \
+	pthread_cancel/cancel4.c pthread_cancel/cancel5.c \
+	pthread_cancel/cancel6a.c pthread_cancel/cancel6d.c \
+	pthread_cancel/cancel7.c pthread_cancel/cancel8.c \
+	pthread_cleanup/cleanup0.c pthread_cleanup/cleanup1.c \
+	pthread_cleanup/cleanup2.c pthread_cleanup/cleanup3.c \
+	pthread_cond/condvar1.c pthread_cond/condvar1_1.c \
+	pthread_cond/condvar1_2.c pthread_cond/condvar2.c \
+	pthread_cond/condvar2_1.c pthread_cond/condvar3.c \
+	pthread_cond/condvar3_1.c pthread_cond/condvar3_2.c \
+	pthread_cond/condvar3_3.c pthread_cond/condvar4.c \
+	pthread_cond/condvar5.c pthread_cond/condvar6.c \
+	pthread_cond/condvar7.c pthread_cond/condvar8.c \
+	pthread_cond/condvar9.c pthread_create/create1.c \
+	pthread_create/create2.c pthread_create/create3.c \
+	pthread_exit/exit2.c pthread_exit/exit3.c pthread_exit/exit4.c \
+	pthread_exit/exit5.c pthread_join/join1.c pthread_join/join2.c \
+	pthread_join/join3.c pthread_misc/context1.c \
+	pthread_misc/count1.c pthread_misc/delay1.c \
+	pthread_misc/delay2.c pthread_misc/detach1.c \
+	pthread_misc/equal1.c pthread_misc/errno1.c \
+	pthread_misc/eyal1.c pthread_misc/inherit1.c \
+	pthread_misc/kill1.c pthread_misc/name.c pthread_misc/reuse1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
@@ -2062,36 +2248,132 @@ clock/$(am__dirstamp):
 clock/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) clock/$(DEPDIR)
 	@: > clock/$(DEPDIR)/$(am__dirstamp)
-clock/t_clock_getres.$(OBJEXT): clock/$(am__dirstamp) \
+clock/clock_getres-monotonic.$(OBJEXT): clock/$(am__dirstamp) \
 	clock/$(DEPDIR)/$(am__dirstamp)
 
-clock/t_clock_getres$(EXEEXT): $(clock_t_clock_getres_OBJECTS) $(clock_t_clock_getres_DEPENDENCIES) $(EXTRA_clock_t_clock_getres_DEPENDENCIES) clock/$(am__dirstamp)
-	@rm -f clock/t_clock_getres$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(clock_t_clock_getres_OBJECTS) $(clock_t_clock_getres_LDADD) $(LIBS)
-clock/t_clock_gettime.$(OBJEXT): clock/$(am__dirstamp) \
+clock/clock_getres-monotonic$(EXEEXT): $(clock_clock_getres_monotonic_OBJECTS) $(clock_clock_getres_monotonic_DEPENDENCIES) $(EXTRA_clock_clock_getres_monotonic_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_getres-monotonic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_getres_monotonic_OBJECTS) $(clock_clock_getres_monotonic_LDADD) $(LIBS)
+clock/clock_getres-process_cputime.$(OBJEXT): clock/$(am__dirstamp) \
 	clock/$(DEPDIR)/$(am__dirstamp)
 
-clock/t_clock_gettime$(EXEEXT): $(clock_t_clock_gettime_OBJECTS) $(clock_t_clock_gettime_DEPENDENCIES) $(EXTRA_clock_t_clock_gettime_DEPENDENCIES) clock/$(am__dirstamp)
-	@rm -f clock/t_clock_gettime$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(clock_t_clock_gettime_OBJECTS) $(clock_t_clock_gettime_LDADD) $(LIBS)
-clock/t_clock_nanosleep.$(OBJEXT): clock/$(am__dirstamp) \
+clock/clock_getres-process_cputime$(EXEEXT): $(clock_clock_getres_process_cputime_OBJECTS) $(clock_clock_getres_process_cputime_DEPENDENCIES) $(EXTRA_clock_clock_getres_process_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_getres-process_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_getres_process_cputime_OBJECTS) $(clock_clock_getres_process_cputime_LDADD) $(LIBS)
+clock/clock_getres-realtime.$(OBJEXT): clock/$(am__dirstamp) \
 	clock/$(DEPDIR)/$(am__dirstamp)
 
-clock/t_clock_nanosleep$(EXEEXT): $(clock_t_clock_nanosleep_OBJECTS) $(clock_t_clock_nanosleep_DEPENDENCIES) $(EXTRA_clock_t_clock_nanosleep_DEPENDENCIES) clock/$(am__dirstamp)
-	@rm -f clock/t_clock_nanosleep$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(clock_t_clock_nanosleep_OBJECTS) $(clock_t_clock_nanosleep_LDADD) $(LIBS)
-clock/t_clock_settime.$(OBJEXT): clock/$(am__dirstamp) \
+clock/clock_getres-realtime$(EXEEXT): $(clock_clock_getres_realtime_OBJECTS) $(clock_clock_getres_realtime_DEPENDENCIES) $(EXTRA_clock_clock_getres_realtime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_getres-realtime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_getres_realtime_OBJECTS) $(clock_clock_getres_realtime_LDADD) $(LIBS)
+clock/clock_getres-thread_cputime.$(OBJEXT): clock/$(am__dirstamp) \
 	clock/$(DEPDIR)/$(am__dirstamp)
 
-clock/t_clock_settime$(EXEEXT): $(clock_t_clock_settime_OBJECTS) $(clock_t_clock_settime_DEPENDENCIES) $(EXTRA_clock_t_clock_settime_DEPENDENCIES) clock/$(am__dirstamp)
-	@rm -f clock/t_clock_settime$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(clock_t_clock_settime_OBJECTS) $(clock_t_clock_settime_LDADD) $(LIBS)
-clock/t_nanosleep.$(OBJEXT): clock/$(am__dirstamp) \
+clock/clock_getres-thread_cputime$(EXEEXT): $(clock_clock_getres_thread_cputime_OBJECTS) $(clock_clock_getres_thread_cputime_DEPENDENCIES) $(EXTRA_clock_clock_getres_thread_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_getres-thread_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_getres_thread_cputime_OBJECTS) $(clock_clock_getres_thread_cputime_LDADD) $(LIBS)
+clock/clock_gettime-monotonic.$(OBJEXT): clock/$(am__dirstamp) \
 	clock/$(DEPDIR)/$(am__dirstamp)
 
-clock/t_nanosleep$(EXEEXT): $(clock_t_nanosleep_OBJECTS) $(clock_t_nanosleep_DEPENDENCIES) $(EXTRA_clock_t_nanosleep_DEPENDENCIES) clock/$(am__dirstamp)
-	@rm -f clock/t_nanosleep$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(clock_t_nanosleep_OBJECTS) $(clock_t_nanosleep_LDADD) $(LIBS)
+clock/clock_gettime-monotonic$(EXEEXT): $(clock_clock_gettime_monotonic_OBJECTS) $(clock_clock_gettime_monotonic_DEPENDENCIES) $(EXTRA_clock_clock_gettime_monotonic_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_gettime-monotonic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_gettime_monotonic_OBJECTS) $(clock_clock_gettime_monotonic_LDADD) $(LIBS)
+clock/clock_gettime-process_cputime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_gettime-process_cputime$(EXEEXT): $(clock_clock_gettime_process_cputime_OBJECTS) $(clock_clock_gettime_process_cputime_DEPENDENCIES) $(EXTRA_clock_clock_gettime_process_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_gettime-process_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_gettime_process_cputime_OBJECTS) $(clock_clock_gettime_process_cputime_LDADD) $(LIBS)
+clock/clock_gettime-realtime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_gettime-realtime$(EXEEXT): $(clock_clock_gettime_realtime_OBJECTS) $(clock_clock_gettime_realtime_DEPENDENCIES) $(EXTRA_clock_clock_gettime_realtime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_gettime-realtime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_gettime_realtime_OBJECTS) $(clock_clock_gettime_realtime_LDADD) $(LIBS)
+clock/clock_gettime-thread_cputime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_gettime-thread_cputime$(EXEEXT): $(clock_clock_gettime_thread_cputime_OBJECTS) $(clock_clock_gettime_thread_cputime_DEPENDENCIES) $(EXTRA_clock_clock_gettime_thread_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_gettime-thread_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_gettime_thread_cputime_OBJECTS) $(clock_clock_gettime_thread_cputime_LDADD) $(LIBS)
+clock/clock_nanosleep-monotonic-absolute.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-monotonic-absolute$(EXEEXT): $(clock_clock_nanosleep_monotonic_absolute_OBJECTS) $(clock_clock_nanosleep_monotonic_absolute_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_monotonic_absolute_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-monotonic-absolute$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_monotonic_absolute_OBJECTS) $(clock_clock_nanosleep_monotonic_absolute_LDADD) $(LIBS)
+clock/clock_nanosleep-monotonic-relative.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-monotonic-relative$(EXEEXT): $(clock_clock_nanosleep_monotonic_relative_OBJECTS) $(clock_clock_nanosleep_monotonic_relative_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_monotonic_relative_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-monotonic-relative$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_monotonic_relative_OBJECTS) $(clock_clock_nanosleep_monotonic_relative_LDADD) $(LIBS)
+clock/clock_nanosleep-process_cputime-absolute.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-process_cputime-absolute$(EXEEXT): $(clock_clock_nanosleep_process_cputime_absolute_OBJECTS) $(clock_clock_nanosleep_process_cputime_absolute_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_process_cputime_absolute_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-process_cputime-absolute$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_process_cputime_absolute_OBJECTS) $(clock_clock_nanosleep_process_cputime_absolute_LDADD) $(LIBS)
+clock/clock_nanosleep-process_cputime-relative.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-process_cputime-relative$(EXEEXT): $(clock_clock_nanosleep_process_cputime_relative_OBJECTS) $(clock_clock_nanosleep_process_cputime_relative_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_process_cputime_relative_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-process_cputime-relative$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_process_cputime_relative_OBJECTS) $(clock_clock_nanosleep_process_cputime_relative_LDADD) $(LIBS)
+clock/clock_nanosleep-realtime-absolute.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-realtime-absolute$(EXEEXT): $(clock_clock_nanosleep_realtime_absolute_OBJECTS) $(clock_clock_nanosleep_realtime_absolute_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_realtime_absolute_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-realtime-absolute$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_realtime_absolute_OBJECTS) $(clock_clock_nanosleep_realtime_absolute_LDADD) $(LIBS)
+clock/clock_nanosleep-realtime-relative.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-realtime-relative$(EXEEXT): $(clock_clock_nanosleep_realtime_relative_OBJECTS) $(clock_clock_nanosleep_realtime_relative_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_realtime_relative_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-realtime-relative$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_realtime_relative_OBJECTS) $(clock_clock_nanosleep_realtime_relative_LDADD) $(LIBS)
+clock/clock_nanosleep-thread_cputime-absolute.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-thread_cputime-absolute$(EXEEXT): $(clock_clock_nanosleep_thread_cputime_absolute_OBJECTS) $(clock_clock_nanosleep_thread_cputime_absolute_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_thread_cputime_absolute_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-thread_cputime-absolute$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_thread_cputime_absolute_OBJECTS) $(clock_clock_nanosleep_thread_cputime_absolute_LDADD) $(LIBS)
+clock/clock_nanosleep-thread_cputime-relative.$(OBJEXT):  \
+	clock/$(am__dirstamp) clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_nanosleep-thread_cputime-relative$(EXEEXT): $(clock_clock_nanosleep_thread_cputime_relative_OBJECTS) $(clock_clock_nanosleep_thread_cputime_relative_DEPENDENCIES) $(EXTRA_clock_clock_nanosleep_thread_cputime_relative_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_nanosleep-thread_cputime-relative$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_nanosleep_thread_cputime_relative_OBJECTS) $(clock_clock_nanosleep_thread_cputime_relative_LDADD) $(LIBS)
+clock/clock_settime-monotonic.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_settime-monotonic$(EXEEXT): $(clock_clock_settime_monotonic_OBJECTS) $(clock_clock_settime_monotonic_DEPENDENCIES) $(EXTRA_clock_clock_settime_monotonic_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_settime-monotonic$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_settime_monotonic_OBJECTS) $(clock_clock_settime_monotonic_LDADD) $(LIBS)
+clock/clock_settime-process_cputime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_settime-process_cputime$(EXEEXT): $(clock_clock_settime_process_cputime_OBJECTS) $(clock_clock_settime_process_cputime_DEPENDENCIES) $(EXTRA_clock_clock_settime_process_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_settime-process_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_settime_process_cputime_OBJECTS) $(clock_clock_settime_process_cputime_LDADD) $(LIBS)
+clock/clock_settime-realtime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_settime-realtime$(EXEEXT): $(clock_clock_settime_realtime_OBJECTS) $(clock_clock_settime_realtime_DEPENDENCIES) $(EXTRA_clock_clock_settime_realtime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_settime-realtime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_settime_realtime_OBJECTS) $(clock_clock_settime_realtime_LDADD) $(LIBS)
+clock/clock_settime-thread_cputime.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/clock_settime-thread_cputime$(EXEEXT): $(clock_clock_settime_thread_cputime_OBJECTS) $(clock_clock_settime_thread_cputime_DEPENDENCIES) $(EXTRA_clock_clock_settime_thread_cputime_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/clock_settime-thread_cputime$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_clock_settime_thread_cputime_OBJECTS) $(clock_clock_settime_thread_cputime_LDADD) $(LIBS)
+clock/nanosleep.$(OBJEXT): clock/$(am__dirstamp) \
+	clock/$(DEPDIR)/$(am__dirstamp)
+
+clock/nanosleep$(EXEEXT): $(clock_nanosleep_OBJECTS) $(clock_nanosleep_DEPENDENCIES) $(EXTRA_clock_nanosleep_DEPENDENCIES) clock/$(am__dirstamp)
+	@rm -f clock/nanosleep$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clock_nanosleep_OBJECTS) $(clock_nanosleep_LDADD) $(LIBS)
 exceptions/$(am__dirstamp):
 	@$(MKDIR_P) exceptions
 	@: > exceptions/$(am__dirstamp)
@@ -3252,11 +3534,27 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest3.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest4.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@benchtests/$(DEPDIR)/benchtest5.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_getres.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_gettime.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_nanosleep.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_clock_settime.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/t_nanosleep.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_getres-monotonic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_getres-process_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_getres-realtime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_getres-thread_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_gettime-monotonic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_gettime-process_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_gettime-realtime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_gettime-thread_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-monotonic-absolute.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-monotonic-relative.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-process_cputime-absolute.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-process_cputime-relative.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-realtime-absolute.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-realtime-relative.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-thread_cputime-absolute.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_nanosleep-thread_cputime-relative.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_settime-monotonic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_settime-process_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_settime-realtime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/clock_settime-thread_cputime.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@clock/$(DEPDIR)/nanosleep.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@exceptions/$(DEPDIR)/exception3.Po@am__quote@ # am--include-marker
@@ -3703,37 +4001,149 @@ benchtests/benchtest5.log: benchtests/benchtest5$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-clock/t_clock_getres.log: clock/t_clock_getres$(EXEEXT)
-	@p='clock/t_clock_getres$(EXEEXT)'; \
-	b='clock/t_clock_getres'; \
+clock/clock_getres-realtime.log: clock/clock_getres-realtime$(EXEEXT)
+	@p='clock/clock_getres-realtime$(EXEEXT)'; \
+	b='clock/clock_getres-realtime'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-clock/t_clock_gettime.log: clock/t_clock_gettime$(EXEEXT)
-	@p='clock/t_clock_gettime$(EXEEXT)'; \
-	b='clock/t_clock_gettime'; \
+clock/clock_getres-monotonic.log: clock/clock_getres-monotonic$(EXEEXT)
+	@p='clock/clock_getres-monotonic$(EXEEXT)'; \
+	b='clock/clock_getres-monotonic'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-clock/t_clock_nanosleep.log: clock/t_clock_nanosleep$(EXEEXT)
-	@p='clock/t_clock_nanosleep$(EXEEXT)'; \
-	b='clock/t_clock_nanosleep'; \
+clock/clock_getres-process_cputime.log: clock/clock_getres-process_cputime$(EXEEXT)
+	@p='clock/clock_getres-process_cputime$(EXEEXT)'; \
+	b='clock/clock_getres-process_cputime'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-clock/t_clock_settime.log: clock/t_clock_settime$(EXEEXT)
-	@p='clock/t_clock_settime$(EXEEXT)'; \
-	b='clock/t_clock_settime'; \
+clock/clock_getres-thread_cputime.log: clock/clock_getres-thread_cputime$(EXEEXT)
+	@p='clock/clock_getres-thread_cputime$(EXEEXT)'; \
+	b='clock/clock_getres-thread_cputime'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-clock/t_nanosleep.log: clock/t_nanosleep$(EXEEXT)
-	@p='clock/t_nanosleep$(EXEEXT)'; \
-	b='clock/t_nanosleep'; \
+clock/clock_gettime-realtime.log: clock/clock_gettime-realtime$(EXEEXT)
+	@p='clock/clock_gettime-realtime$(EXEEXT)'; \
+	b='clock/clock_gettime-realtime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_gettime-monotonic.log: clock/clock_gettime-monotonic$(EXEEXT)
+	@p='clock/clock_gettime-monotonic$(EXEEXT)'; \
+	b='clock/clock_gettime-monotonic'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_gettime-process_cputime.log: clock/clock_gettime-process_cputime$(EXEEXT)
+	@p='clock/clock_gettime-process_cputime$(EXEEXT)'; \
+	b='clock/clock_gettime-process_cputime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_gettime-thread_cputime.log: clock/clock_gettime-thread_cputime$(EXEEXT)
+	@p='clock/clock_gettime-thread_cputime$(EXEEXT)'; \
+	b='clock/clock_gettime-thread_cputime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-realtime-absolute.log: clock/clock_nanosleep-realtime-absolute$(EXEEXT)
+	@p='clock/clock_nanosleep-realtime-absolute$(EXEEXT)'; \
+	b='clock/clock_nanosleep-realtime-absolute'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-realtime-relative.log: clock/clock_nanosleep-realtime-relative$(EXEEXT)
+	@p='clock/clock_nanosleep-realtime-relative$(EXEEXT)'; \
+	b='clock/clock_nanosleep-realtime-relative'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-monotonic-absolute.log: clock/clock_nanosleep-monotonic-absolute$(EXEEXT)
+	@p='clock/clock_nanosleep-monotonic-absolute$(EXEEXT)'; \
+	b='clock/clock_nanosleep-monotonic-absolute'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-monotonic-relative.log: clock/clock_nanosleep-monotonic-relative$(EXEEXT)
+	@p='clock/clock_nanosleep-monotonic-relative$(EXEEXT)'; \
+	b='clock/clock_nanosleep-monotonic-relative'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-process_cputime-absolute.log: clock/clock_nanosleep-process_cputime-absolute$(EXEEXT)
+	@p='clock/clock_nanosleep-process_cputime-absolute$(EXEEXT)'; \
+	b='clock/clock_nanosleep-process_cputime-absolute'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-process_cputime-relative.log: clock/clock_nanosleep-process_cputime-relative$(EXEEXT)
+	@p='clock/clock_nanosleep-process_cputime-relative$(EXEEXT)'; \
+	b='clock/clock_nanosleep-process_cputime-relative'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-thread_cputime-absolute.log: clock/clock_nanosleep-thread_cputime-absolute$(EXEEXT)
+	@p='clock/clock_nanosleep-thread_cputime-absolute$(EXEEXT)'; \
+	b='clock/clock_nanosleep-thread_cputime-absolute'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_nanosleep-thread_cputime-relative.log: clock/clock_nanosleep-thread_cputime-relative$(EXEEXT)
+	@p='clock/clock_nanosleep-thread_cputime-relative$(EXEEXT)'; \
+	b='clock/clock_nanosleep-thread_cputime-relative'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_settime-realtime.log: clock/clock_settime-realtime$(EXEEXT)
+	@p='clock/clock_settime-realtime$(EXEEXT)'; \
+	b='clock/clock_settime-realtime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_settime-monotonic.log: clock/clock_settime-monotonic$(EXEEXT)
+	@p='clock/clock_settime-monotonic$(EXEEXT)'; \
+	b='clock/clock_settime-monotonic'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_settime-process_cputime.log: clock/clock_settime-process_cputime$(EXEEXT)
+	@p='clock/clock_settime-process_cputime$(EXEEXT)'; \
+	b='clock/clock_settime-process_cputime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/clock_settime-thread_cputime.log: clock/clock_settime-thread_cputime$(EXEEXT)
+	@p='clock/clock_settime-thread_cputime$(EXEEXT)'; \
+	b='clock/clock_settime-thread_cputime'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+clock/nanosleep.log: clock/nanosleep$(EXEEXT)
+	@p='clock/nanosleep$(EXEEXT)'; \
+	b='clock/nanosleep'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -5008,11 +5418,27 @@ distclean: distclean-am
 	-rm -f benchtests/$(DEPDIR)/benchtest3.Po
 	-rm -f benchtests/$(DEPDIR)/benchtest4.Po
 	-rm -f benchtests/$(DEPDIR)/benchtest5.Po
-	-rm -f clock/$(DEPDIR)/t_clock_getres.Po
-	-rm -f clock/$(DEPDIR)/t_clock_gettime.Po
-	-rm -f clock/$(DEPDIR)/t_clock_nanosleep.Po
-	-rm -f clock/$(DEPDIR)/t_clock_settime.Po
-	-rm -f clock/$(DEPDIR)/t_nanosleep.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-monotonic-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-monotonic-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-process_cputime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-process_cputime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-realtime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-realtime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-thread_cputime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-thread_cputime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/nanosleep.Po
 	-rm -f exceptions/$(DEPDIR)/exception1.Po
 	-rm -f exceptions/$(DEPDIR)/exception2.Po
 	-rm -f exceptions/$(DEPDIR)/exception3.Po
@@ -5226,11 +5652,27 @@ maintainer-clean: maintainer-clean-am
 	-rm -f benchtests/$(DEPDIR)/benchtest3.Po
 	-rm -f benchtests/$(DEPDIR)/benchtest4.Po
 	-rm -f benchtests/$(DEPDIR)/benchtest5.Po
-	-rm -f clock/$(DEPDIR)/t_clock_getres.Po
-	-rm -f clock/$(DEPDIR)/t_clock_gettime.Po
-	-rm -f clock/$(DEPDIR)/t_clock_nanosleep.Po
-	-rm -f clock/$(DEPDIR)/t_clock_settime.Po
-	-rm -f clock/$(DEPDIR)/t_nanosleep.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_getres-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_gettime-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-monotonic-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-monotonic-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-process_cputime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-process_cputime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-realtime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-realtime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-thread_cputime-absolute.Po
+	-rm -f clock/$(DEPDIR)/clock_nanosleep-thread_cputime-relative.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-monotonic.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-process_cputime.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-realtime.Po
+	-rm -f clock/$(DEPDIR)/clock_settime-thread_cputime.Po
+	-rm -f clock/$(DEPDIR)/nanosleep.Po
 	-rm -f exceptions/$(DEPDIR)/exception1.Po
 	-rm -f exceptions/$(DEPDIR)/exception2.Po
 	-rm -f exceptions/$(DEPDIR)/exception3.Po
