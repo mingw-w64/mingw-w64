@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011-2016  mingw-w64 project
+   Copyright (c) 2011-2016, 2026 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -144,24 +144,8 @@
 #undef _POSIX_TIMEOUTS
 #define _POSIX_TIMEOUTS 200112L
 
-/* _SC_TIMERS - not supported
-  The functions
-
-  clock_getres(),
-  clock_gettime(),
-  clock_settime(),
-  nanosleep(),
-  timer_create(),
-  timer_delete(),
-  timer_gettime(),
-  timer_getoverrun(),
-  timer_settime()
-
-  are present.  */
-/* #undef _POSIX_TIMERS */
-
 /* _SC_CLOCK_SELECTION
-   This option implies the _POSIX_TIMERS option. The functions
+   The functions
 
    pthread_condattr_getclock(),
    pthread_condattr_setclock(),

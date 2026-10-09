@@ -468,7 +468,6 @@ WINPTHREAD_API int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s)
     || defined(__WINPTRHEAD_ENABLE_WRAP_API) /* historical typo */
 #define accept(...) (pthread_testcancel(), accept(__VA_ARGS__))
 #define aio_suspend(...) (pthread_testcancel(), aio_suspend(__VA_ARGS__))
-#define clock_nanosleep(...) (pthread_testcancel(), clock_nanosleep(__VA_ARGS__))
 #define close(...) (pthread_testcancel(), close(__VA_ARGS__))
 #define connect(...) (pthread_testcancel(), connect(__VA_ARGS__))
 #define creat(...) (pthread_testcancel(), creat(__VA_ARGS__))
