@@ -26,17 +26,6 @@
 #include "pthread_time.h"
 
 /**
- * Address of `GetSystemTimePreciseAsFileTime`, if available;
- * otherwise, address of `GetSystemTimeAsFileTime`.
- */
-extern VOID (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME);
-
-/**
- * Address of `GetTickCount64`, if available; otherwise, set to `NULL`.
- */
-extern ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID);
-
-/**
  * Get current system time, in milliseconds.
  */
 unsigned __int64 winpthreads_system_time_ms (void);
@@ -63,5 +52,10 @@ unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts);
  * to this function.
  */
 unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency);
+
+/**
+ * Initialize time functions.
+ */
+void winpthreads_time_init (void);
 
 #endif /* WINPTHREADS_TIME_H */

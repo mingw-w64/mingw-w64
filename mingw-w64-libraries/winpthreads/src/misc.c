@@ -51,20 +51,10 @@ static void winpthreads_init(void)
         _pthread_get_handle_information =
             (BOOL (WINAPI *)(HANDLE, LPDWORD))(void*) GetProcAddress(mod, "GetHandleInformation");
 
-        _pthread_get_tick_count_64 =
-            (ULONGLONG (WINAPI *)(VOID))(void*) GetProcAddress(mod, "GetTickCount64");
-
         _pthread_set_thread_description =
             (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
 
-        /* <1us precision on Windows 10 */
-        _pthread_get_system_time_best_as_file_time =
-            (void (WINAPI *)(LPFILETIME))(void*) GetProcAddress(mod, "GetSystemTimePreciseAsFileTime");
     }
-
-    if (!_pthread_get_system_time_best_as_file_time)
-        /* >15ms precision on Windows 10 */
-        _pthread_get_system_time_best_as_file_time = GetSystemTimeAsFileTime;
 
     /* Although SetThreadDescription lives in kernel32.dll, on Windows Server 2016,
      * Windows 10 LTSB 2016 and Windows 10 version 1607, it was only available in
@@ -79,6 +69,8 @@ static void winpthreads_init(void)
                 (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
         }
     }
+
+    winpthreads_time_init();
 }
 #if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
 #pragma GCC diagnostic pop

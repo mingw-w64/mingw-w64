@@ -85,8 +85,152 @@
  */
 #define DELTA_EPOCH_IN_100NS INT64_C(116444736000000000)
 
-VOID (WINAPI *_pthread_get_system_time_best_as_file_time) (LPFILETIME) = NULL;
-ULONGLONG (WINAPI *_pthread_get_tick_count_64) (VOID) = NULL;
+/*******************************************************************************
+ * In order to provide the best coverage in terms of backward compatibility
+ * and feature support, we lookup functions which may not be available on older
+ * Windows versions at runtime, and use them if they are available.
+ *
+ * If some function is not available, we provide a simple replacement or stub.
+ */
+
+/**
+ * Function type corresponding to `GetSystemTimeAsFileTime` and
+ * `GetSystemTimePreciseAsFileTime`.
+ */
+typedef VOID (WINAPI *FuncGetSystemTimeAsFileTime) (FILETIME *);
+
+/**
+ * Function type corresponding to `GetSystemTimeAdjustment`.
+ */
+typedef BOOL (WINAPI *FuncGetSystemTimeAdjustment) (DWORD *, DWORD *, BOOL *);
+
+/**
+ * Function type corresponding to `GetTickCount64`.
+ */
+typedef ULONGLONG (WINAPI *FuncGetTickCount64) (VOID);
+
+/**
+ * Functions which are looked up at runtime.
+ */
+typedef struct TimeApi {
+  /**
+   * Function `GetSystemTimeAsFileTime` is available since Windows NT 3.51.
+   */
+  FuncGetSystemTimeAsFileTime PtrGetSystemTimeAsFileTime;
+  /**
+   * Function `GetSystemTimePreciseAsFileTime` is available since Windows 8.
+   */
+  FuncGetSystemTimeAsFileTime PtrGetSystemTimePreciseAsFileTime;
+  /**
+   * Function `GetSystemTimeAdjustment` is available since Windows NT 3.5.
+   */
+  FuncGetSystemTimeAdjustment PtrGetSystemTimeAdjustment;
+  /**
+   * Function `GetTickCount64` is available since Windows Vista.
+   */
+  FuncGetTickCount64 PtrGetTickCount64;
+} TimeApi;
+
+static TimeApi WinpthreadsTimeApi;
+
+/**
+ * Replacement for `GetSystemTimeAsFileTime`;
+ * a wrapper around `GetSystemTime` and `SystemTimeToFileTime`
+ */
+static VOID WINAPI WinpthreadsGetSystemTimeAsFileTime (FILETIME *fileTime) {
+  SYSTEMTIME systemTime;
+
+  GetSystemTime (&systemTime);
+
+  /**
+   * If call to `SystemTimeToFileTime` fails, store Unix epoch in `fileTime`.
+   */
+  if (unlikely (!SystemTimeToFileTime (&systemTime, fileTime))) {
+    fileTime->dwHighDateTime = (ULARGE_INTEGER) {.QuadPart = DELTA_EPOCH_IN_100NS}.HighPart;
+    fileTime->dwLowDateTime  = (ULARGE_INTEGER) {.QuadPart = DELTA_EPOCH_IN_100NS}.LowPart;
+  }
+}
+
+/**
+ * Replacement for `GetSystemTimeAdjustment`;
+ * a simple stab that always fails.
+ */
+static BOOL WINAPI WinpthreadsGetSystemTimeAdjustment (DWORD *adjustment, DWORD *increment, BOOL *disable) {
+  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
+  return FALSE;
+  UNREFERENCED_PARAMETER (adjustment);
+  UNREFERENCED_PARAMETER (increment);
+  UNREFERENCED_PARAMETER (disable);
+}
+
+/**
+ * Replacement for `GetTickCount64`;
+ * a simple wrapper around `GetTickCount`.
+ */
+static ULONGLONG WINAPI WinpthreadsGetTickCount64 (VOID) {
+  return GetTickCount ();
+}
+
+/**
+ * Time-related data.
+ */
+typedef struct TimeImpl {
+/**
+ * If set, then `GetSystemTimePreciseAsFileTime` is available.
+ */
+#define HIGH_RESOLUTION_SYSTEM_TIME 0x01
+  int Flags;
+} TimeImpl;
+
+static TimeImpl WinpthreadsTimeImpl = {
+  .Flags = 0,
+};
+
+/**
+ * Check if `bit` is set in `WinpthreadsTimeImpl.Flags`
+ */
+#define WINPTHREADS_TIME_HAVE(bit) (WinpthreadsTimeImpl.Flags & (bit))
+
+void winpthreads_time_init (void) {
+  HMODULE kernel32   = GetModuleHandleA ("kernel32.dll");
+
+  FuncGetSystemTimeAsFileTime        ptrGetSystemTimeAsFileTime        = NULL;
+  FuncGetSystemTimeAsFileTime        ptrGetSystemTimePreciseAsFileTime = NULL;
+  FuncGetSystemTimeAdjustment        ptrGetSystemTimeAdjustment        = NULL;
+  FuncGetTickCount64                 ptrGetTickCount64                 = NULL;
+
+  if (kernel32 != NULL) {
+    ptrGetSystemTimeAsFileTime        = (FuncGetSystemTimeAsFileTime) (UINT_PTR) GetProcAddress (kernel32, "GetSystemTimeAsFileTime");
+    ptrGetSystemTimePreciseAsFileTime = (FuncGetSystemTimeAsFileTime) (UINT_PTR) GetProcAddress (kernel32, "GetSystemTimePreciseAsFileTime");
+    ptrGetSystemTimeAdjustment        = (FuncGetSystemTimeAdjustment) (UINT_PTR) GetProcAddress (kernel32, "GetSystemTimeAdjustment");
+    ptrGetTickCount64                 = (FuncGetTickCount64) (UINT_PTR) GetProcAddress (kernel32, "GetTickCount64");
+  }
+
+  if (ptrGetSystemTimeAsFileTime != NULL) {
+    WinpthreadsTimeApi.PtrGetSystemTimeAsFileTime = ptrGetSystemTimeAsFileTime;
+  } else {
+    WinpthreadsTimeApi.PtrGetSystemTimeAsFileTime = WinpthreadsGetSystemTimeAsFileTime;
+  }
+
+  if (ptrGetSystemTimePreciseAsFileTime != NULL) {
+    WinpthreadsTimeImpl.Flags                           |= HIGH_RESOLUTION_SYSTEM_TIME;
+    WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime = ptrGetSystemTimePreciseAsFileTime;
+  } else {
+    WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime = WinpthreadsTimeApi.PtrGetSystemTimeAsFileTime;
+  }
+
+  if (ptrGetSystemTimeAdjustment != NULL) {
+    WinpthreadsTimeApi.PtrGetSystemTimeAdjustment = ptrGetSystemTimeAdjustment;
+  } else {
+    WinpthreadsTimeApi.PtrGetSystemTimeAdjustment = WinpthreadsGetSystemTimeAdjustment;
+  }
+
+  if (ptrGetTickCount64 != NULL) {
+    WinpthreadsTimeApi.PtrGetTickCount64 = ptrGetTickCount64;
+  } else {
+    WinpthreadsTimeApi.PtrGetTickCount64 = WinpthreadsGetTickCount64;
+  }
+}
 
 /*******************************************************************************
  * Private Functions.
@@ -96,7 +240,7 @@ unsigned __int64 winpthreads_system_time_ms (void)
 {
   FILETIME fileTime;
 
-  _pthread_get_system_time_best_as_file_time (&fileTime);
+  WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime (&fileTime);
 
   ULARGE_INTEGER value = {
     .HighPart = fileTime.dwHighDateTime,
@@ -172,11 +316,7 @@ unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency)
     return performanceCounter.QuadPart / (performanceFrequency.QuadPart / POW10_3);
   }
 
-  if (_pthread_get_tick_count_64 != NULL) {
-    return _pthread_get_tick_count_64 ();
-  }
-
-  return GetTickCount ();
+  return WinpthreadsTimeApi.PtrGetTickCount64 ();
 }
 
 /*******************************************************************************
@@ -210,7 +350,7 @@ int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
   FILETIME endTime;
 
   if (remain != NULL) {
-    _pthread_get_system_time_best_as_file_time (&startTime);
+    WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime (&startTime);
   }
 
   unsigned __int64 remainingSleepTime = totalSleepTime;
@@ -237,7 +377,7 @@ int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
    */
   if (unlikely (error_code != 0)) {
     if (remain != NULL) {
-      _pthread_get_system_time_best_as_file_time (&endTime);
+      WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime (&endTime);
 
       ULARGE_INTEGER start = {
         .HighPart = startTime.dwHighDateTime,
@@ -301,7 +441,7 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
    * If `GetSystemTimePreciseAsFileTime` is not available,
    * use `GetSystemTimeAdjustment` to obtain system clock resolution.
    */
-  if (clock_id == CLOCK_REALTIME && _pthread_get_system_time_best_as_file_time == GetSystemTimeAsFileTime) {
+  if (clock_id == CLOCK_REALTIME && !WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_SYSTEM_TIME)) {
     clock_id = CLOCK_REALTIME_COARSE;
   }
 
@@ -336,7 +476,7 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
        * If call to `GetSystemTimeAdjustment` fails, use 16ms as
        * the default fallback value.
        */
-      if (!GetSystemTimeAdjustment (&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
+      if (!WinpthreadsTimeApi.PtrGetSystemTimeAdjustment (&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
         timeIncrement = 160000;
       }
 
@@ -373,7 +513,7 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     case CLOCK_REALTIME: {
       FILETIME fileTime;
 
-      _pthread_get_system_time_best_as_file_time (&fileTime);
+      WinpthreadsTimeApi.PtrGetSystemTimePreciseAsFileTime (&fileTime);
 
       ULARGE_INTEGER value = {
         .HighPart = fileTime.dwHighDateTime,
@@ -389,7 +529,7 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     case CLOCK_REALTIME_COARSE: {
       FILETIME fileTime;
 
-      GetSystemTimeAsFileTime (&fileTime);
+      WinpthreadsTimeApi.PtrGetSystemTimeAsFileTime (&fileTime);
 
       ULARGE_INTEGER value = {
         .HighPart = fileTime.dwHighDateTime,
