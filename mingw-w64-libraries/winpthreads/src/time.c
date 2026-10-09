@@ -93,17 +93,25 @@ unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts
   return msFromSec + msFromNsec;
 }
 
-unsigned long long _pthread_rel_time_in_ms (const struct _timespec64 *ts)
+unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts)
 {
-  unsigned long long t1 = _pthread_time_in_ms_from_timespec (ts);
-  unsigned long long t2 = _pthread_time_in_ms ();
+  unsigned __int64 msCurrent  = _pthread_time_in_ms ();
+  unsigned __int64 msAbsolute = _pthread_time_in_ms_from_timespec (ts);
 
-  /* Prevent underflow */
-  if (t1 < t2) {
+  /**
+   * Check for underflow.
+   */
+  if (msAbsolute <= msCurrent) {
     return 0;
   }
 
-  return t1 - t2;
+  unsigned __int64 diff = msAbsolute - msCurrent;
+
+  if (diff >= INFINITE) {
+    return INFINITE;
+  }
+
+  return (unsigned) diff;
 }
 
 unsigned long long _pthread_get_tick_count (long long *frequency)

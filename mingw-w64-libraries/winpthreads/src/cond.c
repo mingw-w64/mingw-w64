@@ -437,7 +437,7 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
 
   if (rel == 0)
   {
-    dwr = dwMilliSecs(_pthread_rel_time_in_ms(t));
+    dwr = _pthread_rel_time_in_ms(t);
   }
   else
   {

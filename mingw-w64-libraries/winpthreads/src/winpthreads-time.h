@@ -49,8 +49,11 @@ unsigned __int64 _pthread_time_in_ms_from_timespec (const struct _timespec64 *ts
 /**
  * Get difference between current system time and absolute time `ts`,
  * in milliseconds.
+ *
+ * The value is returned as an `unsigned`; it is expected to be used with
+ * functions such as `WaitFor*` and `Sleep`, which take `DWORD` values.
  */
-unsigned long long _pthread_rel_time_in_ms (const struct _timespec64 *ts);
+unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts);
 
 /**
  * Get current time using some monotonic clock, in milliseconds.
