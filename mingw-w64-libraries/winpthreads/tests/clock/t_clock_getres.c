@@ -1,63 +1,94 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+/*
+   Copyright (c) 2026 mingw-w64 project
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+*/
+
+#include <assert.h>
 #include <pthread.h>
+#include <stdio.h>
+#include <time.h>
 
-#define POW10_9                 1000000000
+/**
+ * Test Summary:
+ *
+ * Call `clock_getres` with all supported `clockid_t` values.
+ */
 
-#define assert(_Expression) (void)( (!!(_Expression)) || (_my_assert(#_Expression, __FILE__, __LINE__), 0) )
+#define POW10_6 1000000
+#define POW10_9 1000000000
 
-static __inline void _my_assert(char *message, char *file, unsigned int line)
+/**
+ * Get number of intervals `r` that occured between `t1` and `t2`.
+ */
+static double sub_and_div(const struct timespec *t1, const struct timespec *t2, const struct timespec *r)
 {
-    fprintf(stderr, "Assertion failed: %s , file %s, line %u\n", message, file, line);
-    exit(1);
+  __int64 diff = (t2->tv_sec - t1->tv_sec) * POW10_9 + (t2->tv_nsec - t1->tv_nsec);
+  return diff / (double) (r->tv_sec * POW10_9 + r->tv_nsec);
 }
 
-double sub_and_div(const struct timespec *t1, const struct timespec *t2, const struct timespec *r)
+static void test_clock_getres(const char *name, int id)
 {
-    __int64 diff = (t2->tv_sec - t1->tv_sec) * POW10_9 + (t2->tv_nsec - t1->tv_nsec);
-    return diff / (double) (r->tv_sec * POW10_9 + r->tv_nsec);
+  struct timespec res;
+  struct timespec ts1;
+  struct timespec ts2;
+  struct timespec request;
+  double intervals;
+
+  assert(clock_getres(id, &res) == 0);
+  /**
+   * If `res` is greater than or equal to 1ms, sleep to allign clock with `res`.
+   */
+  if (res.tv_nsec / POW10_6 > 0) {
+    request.tv_sec  = 0;
+    request.tv_nsec = res.tv_nsec;
+    assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
+  }
+  assert(clock_gettime(id, &ts1) == 0);
+  /**
+   * `CLOCK_PROCESS_CPUTIME_ID` and `CLOCK_THREAD_CPUTIME_ID`
+   * do not include time process/thread spent sleeping.
+   */
+  if (id == CLOCK_PROCESS_CPUTIME_ID || id == CLOCK_THREAD_CPUTIME_ID) {
+    do {
+      assert(clock_gettime(id, &ts2) == 0);
+    } while (ts1.tv_sec == ts2.tv_sec && ts1.tv_nsec == ts2.tv_nsec);
+  } else {
+    request.tv_sec  = 0;
+    request.tv_nsec = res.tv_nsec * 2;
+    assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
+    assert(clock_gettime(id, &ts2) == 0);
+  }
+  intervals = sub_and_div(&ts1, &ts2, &res);
+
+  wprintf(L"%hs resolution: %.0f.%09ld sec\n", name, (double) res.tv_sec, res.tv_nsec);
+  wprintf(L"%hs time: %.0f.%09ld sec\n", name, (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"%hs time: %.0f.%09ld sec\n", name, (double) ts2.tv_sec, ts2.tv_nsec);
+  wprintf(L"%hs intervals: %.3lf\n", name, intervals);
 }
 
-void test_clock_getres(char *name, int id)
+int main(void)
 {
-    int rc;
-    double d;
-    struct timespec tp, t1, t2;
+  test_clock_getres("          CLOCK_REALTIME", CLOCK_REALTIME);
+  test_clock_getres("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
+  test_clock_getres("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
+  test_clock_getres(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
 
-    rc = clock_getres(id, &tp);
-    assert(rc == 0);
-    printf("%s resolution: %d.%09d sec\n", name, (int) tp.tv_sec, (int) tp.tv_nsec);
-
-    rc = clock_gettime(id, &t1);
-    assert(rc == 0);
-    printf("%s time: %d.%09d sec\n", name, (int) t1.tv_sec, (int) t1.tv_nsec);
-
-    if (id == CLOCK_REALTIME || id == CLOCK_MONOTONIC) {
-        struct timespec request = {1, 0};
-        clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL);
-    } else {
-        long i;
-        for (i = 0; i < 100000000; i++) {
-            rand();
-        }
-    }
-
-    rc = clock_gettime(id, &t2);
-    assert(rc == 0);
-    printf("%s time: %d.%09d sec\n", name, (int) t2.tv_sec, (int) t2.tv_nsec);
-
-    d = sub_and_div(&t1, &t2, &tp);
-    printf("sub_and_div: %7.3lf\n", d);
-    printf("\n");
-}
-
-int main(int argc, char *argv[])
-{
-    test_clock_getres("          CLOCK_REALTIME", CLOCK_REALTIME);
-    test_clock_getres("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
-    test_clock_getres("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
-    test_clock_getres(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
-
-    return 0;
+  return 0;
 }
