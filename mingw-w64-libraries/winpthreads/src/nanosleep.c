@@ -37,7 +37,7 @@
  *         If the function fails, the return value is -1,
  *         with errno set to indicate the error.
  */
-static int __nanosleep(const struct _timespec64 *request, struct _timespec64 *remain)
+int nanosleep64(const struct _timespec64 *request, struct _timespec64 *remain)
 {
     unsigned long ms, rc = 0;
     unsigned __int64 u64, want, real;
@@ -91,11 +91,6 @@ static int __nanosleep(const struct _timespec64 *request, struct _timespec64 *re
     return 0;
 }
 
-int nanosleep64(const struct _timespec64 *request, struct _timespec64 *remain)
-{
-    return __nanosleep (request, remain);
-}
-
 int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
 {
     struct _timespec64 request64 = {
@@ -104,7 +99,7 @@ int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
     };
     struct _timespec64 remain64 = {0};
 
-    int error_code = __nanosleep (&request64, &remain64);
+    int error_code = nanosleep64 (&request64, &remain64);
 
     if (error_code == -1) {
         if (errno == EINTR && remain != NULL) {
