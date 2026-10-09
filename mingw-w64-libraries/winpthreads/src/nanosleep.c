@@ -104,16 +104,16 @@ int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
     };
     struct _timespec64 remain64 = {0};
 
-    if (__nanosleep (&request64, &remain64) == -1) {
-        return -1;
+    int error_code = __nanosleep (&request64, &remain64);
+
+    if (error_code == -1) {
+        if (errno == EINTR && remain != NULL) {
+            assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
+            remain->tv_sec = (__time32_t) remain64.tv_sec;
+            assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
+            remain->tv_nsec = remain64.tv_nsec;
+        }
     }
 
-    assert (remain64.tv_sec <= INT_MAX);
-
-    if (remain != NULL) {
-        remain->tv_sec = (__time32_t) remain64.tv_sec;
-        remain->tv_nsec = remain64.tv_nsec;
-    }
-
-    return 0;
+    return error_code;
 }
