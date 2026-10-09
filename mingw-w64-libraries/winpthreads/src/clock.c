@@ -53,25 +53,27 @@
  */
 int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
 {
-    clockid_t id = clock_id;
-
-    if (id == CLOCK_REALTIME && _pthread_get_system_time_best_as_file_time == GetSystemTimeAsFileTime) {
-        id = CLOCK_REALTIME_COARSE; /* GetSystemTimePreciseAsFileTime() not available */
+    /**
+     * If `GetSystemTimePreciseAsFileTime` is not available,
+     * use `GetSystemTimeAdjustment` to obtain system clock resolution.
+     */
+    if (clock_id == CLOCK_REALTIME && _pthread_get_system_time_best_as_file_time == GetSystemTimeAsFileTime) {
+        clock_id = CLOCK_REALTIME_COARSE;
     }
 
-    switch (id) {
+    switch (clock_id) {
     case CLOCK_REALTIME:
     case CLOCK_MONOTONIC:
         {
             LARGE_INTEGER pf;
 
-            if (QueryPerformanceFrequency(&pf) == 0) {
+            if (!QueryPerformanceFrequency(&pf)) {
                 _set_errno(EINVAL);
                 return -1;
             }
 
             res->tv_sec = 0;
-            res->tv_nsec = (int) ((POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
+            res->tv_nsec = (long) ((POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
 
             if (res->tv_nsec < 1) {
                 res->tv_nsec = 1;
@@ -84,13 +86,20 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID:
         {
-            DWORD timeAdjustment, timeIncrement;
+            DWORD timeAdjustment;
+            DWORD timeIncrement;
             BOOL  isTimeAdjustmentDisabled;
 
-            (void) GetSystemTimeAdjustment(&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled);
+            /**
+             * If call to `GetSystemTimeAdjustment` fails, use 16ms as
+             * the default fallback value.
+             */
+            if (!GetSystemTimeAdjustment(&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
+                timeIncrement = 160000;
+            }
 
             res->tv_sec = 0;
-            res->tv_nsec = timeIncrement * 100;
+            res->tv_nsec = (long) (timeIncrement * 100);
 
             return 0;
         }
