@@ -21,7 +21,6 @@
 */
 
 #include <assert.h>
-#include <errno.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <time.h>
@@ -29,44 +28,25 @@
 /**
  * Test Summary:
  *
- * Call `clock_settime` with all supported `clockid_t` values.
- *
- * Only `CLOCK_REALTIME` is supported and the call to `clock_settime` is likely
- * to fail with `EPERM`.
- *
- * An attempt to use any other `clockid_t` value must fail with `EINVAL`.
+ * Test `clock_gettime` with `CLOCK_MONOTONIC`.
  */
-
-static void test_clock_settime(const char *name, clockid_t id)
-{
-  struct timespec ts1;
-  struct timespec ts2;
-  int error_code;
-
-  assert(clock_gettime(id, &ts1) == 0);
-  errno = 0;
-  error_code = clock_settime(id, &ts1);
-  if (id == CLOCK_REALTIME) {
-    assert(error_code == 0 || (error_code = errno) == EPERM);
-  } else {
-    assert(error_code != 0 && (error_code = errno) == EINVAL);
-  }
-  assert(clock_gettime(id, &ts2) == 0);
-
-  if (error_code == 0) {
-    wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts1.tv_sec, ts1.tv_nsec);
-    wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts2.tv_sec, ts2.tv_nsec);
-  } else {
-    wprintf(L"%hs: cannot set time; errno=%d\n", name, error_code);
-  }
-}
 
 int main(void)
 {
-  test_clock_settime("          CLOCK_REALTIME", CLOCK_REALTIME);
-  test_clock_settime("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
-  test_clock_settime("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
-  test_clock_settime(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
+  struct timespec res;
+  struct timespec ts1;
+  struct timespec ts2;
+  struct timespec request;
+
+  assert(clock_getres(CLOCK_MONOTONIC, &res) == 0);
+  assert(clock_gettime(CLOCK_MONOTONIC, &ts1) == 0);
+  request.tv_sec  = 0;
+  request.tv_nsec = res.tv_nsec;
+  assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
+  assert(clock_gettime(CLOCK_MONOTONIC, &ts2) == 0);
+
+  wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
 
   return 0;
 }

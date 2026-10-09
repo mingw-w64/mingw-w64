@@ -28,22 +28,22 @@
 /**
  * Test Summary:
  *
- * Call `clock_getres` with all supported `clockid_t` values.
+ * Test `clock_getres` with `CLOCK_REALTIME`.
  */
 
 #define POW10_6 1000000
 #define POW10_9 1000000000
 
 /**
- * Get number of intervals `r` that occured between `t1` and `t2`.
+ * Get number of intervals `r` that occured between `ts1` and `ts2`.
  */
-static double sub_and_div(const struct timespec *t1, const struct timespec *t2, const struct timespec *r)
+static double sub_and_div(const struct timespec *ts1, const struct timespec *ts2, const struct timespec *r)
 {
-  __int64 diff = (t2->tv_sec - t1->tv_sec) * POW10_9 + (t2->tv_nsec - t1->tv_nsec);
+  __int64 diff = (ts2->tv_sec - ts1->tv_sec) * POW10_9 + (ts2->tv_nsec - ts1->tv_nsec);
   return diff / (double) (r->tv_sec * POW10_9 + r->tv_nsec);
 }
 
-static void test_clock_getres(const char *name, int id)
+int main(void)
 {
   struct timespec res;
   struct timespec ts1;
@@ -51,7 +51,7 @@ static void test_clock_getres(const char *name, int id)
   struct timespec request;
   double intervals;
 
-  assert(clock_getres(id, &res) == 0);
+  assert(clock_getres(CLOCK_REALTIME, &res) == 0);
   /**
    * If `res` is greater than or equal to 1ms, sleep to allign clock with `res`.
    */
@@ -60,35 +60,17 @@ static void test_clock_getres(const char *name, int id)
     request.tv_nsec = res.tv_nsec;
     assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
   }
-  assert(clock_gettime(id, &ts1) == 0);
-  /**
-   * `CLOCK_PROCESS_CPUTIME_ID` and `CLOCK_THREAD_CPUTIME_ID`
-   * do not include time process/thread spent sleeping.
-   */
-  if (id == CLOCK_PROCESS_CPUTIME_ID || id == CLOCK_THREAD_CPUTIME_ID) {
-    do {
-      assert(clock_gettime(id, &ts2) == 0);
-    } while (ts1.tv_sec == ts2.tv_sec && ts1.tv_nsec == ts2.tv_nsec);
-  } else {
-    request.tv_sec  = 0;
-    request.tv_nsec = res.tv_nsec * 2;
-    assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
-    assert(clock_gettime(id, &ts2) == 0);
-  }
+  assert(clock_gettime(CLOCK_REALTIME, &ts1) == 0);
+  request.tv_sec  = 0;
+  request.tv_nsec = res.tv_nsec * 2;
+  assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
+  assert(clock_gettime(CLOCK_REALTIME, &ts2) == 0);
   intervals = sub_and_div(&ts1, &ts2, &res);
 
-  wprintf(L"%hs resolution: %.0f.%09ld sec\n", name, (double) res.tv_sec, res.tv_nsec);
-  wprintf(L"%hs time: %.0f.%09ld sec\n", name, (double) ts1.tv_sec, ts1.tv_nsec);
-  wprintf(L"%hs time: %.0f.%09ld sec\n", name, (double) ts2.tv_sec, ts2.tv_nsec);
-  wprintf(L"%hs intervals: %.3lf\n", name, intervals);
-}
-
-int main(void)
-{
-  test_clock_getres("          CLOCK_REALTIME", CLOCK_REALTIME);
-  test_clock_getres("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
-  test_clock_getres("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
-  test_clock_getres(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
+  wprintf(L"Resolution: %.0f.%09ld sec\n", (double) res.tv_sec, res.tv_nsec);
+  wprintf(L"Time 1: %.0f.%09ld sec\n", (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"Time 2: %.0f.%09ld sec\n",(double) ts2.tv_sec, ts2.tv_nsec);
+  wprintf(L"Intervals: %.3lf\n", intervals);
 
   return 0;
 }

@@ -37,12 +37,27 @@ check_PROGRAMS =               \
 	benchtests/benchtest3      \
 	benchtests/benchtest4      \
 	benchtests/benchtest5      \
-	clock/clock_getres             \
-	clock/clock_gettime            \
-	clock/clock_nanosleep-absolute \
-	clock/clock_nanosleep-relative \
-	clock/clock_settime            \
-	clock/nanosleep                \
+	clock/clock_getres-realtime                    \
+	clock/clock_getres-monotonic                   \
+	clock/clock_getres-process_cputime             \
+	clock/clock_getres-thread_cputime              \
+	clock/clock_gettime-realtime                   \
+	clock/clock_gettime-monotonic                  \
+	clock/clock_gettime-process_cputime            \
+	clock/clock_gettime-thread_cputime             \
+	clock/clock_nanosleep-realtime-absolute        \
+	clock/clock_nanosleep-realtime-relative        \
+	clock/clock_nanosleep-monotonic-absolute       \
+	clock/clock_nanosleep-monotonic-relative       \
+	clock/clock_nanosleep-process_cputime-absolute \
+	clock/clock_nanosleep-process_cputime-relative \
+	clock/clock_nanosleep-thread_cputime-absolute  \
+	clock/clock_nanosleep-thread_cputime-relative  \
+	clock/clock_settime-realtime                   \
+	clock/clock_settime-monotonic                  \
+	clock/clock_settime-process_cputime            \
+	clock/clock_settime-thread_cputime             \
+	clock/nanosleep                                \
 	exceptions/exception1      \
 	exceptions/exception2      \
 	exceptions/exception3      \

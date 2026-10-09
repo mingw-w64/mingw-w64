@@ -29,19 +29,19 @@
 /**
  * Test Summary:
  *
- * Call `clock_nanosleep` with all supported `clockid_t` values.
+ * Test `clock_nanosleep` with `CLOCK_MONOTONIC`.
  *
- * Use `TIMER_ABSTIME` for the `flags` argument; `clock_nanosleep` must sleep
- * until absolute time specified by the `request` argument.
+ * Use zero for the `flags` argument; `clock_nanosleep` must sleep
+ * for duration specified by the `request` argument.
  *
- * Currently, only `CLOCK_REALTIME` is supported;
- * an attempt to use any other `clockid_t` value must fail with `EINVAL`.
+ * Calling `clock_nanosleep` with `CLOCK_MONOTONIC` is not supported;
+ * the call must fail with `EINVAL`.
  */
 
 #define POW10_6 1000000
 #define POW10_9 1000000000
 
-static void test_clock_nanosleep(const char *name, clockid_t id)
+int main(void)
 {
   struct timespec res;
   struct timespec ts1;
@@ -49,37 +49,25 @@ static void test_clock_nanosleep(const char *name, clockid_t id)
   struct timespec request;
   int error_code;
 
-  assert(clock_getres(id, &res) == 0);
-  assert(clock_gettime(id, &ts1) == 0);
-  request.tv_sec  = ts1.tv_sec;
-  request.tv_nsec = ts1.tv_nsec + res.tv_nsec * (res.tv_nsec / POW10_6 > 0 ? 10 : POW10_6);
+  assert(clock_getres(CLOCK_MONOTONIC, &res) == 0);
+  assert(clock_gettime(CLOCK_MONOTONIC, &ts1) == 0);
+  request.tv_sec  = 0;
+  request.tv_nsec = res.tv_nsec * (res.tv_nsec / POW10_6 > 0 ? 10 : POW10_6);
   if (request.tv_nsec >= POW10_9) {
     request.tv_sec  += request.tv_nsec / POW10_9;
     request.tv_nsec %= POW10_9;
   }
   errno = 0;
-  error_code = clock_nanosleep(id, TIMER_ABSTIME, &request, NULL);
-  if (id == CLOCK_REALTIME) {
-    assert(error_code == 0);
-  } else {
-    assert(error_code != 0 && (error_code = errno) == EINVAL);
-  }
-  assert(clock_gettime(id, &ts2) == 0);
+  error_code = clock_nanosleep(CLOCK_MONOTONIC, 0, &request, NULL);
+  assert(error_code != 0 && (error_code = errno) == EINVAL);
+  assert(clock_gettime(CLOCK_MONOTONIC, &ts2) == 0);
 
   if (error_code == 0) {
-    wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts1.tv_sec, ts1.tv_nsec);
-    wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts2.tv_sec, ts2.tv_nsec);
+    wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
+    wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
   } else {
-    wprintf(L"%hs: not supported; errno=%d\n", name, error_code);
+    wprintf(L"Not supported; errno=%d\n", error_code);
   }
-}
-
-int main(void)
-{
-  test_clock_nanosleep("          CLOCK_REALTIME", CLOCK_REALTIME);
-  test_clock_nanosleep("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
-  test_clock_nanosleep("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
-  test_clock_nanosleep(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
 
   return 0;
 }

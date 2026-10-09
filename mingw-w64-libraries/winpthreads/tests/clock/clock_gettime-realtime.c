@@ -28,43 +28,25 @@
 /**
  * Test Summary:
  *
- * Call `clock_gettime` with all supported `clockid_t` values.
+ * Test `clock_gettime` with `CLOCK_REALTIME`.
  */
 
-static void test_clock_gettime(const char *name, clockid_t id)
+int main(void)
 {
   struct timespec res;
   struct timespec ts1;
   struct timespec ts2;
   struct timespec request;
 
-  assert(clock_getres(id, &res) == 0);
-  assert(clock_gettime(id, &ts1) == 0);
-  /**
-   * `CLOCK_PROCESS_CPUTIME_ID` and `CLOCK_THREAD_CPUTIME_ID`
-   * do not include time process/thread spent sleeping.
-   */
-  if (id == CLOCK_PROCESS_CPUTIME_ID || id == CLOCK_THREAD_CPUTIME_ID) {
-    do {
-      assert(clock_gettime(id, &ts2) == 0);
-    } while (ts1.tv_sec == ts2.tv_sec && ts1.tv_nsec == ts2.tv_nsec);
-  } else {
-    request.tv_sec  = 0;
-    request.tv_nsec = res.tv_nsec;
-    assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
-    assert(clock_gettime(id, &ts2) == 0);
-  }
+  assert(clock_getres(CLOCK_REALTIME, &res) == 0);
+  assert(clock_gettime(CLOCK_REALTIME, &ts1) == 0);
+  request.tv_sec  = 0;
+  request.tv_nsec = res.tv_nsec;
+  assert(clock_nanosleep(CLOCK_REALTIME, 0, &request, NULL) == 0);
+  assert(clock_gettime(CLOCK_REALTIME, &ts2) == 0);
 
-  wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts1.tv_sec, ts1.tv_nsec);
-  wprintf(L"%hs: %.0f.%09ld\n", name, (double) ts2.tv_sec, ts2.tv_nsec);
-}
-
-int main(void)
-{
-  test_clock_gettime("          CLOCK_REALTIME", CLOCK_REALTIME);
-  test_clock_gettime("         CLOCK_MONOTONIC", CLOCK_MONOTONIC);
-  test_clock_gettime("CLOCK_PROCESS_CPUTIME_ID", CLOCK_PROCESS_CPUTIME_ID);
-  test_clock_gettime(" CLOCK_THREAD_CPUTIME_ID", CLOCK_THREAD_CPUTIME_ID);
+  wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
 
   return 0;
 }
