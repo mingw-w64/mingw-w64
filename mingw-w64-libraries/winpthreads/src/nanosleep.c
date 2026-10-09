@@ -21,6 +21,7 @@
 #include "pthread.h"
 #include "pthread_time.h"
 /* internal header files */
+#include "misc.h"
 #include "thread.h"
 
 #define POW10_3         1000
@@ -39,56 +40,92 @@
  */
 int nanosleep64(const struct _timespec64 *request, struct _timespec64 *remain)
 {
-    unsigned long ms, rc = 0;
-    unsigned __int64 u64, want, real;
-
-    union {
-        unsigned __int64 ns100;
-        FILETIME ft;
-    }  _start, _end;
-
+    /**
+     * The nanosleep() function shall fail if:
+     *
+     * [EINVAL]
+     *   The request argument specified a nanosecond value less than zero or
+     *   greater than or equal to 1000 million.
+     */
     if (request->tv_sec < 0 || request->tv_nsec < 0 || request->tv_nsec >= POW10_9) {
-        errno = EINVAL;
+        _set_errno(EINVAL);
         return -1;
     }
+
+    /**
+     * Total sleep time in milliseconds.
+     */
+    unsigned __int64 totalSleepTime = _pthread_time_in_ms_from_timespec(request);
+
+    if (totalSleepTime == 0) {
+        return 0;
+    }
+
+    FILETIME startTime;
+    FILETIME endTime;
 
     if (remain != NULL) {
-        GetSystemTimeAsFileTime(&_start.ft);
+        _pthread_get_system_time_best_as_file_time(&startTime);
     }
 
-    want = u64 = request->tv_sec * POW10_3 + request->tv_nsec / POW10_6;
+    unsigned __int64 remainingSleepTime = totalSleepTime;
+    int error_code;
 
-    while (u64 > 0 && rc == 0) {
-        if (u64 >= MAX_SLEEP_IN_MS){
-            ms = MAX_SLEEP_IN_MS;
+    do {
+        /**
+         * We can sleep for at most `INFINITE - 1` milliseconds at a time.
+         */
+        unsigned sleepTime;
+
+        if (remainingSleepTime >= MAX_SLEEP_IN_MS) {
+            sleepTime = MAX_SLEEP_IN_MS;
         } else {
-            ms = (unsigned long) u64;
+            sleepTime = (unsigned) remainingSleepTime;
         }
 
-        u64 -= ms;
-        rc = _pthread_delay_np_ms(ms);
-    }
+        remainingSleepTime -= sleepTime;
+        error_code          = _pthread_delay_np_ms(sleepTime);
+    } while (remainingSleepTime > 0 && likely(error_code == 0));
 
-    if (rc != 0) { /* WAIT_IO_COMPLETION (192) */
+    /**
+     * Currently, function `_pthread_delay_np_ms` always returns zero.
+     */
+    if (unlikely(error_code != 0)) {
         if (remain != NULL) {
-            GetSystemTimeAsFileTime(&_end.ft);
-            real = (_end.ns100 - _start.ns100) / POW10_4;
+            _pthread_get_system_time_best_as_file_time(&endTime);
 
-            if (real >= want) {
-                u64 = 0;
-            } else {
-                u64 = want - real;
+            ULARGE_INTEGER start = {
+                .HighPart = startTime.dwHighDateTime,
+                .LowPart  = startTime.dwLowDateTime
+            };
+            ULARGE_INTEGER end = {
+                .HighPart = endTime.dwHighDateTime,
+                .LowPart  = endTime.dwLowDateTime
+            };
+
+            remainingSleepTime = 0;
+
+            /**
+             * It is possible that system time has been changed while we were
+             * sleeping, so we have to check for possible underflow.
+             */
+            if (likely (start.QuadPart <= end.QuadPart)) {
+                unsigned __int64 elapsedSleepTime = (end.QuadPart - start.QuadPart) / POW10_4;
+
+                if (likely (elapsedSleepTime < totalSleepTime)) {
+                    remainingSleepTime = totalSleepTime - elapsedSleepTime;
+                }
             }
 
-            remain->tv_sec = u64 / POW10_3;
-            remain->tv_nsec = (long) (u64 % POW10_3) * POW10_6;
+            remain->tv_sec  = (__time64_t) (remainingSleepTime / POW10_3);
+            remain->tv_nsec = (long) ((remainingSleepTime % POW10_3) * POW10_6);
         }
 
-        errno = EINTR;
+        _set_errno(EINTR);
         return -1;
     }
 
-    return 0;
+    return error_code;
 }
 
 int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
@@ -102,7 +139,7 @@ int nanosleep32(const struct _timespec32 *request, struct _timespec32 *remain)
     int error_code = nanosleep64 (&request64, &remain64);
 
     if (error_code == -1) {
-        if (errno == EINTR && remain != NULL) {
+        if (unlikely (errno == EINTR) && remain != NULL) {
             assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
             remain->tv_sec = (__time32_t) remain64.tv_sec;
             assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
