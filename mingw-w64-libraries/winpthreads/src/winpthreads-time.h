@@ -58,10 +58,11 @@ unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts);
 /**
  * Get current time using some monotonic clock, in milliseconds.
  *
- * On the first call, variable pointed to by `frequency` must be initialized
- * to zero, and then passed again in subsequent calls, if any.
+ * If `frequency` in not `NULL`, on the first call, that variable must be
+ * initialized to zero; this variable then can be passed to subsequent calls
+ * to this function.
  */
-unsigned long long _pthread_get_tick_count (long long *frequency);
+unsigned __int64 _pthread_get_tick_count (__int64 *frequency);
 
 /**
  * Return `ms` as an `unsigned long` value.

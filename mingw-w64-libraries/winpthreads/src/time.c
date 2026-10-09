@@ -114,26 +114,30 @@ unsigned _pthread_rel_time_in_ms (const struct _timespec64 *ts)
   return (unsigned) diff;
 }
 
-unsigned long long _pthread_get_tick_count (long long *frequency)
+unsigned __int64 _pthread_get_tick_count (__int64 *frequency)
 {
+  LARGE_INTEGER performanceFrequency = {.QuadPart = 0};
+  LARGE_INTEGER performanceCounter   = {.QuadPart = 0};
+
+  if (frequency == NULL || *frequency == 0) {
+    if (!QueryPerformanceFrequency (&performanceFrequency)) {
+      performanceFrequency.QuadPart = -1;
+    }
+
+    if (frequency != NULL) {
+      *frequency = performanceFrequency.QuadPart;
+    }
+  } else {
+    performanceFrequency.QuadPart = *frequency;
+  }
+
+  if (performanceFrequency.QuadPart > 0 && QueryPerformanceCounter (&performanceCounter)) {
+    return performanceCounter.QuadPart / (performanceFrequency.QuadPart / POW10_3);
+  }
+
   if (_pthread_get_tick_count_64 != NULL) {
     return _pthread_get_tick_count_64 ();
   }
 
-  LARGE_INTEGER freq, timestamp;
-
-  if (*frequency == 0) {
-    if (QueryPerformanceFrequency (&freq)) {
-      *frequency = freq.QuadPart;
-    } else {
-      *frequency = -1;
-    }
-  }
-
-  if (*frequency > 0 && QueryPerformanceCounter (&timestamp)) {
-    return timestamp.QuadPart / (*frequency / 1000);
-  }
-
-  /* Fallback */
   return GetTickCount ();
 }
