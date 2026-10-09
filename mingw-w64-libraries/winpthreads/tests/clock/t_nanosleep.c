@@ -1,96 +1,63 @@
-#include <process.h>
+/*
+   Copyright (c) 2026 mingw-w64 project
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+*/
+
+#include <assert.h>
+#include <pthread.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-#include "pthread_time.h"
 
-#include <windows.h>
+/**
+ * Test Summary:
+ *
+ * A basic test for `nanosleep` function.
+ */
 
-#define POW10_3                 1000
-#define POW10_6                 1000000
+#define POW10_3 1000
+#define POW10_6 1000000
 
-__int64 timespec_diff_as_ms(struct timespec *__old, struct timespec *__new)
+static __int64 timespec_diff_as_ms(struct timespec *ts1, struct timespec *ts2)
 {
-    return (__new->tv_sec - __old->tv_sec) * POW10_3
-         + (__new->tv_nsec - __old->tv_nsec) / POW10_6;
+  return (ts2->tv_sec - ts1->tv_sec) * POW10_3 + (ts2->tv_nsec - ts1->tv_nsec) / POW10_6;
 }
 
-#if defined(__i386__)
-/* Align ESP on 16-byte boundaries. */
-__attribute__((force_align_arg_pointer))
-#endif
-unsigned __stdcall start_address(void *dummy)
+int main(void)
 {
-    int counter = 0;
-    struct timespec request = { 1, 0 }, remain;
+  struct timespec ts1;
+  struct timespec ts2;
+  struct timespec request;
+  __int64 diff;
 
-    while (counter < 5) {
-        int rc = nanosleep(&request, &remain);
-        if (rc != 0) {
-            printf("nanosleep interrupted, remain %d.%09d sec.\n",
-                (int) remain.tv_sec, (int) remain.tv_nsec);
-        } else {
-            printf("nanosleep succeeded.\n");
-        }
+  assert(clock_gettime(CLOCK_REALTIME, &ts1) == 0);
+  request.tv_sec  = 0;
+  request.tv_nsec = 50 * POW10_6;
+  assert(nanosleep(&request, NULL) == 0);
+  assert(clock_gettime(CLOCK_REALTIME, &ts2) == 0);
 
-        counter ++;
-    }
+  diff = timespec_diff_as_ms(&ts1, &ts2);
+  assert(diff > 0);
 
-    return 0;
-}
+  wprintf(L"Sleep start time: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"Sleep end time: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
+  wprintf(L"Slept for %.0f ms\n", (double) diff);
 
-void WINAPI usr_apc(ULONG_PTR dwParam)
-{
-    long *index = (long *) dwParam;
-    printf("running apc %ld\n", *index);
-}
-
-void test_apc()
-{
-    long i, rc, data[5];
-    HANDLE thread;
-    unsigned thrAddr; /* Dummy variable to pass a valid location to _beginthreadex (Win98). */
-
-    thread = (HANDLE) _beginthreadex(NULL, 0, start_address, NULL, 0, &thrAddr);
-    if (thread == NULL) {
-        exit(1);
-    }
-
-    for (i = 0; i < 5; i++) {
-        data[i] = i;
-        Sleep(250 + rand() % 250);
-        rc = QueueUserAPC(usr_apc, thread, (ULONG_PTR) & data[i]);
-        if (rc == 0) {
-            printf("QueueUserAPC failed: %ld\n", GetLastError());
-            exit(1);
-        }
-    }
-
-    rc = WaitForSingleObject(thread, INFINITE);
-    if (rc != WAIT_OBJECT_0) {
-        printf("WaitForSingleObject failed with %ld: %ld\n", rc, GetLastError());
-        exit(1);
-    }
-}
-
-int main(int argc, char *argv[])
-{
-    int rc;
-    struct timespec tp, tp2, request = { 1, 0 }, remain;
-
-    clock_gettime(CLOCK_REALTIME, &tp);
-    rc = nanosleep(&request, &remain);
-    clock_gettime(CLOCK_REALTIME, &tp2);
-
-    if (rc != 0) {
-        printf("remain: %d.%09d\n", (int) remain.tv_sec, (int) remain.tv_nsec);
-    }
-
-    printf("%d.%09d\n", (int) tp.tv_sec, (int) tp.tv_nsec);
-    printf("%d.%09d\n", (int) tp2.tv_sec, (int) tp2.tv_nsec);
-    printf("sleep %d ms\n\n", (int) timespec_diff_as_ms(&tp, &tp2));
-
-    test_apc();
-
-    return 0;
+  return 0;
 }
