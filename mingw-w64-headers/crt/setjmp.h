@@ -202,9 +202,6 @@ _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_
 _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf _Buf, void *_Frame); /* for non-i386 setjmpex.h and aarch64 setjmp.h */
 #endif
 
-#if defined(__arm__) || defined(__aarch64__)
-int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
-#endif
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
 __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl __mingw_longjmp(jmp_buf _Buf, int _Value);
 #endif
