@@ -6,5 +6,8 @@
 #ifndef _INC_SETJMPEX
 /* setjmp.h defines setjmp() and longjmp() based on _INC_SETJMPEX */
 #define _INC_SETJMPEX
+#if !defined(__i386__) && !defined(__SEH__)
+#error setjmpex.h for non-i386 platforms requires SEH
+#endif
 #include <setjmp.h>
 #endif
