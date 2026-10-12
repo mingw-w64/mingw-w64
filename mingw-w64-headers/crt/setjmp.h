@@ -223,41 +223,61 @@ _CRT_END_C_HEADER
 #ifdef setjmp
 #  undef setjmp
 #endif
-#if defined(__i386__)
+#if defined(__i386__) /* i386 _setjmp and _setjmp3 functions always store SEH registration frame for unwind */
 #  define setjmp(BUF) _setjmp3((BUF), 2, NULL /*UnwindFunc*/, -1 /*TryLevel*/)
-#elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH))
-#  if defined(__arm__) || defined(__aarch64__)
-#    define setjmp(BUF) __mingw_setjmp((BUF))
+#elif defined(__x86_64__) && !defined(__arm64ec__) /* amd64 requires current stack pointer address */
+#  if defined(_INC_SETJMPEX)
+#    if (defined(__GNUC__) && __GNUC__ >= 14) || (defined(__clang__) && __clang_major__ >= 22)
+#      define setjmp(BUF) _setjmpex((BUF), __builtin_stack_address())
+#    else
+#      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
+#    endif
+#  elif defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH)
+#    if (defined(__GNUC__) && __GNUC__ >= 14) || (defined(__clang__) && __clang_major__ >= 22)
+#      define setjmp(BUF) _setjmp((BUF), __builtin_stack_address())
+#    else
+#      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
+#    endif
 #  else
 #    define setjmp(BUF) _setjmp((BUF), NULL)
 #  endif
-#elif !defined(_INC_SETJMPEX) && !defined(__aarch64__)
-#  if __MINGW_HAS_BUILTIN(__builtin_sponentry)
+#elif defined(__arm__) || defined(__arm64ec__) /* arm32 and arm64ec require stack pointer address from the function entry point */
+#  if defined(_INC_SETJMPEX)
+#    define setjmp(BUF) _setjmpex((BUF), __builtin_sponentry())
+#  elif defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH)
 #    define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
-#  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
-#    define setjmp(BUF) _setjmp((BUF), mingw_getsp())
 #  else
-#    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address(0))
+#    define setjmp(BUF) _setjmp((BUF), NULL)
+#  endif
+#elif defined(__aarch64__) /* arm64 requires stack pointer address from the function entry point and arm64 does not have _setjmp function */
+#  if defined(_INC_SETJMPEX) || (defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH))
+#    define setjmp(BUF) _setjmpex((BUF), __builtin_sponentry())
+#  else
+#    define setjmp(BUF) _setjmpex((BUF), NULL)
 #  endif
 #else
-#  if __MINGW_HAS_BUILTIN(__builtin_sponentry)
-#    define setjmp(BUF) _setjmpex((BUF), __builtin_sponentry())
-#  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
-#    define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
-#  else
-#    define setjmp(BUF) _setjmpex((BUF), __builtin_frame_address(0))
-#  endif
+#  error Unknown platform
 #endif
 
 #ifdef longjmp
 #  undef longjmp
 #endif
-#if defined(_INC_SETJMPEX) && defined(__i386__)
-#  define longjmp _longjmpex
-#elif !defined(_INC_SETJMPEX) && defined(__USE_MINGW_SETJMP_NON_SEH) && defined(__i386__)
-#  define longjmp __mingw_longjmp
-#elif !defined(_INC_SETJMPEX) && (!defined(__SEH__) || defined(__USE_MINGW_SETJMP_NON_SEH)) && (defined(__arm__) || defined(__aarch64__))
-#  define longjmp __mingw_longjmp
-#else
+#if defined(__i386__) /* i386 longjmp function always uses SEH registration frame for unwind */
+#  if defined(_INC_SETJMPEX)
+#    define longjmp _longjmpex
+#  elif !defined(__USE_MINGW_SETJMP_NON_SEH)
+#    define longjmp longjmp
+#  else
+#    define longjmp __mingw_longjmp
+#  endif
+#elif defined(__x86_64__) /* amd64 longjmp function uses SEH frame for unwind on demand only when is non-NULL */
 #  define longjmp longjmp
+#elif defined(__arm__) || defined(__aarch64__) /* arm32 and arm64 longjmp functions always use SEH frame for unwind */
+#  if defined(_INC_SETJMPEX) || (defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH))
+#    define longjmp longjmp
+#  else
+#    define longjmp __mingw_longjmp
+#  endif
+#else
+#  error Unknown platform
 #endif
