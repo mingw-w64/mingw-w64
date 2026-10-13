@@ -49,7 +49,19 @@ typedef __builtin_va_list __gnuc_va_list;
    if this invocation was from the user program.  */
 #ifdef _STDARG_H
 
+/* C23 and C++26: va_start with one argument, as in GCC's own stdarg.h,
+   which GCC includes after this one.  Older GCCs lack the builtin.  */
+#if ((defined __STDC_VERSION__ && __STDC_VERSION__ > 201710L) \
+     || (defined __cplusplus && __cplusplus >= 202400L)) \
+    && defined __has_builtin
+#if __has_builtin (__builtin_c23_va_start)
+#define va_start(...)	__builtin_c23_va_start(__VA_ARGS__)
+#define __STDC_VERSION_STDARG_H__	202311L
+#endif
+#endif
+#ifndef va_start
 #define va_start(v,l)	__builtin_va_start(v,l)
+#endif
 #define va_end(v)	__builtin_va_end(v)
 #define va_arg(v,l)	__builtin_va_arg(v,l)
 #if !defined(__STRICT_ANSI__) || __STDC_VERSION__ + 0 >= 199900L || defined(__GXX_EXPERIMENTAL_CXX0X__)
