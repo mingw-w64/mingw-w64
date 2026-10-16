@@ -531,7 +531,6 @@ src_ucrtapp=\
 
 if ARM64EC
 src_ucrtapp_arm64=\
-  misc/arm64ec/longjmp.c \
   misc/arm64ec/setjmp.c
 endif
 
