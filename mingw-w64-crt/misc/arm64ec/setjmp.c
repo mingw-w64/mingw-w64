@@ -108,4 +108,13 @@ int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame )
          ".seh_endproc" );
 }
 
+#undef setjmp
+int __attribute__((alias("__intrinsic_setjmpex"))) setjmp( jmp_buf buf, void * frame );
+
+int __attribute__((alias("__intrinsic_setjmpex"))) __intrinsic_setjmp( jmp_buf buf, void * frame );
+
+int __attribute__((alias("__intrinsic_setjmpex"))) _setjmp( jmp_buf buf, void * frame );
+
+int __attribute__((alias("__intrinsic_setjmpex"))) _setjmpex( jmp_buf buf, void * frame );
+
 #endif
