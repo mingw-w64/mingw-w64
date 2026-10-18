@@ -1557,8 +1557,6 @@ pthread_setcanceltype (int type, int *oldtype)
   return 0;
 }
 
-void _fpreset (void);
-
 #if defined(__i386__)
 /* Align ESP on 16-byte boundaries. */
 __attribute__((force_align_arg_pointer))
@@ -1569,7 +1567,12 @@ pthread_create_wrapper (void *args)
   unsigned rslt = 0;
   struct _pthread_v *tv = (struct _pthread_v *)args;
 
-  _fpreset();
+  /* POSIX requires the floating-point environment to be inherited from the
+     creating thread.  Windows starts every thread with its own defaults
+     (x87 precision set to 53 bits, which breaks long double), and a TLS
+     callback cannot change that on x64 because the initial context is
+     loaded after the callbacks run, so set it here.  */
+  fesetenv (&tv->fenv);
 
   pthread_mutex_lock (&mtx_pthr_locked);
   pthread_mutex_lock (&tv->p_clock);
@@ -1685,6 +1688,8 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
       else
 	tv->sched.sched_priority = attr->param.sched_priority;
     }
+
+  fegetenv (&tv->fenv);
 
   /* Make sure tv->h has value of INVALID_HANDLE_VALUE */
   _ReadWriteBarrier();

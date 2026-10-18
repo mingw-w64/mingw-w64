@@ -101,6 +101,7 @@ check_PROGRAMS =               \
 	pthread_create/create1     \
 	pthread_create/create2     \
 	pthread_create/create3     \
+	pthread_create/fenv-inherit \
 	pthread_exit/exit2         \
 	pthread_exit/exit3         \
 	pthread_exit/exit4         \
