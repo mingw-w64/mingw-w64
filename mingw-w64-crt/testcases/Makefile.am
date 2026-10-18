@@ -106,6 +106,7 @@ testcase_progs = \
   t_exp_denormal \
   t_expm1 \
   t_fctptr \
+  t_fesetenv \
   t_findfirst \
   t_float  \
   t_fmod \
