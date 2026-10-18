@@ -7,8 +7,14 @@
 #include <internal.h>
 
 /* The FE_DFL_ENV macro is required by standard.
-   fesetenv will use the environment set at app startup.*/
+   fesetenv recognizes it by address and installs the environment set at
+   app startup.  On x86 its contents also encode that environment (x87
+   control word 0x037f, MXCSR 0x1f80), so a copy of it means the same.  */
+#if defined(__i386__) || defined(__x86_64__)
+const fenv_t __mingw_fe_dfl_env = { 0x3f3f003f, 0 };
+#else
 const fenv_t __mingw_fe_dfl_env = { 0, 0 };
+#endif
 
 /* The C99 standard (7.6.9) allows us to define implementation-specific macros for
    different fp environments */
@@ -40,7 +46,10 @@ int fesetenv(const fenv_t *env)
     unsigned int x87_cw, cw, x87_stat, stat;
     unsigned int mask = ~0u;
 
-    if (!env->_Fe_ctl && !env->_Fe_stat) {
+    /* Compare the pointer, not the contents: an environment saved by
+       fegetenv with every exception unmasked, 64-bit precision and round
+       to nearest encodes as { 0, 0 }.  */
+    if (env == FE_DFL_ENV) {
         _fpreset();
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
         /* _fpreset only reinitializes the x87 unit.  Also put MXCSR back to

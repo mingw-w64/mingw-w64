@@ -87,5 +87,43 @@ int main()
   CHECK(fesetenv(FE_DFL_ENV) == 0);
   check_default_environment();
 
+#ifdef TEST_X86
+  /* An environment with every exception unmasked, 64-bit precision and round
+     to nearest encodes as { 0, 0 }.  Saving and restoring it must not reset
+     it to FE_DFL_ENV.  The results are read before checking them so that no
+     floating-point operation runs while exceptions are unmasked. */
+  {
+    fenv_t env;
+    unsigned short cw = (get_x87_cw() & ~0x0f3f) | 0x0300;
+    unsigned short got_cw;
+    unsigned int got_mxcsr = 0;
+    int ret1, ret2, ret3;
+
+    set_x87_cw(cw);
+    if (has_sse())
+      set_mxcsr(0);
+    ret1 = fegetenv(&env);
+    ret2 = fesetenv(FE_DFL_ENV);
+    ret3 = fesetenv(&env);
+    got_cw = get_x87_cw();
+    if (has_sse())
+      got_mxcsr = get_mxcsr();
+    fesetenv(FE_DFL_ENV);
+
+    CHECK(ret1 == 0 && ret2 == 0 && ret3 == 0);
+    CHECK(got_cw == cw);
+    CHECK(got_mxcsr == 0);
+  }
+
+  /* A copy of *FE_DFL_ENV selects the startup environment too. */
+  {
+    fenv_t env = *FE_DFL_ENV;
+
+    change_environment();
+    CHECK(fesetenv(&env) == 0);
+    check_default_environment();
+  }
+#endif
+
   return failed;
 }
