@@ -149,19 +149,21 @@ check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	pthread_cond/condvar8$(EXEEXT) pthread_cond/condvar9$(EXEEXT) \
 	pthread_create/create1$(EXEEXT) \
 	pthread_create/create2$(EXEEXT) \
-	pthread_create/create3$(EXEEXT) pthread_exit/exit2$(EXEEXT) \
-	pthread_exit/exit3$(EXEEXT) pthread_exit/exit4$(EXEEXT) \
-	pthread_exit/exit5$(EXEEXT) pthread_join/join1$(EXEEXT) \
-	pthread_join/join2$(EXEEXT) pthread_join/join3$(EXEEXT) \
-	pthread_misc/context1$(EXEEXT) pthread_misc/count1$(EXEEXT) \
-	pthread_misc/delay1$(EXEEXT) pthread_misc/delay2$(EXEEXT) \
-	pthread_misc/detach1$(EXEEXT) pthread_misc/equal1$(EXEEXT) \
-	pthread_misc/errno1$(EXEEXT) pthread_misc/eyal1$(EXEEXT) \
-	pthread_misc/inherit1$(EXEEXT) pthread_misc/kill1$(EXEEXT) \
-	pthread_misc/name$(EXEEXT) pthread_misc/reuse1$(EXEEXT) \
-	pthread_misc/reuse2$(EXEEXT) pthread_misc/self1$(EXEEXT) \
-	pthread_misc/self2$(EXEEXT) pthread_misc/stress1$(EXEEXT) \
-	pthread_misc/valid1$(EXEEXT) pthread_misc/valid2$(EXEEXT) \
+	pthread_create/create3$(EXEEXT) \
+	pthread_create/fenv-inherit$(EXEEXT) \
+	pthread_exit/exit2$(EXEEXT) pthread_exit/exit3$(EXEEXT) \
+	pthread_exit/exit4$(EXEEXT) pthread_exit/exit5$(EXEEXT) \
+	pthread_join/join1$(EXEEXT) pthread_join/join2$(EXEEXT) \
+	pthread_join/join3$(EXEEXT) pthread_misc/context1$(EXEEXT) \
+	pthread_misc/count1$(EXEEXT) pthread_misc/delay1$(EXEEXT) \
+	pthread_misc/delay2$(EXEEXT) pthread_misc/detach1$(EXEEXT) \
+	pthread_misc/equal1$(EXEEXT) pthread_misc/errno1$(EXEEXT) \
+	pthread_misc/eyal1$(EXEEXT) pthread_misc/inherit1$(EXEEXT) \
+	pthread_misc/kill1$(EXEEXT) pthread_misc/name$(EXEEXT) \
+	pthread_misc/reuse1$(EXEEXT) pthread_misc/reuse2$(EXEEXT) \
+	pthread_misc/self1$(EXEEXT) pthread_misc/self2$(EXEEXT) \
+	pthread_misc/stress1$(EXEEXT) pthread_misc/valid1$(EXEEXT) \
+	pthread_misc/valid2$(EXEEXT) \
 	pthread_mutex/attr-prioceiling$(EXEEXT) \
 	pthread_mutex/attr-protocol$(EXEEXT) \
 	pthread_mutex/attr-pshared$(EXEEXT) \
@@ -630,6 +632,12 @@ pthread_create_create3_SOURCES = pthread_create/create3.c
 pthread_create_create3_OBJECTS = pthread_create/create3.$(OBJEXT)
 pthread_create_create3_LDADD = $(LDADD)
 pthread_create_create3_DEPENDENCIES =  \
+	$(top_builddir)/libwinpthread.la
+pthread_create_fenv_inherit_SOURCES = pthread_create/fenv-inherit.c
+pthread_create_fenv_inherit_OBJECTS =  \
+	pthread_create/fenv-inherit.$(OBJEXT)
+pthread_create_fenv_inherit_LDADD = $(LDADD)
+pthread_create_fenv_inherit_DEPENDENCIES =  \
 	$(top_builddir)/libwinpthread.la
 pthread_exit_exit2_SOURCES = pthread_exit/exit2.c
 pthread_exit_exit2_OBJECTS = pthread_exit/exit2.$(OBJEXT)
@@ -1390,6 +1398,7 @@ am__depfiles_remade = benchtests/$(DEPDIR)/benchlib.Po \
 	pthread_create/$(DEPDIR)/create1.Po \
 	pthread_create/$(DEPDIR)/create2.Po \
 	pthread_create/$(DEPDIR)/create3.Po \
+	pthread_create/$(DEPDIR)/fenv-inherit.Po \
 	pthread_exit/$(DEPDIR)/exit2.Po \
 	pthread_exit/$(DEPDIR)/exit3.Po \
 	pthread_exit/$(DEPDIR)/exit4.Po \
@@ -1569,14 +1578,15 @@ SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_cond/condvar7.c pthread_cond/condvar8.c \
 	pthread_cond/condvar9.c pthread_create/create1.c \
 	pthread_create/create2.c pthread_create/create3.c \
-	pthread_exit/exit2.c pthread_exit/exit3.c pthread_exit/exit4.c \
-	pthread_exit/exit5.c pthread_join/join1.c pthread_join/join2.c \
-	pthread_join/join3.c pthread_misc/context1.c \
-	pthread_misc/count1.c pthread_misc/delay1.c \
-	pthread_misc/delay2.c pthread_misc/detach1.c \
-	pthread_misc/equal1.c pthread_misc/errno1.c \
-	pthread_misc/eyal1.c pthread_misc/inherit1.c \
-	pthread_misc/kill1.c pthread_misc/name.c pthread_misc/reuse1.c \
+	pthread_create/fenv-inherit.c pthread_exit/exit2.c \
+	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
+	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
+	pthread_misc/context1.c pthread_misc/count1.c \
+	pthread_misc/delay1.c pthread_misc/delay2.c \
+	pthread_misc/detach1.c pthread_misc/equal1.c \
+	pthread_misc/errno1.c pthread_misc/eyal1.c \
+	pthread_misc/inherit1.c pthread_misc/kill1.c \
+	pthread_misc/name.c pthread_misc/reuse1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
@@ -1697,14 +1707,15 @@ DIST_SOURCES = $(libbenchlib_a_SOURCES) benchtests/benchtest1.c \
 	pthread_cond/condvar7.c pthread_cond/condvar8.c \
 	pthread_cond/condvar9.c pthread_create/create1.c \
 	pthread_create/create2.c pthread_create/create3.c \
-	pthread_exit/exit2.c pthread_exit/exit3.c pthread_exit/exit4.c \
-	pthread_exit/exit5.c pthread_join/join1.c pthread_join/join2.c \
-	pthread_join/join3.c pthread_misc/context1.c \
-	pthread_misc/count1.c pthread_misc/delay1.c \
-	pthread_misc/delay2.c pthread_misc/detach1.c \
-	pthread_misc/equal1.c pthread_misc/errno1.c \
-	pthread_misc/eyal1.c pthread_misc/inherit1.c \
-	pthread_misc/kill1.c pthread_misc/name.c pthread_misc/reuse1.c \
+	pthread_create/fenv-inherit.c pthread_exit/exit2.c \
+	pthread_exit/exit3.c pthread_exit/exit4.c pthread_exit/exit5.c \
+	pthread_join/join1.c pthread_join/join2.c pthread_join/join3.c \
+	pthread_misc/context1.c pthread_misc/count1.c \
+	pthread_misc/delay1.c pthread_misc/delay2.c \
+	pthread_misc/detach1.c pthread_misc/equal1.c \
+	pthread_misc/errno1.c pthread_misc/eyal1.c \
+	pthread_misc/inherit1.c pthread_misc/kill1.c \
+	pthread_misc/name.c pthread_misc/reuse1.c \
 	pthread_misc/reuse2.c pthread_misc/self1.c \
 	pthread_misc/self2.c pthread_misc/stress1.c \
 	pthread_misc/valid1.c pthread_misc/valid2.c \
@@ -2674,6 +2685,12 @@ pthread_create/create3.$(OBJEXT): pthread_create/$(am__dirstamp) \
 pthread_create/create3$(EXEEXT): $(pthread_create_create3_OBJECTS) $(pthread_create_create3_DEPENDENCIES) $(EXTRA_pthread_create_create3_DEPENDENCIES) pthread_create/$(am__dirstamp)
 	@rm -f pthread_create/create3$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(pthread_create_create3_OBJECTS) $(pthread_create_create3_LDADD) $(LIBS)
+pthread_create/fenv-inherit.$(OBJEXT): pthread_create/$(am__dirstamp) \
+	pthread_create/$(DEPDIR)/$(am__dirstamp)
+
+pthread_create/fenv-inherit$(EXEEXT): $(pthread_create_fenv_inherit_OBJECTS) $(pthread_create_fenv_inherit_DEPENDENCIES) $(EXTRA_pthread_create_fenv_inherit_DEPENDENCIES) pthread_create/$(am__dirstamp)
+	@rm -f pthread_create/fenv-inherit$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(pthread_create_fenv_inherit_OBJECTS) $(pthread_create_fenv_inherit_LDADD) $(LIBS)
 pthread_exit/$(am__dirstamp):
 	@$(MKDIR_P) pthread_exit
 	@: > pthread_exit/$(am__dirstamp)
@@ -3598,6 +3615,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/create3.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@pthread_create/$(DEPDIR)/fenv-inherit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit2.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit3.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@pthread_exit/$(DEPDIR)/exit4.Po@am__quote@ # am--include-marker
@@ -4445,6 +4463,13 @@ pthread_create/create2.log: pthread_create/create2$(EXEEXT)
 pthread_create/create3.log: pthread_create/create3$(EXEEXT)
 	@p='pthread_create/create3$(EXEEXT)'; \
 	b='pthread_create/create3'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+pthread_create/fenv-inherit.log: pthread_create/fenv-inherit$(EXEEXT)
+	@p='pthread_create/fenv-inherit$(EXEEXT)'; \
+	b='pthread_create/fenv-inherit'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -5482,6 +5507,7 @@ distclean: distclean-am
 	-rm -f pthread_create/$(DEPDIR)/create1.Po
 	-rm -f pthread_create/$(DEPDIR)/create2.Po
 	-rm -f pthread_create/$(DEPDIR)/create3.Po
+	-rm -f pthread_create/$(DEPDIR)/fenv-inherit.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit2.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit3.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit4.Po
@@ -5716,6 +5742,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f pthread_create/$(DEPDIR)/create1.Po
 	-rm -f pthread_create/$(DEPDIR)/create2.Po
 	-rm -f pthread_create/$(DEPDIR)/create3.Po
+	-rm -f pthread_create/$(DEPDIR)/fenv-inherit.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit2.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit3.Po
 	-rm -f pthread_exit/$(DEPDIR)/exit4.Po
