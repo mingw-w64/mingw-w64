@@ -1620,6 +1620,10 @@ pthread_create_wrapper (void *args)
          destroying it again in __dyn_tls_thread later on. */
       tv->p_clock = PTHREAD_MUTEX_INITIALIZER;
       tv->ended = 1;
+      /* GH #328 experiment: once ended, tv belongs to whoever joins or detaches
+         us, and may be recycled for a new thread before our DLL_THREAD_DETACH
+         runs -- so that callback must not find it through our TLS slot. */
+      TlsSetValue (_pthread_tls, NULL);
     }
   while (pthread_mutex_unlock (&mtx_pthr_locked) == 0)
    Sleep (0);
