@@ -963,7 +963,7 @@ _flushall
 _fmode DATA
 _fpclass
 _fpieee_flt
-_fpreset
+_fpreset DATA ; mingw-w64 provides _fpreset() function as a wrapper in CRT_fp8.c and CRT_fp10.c
 _fputchar
 _fputwchar
 _fsopen

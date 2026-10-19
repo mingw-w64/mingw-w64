@@ -868,7 +868,7 @@ _fmode DATA
 _fpclass
 _fpclassf
 _fpieee_flt
-_fpreset DATA ; overwritten
+_fpreset DATA ; mingw-w64 provides _fpreset() function as a wrapper in CRT_fp8.c and CRT_fp10.c
 _fprintf_l
 _fprintf_p
 _fprintf_p_l

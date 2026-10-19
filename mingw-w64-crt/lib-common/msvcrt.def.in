@@ -606,7 +606,7 @@ _flushall
 _fmode DATA
 _fpclass
 F_NON_X64(_fpieee_flt)
-_fpreset F_LD80(DATA)
+_fpreset F_LD80(DATA) ; mingw-w64 provides _fpreset() function as a wrapper in CRT_fp8.c and CRT_fp10.c
 _fputchar
 _fputwchar
 _fsopen

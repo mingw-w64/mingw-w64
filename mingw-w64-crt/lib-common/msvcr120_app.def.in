@@ -1280,7 +1280,7 @@ _fmode DATA
 _fpclass
 F_X64(_fpclassf)
 _fpieee_flt
-_fpreset
+_fpreset F_LD80(DATA) ; mingw-w64 provides _fpreset() function as a wrapper in CRT_fp8.c and CRT_fp10.c
 _fprintf_l
 _fprintf_p
 _fprintf_p_l

@@ -44,7 +44,7 @@ _errno
 _execute_onexit_table
 _exit
 _fpieee_flt
-_fpreset F_LD80(DATA) ; DATA added manually
+_fpreset F_LD80(DATA) ; mingw-w64 provides _fpreset() function as a wrapper in CRT_fp8.c and CRT_fp10.c
 _get_doserrno
 _get_errno
 _get_initial_narrow_environment
