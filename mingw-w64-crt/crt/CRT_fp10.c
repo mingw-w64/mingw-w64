@@ -4,14 +4,23 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#include <_mingw.h>
+#include <float.h>
+
+extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
 void _fpreset (void);
 
 void _fpreset (void)
 {
-#ifdef __GNUC__
+  (* __MINGW_IMP_SYMBOL(_fpreset))();
+#if defined(__i386__)
+  /* msvcrt _fpreset() on i386 changes the x87 precision to 53-bit,
+   * so change it back to 64-bit */
+  _control87(_PC_64, _MCW_PC);
+#elif defined(__x86_64__) && !defined(__arm64ec__)
+  /* msvcrt _fpreset() on x86-64 does not touch the x87 FPU unit at all,
+   * so reset it now (the default precision after reset is 64-bit) */
   __asm__ ("fninit");
-#else /* msvc: */
-  __asm fninit;
 #endif
 }
 
