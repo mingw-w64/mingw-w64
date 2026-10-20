@@ -98,6 +98,7 @@ int __attribute__((naked)) __intrinsic_setjmpex( jmp_buf buf, void *frame )
          "stp x19, x20, [x0, #0x30]\n\t"   /* jmp_buf->R12,R13 */
          "stp x21, x22, [x0, #0x40]\n\t"   /* jmp_buf->R14,R15 */
          "str x30,      [x0, #0x50]\n\t"   /* jmp_buf->Rip */
+         "stp d6, d7,   [x0, #0x60]\n\t"   /* jmp_buf->Xmm6,Xmm7 */
          "stp d8, d9,   [x0, #0x80]\n\t"   /* jmp_buf->Xmm8,Xmm9 */
          "stp d10, d11, [x0, #0xa0]\n\t"   /* jmp_buf->Xmm10,Xmm11 */
          "stp d12, d13, [x0, #0xc0]\n\t"   /* jmp_buf->Xmm12,Xmm13 */

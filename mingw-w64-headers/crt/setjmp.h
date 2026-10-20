@@ -205,7 +205,7 @@ _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jm
 #if defined(__arm__) || defined(__aarch64__)
 int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
 #endif
-#if defined(__i386__) || defined(__arm__) || defined(__aarch64__)
+#if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
 __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl __mingw_longjmp(jmp_buf _Buf, int _Value);
 #endif
 
@@ -270,9 +270,9 @@ _CRT_END_C_HEADER
 #  else
 #    define longjmp __mingw_longjmp
 #  endif
-#elif defined(__x86_64__) /* amd64 longjmp function uses SEH frame for unwind on demand only when is non-NULL */
+#elif defined(__x86_64__) && !defined(__arm64ec__) /* amd64 longjmp function uses SEH frame for unwind on demand only when is non-NULL */
 #  define longjmp longjmp
-#elif defined(__arm__) || defined(__aarch64__) /* arm32 and arm64 longjmp functions always use SEH frame for unwind */
+#elif defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__) /* arm32, arm64 and arm64ec longjmp functions always use SEH frame for unwind */
 #  if defined(_INC_SETJMPEX) || (defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH))
 #    define longjmp longjmp
 #  else

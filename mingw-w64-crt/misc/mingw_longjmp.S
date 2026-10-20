@@ -57,7 +57,7 @@ __MINGW_USYMBOL(__mingw_setjmp):
 #endif
 #endif
 
-#if defined(__i386__) || defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
+#if defined(__i386__) || defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__) || defined(__arm64ec__)
 	.globl __MINGW_USYMBOL(__mingw_longjmp)
 	.def	__MINGW_USYMBOL(__mingw_longjmp);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(__mingw_longjmp):
@@ -118,6 +118,34 @@ __MINGW_USYMBOL(__mingw_longjmp):
 	ldp     d14, d15, [x0, #0xb0] /* jmp_buf->D[6-7] */
 	cmp     w1,  #1
 	csinc   w0,  w1,  wzr,  hi    /* retval */
+	ret
+#elif defined(__arm64ec__)
+	mov     x19, x0
+	mov     x20, x1
+	ldr     x0,       [x0, #0x58] /* jmp_buf->MxCsr */
+	bl      "#__mingw_mxcsr_to_fpcsr"
+	uxtw    x2,  w0
+	msr     fpcr, x2
+	lsr     x2,  x0,  #32
+	msr     fpsr, x2
+	mov     x0,  x19
+	mov     x1,  x20
+
+	ldr     x27,      [x0, #0x08] /* jmp_buf->Rbx */
+	ldr     x2,       [x0, #0x10] /* jmp_buf->Rsp */
+	mov     sp,  x2
+	ldr     x29,      [x0, #0x18] /* jmp_buf->Rbp */
+	ldp     x25, x26, [x0, #0x20] /* jmp_buf->Rsi,Rdi */
+	ldp     x19, x20, [x0, #0x30] /* jmp_buf->R12,R13 */
+	ldp     x21, x22, [x0, #0x40] /* jmp_buf->R14,R15 */
+	ldr     x30,      [x0, #0x50] /* jmp_buf->Rip */
+	ldp     d6,  d7,  [x0, #0x60] /* jmp_buf->Xmm6,Xmm7 */
+	ldp     d8,  d9,  [x0, #0x80] /* jmp_buf->Xmm8,Xmm9 */
+	ldp     d10, d11, [x0, #0xa0] /* jmp_buf->Xmm10,Xmm11 */
+	ldp     d12, d13, [x0, #0xc0] /* jmp_buf->Xmm12,Xmm13 */
+	ldp     d14, d15, [x0, #0xe0] /* jmp_buf->Xmm14,Xmm15 */
+	cmp     x1,  #1
+	csinc   x0,  x1,  xzr,  hi    /* retval */
 	ret
 #endif
 #endif
