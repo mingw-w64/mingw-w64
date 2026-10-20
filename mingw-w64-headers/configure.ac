@@ -5,7 +5,6 @@ AC_PREREQ([2.71])
 AC_INIT([mingw-w64-headers],[4.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([crt/_mingw.h.in])
 AC_CONFIG_AUX_DIR([build-aux])
-AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign])
 AM_MAINTAINER_MODE
@@ -50,11 +49,9 @@ AC_ARG_ENABLE([w32api],
 AC_MSG_RESULT([$enable_w32api])
 AS_CASE([$enable_w32api],
   [no],[],
-  [yes],[AS_VAR_SET([W32API])
-  	 AS_VAR_SET([enable_crt],[no])
+  [yes],[AS_VAR_SET([enable_crt],[no])
 	 AS_VAR_SET([includedir],[${prefix}/include/w32api])],
   [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
-AM_CONDITIONAL([W32API], [AS_VAR_TEST_SET([W32API])])
 
 AC_MSG_CHECKING([for c-runtime headers])
 AC_ARG_ENABLE([crt],
