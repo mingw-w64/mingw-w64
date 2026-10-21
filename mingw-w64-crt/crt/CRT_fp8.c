@@ -11,10 +11,10 @@
    control word 0x027f, MXCSR 0x1f80).  */
 const fenv_t __mingw_fe_dfl_env = { 0x3f3f103f, 0 };
 
-extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
-void _fpreset (void);
+extern void (__cdecl * __MINGW_IMP_SYMBOL(_fpreset))(void);
+void __cdecl _fpreset (void);
 
-void _fpreset (void)
+void __cdecl _fpreset (void)
 {
   (* __MINGW_IMP_SYMBOL(_fpreset))();
 #if defined(__i386__)
@@ -34,9 +34,9 @@ void _fpreset (void)
 }
 
 #ifdef __GNUC__
-void __attribute__ ((alias ("_fpreset"))) fpreset(void);
+void __attribute__ ((alias ("_fpreset"))) __cdecl fpreset(void);
 #else
-void fpreset(void) {
+void __cdecl fpreset(void) {
     _fpreset();
 }
 #endif
