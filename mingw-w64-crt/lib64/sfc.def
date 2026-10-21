@@ -11,6 +11,7 @@ SRSetRestorePointA
 SRSetRestorePointW
 SfcGetNextProtectedFile
 SfcIsFileProtected
+SfcIsKeyProtected
 SfcWLEventLogoff
 SfcWLEventLogon
 SfpVerifyFile
