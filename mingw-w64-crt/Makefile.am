@@ -2235,7 +2235,7 @@ dx32dir=$(libarm32dir)
 if !W32API
 crt32_DATA = \
   libarm32/crt1.o    libarm32/crt2.o     libarm32/crt1u.o   libarm32/crt2u.o    libarm32/dllcrt1.o    libarm32/dllcrt2.o \
-  libarm32/CRT_fp8.o libarm32/txtmode.o  libarm32/binmode.o libarm32/crtbegin.o libarm32/crtend.o \
+  libarm32/txtmode.o libarm32/binmode.o libarm32/crtbegin.o libarm32/crtend.o \
   libarm32/gcrt0.o   libarm32/gcrt1.o    libarm32/gcrt2.o   libarm32/CRT_glob.o libarm32/CRT_noglob.o
 else
 crt32_DATA =
@@ -2545,7 +2545,7 @@ dx64dir=$(libarm64dir)
 if !W32API
 crt64_DATA = \
   libarm64/crt1.o    libarm64/crt2.o     libarm64/crt1u.o   libarm64/crt2u.o    libarm64/dllcrt1.o    libarm64/dllcrt2.o \
-  libarm64/CRT_fp8.o libarm64/txtmode.o  libarm64/binmode.o libarm64/crtbegin.o libarm64/crtend.o \
+  libarm64/txtmode.o libarm64/binmode.o libarm64/crtbegin.o libarm64/crtend.o \
   libarm64/gcrt0.o   libarm64/gcrt1.o    libarm64/gcrt2.o   libarm64/CRT_glob.o libarm64/CRT_noglob.o
 else
 crt64_DATA =
