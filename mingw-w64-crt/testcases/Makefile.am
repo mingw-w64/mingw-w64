@@ -214,6 +214,7 @@ endif
 if HOST_X86
 testcase_progs += \
   t_fesetenv_fp10 \
+  t_fesetenv_fp4 \
   t_fesetenv_fp8
 endif
 
@@ -259,6 +260,7 @@ t_global_ctors_LDFLAGS = $(AM_LDFLAGS) -static
 t_global_ctors_LDADD = @TARGET_LIBGCC_FILE_NAME@ $(LDADD)
 
 t_fesetenv_fp10_LDADD = -l:CRT_fp10.o $(LDADD)
+t_fesetenv_fp4_LDADD = -l:CRT_fp4.o $(LDADD)
 t_fesetenv_fp8_LDADD = -l:CRT_fp8.o $(LDADD)
 
 # Compile t_intrinc in C99 mode
