@@ -552,7 +552,8 @@ src_ucrtbase32=\
   math/x86/floorf.S \
   math/x86/fmodf.c \
   math/x86/sinf.c \
-  math/x86/tanf.c
+  math/x86/tanf.c \
+  misc/msvcr80plus_sse_mxcsr_reset.c
 
 # Files included in libucrt*.a on x86_64
 src_ucrtbase64=\
@@ -586,6 +587,7 @@ src_msvcrt32=\
   locale/_create_locale.c \
   locale/_free_locale.c \
   locale/_get_current_locale.c \
+  misc/msvcr80pre_sse_mxcsr_reset.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   misc/i386__XcptFilter.c \
@@ -1017,6 +1019,7 @@ src_pre_msvcr80=\
   misc/_set_fmode.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
+  misc/msvcr80pre_sse_mxcsr_reset.c \
   misc/output_format.c \
   misc/strnlen.c \
   misc/wassert.c \
@@ -1076,6 +1079,7 @@ src_pre_msvcr120_post_msvcr71=\
 src_post_msvcr71=\
   ctype/_iscsym_l.c \
   ctype/_iscsymf_l.c \
+  misc/msvcr80plus_sse_mxcsr_reset.c \
   stdio/msvcr80plus_ftruncate64.c \
   string/msvcr80plus_wcstok.c
 
