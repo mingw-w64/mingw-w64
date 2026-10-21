@@ -54,14 +54,9 @@ int fesetenv(const fenv_t *env)
     if (env == FE_DFL_ENV) {
         _fpreset();
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
-        /* _fpreset only reinitializes the x87 unit.  Also put MXCSR back to
-           its startup value, 0x1f80: all exceptions masked, round to nearest,
-           no flush to zero or denormals are zero, and no flags set.  */
-        if (__mingw_has_sse()) {
-            cw = _MCW_EM | _RC_NEAR | _DN_SAVE;
-            stat = 0;
-            __mingw_setfp_sse(&cw, mask, &stat, ~0);
-        }
+        /* DLL _fpreset on i386 and mingw-w64 _fpreset wrapper on x86-64
+         * reinitialize the x87 unit and also reset MXCSR, so no change is
+         * needed.  */
 #elif defined(__arm__) || (defined(__aarch64__) && !defined(__arm64ec__))
         /* msvcrt.dll's _fpreset on aarch64 leaves the exception flags in
            FPSR set, so clear the status flags explicitly.  */
