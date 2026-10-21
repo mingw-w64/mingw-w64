@@ -102,7 +102,6 @@ DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
-CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES = crt/_mingw.h
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
@@ -161,8 +160,7 @@ HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) \
 	$(khrhead_HEADERS) $(mingwhelperhead_HEADERS) \
 	$(syshead_HEADERS) $(wrlhead_HEADERS) \
 	$(wrlwrappershead_HEADERS)
-am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP) \
-	config.h.in
+am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
 # and print each of them once, without duplicates.  Input order is
 # *not* preserved.
@@ -180,7 +178,7 @@ am__define_uniq_tagged_files = \
     if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
   done | $(am__uniquify_input)`
 AM_RECURSIVE_TARGETS = cscope
-am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
+am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/build-aux/config.guess \
 	$(top_srcdir)/build-aux/config.sub \
 	$(top_srcdir)/build-aux/install-sh \
@@ -686,7 +684,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  tlb/stdole2.idl
 
 @HAVE_WIDL_TRUE@BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
-all: $(BUILT_SOURCES) config.h
+all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
@@ -723,21 +721,6 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
-
-config.h: stamp-h1
-	@test -f $@ || rm -f stamp-h1
-	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp-h1
-
-stamp-h1: $(srcdir)/config.h.in $(top_builddir)/config.status
-	@rm -f stamp-h1
-	cd $(top_builddir) && $(SHELL) ./config.status config.h
-$(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) 
-	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
-	rm -f stamp-h1
-	touch $@
-
-distclean-hdr:
-	-rm -f config.h stamp-h1
 crt/_mingw.h: $(top_builddir)/config.status $(top_srcdir)/crt/_mingw.h.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-baseheadHEADERS: $(basehead_HEADERS)
@@ -1187,7 +1170,7 @@ distcleancheck: distclean
 check-am: all-am
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
-all-am: Makefile $(HEADERS) config.h
+all-am: Makefile $(HEADERS)
 installdirs:
 	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(gdiplusheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(idlheaddir)" "$(DESTDIR)$(khrheaddir)" "$(DESTDIR)$(mingwhelperheaddir)" "$(DESTDIR)$(sysheaddir)" "$(DESTDIR)$(wrlheaddir)" "$(DESTDIR)$(wrlwrappersheaddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
@@ -1232,7 +1215,7 @@ clean-am: clean-generic mostlyclean-am
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic distclean-hdr distclean-tags
+distclean-am: clean-am distclean-generic distclean-tags
 
 dvi: dvi-am
 
@@ -1308,15 +1291,14 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	clean-cscope clean-generic cscope cscopelist-am ctags ctags-am \
 	dist dist-all dist-bzip2 dist-gzip dist-hook dist-lzip \
 	dist-shar dist-tarZ dist-xz dist-zip dist-zstd distcheck \
-	distclean distclean-generic distclean-hdr distclean-tags \
-	distcleancheck distdir distuninstallcheck dvi dvi-am html \
-	html-am info info-am install install-am \
-	install-baseheadHEADERS install-data install-data-am \
-	install-ddkheadHEADERS install-dvi install-dvi-am install-exec \
-	install-exec-am install-gdiplusheadHEADERS \
-	install-glheadHEADERS install-html install-html-am \
-	install-idlheadHEADERS install-info install-info-am \
-	install-khrheadHEADERS install-man \
+	distclean distclean-generic distclean-tags distcleancheck \
+	distdir distuninstallcheck dvi dvi-am html html-am info \
+	info-am install install-am install-baseheadHEADERS \
+	install-data install-data-am install-ddkheadHEADERS \
+	install-dvi install-dvi-am install-exec install-exec-am \
+	install-gdiplusheadHEADERS install-glheadHEADERS install-html \
+	install-html-am install-idlheadHEADERS install-info \
+	install-info-am install-khrheadHEADERS install-man \
 	install-mingwhelperheadHEADERS install-pdf install-pdf-am \
 	install-ps install-ps-am install-strip install-sysheadHEADERS \
 	install-wrlheadHEADERS install-wrlwrappersheadHEADERS \
