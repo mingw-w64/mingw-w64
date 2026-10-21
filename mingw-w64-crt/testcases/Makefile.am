@@ -210,6 +210,13 @@ testcase_progs += \
   t_wrongret
 endif
 
+# The CRT_fp*.o objects are only built for x86.
+if HOST_X86
+testcase_progs += \
+  t_fesetenv_fp10 \
+  t_fesetenv_fp8
+endif
+
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
 # Automake does not assume .c extension.
@@ -250,6 +257,9 @@ endif
 # Test only for -static -lgcc
 t_global_ctors_LDFLAGS = $(AM_LDFLAGS) -static
 t_global_ctors_LDADD = @TARGET_LIBGCC_FILE_NAME@ $(LDADD)
+
+t_fesetenv_fp10_LDADD = -l:CRT_fp10.o $(LDADD)
+t_fesetenv_fp8_LDADD = -l:CRT_fp8.o $(LDADD)
 
 # Compile t_intrinc in C99 mode
 t_intrinc_CFLAGS = -std=c99 $(AM_CFLAGS)

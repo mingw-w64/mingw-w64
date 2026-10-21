@@ -227,6 +227,8 @@ AC_SUBST([LIBARM64SUFFIXDIR],[$libarm64suffx])
 AC_SUBST([LIBARM32SUFFIXDIR],[$libarm32suffx])
 
 AM_CONDITIONAL([ARM64EC],[test $host_cpu = arm64ec -o x$enable_arm64x = xyes])
+AS_CASE([$host_cpu],[x86_64 | i*86],[host_x86=yes],[host_x86=no])
+AM_CONDITIONAL([HOST_X86],[test $host_x86 = yes])
 
 # Checks for features.
 
