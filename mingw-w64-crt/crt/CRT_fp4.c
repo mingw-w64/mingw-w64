@@ -19,7 +19,6 @@ const fenv_t __mingw_fe_dfl_env = { 0x3f3f203f, 0 };
 extern void (__cdecl * const __i386_pre_msvcr80_sse_mxcsr_reset)(void);
 #endif
 extern void (__cdecl * __MINGW_IMP_SYMBOL(_fpreset))(void);
-void __cdecl _fpreset (void);
 
 void __cdecl _fpreset (void)
 {

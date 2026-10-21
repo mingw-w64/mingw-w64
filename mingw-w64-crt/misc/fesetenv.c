@@ -5,6 +5,7 @@
  */
 
 #include <internal.h>
+#include <float.h>
 
 /* The FE_DFL_ENV macro is required by standard.
    fesetenv recognizes it by address and installs the environment set at
@@ -39,9 +40,6 @@ const fenv_t __mingw_fe_pc53_env = { 0x3f3f103f, 0 };
    flags represented through its argument, and does not raise these
    exceptions.
  */
-
-extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
-extern void _fpreset(void);
 
 int fesetenv(const fenv_t *env)
 {

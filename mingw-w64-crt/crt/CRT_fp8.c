@@ -6,6 +6,7 @@
 
 #include <_mingw.h>
 #include <fenv.h>
+#include <float.h>
 
 /* FE_DFL_ENV as fegetenv encodes the state after this _fpreset (x87
    control word 0x027f, MXCSR 0x1f80).  */
@@ -15,7 +16,6 @@ const fenv_t __mingw_fe_dfl_env = { 0x3f3f103f, 0 };
 extern void (__cdecl * const __i386_pre_msvcr80_sse_mxcsr_reset)(void);
 #endif
 extern void (__cdecl * __MINGW_IMP_SYMBOL(_fpreset))(void);
-void __cdecl _fpreset (void);
 
 void __cdecl _fpreset (void)
 {
