@@ -260,6 +260,7 @@ libarm64_DATA += %reldir%/libquery.a
 libarm64_DATA += %reldir%/libqutil.a
 libarm64_DATA += %reldir%/libqwave.a
 libarm64_DATA += %reldir%/librasadhlp.a
+libarm64_DATA += %reldir%/librasapi32.a
 libarm64_DATA += %reldir%/librasauto.a
 libarm64_DATA += %reldir%/libraschap.a
 libarm64_DATA += %reldir%/librasctrs.a
