@@ -1,6 +1,6 @@
 ;
 ; Definition file of sfc.dll
-; Based on mingw-w64-crt/lib64/sfc.def
+; Based on mingw-w64-crt/lib-common/sfc.def
 ; Excluding undocumented SfcWLEventLogoff/SfcWLEventLogon
 ; Written by Samuel Therrien, 2026
 ;
