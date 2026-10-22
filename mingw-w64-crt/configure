@@ -660,6 +660,8 @@ CFGUARD_CFLAGS
 MSVCRT_LIB
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
+HOST_X86_FALSE
+HOST_X86_TRUE
 ARM64EC_FALSE
 ARM64EC_TRUE
 LIBARM32SUFFIXDIR
@@ -6694,6 +6696,20 @@ else
   ARM64EC_FALSE=
 fi
 
+case $host_cpu in #(
+  x86_64 | i*86) :
+    host_x86=yes ;; #(
+  *) :
+    host_x86=no ;;
+esac
+ if test $host_x86 = yes; then
+  HOST_X86_TRUE=
+  HOST_X86_FALSE='#'
+else
+  HOST_X86_TRUE='#'
+  HOST_X86_FALSE=
+fi
+
 
 # Checks for features.
 
@@ -7278,6 +7294,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ARM64EC_TRUE}" && test -z "${ARM64EC_FALSE}"; then
   as_fn_error $? "conditional \"ARM64EC\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HOST_X86_TRUE}" && test -z "${HOST_X86_FALSE}"; then
+  as_fn_error $? "conditional \"HOST_X86\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
