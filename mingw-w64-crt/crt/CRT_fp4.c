@@ -46,10 +46,4 @@ void __cdecl _fpreset (void)
 #endif
 }
 
-#ifdef __GNUC__
 void __attribute__ ((alias ("_fpreset"))) __cdecl fpreset(void);
-#else
-void __cdecl fpreset(void) {
-    _fpreset();
-}
-#endif
