@@ -8,7 +8,6 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#include <versionhelpers.h>
 
 /* mingw-w64 headers */
 #include "libtest.h"
@@ -142,7 +141,7 @@ int parent_main(const char *argv0) {
 int main(int argc, char *argv[]) {
     mingw_test_init ();
 
-    if (!IsWindowsVistaOrGreater()) {
+    if (_winver < _WIN32_WINNT_VISTA) {
         /* This test requires at least Windows Vista (where
          * CRITICAL_SECTIONs were made shutdown-aware)
          */
