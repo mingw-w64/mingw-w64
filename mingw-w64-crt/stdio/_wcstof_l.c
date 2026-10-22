@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <math.h>
 #include <locale.h>
+#include <wchar.h>
 
 float _wcstof_l( const wchar_t *nptr, wchar_t **endptr, _locale_t _Locale)
 {
@@ -26,3 +27,4 @@ float _wcstof_l( const wchar_t *nptr, wchar_t **endptr, _locale_t _Locale)
   }
   return ret;
 }
+float (*__MINGW_IMP_SYMBOL(_wcstof_l))(const wchar_t *, wchar_t **, _locale_t) = _wcstof_l;

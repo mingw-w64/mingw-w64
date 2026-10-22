@@ -9,3 +9,4 @@
 
 #undef __setusermatherr
 void __setusermatherr(__UNUSED_PARAM(int (__cdecl *f)(struct _exception *))) { }
+void (*__MINGW_IMP_SYMBOL(__setusermatherr))(int (__cdecl *)(struct _exception *)) = __setusermatherr;
