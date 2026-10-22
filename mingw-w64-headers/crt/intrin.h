@@ -34,9 +34,6 @@
 #ifndef RC_INVOKED
 
 #include <corecrt.h>
-#ifndef __CYGWIN__
-#include <setjmp.h>
-#endif
 #include <stddef.h>
 #include <psdk_inc/intrin-impl.h>
 
@@ -412,7 +409,6 @@ _CRT_BEGIN_C_HEADER
     __MACHINEIA64(void __lfetchfault_excl(int,void const *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 __load128(void *,__int64 *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 __load128_acq(void *,__int64 *))
-    __MACHINEZ(void __cdecl longjmp(jmp_buf,int))
 
     /* __MACHINE(unsigned long __cdecl _lrotl(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINE(unsigned long __cdecl _lrotr(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
@@ -498,18 +494,6 @@ _CRT_BEGIN_C_HEADER
 #define _rotr64 __rorq
     __MACHINEIA64(void __rsm(int))
     __MACHINEIA64(void __rum(int))
-#ifndef __CYGWIN__
-#ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
-    __MACHINEIA32(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf))
-    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf,void *))
-    __MACHINEIA64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
-    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
-#else
-    __MACHINE(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf))
-    __MACHINEIA64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf))
-    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf))
-#endif
-#endif
     __MACHINEIA64(__MINGW_EXTENSION void __setReg(int,unsigned __int64))
     __MACHINEARMX(void _SmulAdd_SL_ACC(int,int))
     __MACHINEARMX(void _SmulAddPack_2SW_ACC(int,int))
