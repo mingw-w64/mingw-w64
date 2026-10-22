@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -19,9 +20,6 @@ int main(int argc, char *argv[])
     char buffer[sizeof(windows_dir_path) + 128];
     struct stat st;
     struct stat64 st64;
-    DWORD raw_ver;
-    unsigned ver;
-    unsigned is_not_nt;
 
     mingw_test_init ();
 
@@ -33,11 +31,7 @@ int main(int argc, char *argv[])
     if (!GetWindowsDirectoryA(windows_dir_path, MAX_PATH))
         return 77;
 
-    raw_ver = GetVersion();
-    ver = ((raw_ver & 0xff) << 8) | ((raw_ver & 0xff00) >> 8);
-    is_not_nt = (raw_ver >> 31);
-
-    if (is_not_nt)
+    if (_osplatform != VER_PLATFORM_WIN32_NT)
         return 77;
 
     assert(stat("nul", &st) == 0);
@@ -54,7 +48,7 @@ int main(int argc, char *argv[])
     assert(S_ISDIR(st.st_mode));
 
     /* WinAPI namespace \\?\ is supported since Windows NT 3.5 */
-    if (ver < _WIN32_WINNT_NT35)
+    if (_winver < _WIN32_WINNT_NT35)
         return 77;
 
     snprintf(buffer, sizeof(buffer), "\\\\?\\%s", windows_dir_path);
@@ -63,7 +57,7 @@ int main(int argc, char *argv[])
     assert(S_ISDIR(st.st_mode));
 
     /* NT \??\Global and NT \??\GLOBALROOT is available since Windows 2000 */
-    if (ver < _WIN32_WINNT_WIN2K)
+    if (_winver < _WIN32_WINNT_WIN2K)
         return 0;
 
     snprintf(buffer, sizeof(buffer), "\\\\.\\Global\\%s", windows_dir_path);
@@ -97,7 +91,7 @@ int main(int argc, char *argv[])
     assert(S_ISDIR(st.st_mode));
 
     /* NT \GLOBAL?? is available since Windows XP */
-    if (ver < _WIN32_WINNT_WINXP)
+    if (_winver < _WIN32_WINNT_WINXP)
         return 0;
 
     snprintf(buffer, sizeof(buffer), "\\\\.\\GLOBALROOT\\GLOBAL??\\%s", windows_dir_path);
