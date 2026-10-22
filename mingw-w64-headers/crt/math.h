@@ -12,8 +12,6 @@
 
 #include <crtdefs.h>
 
-struct _exception;
-
 #define	_DOMAIN		1	/* domain error in argument */
 #define	_SING		2	/* singularity */
 #define	_OVERFLOW	3	/* range overflow */
