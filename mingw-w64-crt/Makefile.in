@@ -16755,14 +16755,14 @@ src_intrincsarm64 =
 #libarm64_DATA += libarm64/libshell32.a    # Handled by custom rule
 #libarm64_DATA += libarm64/libws2_32.a      # Handled by custom rule
 @LIBARM64_TRUE@libarm64_DATA = $(am__append_25) libarm64/libacledit.a \
-@LIBARM64_TRUE@	libarm64/libactiveds.a libarm64/libadvapi32.a \
-@LIBARM64_TRUE@	libarm64/libadvpack.a libarm64/libappmgmts.a \
-@LIBARM64_TRUE@	libarm64/libappmgr.a libarm64/libasycfilt.a \
-@LIBARM64_TRUE@	libarm64/libatl.a libarm64/libaudiosrv.a \
-@LIBARM64_TRUE@	libarm64/libauthz.a libarm64/libavicap32.a \
-@LIBARM64_TRUE@	libarm64/libavifil32.a libarm64/libavrt.a \
-@LIBARM64_TRUE@	libarm64/libazroles.a libarm64/libbasesrv.a \
-@LIBARM64_TRUE@	libarm64/libbcrypt.a \
+@LIBARM64_TRUE@	libarm64/libaclui.a libarm64/libactiveds.a \
+@LIBARM64_TRUE@	libarm64/libadvapi32.a libarm64/libadvpack.a \
+@LIBARM64_TRUE@	libarm64/libappmgmts.a libarm64/libappmgr.a \
+@LIBARM64_TRUE@	libarm64/libasycfilt.a libarm64/libatl.a \
+@LIBARM64_TRUE@	libarm64/libaudiosrv.a libarm64/libauthz.a \
+@LIBARM64_TRUE@	libarm64/libavicap32.a libarm64/libavifil32.a \
+@LIBARM64_TRUE@	libarm64/libavrt.a libarm64/libazroles.a \
+@LIBARM64_TRUE@	libarm64/libbasesrv.a libarm64/libbcrypt.a \
 @LIBARM64_TRUE@	libarm64/libbcryptprimitives.a \
 @LIBARM64_TRUE@	libarm64/libbluetoothapis.a \
 @LIBARM64_TRUE@	libarm64/libbootvid.a libarm64/libbrowcli.a \
@@ -16892,16 +16892,17 @@ src_intrincsarm64 =
 @LIBARM64_TRUE@	libarm64/libpstorec.a libarm64/libquartz.a \
 @LIBARM64_TRUE@	libarm64/libquery.a libarm64/libqutil.a \
 @LIBARM64_TRUE@	libarm64/libqwave.a libarm64/librasadhlp.a \
-@LIBARM64_TRUE@	libarm64/librasauto.a libarm64/libraschap.a \
-@LIBARM64_TRUE@	libarm64/librasctrs.a libarm64/librasmontr.a \
-@LIBARM64_TRUE@	libarm64/librasmxs.a libarm64/librasser.a \
-@LIBARM64_TRUE@	libarm64/librastapi.a libarm64/librdpcfgex.a \
-@LIBARM64_TRUE@	libarm64/libregapi.a libarm64/libregsvc.a \
-@LIBARM64_TRUE@	libarm64/libresutils.a libarm64/libriched20.a \
-@LIBARM64_TRUE@	libarm64/librnr20.a libarm64/librometadata.a \
-@LIBARM64_TRUE@	libarm64/librpcns4.a libarm64/librpcrt4.a \
-@LIBARM64_TRUE@	libarm64/librpcss.a libarm64/librsaenh.a \
-@LIBARM64_TRUE@	libarm64/librstrtmgr.a libarm64/librtutils.a \
+@LIBARM64_TRUE@	libarm64/librasapi32.a libarm64/librasauto.a \
+@LIBARM64_TRUE@	libarm64/libraschap.a libarm64/librasctrs.a \
+@LIBARM64_TRUE@	libarm64/librasmontr.a libarm64/librasmxs.a \
+@LIBARM64_TRUE@	libarm64/librasser.a libarm64/librastapi.a \
+@LIBARM64_TRUE@	libarm64/librdpcfgex.a libarm64/libregapi.a \
+@LIBARM64_TRUE@	libarm64/libregsvc.a libarm64/libresutils.a \
+@LIBARM64_TRUE@	libarm64/libriched20.a libarm64/librnr20.a \
+@LIBARM64_TRUE@	libarm64/librometadata.a libarm64/librpcns4.a \
+@LIBARM64_TRUE@	libarm64/librpcrt4.a libarm64/librpcss.a \
+@LIBARM64_TRUE@	libarm64/librsaenh.a libarm64/librstrtmgr.a \
+@LIBARM64_TRUE@	libarm64/librtutils.a \
 @LIBARM64_TRUE@	libarm64/libruntimeobject.a \
 @LIBARM64_TRUE@	libarm64/libsamcli.a libarm64/libscarddlg.a \
 @LIBARM64_TRUE@	libarm64/libscesrv.a libarm64/libschannel.a \
@@ -16911,15 +16912,15 @@ src_intrincsarm64 =
 @LIBARM64_TRUE@	libarm64/libsecurity.a libarm64/libsensapi.a \
 @LIBARM64_TRUE@	libarm64/libsens.a libarm64/libserialui.a \
 @LIBARM64_TRUE@	libarm64/libserwvdrv.a libarm64/libsetupapi.a \
-@LIBARM64_TRUE@	libarm64/libshcore.a libarm64/libshfolder.a \
-@LIBARM64_TRUE@	libarm64/libshimgvw.a libarm64/libshlwapi.a \
-@LIBARM64_TRUE@	libarm64/libshsvcs.a libarm64/libsisbkup.a \
-@LIBARM64_TRUE@	libarm64/libslcext.a libarm64/libslwga.a \
-@LIBARM64_TRUE@	libarm64/libsnmpapi.a libarm64/libsoftpub.a \
-@LIBARM64_TRUE@	libarm64/libsqlsrv32.a libarm64/libsrvcli.a \
-@LIBARM64_TRUE@	libarm64/libsrvsvc.a libarm64/libsspicli.a \
-@LIBARM64_TRUE@	libarm64/libstreamci.a libarm64/libsxs.a \
-@LIBARM64_TRUE@	libarm64/libsynchronization.a \
+@LIBARM64_TRUE@	libarm64/libsfc.a libarm64/libshcore.a \
+@LIBARM64_TRUE@	libarm64/libshfolder.a libarm64/libshimgvw.a \
+@LIBARM64_TRUE@	libarm64/libshlwapi.a libarm64/libshsvcs.a \
+@LIBARM64_TRUE@	libarm64/libsisbkup.a libarm64/libslcext.a \
+@LIBARM64_TRUE@	libarm64/libslwga.a libarm64/libsnmpapi.a \
+@LIBARM64_TRUE@	libarm64/libsoftpub.a libarm64/libsqlsrv32.a \
+@LIBARM64_TRUE@	libarm64/libsrvcli.a libarm64/libsrvsvc.a \
+@LIBARM64_TRUE@	libarm64/libsspicli.a libarm64/libstreamci.a \
+@LIBARM64_TRUE@	libarm64/libsxs.a libarm64/libsynchronization.a \
 @LIBARM64_TRUE@	libarm64/libt2embed.a libarm64/libtapi32.a \
 @LIBARM64_TRUE@	libarm64/libtapiperf.a libarm64/libtbs.a \
 @LIBARM64_TRUE@	libarm64/libtdh.a libarm64/libtraffic.a \
