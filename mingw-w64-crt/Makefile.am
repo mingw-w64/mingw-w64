@@ -125,7 +125,6 @@ src_libmingw32=include/internal.h include/sect_attribs.h crt/seh_signal_dispatch
   crt/cinitexe.c      crt/merr.c      crt/udllargc.c    crt/xthdloc.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
-  crt/usermatherr.c   \
   crt/xtxtmode.c      \
   crt/crtdll_atexit_register.c \
   crt/tls_exe_atexit_callback.c \
@@ -1318,6 +1317,8 @@ src_libmingwex=\
   misc/wmemset.c         misc/mingw-access.c \
   misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
   misc/__mingw_filename_cp.c  \
+  misc/__mingw_raise_matherr.c \
+  misc/__mingw_setusermatherr.c \
   \
   ssp/chk_fail.c         ssp/gets_chk.c             ssp/memcpy_chk.c        ssp/memmove_chk.c \
   ssp/mempcpy_chk.c \
