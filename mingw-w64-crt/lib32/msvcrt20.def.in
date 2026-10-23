@@ -1084,7 +1084,7 @@ _lseek
 _ltoa
 _ltow
 _makepath
-_matherr
+; _matherr ; libmingw32.a provides its own default empty _matherr function
 _mbbtombc
 _mbbtype
 _mbccpy

@@ -223,7 +223,7 @@ _lsearch
 _lseek
 _ltoa
 _makepath
-_matherr
+; _matherr ; libmingw32.a provides its own default empty _matherr function
 _mbstrlen
 _memccpy
 _memicmp
