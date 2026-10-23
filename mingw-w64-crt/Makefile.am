@@ -1649,11 +1649,11 @@ lib32_libgmon_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libmingw32.a
 lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 $(extra_include)
-lib32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
+lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math) crt/CRT_fp10.c
 
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include)
@@ -2069,11 +2069,11 @@ lib64_libgmon_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 $(extra_include)
-lib64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
+lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math) crt/CRT_fp10.c
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include)
