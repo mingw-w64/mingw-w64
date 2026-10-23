@@ -1303,7 +1303,7 @@ src_libmingwex=\
   misc/memalignment.c \
   misc/mempcpy.c         misc/memset_explicit.c      misc/mingw-aligned-malloc.c \
   misc/strndup.c \
-  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
+  misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
   misc/mkstemp.c         misc/mkdtemp.c         \
   misc/sleep.c           \

@@ -48,6 +48,8 @@ extern _PVFV __xc_a[];
 extern _PVFV __xc_z[];
 
 
+const int __defaultmatherr __attribute__((common)); /* tentative */
+
 /* TLS initialization hook.  */
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback __attribute__((common)); /* tentative */
 
@@ -65,8 +67,6 @@ static int has_cctor = 0;
 
 extern void _pei386_runtime_relocator (void);
 static int duplicate_ppstrings (int ac, _TCHAR ***av);
-
-extern int _MINGW_INSTALL_DEBUG_MATHERR;
 
 #ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
 #define __UNUSED_PARAM_1(x) x
@@ -224,7 +224,7 @@ __tmainCRTStartup (void)
 	if (ret < 0)
 	  _amsg_exit (8); /* _RT_SPACEARG */
 
-	if (_MINGW_INSTALL_DEBUG_MATHERR == 1)
+	if (!__defaultmatherr)
 	  __setusermatherr (_matherr);
 
 	if (__globallocalestatus == -1)
