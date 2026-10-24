@@ -57,12 +57,12 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
 
       if (x_class == FP_NAN)
         {
-          __FLT_RPT_DOMAIN ("sqrt", x, 0.0, x);
+          x = __FLT_RPT_DOMAIN ("sqrt", x, 0.0, x);
           return x;
         }
 
       res = -__FLT_NAN;
-      __FLT_RPT_DOMAIN ("sqrt", x, 0.0, res);
+      res = __FLT_RPT_DOMAIN ("sqrt", x, 0.0, res);
       return res;
     }
   else if (x_class == FP_ZERO)

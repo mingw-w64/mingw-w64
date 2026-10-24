@@ -275,6 +275,9 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 # Compile t_tls_c11 in C11 mode
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
 
+# Compile t_matherr without math builtin functions (needed for _matherr)
+t_matherr_CFLAGS = -fno-builtin $(AM_CFLAGS)
+
 # Link t_tls_dll_native against libtlsnat.dll
 t_tls_dll_native_LDADD = libtlsnat.dll $(LDADD)
 

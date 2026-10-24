@@ -116,13 +116,19 @@
 # error "Unknown complex number type"
 #endif
 
-#define __FLT_RPT_DOMAIN(NAME, ARG1, ARG2, RSLT) \
-	errno = EDOM, \
-	__mingw_raise_matherr (_DOMAIN, __FLT_REPORT(NAME), (double) (ARG1), \
-			       (double) (ARG2), (double) (RSLT))
-#define __FLT_RPT_ERANGE(NAME, ARG1, ARG2, RSLT, OVL) \
-	errno = ERANGE, \
-        __mingw_raise_matherr (((OVL) ? _OVERFLOW : _UNDERFLOW), \
-			       __FLT_REPORT(NAME), (double) (ARG1), \
-                               (double) (ARG2), (double) (RSLT))
+#define __FLT_RPT_DOMAIN(NAME, ARG1, ARG2, RSLT) ({ \
+	double _rslt = (double) (RSLT); \
+	if (__mingw_raise_matherr_ret (_DOMAIN, __FLT_REPORT(NAME), (double) (ARG1), \
+					(double) (ARG2), &_rslt ) == 0) \
+		errno = EDOM; \
+	_rslt; \
+})
+#define __FLT_RPT_ERANGE(NAME, ARG1, ARG2, RSLT, OVL) ({ \
+	double _rslt = (double) (RSLT); \
+	if (__mingw_raise_matherr_ret (((OVL) ? _OVERFLOW : _UNDERFLOW), \
+					__FLT_REPORT(NAME), (double) (ARG1), \
+					(double) (ARG2), &_rslt) == 0) \
+		errno = ERANGE; \
+	_rslt; \
+})
 

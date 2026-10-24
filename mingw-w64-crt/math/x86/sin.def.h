@@ -53,13 +53,13 @@ __FLT_ABI(sin) (__FLT_TYPE x)
   int x_class = fpclassify (x);
   if (x_class == FP_NAN)
     {
-      __FLT_RPT_DOMAIN ("sin", x, 0.0, x);
+      x = __FLT_RPT_DOMAIN ("sin", x, 0.0, x);
       return x;
     }
   else if (x_class == FP_INFINITE)
     {
-      __FLT_RPT_DOMAIN ("sin", x, 0.0, __FLT_NAN);
-      return __FLT_NAN;
+      x = __FLT_RPT_DOMAIN ("sin", x, 0.0, __FLT_NAN);
+      return x;
     }
   return (__FLT_TYPE) __sinl_internal ((long double) x);
 }

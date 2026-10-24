@@ -47,11 +47,8 @@ int main()
     fprintf (stderr, "_matherr(): %s in %s(%g)  (retval: orig=%g, changed=%g)\n",
              type, matherr_except.name, matherr_except.arg1, matherr_except.retval, retval);
   }
-#if 0
-  /* Disable asserting for recovery because it is failing */
   assert (matherr_errno == 0);
   assert (retval == 42.0);
-#endif
   assert (has_matherr_except);
   assert (matherr_except.type == _DOMAIN);
   assert (strcmp(matherr_except.name, "sqrt") == 0);

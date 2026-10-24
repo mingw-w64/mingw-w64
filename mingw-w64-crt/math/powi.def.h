@@ -100,7 +100,7 @@ __FLT_ABI(__powi) (__FLT_TYPE x, int y)
   else if (x_class == FP_NAN)
     {
       rslt = (signbit(x) ? -__FLT_NAN : __FLT_NAN);
-      __FLT_RPT_DOMAIN ("__powi", x, (__FLT_TYPE) y, rslt);
+      rslt = __FLT_RPT_DOMAIN ("__powi", x, (__FLT_TYPE) y, rslt);
       return rslt;
     }
   else if (x_class == FP_ZERO)

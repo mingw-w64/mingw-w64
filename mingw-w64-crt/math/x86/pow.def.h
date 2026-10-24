@@ -119,10 +119,10 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
   else if (x_class == FP_NAN || y_class == FP_NAN)
     {
       if (x_class == FP_NAN) {
-        __FLT_RPT_DOMAIN ("pow", x, y, x);
+        x = __FLT_RPT_DOMAIN ("pow", x, y, x);
         return x;
       } else {
-        __FLT_RPT_DOMAIN ("pow", x, y, y);
+        y = __FLT_RPT_DOMAIN ("pow", x, y, y);
         return y;
       }
     }
@@ -134,8 +134,6 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
 	  return signbit (y) ? (1.0 / -x) : __FLT_CST (0.0);
-	  /*__FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-	  return -__FLT_NAN; */
 	}
       odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       if (!signbit(y))
@@ -168,8 +166,6 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
 	  return signbit(y) ? 1.0 / -x : -x;
-	  /*__FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-	  return -__FLT_NAN;*/
 	}
       odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       /* pow( -inf, y) = +0 for y<0 and not an odd integer,  */
@@ -196,8 +192,8 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
     {
       if (signbit (x))
 	{
-	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-	  return -__FLT_NAN;
+	  x = __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
+	  return x;
 	}
       if (y == __FLT_CST(0.5))
 	{
