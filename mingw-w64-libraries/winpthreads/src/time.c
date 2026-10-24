@@ -218,6 +218,20 @@ static ULONGLONG WINAPI WinpthreadsGetTickCount64 (VOID) {
 typedef int (* FuncWinpthreadsTimeImpl) (struct _timespec64 *, struct _timespec64 *);
 
 /**
+ * Implementation for `CLOCK_REALTIME` using `GetSystemTimeAsFileTime`.
+ *
+ * This function always succeeds.
+ */
+static int WinpthreadsTimeImplRealtime (struct _timespec64 *, struct _timespec64 *);
+
+/**
+ * Implementation for `CLOCK_REALTIME` using `GetSystemTimePreciseAsFileTime`.
+ *
+ * This function always succeeds.
+ */
+static int WinpthreadsTimeImplRealtimePrecise (struct _timespec64 *, struct _timespec64 *);
+
+/**
  * Implementation for `CLOCK_MONOTONIC` using `GetTickCount*`.
  *
  * This function always succeeds.
@@ -277,6 +291,25 @@ typedef struct TimeImpl {
     long Resolution;
   } PerformanceCounter;
   /**
+   * Implementation for `CLOCK_REALTIME`.
+   *
+   * 1. Implementation using `GetSystemTimePreciseAsFileTime`.
+   *
+   *  This is the preferred implementation; it is used when both
+   *  `GetSystemTimePreciseAsFileTime` is available and the performance counter
+   *  is supported.
+   *
+   *  This implementation provides <1us resolution.
+   *
+   * 2. Implementation using `GetSystemTimeAsFileTime`.
+   *
+   *  This implementation is used when either `GetSystemTimePreciseAsFileTime`
+   *  is not available or the performance counter is not supported.
+   *
+   *  This implementation provides the same resolution as the system clock.
+   */
+  FuncWinpthreadsTimeImpl TimeImplRealtime;
+  /**
    * Implementation for `CLOCK_MONOTONIC`.
    *
    * 1. Implementation using `QueryPerformanceCounter`.
@@ -314,6 +347,7 @@ static TimeImpl WinpthreadsTimeImpl = {
   .SystemClock.Resolution = 0,
   .PerformanceCounter.Frequency = 0,
   .PerformanceCounter.Resolution = 0,
+  .TimeImplRealtime = WinpthreadsTimeImplRealtime,
   .TimeImplMonotonic = WinpthreadsTimeImplMonotonicFromTickCount,
 };
 
@@ -439,6 +473,16 @@ void winpthreads_time_init (void) {
 
     WinpthreadsTimeImpl.Flags            |= HIGH_RESOLUTION_WINDOWS_TIME;
     WinpthreadsTimeImpl.TimeImplMonotonic = WinpthreadsTimeImplMonotonicFromPerformanceCounter;
+
+    /**
+     * Even though `GetSystemTimePreciseAsFileTime` is available since
+     * Windows 8, which should imply that the performance counter is supported,
+     * we want to be sure that `GetSystemTimePreciseAsFileTime` is used only
+     * when the performance counter is also supported.
+     */
+    if (WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_SYSTEM_TIME)) {
+      WinpthreadsTimeImpl.TimeImplRealtime = WinpthreadsTimeImplRealtimePrecise;
+    }
   }
 }
 
@@ -456,6 +500,49 @@ static void WinpthreadsGetSystemClockResolution (struct _timespec64 *ts) {
 static void WinpthreadsGetPerformanceCounterResolution (struct _timespec64 *ts) {
   ts->tv_sec  = WinpthreadsTimeImpl.PerformanceCounter.Resolution / POW10_9;
   ts->tv_nsec = WinpthreadsTimeImpl.PerformanceCounter.Resolution % POW10_9;
+}
+
+/**
+ * Call `getSystemTimeAsFileTime` to obtain current system time as a `FILETIME`
+ * value and then store it in `struct _timespec64` structure pointed by `ts`.
+ */
+static void WinpthreadsGetSystemTime (struct _timespec64 *ts, FuncGetSystemTimeAsFileTime getSystemTimeAsFileTime) {
+  FILETIME fileTime;
+
+  getSystemTimeAsFileTime (&fileTime);
+
+  ULARGE_INTEGER value = {
+    .HighPart = fileTime.dwHighDateTime,
+    .LowPart  = fileTime.dwLowDateTime
+  };
+  value.QuadPart -= DELTA_EPOCH_IN_100NS;
+
+  ts->tv_sec  = (__time64_t) (value.QuadPart / POW10_7);
+  ts->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
+}
+
+static int WinpthreadsTimeImplRealtime (struct _timespec64 *time, struct _timespec64 *res) {
+  if (time != NULL) {
+    WinpthreadsGetSystemTime (time, GetSystemTimeAsFileTime);
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetSystemClockResolution (res);
+  }
+
+  return 0;
+}
+
+static int WinpthreadsTimeImplRealtimePrecise (struct _timespec64 *time, struct _timespec64 *res) {
+  if (time != NULL) {
+    WinpthreadsGetSystemTime (time, GetSystemTimePreciseAsFileTime);
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetPerformanceCounterResolution (res);
+  }
+
+  return 0;
 }
 
 static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *time, struct _timespec64 *res) {
@@ -720,22 +807,14 @@ int nanosleep32 (const struct _timespec32 *request, struct _timespec32 *remain)
 
 int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
 {
-  /**
-   * If `GetSystemTimePreciseAsFileTime` is not available,
-   * use `GetSystemTimeAdjustment` to obtain system clock resolution.
-   */
-  if (clock_id == CLOCK_REALTIME && !WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_SYSTEM_TIME)) {
-    clock_id = CLOCK_REALTIME_COARSE;
-  }
-
   switch (clock_id) {
     case CLOCK_REALTIME: {
-      if (!WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_WINDOWS_TIME)) {
-        _set_errno (EINVAL);
-        return -1;
-      }
+      WinpthreadsTimeImpl.TimeImplRealtime (NULL, res);
+      return 0;
+    }
 
-      WinpthreadsGetPerformanceCounterResolution (res);
+    case CLOCK_REALTIME_COARSE: {
+      WinpthreadsTimeImplRealtime (NULL, res);
       return 0;
     }
 
@@ -744,7 +823,6 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
       return 0;
     }
 
-    case CLOCK_REALTIME_COARSE:
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID: {
       WinpthreadsGetSystemClockResolution (res);
@@ -776,34 +854,12 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
 {
   switch (clock_id) {
     case CLOCK_REALTIME: {
-      FILETIME fileTime;
-
-      GetSystemTimePreciseAsFileTime (&fileTime);
-
-      ULARGE_INTEGER value = {
-        .HighPart = fileTime.dwHighDateTime,
-        .LowPart  = fileTime.dwLowDateTime
-      };
-
-      tp->tv_sec  = (__time64_t) ((value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_7);
-      tp->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
-
+      WinpthreadsTimeImpl.TimeImplRealtime (tp, NULL);
       return 0;
     }
 
     case CLOCK_REALTIME_COARSE: {
-      FILETIME fileTime;
-
-      GetSystemTimeAsFileTime (&fileTime);
-
-      ULARGE_INTEGER value = {
-        .HighPart = fileTime.dwHighDateTime,
-        .LowPart  = fileTime.dwLowDateTime
-      };
-
-      tp->tv_sec  = (__time64_t) ((value.QuadPart - DELTA_EPOCH_IN_100NS) / POW10_7);
-      tp->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
-
+      WinpthreadsTimeImplRealtime (tp, NULL);
       return 0;
     }
 
