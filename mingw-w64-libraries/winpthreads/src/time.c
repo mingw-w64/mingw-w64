@@ -655,12 +655,20 @@ static int WinpthreadsTimeImplMonotonicFromPerformanceCounter (struct _timespec6
 }
 
 static int WinpthreadsTimeImplProcessCpuTime (struct _timespec64 *time, struct _timespec64 *res) {
-  if (time != NULL) {
-    int error_code = WinpthreadsGetCpuTime (time, GetProcessTimes, GetCurrentProcess ());
+  struct _timespec64 ts;
 
-    if (error_code != 0) {
-      return error_code;
-    }
+  /**
+   * Win9x: we want both `clock_getres` and `clock_gettime` to fail
+   *  if CPU clocks are not supported.
+   */
+  int error_code = WinpthreadsGetCpuTime (&ts, GetProcessTimes, GetCurrentProcess ());
+
+  if (error_code != 0) {
+    return error_code;
+  }
+
+  if (time != NULL) {
+    *time = ts;
   }
 
   if (res != NULL) {
@@ -671,12 +679,20 @@ static int WinpthreadsTimeImplProcessCpuTime (struct _timespec64 *time, struct _
 }
 
 static int WinpthreadsTimeImplThreadCpuTime (struct _timespec64 *time, struct _timespec64 *res) {
-  if (time != NULL) {
-    int error_code = WinpthreadsGetCpuTime (time, GetThreadTimes, GetCurrentThread ());
+  struct _timespec64 ts;
 
-    if (error_code != 0) {
-      return error_code;
-    }
+  /**
+   * Win9x: we want both `clock_getres` and `clock_gettime` to fail
+   *  if CPU clocks are not supported.
+   */
+  int error_code = WinpthreadsGetCpuTime (&ts, GetThreadTimes, GetCurrentThread ());
+
+  if (error_code != 0) {
+    return error_code;
+  }
+
+  if (time != NULL) {
+    *time = ts;
   }
 
   if (res != NULL) {

@@ -48,33 +48,38 @@ int main(void)
   struct timespec ts2;
   struct timespec request;
   int error_code;
+  int result;
 
-  assert(clock_getres(CLOCK_THREAD_CPUTIME_ID, &res) == 0);
+  errno = 0;
+  error_code = clock_getres(CLOCK_THREAD_CPUTIME_ID, &res);
+  assert(error_code == 0 || (error_code = errno) == ENOTSUP);
   errno = 0;
   error_code = clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts1);
   assert(error_code == 0 || (error_code = errno) == ENOTSUP);
-  /**
-   * `CLOCK_THREAD_CPUTIME_ID` is not supported on Win9x.
-   */
-  if (error_code == ENOTSUP) {
-    wprintf(L"CLOCK_THREAD_CPUTIME_ID is not supported.\n");
-    return 77;
+  if (error_code == 0) {
+    request.tv_sec  = ts1.tv_sec;
+    request.tv_nsec = ts1.tv_nsec + res.tv_nsec * (res.tv_nsec / POW10_6 > 0 ? 10 : POW10_6);
+    if (request.tv_nsec >= POW10_9) {
+      request.tv_sec  += request.tv_nsec / POW10_9;
+      request.tv_nsec %= POW10_9;
+    }
+  } else {
+    request.tv_sec  = 0;
+    request.tv_nsec = 0;
   }
-  request.tv_sec  = ts1.tv_sec;
-  request.tv_nsec = ts1.tv_nsec + res.tv_nsec * (res.tv_nsec / POW10_6 > 0 ? 10 : POW10_6);
-  if (request.tv_nsec >= POW10_9) {
-    request.tv_sec  += request.tv_nsec / POW10_9;
-    request.tv_nsec %= POW10_9;
+  result = clock_nanosleep(CLOCK_THREAD_CPUTIME_ID, TIMER_ABSTIME, &request, NULL);
+  assert(result == EINVAL);
+  errno = 0;
+  error_code = clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts2);
+  assert(error_code == 0 || (error_code = errno) == ENOTSUP);
+
+  if (result != 0) {
+    wprintf(L"Not supported; errno=%d\n", result);
   }
-  error_code = clock_nanosleep(CLOCK_THREAD_CPUTIME_ID, TIMER_ABSTIME, &request, NULL);
-  assert(error_code == EINVAL);
-  assert(clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts2) == 0);
 
   if (error_code == 0) {
     wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
     wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
-  } else {
-    wprintf(L"Not supported; errno=%d\n", error_code);
   }
 
   return 0;
