@@ -32,7 +32,7 @@
  * Test `clock_settime` with `CLOCK_PROCESS_CPUTIME_ID`.
  *
  * Calling `clock_settime` with `CLOCK_PROCESS_CPUTIME_ID` is not supported;
- * the call must fail with `EINVAL`.
+ * the call must fail with `ENOTSUP`.
  */
 
 int main(void)
@@ -40,27 +40,25 @@ int main(void)
   struct timespec ts1;
   struct timespec ts2;
   int error_code;
+  int result;
 
   errno = 0;
   error_code = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts1);
   assert(error_code == 0 || (error_code = errno) == ENOTSUP);
-  /**
-   * `CLOCK_PROCESS_CPUTIME_ID` is not supported on Win9x.
-   */
-  if (error_code == ENOTSUP) {
-    wprintf(L"CLOCK_PROCESS_CPUTIME_ID is not supported.\n");
-    return 77;
-  }
   errno = 0;
-  error_code = clock_settime(CLOCK_PROCESS_CPUTIME_ID, &ts1);
-  assert(error_code != 0 && (error_code = errno) == EINVAL);
-  assert(clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts2) == 0);
+  result = clock_settime(CLOCK_PROCESS_CPUTIME_ID, &ts1);
+  assert(result != 0 && (result = errno) == ENOTSUP);
+  errno = 0;
+  error_code = clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts2);
+  assert(error_code == 0 || (error_code = errno) == ENOTSUP);
+
+  if (result != 0) {
+    wprintf(L"Cannot set time; errno=%d\n", result);
+  }
 
   if (error_code == 0) {
     wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
     wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
-  } else {
-    wprintf(L"Cannot set time; errno=%d\n", error_code);
   }
 
   return 0;

@@ -1122,17 +1122,22 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
     case CLOCK_REALTIME_COARSE:
       break;
     /**
+     * Setting CPU clocks is not supported.
+     *
+     * Fail with `ENOTSUP`; while this error condition is not specified
+     * by POSIX, it is better than overly generic `EINVAL`.
+     */
+    case CLOCK_PROCESS_CPUTIME_ID:
+    case CLOCK_THREAD_CPUTIME_ID:
+      _set_errno (ENOTSUP);
+      return -1;
+    /**
      * The clock_settime() function shall fail if:
      *
      * [EINVAL]
      *   The value of the clock_id argument is CLOCK_MONOTONIC.
      */
     case CLOCK_MONOTONIC:
-    /**
-     * Setting CPU clocks is not supported.
-     */
-    case CLOCK_PROCESS_CPUTIME_ID:
-    case CLOCK_THREAD_CPUTIME_ID:
     /**
      * The clock_settime() function shall fail if:
      *
