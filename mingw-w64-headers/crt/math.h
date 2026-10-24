@@ -153,6 +153,7 @@ _CRT_BEGIN_C_HEADER
     double retval;
   };
 
+  int __cdecl __mingw_raise_matherr_ret (int typ, const char *name, double a1, double a2, double *rslt);
   void __cdecl __mingw_raise_matherr (int typ, const char *name, double a1, double a2, double rslt);
   void __cdecl __mingw_setusermatherr (int (__cdecl *)(struct _exception *));
   _CRTIMP void __cdecl __setusermatherr(int (__cdecl *)(struct _exception *));

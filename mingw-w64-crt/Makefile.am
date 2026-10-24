@@ -1317,6 +1317,7 @@ src_libmingwex=\
   misc/wmemset.c         misc/mingw-access.c \
   misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
   misc/__mingw_filename_cp.c  \
+  misc/__mingw_raise_matherr_ret.c \
   misc/__mingw_raise_matherr.c \
   misc/__mingw_setusermatherr.c \
   \
