@@ -57,4 +57,21 @@ unsigned __int64 winpthreads_windows_time_ms (void);
  */
 void winpthreads_time_init (void);
 
+/**
+ * Compare `ts1` and `ts2`.
+ *
+ * Return value follows `strcmp` convention.
+ */
+int winpthreads_timespec_diff (const struct _timespec64 *ts1, const struct _timespec64 *ts2);
+
+/**
+ * Add `ts2` to `ts1` and store result in `out`.
+ */
+void winpthreads_timespec_add (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out);
+
+/**
+ * Substract `ts2` from `ts1` and store result in `out`.
+ */
+void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out);
+
 #endif /* WINPTHREADS_TIME_H */

@@ -777,6 +777,70 @@ unsigned __int64 winpthreads_windows_time_ms (void)
   return msFromSec + msFromNsec;
 }
 
+int winpthreads_timespec_diff (const struct _timespec64 *ts1, const struct _timespec64 *ts2) {
+  if (ts1->tv_sec > ts2->tv_sec) {
+    return 1;
+  }
+
+  if (ts1->tv_sec < ts2->tv_sec) {
+    return -1;
+  }
+
+  return ts1->tv_nsec - ts2->tv_nsec;
+}
+
+void winpthreads_timespec_add (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out) {
+  /**
+   * Check for overflow.
+   */
+  if (unlikely (ts1->tv_sec > _I64_MAX - ts2->tv_sec)) {
+    out->tv_sec  = _I64_MAX;
+    out->tv_nsec = POW10_9 - 1;
+    return;
+  }
+
+  out->tv_sec  = ts1->tv_sec + ts2->tv_sec;
+  out->tv_nsec = ts1->tv_nsec + ts2->tv_nsec;
+
+  if (out->tv_nsec >= POW10_9) {
+    /**
+     * Prevent overflow in `out->tv_sec`.
+     */
+    if (out->tv_sec == _I64_MAX) {
+      out->tv_nsec = POW10_9 - 1;
+    } else {
+      out->tv_sec  += 1;
+      out->tv_nsec -= POW10_9;
+    }
+  }
+}
+
+void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out) {
+  /**
+   * Check for underflow.
+   */
+  if (ts2->tv_sec > ts1->tv_sec) {
+    out->tv_sec  = 0;
+    out->tv_nsec = 0;
+    return;
+  }
+
+  out->tv_sec  = ts1->tv_sec - ts2->tv_sec;
+  out->tv_nsec = ts1->tv_nsec - ts2->tv_nsec;
+
+  if (out->tv_nsec < 0) {
+    /**
+     * Prevent underflow in `out->tv_sec`.
+     */
+    if (out->tv_sec == 0) {
+      out->tv_nsec = 0;
+    } else {
+      out->tv_sec  -= 1;
+      out->tv_nsec += POW10_9;
+    }
+  }
+}
+
 /*******************************************************************************
  * Public Functions.
  */
