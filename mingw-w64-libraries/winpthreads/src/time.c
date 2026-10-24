@@ -845,6 +845,81 @@ void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _time
  * Public Functions.
  */
 
+/**
+ * Common implementation for `nanosleep` and `clock_nanosleep`.
+ *
+ * Returns zero on success and an error-code on failure.
+ */
+static int WinpthreadsSleep (FuncWinpthreadsTimeImpl timeImpl, int flags, const struct _timespec64 *request, struct _timespec64 *remain) {
+  struct _timespec64 startTime;
+  struct _timespec64 endTime;
+  struct _timespec64 sleepUntil;
+  struct _timespec64 sleepFor;
+
+  timeImpl (&startTime, NULL);
+
+  if (flags & TIMER_ABSTIME) {
+    sleepUntil = *request;
+    winpthreads_timespec_sub (&sleepUntil, &startTime, &sleepFor);
+  } else {
+    sleepFor = *request;
+    winpthreads_timespec_add (&startTime, &sleepFor, &sleepUntil);
+  }
+
+  /**
+   * Timeout already expired.
+   */
+  if (winpthreads_timespec_diff (&startTime, &sleepUntil) >= 0) {
+    return 0;
+  }
+
+  /**
+   * Total sleep time in milliseconds.
+   */
+  unsigned __int64 totalSleepTime = winpthreads_timespec_ms (&sleepFor);
+  int error_code;
+
+  do {
+    /**
+     * We can sleep for at most `INFINITE - 1` milliseconds at a time.
+     */
+    unsigned sleepTime;
+
+    if (unlikely (totalSleepTime >= MAX_SLEEP_IN_MS)) {
+      sleepTime = MAX_SLEEP_IN_MS;
+    } else {
+      sleepTime = (unsigned) totalSleepTime;
+    }
+
+    totalSleepTime -= sleepTime;
+    error_code      = _pthread_delay_np_ms (sleepTime);
+  } while (totalSleepTime > 0 && likely (error_code == 0));
+
+  /**
+   * Currently, function `_pthread_delay_np_ms` always returns zero.
+   */
+  if (unlikely (error_code != 0)) {
+    error_code = EINTR;
+
+    /**
+     * FIXME:
+     *
+     * For `CLOCK_REALTIME`, it is possible that the system time has been
+     * changed while we were sleeping, which means `ramain` will be calculated
+     * relative to the new system time.
+     *
+     * In order to fix this we would need to re-write waiting routines,
+     * and allow them return total time spent sleeping.
+     */
+    if ((flags & TIMER_ABSTIME) == 0 && remain != NULL) {
+      timeImpl (&endTime, NULL);
+      winpthreads_timespec_sub (&sleepUntil, &endTime, remain);
+    }
+  }
+
+  return error_code;
+}
+
 int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
 {
   /**
@@ -859,76 +934,10 @@ int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
     return -1;
   }
 
-  /**
-   * Total sleep time in milliseconds.
-   */
-  unsigned __int64 totalSleepTime = winpthreads_timespec_ms (request);
+  int error_code = WinpthreadsSleep (WinpthreadsTimeImpl.TimeImplRealtime, 0, request, remain);
 
-  if (totalSleepTime == 0) {
-    return 0;
-  }
-
-  FILETIME startTime;
-  FILETIME endTime;
-
-  if (remain != NULL) {
-    GetSystemTimePreciseAsFileTime (&startTime);
-  }
-
-  unsigned __int64 remainingSleepTime = totalSleepTime;
-  int error_code;
-
-  do {
-    /**
-     * We can sleep for at most `INFINITE - 1` milliseconds at a time.
-     */
-    unsigned sleepTime;
-
-    if (remainingSleepTime >= MAX_SLEEP_IN_MS) {
-      sleepTime = MAX_SLEEP_IN_MS;
-    } else {
-      sleepTime = (unsigned) remainingSleepTime;
-    }
-
-    remainingSleepTime -= sleepTime;
-    error_code          = _pthread_delay_np_ms (sleepTime);
-  } while (remainingSleepTime > 0 && likely (error_code == 0));
-
-  /**
-   * Currently, function `_pthread_delay_np_ms` always returns zero.
-   */
-  if (unlikely (error_code != 0)) {
-    if (remain != NULL) {
-      GetSystemTimePreciseAsFileTime (&endTime);
-
-      ULARGE_INTEGER start = {
-        .HighPart = startTime.dwHighDateTime,
-        .LowPart  = startTime.dwLowDateTime
-      };
-      ULARGE_INTEGER end = {
-        .HighPart = endTime.dwHighDateTime,
-        .LowPart  = endTime.dwLowDateTime
-      };
-
-      remainingSleepTime = 0;
-
-      /**
-       * It is possible that system time has been changed while we were sleeping,
-       * so we have to check for possible underflow.
-       */
-      if (likely (start.QuadPart <= end.QuadPart)) {
-        unsigned __int64 elapsedSleepTime = (end.QuadPart - start.QuadPart) / POW10_4;
-
-        if (likely (elapsedSleepTime < totalSleepTime)) {
-          remainingSleepTime = totalSleepTime - elapsedSleepTime;
-        }
-      }
-
-      remain->tv_sec  = (__time64_t) (remainingSleepTime / POW10_3);
-      remain->tv_nsec = (long) ((remainingSleepTime % POW10_3) * POW10_6);
-    }
-
-    _set_errno (EINTR);
+  if (error_code != 0) {
+    _set_errno (error_code);
     return -1;
   }
 
@@ -1161,11 +1170,14 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
     return -1;
   }
 
+  FuncWinpthreadsTimeImpl timeImpl;
+
   switch (clock_id) {
     /**
      * Currently, only `CLOCK_REALTIME` is supported.
      */
     case CLOCK_REALTIME:
+      timeImpl = WinpthreadsTimeImpl.TimeImplRealtime;
       break;
     case CLOCK_MONOTONIC:
     /**
@@ -1182,44 +1194,14 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
       return -1;
   }
 
-  /**
-   * Calling `clock_nanosleep` with `CLOCK_REALTIME` and zero `flags`
-   * is the same as calling `nanosleep`.
-   */
-  if ((flags & TIMER_ABSTIME) == 0) {
-    return nanosleep64(request, remain);
+  int error_code = WinpthreadsSleep (timeImpl, flags, request, remain);
+
+  if (error_code != 0) {
+    _set_errno (error_code);
+    return -1;
   }
 
-  /**
-   * Calculate sleep time from the current time and absolute time `request`.
-   */
-  struct _timespec64 sleepTime;
-
-  clock_gettime64 (clock_id, &sleepTime);
-
-  /**
-   * Timeout already expired.
-   */
-  if (sleepTime.tv_sec > request->tv_sec) {
-    return 0;
-  }
-
-  sleepTime.tv_sec  = request->tv_sec - sleepTime.tv_sec;
-  sleepTime.tv_nsec = request->tv_nsec - sleepTime.tv_nsec;
-
-  if (sleepTime.tv_nsec < 0) {
-    /**
-     * Timeout already expired.
-     */
-    if (sleepTime.tv_sec == 0) {
-      return 0;
-    }
-
-    sleepTime.tv_nsec += POW10_9;
-    sleepTime.tv_sec--;
-  }
-
-  return nanosleep64 (&sleepTime, remain);
+  return error_code;
 }
 
 int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *request, struct _timespec32 *remain)
