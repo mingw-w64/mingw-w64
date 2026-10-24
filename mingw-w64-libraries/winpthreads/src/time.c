@@ -84,6 +84,12 @@
  */
 #define DELTA_EPOCH_IN_100NS INT64_C(116444736000000000)
 
+/**
+ * This is the maximum `FILETIME` value that can be passed to
+ * `FileTimeToSystemTime`.
+ */
+#define FILETIME_TO_SYSTEMTIME_MAX UINT64_C(0x7FFFFFFFFFFFFFFF)
+
 /*******************************************************************************
  * In order to provide the best coverage in terms of backward compatibility
  * and feature support, we lookup functions which may not be available on older
@@ -1117,9 +1123,14 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
     return -1;
   }
 
+  FuncWinpthreadsTimeImpl timeImpl;
+
   switch (clock_id) {
     case CLOCK_REALTIME:
+      timeImpl = WinpthreadsTimeImpl.TimeImplRealtime;
+      break;
     case CLOCK_REALTIME_COARSE:
+      timeImpl = WinpthreadsTimeImplRealtime;
       break;
     /**
      * Setting CPU clocks is not supported.
@@ -1149,9 +1160,67 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
       return -1;
   }
 
+  /**
+   * Obtain resolution of `clock_id` as a `FILETIME` value.
+   */
+  struct _timespec64 resAsTimeSpec;
+  unsigned __int64   resAsFileTime;
+
+  timeImpl (NULL, &resAsTimeSpec);
+  resAsFileTime = resAsTimeSpec.tv_sec * POW10_7 + resAsTimeSpec.tv_nsec / 100;
+
+  /**
+   * The maximum `FILETIME` value that can be passed to `FileTimeToSystemTime`
+   * is defined as `FILETIME_TO_SYSTEMTIME_MAX`. However, since we will round
+   * it down to `resAsFileTime`, we may allow values slighty larger than that.
+   */
+  unsigned __int64 fileTimeMax = FILETIME_TO_SYSTEMTIME_MAX;
+
+  if (likely (resAsFileTime != 0) && (fileTimeMax % resAsFileTime) != 0) {
+    fileTimeMax -= (fileTimeMax % resAsFileTime);
+    fileTimeMax += resAsFileTime - 1;
+  }
+
+  /**
+   * Convert `tp` to `FILEITME` value.
+   * The converted value shall not exceed `fileTimeMax`.
+   *
+   * The clock_settime() function shall fail if:
+   *
+   * [EINVAL]
+   *   The tp argument to clock_settime() is outside the range for
+   *   the given clock ID.
+   */
   ULARGE_INTEGER value = {
-    .QuadPart = DELTA_EPOCH_IN_100NS + (tp->tv_sec * POW10_7) + (tp->tv_nsec / 100)
+    .QuadPart = DELTA_EPOCH_IN_100NS
   };
+
+  unsigned __int64 fileTimeFromSec  = (unsigned __int64) tp->tv_sec;
+  unsigned __int64 fileTimeFromNsec = (unsigned __int64) (tp->tv_nsec / 100);
+
+  if (unlikely (fileTimeFromSec > ((fileTimeMax - value.QuadPart) / POW10_7))) {
+    _set_errno (EINVAL);
+    return -1;
+  }
+
+  value.QuadPart += (fileTimeFromSec * POW10_7);
+
+  if (unlikely (fileTimeFromNsec > (fileTimeMax - value.QuadPart))) {
+    _set_errno (EINVAL);
+    return -1;
+  }
+
+  value.QuadPart += fileTimeFromNsec;
+  /**
+   * Round `value` down to `resAsFileTime`.
+   */
+  if (likely (resAsFileTime != 0)) {
+    value.QuadPart -= (value.QuadPart % resAsFileTime);
+  }
+
+  /**
+   * Convert `value` to `FILETIME`, and then to `SYSTEMTIME`.
+   */
   FILETIME fileTime = {
     .dwHighDateTime = value.HighPart,
     .dwLowDateTime  = value.LowPart
@@ -1163,6 +1232,13 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
     return -1;
   }
 
+  /**
+   * The clock_settime() function shall fail if:
+   *
+   * [EPERM]
+   *   The requesting process does not have appropriate privileges
+   *   to set the specified clock.
+   */
   if (!SetSystemTime (&systemTime)) {
     _set_errno (EPERM);
     return -1;
