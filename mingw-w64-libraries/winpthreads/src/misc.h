@@ -25,11 +25,12 @@
 
 extern BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD);
 
-/* For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
+/**
+ * For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
  * For other pre-C99 compilers declare DUMMY_WRITABLE_DWORD as static variable.
  */
 #if defined(__GNUC__) || defined(__clang__)
-#define DUMMY_WRITABLE_DWORD (DWORD){0}
+#define DUMMY_WRITABLE_DWORD (DWORD) {0}
 #else
 static DWORD DUMMY_WRITABLE_DWORD;
 #endif
@@ -37,27 +38,44 @@ static DWORD DUMMY_WRITABLE_DWORD;
 #define TEST_HANDLE(h)                                                  \
   (((h) != NULL && (h) != INVALID_HANDLE_VALUE) && (                    \
      _pthread_get_handle_information == NULL ||                         \
-     _pthread_get_handle_information((h), &DUMMY_WRITABLE_DWORD) ||     \
-     GetLastError() == ERROR_CALL_NOT_IMPLEMENTED                       \
+     _pthread_get_handle_information ((h), &DUMMY_WRITABLE_DWORD) ||     \
+     GetLastError () == ERROR_CALL_NOT_IMPLEMENTED                       \
   ))
 
+/**
+ * A wrapper around `WaitForSingleObject` that ensures that
+ * the wait function does not time out before the time actually runs out.
+ *
+ * This is needed because `WaitForSingleObject` might have poor accuracy,
+ * returning earlier than expected. On the other hand, returning a bit *later*
+ * than expected is acceptable in a preemptive multitasking environment.
+ */
 unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
+
+/**
+ * A wrapper around `WaitForMultipleObjects` that ensures that
+ * the wait function does not time out before the time actually runs out.
+ *
+ * This is needed because `WaitForMultipleObjects` might have poor accuracy,
+ * returning earlier than expected. On the other hand, returning a bit *later*
+ * than expected is acceptable in a preemptive multitasking environment.
+ */
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
 extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
 
 #if defined(__GNUC__) || defined(__clang__)
-#define likely(cond) __builtin_expect((cond) != 0, 1)
-#define unlikely(cond) __builtin_expect((cond) != 0, 0)
+#define likely(cond)   __builtin_expect ((cond) != 0, 1)
+#define unlikely(cond) __builtin_expect ((cond) != 0, 0)
 #else
-#define likely(cond) (cond)
+#define likely(cond)   (cond)
 #define unlikely(cond) (cond)
 #endif
 
 #if defined(__GNUC__) || defined(__clang__)
-#define UNREACHABLE() __builtin_unreachable()
+#define UNREACHABLE() __builtin_unreachable ()
 #elif defined(_MSC_VER)
-#define UNREACHABLE() __assume(0)
+#define UNREACHABLE() __assume (0)
 #endif
 
 #endif

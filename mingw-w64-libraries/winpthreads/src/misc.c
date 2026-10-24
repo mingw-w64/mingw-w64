@@ -41,36 +41,31 @@ BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD) = NULL;
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wprio-ctor-dtor"
 #endif
-__attribute__((constructor(0)))
+__attribute__ ((constructor (0)))
 #endif
-static void winpthreads_init(void)
+static void winpthreads_init (void)
 {
-    HMODULE mod = GetModuleHandleA("kernel32.dll");
-    if (mod)
-    {
-        _pthread_get_handle_information =
-            (BOOL (WINAPI *)(HANDLE, LPDWORD))(void*) GetProcAddress(mod, "GetHandleInformation");
+  HMODULE mod = GetModuleHandleA ("kernel32.dll");
 
-        _pthread_set_thread_description =
-            (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
+  if (mod) {
+    _pthread_get_handle_information = (BOOL (WINAPI *) (HANDLE, LPDWORD)) (void*) GetProcAddress (mod, "GetHandleInformation");
+    _pthread_set_thread_description = (HRESULT (WINAPI *) (HANDLE, PCWSTR)) (void*) GetProcAddress (mod, "SetThreadDescription");
+  }
 
+  /**
+   * Although `SetThreadDescription` lives in kernel32.dll,
+   * on Windows Server 2016, Windows 10 LTSB 2016 and Windows 10 version 1607,
+   * it was only available in kernelbase.dll.
+   */
+  if (!_pthread_set_thread_description) {
+    mod = GetModuleHandleA ("kernelbase.dll");
+
+    if (mod) {
+      _pthread_set_thread_description = (HRESULT (WINAPI *) (HANDLE, PCWSTR)) (void*) GetProcAddress (mod, "SetThreadDescription");
     }
+  }
 
-    /* Although SetThreadDescription lives in kernel32.dll, on Windows Server 2016,
-     * Windows 10 LTSB 2016 and Windows 10 version 1607, it was only available in
-     * kernelbase.dll. So, load it from there for maximum coverage.
-     */
-    if (!_pthread_set_thread_description)
-    {
-        mod = GetModuleHandleA("kernelbase.dll");
-        if (mod)
-        {
-            _pthread_set_thread_description =
-                (HRESULT (WINAPI *)(HANDLE, PCWSTR))(void*) GetProcAddress(mod, "SetThreadDescription");
-        }
-    }
-
-    winpthreads_time_init();
+  winpthreads_time_init ();
 }
 #if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
 #pragma GCC diagnostic pop
@@ -81,51 +76,47 @@ static void winpthreads_init(void)
  * from discarding the variable. */
 
 /* On x86, symbols are prefixed with an underscore. */
-# if defined(_M_IX86)
-#   pragma comment(linker, "/include:___xc_t")
-# else
-#   pragma comment(linker, "/include:__xc_t")
-# endif
+#if defined(_M_IX86)
+#pragma comment(linker, "/include:___xc_t")
+#else
+#pragma comment(linker, "/include:__xc_t")
+#endif
 
 #pragma section(".CRT$XCT", long, read)
-__declspec(allocate(".CRT$XCT"))
+__declspec (allocate (".CRT$XCT"))
 extern const _PVFV __xc_t;
 const _PVFV __xc_t = winpthreads_init;
 #endif
 
-/* A wrapper around WaitForSingleObject() that ensures that
- * the wait function does not time out before the time
- * actually runs out. This is needed because WaitForSingleObject()
- * might have poor accuracy, returning earlier than expected.
- * On the other hand, returning a bit *later* than expected
- * is acceptable in a preemptive multitasking environment.
- */
-unsigned long
-_pthread_wait_for_single_object (void *handle, unsigned long timeout)
+unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout)
 {
   DWORD result;
   unsigned long long start_time, end_time;
   unsigned long wait_time;
   long long frequency = 0;
 
-  if (timeout == INFINITE || timeout == 0)
+  if (timeout == INFINITE || timeout == 0) {
     return WaitForSingleObject ((HANDLE) handle, (DWORD) timeout);
+  }
 
   start_time = winpthreads_windows_time_ms (&frequency);
   end_time = start_time + timeout;
   wait_time = timeout;
 
-  do
-  {
+  do {
     unsigned long long current_time;
 
     result = WaitForSingleObject ((HANDLE) handle, (DWORD) wait_time);
-    if (result != WAIT_TIMEOUT)
+
+    if (result != WAIT_TIMEOUT) {
       break;
+    }
 
     current_time = winpthreads_windows_time_ms (&frequency);
-    if (current_time >= end_time)
+
+    if (current_time >= end_time) {
       break;
+    }
 
     wait_time = (DWORD) (end_time - current_time);
   } while (TRUE);
@@ -133,39 +124,35 @@ _pthread_wait_for_single_object (void *handle, unsigned long timeout)
   return result;
 }
 
-/* A wrapper around WaitForMultipleObjects() that ensures that
- * the wait function does not time out before the time
- * actually runs out. This is needed because WaitForMultipleObjects()
- * might have poor accuracy, returning earlier than expected.
- * On the other hand, returning a bit *later* than expected
- * is acceptable in a preemptive multitasking environment.
- */
-unsigned long
-_pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout)
+unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout)
 {
   DWORD result;
   unsigned long long start_time, end_time;
   unsigned long wait_time;
   long long frequency = 0;
 
-  if (timeout == INFINITE || timeout == 0)
+  if (timeout == INFINITE || timeout == 0) {
     return WaitForMultipleObjects ((DWORD) count, (HANDLE *) handles, all, (DWORD) timeout);
+  }
 
   start_time = winpthreads_windows_time_ms (&frequency);
   end_time = start_time + timeout;
   wait_time = timeout;
 
-  do
-  {
+  do {
     unsigned long long current_time;
 
     result = WaitForMultipleObjects ((DWORD) count, (HANDLE *) handles, all, (DWORD) wait_time);
-    if (result != WAIT_TIMEOUT)
+
+    if (result != WAIT_TIMEOUT) {
       break;
+    }
 
     current_time = winpthreads_windows_time_ms (&frequency);
-    if (current_time >= end_time)
+
+    if (current_time >= end_time) {
       break;
+    }
 
     wait_time = (DWORD) (end_time - current_time);
   } while (TRUE);
