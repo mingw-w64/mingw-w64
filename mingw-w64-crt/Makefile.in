@@ -801,7 +801,7 @@ am__lib32_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
-	crt/cxa_thread_atexit.c crt/tls_atexit.c crt/CRT_fp10.c
+	crt/cxa_thread_atexit.c crt/tls_atexit.c
 am__objects_31 =  \
 	crt/lib32_libmingw32_a-mingw_dll_ctors_dtors.$(OBJEXT) \
 	crt/lib32_libmingw32_a-crtexewin.$(OBJEXT) \
@@ -839,8 +839,7 @@ am__objects_31 =  \
 	crt/lib32_libmingw32_a-cxa_thread_atexit.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tls_atexit.$(OBJEXT)
 @LIB32_TRUE@@W32API_FALSE@am_lib32_libmingw32_a_OBJECTS =  \
-@LIB32_TRUE@@W32API_FALSE@	$(am__objects_31) \
-@LIB32_TRUE@@W32API_FALSE@	crt/lib32_libmingw32_a-CRT_fp10.$(OBJEXT)
+@LIB32_TRUE@@W32API_FALSE@	$(am__objects_31)
 lib32_libmingw32_a_OBJECTS = $(am_lib32_libmingw32_a_OBJECTS)
 lib32_libmingwex_a_AR = $(AR) $(ARFLAGS)
 lib32_libmingwex_a_LIBADD =
@@ -970,7 +969,7 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/DFP/__isnand64.c math/DFP/__isnand128.c \
 	math/DFP/__signbitd32.c math/DFP/__signbitd64.c \
 	math/DFP/__signbitd128.c math/DFP/isinfd32.c \
-	math/DFP/isinfd64.c math/DFP/isinfd128.c
+	math/DFP/isinfd64.c math/DFP/isinfd128.c crt/CRT_fp10.c
 am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	cfguard/lib32_libmingwex_a-mingw_cfguard_support.$(OBJEXT) \
 	misc/lib32_libmingwex_a-dllmain.$(OBJEXT) \
@@ -1303,7 +1302,8 @@ am__objects_34 = $(am__objects_33)
 @ENABLE_DFP_TRUE@	math/DFP/lib32_libmingwex_a-isinfd128.$(OBJEXT)
 @LIB32_TRUE@@W32API_FALSE@am_lib32_libmingwex_a_OBJECTS =  \
 @LIB32_TRUE@@W32API_FALSE@	$(am__objects_32) $(am__objects_34) \
-@LIB32_TRUE@@W32API_FALSE@	$(am__objects_35)
+@LIB32_TRUE@@W32API_FALSE@	$(am__objects_35) \
+@LIB32_TRUE@@W32API_FALSE@	crt/lib32_libmingwex_a-CRT_fp10.$(OBJEXT)
 lib32_libmingwex_a_OBJECTS = $(am_lib32_libmingwex_a_OBJECTS)
 lib32_libmingwthrd_a_AR = $(AR) $(ARFLAGS)
 lib32_libmingwthrd_a_LIBADD =
@@ -3783,7 +3783,7 @@ am__lib64_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
-	crt/cxa_thread_atexit.c crt/tls_atexit.c crt/CRT_fp10.c
+	crt/cxa_thread_atexit.c crt/tls_atexit.c
 am__objects_188 =  \
 	crt/lib64_libmingw32_a-mingw_dll_ctors_dtors.$(OBJEXT) \
 	crt/lib64_libmingw32_a-crtexewin.$(OBJEXT) \
@@ -3821,8 +3821,7 @@ am__objects_188 =  \
 	crt/lib64_libmingw32_a-cxa_thread_atexit.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tls_atexit.$(OBJEXT)
 @LIB64_TRUE@@W32API_FALSE@am_lib64_libmingw32_a_OBJECTS =  \
-@LIB64_TRUE@@W32API_FALSE@	$(am__objects_188) \
-@LIB64_TRUE@@W32API_FALSE@	crt/lib64_libmingw32_a-CRT_fp10.$(OBJEXT)
+@LIB64_TRUE@@W32API_FALSE@	$(am__objects_188)
 lib64_libmingw32_a_OBJECTS = $(am_lib64_libmingw32_a_OBJECTS)
 lib64_libmingwex_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingwex_a_LIBADD =
@@ -3952,7 +3951,8 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/DFP/__isnand32.c math/DFP/__isnand64.c \
 	math/DFP/__isnand128.c math/DFP/__signbitd32.c \
 	math/DFP/__signbitd64.c math/DFP/__signbitd128.c \
-	math/DFP/isinfd32.c math/DFP/isinfd64.c math/DFP/isinfd128.c
+	math/DFP/isinfd32.c math/DFP/isinfd64.c math/DFP/isinfd128.c \
+	crt/CRT_fp10.c
 am__objects_189 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	cfguard/lib64_libmingwex_a-mingw_cfguard_support.$(OBJEXT) \
 	misc/lib64_libmingwex_a-dllmain.$(OBJEXT) \
@@ -4287,7 +4287,8 @@ am__objects_191 = $(am__objects_190) \
 @LIB64_TRUE@@W32API_FALSE@am_lib64_libmingwex_a_OBJECTS =  \
 @LIB64_TRUE@@W32API_FALSE@	$(am__objects_189) \
 @LIB64_TRUE@@W32API_FALSE@	$(am__objects_191) \
-@LIB64_TRUE@@W32API_FALSE@	$(am__objects_192)
+@LIB64_TRUE@@W32API_FALSE@	$(am__objects_192) \
+@LIB64_TRUE@@W32API_FALSE@	crt/lib64_libmingwex_a-CRT_fp10.$(OBJEXT)
 lib64_libmingwex_a_OBJECTS = $(am_lib64_libmingwex_a_OBJECTS)
 lib64_libmingwthrd_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingwthrd_a_LIBADD =
@@ -8524,7 +8525,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	complex/$(DEPDIR)/libarm64_libmingwex_a-ctan.Po \
 	complex/$(DEPDIR)/libarm64_libmingwex_a-ctanf.Po \
 	complex/$(DEPDIR)/libarm64_libmingwex_a-ctanl.Po \
-	crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po \
@@ -8560,8 +8560,8 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Po \
+	crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po \
 	crt/$(DEPDIR)/lib32_libmingwex_a-loadcfg.Po \
-	crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po \
@@ -8597,6 +8597,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po \
+	crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po \
 	crt/$(DEPDIR)/lib64_libmingwex_a-loadcfg.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po \
@@ -15333,9 +15334,9 @@ src_intrincsarm64 =
 
 @LIB32_TRUE@@W32API_FALSE@lib32_libgmon_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@@W32API_FALSE@lib32_libmingw32_a_CPPFLAGS = $(CPPFLAGS32) -D_SYSCRT=1 $(extra_include)
-@LIB32_TRUE@@W32API_FALSE@lib32_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
+@LIB32_TRUE@@W32API_FALSE@lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 @LIB32_TRUE@@W32API_FALSE@lib32_libmingwex_a_CPPFLAGS = $(CPPFLAGS32) $(extra_include)
-@LIB32_TRUE@@W32API_FALSE@lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math)
+@LIB32_TRUE@@W32API_FALSE@lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math) crt/CRT_fp10.c
 @LIB32_TRUE@@W32API_FALSE@lib32_libmoldname_a_CPPFLAGS = $(CPPFLAGS32) $(extra_include)
 @LIB32_TRUE@@W32API_FALSE@lib32_libmoldname_a_SOURCES = $(src_libm)
 @LIB32_TRUE@@W32API_FALSE@lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
@@ -15947,9 +15948,9 @@ src_intrincsarm64 =
 
 @LIB64_TRUE@@W32API_FALSE@lib64_libgmon_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@@W32API_FALSE@lib64_libmingw32_a_CPPFLAGS = $(CPPFLAGS64) -D_SYSCRT=1 $(extra_include)
-@LIB64_TRUE@@W32API_FALSE@lib64_libmingw32_a_SOURCES = $(src_libmingw32) crt/CRT_fp10.c
+@LIB64_TRUE@@W32API_FALSE@lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 @LIB64_TRUE@@W32API_FALSE@lib64_libmingwex_a_CPPFLAGS = $(CPPFLAGS64) $(extra_include)
-@LIB64_TRUE@@W32API_FALSE@lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math)
+@LIB64_TRUE@@W32API_FALSE@lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math) crt/CRT_fp10.c
 @LIB64_TRUE@@W32API_FALSE@lib64_libmoldname_a_CPPFLAGS = $(CPPFLAGS64) $(extra_include)
 @LIB64_TRUE@@W32API_FALSE@lib64_libmoldname_a_SOURCES = $(src_libm)
 @LIB64_TRUE@@W32API_FALSE@lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
@@ -18060,8 +18061,6 @@ crt/lib32_libmingw32_a-cxa_thread_atexit.$(OBJEXT):  \
 	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-tls_atexit.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib32_libmingw32_a-CRT_fp10.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 
 lib32/libmingw32.a: $(lib32_libmingw32_a_OBJECTS) $(lib32_libmingw32_a_DEPENDENCIES) $(EXTRA_lib32_libmingw32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	$(AM_V_at)-rm -f lib32/libmingw32.a
@@ -18761,6 +18760,8 @@ math/DFP/lib32_libmingwex_a-isinfd64.$(OBJEXT):  \
 	math/DFP/$(am__dirstamp) math/DFP/$(DEPDIR)/$(am__dirstamp)
 math/DFP/lib32_libmingwex_a-isinfd128.$(OBJEXT):  \
 	math/DFP/$(am__dirstamp) math/DFP/$(DEPDIR)/$(am__dirstamp)
+crt/lib32_libmingwex_a-CRT_fp10.$(OBJEXT): crt/$(am__dirstamp) \
+	crt/$(DEPDIR)/$(am__dirstamp)
 
 lib32/libmingwex.a: $(lib32_libmingwex_a_OBJECTS) $(lib32_libmingwex_a_DEPENDENCIES) $(EXTRA_lib32_libmingwex_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	$(AM_V_at)-rm -f lib32/libmingwex.a
@@ -22099,8 +22100,6 @@ crt/lib64_libmingw32_a-cxa_thread_atexit.$(OBJEXT):  \
 	crt/$(am__dirstamp) crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-tls_atexit.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib64_libmingw32_a-CRT_fp10.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 
 lib64/libmingw32.a: $(lib64_libmingw32_a_OBJECTS) $(lib64_libmingw32_a_DEPENDENCIES) $(EXTRA_lib64_libmingw32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	$(AM_V_at)-rm -f lib64/libmingw32.a
@@ -22766,6 +22765,8 @@ math/DFP/lib64_libmingwex_a-isinfd64.$(OBJEXT):  \
 	math/DFP/$(am__dirstamp) math/DFP/$(DEPDIR)/$(am__dirstamp)
 math/DFP/lib64_libmingwex_a-isinfd128.$(OBJEXT):  \
 	math/DFP/$(am__dirstamp) math/DFP/$(DEPDIR)/$(am__dirstamp)
+crt/lib64_libmingwex_a-CRT_fp10.$(OBJEXT): crt/$(am__dirstamp) \
+	crt/$(DEPDIR)/$(am__dirstamp)
 
 lib64/libmingwex.a: $(lib64_libmingwex_a_OBJECTS) $(lib64_libmingwex_a_DEPENDENCIES) $(EXTRA_lib64_libmingwex_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	$(AM_V_at)-rm -f lib64/libmingwex.a
@@ -28456,7 +28457,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/libarm64_libmingwex_a-ctan.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/libarm64_libmingwex_a-ctanf.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/libarm64_libmingwex_a-ctanl.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
@@ -28492,8 +28492,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingwex_a-loadcfg.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po@am__quote@ # am--include-marker
@@ -28529,6 +28529,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingwex_a-loadcfg.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po@am__quote@ # am--include-marker
@@ -39040,20 +39041,6 @@ crt/lib32_libmingw32_a-tls_atexit.obj: crt/tls_atexit.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-tls_atexit.obj `if test -f 'crt/tls_atexit.c'; then $(CYGPATH_W) 'crt/tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit.c'; fi`
 
-crt/lib32_libmingw32_a-CRT_fp10.o: crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-CRT_fp10.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Tpo -c -o crt/lib32_libmingw32_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib32_libmingw32_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
-
-crt/lib32_libmingw32_a-CRT_fp10.obj: crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-CRT_fp10.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Tpo -c -o crt/lib32_libmingw32_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib32_libmingw32_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
-
 cfguard/lib32_libmingwex_a-mingw_cfguard_support.o: cfguard/mingw_cfguard_support.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cfguard/lib32_libmingwex_a-mingw_cfguard_support.o -MD -MP -MF cfguard/$(DEPDIR)/lib32_libmingwex_a-mingw_cfguard_support.Tpo -c -o cfguard/lib32_libmingwex_a-mingw_cfguard_support.o `test -f 'cfguard/mingw_cfguard_support.c' || echo '$(srcdir)/'`cfguard/mingw_cfguard_support.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) cfguard/$(DEPDIR)/lib32_libmingwex_a-mingw_cfguard_support.Tpo cfguard/$(DEPDIR)/lib32_libmingwex_a-mingw_cfguard_support.Po
@@ -43351,6 +43338,20 @@ math/DFP/lib32_libmingwex_a-isinfd128.obj: math/DFP/isinfd128.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/DFP/isinfd128.c' object='math/DFP/lib32_libmingwex_a-isinfd128.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/DFP/lib32_libmingwex_a-isinfd128.obj `if test -f 'math/DFP/isinfd128.c'; then $(CYGPATH_W) 'math/DFP/isinfd128.c'; else $(CYGPATH_W) '$(srcdir)/math/DFP/isinfd128.c'; fi`
+
+crt/lib32_libmingwex_a-CRT_fp10.o: crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingwex_a-CRT_fp10.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Tpo -c -o crt/lib32_libmingwex_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib32_libmingwex_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingwex_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
+
+crt/lib32_libmingwex_a-CRT_fp10.obj: crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingwex_a-CRT_fp10.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Tpo -c -o crt/lib32_libmingwex_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib32_libmingwex_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingwex_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
 
 libsrc/lib32_libmingwthrd_a-mingwthrd_mt.o: libsrc/mingwthrd_mt.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwthrd_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libmingwthrd_a-mingwthrd_mt.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libmingwthrd_a-mingwthrd_mt.Tpo -c -o libsrc/lib32_libmingwthrd_a-mingwthrd_mt.o `test -f 'libsrc/mingwthrd_mt.c' || echo '$(srcdir)/'`libsrc/mingwthrd_mt.c
@@ -63974,20 +63975,6 @@ crt/lib64_libmingw32_a-tls_atexit.obj: crt/tls_atexit.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-tls_atexit.obj `if test -f 'crt/tls_atexit.c'; then $(CYGPATH_W) 'crt/tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/crt/tls_atexit.c'; fi`
 
-crt/lib64_libmingw32_a-CRT_fp10.o: crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-CRT_fp10.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib64_libmingw32_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
-
-crt/lib64_libmingw32_a-CRT_fp10.obj: crt/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-CRT_fp10.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib64_libmingw32_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
-
 cfguard/lib64_libmingwex_a-mingw_cfguard_support.o: cfguard/mingw_cfguard_support.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cfguard/lib64_libmingwex_a-mingw_cfguard_support.o -MD -MP -MF cfguard/$(DEPDIR)/lib64_libmingwex_a-mingw_cfguard_support.Tpo -c -o cfguard/lib64_libmingwex_a-mingw_cfguard_support.o `test -f 'cfguard/mingw_cfguard_support.c' || echo '$(srcdir)/'`cfguard/mingw_cfguard_support.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) cfguard/$(DEPDIR)/lib64_libmingwex_a-mingw_cfguard_support.Tpo cfguard/$(DEPDIR)/lib64_libmingwex_a-mingw_cfguard_support.Po
@@ -68285,6 +68272,20 @@ math/DFP/lib64_libmingwex_a-isinfd128.obj: math/DFP/isinfd128.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/DFP/isinfd128.c' object='math/DFP/lib64_libmingwex_a-isinfd128.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/DFP/lib64_libmingwex_a-isinfd128.obj `if test -f 'math/DFP/isinfd128.c'; then $(CYGPATH_W) 'math/DFP/isinfd128.c'; else $(CYGPATH_W) '$(srcdir)/math/DFP/isinfd128.c'; fi`
+
+crt/lib64_libmingwex_a-CRT_fp10.o: crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingwex_a-CRT_fp10.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Tpo -c -o crt/lib64_libmingwex_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib64_libmingwex_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingwex_a-CRT_fp10.o `test -f 'crt/CRT_fp10.c' || echo '$(srcdir)/'`crt/CRT_fp10.c
+
+crt/lib64_libmingwex_a-CRT_fp10.obj: crt/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingwex_a-CRT_fp10.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Tpo -c -o crt/lib64_libmingwex_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Tpo crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/CRT_fp10.c' object='crt/lib64_libmingwex_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingwex_a-CRT_fp10.obj `if test -f 'crt/CRT_fp10.c'; then $(CYGPATH_W) 'crt/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt/CRT_fp10.c'; fi`
 
 libsrc/lib64_libmingwthrd_a-mingwthrd_mt.o: libsrc/mingwthrd_mt.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwthrd_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libmingwthrd_a-mingwthrd_mt.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libmingwthrd_a-mingwthrd_mt.Tpo -c -o libsrc/lib64_libmingwthrd_a-mingwthrd_mt.o `test -f 'libsrc/mingwthrd_mt.c' || echo '$(srcdir)/'`libsrc/mingwthrd_mt.c
@@ -101120,7 +101121,6 @@ distclean: distclean-recursive
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctan.Po
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctanf.Po
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctanl.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po
@@ -101156,8 +101156,8 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingwex_a-loadcfg.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
@@ -101193,6 +101193,7 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingwex_a-loadcfg.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po
@@ -105974,7 +105975,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctan.Po
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctanf.Po
 	-rm -f complex/$(DEPDIR)/libarm64_libmingwex_a-ctanl.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-cinitexe.Po
@@ -106010,8 +106010,8 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Po
+	-rm -f crt/$(DEPDIR)/lib32_libmingwex_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingwex_a-loadcfg.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
@@ -106047,6 +106047,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po
+	-rm -f crt/$(DEPDIR)/lib64_libmingwex_a-CRT_fp10.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingwex_a-loadcfg.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-_newmode.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-charmax.Po
