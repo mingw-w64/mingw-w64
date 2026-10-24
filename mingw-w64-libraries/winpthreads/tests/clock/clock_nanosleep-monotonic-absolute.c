@@ -57,9 +57,8 @@ int main(void)
     request.tv_sec  += request.tv_nsec / POW10_9;
     request.tv_nsec %= POW10_9;
   }
-  errno = 0;
   error_code = clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &request, NULL);
-  assert(error_code != 0 && (error_code = errno) == EINVAL);
+  assert(error_code == EINVAL);
   assert(clock_gettime(CLOCK_MONOTONIC, &ts2) == 0);
 
   if (error_code == 0) {

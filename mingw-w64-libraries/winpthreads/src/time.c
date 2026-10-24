@@ -1166,8 +1166,7 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
    *   greater than or equal to 1000 million.
    */
   if (request->tv_sec < 0 || request->tv_nsec < 0 || request->tv_nsec >= POW10_9) {
-    _set_errno (EINVAL);
-    return -1;
+    return EINVAL;
   }
 
   FuncWinpthreadsTimeImpl timeImpl;
@@ -1190,18 +1189,10 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID:
     default:
-      _set_errno(EINVAL);
-      return -1;
+      return EINVAL;
   }
 
-  int error_code = WinpthreadsSleep (timeImpl, flags, request, remain);
-
-  if (error_code != 0) {
-    _set_errno (error_code);
-    return -1;
-  }
-
-  return error_code;
+  return WinpthreadsSleep (timeImpl, flags, request, remain);
 }
 
 int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *request, struct _timespec32 *remain)
@@ -1214,13 +1205,11 @@ int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *
 
   int error_code = clock_nanosleep64 (clock_id, flags, &request64, &remain64);
 
-  if (error_code == -1) {
-    if (unlikely (errno == EINTR) && remain != NULL) {
-      assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
-      remain->tv_sec = (__time32_t) remain64.tv_sec;
-      assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
-      remain->tv_nsec = remain64.tv_nsec;
-    }
+  if (!(flags & TIMER_ABSTIME) && unlikely (error_code == EINTR) && remain != NULL) {
+    assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
+    remain->tv_sec = (__time32_t) remain64.tv_sec;
+    assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
+    remain->tv_nsec = remain64.tv_nsec;
   }
 
   return error_code;
