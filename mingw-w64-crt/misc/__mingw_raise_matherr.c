@@ -8,8 +8,7 @@
 
 int (__cdecl *__mingw_usermatherr)(struct _exception *) __attribute__((common)); /* tentative */
 
-void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
-			    double rslt)
+void __cdecl __mingw_raise_matherr (int typ, const char *name, double a1, double a2, double rslt)
 {
   struct _exception ex;
   if (!__mingw_usermatherr)

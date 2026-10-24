@@ -10,7 +10,7 @@ int (__cdecl *__mingw_usermatherr)(struct _exception *) = NULL;
 
 #undef __setusermatherr
 
-void __mingw_setusermatherr (int (__cdecl *f)(struct _exception *))
+void __cdecl __mingw_setusermatherr (int (__cdecl *f)(struct _exception *))
 {
   __mingw_usermatherr = f;
   __setusermatherr (f);
