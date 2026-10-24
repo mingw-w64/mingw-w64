@@ -23,7 +23,29 @@
 #ifndef WIN_PTHREADS_MISC_H
 #define WIN_PTHREADS_MISC_H
 
+#if defined(__GNUC__) || defined(__clang__)
+#define likely(cond)   __builtin_expect ((cond) != 0, 1)
+#define unlikely(cond) __builtin_expect ((cond) != 0, 0)
+#else
+#define likely(cond)   (cond)
+#define unlikely(cond) (cond)
+#endif
+
+#if defined(__GNUC__) || defined(__clang__)
+#define UNREACHABLE() __builtin_unreachable ()
+#elif defined(_MSC_VER)
+#define UNREACHABLE() __assume (0)
+#endif
+
+/**
+ * Address of `GetHandleInformation` if available; otherwise, set to `NULL`.
+ */
 extern BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD);
+
+/**
+ * Address of `SetThreadDescription` if available; otherwise, set to `NULL`.
+ */
+extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
 
 /**
  * For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
@@ -61,21 +83,5 @@ unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeo
  * than expected is acceptable in a preemptive multitasking environment.
  */
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
-
-extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
-
-#if defined(__GNUC__) || defined(__clang__)
-#define likely(cond)   __builtin_expect ((cond) != 0, 1)
-#define unlikely(cond) __builtin_expect ((cond) != 0, 0)
-#else
-#define likely(cond)   (cond)
-#define unlikely(cond) (cond)
-#endif
-
-#if defined(__GNUC__) || defined(__clang__)
-#define UNREACHABLE() __builtin_unreachable ()
-#elif defined(_MSC_VER)
-#define UNREACHABLE() __assume (0)
-#endif
 
 #endif
