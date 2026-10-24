@@ -97,6 +97,11 @@
 #endif
 
 /**
+ * Function type corresponding to `GetProcessTimes` and `GetThreadTimes`.
+ */
+typedef BOOL (WINAPI *FuncGetTimes) (HANDLE, FILETIME *, FILETIME *, FILETIME *, FILETIME *);
+
+/**
  * Function type corresponding to `GetSystemTimeAsFileTime` and
  * `GetSystemTimePreciseAsFileTime`.
  */
@@ -247,6 +252,20 @@ static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *, stru
  * this function simply forwards to `WinpthreadsTimeImplMonotonicFromTickCount`.
  */
 static int WinpthreadsTimeImplMonotonicFromPerformanceCounter (struct _timespec64 *, struct _timespec64 *);
+
+/**
+ * Implementation for `CLOCK_PROCESS_CPUTIME_ID`.
+ *
+ * This function always fails on Win9x systems.
+ */
+static int WinpthreadsTimeImplProcessCpuTime (struct _timespec64 *time, struct _timespec64 *res);
+
+/**
+ * Implementation for `CLOCK_THREAD_CPUTIME_ID`.
+ *
+ * This function always fails on Win9x systems.
+ */
+static int WinpthreadsTimeImplThreadCpuTime (struct _timespec64 *time, struct _timespec64 *res);
 
 /**
  * Time-related data.
@@ -521,6 +540,43 @@ static void WinpthreadsGetSystemTime (struct _timespec64 *ts, FuncGetSystemTimeA
   ts->tv_nsec = (long) ((value.QuadPart % POW10_7) * 100);
 }
 
+/**
+ * Call `getTimes` on `handle`, then convert and store obtained time values
+ * in `struct _timespec64` structure pointed by `ts`.
+ */
+static int WinpthreadsGetCpuTime (struct _timespec64 *ts, FuncGetTimes getTimes, void *handle) {
+  FILETIME creationTime;
+  FILETIME exitTime;
+  FILETIME kernelTime;
+  FILETIME userTime;
+
+  /**
+   * Functions `GetProcessTimes` and `GetThreadTimes` are available on
+   * Win9x systems, but they always fail with `ERROR_CALL_NOT_IMPLEMENTED`.
+   *
+   * `ENOTSUP` is the most fitting error code, although this error
+   * condition is not specified by POSIX.
+   */
+  if (!getTimes (handle, &creationTime, &exitTime, &kernelTime, &userTime)) {
+    return ENOTSUP;
+  }
+
+  ULARGE_INTEGER kernelValue = {
+    .HighPart = kernelTime.dwHighDateTime,
+    .LowPart  = kernelTime.dwLowDateTime
+  };
+  ULARGE_INTEGER userValue = {
+    .HighPart = userTime.dwHighDateTime,
+    .LowPart  = userTime.dwLowDateTime
+  };
+  ULONGLONG value = kernelValue.QuadPart + userValue.QuadPart;
+
+  ts->tv_sec  = (__time64_t) (value / POW10_7);
+  ts->tv_nsec = (long) ((value % POW10_7) * 100);
+
+  return 0;
+}
+
 static int WinpthreadsTimeImplRealtime (struct _timespec64 *time, struct _timespec64 *res) {
   if (time != NULL) {
     WinpthreadsGetSystemTime (time, GetSystemTimeAsFileTime);
@@ -593,6 +649,38 @@ static int WinpthreadsTimeImplMonotonicFromPerformanceCounter (struct _timespec6
 
   if (res != NULL) {
     WinpthreadsGetPerformanceCounterResolution (res);
+  }
+
+  return 0;
+}
+
+static int WinpthreadsTimeImplProcessCpuTime (struct _timespec64 *time, struct _timespec64 *res) {
+  if (time != NULL) {
+    int error_code = WinpthreadsGetCpuTime (time, GetProcessTimes, GetCurrentProcess ());
+
+    if (error_code != 0) {
+      return error_code;
+    }
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetSystemClockResolution (res);
+  }
+
+  return 0;
+}
+
+static int WinpthreadsTimeImplThreadCpuTime (struct _timespec64 *time, struct _timespec64 *res) {
+  if (time != NULL) {
+    int error_code = WinpthreadsGetCpuTime (time, GetThreadTimes, GetCurrentThread ());
+
+    if (error_code != 0) {
+      return error_code;
+    }
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetSystemClockResolution (res);
   }
 
   return 0;
@@ -807,33 +895,46 @@ int nanosleep32 (const struct _timespec32 *request, struct _timespec32 *remain)
 
 int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
 {
+  int error_code = 0;
+
   switch (clock_id) {
     case CLOCK_REALTIME: {
       WinpthreadsTimeImpl.TimeImplRealtime (NULL, res);
-      return 0;
+      break;
     }
 
     case CLOCK_REALTIME_COARSE: {
       WinpthreadsTimeImplRealtime (NULL, res);
-      return 0;
+      break;
     }
 
     case CLOCK_MONOTONIC: {
       WinpthreadsTimeImpl.TimeImplMonotonic (NULL, res);
-      return 0;
+      break;
     }
 
-    case CLOCK_PROCESS_CPUTIME_ID:
-    case CLOCK_THREAD_CPUTIME_ID: {
-      WinpthreadsGetSystemClockResolution (res);
-      return 0;
-    }
-    default:
+    case CLOCK_PROCESS_CPUTIME_ID: {
+      error_code = WinpthreadsTimeImplProcessCpuTime (NULL, res);
       break;
+    }
+
+    case CLOCK_THREAD_CPUTIME_ID: {
+      error_code = WinpthreadsTimeImplThreadCpuTime (NULL, res);
+      break;
+    }
+
+    default: {
+      error_code = EINVAL;
+      break;
+    }
   }
 
-  _set_errno (EINVAL);
-  return -1;
+  if (error_code != 0) {
+    _set_errno (error_code);
+    return -1;
+  }
+
+  return 0;
 }
 
 int clock_getres32 (clockid_t clock_id, struct _timespec32 *res)
@@ -852,96 +953,46 @@ int clock_getres32 (clockid_t clock_id, struct _timespec32 *res)
 
 int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
 {
+  int error_code = 0;
+
   switch (clock_id) {
     case CLOCK_REALTIME: {
       WinpthreadsTimeImpl.TimeImplRealtime (tp, NULL);
-      return 0;
+      break;
     }
 
     case CLOCK_REALTIME_COARSE: {
       WinpthreadsTimeImplRealtime (tp, NULL);
-      return 0;
+      break;
     }
 
     case CLOCK_MONOTONIC: {
       WinpthreadsTimeImpl.TimeImplMonotonic (tp, NULL);
-      return 0;
+      break;
     }
 
     case CLOCK_PROCESS_CPUTIME_ID: {
-      FILETIME creationTime;
-      FILETIME exitTime;
-      FILETIME kernelTime;
-      FILETIME userTime;
-
-      /**
-       * Function `GetProcessTimes` is available on Win9x systems,
-       * but it always fails.
-       *
-       * `ENOTSUP` is the most fitting error code, although this error
-       * condition is not specified by POSIX.
-       */
-      if (!GetProcessTimes(GetCurrentProcess(), &creationTime, &exitTime, &kernelTime, &userTime)) {
-        _set_errno(ENOTSUP);
-        return -1;
-      }
-
-      ULARGE_INTEGER kernelValue = {
-        .HighPart = kernelTime.dwHighDateTime,
-        .LowPart  = kernelTime.dwLowDateTime
-      };
-      ULARGE_INTEGER userValue = {
-        .HighPart = userTime.dwHighDateTime,
-        .LowPart  = userTime.dwLowDateTime
-      };
-      ULONGLONG value = kernelValue.QuadPart + userValue.QuadPart;
-
-      tp->tv_sec  = (__time64_t)  (value / POW10_7);
-      tp->tv_nsec = (long) ((value % POW10_7) * 100);
-
-      return 0;
+      error_code = WinpthreadsTimeImplProcessCpuTime (tp, NULL);
+      break;
     }
 
     case CLOCK_THREAD_CPUTIME_ID: {
-      FILETIME creationTime;
-      FILETIME exitTime;
-      FILETIME kernelTime;
-      FILETIME userTime;
-
-      /**
-       * Function `GetThreadTimes` is available on Win9x systems,
-       * but it always fails.
-       *
-       * `ENOTSUP` is the most fitting error code, although this error
-       * condition is not specified by POSIX.
-       */
-      if (!GetThreadTimes(GetCurrentThread(), &creationTime, &exitTime, &kernelTime, &userTime)) {
-        _set_errno(ENOTSUP);
-        return -1;
-      }
-
-      ULARGE_INTEGER kernelValue = {
-        .HighPart = kernelTime.dwHighDateTime,
-        .LowPart  = kernelTime.dwLowDateTime
-      };
-      ULARGE_INTEGER userValue = {
-        .HighPart = userTime.dwHighDateTime,
-        .LowPart  = userTime.dwLowDateTime
-      };
-      ULONGLONG value = kernelValue.QuadPart + userValue.QuadPart;
-
-      tp->tv_sec  = (__time64_t) (value / POW10_7);
-      tp->tv_nsec = (long) ((value % POW10_7) * 100);
-
-      return 0;
+      error_code = WinpthreadsTimeImplThreadCpuTime (tp, NULL);
+      break;
     }
 
-    default:
+    default: {
+      error_code = EINVAL;
       break;
+    }
   }
 
-  _set_errno (EINVAL);
-  return -1;
+  if (error_code != 0) {
+    _set_errno (error_code);
+    return -1;
+  }
+
+  return 0;
 }
 
 int clock_gettime32 (clockid_t clock_id, struct _timespec32 *tp)
