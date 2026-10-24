@@ -49,12 +49,8 @@ unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts);
 
 /**
  * Get current time using some monotonic clock, in milliseconds.
- *
- * If `frequency` in not `NULL`, on the first call, that variable must be
- * initialized to zero; this variable then can be passed to subsequent calls
- * to this function.
  */
-unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency);
+unsigned __int64 winpthreads_windows_time_ms (void);
 
 /**
  * Initialize time functions.

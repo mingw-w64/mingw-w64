@@ -214,6 +214,10 @@ typedef struct TimeImpl {
  * If set, then `GetSystemTimePreciseAsFileTime` is available.
  */
 #define HIGH_RESOLUTION_SYSTEM_TIME 0x01
+/**
+ * If set, then the performance counter is supported.
+ */
+#define HIGH_RESOLUTION_WINDOWS_TIME 0x02
   int Flags;
   /**
    * Data related to the system clock.
@@ -227,6 +231,23 @@ typedef struct TimeImpl {
      */
     long Resolution;
   } SystemClock;
+  /**
+   * Data related to the performance counter.
+   */
+  struct {
+    /**
+     * Frequency of the performance counter as returned by
+     * `QueryPerformanceFrequency`.
+     *
+     * This value is set once at boot time, which means we can obtain
+     * this value once and then treat it as a constant at runtime.
+     */
+    __int64 Frequency;
+    /**
+     * Resolution of the performance counter , in nanoseconds.
+     */
+    long Resolution;
+  } PerformanceCounter;
 } TimeImpl;
 
 #if WINPTHREADS_WINNT >= WINPTHREADS_WINNT_WIN8
@@ -238,6 +259,8 @@ typedef struct TimeImpl {
 static TimeImpl WinpthreadsTimeImpl = {
   .Flags = WINPTHREADS_DEFAULT_TIME_API_FLAGS,
   .SystemClock.Resolution = 0,
+  .PerformanceCounter.Frequency = 0,
+  .PerformanceCounter.Resolution = 0,
 };
 
 /**
@@ -333,6 +356,35 @@ void winpthreads_time_init (void) {
   } else {
     WinpthreadsTimeImpl.SystemClock.Resolution = 16L * POW10_6;
   }
+
+  /**
+   * Obtain frequency and resolution of the performance counter.
+   *
+   * If we succeed, then the performance counter is supported;
+   * set `HIGH_RESOLUTION_WINDOWS_TIME` bit in `WinpthreadsTimeImpl.Flags`.
+   *
+   * Otherwise, the performance counter is not supported.
+   *
+   * Starting with Windows XP, functions `QueryPerformanceFrequency` and
+   * `QueryPerformanceCounter` always succeed.
+   */
+  LARGE_INTEGER performanceFrequency;
+
+  if (QueryPerformanceFrequency (&performanceFrequency)) {
+    WinpthreadsTimeImpl.PerformanceCounter.Frequency = performanceFrequency.QuadPart;
+
+    /**
+     * Check if the performance counter supports sub-nanosecond resolution.
+     */
+    if (WinpthreadsTimeImpl.PerformanceCounter.Frequency / POW10_9 > 0) {
+      WinpthreadsTimeImpl.PerformanceCounter.Resolution = 1L;
+    } else {
+      WinpthreadsTimeImpl.PerformanceCounter.Resolution =
+        (long) (POW10_9 / WinpthreadsTimeImpl.PerformanceCounter.Frequency);
+    }
+
+    WinpthreadsTimeImpl.Flags |= HIGH_RESOLUTION_WINDOWS_TIME;
+  }
 }
 
 /**
@@ -341,6 +393,14 @@ void winpthreads_time_init (void) {
 static void WinpthreadsGetSystemClockResolution (struct _timespec64 *ts) {
   ts->tv_sec  = WinpthreadsTimeImpl.SystemClock.Resolution / POW10_9;
   ts->tv_nsec = WinpthreadsTimeImpl.SystemClock.Resolution % POW10_9;
+}
+
+/**
+ * Store resolution of the performance counter in `ts`.
+ */
+static void WinpthreadsGetPerformanceCounterResolution (struct _timespec64 *ts) {
+  ts->tv_sec  = WinpthreadsTimeImpl.PerformanceCounter.Resolution / POW10_9;
+  ts->tv_nsec = WinpthreadsTimeImpl.PerformanceCounter.Resolution % POW10_9;
 }
 
 /*******************************************************************************
@@ -406,25 +466,15 @@ unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts)
   return (unsigned) diff;
 }
 
-unsigned __int64 winpthreads_windows_time_ms (__int64 *frequency)
+unsigned __int64 winpthreads_windows_time_ms (void)
 {
-  LARGE_INTEGER performanceFrequency = {.QuadPart = 0};
-  LARGE_INTEGER performanceCounter   = {.QuadPart = 0};
+  if (WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_WINDOWS_TIME)) {
+    LARGE_INTEGER performanceFrequency = {.QuadPart = WinpthreadsTimeImpl.PerformanceCounter.Frequency};
+    LARGE_INTEGER performanceCounter   = {.QuadPart = 0};
 
-  if (frequency == NULL || *frequency == 0) {
-    if (!QueryPerformanceFrequency (&performanceFrequency)) {
-      performanceFrequency.QuadPart = -1;
+    if (QueryPerformanceCounter (&performanceCounter)) {
+      return performanceCounter.QuadPart / (performanceFrequency.QuadPart / POW10_3);
     }
-
-    if (frequency != NULL) {
-      *frequency = performanceFrequency.QuadPart;
-    }
-  } else {
-    performanceFrequency.QuadPart = *frequency;
-  }
-
-  if (performanceFrequency.QuadPart > 0 && QueryPerformanceCounter (&performanceCounter)) {
-    return performanceCounter.QuadPart / (performanceFrequency.QuadPart / POW10_3);
   }
 
   return GetTickCount64 ();
@@ -559,20 +609,12 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
   switch (clock_id) {
     case CLOCK_REALTIME:
     case CLOCK_MONOTONIC: {
-      LARGE_INTEGER pf;
-
-      if (!QueryPerformanceFrequency (&pf)) {
+      if (!WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_WINDOWS_TIME)) {
         _set_errno (EINVAL);
         return -1;
       }
 
-      res->tv_sec  = 0;
-      res->tv_nsec = (long) ((POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
-
-      if (res->tv_nsec < 1) {
-        res->tv_nsec = 1;
-      }
-
+      WinpthreadsGetPerformanceCounterResolution (res);
       return 0;
     }
 
