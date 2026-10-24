@@ -24,6 +24,8 @@
 #include "config.h"
 #endif
 
+#include <stdlib.h>
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
@@ -55,6 +57,16 @@ static BOOL WINAPI WinpthreadsGetHandleInformation (HANDLE handle, LPDWORD flags
 }
 
 /**
+ * Replacement for `SetThreadDescription`;
+ * a simple stub that always fails.
+ */
+static HRESULT WINAPI WinpthreadsSetThreadDescription (HANDLE handle, PCWSTR description) {
+  return HRESULT_FROM_WIN32 (ERROR_CALL_NOT_IMPLEMENTED);
+  UNREFERENCED_PARAMETER (handle);
+  UNREFERENCED_PARAMETER (description);
+}
+
+/**
  * Functions which are looked up at runtime.
  */
 static struct {
@@ -62,9 +74,74 @@ static struct {
    * Function `GetHandleInformation` is available since Windows NT 3.5.
    */
   FuncGetHandleInformation PtrGetHandleInformation;
+  /**
+   * Function `SetThreadDescription` is available since Windows 10 1607.
+   */
+  FuncSetThreadDescription PtrSetThreadDescription;
 } WinpthreadsApi;
 
-FuncSetThreadDescription _pthread_set_thread_description = NULL;
+/**
+ * Function type corresponding to `winpthreads_set_thread_description_ansi`.
+ */
+typedef int (* FuncWinpthreadsSetThreadDescriptionAnsi) (void *, const char *);
+
+/**
+ * Stubbed implementation for `winpthreads_set_thread_description_ansi`.
+ */
+static int WinpthreadsStubSetThreadDescriptionAnsi (void *handle, const char *description) {
+  return HRESULT_FROM_WIN32 (ERROR_CALL_NOT_IMPLEMENTED);
+  UNREFERENCED_PARAMETER (handle);
+  UNREFERENCED_PARAMETER (description);
+}
+
+/**
+ * Implementation for `winpthreads_set_thread_description_ansi`.
+ */
+static int WinpthreadsSetThreadDescriptionAnsi (void *handle, const char *description) {
+  HRESULT hr;
+
+  int      bufferSize = 0;
+  wchar_t *buffer     = NULL;
+
+  bufferSize = MultiByteToWideChar (CP_ACP, 0, description, -1, buffer, bufferSize);
+
+  if (bufferSize == 0) {
+    hr = HRESULT_FROM_WIN32 (GetLastError ());
+    goto fail;
+  }
+
+  buffer = malloc (bufferSize * sizeof (wchar_t));
+
+  if (buffer == NULL) {
+    hr = HRESULT_FROM_WIN32 (ERROR_OUTOFMEMORY);
+    goto fail;
+  }
+
+  int written = MultiByteToWideChar (CP_ACP, 0, description, -1, buffer, bufferSize);
+
+  if (written == 0) {
+    hr = HRESULT_FROM_WIN32 (GetLastError ());
+    goto fail_free;
+  }
+
+  hr = WinpthreadsApi.PtrSetThreadDescription (handle, buffer);
+
+fail_free:
+  free (buffer);
+
+fail:
+  return hr;
+}
+
+/**
+ * Implementation based on functions available at runtime.
+ */
+static struct {
+  /**
+   * Implementation for `winpthreads_set_thread_description_ansi`.
+   */
+  FuncWinpthreadsSetThreadDescriptionAnsi PtrWinpthreadsSetThreadDescriptionAnsi;
+} WinpthreadsImpl;
 
 #if defined(__GNUC__) || defined(__clang__)
 #if __GNUC__ >= 9 && !defined(__clang__)
@@ -79,10 +156,11 @@ static void winpthreads_init (void)
   HMODULE kernelbase = GetModuleHandleA ("kernelbase.dll");
 
   FuncGetHandleInformation ptrGetHandleInformation = NULL;
+  FuncSetThreadDescription ptrSetThreadDescription = NULL;
 
   if (kernel32 != NULL) {
     ptrGetHandleInformation = (FuncGetHandleInformation) (UINT_PTR) GetProcAddress (kernel32, "GetHandleInformation");
-    _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernel32, "SetThreadDescription");
+    ptrSetThreadDescription = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernel32, "SetThreadDescription");
   }
 
   if (kernelbase != NULL) {
@@ -91,8 +169,8 @@ static void winpthreads_init (void)
      * on Windows Server 2016, Windows 10 LTSB 2016 and Windows 10 version 1607,
      * it was only available in kernelbase.dll.
      */
-    if (_pthread_set_thread_description == NULL) {
-      _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernelbase, "SetThreadDescription");
+    if (ptrSetThreadDescription == NULL) {
+      ptrSetThreadDescription = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernelbase, "SetThreadDescription");
     }
   }
 
@@ -100,6 +178,14 @@ static void winpthreads_init (void)
     WinpthreadsApi.PtrGetHandleInformation = ptrGetHandleInformation;
   } else {
     WinpthreadsApi.PtrGetHandleInformation = WinpthreadsGetHandleInformation;
+  }
+
+  if (ptrSetThreadDescription != NULL) {
+    WinpthreadsApi.PtrSetThreadDescription                 = ptrSetThreadDescription;
+    WinpthreadsImpl.PtrWinpthreadsSetThreadDescriptionAnsi = WinpthreadsSetThreadDescriptionAnsi;
+  } else {
+    WinpthreadsApi.PtrSetThreadDescription                 = WinpthreadsSetThreadDescription;
+    WinpthreadsImpl.PtrWinpthreadsSetThreadDescriptionAnsi = WinpthreadsStubSetThreadDescriptionAnsi;
   }
 
   winpthreads_time_init ();
@@ -199,6 +285,14 @@ unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void *
 
 int winpthreads_get_handle_information (void *handle, unsigned *flags) {
   return WinpthreadsApi.PtrGetHandleInformation (handle, (LPDWORD) flags);
+}
+
+int winpthreads_set_thread_description_ansi (void *handle, const char *description) {
+  return WinpthreadsImpl.PtrWinpthreadsSetThreadDescriptionAnsi (handle, description);
+}
+
+int winpthreads_set_thread_description_unicode (void *handle, const wchar_t *description) {
+  return WinpthreadsApi.PtrSetThreadDescription (handle, description);
 }
 
 int winpthreads_validate_handle (void *handle) {

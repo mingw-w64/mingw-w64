@@ -38,11 +38,6 @@
 #endif
 
 /**
- * Address of `SetThreadDescription` if available; otherwise, set to `NULL`.
- */
-extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
-
-/**
  * A wrapper around `WaitForSingleObject` that ensures that
  * the wait function does not time out before the time actually runs out.
  *
@@ -66,6 +61,20 @@ unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void *
  * Portability wrapper for `GetHandleInformation`.
  */
 int winpthreads_get_handle_information (void *, unsigned *);
+
+/**
+ * Portability wrapper for `SetThreadDescription`.
+ *
+ * Since `SetThreadDescription` expects wide character string for its
+ * second argument, this wrapper converts its second argument using
+ * active ANSI code page before passing it to `SetThreadDescription`.
+ */
+int winpthreads_set_thread_description_ansi (void *, const char *);
+
+/**
+ * Portability wrapper for `SetThreadDescription`.
+ */
+int winpthreads_set_thread_description_unicode (void *, const wchar_t *);
 
 /**
  * Validate `handle`.

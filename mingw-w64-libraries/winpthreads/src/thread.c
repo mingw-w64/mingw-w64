@@ -1905,22 +1905,8 @@ pthread_setname_np (pthread_t thread, const char *name)
 
   tv->thread_name = stored_name;
   SetThreadName (tv->tid, name);
+  winpthreads_set_thread_description_ansi (tv->h, name);
 
-  if (_pthread_set_thread_description != NULL)
-    {
-      mbstate_t mbs = {0};
-      size_t required_size = mbsrtowcs(NULL, &name, 0, &mbs);
-      if (required_size != (size_t)-1)
-        {
-          wchar_t *wname = malloc((required_size + 1) * sizeof(wchar_t));
-          if (wname != NULL)
-            {
-              mbsrtowcs(wname, &name, required_size + 1, &mbs);
-              _pthread_set_thread_description(tv->h, wname);
-              free(wname);
-            }
-        }
-    }
   return 0;
 }
 
