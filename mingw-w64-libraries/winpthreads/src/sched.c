@@ -101,7 +101,7 @@ static int pthread_check(pthread_t t)
   if (!t)
     return ESRCH;
   pv = __pth_gpointer_locked (t);
-  if (!pv || !TEST_HANDLE(pv->h))
+  if (!pv || !winpthreads_validate_handle(pv->h))
     return ESRCH;
   if (pv->ended == 0)
     return 0;

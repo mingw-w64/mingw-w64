@@ -1265,7 +1265,7 @@ pthread_cancel (pthread_t t)
 {
   struct _pthread_v *tv = __pth_gpointer_locked (t);
 
-  if (!tv || !TEST_HANDLE(tv->h))
+  if (!tv || !winpthreads_validate_handle(tv->h))
     return ESRCH;
   /*if (tv->ended) return ESRCH;*/
   pthread_mutex_lock(&tv->p_clock);
@@ -1749,7 +1749,7 @@ pthread_join (pthread_t t, void **res)
   struct _pthread_v *tv = __pth_gpointer_locked (t);
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
-  if (!tv || !TEST_HANDLE(tv->h))
+  if (!tv || !winpthreads_validate_handle(tv->h))
     return ESRCH;
   if ((tv->p_state & PTHREAD_CREATE_DETACHED) != 0)
     return EINVAL;
@@ -1782,7 +1782,7 @@ _pthread_tryjoin (pthread_t t, void **res)
   pthread_mutex_lock (&mtx_pthr_locked);
   tv = __pthread_get_pointer (t);
 
-  if (!tv || !TEST_HANDLE(tv->h))
+  if (!tv || !winpthreads_validate_handle(tv->h))
     {
       pthread_mutex_unlock (&mtx_pthr_locked);
       return ESRCH;
@@ -1834,7 +1834,7 @@ pthread_detach (pthread_t t)
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
-  if (!tv || !TEST_HANDLE(tv->h))
+  if (!tv || !winpthreads_validate_handle(tv->h))
     {
       pthread_mutex_unlock (&mtx_pthr_locked);
       return ESRCH;

@@ -38,31 +38,9 @@
 #endif
 
 /**
- * Address of `GetHandleInformation` if available; otherwise, set to `NULL`.
- */
-extern BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD);
-
-/**
  * Address of `SetThreadDescription` if available; otherwise, set to `NULL`.
  */
 extern HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR);
-
-/**
- * For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
- * For other pre-C99 compilers declare DUMMY_WRITABLE_DWORD as static variable.
- */
-#if defined(__GNUC__) || defined(__clang__)
-#define DUMMY_WRITABLE_DWORD (DWORD) {0}
-#else
-static DWORD DUMMY_WRITABLE_DWORD;
-#endif
-
-#define TEST_HANDLE(h)                                                  \
-  (((h) != NULL && (h) != INVALID_HANDLE_VALUE) && (                    \
-     _pthread_get_handle_information == NULL ||                         \
-     _pthread_get_handle_information ((h), &DUMMY_WRITABLE_DWORD) ||     \
-     GetLastError () == ERROR_CALL_NOT_IMPLEMENTED                       \
-  ))
 
 /**
  * A wrapper around `WaitForSingleObject` that ensures that
@@ -83,5 +61,17 @@ unsigned long winpthreads_wait_for_single_object (void *handle, unsigned long ti
  * than expected is acceptable in a preemptive multitasking environment.
  */
 unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
+
+/**
+ * Portability wrapper for `GetHandleInformation`.
+ */
+int winpthreads_get_handle_information (void *, unsigned *);
+
+/**
+ * Validate `handle`.
+ *
+ * Returns non-zero if `handle` is valid and zero otherwise.
+ */
+int winpthreads_validate_handle (void *handle);
 
 #endif

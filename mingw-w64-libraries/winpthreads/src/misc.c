@@ -43,7 +43,27 @@ typedef BOOL (WINAPI *FuncGetHandleInformation) (HANDLE, LPDWORD);
  */
 typedef HRESULT (WINAPI *FuncSetThreadDescription) (HANDLE, PCWSTR);
 
-FuncGetHandleInformation _pthread_get_handle_information = NULL;
+/**
+ * Replacement for `GetHandleInformation`;
+ * a simple stub that always fails.
+ */
+static BOOL WINAPI WinpthreadsGetHandleInformation (HANDLE handle, LPDWORD flags) {
+  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
+  return FALSE;
+  UNREFERENCED_PARAMETER (handle);
+  UNREFERENCED_PARAMETER (flags);
+}
+
+/**
+ * Functions which are looked up at runtime.
+ */
+static struct {
+  /**
+   * Function `GetHandleInformation` is available since Windows NT 3.5.
+   */
+  FuncGetHandleInformation PtrGetHandleInformation;
+} WinpthreadsApi;
+
 FuncSetThreadDescription _pthread_set_thread_description = NULL;
 
 #if defined(__GNUC__) || defined(__clang__)
@@ -58,8 +78,10 @@ static void winpthreads_init (void)
   HMODULE kernel32   = GetModuleHandleA ("kernel32.dll");
   HMODULE kernelbase = GetModuleHandleA ("kernelbase.dll");
 
+  FuncGetHandleInformation ptrGetHandleInformation = NULL;
+
   if (kernel32 != NULL) {
-    _pthread_get_handle_information = (FuncGetHandleInformation) (UINT_PTR) GetProcAddress (kernel32, "GetHandleInformation");
+    ptrGetHandleInformation = (FuncGetHandleInformation) (UINT_PTR) GetProcAddress (kernel32, "GetHandleInformation");
     _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernel32, "SetThreadDescription");
   }
 
@@ -72,6 +94,12 @@ static void winpthreads_init (void)
     if (_pthread_set_thread_description == NULL) {
       _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernelbase, "SetThreadDescription");
     }
+  }
+
+  if (ptrGetHandleInformation != NULL) {
+    WinpthreadsApi.PtrGetHandleInformation = ptrGetHandleInformation;
+  } else {
+    WinpthreadsApi.PtrGetHandleInformation = WinpthreadsGetHandleInformation;
   }
 
   winpthreads_time_init ();
@@ -167,4 +195,26 @@ unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void *
   } while (TRUE);
 
   return result;
+}
+
+int winpthreads_get_handle_information (void *handle, unsigned *flags) {
+  return WinpthreadsApi.PtrGetHandleInformation (handle, (LPDWORD) flags);
+}
+
+int winpthreads_validate_handle (void *handle) {
+  if (handle == NULL || handle == INVALID_HANDLE_VALUE) {
+    return FALSE;
+  }
+
+  DWORD flags;
+
+  /**
+   * Function `GetHandleInformation` is available on Win9x systems,
+   * but it always fails with `ERROR_CALL_NOT_IMPLEMENTED`.
+   */
+  if (!WinpthreadsApi.PtrGetHandleInformation (handle, &flags)) {
+    return GetLastError () == ERROR_CALL_NOT_IMPLEMENTED;
+  }
+
+  return TRUE;
 }
