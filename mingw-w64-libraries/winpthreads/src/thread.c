@@ -666,8 +666,8 @@ _pthread_once_raw (pthread_once_t *o, void (*func)(void))
   collect_once_t *co;
   long state = *o;
 
-  CHECK_PTR(o);
-  CHECK_PTR(func);
+  if (!o || !func)
+    return EINVAL;
 
   if (state == 1)
     return 0;
@@ -811,8 +811,8 @@ pthread_once (pthread_once_t *o, void (*func)(void))
   collect_once_t *co;
   long state = *o;
 
-  CHECK_PTR(o);
-  CHECK_PTR(func);
+  if (!o || !func)
+    return EINVAL;
 
   if (state == 1)
     return 0;
@@ -1265,9 +1265,8 @@ pthread_cancel (pthread_t t)
 {
   struct _pthread_v *tv = __pth_gpointer_locked (t);
 
-  if (tv == NULL)
+  if (!tv || !TEST_HANDLE(tv->h))
     return ESRCH;
-  CHECK_OBJECT(tv, ESRCH);
   /*if (tv->ended) return ESRCH;*/
   pthread_mutex_lock(&tv->p_clock);
   if (pthread_equal(pthread_self(), t))
@@ -1750,8 +1749,8 @@ pthread_join (pthread_t t, void **res)
   struct _pthread_v *tv = __pth_gpointer_locked (t);
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
-  CHECK_OBJECT(tv, ESRCH);
-
+  if (!tv || !TEST_HANDLE(tv->h))
+    return ESRCH;
   if ((tv->p_state & PTHREAD_CREATE_DETACHED) != 0)
     return EINVAL;
   if (pthread_equal(pthread_self(), t))

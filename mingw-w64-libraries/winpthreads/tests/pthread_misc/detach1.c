@@ -46,7 +46,7 @@ enum {
 void *
 func(void * arg)
 {
-    int i = PTR2INT(arg);
+    int i = (int)(uintptr_t)arg;
 
     Sleep(i * 10);
 

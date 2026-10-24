@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011-2016  mingw-w64 project
+   Copyright (c) 2011-2016, 2026 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -23,18 +23,6 @@
 #ifndef WIN_PTHREADS_MISC_H
 #define WIN_PTHREADS_MISC_H
 
-#include <limits.h>
-/* public header files */
-#include "pthread_compat.h"
-
-#define PTR2INT(x)	((int)(uintptr_t)(x))
-
-#if SIZE_MAX>UINT_MAX
-typedef long long LONGBAG;
-#else
-typedef long LONGBAG;
-#endif
-
 extern BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD);
 
 /* For gcc and clang define DUMMY_WRITABLE_DWORD as C99 compound literal.
@@ -53,31 +41,6 @@ static DWORD DUMMY_WRITABLE_DWORD;
      GetLastError() == ERROR_CALL_NOT_IMPLEMENTED                       \
   ))
 
-#define CHECK_HANDLE2(h, e)                                             \
-  do {                                                                  \
-    if (!TEST_HANDLE(h))                                                \
-      return e;                                                         \
-  } while (0)
-
-#define CHECK_HANDLE(h) CHECK_HANDLE2(h, EINVAL)
-
-#define CHECK_PTR(p) do { if (!(p)) return EINVAL; } while (0)
-
-#define UPD_RESULT(x,r) do { int _r = (x); (r) = (r) ? (r) : _r; } while (0)
-
-#define CHECK_THREAD(t)                         \
-  do {                                          \
-    CHECK_PTR(t);                               \
-    CHECK_HANDLE((t)->h);                       \
-  } while (0)
-
-#define CHECK_OBJECT(o, e)                                              \
-  do {                                                                  \
-    if (!(o)) return e;                                                 \
-    CHECK_HANDLE2((o)->h, e);                                           \
-  } while (0)
-
-#define VALID(x)    if (!(p)) return EINVAL;
 unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
 unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
