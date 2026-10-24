@@ -72,7 +72,7 @@ static DWORD DUMMY_WRITABLE_DWORD;
  * returning earlier than expected. On the other hand, returning a bit *later*
  * than expected is acceptable in a preemptive multitasking environment.
  */
-unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
+unsigned long winpthreads_wait_for_single_object (void *handle, unsigned long timeout);
 
 /**
  * A wrapper around `WaitForMultipleObjects` that ensures that
@@ -82,6 +82,6 @@ unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeo
  * returning earlier than expected. On the other hand, returning a bit *later*
  * than expected is acceptable in a preemptive multitasking environment.
  */
-unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
+unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
 #endif

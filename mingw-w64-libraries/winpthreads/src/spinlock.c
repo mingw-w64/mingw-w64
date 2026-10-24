@@ -307,7 +307,7 @@ int pthread_spin_lock (pthread_spinlock_t *lock)
 
   if (likely (oldLockState != Unlocked)) {
     do {
-      switch (_pthread_wait_for_single_object (wSpinlock->Event, INFINITE)) {
+      switch (winpthreads_wait_for_single_object (wSpinlock->Event, INFINITE)) {
         /**
          * `wSpinlock->Event` was signaled.
          *

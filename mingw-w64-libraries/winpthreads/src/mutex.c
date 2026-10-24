@@ -509,7 +509,7 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
   LONG oldLockState = InterlockedExchange (lockState, LockedWithBlocking);
 
   while (oldLockState != Unlocked) {
-    switch (_pthread_wait_for_single_object (event, (DWORD) waitTimeout)) {
+    switch (winpthreads_wait_for_single_object (event, (DWORD) waitTimeout)) {
       /**
        * `event` was in signaled state (unlocked) or it became signaled
        * within `waitTimeout`.
@@ -608,7 +608,7 @@ static WINPTHREADS_INLINE int WinpthreadsRobustMutexTimedLock (HANDLE mutex, LON
   DWORD errorCode;
   int error_code;
 
-  switch (_pthread_wait_for_single_object (mutex, (DWORD) waitTimeout)) {
+  switch (winpthreads_wait_for_single_object (mutex, (DWORD) waitTimeout)) {
     /**
      * `mutex` was in signaled state (unlocked) or it became signaled before
      * `waitTimeout` expired.

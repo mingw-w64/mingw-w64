@@ -88,7 +88,7 @@ extern const _PVFV __xc_t;
 const _PVFV __xc_t = winpthreads_init;
 #endif
 
-unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout)
+unsigned long winpthreads_wait_for_single_object (void *handle, unsigned long timeout)
 {
   DWORD result;
   unsigned long long start_time, end_time;
@@ -124,7 +124,7 @@ unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeo
   return result;
 }
 
-unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout)
+unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout)
 {
   DWORD result;
   unsigned long long start_time, end_time;

@@ -589,7 +589,7 @@ do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout)
   DWORD res, dt;
   if (nointerrupt == 1)
   {
-    res = _pthread_wait_for_single_object(sema, timeout);
+    res = winpthreads_wait_for_single_object(sema, timeout);
     switch (res) {
     case WAIT_TIMEOUT:
 	r = ETIMEDOUT;
@@ -613,7 +613,7 @@ do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout)
   if (maxH == 2)
   {
 redo:
-      res = _pthread_wait_for_multiple_objects(maxH, arr, 0, timeout);
+      res = winpthreads_wait_for_multiple_objects(maxH, arr, 0, timeout);
       switch (res) {
       case WAIT_TIMEOUT:
 	  r = ETIMEDOUT;
@@ -646,7 +646,7 @@ redo:
   if (timeout == INFINITE)
   {
     do {
-      res = _pthread_wait_for_single_object(sema, 40);
+      res = winpthreads_wait_for_single_object(sema, 40);
       switch (res) {
       case WAIT_TIMEOUT:
 	  r = ETIMEDOUT;
@@ -675,7 +675,7 @@ redo:
   dt = 20;
   do {
     if (dt > timeout) dt = timeout;
-    res = _pthread_wait_for_single_object(sema, dt);
+    res = winpthreads_wait_for_single_object(sema, dt);
     switch (res) {
     case WAIT_TIMEOUT:
 	r = ETIMEDOUT;
