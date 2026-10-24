@@ -215,6 +215,18 @@ typedef struct TimeImpl {
  */
 #define HIGH_RESOLUTION_SYSTEM_TIME 0x01
   int Flags;
+  /**
+   * Data related to the system clock.
+   */
+  struct {
+    /**
+     * Resolution of the system clock, in nanoseconds.
+     *
+     * System clock resolution is set at boot time, which means we can obtain
+     * this value once and then treat it as a constant at runtime.
+     */
+    long Resolution;
+  } SystemClock;
 } TimeImpl;
 
 #if WINPTHREADS_WINNT >= WINPTHREADS_WINNT_WIN8
@@ -225,6 +237,7 @@ typedef struct TimeImpl {
 
 static TimeImpl WinpthreadsTimeImpl = {
   .Flags = WINPTHREADS_DEFAULT_TIME_API_FLAGS,
+  .SystemClock.Resolution = 0,
 };
 
 /**
@@ -297,6 +310,37 @@ void winpthreads_time_init (void) {
   }
 #endif
 #endif /* RUNTIME_CHECKS */
+
+  /**
+   * Obtain resolution of the system clock.
+   *
+   * Function `GetSystemTimeAdjustment` is not available on NT 3.1;
+   * this function is available on Win9x, but it always fails with
+   * `ERROR_CALL_NOT_IMPLEMENTED`.
+   *
+   * In order to gracefully handle above cases, we default to 16ms;
+   * the resolution of the system clock on Windows is 10~16ms.
+   *
+   * NOTE: we do not use `GetSystemTimeAdjustmentPrecise` as it appears to
+   *  return meaningless values when `isTimeAdjustmentDisabled` is `TRUE`.
+   */
+  DWORD timeAdjustment;
+  DWORD timeIncrement;
+  BOOL  isTimeAdjustmentDisabled;
+
+  if (GetSystemTimeAdjustment (&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
+    WinpthreadsTimeImpl.SystemClock.Resolution = (long) (timeIncrement * 100);
+  } else {
+    WinpthreadsTimeImpl.SystemClock.Resolution = 16L * POW10_6;
+  }
+}
+
+/**
+ * Store resolution of the system clock in `ts`.
+ */
+static void WinpthreadsGetSystemClockResolution (struct _timespec64 *ts) {
+  ts->tv_sec  = WinpthreadsTimeImpl.SystemClock.Resolution / POW10_9;
+  ts->tv_nsec = WinpthreadsTimeImpl.SystemClock.Resolution % POW10_9;
 }
 
 /*******************************************************************************
@@ -535,21 +579,7 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
     case CLOCK_REALTIME_COARSE:
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID: {
-      DWORD timeAdjustment;
-      DWORD timeIncrement;
-      BOOL  isTimeAdjustmentDisabled;
-
-      /**
-       * If call to `GetSystemTimeAdjustment` fails, use 16ms as
-       * the default fallback value.
-       */
-      if (!GetSystemTimeAdjustment (&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
-        timeIncrement = 160000;
-      }
-
-      res->tv_sec  = 0;
-      res->tv_nsec = (long) (timeIncrement * 100);
-
+      WinpthreadsGetSystemClockResolution (res);
       return 0;
     }
     default:
