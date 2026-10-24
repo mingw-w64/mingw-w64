@@ -23,6 +23,8 @@
 #ifndef WIN_SEM
 #define WIN_SEM
 
+#include "misc.h"
+
 #define LIFE_SEM 0xBAB1F00D
 #define DEAD_SEM 0xDEADBEEF
 

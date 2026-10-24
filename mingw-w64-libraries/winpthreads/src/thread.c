@@ -48,7 +48,6 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
-#include "misc.h"
 #include "thread.h"
 #include "winpthreads-time.h"
 

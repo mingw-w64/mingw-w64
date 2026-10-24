@@ -36,7 +36,6 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
-#include "misc.h"
 #include "rwlock.h"
 #include "thread.h"
 

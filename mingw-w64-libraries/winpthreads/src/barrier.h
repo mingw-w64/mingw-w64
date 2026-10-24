@@ -23,6 +23,8 @@
 #ifndef WIN_PTHREADS_BARRIER_H
 #define WIN_PTHREADS_BARRIER_H
 
+#include "misc.h"
+
 #define LIFE_BARRIER 0xBAB1FEED
 #define DEAD_BARRIER 0xDEADB00F
 

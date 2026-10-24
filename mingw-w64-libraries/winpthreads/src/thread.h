@@ -26,7 +26,7 @@
 #include <fenv.h>
 #include <setjmp.h>
 /* internal header files */
-#include "rwlock.h"
+#include "misc.h"
 
 #define LIFE_THREAD 0xBAB1F00D
 #define DEAD_THREAD 0xDEADBEEF

@@ -37,7 +37,6 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
-#include "misc.h"
 #include "thread.h"           /* _pthread_delay_np_ms */
 #include "winpthreads-time.h"
 

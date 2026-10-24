@@ -2,6 +2,48 @@
 
 This library provides POSIX threading APIs for mingw-w64.
 
+## Supported Windows Versions
+
+In the current state, `winpthreads` can be loaded on Windows NT 4.0 or later,
+and on Windows 98 or later.
+
+While `winpthreads` can be loaded on some Win9x systems, some parts of
+the library are still not adopted to handle Win9x.
+
+Support for older Windows NT versions and Win9x is in progress.
+
+### Windows NT
+
+You can define `WINPTHREADS_WINNT` macro to specify the minimal Windows NT
+version you want `winpthreads` to be able to run on.
+
+It can be defined to any `_WIN32_WINNT_*` macro from `sdkddkver.h` or their
+corresponding values. For Windows NT 3.1, NT 3.5 and NT 3.51, which do not
+have `_WIN32_WINNT_*` constans, you have to use appropriate values directly:
+
+| Windows Version | Hex Value |
+|-----------------|-----------|
+| Windows NT 3.1  | `0x030A`  |
+| Windows NT 3.5  | `0x0332`  |
+| Windows NT 3.51 | `0x0333`  |
+
+Default and allowed values for `WINPTHREADS_WINNT` are target-dependent:
+
+| Target            | Minimal Allowed Value | Default Value                                           |
+|-------------------|-----------------------|---------------------------------------------------------|
+| x86               | Windows NT 3.1        | Windows NT 3.1 with mingw-w64; Windows XP with MSVC     |
+| x64               | Windows XP            | Windows XP                                              |
+| arm32             | Windows 8             | Windows 8                                               |
+| arm64 and arm64ec | Windows 10            | Windows 10                                              |
+
+### Win9x
+
+You can define `WINPTHREADS_WIN9X` macro to non-zero value in order to build
+`winpthreads` with Win9x support.  
+This macro is only meaningful for x86 and is ignored on other targets.
+
+By default, it is enabled with mingw-w64 and disabled with MSVC.
+
 ## Linking Against Winpthreads
 
 For maximum compatibility, winpthreads headers expose APIs without the

@@ -43,7 +43,6 @@
 #include "pthread_time.h"
 /* internal header files */
 #include "cond.h"
-#include "misc.h"
 #include "thread.h"
 #include "winpthreads-time.h"
 

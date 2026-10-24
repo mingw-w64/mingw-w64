@@ -34,7 +34,6 @@
 #include "pthread.h"
 #include "semaphore.h"
 /* internal header files */
-#include "misc.h"
 #include "sem.h"
 #include "thread.h"
 #include "winpthreads-time.h"

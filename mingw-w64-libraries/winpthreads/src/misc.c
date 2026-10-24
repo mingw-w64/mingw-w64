@@ -32,7 +32,6 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
-#include "misc.h"
 #include "winpthreads-time.h"
 
 /**

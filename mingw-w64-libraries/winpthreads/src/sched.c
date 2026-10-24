@@ -32,7 +32,6 @@
 /* public header files */
 #include "pthread.h"
 /* internal header files */
-#include "misc.h"
 #include "thread.h"
 
 int sched_get_priority_min(int pol)

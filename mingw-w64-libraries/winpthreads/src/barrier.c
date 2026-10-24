@@ -36,7 +36,6 @@
 #include "semaphore.h"
 /* internal header files */
 #include "barrier.h"
-#include "misc.h"
 
 static pthread_spinlock_t barrier_global = PTHREAD_SPINLOCK_INITIALIZER;
 
