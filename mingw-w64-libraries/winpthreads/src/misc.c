@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011-2016  mingw-w64 project
+   Copyright (c) 2011-2016, 2026 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -33,8 +33,18 @@
 #include "misc.h"
 #include "winpthreads-time.h"
 
-HRESULT (WINAPI *_pthread_set_thread_description) (HANDLE, PCWSTR) = NULL;
-BOOL (WINAPI *_pthread_get_handle_information) (HANDLE, LPDWORD) = NULL;
+/**
+ * Function type corrsponding to `GetHandleInformation`.
+ */
+typedef BOOL (WINAPI *FuncGetHandleInformation) (HANDLE, LPDWORD);
+
+/**
+ * Function type corrsponding to `SetThreadDescription`.
+ */
+typedef HRESULT (WINAPI *FuncSetThreadDescription) (HANDLE, PCWSTR);
+
+FuncGetHandleInformation _pthread_get_handle_information = NULL;
+FuncSetThreadDescription _pthread_set_thread_description = NULL;
 
 #if defined(__GNUC__) || defined(__clang__)
 #if __GNUC__ >= 9 && !defined(__clang__)
@@ -45,23 +55,22 @@ __attribute__ ((constructor (0)))
 #endif
 static void winpthreads_init (void)
 {
-  HMODULE mod = GetModuleHandleA ("kernel32.dll");
+  HMODULE kernel32   = GetModuleHandleA ("kernel32.dll");
+  HMODULE kernelbase = GetModuleHandleA ("kernelbase.dll");
 
-  if (mod) {
-    _pthread_get_handle_information = (BOOL (WINAPI *) (HANDLE, LPDWORD)) (void*) GetProcAddress (mod, "GetHandleInformation");
-    _pthread_set_thread_description = (HRESULT (WINAPI *) (HANDLE, PCWSTR)) (void*) GetProcAddress (mod, "SetThreadDescription");
+  if (kernel32 != NULL) {
+    _pthread_get_handle_information = (FuncGetHandleInformation) (UINT_PTR) GetProcAddress (kernel32, "GetHandleInformation");
+    _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernel32, "SetThreadDescription");
   }
 
-  /**
-   * Although `SetThreadDescription` lives in kernel32.dll,
-   * on Windows Server 2016, Windows 10 LTSB 2016 and Windows 10 version 1607,
-   * it was only available in kernelbase.dll.
-   */
-  if (!_pthread_set_thread_description) {
-    mod = GetModuleHandleA ("kernelbase.dll");
-
-    if (mod) {
-      _pthread_set_thread_description = (HRESULT (WINAPI *) (HANDLE, PCWSTR)) (void*) GetProcAddress (mod, "SetThreadDescription");
+  if (kernelbase != NULL) {
+    /**
+     * Although `SetThreadDescription` lives in kernel32.dll,
+     * on Windows Server 2016, Windows 10 LTSB 2016 and Windows 10 version 1607,
+     * it was only available in kernelbase.dll.
+     */
+    if (_pthread_set_thread_description == NULL) {
+      _pthread_set_thread_description = (FuncSetThreadDescription) (UINT_PTR) GetProcAddress (kernelbase, "SetThreadDescription");
     }
   }
 
