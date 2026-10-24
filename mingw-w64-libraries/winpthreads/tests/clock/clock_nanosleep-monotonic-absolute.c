@@ -33,9 +33,6 @@
  *
  * Use `TIMER_ABSTIME` for the `flags` argument; `clock_nanosleep` must sleep
  * until absolute time specified by the `request` argument.
- *
- * Calling `clock_nanosleep` with `CLOCK_MONOTONIC` is not supported;
- * the call must fail with `EINVAL`.
  */
 
 #define POW10_6 1000000
@@ -47,7 +44,6 @@ int main(void)
   struct timespec ts1;
   struct timespec ts2;
   struct timespec request;
-  int error_code;
 
   assert(clock_getres(CLOCK_MONOTONIC, &res) == 0);
   assert(clock_gettime(CLOCK_MONOTONIC, &ts1) == 0);
@@ -57,16 +53,11 @@ int main(void)
     request.tv_sec  += request.tv_nsec / POW10_9;
     request.tv_nsec %= POW10_9;
   }
-  error_code = clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &request, NULL);
-  assert(error_code == EINVAL);
+  assert(clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &request, NULL) == 0);
   assert(clock_gettime(CLOCK_MONOTONIC, &ts2) == 0);
 
-  if (error_code == 0) {
-    wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
-    wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
-  } else {
-    wprintf(L"Not supported; errno=%d\n", error_code);
-  }
+  wprintf(L"Time 1: %.0f.%09ld\n", (double) ts1.tv_sec, ts1.tv_nsec);
+  wprintf(L"Time 2: %.0f.%09ld\n", (double) ts2.tv_sec, ts2.tv_nsec);
 
   return 0;
 }

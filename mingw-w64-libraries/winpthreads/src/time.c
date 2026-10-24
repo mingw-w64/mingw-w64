@@ -1172,13 +1172,15 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
   FuncWinpthreadsTimeImpl timeImpl;
 
   switch (clock_id) {
-    /**
-     * Currently, only `CLOCK_REALTIME` is supported.
-     */
     case CLOCK_REALTIME:
       timeImpl = WinpthreadsTimeImpl.TimeImplRealtime;
       break;
+    case CLOCK_REALTIME_COARSE:
+      timeImpl = WinpthreadsTimeImplRealtime;
+      break;
     case CLOCK_MONOTONIC:
+      timeImpl = WinpthreadsTimeImpl.TimeImplMonotonic;
+      break;
     /**
      * The clock_nanosleep() function shall fail if:
      *
