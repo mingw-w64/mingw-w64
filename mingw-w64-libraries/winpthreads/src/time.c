@@ -207,6 +207,34 @@ static ULONGLONG WINAPI WinpthreadsGetTickCount64 (VOID) {
 #endif
 
 /**
+ * Function type for internal implementation of `clock_gettime` and
+ * `clock_getres` for a specific clock (`clockid_t`) type.
+ *
+ * The first argument, if non-NULL, recieves the time.
+ * The second argument, if non-NULL, recieves the clock resolution.
+ *
+ * Returns zero on success and an error-code on failure.
+ */
+typedef int (* FuncWinpthreadsTimeImpl) (struct _timespec64 *, struct _timespec64 *);
+
+/**
+ * Implementation for `CLOCK_MONOTONIC` using `GetTickCount*`.
+ *
+ * This function always succeeds.
+ */
+static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *, struct _timespec64 *);
+
+/**
+ * Implementation for `CLOCK_MONOTONIC` using `QueryPerformanceCounter`.
+ *
+ * This function always succeeds.
+ *
+ * In an unlikely case when call to `QueryPerformanceCounter` fails,
+ * this function simply forwards to `WinpthreadsTimeImplMonotonicFromTickCount`.
+ */
+static int WinpthreadsTimeImplMonotonicFromPerformanceCounter (struct _timespec64 *, struct _timespec64 *);
+
+/**
  * Time-related data.
  */
 typedef struct TimeImpl {
@@ -248,6 +276,31 @@ typedef struct TimeImpl {
      */
     long Resolution;
   } PerformanceCounter;
+  /**
+   * Implementation for `CLOCK_MONOTONIC`.
+   *
+   * 1. Implementation using `QueryPerformanceCounter`.
+   *
+   *  This is the preferred implementation and is always used when
+   *  the performance counter is supported.
+   *
+   *  This implementation provides <1us resolution.
+   *
+   * 2. Implementation using `GetTickCount*`.
+   *
+   *  This implementation is only used when the performance counter
+   *  is not supported.
+   *
+   *  This implementation provides the same resolution as the system clock.
+   *
+   *  On pre-Vista systems, where `GetTickCount64` is not available,
+   *  we use `GetTickCount`, which wraps around to zero after ~49 days.
+   *
+   * The issues resulting from using `GetTickCount*` shall not affect modern
+   * systems since the performance counter is always supported starting
+   * with Windows XP.
+   */
+  FuncWinpthreadsTimeImpl TimeImplMonotonic;
 } TimeImpl;
 
 #if WINPTHREADS_WINNT >= WINPTHREADS_WINNT_WIN8
@@ -261,6 +314,7 @@ static TimeImpl WinpthreadsTimeImpl = {
   .SystemClock.Resolution = 0,
   .PerformanceCounter.Frequency = 0,
   .PerformanceCounter.Resolution = 0,
+  .TimeImplMonotonic = WinpthreadsTimeImplMonotonicFromTickCount,
 };
 
 /**
@@ -383,7 +437,8 @@ void winpthreads_time_init (void) {
         (long) (POW10_9 / WinpthreadsTimeImpl.PerformanceCounter.Frequency);
     }
 
-    WinpthreadsTimeImpl.Flags |= HIGH_RESOLUTION_WINDOWS_TIME;
+    WinpthreadsTimeImpl.Flags            |= HIGH_RESOLUTION_WINDOWS_TIME;
+    WinpthreadsTimeImpl.TimeImplMonotonic = WinpthreadsTimeImplMonotonicFromPerformanceCounter;
   }
 }
 
@@ -401,6 +456,59 @@ static void WinpthreadsGetSystemClockResolution (struct _timespec64 *ts) {
 static void WinpthreadsGetPerformanceCounterResolution (struct _timespec64 *ts) {
   ts->tv_sec  = WinpthreadsTimeImpl.PerformanceCounter.Resolution / POW10_9;
   ts->tv_nsec = WinpthreadsTimeImpl.PerformanceCounter.Resolution % POW10_9;
+}
+
+static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *time, struct _timespec64 *res) {
+  if (time != NULL) {
+    /**
+     * Functions `GetTickCount*` have the same resolution as the system clock
+     * but return time in milliseconds.
+     *
+     * In order to return more precise time, round up returned time value
+     * to the resolution of the system clock.
+     */
+    unsigned __int64 tickCountAsFileTime   = GetTickCount64 () * POW10_4;
+    unsigned __int64 systemClockResolution = WinpthreadsTimeImpl.SystemClock.Resolution / 100;
+
+    if ((tickCountAsFileTime % systemClockResolution) != 0) {
+      tickCountAsFileTime -= (tickCountAsFileTime % systemClockResolution);
+      tickCountAsFileTime += systemClockResolution;
+    }
+
+    time->tv_sec  = (__time64_t) (tickCountAsFileTime / POW10_7);
+    time->tv_nsec = (long) ((tickCountAsFileTime % POW10_7) * 100);
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetSystemClockResolution (res);
+  }
+
+  return 0;
+}
+
+static int WinpthreadsTimeImplMonotonicFromPerformanceCounter (struct _timespec64 *time, struct _timespec64 *res) {
+  LARGE_INTEGER performanceCounter;
+
+  /**
+   * If call to `QueryPerformanceCounter` fails,
+   * forward to `WinpthreadsTimeImplMonotonicFromTickCount`.
+   */
+  if (unlikely (!QueryPerformanceCounter (&performanceCounter))) {
+    return WinpthreadsTimeImplMonotonicFromTickCount (time, res);
+  }
+
+  const __int64 performanceFrequency = WinpthreadsTimeImpl.PerformanceCounter.Frequency;
+
+  if (time != NULL) {
+    time->tv_sec  = (__time64_t) (performanceCounter.QuadPart / performanceFrequency);
+    time->tv_nsec = (long) (((performanceCounter.QuadPart % performanceFrequency) * POW10_9) / performanceFrequency);
+  }
+
+  if (res != NULL) {
+    WinpthreadsGetPerformanceCounterResolution (res);
+  }
+
+  return 0;
 }
 
 /*******************************************************************************
@@ -468,16 +576,30 @@ unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts)
 
 unsigned __int64 winpthreads_windows_time_ms (void)
 {
-  if (WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_WINDOWS_TIME)) {
-    LARGE_INTEGER performanceFrequency = {.QuadPart = WinpthreadsTimeImpl.PerformanceCounter.Frequency};
-    LARGE_INTEGER performanceCounter   = {.QuadPart = 0};
+  struct _timespec64 ts;
 
-    if (QueryPerformanceCounter (&performanceCounter)) {
-      return performanceCounter.QuadPart / (performanceFrequency.QuadPart / POW10_3);
-    }
+  WinpthreadsTimeImpl.TimeImplMonotonic (&ts, NULL);
+
+  unsigned __int64 msFromSec  = ts.tv_sec;
+  unsigned __int64 msFromNsec = ts.tv_nsec / POW10_6;
+
+  /**
+   * Check for overflow.
+   */
+  if (unlikely (msFromSec > (_UI64_MAX / POW10_3))) {
+    return _UI64_MAX;
   }
 
-  return GetTickCount64 ();
+  msFromSec *= POW10_3;
+
+  /**
+   * Check for overflow.
+   */
+  if (unlikely (msFromNsec > (_UI64_MAX - msFromSec))) {
+    return _UI64_MAX;
+  }
+
+  return msFromSec + msFromNsec;
 }
 
 /*******************************************************************************
@@ -607,14 +729,18 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
   }
 
   switch (clock_id) {
-    case CLOCK_REALTIME:
-    case CLOCK_MONOTONIC: {
+    case CLOCK_REALTIME: {
       if (!WINPTHREADS_TIME_HAVE (HIGH_RESOLUTION_WINDOWS_TIME)) {
         _set_errno (EINVAL);
         return -1;
       }
 
       WinpthreadsGetPerformanceCounterResolution (res);
+      return 0;
+    }
+
+    case CLOCK_MONOTONIC: {
+      WinpthreadsTimeImpl.TimeImplMonotonic (NULL, res);
       return 0;
     }
 
@@ -682,27 +808,7 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
     }
 
     case CLOCK_MONOTONIC: {
-      LARGE_INTEGER pf;
-      LARGE_INTEGER pc;
-
-      if (!QueryPerformanceFrequency (&pf)) {
-        _set_errno (EINVAL);
-        return -1;
-      }
-
-      if (!QueryPerformanceCounter (&pc)) {
-        _set_errno (EINVAL);
-        return -1;
-      }
-
-      tp->tv_sec  = (__time64_t) (pc.QuadPart / pf.QuadPart);
-      tp->tv_nsec = (long) (((pc.QuadPart % pf.QuadPart) * POW10_9 + (pf.QuadPart >> 1)) / pf.QuadPart);
-
-      if (tp->tv_nsec >= POW10_9) {
-        tp->tv_sec++;
-        tp->tv_nsec -= POW10_9;
-      }
-
+      WinpthreadsTimeImpl.TimeImplMonotonic (tp, NULL);
       return 0;
     }
 
