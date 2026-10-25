@@ -270,14 +270,6 @@ typedef int INTERNET_SCHEME, *LPINTERNET_SCHEME;
 #define WINHTTP_ENABLE_SPN_SERVER_PORT            0x00000001
 #define WINHTTP_OPTION_SPN_MASK                   WINHTTP_ENABLE_SPN_SERVER_PORT
 
-/* Options for WinHttpOpenRequest */
-#define WINHTTP_NO_REFERER             NULL
-#define WINHTTP_DEFAULT_ACCEPT_TYPES   NULL
-
-/* Options for WinHttpSendRequest */
-#define WINHTTP_NO_ADDITIONAL_HEADERS   NULL
-#define WINHTTP_NO_REQUEST_DATA         NULL
-
 /* WinHTTP error codes */
 #define WINHTTP_ERROR_BASE                                  12000
 #define ERROR_WINHTTP_OUT_OF_HANDLES                        (WINHTTP_ERROR_BASE + 1)

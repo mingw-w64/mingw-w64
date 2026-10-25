@@ -32,13 +32,6 @@
 #define D3DCLEAR_ZBUFFER  __MSABI_LONG(0x00000002)
 #define D3DCLEAR_STENCIL  __MSABI_LONG(0x00000004)
 
-#define D3DCLIPPLANE0 (1 << 0)
-#define D3DCLIPPLANE1 (1 << 1)
-#define D3DCLIPPLANE2 (1 << 2)
-#define D3DCLIPPLANE3 (1 << 3)
-#define D3DCLIPPLANE4 (1 << 4)
-#define D3DCLIPPLANE5 (1 << 5)
-
 #define D3DCOLOR_ARGB(a,r,g,b)       ((D3DCOLOR)((((a)&0xffu)<<24)|(((r)&0xffu)<<16)|(((g)&0xffu)<<8)|((b)&0xffu)))
 #define D3DCOLOR_COLORVALUE(r,g,b,a) D3DCOLOR_RGBA((DWORD)((r)*255.f),(DWORD)((g)*255.f),(DWORD)((b)*255.f),(DWORD)((a)*255.f))
 #define D3DCOLOR_RGBA(r,g,b,a)       D3DCOLOR_ARGB(a,r,g,b)

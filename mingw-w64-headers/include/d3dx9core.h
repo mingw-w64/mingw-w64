@@ -336,7 +336,7 @@ DECLARE_INTERFACE_(ID3DXRenderToEnvMap, IUnknown)
 #define ID3DXRenderToEnvMap_Face(p,a,b)            (p)->lpVtbl->Face(p,a,b)
 #define ID3DXRenderToEnvMap_End(p,a)               (p)->lpVtbl->End(p,a)
 #define ID3DXRenderToEnvMap_OnLostDevice(p)        (p)->lpVtbl->OnLostDevice(p)
-#define ID3DXRenderToEnvMap_OnLostDevice(p)        (p)->lpVtbl->OnLostDevice(p)
+#define ID3DXRenderToEnvMap_OnResetDevice(p)       (p)->lpVtbl->OnResetDevice(p)
 #else
 /*** IUnknown methods ***/
 #define ID3DXRenderToEnvMap_QueryInterface(p,a,b)  (p)->QueryInterface(a,b)
@@ -352,7 +352,7 @@ DECLARE_INTERFACE_(ID3DXRenderToEnvMap, IUnknown)
 #define ID3DXRenderToEnvMap_Face(p,a,b)            (p)->Face(a,b)
 #define ID3DXRenderToEnvMap_End(p,a)               (p)->End(a)
 #define ID3DXRenderToEnvMap_OnLostDevice(p)        (p)->OnLostDevice()
-#define ID3DXRenderToEnvMap_OnLostDevice(p)        (p)->OnLostDevice()
+#define ID3DXRenderToEnvMap_OnResetDevice(p)       (p)->OnResetDevice()
 #endif
 
 typedef struct _D3DXRTS_DESC

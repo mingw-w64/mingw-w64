@@ -50,7 +50,6 @@ for f in \
 	audevcod.h \
 	corerror.h \
 	d2dbasetypes.h \
-	d3d10_1shader.h \
 	d3d10misc.h \
 	d3d11shader.h \
 	d3d8caps.h \
@@ -151,6 +150,7 @@ for f in \
 	d3d10effect \
 	d3d10sdklayers \
 	d3d10shader \
+	d3d10_1shader \
 	d3d11 \
 	d3d11on12 \
 	d3d11_1 \

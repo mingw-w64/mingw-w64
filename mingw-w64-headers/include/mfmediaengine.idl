@@ -557,3 +557,518 @@ interface IMFMediaEngineClassFactory2 : IUnknown
     HRESULT CreateMediaKeys2([in] BSTR key_system, [in] BSTR default_cdm_store_path,
             [in] BSTR inprivate_cdm_store_path, [out] IMFMediaKeys **keys);
 }
+
+typedef enum MF_TIMED_TEXT_ERROR_CODE
+{
+    MF_TIMED_TEXT_ERROR_CODE_NOERROR,
+    MF_TIMED_TEXT_ERROR_CODE_FATAL,
+    MF_TIMED_TEXT_ERROR_CODE_DATA_FORMAT,
+    MF_TIMED_TEXT_ERROR_CODE_NETWORK,
+    MF_TIMED_TEXT_ERROR_CODE_INTERNAL,
+} MF_TIMED_TEXT_ERROR_CODE;
+
+typedef enum MF_TIMED_TEXT_CUE_EVENT
+{
+    MF_TIMED_TEXT_CUE_EVENT_ACTIVE,
+    MF_TIMED_TEXT_CUE_EVENT_INACTIVE,
+    MF_TIMED_TEXT_CUE_EVENT_CLEAR,
+} MF_TIMED_TEXT_CUE_EVENT;
+
+typedef enum MF_TIMED_TEXT_TRACK_KIND
+{
+    MF_TIMED_TEXT_TRACK_KIND_UNKNOWN,
+    MF_TIMED_TEXT_TRACK_KIND_SUBTITLES,
+    MF_TIMED_TEXT_TRACK_KIND_CAPTIONS,
+    MF_TIMED_TEXT_TRACK_KIND_METADATA,
+} MF_TIMED_TEXT_TRACK_KIND;
+
+typedef enum MF_TIMED_TEXT_UNIT_TYPE
+{
+    MF_TIMED_TEXT_UNIT_TYPE_PIXELS,
+    MF_TIMED_TEXT_UNIT_TYPE_PERCENTAGE,
+} MF_TIMED_TEXT_UNIT_TYPE;
+
+typedef enum MF_TIMED_TEXT_WRITING_MODE
+{
+    MF_TIMED_TEXT_WRITING_MODE_LRTB,
+    MF_TIMED_TEXT_WRITING_MODE_RLTB,
+    MF_TIMED_TEXT_WRITING_MODE_TBRL,
+    MF_TIMED_TEXT_WRITING_MODE_TBLR,
+    MF_TIMED_TEXT_WRITING_MODE_LR,
+    MF_TIMED_TEXT_WRITING_MODE_RL,
+    MF_TIMED_TEXT_WRITING_MODE_TB,
+} MF_TIMED_TEXT_WRITING_MODE;
+
+typedef enum MF_TIMED_TEXT_DISPLAY_ALIGNMENT
+{
+    MF_TIMED_TEXT_DISPLAY_ALIGNMENT_BEFORE,
+    MF_TIMED_TEXT_DISPLAY_ALIGNMENT_AFTER,
+    MF_TIMED_TEXT_DISPLAY_ALIGNMENT_CENTER,
+} MF_TIMED_TEXT_DISPLAY_ALIGNMENT;
+
+typedef enum MF_TIMED_TEXT_SCROLL_MODE
+{
+    MF_TIMED_TEXT_SCROLL_MODE_POP_ON,
+    MF_TIMED_TEXT_SCROLL_MODE_ROLL_UP,
+} MF_TIMED_TEXT_SCROLL_MODE;
+
+typedef enum MF_TIMED_TEXT_FONT_STYLE
+{
+    MF_TIMED_TEXT_FONT_STYLE_NORMAL,
+    MF_TIMED_TEXT_FONT_STYLE_OBLIQUE,
+    MF_TIMED_TEXT_FONT_STYLE_ITALIC,
+} MF_TIMED_TEXT_FONT_STYLE;
+
+typedef enum MF_TIMED_TEXT_ALIGNMENT
+{
+    MF_TIMED_TEXT_ALIGNMENT_START,
+    MF_TIMED_TEXT_ALIGNMENT_END,
+    MF_TIMED_TEXT_ALIGNMENT_CENTER,
+} MF_TIMED_TEXT_ALIGNMENT;
+
+typedef enum MF_TIMED_TEXT_TRACK_READY_STATE
+{
+    MF_TIMED_TEXT_TRACK_READY_STATE_NONE,
+    MF_TIMED_TEXT_TRACK_READY_STATE_LOADING,
+    MF_TIMED_TEXT_TRACK_READY_STATE_LOADED,
+    MF_TIMED_TEXT_TRACK_READY_STATE_ERROR,
+} MF_TIMED_TEXT_TRACK_READY_STATE;
+
+interface IMFTimedTextStyle;
+
+[
+    object,
+    uuid(e13af3c1-4d47-4354-b1f5-e83ae0ecae60),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextFormattedText : IUnknown
+{
+    HRESULT GetText(
+        [out] LPWSTR *text
+    );
+
+    DWORD GetSubformattingCount();
+
+    HRESULT GetSubformatting(
+        [in] DWORD index,
+        [out] DWORD *first_char,
+        [out] DWORD *length,
+        [out] IMFTimedTextStyle **style
+    );
+}
+
+[
+    object,
+    uuid(09b2455d-b834-4f01-a347-9052e21c450e),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextStyle : IUnknown
+{
+    HRESULT GetName(
+        [out] LPWSTR *name
+    );
+
+    BOOL IsExternal();
+
+    HRESULT GetFontFamily(
+        [out] LPWSTR *family
+    );
+
+    HRESULT GetFontSize(
+        [out] double *size,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+
+    HRESULT GetColor(
+        [out] MFARGB *color
+    );
+
+    HRESULT GetBackgroundColor(
+        [out] MFARGB *color
+    );
+
+    HRESULT GetShowBackgroundAlways(
+        [out] BOOL *value
+    );
+
+    HRESULT GetFontStyle(
+        [out] MF_TIMED_TEXT_FONT_STYLE *style
+    );
+
+    HRESULT GetBold(
+        [out] BOOL *bold
+    );
+
+    HRESULT GetRightToLeft(
+        [out] BOOL *rtl
+    );
+
+    HRESULT GetTextAlignment(
+        [out] MF_TIMED_TEXT_ALIGNMENT *alignment
+    );
+
+    HRESULT GetTextDecoration(
+        [out] DWORD *value
+    );
+
+    HRESULT GetTextOutline(
+        [out] MFARGB *color,
+        [out] double *thickness,
+        [out] double *blur_radius,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+}
+
+[
+    object,
+    uuid(c8d22afc-bc47-4bdf-9b04-787e49ce3f58),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextRegion : IUnknown
+{
+    HRESULT GetName(
+        [out] LPWSTR *name
+    );
+
+    HRESULT GetPosition(
+        [out] double *x,
+        [out] double *y,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+
+    HRESULT GetExtent(
+        [out] double *width,
+        [out] double *height,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+
+    HRESULT GetBackgroundColor(
+        [out] MFARGB *color
+    );
+
+    HRESULT GetWritingMode(
+        [out] MF_TIMED_TEXT_WRITING_MODE *mode
+    );
+
+    HRESULT GetDisplayAlignment(
+        [out] MF_TIMED_TEXT_DISPLAY_ALIGNMENT *alignment
+    );
+
+    HRESULT GetLineHeight(
+        [out] double *height,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+
+    HRESULT GetClipOverflow(
+        [out] BOOL *clip
+    );
+
+    HRESULT GetPadding(
+        [out] double *before,
+        [out] double *start,
+        [out] double *after,
+        [out] double *end,
+        [out] MF_TIMED_TEXT_UNIT_TYPE *unit_type
+    );
+
+    HRESULT GetWrap(
+        [out] BOOL *wrap
+    );
+
+    HRESULT GetZIndex(
+        [out] INT32 *index
+    );
+
+    HRESULT GetScrollMode(
+        [out] MF_TIMED_TEXT_SCROLL_MODE *mode
+    );
+}
+
+[
+    object,
+    uuid(4ae3a412-0545-43c4-bf6f-6b97a5c6c432),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextBinary : IUnknown
+{
+    HRESULT GetData(
+        [out] const BYTE **data,
+        [out] DWORD *length
+    );
+}
+
+[
+    object,
+    uuid(1e560447-9a2b-43e1-a94c-b0aaabfbfbc9),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextCue : IUnknown
+{
+    DWORD GetId();
+
+    HRESULT GetOriginalId(
+        [out] LPWSTR *id
+    );
+
+    MF_TIMED_TEXT_TRACK_KIND GetCueKind();
+
+    double GetStartTime();
+
+    double GetDuration();
+
+    DWORD GetTrackId();
+
+    HRESULT GetData(
+        [out] IMFTimedTextBinary **data
+    );
+
+    HRESULT GetRegion(
+        [out] IMFTimedTextRegion **region
+    );
+
+    HRESULT GetStyle(
+        [out] IMFTimedTextStyle **style
+    );
+
+    DWORD GetLineCount();
+
+    HRESULT GetLine(
+        [in] DWORD index,
+        [out] IMFTimedTextFormattedText **line
+    );
+}
+
+[
+    object,
+    uuid(df6b87b6-ce12-45db-aba7-432fe054e57d),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextNotify : IUnknown
+{
+    void TrackAdded(
+        [in] DWORD id
+    );
+
+    void TrackRemoved(
+        [in] DWORD id
+    );
+
+    void TrackSelected(
+        [in] DWORD id,
+        [in] BOOL selected
+    );
+
+    void TrackReadyStateChanged(
+        [in] DWORD id
+    );
+
+    void Error(
+        [in] MF_TIMED_TEXT_ERROR_CODE code,
+        [in] HRESULT extended_code,
+        [in] DWORD id
+    );
+
+    void Cue(
+        [in] MF_TIMED_TEXT_CUE_EVENT event,
+        [in] double time,
+        [in] IMFTimedTextCue *cue
+    );
+
+    void Reset();
+}
+
+[
+    object,
+    uuid(ad128745-211b-40a0-9981-fe65f166d0fd),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextCueList : IUnknown
+{
+    DWORD GetLength();
+
+    HRESULT GetCueByIndex(
+        [in] DWORD index,
+        [out] IMFTimedTextCue **cue
+    );
+
+    HRESULT GetCueById(
+        [in] DWORD id,
+        [out] IMFTimedTextCue **cue
+    );
+
+    HRESULT GetCueByOriginalId(
+        [in] LPCWSTR id,
+        [out] IMFTimedTextCue **cue
+    );
+
+    HRESULT AddTextCue(
+        [in] double start,
+        [in] double duration,
+        [in] LPCWSTR text,
+        [out] IMFTimedTextCue **cue
+    );
+
+    HRESULT AddDataCue(
+        [in] double start,
+        [in] double duration,
+        [in] const BYTE *data,
+        [in] DWORD data_size,
+        [out] IMFTimedTextCue **cue
+    );
+
+    HRESULT RemoveCue(
+        [in] IMFTimedTextCue *cue
+    );
+}
+
+[
+     object,
+     uuid(8822c32d-654e-4233-bf21-d7f2e67d30d4),
+     local,
+     pointer_default(unique),
+]
+interface IMFTimedTextTrack : IUnknown
+{
+    DWORD GetId();
+
+    HRESULT GetLabel(
+        [out] LPWSTR *label
+    );
+
+    HRESULT SetLabel(
+        [in] LPCWSTR label
+    );
+
+    HRESULT GetLanguage(
+        [out] LPWSTR *language
+    );
+
+    MF_TIMED_TEXT_TRACK_KIND GetTrackKind();
+
+    BOOL IsInBand();
+
+    HRESULT GetInBandMetadataTrackDispatchType(
+        [out] LPWSTR *dispatch_type
+    );
+
+    BOOL IsActive();
+
+    MF_TIMED_TEXT_ERROR_CODE GetErrorCode();
+
+    HRESULT GetExtendedErrorCode();
+
+    HRESULT GetDataFormat(
+        [out] GUID *format
+    );
+
+    MF_TIMED_TEXT_TRACK_READY_STATE GetReadyState();
+
+    HRESULT GetCueList(
+        [out] IMFTimedTextCueList **cues
+    );
+}
+
+[
+    object,
+    uuid(23ff334c-442c-445f-bccc-edc438aa11e2),
+    local,
+    pointer_default(unique),
+]
+interface IMFTimedTextTrackList : IUnknown
+{
+    DWORD GetLength();
+
+    HRESULT GetTrack(
+        [in] DWORD index,
+        [out] IMFTimedTextTrack **track
+    );
+
+    HRESULT GetTrackById(
+        [in] DWORD id,
+        [out] IMFTimedTextTrack **track
+    );
+}
+
+[
+    object,
+    uuid(1f2a94c9-a3df-430d-9d0f-acd85ddc29af),
+    local,
+    pointer_default(unique)
+]
+interface IMFTimedText : IUnknown
+{
+    HRESULT RegisterNotifications(
+        [in] IMFTimedTextNotify *notify
+    );
+
+    HRESULT SelectTrack(
+        [in] DWORD id,
+        [in] BOOL selected
+    );
+
+    HRESULT AddDataSource(
+        [in] IMFByteStream *stream,
+        [in] LPCWSTR label,
+        [in] LPCWSTR language,
+        [in] MF_TIMED_TEXT_TRACK_KIND kind,
+        [in] BOOL is_default,
+        [in] DWORD *id
+    );
+
+    HRESULT AddDataSourceFromUrl(
+        [in] LPCWSTR url,
+        [in] LPCWSTR label,
+        [in] LPCWSTR language,
+        [in] MF_TIMED_TEXT_TRACK_KIND kind,
+        [in] BOOL is_default,
+        [in] DWORD *id
+    );
+
+    HRESULT AddTrack(
+        [in] LPCWSTR label,
+        [in] LPCWSTR language,
+        [in] MF_TIMED_TEXT_TRACK_KIND kind,
+        [out] IMFTimedTextTrack **track
+    );
+
+    HRESULT RemoveTrack(
+        [in] IMFTimedTextTrack *track
+    );
+
+    HRESULT GetCueTimeOffset(
+        [out] double *offset
+    );
+
+    HRESULT SetCueTimeOffset(
+        [in] double offset
+    );
+
+    HRESULT GetTracks(
+        [out] IMFTimedTextTrackList **tracks
+    );
+
+    HRESULT GetActiveTracks(
+        [out] IMFTimedTextTrackList **tracks
+    );
+
+    HRESULT GetTextTracks(
+        [out] IMFTimedTextTrackList **tracks
+    );
+
+    HRESULT GetMetadataTracks(
+        [out] IMFTimedTextTrackList **tracks
+    );
+
+    HRESULT SetInBandEnabled(
+        [in] BOOL enabled
+    );
+
+    BOOL IsInBandEnabled();
+}

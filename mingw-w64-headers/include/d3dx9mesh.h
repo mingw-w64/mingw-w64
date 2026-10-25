@@ -245,7 +245,7 @@ typedef struct _D3DXBONECOMBINATION
     DWORD FaceStart;
     DWORD FaceCount;
     DWORD VertexStart;
-    DWORD VertexCout;
+    DWORD VertexCount;
     DWORD *BoneId;
 } D3DXBONECOMBINATION, *LPD3DXBONECOMBINATION;
 
