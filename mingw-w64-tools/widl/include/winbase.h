@@ -844,6 +844,7 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS
 
 #define REPLACEFILE_WRITE_THROUGH       0x00000001
 #define REPLACEFILE_IGNORE_MERGE_ERRORS 0x00000002
+#define REPLACEFILE_IGNORE_ACL_ERRORS   0x00000004
 
 #define FS_CASE_SENSITIVE               FILE_CASE_SENSITIVE_SEARCH
 #define FS_CASE_IS_PRESERVED            FILE_CASE_PRESERVED_NAMES
@@ -1083,18 +1084,18 @@ typedef struct tagCOMMPROP {
 #define BAUD_128K    ((DWORD)0x10000)
 #define BAUD_USER    ((DWORD)0x10000000)
 
-#define PST_FAX            ((DWORD)0x21)
-#define PST_LAT            ((DWORD)0x101)
-#define PST_MODEM          ((DWORD)0x06)
-#define PST_NETWORK_BRIDGE ((DWORD)0x100)
-#define PST_PARALLELPORT   ((DWORD)0x02)
-#define PST_RS232          ((DWORD)0x01)
-#define PST_RS442          ((DWORD)0x03)
-#define PST_RS423          ((DWORD)0x04)
-#define PST_RS449          ((DWORD)0x06)
-#define PST_SCANNER        ((DWORD)0x22)
-#define PST_TCPIP_TELNET   ((DWORD)0x102)
 #define PST_UNSPECIFIED    ((DWORD)0x00)
+#define PST_RS232          ((DWORD)0x01)
+#define PST_PARALLELPORT   ((DWORD)0x02)
+#define PST_RS422          ((DWORD)0x03)
+#define PST_RS423          ((DWORD)0x04)
+#define PST_RS449          ((DWORD)0x05)
+#define PST_MODEM          ((DWORD)0x06)
+#define PST_FAX            ((DWORD)0x21)
+#define PST_SCANNER        ((DWORD)0x22)
+#define PST_NETWORK_BRIDGE ((DWORD)0x100)
+#define PST_LAT            ((DWORD)0x101)
+#define PST_TCPIP_TELNET   ((DWORD)0x102)
 #define PST_X25            ((DWORD)0x103)
 
 #define PCF_16BITMODE     ((DWORD)0x200)
@@ -1246,6 +1247,22 @@ typedef struct _WIN32_STREAM_ID {
 #define LOGON_WITH_PROFILE          0x00000001
 #define LOGON_NETCREDENTIALS_ONLY   0x00000002
 #define LOGON_ZERO_PASSWORD_BUFFER  0x80000000
+
+/* logon types for LogonUserA/W() */
+#define LOGON32_LOGON_INTERACTIVE       2
+#define LOGON32_LOGON_NETWORK           3
+#define LOGON32_LOGON_BATCH             4
+#define LOGON32_LOGON_SERVICE           5
+#define LOGON32_LOGON_UNLOCK            7
+#define LOGON32_LOGON_NETWORK_CLEARTEXT 8
+#define LOGON32_LOGON_NEW_CREDENTIALS   9
+
+/* logon providers for LogonUserA/W() */
+#define LOGON32_PROVIDER_DEFAULT        0
+#define LOGON32_PROVIDER_WINNT35        1
+#define LOGON32_PROVIDER_WINNT40        2
+#define LOGON32_PROVIDER_WINNT50        3
+#define LOGON32_PROVIDER_VIRTUAL        4
 
 /* one-time initialisation API */
 typedef RTL_RUN_ONCE  INIT_ONCE;
@@ -1820,6 +1837,9 @@ WINBASEAPI HMODULE     WINAPI GetModuleHandleW(LPCWSTR);
 WINBASEAPI BOOL        WINAPI GetModuleHandleExA(DWORD,LPCSTR,HMODULE*);
 WINBASEAPI BOOL        WINAPI GetModuleHandleExW(DWORD,LPCWSTR,HMODULE*);
 #define                       GetModuleHandleEx WINELIB_NAME_AW(GetModuleHandleEx)
+WINBASEAPI BOOL        WINAPI GetNamedPipeClientComputerNameA(HANDLE,LPSTR,ULONG);
+WINBASEAPI BOOL        WINAPI GetNamedPipeClientComputerNameW(HANDLE,LPWSTR,ULONG);
+#define                       GetNamedPipeClientComputerName WINELIB_NAME_AW(GetNamedPipeClientComputerName)
 WINBASEAPI BOOL        WINAPI GetNamedPipeClientProcessId(HANDLE,PULONG);
 WINBASEAPI BOOL        WINAPI GetNamedPipeClientSessionId(HANDLE,PULONG);
 WINBASEAPI BOOL        WINAPI GetNamedPipeHandleStateA(HANDLE,LPDWORD,LPDWORD,LPDWORD,LPDWORD,LPSTR,DWORD);
@@ -1831,6 +1851,8 @@ WINBASEAPI BOOL        WINAPI GetNamedPipeServerSessionId(HANDLE,PULONG);
 WINBASEAPI PUMS_CONTEXT WINAPI GetNextUmsListItem(PUMS_CONTEXT);
 WINBASEAPI BOOL        WINAPI GetNumaAvailableMemoryNode(UCHAR,PULONGLONG);
 WINBASEAPI BOOL        WINAPI GetNumaAvailableMemoryNodeEx(USHORT,PULONGLONG);
+WINBASEAPI BOOL        WINAPI GetNumaHighestNodeNumber(PULONG);
+WINBASEAPI BOOL        WINAPI GetNumaNodeProcessorMask(UCHAR,PULONGLONG);
 WINBASEAPI BOOL        WINAPI GetNumaNodeProcessorMaskEx(USHORT,PGROUP_AFFINITY);
 WINBASEAPI BOOL        WINAPI GetNumaProcessorNode(UCHAR,PUCHAR);
 WINBASEAPI BOOL        WINAPI GetNumaProcessorNodeEx(PPROCESSOR_NUMBER,PUSHORT);
@@ -1974,6 +1996,7 @@ WINBASEAPI BOOL        WINAPI HeapSummary(HANDLE,DWORD,LPHEAP_SUMMARY);
 WINBASEAPI BOOL        WINAPI HeapUnlock(HANDLE);
 WINBASEAPI BOOL        WINAPI HeapValidate(HANDLE,DWORD,LPCVOID);
 WINBASEAPI BOOL        WINAPI HeapWalk(HANDLE,LPPROCESS_HEAP_ENTRY);
+WINBASEAPI BOOL        WINAPI ImpersonateAnonymousToken(HANDLE);
 WINBASEAPI BOOL        WINAPI InitAtomTable(DWORD);
 WINADVAPI  BOOL        WINAPI InitializeAcl(PACL,DWORD,DWORD);
 WINBASEAPI VOID        WINAPI InitializeConditionVariable(PCONDITION_VARIABLE);
@@ -2086,7 +2109,7 @@ WINBASEAPI BOOL        WINAPI MoveFileExW(LPCWSTR,LPCWSTR,DWORD);
 #define                       MoveFileEx WINELIB_NAME_AW(MoveFileEx)
 WINBASEAPI BOOL        WINAPI MoveFileTransactedA(const char*,const char*,LPPROGRESS_ROUTINE,void*,DWORD,HANDLE);
 WINBASEAPI BOOL        WINAPI MoveFileTransactedW(const WCHAR*,const WCHAR*,LPPROGRESS_ROUTINE,void*,DWORD,HANDLE);
-#define                       MoveFileTransacted WINELIB_NAME_AW(MoveFiletransacted)
+#define                       MoveFileTransacted WINELIB_NAME_AW(MoveFileTransacted)
 WINBASEAPI BOOL        WINAPI MoveFileWithProgressA(LPCSTR,LPCSTR,LPPROGRESS_ROUTINE,LPVOID,DWORD);
 WINBASEAPI BOOL        WINAPI MoveFileWithProgressW(LPCWSTR,LPCWSTR,LPPROGRESS_ROUTINE,LPVOID,DWORD);
 #define                       MoveFileWithProgress WINELIB_NAME_AW(MoveFileWithProgress)
@@ -2370,7 +2393,7 @@ WINBASEAPI BOOL        WINAPI WritePrivateProfileStructW(LPCWSTR,LPCWSTR,LPVOID,
 WINBASEAPI BOOL        WINAPI WriteProcessMemory(HANDLE,LPVOID,LPCVOID,SIZE_T,SIZE_T*);
 WINBASEAPI BOOL        WINAPI WriteProfileSectionA(LPCSTR,LPCSTR);
 WINBASEAPI BOOL        WINAPI WriteProfileSectionW(LPCWSTR,LPCWSTR);
-#define                       WritePrivateProfileSection WINELIB_NAME_AW(WritePrivateProfileSection)
+#define                       WriteProfileSection WINELIB_NAME_AW(WriteProfileSection)
 WINBASEAPI BOOL        WINAPI WriteProfileStringA(LPCSTR,LPCSTR,LPCSTR);
 WINBASEAPI BOOL        WINAPI WriteProfileStringW(LPCWSTR,LPCWSTR,LPCWSTR);
 #define                       WriteProfileString WINELIB_NAME_AW(WriteProfileString)
