@@ -22,7 +22,8 @@ void __cdecl _fpreset (void)
 {
   (* __MINGW_IMP_SYMBOL(_fpreset))();
 #if defined(__i386__)
-  /* msvcrt _fpreset() on i386 changes the x87 precision to 53-bit,
+  /* msvcrt40+ _fpreset() on i386 changes the x87 precision to 53-bit,
+   * pre-msvcrt40 _fpreset() on i386 changes the x87 precision to 64-bit,
    * msvcr80+ _fpreset() on i386 resets SSE MXCSR to the default,
    * pre-msvcr80 _fpreset() on i386 does not touch SSE MXCSR at all,
    * so change the x87 precision back to 64-bit and for pre-msvcr80 reset SSE MXCSR */
