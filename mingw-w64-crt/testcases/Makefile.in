@@ -734,9 +734,11 @@ t_main_cpp_DEPENDENCIES = $(builddir)/libtest.a
 t_main_cpp_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(t_main_cpp_LDFLAGS) $(LDFLAGS) -o $@
 t_matherr_SOURCES = t_matherr.c
-t_matherr_OBJECTS = t_matherr.$(OBJEXT)
+t_matherr_OBJECTS = t_matherr-t_matherr.$(OBJEXT)
 t_matherr_LDADD = $(LDADD)
 t_matherr_DEPENDENCIES = $(builddir)/libtest.a
+t_matherr_LINK = $(CCLD) $(t_matherr_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 t_mbrlen_SOURCES = t_mbrlen.c
 t_mbrlen_OBJECTS = t_mbrlen.$(OBJEXT)
 t_mbrlen_LDADD = $(LDADD)
@@ -1454,7 +1456,7 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_ivma.Po ./$(DEPDIR)/t_lfs.Po \
 	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_main.Po \
 	./$(DEPDIR)/t_main_assert.Po ./$(DEPDIR)/t_main_cpp.Po \
-	./$(DEPDIR)/t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
+	./$(DEPDIR)/t_matherr-t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
 	./$(DEPDIR)/t_mbrtowc.Po ./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_noatexit_dll.Po ./$(DEPDIR)/t_nontls_dll.Po \
@@ -2306,6 +2308,9 @@ t_tls_ansi_CFLAGS = -std=c89 $(AM_CFLAGS)
 
 # Compile t_tls_c11 in C11 mode
 t_tls_c11_CFLAGS = -std=c11 $(AM_CFLAGS)
+
+# Compile t_matherr without math builtin functions (needed for _matherr)
+t_matherr_CFLAGS = -fno-builtin $(AM_CFLAGS)
 
 # Link t_tls_dll_native against libtlsnat.dll
 t_tls_dll_native_LDADD = libtlsnat.dll $(LDADD)
@@ -3199,7 +3204,7 @@ t_main_cpp$(EXEEXT): $(t_main_cpp_OBJECTS) $(t_main_cpp_DEPENDENCIES) $(EXTRA_t_
 
 t_matherr$(EXEEXT): $(t_matherr_OBJECTS) $(t_matherr_DEPENDENCIES) $(EXTRA_t_matherr_DEPENDENCIES) 
 	@rm -f t_matherr$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(t_matherr_OBJECTS) $(t_matherr_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(t_matherr_LINK) $(t_matherr_OBJECTS) $(t_matherr_LDADD) $(LIBS)
 
 t_mbrlen$(EXEEXT): $(t_mbrlen_OBJECTS) $(t_mbrlen_DEPENDENCIES) $(EXTRA_t_mbrlen_DEPENDENCIES) 
 	@rm -f t_mbrlen$(EXEEXT)
@@ -3819,7 +3824,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main_assert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main_cpp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_matherr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_matherr-t_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbrlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbrtowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_mbsrtowcs.Po@am__quote@ # am--include-marker
@@ -5968,6 +5973,20 @@ t_intrinc-t_intrinc.obj: t_intrinc.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_intrinc.c' object='t_intrinc-t_intrinc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_intrinc_CFLAGS) $(CFLAGS) -c -o t_intrinc-t_intrinc.obj `if test -f 't_intrinc.c'; then $(CYGPATH_W) 't_intrinc.c'; else $(CYGPATH_W) '$(srcdir)/t_intrinc.c'; fi`
+
+t_matherr-t_matherr.o: t_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_matherr_CFLAGS) $(CFLAGS) -MT t_matherr-t_matherr.o -MD -MP -MF $(DEPDIR)/t_matherr-t_matherr.Tpo -c -o t_matherr-t_matherr.o `test -f 't_matherr.c' || echo '$(srcdir)/'`t_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_matherr-t_matherr.Tpo $(DEPDIR)/t_matherr-t_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_matherr.c' object='t_matherr-t_matherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_matherr_CFLAGS) $(CFLAGS) -c -o t_matherr-t_matherr.o `test -f 't_matherr.c' || echo '$(srcdir)/'`t_matherr.c
+
+t_matherr-t_matherr.obj: t_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_matherr_CFLAGS) $(CFLAGS) -MT t_matherr-t_matherr.obj -MD -MP -MF $(DEPDIR)/t_matherr-t_matherr.Tpo -c -o t_matherr-t_matherr.obj `if test -f 't_matherr.c'; then $(CYGPATH_W) 't_matherr.c'; else $(CYGPATH_W) '$(srcdir)/t_matherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/t_matherr-t_matherr.Tpo $(DEPDIR)/t_matherr-t_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='t_matherr.c' object='t_matherr-t_matherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_matherr_CFLAGS) $(CFLAGS) -c -o t_matherr-t_matherr.obj `if test -f 't_matherr.c'; then $(CYGPATH_W) 't_matherr.c'; else $(CYGPATH_W) '$(srcdir)/t_matherr.c'; fi`
 
 t_municode-t_municode.o: t_municode.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(t_municode_CFLAGS) $(CFLAGS) -MT t_municode-t_municode.o -MD -MP -MF $(DEPDIR)/t_municode-t_municode.Tpo -c -o t_municode-t_municode.o `test -f 't_municode.c' || echo '$(srcdir)/'`t_municode.c
@@ -8160,7 +8179,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_main.Po
 	-rm -f ./$(DEPDIR)/t_main_assert.Po
 	-rm -f ./$(DEPDIR)/t_main_cpp.Po
-	-rm -f ./$(DEPDIR)/t_matherr.Po
+	-rm -f ./$(DEPDIR)/t_matherr-t_matherr.Po
 	-rm -f ./$(DEPDIR)/t_mbrlen.Po
 	-rm -f ./$(DEPDIR)/t_mbrtowc.Po
 	-rm -f ./$(DEPDIR)/t_mbsrtowcs.Po
@@ -8507,7 +8526,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_main.Po
 	-rm -f ./$(DEPDIR)/t_main_assert.Po
 	-rm -f ./$(DEPDIR)/t_main_cpp.Po
-	-rm -f ./$(DEPDIR)/t_matherr.Po
+	-rm -f ./$(DEPDIR)/t_matherr-t_matherr.Po
 	-rm -f ./$(DEPDIR)/t_mbrlen.Po
 	-rm -f ./$(DEPDIR)/t_mbrtowc.Po
 	-rm -f ./$(DEPDIR)/t_mbsrtowcs.Po

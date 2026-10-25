@@ -797,7 +797,7 @@ am__lib32_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
 	crt/merr.c crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
 	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/crtdll_atexit_register.c \
+	crt/xtxtmode.c crt/crtdll_atexit_register.c \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
@@ -824,7 +824,6 @@ am__objects_31 =  \
 	crt/lib32_libmingw32_a-mingw_helpers.$(OBJEXT) \
 	crt/lib32_libmingw32_a-pseudo-reloc.$(OBJEXT) \
 	crt/lib32_libmingw32_a-udll_argv.$(OBJEXT) \
-	crt/lib32_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/lib32_libmingw32_a-xtxtmode.$(OBJEXT) \
 	crt/lib32_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/lib32_libmingw32_a-tls_exe_atexit_callback.$(OBJEXT) \
@@ -903,23 +902,24 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/__mingw_has_sse.c misc/ftime32.c misc/ftime64.c \
 	misc/memalignment.c misc/mempcpy.c misc/memset_explicit.c \
 	misc/mingw-aligned-malloc.c misc/strndup.c \
-	misc/mingw_matherr.c misc/mingw_mbwc_convert.c \
-	misc/mingw_usleep.c misc/mingw_wcstod.c misc/mingw_wcstof.c \
-	misc/mingw_wcstold.c misc/mkstemp.c misc/mkdtemp.c \
-	misc/sleep.c misc/strsafe.c misc/tdelete.c misc/tdestroy.c \
-	misc/tfind.c misc/tsearch.c misc/twalk.c misc/wcstof.c \
-	misc/wcstold.c misc/wdirent.c misc/winbs_uint64.c \
-	misc/winbs_ulong.c misc/winbs_ushort.c misc/btowc.c \
-	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
-	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/mingw_mbwc_convert.c misc/mingw_usleep.c \
+	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
+	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
+	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
+	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
-	misc/ftw64i32.c misc/__mingw_filename_cp.c ssp/chk_fail.c \
-	ssp/gets_chk.c ssp/memcpy_chk.c ssp/memmove_chk.c \
-	ssp/mempcpy_chk.c ssp/memset_chk.c ssp/stack_chk_fail.c \
-	ssp/stack_chk_guard.c ssp/strcat_chk.c ssp/stpcpy_chk.c \
-	ssp/strcpy_chk.c ssp/strncat_chk.c ssp/strncpy_chk.c \
-	stdio/strtok_r.c stdio/asprintf.c stdio/mingw_ftruncate64.c \
-	stdio/lltoa.c stdio/lltow.c stdio/__mingw_fix_stat.h \
+	misc/ftw64i32.c misc/__mingw_filename_cp.c \
+	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
+	misc/__mingw_setusermatherr.c ssp/chk_fail.c ssp/gets_chk.c \
+	ssp/memcpy_chk.c ssp/memmove_chk.c ssp/mempcpy_chk.c \
+	ssp/memset_chk.c ssp/stack_chk_fail.c ssp/stack_chk_guard.c \
+	ssp/strcat_chk.c ssp/stpcpy_chk.c ssp/strcpy_chk.c \
+	ssp/strncat_chk.c ssp/strncpy_chk.c stdio/strtok_r.c \
+	stdio/asprintf.c stdio/mingw_ftruncate64.c stdio/lltoa.c \
+	stdio/lltow.c stdio/__mingw_fix_stat.h \
 	stdio/__mingw_fix_stat_finish.c \
 	stdio/__mingw_fix_fstat_finish.c stdio/__mingw_fix_stat_path.c \
 	stdio/__mingw_fix_wstat_path.c \
@@ -1134,7 +1134,6 @@ am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib32_libmingwex_a-memset_explicit.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw-aligned-malloc.$(OBJEXT) \
 	misc/lib32_libmingwex_a-strndup.$(OBJEXT) \
-	misc/lib32_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_mbwc_convert.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_wcstod.$(OBJEXT) \
@@ -1169,6 +1168,9 @@ am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib32_libmingwex_a-ftw64.$(OBJEXT) \
 	misc/lib32_libmingwex_a-ftw64i32.$(OBJEXT) \
 	misc/lib32_libmingwex_a-__mingw_filename_cp.$(OBJEXT) \
+	misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT) \
+	misc/lib32_libmingwex_a-__mingw_raise_matherr.$(OBJEXT) \
+	misc/lib32_libmingwex_a-__mingw_setusermatherr.$(OBJEXT) \
 	ssp/lib32_libmingwex_a-chk_fail.$(OBJEXT) \
 	ssp/lib32_libmingwex_a-gets_chk.$(OBJEXT) \
 	ssp/lib32_libmingwex_a-memcpy_chk.$(OBJEXT) \
@@ -3779,7 +3781,7 @@ am__lib64_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
 	crt/merr.c crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
 	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/crtdll_atexit_register.c \
+	crt/xtxtmode.c crt/crtdll_atexit_register.c \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
@@ -3806,7 +3808,6 @@ am__objects_188 =  \
 	crt/lib64_libmingw32_a-mingw_helpers.$(OBJEXT) \
 	crt/lib64_libmingw32_a-pseudo-reloc.$(OBJEXT) \
 	crt/lib64_libmingw32_a-udll_argv.$(OBJEXT) \
-	crt/lib64_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/lib64_libmingw32_a-xtxtmode.$(OBJEXT) \
 	crt/lib64_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/lib64_libmingw32_a-tls_exe_atexit_callback.$(OBJEXT) \
@@ -3885,23 +3886,24 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/__mingw_has_sse.c misc/ftime32.c misc/ftime64.c \
 	misc/memalignment.c misc/mempcpy.c misc/memset_explicit.c \
 	misc/mingw-aligned-malloc.c misc/strndup.c \
-	misc/mingw_matherr.c misc/mingw_mbwc_convert.c \
-	misc/mingw_usleep.c misc/mingw_wcstod.c misc/mingw_wcstof.c \
-	misc/mingw_wcstold.c misc/mkstemp.c misc/mkdtemp.c \
-	misc/sleep.c misc/strsafe.c misc/tdelete.c misc/tdestroy.c \
-	misc/tfind.c misc/tsearch.c misc/twalk.c misc/wcstof.c \
-	misc/wcstold.c misc/wdirent.c misc/winbs_uint64.c \
-	misc/winbs_ulong.c misc/winbs_ushort.c misc/btowc.c \
-	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
-	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/mingw_mbwc_convert.c misc/mingw_usleep.c \
+	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
+	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
+	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
+	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
-	misc/ftw64i32.c misc/__mingw_filename_cp.c ssp/chk_fail.c \
-	ssp/gets_chk.c ssp/memcpy_chk.c ssp/memmove_chk.c \
-	ssp/mempcpy_chk.c ssp/memset_chk.c ssp/stack_chk_fail.c \
-	ssp/stack_chk_guard.c ssp/strcat_chk.c ssp/stpcpy_chk.c \
-	ssp/strcpy_chk.c ssp/strncat_chk.c ssp/strncpy_chk.c \
-	stdio/strtok_r.c stdio/asprintf.c stdio/mingw_ftruncate64.c \
-	stdio/lltoa.c stdio/lltow.c stdio/__mingw_fix_stat.h \
+	misc/ftw64i32.c misc/__mingw_filename_cp.c \
+	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
+	misc/__mingw_setusermatherr.c ssp/chk_fail.c ssp/gets_chk.c \
+	ssp/memcpy_chk.c ssp/memmove_chk.c ssp/mempcpy_chk.c \
+	ssp/memset_chk.c ssp/stack_chk_fail.c ssp/stack_chk_guard.c \
+	ssp/strcat_chk.c ssp/stpcpy_chk.c ssp/strcpy_chk.c \
+	ssp/strncat_chk.c ssp/strncpy_chk.c stdio/strtok_r.c \
+	stdio/asprintf.c stdio/mingw_ftruncate64.c stdio/lltoa.c \
+	stdio/lltow.c stdio/__mingw_fix_stat.h \
 	stdio/__mingw_fix_stat_finish.c \
 	stdio/__mingw_fix_fstat_finish.c stdio/__mingw_fix_stat_path.c \
 	stdio/__mingw_fix_wstat_path.c \
@@ -4117,7 +4119,6 @@ am__objects_189 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib64_libmingwex_a-memset_explicit.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT) \
 	misc/lib64_libmingwex_a-strndup.$(OBJEXT) \
-	misc/lib64_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_mbwc_convert.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_wcstod.$(OBJEXT) \
@@ -4152,6 +4153,9 @@ am__objects_189 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib64_libmingwex_a-ftw64.$(OBJEXT) \
 	misc/lib64_libmingwex_a-ftw64i32.$(OBJEXT) \
 	misc/lib64_libmingwex_a-__mingw_filename_cp.$(OBJEXT) \
+	misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT) \
+	misc/lib64_libmingwex_a-__mingw_raise_matherr.$(OBJEXT) \
+	misc/lib64_libmingwex_a-__mingw_setusermatherr.$(OBJEXT) \
 	ssp/lib64_libmingwex_a-chk_fail.$(OBJEXT) \
 	ssp/lib64_libmingwex_a-gets_chk.$(OBJEXT) \
 	ssp/lib64_libmingwex_a-memcpy_chk.$(OBJEXT) \
@@ -5612,7 +5616,7 @@ am__libarm32_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
 	crt/merr.c crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
 	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/crtdll_atexit_register.c \
+	crt/xtxtmode.c crt/crtdll_atexit_register.c \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
@@ -5639,7 +5643,6 @@ am__objects_281 =  \
 	crt/libarm32_libmingw32_a-mingw_helpers.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-pseudo-reloc.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-udll_argv.$(OBJEXT) \
-	crt/libarm32_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-xtxtmode.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/libarm32_libmingw32_a-tls_exe_atexit_callback.$(OBJEXT) \
@@ -5718,23 +5721,24 @@ am__libarm32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/__mingw_has_sse.c misc/ftime32.c misc/ftime64.c \
 	misc/memalignment.c misc/mempcpy.c misc/memset_explicit.c \
 	misc/mingw-aligned-malloc.c misc/strndup.c \
-	misc/mingw_matherr.c misc/mingw_mbwc_convert.c \
-	misc/mingw_usleep.c misc/mingw_wcstod.c misc/mingw_wcstof.c \
-	misc/mingw_wcstold.c misc/mkstemp.c misc/mkdtemp.c \
-	misc/sleep.c misc/strsafe.c misc/tdelete.c misc/tdestroy.c \
-	misc/tfind.c misc/tsearch.c misc/twalk.c misc/wcstof.c \
-	misc/wcstold.c misc/wdirent.c misc/winbs_uint64.c \
-	misc/winbs_ulong.c misc/winbs_ushort.c misc/btowc.c \
-	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
-	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/mingw_mbwc_convert.c misc/mingw_usleep.c \
+	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
+	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
+	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
+	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
-	misc/ftw64i32.c misc/__mingw_filename_cp.c ssp/chk_fail.c \
-	ssp/gets_chk.c ssp/memcpy_chk.c ssp/memmove_chk.c \
-	ssp/mempcpy_chk.c ssp/memset_chk.c ssp/stack_chk_fail.c \
-	ssp/stack_chk_guard.c ssp/strcat_chk.c ssp/stpcpy_chk.c \
-	ssp/strcpy_chk.c ssp/strncat_chk.c ssp/strncpy_chk.c \
-	stdio/strtok_r.c stdio/asprintf.c stdio/mingw_ftruncate64.c \
-	stdio/lltoa.c stdio/lltow.c stdio/__mingw_fix_stat.h \
+	misc/ftw64i32.c misc/__mingw_filename_cp.c \
+	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
+	misc/__mingw_setusermatherr.c ssp/chk_fail.c ssp/gets_chk.c \
+	ssp/memcpy_chk.c ssp/memmove_chk.c ssp/mempcpy_chk.c \
+	ssp/memset_chk.c ssp/stack_chk_fail.c ssp/stack_chk_guard.c \
+	ssp/strcat_chk.c ssp/stpcpy_chk.c ssp/strcpy_chk.c \
+	ssp/strncat_chk.c ssp/strncpy_chk.c stdio/strtok_r.c \
+	stdio/asprintf.c stdio/mingw_ftruncate64.c stdio/lltoa.c \
+	stdio/lltow.c stdio/__mingw_fix_stat.h \
 	stdio/__mingw_fix_stat_finish.c \
 	stdio/__mingw_fix_fstat_finish.c stdio/__mingw_fix_stat_path.c \
 	stdio/__mingw_fix_wstat_path.c \
@@ -5932,7 +5936,6 @@ am__objects_282 = crt/libarm32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-memset_explicit.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw-aligned-malloc.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-strndup.$(OBJEXT) \
-	misc/libarm32_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_mbwc_convert.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_wcstod.$(OBJEXT) \
@@ -5967,6 +5970,9 @@ am__objects_282 = crt/libarm32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-ftw64.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-ftw64i32.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-__mingw_filename_cp.$(OBJEXT) \
+	misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT) \
+	misc/libarm32_libmingwex_a-__mingw_raise_matherr.$(OBJEXT) \
+	misc/libarm32_libmingwex_a-__mingw_setusermatherr.$(OBJEXT) \
 	ssp/libarm32_libmingwex_a-chk_fail.$(OBJEXT) \
 	ssp/libarm32_libmingwex_a-gets_chk.$(OBJEXT) \
 	ssp/libarm32_libmingwex_a-memcpy_chk.$(OBJEXT) \
@@ -7112,7 +7118,7 @@ am__libarm64_libmingw32_a_SOURCES_DIST = include/internal.h \
 	crt/_newmode.c crt/tlssup.c crt/xncommod.c crt/cinitexe.c \
 	crt/merr.c crt/udllargc.c crt/xthdloc.c crt/mingw_custom.c \
 	crt/mingw_helpers.c crt/pseudo-reloc.c crt/udll_argv.c \
-	crt/usermatherr.c crt/xtxtmode.c crt/crtdll_atexit_register.c \
+	crt/xtxtmode.c crt/crtdll_atexit_register.c \
 	crt/tls_exe_atexit_callback.c crt/tlsdyn.c crt/tlsdtor.c \
 	crt/tlsthrd_register.c crt/tls_atexit_register.c crt/tlsthrd.c \
 	crt/tlsmthread.c crt/tlsmcrt.c crt/cxa_atexit.c \
@@ -7139,7 +7145,6 @@ am__objects_346 =  \
 	crt/libarm64_libmingw32_a-mingw_helpers.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-pseudo-reloc.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-udll_argv.$(OBJEXT) \
-	crt/libarm64_libmingw32_a-usermatherr.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-xtxtmode.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-crtdll_atexit_register.$(OBJEXT) \
 	crt/libarm64_libmingw32_a-tls_exe_atexit_callback.$(OBJEXT) \
@@ -7219,23 +7224,24 @@ am__libarm64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/__mingw_has_sse.c misc/ftime32.c misc/ftime64.c \
 	misc/memalignment.c misc/mempcpy.c misc/memset_explicit.c \
 	misc/mingw-aligned-malloc.c misc/strndup.c \
-	misc/mingw_matherr.c misc/mingw_mbwc_convert.c \
-	misc/mingw_usleep.c misc/mingw_wcstod.c misc/mingw_wcstof.c \
-	misc/mingw_wcstold.c misc/mkstemp.c misc/mkdtemp.c \
-	misc/sleep.c misc/strsafe.c misc/tdelete.c misc/tdestroy.c \
-	misc/tfind.c misc/tsearch.c misc/twalk.c misc/wcstof.c \
-	misc/wcstold.c misc/wdirent.c misc/winbs_uint64.c \
-	misc/winbs_ulong.c misc/winbs_ushort.c misc/btowc.c \
-	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
-	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/mingw_mbwc_convert.c misc/mingw_usleep.c \
+	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
+	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
+	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
+	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
-	misc/ftw64i32.c misc/__mingw_filename_cp.c ssp/chk_fail.c \
-	ssp/gets_chk.c ssp/memcpy_chk.c ssp/memmove_chk.c \
-	ssp/mempcpy_chk.c ssp/memset_chk.c ssp/stack_chk_fail.c \
-	ssp/stack_chk_guard.c ssp/strcat_chk.c ssp/stpcpy_chk.c \
-	ssp/strcpy_chk.c ssp/strncat_chk.c ssp/strncpy_chk.c \
-	stdio/strtok_r.c stdio/asprintf.c stdio/mingw_ftruncate64.c \
-	stdio/lltoa.c stdio/lltow.c stdio/__mingw_fix_stat.h \
+	misc/ftw64i32.c misc/__mingw_filename_cp.c \
+	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
+	misc/__mingw_setusermatherr.c ssp/chk_fail.c ssp/gets_chk.c \
+	ssp/memcpy_chk.c ssp/memmove_chk.c ssp/mempcpy_chk.c \
+	ssp/memset_chk.c ssp/stack_chk_fail.c ssp/stack_chk_guard.c \
+	ssp/strcat_chk.c ssp/stpcpy_chk.c ssp/strcpy_chk.c \
+	ssp/strncat_chk.c ssp/strncpy_chk.c stdio/strtok_r.c \
+	stdio/asprintf.c stdio/mingw_ftruncate64.c stdio/lltoa.c \
+	stdio/lltow.c stdio/__mingw_fix_stat.h \
 	stdio/__mingw_fix_stat_finish.c \
 	stdio/__mingw_fix_fstat_finish.c stdio/__mingw_fix_stat_path.c \
 	stdio/__mingw_fix_wstat_path.c \
@@ -7433,7 +7439,6 @@ am__objects_347 = crt/libarm64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-memset_explicit.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-strndup.$(OBJEXT) \
-	misc/libarm64_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_mbwc_convert.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_wcstod.$(OBJEXT) \
@@ -7468,6 +7473,9 @@ am__objects_347 = crt/libarm64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-ftw64.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-ftw64i32.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-__mingw_filename_cp.$(OBJEXT) \
+	misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT) \
+	misc/libarm64_libmingwex_a-__mingw_raise_matherr.$(OBJEXT) \
+	misc/libarm64_libmingwex_a-__mingw_setusermatherr.$(OBJEXT) \
 	ssp/libarm64_libmingwex_a-chk_fail.$(OBJEXT) \
 	ssp/libarm64_libmingwex_a-gets_chk.$(OBJEXT) \
 	ssp/libarm64_libmingwex_a-memcpy_chk.$(OBJEXT) \
@@ -8555,7 +8563,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po \
-	crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-wildcard.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po \
@@ -8592,7 +8599,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po \
-	crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-wildcard.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po \
@@ -8629,7 +8635,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po \
-	crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-wildcard.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/libarm32_libmingw32_a-xthdloc.Po \
@@ -8665,7 +8670,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po \
-	crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-wildcard.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-xncommod.Po \
 	crt/$(DEPDIR)/libarm64_libmingw32_a-xthdloc.Po \
@@ -10702,6 +10706,9 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po \
+	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po \
+	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po \
+	misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po \
@@ -10742,7 +10749,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_controlfp.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_longjmp.Po \
-	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_setfp.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po \
@@ -11235,6 +11241,9 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po \
+	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po \
+	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po \
+	misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po \
@@ -11275,7 +11284,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_controlfp.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_longjmp.Po \
-	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_setfp.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po \
@@ -11422,6 +11430,9 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po \
+	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po \
+	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po \
+	misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po \
@@ -11462,7 +11473,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_controlfp.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_getsp.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_longjmp.Po \
-	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_setfp.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_usleep.Po \
@@ -11582,6 +11592,9 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po \
+	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po \
+	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po \
+	misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po \
@@ -11622,7 +11635,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_controlfp.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_getsp.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_longjmp.Po \
-	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_setfp.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_usleep.Po \
@@ -13781,7 +13793,6 @@ src_libmingw32 = include/internal.h include/sect_attribs.h crt/seh_signal_dispat
   crt/cinitexe.c      crt/merr.c      crt/udllargc.c    crt/xthdloc.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
-  crt/usermatherr.c   \
   crt/xtxtmode.c      \
   crt/crtdll_atexit_register.c \
   crt/tls_exe_atexit_callback.c \
@@ -14867,7 +14878,7 @@ src_libmingwex = \
   misc/memalignment.c \
   misc/mempcpy.c         misc/memset_explicit.c      misc/mingw-aligned-malloc.c \
   misc/strndup.c \
-  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
+  misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
   misc/mingw_wcstold.c \
   misc/mkstemp.c         misc/mkdtemp.c         \
   misc/sleep.c           \
@@ -14882,6 +14893,9 @@ src_libmingwex = \
   misc/wmemset.c         misc/mingw-access.c \
   misc/ftw32.c           misc/ftw32i64.c            misc/ftw64.c            misc/ftw64i32.c \
   misc/__mingw_filename_cp.c  \
+  misc/__mingw_raise_matherr_ret.c \
+  misc/__mingw_raise_matherr.c \
+  misc/__mingw_setusermatherr.c \
   \
   ssp/chk_fail.c         ssp/gets_chk.c             ssp/memcpy_chk.c        ssp/memmove_chk.c \
   ssp/mempcpy_chk.c \
@@ -18033,8 +18047,6 @@ crt/lib32_libmingw32_a-pseudo-reloc.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-udll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib32_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib32_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
@@ -18412,8 +18424,6 @@ misc/lib32_libmingwex_a-mingw-aligned-malloc.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-strndup.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib32_libmingwex_a-mingw_matherr.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_mbwc_convert.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_usleep.$(OBJEXT): misc/$(am__dirstamp) \
@@ -18481,6 +18491,12 @@ misc/lib32_libmingwex_a-ftw64.$(OBJEXT): misc/$(am__dirstamp) \
 misc/lib32_libmingwex_a-ftw64i32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-__mingw_filename_cp.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-__mingw_raise_matherr.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-__mingw_setusermatherr.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 ssp/$(am__dirstamp):
 	@$(MKDIR_P) ssp
@@ -22072,8 +22088,6 @@ crt/lib64_libmingw32_a-pseudo-reloc.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-udll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/lib64_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/lib64_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
@@ -22433,8 +22447,6 @@ misc/lib64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-strndup.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib64_libmingwex_a-mingw_matherr.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_mbwc_convert.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_usleep.$(OBJEXT): misc/$(am__dirstamp) \
@@ -22502,6 +22514,12 @@ misc/lib64_libmingwex_a-ftw64.$(OBJEXT): misc/$(am__dirstamp) \
 misc/lib64_libmingwex_a-ftw64i32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-__mingw_filename_cp.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-__mingw_raise_matherr.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-__mingw_setusermatherr.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 ssp/lib64_libmingwex_a-chk_fail.$(OBJEXT): ssp/$(am__dirstamp) \
 	ssp/$(DEPDIR)/$(am__dirstamp)
@@ -24519,8 +24537,6 @@ crt/libarm32_libmingw32_a-pseudo-reloc.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-udll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/libarm32_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm32_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
@@ -24880,8 +24896,6 @@ misc/libarm32_libmingwex_a-mingw-aligned-malloc.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-strndup.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/libarm32_libmingwex_a-mingw_matherr.$(OBJEXT):  \
-	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_mbwc_convert.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_usleep.$(OBJEXT):  \
@@ -24949,6 +24963,12 @@ misc/libarm32_libmingwex_a-ftw64.$(OBJEXT): misc/$(am__dirstamp) \
 misc/libarm32_libmingwex_a-ftw64i32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-__mingw_filename_cp.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmingwex_a-__mingw_raise_matherr.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmingwex_a-__mingw_setusermatherr.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 ssp/libarm32_libmingwex_a-chk_fail.$(OBJEXT): ssp/$(am__dirstamp) \
 	ssp/$(DEPDIR)/$(am__dirstamp)
@@ -26574,8 +26594,6 @@ crt/libarm64_libmingw32_a-pseudo-reloc.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-udll_argv.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
-crt/libarm64_libmingw32_a-usermatherr.$(OBJEXT): crt/$(am__dirstamp) \
-	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-xtxtmode.$(OBJEXT): crt/$(am__dirstamp) \
 	crt/$(DEPDIR)/$(am__dirstamp)
 crt/libarm64_libmingw32_a-crtdll_atexit_register.$(OBJEXT):  \
@@ -26935,8 +26953,6 @@ misc/libarm64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-strndup.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/libarm64_libmingwex_a-mingw_matherr.$(OBJEXT):  \
-	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_mbwc_convert.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_usleep.$(OBJEXT):  \
@@ -27004,6 +27020,12 @@ misc/libarm64_libmingwex_a-ftw64.$(OBJEXT): misc/$(am__dirstamp) \
 misc/libarm64_libmingwex_a-ftw64i32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-__mingw_filename_cp.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm64_libmingwex_a-__mingw_raise_matherr.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm64_libmingwex_a-__mingw_setusermatherr.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 ssp/libarm64_libmingwex_a-chk_fail.$(OBJEXT): ssp/$(am__dirstamp) \
 	ssp/$(DEPDIR)/$(am__dirstamp)
@@ -28487,7 +28509,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-wildcard.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
@@ -28524,7 +28545,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-wildcard.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
@@ -28561,7 +28581,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-wildcard.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm32_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
@@ -28597,7 +28616,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-wildcard.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-xncommod.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@crt/$(DEPDIR)/libarm64_libmingw32_a-xthdloc.Po@am__quote@ # am--include-marker
@@ -30634,6 +30652,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -30674,7 +30695,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_controlfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_longjmp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_setfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po@am__quote@ # am--include-marker
@@ -31167,6 +31187,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31207,7 +31230,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_controlfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_longjmp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_setfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po@am__quote@ # am--include-marker
@@ -31354,6 +31376,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31394,7 +31419,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_controlfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_getsp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_longjmp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_setfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_usleep.Po@am__quote@ # am--include-marker
@@ -31514,6 +31538,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31554,7 +31581,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_controlfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_getsp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_longjmp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_setfp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_usleep.Po@am__quote@ # am--include-marker
@@ -38845,20 +38871,6 @@ crt/lib32_libmingw32_a-udll_argv.obj: crt/udll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-udll_argv.obj `if test -f 'crt/udll_argv.c'; then $(CYGPATH_W) 'crt/udll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/udll_argv.c'; fi`
 
-crt/lib32_libmingw32_a-usermatherr.o: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-usermatherr.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Tpo -c -o crt/lib32_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/lib32_libmingw32_a-usermatherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-
-crt/lib32_libmingw32_a-usermatherr.obj: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-usermatherr.obj -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Tpo -c -o crt/lib32_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/lib32_libmingw32_a-usermatherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib32_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-
 crt/lib32_libmingw32_a-xtxtmode.o: crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib32_libmingw32_a-xtxtmode.o -MD -MP -MF crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Tpo -c -o crt/lib32_libmingw32_a-xtxtmode.o `test -f 'crt/xtxtmode.c' || echo '$(srcdir)/'`crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Tpo crt/$(DEPDIR)/lib32_libmingw32_a-xtxtmode.Po
@@ -41295,20 +41307,6 @@ misc/lib32_libmingwex_a-strndup.obj: misc/strndup.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-strndup.obj `if test -f 'misc/strndup.c'; then $(CYGPATH_W) 'misc/strndup.c'; else $(CYGPATH_W) '$(srcdir)/misc/strndup.c'; fi`
 
-misc/lib32_libmingwex_a-mingw_matherr.o: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_matherr.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Tpo -c -o misc/lib32_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/lib32_libmingwex_a-mingw_matherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-
-misc/lib32_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_matherr.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Tpo -c -o misc/lib32_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/lib32_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-
 misc/lib32_libmingwex_a-mingw_mbwc_convert.o: misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_mbwc_convert.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Tpo -c -o misc/lib32_libmingwex_a-mingw_mbwc_convert.o `test -f 'misc/mingw_mbwc_convert.c' || echo '$(srcdir)/'`misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po
@@ -41784,6 +41782,48 @@ misc/lib32_libmingwex_a-__mingw_filename_cp.obj: misc/__mingw_filename_cp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_filename_cp.c' object='misc/lib32_libmingwex_a-__mingw_filename_cp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_filename_cp.obj `if test -f 'misc/__mingw_filename_cp.c'; then $(CYGPATH_W) 'misc/__mingw_filename_cp.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_filename_cp.c'; fi`
+
+misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.o: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+
+misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.obj: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+
+misc/lib32_libmingwex_a-__mingw_raise_matherr.o: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_raise_matherr.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/lib32_libmingwex_a-__mingw_raise_matherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+
+misc/lib32_libmingwex_a-__mingw_raise_matherr.obj: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_raise_matherr.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/lib32_libmingwex_a-__mingw_raise_matherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+
+misc/lib32_libmingwex_a-__mingw_setusermatherr.o: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_setusermatherr.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/lib32_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/lib32_libmingwex_a-__mingw_setusermatherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+
+misc/lib32_libmingwex_a-__mingw_setusermatherr.obj: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-__mingw_setusermatherr.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/lib32_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/lib32_libmingwex_a-__mingw_setusermatherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
 
 ssp/lib32_libmingwex_a-chk_fail.o: ssp/chk_fail.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ssp/lib32_libmingwex_a-chk_fail.o -MD -MP -MF ssp/$(DEPDIR)/lib32_libmingwex_a-chk_fail.Tpo -c -o ssp/lib32_libmingwex_a-chk_fail.o `test -f 'ssp/chk_fail.c' || echo '$(srcdir)/'`ssp/chk_fail.c
@@ -63779,20 +63819,6 @@ crt/lib64_libmingw32_a-udll_argv.obj: crt/udll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-udll_argv.obj `if test -f 'crt/udll_argv.c'; then $(CYGPATH_W) 'crt/udll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/udll_argv.c'; fi`
 
-crt/lib64_libmingw32_a-usermatherr.o: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-usermatherr.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Tpo -c -o crt/lib64_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/lib64_libmingw32_a-usermatherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-
-crt/lib64_libmingw32_a-usermatherr.obj: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-usermatherr.obj -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Tpo -c -o crt/lib64_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/lib64_libmingw32_a-usermatherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/lib64_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-
 crt/lib64_libmingw32_a-xtxtmode.o: crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-xtxtmode.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Tpo -c -o crt/lib64_libmingw32_a-xtxtmode.o `test -f 'crt/xtxtmode.c' || echo '$(srcdir)/'`crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Tpo crt/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po
@@ -66229,20 +66255,6 @@ misc/lib64_libmingwex_a-strndup.obj: misc/strndup.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-strndup.obj `if test -f 'misc/strndup.c'; then $(CYGPATH_W) 'misc/strndup.c'; else $(CYGPATH_W) '$(srcdir)/misc/strndup.c'; fi`
 
-misc/lib64_libmingwex_a-mingw_matherr.o: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_matherr.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Tpo -c -o misc/lib64_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/lib64_libmingwex_a-mingw_matherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-
-misc/lib64_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_matherr.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Tpo -c -o misc/lib64_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/lib64_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-
 misc/lib64_libmingwex_a-mingw_mbwc_convert.o: misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_mbwc_convert.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Tpo -c -o misc/lib64_libmingwex_a-mingw_mbwc_convert.o `test -f 'misc/mingw_mbwc_convert.c' || echo '$(srcdir)/'`misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po
@@ -66718,6 +66730,48 @@ misc/lib64_libmingwex_a-__mingw_filename_cp.obj: misc/__mingw_filename_cp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_filename_cp.c' object='misc/lib64_libmingwex_a-__mingw_filename_cp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_filename_cp.obj `if test -f 'misc/__mingw_filename_cp.c'; then $(CYGPATH_W) 'misc/__mingw_filename_cp.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_filename_cp.c'; fi`
+
+misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.o: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+
+misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.obj: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+
+misc/lib64_libmingwex_a-__mingw_raise_matherr.o: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_raise_matherr.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/lib64_libmingwex_a-__mingw_raise_matherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+
+misc/lib64_libmingwex_a-__mingw_raise_matherr.obj: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_raise_matherr.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/lib64_libmingwex_a-__mingw_raise_matherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+
+misc/lib64_libmingwex_a-__mingw_setusermatherr.o: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_setusermatherr.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/lib64_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/lib64_libmingwex_a-__mingw_setusermatherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+
+misc/lib64_libmingwex_a-__mingw_setusermatherr.obj: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-__mingw_setusermatherr.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/lib64_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/lib64_libmingwex_a-__mingw_setusermatherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
 
 ssp/lib64_libmingwex_a-chk_fail.o: ssp/chk_fail.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ssp/lib64_libmingwex_a-chk_fail.o -MD -MP -MF ssp/$(DEPDIR)/lib64_libmingwex_a-chk_fail.Tpo -c -o ssp/lib64_libmingwex_a-chk_fail.o `test -f 'ssp/chk_fail.c' || echo '$(srcdir)/'`ssp/chk_fail.c
@@ -78297,20 +78351,6 @@ crt/libarm32_libmingw32_a-udll_argv.obj: crt/udll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-udll_argv.obj `if test -f 'crt/udll_argv.c'; then $(CYGPATH_W) 'crt/udll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/udll_argv.c'; fi`
 
-crt/libarm32_libmingw32_a-usermatherr.o: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-usermatherr.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Tpo -c -o crt/libarm32_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/libarm32_libmingw32_a-usermatherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-
-crt/libarm32_libmingw32_a-usermatherr.obj: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-usermatherr.obj -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Tpo -c -o crt/libarm32_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/libarm32_libmingw32_a-usermatherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm32_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-
 crt/libarm32_libmingw32_a-xtxtmode.o: crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm32_libmingw32_a-xtxtmode.o -MD -MP -MF crt/$(DEPDIR)/libarm32_libmingw32_a-xtxtmode.Tpo -c -o crt/libarm32_libmingw32_a-xtxtmode.o `test -f 'crt/xtxtmode.c' || echo '$(srcdir)/'`crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm32_libmingw32_a-xtxtmode.Tpo crt/$(DEPDIR)/libarm32_libmingw32_a-xtxtmode.Po
@@ -80747,20 +80787,6 @@ misc/libarm32_libmingwex_a-strndup.obj: misc/strndup.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-strndup.obj `if test -f 'misc/strndup.c'; then $(CYGPATH_W) 'misc/strndup.c'; else $(CYGPATH_W) '$(srcdir)/misc/strndup.c'; fi`
 
-misc/libarm32_libmingwex_a-mingw_matherr.o: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-mingw_matherr.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Tpo -c -o misc/libarm32_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/libarm32_libmingwex_a-mingw_matherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-
-misc/libarm32_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-mingw_matherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Tpo -c -o misc/libarm32_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/libarm32_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-
 misc/libarm32_libmingwex_a-mingw_mbwc_convert.o: misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-mingw_mbwc_convert.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Tpo -c -o misc/libarm32_libmingwex_a-mingw_mbwc_convert.o `test -f 'misc/mingw_mbwc_convert.c' || echo '$(srcdir)/'`misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Po
@@ -81236,6 +81262,48 @@ misc/libarm32_libmingwex_a-__mingw_filename_cp.obj: misc/__mingw_filename_cp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_filename_cp.c' object='misc/libarm32_libmingwex_a-__mingw_filename_cp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_filename_cp.obj `if test -f 'misc/__mingw_filename_cp.c'; then $(CYGPATH_W) 'misc/__mingw_filename_cp.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_filename_cp.c'; fi`
+
+misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.o: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+
+misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.obj: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+
+misc/libarm32_libmingwex_a-__mingw_raise_matherr.o: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_raise_matherr.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/libarm32_libmingwex_a-__mingw_raise_matherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+
+misc/libarm32_libmingwex_a-__mingw_raise_matherr.obj: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_raise_matherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/libarm32_libmingwex_a-__mingw_raise_matherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+
+misc/libarm32_libmingwex_a-__mingw_setusermatherr.o: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_setusermatherr.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/libarm32_libmingwex_a-__mingw_setusermatherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+
+misc/libarm32_libmingwex_a-__mingw_setusermatherr.obj: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-__mingw_setusermatherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/libarm32_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/libarm32_libmingwex_a-__mingw_setusermatherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
 
 ssp/libarm32_libmingwex_a-chk_fail.o: ssp/chk_fail.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ssp/libarm32_libmingwex_a-chk_fail.o -MD -MP -MF ssp/$(DEPDIR)/libarm32_libmingwex_a-chk_fail.Tpo -c -o ssp/libarm32_libmingwex_a-chk_fail.o `test -f 'ssp/chk_fail.c' || echo '$(srcdir)/'`ssp/chk_fail.c
@@ -90421,20 +90489,6 @@ crt/libarm64_libmingw32_a-udll_argv.obj: crt/udll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-udll_argv.obj `if test -f 'crt/udll_argv.c'; then $(CYGPATH_W) 'crt/udll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt/udll_argv.c'; fi`
 
-crt/libarm64_libmingw32_a-usermatherr.o: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-usermatherr.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Tpo -c -o crt/libarm64_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/libarm64_libmingw32_a-usermatherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-usermatherr.o `test -f 'crt/usermatherr.c' || echo '$(srcdir)/'`crt/usermatherr.c
-
-crt/libarm64_libmingw32_a-usermatherr.obj: crt/usermatherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-usermatherr.obj -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Tpo -c -o crt/libarm64_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='crt/usermatherr.c' object='crt/libarm64_libmingw32_a-usermatherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt/libarm64_libmingw32_a-usermatherr.obj `if test -f 'crt/usermatherr.c'; then $(CYGPATH_W) 'crt/usermatherr.c'; else $(CYGPATH_W) '$(srcdir)/crt/usermatherr.c'; fi`
-
 crt/libarm64_libmingw32_a-xtxtmode.o: crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/libarm64_libmingw32_a-xtxtmode.o -MD -MP -MF crt/$(DEPDIR)/libarm64_libmingw32_a-xtxtmode.Tpo -c -o crt/libarm64_libmingw32_a-xtxtmode.o `test -f 'crt/xtxtmode.c' || echo '$(srcdir)/'`crt/xtxtmode.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) crt/$(DEPDIR)/libarm64_libmingw32_a-xtxtmode.Tpo crt/$(DEPDIR)/libarm64_libmingw32_a-xtxtmode.Po
@@ -92871,20 +92925,6 @@ misc/libarm64_libmingwex_a-strndup.obj: misc/strndup.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-strndup.obj `if test -f 'misc/strndup.c'; then $(CYGPATH_W) 'misc/strndup.c'; else $(CYGPATH_W) '$(srcdir)/misc/strndup.c'; fi`
 
-misc/libarm64_libmingwex_a-mingw_matherr.o: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-mingw_matherr.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Tpo -c -o misc/libarm64_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/libarm64_libmingwex_a-mingw_matherr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-mingw_matherr.o `test -f 'misc/mingw_matherr.c' || echo '$(srcdir)/'`misc/mingw_matherr.c
-
-misc/libarm64_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-mingw_matherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Tpo -c -o misc/libarm64_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/mingw_matherr.c' object='misc/libarm64_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
-
 misc/libarm64_libmingwex_a-mingw_mbwc_convert.o: misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-mingw_mbwc_convert.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Tpo -c -o misc/libarm64_libmingwex_a-mingw_mbwc_convert.o `test -f 'misc/mingw_mbwc_convert.c' || echo '$(srcdir)/'`misc/mingw_mbwc_convert.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Po
@@ -93360,6 +93400,48 @@ misc/libarm64_libmingwex_a-__mingw_filename_cp.obj: misc/__mingw_filename_cp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_filename_cp.c' object='misc/libarm64_libmingwex_a-__mingw_filename_cp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_filename_cp.obj `if test -f 'misc/__mingw_filename_cp.c'; then $(CYGPATH_W) 'misc/__mingw_filename_cp.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_filename_cp.c'; fi`
+
+misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.o: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.o `test -f 'misc/__mingw_raise_matherr_ret.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr_ret.c
+
+misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.obj: misc/__mingw_raise_matherr_ret.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr_ret.c' object='misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr_ret.obj `if test -f 'misc/__mingw_raise_matherr_ret.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr_ret.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr_ret.c'; fi`
+
+misc/libarm64_libmingwex_a-__mingw_raise_matherr.o: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_raise_matherr.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/libarm64_libmingwex_a-__mingw_raise_matherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr.o `test -f 'misc/__mingw_raise_matherr.c' || echo '$(srcdir)/'`misc/__mingw_raise_matherr.c
+
+misc/libarm64_libmingwex_a-__mingw_raise_matherr.obj: misc/__mingw_raise_matherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_raise_matherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_raise_matherr.c' object='misc/libarm64_libmingwex_a-__mingw_raise_matherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_raise_matherr.obj `if test -f 'misc/__mingw_raise_matherr.c'; then $(CYGPATH_W) 'misc/__mingw_raise_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_raise_matherr.c'; fi`
+
+misc/libarm64_libmingwex_a-__mingw_setusermatherr.o: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_setusermatherr.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/libarm64_libmingwex_a-__mingw_setusermatherr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_setusermatherr.o `test -f 'misc/__mingw_setusermatherr.c' || echo '$(srcdir)/'`misc/__mingw_setusermatherr.c
+
+misc/libarm64_libmingwex_a-__mingw_setusermatherr.obj: misc/__mingw_setusermatherr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-__mingw_setusermatherr.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Tpo -c -o misc/libarm64_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/__mingw_setusermatherr.c' object='misc/libarm64_libmingwex_a-__mingw_setusermatherr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-__mingw_setusermatherr.obj `if test -f 'misc/__mingw_setusermatherr.c'; then $(CYGPATH_W) 'misc/__mingw_setusermatherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/__mingw_setusermatherr.c'; fi`
 
 ssp/libarm64_libmingwex_a-chk_fail.o: ssp/chk_fail.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ssp/libarm64_libmingwex_a-chk_fail.o -MD -MP -MF ssp/$(DEPDIR)/libarm64_libmingwex_a-chk_fail.Tpo -c -o ssp/libarm64_libmingwex_a-chk_fail.o `test -f 'ssp/chk_fail.c' || echo '$(srcdir)/'`ssp/chk_fail.c
@@ -101151,7 +101233,6 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po
@@ -101188,7 +101269,6 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po
@@ -101225,7 +101305,6 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-xthdloc.Po
@@ -101261,7 +101340,6 @@ distclean: distclean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-xthdloc.Po
@@ -103298,6 +103376,9 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
@@ -103338,7 +103419,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po
@@ -103831,6 +103911,9 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
@@ -103871,7 +103954,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po
@@ -104018,6 +104100,9 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po
@@ -104058,7 +104143,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_usleep.Po
@@ -104178,6 +104262,9 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po
@@ -104218,7 +104305,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_usleep.Po
@@ -106005,7 +106091,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib32_libmingw32_a-xthdloc.Po
@@ -106042,7 +106127,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po
@@ -106079,7 +106163,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/libarm32_libmingw32_a-xthdloc.Po
@@ -106115,7 +106198,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-ucrtexewin.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udll_argv.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-udllargc.Po
-	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-usermatherr.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-wildcard.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-xncommod.Po
 	-rm -f crt/$(DEPDIR)/libarm64_libmingw32_a-xthdloc.Po
@@ -108152,6 +108234,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
@@ -108192,7 +108277,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po
@@ -108685,6 +108769,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
@@ -108725,7 +108812,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po
@@ -108872,6 +108958,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-delay-f.Po
@@ -108912,7 +109001,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-mingw_usleep.Po
@@ -109032,6 +109120,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_filename_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_has_sse.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_raise_matherr_ret.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-__mingw_setusermatherr.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-btowc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-delay-f.Po
@@ -109072,7 +109163,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_controlfp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_getsp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_longjmp.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_matherr.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_mbwc_convert.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_setfp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-mingw_usleep.Po
