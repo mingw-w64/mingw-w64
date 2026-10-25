@@ -10,6 +10,8 @@
 #include <windows.h>
 #include <locale.h>
 
+#if defined(__i386__)
+
 static BOOL WINAPI fallback_IsDBCSLeadByteEx(UINT cp, BYTE c)
 {
   int i;
@@ -26,17 +28,27 @@ static BOOL WINAPI fallback_IsDBCSLeadByteEx(UINT cp, BYTE c)
 _Static_assert(__builtin_types_compatible_p(__typeof__(fallback_IsDBCSLeadByteEx), __typeof__(IsDBCSLeadByteEx)),
     "Functions fallback_IsDBCSLeadByteEx() and IsDBCSLeadByteEx() are not compatible");
 
+static BOOL WINAPI init_IsDBCSLeadByteEx(UINT cp, BYTE c);
+
+static __typeof__(IsDBCSLeadByteEx) *call_IsDBCSLeadByteEx = init_IsDBCSLeadByteEx;
+
+static BOOL WINAPI init_IsDBCSLeadByteEx(UINT cp, BYTE c)
+{
+  FARPROC farproc = NULL;
+  HMODULE kernel32 = GetModuleHandleA("kernel32.dll");
+  if (kernel32)
+    farproc = GetProcAddress(kernel32, "IsDBCSLeadByteEx");
+  if (!farproc)
+    farproc = (FARPROC)(PVOID)fallback_IsDBCSLeadByteEx;
+  (void)InterlockedExchangePointer((PVOID*)&call_IsDBCSLeadByteEx, (PVOID)farproc);
+  return call_IsDBCSLeadByteEx(cp, c);
+}
+
+#define IsDBCSLeadByteEx call_IsDBCSLeadByteEx
+
+#endif
+
 int __cdecl __mingw_isleadbyte_cp(int c, unsigned int cp)
 {
-  static __typeof__(IsDBCSLeadByteEx) *call_IsDBCSLeadByteEx = NULL;
-  if (!call_IsDBCSLeadByteEx) {
-    FARPROC farproc = NULL;
-    HMODULE kernel32 = GetModuleHandleA("kernel32.dll");
-    if (kernel32)
-      farproc = GetProcAddress(kernel32, "IsDBCSLeadByteEx");
-    if (!farproc)
-      farproc = (FARPROC)(PVOID)fallback_IsDBCSLeadByteEx;
-    (void)InterlockedExchangePointer((PVOID*)&call_IsDBCSLeadByteEx, (PVOID)farproc);
-  }
-  return call_IsDBCSLeadByteEx(cp, c);
+  return IsDBCSLeadByteEx(cp, c);
 }
