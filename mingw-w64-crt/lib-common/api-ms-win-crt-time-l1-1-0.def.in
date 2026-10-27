@@ -22,8 +22,8 @@ _difftime32
 _difftime64
 F32(_ftime == _ftime32)
 F64(_ftime == _ftime64)
-F32(ftime == _ftime32)
-F64(ftime == _ftime64)
+; F32(ftime == _ftime32) ; ftime is provided in misc/ftime32.c as MS _ftime is not ABI compatible with POSIX ftime
+; F64(ftime == _ftime64) ; ftime is provided in misc/ftime64.c as MS _ftime is not ABI compatible with POSIX ftime
 _ftime32
 _ftime32_s
 _ftime64
