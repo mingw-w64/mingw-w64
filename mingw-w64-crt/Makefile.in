@@ -378,7 +378,8 @@ am__lib32_libcrtdll_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -512,6 +513,7 @@ am__objects_9 = ctype/lib32_libcrtdll_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-wassert.$(OBJEXT) \
@@ -1334,9 +1336,9 @@ am__lib32_libmsvcr100_extra_a_SOURCES_DIST =  \
 	ctype/iswblank.c ctype/iswprint.c ctype/wctrans.c \
 	ctype/wctype.c math/i386__copysignf.c stdio/scanf.S \
 	ctype/_isblank_l.c ctype/_iswblank_l.c ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c
 am__objects_38 =  \
 	stdio/lib32_libmsvcr100_extra_a-msvcr110pre_fstat32.$(OBJEXT) \
 	stdio/lib32_libmsvcr100_extra_a-msvcr110pre_fstat64i32.$(OBJEXT) \
@@ -1366,6 +1368,7 @@ am__objects_41 = ctype/lib32_libmsvcr100_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr100_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_42 = ctype/lib32_libmsvcr100_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr100_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr100_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_43 =  \
@@ -1387,6 +1390,7 @@ am__lib32_libmsvcr110_extra_a_SOURCES_DIST =  \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
 	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
 	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
@@ -1413,6 +1417,7 @@ am__objects_47 = ctype/lib32_libmsvcr110_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr110_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_48 = ctype/lib32_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_49 =  \
@@ -1433,17 +1438,19 @@ lib32_libmsvcr110_extra_a_OBJECTS =  \
 lib32_libmsvcr120_app_extra_a_AR = $(AR) $(ARFLAGS)
 lib32_libmsvcr120_app_extra_a_LIBADD =
 am__lib32_libmsvcr120_app_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c \
-	misc/__p___initenv.c misc/__p___winitenv.c misc/__p__environ.c \
-	misc/__p__wenviron.c misc/__set_app_type.c misc/_getpid.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c misc/__p___initenv.c misc/__p___winitenv.c \
+	misc/__p__environ.c misc/__p__wenviron.c misc/__set_app_type.c \
+	misc/_getpid.c
 am__objects_52 =  \
 	ctype/lib32_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_53 = misc/lib32_libmsvcr120_app_extra_a-__p__osplatform_emul.$(OBJEXT) \
@@ -1471,14 +1478,16 @@ lib32_libmsvcr120_app_extra_a_OBJECTS =  \
 lib32_libmsvcr120_extra_a_AR = $(AR) $(ARFLAGS)
 lib32_libmsvcr120_extra_a_LIBADD =
 am__lib32_libmsvcr120_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c
 am__objects_57 = ctype/lib32_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_58 =  \
@@ -1512,7 +1521,8 @@ am__lib32_libmsvcr70_extra_a_SOURCES_DIST =  \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -1564,6 +1574,7 @@ am__objects_63 = ctype/lib32_libmsvcr70_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcr70_extra_a-wassert.$(OBJEXT) \
@@ -1640,7 +1651,8 @@ am__lib32_libmsvcr71_extra_a_SOURCES_DIST = ctype/__iswcsym.c \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -1690,6 +1702,7 @@ am__objects_71 = ctype/lib32_libmsvcr71_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcr71_extra_a-wassert.$(OBJEXT) \
@@ -1767,6 +1780,7 @@ am__lib32_libmsvcr80_extra_a_SOURCES_DIST = stdio/_getc_nolock.c \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c
 am__objects_79 =  \
 	stdio/lib32_libmsvcr80_extra_a-_getc_nolock.$(OBJEXT)
@@ -1807,6 +1821,7 @@ am__objects_85 = ctype/lib32_libmsvcr80_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr80_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_86 = ctype/lib32_libmsvcr80_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr80_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr80_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_87 = $(am__objects_79) $(am__objects_80) $(am__objects_81) \
@@ -1832,6 +1847,7 @@ am__lib32_libmsvcr90_extra_a_SOURCES_DIST = misc/i386__XcptFilter.c \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
 	misc/__p__osplatform_emul.c misc/__p__osver_emul.c
 am__objects_88 =  \
@@ -1871,6 +1887,7 @@ am__objects_93 = ctype/lib32_libmsvcr90_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr90_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_94 = ctype/lib32_libmsvcr90_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libmsvcr90_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib32_libmsvcr90_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_95 =  \
@@ -1928,7 +1945,8 @@ am__lib32_libmsvcrt10_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -2062,6 +2080,7 @@ am__objects_102 = ctype/lib32_libmsvcrt10_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-wassert.$(OBJEXT) \
@@ -2158,7 +2177,8 @@ am__lib32_libmsvcrt20_extra_a_SOURCES_DIST = misc/__dstbias.c \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -2265,6 +2285,7 @@ am__objects_113 = ctype/lib32_libmsvcrt20_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcrt20_extra_a-wassert.$(OBJEXT) \
@@ -2358,7 +2379,8 @@ am__lib32_libmsvcrt40_extra_a_SOURCES_DIST =  \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -2449,6 +2471,7 @@ am__objects_124 = ctype/lib32_libmsvcrt40_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcrt40_extra_a-wassert.$(OBJEXT) \
@@ -2736,24 +2759,24 @@ am__lib32_libmsvcrt_extra_a_SOURCES_DIST =  \
 	ctype/__pctype_func.c ctype/__pwctype_func.c \
 	locale/___lc_codepage_func.c locale/___lc_handle_func.c \
 	locale/_create_locale.c locale/_free_locale.c \
-	locale/_get_current_locale.c misc/msvcrt__getmainargs.c \
-	misc/msvcrt__wgetmainargs.c misc/i386__XcptFilter.c \
-	misc/i386__beginthread.c misc/i386__beginthreadex.c \
-	math/i386__copysignf.c misc/___mb_cur_max_func.c \
-	misc/__p__osplatform.c misc/_aligned_free.c \
-	misc/_aligned_malloc.c misc/_aligned_offset_malloc.c \
-	misc/_aligned_offset_realloc.c misc/_aligned_realloc.c \
-	misc/_ctime64.c misc/_difftime64.c misc/_ftime64.c \
-	misc/_futime64.c misc/_get_doserrno.c misc/_get_fmode.c \
-	misc/_gmtime64.c misc/_initterm_e.c misc/_localtime64.c \
-	misc/_mkgmtime32.c misc/_mkgmtime64.c misc/_mktime64.c \
-	misc/_set_doserrno.c misc/_set_fmode.c misc/_time64.c \
-	misc/_utime64.c misc/_wctime64.c misc/_wutime64.c \
-	misc/imaxabs.c misc/output_format.c misc/_get_errno.c \
-	misc/_set_errno.c misc/strnlen.c misc/strtoimax.c \
-	misc/strtoumax.c misc/wassert.c misc/wcsnlen.c \
-	misc/wcstoimax.c misc/wcstoumax.c secapi/wcstok_s.c \
-	stdio/_findfirst64.c stdio/_findfirst64i32.c \
+	locale/_get_current_locale.c misc/msvcr80pre_sse_mxcsr_reset.c \
+	misc/msvcrt__getmainargs.c misc/msvcrt__wgetmainargs.c \
+	misc/i386__XcptFilter.c misc/i386__beginthread.c \
+	misc/i386__beginthreadex.c math/i386__copysignf.c \
+	misc/___mb_cur_max_func.c misc/__p__osplatform.c \
+	misc/_aligned_free.c misc/_aligned_malloc.c \
+	misc/_aligned_offset_malloc.c misc/_aligned_offset_realloc.c \
+	misc/_aligned_realloc.c misc/_ctime64.c misc/_difftime64.c \
+	misc/_ftime64.c misc/_futime64.c misc/_get_doserrno.c \
+	misc/_get_fmode.c misc/_gmtime64.c misc/_initterm_e.c \
+	misc/_localtime64.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
+	misc/_mktime64.c misc/_set_doserrno.c misc/_set_fmode.c \
+	misc/_time64.c misc/_utime64.c misc/_wctime64.c \
+	misc/_wutime64.c misc/imaxabs.c misc/output_format.c \
+	misc/_get_errno.c misc/_set_errno.c misc/strnlen.c \
+	misc/strtoimax.c misc/strtoumax.c misc/wassert.c \
+	misc/wcsnlen.c misc/wcstoimax.c misc/wcstoumax.c \
+	secapi/wcstok_s.c stdio/_findfirst64.c stdio/_findfirst64i32.c \
 	stdio/_findnext64.c stdio/_findnext64i32.c stdio/_fseeki64.c \
 	stdio/_fstat64.c stdio/_fstat64i32.c stdio/_scprintf.c \
 	stdio/_scwprintf.c stdio/_stat64.c stdio/_stat64i32.c \
@@ -2866,6 +2889,7 @@ am__objects_139 = $(am__objects_137) $(am__objects_138) \
 	locale/lib32_libmsvcrt_extra_a-_create_locale.$(OBJEXT) \
 	locale/lib32_libmsvcrt_extra_a-_free_locale.$(OBJEXT) \
 	locale/lib32_libmsvcrt_extra_a-_get_current_locale.$(OBJEXT) \
+	misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.$(OBJEXT) \
 	misc/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.$(OBJEXT) \
 	misc/lib32_libmsvcrt_extra_a-i386__XcptFilter.$(OBJEXT) \
@@ -2960,7 +2984,8 @@ am__lib32_libmsvcrtd_extra_a_SOURCES_DIST = ctype/__pctype_func.c \
 	misc/_invoke_watson.c misc/_mkgmtime32.c misc/_mkgmtime64.c \
 	misc/_recalloc.c misc/_set_doserrno.c misc/_set_errno.c \
 	misc/_set_fmode.c misc/imaxabs.c \
-	misc/invalid_parameter_handler.c misc/output_format.c \
+	misc/invalid_parameter_handler.c \
+	misc/msvcr80pre_sse_mxcsr_reset.c misc/output_format.c \
 	misc/strnlen.c misc/wassert.c misc/wcsnlen.c secapi/getenv_s.c \
 	secapi/rand_s.c secapi/wcstok_s.c stdio/_findfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_fseeki64.c stdio/_fstat64i32.c \
@@ -3048,6 +3073,7 @@ am__objects_142 = ctype/lib32_libmsvcrtd_extra_a-__iswcsym.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-_set_fmode.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.$(OBJEXT) \
+	misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-output_format.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-strnlen.$(OBJEXT) \
 	misc/lib32_libmsvcrtd_extra_a-wassert.$(OBJEXT) \
@@ -3220,7 +3246,8 @@ am__lib32_libucrt_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
 	math/sinhf.c math/sqrtf.c math/tanhf.c math/x86/acosf.c \
 	math/x86/asinf.c math/x86/atan2f.c math/x86/atanf.c \
 	math/x86/ceilf.S math/x86/cosf.c math/x86/floorf.S \
-	math/x86/fmodf.c math/x86/sinf.c math/x86/tanf.c
+	math/x86/fmodf.c math/x86/sinf.c math/x86/tanf.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c
 am__objects_161 = ctype/lib32_libucrt_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib32_libucrt_extra_a-_iscsymf_l.$(OBJEXT) \
 	ctype/lib32_libucrt_extra_a-towctrans.$(OBJEXT) \
@@ -3310,7 +3337,8 @@ am__objects_162 = $(am__objects_161) \
 	math/x86/lib32_libucrt_extra_a-floorf.$(OBJEXT) \
 	math/x86/lib32_libucrt_extra_a-fmodf.$(OBJEXT) \
 	math/x86/lib32_libucrt_extra_a-sinf.$(OBJEXT) \
-	math/x86/lib32_libucrt_extra_a-tanf.$(OBJEXT)
+	math/x86/lib32_libucrt_extra_a-tanf.$(OBJEXT) \
+	misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT)
 @LIB32_TRUE@@W32API_FALSE@am_lib32_libucrt_extra_a_OBJECTS =  \
 @LIB32_TRUE@@W32API_FALSE@	$(am__objects_162)
 lib32_libucrt_extra_a_OBJECTS = $(am_lib32_libucrt_extra_a_OBJECTS)
@@ -4321,9 +4349,9 @@ am__lib64_libmsvcr100_extra_a_SOURCES_DIST =  \
 	ctype/iswblank.c ctype/iswprint.c ctype/wctrans.c \
 	ctype/wctype.c math/i386__copysignf.c stdio/scanf.S \
 	ctype/_isblank_l.c ctype/_iswblank_l.c ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c
 am__objects_195 =  \
 	stdio/lib64_libmsvcr100_extra_a-msvcr110pre_fstat32.$(OBJEXT) \
 	stdio/lib64_libmsvcr100_extra_a-msvcr110pre_fstat64i32.$(OBJEXT) \
@@ -4354,6 +4382,7 @@ am__objects_198 =  \
 	ctype/lib64_libmsvcr100_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_199 = ctype/lib64_libmsvcr100_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr100_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr100_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_200 =  \
@@ -4375,6 +4404,7 @@ am__lib64_libmsvcr110_extra_a_SOURCES_DIST =  \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
 	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
 	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
@@ -4402,6 +4432,7 @@ am__objects_204 =  \
 	ctype/lib64_libmsvcr110_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_205 = ctype/lib64_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_206 =  \
@@ -4422,17 +4453,19 @@ lib64_libmsvcr110_extra_a_OBJECTS =  \
 lib64_libmsvcr120_app_extra_a_AR = $(AR) $(ARFLAGS)
 lib64_libmsvcr120_app_extra_a_LIBADD =
 am__lib64_libmsvcr120_app_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c \
-	misc/__p___initenv.c misc/__p___winitenv.c misc/__p__environ.c \
-	misc/__p__wenviron.c misc/__set_app_type.c misc/_getpid.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c misc/__p___initenv.c misc/__p___winitenv.c \
+	misc/__p__environ.c misc/__p__wenviron.c misc/__set_app_type.c \
+	misc/_getpid.c
 am__objects_209 =  \
 	ctype/lib64_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_210 = misc/lib64_libmsvcr120_app_extra_a-__p__osplatform_emul.$(OBJEXT) \
@@ -4460,14 +4493,16 @@ lib64_libmsvcr120_app_extra_a_OBJECTS =  \
 lib64_libmsvcr120_extra_a_AR = $(AR) $(ARFLAGS)
 lib64_libmsvcr120_extra_a_LIBADD =
 am__lib64_libmsvcr120_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c
 am__objects_214 = ctype/lib64_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_215 =  \
@@ -4502,6 +4537,7 @@ am__lib64_libmsvcr80_extra_a_SOURCES_DIST = stdio/_getc_nolock.c \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c
 am__objects_219 =  \
 	stdio/lib64_libmsvcr80_extra_a-_getc_nolock.$(OBJEXT)
@@ -4542,6 +4578,7 @@ am__objects_225 = ctype/lib64_libmsvcr80_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr80_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_226 = ctype/lib64_libmsvcr80_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr80_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr80_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_227 = $(am__objects_219) $(am__objects_220) \
@@ -4567,6 +4604,7 @@ am__lib64_libmsvcr90_extra_a_SOURCES_DIST = misc/i386__XcptFilter.c \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
 	misc/__p__osplatform_emul.c misc/__p__osver_emul.c
 am__objects_228 =  \
@@ -4606,6 +4644,7 @@ am__objects_233 = ctype/lib64_libmsvcr90_extra_a-_isblank_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr90_extra_a-_iswblank_l.$(OBJEXT)
 am__objects_234 = ctype/lib64_libmsvcr90_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/lib64_libmsvcr90_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/lib64_libmsvcr90_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_235 =  \
@@ -6088,6 +6127,7 @@ am__libarm32_libmsvcr110_extra_a_SOURCES_DIST =  \
 	ctype/iswprint.c ctype/wctrans.c ctype/wctype.c \
 	math/i386__copysignf.c stdio/scanf.S ctype/_isblank_l.c \
 	ctype/_iswblank_l.c ctype/_iscsym_l.c ctype/_iscsymf_l.c \
+	misc/msvcr80plus_sse_mxcsr_reset.c \
 	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
 	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
 	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
@@ -6116,6 +6156,7 @@ am__objects_289 =  \
 am__objects_290 =  \
 	ctype/libarm32_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/libarm32_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/libarm32_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_291 = misc/libarm32_libmsvcr110_extra_a-__p__osplatform_emul.$(OBJEXT) \
@@ -6135,17 +6176,19 @@ libarm32_libmsvcr110_extra_a_OBJECTS =  \
 libarm32_libmsvcr120_app_extra_a_AR = $(AR) $(ARFLAGS)
 libarm32_libmsvcr120_app_extra_a_LIBADD =
 am__libarm32_libmsvcr120_app_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c \
-	misc/__p___initenv.c misc/__p___winitenv.c misc/__p__environ.c \
-	misc/__p__wenviron.c misc/__set_app_type.c misc/_getpid.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c misc/__p___initenv.c misc/__p___winitenv.c \
+	misc/__p__environ.c misc/__p__wenviron.c misc/__set_app_type.c \
+	misc/_getpid.c
 am__objects_294 =  \
 	ctype/libarm32_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/libarm32_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/libarm32_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_295 = misc/libarm32_libmsvcr120_app_extra_a-__p__osplatform_emul.$(OBJEXT) \
@@ -6173,15 +6216,17 @@ libarm32_libmsvcr120_app_extra_a_OBJECTS =  \
 libarm32_libmsvcr120_extra_a_AR = $(AR) $(ARFLAGS)
 libarm32_libmsvcr120_extra_a_LIBADD =
 am__libarm32_libmsvcr120_extra_a_SOURCES_DIST = ctype/_iscsym_l.c \
-	ctype/_iscsymf_l.c stdio/msvcr80plus_ftruncate64.c \
-	string/msvcr80plus_wcstok.c misc/__p__osplatform_emul.c \
-	misc/__p__osver_emul.c stdio/msvcr110plus_fstat32.c \
-	stdio/msvcr110plus_fstat64i32.c stdio/msvcr110plus_stat32.c \
-	stdio/msvcr110plus_stat64i32.c stdio/msvcr110plus_wstat32.c \
-	stdio/msvcr110plus_wstat64i32.c ctype/towctrans.c
+	ctype/_iscsymf_l.c misc/msvcr80plus_sse_mxcsr_reset.c \
+	stdio/msvcr80plus_ftruncate64.c string/msvcr80plus_wcstok.c \
+	misc/__p__osplatform_emul.c misc/__p__osver_emul.c \
+	stdio/msvcr110plus_fstat32.c stdio/msvcr110plus_fstat64i32.c \
+	stdio/msvcr110plus_stat32.c stdio/msvcr110plus_stat64i32.c \
+	stdio/msvcr110plus_wstat32.c stdio/msvcr110plus_wstat64i32.c \
+	ctype/towctrans.c
 am__objects_299 =  \
 	ctype/libarm32_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT) \
 	ctype/libarm32_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT) \
+	misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT) \
 	stdio/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT) \
 	string/libarm32_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT)
 am__objects_300 = misc/libarm32_libmsvcr120_extra_a-__p__osplatform_emul.$(OBJEXT) \
@@ -10695,6 +10740,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strnlen.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strtoimax.Po \
@@ -10780,8 +10826,10 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-wmemset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___initenv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___winitenv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__environ.Po \
@@ -10790,8 +10838,10 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__wenviron.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__set_app_type.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-_getpid.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__p__osplatform.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_errlist.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_nerr.Po \
@@ -10826,6 +10876,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-strnlen.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-wassert.Po \
@@ -10863,6 +10914,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-strnlen.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-wassert.Po \
@@ -10872,6 +10924,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthread.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthreadex.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-imaxdiv.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osver_emul.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po \
@@ -10879,6 +10932,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthread.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthreadex.Po \
 	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-imaxdiv.Po \
+	misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-___mb_cur_max_func.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__badioinfo.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__daylight.Po \
@@ -10953,6 +11007,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po \
@@ -11016,6 +11071,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__getmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__wgetmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Po \
@@ -11077,6 +11133,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__getmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__wgetmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-output_format.Po \
@@ -11150,6 +11207,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-output_format.Po \
@@ -11209,6 +11267,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxabs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__getmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__wgetmainargs.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-output_format.Po \
@@ -11228,6 +11287,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-__p__osver_emul.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-__winitenv.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-_onexit.Po \
+	misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt-access.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt__getmainargs.Po \
@@ -11315,8 +11375,10 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___initenv.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___winitenv.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__environ.Po \
@@ -11325,13 +11387,16 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__wenviron.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__set_app_type.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-_getpid.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-_invalid_parameter_noinfo_noreturn.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__XcptFilter.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthread.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthreadex.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-imaxdiv.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osver_emul.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po \
@@ -11339,6 +11404,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthread.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthreadex.Po \
 	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-imaxdiv.Po \
+	misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po \
@@ -11504,6 +11570,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-wmemset.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___initenv.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___winitenv.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__environ.Po \
@@ -11512,8 +11579,10 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__wenviron.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__set_app_type.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-_getpid.Po \
+	misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osplatform_emul.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osver_emul.Po \
+	misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po \
@@ -14229,7 +14298,8 @@ src_ucrtbase32 = \
   math/x86/floorf.S \
   math/x86/fmodf.c \
   math/x86/sinf.c \
-  math/x86/tanf.c
+  math/x86/tanf.c \
+  misc/msvcr80plus_sse_mxcsr_reset.c
 
 
 # Files included in libucrt*.a on x86_64
@@ -14261,6 +14331,7 @@ src_msvcrt32 = \
   locale/_create_locale.c \
   locale/_free_locale.c \
   locale/_get_current_locale.c \
+  misc/msvcr80pre_sse_mxcsr_reset.c \
   misc/msvcrt__getmainargs.c \
   misc/msvcrt__wgetmainargs.c \
   misc/i386__XcptFilter.c \
@@ -14592,6 +14663,7 @@ src_pre_msvcr80 = \
   misc/_set_fmode.c \
   misc/imaxabs.c \
   misc/invalid_parameter_handler.c \
+  misc/msvcr80pre_sse_mxcsr_reset.c \
   misc/output_format.c \
   misc/strnlen.c \
   misc/wassert.c \
@@ -14651,6 +14723,7 @@ src_pre_msvcr120_post_msvcr71 = \
 src_post_msvcr71 = \
   ctype/_iscsym_l.c \
   ctype/_iscsymf_l.c \
+  misc/msvcr80plus_sse_mxcsr_reset.c \
   stdio/msvcr80plus_ftruncate64.c \
   string/msvcr80plus_wcstok.c
 
@@ -17584,6 +17657,8 @@ misc/lib32_libcrtdll_extra_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-invalid_parameter_handler.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-strnlen.$(OBJEXT): misc/$(am__dirstamp) \
@@ -18849,6 +18924,8 @@ ctype/lib32_libmsvcr100_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr100_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr100_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -18902,6 +18979,8 @@ ctype/lib32_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -18931,6 +19010,8 @@ ctype/lib32_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -18974,6 +19055,8 @@ ctype/lib32_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -19062,6 +19145,8 @@ misc/lib32_libmsvcr70_extra_a-_set_fmode.$(OBJEXT):  \
 misc/lib32_libmsvcr70_extra_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcr70_extra_a-invalid_parameter_handler.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcr70_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -19225,6 +19310,8 @@ misc/lib32_libmsvcr71_extra_a-_set_fmode.$(OBJEXT):  \
 misc/lib32_libmsvcr71_extra_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcr71_extra_a-invalid_parameter_handler.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcr71_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -19395,6 +19482,8 @@ ctype/lib32_libmsvcr80_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr80_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr80_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -19468,6 +19557,8 @@ ctype/lib32_libmsvcr90_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib32_libmsvcr90_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib32_libmsvcr90_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -19704,6 +19795,8 @@ misc/lib32_libmsvcrt10_extra_a-_set_fmode.$(OBJEXT):  \
 misc/lib32_libmsvcrt10_extra_a-imaxabs.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt10_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -19976,6 +20069,8 @@ misc/lib32_libmsvcrt20_extra_a-imaxabs.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt20_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt20_extra_a-strnlen.$(OBJEXT):  \
@@ -20218,6 +20313,8 @@ misc/lib32_libmsvcrt40_extra_a-_set_fmode.$(OBJEXT):  \
 misc/lib32_libmsvcrt40_extra_a-imaxabs.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt40_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -20791,6 +20888,8 @@ locale/lib32_libmsvcrt_extra_a-_free_locale.$(OBJEXT):  \
 	locale/$(am__dirstamp) locale/$(DEPDIR)/$(am__dirstamp)
 locale/lib32_libmsvcrt_extra_a-_get_current_locale.$(OBJEXT):  \
 	locale/$(am__dirstamp) locale/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.$(OBJEXT):  \
@@ -21049,6 +21148,8 @@ misc/lib32_libmsvcrtd_extra_a-_set_fmode.$(OBJEXT):  \
 misc/lib32_libmsvcrtd_extra_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrtd_extra_a-output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -21414,6 +21515,8 @@ math/x86/lib32_libucrt_extra_a-sinf.$(OBJEXT):  \
 	math/x86/$(am__dirstamp) math/x86/$(DEPDIR)/$(am__dirstamp)
 math/x86/lib32_libucrt_extra_a-tanf.$(OBJEXT):  \
 	math/x86/$(am__dirstamp) math/x86/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 
 lib32/libucrt_extra.a: $(lib32_libucrt_extra_a_OBJECTS) $(lib32_libucrt_extra_a_DEPENDENCIES) $(EXTRA_lib32_libucrt_extra_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	$(AM_V_at)-rm -f lib32/libucrt_extra.a
@@ -22856,6 +22959,8 @@ ctype/lib64_libmsvcr100_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr100_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr100_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -22909,6 +23014,8 @@ ctype/lib64_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -22938,6 +23045,8 @@ ctype/lib64_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -22981,6 +23090,8 @@ ctype/lib64_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -23074,6 +23185,8 @@ ctype/lib64_libmsvcr80_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr80_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr80_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -23147,6 +23260,8 @@ ctype/lib64_libmsvcr90_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/lib64_libmsvcr90_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/lib64_libmsvcr90_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -25209,6 +25324,8 @@ ctype/libarm32_libmsvcr110_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/libarm32_libmsvcr110_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/libarm32_libmsvcr110_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -25238,6 +25355,8 @@ ctype/libarm32_libmsvcr120_app_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/libarm32_libmsvcr120_app_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/libarm32_libmsvcr120_app_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -25281,6 +25400,8 @@ ctype/libarm32_libmsvcr120_extra_a-_iscsym_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
 ctype/libarm32_libmsvcr120_extra_a-_iscsymf_l.$(OBJEXT):  \
 	ctype/$(am__dirstamp) ctype/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 string/libarm32_libmsvcr120_extra_a-msvcr80plus_wcstok.$(OBJEXT):  \
@@ -30641,6 +30762,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strnlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strtoimax.Po@am__quote@ # am--include-marker
@@ -30726,8 +30848,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wmemset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___initenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___winitenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__environ.Po@am__quote@ # am--include-marker
@@ -30736,8 +30860,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__wenviron.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__set_app_type.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-_getpid.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__p__osplatform.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_errlist.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_nerr.Po@am__quote@ # am--include-marker
@@ -30772,6 +30898,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-strnlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-wassert.Po@am__quote@ # am--include-marker
@@ -30809,6 +30936,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-strnlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-wassert.Po@am__quote@ # am--include-marker
@@ -30818,6 +30946,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthreadex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po@am__quote@ # am--include-marker
@@ -30825,6 +30954,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthreadex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-___mb_cur_max_func.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__badioinfo.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__daylight.Po@am__quote@ # am--include-marker
@@ -30899,6 +31029,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po@am__quote@ # am--include-marker
@@ -30962,6 +31093,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__getmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__wgetmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Po@am__quote@ # am--include-marker
@@ -31023,6 +31155,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__getmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__wgetmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-output_format.Po@am__quote@ # am--include-marker
@@ -31096,6 +31229,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-output_format.Po@am__quote@ # am--include-marker
@@ -31155,6 +31289,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxabs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__getmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__wgetmainargs.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-output_format.Po@am__quote@ # am--include-marker
@@ -31174,6 +31309,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-__winitenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-_onexit.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt-access.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt__getmainargs.Po@am__quote@ # am--include-marker
@@ -31261,8 +31397,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___initenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___winitenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__environ.Po@am__quote@ # am--include-marker
@@ -31271,13 +31409,16 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__wenviron.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__set_app_type.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-_getpid.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-_invalid_parameter_noinfo_noreturn.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__XcptFilter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthreadex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po@am__quote@ # am--include-marker
@@ -31285,6 +31426,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthread.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthreadex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po@am__quote@ # am--include-marker
@@ -31450,6 +31592,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-wmemset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___initenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___winitenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__environ.Po@am__quote@ # am--include-marker
@@ -31458,8 +31601,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__wenviron.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__set_app_type.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-_getpid.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osplatform_emul.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osver_emul.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po@am__quote@ # am--include-marker
@@ -36490,6 +36635,20 @@ misc/lib32_libcrtdll_extra_a-invalid_parameter_handler.obj: misc/invalid_paramet
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libcrtdll_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libcrtdll_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-output_format.Tpo -c -o misc/lib32_libcrtdll_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -43785,6 +43944,20 @@ ctype/lib32_libmsvcr100_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr100_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Po
@@ -44107,6 +44280,20 @@ ctype/lib32_libmsvcr110_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr110_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Po
@@ -44274,6 +44461,20 @@ ctype/lib32_libmsvcr120_app_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib32_libmsvcr120_app_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr120_app_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -44540,6 +44741,20 @@ ctype/lib32_libmsvcr120_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib32_libmsvcr120_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr120_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -45128,6 +45343,20 @@ misc/lib32_libmsvcr70_extra_a-invalid_parameter_handler.obj: misc/invalid_parame
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libmsvcr70_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr70_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libmsvcr70_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr70_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr70_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcr70_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -46220,6 +46449,20 @@ misc/lib32_libmsvcr71_extra_a-invalid_parameter_handler.obj: misc/invalid_parame
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libmsvcr71_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr71_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libmsvcr71_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr71_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr71_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcr71_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -47341,6 +47584,20 @@ ctype/lib32_libmsvcr80_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr80_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Po
@@ -47802,6 +48059,20 @@ ctype/lib32_libmsvcr90_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib32_libmsvcr90_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib32_libmsvcr90_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib32_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -49426,6 +49697,20 @@ misc/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.obj: misc/invalid_param
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libmsvcrt10_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -51275,6 +51560,20 @@ misc/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.obj: misc/invalid_param
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
 
+misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+
 misc/lib32_libmsvcrt20_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt20_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcrt20_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Tpo misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Po
@@ -52926,6 +53225,20 @@ misc/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.obj: misc/invalid_param
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libmsvcrt40_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt40_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt40_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcrt40_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -56553,6 +56866,20 @@ locale/lib32_libmsvcrt_extra_a-_get_current_locale.obj: locale/_get_current_loca
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o locale/lib32_libmsvcrt_extra_a-_get_current_locale.obj `if test -f 'locale/_get_current_locale.c'; then $(CYGPATH_W) 'locale/_get_current_locale.c'; else $(CYGPATH_W) '$(srcdir)/locale/_get_current_locale.c'; fi`
 
+misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+
 misc/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.o: misc/msvcrt__getmainargs.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Tpo -c -o misc/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.o `test -f 'misc/msvcrt__getmainargs.c' || echo '$(srcdir)/'`misc/msvcrt__getmainargs.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Po
@@ -58330,6 +58657,20 @@ misc/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.obj: misc/invalid_parame
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/invalid_parameter_handler.c' object='misc/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.obj `if test -f 'misc/invalid_parameter_handler.c'; then $(CYGPATH_W) 'misc/invalid_parameter_handler.c'; else $(CYGPATH_W) '$(srcdir)/misc/invalid_parameter_handler.c'; fi`
+
+misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.o: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.o `test -f 'misc/msvcr80pre_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80pre_sse_mxcsr_reset.c
+
+misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.obj: misc/msvcr80pre_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo -c -o misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80pre_sse_mxcsr_reset.c' object='misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80pre_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80pre_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80pre_sse_mxcsr_reset.c'; fi`
 
 misc/lib32_libmsvcrtd_extra_a-output_format.o: misc/output_format.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrtd_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrtd_extra_a-output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-output_format.Tpo -c -o misc/lib32_libmsvcrtd_extra_a-output_format.o `test -f 'misc/output_format.c' || echo '$(srcdir)/'`misc/output_format.c
@@ -60416,6 +60757,20 @@ math/x86/lib32_libucrt_extra_a-tanf.obj: math/x86/tanf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/x86/tanf.c' object='math/x86/lib32_libucrt_extra_a-tanf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/x86/lib32_libucrt_extra_a-tanf.obj `if test -f 'math/x86/tanf.c'; then $(CYGPATH_W) 'math/x86/tanf.c'; else $(CYGPATH_W) '$(srcdir)/math/x86/tanf.c'; fi`
+
+misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 string/lib32_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/lib32_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/lib32_libucrtapp_extra_a-memchr.Tpo -c -o string/lib32_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
@@ -68733,6 +69088,20 @@ ctype/lib64_libmsvcr100_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr100_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr100_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_ftruncate64.Po
@@ -69055,6 +69424,20 @@ ctype/lib64_libmsvcr110_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr110_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Po
@@ -69222,6 +69605,20 @@ ctype/lib64_libmsvcr120_app_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib64_libmsvcr120_app_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr120_app_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -69488,6 +69885,20 @@ ctype/lib64_libmsvcr120_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib64_libmsvcr120_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr120_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -70091,6 +70502,20 @@ ctype/lib64_libmsvcr80_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr80_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr80_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_ftruncate64.Po
@@ -70552,6 +70977,20 @@ ctype/lib64_libmsvcr90_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/lib64_libmsvcr90_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/lib64_libmsvcr90_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/lib64_libmsvcr90_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -82775,6 +83214,20 @@ ctype/libarm32_libmsvcr110_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/libarm32_libmsvcr110_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
 
+misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
 stdio/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr110_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Tpo stdio/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_ftruncate64.Po
@@ -82942,6 +83395,20 @@ ctype/libarm32_libmsvcr120_app_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/libarm32_libmsvcr120_app_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/libarm32_libmsvcr120_app_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_app_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/libarm32_libmsvcr120_app_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -83208,6 +83675,20 @@ ctype/libarm32_libmsvcr120_extra_a-_iscsymf_l.obj: ctype/_iscsymf_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ctype/_iscsymf_l.c' object='ctype/libarm32_libmsvcr120_extra_a-_iscsymf_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ctype/libarm32_libmsvcr120_extra_a-_iscsymf_l.obj `if test -f 'ctype/_iscsymf_l.c'; then $(CYGPATH_W) 'ctype/_iscsymf_l.c'; else $(CYGPATH_W) '$(srcdir)/ctype/_iscsymf_l.c'; fi`
+
+misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.o `test -f 'misc/msvcr80plus_sse_mxcsr_reset.c' || echo '$(srcdir)/'`misc/msvcr80plus_sse_mxcsr_reset.c
+
+misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse_mxcsr_reset.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo -c -o misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Tpo misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
 
 stdio/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o: stdio/msvcr80plus_ftruncate64.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcr120_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o -MD -MP -MF stdio/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.Tpo -c -o stdio/libarm32_libmsvcr120_extra_a-msvcr80plus_ftruncate64.o `test -f 'stdio/msvcr80plus_ftruncate64.c' || echo '$(srcdir)/'`stdio/msvcr80plus_ftruncate64.c
@@ -103365,6 +103846,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strtoimax.Po
@@ -103450,8 +103932,10 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__environ.Po
@@ -103460,8 +103944,10 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__p__osplatform.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_errlist.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_nerr.Po
@@ -103496,6 +103982,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-wassert.Po
@@ -103533,6 +104020,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-wassert.Po
@@ -103542,6 +104030,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po
@@ -103549,6 +104038,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-___mb_cur_max_func.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__badioinfo.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__daylight.Po
@@ -103623,6 +104113,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po
@@ -103686,6 +104177,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Po
@@ -103747,6 +104239,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-output_format.Po
@@ -103820,6 +104313,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-output_format.Po
@@ -103879,6 +104373,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-output_format.Po
@@ -103898,6 +104393,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-__winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-_onexit.Po
+	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt-access.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt__getmainargs.Po
@@ -103985,8 +104481,10 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__environ.Po
@@ -103995,13 +104493,16 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-_invalid_parameter_noinfo_noreturn.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__XcptFilter.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po
@@ -104009,6 +104510,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po
@@ -104174,6 +104676,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__environ.Po
@@ -104182,8 +104685,10 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po
@@ -108223,6 +108728,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-strtoimax.Po
@@ -108308,8 +108814,10 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__environ.Po
@@ -108318,8 +108826,10 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__p__osplatform.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_errlist.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-__sys_nerr.Po
@@ -108354,6 +108864,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr70_extra_a-wassert.Po
@@ -108391,6 +108902,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr71_extra_a-wassert.Po
@@ -108400,6 +108912,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po
@@ -108407,6 +108920,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-___mb_cur_max_func.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__badioinfo.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-__daylight.Po
@@ -108481,6 +108995,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po
@@ -108544,6 +109059,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-msvcrt20__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-output_format.Po
@@ -108605,6 +109121,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt40_extra_a-output_format.Po
@@ -108678,6 +109195,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-output_format.Po
@@ -108737,6 +109255,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxabs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-invalid_parameter_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcr80pre_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__getmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-msvcrt__wgetmainargs.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrtd_extra_a-output_format.Po
@@ -108756,6 +109275,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-__winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-_onexit.Po
+	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt-access.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt__getmainargs.Po
@@ -108843,8 +109363,10 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr100_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__environ.Po
@@ -108853,13 +109375,16 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-_invalid_parameter_noinfo_noreturn.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__XcptFilter.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr80_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-__p__osver_emul.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-_invalid_parameter_noinfo_noreturn.Po
@@ -108867,6 +109392,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthread.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-i386__beginthreadex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-imaxdiv.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcr90_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po
@@ -109032,6 +109558,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wmemset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr110_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p___winitenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__environ.Po
@@ -109040,8 +109567,10 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__p__wenviron.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-__set_app_type.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-_getpid.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_app_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osplatform_emul.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-__p__osver_emul.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcr120_extra_a-msvcr80plus_sse_mxcsr_reset.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_mbrtowc_cp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-__mingw_wcrtomb_cp.Po
