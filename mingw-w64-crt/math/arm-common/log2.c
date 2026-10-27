@@ -16,15 +16,6 @@ typedef union ieee754_double_ {
   double f;
 } ieee754_double;
 
-typedef union ieee754_float_ {
-  struct __attribute__((__packed__)) {
-    uint32_t f23 : 23;
-    uint32_t exp :  8;
-    uint32_t sgn :  1;
-  };
-  float f;
-} ieee754_float;
-
 double log2(double x)
 {
     ieee754_double u = { .f = x };
@@ -33,19 +24,4 @@ double log2(double x)
         return (int)u.exp - 1023;
     }
     return log(x) / 0.69314718246459960938;
-}
-
-float log2f(float x)
-{
-    ieee754_float u = { .f = x };
-    if (u.sgn == 0 && u.f23 == 0 && u.exp > 0 && u.exp < 0xff) {
-        // Handle exact powers of two exactly
-        return (int)u.exp - 127;
-    }
-    return logf(x) / 0.69314718246459960938f;
-}
-
-long double log2l(long double x)
-{
-    return log2(x);
 }
