@@ -377,6 +377,9 @@ src_msvcrt=\
   misc/_set_purecall_handler.c \
   misc/imaxdiv.c \
   misc/invalid_parameter_handler.c \
+  misc/winbs_uint64.c \
+  misc/winbs_ulong.c \
+  misc/winbs_ushort.c \
   secapi/_vscprintf_p.c \
   secapi/_vscwprintf_p.c \
   secapi/_vswprintf_p.c \
@@ -1024,6 +1027,9 @@ src_pre_msvcr80=\
   misc/strnlen.c \
   misc/wassert.c \
   misc/wcsnlen.c \
+  misc/winbs_uint64.c \
+  misc/winbs_ulong.c \
+  misc/winbs_ushort.c \
   secapi/getenv_s.c \
   secapi/rand_s.c \
   secapi/wcstok_s.c \
@@ -1315,7 +1321,7 @@ src_libmingwex=\
   misc/tsearch.c         misc/twalk.c           \
   misc/wcstof.c \
   misc/wcstold.c \
-  misc/wdirent.c         misc/winbs_uint64.c        misc/winbs_ulong.c      misc/winbs_ushort.c    \
+  misc/wdirent.c \
   misc/btowc.c           misc/wctob.c \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
   misc/wmemset.c         misc/mingw-access.c \
