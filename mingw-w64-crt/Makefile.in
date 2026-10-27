@@ -124,7 +124,8 @@ host_triplet = @host@
 @LIB32_TRUE@@W32API_FALSE@				  lib32/msvcr120_app.def lib32/msvcp120_app.def lib32/ucrtbase.def lib32/ucrtbased.def \
 @LIB32_TRUE@@W32API_FALSE@				  lib32/api-ms-win-crt-math-l1-1-0.def lib32/api-ms-win-crt-private-l1-1-0.def lib32/api-ms-win-crt-runtime-l1-1-0.def \
 @LIB32_TRUE@@W32API_FALSE@				  lib32/api-ms-win-crt-filesystem-l1-1-0.def lib32/api-ms-win-crt-time-l1-1-0.def \
-@LIB32_TRUE@@W32API_FALSE@				  lib32/vcruntime140.def lib32/vcruntime140d.def lib32/vcruntime140_app.def
+@LIB32_TRUE@@W32API_FALSE@				  lib32/vcruntime140.def lib32/vcruntime140d.def lib32/vcruntime140_app.def \
+@LIB32_TRUE@@W32API_FALSE@				  lib32/vcruntime140_threads.def lib32/vcruntime140_threadsd.def lib32/vcruntime140_threads_app.def
 
 @LIB32_TRUE@@W32API_FALSE@am__append_12 = lib32/libglut.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libmsvcp60.a \
@@ -153,9 +154,13 @@ host_triplet = @host@
 @LIB32_TRUE@@W32API_FALSE@	lib32/libucrtbase.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libucrtbased.a lib32/libucrt.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libucrtapp.a \
+@LIB32_TRUE@@W32API_FALSE@	lib32/libucrt_vcruntime140.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140d.a \
-@LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140_app.a
+@LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140_app.a \
+@LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140_threads.a \
+@LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140_threadsd.a \
+@LIB32_TRUE@@W32API_FALSE@	lib32/libvcruntime140_threads_app.a
 @LIB32_TRUE@@W32API_FALSE@am__append_13 = lib32/libcrtdll_extra.a lib32/libmsvcrt10_extra.a lib32/libmsvcrt20_extra.a lib32/libmsvcrt40_extra.a lib32/libmsvcrt_common.a lib32/libmsvcrt_extra.a lib32/libmsvcrtd_extra.a lib32/libmsvcr70_extra.a lib32/libmsvcr71_extra.a lib32/libmsvcr80_extra.a lib32/libmsvcr90_extra.a lib32/libmsvcr100_extra.a lib32/libmsvcr110_extra.a lib32/libmsvcr120_extra.a lib32/libmsvcr120_app_extra.a lib32/libucrt_extra.a lib32/libucrtapp_extra.a
 @LIB64_TRUE@@W32API_FALSE@am__append_14 = lib64/libmsvcrt.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libmsvcrt-os.a
@@ -172,7 +177,8 @@ host_triplet = @host@
 @LIB64_TRUE@@W32API_FALSE@				  lib64/oleaut32.def lib64/user32.def lib64/winhvplatform.def lib64/ws2_32.def \
 @LIB64_TRUE@@W32API_FALSE@				  lib64/api-ms-win-crt-math-l1-1-0.def lib64/api-ms-win-crt-private-l1-1-0.def lib64/api-ms-win-crt-runtime-l1-1-0.def \
 @LIB64_TRUE@@W32API_FALSE@				  lib64/api-ms-win-crt-filesystem-l1-1-0.def lib64/api-ms-win-crt-time-l1-1-0.def \
-@LIB64_TRUE@@W32API_FALSE@				  lib64/vcruntime140.def lib64/vcruntime140d.def lib64/vcruntime140_app.def
+@LIB64_TRUE@@W32API_FALSE@				  lib64/vcruntime140.def lib64/vcruntime140d.def lib64/vcruntime140_app.def \
+@LIB64_TRUE@@W32API_FALSE@				  lib64/vcruntime140_threads.def lib64/vcruntime140_threadsd.def lib64/vcruntime140_threads_app.def
 
 @LIB64_TRUE@@W32API_FALSE@am__append_17 = lib64/libmsvcp60.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libmsvcp120_app.a \
@@ -190,9 +196,13 @@ host_triplet = @host@
 @LIB64_TRUE@@W32API_FALSE@	lib64/libucrtbase.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libucrtbased.a lib64/libucrt.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libucrtapp.a \
+@LIB64_TRUE@@W32API_FALSE@	lib64/libucrt_vcruntime140.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140d.a \
-@LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140_app.a
+@LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140_app.a \
+@LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140_threads.a \
+@LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140_threadsd.a \
+@LIB64_TRUE@@W32API_FALSE@	lib64/libvcruntime140_threads_app.a
 @LIB64_TRUE@@W32API_FALSE@am__append_18 = lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a lib64/libmsvcr80_extra.a lib64/libmsvcr90_extra.a lib64/libmsvcr100_extra.a lib64/libmsvcr110_extra.a lib64/libmsvcr120_extra.a lib64/libmsvcr120_app_extra.a lib64/libucrt_extra.a lib64/libucrtapp_extra.a
 @LIBARM32_TRUE@@W32API_FALSE@am__append_19 = libarm32/libmsvcrt.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libmsvcrt-os.a
@@ -227,6 +237,7 @@ host_triplet = @host@
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libucrtbased.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libucrt.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libucrtapp.a \
+@LIBARM32_TRUE@@W32API_FALSE@	libarm32/libucrt_vcruntime140.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libvcruntime140.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libvcruntime140d.a \
 @LIBARM32_TRUE@@W32API_FALSE@	libarm32/libvcruntime140_app.a
@@ -254,9 +265,13 @@ host_triplet = @host@
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/libucrtbased.a \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/libucrt.a \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/libucrtapp.a \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libucrt_vcruntime140.a \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140.a \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140d.a \
-@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140_app.a
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140_app.a \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140_threads.a \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140_threadsd.a \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/libvcruntime140_threads_app.a
 @LIBARM64_TRUE@@W32API_FALSE@am__append_31 = libarm64/libmsvcrt_common.a libarm64/libmsvcrt_extra.a libarm64/libucrt_extra.a libarm64/libucrtapp_extra.a
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -17147,9 +17162,10 @@ src_intrincsarm64 =
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/oleaut32.gen.def libarm64/user32.gen.def libarm64/winhvplatform.gen.def libarm64/ws2_32.gen.def \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/api-ms-win-crt-math-l1-1-0.gen.def libarm64/api-ms-win-crt-private-l1-1-0.gen.def \
 @LIBARM64_TRUE@@W32API_FALSE@	libarm64/api-ms-win-crt-runtime-l1-1-0.gen.def libarm64/api-ms-win-crt-filesystem-l1-1-0.gen.def \
-@LIBARM64_TRUE@@W32API_FALSE@	libarm64/api-ms-win-crt-time-l1-1-0.gen.def libarm64/vcruntime140.gen.def libarm64/vcruntime140d.gen.def \
-@LIBARM64_TRUE@@W32API_FALSE@	libarm64/vcruntime140_app.gen.def libarm64/api-ms-win-crt-convert-l1-1-0.gen.def libarm64/ntdll.gen.def \
-@LIBARM64_TRUE@@W32API_FALSE@	libarm64/ntdllcrt.gen.def
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/api-ms-win-crt-time-l1-1-0.gen.def libarm64/api-ms-win-crt-convert-l1-1-0.gen.def \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/vcruntime140.gen.def libarm64/vcruntime140d.gen.def libarm64/vcruntime140_app.gen.def \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/vcruntime140_threads.gen.def libarm64/vcruntime140_threadsd.gen.def libarm64/vcruntime140_threads_app.gen.def \
+@LIBARM64_TRUE@@W32API_FALSE@	libarm64/ntdll.gen.def libarm64/ntdllcrt.gen.def
 
 @LIBARM64_TRUE@@W32API_FALSE@libarm64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_commonarm64)
 @LIBARM64_TRUE@@W32API_FALSE@libarm64_libmsvcrt_common_a_CPPFLAGS = $(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -113154,24 +113170,32 @@ _libm_dummy.c:
 	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(AM_V_at)$(RANLIB) $@
 
-%/libucrt.a: lib-common/ucrt.mri %/libucrt_extra.a \
+%/libucrt_common.a: lib-common/ucrt_common.mri %/libucrt_extra.a \
 		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
 		%/libapi-ms-win-crt-filesystem-l1-1-0.a %/libapi-ms-win-crt-heap-l1-1-0.a %/libapi-ms-win-crt-locale-l1-1-0.a \
-		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a %/libapi-ms-win-crt-private-l1-1-0.a \
+		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a \
 		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
 		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
 	$(AM_V_at)rm -f $@
 	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(AM_V_at)$(RANLIB) $@
 
+%/libucrt.a: lib-common/ucrt.mri %/libucrt_common.a %/libapi-ms-win-crt-private-l1-1-0.a
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
+
 # The same as libucrt.a above, but without the -private lib and with some more
 # statically linked functions.
-%/libucrtapp.a: lib-common/ucrtapp.mri %/libucrt_extra.a %/libucrtapp_extra.a \
-		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
-		%/libapi-ms-win-crt-filesystem-l1-1-0.a %/libapi-ms-win-crt-heap-l1-1-0.a %/libapi-ms-win-crt-locale-l1-1-0.a \
-		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a \
-		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
-		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
+%/libucrtapp.a: lib-common/ucrtapp.mri %/libucrt_common.a %/libucrtapp_extra.a
+	$(AM_V_at)rm -f $@
+	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(AM_V_at)$(RANLIB) $@
+
+# The same as libucrt.a above, but without the -private lib and with vcruntime140 + vcruntime140_threads lib (for non-arm32)
+libarm32/libucrt_vcruntime140.a: %/libucrt_vcruntime140.a: libarm32/ucrt_vcruntime140.mri %/libucrt_common.a %/libvcruntime140.a
+lib32/libucrt_vcruntime140.a lib64/libucrt_vcruntime140.a libarm64/libucrt_vcruntime140.a: %/libucrt_vcruntime140.a: lib-common/ucrt_vcruntime140.mri %/libucrt_common.a %/libvcruntime140.a %/libvcruntime140_threads.a
+%/libucrt_vcruntime140.a:
 	$(AM_V_at)rm -f $@
 	$(AM_V_GEN)cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(AM_V_at)$(RANLIB) $@
