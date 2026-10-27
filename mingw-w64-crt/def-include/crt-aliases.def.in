@@ -221,7 +221,7 @@ ADD_UNDERSCORE(wcsupr)
 
 ; This is list of symbol aliases added in the Visual C++ 4.0 oldnames.lib library
 ; All these symbols with leading underscore are present also in pre-4.0 CRT versions: crtdll.dll, msvcrt10.dll and msvcrt20.dll
-; ADD_UNDERSCORE(cabs)
+; cabs is provided by complex/cabs.c, MS _cabs is ABI incompatible with C99 cabs
 #ifdef UCRTBASE
 ; hypot is natively exported from UCRT
 #else
