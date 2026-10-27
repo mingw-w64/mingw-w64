@@ -806,7 +806,12 @@ src_msvcrtarm32+=\
   math/arm-common/remquol.c \
   math/arm-common/s_remquo.c \
   math/arm-common/s_remquof.c \
-  math/arm-common/scalbn.c
+  math/arm-common/scalbln.c \
+  math/arm-common/scalblnf.c \
+  math/arm-common/scalblnl.c \
+  math/arm-common/scalbn.c \
+  math/arm-common/scalbnf.c \
+  math/arm-common/scalbnl.c
 
 # Files included in libmsvcrt-os.a (for msvcrt.dll) on arm64
 src_msvcrtarm64=\
@@ -848,7 +853,12 @@ src_msvcrtarm64=\
   math/arm-common/remquol.c \
   math/arm-common/s_remquo.c \
   math/arm-common/s_remquof.c \
+  math/arm-common/scalbln.c \
+  math/arm-common/scalblnf.c \
+  math/arm-common/scalblnl.c \
   math/arm-common/scalbn.c \
+  math/arm-common/scalbnf.c \
+  math/arm-common/scalbnl.c \
   math/arm64/nearbyint.c \
   math/arm64/nearbyintf.c \
   math/arm64/nearbyintl.c \
