@@ -284,6 +284,97 @@ int winpthreads_set_thread_description_unicode (void *, const wchar_t *);
  */
 int winpthreads_validate_handle (void *handle);
 
+/**
+ * Values returned by `winpthreads_wait`.
+ */
+typedef enum {
+  /**
+   * Call succeeded.
+   */
+  wait_succeeded,
+  /**
+   * Call failed.
+   *
+   * The reason usually depends on the type of the object `winpthreads_wait`
+   * waited for; call `GetLastError` to obtain more details.
+   */
+  wait_failed,
+  /**
+   * Call succeeded.
+   *
+   * This return value means that `winpthreads_wait` was called on a mutex
+   * whose previous owner terminated without releasing it; the calling thread
+   * owns the mutex now.
+   */
+  wait_abandoned_mutex,
+  /**
+   * The wait timeout expired.
+   */
+  wait_timeout_expired,
+  /**
+   * The wait was interrupted.
+   */
+  wait_interrupted,
+} winpthreads_wait_status;
+
+/**
+ * When this flag is set, the wait will be interrupted if the calling thread
+ * receives cancellation notification.
+ *
+ * Note that by itself, `winpthreads_wait` is not a cancellation point;
+ * it is responsibility of the caller to handle pending cancellation request,
+ * usually by simply calling `pthread_testcancel`.
+ */
+#define WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION ((int) 0x00000001)
+
+/**
+ * The `timeout` argument to `winpthreads_wait` specifies absolute time
+ * as measured by the `clock` argument.
+ *
+ * Otherwise, `winpthreads_wait` always uses monotonic clock (`CLOCK_MONOTONIC`)
+ * to measure elapsed wait time, regardless of the `clock` argument.
+ *
+ * This flag has no effect if the `timeout` argument is
+ * `WINPTHREADS_WAIT_TIMEOUT_ZERO` or `WINPTHREADS_WAIT_TIMEOUT_INDEFINITE`.
+ */
+#define WINPTHREADS_WAIT_TIMEOUT_ABSTIME ((int) 0x01000000)
+
+/**
+ * Can be passed as `timeout` argument to `winpthreads_wait`.
+ */
+#define WINPTHREADS_WAIT_TIMEOUT_ZERO ((const struct _timespec64 *) 0)
+
+/**
+ * Can be passed as `timeout` argument to `winpthreads_wait`.
+ */
+#define WINPTHREADS_WAIT_TIMEOUT_INDEFINITE ((const struct _timespec64 *) -1)
+
+/**
+ * The wait routine.
+ *
+ * Block execution of the calling thread until either:
+ *
+ * - If non-NULL, `handle` becomes signaled
+ * - The `timeout` expires
+ * - The wait is interrupted
+ *
+ * The `flags` argument can be any combination of `WINPTHREADS_WAIT_*` flags
+ * defined above.
+ *
+ * The `timeout` argument specifies the wait timeout; it can also be one of
+ * the following special values:
+ *
+ * 1. `NULL` or `WINPTHREADS_WAIT_TIMEOUT_ZERO`: do not block execution;
+ *  only check whether `handle` is signaled.
+ *
+ * 2. `WINPTHREADS_WAIT_TIMEOUT_INDEFINITE`: block execution indefinitely
+ *  until either `handle` becomes signaled or the wait is interrupted.
+ *
+ * If `remain` is non-NULL, and the wait is interrupted before `timeout`
+ * has expired, this parameter receives remaining wait time.
+ */
+winpthreads_wait_status winpthreads_wait (void *handle, int flags, clockid_t clock, const struct _timespec64 *timeout, struct _timespec64 *remain);
+
 /* Internal headers */
 #include "barrier.h"
 #include "cond.h"

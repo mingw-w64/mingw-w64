@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011-2016  mingw-w64 project
+   Copyright (c) 2011-2016, 2026 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -1298,7 +1298,7 @@ pthread_cancel (pthread_t t)
       ctxt.ContextFlags = CONTEXT_CONTROL;
 
       SuspendThread (tv->h);
-      if (WaitForSingleObject (tv->h, 0) == WAIT_TIMEOUT)
+      if (winpthreads_wait (tv->h, 0, CLOCK_MONOTONIC, WINPTHREADS_WAIT_TIMEOUT_ZERO, NULL) == wait_timeout_expired)
 	{
 	  GetThreadContext(tv->h, &ctxt);
 #ifdef _M_X64
@@ -1499,7 +1499,7 @@ test_cancel_locked (pthread_t t)
     return;
   if ((tv->p_state & PTHREAD_CANCEL_ASYNCHRONOUS) == 0)
     return;
-  if (WaitForSingleObject(tv->evStart, 0) != WAIT_OBJECT_0)
+  if (winpthreads_wait (tv->evStart, 0, CLOCK_MONOTONIC, WINPTHREADS_WAIT_TIMEOUT_ZERO, NULL) != wait_succeeded)
     return;
   pthread_mutex_unlock (&tv->p_clock);
   _pthread_invoke_cancel();
@@ -1745,7 +1745,7 @@ pthread_join (pthread_t t, void **res)
 
   /* pthread_testcancel (); */
   if (tv->ended == 0 || (tv->h != NULL && tv->h != INVALID_HANDLE_VALUE))
-    WaitForSingleObject (tv->h, INFINITE);
+    winpthreads_wait (tv->h, 0, CLOCK_MONOTONIC, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, NULL);
   CloseHandle (tv->h);
   if (tv->evStart)
     CloseHandle (tv->evStart);
@@ -1785,7 +1785,7 @@ _pthread_tryjoin (pthread_t t, void **res)
       pthread_mutex_unlock (&mtx_pthr_locked);
       return EDEADLK;
     }
-  if(tv->ended == 0 && WaitForSingleObject(tv->h, 0))
+  if(tv->ended == 0 && winpthreads_wait(tv->h, 0, CLOCK_MONOTONIC, WINPTHREADS_WAIT_TIMEOUT_ZERO, NULL) != wait_succeeded)
     {
       if (tv->ended == 0)
         {
@@ -1926,4 +1926,389 @@ pthread_getname_np (pthread_t thread, char *name, size_t len)
 
   memcpy (name, tv->thread_name, thread_name_len + 1);
   return 0;
+}
+
+/*******************************************************************************
+ * Private Functions.
+ */
+
+/**
+ * This is the maximum amount of handles `winpthreads_wait` can wait on
+ * internally; note that `winpthreads_wait` only accepts a single handle to
+ * wait on, however, it may wait on additional handles internally.
+ *
+ * This value must be less than or equal to `MAXIMUM_WAIT_OBJECTS`.
+ */
+#define WINPTHREADS_MAXIMUM_WAIT_OBJECTS 2
+
+/**
+ * Types of handles `winpthreads_wait` can wait on internally.
+ */
+typedef enum {
+  /**
+   * The handle passed to `winpthreads_wait`.
+   */
+  wait_object_handle,
+  /**
+   * Internal event handle used to wait for thread cancellation notification.
+   */
+  wait_object_cancellation_notification,
+} winpthreads_wait_object_id;
+
+/**
+ * Reasons why `winpthreads_wait` can be interrupted.
+ */
+typedef enum {
+  /**
+   * No interruption has occurred.
+   */
+  wait_interrupt_none,
+  /**
+   * The calling thread received cancellation notification.
+   */
+  wait_interrupt_cancellation_notification,
+} winpthreads_wait_interrupts;
+
+/**
+ * Structure used by `winpthreads_wait`.
+ */
+typedef struct {
+  /**
+   * Result of the wait operation.
+   */
+  winpthreads_wait_status Status;
+  /**
+   * If `Status` is `wait_interrupted`, this is a `winpthreads_wait_interrupts`
+   * value describing why wait was interrupted.
+   */
+  winpthreads_wait_interrupts Interrupt;
+  /**
+   * Wait timeout, in milliseconds.
+   */
+  unsigned Timeout;
+  /**
+   * Number of objects in `Handle` and `HandleId`.
+   */
+  unsigned Count;
+  /**
+   * Handles to wait on.
+   */
+  void *Handle[WINPTHREADS_MAXIMUM_WAIT_OBJECTS];
+  /**
+   * Each `HandleId[N]` contains a `winpthreads_wait_object_id` value
+   * corresponding to `Handle[N]`.
+   *
+   * There must be no more than one handle of each type.
+   */
+  winpthreads_wait_object_id HandleId[WINPTHREADS_MAXIMUM_WAIT_OBJECTS];
+} winpthreads_wait_state;
+
+/**
+ * Add handle `object` with type `objectId` to `waitState`.
+ */
+static void WinpthreadsWaitStateAdd (winpthreads_wait_state *waitState, void *object, winpthreads_wait_object_id objectId) {
+  waitState->Handle[waitState->Count]   = object;
+  waitState->HandleId[waitState->Count] = objectId;
+  waitState->Count                     += 1;
+}
+
+/**
+ * Remove handle with type `objectId` from `waitState`.
+ */
+static void WinpthreadsWaitStateRemove (winpthreads_wait_state *waitState, winpthreads_wait_object_id objectId) {
+  for (unsigned i = 0; i < waitState->Count; ++i) {
+    if (waitState->HandleId[i] == objectId) {
+      for (i += 1; i < waitState->Count; ++i) {
+        waitState->Handle[i - 1]   = waitState->Handle[i];
+        waitState->HandleId[i - 1] = waitState->HandleId[i];
+      }
+
+      waitState->Count -= 1;
+      return;
+    }
+  }
+}
+
+/**
+ * Common wait logic for `winpthreads_wait`.
+ */
+static void WinpthreadsWait (winpthreads_wait_state *waitState) {
+  /**
+   * Simply sleep if there are no handles to wait on.
+   */
+  if (waitState->Count == 0) {
+    Sleep (waitState->Timeout);
+    waitState->Status = wait_timeout_expired;
+    return;
+  }
+
+  /**
+   * Old documentation for `WaitForMultipleObjects[Ex]` says:
+   *
+   * Windows Me/98/95:
+   *   No handle may be a duplicate of another handle created using
+   *   DuplicateHandle.
+   *
+   * This may be interpreted as "you cannot pass a handle returned by
+   * `DuplicateHandle` to `WaitForMultipleObjects[Ex]` functions".
+   *
+   * This is not the case and the actual behavior is:
+   *
+   * On Windows NT 3.1 and Win9x, you cannot pass both original and duplicated
+   * handle to some object in the same call to `WaitForMultipleObjects[Ex]`;
+   * such call will fail with `ERROR_INVALID_PARAMETER `.
+   *
+   * You cannot pass the same handle, original or duplicated, in the same call
+   * to `WaitForMultipleObjects[Ex]` multiple times on all Windows versions.
+   */
+  unsigned waitResult = WaitForMultipleObjects (waitState->Count, waitState->Handle, FALSE, waitState->Timeout);
+
+  if (waitResult == WAIT_TIMEOUT) {
+    waitState->Status = wait_timeout_expired;
+    return;
+  }
+
+  winpthreads_wait_status waitStatus = wait_failed;
+  unsigned index;
+
+  /**
+   * A handle from `waitState.Handle` became signaled.
+   */
+  if (waitResult >= WAIT_OBJECT_0 && waitResult < WAIT_OBJECT_0 + waitState->Count) {
+    waitStatus = wait_succeeded;
+    index      = waitResult - WAIT_OBJECT_0;
+  }
+
+  /**
+   * A handle from `waitState.Handle` was a mutex whose owner terminated
+   * without releasing it; the calling thread owns the mutex now.
+   */
+  if (waitResult >= WAIT_ABANDONED_0 && waitResult < WAIT_ABANDONED_0 + waitState->Count) {
+    waitStatus = wait_abandoned_mutex;
+    index      = waitResult - WAIT_ABANDONED_0;
+  }
+
+  /**
+   * Figure out which handle from `waitState.Handle` was signaled.
+   */
+  if (waitStatus == wait_succeeded || waitStatus == wait_abandoned_mutex) {
+    switch (waitState->HandleId[index]) {
+      /**
+       * The handle passed to `winpthreads_wait` became signaled.
+       */
+      case wait_object_handle:
+        waitState->Status = waitStatus;
+        break;
+      /**
+       * The calling thread received cancellation notification.
+       */
+      case wait_object_cancellation_notification:
+        waitState->Status    = wait_interrupted;
+        waitState->Interrupt = wait_interrupt_cancellation_notification;
+        break;
+      default:
+        UNREACHABLE ();
+    }
+  } else {
+    waitState->Status = waitStatus;
+  }
+}
+
+/**
+ * Handle interrupted wait.
+ *
+ * If `waitState` and `flags` indicate that the caller must be notified about
+ * interrupted wait, this function returns non-zero; otherwise, it returns zero.
+ */
+static int WinpthreadsWaitInterrupt (winpthreads_wait_state *waitState, int flags) {
+  switch (waitState->Interrupt) {
+    /**
+     * The calling thread received cancellation notification.
+     *
+     * Call `__pthread_shallcancel` to determine whether we should proceed
+     * with cancellation. If not, stop waiting on the associated event handle;
+     * only the calling thread can modify its cancelability state.
+     */
+    case wait_interrupt_cancellation_notification:
+      if (__pthread_shallcancel ()) {
+        return 1;
+      }
+
+      WinpthreadsWaitStateRemove (waitState, wait_object_cancellation_notification);
+      break;
+    default:
+      UNREACHABLE ();
+  }
+
+  return 0;
+  UNREFERENCED_PARAMETER (flags);
+}
+
+WINPTHREADS_ATTRIBUTE ((noinline))
+winpthreads_wait_status winpthreads_wait (void *handle, int flags, clockid_t clock, const struct _timespec64 *timeout, struct _timespec64 *remain) {
+  /**
+   * Keep track of wait state.
+   */
+  winpthreads_wait_state waitState = {
+    .Status    = wait_failed,
+    .Interrupt = wait_interrupt_none,
+    .Timeout   = 0,
+    .Count     = 0,
+  };
+
+  /**
+   * Wait for `handle` to become signaled.
+   */
+  if (handle != NULL) {
+    WinpthreadsWaitStateAdd (&waitState, handle, wait_object_handle);
+  }
+
+  /**
+   * Wait for cancellation notification.
+   */
+  if (flags & WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION) {
+    HANDLE event = pthread_getevent ();
+
+    if (event != NULL) {
+      WinpthreadsWaitStateAdd (&waitState, event, wait_object_cancellation_notification);
+    }
+  }
+
+  /**
+   * Handle common cases with zero and `INFINITE` timeouts.
+   */
+  if (timeout == WINPTHREADS_WAIT_TIMEOUT_ZERO || timeout == WINPTHREADS_WAIT_TIMEOUT_INDEFINITE) {
+    if (timeout == WINPTHREADS_WAIT_TIMEOUT_INDEFINITE) {
+      waitState.Timeout = INFINITE;
+    }
+
+    do {
+      WinpthreadsWait (&waitState);
+    } while (waitState.Status == wait_interrupted && !WinpthreadsWaitInterrupt (&waitState, flags));
+
+    return waitState.Status;
+  }
+
+  /**
+   * By default, resolution of the "wait" timer used by `WaitFor*` and `Sleep*`
+   * functions roughly matches that of `GetTickCount*` functions;
+   * the latter are used to implement the monotonic (`CLOCK_MONOTONIC`) clock
+   * if the proformance counter is not supported.
+   *
+   * The resolution of the wait timer can be changed by calling
+   * `timeBeginPeriod` function from winmm.dll. On recent Windows versions,
+   * it allows to set resolution of the wait timer up to 1ms.
+   *
+   * When `timeout` specifies absolute time, we don't have to do anything
+   * special; the wait time outs when `clock` reaches `timeout`.
+   *
+   * When `timeout` is relative, we must ensure that wait does not time out
+   * before `timeout` has really elapsed. In particular, this applies to cases
+   * when resolution of the `clock` is >=1ms.
+   *
+   * Since the time is incremented at intervals equal to the `clock` resolution,
+   * the elapsed wait time may appear to be equal to or greater than `timeout`,
+   * while in reality it was less. This happens because after entering the wait,
+   * only part of the first interval elapses before the time is incremented.
+   */
+
+  /**
+   * Calculate the wait time from `timeout`.
+   */
+  struct _timespec64 clockResolution;
+  struct _timespec64 waitStartTime;
+  struct _timespec64 waitEndTime;
+  struct _timespec64 waitUntil;
+  struct _timespec64 waitFor;
+
+  /**
+   * Always use monotonic (`CLOCK_MONOTONIC`) clock when `timeout` is relative.
+   * This is the only reliable way to measure elapsed wait time; using realtime
+   * (`CLOCK_REALTIME`) clock is unreliable since system time can be changed
+   * while we waiting, leading to incorrect results.
+   */
+  if ((flags & WINPTHREADS_WAIT_TIMEOUT_ABSTIME) == 0) {
+    clock = CLOCK_MONOTONIC;
+  }
+
+  winpthreads_time (clock, &waitStartTime, &clockResolution);
+
+  if ((flags & WINPTHREADS_WAIT_TIMEOUT_ABSTIME)) {
+    winpthreads_timespec_round (timeout, &clockResolution, &waitUntil);
+    winpthreads_timespec_sub (&waitUntil, &waitStartTime, &waitFor);
+  } else {
+    winpthreads_timespec_round (timeout, &clockResolution, &waitFor);
+
+    /**
+     * When resolution of the monotonic clock is >= 1ms, we increase total
+     * wait time by the resolution of monotonic clock; in other words,
+     * we increment `waitFor` by an additional `clockResolution`.
+     *
+     * This allows us to ensure that the wait does not time out before
+     * `timeout` has really expired.
+     */
+    if (clockResolution.tv_nsec >= 1000000 || unlikely (clockResolution.tv_sec > 0)) {
+      struct _timespec64 ts = waitFor;
+      winpthreads_timespec_add (&ts, &clockResolution, &waitFor);
+    }
+
+    winpthreads_timespec_add (&waitStartTime, &waitFor, &waitUntil);
+  }
+
+  do {
+    /**
+     * This is `waitFor` converted to milliseconds.
+     *
+     * However, if `waitFor` is greater than `clockResolution`,
+     * then this value is effectively `waitFor - clockResolution`.
+     *
+     * This only makes practical difference if `clockResolution` is >= 1ms;
+     * that is, when clock used to measure elapsed wait time has the same
+     * resolution as the system clock or the system timer.
+     *
+     * There is a decent chance that this value will be sufficient to bring
+     * `clock` to `waitUntil`, saving `clockResolution` of total wait time.
+     */
+    waitState.Timeout = winpthreads_wait_time_from_timespec (&waitFor, &clockResolution);
+
+    WinpthreadsWait (&waitState);
+
+    switch (waitState.Status) {
+      case wait_succeeded:
+      case wait_abandoned_mutex:
+      case wait_failed:
+        return waitState.Status;
+      case wait_timeout_expired:
+      case wait_interrupted:
+        break;
+    }
+
+    winpthreads_time (clock, &waitEndTime, NULL);
+
+    /**
+     * Check whether we should notify the caller about interrupted wait.
+     */
+    if (waitState.Status == wait_interrupted && WinpthreadsWaitInterrupt (&waitState, flags)) {
+      break;
+    }
+
+    /**
+     * Check if `timeout` has expired.
+     */
+    if (winpthreads_timespec_diff (&waitEndTime, &waitUntil) >= 0) {
+      waitState.Status = wait_timeout_expired;
+      break;
+    }
+
+    winpthreads_timespec_sub (&waitUntil, &waitEndTime, &waitFor);
+  } while (1);
+
+  /**
+   * If wait was interrupted, calculate remaining wait time.
+   */
+  if (waitState.Status == wait_interrupted && remain != NULL) {
+    winpthreads_timespec_sub (&waitUntil, &waitEndTime, remain);
+  }
+
+  return waitState.Status;
 }
