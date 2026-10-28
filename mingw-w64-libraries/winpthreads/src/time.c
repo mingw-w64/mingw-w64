@@ -1064,73 +1064,46 @@ unsigned winpthreads_wait_time_from_timespec (const struct _timespec64 *time, co
  *
  * Returns zero on success and an error-code on failure.
  */
-static int WinpthreadsSleep (FuncWinpthreadsTimeImpl timeImpl, int flags, const struct _timespec64 *request, struct _timespec64 *remain) {
-  struct _timespec64 startTime;
-  struct _timespec64 endTime;
-  struct _timespec64 sleepUntil;
-  struct _timespec64 sleepFor;
-
-  timeImpl (&startTime, NULL);
+static int WinpthreadsSleep (clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain) {
+  /**
+   * Both `nanosleep` and `clock_nanosleep` are cancellation points.
+   */
+  int waitFlags = WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION;
 
   if (flags & TIMER_ABSTIME) {
-    sleepUntil = *request;
-    winpthreads_timespec_sub (&sleepUntil, &startTime, &sleepFor);
-  } else {
-    sleepFor = *request;
-    winpthreads_timespec_add (&startTime, &sleepFor, &sleepUntil);
+    waitFlags |= WINPTHREADS_WAIT_TIMEOUT_ABSTIME;
   }
 
   /**
-   * Timeout already expired.
+   * Remaining sleep time.
    */
-  if (winpthreads_timespec_diff (&startTime, &sleepUntil) >= 0) {
-    return 0;
-  }
+  struct _timespec64 ts;
 
-  /**
-   * Total sleep time in milliseconds.
-   */
-  unsigned __int64 totalSleepTime = winpthreads_timespec_ms (&sleepFor);
-  int error_code;
+  winpthreads_wait_status wait_status = winpthreads_wait (NULL, waitFlags, clock_id, request, &ts);
 
-  do {
+  if (wait_status == wait_interrupted) {
+    pthread_testcancel ();
+
     /**
-     * We can sleep for at most `INFINITE - 1` milliseconds at a time.
-     */
-    unsigned sleepTime;
-
-    if (unlikely (totalSleepTime >= MAX_SLEEP_IN_MS)) {
-      sleepTime = MAX_SLEEP_IN_MS;
-    } else {
-      sleepTime = (unsigned) totalSleepTime;
-    }
-
-    totalSleepTime -= sleepTime;
-    error_code      = _pthread_delay_np_ms (sleepTime);
-  } while (totalSleepTime > 0 && error_code == 0);
-
-  if (error_code == EINTR) {
-    /**
-     * FIXME:
-     *
-     * For `CLOCK_REALTIME`, it is possible that the system time has been
-     * changed while we were sleeping, which means `ramain` will be calculated
-     * relative to the new system time.
-     *
-     * In order to fix this we would need to re-write waiting routines,
-     * and allow them return total time spent sleeping.
+     * Store remaining sleep time in `remain`.
      */
     if ((flags & TIMER_ABSTIME) == 0 && remain != NULL) {
-      timeImpl (&endTime, NULL);
-      winpthreads_timespec_sub (&sleepUntil, &endTime, remain);
+      *remain = ts;
     }
+
+    return EINTR;
   }
 
-  return error_code;
+  return 0;
 }
 
 int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
 {
+  /**
+   * Function `nanosleep` is a cancellation point.
+   */
+  pthread_testcancel ();
+
   /**
    * The nanosleep() function shall fail if:
    *
@@ -1143,7 +1116,7 @@ int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
     return -1;
   }
 
-  int error_code = WinpthreadsSleep (WinpthreadsTimeImpl.TimeImplRealtime, 0, request, remain);
+  int error_code = WinpthreadsSleep (CLOCK_REALTIME, 0, request, remain);
 
   if (error_code != 0) {
     _set_errno (error_code);
@@ -1443,6 +1416,11 @@ int clock_settime32 (clockid_t clock_id, const struct _timespec32 *tp)
 int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *request, struct _timespec64 *remain)
 {
   /**
+   * Function `clock_nanosleep` is a cancellation point.
+   */
+  pthread_testcancel ();
+
+  /**
    * The clock_nanosleep() function shall fail if:
    *
    * [EINVAL]
@@ -1453,17 +1431,12 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
     return EINVAL;
   }
 
-  FuncWinpthreadsTimeImpl timeImpl;
-
   switch (clock_id) {
     case CLOCK_REALTIME:
-      timeImpl = WinpthreadsTimeImpl.TimeImplRealtime;
       break;
     case CLOCK_REALTIME_COARSE:
-      timeImpl = WinpthreadsTimeImplRealtime;
       break;
     case CLOCK_MONOTONIC:
-      timeImpl = WinpthreadsTimeImpl.TimeImplMonotonic;
       break;
     /**
      * The clock_nanosleep() function shall fail if:
@@ -1478,7 +1451,7 @@ int clock_nanosleep64 (clockid_t clock_id, int flags, const struct _timespec64 *
       return EINVAL;
   }
 
-  return WinpthreadsSleep (timeImpl, flags, request, remain);
+  return WinpthreadsSleep (clock_id, flags, request, remain);
 }
 
 int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *request, struct _timespec32 *remain)
