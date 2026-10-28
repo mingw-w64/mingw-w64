@@ -279,7 +279,8 @@ typedef struct TimeImpl {
 #define HIGH_RESOLUTION_WINDOWS_TIME 0x02
   int Flags;
   /**
-   * Data related to the system clock.
+   * Data related to the system clock. By the system clock, we refer to
+   * `GetSystemTime[AsFileTime]` functions.
    */
   struct {
     /**
@@ -290,6 +291,19 @@ typedef struct TimeImpl {
      */
     long Resolution;
   } SystemClock;
+  /**
+   * Data related to the system timer.  By the system timer, we refer to
+   * `GetTickCount*` functions.
+   */
+  struct {
+    /**
+     * Resolution of the system timer, in nanoseconds.
+     *
+     * System timer resolution is set at boot time, which means we can obtain
+     * this value once and then treat it as a constant at runtime.
+     */
+    long Resolution;
+  } SystemTimer;
   /**
    * Data related to the performance counter.
    */
@@ -341,7 +355,7 @@ typedef struct TimeImpl {
    *  This implementation is only used when the performance counter
    *  is not supported.
    *
-   *  This implementation provides the same resolution as the system clock.
+   *  This implementation provides the same resolution as the system timer.
    *
    *  On pre-Vista systems, where `GetTickCount64` is not available,
    *  we use `GetTickCount`, which wraps around to zero after ~49 days.
@@ -446,8 +460,11 @@ void winpthreads_time_init (void) {
    * this function is available on Win9x, but it always fails with
    * `ERROR_CALL_NOT_IMPLEMENTED`.
    *
-   * In order to gracefully handle above cases, we default to 16ms;
-   * the resolution of the system clock on Windows is 10~16ms.
+   * On Windows NT 3.1, resolution of the system clock is 15ms.
+   *
+   * On Win9x, according to Microsoft documentation, resolution of the system
+   * clock is 55ms; this is true for system time as returned by `GetSystemTime*`
+   * functions, but not for "windows time" returned by `GetTickCount`.
    *
    * NOTE: we do not use `GetSystemTimeAdjustmentPrecise` as it appears to
    *  return meaningless values when `isTimeAdjustmentDisabled` is `TRUE`.
@@ -459,7 +476,34 @@ void winpthreads_time_init (void) {
   if (GetSystemTimeAdjustment (&timeAdjustment, &timeIncrement, &isTimeAdjustmentDisabled)) {
     WinpthreadsTimeImpl.SystemClock.Resolution = (long) (timeIncrement * 100);
   } else {
-    WinpthreadsTimeImpl.SystemClock.Resolution = 16L * POW10_6;
+    if (1) {
+      WinpthreadsTimeImpl.SystemClock.Resolution = 15L * POW10_6;
+#if WINPTHREADS_WIN9X
+    } else {
+      WinpthreadsTimeImpl.SystemClock.Resolution = 55L * POW10_6;
+#endif
+    }
+  }
+
+  /**
+   * Obtain resolution of the system timer.
+   *
+   * On Windows NT, resolution of the system timer is the same as resolution
+   * of the system clock.
+   *
+   * Win9x systems use Programmable Interval Timer (PIT), whose resolution can
+   * be changed by setting [386Ehn].MinTimeSlice option in system.ini.
+   *
+   * On Win9x, resolution of the system timer is equivalent to that of the PIT;
+   * note that this is _not_ the value of [386Ehn].MinTimeSlice option.
+   *
+   * TODO: add logic to handle Win9x.
+   */
+  if (1) {
+    WinpthreadsTimeImpl.SystemTimer.Resolution = WinpthreadsTimeImpl.SystemClock.Resolution;
+#if WINPTHREADS_WIN9X
+  } else {
+#endif
   }
 
   /**
@@ -509,6 +553,14 @@ void winpthreads_time_init (void) {
 static void WinpthreadsGetSystemClockResolution (struct _timespec64 *ts) {
   ts->tv_sec  = WinpthreadsTimeImpl.SystemClock.Resolution / POW10_9;
   ts->tv_nsec = WinpthreadsTimeImpl.SystemClock.Resolution % POW10_9;
+}
+
+/**
+ * Store resolution of the system timer in `ts`.
+ */
+static void WinpthreadsGetSystemTimerResolution (struct _timespec64 *ts) {
+  ts->tv_sec  = WinpthreadsTimeImpl.SystemTimer.Resolution / POW10_9;
+  ts->tv_nsec = WinpthreadsTimeImpl.SystemTimer.Resolution % POW10_9;
 }
 
 /**
@@ -602,18 +654,17 @@ static int WinpthreadsTimeImplRealtimePrecise (struct _timespec64 *time, struct 
 static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *time, struct _timespec64 *res) {
   if (time != NULL) {
     /**
-     * Functions `GetTickCount*` have the same resolution as the system clock
-     * but return time in milliseconds.
+     * Functions `GetTickCount*` return time in milliseconds.
      *
      * In order to return more precise time, round up returned time value
-     * to the resolution of the system clock.
+     * to the resolution of the system timer.
      */
     unsigned __int64 tickCountAsFileTime   = GetTickCount64 () * POW10_4;
-    unsigned __int64 systemClockResolution = WinpthreadsTimeImpl.SystemClock.Resolution / 100;
+    unsigned __int64 systemTimerResolution = WinpthreadsTimeImpl.SystemTimer.Resolution / 100;
 
-    if ((tickCountAsFileTime % systemClockResolution) != 0) {
-      tickCountAsFileTime -= (tickCountAsFileTime % systemClockResolution);
-      tickCountAsFileTime += systemClockResolution;
+    if ((tickCountAsFileTime % systemTimerResolution) != 0) {
+      tickCountAsFileTime -= (tickCountAsFileTime % systemTimerResolution);
+      tickCountAsFileTime += systemTimerResolution;
     }
 
     time->tv_sec  = (__time64_t) (tickCountAsFileTime / POW10_7);
@@ -621,7 +672,7 @@ static int WinpthreadsTimeImplMonotonicFromTickCount (struct _timespec64 *time, 
   }
 
   if (res != NULL) {
-    WinpthreadsGetSystemClockResolution (res);
+    WinpthreadsGetSystemTimerResolution (res);
   }
 
   return 0;
