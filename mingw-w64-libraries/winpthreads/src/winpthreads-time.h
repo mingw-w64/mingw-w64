@@ -26,30 +26,6 @@
 #include "misc.h"
 
 /**
- * Get current system time, in milliseconds.
- */
-unsigned __int64 winpthreads_system_time_ms (void);
-
-/**
- * Get absolute time from `ts`, in millseconds.
- */
-unsigned __int64 winpthreads_timespec_ms (const struct _timespec64 *ts);
-
-/**
- * Get difference between current system time and absolute time `ts`,
- * in milliseconds.
- *
- * The value is returned as an `unsigned`; it is expected to be used with
- * functions such as `WaitFor*` and `Sleep`, which take `DWORD` values.
- */
-unsigned winpthreads_wait_time_ms (const struct _timespec64 *ts);
-
-/**
- * Get current time using some monotonic clock, in milliseconds.
- */
-unsigned __int64 winpthreads_windows_time_ms (void);
-
-/**
  * Initialize time functions.
  */
 void winpthreads_time_init (void);
