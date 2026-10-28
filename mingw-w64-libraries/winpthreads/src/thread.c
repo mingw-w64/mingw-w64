@@ -2244,14 +2244,6 @@ winpthreads_wait_status winpthreads_wait (void *handle, int flags, clockid_t clo
   return waitState.Status;
 }
 
-int _pthread_delay_np_ms (DWORD to) {
-  struct _timespec64 ts = {
-    .tv_sec  = (__time64_t) (to / 1000),
-    .tv_nsec = (long) ((to % 1000) * 1000000)
-  };
-  return pthread_delay64_np (&ts);
-}
-
 /*******************************************************************************
  * Public Functions.
  */
