@@ -22,6 +22,7 @@
 
 #define _GNU_SOURCE /* for feenableexcept, fedisableexcept and fegetexcept */
 #include <fenv.h>
+#include <intrin.h> /* _mm_getcsr, _mm_setcsr */
 #include <string.h>
 
 #include "test.h"
@@ -37,34 +38,90 @@
  * denormals-are-zero bits.
  */
 
-#if defined(__i386__) || (defined(__x86_64__) && !defined(__arm64ec__))
-#define TEST_X86 1
+/**
+ * Functions `feenableexcept`, `fedisableexcept` and `fegetexcept` are
+ * GNU extension; they are provided by mingw-w64, but not MSVC.
+ */
+#ifdef _MSC_VER
+static int fegetexcept(void) {
+  return ~_controlfp(0, 0) & FE_ALL_EXCEPT;
+}
 
-#if defined(__i386__) && !defined(__SSE__)
-int __mingw_has_sse (void);
-#define has_sse() __mingw_has_sse ()
-#else
-#define has_sse() 1
+static int feenableexcept(int excepts) {
+  unsigned int mask = excepts & FE_ALL_EXCEPT;
+  unsigned int cw = _controlfp(0, 0);
+  _controlfp(cw & ~mask, _MCW_EM);
+  return ~cw & FE_ALL_EXCEPT;
+}
+
+static int fedisableexcept(int excepts) {
+  unsigned int mask = excepts & FE_ALL_EXCEPT;
+  unsigned int cw = _controlfp(0, 0);
+  _controlfp(cw | mask, _MCW_EM);
+  return ~cw & FE_ALL_EXCEPT;
+}
 #endif
 
+#if defined(_M_IX86) || (defined(_M_X64) && !defined(_M_ARM64EC))
+/**
+ * x64 MSVC does not use x87.
+ */
+#if defined(_M_IX86) || !defined(_MSC_VER)
+#define TEST_X87 1
+#endif
+
+#if defined(_M_X64) || defined(__SSE__) || (defined(_M_IX86_FP) && _M_IX86_FP >= 1)
+#define TEST_SSE 1
+#define has_sse() 1
+#else
+#define TEST_SSE 0
+#if defined(__i386__) && !defined(_MSC_VER)
+int __mingw_has_sse (void);
+#endif
+static int _has_sse = 0;
+#define has_sse() (_has_sse)
+#endif
+
+#ifdef TEST_X87
 static unsigned short get_x87_cw (void) {
   unsigned short cw;
+#if defined(__GNUC__) || defined(__clang__)
   __asm__ __volatile__ ("fnstcw %0" : "=m" (cw));
+#else
+  __asm { fnstcw cw }
+#endif
   return cw;
 }
 
 static void set_x87_cw (unsigned short cw) {
+#if defined(__GNUC__) || defined(__clang__)
   __asm__ __volatile__ ("fldcw %0" : : "m" (cw));
+#else
+  __asm { fldcw cw }
+#endif
 }
+#endif /* TEST_X87 */
 
 static unsigned int get_mxcsr (void) {
   unsigned int mxcsr;
+#if defined(__GNUC__) || defined(__clang__)
   __asm__ __volatile__ ("stmxcsr %0" : "=m" (mxcsr));
+#elif defined(_MSC_VER) && defined(_M_IX86)
+  __asm { stmxcsr mxcsr }
+#else
+  mxcsr = _mm_getcsr ();
+#endif
   return mxcsr;
 }
 
 static void set_mxcsr (unsigned int mxcsr) {
+#if defined(__GNUC__) || defined(__clang__)
   __asm__ __volatile__ ("ldmxcsr %0" : : "m" (mxcsr));
+#elif defined(_MSC_VER) && defined(_M_IX86)
+  __asm { ldmxcsr mxcsr }
+#else
+  _mm_setcsr (mxcsr);
+#endif
 }
 #endif
 
@@ -72,8 +129,10 @@ typedef struct {
   int round;
   int enabled;
   int raised;
-#ifdef TEST_X86
+#ifdef TEST_X87
   unsigned short x87_cw;
+#endif
+#ifdef TEST_SSE
   unsigned int mxcsr;
 #endif
 } fp_state;
@@ -82,8 +141,10 @@ static void get_state (fp_state *s) {
   s->round = fegetround ();
   s->enabled = fegetexcept ();
   s->raised = fetestexcept (FE_ALL_EXCEPT);
-#ifdef TEST_X86
+#ifdef TEST_X87
   s->x87_cw = get_x87_cw ();
+#endif
+#ifdef TEST_SSE
   s->mxcsr = has_sse () ? get_mxcsr () : 0;
 #endif
 }
@@ -114,8 +175,10 @@ static void check_inherited (void) {
   assert (got.round == expected.round);
   assert (got.enabled == expected.enabled);
   assert (got.raised == expected.raised);
-#ifdef TEST_X86
+#ifdef TEST_X87
   assert (got.x87_cw == expected.x87_cw);
+#endif
+#ifdef TEST_SSE
   assert (got.mxcsr == expected.mxcsr);
 #endif
 
@@ -125,8 +188,10 @@ static void check_inherited (void) {
   assert (got.round == expected.round);
   assert (got.enabled == expected.enabled);
   assert (got.raised == expected.raised);
-#ifdef TEST_X86
+#ifdef TEST_X87
   assert (got.x87_cw == expected.x87_cw);
+#endif
+#ifdef TEST_SSE
   assert (got.mxcsr == expected.mxcsr);
 #endif
 }
@@ -135,6 +200,18 @@ int main (void) {
   fenv_t saved;
   static const int rounding[] = { FE_TONEAREST, FE_UPWARD, FE_DOWNWARD, FE_TOWARDZERO };
   size_t i;
+
+#if defined(TEST_SSE) && !TEST_SSE
+#if defined(_MSC_VER)
+  /**
+   * `PF_XMMI_INSTRUCTIONS_AVAILABLE` is supported since Windows 2000,
+   * which is good enough with MSVC.
+   */
+  _has_sse = IsProcessorFeaturePresent (PF_XMMI_INSTRUCTIONS_AVAILABLE);
+#else
+  _has_sse = __mingw_has_sse ();
+#endif
+#endif
 
   assert (fegetenv (&saved) == 0);
 
@@ -167,7 +244,7 @@ int main (void) {
   check_inherited ();
   assert (feclearexcept (FE_ALL_EXCEPT) == 0);
 
-#ifdef TEST_X86
+#ifdef TEST_X87
   /**
    * x87 precision control: 24-bit and 53-bit.
    */
@@ -176,7 +253,9 @@ int main (void) {
   set_x87_cw ((get_x87_cw () & ~0x0300) | 0x0200);
   check_inherited ();
   set_x87_cw ((get_x87_cw () & ~0x0300) | 0x0300);
+#endif
 
+#ifdef TEST_SSE
   /**
    * MXCSR flush-to-zero and denormals-are-zero.
    */
