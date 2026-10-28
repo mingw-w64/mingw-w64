@@ -300,14 +300,14 @@ int pthread_spin_lock (pthread_spinlock_t *lock)
 
   if (likely (oldLockState != Unlocked)) {
     do {
-      switch (winpthreads_wait_for_single_object (wSpinlock->Event, INFINITE)) {
+      switch (winpthreads_wait (wSpinlock->Event, 0, CLOCK_REALTIME, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, NULL)) {
         /**
          * `wSpinlock->Event` was signaled.
          *
          * There is a small chance that another thread grabs the lock faster
          * than we do; lock state is updated before wait handle is signaled.
          */
-        case WAIT_OBJECT_0:
+        case wait_succeeded:
           break;
         default:
           return EINVAL;
