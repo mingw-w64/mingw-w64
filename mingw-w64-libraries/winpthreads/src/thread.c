@@ -681,75 +681,6 @@ pthread_timechange_handler_np(void *dummy)
   return NULL;
 }
 
-/* Compatibility routine for pthread-win32.  It waits for ellapse of
-   interval and additionally checks for possible thread-cancelation.  */
-static int
-__pthread_delay_np (const struct _timespec64 *interval)
-{
-  DWORD to = 0;
-
-  if (interval != NULL) {
-    unsigned __int64 ms = winpthreads_timespec_ms (interval);
-
-    if (ms >= INFINITE) {
-      to = INFINITE;
-    } else {
-      to = (DWORD) ms;
-    }
-  }
-
-  struct _pthread_v *s = __pthread_self_lite ();
-
-  if (!to)
-    {
-      pthread_testcancel ();
-      Sleep (0);
-      pthread_testcancel ();
-      return 0;
-    }
-  pthread_testcancel ();
-  if (s->evStart)
-    winpthreads_wait_for_single_object (s->evStart, to);
-  else
-    Sleep (to);
-  pthread_testcancel ();
-  return 0;
-}
-
-int
-pthread_delay64_np (const struct _timespec64 *interval)
-{
-  return __pthread_delay_np(interval);
-}
-
-int
-pthread_delay32_np (const struct _timespec32 *interval)
-{
-  struct _timespec64 interval64 = {.tv_sec = interval->tv_sec, .tv_nsec = interval->tv_nsec};
-  return __pthread_delay_np(&interval64);
-}
-
-int
-_pthread_delay_np_ms (DWORD to)
-{
-  struct _pthread_v *s = __pthread_self_lite ();
-
-  if (!to)
-    {
-      pthread_testcancel ();
-      Sleep (0);
-      pthread_testcancel ();
-      return 0;
-    }
-  pthread_testcancel ();
-  if (s->evStart)
-    winpthreads_wait_for_single_object (s->evStart, to);
-  else
-    Sleep (to);
-  pthread_testcancel ();
-  return 0;
-}
-
 /* Compatibility routine for pthread-win32.  It returns the
    amount of available CPUs on system.  */
 int
@@ -2311,4 +2242,50 @@ winpthreads_wait_status winpthreads_wait (void *handle, int flags, clockid_t clo
   }
 
   return waitState.Status;
+}
+
+int _pthread_delay_np_ms (DWORD to) {
+  struct _timespec64 ts = {
+    .tv_sec  = (__time64_t) (to / 1000),
+    .tv_nsec = (long) ((to % 1000) * 1000000)
+  };
+  return pthread_delay64_np (&ts);
+}
+
+/*******************************************************************************
+ * Public Functions.
+ */
+
+int pthread_delay64_np (const struct _timespec64 *interval) {
+  /**
+   * Function `pthread_delay_np` is a cancellation point.
+   */
+  pthread_testcancel ();
+
+  /**
+   * Check whether `interval` is valid.
+   */
+  if (interval->tv_sec < 0 || interval->tv_nsec < 0 || interval->tv_nsec >= 1000000000) {
+    return EINVAL;
+  }
+
+  winpthreads_wait_status wait_status = winpthreads_wait (
+    NULL, WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION,
+    CLOCK_MONOTONIC, interval, NULL
+  );
+
+  if (wait_status == wait_interrupted) {
+    pthread_testcancel ();
+    return EINTR;
+  }
+
+  return 0;
+}
+
+int pthread_delay32_np (const struct _timespec32 *interval) {
+  struct _timespec64 ts64 = {
+    .tv_sec  = interval->tv_sec,
+    .tv_nsec = interval->tv_nsec
+  };
+  return pthread_delay64_np (&ts64);
 }

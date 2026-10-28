@@ -1107,14 +1107,9 @@ static int WinpthreadsSleep (FuncWinpthreadsTimeImpl timeImpl, int flags, const 
 
     totalSleepTime -= sleepTime;
     error_code      = _pthread_delay_np_ms (sleepTime);
-  } while (totalSleepTime > 0 && likely (error_code == 0));
+  } while (totalSleepTime > 0 && error_code == 0);
 
-  /**
-   * Currently, function `_pthread_delay_np_ms` always returns zero.
-   */
-  if (unlikely (error_code != 0)) {
-    error_code = EINTR;
-
+  if (error_code == EINTR) {
     /**
      * FIXME:
      *
@@ -1169,7 +1164,7 @@ int nanosleep32 (const struct _timespec32 *request, struct _timespec32 *remain)
   int error_code = nanosleep64 (&request64, &remain64);
 
   if (error_code == -1) {
-    if (unlikely (errno == EINTR) && remain != NULL) {
+    if (errno == EINTR && remain != NULL) {
       assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
       remain->tv_sec = (__time32_t) remain64.tv_sec;
       assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
@@ -1496,7 +1491,7 @@ int clock_nanosleep32 (clockid_t clock_id, int flags, const struct _timespec32 *
 
   int error_code = clock_nanosleep64 (clock_id, flags, &request64, &remain64);
 
-  if (!(flags & TIMER_ABSTIME) && unlikely (error_code == EINTR) && remain != NULL) {
+  if (!(flags & TIMER_ABSTIME) && error_code == EINTR && remain != NULL) {
     assert (remain64.tv_sec >= 0 && remain64.tv_sec <= INT_MAX);
     remain->tv_sec = (__time32_t) remain64.tv_sec;
     assert (remain64.tv_nsec >= 0 && remain64.tv_nsec < POW10_9);
