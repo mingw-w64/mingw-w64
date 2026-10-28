@@ -469,30 +469,12 @@ WINPTHREADS_STATIC_ASSERT (offsetof (WinpthreadsMutexBase, Vtable) == offsetof (
  * Wait until `event` becomes signaled or timeout specified by `waitUntil`
  * has expired.
  *
- * If `waitUntil` is `NULL`, this function waits indefinitely until `event`
- * becomes signaled.
+ * The `waitUntil` argument is passed directly to `winpthreads_wait`;
+ * see comments in misc.h for more details.
  *
  * Returns zero on success and an error-code on failure.
  */
 static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LONG *lockState, const struct _timespec64 *waitUntil) {
-  unsigned __int64 waitStartTime = 0;
-  unsigned __int64 waitEndTime   = 0;
-  unsigned __int64 waitTimeout   = INFINITE;
-
-  if (waitUntil != NULL) {
-    waitStartTime = winpthreads_system_time_ms ();
-    waitEndTime   = winpthreads_timespec_ms (waitUntil);
-    waitTimeout   = 0;
-
-    if (waitStartTime < waitEndTime) {
-      waitTimeout = waitEndTime - waitStartTime;
-
-      if (waitTimeout > INFINITE) {
-        waitTimeout = INFINITE;
-      }
-    }
-  }
-
   /**
    * Setting lock state to `LockedWithBlocking` prevents the fast lock path
    * (`lockState` cannot be set to `Locked`) and it causes
@@ -501,17 +483,18 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
   LONG oldLockState = InterlockedExchange (lockState, LockedWithBlocking);
 
   while (oldLockState != Unlocked) {
-    switch (winpthreads_wait_for_single_object (event, (DWORD) waitTimeout)) {
+    switch (winpthreads_wait (event, WINPTHREADS_WAIT_TIMEOUT_ABSTIME, CLOCK_REALTIME, waitUntil, NULL)) {
       /**
        * `event` was in signaled state (unlocked) or it became signaled
-       * within `waitTimeout`.
+       * before system time reached `waitUntil`.
        */
-      case WAIT_OBJECT_0:
+      case wait_succeeded:
         break;
       /**
-       * `event` was not signaled (unlocked) before `waitTimeout` expired.
+       * `event` was not signaled (unlocked) before system time reached
+       * `waitUntil`.
        */
-      case WAIT_TIMEOUT:
+      case wait_timeout_expired:
         return ETIMEDOUT;
       default:
         return EINVAL;
@@ -525,19 +508,6 @@ static WINPTHREADS_INLINE int WinpthreadsStalledMutexTimedLock (HANDLE event, LO
 
     if (likely (oldLockState == Unlocked)) {
       break;
-    }
-
-    /**
-     * Update `waitTimeout`, if not `INFINITE`.
-     */
-    if (waitTimeout != INFINITE) {
-      waitStartTime = winpthreads_system_time_ms ();
-
-      if (waitStartTime >= waitEndTime) {
-        return ETIMEDOUT;
-      }
-
-      waitTimeout = waitEndTime - waitStartTime;
     }
   }
 
@@ -567,52 +537,28 @@ static int WinpthreadsStalledMutexSetConsistentState (WinpthreadsMutex *wMutex) 
  * Wait until `mutex` becomes signaled or timeout specified by `waitUntil`
  * has expired.
  *
- * If `waitUntil` is `NULL` and `withTimeout` is `FALSE`, this function waits
- * indefinitely until `mutex` becomes signaled.
- *
- * If `waitUntil` is `NULL` and `withTimeout` is `TRUE`, this function checks
- * whether `mutex` is in signaled state and then returns immedeately.
+ * The `waitUntil` argument is passed directly to `winpthreads_wait`;
+ * see comments in misc.h for more details.
  *
  * Returns zero on success and an error-code on failure.
  */
-static WINPTHREADS_INLINE int WinpthreadsRobustMutexTimedLock (HANDLE mutex, LONG *state, BOOL withTimeout, const struct _timespec64 *waitUntil) {
-  unsigned __int64 waitStartTime = 0;
-  unsigned __int64 waitEndTime   = 0;
-  unsigned __int64 waitTimeout   = INFINITE;
-
-  if (withTimeout || waitUntil != NULL) {
-    waitTimeout = 0;
-  }
-
-  if (waitUntil != NULL) {
-    waitStartTime = winpthreads_system_time_ms ();
-    waitEndTime   = winpthreads_timespec_ms (waitUntil);
-
-    if (waitStartTime < waitEndTime) {
-      waitTimeout = waitEndTime - waitStartTime;
-
-      if (waitTimeout > INFINITE) {
-        waitTimeout = INFINITE;
-      }
-    }
-  }
-
+static WINPTHREADS_INLINE int WinpthreadsRobustMutexTimedLock (HANDLE mutex, LONG *state, const struct _timespec64 *waitUntil) {
   DWORD errorCode;
   int error_code;
 
-  switch (winpthreads_wait_for_single_object (mutex, (DWORD) waitTimeout)) {
+  switch (winpthreads_wait (mutex, WINPTHREADS_WAIT_TIMEOUT_ABSTIME, CLOCK_REALTIME, waitUntil, NULL)) {
     /**
      * `mutex` was in signaled state (unlocked) or it became signaled before
-     * `waitTimeout` expired.
+     * system time reached `waitUntil`.
      */
-    case WAIT_OBJECT_0:
+    case wait_succeeded:
       error_code = 0;
       break;
     /**
      * Previous owner of `mutex` terminated without releasing it;
      * the calling thread owns the mutex now.
      */
-    case WAIT_ABANDONED:
+    case wait_abandoned_mutex:
       /**
        * Set `state` to `Inconsistent`.
        *
@@ -628,12 +574,13 @@ static WINPTHREADS_INLINE int WinpthreadsRobustMutexTimedLock (HANDLE mutex, LON
       error_code = EOWNERDEAD;
       break;
     /**
-     * `mutex` was not signaled (unlocked) before `waitTimeout` expired.
+     * `mutex` was not signaled (unlocked) before system time reached
+     * `waitUntil`.
      */
-    case WAIT_TIMEOUT:
-      error_code = waitUntil == NULL ? EBUSY : ETIMEDOUT;
+    case wait_timeout_expired:
+      error_code = waitUntil == WINPTHREADS_WAIT_TIMEOUT_ZERO ? EBUSY : ETIMEDOUT;
       break;
-    case WAIT_FAILED:
+    case wait_failed:
       errorCode = GetLastError ();
 
       /**
@@ -1177,7 +1124,7 @@ static int WinpthreadsErrorCheckRobustMutexLock (WinpthreadsMutex *wMutex, const
     return ENOTRECOVERABLE;
   }
 
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, FALSE, waitUntil);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, waitUntil);
 
   /**
    * Recursive lock count has been exceeded.
@@ -1224,7 +1171,7 @@ static int WinpthreadsErrorCheckRobustMutexTryLock (WinpthreadsMutex *wMutex, BO
     return ENOTRECOVERABLE;
   }
 
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, TRUE, NULL);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, WINPTHREADS_WAIT_TIMEOUT_ZERO);
 
   /**
    * Recursive lock count has been exceeded.
@@ -1279,7 +1226,7 @@ static int WinpthreadsErrorCheckRobustMutexUnlock (WinpthreadsMutex *wMutex) {
    * previous owner with the same `threadId` terminated without releasing it,
    * we will be notified about it with `EOWNERDEAD` error.
    */
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, TRUE, NULL);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, WINPTHREADS_WAIT_TIMEOUT_ZERO);
 
   switch (error_code) {
     /**
@@ -1452,7 +1399,7 @@ static int WinpthreadsRecursiveRobustMutexLock (WinpthreadsMutex *wMutex, const 
     return ENOTRECOVERABLE;
   }
 
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, FALSE, waitUntil);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, waitUntil);
 
   if (error_code == 0 || error_code == EOWNERDEAD) {
     DWORD threadId = GetCurrentThreadId ();
@@ -1498,7 +1445,7 @@ static int WinpthreadsRecursiveRobustMutexTryLock (WinpthreadsMutex *wMutex, BOO
     return ENOTRECOVERABLE;
   }
 
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, TRUE, NULL);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, WINPTHREADS_WAIT_TIMEOUT_ZERO);
 
   if (error_code == 0 || error_code == EOWNERDEAD) {
     DWORD threadId = GetCurrentThreadId ();
@@ -1556,7 +1503,7 @@ static int WinpthreadsRecursiveRobustMutexUnlock (WinpthreadsMutex *wMutex) {
    * previous owner with the same `threadId` terminated without releasing it,
    * we will be notified about it with `EOWNERDEAD` error.
    */
-  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, TRUE, NULL);
+  int error_code = WinpthreadsRobustMutexTimedLock (mutex->Mutex, &mutex->State, WINPTHREADS_WAIT_TIMEOUT_ZERO);
 
   switch (error_code) {
     /**
@@ -2138,7 +2085,7 @@ int pthread_mutex_lock(pthread_mutex_t *m)
     return error_code;
   }
 
-  return wMutex->Base.Vtable->Lock (wMutex, NULL);
+  return wMutex->Base.Vtable->Lock (wMutex, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE);
 }
 
 int pthread_mutex_trylock(pthread_mutex_t *m)
