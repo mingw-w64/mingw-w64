@@ -36,7 +36,7 @@
 
 int __pthread_shallcancel (void); /* in thread.c */
 
-static int do_sema_b_wait (HANDLE sema, int nointerrupt, DWORD timeout,CRITICAL_SECTION *cs, LONG *val);
+static int do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, CRITICAL_SECTION *cs, LONG *val);
 static int do_sema_b_release(HANDLE sema, LONG count,CRITICAL_SECTION *cs, LONG *val);
 static void cleanup_wait(void *arg);
 
@@ -46,7 +46,10 @@ typedef struct sCondWaitHelper {
     int *r;
 } sCondWaitHelper;
 
-int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
+/**
+ * Note that this function is also used in sem.c.
+ */
+int do_sema_b_wait_intern (HANDLE sema, int flags, const struct _timespec64 *timeout);
 
 static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
 
@@ -198,7 +201,7 @@ pthread_cond_destroy (pthread_cond_t *c)
       return r;
     }
   _c = (cond_t *) *c;
-  r = do_sema_b_wait(_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+  r = do_sema_b_wait (_c->sema_b, WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
   if (r != 0)
     return r;
   if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
@@ -258,7 +261,7 @@ pthread_cond_signal (pthread_cond_t *c)
     }
   else if (_c->waiters_count_ > _c->waiters_count_gone_)
     {
-      r = do_sema_b_wait (_c->sema_b, 1, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+      r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
@@ -316,7 +319,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
     }
   else if (_c->waiters_count_ > _c->waiters_count_gone_)
     {
-      r = do_sema_b_wait (_c->sema_b, 1, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+      r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
@@ -366,7 +369,7 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
     return EINVAL;
 
 tryagain:
-  r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+  r = do_sema_b_wait (_c->sema_b, WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
   if (r != 0)
     return r;
 
@@ -392,7 +395,7 @@ tryagain:
   pthread_cleanup_push(cleanup_wait, (void *) &ch);
   r = pthread_mutex_unlock(external_mutex);
   if (!r)
-    r = do_sema_b_wait (_c->sema_q, 0, INFINITE,&_c->waiters_q_lock_,&_c->value_q);
+    r = do_sema_b_wait (_c->sema_q, WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_q_lock_, &_c->value_q);
 
   pthread_cleanup_pop(1);
   return r;
@@ -402,7 +405,6 @@ static int
 pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex, const struct _timespec64 *t, int rel)
 {
   sCondWaitHelper ch;
-  DWORD dwr;
   int r;
   cond_t *_c;
 
@@ -420,23 +422,17 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
   } else if ((_c)->valid != (unsigned int)LIFE_COND)
     return EINVAL;
 
-  if (rel == 0)
-  {
-    dwr = winpthreads_wait_time_ms(t);
-  }
-  else
-  {
-    unsigned __int64 ms = winpthreads_timespec_ms(t);
+  /**
+   * `pthread_cond_timedwait` is a cancellation point.
+   */
+  int waitFlags = WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION;
 
-    if (ms >= INFINITE) {
-      dwr = INFINITE;
-    } else {
-      dwr = (DWORD) ms;
-    }
+  if (rel == 0) {
+    waitFlags |= WINPTHREADS_WAIT_TIMEOUT_ABSTIME;
   }
 
 tryagain:
-  r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+  r = do_sema_b_wait (_c->sema_b, waitFlags, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
   if (r != 0)
     return r;
 
@@ -463,8 +459,7 @@ tryagain:
 
     r = pthread_mutex_unlock(external_mutex);
     if (!r)
-      r = do_sema_b_wait (_c->sema_q, 0, dwr,&_c->waiters_q_lock_,&_c->value_q);
-
+      r = do_sema_b_wait (_c->sema_q, waitFlags, t, &_c->waiters_q_lock_, &_c->value_q);
     pthread_cleanup_pop(1);
   }
   return r;
@@ -511,7 +506,7 @@ cleanup_wait (void *arg)
   else if ((INT_MAX/2) - 1 == _c->waiters_count_gone_)
   {
     _c->waiters_count_gone_ += 1;
-    r = do_sema_b_wait (_c->sema_b, 1, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
+    r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
     if (r != 0)
     {
       LeaveCriticalSection(&_c->waiters_count_lock_);
@@ -547,7 +542,7 @@ cleanup_wait (void *arg)
 }
 
 static int
-do_sema_b_wait (HANDLE sema, int nointerrupt, DWORD timeout,CRITICAL_SECTION *cs, LONG *val)
+do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, CRITICAL_SECTION *cs, LONG *val)
 {
   int r;
   LONG v;
@@ -557,7 +552,7 @@ do_sema_b_wait (HANDLE sema, int nointerrupt, DWORD timeout,CRITICAL_SECTION *cs
   LeaveCriticalSection(cs);
   if (v >= 0)
     return 0;
-  r = do_sema_b_wait_intern (sema, nointerrupt, timeout);
+  r = do_sema_b_wait_intern (sema, flags, timeout);
   EnterCriticalSection(cs);
   if (r != 0)
     InterlockedIncrement(val);
@@ -566,124 +561,38 @@ do_sema_b_wait (HANDLE sema, int nointerrupt, DWORD timeout,CRITICAL_SECTION *cs
 }
 
 int
-do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout)
+do_sema_b_wait_intern (HANDLE sema, int flags, const struct _timespec64 *timeout)
 {
-  HANDLE arr[2];
-  DWORD maxH = 1;
-  int r = 0;
-  DWORD res, dt;
-  if (nointerrupt == 1)
-  {
-    res = winpthreads_wait_for_single_object(sema, timeout);
-    switch (res) {
-    case WAIT_TIMEOUT:
-	r = ETIMEDOUT;
-	break;
-    case WAIT_ABANDONED:
-	r = EPERM;
-	break;
-    case WAIT_OBJECT_0:
-	break;
-    default:
-	/*We can only return EINVAL though it might not be posix compliant  */
-	r = EINVAL;
-    }
-    if (r != 0 && r != EINVAL && WaitForSingleObject(sema, 0) == WAIT_OBJECT_0)
-      r = 0;
-    return r;
-  }
-  arr[0] = sema;
-  arr[1] = (HANDLE) pthread_getevent ();
-  if (arr[1] != NULL) maxH += 1;
-  if (maxH == 2)
-  {
-redo:
-      res = winpthreads_wait_for_multiple_objects(maxH, arr, 0, timeout);
-      switch (res) {
-      case WAIT_TIMEOUT:
-	  r = ETIMEDOUT;
-	  break;
-      case (WAIT_OBJECT_0 + 1):
-          ResetEvent(arr[1]);
-          if (nointerrupt != 2)
-	    {
-            pthread_testcancel();
-            return EINVAL;
-	    }
-	  pthread_testcancel ();
-	  goto redo;
-      case WAIT_ABANDONED:
-	  r = EPERM;
-	  break;
-      case WAIT_OBJECT_0:
-          r = 0;
-	  break;
-      default:
-	  /*We can only return EINVAL though it might not be posix compliant  */
-	  r = EINVAL;
-      }
-      if (r != 0 && r != EINVAL && WaitForSingleObject(arr[0], 0) == WAIT_OBJECT_0)
-	r = 0;
-      if (r != 0 && nointerrupt != 2 && __pthread_shallcancel ())
-	return EINVAL;
-      return r;
-  }
-  if (timeout == INFINITE)
-  {
-    do {
-      res = winpthreads_wait_for_single_object(sema, 40);
-      switch (res) {
-      case WAIT_TIMEOUT:
-	  r = ETIMEDOUT;
-	  break;
-      case WAIT_ABANDONED:
-	  r = EPERM;
-	  break;
-      case WAIT_OBJECT_0:
-          r = 0;
-	  break;
-      default:
-	  /*We can only return EINVAL though it might not be posix compliant  */
-	  r = EINVAL;
-      }
-      if (r != 0 && __pthread_shallcancel ())
-      {
-	if (nointerrupt != 2)
-	  pthread_testcancel();
-	return EINVAL;
-      }
-    } while (r == ETIMEDOUT);
-    if (r != 0 && r != EINVAL && WaitForSingleObject(sema, 0) == WAIT_OBJECT_0)
-      r = 0;
-    return r;
-  }
-  dt = 20;
+  int error_code;
+
   do {
-    if (dt > timeout) dt = timeout;
-    res = winpthreads_wait_for_single_object(sema, dt);
-    switch (res) {
-    case WAIT_TIMEOUT:
-	r = ETIMEDOUT;
-	break;
-    case WAIT_ABANDONED:
-	r = EPERM;
-	break;
-    case WAIT_OBJECT_0:
-	r = 0;
-	break;
-    default:
-	/*We can only return EINVAL though it might not be posix compliant  */
-	r = EINVAL;
+    switch (winpthreads_wait (sema, flags, CLOCK_REALTIME, timeout, NULL)) {
+      case wait_succeeded:
+        error_code = 0;
+        break;
+      /**
+       * The calling thread received cancellation notification.
+       */
+      case wait_interrupted:
+        pthread_testcancel ();
+        error_code = EINTR;
+        break;
+      case wait_timeout_expired:
+        error_code = ETIMEDOUT;
+        break;
+      case wait_failed:
+        error_code = EINVAL;
+        break;
+      case wait_abandoned_mutex:
+        UNREACHABLE ();
     }
-    timeout -= dt;
-    if (timeout != 0 && r != 0 && __pthread_shallcancel ())
-      return EINVAL;
-  } while (r == ETIMEDOUT && timeout != 0);
-  if (r != 0 && r == ETIMEDOUT && WaitForSingleObject(sema, 0) == WAIT_OBJECT_0)
-    r = 0;
-  if (r != 0 && nointerrupt != 2)
-    pthread_testcancel();
-  return r;
+  } while (error_code == EINTR);
+
+  if (error_code != 0 && (flags & WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION)) {
+    pthread_testcancel ();
+  }
+
+  return error_code;
 }
 
 static int
