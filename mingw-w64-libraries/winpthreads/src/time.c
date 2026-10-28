@@ -755,6 +755,23 @@ static int WinpthreadsTimeImplThreadCpuTime (struct _timespec64 *time, struct _t
  * Private Functions.
  */
 
+/**
+ * `MAX_SLEEP_IN_MS` as a `struct timespec` value.
+ */
+static const struct _timespec64 MaxWaitTimeAsTimeSpec = {
+  .tv_sec  = (__time64_t) (MAX_SLEEP_IN_MS / POW10_3),
+  .tv_nsec = (long) ((MAX_SLEEP_IN_MS % POW10_3) * POW10_6)
+};
+
+/**
+ * The maximum `struct timespec` value that would fit into unsigned 64-bit
+ * integer when converted to nanoseconds.
+ */
+static const struct _timespec64 NsMaxAsTimeSpec = {
+  .tv_sec  = (__time64_t) (_UI64_MAX / POW10_9),
+  .tv_nsec = (long) (_UI64_MAX % POW10_9)
+};
+
 unsigned __int64 winpthreads_system_time_ms (void)
 {
   FILETIME fileTime;
@@ -842,6 +859,32 @@ unsigned __int64 winpthreads_windows_time_ms (void)
   return msFromSec + msFromNsec;
 }
 
+int winpthreads_time (clockid_t clock, struct _timespec64 *time, struct _timespec64 *res) {
+  FuncWinpthreadsTimeImpl timeImpl;
+
+  switch (clock) {
+    case CLOCK_REALTIME:
+      timeImpl = WinpthreadsTimeImpl.TimeImplRealtime;
+      break;
+    case CLOCK_MONOTONIC:
+      timeImpl = WinpthreadsTimeImpl.TimeImplMonotonic;
+      break;
+    case CLOCK_PROCESS_CPUTIME_ID:
+      timeImpl = WinpthreadsTimeImplProcessCpuTime;
+      break;
+    case CLOCK_THREAD_CPUTIME_ID:
+      timeImpl = WinpthreadsTimeImplThreadCpuTime;
+      break;
+    case CLOCK_REALTIME_COARSE:
+      timeImpl = WinpthreadsTimeImplRealtime;
+      break;
+    default:
+      UNREACHABLE ();
+  }
+
+  return timeImpl (time, res);
+}
+
 int winpthreads_timespec_diff (const struct _timespec64 *ts1, const struct _timespec64 *ts2) {
   if (ts1->tv_sec > ts2->tv_sec) {
     return 1;
@@ -904,6 +947,112 @@ void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _time
       out->tv_nsec += POW10_9;
     }
   }
+}
+
+void winpthreads_timespec_round (const struct _timespec64 *time, const struct _timespec64 *res, struct _timespec64 *out) {
+  /**
+   * If `time` is zero simply return it in `out`.
+   */
+  if (time->tv_sec == 0 && time->tv_nsec == 0) {
+    *out = *time;
+    return;
+  }
+
+  /**
+   * If `time` is less than or equal to `res`, store value of `res` in `out`.
+   */
+  if (winpthreads_timespec_diff (time, res) <= 0) {
+    *out = *res;
+    return;
+  }
+
+  /**
+   * Check if `time` can fit into unsigned 64-bit integer when converted to
+   * nanoseconds.
+   */
+  if (unlikely (winpthreads_timespec_diff (time, &NsMaxAsTimeSpec) > 0)) {
+    *out = *time;
+    return;
+  }
+
+  /**
+   * Convert `time` and `res` to nanoseconds.
+   */
+  unsigned __int64 timeNs = ((unsigned __int64) time->tv_sec) * POW10_9 + time->tv_nsec;
+  unsigned __int64 resNs  = ((unsigned __int64) res->tv_sec) * POW10_9 + res->tv_nsec;
+
+  /**
+   * Check if `time` is already a multiple of `res`.
+   */
+  if ((timeNs % resNs) == 0) {
+    *out = *time;
+    return;
+  }
+
+  /**
+   * First, round down `time` to multiple of `res`.
+   */
+  timeNs -= (timeNs % resNs);
+
+  /**
+   * Second, round up `time` to multiple of `res`.
+   *
+   * In order to avoid possible unsigned overflow, do addition using
+   * `winpthreads_timespec_add`.
+   */
+  struct _timespec64 newTime = {
+    .tv_sec  = (__time64_t) (timeNs / POW10_9),
+    .tv_nsec = (long) (timeNs % POW10_9),
+  };
+
+  winpthreads_timespec_add (&newTime, res, out);
+}
+
+unsigned winpthreads_wait_time_from_timespec (const struct _timespec64 *time, const struct _timespec64 *res) {
+  /**
+   * Return zero if `time` is zero.
+   */
+  if (time->tv_sec == 0 && time->tv_nsec == 0) {
+    return 0;
+  }
+
+  /**
+   * If `time` is less than or equal to `res`, simply return 1ms.
+   */
+  if (winpthreads_timespec_diff (time, res) <= 0) {
+    return 1;
+  }
+
+  /**
+   * Check if `time` is larger than `MaxWaitTimeAsTimeSpec`.
+   */
+  if (unlikely (winpthreads_timespec_diff (time, &MaxWaitTimeAsTimeSpec) > 0)) {
+    return MAX_SLEEP_IN_MS;
+  }
+
+  /**
+   * Convert `time` and `res` to nanoseconds.
+   *
+   * Note that check above ensures that `time`, when converted to nanoseconds,
+   * fits into 64-bit unsigned integer.
+   */
+  unsigned __int64 nsTime = ((unsigned __int64) time->tv_sec) * POW10_9 + time->tv_nsec;
+  unsigned __int64 nsRes  = ((unsigned __int64) res->tv_sec) * POW10_9 + res->tv_nsec;
+
+  if ((nsTime % nsRes) == 0) {
+    nsTime -= nsRes;
+  } else {
+    nsTime -= (nsTime % nsRes);
+  }
+
+  /**
+   * Ensure that conversion to milliseconds does not yield zero.
+   */
+  if (nsTime < POW10_6) {
+    return 1;
+  }
+
+  return (unsigned) (nsTime / POW10_6);
 }
 
 /*******************************************************************************

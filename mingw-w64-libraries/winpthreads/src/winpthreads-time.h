@@ -55,6 +55,18 @@ unsigned __int64 winpthreads_windows_time_ms (void);
 void winpthreads_time_init (void);
 
 /**
+ * Obtain the current time and resolution of the `clock`.
+ *
+ * Either `time` or `res` argument can be `NULL`.
+ *
+ * Returns zero on success and an error code on failure.
+ *
+ * This function never fails when `clock` argument is `CLOCK_REALTIME`,
+ * `CLOCK_MONOTONIC` or `CLOCK_REALTIME_COARSE`.
+ */
+int winpthreads_time (clockid_t clock, struct _timespec64 *time, struct _timespec64 *res);
+
+/**
  * Compare `ts1` and `ts2`.
  *
  * Return value follows `strcmp` convention.
@@ -70,5 +82,46 @@ void winpthreads_timespec_add (const struct _timespec64 *ts1, const struct _time
  * Substract `ts2` from `ts1` and store result in `out`.
  */
 void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out);
+
+/**
+ * Round `time` to `res` and store result in `out`. The `res` argument is
+ * expected to be resolution of the clock used to measure `time`.
+ *
+ * The rounding is performed as follow:
+ *
+ * If `time` has value of zero, store value of zero in `out`.
+ *
+ * Otherwise, if `time` is less than or equal to `res`,
+ * store value of `res` in `out`.
+ *
+ * Otherwise, if value of `time`, converted to nanoseconds, does not fit into
+ * unsigned 64-bit integer, store value of `time` in `out`.
+ *
+ * Otherwise, store value of `time` rounded up to `res` in `out`.
+ */
+void winpthreads_timespec_round (const struct _timespec64 *time, const struct _timespec64 *res, struct _timespec64 *out);
+
+/**
+ * Convert duration `time` to wait time in milliseconds. The `res` argument is
+ * expected to be resolution of the clock used to measure `time`.
+ *
+ * Note that returned value is not `time` rounded to `res`, instead:
+ *
+ * If value of `time` is zero, this function returns 0ms, ignoring `res`.
+ *
+ * Otherwise, if value of `time` is less than or equal to `res`,
+ * this function returns 1ms.
+ *
+ * Otherwise, if value of `time`, converted to milliseconds, is greater than or
+ * equal to `INFINITE`, this function returns `INFINITE - 1`.
+ *
+ * This allows to properly handle wait requests with timeout of `INFINITE` or
+ * more milliseconds; wait for at most `INFINITE - 1` milliseconds at a time
+ * and calculate new timeout once awakened.
+ *
+ * Otherwise, this function returns `time` reduced to the next multiple
+ * of `res`; if result is less than 1ms, the returned value is 1ms.
+ */
+unsigned winpthreads_wait_time_from_timespec (const struct _timespec64 *time, const struct _timespec64 *res);
 
 #endif /* WINPTHREADS_TIME_H */
