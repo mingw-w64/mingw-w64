@@ -239,26 +239,6 @@
 #endif
 
 /**
- * A wrapper around `WaitForSingleObject` that ensures that
- * the wait function does not time out before the time actually runs out.
- *
- * This is needed because `WaitForSingleObject` might have poor accuracy,
- * returning earlier than expected. On the other hand, returning a bit *later*
- * than expected is acceptable in a preemptive multitasking environment.
- */
-unsigned long winpthreads_wait_for_single_object (void *handle, unsigned long timeout);
-
-/**
- * A wrapper around `WaitForMultipleObjects` that ensures that
- * the wait function does not time out before the time actually runs out.
- *
- * This is needed because `WaitForMultipleObjects` might have poor accuracy,
- * returning earlier than expected. On the other hand, returning a bit *later*
- * than expected is acceptable in a preemptive multitasking environment.
- */
-unsigned long winpthreads_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
-
-/**
  * Portability wrapper for `GetHandleInformation`.
  */
 int winpthreads_get_handle_information (void *, unsigned *);
