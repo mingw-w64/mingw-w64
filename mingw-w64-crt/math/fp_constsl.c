@@ -4,22 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include "fp_consts.h"
-#include <math.h>
 
 const union _ieee_rep __QNANL = { __LONG_DOUBLE_QNAN_REP };
 const union _ieee_rep __SNANL = { __LONG_DOUBLE_SNAN_REP };
 const union _ieee_rep __INFL  = { __LONG_DOUBLE_INF_REP };
 const union _ieee_rep __DENORML = { __LONG_DOUBLE_DENORM_REP };
-
-#undef nanl
-/* FIXME */
-long double nanl (const char *);
-long double nanl (const char * tagp __attribute__((unused)) )
-{
-#if __SIZEOF_LONG_DOUBLE__ == __SIZEOF_DOUBLE__
-  return nan("");
-#else
-  return __QNANL.ldouble_val;
-#endif
-}
-

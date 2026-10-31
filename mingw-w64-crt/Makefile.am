@@ -358,6 +358,9 @@ src_msvcrt=\
   ctype/wctrans.c \
   ctype/wctype.c \
   locale/_configthreadlocale.c \
+  math/nan.c \
+  math/nanf.c \
+  math/nanl.c \
   misc/__sys_errlist.c \
   misc/__sys_nerr.c \
   misc/_aligned_msize.c \
@@ -1076,6 +1079,9 @@ src_pre_msvcr120=\
   ctype/wctrans.c \
   ctype/wctype.c \
   math/i386__copysignf.c \
+  math/nan.c \
+  math/nanf.c \
+  math/nanl.c \
   stdio/scanf.S
 
 src_pre_msvcr120_post_msvcr71=\
@@ -1360,7 +1366,7 @@ src_libmingwex=\
 src_libmingwex_x86=\
   math/cbrtl.c              math/erfl.c               math/fdiml.c              math/fmal.c               math/fmaxl.c              \
   math/fminl.c              math/llrintl.c            math/llroundl.c           math/lrintl.c             math/lroundl.c            \
-  math/rintl.c              math/roundl.c             math/tgammal.c            math/truncl.c             \
+  math/rintl.c              math/roundl.c             math/tgammal.c            math/truncl.c             math/nanl.c               \
   math/x86/_chgsignl.S      math/x86/acosh.def.h      math/x86/acoshl.c         math/x86/acosl.c          \
   math/x86/asinhl.c         math/x86/asinl.c          math/x86/atan2l.c         \
   math/x86/atanhl.c         math/x86/atanl.c          \
