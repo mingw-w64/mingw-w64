@@ -32,7 +32,7 @@ Default and allowed values for `WINPTHREADS_WINNT` are target-dependent:
 | Target            | Minimal Allowed Value | Default Value                                           |
 |-------------------|-----------------------|---------------------------------------------------------|
 | x86               | Windows NT 3.1        | Windows NT 3.1 with mingw-w64; Windows XP with MSVC     |
-| x64               | Windows XP            | Windows XP                                              |
+| x64               | Windows XP x64        | Windows XP x64                                          |
 | arm32             | Windows 8             | Windows 8                                               |
 | arm64 and arm64ec | Windows 10            | Windows 10                                              |
 

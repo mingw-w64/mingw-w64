@@ -68,6 +68,13 @@
  */
 #define WINPTHREADS_WINNT_XP      _WIN32_WINNT_WINXP
 /**
+ * Windows Server 2003 / XP x64
+ *
+ * Major version: 5
+ * Minor version: 2
+ */
+#define WINPTHREADS_WINNT_2003    _WIN32_WINNT_WS03
+/**
  * Windows Vista
  *
  * Major version: 6
@@ -143,16 +150,16 @@
 
 /**
  * Native x64, not arm64ec.
- * Support for x64 is only available since Windows XP.
+ * Support for x64 is only available since Windows Server 2003 SP1 / XP x64.
  */
 #elif defined(_M_X64) && !defined(_M_ARM64EC)
 
-#if defined(WINPTHREADS_WINNT) && WINPTHREADS_WINNT < WINPTHREADS_WINNT_XP
+#if defined(WINPTHREADS_WINNT) && WINPTHREADS_WINNT < WINPTHREADS_WINNT_2003
 #undef WINPTHREADS_WINNT
 #endif
 
 #ifndef WINPTHREADS_WINNT
-#define WINPTHREADS_WINNT WINPTHREADS_WINNT_XP
+#define WINPTHREADS_WINNT WINPTHREADS_WINNT_2003
 #endif
 
 #ifdef WINPTHREADS_WIN9X
