@@ -1407,7 +1407,7 @@ src_libmingwexarm64=\
   math/arm-common/ldexpl.c
 
 if ARM64EC
-src_libmingwexarm64+=crt/chpe.S
+src_libmingwexarm64+=crt/arm64ec_icall.S crt/chpe.S
 src_libmingwexarm64_x64=libarm64/cfguard/guard_dispatch.x86_64.o
 endif
 
