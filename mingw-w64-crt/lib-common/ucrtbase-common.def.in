@@ -2435,7 +2435,7 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp
+F_ARM_ANY(ldexp) ; x86 ldexp is broken
 ldiv
 ; The UCRT lgamma functions don't set/provide the signgam variable like
 ; the mingw ones do. Therefore prefer the libmingwex version instead.
@@ -2538,11 +2538,11 @@ F_LD64(rintl) ; Can't use long double functions from the CRT on x86
 round
 roundf
 F_LD64(roundl) ; Can't use long double functions from the CRT on x86
-scalbln
-scalblnf
+F_ARM_ANY(scalbln) ; x86 scalbln is broken
+F_ARM_ANY(scalblnf) ; x86 scalblnf is broken
 F_LD64(scalblnl) ; Can't use long double functions from the CRT on x86
-scalbn
-scalbnf
+F_ARM_ANY(scalbn) ; x86 scalbn is broken
+F_ARM_ANY(scalbnf) ; x86 scalbnf is broken
 F_LD64(scalbnl) ; Can't use long double functions from the CRT on x86
 set_terminate
 set_unexpected
