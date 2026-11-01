@@ -189,6 +189,7 @@ src_msvcrt_common=\
   misc/mbsrtowcs.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
+  misc/wcstof.c \
   misc/wcrtomb.c \
   misc/wcsrtombs.c \
   stdio/_fgetc_nolock.c \
@@ -1325,7 +1326,6 @@ src_libmingwex=\
   misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
-  misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c \
   misc/btowc.c           misc/wctob.c \
