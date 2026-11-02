@@ -6,7 +6,7 @@
 #ifndef	_SYS_CDEFS_H
 #define _SYS_CDEFS_H
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #ifdef	__cplusplus
 #define	__BEGIN_DECLS	extern "C" {

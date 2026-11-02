@@ -6,7 +6,7 @@
 #ifndef _INC_CRTDBG
 #define _INC_CRTDBG
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <sal.h>
 
 _CRT_BEGIN_C_HEADER

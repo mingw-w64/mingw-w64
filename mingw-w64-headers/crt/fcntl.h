@@ -6,7 +6,7 @@
 #ifndef _INC_FCNTL
 #define _INC_FCNTL
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <io.h>
 
 #define _O_RDONLY 0x0000

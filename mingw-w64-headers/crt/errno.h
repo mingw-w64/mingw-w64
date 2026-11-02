@@ -6,7 +6,7 @@
 #ifndef _INC_ERRNO
 #define _INC_ERRNO
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

@@ -6,7 +6,7 @@
 #ifndef _INC_CONIO
 #define _INC_CONIO
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <corecrt_stdio_config.h>
 #include <corecrt_wconio.h>
 #include <stddef.h>

@@ -14,7 +14,7 @@
 #include <intrin.h>
 #include <assert.h>
 #include <fvec.h>
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #if defined(_ENABLE_VEC_DEBUG)
 #include <iostream>

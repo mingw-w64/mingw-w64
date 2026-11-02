@@ -135,7 +135,7 @@
 #define _MINGW_FLOAT_H_
 
 /* All the headers include this file. */
-#include <crtdefs.h>
+#include <corecrt.h>
 
 /*
  * Functions and definitions for controlling the FPU.

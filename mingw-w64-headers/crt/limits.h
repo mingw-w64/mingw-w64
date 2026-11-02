@@ -6,7 +6,7 @@
 #ifndef _INC_LIMITS
 #define _INC_LIMITS
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 /*
  * File system limits

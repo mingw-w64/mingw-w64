@@ -7,7 +7,7 @@
 #ifndef _LIBGEN_H_
 #define _LIBGEN_H_
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

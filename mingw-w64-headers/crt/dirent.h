@@ -10,7 +10,7 @@
 #define _DIRENT_H_
 
 /* All the headers include this file. */
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #include <io.h>
 

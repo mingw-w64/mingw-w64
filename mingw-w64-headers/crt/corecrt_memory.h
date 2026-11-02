@@ -6,7 +6,7 @@
 #ifndef _INC_CORECRT_MEMORY
 #define _INC_CORECRT_MEMORY
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

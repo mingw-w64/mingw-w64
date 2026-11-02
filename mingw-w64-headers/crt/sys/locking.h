@@ -11,7 +11,7 @@
 #endif
 
 /* All the headers include this file. */
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #define _LK_UNLCK 0
 #define _LK_LOCK 1

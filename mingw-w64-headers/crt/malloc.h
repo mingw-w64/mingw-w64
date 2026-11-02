@@ -6,7 +6,7 @@
 #ifndef _MALLOC_H_
 #define _MALLOC_H_
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <corecrt_malloc.h>
 
 _CRT_BEGIN_C_HEADER

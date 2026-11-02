@@ -10,7 +10,7 @@
 #error Only Win32 target is supported!
 #endif
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #ifndef _INO_T_DEFINED
 #define _INO_T_DEFINED

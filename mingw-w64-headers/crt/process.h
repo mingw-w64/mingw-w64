@@ -6,7 +6,7 @@
 #ifndef _INC_PROCESS
 #define _INC_PROCESS
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <corecrt_startup.h>
 #include <corecrt_wprocess.h>
 

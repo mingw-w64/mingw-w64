@@ -6,7 +6,7 @@
 #ifndef _INC_EXCPT
 #define _INC_EXCPT
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

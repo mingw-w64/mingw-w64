@@ -6,7 +6,7 @@
 #ifndef _INC_SETJMP
 #define _INC_SETJMP
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

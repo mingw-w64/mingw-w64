@@ -6,7 +6,7 @@
 #ifndef _INC_SIGNAL
 #define _INC_SIGNAL
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <pthread_signal.h>
 
 _CRT_BEGIN_C_HEADER

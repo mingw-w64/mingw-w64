@@ -6,7 +6,7 @@
 #ifndef _INC_STRING
 #define _INC_STRING
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <corecrt_memory.h>
 #include <corecrt_wstring.h>
 

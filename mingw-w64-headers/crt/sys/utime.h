@@ -10,7 +10,7 @@
 #error Only Win32 target is supported!
 #endif
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 

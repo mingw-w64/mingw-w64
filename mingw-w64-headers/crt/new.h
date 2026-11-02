@@ -10,7 +10,7 @@
 
 #ifdef __cplusplus
 #include <new>
-#include <crtdefs.h>
+#include <corecrt.h>
 #pragma push_macro("new")
 #undef new
 #endif

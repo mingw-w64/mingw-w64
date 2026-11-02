@@ -6,7 +6,7 @@
 #ifndef _TIME_H_
 #define _TIME_H_
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <corecrt_wtime.h>
 
 #ifndef _WIN32

@@ -33,7 +33,7 @@
 #define __INTRIN_H_
 #ifndef RC_INVOKED
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #ifndef __CYGWIN__
 #include <setjmp.h>
 #endif

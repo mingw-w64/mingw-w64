@@ -6,7 +6,7 @@
 #ifndef _IO_H_
 #define _IO_H_
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <string.h>
 #include <corecrt_wio.h>
 

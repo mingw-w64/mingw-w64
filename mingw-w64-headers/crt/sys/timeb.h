@@ -6,7 +6,7 @@
 #ifndef _TIMEB_H_
 #define _TIMEB_H_
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #ifndef _WIN32
 #error Only Win32 target is supported!

@@ -6,7 +6,7 @@
 #ifndef _YVALS
 #define _YVALS
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #define _CPPLIB_VER 405
 #define __PURE_APPDOMAIN_GLOBAL

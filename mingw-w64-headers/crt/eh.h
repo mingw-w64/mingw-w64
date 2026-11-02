@@ -10,7 +10,7 @@
 #error eh.h is only for C++!
 #endif
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <typeinfo>
 
 #ifndef RC_INVOKED

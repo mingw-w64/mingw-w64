@@ -6,7 +6,7 @@
 #ifndef _INC_DOS
 #define _INC_DOS
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <io.h>
 
 _CRT_BEGIN_C_HEADER

@@ -6,7 +6,7 @@
 #ifndef _INC_DIRECT
 #define _INC_DIRECT
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <io.h>
 #include <corecrt_wdirect.h>
 

@@ -6,7 +6,7 @@
 #ifndef _INC_TCHAR
 #define _INC_TCHAR
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #ifdef _STRSAFE_H_INCLUDED_
 #error Need to include strsafe.h after tchar.h

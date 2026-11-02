@@ -6,7 +6,7 @@
 #ifndef _INC_MBCTYPE
 #define _INC_MBCTYPE
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <ctype.h>
 
 _CRT_BEGIN_C_HEADER

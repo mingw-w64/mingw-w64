@@ -6,7 +6,7 @@
 #ifndef _INC_STDEXCPT
 #define _INC_STDEXCPT
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #ifdef __cplusplus
 #include <exception>

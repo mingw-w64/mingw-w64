@@ -6,7 +6,7 @@
 #ifndef _INC_SEARCH
 #define _INC_SEARCH
 
-#include <crtdefs.h>
+#include <corecrt.h>
 #include <stddef.h>
 
 _CRT_BEGIN_C_HEADER

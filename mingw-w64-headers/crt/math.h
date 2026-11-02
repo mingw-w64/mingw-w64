@@ -10,7 +10,7 @@
 #pragma GCC system_header
 #endif /* __GNUC__ */
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 #define	_DOMAIN		1	/* domain error in argument */
 #define	_SING		2	/* singularity */

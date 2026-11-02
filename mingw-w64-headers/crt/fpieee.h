@@ -6,7 +6,7 @@
 #ifndef _INC_FPIEEE
 #define _INC_FPIEEE
 
-#include <crtdefs.h>
+#include <corecrt.h>
 
 _CRT_BEGIN_C_HEADER
 
