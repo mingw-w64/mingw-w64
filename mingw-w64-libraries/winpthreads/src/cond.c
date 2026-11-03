@@ -25,30 +25,16 @@
  * 22-9-2010 Partly based on the ACE framework implementation.
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#define WINPTHREAD_COND_DECL WINPTHREAD_API
 
-#include <malloc.h>
-#include <stdio.h>
-#include <time.h>
+#include "misc.h"
+
+#include <stdlib.h> /* calloc, free */
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-#define WINPTHREAD_COND_DECL WINPTHREAD_API
-
-/* public header files */
-#include "pthread.h"
-#include "pthread_time.h"
-/* internal header files */
-#include "cond.h"
-#include "thread.h"
-#include "winpthreads-time.h"
-
-#include "pthread_compat.h"
-
-int __pthread_shallcancel (void);
+int __pthread_shallcancel (void); /* in thread.c */
 
 static int do_sema_b_wait (HANDLE sema, int nointerrupt, DWORD timeout,CRITICAL_SECTION *cs, LONG *val);
 static int do_sema_b_release(HANDLE sema, LONG count,CRITICAL_SECTION *cs, LONG *val);

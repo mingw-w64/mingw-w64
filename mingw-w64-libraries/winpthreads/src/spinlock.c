@@ -20,19 +20,12 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include "misc.h"
 
-#include <stdlib.h>
+#include <stdlib.h> /* calloc, free */
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "misc.h"
 
 /**
  * Reference:

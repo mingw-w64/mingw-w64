@@ -25,6 +25,9 @@
 
 #include "misc.h"
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 #define LIFE_RWLOCK 0xBAB1F0ED
 #define DEAD_RWLOCK 0xDEADB0EF
 

@@ -23,9 +23,6 @@
 #ifndef WINPTHREADS_TIME_H
 #define WINPTHREADS_TIME_H
 
-/* public header files */
-#include "pthread_time.h"
-/* internal header files */
 #include "misc.h"
 
 /**

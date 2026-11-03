@@ -23,10 +23,13 @@
 #ifndef WIN_PTHREAD_H
 #define WIN_PTHREAD_H
 
-#include <fenv.h>
-#include <setjmp.h>
-/* internal header files */
 #include "misc.h"
+
+#include <fenv.h> /* fenv_t */
+#include <setjmp.h> /* jmp_buf */
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 
 #define LIFE_THREAD 0xBAB1F00D
 #define DEAD_THREAD 0xDEADBEEF

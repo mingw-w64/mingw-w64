@@ -20,24 +20,15 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#define WINPTHREAD_RWLOCK_DECL WINPTHREAD_API
+
+#include "misc.h"
 
 #include <assert.h>
-#include <malloc.h>
-#include <stdio.h>
+#include <stdlib.h> /* calloc, free */
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-
-#define WINPTHREAD_RWLOCK_DECL WINPTHREAD_API
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "rwlock.h"
-#include "thread.h"
 
 static pthread_spinlock_t rwl_global = PTHREAD_SPINLOCK_INITIALIZER;
 

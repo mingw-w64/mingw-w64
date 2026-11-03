@@ -23,6 +23,19 @@
 #ifndef WIN_PTHREADS_MISC_H
 #define WIN_PTHREADS_MISC_H
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+/* Public headers */
+#include <pthread.h>
+#include <pthread_compat.h>
+#include <pthread_signal.h>
+#include <pthread_time.h>
+#include <pthread_unistd.h>
+#include <sched.h>
+#include <semaphore.h>
+
 #include <sdkddkver.h>
 
 /**
@@ -270,5 +283,13 @@ int winpthreads_set_thread_description_unicode (void *, const wchar_t *);
  * Returns non-zero if `handle` is valid and zero otherwise.
  */
 int winpthreads_validate_handle (void *handle);
+
+/* Internal headers */
+#include "barrier.h"
+#include "cond.h"
+#include "rwlock.h"
+#include "sem.h"
+#include "thread.h"
+#include "winpthreads-time.h"
 
 #endif

@@ -25,6 +25,9 @@
 
 #include "misc.h"
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 #define CHECK_COND(c)                                                   \
     do {                                                                \
         if (!(c) || !*c || (*c == PTHREAD_COND_INITIALIZER)             \

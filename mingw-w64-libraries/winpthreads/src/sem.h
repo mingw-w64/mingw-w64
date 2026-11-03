@@ -25,6 +25,9 @@
 
 #include "misc.h"
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 #define LIFE_SEM 0xBAB1F00D
 #define DEAD_SEM 0xDEADBEEF
 

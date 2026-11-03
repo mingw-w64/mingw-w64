@@ -21,22 +21,15 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#define WINPTHREAD_MUTEX_DECL WINPTHREAD_API
 
-#include <limits.h>
-#include <stdlib.h>
+#include "misc.h"
+
+#include <limits.h> /* UINT_MAX */
+#include <stdlib.h> /* free, malloc */
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-
-#define WINPTHREAD_MUTEX_DECL WINPTHREAD_API
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "winpthreads-time.h"
 
 /**
  * Reference:

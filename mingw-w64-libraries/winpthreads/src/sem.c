@@ -20,25 +20,14 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include "misc.h"
 
-#include <malloc.h>
-#include <stdio.h>
+#include <stdlib.h> /* calloc, free */
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-/* public header files */
-#include "pthread.h"
-#include "semaphore.h"
-/* internal header files */
-#include "sem.h"
-#include "thread.h"
-#include "winpthreads-time.h"
-
-int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
+int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout); /* cond.c */
 
 static int
 sem_result (int res)
