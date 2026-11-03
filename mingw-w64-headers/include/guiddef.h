@@ -25,7 +25,7 @@ typedef struct _GUID {
 #endif
 #endif
 
-#if defined(__cplusplus) && (USE___UUIDOF == 0)
+#if defined(__cplusplus) && (__MINGW_USE___UUIDOF == 0)
 extern "C++" {
 #if __cpp_constexpr >= 200704l && __cpp_inline_variables >= 201606L
 __extension__ template<typename T> struct __mingw_uuidof_s;

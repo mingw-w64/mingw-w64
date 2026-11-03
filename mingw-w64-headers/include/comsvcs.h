@@ -3387,7 +3387,7 @@ extern "C"{
   void __RPC_STUB IDispenserDriver_DestroyResourceS_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-#if defined(USE_UUIDOF_FOR_IID_) && USE___UUIDOF != 0
+#if defined(USE_UUIDOF_FOR_IID_) && __MINGW_USE___UUIDOF != 0
 #define IID_IHolder __uuidof(IIHolder)
 #define IID_IDispenserManager __uuidof(IDispenserManager)
 #define IID_IDispenserDriver __uuidof(IDispenserDriver)

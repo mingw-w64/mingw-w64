@@ -43,9 +43,9 @@
 #endif /* __GNUC__ */
 
 #ifdef _MSC_VER
-#define USE___UUIDOF	1
+#define __MINGW_USE___UUIDOF	1
 #else
-#define USE___UUIDOF	0
+#define __MINGW_USE___UUIDOF	0
 #endif
 
 #if !defined(_MSC_VER) && !defined(_inline)
@@ -546,7 +546,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 
 /* Macros for __uuidof template-based emulation */
-#if defined(__cplusplus) && (USE___UUIDOF == 0)
+#if defined(__cplusplus) && (__MINGW_USE___UUIDOF == 0)
 
 #if __cpp_constexpr >= 200704l && __cpp_inline_variables >= 201606L
 #define __CRT_UUID_DECL(type,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)    \

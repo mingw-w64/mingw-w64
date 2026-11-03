@@ -8,7 +8,7 @@
 
 #include <_mingw.h>
 
-#if !defined(RC_INVOKED) && USE___UUIDOF != 0
+#if !defined(RC_INVOKED) && __MINGW_USE___UUIDOF != 0
 
 #ifndef __cplusplus
 #error Native compiler support only available in C++ compiler.
