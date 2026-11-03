@@ -35,7 +35,7 @@
 #define complex _Complex
 #endif
 
-#define _Complex_I  (__extension__  1.0iF)
+#define _Complex_I  (__MINGW_EXTENSION  1.0iF)
 
 /* GCC doesn't support _Imaginary type yet, so we don't
    define _Imaginary_I */
@@ -139,7 +139,7 @@ __CRT_INLINE double __MINGW_ATTRIB_CONST cimag (double _Complex _Z)
 
 __CRT_INLINE double _Complex __MINGW_ATTRIB_CONST conj (double _Complex _Z)
 {
-  return __extension__ ~_Z;
+  return __MINGW_EXTENSION ~_Z;
 }
 
 __CRT_INLINE  double __MINGW_ATTRIB_CONST carg (double _Complex _Z)
@@ -165,7 +165,7 @@ __CRT_INLINE float __MINGW_ATTRIB_CONST cimagf (float _Complex _Z)
 
 __CRT_INLINE float _Complex __MINGW_ATTRIB_CONST conjf (float _Complex _Z)
 {
-  return __extension__ ~_Z;
+  return __MINGW_EXTENSION ~_Z;
 }
 
 __CRT_INLINE  float __MINGW_ATTRIB_CONST cargf (float _Complex _Z)
@@ -191,7 +191,7 @@ __CRT_INLINE long double __MINGW_ATTRIB_CONST cimagl (long double _Complex _Z)
 
 __CRT_INLINE long double _Complex __MINGW_ATTRIB_CONST conjl (long double _Complex _Z)
 {
-  return __extension__ ~_Z;
+  return __MINGW_EXTENSION ~_Z;
 }
 
 __CRT_INLINE  long double __MINGW_ATTRIB_CONST cargl (long double _Complex _Z)

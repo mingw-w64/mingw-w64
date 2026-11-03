@@ -18,11 +18,7 @@ typedef unsigned int	u_int;
 typedef unsigned long u_long;
 #pragma pop_macro("u_long")
 
-#if defined(__GNUC__) || \
-    defined(__GNUG__)
-__extension__
-#endif /* gcc / g++ */
-typedef unsigned long long u_int64;
+__MINGW_EXTENSION typedef unsigned long long u_int64;
 
 #endif /* _BSDTYPES_DEFINED */
 

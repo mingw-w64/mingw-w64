@@ -169,7 +169,7 @@
 #ifdef __WIDL__
 #  define __MINGW_EXTENSION
 #else
-#  if defined(__GNUC__) || defined(__GNUG__)
+#  if defined(__GNUC__)
 #    define __MINGW_EXTENSION __extension__
 #  else
 #    define __MINGW_EXTENSION
