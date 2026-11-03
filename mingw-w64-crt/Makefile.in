@@ -932,9 +932,9 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
 	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
 	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
-	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/twalk.c misc/wcstold.c misc/wdirent.c misc/btowc.c \
+	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
+	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
 	misc/ftw64i32.c misc/__mingw_filename_cp.c \
 	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
@@ -1173,7 +1173,6 @@ am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib32_libmingwex_a-tfind.$(OBJEXT) \
 	misc/lib32_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/lib32_libmingwex_a-twalk.$(OBJEXT) \
-	misc/lib32_libmingwex_a-wcstof.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wcstold.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wdirent.$(OBJEXT) \
 	misc/lib32_libmingwex_a-btowc.$(OBJEXT) \
@@ -2623,43 +2622,44 @@ am__lib32_libmsvcrt_common_a_SOURCES_DIST = include/msvcrt.h \
 	misc/__mingw_isleadbyte_cp.c misc/__mingw_mbrtowc_cp.c \
 	misc/__mingw_wcrtomb_cp.c misc/_onexit.c misc/exit.c \
 	misc/mbrlen.c misc/mbrtowc.c misc/mbsinit.c misc/mbsrtowcs.c \
-	misc/onexit_table.c misc/register_tls_atexit.c misc/wcrtomb.c \
-	misc/wcsrtombs.c stdio/_fgetc_nolock.c stdio/_fputc_nolock.c \
-	stdio/_getwc_nolock.c stdio/_putc_nolock.c \
-	stdio/_putwc_nolock.c stdio/_strtof_l.c stdio/_wcstof_l.c \
-	stdio/acrt_iob_func.c stdio/fstat32i64.c stdio/fstat64.c \
-	stdio/strtof.c stdio/snprintf_alias.c stdio/snwprintf_alias.c \
-	stdio/swprintf.c stdio/swprintf_alias.c \
-	stdio/vsnprintf_alias.c stdio/vsnwprintf_alias.c \
-	stdio/vswprintf.c stdio/vswprintf_alias.c stdio/stat32i64.c \
-	stdio/stat64.c stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c \
-	math/cbrtf.c math/copysign.c math/copysignf.c math/coshf.c \
-	math/expf.c math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c \
-	math/fma.c math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c \
-	math/fminf.c math/frexp.c math/hypot.c math/llrint.c \
-	math/llrintf.c math/llround.c math/llroundf.c math/log10f.c \
-	math/logf.c math/lrint.c math/lrintf.c math/lround.c \
-	math/lroundf.c math/modf.c math/modff.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/powf.c math/round.c math/roundf.c math/s_erf.c \
-	math/sf_erf.c math/sinhf.c math/sqrt.c math/sqrtf.c \
-	math/tanhf.c math/tgamma.c math/tgammaf.c math/x86/acosh.c \
-	math/x86/acoshf.c math/x86/asinh.c math/x86/asinhf.c \
-	math/x86/atan2.c math/x86/atanh.c math/x86/atanhf.c \
-	math/x86/ceil.S math/x86/cos.c math/x86/cossin.c \
-	math/x86/exp.c math/x86/exp2.S math/x86/exp2f.S \
-	math/x86/expm1.c math/x86/expm1f.c math/x86/floor.S \
-	math/x86/fmod.c math/x86/ilogb.S math/x86/ilogbf.S \
-	math/x86/log.c math/x86/log1p.S math/x86/log1pf.S \
-	math/x86/log2.S math/x86/log2f.S math/x86/logb.c \
-	math/x86/logbf.c math/x86/nearbyint.S math/x86/nearbyintf.S \
-	math/x86/pow.c math/x86/remainder.S math/x86/remainderf.S \
-	math/x86/remquo.S math/x86/remquof.S math/x86/rint.c \
-	math/x86/rintf.c math/x86/sin.c math/x86/trunc.S \
-	math/x86/truncf.S math/x86/acosf.c math/x86/asinf.c \
-	math/x86/atan2f.c math/x86/atanf.c math/x86/ceilf.S \
-	math/x86/cosf.c math/x86/floorf.S math/x86/fmodf.c \
-	math/x86/sinf.c math/x86/tanf.c
+	misc/onexit_table.c misc/register_tls_atexit.c misc/wcstof.c \
+	misc/wcrtomb.c misc/wcsrtombs.c stdio/_fgetc_nolock.c \
+	stdio/_fputc_nolock.c stdio/_getwc_nolock.c \
+	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_strtof_l.c \
+	stdio/_wcstof_l.c stdio/acrt_iob_func.c stdio/fstat32i64.c \
+	stdio/fstat64.c stdio/strtof.c stdio/snprintf_alias.c \
+	stdio/snwprintf_alias.c stdio/swprintf.c \
+	stdio/swprintf_alias.c stdio/vsnprintf_alias.c \
+	stdio/vsnwprintf_alias.c stdio/vswprintf.c \
+	stdio/vswprintf_alias.c stdio/stat32i64.c stdio/stat64.c \
+	stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c math/cbrtf.c \
+	math/copysign.c math/copysignf.c math/coshf.c math/expf.c \
+	math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c math/fma.c \
+	math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c math/fminf.c \
+	math/frexp.c math/hypot.c math/llrint.c math/llrintf.c \
+	math/llround.c math/llroundf.c math/log10f.c math/logf.c \
+	math/lrint.c math/lrintf.c math/lround.c math/lroundf.c \
+	math/modf.c math/modff.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/powf.c math/round.c \
+	math/roundf.c math/s_erf.c math/sf_erf.c math/sinhf.c \
+	math/sqrt.c math/sqrtf.c math/tanhf.c math/tgamma.c \
+	math/tgammaf.c math/x86/acosh.c math/x86/acoshf.c \
+	math/x86/asinh.c math/x86/asinhf.c math/x86/atan2.c \
+	math/x86/atanh.c math/x86/atanhf.c math/x86/ceil.S \
+	math/x86/cos.c math/x86/cossin.c math/x86/exp.c \
+	math/x86/exp2.S math/x86/exp2f.S math/x86/expm1.c \
+	math/x86/expm1f.c math/x86/floor.S math/x86/fmod.c \
+	math/x86/ilogb.S math/x86/ilogbf.S math/x86/log.c \
+	math/x86/log1p.S math/x86/log1pf.S math/x86/log2.S \
+	math/x86/log2f.S math/x86/logb.c math/x86/logbf.c \
+	math/x86/nearbyint.S math/x86/nearbyintf.S math/x86/pow.c \
+	math/x86/remainder.S math/x86/remainderf.S math/x86/remquo.S \
+	math/x86/remquof.S math/x86/rint.c math/x86/rintf.c \
+	math/x86/sin.c math/x86/trunc.S math/x86/truncf.S \
+	math/x86/acosf.c math/x86/asinf.c math/x86/atan2f.c \
+	math/x86/atanf.c math/x86/ceilf.S math/x86/cosf.c \
+	math/x86/floorf.S math/x86/fmodf.c math/x86/sinf.c \
+	math/x86/tanf.c
 am__objects_132 =  \
 	misc/lib32_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEXT) \
 	misc/lib32_libmsvcrt_common_a-__mingw_mbrtowc_cp.$(OBJEXT) \
@@ -2672,6 +2672,7 @@ am__objects_132 =  \
 	misc/lib32_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT) \
 	misc/lib32_libmsvcrt_common_a-onexit_table.$(OBJEXT) \
 	misc/lib32_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT) \
+	misc/lib32_libmsvcrt_common_a-wcstof.$(OBJEXT) \
 	misc/lib32_libmsvcrt_common_a-wcrtomb.$(OBJEXT) \
 	misc/lib32_libmsvcrt_common_a-wcsrtombs.$(OBJEXT) \
 	stdio/lib32_libmsvcrt_common_a-_fgetc_nolock.$(OBJEXT) \
@@ -4016,9 +4017,9 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
 	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
 	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
-	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/twalk.c misc/wcstold.c misc/wdirent.c misc/btowc.c \
+	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
+	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
 	misc/ftw64i32.c misc/__mingw_filename_cp.c \
 	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
@@ -4258,7 +4259,6 @@ am__objects_189 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/lib64_libmingwex_a-tfind.$(OBJEXT) \
 	misc/lib64_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/lib64_libmingwex_a-twalk.$(OBJEXT) \
-	misc/lib64_libmingwex_a-wcstof.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wcstold.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wdirent.$(OBJEXT) \
 	misc/lib64_libmingwex_a-btowc.$(OBJEXT) \
@@ -4775,43 +4775,44 @@ am__lib64_libmsvcrt_common_a_SOURCES_DIST = include/msvcrt.h \
 	misc/__mingw_isleadbyte_cp.c misc/__mingw_mbrtowc_cp.c \
 	misc/__mingw_wcrtomb_cp.c misc/_onexit.c misc/exit.c \
 	misc/mbrlen.c misc/mbrtowc.c misc/mbsinit.c misc/mbsrtowcs.c \
-	misc/onexit_table.c misc/register_tls_atexit.c misc/wcrtomb.c \
-	misc/wcsrtombs.c stdio/_fgetc_nolock.c stdio/_fputc_nolock.c \
-	stdio/_getwc_nolock.c stdio/_putc_nolock.c \
-	stdio/_putwc_nolock.c stdio/_strtof_l.c stdio/_wcstof_l.c \
-	stdio/acrt_iob_func.c stdio/fstat32i64.c stdio/fstat64.c \
-	stdio/strtof.c stdio/snprintf_alias.c stdio/snwprintf_alias.c \
-	stdio/swprintf.c stdio/swprintf_alias.c \
-	stdio/vsnprintf_alias.c stdio/vsnwprintf_alias.c \
-	stdio/vswprintf.c stdio/vswprintf_alias.c stdio/stat32i64.c \
-	stdio/stat64.c stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c \
-	math/cbrtf.c math/copysign.c math/copysignf.c math/coshf.c \
-	math/expf.c math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c \
-	math/fma.c math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c \
-	math/fminf.c math/frexp.c math/hypot.c math/llrint.c \
-	math/llrintf.c math/llround.c math/llroundf.c math/log10f.c \
-	math/logf.c math/lrint.c math/lrintf.c math/lround.c \
-	math/lroundf.c math/modf.c math/modff.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/powf.c math/round.c math/roundf.c math/s_erf.c \
-	math/sf_erf.c math/sinhf.c math/sqrt.c math/sqrtf.c \
-	math/tanhf.c math/tgamma.c math/tgammaf.c math/x86/acosh.c \
-	math/x86/acoshf.c math/x86/asinh.c math/x86/asinhf.c \
-	math/x86/atan2.c math/x86/atanh.c math/x86/atanhf.c \
-	math/x86/ceil.S math/x86/cos.c math/x86/cossin.c \
-	math/x86/exp.c math/x86/exp2.S math/x86/exp2f.S \
-	math/x86/expm1.c math/x86/expm1f.c math/x86/floor.S \
-	math/x86/fmod.c math/x86/ilogb.S math/x86/ilogbf.S \
-	math/x86/log.c math/x86/log1p.S math/x86/log1pf.S \
-	math/x86/log2.S math/x86/log2f.S math/x86/logb.c \
-	math/x86/logbf.c math/x86/nearbyint.S math/x86/nearbyintf.S \
-	math/x86/pow.c math/x86/remainder.S math/x86/remainderf.S \
-	math/x86/remquo.S math/x86/remquof.S math/x86/rint.c \
-	math/x86/rintf.c math/x86/sin.c math/x86/trunc.S \
-	math/x86/truncf.S math/x86/acosf.c math/x86/asinf.c \
-	math/x86/atan2f.c math/x86/atanf.c math/x86/ceilf.S \
-	math/x86/cosf.c math/x86/floorf.S math/x86/fmodf.c \
-	math/x86/sinf.c math/x86/tanf.c
+	misc/onexit_table.c misc/register_tls_atexit.c misc/wcstof.c \
+	misc/wcrtomb.c misc/wcsrtombs.c stdio/_fgetc_nolock.c \
+	stdio/_fputc_nolock.c stdio/_getwc_nolock.c \
+	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_strtof_l.c \
+	stdio/_wcstof_l.c stdio/acrt_iob_func.c stdio/fstat32i64.c \
+	stdio/fstat64.c stdio/strtof.c stdio/snprintf_alias.c \
+	stdio/snwprintf_alias.c stdio/swprintf.c \
+	stdio/swprintf_alias.c stdio/vsnprintf_alias.c \
+	stdio/vsnwprintf_alias.c stdio/vswprintf.c \
+	stdio/vswprintf_alias.c stdio/stat32i64.c stdio/stat64.c \
+	stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c math/cbrtf.c \
+	math/copysign.c math/copysignf.c math/coshf.c math/expf.c \
+	math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c math/fma.c \
+	math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c math/fminf.c \
+	math/frexp.c math/hypot.c math/llrint.c math/llrintf.c \
+	math/llround.c math/llroundf.c math/log10f.c math/logf.c \
+	math/lrint.c math/lrintf.c math/lround.c math/lroundf.c \
+	math/modf.c math/modff.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/powf.c math/round.c \
+	math/roundf.c math/s_erf.c math/sf_erf.c math/sinhf.c \
+	math/sqrt.c math/sqrtf.c math/tanhf.c math/tgamma.c \
+	math/tgammaf.c math/x86/acosh.c math/x86/acoshf.c \
+	math/x86/asinh.c math/x86/asinhf.c math/x86/atan2.c \
+	math/x86/atanh.c math/x86/atanhf.c math/x86/ceil.S \
+	math/x86/cos.c math/x86/cossin.c math/x86/exp.c \
+	math/x86/exp2.S math/x86/exp2f.S math/x86/expm1.c \
+	math/x86/expm1f.c math/x86/floor.S math/x86/fmod.c \
+	math/x86/ilogb.S math/x86/ilogbf.S math/x86/log.c \
+	math/x86/log1p.S math/x86/log1pf.S math/x86/log2.S \
+	math/x86/log2f.S math/x86/logb.c math/x86/logbf.c \
+	math/x86/nearbyint.S math/x86/nearbyintf.S math/x86/pow.c \
+	math/x86/remainder.S math/x86/remainderf.S math/x86/remquo.S \
+	math/x86/remquof.S math/x86/rint.c math/x86/rintf.c \
+	math/x86/sin.c math/x86/trunc.S math/x86/truncf.S \
+	math/x86/acosf.c math/x86/asinf.c math/x86/atan2f.c \
+	math/x86/atanf.c math/x86/ceilf.S math/x86/cosf.c \
+	math/x86/floorf.S math/x86/fmodf.c math/x86/sinf.c \
+	math/x86/tanf.c
 am__objects_237 =  \
 	misc/lib64_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEXT) \
 	misc/lib64_libmsvcrt_common_a-__mingw_mbrtowc_cp.$(OBJEXT) \
@@ -4824,6 +4825,7 @@ am__objects_237 =  \
 	misc/lib64_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT) \
 	misc/lib64_libmsvcrt_common_a-onexit_table.$(OBJEXT) \
 	misc/lib64_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT) \
+	misc/lib64_libmsvcrt_common_a-wcstof.$(OBJEXT) \
 	misc/lib64_libmsvcrt_common_a-wcrtomb.$(OBJEXT) \
 	misc/lib64_libmsvcrt_common_a-wcsrtombs.$(OBJEXT) \
 	stdio/lib64_libmsvcrt_common_a-_fgetc_nolock.$(OBJEXT) \
@@ -5883,9 +5885,9 @@ am__libarm32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
 	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
 	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
-	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/twalk.c misc/wcstold.c misc/wdirent.c misc/btowc.c \
+	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
+	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
 	misc/ftw64i32.c misc/__mingw_filename_cp.c \
 	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
@@ -6107,7 +6109,6 @@ am__objects_282 = crt/libarm32_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-tfind.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-twalk.$(OBJEXT) \
-	misc/libarm32_libmingwex_a-wcstof.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-wcstold.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-wdirent.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-btowc.$(OBJEXT) \
@@ -6371,30 +6372,31 @@ am__libarm32_libmsvcrt_common_a_SOURCES_DIST = include/msvcrt.h \
 	misc/__mingw_isleadbyte_cp.c misc/__mingw_mbrtowc_cp.c \
 	misc/__mingw_wcrtomb_cp.c misc/_onexit.c misc/exit.c \
 	misc/mbrlen.c misc/mbrtowc.c misc/mbsinit.c misc/mbsrtowcs.c \
-	misc/onexit_table.c misc/register_tls_atexit.c misc/wcrtomb.c \
-	misc/wcsrtombs.c stdio/_fgetc_nolock.c stdio/_fputc_nolock.c \
-	stdio/_getwc_nolock.c stdio/_putc_nolock.c \
-	stdio/_putwc_nolock.c stdio/_strtof_l.c stdio/_wcstof_l.c \
-	stdio/acrt_iob_func.c stdio/fstat32i64.c stdio/fstat64.c \
-	stdio/strtof.c stdio/snprintf_alias.c stdio/snwprintf_alias.c \
-	stdio/swprintf.c stdio/swprintf_alias.c \
-	stdio/vsnprintf_alias.c stdio/vsnwprintf_alias.c \
-	stdio/vswprintf.c stdio/vswprintf_alias.c stdio/stat32i64.c \
-	stdio/stat64.c stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c \
-	math/cbrtf.c math/copysign.c math/copysignf.c math/coshf.c \
-	math/expf.c math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c \
-	math/fma.c math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c \
-	math/fminf.c math/frexp.c math/hypot.c math/llrint.c \
-	math/llrintf.c math/llround.c math/llroundf.c math/log10f.c \
-	math/logf.c math/lrint.c math/lrintf.c math/lround.c \
-	math/lroundf.c math/modf.c math/modff.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/powf.c math/round.c math/roundf.c math/s_erf.c \
-	math/sf_erf.c math/sinhf.c math/sqrt.c math/sqrtf.c \
-	math/tanhf.c math/tgamma.c math/tgammaf.c math/cbrtl.c \
-	math/erfl.c math/fdiml.c math/fmal.c math/fmaxl.c math/fminl.c \
-	math/llrintl.c math/llroundl.c math/lrintl.c math/lroundl.c \
-	math/rintl.c math/roundl.c math/tgammal.c math/truncl.c
+	misc/onexit_table.c misc/register_tls_atexit.c misc/wcstof.c \
+	misc/wcrtomb.c misc/wcsrtombs.c stdio/_fgetc_nolock.c \
+	stdio/_fputc_nolock.c stdio/_getwc_nolock.c \
+	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_strtof_l.c \
+	stdio/_wcstof_l.c stdio/acrt_iob_func.c stdio/fstat32i64.c \
+	stdio/fstat64.c stdio/strtof.c stdio/snprintf_alias.c \
+	stdio/snwprintf_alias.c stdio/swprintf.c \
+	stdio/swprintf_alias.c stdio/vsnprintf_alias.c \
+	stdio/vsnwprintf_alias.c stdio/vswprintf.c \
+	stdio/vswprintf_alias.c stdio/stat32i64.c stdio/stat64.c \
+	stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c math/cbrtf.c \
+	math/copysign.c math/copysignf.c math/coshf.c math/expf.c \
+	math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c math/fma.c \
+	math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c math/fminf.c \
+	math/frexp.c math/hypot.c math/llrint.c math/llrintf.c \
+	math/llround.c math/llroundf.c math/log10f.c math/logf.c \
+	math/lrint.c math/lrintf.c math/lround.c math/lroundf.c \
+	math/modf.c math/modff.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/powf.c math/round.c \
+	math/roundf.c math/s_erf.c math/sf_erf.c math/sinhf.c \
+	math/sqrt.c math/sqrtf.c math/tanhf.c math/tgamma.c \
+	math/tgammaf.c math/cbrtl.c math/erfl.c math/fdiml.c \
+	math/fmal.c math/fmaxl.c math/fminl.c math/llrintl.c \
+	math/llroundl.c math/lrintl.c math/lroundl.c math/rintl.c \
+	math/roundl.c math/tgammal.c math/truncl.c
 am__objects_304 = misc/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-__mingw_mbrtowc_cp.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-__mingw_wcrtomb_cp.$(OBJEXT) \
@@ -6406,6 +6408,7 @@ am__objects_304 = misc/libarm32_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEX
 	misc/libarm32_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-onexit_table.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT) \
+	misc/libarm32_libmsvcrt_common_a-wcstof.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-wcrtomb.$(OBJEXT) \
 	misc/libarm32_libmsvcrt_common_a-wcsrtombs.$(OBJEXT) \
 	stdio/libarm32_libmsvcrt_common_a-_fgetc_nolock.$(OBJEXT) \
@@ -7400,9 +7403,9 @@ am__libarm64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
 	misc/mkstemp.c misc/mkdtemp.c misc/sleep.c misc/strsafe.c \
 	misc/tdelete.c misc/tdestroy.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c misc/wcstof.c misc/wcstold.c misc/wdirent.c \
-	misc/btowc.c misc/wctob.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
+	misc/twalk.c misc/wcstold.c misc/wdirent.c misc/btowc.c \
+	misc/wctob.c misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c \
+	misc/wmemmove.c misc/wmempcpy.c misc/wmemset.c \
 	misc/mingw-access.c misc/ftw32.c misc/ftw32i64.c misc/ftw64.c \
 	misc/ftw64i32.c misc/__mingw_filename_cp.c \
 	misc/__mingw_raise_matherr_ret.c misc/__mingw_raise_matherr.c \
@@ -7624,7 +7627,6 @@ am__objects_347 = crt/libarm64_libmingwex_a-loadcfg.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-tfind.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-twalk.$(OBJEXT) \
-	misc/libarm64_libmingwex_a-wcstof.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-wcstold.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-wdirent.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-btowc.$(OBJEXT) \
@@ -7759,30 +7761,31 @@ am__libarm64_libmsvcrt_common_a_SOURCES_DIST = include/msvcrt.h \
 	misc/__mingw_isleadbyte_cp.c misc/__mingw_mbrtowc_cp.c \
 	misc/__mingw_wcrtomb_cp.c misc/_onexit.c misc/exit.c \
 	misc/mbrlen.c misc/mbrtowc.c misc/mbsinit.c misc/mbsrtowcs.c \
-	misc/onexit_table.c misc/register_tls_atexit.c misc/wcrtomb.c \
-	misc/wcsrtombs.c stdio/_fgetc_nolock.c stdio/_fputc_nolock.c \
-	stdio/_getwc_nolock.c stdio/_putc_nolock.c \
-	stdio/_putwc_nolock.c stdio/_strtof_l.c stdio/_wcstof_l.c \
-	stdio/acrt_iob_func.c stdio/fstat32i64.c stdio/fstat64.c \
-	stdio/strtof.c stdio/snprintf_alias.c stdio/snwprintf_alias.c \
-	stdio/swprintf.c stdio/swprintf_alias.c \
-	stdio/vsnprintf_alias.c stdio/vsnwprintf_alias.c \
-	stdio/vswprintf.c stdio/vswprintf_alias.c stdio/stat32i64.c \
-	stdio/stat64.c stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c \
-	math/cbrtf.c math/copysign.c math/copysignf.c math/coshf.c \
-	math/expf.c math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c \
-	math/fma.c math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c \
-	math/fminf.c math/frexp.c math/hypot.c math/llrint.c \
-	math/llrintf.c math/llround.c math/llroundf.c math/log10f.c \
-	math/logf.c math/lrint.c math/lrintf.c math/lround.c \
-	math/lroundf.c math/modf.c math/modff.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/powf.c math/round.c math/roundf.c math/s_erf.c \
-	math/sf_erf.c math/sinhf.c math/sqrt.c math/sqrtf.c \
-	math/tanhf.c math/tgamma.c math/tgammaf.c math/cbrtl.c \
-	math/erfl.c math/fdiml.c math/fmal.c math/fmaxl.c math/fminl.c \
-	math/llrintl.c math/llroundl.c math/lrintl.c math/lroundl.c \
-	math/rintl.c math/roundl.c math/tgammal.c math/truncl.c
+	misc/onexit_table.c misc/register_tls_atexit.c misc/wcstof.c \
+	misc/wcrtomb.c misc/wcsrtombs.c stdio/_fgetc_nolock.c \
+	stdio/_fputc_nolock.c stdio/_getwc_nolock.c \
+	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_strtof_l.c \
+	stdio/_wcstof_l.c stdio/acrt_iob_func.c stdio/fstat32i64.c \
+	stdio/fstat64.c stdio/strtof.c stdio/snprintf_alias.c \
+	stdio/snwprintf_alias.c stdio/swprintf.c \
+	stdio/swprintf_alias.c stdio/vsnprintf_alias.c \
+	stdio/vsnwprintf_alias.c stdio/vswprintf.c \
+	stdio/vswprintf_alias.c stdio/stat32i64.c stdio/stat64.c \
+	stdio/wstat32i64.c stdio/wstat64.c math/cbrt.c math/cbrtf.c \
+	math/copysign.c math/copysignf.c math/coshf.c math/expf.c \
+	math/fabs.c math/fabsf.c math/fdim.c math/fdimf.c math/fma.c \
+	math/fmaf.c math/fmax.c math/fmaxf.c math/fmin.c math/fminf.c \
+	math/frexp.c math/hypot.c math/llrint.c math/llrintf.c \
+	math/llround.c math/llroundf.c math/log10f.c math/logf.c \
+	math/lrint.c math/lrintf.c math/lround.c math/lroundf.c \
+	math/modf.c math/modff.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/powf.c math/round.c \
+	math/roundf.c math/s_erf.c math/sf_erf.c math/sinhf.c \
+	math/sqrt.c math/sqrtf.c math/tanhf.c math/tgamma.c \
+	math/tgammaf.c math/cbrtl.c math/erfl.c math/fdiml.c \
+	math/fmal.c math/fmaxl.c math/fminl.c math/llrintl.c \
+	math/llroundl.c math/lrintl.c math/lroundl.c math/rintl.c \
+	math/roundl.c math/tgammal.c math/truncl.c
 am__objects_353 = misc/libarm64_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-__mingw_mbrtowc_cp.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-__mingw_wcrtomb_cp.$(OBJEXT) \
@@ -7794,6 +7797,7 @@ am__objects_353 = misc/libarm64_libmsvcrt_common_a-__mingw_isleadbyte_cp.$(OBJEX
 	misc/libarm64_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-onexit_table.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT) \
+	misc/libarm64_libmsvcrt_common_a-wcstof.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-wcrtomb.$(OBJEXT) \
 	misc/libarm64_libmsvcrt_common_a-wcsrtombs.$(OBJEXT) \
 	stdio/libarm64_libmsvcrt_common_a-_fgetc_nolock.$(OBJEXT) \
@@ -11008,7 +11012,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-tfind.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-tsearch.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-twalk.Po \
-	misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-wcstold.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-wctob.Po \
 	misc/$(DEPDIR)/lib32_libmingwex_a-wdirent.Po \
@@ -11366,6 +11369,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_common_a-register_tls_atexit.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcsrtombs.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-___mb_cur_max_func.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__p__osplatform.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__sys_errlist.Po \
@@ -11575,7 +11579,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-tfind.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-tsearch.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-twalk.Po \
-	misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-wctob.Po \
 	misc/$(DEPDIR)/lib64_libmingwex_a-wdirent.Po \
@@ -11630,6 +11633,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-register_tls_atexit.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcrtomb.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcsrtombs.Po \
+	misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__daylight.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__dstbias.Po \
 	misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__p___argc.Po \
@@ -11770,7 +11774,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-tfind.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-tsearch.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-twalk.Po \
-	misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-wctob.Po \
 	misc/$(DEPDIR)/libarm32_libmingwex_a-wdirent.Po \
@@ -11808,6 +11811,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-register_tls_atexit.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcrtomb.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcsrtombs.Po \
+	misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__initenv.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argc.Po \
 	misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argv.Po \
@@ -11935,7 +11939,6 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-tfind.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-tsearch.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-twalk.Po \
-	misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-wctob.Po \
 	misc/$(DEPDIR)/libarm64_libmingwex_a-wdirent.Po \
@@ -11958,6 +11961,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-register_tls_atexit.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcrtomb.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcsrtombs.Po \
+	misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__initenv.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argc.Po \
 	misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argv.Po \
@@ -14138,6 +14142,7 @@ src_msvcrt_common = \
   misc/mbsrtowcs.c \
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
+  misc/wcstof.c \
   misc/wcrtomb.c \
   misc/wcsrtombs.c \
   stdio/_fgetc_nolock.c \
@@ -15185,7 +15190,6 @@ src_libmingwex = \
   misc/strsafe.c \
   misc/tdelete.c         misc/tdestroy.c            misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c           \
-  misc/wcstof.c \
   misc/wcstold.c \
   misc/wdirent.c \
   misc/btowc.c           misc/wctob.c \
@@ -18767,8 +18771,6 @@ misc/lib32_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib32_libmingwex_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-wcstold.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-wdirent.$(OBJEXT): misc/$(am__dirstamp) \
@@ -20763,6 +20765,8 @@ misc/lib32_libmsvcrt_common_a-onexit_table.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt_common_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt_common_a-wcrtomb.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt_common_a-wcsrtombs.$(OBJEXT):  \
@@ -22922,8 +22926,6 @@ misc/lib64_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib64_libmingwex_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-wcstold.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-wdirent.$(OBJEXT): misc/$(am__dirstamp) \
@@ -23661,6 +23663,8 @@ misc/lib64_libmsvcrt_common_a-onexit_table.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmsvcrt_common_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmsvcrt_common_a-wcrtomb.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmsvcrt_common_a-wcsrtombs.$(OBJEXT):  \
@@ -25415,8 +25419,6 @@ misc/libarm32_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/libarm32_libmingwex_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-wcstold.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-wdirent.$(OBJEXT): misc/$(am__dirstamp) \
@@ -25826,6 +25828,8 @@ misc/libarm32_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT):  \
 misc/libarm32_libmsvcrt_common_a-onexit_table.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm32_libmsvcrt_common_a-wcstof.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmsvcrt_common_a-wcrtomb.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -27490,8 +27494,6 @@ misc/libarm64_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/libarm64_libmingwex_a-wcstof.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-wcstold.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-wdirent.$(OBJEXT): misc/$(am__dirstamp) \
@@ -27750,6 +27752,8 @@ misc/libarm64_libmsvcrt_common_a-mbsrtowcs.$(OBJEXT):  \
 misc/libarm64_libmsvcrt_common_a-onexit_table.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmsvcrt_common_a-register_tls_atexit.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/libarm64_libmsvcrt_common_a-wcstof.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmsvcrt_common_a-wcrtomb.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -31295,7 +31299,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-tfind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-twalk.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wcstold.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wdirent.Po@am__quote@ # am--include-marker
@@ -31653,6 +31656,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_common_a-register_tls_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcsrtombs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-___mb_cur_max_func.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__p__osplatform.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__sys_errlist.Po@am__quote@ # am--include-marker
@@ -31862,7 +31866,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-tfind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-twalk.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wdirent.Po@am__quote@ # am--include-marker
@@ -31917,6 +31920,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-register_tls_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcsrtombs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__daylight.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__dstbias.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__p___argc.Po@am__quote@ # am--include-marker
@@ -32057,7 +32061,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-tfind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-twalk.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmingwex_a-wdirent.Po@am__quote@ # am--include-marker
@@ -32095,6 +32098,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-register_tls_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcsrtombs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__initenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argv.Po@am__quote@ # am--include-marker
@@ -32222,7 +32226,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-tfind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-tsearch.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-twalk.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-wctob.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmingwex_a-wdirent.Po@am__quote@ # am--include-marker
@@ -32245,6 +32248,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-register_tls_atexit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcrtomb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcsrtombs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__initenv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argv.Po@am__quote@ # am--include-marker
@@ -42239,20 +42243,6 @@ misc/lib32_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/twalk.c' object='misc/lib32_libmingwex_a-twalk.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
-
-misc/lib32_libmingwex_a-wcstof.o: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Tpo -c -o misc/lib32_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib32_libmingwex_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-
-misc/lib32_libmingwex_a-wcstof.obj: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Tpo -c -o misc/lib32_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib32_libmingwex_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
 
 misc/lib32_libmingwex_a-wcstold.o: misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-wcstold.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-wcstold.Tpo -c -o misc/lib32_libmingwex_a-wcstold.o `test -f 'misc/wcstold.c' || echo '$(srcdir)/'`misc/wcstold.c
@@ -55218,6 +55208,20 @@ misc/lib32_libmsvcrt_common_a-register_tls_atexit.obj: misc/register_tls_atexit.
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt_common_a-register_tls_atexit.obj `if test -f 'misc/register_tls_atexit.c'; then $(CYGPATH_W) 'misc/register_tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/misc/register_tls_atexit.c'; fi`
 
+misc/lib32_libmsvcrt_common_a-wcstof.o: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_common_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Tpo -c -o misc/lib32_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib32_libmsvcrt_common_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+
+misc/lib32_libmsvcrt_common_a-wcstof.obj: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_common_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Tpo -c -o misc/lib32_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib32_libmsvcrt_common_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
+
 misc/lib32_libmsvcrt_common_a-wcrtomb.o: misc/wcrtomb.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt_common_a-wcrtomb.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Tpo -c -o misc/lib32_libmsvcrt_common_a-wcrtomb.o `test -f 'misc/wcrtomb.c' || echo '$(srcdir)/'`misc/wcrtomb.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Tpo misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Po
@@ -68112,20 +68116,6 @@ misc/lib64_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
 
-misc/lib64_libmingwex_a-wcstof.o: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Tpo -c -o misc/lib64_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib64_libmingwex_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-
-misc/lib64_libmingwex_a-wcstof.obj: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Tpo -c -o misc/lib64_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib64_libmingwex_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-
 misc/lib64_libmingwex_a-wcstold.o: misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-wcstold.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Tpo -c -o misc/lib64_libmingwex_a-wcstold.o `test -f 'misc/wcstold.c' || echo '$(srcdir)/'`misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Po
@@ -72647,6 +72637,20 @@ misc/lib64_libmsvcrt_common_a-register_tls_atexit.obj: misc/register_tls_atexit.
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/register_tls_atexit.c' object='misc/lib64_libmsvcrt_common_a-register_tls_atexit.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcrt_common_a-register_tls_atexit.obj `if test -f 'misc/register_tls_atexit.c'; then $(CYGPATH_W) 'misc/register_tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/misc/register_tls_atexit.c'; fi`
+
+misc/lib64_libmsvcrt_common_a-wcstof.o: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcrt_common_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Tpo -c -o misc/lib64_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib64_libmsvcrt_common_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+
+misc/lib64_libmsvcrt_common_a-wcstof.obj: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcrt_common_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Tpo -c -o misc/lib64_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/lib64_libmsvcrt_common_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
 
 misc/lib64_libmsvcrt_common_a-wcrtomb.o: misc/wcrtomb.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmsvcrt_common_a-wcrtomb.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcrtomb.Tpo -c -o misc/lib64_libmsvcrt_common_a-wcrtomb.o `test -f 'misc/wcrtomb.c' || echo '$(srcdir)/'`misc/wcrtomb.c
@@ -82952,20 +82956,6 @@ misc/libarm32_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
 
-misc/libarm32_libmingwex_a-wcstof.o: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Tpo -c -o misc/libarm32_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm32_libmingwex_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-
-misc/libarm32_libmingwex_a-wcstof.obj: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Tpo -c -o misc/libarm32_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm32_libmingwex_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-
 misc/libarm32_libmingwex_a-wcstold.o: misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-wcstold.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Tpo -c -o misc/libarm32_libmingwex_a-wcstold.o `test -f 'misc/wcstold.c' || echo '$(srcdir)/'`misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Tpo misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Po
@@ -85527,6 +85517,20 @@ misc/libarm32_libmsvcrt_common_a-register_tls_atexit.obj: misc/register_tls_atex
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/register_tls_atexit.c' object='misc/libarm32_libmsvcrt_common_a-register_tls_atexit.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcrt_common_a-register_tls_atexit.obj `if test -f 'misc/register_tls_atexit.c'; then $(CYGPATH_W) 'misc/register_tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/misc/register_tls_atexit.c'; fi`
+
+misc/libarm32_libmsvcrt_common_a-wcstof.o: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcrt_common_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Tpo -c -o misc/libarm32_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm32_libmsvcrt_common_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+
+misc/libarm32_libmsvcrt_common_a-wcstof.obj: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcrt_common_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Tpo -c -o misc/libarm32_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm32_libmsvcrt_common_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
 
 misc/libarm32_libmsvcrt_common_a-wcrtomb.o: misc/wcrtomb.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmsvcrt_common_a-wcrtomb.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcrtomb.Tpo -c -o misc/libarm32_libmsvcrt_common_a-wcrtomb.o `test -f 'misc/wcrtomb.c' || echo '$(srcdir)/'`misc/wcrtomb.c
@@ -95216,20 +95220,6 @@ misc/libarm64_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
 
-misc/libarm64_libmingwex_a-wcstof.o: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Tpo -c -o misc/libarm64_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm64_libmingwex_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
-
-misc/libarm64_libmingwex_a-wcstof.obj: misc/wcstof.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Tpo -c -o misc/libarm64_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm64_libmingwex_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmingwex_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
-
 misc/libarm64_libmingwex_a-wcstold.o: misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-wcstold.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Tpo -c -o misc/libarm64_libmingwex_a-wcstold.o `test -f 'misc/wcstold.c' || echo '$(srcdir)/'`misc/wcstold.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Tpo misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Po
@@ -96853,6 +96843,20 @@ misc/libarm64_libmsvcrt_common_a-register_tls_atexit.obj: misc/register_tls_atex
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/register_tls_atexit.c' object='misc/libarm64_libmsvcrt_common_a-register_tls_atexit.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmsvcrt_common_a-register_tls_atexit.obj `if test -f 'misc/register_tls_atexit.c'; then $(CYGPATH_W) 'misc/register_tls_atexit.c'; else $(CYGPATH_W) '$(srcdir)/misc/register_tls_atexit.c'; fi`
+
+misc/libarm64_libmsvcrt_common_a-wcstof.o: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmsvcrt_common_a-wcstof.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Tpo -c -o misc/libarm64_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm64_libmsvcrt_common_a-wcstof.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmsvcrt_common_a-wcstof.o `test -f 'misc/wcstof.c' || echo '$(srcdir)/'`misc/wcstof.c
+
+misc/libarm64_libmsvcrt_common_a-wcstof.obj: misc/wcstof.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmsvcrt_common_a-wcstof.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Tpo -c -o misc/libarm64_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Tpo misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/wcstof.c' object='misc/libarm64_libmsvcrt_common_a-wcstof.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libmsvcrt_common_a-wcstof.obj `if test -f 'misc/wcstof.c'; then $(CYGPATH_W) 'misc/wcstof.c'; else $(CYGPATH_W) '$(srcdir)/misc/wcstof.c'; fi`
 
 misc/libarm64_libmsvcrt_common_a-wcrtomb.o: misc/wcrtomb.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmsvcrt_common_a-wcrtomb.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcrtomb.Tpo -c -o misc/libarm64_libmsvcrt_common_a-wcrtomb.o `test -f 'misc/wcrtomb.c' || echo '$(srcdir)/'`misc/wcrtomb.c
@@ -105639,7 +105643,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wdirent.Po
@@ -105997,6 +106000,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-___mb_cur_max_func.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__p__osplatform.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__sys_errlist.Po
@@ -106206,7 +106210,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wdirent.Po
@@ -106261,6 +106264,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__daylight.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__dstbias.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__p___argc.Po
@@ -106401,7 +106405,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wdirent.Po
@@ -106439,6 +106442,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argv.Po
@@ -106566,7 +106570,6 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wdirent.Po
@@ -106589,6 +106592,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argv.Po
@@ -110605,7 +110609,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmingwex_a-wdirent.Po
@@ -110963,6 +110966,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-___mb_cur_max_func.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__p__osplatform.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt_extra_a-__sys_errlist.Po
@@ -111172,7 +111176,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmingwex_a-wdirent.Po
@@ -111227,6 +111230,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__daylight.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__dstbias.Po
 	-rm -f misc/$(DEPDIR)/lib64_libmsvcrt_extra_a-__p___argc.Po
@@ -111367,7 +111371,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmingwex_a-wdirent.Po
@@ -111405,6 +111408,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argc.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libmsvcrt_extra_a-__p___argv.Po
@@ -111532,7 +111536,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-tfind.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-tsearch.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-twalk.Po
-	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wcstold.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wctob.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmingwex_a-wdirent.Po
@@ -111555,6 +111558,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-register_tls_atexit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcrtomb.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcsrtombs.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_common_a-wcstof.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__initenv.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argc.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libmsvcrt_extra_a-__p___argv.Po
