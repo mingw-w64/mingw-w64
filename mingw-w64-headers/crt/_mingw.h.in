@@ -7,12 +7,12 @@
 #ifndef _INC__MINGW_H
 #define _INC__MINGW_H
 
-#include "_mingw_mac.h"
-#include "_mingw_secapi.h"
+#include <_mingw_mac.h>
+#include <_mingw_secapi.h>
 
 /* Include _cygwin.h if we're building a Cygwin application. */
 #ifdef __CYGWIN__
-#include "_cygwin.h"
+#include <_cygwin.h>
 #endif
 
 /* Target specific macro replacement for type "long".  In the Windows API,
