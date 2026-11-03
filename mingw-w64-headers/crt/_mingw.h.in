@@ -28,40 +28,18 @@
 
 /* C/C++ specific language defines.  */
 #ifndef __GNUC__
-# ifndef __MINGW_IMPORT
-#  define __MINGW_IMPORT  __declspec(dllimport)
-# endif
-# ifndef _CRTIMP
-#  define _CRTIMP  __declspec(dllimport)
-# endif
-# define __DECLSPEC_SUPPORTED
-# define __attribute__(x) /* nothing */
-#else /* __GNUC__ */
-# ifdef __declspec
-#  ifndef __MINGW_IMPORT
-/* Note the extern. This is needed to work around GCC's
-limitations in handling dllimport attribute.  */
-#   define __MINGW_IMPORT  extern __attribute__ ((__dllimport__))
-#  endif
 #  ifndef _CRTIMP
-#    undef __USE_CRTIMP
-#    if !defined (_CRTBLD) && !defined (_SYSCRT)
-#      define __USE_CRTIMP 1
-#    endif
-#    ifdef __USE_CRTIMP
-#      define _CRTIMP  __attribute__ ((__dllimport__))
+#    define _CRTIMP __declspec(dllimport)
+#  endif
+#  define __attribute__(x) /* nothing */
+#else /* __GNUC__ */
+#  ifndef _CRTIMP
+#    if defined(__declspec) && !defined (_CRTBLD) && !defined (_SYSCRT)
+#      define _CRTIMP __attribute__ ((__dllimport__))
 #    else
 #      define _CRTIMP
 #    endif
 #  endif
-#  define __DECLSPEC_SUPPORTED
-# else /* __declspec */
-#  undef __DECLSPEC_SUPPORTED
-#  undef __MINGW_IMPORT
-#  ifndef _CRTIMP
-#   define _CRTIMP
-#  endif
-# endif /* __declspec */
 #endif /* __GNUC__ */
 
 #ifdef _MSC_VER
