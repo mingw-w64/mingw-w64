@@ -367,10 +367,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _CRT_INSECURE_DEPRECATE_GLOBALS(_Replacement)
 #endif
 
-#ifndef _CRT_MANAGED_HEAP_DEPRECATE
-#define _CRT_MANAGED_HEAP_DEPRECATE
-#endif
-
 #ifndef _CRT_OBSOLETE
 #define _CRT_OBSOLETE(_NewItem)
 #endif

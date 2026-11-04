@@ -398,8 +398,8 @@ _CRTIMP int __cdecl _CrtIsMemoryBlock(const void * _Memory, unsigned int _Bytes,
 _CRTIMP __checkReturn int __cdecl _CrtReportBlockType(const void * _Memory);
 _CRTIMP _CRT_DUMP_CLIENT __cdecl _CrtGetDumpClient(void);
 _CRTIMP _CRT_DUMP_CLIENT __cdecl _CrtSetDumpClient(_CRT_DUMP_CLIENT _PFnNewDump);
-_CRTIMP _CRT_MANAGED_HEAP_DEPRECATE void __cdecl _CrtMemCheckpoint(_CrtMemState * _State);
-_CRTIMP _CRT_MANAGED_HEAP_DEPRECATE int __cdecl _CrtMemDifference(_CrtMemState * _State, const _CrtMemState * _OldState, const _CrtMemState * _NewState);
+_CRTIMP void __cdecl _CrtMemCheckpoint(_CrtMemState * _State);
+_CRTIMP int __cdecl _CrtMemDifference(_CrtMemState * _State, const _CrtMemState * _OldState, const _CrtMemState * _NewState);
 _CRTIMP void __cdecl _CrtMemDumpAllObjectsSince(const _CrtMemState * _State);
 _CRTIMP void __cdecl _CrtMemDumpStatistics(const _CrtMemState * _State);
 _CRTIMP int __cdecl _CrtDumpMemoryLeaks(void);
