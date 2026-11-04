@@ -186,12 +186,6 @@
 #define __MINGW_NOTHROW
 #endif
 
-#if __MINGW_GNUC_PREREQ (4, 4)
-#define __MINGW_ATTRIB_NO_OPTIMIZE __attribute__((__optimize__ ("0")))
-#else
-#define __MINGW_ATTRIB_NO_OPTIMIZE
-#endif
-
 /**
  * ISO C++11 & ISO C99 requires _Pragma to be implemented.
  * GCC supports _Pragma since 3.0 (https://gcc.gnu.org/pipermail/gcc/2002-March/078934.html)
@@ -319,14 +313,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef _W64
 #define _W64
 #endif
-
-#ifndef _CRTIMP_NOIA64
-#ifdef __ia64__
-#define _CRTIMP_NOIA64
-#else
-#define _CRTIMP_NOIA64 _CRTIMP
-#endif
-#endif /* _CRTIMP_NOIA64 */
 
 #ifndef _CRTIMP2
 #define _CRTIMP2 _CRTIMP
