@@ -218,11 +218,6 @@ _CRT_END_C_HEADER
  * It allows '#include <setjmpex.h>' to override the existing setjmp() and longjmp() definitions.
  */
 
-#pragma push_macro("__has_builtin")
-#ifndef __has_builtin
-  #define __has_builtin(x) 0
-#endif
-
 #ifdef setjmp
 #  undef setjmp
 #endif
@@ -235,7 +230,7 @@ _CRT_END_C_HEADER
 #    define setjmp(BUF) _setjmp((BUF), NULL)
 #  endif
 #elif !defined(_INC_SETJMPEX) && !defined(__aarch64__)
-#  if __has_builtin(__builtin_sponentry)
+#  if __MINGW_HAS_BUILTIN(__builtin_sponentry)
 #    define setjmp(BUF) _setjmp((BUF), __builtin_sponentry())
 #  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
 #    define setjmp(BUF) _setjmp((BUF), mingw_getsp())
@@ -243,7 +238,7 @@ _CRT_END_C_HEADER
 #    define setjmp(BUF) _setjmp((BUF), __builtin_frame_address(0))
 #  endif
 #else
-#  if __has_builtin(__builtin_sponentry)
+#  if __MINGW_HAS_BUILTIN(__builtin_sponentry)
 #    define setjmp(BUF) _setjmpex((BUF), __builtin_sponentry())
 #  elif (__MINGW_GCC_VERSION < 40702) && !defined(__clang__)
 #    define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
@@ -262,5 +257,3 @@ _CRT_END_C_HEADER
 #else
 #  define longjmp longjmp
 #endif
-
-#pragma pop_macro("__has_builtin")

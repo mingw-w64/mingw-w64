@@ -588,12 +588,13 @@ _CRT_BEGIN_C_HEADER
 
 #ifdef __MINGW_INTRIN_INLINE
 
-#ifdef __has_builtin
-#define __MINGW_DEBUGBREAK_IMPL !__has_builtin(__debugbreak)
-#else
-#define __MINGW_DEBUGBREAK_IMPL 1
-#endif
-#if __MINGW_DEBUGBREAK_IMPL == 1
+/* For other headers to detect the presence and provider of these functions */
+/* 1 -> provided by mingw-w64, 0 -> provided by compiler. Both mean they're already provided. */
+#define __MINGW_DEBUGBREAK_IMPL (!__MINGW_HAS_BUILTIN(__debugbreak))
+#define __MINGW_FASTFAIL_IMPL (!__MINGW_HAS_BUILTIN(__fastfail))
+#define __MINGW_PREFETCH_IMPL (!__MINGW_HAS_BUILTIN(__prefetch))
+
+#if !__MINGW_HAS_BUILTIN(__debugbreak)
 void __cdecl __debugbreak(void);
 __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 {
@@ -607,14 +608,9 @@ __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
   __asm__ __volatile__("unimplemented");
 #endif
 }
-#endif /* __MINGW_DEBUGBREAK_IMPL == 1 */
+#endif /* !__MINGW_HAS_BUILTIN(__debugbreak) */
 
-#ifdef __has_builtin
-#define __MINGW_FASTFAIL_IMPL !__has_builtin(__fastfail)
-#else
-#define __MINGW_FASTFAIL_IMPL 1
-#endif
-#if __MINGW_FASTFAIL_IMPL == 1
+#if !__MINGW_HAS_BUILTIN(__fastfail)
 void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int _Code);
 __MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int _Code)
 {
@@ -631,15 +627,10 @@ __MINGW_INTRIN_INLINE void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned i
 #endif
   __builtin_unreachable();
 }
-#endif /* __MINGW_FASTFAIL_IMPL == 1 */
+#endif /* !__MINGW_HAS_BUILTIN(__fastfail) */
 
-#ifdef __has_builtin
-#define __MINGW_PREFETCH_IMPL !__has_builtin(__prefetch)
-#else
-#define __MINGW_PREFETCH_IMPL 1
-#endif
-#if __MINGW_PREFETCH_IMPL == 1
-#if defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
+
+#if !__MINGW_HAS_BUILTIN(__prefetch) && (defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__))
 void __cdecl __prefetch(const void *_Addr);
 __MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *_Addr)
 {
@@ -649,8 +640,7 @@ __MINGW_INTRIN_INLINE void __cdecl __prefetch(const void *_Addr)
   __asm__ __volatile__("prfm pldl1keep, [%0]"::"r"(_Addr));
 #endif
 }
-#endif /* defined(__arm__) || defined(__aarch64__) */
-#endif /* __MINGW_PREFETCH_IMPL == 1 */
+#endif /* !__MINGW_HAS_BUILTIN(__prefetch) && (defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)) */
 
 #endif /* defined(__MINGW_INTRIN_INLINE) */
 
