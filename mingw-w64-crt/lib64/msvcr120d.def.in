@@ -1859,59 +1859,59 @@ atoll
 bsearch
 bsearch_s
 ; btowc ; replaced for consistency with wctob
-cabs
-cabsf
+; cabs replaced by emu because is not C99-compatible
+; cabsf replaced by emu because is not C99-compatible
 ; cabsl ; Can't use long double functions from the CRT on x86
-cacos
-cacosf
-cacosh
-cacoshf
+; cacos replaced by emu because is not C99-compatible
+; cacosf replaced by emu because is not C99-compatible
+; cacosh replaced by emu because is not C99-compatible
+; cacoshf replaced by emu because is not C99-compatible
 ; cacoshl ; Can't use long double functions from the CRT on x86
 ; cacosl ; Can't use long double functions from the CRT on x86
 calloc
-carg
-cargf
+; carg replaced by emu because is not C99-compatible
+; cargf replaced by emu because is not C99-compatible
 ; cargl ; Can't use long double functions from the CRT on x86
-casin
-casinf
-casinh
-casinhf
+; casin replaced by emu because is not C99-compatible
+; casinf replaced by emu because is not C99-compatible
+; casinh replaced by emu because is not C99-compatible
+; casinhf replaced by emu because is not C99-compatible
 ; casinhl ; Can't use long double functions from the CRT on x86
 ; casinl ; Can't use long double functions from the CRT on x86
-catan
-catanf
-catanh
-catanhf
+; catan replaced by emu because is not C99-compatible
+; catanf replaced by emu because is not C99-compatible
+; catanh replaced by emu because is not C99-compatible
+; catanhf replaced by emu because is not C99-compatible
 ; catanhl ; Can't use long double functions from the CRT on x86
 ; catanl ; Can't use long double functions from the CRT on x86
 cbrt
 cbrtf
 ; cbrtl ; Can't use long double functions from the CRT on x86
-ccos
-ccosf
-ccosh
-ccoshf
+; ccos replaced by emu because is not C99-compatible
+; ccosf replaced by emu because is not C99-compatible
+; ccosh replaced by emu because is not C99-compatible
+; ccoshf replaced by emu because is not C99-compatible
 ; ccoshl ; Can't use long double functions from the CRT on x86
 ; ccosl ; Can't use long double functions from the CRT on x86
 ceil
 ceilf
-cexp
-cexpf
+; cexp replaced by emu because is not C99-compatible
+; cexpf replaced by emu because is not C99-compatible
 ; cexpl ; Can't use long double functions from the CRT on x86
-cimag
-cimagf
+; cimag replaced by emu because is not C99-compatible
+; cimagf replaced by emu because is not C99-compatible
 ; cimagl ; Can't use long double functions from the CRT on x86
 clearerr
 clearerr_s
 clock
-clog
-clog10
-clog10f
+; clog replaced by emu because is not C99-compatible
+; clog10 replaced by emu because is not C99-compatible
+; clog10f replaced by emu because is not C99-compatible
 ; clog10l ; Can't use long double functions from the CRT on x86
-clogf
+; clogf replaced by emu because is not C99-compatible
 ; clogl ; Can't use long double functions from the CRT on x86
-conj
-conjf
+; conj replaced by emu because is not C99-compatible
+; conjf replaced by emu because is not C99-compatible
 ; conjl ; Can't use long double functions from the CRT on x86
 copysign
 copysignf
@@ -1920,28 +1920,28 @@ cos
 cosf
 cosh
 coshf
-cpow
-cpowf
+; cpow replaced by emu because is not C99-compatible
+; cpowf replaced by emu because is not C99-compatible
 ; cpowl ; Can't use long double functions from the CRT on x86
-cproj
-cprojf
+; cproj replaced by emu because is not C99-compatible
+; cprojf replaced by emu because is not C99-compatible
 ; cprojl ; Can't use long double functions from the CRT on x86
-creal
-crealf
+; creal replaced by emu because is not C99-compatible
+; crealf replaced by emu because is not C99-compatible
 ; creall ; Can't use long double functions from the CRT on x86
-csin
-csinf
-csinh
-csinhf
+; csin replaced by emu because is not C99-compatible
+; csinf replaced by emu because is not C99-compatible
+; csinh replaced by emu because is not C99-compatible
+; csinhf replaced by emu because is not C99-compatible
 ; csinhl ; Can't use long double functions from the CRT on x86
 ; csinl ; Can't use long double functions from the CRT on x86
-csqrt
-csqrtf
+; csqrt replaced by emu because is not C99-compatible
+; csqrtf replaced by emu because is not C99-compatible
 ; csqrtl ; Can't use long double functions from the CRT on x86
-ctan
-ctanf
-ctanh
-ctanhf
+; ctan replaced by emu because is not C99-compatible
+; ctanf replaced by emu because is not C99-compatible
+; ctanh replaced by emu because is not C99-compatible
+; ctanhf replaced by emu because is not C99-compatible
 ; ctanhl ; Can't use long double functions from the CRT on x86
 ; ctanl ; Can't use long double functions from the CRT on x86
 div

@@ -1761,60 +1761,60 @@ atoll
 bsearch
 bsearch_s
 ; btowc ; replaced for consistency with wctob
-cabs
-cabsf
-cabsl
-cacos
-cacosf
-cacosh
-cacoshf
-cacoshl
-cacosl
+; cabs replaced by emu because is not C99-compatible
+; cabsf replaced by emu because is not C99-compatible
+; cabsl replaced by emu because is not C99-compatible
+; cacos replaced by emu because is not C99-compatible
+; cacosf replaced by emu because is not C99-compatible
+; cacosh replaced by emu because is not C99-compatible
+; cacoshf replaced by emu because is not C99-compatible
+; cacoshl replaced by emu because is not C99-compatible
+; cacosl replaced by emu because is not C99-compatible
 calloc
-carg
-cargf
-cargl
-casin
-casinf
-casinh
-casinhf
-casinhl
-casinl
-catan
-catanf
-catanh
-catanhf
-catanhl
-catanl
+; carg replaced by emu because is not C99-compatible
+; cargf replaced by emu because is not C99-compatible
+; cargl replaced by emu because is not C99-compatible
+; casin replaced by emu because is not C99-compatible
+; casinf replaced by emu because is not C99-compatible
+; casinh replaced by emu because is not C99-compatible
+; casinhf replaced by emu because is not C99-compatible
+; casinhl replaced by emu because is not C99-compatible
+; casinl replaced by emu because is not C99-compatible
+; catan replaced by emu because is not C99-compatible
+; catanf replaced by emu because is not C99-compatible
+; catanh replaced by emu because is not C99-compatible
+; catanhf replaced by emu because is not C99-compatible
+; catanhl replaced by emu because is not C99-compatible
+; catanl replaced by emu because is not C99-compatible
 cbrt
 cbrtf
 cbrtl
-ccos
-ccosf
-ccosh
-ccoshf
-ccoshl
-ccosl
+; ccos replaced by emu because is not C99-compatible
+; ccosf replaced by emu because is not C99-compatible
+; ccosh replaced by emu because is not C99-compatible
+; ccoshf replaced by emu because is not C99-compatible
+; ccoshl replaced by emu because is not C99-compatible
+; ccosl replaced by emu because is not C99-compatible
 ceil
 ceilf
-cexp
-cexpf
-cexpl
-cimag
-cimagf
-cimagl
+; cexp replaced by emu because is not C99-compatible
+; cexpf replaced by emu because is not C99-compatible
+; cexpl replaced by emu because is not C99-compatible
+; cimag replaced by emu because is not C99-compatible
+; cimagf replaced by emu because is not C99-compatible
+; cimagl replaced by emu because is not C99-compatible
 clearerr
 clearerr_s
 clock
-clog
-clog10
-clog10f
-clog10l
-clogf
-clogl
-conj
-conjf
-conjl
+; clog replaced by emu because is not C99-compatible
+; clog10 replaced by emu because is not C99-compatible
+; clog10f replaced by emu because is not C99-compatible
+; clog10l replaced by emu because is not C99-compatible
+; clogf replaced by emu because is not C99-compatible
+; clogl replaced by emu because is not C99-compatible
+; conj replaced by emu because is not C99-compatible
+; conjf replaced by emu because is not C99-compatible
+; conjl replaced by emu because is not C99-compatible
 copysign
 copysignf
 copysignl
@@ -1822,30 +1822,30 @@ cos
 cosf
 cosh
 coshf
-cpow
-cpowf
-cpowl
-cproj
-cprojf
-cprojl
-creal
-crealf
-creall
-csin
-csinf
-csinh
-csinhf
-csinhl
-csinl
-csqrt
-csqrtf
-csqrtl
-ctan
-ctanf
-ctanh
-ctanhf
-ctanhl
-ctanl
+; cpow replaced by emu because is not C99-compatible
+; cpowf replaced by emu because is not C99-compatible
+; cpowl replaced by emu because is not C99-compatible
+; cproj replaced by emu because is not C99-compatible
+; cprojf replaced by emu because is not C99-compatible
+; cprojl replaced by emu because is not C99-compatible
+; creal replaced by emu because is not C99-compatible
+; crealf replaced by emu because is not C99-compatible
+; creall replaced by emu because is not C99-compatible
+; csin replaced by emu because is not C99-compatible
+; csinf replaced by emu because is not C99-compatible
+; csinh replaced by emu because is not C99-compatible
+; csinhf replaced by emu because is not C99-compatible
+; csinhl replaced by emu because is not C99-compatible
+; csinl replaced by emu because is not C99-compatible
+; csqrt replaced by emu because is not C99-compatible
+; csqrtf replaced by emu because is not C99-compatible
+; csqrtl replaced by emu because is not C99-compatible
+; ctan replaced by emu because is not C99-compatible
+; ctanf replaced by emu because is not C99-compatible
+; ctanh replaced by emu because is not C99-compatible
+; ctanhf replaced by emu because is not C99-compatible
+; ctanhl replaced by emu because is not C99-compatible
+; ctanl replaced by emu because is not C99-compatible
 div
 erf
 erfc

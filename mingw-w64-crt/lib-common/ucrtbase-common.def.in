@@ -2236,60 +2236,60 @@ bsearch_s
 ; btowc ; replaced for consistency with wctob
 c16rtomb
 c32rtomb
-cabs
-cabsf
-F_LD64(cabsl) ; Can't use long double functions from the CRT on x86
-cacos
-cacosf
-cacosh
-cacoshf
-F_LD64(cacoshl) ; Can't use long double functions from the CRT on x86
-F_LD64(cacosl) ; Can't use long double functions from the CRT on x86
+; cabs replaced by emu because is not C99-compatible
+; cabsf replaced by emu because is not C99-compatible
+; F_LD64(cabsl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; cacos replaced by emu because is not C99-compatible
+; cacosf replaced by emu because is not C99-compatible
+; cacosh replaced by emu because is not C99-compatible
+; cacoshf replaced by emu because is not C99-compatible
+; F_LD64(cacoshl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(cacosl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 calloc
-carg
-cargf
-F_LD64(cargl) ; Can't use long double functions from the CRT on x86
-casin
-casinf
-casinh
-casinhf
-F_LD64(casinhl) ; Can't use long double functions from the CRT on x86
-F_LD64(casinl) ; Can't use long double functions from the CRT on x86
-catan
-catanf
-catanh
-catanhf
-F_LD64(catanhl) ; Can't use long double functions from the CRT on x86
-F_LD64(catanl) ; Can't use long double functions from the CRT on x86
+; carg replaced by emu because is not C99-compatible
+; cargf replaced by emu because is not C99-compatible
+; F_LD64(cargl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; casin replaced by emu because is not C99-compatible
+; casinf replaced by emu because is not C99-compatible
+; casinh replaced by emu because is not C99-compatible
+; casinhf replaced by emu because is not C99-compatible
+; F_LD64(casinhl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(casinl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; catan replaced by emu because is not C99-compatible
+; catanf replaced by emu because is not C99-compatible
+; catanh replaced by emu because is not C99-compatible
+; catanhf replaced by emu because is not C99-compatible
+; F_LD64(catanhl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(catanl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 cbrt
 cbrtf
 F_LD64(cbrtl) ; Can't use long double functions from the CRT on x86
-ccos
-ccosf
-ccosh
-ccoshf
-F_LD64(ccoshl) ; Can't use long double functions from the CRT on x86
-F_LD64(ccosl) ; Can't use long double functions from the CRT on x86
+; ccos replaced by emu because is not C99-compatible
+; ccosf replaced by emu because is not C99-compatible
+; ccosh replaced by emu because is not C99-compatible
+; ccoshf replaced by emu because is not C99-compatible
+; F_LD64(ccoshl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(ccosl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 ceil
 F_NON_I386(ceilf)
-cexp
-cexpf
-F_LD64(cexpl) ; Can't use long double functions from the CRT on x86
-cimag
-cimagf
-F_LD64(cimagl) ; Can't use long double functions from the CRT on x86
+; cexp replaced by emu because is not C99-compatible
+; cexpf replaced by emu because is not C99-compatible
+; F_LD64(cexpl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; cimag replaced by emu because is not C99-compatible
+; cimagf replaced by emu because is not C99-compatible
+; F_LD64(cimagl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 clearerr
 clearerr_s
 clock
-clog
-clog10
-clog10f
-F_LD64(clog10l) ; Can't use long double functions from the CRT on x86
-clogf
-F_LD64(clogl) ; Can't use long double functions from the CRT on x86
-conj
-conjf
-F_LD64(conjl) ; Can't use long double functions from the CRT on x86
+; clog replaced by emu because is not C99-compatible
+; clog10 replaced by emu because is not C99-compatible
+; clog10f replaced by emu because is not C99-compatible
+; F_LD64(clog10l) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; clogf replaced by emu because is not C99-compatible
+; F_LD64(clogl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; conj replaced by emu because is not C99-compatible
+; conjf replaced by emu because is not C99-compatible
+; F_LD64(conjl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 copysign
 copysignf
 F_LD64(copysignl) ; Can't use long double functions from the CRT on x86
@@ -2297,30 +2297,30 @@ cos
 F_NON_I386(cosf)
 cosh
 F_NON_I386(coshf)
-cpow
-cpowf
-F_LD64(cpowl) ; Can't use long double functions from the CRT on x86
-cproj
-cprojf
-F_LD64(cprojl) ; Can't use long double functions from the CRT on x86
-creal
-crealf
-F_LD64(creall) ; Can't use long double functions from the CRT on x86
-csin
-csinf
-csinh
-csinhf
-F_LD64(csinhl) ; Can't use long double functions from the CRT on x86
-F_LD64(csinl) ; Can't use long double functions from the CRT on x86
-csqrt
-csqrtf
-F_LD64(csqrtl) ; Can't use long double functions from the CRT on x86
-ctan
-ctanf
-ctanh
-ctanhf
-F_LD64(ctanhl) ; Can't use long double functions from the CRT on x86
-F_LD64(ctanl) ; Can't use long double functions from the CRT on x86
+; cpow replaced by emu because is not C99-compatible
+; cpowf replaced by emu because is not C99-compatible
+; F_LD64(cpowl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; cproj replaced by emu because is not C99-compatible
+; cprojf replaced by emu because is not C99-compatible
+; F_LD64(cprojl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; creal replaced by emu because is not C99-compatible
+; crealf replaced by emu because is not C99-compatible
+; F_LD64(creall) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; csin replaced by emu because is not C99-compatible
+; csinf replaced by emu because is not C99-compatible
+; csinh replaced by emu because is not C99-compatible
+; csinhf replaced by emu because is not C99-compatible
+; F_LD64(csinhl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(csinl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; csqrt replaced by emu because is not C99-compatible
+; csqrtf replaced by emu because is not C99-compatible
+; F_LD64(csqrtl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; ctan replaced by emu because is not C99-compatible
+; ctanf replaced by emu because is not C99-compatible
+; ctanh replaced by emu because is not C99-compatible
+; ctanhf replaced by emu because is not C99-compatible
+; F_LD64(ctanhl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
+; F_LD64(ctanl) ; Can't use long double functions from the CRT on x86; replaced by emu because is not C99-compatible
 div
 erf
 erfc
