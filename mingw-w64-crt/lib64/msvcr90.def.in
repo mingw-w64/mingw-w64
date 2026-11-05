@@ -321,7 +321,7 @@ _byteswap_uint64
 _byteswap_ulong
 _byteswap_ushort
 _c_exit
-_cabs DATA
+; _cabs is replaced by emu because it returns incorrect results
 _callnewh
 _calloc_crt
 _cexit

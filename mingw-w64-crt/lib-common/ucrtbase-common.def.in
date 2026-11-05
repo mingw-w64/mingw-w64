@@ -266,7 +266,7 @@ _byteswap_uint64
 _byteswap_ulong
 _byteswap_ushort
 _c_exit
-_cabs DATA ; DATA set manually
+; _cabs is replaced by emu because it returns incorrect results
 _callnewh
 _calloc_base
 F_DEBUG(_calloc_dbg)

@@ -55,8 +55,7 @@ __libm_sse2_tan
 __libm_sse2_tanf
 #endif
 __setusermatherr
-; DATA set manually
-_cabs DATA
+; _cabs is replaced by emu because it returns incorrect results
 _chgsign
 chgsign == _chgsign
 F_LD64(_chgsignl == _chgsign)
