@@ -494,6 +494,8 @@ _CRTIMP __MINGW_ATTRIB_NORETURN void __cdecl _invoke_watson(const wchar_t *expre
 
 #endif
 
+#ifndef _UCRT
+
 struct threadlocaleinfostruct;
 struct threadmbcinfostruct;
 typedef struct threadlocaleinfostruct *pthreadlocinfo;
@@ -513,6 +515,23 @@ typedef struct tagLC_ID {
   unsigned short wCodePage;
 } LC_ID,*LPLC_ID;
 #endif /* _TAGLC_ID_DEFINED */
+
+#else /* _UCRT */
+
+typedef struct __crt_locale_data_public {
+  unsigned short const* _locale_pctype;
+  int _locale_mb_cur_max;
+  unsigned int _locale_lc_codepage;
+} __crt_locale_data_public;
+
+typedef struct __crt_locale_pointers {
+  struct __crt_locale_data*    locinfo;
+  struct __crt_multibyte_data* mbcinfo;
+} __crt_locale_pointers;
+
+typedef __crt_locale_pointers* _locale_t;
+
+#endif
 
 #ifndef __crt_typefix
 #define __crt_typefix(ctype)
