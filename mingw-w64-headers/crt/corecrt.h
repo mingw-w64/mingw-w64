@@ -157,14 +157,6 @@ typedef __time64_t time_t;
 #define _CRT_SECURE_CPP_NOTHROW throw()
 #endif
 
-#ifndef __CRTDECL
-#if !defined(__cplusplus) && defined(__GNUC__)
-#define __CRTDECL __cdecl __attribute__ ((__unused__))
-#else
-#define __CRTDECL __cdecl
-#endif
-#endif
-
 #ifndef _CONST_RETURN
 #ifdef __cplusplus
 #define _CONST_RETURN const

@@ -11,10 +11,6 @@
 #define _CPPLIB_VER 405
 #define __PURE_APPDOMAIN_GLOBAL
 
-#ifndef __CRTDECL
-#define __CRTDECL __cdecl
-#endif
-
 #define _WIN32_C_LIB 1
 
 #define _MULTI_THREAD 1
