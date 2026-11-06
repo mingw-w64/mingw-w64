@@ -17,15 +17,6 @@ _CRT_BEGIN_C_HEADER
 #define _CRT_PACKING 8
 #endif
 
-#ifdef __ERRCODE_DEFINED_MS
-/* #define __ERRCODE_DEFINED_MS */
-typedef int errcode;
-#endif
-
-#ifndef _CRTNOALIAS
-#define _CRTNOALIAS
-#endif
-
 #ifndef _CRTRESTRICT
 #define _CRTRESTRICT
 #endif
