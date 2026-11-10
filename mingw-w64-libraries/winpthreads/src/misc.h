@@ -146,8 +146,7 @@
 #endif
 
 /**
- * For x86 build with mingw-w64, use NT 3.1 as the minimal version and enable
- * Win9x support if not disabled explicitly.
+ * For x86 build with mingw-w64, use NT 3.1 as the minimal version.
  */
 #else /* mingw-w64 */
 
@@ -155,11 +154,19 @@
 #define WINPTHREADS_WINNT WINPTHREADS_WINNT_NT_3_1
 #endif
 
-#ifndef WINPTHREADS_WIN9X
+/**
+ * Enable Win9x support if not disabled explicitly, and minimal Windows version
+ * to be supported is not greater than Windows XP x64.
+ */
+#if !defined(WINPTHREADS_WIN9X) && WINPTHREADS_WINNT <= WINPTHREADS_WINNT_2003
 #define WINPTHREADS_WIN9X 1
 #endif
 
 #endif /* mingw-w64 */
+
+#if defined(WINPTHREADS_WIN9X) && WINPTHREADS_WIN9X && WINPTHREADS_WINNT > WINPTHREADS_WINNT_2003
+#error Win9x support cannot be enabled when WINPTHREADS_WINNT is defined to a value higher than _WIN32_WINNT_WS03
+#endif
 
 /**
  * Native x64, not arm64ec.

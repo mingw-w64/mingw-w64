@@ -42,7 +42,11 @@ You can define `WINPTHREADS_WIN9X` macro to non-zero value in order to build
 `winpthreads` with Win9x support.  
 This macro is only meaningful for x86 and is ignored on other targets.
 
-By default, it is enabled with mingw-w64 and disabled with MSVC.
+This macro can be defined to non-zero value only when `WINPTHREADS_WINNT` macro
+is defined to value of `_WIN32_WINNT_WS03` or lower.
+
+By default, it is enabled with mingw-w64 (if the above condition is true) and
+disabled with MSVC.
 
 ## Linking Against Winpthreads
 
