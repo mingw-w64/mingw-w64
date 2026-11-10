@@ -4,13 +4,13 @@ This library provides POSIX threading APIs for mingw-w64.
 
 ## Supported Windows Versions
 
-In the current state, `winpthreads` can be loaded on Windows NT 4.0 or later,
-and on Windows 98 or later.
+The `winpthreads` library can run on any Windows NT system starting with
+Windows NT 3.1; see configuration details below.
 
-While `winpthreads` can be loaded on some Win9x systems, some parts of
-the library are still not adopted to handle Win9x.
+When configured with Win9x support, `winpthreads` can be loaded on all Win9x
+systems, however it is not functional on Win9x in its current state.
 
-Support for older Windows NT versions and Win9x is in progress.
+Support for Win9x is in progress.
 
 ### Windows NT
 
