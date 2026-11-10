@@ -357,7 +357,7 @@ am__lib32_libcrtdll_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	misc/__p__environ.c misc/__p__fmode.c misc/__p__osver.c \
 	misc/__p__pgmptr.c misc/__p__winmajor.c misc/__p__winminor.c \
 	misc/__p__winver.c misc/__timezone.c misc/__tzname.c \
-	misc/_beginthreadex.c misc/_endthreadex.c \
+	misc/_beginthreadex.c misc/_endthreadex.c misc/_setjmp3.S \
 	stdio/_wfindfirst32.c stdio/_wfindnext32.c stdio/_wstat32.c \
 	stdio/fgetws.c stdio/fputws.c stdio/iob_func.c \
 	misc/__dstbias.c misc/__set_app_type.c misc/_dstbias.c \
@@ -416,8 +416,8 @@ am__lib32_libcrtdll_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	ctype/iswblank.c ctype/iswprint.c ctype/wctrans.c \
 	ctype/wctype.c math/i386__copysignf.c math/nan.c math/nanf.c \
 	math/nanl.c stdio/scanf.S misc/crtdll_stat.h \
-	misc/crtdll__getmainargs.c misc/crtdll_fstat.c \
-	misc/crtdll_stat.c misc/__p__mbctype.c
+	misc/crtdll__getmainargs.c misc/crtdll__longjmpex.c \
+	misc/crtdll_fstat.c misc/crtdll_stat.c misc/__p__mbctype.c
 am__objects_4 = ctype/lib32_libcrtdll_extra_a-__p__pctype.$(OBJEXT) \
 	ctype/lib32_libcrtdll_extra_a-__p__pwctype.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-__daylight.$(OBJEXT) \
@@ -439,6 +439,7 @@ am__objects_4 = ctype/lib32_libcrtdll_extra_a-__p__pctype.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-__tzname.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-_beginthreadex.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-_endthreadex.$(OBJEXT) \
+	misc/lib32_libcrtdll_extra_a-_setjmp3.$(OBJEXT) \
 	stdio/lib32_libcrtdll_extra_a-_wfindfirst32.$(OBJEXT) \
 	stdio/lib32_libcrtdll_extra_a-_wfindnext32.$(OBJEXT) \
 	stdio/lib32_libcrtdll_extra_a-_wstat32.$(OBJEXT) \
@@ -594,6 +595,7 @@ am__objects_15 = $(am__objects_4) $(am__objects_5) $(am__objects_6) \
 	$(am__objects_10) $(am__objects_11) $(am__objects_12) \
 	$(am__objects_14) \
 	misc/lib32_libcrtdll_extra_a-crtdll__getmainargs.$(OBJEXT) \
+	misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-crtdll_fstat.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-crtdll_stat.$(OBJEXT) \
 	misc/lib32_libcrtdll_extra_a-__p__mbctype.$(OBJEXT)
@@ -1963,7 +1965,7 @@ am__lib32_libmsvcrt10_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	misc/__p__environ.c misc/__p__fmode.c misc/__p__osver.c \
 	misc/__p__pgmptr.c misc/__p__winmajor.c misc/__p__winminor.c \
 	misc/__p__winver.c misc/__timezone.c misc/__tzname.c \
-	misc/_beginthreadex.c misc/_endthreadex.c \
+	misc/_beginthreadex.c misc/_endthreadex.c misc/_setjmp3.S \
 	stdio/_wfindfirst32.c stdio/_wfindnext32.c stdio/_wstat32.c \
 	stdio/fgetws.c stdio/fputws.c stdio/iob_func.c \
 	misc/__dstbias.c misc/__set_app_type.c misc/_dstbias.c \
@@ -2021,7 +2023,8 @@ am__lib32_libmsvcrt10_extra_a_SOURCES_DIST = ctype/__p__pctype.c \
 	stdio/vwscanf.c ctype/isblank.c ctype/isprint.c \
 	ctype/iswblank.c ctype/iswprint.c ctype/wctrans.c \
 	ctype/wctype.c math/i386__copysignf.c math/nan.c math/nanf.c \
-	math/nanl.c stdio/scanf.S misc/crtdll__getmainargs.c
+	math/nanl.c stdio/scanf.S misc/crtdll__getmainargs.c \
+	misc/msvcrt10__longjmpex.c
 am__objects_97 =  \
 	ctype/lib32_libmsvcrt10_extra_a-__p__pctype.$(OBJEXT) \
 	ctype/lib32_libmsvcrt10_extra_a-__p__pwctype.$(OBJEXT) \
@@ -2044,6 +2047,7 @@ am__objects_97 =  \
 	misc/lib32_libmsvcrt10_extra_a-__tzname.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-_beginthreadex.$(OBJEXT) \
 	misc/lib32_libmsvcrt10_extra_a-_endthreadex.$(OBJEXT) \
+	misc/lib32_libmsvcrt10_extra_a-_setjmp3.$(OBJEXT) \
 	stdio/lib32_libmsvcrt10_extra_a-_wfindfirst32.$(OBJEXT) \
 	stdio/lib32_libmsvcrt10_extra_a-_wfindnext32.$(OBJEXT) \
 	stdio/lib32_libmsvcrt10_extra_a-_wstat32.$(OBJEXT) \
@@ -2198,7 +2202,8 @@ am__objects_108 = $(am__objects_97) $(am__objects_98) \
 	$(am__objects_99) $(am__objects_100) $(am__objects_101) \
 	$(am__objects_102) $(am__objects_103) $(am__objects_104) \
 	$(am__objects_105) $(am__objects_107) \
-	misc/lib32_libmsvcrt10_extra_a-crtdll__getmainargs.$(OBJEXT)
+	misc/lib32_libmsvcrt10_extra_a-crtdll__getmainargs.$(OBJEXT) \
+	misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.$(OBJEXT)
 @LIB32_TRUE@@W32API_FALSE@am_lib32_libmsvcrt10_extra_a_OBJECTS =  \
 @LIB32_TRUE@@W32API_FALSE@	$(am__objects_108)
 lib32_libmsvcrt10_extra_a_OBJECTS =  \
@@ -3443,12 +3448,14 @@ am__objects_162 = $(am__objects_161) \
 lib32_libucrt_extra_a_OBJECTS = $(am_lib32_libucrt_extra_a_OBJECTS)
 lib32_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 lib32_libucrtapp_extra_a_LIBADD =
-am__lib32_libucrtapp_extra_a_SOURCES_DIST = misc/longjmp.S \
-	misc/setjmp.S string/memchr.c string/memcmp.c string/memcpy.c \
-	string/memmove.c string/memrchr.c string/strchr.c \
-	string/strchrnul.c string/strrchr.c string/strstr.c \
-	string/wcschr.c string/wcsrchr.c string/wcsstr.c
-am__objects_163 = misc/lib32_libucrtapp_extra_a-longjmp.$(OBJEXT) \
+am__lib32_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
+	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	string/memcpy.c string/memmove.c string/memrchr.c \
+	string/strchr.c string/strchrnul.c string/strrchr.c \
+	string/strstr.c string/wcschr.c string/wcsrchr.c \
+	string/wcsstr.c
+am__objects_163 = misc/lib32_libucrtapp_extra_a-_longjmpex.$(OBJEXT) \
+	misc/lib32_libucrtapp_extra_a-longjmp.$(OBJEXT) \
 	misc/lib32_libucrtapp_extra_a-setjmp.$(OBJEXT) \
 	string/lib32_libucrtapp_extra_a-memchr.$(OBJEXT) \
 	string/lib32_libucrtapp_extra_a-memcmp.$(OBJEXT) \
@@ -5358,12 +5365,14 @@ am__objects_255 = $(am__objects_254) \
 lib64_libucrt_extra_a_OBJECTS = $(am_lib64_libucrt_extra_a_OBJECTS)
 lib64_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 lib64_libucrtapp_extra_a_LIBADD =
-am__lib64_libucrtapp_extra_a_SOURCES_DIST = misc/longjmp.S \
-	misc/setjmp.S string/memchr.c string/memcmp.c string/memcpy.c \
-	string/memmove.c string/memrchr.c string/strchr.c \
-	string/strchrnul.c string/strrchr.c string/strstr.c \
-	string/wcschr.c string/wcsrchr.c string/wcsstr.c
-am__objects_256 = misc/lib64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
+am__lib64_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
+	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	string/memcpy.c string/memmove.c string/memrchr.c \
+	string/strchr.c string/strchrnul.c string/strrchr.c \
+	string/strstr.c string/wcschr.c string/wcsrchr.c \
+	string/wcsstr.c
+am__objects_256 = misc/lib64_libucrtapp_extra_a-_longjmpex.$(OBJEXT) \
+	misc/lib64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
 	misc/lib64_libucrtapp_extra_a-setjmp.$(OBJEXT) \
 	string/lib64_libucrtapp_extra_a-memchr.$(OBJEXT) \
 	string/lib64_libucrtapp_extra_a-memcmp.$(OBJEXT) \
@@ -6873,12 +6882,15 @@ libarm32_libucrt_extra_a_OBJECTS =  \
 	$(am_libarm32_libucrt_extra_a_OBJECTS)
 libarm32_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 libarm32_libucrtapp_extra_a_LIBADD =
-am__libarm32_libucrtapp_extra_a_SOURCES_DIST = misc/longjmp.S \
-	misc/setjmp.S string/memchr.c string/memcmp.c string/memcpy.c \
-	string/memmove.c string/memrchr.c string/strchr.c \
-	string/strchrnul.c string/strrchr.c string/strstr.c \
-	string/wcschr.c string/wcsrchr.c string/wcsstr.c
-am__objects_322 = misc/libarm32_libucrtapp_extra_a-longjmp.$(OBJEXT) \
+am__libarm32_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
+	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	string/memcpy.c string/memmove.c string/memrchr.c \
+	string/strchr.c string/strchrnul.c string/strrchr.c \
+	string/strstr.c string/wcschr.c string/wcsrchr.c \
+	string/wcsstr.c
+am__objects_322 =  \
+	misc/libarm32_libucrtapp_extra_a-_longjmpex.$(OBJEXT) \
+	misc/libarm32_libucrtapp_extra_a-longjmp.$(OBJEXT) \
 	misc/libarm32_libucrtapp_extra_a-setjmp.$(OBJEXT) \
 	string/libarm32_libucrtapp_extra_a-memchr.$(OBJEXT) \
 	string/libarm32_libucrtapp_extra_a-memcmp.$(OBJEXT) \
@@ -8279,13 +8291,15 @@ libarm64_libucrt_extra_a_OBJECTS =  \
 	$(am_libarm64_libucrt_extra_a_OBJECTS)
 libarm64_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 libarm64_libucrtapp_extra_a_LIBADD =
-am__libarm64_libucrtapp_extra_a_SOURCES_DIST = misc/longjmp.S \
-	misc/setjmp.S string/memchr.c string/memcmp.c string/memcpy.c \
-	string/memmove.c string/memrchr.c string/strchr.c \
-	string/strchrnul.c string/strrchr.c string/strstr.c \
-	string/wcschr.c string/wcsrchr.c string/wcsstr.c \
-	misc/arm64ec/longjmp.c misc/arm64ec/setjmp.c
-am__objects_373 = misc/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
+am__libarm64_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
+	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	string/memcpy.c string/memmove.c string/memrchr.c \
+	string/strchr.c string/strchrnul.c string/strrchr.c \
+	string/strstr.c string/wcschr.c string/wcsrchr.c \
+	string/wcsstr.c misc/arm64ec/longjmp.c misc/arm64ec/setjmp.c
+am__objects_373 =  \
+	misc/libarm64_libucrtapp_extra_a-_longjmpex.$(OBJEXT) \
+	misc/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
 	misc/libarm64_libucrtapp_extra_a-setjmp.$(OBJEXT) \
 	string/libarm64_libucrtapp_extra_a-memchr.$(OBJEXT) \
 	string/libarm64_libucrtapp_extra_a-memcmp.$(OBJEXT) \
@@ -10925,11 +10939,13 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_errno.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_fmode.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_purecall_handler.Po \
+	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_time64.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_utime64.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wctime64.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wutime64.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__getmainargs.Po \
+	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_fstat.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_stat.Po \
 	misc/$(DEPDIR)/lib32_libcrtdll_extra_a-dummy__setusermatherr.Po \
@@ -11199,6 +11215,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_errno.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_fmode.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_purecall_handler.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_time64.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_utime64.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_wctime64.Po \
@@ -11211,6 +11228,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po \
+	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po \
 	misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po \
@@ -11515,6 +11533,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_at_quick_exit.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_mbsinit.Po \
 	misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_tzset.Po \
+	misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po \
 	misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po \
 	misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Po \
 	misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po \
@@ -11710,6 +11729,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_at_quick_exit.Po \
 	misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_mbsinit.Po \
 	misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_tzset.Po \
+	misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po \
 	misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po \
 	misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Po \
 	misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po \
@@ -11875,6 +11895,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_at_quick_exit.Po \
 	misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_mbsinit.Po \
 	misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_tzset.Po \
+	misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po \
 	misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po \
 	misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Po \
 	misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po \
@@ -12025,6 +12046,7 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_at_quick_exit.Po \
 	misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_mbsinit.Po \
 	misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_tzset.Po \
+	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po \
 	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po \
 	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po \
 	misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po \
@@ -14479,6 +14501,7 @@ src_ucrtbase = \
 
 # Files included in libucrtapp.a
 src_ucrtapp = \
+  misc/_longjmpex.c \
   misc/longjmp.S \
   misc/setjmp.S \
   string/memchr.c \
@@ -14788,6 +14811,7 @@ src_pre_msvcrt20 = \
   misc/__tzname.c \
   misc/_beginthreadex.c \
   misc/_endthreadex.c \
+  misc/_setjmp3.S \
   stdio/_wfindfirst32.c \
   stdio/_wfindnext32.c \
   stdio/_wstat32.c \
@@ -14987,6 +15011,7 @@ src_crtdll = \
   $(src_pre_msvcr120) \
   misc/crtdll_stat.h \
   misc/crtdll__getmainargs.c \
+  misc/crtdll__longjmpex.c \
   misc/crtdll_fstat.c \
   misc/crtdll_stat.c \
   misc/__p__mbctype.c
@@ -15002,7 +15027,8 @@ src_msvcrt10 = \
   $(src_pre_msvcr100) \
   $(src_pre_msvcr110) \
   $(src_pre_msvcr120) \
-  misc/crtdll__getmainargs.c
+  misc/crtdll__getmainargs.c \
+  misc/msvcrt10__longjmpex.c
 
 src_msvcrt20 = \
   $(src_pre_msvcrt40) \
@@ -17695,6 +17721,8 @@ misc/lib32_libcrtdll_extra_a-_beginthreadex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-_endthreadex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libcrtdll_extra_a-_setjmp3.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/$(am__dirstamp):
 	@$(MKDIR_P) stdio
 	@: > stdio/$(am__dirstamp)
@@ -18016,6 +18044,8 @@ math/lib32_libcrtdll_extra_a-nanl.$(OBJEXT): math/$(am__dirstamp) \
 stdio/lib32_libcrtdll_extra_a-scanf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-crtdll__getmainargs.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libcrtdll_extra_a-crtdll_fstat.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
@@ -19900,6 +19930,8 @@ misc/lib32_libmsvcrt10_extra_a-_beginthreadex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt10_extra_a-_endthreadex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt10_extra_a-_setjmp3.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcrt10_extra_a-_wfindfirst32.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmsvcrt10_extra_a-_wfindnext32.$(OBJEXT):  \
@@ -20191,6 +20223,8 @@ math/lib32_libmsvcrt10_extra_a-nanl.$(OBJEXT): math/$(am__dirstamp) \
 stdio/lib32_libmsvcrt10_extra_a-scanf.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmsvcrt10_extra_a-crtdll__getmainargs.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 
 lib32/libmsvcrt10_extra.a: $(lib32_libmsvcrt10_extra_a_OBJECTS) $(lib32_libmsvcrt10_extra_a_DEPENDENCIES) $(EXTRA_lib32_libmsvcrt10_extra_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -21870,6 +21904,8 @@ lib32/libucrt_extra.a: $(lib32_libucrt_extra_a_OBJECTS) $(lib32_libucrt_extra_a_
 	$(AM_V_at)-rm -f lib32/libucrt_extra.a
 	$(AM_V_AR)$(lib32_libucrt_extra_a_AR) lib32/libucrt_extra.a $(lib32_libucrt_extra_a_OBJECTS) $(lib32_libucrt_extra_a_LIBADD)
 	$(AM_V_at)$(RANLIB) lib32/libucrt_extra.a
+misc/lib32_libucrtapp_extra_a-_longjmpex.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libucrtapp_extra_a-longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libucrtapp_extra_a-setjmp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -24448,6 +24484,8 @@ lib64/libucrt_extra.a: $(lib64_libucrt_extra_a_OBJECTS) $(lib64_libucrt_extra_a_
 	$(AM_V_at)-rm -f lib64/libucrt_extra.a
 	$(AM_V_AR)$(lib64_libucrt_extra_a_AR) lib64/libucrt_extra.a $(lib64_libucrt_extra_a_OBJECTS) $(lib64_libucrt_extra_a_LIBADD)
 	$(AM_V_at)$(RANLIB) lib64/libucrt_extra.a
+misc/lib64_libucrtapp_extra_a-_longjmpex.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libucrtapp_extra_a-longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libucrtapp_extra_a-setjmp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -26523,6 +26561,8 @@ libarm32/libucrt_extra.a: $(libarm32_libucrt_extra_a_OBJECTS) $(libarm32_libucrt
 	$(AM_V_at)-rm -f libarm32/libucrt_extra.a
 	$(AM_V_AR)$(libarm32_libucrt_extra_a_AR) libarm32/libucrt_extra.a $(libarm32_libucrt_extra_a_OBJECTS) $(libarm32_libucrt_extra_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libarm32/libucrt_extra.a
+misc/libarm32_libucrtapp_extra_a-_longjmpex.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libucrtapp_extra_a-longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libucrtapp_extra_a-setjmp.$(OBJEXT):  \
@@ -28470,6 +28510,8 @@ libarm64/libucrt_extra.a: $(libarm64_libucrt_extra_a_OBJECTS) $(libarm64_libucrt
 	$(AM_V_at)-rm -f libarm64/libucrt_extra.a
 	$(AM_V_AR)$(libarm64_libucrt_extra_a_AR) libarm64/libucrt_extra.a $(libarm64_libucrt_extra_a_OBJECTS) $(libarm64_libucrt_extra_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libarm64/libucrt_extra.a
+misc/libarm64_libucrtapp_extra_a-_longjmpex.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libucrtapp_extra_a-setjmp.$(OBJEXT):  \
@@ -31212,11 +31254,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_errno.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_fmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_purecall_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_time64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_utime64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wctime64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wutime64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__getmainargs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_fstat.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_stat.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libcrtdll_extra_a-dummy__setusermatherr.Po@am__quote@ # am--include-marker
@@ -31486,6 +31530,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_errno.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_fmode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_purecall_handler.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_time64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_utime64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_wctime64.Po@am__quote@ # am--include-marker
@@ -31498,6 +31543,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po@am__quote@ # am--include-marker
@@ -31802,6 +31848,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_at_quick_exit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_mbsinit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_tzset.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
@@ -31997,6 +32044,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_at_quick_exit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_mbsinit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_tzset.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
@@ -32162,6 +32210,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_at_quick_exit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_mbsinit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_tzset.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po@am__quote@ # am--include-marker
@@ -32312,6 +32361,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_at_quick_exit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_mbsinit.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_tzset.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
@@ -33716,6 +33766,20 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CPPASCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
+misc/lib32_libcrtdll_extra_a-_setjmp3.o: misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libcrtdll_extra_a-_setjmp3.o -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Tpo -c -o misc/lib32_libcrtdll_extra_a-_setjmp3.o `test -f 'misc/_setjmp3.S' || echo '$(srcdir)/'`misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/_setjmp3.S' object='misc/lib32_libcrtdll_extra_a-_setjmp3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libcrtdll_extra_a-_setjmp3.o `test -f 'misc/_setjmp3.S' || echo '$(srcdir)/'`misc/_setjmp3.S
+
+misc/lib32_libcrtdll_extra_a-_setjmp3.obj: misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libcrtdll_extra_a-_setjmp3.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Tpo -c -o misc/lib32_libcrtdll_extra_a-_setjmp3.obj `if test -f 'misc/_setjmp3.S'; then $(CYGPATH_W) 'misc/_setjmp3.S'; else $(CYGPATH_W) '$(srcdir)/misc/_setjmp3.S'; fi`
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/_setjmp3.S' object='misc/lib32_libcrtdll_extra_a-_setjmp3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libcrtdll_extra_a-_setjmp3.obj `if test -f 'misc/_setjmp3.S'; then $(CYGPATH_W) 'misc/_setjmp3.S'; else $(CYGPATH_W) '$(srcdir)/misc/_setjmp3.S'; fi`
+
 stdio/lib32_libcrtdll_extra_a-scanf.o: stdio/scanf.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT stdio/lib32_libcrtdll_extra_a-scanf.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libcrtdll_extra_a-scanf.Tpo -c -o stdio/lib32_libcrtdll_extra_a-scanf.o `test -f 'stdio/scanf.S' || echo '$(srcdir)/'`stdio/scanf.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) stdio/$(DEPDIR)/lib32_libcrtdll_extra_a-scanf.Tpo stdio/$(DEPDIR)/lib32_libcrtdll_extra_a-scanf.Po
@@ -34135,6 +34199,20 @@ stdio/lib32_libmsvcr90_extra_a-scanf.obj: stdio/scanf.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='stdio/scanf.S' object='stdio/lib32_libmsvcr90_extra_a-scanf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcr90_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o stdio/lib32_libmsvcr90_extra_a-scanf.obj `if test -f 'stdio/scanf.S'; then $(CYGPATH_W) 'stdio/scanf.S'; else $(CYGPATH_W) '$(srcdir)/stdio/scanf.S'; fi`
+
+misc/lib32_libmsvcrt10_extra_a-_setjmp3.o: misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-_setjmp3.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-_setjmp3.o `test -f 'misc/_setjmp3.S' || echo '$(srcdir)/'`misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/_setjmp3.S' object='misc/lib32_libmsvcrt10_extra_a-_setjmp3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-_setjmp3.o `test -f 'misc/_setjmp3.S' || echo '$(srcdir)/'`misc/_setjmp3.S
+
+misc/lib32_libmsvcrt10_extra_a-_setjmp3.obj: misc/_setjmp3.S
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-_setjmp3.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-_setjmp3.obj `if test -f 'misc/_setjmp3.S'; then $(CYGPATH_W) 'misc/_setjmp3.S'; else $(CYGPATH_W) '$(srcdir)/misc/_setjmp3.S'; fi`
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/_setjmp3.S' object='misc/lib32_libmsvcrt10_extra_a-_setjmp3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-_setjmp3.obj `if test -f 'misc/_setjmp3.S'; then $(CYGPATH_W) 'misc/_setjmp3.S'; else $(CYGPATH_W) '$(srcdir)/misc/_setjmp3.S'; fi`
 
 stdio/lib32_libmsvcrt10_extra_a-scanf.o: stdio/scanf.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT stdio/lib32_libmsvcrt10_extra_a-scanf.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmsvcrt10_extra_a-scanf.Tpo -c -o stdio/lib32_libmsvcrt10_extra_a-scanf.o `test -f 'stdio/scanf.S' || echo '$(srcdir)/'`stdio/scanf.S
@@ -37889,6 +37967,20 @@ misc/lib32_libcrtdll_extra_a-crtdll__getmainargs.obj: misc/crtdll__getmainargs.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/crtdll__getmainargs.c' object='misc/lib32_libcrtdll_extra_a-crtdll__getmainargs.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-crtdll__getmainargs.obj `if test -f 'misc/crtdll__getmainargs.c'; then $(CYGPATH_W) 'misc/crtdll__getmainargs.c'; else $(CYGPATH_W) '$(srcdir)/misc/crtdll__getmainargs.c'; fi`
+
+misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.o: misc/crtdll__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.o -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Tpo -c -o misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.o `test -f 'misc/crtdll__longjmpex.c' || echo '$(srcdir)/'`misc/crtdll__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/crtdll__longjmpex.c' object='misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.o `test -f 'misc/crtdll__longjmpex.c' || echo '$(srcdir)/'`misc/crtdll__longjmpex.c
+
+misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.obj: misc/crtdll__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Tpo -c -o misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.obj `if test -f 'misc/crtdll__longjmpex.c'; then $(CYGPATH_W) 'misc/crtdll__longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/crtdll__longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Tpo misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/crtdll__longjmpex.c' object='misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libcrtdll_extra_a-crtdll__longjmpex.obj `if test -f 'misc/crtdll__longjmpex.c'; then $(CYGPATH_W) 'misc/crtdll__longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/crtdll__longjmpex.c'; fi`
 
 misc/lib32_libcrtdll_extra_a-crtdll_fstat.o: misc/crtdll_fstat.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libcrtdll_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libcrtdll_extra_a-crtdll_fstat.o -MD -MP -MF misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_fstat.Tpo -c -o misc/lib32_libcrtdll_extra_a-crtdll_fstat.o `test -f 'misc/crtdll_fstat.c' || echo '$(srcdir)/'`misc/crtdll_fstat.c
@@ -51330,6 +51422,20 @@ misc/lib32_libmsvcrt10_extra_a-crtdll__getmainargs.obj: misc/crtdll__getmainargs
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-crtdll__getmainargs.obj `if test -f 'misc/crtdll__getmainargs.c'; then $(CYGPATH_W) 'misc/crtdll__getmainargs.c'; else $(CYGPATH_W) '$(srcdir)/misc/crtdll__getmainargs.c'; fi`
 
+misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.o: misc/msvcrt10__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.o `test -f 'misc/msvcrt10__longjmpex.c' || echo '$(srcdir)/'`misc/msvcrt10__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcrt10__longjmpex.c' object='misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.o `test -f 'misc/msvcrt10__longjmpex.c' || echo '$(srcdir)/'`misc/msvcrt10__longjmpex.c
+
+misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.obj: misc/msvcrt10__longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Tpo -c -o misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.obj `if test -f 'misc/msvcrt10__longjmpex.c'; then $(CYGPATH_W) 'misc/msvcrt10__longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcrt10__longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Tpo misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcrt10__longjmpex.c' object='misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt10_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.obj `if test -f 'misc/msvcrt10__longjmpex.c'; then $(CYGPATH_W) 'misc/msvcrt10__longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcrt10__longjmpex.c'; fi`
+
 misc/lib32_libmsvcrt20_extra_a-__dstbias.o: misc/__dstbias.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmsvcrt20_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmsvcrt20_extra_a-__dstbias.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-__dstbias.Tpo -c -o misc/lib32_libmsvcrt20_extra_a-__dstbias.o `test -f 'misc/__dstbias.c' || echo '$(srcdir)/'`misc/__dstbias.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-__dstbias.Tpo misc/$(DEPDIR)/lib32_libmsvcrt20_extra_a-__dstbias.Po
@@ -62081,6 +62187,20 @@ misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj: misc/msvcr80plus_sse
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/msvcr80plus_sse_mxcsr_reset.c' object='misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrt_extra_a-msvcr80plus_sse_mxcsr_reset.obj `if test -f 'misc/msvcr80plus_sse_mxcsr_reset.c'; then $(CYGPATH_W) 'misc/msvcr80plus_sse_mxcsr_reset.c'; else $(CYGPATH_W) '$(srcdir)/misc/msvcr80plus_sse_mxcsr_reset.c'; fi`
+
+misc/lib32_libucrtapp_extra_a-_longjmpex.o: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrtapp_extra_a-_longjmpex.o -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/lib32_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/lib32_libucrtapp_extra_a-_longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+
+misc/lib32_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrtapp_extra_a-_longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/lib32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/lib32_libucrtapp_extra_a-_longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
 
 string/lib32_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/lib32_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/lib32_libucrtapp_extra_a-memchr.Tpo -c -o string/lib32_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
@@ -77384,6 +77504,20 @@ math/lib64_libucrt_extra_a-sincosf.obj: math/sincosf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libucrt_extra_a-sincosf.obj `if test -f 'math/sincosf.c'; then $(CYGPATH_W) 'math/sincosf.c'; else $(CYGPATH_W) '$(srcdir)/math/sincosf.c'; fi`
 
+misc/lib64_libucrtapp_extra_a-_longjmpex.o: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libucrtapp_extra_a-_longjmpex.o -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/lib64_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/lib64_libucrtapp_extra_a-_longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+
+misc/lib64_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libucrtapp_extra_a-_longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/lib64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/lib64_libucrtapp_extra_a-_longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+
 string/lib64_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/lib64_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Tpo -c -o string/lib64_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Po
@@ -89648,6 +89782,20 @@ string/libarm32_libucrt_extra_a-ucrt__wcstok.obj: string/ucrt__wcstok.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o string/libarm32_libucrt_extra_a-ucrt__wcstok.obj `if test -f 'string/ucrt__wcstok.c'; then $(CYGPATH_W) 'string/ucrt__wcstok.c'; else $(CYGPATH_W) '$(srcdir)/string/ucrt__wcstok.c'; fi`
 
+misc/libarm32_libucrtapp_extra_a-_longjmpex.o: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libucrtapp_extra_a-_longjmpex.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/libarm32_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/libarm32_libucrtapp_extra_a-_longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+
+misc/libarm32_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libucrtapp_extra_a-_longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/libarm32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/libarm32_libucrtapp_extra_a-_longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+
 string/libarm32_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/libarm32_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Tpo -c -o string/libarm32_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Po
@@ -101142,6 +101290,20 @@ math/libarm64_libucrt_extra_a-fabsf.obj: math/fabsf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/libarm64_libucrt_extra_a-fabsf.obj `if test -f 'math/fabsf.c'; then $(CYGPATH_W) 'math/fabsf.c'; else $(CYGPATH_W) '$(srcdir)/math/fabsf.c'; fi`
 
+misc/libarm64_libucrtapp_extra_a-_longjmpex.o: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libucrtapp_extra_a-_longjmpex.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/libarm64_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/libarm64_libucrtapp_extra_a-_longjmpex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-_longjmpex.o `test -f 'misc/_longjmpex.c' || echo '$(srcdir)/'`misc/_longjmpex.c
+
+misc/libarm64_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libucrtapp_extra_a-_longjmpex.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Tpo -c -o misc/libarm64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/_longjmpex.c' object='misc/libarm64_libucrtapp_extra_a-_longjmpex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
+
 string/libarm64_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/libarm64_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Tpo -c -o string/libarm64_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Po
@@ -105556,11 +105718,13 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_errno.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_fmode.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_purecall_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_time64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_utime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wctime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wutime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__getmainargs.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_fstat.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_stat.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-dummy__setusermatherr.Po
@@ -105830,6 +105994,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_errno.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_fmode.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_purecall_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_time64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_utime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_wctime64.Po
@@ -105842,6 +106007,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po
@@ -106146,6 +106312,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
@@ -106341,6 +106508,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
@@ -106506,6 +106674,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
@@ -106656,6 +106825,7 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
@@ -110522,11 +110692,13 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_errno.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_fmode.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_set_purecall_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_setjmp3.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_time64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_utime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wctime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-_wutime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__getmainargs.Po
+	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll__longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_fstat.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-crtdll_stat.Po
 	-rm -f misc/$(DEPDIR)/lib32_libcrtdll_extra_a-dummy__setusermatherr.Po
@@ -110796,6 +110968,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_errno.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_fmode.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_set_purecall_handler.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_setjmp3.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_time64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_utime64.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-_wctime64.Po
@@ -110808,6 +110981,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-imaxdiv.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-invalid_parameter_handler.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcr80pre_sse_mxcsr_reset.Po
+	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-msvcrt10__longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-output_format.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strnlen.Po
 	-rm -f misc/$(DEPDIR)/lib32_libmsvcrt10_extra_a-strtoimax.Po
@@ -111112,6 +111286,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libdloadhelper_a-delay-f.Po
@@ -111307,6 +111482,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libdloadhelper_a-delay-f.Po
@@ -111472,6 +111648,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libdloadhelper_a-delay-f.Po
@@ -111622,6 +111799,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_at_quick_exit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_mbsinit.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrt_extra_a-ucrt_tzset.Po
+	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
 	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
