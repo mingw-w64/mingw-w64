@@ -171,8 +171,8 @@ __attribute__ ((constructor (0)))
 static void winpthreads_init (void)
 {
 #ifdef RUNTIME_CHECKS
-  HMODULE kernel32   = GetModuleHandleA ("kernel32.dll");
-  HMODULE kernelbase = GetModuleHandleA ("kernelbase.dll");
+  HMODULE kernel32   = WINPTHREADS_AW (GetModuleHandle) (WINPTHREADS_TEXT ("kernel32.dll"));
+  HMODULE kernelbase = WINPTHREADS_AW (GetModuleHandle) (WINPTHREADS_TEXT ("kernelbase.dll"));
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
   FuncGetHandleInformation ptrGetHandleInformation = NULL;

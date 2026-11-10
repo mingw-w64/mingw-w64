@@ -215,7 +215,7 @@ static struct {
 
 void winpthreads_affinity_init (void) {
 #ifdef RUNTIME_CHECKS
-  HMODULE kernel32 = GetModuleHandleA ("kernel32.dll");
+  HMODULE kernel32 = WINPTHREADS_AW (GetModuleHandle) (WINPTHREADS_TEXT ("kernel32.dll"));
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
   FuncGetProcessAffinityMask ptrGetProcessAffinityMask = NULL;

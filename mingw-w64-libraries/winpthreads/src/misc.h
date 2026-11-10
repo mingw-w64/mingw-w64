@@ -239,6 +239,36 @@
 #endif
 
 /**
+ * Many Windows functions have two versions: ANSI and Unicode.
+ *
+ * Unless you are targeting Windows 10 or later and using UTF-8 manifest,
+ * the Unicode versions should always be preferred; otherwise, those
+ * functions will only be able to operate on ANSI and OEM code pages.
+ *
+ * However, Unicode functions are not supported on Win9x systems,
+ * and so ANSI versions have to be used when Win9x support is desired.
+ *
+ * The best approach to handle this is to use Unicode versions through some
+ * kind of wrapper; when Win9x support is enabled, make those wrappers choose
+ * whether to call Unicode or ANSI version at runtime, and make those wrapper
+ * handle conversion from Unicode to appropriate code page.
+ *
+ * In some cases, however, we may call such functions in context where we
+ * pass constant string literals or using runtime checks is not feasible.
+ *
+ * The macros `WINPTHREADS_AW` and `WINPTHREADS_TEXT` allow to call Unicode
+ * or ANSI version depending on whether Win9x support is enabled.
+ */
+#if WINPTHREADS_WIN9X
+#define WINPTHREADS_AW(name)          name ## A
+#define WINPTHREADS_TEXT(text)        text
+#else
+#define WINPTHREADS_AW(name)          name ## W
+#define WINPTHREADS_TEXT_CONCAT(text) L ## text
+#define WINPTHREADS_TEXT(text)        WINPTHREADS_TEXT_CONCAT (text)
+#endif
+
+/**
  * Portability wrapper for `GetHandleInformation`.
  */
 int winpthreads_get_handle_information (void *, unsigned *);
