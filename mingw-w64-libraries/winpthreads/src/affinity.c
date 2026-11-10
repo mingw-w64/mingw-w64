@@ -42,8 +42,10 @@ typedef BOOL (WINAPI *FuncGetProcessAffinityMask) (HANDLE, DWORD_PTR *, DWORD_PT
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
 /**
- * Replacement for `GetProcessAffinityMask`;
- * a simple stub that always fail.
+ * Replacement for `GetProcessAffinityMask`.
+ *
+ * A simple stub; always returns active processor mask as returned by
+ * `GetSystemInfo`.
  */
 static BOOL WINAPI WinpthreadsGetProcessAffinityMask (HANDLE , DWORD_PTR *, DWORD_PTR *);
 #endif
@@ -55,8 +57,10 @@ typedef BOOL (WINAPI *FuncSetProcessAffinityMask) (HANDLE, DWORD_PTR);
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
 /**
- * Replacement for `SetProcessAffinityMask`;
- * a simple stub that always fail.
+ * Replacement for `SetProcessAffinityMask`.
+ *
+ * A simple stub; succeeds if new process affinity mask is the same as
+ * the process affinity mask returned by `GetProcessAffinityMask`.
  */
 static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE, DWORD_PTR);
 #endif
@@ -67,6 +71,11 @@ static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE, DWORD_PTR);
  */
 static struct {
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+  /**
+   * Mask of active processors in the system as returned by `GetSystemInfo`;
+   * used to implement emulation for `GetProcessAffinityMask`.
+   */
+  DWORD_PTR ActiveProcessorMask;
   /**
    * Function `GetProcessAffinityMask` is available since Windows NT 3.5;
    * it is available on all Win9x systems.
@@ -122,6 +131,21 @@ void winpthreads_affinity_init (void) {
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
   if (ptrGetProcessAffinityMask != NULL) {
      WinpthreadsAffinityApi.PtrGetProcessAffinityMask = ptrGetProcessAffinityMask;
+  } else {
+    /**
+     * Function `GetProcessAffinityMask` is only missing on Windows NT 3.1;
+     * we can obtain number of active processor in the system by calling
+     * `GetSystemInfo`; the emulation for `GetProcessAffinityMask` simply
+     * returns this value.
+     *
+     * Since `SetProcessAffinityMask` is also missing on Windows NT 3.1,
+     * the application cannot set process affinity mask, so returning the same
+     * value is acceptable.
+     */
+    SYSTEM_INFO systemInfo;
+
+    GetSystemInfo (&systemInfo);
+    WinpthreadsAffinityApi.ActiveProcessorMask = systemInfo.dwActiveProcessorMask;
   }
 #endif
 
@@ -135,20 +159,41 @@ void winpthreads_affinity_init (void) {
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
 static BOOL WINAPI WinpthreadsGetProcessAffinityMask (HANDLE process, DWORD_PTR *processAffinityMask, DWORD_PTR *systemAffinityMask) {
-  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
-  return FALSE;
-  UNREFERENCED_PARAMETER (process);
-  UNREFERENCED_PARAMETER (processAffinityMask);
-  UNREFERENCED_PARAMETER (systemAffinityMask);
+  /**
+   * We must be called with the pseudo handle returned by `GetCurrentProcess`.
+   */
+  if (process != GetCurrentProcess ()) {
+    return FALSE;
+  }
+
+  *processAffinityMask = WinpthreadsAffinityApi.ActiveProcessorMask;
+  *systemAffinityMask  = WinpthreadsAffinityApi.ActiveProcessorMask;
+
+  return TRUE;
 }
 #endif
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
-static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE process, DWORD_PTR processAffinityMask) {
-  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
-  return FALSE;
-  UNREFERENCED_PARAMETER (process);
-  UNREFERENCED_PARAMETER (processAffinityMask);
+static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE process, DWORD_PTR newProcessAffinityMask) {
+  /**
+   * We must be called with the pseudo handle returned by `GetCurrentProcess`.
+   */
+  if (process != GetCurrentProcess ()) {
+    return FALSE;
+  }
+
+  DWORD_PTR systemAffinityMask;
+  DWORD_PTR processAffinityMask;
+
+  if (!GetProcessAffinityMask (process, &processAffinityMask, &systemAffinityMask)) {
+    return FALSE;
+  }
+
+  if (newProcessAffinityMask != processAffinityMask) {
+    return FALSE;
+  }
+
+  return TRUE;
 }
 #endif
 
