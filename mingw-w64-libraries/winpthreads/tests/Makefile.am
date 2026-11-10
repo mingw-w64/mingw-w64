@@ -1,15 +1,12 @@
-AM_CPPFLAGS = -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
-AM_CFLAGS =
-AM_LDFLAGS = -L$(top_builddir)
+# Global compiler and linker flags are set in configure.ac
+AM_CPPFLAGS = @CRT_DEFINES@ -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
+AM_CFLAGS   = @DEFAULT_WARNINGS@
+AM_LDFLAGS  = @LINKER_SUBSYSTEM@ -L$(top_builddir)
+LDADD       = $(top_builddir)/libwinpthread.la
 
-if MSVC
-AM_CFLAGS += -W3 -D_CRT_SECURE_NO_WARNINGS
-else
-AM_CFLAGS += -Wall
+if !MSVC
 AM_LDFLAGS += -L$(top_builddir)/fakelib
 endif
-
-LDADD = $(top_builddir)/libwinpthread.la
 
 check_LIBRARIES = \
 	libbenchlib.a

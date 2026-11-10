@@ -1,8 +1,12 @@
 
 SUBDIRS = . tests
 
-AM_CFLAGS =
 ACLOCAL_AMFLAGS = -I m4
+
+# Global compiler and linker flags are set in configure.ac
+AM_CPPFLAGS = @CRT_DEFINES@
+AM_CFLAGS   = @DEFAULT_WARNINGS@
+AM_LDFLAGS  = @LINKER_SUBSYSTEM@
 
 lib_LTLIBRARIES = libwinpthread.la
 
@@ -30,15 +34,11 @@ libwinpthread_la_SOURCES =      \
   src/wpth_ver.h                \
   src/version.rc
 
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0
+libwinpthread_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/include -DIN_WINPTHREAD
+libwinpthread_la_CFLAGS   = $(AM_CFLAGS)
+libwinpthread_la_LDFLAGS  = $(AM_LDFLAGS) -no-undefined -version-info 1:0:0
 
-if MSVC
-AM_CFLAGS += -W3
-libwinpthread_la_CPPFLAGS += -D_CRT_NONSTDC_NO_WARNINGS -D_CRT_DECLARE_NONSTDC_NAMES -D_CRT_SECURE_NO_WARNINGS
-else
-AM_CFLAGS += -Wall
-libwinpthread_la_CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
+if !MSVC
 libwinpthread_la_LDFLAGS += -L$(builddir)/fakelib -Wc,-no-pthread
 EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 

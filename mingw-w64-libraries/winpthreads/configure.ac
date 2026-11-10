@@ -46,13 +46,38 @@ AM_CONDITIONAL([MSVC], [test x$msvc = xyes])
 LT_INIT([win32-dll])
 LT_LANG([Windows Resource])
 
-# Checks for libraries.
+dnl Global compiler and linker flags. We handle compiler-specific flags in
+dnl configure.ac rather than in each Makefile.am. Note that it does not prevent
+dnl each individual Makefile.am from extending these variables.
+dnl
+dnl Please note that `AC_COMPILE_IFELSE` and `AC_LINK_IFELSE` use user variables
+dnl `CPPFLAGS`, `CFLAGS` and `LDFLAGS`. When running those checks, we can modify
+dnl them in order to run a test, but then we must restore previous value and
+dnl instead modify `AM_*` equivalents accordingly.
+CRT_DEFINES=
+DEFAULT_WARNINGS=
+LINKER_SUBSYSTEM=
 
-# Checks for header files.
+AC_SUBST([CRT_DEFINES])
+AC_SUBST([DEFAULT_WARNINGS])
+AC_SUBST([LINKER_SUBSYSTEM])
 
-# Checks for typedefs, structures, and compiler characteristics.
-
-# Checks for library functions.
+AS_IF(
+  [test $msvc = yes],
+    # Do not warn about using non-standard function names such as `strdup`
+    [CRT_DEFINES="$CRT_DEFINES -D_CRT_NONSTDC_NO_WARNINGS"]
+    # Make Windows SDK headers declare non-standard names;
+    # required if -Zc:__STDC__ option is used
+    [CRT_DEFINES="$CRT_DEFINES -D_CRT_DECLARE_NONSTDC_NAMES"]
+    # Do not warn about using "unsafe" functions
+    [CRT_DEFINES="$CRT_DEFINES -D_CRT_SECURE_NO_WARNINGS"]
+    # MSVC's -Wall enables _all_ warnings, which is too much
+    [DEFAULT_WARNINGS='-W3'],
+dnl else
+    # Do not use mingw-w64 stdio functions
+    [CRT_DEFINES="$CRT_DEFINES -D__USE_MINGW_ANSI_STDIO=0"]
+    [DEFAULT_WARNINGS='-Wall']
+)
 
 # config.h
 AH_BOTTOM(
