@@ -222,6 +222,7 @@ static void winpthreads_init (void)
 #endif
 #endif /* RUNTIME_CHECKS */
 
+  winpthreads_affinity_init ();
   winpthreads_time_init ();
 }
 #if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)

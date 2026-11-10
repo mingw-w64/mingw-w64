@@ -31,6 +31,131 @@
  * This file defines function to deal with process and thread affinity.
  */
 
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+#define RUNTIME_CHECKS
+#endif
+
+/**
+ * Function type corresponding to `GetProcessAffinityMask`.
+ */
+typedef BOOL (WINAPI *FuncGetProcessAffinityMask) (HANDLE, DWORD_PTR *, DWORD_PTR *);
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+/**
+ * Replacement for `GetProcessAffinityMask`;
+ * a simple stub that always fail.
+ */
+static BOOL WINAPI WinpthreadsGetProcessAffinityMask (HANDLE , DWORD_PTR *, DWORD_PTR *);
+#endif
+
+/**
+ * Function type corresponding to `SetProcessAffinityMask`.
+ */
+typedef BOOL (WINAPI *FuncSetProcessAffinityMask) (HANDLE, DWORD_PTR);
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+/**
+ * Replacement for `SetProcessAffinityMask`;
+ * a simple stub that always fail.
+ */
+static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE, DWORD_PTR);
+#endif
+
+#ifdef RUNTIME_CHECKS
+/**
+ * Functions which are looked up at runtime.
+ */
+static struct {
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+  /**
+   * Function `GetProcessAffinityMask` is available since Windows NT 3.5;
+   * it is available on all Win9x systems.
+   */
+  FuncGetProcessAffinityMask PtrGetProcessAffinityMask;
+#endif
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+  /**
+   * Function `SetProcessAffinityMask` is available since Windows NT 4.0
+   * and Windows 98.
+   */
+  FuncSetProcessAffinityMask PtrSetProcessAffinityMask;
+#endif
+} WinpthreadsAffinityApi = {
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+  .PtrGetProcessAffinityMask = WinpthreadsGetProcessAffinityMask,
+#endif
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+  .PtrSetProcessAffinityMask = WinpthreadsSetProcessAffinityMask,
+#endif
+};
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+#define GetProcessAffinityMask WinpthreadsAffinityApi.PtrGetProcessAffinityMask
+#endif
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+#define SetProcessAffinityMask WinpthreadsAffinityApi.PtrSetProcessAffinityMask
+#endif
+
+#endif /* RUNTIME_CHECKS */
+
+void winpthreads_affinity_init (void) {
+#ifdef RUNTIME_CHECKS
+  HMODULE kernel32 = GetModuleHandleA ("kernel32.dll");
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+  FuncGetProcessAffinityMask ptrGetProcessAffinityMask = NULL;
+#endif
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+  FuncSetProcessAffinityMask ptrSetProcessAffinityMask = NULL;
+#endif
+
+  if (kernel32 != NULL) {
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+    ptrGetProcessAffinityMask = (FuncGetProcessAffinityMask) (UINT_PTR) GetProcAddress (kernel32, "GetProcessAffinityMask");
+#endif
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+    ptrSetProcessAffinityMask = (FuncSetProcessAffinityMask) (UINT_PTR) GetProcAddress (kernel32, "SetProcessAffinityMask");
+#endif
+  }
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+  if (ptrGetProcessAffinityMask != NULL) {
+     WinpthreadsAffinityApi.PtrGetProcessAffinityMask = ptrGetProcessAffinityMask;
+  }
+#endif
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+  if (ptrSetProcessAffinityMask != NULL) {
+    WinpthreadsAffinityApi.PtrSetProcessAffinityMask = ptrSetProcessAffinityMask;
+  }
+#endif
+#endif /* RUNTIME CHECKS */
+}
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
+static BOOL WINAPI WinpthreadsGetProcessAffinityMask (HANDLE process, DWORD_PTR *processAffinityMask, DWORD_PTR *systemAffinityMask) {
+  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
+  return FALSE;
+  UNREFERENCED_PARAMETER (process);
+  UNREFERENCED_PARAMETER (processAffinityMask);
+  UNREFERENCED_PARAMETER (systemAffinityMask);
+}
+#endif
+
+#if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_4 || WINPTHREADS_WIN9X
+static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE process, DWORD_PTR processAffinityMask) {
+  SetLastError (ERROR_CALL_NOT_IMPLEMENTED);
+  return FALSE;
+  UNREFERENCED_PARAMETER (process);
+  UNREFERENCED_PARAMETER (processAffinityMask);
+}
+#endif
+
+/*******************************************************************************
+ * Public Functions.
+ */
+
 int pthread_num_processors_np (void) {
   DWORD_PTR SystemAffinityMask;
   DWORD_PTR ProcessAffinityMask;

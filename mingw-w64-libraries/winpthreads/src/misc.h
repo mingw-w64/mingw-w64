@@ -265,6 +265,11 @@ int winpthreads_set_thread_description_unicode (void *, const wchar_t *);
 int winpthreads_validate_handle (void *handle);
 
 /**
+ * Initialize affinity functions.
+ */
+void winpthreads_affinity_init (void);
+
+/**
  * Values returned by `winpthreads_wait`.
  */
 typedef enum {
