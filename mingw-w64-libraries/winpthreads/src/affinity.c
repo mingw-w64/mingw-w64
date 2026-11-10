@@ -197,23 +197,34 @@ static BOOL WINAPI WinpthreadsSetProcessAffinityMask (HANDLE process, DWORD_PTR 
 }
 #endif
 
+/**
+ * Returns number of bits set in `value`.
+ */
+static int WinpthreadsBitCount (uintptr_t value) {
+  int count = 0;
+
+  for (; value != 0; value >>= 1) {
+    if (value & 0x01) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
 /*******************************************************************************
  * Public Functions.
  */
 
 int pthread_num_processors_np (void) {
-  DWORD_PTR SystemAffinityMask;
-  DWORD_PTR ProcessAffinityMask;
-  int r = 0;
+  DWORD_PTR systemAffinityMask;
+  DWORD_PTR processAffinityMask;
 
-  if (GetProcessAffinityMask (GetCurrentProcess (), &ProcessAffinityMask, &SystemAffinityMask)) {
-    for(; ProcessAffinityMask != 0; ProcessAffinityMask >>= 1) {
-      r += (ProcessAffinityMask & 1) != 0;
-    }
+  if (!GetProcessAffinityMask (GetCurrentProcess (), &processAffinityMask, &systemAffinityMask)) {
+    return 0;
   }
 
-  /* assume at least 1 */
-  return r ? r : 1;
+  return WinpthreadsBitCount (processAffinityMask);
 }
 
 int pthread_set_num_processors_np (int n) {
