@@ -227,27 +227,95 @@ int pthread_num_processors_np (void) {
   return WinpthreadsBitCount (processAffinityMask);
 }
 
-int pthread_set_num_processors_np (int n) {
-  DWORD_PTR SystemAffinityMask;
-  DWORD_PTR ProcessAffinityMask;
-  DWORD_PTR ProcessNewAffinityMask = 0;
-  int r = 0;
+int pthread_set_num_processors_np (int processorCount) {
+  HANDLE currentProcess = GetCurrentProcess ();
 
-  /* need at least 1 */
-  n = n ? n : 1;
-
-  if (GetProcessAffinityMask (GetCurrentProcess (), &ProcessAffinityMask, &SystemAffinityMask)) {
-    for (; ProcessAffinityMask != 0; ProcessAffinityMask >>= 1) {
-      ProcessNewAffinityMask <<= 1;
-
-      if ((ProcessAffinityMask & 1) != 0 && r < n) {
-        ProcessNewAffinityMask |= 1;
-        r++;
-      }
-    }
-
-    SetProcessAffinityMask (GetCurrentProcess (), ProcessNewAffinityMask);
+  if (processorCount < 0) {
+    return 0;
   }
 
-  return r;
+  /**
+   * The process affinity mask passed to `SetProcessAffinityMask` must be
+   * strict subset of the system affinity mask; otherwise, the call will fail
+   * with `ERROR_INVALID_PARAMETER`.
+   */
+  DWORD_PTR systemAffinityMask;
+  DWORD_PTR processAffinityMask;
+
+  if (!GetProcessAffinityMask (currentProcess, &processAffinityMask, &systemAffinityMask)) {
+    return 0;
+  }
+
+  int maxProcessorCount = WinpthreadsBitCount (systemAffinityMask);
+  int oldProcessorCount = WinpthreadsBitCount (processAffinityMask);
+  int newProcessorCount = oldProcessorCount;
+
+  /**
+   * The calling process' affinity mask is already set to `processorCount`
+   * processors.
+   */
+  if (processorCount == oldProcessorCount) {
+    return newProcessorCount;
+  }
+
+  /**
+   * If the caller requests `maxProcessorCount` or more processors,
+   * set the calling process' affinity mask to the system affinity mask.
+   *
+   * Additionally, treat zero `processorCount` as request to reset
+   * the affinity mask of the calling process.
+   */
+  if (processorCount == 0 || processorCount >= maxProcessorCount) {
+    if (SetProcessAffinityMask (currentProcess, systemAffinityMask)) {
+      newProcessorCount = maxProcessorCount;
+    }
+
+    return newProcessorCount;
+  }
+
+  /**
+   * When updating the affinity mask, we want to preserve as many bits as
+   * possible from `processAffinityMask` instead of populating it from scratch;
+   * in some cases, this allows us to prevent unnecessary rescheduling of
+   * threads running on processor that otherwise would be removed from
+   * the process affinity mask.
+   *
+   * Consider an example: A process sets the affinity mask so that its threads
+   * run on processor 1, 3 and 5.
+   *
+   * If the process desires to increase number of processors in the affinity
+   * mask to 4, this approach will make it use processor 1, 2, 3 and 5 instead
+   * of 1, 2, 3, and 4; the thread running on processor 5 is not rescheduled
+   * on another processor.
+   *
+   * If the process desires to decrease number of processors in the affinity
+   * mask to 2, this approach will make it use processor 1 and 3 instead
+   * of 1 and 2; only the thread running on processor 5 is rescheduled
+   * on another processor instead of threads running on processors 3 and 5.
+   */
+  if (processorCount > oldProcessorCount) {
+    for (int i = 0; newProcessorCount != processorCount; ++i) {
+      DWORD_PTR processor = (DWORD_PTR) 1 << i;
+
+      if ((systemAffinityMask & processor) && !(processAffinityMask & processor)) {
+        processAffinityMask |= processor;
+        newProcessorCount   += 1;
+      }
+    }
+  } else {
+    for (int i = sizeof(DWORD_PTR) * 8 - 1; newProcessorCount != processorCount; --i) {
+      DWORD_PTR processor = (DWORD_PTR) 1 << i;
+
+      if ((processAffinityMask & processor)) {
+        processAffinityMask &= ~processor;
+        newProcessorCount   -= 1;
+      }
+    }
+  }
+
+  if (!SetProcessAffinityMask (currentProcess, processAffinityMask)) {
+    newProcessorCount = oldProcessorCount;
+  }
+
+  return newProcessorCount;
 }
