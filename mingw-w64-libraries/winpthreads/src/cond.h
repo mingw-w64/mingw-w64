@@ -48,10 +48,10 @@ struct cond_t
     LONG waiters_count_; /* Number of waiting threads.  */
     LONG waiters_count_unblock_; /* Number of waiting threads whitch can be unblocked.  */
     LONG waiters_count_gone_; /* Number of waiters which are gone.  */
-    CRITICAL_SECTION waiters_count_lock_; /* Serialize access to <waiters_count_>.  */
-    CRITICAL_SECTION waiters_q_lock_; /* Serialize access to sema_q.  */
+    pthread_mutex_t waiters_count_lock_; /* Serialize access to <waiters_count_>.  */
+    pthread_mutex_t waiters_q_lock_; /* Serialize access to sema_q.  */
     LONG value_q;
-    CRITICAL_SECTION waiters_b_lock_; /* Serialize access to sema_b.  */
+    pthread_mutex_t waiters_b_lock_; /* Serialize access to sema_b.  */
     LONG value_b;
     HANDLE sema_q; /* Semaphore used to queue up threads waiting for the condition to
                  become signaled.  */

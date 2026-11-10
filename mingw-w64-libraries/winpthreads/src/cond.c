@@ -36,8 +36,8 @@
 
 int __pthread_shallcancel (void); /* in thread.c */
 
-static int do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, CRITICAL_SECTION *cs, LONG *val);
-static int do_sema_b_release(HANDLE sema, LONG count,CRITICAL_SECTION *cs, LONG *val);
+static int do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, pthread_mutex_t *mutex, LONG *val);
+static int do_sema_b_release (HANDLE sema, LONG count, pthread_mutex_t *mutex, LONG *val);
 static void cleanup_wait(void *arg);
 
 typedef struct sCondWaitHelper {
@@ -152,31 +152,59 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
       0,          /* initially 0 */
       0x7fffffff, /* max count */
       NULL);      /* unnamed  */
+
+  if (_c->sema_q == NULL) {
+    r = EAGAIN;
+    goto fail_sema_q;
+  }
+
   _c->sema_b =  CreateSemaphore (NULL,       /* no security */
       0,          /* initially 0 */
       0x7fffffff, /* max count */
       NULL);
-  if (_c->sema_q == NULL || _c->sema_b == NULL) {
-      if (_c->sema_q != NULL)
-	CloseHandle (_c->sema_q);
-      if (_c->sema_b != NULL)
-	CloseHandle (_c->sema_b);
-      free (_c);
-      r = EAGAIN;
-  } else {
-      InitializeCriticalSection(&_c->waiters_count_lock_);
-      InitializeCriticalSection(&_c->waiters_b_lock_);
-      InitializeCriticalSection(&_c->waiters_q_lock_);
-      _c->value_q = 0;
-      _c->value_b = 1;
+
+  if (_c->sema_b == NULL) {
+    r = EAGAIN;
+    goto fail_sema_b;
   }
-  if (!r)
-    {
-      _c->valid = LIFE_COND;
-      *c = (pthread_cond_t)_c;
-    }
-  else
-    *c = (pthread_cond_t)NULL;
+
+  r = pthread_mutex_init (&_c->waiters_count_lock_, NULL);
+
+  if (r != 0) {
+    goto fail_waiters_count_lock;
+  }
+
+  r = pthread_mutex_init (&_c->waiters_q_lock_, NULL);
+
+  if (r != 0) {
+    goto fail_waiters_q_lock;
+  }
+
+  r = pthread_mutex_init (&_c->waiters_b_lock_, NULL);
+
+  if (r != 0) {
+    goto fail_waiters_b_lock;
+  }
+
+  _c->value_q = 0;
+  _c->value_b = 1;
+  _c->valid = LIFE_COND;
+  *c = (pthread_cond_t)_c;
+
+  return r;
+
+fail_waiters_b_lock:
+  pthread_mutex_destroy (&_c->waiters_q_lock_);
+fail_waiters_q_lock:
+  pthread_mutex_destroy (&_c->waiters_count_lock_);
+fail_waiters_count_lock:
+  CloseHandle (_c->sema_b);
+fail_sema_b:
+  CloseHandle (_c->sema_q);
+fail_sema_q:
+  free (_c);
+  *c = (pthread_cond_t)NULL;
+
   return r;
 }
 
@@ -204,7 +232,7 @@ pthread_cond_destroy (pthread_cond_t *c)
   r = do_sema_b_wait (_c->sema_b, WINPTHREADS_WAIT_CANCELLATION_NOTIFICATION, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
   if (r != 0)
     return r;
-  if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
+  if (0 != pthread_mutex_trylock (&_c->waiters_count_lock_))
     {
        do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
        return EBUSY;
@@ -213,7 +241,7 @@ pthread_cond_destroy (pthread_cond_t *c)
     {
       r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
       if (!r) r = EBUSY;
-      LeaveCriticalSection(&_c->waiters_count_lock_);
+      pthread_mutex_unlock (&_c->waiters_count_lock_);
       return r;
     }
   *c = (pthread_cond_t)NULL;
@@ -223,10 +251,10 @@ pthread_cond_destroy (pthread_cond_t *c)
     r = EINVAL;
   if (!CloseHandle (_c->sema_b) && !r)
     r = EINVAL;
-  LeaveCriticalSection (&_c->waiters_count_lock_);
-  DeleteCriticalSection(&_c->waiters_count_lock_);
-  DeleteCriticalSection(&_c->waiters_b_lock_);
-  DeleteCriticalSection(&_c->waiters_q_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
+  pthread_mutex_destroy (&_c->waiters_count_lock_);
+  pthread_mutex_destroy (&_c->waiters_b_lock_);
+  pthread_mutex_destroy (&_c->waiters_q_lock_);
   _c->valid  = DEAD_COND;
   free(_c);
   return 0;
@@ -246,13 +274,13 @@ pthread_cond_signal (pthread_cond_t *c)
   else if (_c->valid != (unsigned int)LIFE_COND)
     return EINVAL;
 
-  EnterCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_lock (&_c->waiters_count_lock_);
   /* If there aren't any waiters, then this is a no-op.   */
   if (_c->waiters_count_unblock_ != 0)
     {
       if (_c->waiters_count_ == 0)
       {
-	LeaveCriticalSection (&_c->waiters_count_lock_);
+	pthread_mutex_unlock (&_c->waiters_count_lock_);
 	/* pthread_testcancel(); */
 	return 0;
       }
@@ -264,7 +292,7 @@ pthread_cond_signal (pthread_cond_t *c)
       r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
       if (r != 0)
       {
-	LeaveCriticalSection (&_c->waiters_count_lock_);
+	pthread_mutex_unlock (&_c->waiters_count_lock_);
 	/* pthread_testcancel(); */
 	return r;
       }
@@ -278,11 +306,11 @@ pthread_cond_signal (pthread_cond_t *c)
     }
   else
     {
-      LeaveCriticalSection (&_c->waiters_count_lock_);
+      pthread_mutex_unlock (&_c->waiters_count_lock_);
       /* pthread_testcancel(); */
       return 0;
     }
-  LeaveCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, 1,&_c->waiters_q_lock_,&_c->value_q);
   /* pthread_testcancel(); */
   return r;
@@ -303,13 +331,13 @@ pthread_cond_broadcast (pthread_cond_t *c)
   else if (_c->valid != (unsigned int)LIFE_COND)
     return EINVAL;
 
-  EnterCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_lock (&_c->waiters_count_lock_);
   /* If there aren't any waiters, then this is a no-op.   */
   if (_c->waiters_count_unblock_ != 0)
     {
       if (_c->waiters_count_ == 0)
       {
-	LeaveCriticalSection (&_c->waiters_count_lock_);
+	pthread_mutex_unlock (&_c->waiters_count_lock_);
 	/* pthread_testcancel(); */
 	return 0;
       }
@@ -322,7 +350,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
       r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
       if (r != 0)
       {
-	LeaveCriticalSection (&_c->waiters_count_lock_);
+	pthread_mutex_unlock (&_c->waiters_count_lock_);
 	/* pthread_testcancel(); */
 	return r;
       }
@@ -337,11 +365,11 @@ pthread_cond_broadcast (pthread_cond_t *c)
     }
   else
     {
-      LeaveCriticalSection (&_c->waiters_count_lock_);
+      pthread_mutex_unlock (&_c->waiters_count_lock_);
       /* pthread_testcancel(); */
       return 0;
     }
-  LeaveCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, relCnt,&_c->waiters_q_lock_,&_c->value_q);
   /* pthread_testcancel(); */
   return r;
@@ -373,7 +401,7 @@ tryagain:
   if (r != 0)
     return r;
 
-  if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
+  if (0 != pthread_mutex_trylock (&_c->waiters_count_lock_))
   {
     r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
     if (r != 0)
@@ -383,7 +411,7 @@ tryagain:
   }
 
   _c->waiters_count_++;
-  LeaveCriticalSection(&_c->waiters_count_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
   r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
@@ -436,7 +464,7 @@ tryagain:
   if (r != 0)
     return r;
 
-  if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
+  if (0 != pthread_mutex_trylock (&_c->waiters_count_lock_))
   {
     r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
     if (r != 0)
@@ -446,7 +474,7 @@ tryagain:
   }
 
   _c->waiters_count_++;
-  LeaveCriticalSection(&_c->waiters_count_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
   r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
@@ -499,7 +527,7 @@ cleanup_wait (void *arg)
   cond_t *_c;
 
   _c = ch->c;
-  EnterCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_lock (&_c->waiters_count_lock_);
   n = _c->waiters_count_unblock_;
   if (n != 0)
     _c->waiters_count_unblock_ -= 1;
@@ -509,7 +537,7 @@ cleanup_wait (void *arg)
     r = do_sema_b_wait (_c->sema_b, 0, WINPTHREADS_WAIT_TIMEOUT_INDEFINITE, &_c->waiters_b_lock_, &_c->value_b);
     if (r != 0)
     {
-      LeaveCriticalSection(&_c->waiters_count_lock_);
+      pthread_mutex_unlock (&_c->waiters_count_lock_);
       ch->r[0] = r;
       return;
     }
@@ -517,7 +545,7 @@ cleanup_wait (void *arg)
     r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
     if (r != 0)
     {
-      LeaveCriticalSection(&_c->waiters_count_lock_);
+      pthread_mutex_unlock (&_c->waiters_count_lock_);
       ch->r[0] = r;
       return;
     }
@@ -525,7 +553,7 @@ cleanup_wait (void *arg)
   }
   else
     _c->waiters_count_gone_ += 1;
-  LeaveCriticalSection (&_c->waiters_count_lock_);
+  pthread_mutex_unlock (&_c->waiters_count_lock_);
 
   if (n == 1)
   {
@@ -542,21 +570,21 @@ cleanup_wait (void *arg)
 }
 
 static int
-do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, CRITICAL_SECTION *cs, LONG *val)
+do_sema_b_wait (HANDLE sema, int flags, const struct _timespec64 *timeout, pthread_mutex_t *mutex, LONG *val)
 {
   int r;
   LONG v;
-  EnterCriticalSection(cs);
+  pthread_mutex_lock (mutex);
   InterlockedDecrement(val);
   v = val[0];
-  LeaveCriticalSection(cs);
+  pthread_mutex_unlock (mutex);
   if (v >= 0)
     return 0;
   r = do_sema_b_wait_intern (sema, flags, timeout);
-  EnterCriticalSection(cs);
+  pthread_mutex_lock (mutex);
   if (r != 0)
     InterlockedIncrement(val);
-  LeaveCriticalSection(cs);
+  pthread_mutex_unlock (mutex);
   return r;
 }
 
@@ -596,23 +624,23 @@ do_sema_b_wait_intern (HANDLE sema, int flags, const struct _timespec64 *timeout
 }
 
 static int
-do_sema_b_release(HANDLE sema, LONG count,CRITICAL_SECTION *cs, LONG *val)
+do_sema_b_release(HANDLE sema, LONG count, pthread_mutex_t *mutex, LONG *val)
 {
   int wc;
-  EnterCriticalSection(cs);
+  pthread_mutex_lock (mutex);
   if (((long long) val[0] + (long long) count) > (long long) 0x7fffffffLL)
   {
-    LeaveCriticalSection(cs);
+    pthread_mutex_unlock (mutex);
     return ERANGE;
   }
   wc = -val[0];
   InterlockedExchangeAdd(val, count);
   if (wc <= 0 || ReleaseSemaphore(sema, (wc < count ? wc : count), NULL))
   {
-    LeaveCriticalSection(cs);
+    pthread_mutex_unlock (mutex);
     return 0;
   }
   InterlockedExchangeAdd(val, -count);
-  LeaveCriticalSection(cs);
+  pthread_mutex_unlock (mutex);
   return EINVAL;
 }
