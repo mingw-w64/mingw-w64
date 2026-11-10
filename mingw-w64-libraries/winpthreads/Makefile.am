@@ -16,6 +16,7 @@ include_HEADERS =          \
   include/semaphore.h
 
 libwinpthread_la_SOURCES =      \
+  src/affinity.c                \
   src/barrier.c   src/barrier.h \
   src/cond.c      src/cond.h    \
   src/misc.c      src/misc.h    \

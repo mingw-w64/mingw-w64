@@ -681,48 +681,6 @@ pthread_timechange_handler_np(void *dummy)
   return NULL;
 }
 
-/* Compatibility routine for pthread-win32.  It returns the
-   amount of available CPUs on system.  */
-int
-pthread_num_processors_np(void)
-{
-  int r = 0;
-  DWORD_PTR ProcessAffinityMask, SystemAffinityMask;
-
-  if (GetProcessAffinityMask(GetCurrentProcess(), &ProcessAffinityMask, &SystemAffinityMask))
-    {
-      for(; ProcessAffinityMask != 0; ProcessAffinityMask >>= 1)
-	r += (ProcessAffinityMask & 1) != 0;
-    }
-  /* assume at least 1 */
-  return r ? r : 1;
-}
-
-/* Compatiblity routine for pthread-win32.  Allows to set amount of used
-   CPUs for process.  */
-int
-pthread_set_num_processors_np(int n)
-{
-  DWORD_PTR ProcessAffinityMask, ProcessNewAffinityMask = 0, SystemAffinityMask;
-  int r = 0;
-  /* need at least 1 */
-  n = n ? n : 1;
-  if (GetProcessAffinityMask (GetCurrentProcess (), &ProcessAffinityMask, &SystemAffinityMask))
-    {
-      for (; ProcessAffinityMask != 0; ProcessAffinityMask >>= 1)
-	{
-	  ProcessNewAffinityMask <<= 1;
-	  if ((ProcessAffinityMask & 1) != 0 && r < n)
-	    {
-	      ProcessNewAffinityMask |= 1;
-	      r++;
-	    }
-	}
-      SetProcessAffinityMask (GetCurrentProcess (),ProcessNewAffinityMask);
-    }
-  return r;
-}
-
 int
 pthread_once (pthread_once_t *o, void (*func)(void))
 {
