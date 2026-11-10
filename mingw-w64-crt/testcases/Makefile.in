@@ -233,11 +233,12 @@ am__EXEEXT_6 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_fstat_t64$(EXEEXT) t_fstat_t64_f64$(EXEEXT) \
 	t_global_ctors$(EXEEXT) t_imagebase$(EXEEXT) \
 	t_intrinc$(EXEEXT) t_isfine$(EXEEXT) t_iswctype$(EXEEXT) \
-	t_ivma$(EXEEXT) t_lfs$(EXEEXT) t_lseeki64$(EXEEXT) \
-	t_main$(EXEEXT) t_main_assert$(EXEEXT) t_main_cpp$(EXEEXT) \
-	t_matherr$(EXEEXT) t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) \
-	t_mbsrtowcs$(EXEEXT) t_noatexit_dll$(EXEEXT) \
-	t_nontls_dll$(EXEEXT) t_nontls_exe$(EXEEXT) t_tls_dll$(EXEEXT) \
+	t_ivma$(EXEEXT) t_lfs$(EXEEXT) t_longjmp_nounwind$(EXEEXT) \
+	t_longjmp_unwind$(EXEEXT) t_lseeki64$(EXEEXT) t_main$(EXEEXT) \
+	t_main_assert$(EXEEXT) t_main_cpp$(EXEEXT) t_matherr$(EXEEXT) \
+	t_mbrlen$(EXEEXT) t_mbrtowc$(EXEEXT) t_mbsrtowcs$(EXEEXT) \
+	t_noatexit_dll$(EXEEXT) t_nontls_dll$(EXEEXT) \
+	t_nontls_exe$(EXEEXT) t_tls_dll$(EXEEXT) \
 	t_tls_dll_native$(EXEEXT) \
 	t_tls_dll_native_process_detach$(EXEEXT) \
 	t_tls_exe_cxa_atexit_order$(EXEEXT) t_tls_exe_dtor$(EXEEXT) \
@@ -247,9 +248,9 @@ am__EXEEXT_6 = t__fstat_all$(EXEEXT) t__stat_all$(EXEEXT) \
 	t_tls_exe_var$(EXEEXT) t_nullptrexception$(EXEEXT) \
 	t_pow$(EXEEXT) t_powi$(EXEEXT) t_printf$(EXEEXT) \
 	t_printf_g_width$(EXEEXT) t_readdir$(EXEEXT) \
-	t_safe_flush$(EXEEXT) t_setjmp$(EXEEXT) t_sigfpe$(EXEEXT) \
-	t_sigv$(EXEEXT) t_snprintf$(EXEEXT) t_snprintf0$(EXEEXT) \
-	t_snprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
+	t_safe_flush$(EXEEXT) t_setjmp$(EXEEXT) t_setjmpex$(EXEEXT) \
+	t_sigfpe$(EXEEXT) t_sigv$(EXEEXT) t_snprintf$(EXEEXT) \
+	t_snprintf0$(EXEEXT) t_snprintf1$(EXEEXT) t_snwprintf$(EXEEXT) \
 	t_snwprintf0$(EXEEXT) t_snwprintf1$(EXEEXT) \
 	t_speed_powl$(EXEEXT) t_stat$(EXEEXT) t_stat_f64$(EXEEXT) \
 	t_stat_t64$(EXEEXT) t_stat_t64_f64$(EXEEXT) \
@@ -715,6 +716,14 @@ t_lfs_SOURCES = t_lfs.c
 t_lfs_OBJECTS = t_lfs.$(OBJEXT)
 t_lfs_LDADD = $(LDADD)
 t_lfs_DEPENDENCIES = $(builddir)/libtest.a
+t_longjmp_nounwind_SOURCES = t_longjmp_nounwind.c
+t_longjmp_nounwind_OBJECTS = t_longjmp_nounwind.$(OBJEXT)
+t_longjmp_nounwind_LDADD = $(LDADD)
+t_longjmp_nounwind_DEPENDENCIES = $(builddir)/libtest.a
+t_longjmp_unwind_SOURCES = t_longjmp_unwind.c
+t_longjmp_unwind_OBJECTS = t_longjmp_unwind.$(OBJEXT)
+t_longjmp_unwind_LDADD = $(LDADD)
+t_longjmp_unwind_DEPENDENCIES = $(builddir)/libtest.a
 t_lseeki64_SOURCES = t_lseeki64.c
 t_lseeki64_OBJECTS = t_lseeki64.$(OBJEXT)
 t_lseeki64_LDADD = $(LDADD)
@@ -810,6 +819,10 @@ t_setjmp_SOURCES = t_setjmp.c
 t_setjmp_OBJECTS = t_setjmp.$(OBJEXT)
 t_setjmp_LDADD = $(LDADD)
 t_setjmp_DEPENDENCIES = $(builddir)/libtest.a
+t_setjmpex_SOURCES = t_setjmpex.c
+t_setjmpex_OBJECTS = t_setjmpex.$(OBJEXT)
+t_setjmpex_LDADD = $(LDADD)
+t_setjmpex_DEPENDENCIES = $(builddir)/libtest.a
 t_sigfpe_SOURCES = t_sigfpe.c
 t_sigfpe_OBJECTS = t_sigfpe.$(OBJEXT)
 t_sigfpe_LDADD = $(LDADD)
@@ -1454,10 +1467,12 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_intrinc-t_intrinc.Po ./$(DEPDIR)/t_iostream.Po \
 	./$(DEPDIR)/t_isfine.Po ./$(DEPDIR)/t_iswctype.Po \
 	./$(DEPDIR)/t_ivma.Po ./$(DEPDIR)/t_lfs.Po \
-	./$(DEPDIR)/t_lseeki64.Po ./$(DEPDIR)/t_main.Po \
-	./$(DEPDIR)/t_main_assert.Po ./$(DEPDIR)/t_main_cpp.Po \
-	./$(DEPDIR)/t_matherr-t_matherr.Po ./$(DEPDIR)/t_mbrlen.Po \
-	./$(DEPDIR)/t_mbrtowc.Po ./$(DEPDIR)/t_mbsrtowcs.Po \
+	./$(DEPDIR)/t_longjmp_nounwind.Po \
+	./$(DEPDIR)/t_longjmp_unwind.Po ./$(DEPDIR)/t_lseeki64.Po \
+	./$(DEPDIR)/t_main.Po ./$(DEPDIR)/t_main_assert.Po \
+	./$(DEPDIR)/t_main_cpp.Po ./$(DEPDIR)/t_matherr-t_matherr.Po \
+	./$(DEPDIR)/t_mbrlen.Po ./$(DEPDIR)/t_mbrtowc.Po \
+	./$(DEPDIR)/t_mbsrtowcs.Po \
 	./$(DEPDIR)/t_municode-t_municode.Po \
 	./$(DEPDIR)/t_noatexit_dll.Po ./$(DEPDIR)/t_nontls_dll.Po \
 	./$(DEPDIR)/t_nontls_exe.Po ./$(DEPDIR)/t_nullptrexception.Po \
@@ -1465,14 +1480,14 @@ am__depfiles_remade = ./$(DEPDIR)/libtest.Po \
 	./$(DEPDIR)/t_printf.Po ./$(DEPDIR)/t_printf_g_width.Po \
 	./$(DEPDIR)/t_readdir.Po ./$(DEPDIR)/t_safe_flush.Po \
 	./$(DEPDIR)/t_scrnsave.Po ./$(DEPDIR)/t_scrnsavw-t_scrnsavw.Po \
-	./$(DEPDIR)/t_setjmp.Po ./$(DEPDIR)/t_sigfpe.Po \
-	./$(DEPDIR)/t_sigv.Po ./$(DEPDIR)/t_snprintf.Po \
-	./$(DEPDIR)/t_snprintf0.Po ./$(DEPDIR)/t_snprintf1.Po \
-	./$(DEPDIR)/t_snwprintf.Po ./$(DEPDIR)/t_snwprintf0.Po \
-	./$(DEPDIR)/t_snwprintf1.Po ./$(DEPDIR)/t_speed_powl.Po \
-	./$(DEPDIR)/t_stat.Po ./$(DEPDIR)/t_stat_f64.Po \
-	./$(DEPDIR)/t_stat_slash.Po ./$(DEPDIR)/t_stat_t64.Po \
-	./$(DEPDIR)/t_stat_t64_f64.Po \
+	./$(DEPDIR)/t_setjmp.Po ./$(DEPDIR)/t_setjmpex.Po \
+	./$(DEPDIR)/t_sigfpe.Po ./$(DEPDIR)/t_sigv.Po \
+	./$(DEPDIR)/t_snprintf.Po ./$(DEPDIR)/t_snprintf0.Po \
+	./$(DEPDIR)/t_snprintf1.Po ./$(DEPDIR)/t_snwprintf.Po \
+	./$(DEPDIR)/t_snwprintf0.Po ./$(DEPDIR)/t_snwprintf1.Po \
+	./$(DEPDIR)/t_speed_powl.Po ./$(DEPDIR)/t_stat.Po \
+	./$(DEPDIR)/t_stat_f64.Po ./$(DEPDIR)/t_stat_slash.Po \
+	./$(DEPDIR)/t_stat_t64.Po ./$(DEPDIR)/t_stat_t64_f64.Po \
 	./$(DEPDIR)/t_staticconstmember.Po \
 	./$(DEPDIR)/t_stderr_buffering.Po ./$(DEPDIR)/t_stdint.Po \
 	./$(DEPDIR)/t_stprintf0_a.Po ./$(DEPDIR)/t_stprintf0_u.Po \
@@ -1722,21 +1737,22 @@ SOURCES = $(libtest_a_SOURCES) $(tests32_libnewcomplextests_a_SOURCES) \
 	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
 	t_fstat_t64_f64.c t_global_ctors.c t_imagebase.c t_intrin.c \
 	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
-	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
-	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
-	t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
-	t_noatexit_dll.c t_nontls_dll.c t_nontls_exe.c \
-	t_nullptrexception.c t_pow.c t_powi.c t_printf.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_scrnsave.c \
-	t_scrnsavw.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
-	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
-	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
-	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	$(t_staticconstmember_SOURCES) t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls_ansi.c t_tls_c11.c \
-	$(t_tls_cpp_SOURCES) t_tls_dll.c t_tls_dll_native.c \
+	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c \
+	t_longjmp_nounwind.c t_longjmp_unwind.c t_lseeki64.c t_main.c \
+	t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c t_mbrlen.c \
+	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_noatexit_dll.c \
+	t_nontls_dll.c t_nontls_exe.c t_nullptrexception.c t_pow.c \
+	t_powi.c t_printf.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_scrnsave.c t_scrnsavw.c t_setjmp.c \
+	t_setjmpex.c t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c \
+	t_snprintf1.c t_snwprintf.c t_snwprintf0.c t_snwprintf1.c \
+	t_speed_powl.c t_stat.c t_stat_f64.c t_stat_slash.c \
+	t_stat_t64.c t_stat_t64_f64.c $(t_staticconstmember_SOURCES) \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
+	t_tls_dll.c t_tls_dll_native.c \
 	t_tls_dll_native_process_detach.c t_tls_exe_cxa_atexit_order.c \
 	t_tls_exe_dtor.c t_tls_exe_dtor_atexit_order.c t_tls_exe_dyn.c \
 	t_tls_exe_native.c t_tls_exe_native_process_detach.c \
@@ -1786,21 +1802,22 @@ DIST_SOURCES = $(libtest_a_SOURCES) \
 	t_fseeko64.c t_fstat.c t_fstat_f64.c t_fstat_t64.c \
 	t_fstat_t64_f64.c t_global_ctors.c t_imagebase.c t_intrin.c \
 	$(t_intrin_cpp_SOURCES) t_intrinc.c $(t_iostream_SOURCES) \
-	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c t_lseeki64.c \
-	t_main.c t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c \
-	t_mbrlen.c t_mbrtowc.c t_mbsrtowcs.c t_municode.c \
-	t_noatexit_dll.c t_nontls_dll.c t_nontls_exe.c \
-	t_nullptrexception.c t_pow.c t_powi.c t_printf.c \
-	t_printf_g_width.c t_readdir.c t_safe_flush.c t_scrnsave.c \
-	t_scrnsavw.c t_setjmp.c t_sigfpe.c t_sigv.c t_snprintf.c \
-	t_snprintf0.c t_snprintf1.c t_snwprintf.c t_snwprintf0.c \
-	t_snwprintf1.c t_speed_powl.c t_stat.c t_stat_f64.c \
-	t_stat_slash.c t_stat_t64.c t_stat_t64_f64.c \
-	$(t_staticconstmember_SOURCES) t_stderr_buffering.c t_stdint.c \
-	t_stprintf0_a.c t_stprintf0_u.c t_stprintf1_a.c \
-	t_stprintf1_u.c t_stprintf_a.c t_stprintf_u.c t_swprintf.c \
-	t_swprintf0.c t_swprintf1.c t_time.c t_tls_ansi.c t_tls_c11.c \
-	$(t_tls_cpp_SOURCES) t_tls_dll.c t_tls_dll_native.c \
+	$(t_isfine_SOURCES) t_iswctype.c t_ivma.c t_lfs.c \
+	t_longjmp_nounwind.c t_longjmp_unwind.c t_lseeki64.c t_main.c \
+	t_main_assert.c $(t_main_cpp_SOURCES) t_matherr.c t_mbrlen.c \
+	t_mbrtowc.c t_mbsrtowcs.c t_municode.c t_noatexit_dll.c \
+	t_nontls_dll.c t_nontls_exe.c t_nullptrexception.c t_pow.c \
+	t_powi.c t_printf.c t_printf_g_width.c t_readdir.c \
+	t_safe_flush.c t_scrnsave.c t_scrnsavw.c t_setjmp.c \
+	t_setjmpex.c t_sigfpe.c t_sigv.c t_snprintf.c t_snprintf0.c \
+	t_snprintf1.c t_snwprintf.c t_snwprintf0.c t_snwprintf1.c \
+	t_speed_powl.c t_stat.c t_stat_f64.c t_stat_slash.c \
+	t_stat_t64.c t_stat_t64_f64.c $(t_staticconstmember_SOURCES) \
+	t_stderr_buffering.c t_stdint.c t_stprintf0_a.c \
+	t_stprintf0_u.c t_stprintf1_a.c t_stprintf1_u.c t_stprintf_a.c \
+	t_stprintf_u.c t_swprintf.c t_swprintf0.c t_swprintf1.c \
+	t_time.c t_tls_ansi.c t_tls_c11.c $(t_tls_cpp_SOURCES) \
+	t_tls_dll.c t_tls_dll_native.c \
 	t_tls_dll_native_process_detach.c t_tls_exe_cxa_atexit_order.c \
 	t_tls_exe_dtor.c t_tls_exe_dtor_atexit_order.c t_tls_exe_dyn.c \
 	t_tls_exe_native.c t_tls_exe_native_process_detach.c \
@@ -2246,24 +2263,25 @@ testcase_progs = t__fstat_all t__stat_all t__sys_errlist \
 	t_format_Z t_format_Z0 t_format_Z1 t_fseeki64 \
 	t_fseeki64_ftelli64 t_fseeko64 t_fstat t_fstat_f64 t_fstat_t64 \
 	t_fstat_t64_f64 t_global_ctors t_imagebase t_intrinc t_isfine \
-	t_iswctype t_ivma t_lfs t_lseeki64 t_main t_main_assert \
-	t_main_cpp t_matherr t_mbrlen t_mbrtowc t_mbsrtowcs \
-	t_noatexit_dll t_nontls_dll t_nontls_exe t_tls_dll \
-	t_tls_dll_native t_tls_dll_native_process_detach \
+	t_iswctype t_ivma t_lfs t_longjmp_nounwind t_longjmp_unwind \
+	t_lseeki64 t_main t_main_assert t_main_cpp t_matherr t_mbrlen \
+	t_mbrtowc t_mbsrtowcs t_noatexit_dll t_nontls_dll t_nontls_exe \
+	t_tls_dll t_tls_dll_native t_tls_dll_native_process_detach \
 	t_tls_exe_cxa_atexit_order t_tls_exe_dtor \
 	t_tls_exe_dtor_atexit_order t_tls_exe_dyn t_tls_exe_native \
 	t_tls_exe_native_process_detach t_tls_exe_var \
 	t_nullptrexception t_pow t_powi t_printf t_printf_g_width \
-	t_readdir t_safe_flush t_setjmp t_sigfpe t_sigv t_snprintf \
-	t_snprintf0 t_snprintf1 t_snwprintf t_snwprintf0 t_snwprintf1 \
-	t_speed_powl t_stat t_stat_f64 t_stat_t64 t_stat_t64_f64 \
-	t_stat_slash t_staticconstmember t_stderr_buffering t_stdint \
-	t_stprintf_a t_stprintf_u t_stprintf0_a t_stprintf0_u \
-	t_stprintf1_a t_stprintf1_u t_swprintf t_swprintf0 t_swprintf1 \
-	t_time t_tls_ansi t_tls_c11 t_tmpfile t_towctrans t_trycatch \
-	t_tsearch t_utime t_vsscanf t_wassert t_wcrtomb t_wcsrtombs \
-	t_wcstok_s t_wctob t_wctype t_winmain_assert t_wreaddir \
-	$(am__append_1) $(am__append_2) $(am__append_12)
+	t_readdir t_safe_flush t_setjmp t_setjmpex t_sigfpe t_sigv \
+	t_snprintf t_snprintf0 t_snprintf1 t_snwprintf t_snwprintf0 \
+	t_snwprintf1 t_speed_powl t_stat t_stat_f64 t_stat_t64 \
+	t_stat_t64_f64 t_stat_slash t_staticconstmember \
+	t_stderr_buffering t_stdint t_stprintf_a t_stprintf_u \
+	t_stprintf0_a t_stprintf0_u t_stprintf1_a t_stprintf1_u \
+	t_swprintf t_swprintf0 t_swprintf1 t_time t_tls_ansi t_tls_c11 \
+	t_tmpfile t_towctrans t_trycatch t_tsearch t_utime t_vsscanf \
+	t_wassert t_wcrtomb t_wcsrtombs t_wcstok_s t_wctob t_wctype \
+	t_winmain_assert t_wreaddir $(am__append_1) $(am__append_2) \
+	$(am__append_12)
 
 # Most of the tests are C programs, but there are some C++ tests as well.
 # For C++ targets, we have to explicitly specify source files so that
@@ -3186,6 +3204,14 @@ t_lfs$(EXEEXT): $(t_lfs_OBJECTS) $(t_lfs_DEPENDENCIES) $(EXTRA_t_lfs_DEPENDENCIE
 	@rm -f t_lfs$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_lfs_OBJECTS) $(t_lfs_LDADD) $(LIBS)
 
+t_longjmp_nounwind$(EXEEXT): $(t_longjmp_nounwind_OBJECTS) $(t_longjmp_nounwind_DEPENDENCIES) $(EXTRA_t_longjmp_nounwind_DEPENDENCIES) 
+	@rm -f t_longjmp_nounwind$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_longjmp_nounwind_OBJECTS) $(t_longjmp_nounwind_LDADD) $(LIBS)
+
+t_longjmp_unwind$(EXEEXT): $(t_longjmp_unwind_OBJECTS) $(t_longjmp_unwind_DEPENDENCIES) $(EXTRA_t_longjmp_unwind_DEPENDENCIES) 
+	@rm -f t_longjmp_unwind$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_longjmp_unwind_OBJECTS) $(t_longjmp_unwind_LDADD) $(LIBS)
+
 t_lseeki64$(EXEEXT): $(t_lseeki64_OBJECTS) $(t_lseeki64_DEPENDENCIES) $(EXTRA_t_lseeki64_DEPENDENCIES) 
 	@rm -f t_lseeki64$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_lseeki64_OBJECTS) $(t_lseeki64_LDADD) $(LIBS)
@@ -3273,6 +3299,10 @@ t_scrnsavw$(EXEEXT): $(t_scrnsavw_OBJECTS) $(t_scrnsavw_DEPENDENCIES) $(EXTRA_t_
 t_setjmp$(EXEEXT): $(t_setjmp_OBJECTS) $(t_setjmp_DEPENDENCIES) $(EXTRA_t_setjmp_DEPENDENCIES) 
 	@rm -f t_setjmp$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_setjmp_OBJECTS) $(t_setjmp_LDADD) $(LIBS)
+
+t_setjmpex$(EXEEXT): $(t_setjmpex_OBJECTS) $(t_setjmpex_DEPENDENCIES) $(EXTRA_t_setjmpex_DEPENDENCIES) 
+	@rm -f t_setjmpex$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(t_setjmpex_OBJECTS) $(t_setjmpex_LDADD) $(LIBS)
 
 t_sigfpe$(EXEEXT): $(t_sigfpe_OBJECTS) $(t_sigfpe_DEPENDENCIES) $(EXTRA_t_sigfpe_DEPENDENCIES) 
 	@rm -f t_sigfpe$(EXEEXT)
@@ -3820,6 +3850,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_iswctype.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_ivma.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lfs.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_longjmp_nounwind.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_longjmp_unwind.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_lseeki64.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_main_assert.Po@am__quote@ # am--include-marker
@@ -3842,6 +3874,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_scrnsave.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_scrnsavw-t_scrnsavw.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_setjmp.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_setjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_sigfpe.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_sigv.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_snprintf.Po@am__quote@ # am--include-marker
@@ -7156,6 +7189,20 @@ t_lfs.log: t_lfs$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_longjmp_nounwind.log: t_longjmp_nounwind$(EXEEXT)
+	@p='t_longjmp_nounwind$(EXEEXT)'; \
+	b='t_longjmp_nounwind'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_longjmp_unwind.log: t_longjmp_unwind$(EXEEXT)
+	@p='t_longjmp_unwind$(EXEEXT)'; \
+	b='t_longjmp_unwind'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 t_lseeki64.log: t_lseeki64$(EXEEXT)
 	@p='t_lseeki64$(EXEEXT)'; \
 	b='t_lseeki64'; \
@@ -7355,6 +7402,13 @@ t_safe_flush.log: t_safe_flush$(EXEEXT)
 t_setjmp.log: t_setjmp$(EXEEXT)
 	@p='t_setjmp$(EXEEXT)'; \
 	b='t_setjmp'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+t_setjmpex.log: t_setjmpex$(EXEEXT)
+	@p='t_setjmpex$(EXEEXT)'; \
+	b='t_setjmpex'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -8175,6 +8229,8 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_iswctype.Po
 	-rm -f ./$(DEPDIR)/t_ivma.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
+	-rm -f ./$(DEPDIR)/t_longjmp_nounwind.Po
+	-rm -f ./$(DEPDIR)/t_longjmp_unwind.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
 	-rm -f ./$(DEPDIR)/t_main.Po
 	-rm -f ./$(DEPDIR)/t_main_assert.Po
@@ -8197,6 +8253,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/t_scrnsave.Po
 	-rm -f ./$(DEPDIR)/t_scrnsavw-t_scrnsavw.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
+	-rm -f ./$(DEPDIR)/t_setjmpex.Po
 	-rm -f ./$(DEPDIR)/t_sigfpe.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
@@ -8522,6 +8579,8 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_iswctype.Po
 	-rm -f ./$(DEPDIR)/t_ivma.Po
 	-rm -f ./$(DEPDIR)/t_lfs.Po
+	-rm -f ./$(DEPDIR)/t_longjmp_nounwind.Po
+	-rm -f ./$(DEPDIR)/t_longjmp_unwind.Po
 	-rm -f ./$(DEPDIR)/t_lseeki64.Po
 	-rm -f ./$(DEPDIR)/t_main.Po
 	-rm -f ./$(DEPDIR)/t_main_assert.Po
@@ -8544,6 +8603,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/t_scrnsave.Po
 	-rm -f ./$(DEPDIR)/t_scrnsavw-t_scrnsavw.Po
 	-rm -f ./$(DEPDIR)/t_setjmp.Po
+	-rm -f ./$(DEPDIR)/t_setjmpex.Po
 	-rm -f ./$(DEPDIR)/t_sigfpe.Po
 	-rm -f ./$(DEPDIR)/t_sigv.Po
 	-rm -f ./$(DEPDIR)/t_snprintf.Po
