@@ -14,27 +14,31 @@ Support for Win9x is in progress.
 
 ### Windows NT
 
-You can define `WINPTHREADS_WINNT` macro to specify the minimal Windows NT
-version you want `winpthreads` to be able to run on.
+You can use `--with-winnt=version` option to specify the minimal Windows NT
+version you want `winpthreads` to be able to run on. The supported values are:
 
-It can be defined to any `_WIN32_WINNT_*` macro from `sdkddkver.h` or their
-corresponding values. For Windows NT 3.1, NT 3.5 and NT 3.51, which do not
-have `_WIN32_WINNT_*` constans, you have to use appropriate values directly:
+| Value    | Meaning         |
+|----------|-----------------|
+| nt3.1    | Windows NT 3.1  |
+| nt3.5    | Windows NT 3.5  |
+| nt3.51   | Windows NT 3.51 |
+| nt4.0    | Windows NT 4.0  |
+| win2000  | Windows 2000    |
+| winxp    | Windows XP      |
+| winvista | Windows Vista   |
+| win7     | Windows 7       |
+| win8     | Windows 8       |
+| win8.1   | Windows 8.1     |
+| win10    | Windows 10      |
 
-| Windows Version | Hex Value |
-|-----------------|-----------|
-| Windows NT 3.1  | `0x030A`  |
-| Windows NT 3.5  | `0x0332`  |
-| Windows NT 3.51 | `0x0333`  |
+Default and allowed values for `--with-winnt` option are target-dependent:
 
-Default and allowed values for `WINPTHREADS_WINNT` are target-dependent:
-
-| Target            | Minimal Allowed Value | Default Value                                           |
-|-------------------|-----------------------|---------------------------------------------------------|
-| x86               | Windows NT 3.1        | Windows NT 3.1 with mingw-w64; Windows XP with MSVC     |
-| x64               | Windows XP x64        | Windows XP x64                                          |
-| arm32             | Windows 8             | Windows 8                                               |
-| arm64 and arm64ec | Windows 10            | Windows 10                                              |
+| Target            | Minimal Allowed Value | Default Value                             |
+|-------------------|-----------------------|-------------------------------------------|
+| x86               | `nt3.1`               | `nt3.1` with mingw-w64; `winxp` with MSVC |
+| x64               | `winxp`               | `winxp`                                   |
+| arm32             | `win8`                | `win8`                                    |
+| arm64 and arm64ec | `win10`               | `win10`                                   |
 
 ### Win9x
 
@@ -42,8 +46,8 @@ You can define `WINPTHREADS_WIN9X` macro to non-zero value in order to build
 `winpthreads` with Win9x support.  
 This macro is only meaningful for x86 and is ignored on other targets.
 
-This macro can be defined to non-zero value only when `WINPTHREADS_WINNT` macro
-is defined to value of `_WIN32_WINNT_WS03` or lower.
+This macro can be defined to non-zero value only when value passed to
+`--with-winnt` option is `winxp` or lower.
 
 By default, it is enabled with mingw-w64 (if the above condition is true) and
 disabled with MSVC.
