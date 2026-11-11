@@ -917,7 +917,8 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	math/fp_consts.h math/pi_const.h \
+	misc/arm64ec/__mingw_mxcsr_to_fpcsr.c misc/mingw_longjmp.S \
 	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
 	misc/delayimp.c misc/dirent.c misc/dirname.c \
 	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
@@ -1125,6 +1126,7 @@ am__objects_32 = crt/lib32_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpi.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpif.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanpil.$(OBJEXT) \
+	misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib32_libmingwex_a-alarm.$(OBJEXT) \
@@ -3449,7 +3451,7 @@ lib32_libucrt_extra_a_OBJECTS = $(am_lib32_libucrt_extra_a_OBJECTS)
 lib32_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 lib32_libucrtapp_extra_a_LIBADD =
 am__lib32_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
-	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	misc/longjmp.c misc/setjmp.S string/memchr.c string/memcmp.c \
 	string/memcpy.c string/memmove.c string/memrchr.c \
 	string/strchr.c string/strchrnul.c string/strrchr.c \
 	string/strstr.c string/wcschr.c string/wcsrchr.c \
@@ -4007,7 +4009,8 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	math/fp_consts.h math/pi_const.h \
+	misc/arm64ec/__mingw_mxcsr_to_fpcsr.c misc/mingw_longjmp.S \
 	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
 	misc/delayimp.c misc/dirent.c misc/dirname.c \
 	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
@@ -4216,6 +4219,7 @@ am__objects_189 = crt/lib64_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpi.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpif.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanpil.$(OBJEXT) \
+	misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib64_libmingwex_a-alarm.$(OBJEXT) \
@@ -5366,7 +5370,7 @@ lib64_libucrt_extra_a_OBJECTS = $(am_lib64_libucrt_extra_a_OBJECTS)
 lib64_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 lib64_libucrtapp_extra_a_LIBADD =
 am__lib64_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
-	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	misc/longjmp.c misc/setjmp.S string/memchr.c string/memcmp.c \
 	string/memcpy.c string/memmove.c string/memrchr.c \
 	string/strchr.c string/strchrnul.c string/strrchr.c \
 	string/strstr.c string/wcschr.c string/wcsrchr.c \
@@ -5877,7 +5881,8 @@ am__libarm32_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	math/fp_consts.h math/pi_const.h \
+	misc/arm64ec/__mingw_mxcsr_to_fpcsr.c misc/mingw_longjmp.S \
 	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
 	misc/delayimp.c misc/dirent.c misc/dirname.c \
 	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
@@ -6068,6 +6073,7 @@ am__objects_282 = crt/libarm32_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpi.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpif.$(OBJEXT) \
 	math/libarm32_libmingwex_a-tanpil.$(OBJEXT) \
+	misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/libarm32_libmingwex_a-alarm.$(OBJEXT) \
@@ -6883,7 +6889,7 @@ libarm32_libucrt_extra_a_OBJECTS =  \
 libarm32_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 libarm32_libucrtapp_extra_a_LIBADD =
 am__libarm32_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
-	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	misc/longjmp.c misc/setjmp.S string/memchr.c string/memcmp.c \
 	string/memcpy.c string/memmove.c string/memrchr.c \
 	string/strchr.c string/strchrnul.c string/strrchr.c \
 	string/strstr.c string/wcschr.c string/wcsrchr.c \
@@ -7398,7 +7404,8 @@ am__libarm64_libmingwex_a_SOURCES_DIST = crt/loadcfg.S \
 	math/sinpi.c math/sinpif.c math/sinpil.c math/sqrtl.c \
 	math/tanhl.c math/tanpi.c math/tanpif.c math/tanpil.c \
 	math/powi.def.h math/sqrt.def.h math/cephes_mconf.h \
-	math/fp_consts.h math/pi_const.h misc/mingw_longjmp.S \
+	math/fp_consts.h math/pi_const.h \
+	misc/arm64ec/__mingw_mxcsr_to_fpcsr.c misc/mingw_longjmp.S \
 	misc/mingw_getsp.S misc/alarm.c misc/delay-f.c misc/delay-n.c \
 	misc/delayimp.c misc/dirent.c misc/dirname.c \
 	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
@@ -7589,6 +7596,7 @@ am__objects_347 = crt/libarm64_libmingwex_a-loadcfg.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpi.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpif.$(OBJEXT) \
 	math/libarm64_libmingwex_a-tanpil.$(OBJEXT) \
+	misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_longjmp.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/libarm64_libmingwex_a-alarm.$(OBJEXT) \
@@ -8292,11 +8300,11 @@ libarm64_libucrt_extra_a_OBJECTS =  \
 libarm64_libucrtapp_extra_a_AR = $(AR) $(ARFLAGS)
 libarm64_libucrtapp_extra_a_LIBADD =
 am__libarm64_libucrtapp_extra_a_SOURCES_DIST = misc/_longjmpex.c \
-	misc/longjmp.S misc/setjmp.S string/memchr.c string/memcmp.c \
+	misc/longjmp.c misc/setjmp.S string/memchr.c string/memcmp.c \
 	string/memcpy.c string/memmove.c string/memrchr.c \
 	string/strchr.c string/strchrnul.c string/strrchr.c \
 	string/strstr.c string/wcschr.c string/wcsrchr.c \
-	string/wcsstr.c misc/arm64ec/longjmp.c misc/arm64ec/setjmp.c
+	string/wcsstr.c misc/arm64ec/setjmp.c
 am__objects_373 =  \
 	misc/libarm64_libucrtapp_extra_a-_longjmpex.$(OBJEXT) \
 	misc/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
@@ -8313,8 +8321,7 @@ am__objects_373 =  \
 	string/libarm64_libucrtapp_extra_a-wcschr.$(OBJEXT) \
 	string/libarm64_libucrtapp_extra_a-wcsrchr.$(OBJEXT) \
 	string/libarm64_libucrtapp_extra_a-wcsstr.$(OBJEXT)
-@ARM64EC_TRUE@am__objects_374 = misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT) \
-@ARM64EC_TRUE@	misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.$(OBJEXT)
+@ARM64EC_TRUE@am__objects_374 = misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.$(OBJEXT)
 @LIBARM64_TRUE@@W32API_FALSE@am_libarm64_libucrtapp_extra_a_OBJECTS =  \
 @LIBARM64_TRUE@@W32API_FALSE@	$(am__objects_373) \
 @LIBARM64_TRUE@@W32API_FALSE@	$(am__objects_374)
@@ -12049,7 +12056,10 @@ am__depfiles_remade = ./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po \
 	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po \
 	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po \
 	misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po \
-	misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po \
+	misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po \
+	misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po \
+	misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po \
+	misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po \
 	misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po \
 	profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po \
 	profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po \
@@ -14502,7 +14512,7 @@ src_ucrtbase = \
 # Files included in libucrtapp.a
 src_ucrtapp = \
   misc/_longjmpex.c \
-  misc/longjmp.S \
+  misc/longjmp.c \
   misc/setjmp.S \
   string/memchr.c \
   string/memcmp.c \
@@ -14518,7 +14528,6 @@ src_ucrtapp = \
   string/wcsstr.c
 
 @ARM64EC_TRUE@src_ucrtapp_arm64 = \
-@ARM64EC_TRUE@  misc/arm64ec/longjmp.c \
 @ARM64EC_TRUE@  misc/arm64ec/setjmp.c
 
 
@@ -15192,6 +15201,7 @@ src_libmingwex = \
   math/powi.def.h       math/sqrt.def.h    \
   math/cephes_mconf.h   math/fp_consts.h   math/pi_const.h \
   \
+  misc/arm64ec/__mingw_mxcsr_to_fpcsr.c \
   misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \
@@ -18701,6 +18711,15 @@ math/lib32_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+misc/arm64ec/$(am__dirstamp):
+	@$(MKDIR_P) misc/arm64ec
+	@: > misc/arm64ec/$(am__dirstamp)
+misc/arm64ec/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) misc/arm64ec/$(DEPDIR)
+	@: > misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
+misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT):  \
+	misc/arm64ec/$(am__dirstamp) \
+	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -22862,6 +22881,9 @@ math/lib64_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT):  \
+	misc/arm64ec/$(am__dirstamp) \
+	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_longjmp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
@@ -25357,6 +25379,9 @@ math/libarm32_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/libarm32_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT):  \
+	misc/arm64ec/$(am__dirstamp) \
+	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm32_libmingwex_a-mingw_getsp.$(OBJEXT):  \
@@ -27434,6 +27459,9 @@ math/libarm64_libmingwex_a-tanpif.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/libarm64_libmingwex_a-tanpil.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.$(OBJEXT):  \
+	misc/arm64ec/$(am__dirstamp) \
+	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_longjmp.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/libarm64_libmingwex_a-mingw_getsp.$(OBJEXT):  \
@@ -28540,15 +28568,6 @@ string/libarm64_libucrtapp_extra_a-wcsrchr.$(OBJEXT):  \
 	string/$(am__dirstamp) string/$(DEPDIR)/$(am__dirstamp)
 string/libarm64_libucrtapp_extra_a-wcsstr.$(OBJEXT):  \
 	string/$(am__dirstamp) string/$(DEPDIR)/$(am__dirstamp)
-misc/arm64ec/$(am__dirstamp):
-	@$(MKDIR_P) misc/arm64ec
-	@: > misc/arm64ec/$(am__dirstamp)
-misc/arm64ec/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) misc/arm64ec/$(DEPDIR)
-	@: > misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
-misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.$(OBJEXT):  \
-	misc/arm64ec/$(am__dirstamp) \
-	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
 misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.$(OBJEXT):  \
 	misc/arm64ec/$(am__dirstamp) \
 	misc/arm64ec/$(DEPDIR)/$(am__dirstamp)
@@ -32364,7 +32383,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po@am__quote@ # am--include-marker
@@ -34592,20 +34614,6 @@ math/x86/lib32_libucrt_extra_a-floorf.obj: math/x86/floorf.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/x86/lib32_libucrt_extra_a-floorf.obj `if test -f 'math/x86/floorf.S'; then $(CYGPATH_W) 'math/x86/floorf.S'; else $(CYGPATH_W) '$(srcdir)/math/x86/floorf.S'; fi`
 
-misc/lib32_libucrtapp_extra_a-longjmp.o: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/lib32_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-
-misc/lib32_libucrtapp_extra_a-longjmp.obj: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/lib32_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-
 misc/lib32_libucrtapp_extra_a-setjmp.o: misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libucrtapp_extra_a-setjmp.o -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Tpo -c -o misc/lib32_libucrtapp_extra_a-setjmp.o `test -f 'misc/setjmp.S' || echo '$(srcdir)/'`misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-setjmp.Po
@@ -35306,20 +35314,6 @@ stdio/lib64_libmsvcrt_extra_a-scanf.obj: stdio/scanf.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o stdio/lib64_libmsvcrt_extra_a-scanf.obj `if test -f 'stdio/scanf.S'; then $(CYGPATH_W) 'stdio/scanf.S'; else $(CYGPATH_W) '$(srcdir)/stdio/scanf.S'; fi`
 
-misc/lib64_libucrtapp_extra_a-longjmp.o: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/lib64_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-
-misc/lib64_libucrtapp_extra_a-longjmp.obj: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/lib64_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-
 misc/lib64_libucrtapp_extra_a-setjmp.o: misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libucrtapp_extra_a-setjmp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Tpo -c -o misc/lib64_libucrtapp_extra_a-setjmp.o `test -f 'misc/setjmp.S' || echo '$(srcdir)/'`misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-setjmp.Po
@@ -35446,20 +35440,6 @@ math/arm/libarm32_libmsvcrt_extra_a-nearbyintl.obj: math/arm/nearbyintl.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/arm/libarm32_libmsvcrt_extra_a-nearbyintl.obj `if test -f 'math/arm/nearbyintl.S'; then $(CYGPATH_W) 'math/arm/nearbyintl.S'; else $(CYGPATH_W) '$(srcdir)/math/arm/nearbyintl.S'; fi`
 
-misc/libarm32_libucrtapp_extra_a-longjmp.o: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm32_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/libarm32_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-
-misc/libarm32_libucrtapp_extra_a-longjmp.obj: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm32_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/libarm32_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-
 misc/libarm32_libucrtapp_extra_a-setjmp.o: misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm32_libucrtapp_extra_a-setjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Tpo -c -o misc/libarm32_libucrtapp_extra_a-setjmp.o `test -f 'misc/setjmp.S' || echo '$(srcdir)/'`misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-setjmp.Po
@@ -35557,20 +35537,6 @@ stdio/libarm64_libmsvcrt_extra_a-scanf.obj: stdio/scanf.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='stdio/scanf.S' object='stdio/libarm64_libmsvcrt_extra_a-scanf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmsvcrt_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o stdio/libarm64_libmsvcrt_extra_a-scanf.obj `if test -f 'stdio/scanf.S'; then $(CYGPATH_W) 'stdio/scanf.S'; else $(CYGPATH_W) '$(srcdir)/stdio/scanf.S'; fi`
-
-misc/libarm64_libucrtapp_extra_a-longjmp.o: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm64_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/libarm64_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.S' || echo '$(srcdir)/'`misc/longjmp.S
-
-misc/libarm64_libucrtapp_extra_a-longjmp.obj: misc/longjmp.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm64_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='misc/longjmp.S' object='misc/libarm64_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.S'; then $(CYGPATH_W) 'misc/longjmp.S'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.S'; fi`
 
 misc/libarm64_libucrtapp_extra_a-setjmp.o: misc/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/libarm64_libucrtapp_extra_a-setjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Tpo -c -o misc/libarm64_libucrtapp_extra_a-setjmp.o `test -f 'misc/setjmp.S' || echo '$(srcdir)/'`misc/setjmp.S
@@ -41663,6 +41629,20 @@ math/lib32_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/tanpil.c' object='math/lib32_libmingwex_a-tanpil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
+
+misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+
+misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj -MD -MP -MF misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
 
 misc/lib32_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Tpo -c -o misc/lib32_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -62202,6 +62182,20 @@ misc/lib32_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
 
+misc/lib32_libucrtapp_extra_a-longjmp.o: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/lib32_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+
+misc/lib32_libucrtapp_extra_a-longjmp.obj: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib32_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/lib32_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+
 string/lib32_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/lib32_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/lib32_libucrtapp_extra_a-memchr.Tpo -c -o string/lib32_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/lib32_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/lib32_libucrtapp_extra_a-memchr.Po
@@ -67563,6 +67557,20 @@ math/lib64_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/tanpil.c' object='math/lib64_libmingwex_a-tanpil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
+
+misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+
+misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj -MD -MP -MF misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
 
 misc/lib64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Tpo -c -o misc/lib64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -77518,6 +77526,20 @@ misc/lib64_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
 
+misc/lib64_libucrtapp_extra_a-longjmp.o: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/lib64_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+
+misc/lib64_libucrtapp_extra_a-longjmp.obj: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/lib64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/lib64_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/lib64_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+
 string/lib64_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/lib64_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Tpo -c -o string/lib64_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/lib64_libucrtapp_extra_a-memchr.Po
@@ -82417,6 +82439,20 @@ math/libarm32_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/tanpil.c' object='math/libarm32_libmingwex_a-tanpil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/libarm32_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
+
+misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+
+misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
 
 misc/libarm32_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libmingwex_a-alarm.Tpo -c -o misc/libarm32_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -89796,6 +89832,20 @@ misc/libarm32_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
 
+misc/libarm32_libucrtapp_extra_a-longjmp.o: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/libarm32_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+
+misc/libarm32_libucrtapp_extra_a-longjmp.obj: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm32_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm32_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/libarm32_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm32_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+
 string/libarm32_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm32_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/libarm32_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Tpo -c -o string/libarm32_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/libarm32_libucrtapp_extra_a-memchr.Po
@@ -94695,6 +94745,20 @@ math/libarm64_libmingwex_a-tanpil.obj: math/tanpil.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='math/tanpil.c' object='math/libarm64_libmingwex_a-tanpil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/libarm64_libmingwex_a-tanpil.obj `if test -f 'math/tanpil.c'; then $(CYGPATH_W) 'math/tanpil.c'; else $(CYGPATH_W) '$(srcdir)/math/tanpil.c'; fi`
+
+misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.o `test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' || echo '$(srcdir)/'`misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+
+misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj: misc/arm64ec/__mingw_mxcsr_to_fpcsr.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo -c -o misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Tpo misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/__mingw_mxcsr_to_fpcsr.c' object='misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.obj `if test -f 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; then $(CYGPATH_W) 'misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/__mingw_mxcsr_to_fpcsr.c'; fi`
 
 misc/libarm64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libmingwex_a-alarm.Tpo -c -o misc/libarm64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -101304,6 +101368,20 @@ misc/libarm64_libucrtapp_extra_a-_longjmpex.obj: misc/_longjmpex.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-_longjmpex.obj `if test -f 'misc/_longjmpex.c'; then $(CYGPATH_W) 'misc/_longjmpex.c'; else $(CYGPATH_W) '$(srcdir)/misc/_longjmpex.c'; fi`
 
+misc/libarm64_libucrtapp_extra_a-longjmp.o: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/libarm64_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/longjmp.c' || echo '$(srcdir)/'`misc/longjmp.c
+
+misc/libarm64_libucrtapp_extra_a-longjmp.obj: misc/longjmp.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/libarm64_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/longjmp.c' object='misc/libarm64_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/longjmp.c'; then $(CYGPATH_W) 'misc/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/longjmp.c'; fi`
+
 string/libarm64_libucrtapp_extra_a-memchr.o: string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT string/libarm64_libucrtapp_extra_a-memchr.o -MD -MP -MF string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Tpo -c -o string/libarm64_libucrtapp_extra_a-memchr.o `test -f 'string/memchr.c' || echo '$(srcdir)/'`string/memchr.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Tpo string/$(DEPDIR)/libarm64_libucrtapp_extra_a-memchr.Po
@@ -101471,20 +101549,6 @@ string/libarm64_libucrtapp_extra_a-wcsstr.obj: string/wcsstr.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='string/wcsstr.c' object='string/libarm64_libucrtapp_extra_a-wcsstr.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o string/libarm64_libucrtapp_extra_a-wcsstr.obj `if test -f 'string/wcsstr.c'; then $(CYGPATH_W) 'string/wcsstr.c'; else $(CYGPATH_W) '$(srcdir)/string/wcsstr.c'; fi`
-
-misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.o: misc/arm64ec/longjmp.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/arm64ec/longjmp.c' || echo '$(srcdir)/'`misc/arm64ec/longjmp.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/longjmp.c' object='misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.o `test -f 'misc/arm64ec/longjmp.c' || echo '$(srcdir)/'`misc/arm64ec/longjmp.c
-
-misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.obj: misc/arm64ec/longjmp.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.obj -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo -c -o misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/arm64ec/longjmp.c'; then $(CYGPATH_W) 'misc/arm64ec/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/longjmp.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Tpo misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='misc/arm64ec/longjmp.c' object='misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/arm64ec/libarm64_libucrtapp_extra_a-longjmp.obj `if test -f 'misc/arm64ec/longjmp.c'; then $(CYGPATH_W) 'misc/arm64ec/longjmp.c'; else $(CYGPATH_W) '$(srcdir)/misc/arm64ec/longjmp.c'; fi`
 
 misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.o: misc/arm64ec/setjmp.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libarm64_libucrtapp_extra_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.o -MD -MP -MF misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Tpo -c -o misc/arm64ec/libarm64_libucrtapp_extra_a-setjmp.o `test -f 'misc/arm64ec/setjmp.c' || echo '$(srcdir)/'`misc/arm64ec/setjmp.c
@@ -106828,7 +106892,10 @@ distclean: distclean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
-	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
 	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
 	-rm -f profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po
 	-rm -f profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po
@@ -111802,7 +111869,10 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-_longjmpex.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
 	-rm -f misc/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
-	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-longjmp.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/lib32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/lib64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/libarm32_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
+	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libmingwex_a-__mingw_mxcsr_to_fpcsr.Po
 	-rm -f misc/arm64ec/$(DEPDIR)/libarm64_libucrtapp_extra_a-setjmp.Po
 	-rm -f profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po
 	-rm -f profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po
