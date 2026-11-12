@@ -657,6 +657,9 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+LINKER_SUBSYSTEM
+DEFAULT_WARNINGS
+CRT_DEFINES
 RC
 LT_SYS_LIBRARY_PATH
 OTOOL64
@@ -804,6 +807,7 @@ with_aix_soname
 with_gnu_ld
 with_sysroot
 enable_libtool_lock
+with_winnt
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1474,6 +1478,7 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
                           compiler's sysroot if not specified).
+  --with-winnt=VERSION    Minimal Windows NT version to support
 
 Some influential environment variables:
   CC          C compiler command
@@ -3287,7 +3292,25 @@ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
 
 
 
-# Checks for programs.
+# Validate $host_cpu and simplify it for use in later checks
+winpthreads_host=$host_cpu
+
+case $winpthreads_host in #(
+  i?86) :
+    winpthreads_host=x86 ;; #(
+  x86_64) :
+    winpthreads_host=x64 ;; #(
+  arm | armv7) :
+    winpthreads_host=arm32 ;; #(
+  aarch64) :
+    winpthreads_host=arm64 ;; #(
+  arm64ec) :
+    winpthreads_host=arm64ec ;; #(
+  *) :
+          as_fn_error $? "Unsupported host '$host'" "$LINENO" 5
+ ;;
+esac
+
 
 
 
@@ -14556,13 +14579,283 @@ CC=$lt_save_CC
 CFLAGS=$lt_save_CFLAGS
 
 
-# Checks for libraries.
 
-# Checks for header files.
+# Check whether --with-winnt was given.
+if test ${with_winnt+y}
+then :
+  withval=$with_winnt;   case $withval in #(
+  win10 | win8 | win8.1 | win7 | winvista | winxp | win2000 | nt4.0 | nt3.51 | nt3.5 | nt3.1) :
+    : ;; #(
+  *) :
+            as_fn_error $? "Invalid value '$withval' passed to --with-winnt option" "$LINENO" 5
+   ;;
+esac
+else case e in #(
+  e)   case $winpthreads_host in #(
+  x86) :
+    if test $msvc = yes
+then :
+  with_winnt=winxp
+else case e in #(
+  e)             with_winnt=nt3.1
+         ;;
+esac
+fi ;; #(
+  x64) :
+    with_winnt=winxp ;; #(
+  arm32) :
+    with_winnt=win8 ;; #(
+  arm64 | arm64ec) :
+    with_winnt=win10
+   ;; #(
+  *) :
+     ;;
+esac
+ ;;
+esac
+fi
 
-# Checks for typedefs, structures, and compiler characteristics.
 
-# Checks for library functions.
+# Major and minor subsystem versions corresponding to --with-winnt option
+subsystem_major=
+subsystem_minor=
+
+# `WINPTHREADS_WINNT_*` value corresponding to --with-winnt option;
+# see misc.h for valid values
+winpthreads_winnt=
+
+case $with_winnt in #(
+  win10) :
+    if # FIXME: mingw-w64 tools produce broken binaries when subsystem
+        # version is set to 6.3 or higher.
+        test $msvc = yes
+then :
+  subsystem_major=10
+          subsystem_minor=0
+else case e in #(
+  e)           subsystem_major=6
+          subsystem_minor=2
+       ;;
+esac
+fi
+      winpthreads_winnt=WINPTHREADS_WINNT_WIN10 ;; #(
+  win8.1) :
+    case $winpthreads_host in #(
+  x86 | x64 | arm32) :
+    # FIXME: mingw-w64 tools produce broken binaries when subsystem
+            # version is set to 6.3 or higher.
+            if test $msvc = yes
+then :
+  subsystem_major=6
+                subsystem_minor=3
+else case e in #(
+  e)                 subsystem_major=6
+                subsystem_minor=2
+             ;;
+esac
+fi
+            winpthreads_winnt=WINPTHREADS_WINNT_WIN8_1 ;; #(
+  *) :
+                as_fn_error $? "Windows 8.1 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac ;; #(
+  win8) :
+    case $winpthreads_host in #(
+  x86 | x64 | arm32) :
+    subsystem_major=6
+            subsystem_minor=2
+            winpthreads_winnt=WINPTHREADS_WINNT_WIN8 ;; #(
+  *) :
+                as_fn_error $? "Windows 8 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac ;; #(
+  win7) :
+    case $winpthreads_host in #(
+  x86 | x64) :
+    subsystem_major=6
+            subsystem_minor=1
+            winpthreads_winnt=WINPTHREADS_WINNT_WIN7 ;; #(
+  *) :
+                as_fn_error $? "Windows 7 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac ;; #(
+  winvista) :
+    case $winpthreads_host in #(
+  x86 | x64) :
+    subsystem_major=6
+            subsystem_minor=0
+            winpthreads_winnt=WINPTHREADS_WINNT_VISTA ;; #(
+  *) :
+                as_fn_error $? "Windows Vista does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac ;; #(
+  winxp) :
+    case $winpthreads_host in #(
+  x86) :
+    subsystem_major=5
+            subsystem_minor=1
+            winpthreads_winnt=WINPTHREADS_WINNT_XP ;; #(
+  x64) :
+    subsystem_major=5
+            subsystem_minor=2
+            winpthreads_winnt=WINPTHREADS_WINNT_2003 ;; #(
+  *) :
+                as_fn_error $? "Windows XP does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac ;; #(
+  win2000) :
+    if test $winpthreads_host = x86
+then :
+  subsystem_major=5
+          subsystem_minor=0
+          winpthreads_winnt=WINPTHREADS_WINNT_2000
+else case e in #(
+  e)           as_fn_error $? "Windows 2000 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac
+fi ;; #(
+  nt4.0) :
+    if test $winpthreads_host = x86
+then :
+  subsystem_major=4
+          subsystem_minor=0
+          winpthreads_winnt=WINPTHREADS_WINNT_NT_4
+else case e in #(
+  e)           as_fn_error $? "Windows NT 4.0 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac
+fi ;; #(
+  nt3.51) :
+    if test $winpthreads_host = x86
+then :
+  subsystem_major=3
+          subsystem_minor=51
+          winpthreads_winnt=WINPTHREADS_WINNT_NT_3_51
+else case e in #(
+  e)           as_fn_error $? "Windows NT 3.51 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac
+fi ;; #(
+  nt3.5) :
+    if test $winpthreads_host = x86
+then :
+  subsystem_major=3
+          subsystem_minor=50
+          winpthreads_winnt=WINPTHREADS_WINNT_NT_3_5
+else case e in #(
+  e)           as_fn_error $? "Windows NT 3.5 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac
+fi ;; #(
+  nt3.1) :
+    if test $winpthreads_host = x86
+then :
+  subsystem_major=3
+          subsystem_minor=10
+          winpthreads_winnt=WINPTHREADS_WINNT_NT_3_1
+else case e in #(
+  e)           as_fn_error $? "Windows NT 3.1 does not support running '$host_cpu' binaries" "$LINENO" 5
+       ;;
+esac
+fi
+ ;; #(
+  *) :
+     ;;
+esac
+
+
+printf "%s\n" "#define WINPTHREADS_WINNT $winpthreads_winnt" >>confdefs.h
+
+
+CRT_DEFINES=
+DEFAULT_WARNINGS=
+LINKER_SUBSYSTEM=
+
+
+
+
+
+if test $msvc = yes
+then :
+  # Do not warn about using non-standard function names such as `strdup`
+    CRT_DEFINES="$CRT_DEFINES -D_CRT_NONSTDC_NO_WARNINGS"
+    # Make Windows SDK headers declare non-standard names;
+    # required if -Zc:__STDC__ option is used
+    CRT_DEFINES="$CRT_DEFINES -D_CRT_DECLARE_NONSTDC_NAMES"
+    # Do not warn about using "unsafe" functions
+    CRT_DEFINES="$CRT_DEFINES -D_CRT_SECURE_NO_WARNINGS"
+    # MSVC's -Wall enables _all_ warnings, which is too much
+    DEFAULT_WARNINGS='-W3'
+else case e in #(
+  e)     # Do not use mingw-w64 stdio functions
+    CRT_DEFINES="$CRT_DEFINES -D__USE_MINGW_ANSI_STDIO=0"
+    DEFAULT_WARNINGS='-Wall'
+ ;;
+esac
+fi
+
+# Figure out how to tell linker to set subsystem version
+winpthreads_subsystem=
+
+if test $msvc = yes
+then :
+  # The MSVC option has syntax
+    #
+    #   "/SUBSYSTEM:CONSOLE,major.minor"
+    #
+    # and must be passed as a single argument. We cannot pass it as
+    #
+    #   "-Wl,-SUBSYSTEM:CONSOLE,major.minor"
+    #
+    # because it will separate "major,minor" part, resulting in an error.
+    # A solution is to use -Xlinker option for the check.
+    #
+    # The /WX switch makes the linker treat warnings as errors; passing invalid
+    # subsystem version to /SUBSYSTEM switch results in a warning and linker
+    # simply uses the default subsystem version, which is not what we want.
+    winpthreads_subsystem="-Xlinker -WX -Xlinker -SUBSYSTEM:CONSOLE,$subsystem_major.$subsystem_minor"
+else case e in #(
+  e)     winpthreads_subsystem="-Wl,--subsystem,console:$subsystem_major.$subsystem_minor"
+ ;;
+esac
+fi
+
+if test $ac_no_link = no
+then :
+  save_LDFLAGS=$LDFLAGS
+    LDFLAGS="$LDFLAGS $winpthreads_subsystem"
+    if test x$ac_no_link = xyes; then
+  as_fn_error $? "link tests are not allowed after AC_NO_EXECUTABLES" "$LINENO" 5
+fi
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+int main (void) {return 0;}
+
+_ACEOF
+if ac_fn_c_try_link "$LINENO"
+then :
+        LDFLAGS=$save_LDFLAGS
+else case e in #(
+  e)       as_fn_error $? "Linker cannot create binaries for '$with_winnt'" "$LINENO" 5
+     ;;
+esac
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext conftest.$ac_ext
+
+fi
+
+# We cannot use "-Xlinker -SUBSYSTEM:CONSOLE,major.minor" when libtool is
+# involved because it converts it to -Wl switch. Use a hack to make it pass
+# "-Xlinker" and "-SUBSYSTEM:CONSOLE,major.minor" as two separate options to
+# the `compile` wrapper, which will then pass the option to the linker.
+if test $msvc = yes
+then :
+  winpthreads_subsystem="-Xcompiler -Xlinker -Xcompiler -SUBSYSTEM:CONSOLE,$subsystem_major.$subsystem_minor"
+
+fi
+
+LINKER_SUBSYSTEM="$LINKER_SUBSYSTEM $winpthreads_subsystem"
 
 # config.h
 

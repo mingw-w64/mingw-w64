@@ -62,6 +62,9 @@
 /* Version number of package */
 #undef VERSION
 
+/* Minimal Windows NT version to be supported by the library */
+#undef WINPTHREADS_WINNT
+
 #ifdef DLL_EXPORT
 #define WINPTHREAD_API __declspec(dllexport)
 #else

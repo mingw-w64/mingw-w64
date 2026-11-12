@@ -87,9 +87,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@MSVC_TRUE@am__append_1 = -W3 -D_CRT_SECURE_NO_WARNINGS
-@MSVC_FALSE@am__append_2 = -Wall
-@MSVC_FALSE@am__append_3 = -L$(top_builddir)/fakelib
+@MSVC_FALSE@am__append_1 = -L$(top_builddir)/fakelib
 check_PROGRAMS = benchtests/benchtest1$(EXEEXT) \
 	benchtests/benchtest2$(EXEEXT) benchtests/benchtest3$(EXEEXT) \
 	benchtests/benchtest4$(EXEEXT) benchtests/benchtest5$(EXEEXT) \
@@ -2039,9 +2037,11 @@ CCASFLAGS = @CCASFLAGS@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPPFLAGS = @CPPFLAGS@
+CRT_DEFINES = @CRT_DEFINES@
 CSCOPE = @CSCOPE@
 CTAGS = @CTAGS@
 CYGPATH_W = @CYGPATH_W@
+DEFAULT_WARNINGS = @DEFAULT_WARNINGS@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DLLTOOL = @DLLTOOL@
@@ -2066,6 +2066,7 @@ LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LINKER_SUBSYSTEM = @LINKER_SUBSYSTEM@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
@@ -2149,9 +2150,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CPPFLAGS = -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
-AM_CFLAGS = $(am__append_1) $(am__append_2)
-AM_LDFLAGS = -L$(top_builddir) $(am__append_3)
+
+# Global compiler and linker flags are set in configure.ac
+AM_CPPFLAGS = @CRT_DEFINES@ -I. -I$(top_srcdir)/src -I$(top_srcdir)/include
+AM_CFLAGS = @DEFAULT_WARNINGS@
+AM_LDFLAGS = @LINKER_SUBSYSTEM@ -L$(top_builddir) $(am__append_1)
 LDADD = $(top_builddir)/libwinpthread.la
 check_LIBRARIES = \
 	libbenchlib.a
