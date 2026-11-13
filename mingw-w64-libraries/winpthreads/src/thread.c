@@ -622,33 +622,6 @@ _pthread_once_cleanup (void *o)
   leaveOnceObject (co);
 }
 
-static int
-_pthread_once_raw (pthread_once_t *o, void (*func)(void))
-{
-  collect_once_t *co;
-  long state = *o;
-
-  if (!o || !func)
-    return EINVAL;
-
-  if (state == 1)
-    return 0;
-  co = enterOnceObject(o);
-  pthread_mutex_lock(&co->m);
-  if (*o == 0)
-    {
-      func();
-      *o = 1;
-    }
-  else if (*o != 1)
-    fprintf (stderr," once %p is %ld\n", (void *) o, (long) *o);
-  pthread_mutex_unlock(&co->m);
-  leaveOnceObject(co);
-
-  /* Done */
-  return 0;
-}
-
 /* Unimplemented.  */
 void *
 pthread_timechange_handler_np(void *dummy)
