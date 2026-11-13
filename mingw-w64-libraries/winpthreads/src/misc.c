@@ -149,17 +149,24 @@ fail:
   return hr;
 }
 
-#if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
 /**
  * Implementation based on functions available at runtime.
  */
 static struct {
   /**
+   * Combination of `WINPTHREADS_FEATURE_*` bits describing features
+   * available at runtime.
+   */
+  unsigned Features;
+#if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
+  /**
    * Implementation for `winpthreads_set_thread_description_ansi`.
    */
   FuncWinpthreadsSetThreadDescriptionAnsi PtrWinpthreadsSetThreadDescriptionAnsi;
-} WinpthreadsImpl;
 #endif
+} WinpthreadsImpl = {
+  .Features = WINPTHREADS_DEFAULT_FEATURES,
+};
 
 static void winpthreads_init (void)
 {
@@ -242,6 +249,10 @@ __attribute__ ((used, section(".CRT$XCT"))) static const _PVFV __xc_t = winpthre
 #else
 #define SetThreadDescriptionAnsi WinpthreadsImpl.PtrWinpthreadsSetThreadDescriptionAnsi
 #endif
+
+unsigned winpthreads_features (void) {
+  return WinpthreadsImpl.Features;
+}
 
 int winpthreads_get_handle_information (void *handle, unsigned *flags) {
   return GetHandleInformation (handle, (LPDWORD) flags);
