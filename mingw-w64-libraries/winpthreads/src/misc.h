@@ -361,6 +361,11 @@ int winpthreads_set_thread_description_ansi (void *, const char *);
 int winpthreads_set_thread_description_unicode (void *, const wchar_t *);
 
 /**
+ * Returns TLS index used by the library.
+ */
+unsigned winpthreads_tls (void);
+
+/**
  * Validate `handle`.
  *
  * Returns non-zero if `handle` is valid and zero otherwise.

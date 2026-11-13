@@ -315,7 +315,6 @@ WINPTHREAD_API pthread_t pthread_self(void);
 WINPTHREAD_API int       pthread_once(pthread_once_t *o, void (*func)(void));
 WINPTHREAD_API void      pthread_testcancel(void);
 WINPTHREAD_API int       pthread_equal(pthread_t t1, pthread_t t2);
-WINPTHREAD_API void      pthread_tls_init(void);
 WINPTHREAD_API void      _pthread_cleanup_dest(pthread_t t);
 WINPTHREAD_API int       pthread_get_concurrency(int *val);
 WINPTHREAD_API int       pthread_set_concurrency(int val);

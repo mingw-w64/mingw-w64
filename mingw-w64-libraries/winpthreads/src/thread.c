@@ -46,10 +46,6 @@ void (**_pthread_key_dest)(void *) = NULL;
 static volatile long _pthread_cancelling;
 static int _pthread_concur;
 
-/* FIXME Will default to zero as needed */
-static pthread_once_t _pthread_tls_once;
-static DWORD _pthread_tls = 0xffffffff;
-
 static pthread_rwlock_t _pthread_key_lock = PTHREAD_RWLOCK_INITIALIZER;
 static unsigned long _pthread_key_max=0L;
 static unsigned long _pthread_key_sch=0L;
@@ -427,8 +423,6 @@ free_pthread_mem (void)
 static void WINAPI
 __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
-  _pthread_v *t = NULL;
-
   if (dwReason == DLL_PROCESS_DETACH)
     {
       free_pthread_mem ();
@@ -438,8 +432,9 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     }
   else if (dwReason == DLL_THREAD_DETACH)
     {
-      if (_pthread_tls != 0xffffffff)
-	t = (_pthread_v *)TlsGetValue(_pthread_tls);
+      unsigned tlsIndex = winpthreads_tls ();
+      _pthread_v *t = (_pthread_v *)TlsGetValue(tlsIndex);
+
       if (t && t->thread_noposix != 0)
 	{
 	  _pthread_cleanup_dest (t->x);
@@ -455,7 +450,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  pthread_spin_destroy (&t->spin_keys);
 	  push_pthread_mem (t);
 	  t = NULL;
-	  TlsSetValue (_pthread_tls, t);
+	  TlsSetValue (tlsIndex, t);
 	}
       else if (t && t->ended == 0)
 	{
@@ -474,7 +469,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	      pthread_spin_destroy (&t->spin_keys);
 	      push_pthread_mem (t);
 	      t = NULL;
-	      TlsSetValue (_pthread_tls, t);
+	      TlsSetValue (tlsIndex, t);
 	      return;
 	    }
 	  pthread_mutex_destroy(&t->p_clock);
@@ -854,16 +849,6 @@ pthread_equal (pthread_t t1, pthread_t t2)
 }
 
 void
-pthread_tls_init (void)
-{
-  _pthread_tls = TlsAlloc();
-
-  /* Cannot continue if out of indexes */
-  if (_pthread_tls == TLS_OUT_OF_INDEXES)
-    abort();
-}
-
-void
 _pthread_cleanup_dest (pthread_t t)
 {
 	_pthread_v *tv;
@@ -917,10 +902,10 @@ static _pthread_v *
 __pthread_self_lite (void)
 {
   _pthread_v *t;
+  unsigned tlsIndex = winpthreads_tls ();
 
-  _pthread_once_raw (&_pthread_tls_once, pthread_tls_init);
 
-  t = (_pthread_v *) TlsGetValue (_pthread_tls);
+  t = (_pthread_v *) TlsGetValue (tlsIndex);
   if (t)
     return t;
   /* Main thread? */
@@ -944,7 +929,7 @@ __pthread_self_lite (void)
   t->thread_noposix = 1;
 
   /* Save for later */
-  if (!TlsSetValue(_pthread_tls, t))
+  if (!TlsSetValue(tlsIndex, t))
     abort ();
   return t;
 }
@@ -1011,8 +996,10 @@ pthread_exit (void *res)
   if (id->thread_noposix == 0)
     longjmp(id->jb, 1);
 
+  unsigned tlsIndex = winpthreads_tls ();
+
   /* Make sure we free ourselves if we are detached */
-  if ((t = (_pthread_v *)TlsGetValue(_pthread_tls)) != NULL)
+  if ((t = (_pthread_v *)TlsGetValue(tlsIndex)) != NULL)
     {
       if (!t->h)
 	{
@@ -1025,7 +1012,7 @@ pthread_exit (void *res)
 	  pthread_spin_destroy (&t->spin_keys);
 	  push_pthread_mem(t);
 	  t = NULL;
-	  TlsSetValue (_pthread_tls, t);
+	  TlsSetValue (tlsIndex, t);
 	}
       else
 	{
@@ -1043,7 +1030,7 @@ pthread_exit (void *res)
 	      pthread_spin_destroy (&t->spin_keys);
 	      push_pthread_mem(t);
 	      t = NULL;
-	      TlsSetValue(_pthread_tls, t);
+	      TlsSetValue(tlsIndex, t);
 	    }
 	}
     }
@@ -1424,6 +1411,7 @@ pthread_create_wrapper (void *args)
 {
   unsigned rslt = 0;
   struct _pthread_v *tv = (struct _pthread_v *)args;
+  unsigned tlsIndex = winpthreads_tls ();
 
   /* POSIX requires the floating-point environment to be inherited from the
      creating thread.  Windows starts every thread with its own defaults
@@ -1434,8 +1422,7 @@ pthread_create_wrapper (void *args)
 
   pthread_mutex_lock (&mtx_pthr_locked);
   pthread_mutex_lock (&tv->p_clock);
-  _pthread_once_raw(&_pthread_tls_once, pthread_tls_init);
-  TlsSetValue(_pthread_tls, tv);
+  TlsSetValue(tlsIndex, tv);
   tv->tid = GetCurrentThreadId();
   pthread_mutex_unlock (&tv->p_clock);
 
@@ -1469,7 +1456,7 @@ pthread_create_wrapper (void *args)
       pthread_spin_destroy (&tv->spin_keys);
       push_pthread_mem (tv);
       tv = NULL;
-      TlsSetValue (_pthread_tls, tv);
+      TlsSetValue (tlsIndex, tv);
     }
   else
     {
@@ -1482,7 +1469,7 @@ pthread_create_wrapper (void *args)
       /* GH #328 experiment: once ended, tv belongs to whoever joins or detaches
          us, and may be recycled for a new thread before our DLL_THREAD_DETACH
          runs -- so that callback must not find it through our TLS slot. */
-      TlsSetValue (_pthread_tls, NULL);
+      TlsSetValue (tlsIndex, NULL);
     }
   while (pthread_mutex_unlock (&mtx_pthr_locked) == 0)
    Sleep (0);
