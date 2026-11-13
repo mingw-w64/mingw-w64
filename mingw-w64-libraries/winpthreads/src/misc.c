@@ -37,6 +37,16 @@
 typedef BOOL (WINAPI *FuncGetHandleInformation) (HANDLE, LPDWORD);
 
 /**
+ * Function type corresponding to `WaitOnAddress`.
+ */
+typedef BOOL (WINAPI *FuncWaitOnAddress) (VOID volatile *, VOID *, SIZE_T, DWORD);
+
+/**
+ * Function type corresponding to `WakeByAddressSingle` and `WakeByAddressAll`.
+ */
+typedef VOID (WINAPI *FuncWakeByAddress) (VOID *);
+
+/**
  * Function type corresponding to `SetThreadDescription`.
  */
 typedef HRESULT (WINAPI *FuncSetThreadDescription) (HANDLE, PCWSTR);
@@ -77,6 +87,15 @@ static struct {
    */
   FuncGetHandleInformation PtrGetHandleInformation;
 #endif
+  /**
+   * Functions `WaitOnAddress`, `WakeByAddressSingle` and `WakeByAddressAll`
+   * are available since Windows 8.
+   */
+#if !WINPTHREADS_DEFAULT_FEATURE_WAIT_ON_ADDRESS
+  FuncWaitOnAddress PtrWaitOnAddress;
+  FuncWakeByAddress PtrWakeByAddressSingle;
+  FuncWakeByAddress PtrWakeByAddressAll;
+#endif
 #if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
   /**
    * Function `SetThreadDescription` is available since Windows 10 1607.
@@ -87,6 +106,12 @@ static struct {
 
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
 #define GetHandleInformation WinpthreadsApi.PtrGetHandleInformation
+#endif
+
+#if !WINPTHREADS_DEFAULT_FEATURE_WAIT_ON_ADDRESS
+#define WaitOnAddress       WinpthreadsApi.PtrWaitOnAddress
+#define WakeByAddressSingle WinpthreadsApi.PtrWakeByAddressSingle
+#define WakeByAddressAll    WinpthreadsApi.PtrWakeByAddressAll
 #endif
 
 #if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
@@ -177,6 +202,11 @@ static void winpthreads_init (void)
 #if WINPTHREADS_WINNT < WINPTHREADS_WINNT_NT_3_5
   FuncGetHandleInformation ptrGetHandleInformation = NULL;
 #endif
+#if !WINPTHREADS_DEFAULT_FEATURE_WAIT_ON_ADDRESS
+  FuncWaitOnAddress ptrWaitOnAddress       = NULL;
+  FuncWakeByAddress ptrWakeByAddressSingle = NULL;
+  FuncWakeByAddress ptrWakeByAddressAll    = NULL;
+#endif
 #if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
   FuncSetThreadDescription ptrSetThreadDescription = NULL;
 #endif
@@ -191,6 +221,11 @@ static void winpthreads_init (void)
   }
 
   if (kernelbase != NULL) {
+#if !WINPTHREADS_DEFAULT_FEATURE_WAIT_ON_ADDRESS
+    ptrWaitOnAddress       = (FuncWaitOnAddress) (UINT_PTR) GetProcAddress (kernelbase, "WaitOnAddress");
+    ptrWakeByAddressSingle = (FuncWakeByAddress) (UINT_PTR) GetProcAddress (kernelbase, "WakeByAddressSingle");
+    ptrWakeByAddressAll    = (FuncWakeByAddress) (UINT_PTR) GetProcAddress (kernelbase, "WakeByAddressAll");
+#endif
 #if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
     /**
      * Although `SetThreadDescription` lives in kernel32.dll,
@@ -209,6 +244,30 @@ static void winpthreads_init (void)
   } else {
     WinpthreadsApi.PtrGetHandleInformation = WinpthreadsGetHandleInformation;
   }
+#endif
+
+#if !WINPTHREADS_DEFAULT_FEATURE_WAIT_ON_ADDRESS
+  unsigned haveWaitOnAddress = WINPTHREADS_FEATURE_WAIT_ON_ADDRESS;
+
+  if (ptrWaitOnAddress != NULL) {
+    WinpthreadsApi.PtrWaitOnAddress = ptrWaitOnAddress;
+  } else {
+    haveWaitOnAddress &= ~WINPTHREADS_FEATURE_WAIT_ON_ADDRESS;
+  }
+
+  if (ptrWakeByAddressSingle != NULL) {
+    WinpthreadsApi.PtrWakeByAddressSingle = ptrWakeByAddressSingle;
+  } else {
+    haveWaitOnAddress &= ~WINPTHREADS_FEATURE_WAIT_ON_ADDRESS;
+  }
+
+  if (ptrWakeByAddressAll != NULL) {
+    WinpthreadsApi.PtrWakeByAddressAll = ptrWakeByAddressAll;
+  } else {
+    haveWaitOnAddress &= ~WINPTHREADS_FEATURE_WAIT_ON_ADDRESS;
+  }
+
+  WinpthreadsImpl.Features |= haveWaitOnAddress;
 #endif
 
 #if WINPTHREADS_WINNT <= WINPTHREADS_WINNT_WIN10
@@ -252,6 +311,18 @@ __attribute__ ((used, section(".CRT$XCT"))) static const _PVFV __xc_t = winpthre
 
 unsigned winpthreads_features (void) {
   return WinpthreadsImpl.Features;
+}
+
+int winpthreads_wait_on_address (void *address, void *compareAddress, size_t addressSize, unsigned timeout) {
+  return WaitOnAddress (address, compareAddress, addressSize, timeout);
+}
+
+void winpthreads_wake_by_address (void *address, int wakeAll) {
+  if (wakeAll) {
+    WakeByAddressAll (address);
+  } else {
+    WakeByAddressSingle (address);
+  }
 }
 
 int winpthreads_get_handle_information (void *handle, unsigned *flags) {

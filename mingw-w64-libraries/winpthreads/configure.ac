@@ -248,10 +248,12 @@ dnl instead modify `AM_*` equivalents accordingly.
 CRT_DEFINES=
 DEFAULT_WARNINGS=
 LINKER_SUBSYSTEM=
+WINPTHREADS_LIBS=
 
 AC_SUBST([CRT_DEFINES])
 AC_SUBST([DEFAULT_WARNINGS])
 AC_SUBST([LINKER_SUBSYSTEM])
+AC_SUBST([WINPTHREADS_LIBS])
 
 AS_IF(
   [test $msvc = yes],
@@ -319,6 +321,35 @@ AS_IF(
 )
 
 LINKER_SUBSYSTEM="$LINKER_SUBSYSTEM $winpthreads_subsystem"
+
+# Check for required libraries.
+#
+# Synchronization.lib (-lsynchronization): required to use `WaitOnAddress`
+# and `WakeByAddress*` functions; only linked when configured for Windows 8
+# or later
+AS_CASE(
+  [$with_winnt],
+    [win10 | win8.1 | win8],
+      [WINPTHREADS_LIBS="-lsynchronization"]
+)
+
+AS_IF(
+  [test $ac_no_link = no && test -n "$WINPTHREADS_LIBS"],
+    [AC_MSG_CHECKING([whether all required libraries ($WINPTHREADS_LIBS) are available])]
+    [save_LDFLAGS=$LDFLAGS]
+    [LDFLAGS="$LDFLAGS $WINPTHREADS_LIBS"]
+    [AC_LINK_IFELSE(
+      [AC_LANG_SOURCE(
+        [int main (void) {return 0;}]
+      )],
+dnl then
+      [AC_MSG_RESULT([yes])]
+      [LDFLAGS=$save_LDFLAGS],
+dnl else
+      [AC_MSG_RESULT([no])]
+      [AC_MSG_ERROR([Some of required libraries are missing.])]
+    )]
+)
 
 # config.h
 AH_BOTTOM(

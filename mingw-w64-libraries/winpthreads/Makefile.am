@@ -37,6 +37,7 @@ libwinpthread_la_SOURCES =      \
 libwinpthread_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/include -DIN_WINPTHREAD
 libwinpthread_la_CFLAGS   = $(AM_CFLAGS)
 libwinpthread_la_LDFLAGS  = $(AM_LDFLAGS) -no-undefined -version-info 1:0:0
+libwinpthread_la_LIBADD   = $(WINPTHREADS_LIBS)
 
 if !MSVC
 libwinpthread_la_LDFLAGS += -L$(builddir)/fakelib -Wc,-no-pthread
