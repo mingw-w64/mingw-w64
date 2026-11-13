@@ -32,12 +32,12 @@
 #endif
 
 /**
- * Function type corrsponding to `GetHandleInformation`.
+ * Function type corresponding to `GetHandleInformation`.
  */
 typedef BOOL (WINAPI *FuncGetHandleInformation) (HANDLE, LPDWORD);
 
 /**
- * Function type corrsponding to `SetThreadDescription`.
+ * Function type corresponding to `SetThreadDescription`.
  */
 typedef HRESULT (WINAPI *FuncSetThreadDescription) (HANDLE, PCWSTR);
 

@@ -257,7 +257,7 @@
  *
  * The best approach to handle this is to use Unicode versions through some
  * kind of wrapper; when Win9x support is enabled, make those wrappers choose
- * whether to call Unicode or ANSI version at runtime, and make those wrapper
+ * whether to call Unicode or ANSI version at runtime, and make those wrappers
  * handle conversion from Unicode to appropriate code page.
  *
  * In some cases, however, we may call such functions in context where we

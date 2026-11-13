@@ -46,7 +46,7 @@ struct cond_t
     unsigned int valid;
     int busy;
     LONG waiters_count_; /* Number of waiting threads.  */
-    LONG waiters_count_unblock_; /* Number of waiting threads whitch can be unblocked.  */
+    LONG waiters_count_unblock_; /* Number of waiting threads which can be unblocked.  */
     LONG waiters_count_gone_; /* Number of waiters which are gone.  */
     pthread_mutex_t waiters_count_lock_; /* Serialize access to <waiters_count_>.  */
     pthread_mutex_t waiters_q_lock_; /* Serialize access to sema_q.  */

@@ -213,8 +213,8 @@ static ULONGLONG WINAPI WinpthreadsGetTickCount64 (VOID) {
  * Function type for internal implementation of `clock_gettime` and
  * `clock_getres` for a specific clock (`clockid_t`) type.
  *
- * The first argument, if non-NULL, recieves the time.
- * The second argument, if non-NULL, recieves the clock resolution.
+ * The first argument, if non-NULL, receives the time.
+ * The second argument, if non-NULL, receives the clock resolution.
  *
  * Returns zero on success and an error-code on failure.
  */
