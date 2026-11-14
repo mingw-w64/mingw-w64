@@ -1307,7 +1307,6 @@ src_libmingwex=\
   \
   misc/arm64ec/__mingw_mxcsr_to_fpcsr.c \
   misc/mingw_longjmp.S \
-  misc/mingw_getsp.S \
   misc/alarm.c \
   misc/delay-f.c         misc/delay-n.c         \
   misc/delayimp.c        misc/dirent.c          \

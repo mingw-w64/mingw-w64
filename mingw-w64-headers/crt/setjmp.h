@@ -206,8 +206,6 @@ _CRTIMP int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jm
 __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl __mingw_longjmp(jmp_buf _Buf, int _Value);
 #endif
 
-void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
-
 _CRT_END_C_HEADER
 
 #endif /* _INC_SETJMP */
@@ -227,13 +225,13 @@ _CRT_END_C_HEADER
 #    if (defined(__GNUC__) && __GNUC__ >= 14) || (defined(__clang__) && __clang_major__ >= 22)
 #      define setjmp(BUF) _setjmpex((BUF), __builtin_stack_address())
 #    else
-#      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
+#      define setjmp(BUF) _setjmpex((BUF), __MINGW_EXTENSION ({ register void *__mingw_rsp __asm__("rsp"); __asm__("" : "=r"(__mingw_rsp)); __mingw_rsp; }))
 #    endif
 #  elif defined(__SEH__) && !defined(__USE_MINGW_SETJMP_NON_SEH)
 #    if (defined(__GNUC__) && __GNUC__ >= 14) || (defined(__clang__) && __clang_major__ >= 22)
 #      define setjmp(BUF) _setjmp((BUF), __builtin_stack_address())
 #    else
-#      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
+#      define setjmp(BUF) _setjmp((BUF), __MINGW_EXTENSION ({ register void *__mingw_rsp __asm__("rsp"); __asm__("" : "=r"(__mingw_rsp)); __mingw_rsp; }))
 #    endif
 #  else
 #    define setjmp(BUF) _setjmp((BUF), NULL)
