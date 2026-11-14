@@ -548,6 +548,7 @@ typedef PCWSTR         *PZPCWSTR;
 # ifdef UNICODE
 # ifndef _TCHAR_DEFINED
 typedef WCHAR           TCHAR,      *PTCHAR;
+typedef WCHAR           TBYTE,      *PTBYTE;
 # define _TCHAR_DEFINED
 #endif
 typedef LPWCH           PTCH,        LPTCH;
@@ -567,6 +568,7 @@ typedef PCUZZWSTR       PCUZZTSTR;
 # else  /* UNICODE */
 # ifndef _TCHAR_DEFINED
 typedef CHAR            TCHAR,      *PTCHAR;
+typedef unsigned char   TBYTE,      *PTBYTE;
 # define _TCHAR_DEFINED
 # endif
 typedef LPCH            PTCH,        LPTCH;
@@ -1801,13 +1803,17 @@ typedef struct _KNONVOLATILE_CONTEXT_POINTERS
 #endif /* __arm__ */
 
 #define CONTEXT_ARM64           0x400000
-#define CONTEXT_ARM64_CONTROL         (CONTEXT_ARM64 | 0x00000001)
-#define CONTEXT_ARM64_INTEGER         (CONTEXT_ARM64 | 0x00000002)
-#define CONTEXT_ARM64_FLOATING_POINT  (CONTEXT_ARM64 | 0x00000004)
-#define CONTEXT_ARM64_DEBUG_REGISTERS (CONTEXT_ARM64 | 0x00000008)
-#define CONTEXT_ARM64_X18       (CONTEXT_ARM64 | 0x00000010)
+#define CONTEXT_ARM64_CONTROL             (CONTEXT_ARM64 | 0x00000001)
+#define CONTEXT_ARM64_INTEGER             (CONTEXT_ARM64 | 0x00000002)
+#define CONTEXT_ARM64_FLOATING_POINT      (CONTEXT_ARM64 | 0x00000004)
+#define CONTEXT_ARM64_DEBUG_REGISTERS     (CONTEXT_ARM64 | 0x00000008)
+#define CONTEXT_ARM64_X18                 (CONTEXT_ARM64 | 0x00000010)
+#define CONTEXT_ARM64_XSTATE              (CONTEXT_ARM64 | 0x00000020)
+#define CONTEXT_ARM64_FLOATING_POINT_LOW  (CONTEXT_ARM64 | 0x00000040)
+#define CONTEXT_ARM64_FLOATING_POINT_HIGH (CONTEXT_ARM64 | 0x00000080)
 #define CONTEXT_ARM64_FULL (CONTEXT_ARM64_CONTROL | CONTEXT_ARM64_INTEGER | CONTEXT_ARM64_FLOATING_POINT)
-#define CONTEXT_ARM64_ALL  (CONTEXT_ARM64_FULL | CONTEXT_ARM64_DEBUG_REGISTERS | CONTEXT_ARM64_X18)
+#define CONTEXT_ARM64_ALL  (CONTEXT_ARM64_FULL | CONTEXT_ARM64_DEBUG_REGISTERS | CONTEXT_ARM64_X18 | \
+                            CONTEXT_ARM64_FLOATING_POINT_LOW | CONTEXT_ARM64_FLOATING_POINT_HIGH)
 
 #define CONTEXT_ARM64_UNWOUND_TO_CALL 0x20000000
 #define CONTEXT_ARM64_RET_TO_GUEST    0x04000000
@@ -2085,6 +2091,7 @@ typedef struct DECLSPEC_ALIGN(16) _ARM64EC_NT_CONTEXT
 #define CONTEXT_INTEGER CONTEXT_ARM64_INTEGER
 #define CONTEXT_FLOATING_POINT CONTEXT_ARM64_FLOATING_POINT
 #define CONTEXT_DEBUG_REGISTERS CONTEXT_ARM64_DEBUG_REGISTERS
+#define CONTEXT_XSTATE CONTEXT_ARM64_XSTATE
 #define CONTEXT_FULL CONTEXT_ARM64_FULL
 #define CONTEXT_ALL CONTEXT_ARM64_ALL
 #define CONTEXT_RET_TO_GUEST CONTEXT_ARM64_RET_TO_GUEST
@@ -2855,7 +2862,7 @@ typedef struct _IMAGE_DOS_HEADER {
     WORD  e_oemid;      /* 24: OEM identifier (for e_oeminfo) */
     WORD  e_oeminfo;    /* 26: OEM information; e_oemid specific */
     WORD  e_res2[10];   /* 28: Reserved words */
-    DWORD e_lfanew;     /* 3c: Offset to extended header */
+    LONG  e_lfanew;     /* 3c: Offset to extended header */
 } IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
 #pragma pack(pop)
 
@@ -5487,7 +5494,7 @@ typedef struct _SYSTEM_ALARM_OBJECT_ACE {
     GUID        ObjectType;
     GUID        InheritedObjectType;
     DWORD       SidStart;
-} SYSTEM_ALARM_OBJECT_ACE, *PSYSTEM_ALARM_OBJECT_aCE;
+} SYSTEM_ALARM_OBJECT_ACE, *PSYSTEM_ALARM_OBJECT_ACE;
 
 typedef struct _ACCESS_ALLOWED_CALLBACK_ACE {
     ACE_HEADER  Header;
@@ -7250,8 +7257,299 @@ typedef enum _PROCESS_MITIGATION_POLICY
     ProcessPayloadRestrictionPolicy,
     ProcessChildProcessPolicy,
     ProcessSideChannelIsolationPolicy,
+    ProcessUserShadowStackPolicy,
+    ProcessRedirectionTrustPolicy,
+    ProcessUserPointerAuthPolicy,
+    ProcessSEHOPPolicy,
+    ProcessActivationContextTrustPolicy,
     MaxProcessMitigationPolicy
 } PROCESS_MITIGATION_POLICY, *PPROCESS_MITIGATION_POLICY;
+
+typedef struct _PROCESS_MITIGATION_DEP_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD Enable : 1;
+            DWORD DisableAtlThunkEmulation : 1;
+            DWORD ReservedFlags : 30;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+    BOOLEAN Permanent;
+} PROCESS_MITIGATION_DEP_POLICY, *PPROCESS_MITIGATION_DEP_POLICY;
+
+typedef struct _PROCESS_MITIGATION_ASLR_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnableBottomUpRandomization : 1;
+            DWORD EnableForceRelocateImages : 1;
+            DWORD EnableHighEntropy : 1;
+            DWORD DisallowStrippedImages : 1;
+            DWORD ReservedFlags : 28;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_ASLR_POLICY, *PPROCESS_MITIGATION_ASLR_POLICY;
+
+typedef struct _PROCESS_MITIGATION_DYNAMIC_CODE_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD ProhibitDynamicCode : 1;
+            DWORD AllowThreadOptOut : 1;
+            DWORD AllowRemoteDowngrade : 1;
+            DWORD AuditProhibitDynamicCode : 1;
+            DWORD ReservedFlags : 28;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_DYNAMIC_CODE_POLICY, *PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY;
+
+typedef struct _PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD RaiseExceptionOnInvalidHandleReference : 1;
+            DWORD HandleExceptionsPermanentlyEnabled : 1;
+            DWORD ReservedFlags : 30;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY, *PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY;
+
+typedef struct _PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD DisallowWin32kSystemCalls : 1;
+            DWORD AuditDisallowWin32kSystemCalls : 1;
+            DWORD DisallowFsctlSystemCalls : 1;
+            DWORD AuditDisallowFsctlSystemCalls : 1;
+            DWORD ReservedFlags : 28;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY, *PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY;
+
+typedef struct _PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD DisableExtensionPoints : 1;
+            DWORD ReservedFlags : 31;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY, *PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY;
+
+typedef struct _PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnableControlFlowGuard : 1;
+            DWORD EnableExportSuppression : 1;
+            DWORD StrictMode : 1;
+            DWORD EnableXfg : 1;
+            DWORD EnableXfgAuditMode : 1;
+            DWORD ReservedFlags : 27;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY, *PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY;
+
+typedef struct _PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD MicrosoftSignedOnly : 1;
+            DWORD StoreSignedOnly : 1;
+            DWORD MitigationOptIn : 1;
+            DWORD AuditMicrosoftSignedOnly : 1;
+            DWORD AuditStoreSignedOnly : 1;
+            DWORD ReservedFlags : 27;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY, *PPROCESS_MITIGATION_BINARY_SIGNATURE_POLICY;
+
+typedef struct _PROCESS_MITIGATION_FONT_DISABLE_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD DisableNonSystemFonts     : 1;
+            DWORD AuditNonSystemFontLoading : 1;
+            DWORD ReservedFlags             : 30;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_FONT_DISABLE_POLICY, *PPROCESS_MITIGATION_FONT_DISABLE_POLICY;
+
+typedef struct _PROCESS_MITIGATION_IMAGE_LOAD_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD NoRemoteImages : 1;
+            DWORD NoLowMandatoryLabelImages : 1;
+            DWORD PreferSystem32Images : 1;
+            DWORD AuditNoRemoteImages : 1;
+            DWORD AuditNoLowMandatoryLabelImages : 1;
+            DWORD ReservedFlags : 27;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_IMAGE_LOAD_POLICY, *PPROCESS_MITIGATION_IMAGE_LOAD_POLICY;
+
+typedef struct _PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD FilterId: 4;
+            DWORD ReservedFlags : 28;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY, *PPROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY;
+
+typedef struct _PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnableExportAddressFilter     : 1;
+            DWORD AuditExportAddressFilter      : 1;
+            DWORD EnableExportAddressFilterPlus : 1;
+            DWORD AuditExportAddressFilterPlus  : 1;
+            DWORD EnableImportAddressFilter     : 1;
+            DWORD AuditImportAddressFilter      : 1;
+            DWORD EnableRopStackPivot           : 1;
+            DWORD AuditRopStackPivot            : 1;
+            DWORD EnableRopCallerCheck          : 1;
+            DWORD AuditRopCallerCheck           : 1;
+            DWORD EnableRopSimExec              : 1;
+            DWORD AuditRopSimExec               : 1;
+            DWORD ReservedFlags                 : 20;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY, *PPROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY;
+
+typedef struct _PROCESS_MITIGATION_CHILD_PROCESS_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD NoChildProcessCreation : 1;
+            DWORD AuditNoChildProcessCreation : 1;
+            DWORD AllowSecureProcessCreation : 1;
+            DWORD ReservedFlags : 29;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_CHILD_PROCESS_POLICY, *PPROCESS_MITIGATION_CHILD_PROCESS_POLICY;
+
+typedef struct _PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD SmtBranchTargetIsolation : 1;
+            DWORD IsolateSecurityDomain : 1;
+            DWORD DisablePageCombine : 1;
+            DWORD SpeculativeStoreBypassDisable : 1;
+            DWORD RestrictCoreSharing : 1;
+            DWORD ReservedFlags : 27;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY, *PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY;
+
+typedef struct _PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnableUserShadowStack : 1;
+            DWORD AuditUserShadowStack : 1;
+            DWORD SetContextIpValidation : 1;
+            DWORD AuditSetContextIpValidation : 1;
+            DWORD EnableUserShadowStackStrictMode : 1;
+            DWORD BlockNonCetBinaries : 1;
+            DWORD BlockNonCetBinariesNonEhcont : 1;
+            DWORD AuditBlockNonCetBinaries : 1;
+            DWORD CetDynamicApisOutOfProcOnly : 1;
+            DWORD SetContextIpValidationRelaxedMode : 1;
+            DWORD ReservedFlags : 22;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY, *PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY;
+
+typedef struct _PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnforceRedirectionTrust : 1;
+            DWORD AuditRedirectionTrust : 1;
+            DWORD ReservedFlags : 30;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY, *PPROCESS_MITIGATION_REDIRECTION_TRUST_POLICY;
+
+typedef struct _PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnablePointerAuthUserIp : 1;
+            DWORD ReservedFlags : 31;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY, *PPROCESS_MITIGATION_USER_POINTER_AUTH_POLICY;
+
+typedef struct _PROCESS_MITIGATION_SEHOP_POLICY
+{
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD EnableSehop : 1;
+            DWORD ReservedFlags : 31;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_SEHOP_POLICY, *PPROCESS_MITIGATION_SEHOP_POLICY;
 
 typedef enum _FIRMWARE_TYPE
 {
