@@ -161,13 +161,6 @@ static struct {
 } WinpthreadsImpl;
 #endif
 
-#if defined(__GNUC__) || defined(__clang__)
-#if __GNUC__ >= 9 && !defined(__clang__)
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wprio-ctor-dtor"
-#endif
-__attribute__ ((constructor (0)))
-#endif
 static void winpthreads_init (void)
 {
 #ifdef RUNTIME_CHECKS
@@ -225,25 +218,23 @@ static void winpthreads_init (void)
   winpthreads_affinity_init ();
   winpthreads_time_init ();
 }
-#if defined(__GNUC__) && __GNUC__ >= 9 && !defined(__clang__)
-#pragma GCC diagnostic pop
-#endif
 
+/* Prevent whole program optimization from discarding the __xc_t variable. */
 #if defined(_MSC_VER) && !defined(__clang__)
-/* Force a reference to __xc_t to prevent whole program optimization
- * from discarding the variable. */
-
+/* msvc: Tell linker to always include the public symbol for __xc_t variable. */
 /* On x86, symbols are prefixed with an underscore. */
 #if defined(_M_IX86)
 #pragma comment(linker, "/include:___xc_t")
 #else
 #pragma comment(linker, "/include:__xc_t")
 #endif
-
+/* .CRT$XCB to .CRT$XCY is an array of _PVFV pointers.
+ * Pick an arbitrary location for our callback. */
 #pragma section(".CRT$XCT", long, read)
-__declspec (allocate (".CRT$XCT"))
-extern const _PVFV __xc_t;
-const _PVFV __xc_t = winpthreads_init;
+__declspec(allocate(".CRT$XCT")) const _PVFV __xc_t = winpthreads_init;
+#else
+/* gcc: Mark __xc_t variable with used attribute. */
+__attribute__ ((used, section(".CRT$XCT"))) static const _PVFV __xc_t = winpthreads_init;
 #endif
 
 #if WINPTHREADS_WINNT > WINPTHREADS_WINNT_WIN10
