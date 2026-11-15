@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <fcntl.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -15,6 +16,7 @@
 static char dirpath[MAX_PATH + sizeof(TMPTMPL)];
 
 static void remove_dirpath(void) { rmdir(dirpath); }
+static void sigabrt_handler(int sig) { (void)sig; remove_dirpath(); }
 
 int main()
 {
@@ -38,6 +40,7 @@ int main()
 
     strcat(dirpath, TMPTMPL);
     assert(mkdtemp(dirpath));
+    signal(SIGABRT, sigabrt_handler);
     assert(atexit(remove_dirpath) == 0);
     printf("mkdtemp(): path=%s\n", dirpath);
 
