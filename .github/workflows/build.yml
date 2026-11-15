@@ -688,7 +688,6 @@ jobs:
           make -j$(nproc) check -k -O --no-print-directory || { cat testcases/test-suite.log; exit 1; }
       - name: Run mingw-w64-crt testcases for ucrtapp
         if: matrix.arch != 'armv7' && matrix.crt == 'ucrt'
-        continue-on-error: true
         run: |
           export PATH=/llvm-mingw/bin:$PATH
           cd mingw-w64-crt/build
