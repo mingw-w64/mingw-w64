@@ -785,6 +785,22 @@ jobs:
           export PATH=/gcc-mingw/bin:$PATH
           ${{matrix.arch}}-w64-mingw32-gcc -std=c99 -march=i386 -o t_intrinc.exe mingw-w64-crt/testcases/t_intrinc.c mingw-w64-crt/testcases/libtest.c
           ./t_intrinc.exe
+      - name: Run testcases for msvcrt20.dll
+        if: matrix.arch == 'i686' && matrix.crt == 'msvcrt'
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          cd mingw-w64-crt/build
+          make -j$(nproc) -C testcases clean
+          make -j$(nproc) check -k -O --no-print-directory CFLAGS="-mcrtdll=msvcrt20" CXXFLAGS="-mcrtdll=msvcrt20" LDFLAGS='-static -mcrtdll=msvcrt20' TESTS=
+          make -j$(nproc) check -k -O --no-print-directory CFLAGS="-mcrtdll=msvcrt20" CXXFLAGS="-mcrtdll=msvcrt20" LDFLAGS='-static -mcrtdll=msvcrt20' || { cat testcases/test-suite.log; exit 1; }
+      - name: Run testcases for msvcrt40.dll
+        if: matrix.arch == 'i686' && matrix.crt == 'msvcrt'
+        run: |
+          export PATH=/gcc-mingw/bin:$PATH
+          cd mingw-w64-crt/build
+          make -j$(nproc) -C testcases clean
+          make -j$(nproc) check -k -O --no-print-directory CFLAGS="-mcrtdll=msvcrt40" CXXFLAGS="-mcrtdll=msvcrt40" LDFLAGS='-static -mcrtdll=msvcrt40' TESTS=
+          make -j$(nproc) check -k -O --no-print-directory CFLAGS="-mcrtdll=msvcrt40" CXXFLAGS="-mcrtdll=msvcrt40" LDFLAGS='-static -mcrtdll=msvcrt40' || { cat testcases/test-suite.log; exit 1; }
       - name: Run testcases for ucrtapp
         if: matrix.crt == 'ucrt'
         run: |
