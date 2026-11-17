@@ -15145,15 +15145,24 @@ src_libmingwex = \
   \
   misc/dllmain.c \
   \
-  complex/_cabs.c    complex/cabs.c   complex/cabsf.c   complex/cabsl.c   complex/cacos.c   complex/cacosf.c   \
-  complex/cacosl.c   complex/carg.c   complex/cargf.c   complex/cargl.c   complex/casin.c   complex/casinf.c   \
-  complex/casinl.c   complex/catan.c  complex/catanf.c  complex/catanl.c  complex/ccos.c    complex/ccosf.c    \
-  complex/ccosl.c    complex/cexp.c   complex/cexpf.c   complex/cexpl.c   complex/cimag.c   complex/cimagf.c   \
-  complex/cimagl.c   complex/clog.c   complex/clogf.c   complex/clogl.c   complex/clog10.c  complex/clog10f.c  \
-  complex/clog10l.c  complex/conj.c   complex/conjf.c   complex/conjl.c   complex/cpow.c    complex/cpowf.c    \
-  complex/cpowl.c    complex/cproj.c  complex/cprojf.c  complex/cprojl.c  complex/creal.c   complex/crealf.c   \
-  complex/creall.c   complex/csin.c   complex/csinf.c   complex/csinl.c   complex/csqrt.c   complex/csqrtf.c   \
-  complex/csqrtl.c   complex/ctan.c   complex/ctanf.c   complex/ctanl.c   \
+  complex/_cabs.c \
+  complex/cabs.c     complex/cabsf.c    complex/cabsl.c    \
+  complex/cacos.c    complex/cacosf.c   complex/cacosl.c   \
+  complex/carg.c     complex/cargf.c    complex/cargl.c    \
+  complex/casin.c    complex/casinf.c   complex/casinl.c   \
+  complex/catan.c    complex/catanf.c   complex/catanl.c   \
+  complex/ccos.c     complex/ccosf.c    complex/ccosl.c    \
+  complex/cexp.c     complex/cexpf.c    complex/cexpl.c    \
+  complex/cimag.c    complex/cimagf.c   complex/cimagl.c   \
+  complex/clog.c     complex/clogf.c    complex/clogl.c    \
+  complex/clog10.c   complex/clog10f.c  complex/clog10l.c  \
+  complex/conj.c     complex/conjf.c    complex/conjl.c    \
+  complex/cpow.c     complex/cpowf.c    complex/cpowl.c    \
+  complex/cproj.c    complex/cprojf.c   complex/cprojl.c   \
+  complex/creal.c    complex/crealf.c   complex/creall.c   \
+  complex/csin.c     complex/csinf.c    complex/csinl.c    \
+  complex/csqrt.c    complex/csqrtf.c   complex/csqrtl.c   \
+  complex/ctan.c     complex/ctanf.c    complex/ctanl.c    \
   complex/cabs.def.h    complex/cacos.def.h  complex/cacosh.def.h  complex/carg.def.h    complex/casin.def.h         \
   complex/casinh.def.h  complex/catan.def.h  complex/catanh.def.h  complex/ccos.def.h    complex/ccosh.def.h         \
   complex/cexp.def.h    complex/cimag.def.h  complex/clog.def.h    complex/clog10.def.h  complex/complex_internal.h  \
@@ -15168,24 +15177,30 @@ src_libmingwex = \
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/acospi.c         math/acospif.c     math/acospil.c \
-  math/asinpi.c         math/asinpif.c     math/asinpil.c \
-  math/atan2pi.c        math/atan2pif.c    math/atan2pil.c \
-  math/atanpi.c         math/atanpif.c     math/atanpil.c \
-  math/coshl.c       \
-  math/cospi.c          math/cospif.c      math/cospil.c \
-  math/fabsl.c          math/fp_consts.c   math/fp_constsf.c     \
-  math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
-  math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
-  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       \
-  math/modfl.c          \
-  math/powi.c           math/powif.c       math/powil.c          \
-  math/signbit.c        math/signbitf.c    math/signbitl.c       \
-  math/signgam.c        \
-  math/sinhl.c          \
-  math/sinpi.c          math/sinpif.c      math/sinpil.c \
-  math/sqrtl.c          math/tanhl.c       \
-  math/tanpi.c          math/tanpif.c      math/tanpil.c \
+  math/acospi.c         math/acospif.c        math/acospil.c        \
+  math/asinpi.c         math/asinpif.c        math/asinpil.c        \
+  math/atan2pi.c        math/atan2pif.c       math/atan2pil.c       \
+  math/atanpi.c         math/atanpif.c        math/atanpil.c        \
+                                              math/coshl.c          \
+  math/cospi.c          math/cospif.c         math/cospil.c         \
+                                              math/fabsl.c          \
+  math/fp_consts.c      math/fp_constsf.c     math/fp_constsl.c     \
+  math/fpclassify.c     math/fpclassifyf.c    math/fpclassifyl.c    \
+                        math/frexpf.c         math/frexpl.c         \
+                        math/hypotf.c         math/hypotl.c         \
+  math/isnan.c          math/isnanf.c         math/isnanl.c         \
+                        math/ldexpf.c                               \
+  math/lgamma.c         math/lgammaf.c        math/lgammal.c        \
+                                              math/modfl.c          \
+  math/powi.c           math/powif.c          math/powil.c          \
+  math/signbit.c        math/signbitf.c       math/signbitl.c       \
+  math/signgam.c                                                    \
+                                              math/sinhl.c          \
+  math/sinpi.c          math/sinpif.c         math/sinpil.c         \
+                                              math/sqrtl.c          \
+                                              math/tanhl.c          \
+  math/tanpi.c          math/tanpif.c         math/tanpil.c         \
+  \
   math/powi.def.h       math/sqrt.def.h    \
   math/cephes_mconf.h   math/fp_consts.h   math/pi_const.h \
   \
