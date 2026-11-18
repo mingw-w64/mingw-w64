@@ -184,6 +184,7 @@ for f in \
 	dxgidebug \
 	dxgiformat \
 	dxgitype \
+	dxprogrammablecapture \
 	dxva2api \
 	dyngraph \
 	endpointvolume \

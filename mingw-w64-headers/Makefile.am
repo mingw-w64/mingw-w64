@@ -129,6 +129,7 @@ IDL_SRCS = \
   include/dxgidebug.idl \
   include/dxgiformat.idl \
   include/dxgitype.idl \
+  include/dxprogrammablecapture.idl \
   include/dxva2api.idl \
   include/dxvahd.idl \
   include/endpointvolume.idl \
