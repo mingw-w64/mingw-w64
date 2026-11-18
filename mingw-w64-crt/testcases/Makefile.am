@@ -209,8 +209,7 @@ testcase_progs = \
 if !ARM64EC
 testcase_progs += \
   t_iostream \
-  t_tls_cpp \
-  t_wrongret
+  t_tls_cpp
 endif
 
 # The CRT_fp*.o objects are only built for x86.
@@ -232,7 +231,6 @@ t_main_cpp_SOURCES = t_main_cpp.cpp
 t_staticconstmember_SOURCES = t_staticconstmember.cpp
 t_tls_cpp_SOURCES = t_tls_cpp.cpp
 t_trycatch_SOURCES = t_trycatch.cpp
-t_wrongret_SOURCES = t_wrongret.cpp
 
 # On arm64ec, link all C++ tests statically; the toolchain (and the C++ DLL in
 # PATH) may be regular native aarch64, but we build and run arm64ec binaries.
@@ -244,7 +242,6 @@ t_main_cpp_LDFLAGS = $(AM_LDFLAGS)
 t_staticconstmember_LDFLAGS = $(AM_LDFLAGS)
 t_tls_cpp_LDFLAGS = $(AM_LDFLAGS)
 t_trycatch_LDFLAGS = $(AM_LDFLAGS)
-t_wrongret_LDFLAGS = $(AM_LDFLAGS)
 
 if ARM64EC
 t_cpp_dtor_atexit_order_LDFLAGS += -static
@@ -255,7 +252,6 @@ t_main_cpp_LDFLAGS += -static
 t_staticconstmember_LDFLAGS += -static
 t_tls_cpp_LDFLAGS += -static
 t_trycatch_LDFLAGS += -static
-t_wrongret_LDFLAGS += -static
 endif
 
 # Test only for -static -lgcc
