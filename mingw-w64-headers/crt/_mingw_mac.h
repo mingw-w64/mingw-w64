@@ -35,10 +35,7 @@
 
 #define __MINGW64_VERSION_STATE "alpha"
 
-/* mingw.org's version macros: these make gcc to define
-   MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
-   and the __mingwthr_key_dtor() function from the MinGW
-   CRT in its private gthr-win32.h header. */
+/* MinGW.org's version macros. */
 #define __MINGW32_MAJOR_VERSION 3
 #define __MINGW32_MINOR_VERSION 11
 
