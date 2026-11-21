@@ -1043,6 +1043,7 @@ pthread_exit (void *res)
 	    CloseHandle (t->evStart);
 	  t->evStart = NULL;
 	  rslt = (unsigned) (size_t) t->ret_arg;
+	  pthread_mutex_destroy (&t->p_clock);
 	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	  push_pthread_mem(t);
 	  t = NULL;
@@ -1060,6 +1061,8 @@ pthread_exit (void *res)
 	      t->valid = DEAD_THREAD;
 	      CloseHandle (t->h);
 	      t->h = NULL;
+	      pthread_mutex_destroy (&t->p_clock);
+	      replace_spin_keys (&t->spin_keys, new_spin_keys);
 	      push_pthread_mem(t);
 	      t = NULL;
 	      TlsSetValue(_pthread_tls, t);
