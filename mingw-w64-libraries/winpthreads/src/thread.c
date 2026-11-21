@@ -1025,6 +1025,7 @@ pthread_exit (void *res)
   _pthread_v *t = NULL;
   unsigned rslt = (unsigned) ((intptr_t) res);
   struct _pthread_v *id = __pthread_self_lite ();
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   id->ret_arg = res;
 
@@ -1042,6 +1043,7 @@ pthread_exit (void *res)
 	    CloseHandle (t->evStart);
 	  t->evStart = NULL;
 	  rslt = (unsigned) (size_t) t->ret_arg;
+	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	  push_pthread_mem(t);
 	  t = NULL;
 	  TlsSetValue (_pthread_tls, t);
@@ -1480,9 +1482,11 @@ pthread_create_wrapper (void *args)
   tv->evStart = NULL;
   if (!tv->h)
     {
+      pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
       tv->valid = DEAD_THREAD;
       pthread_mutex_unlock (&tv->p_clock);
       pthread_mutex_destroy (&tv->p_clock);
+      replace_spin_keys (&tv->spin_keys, new_spin_keys);
       push_pthread_mem (tv);
       tv = NULL;
       TlsSetValue (_pthread_tls, tv);
