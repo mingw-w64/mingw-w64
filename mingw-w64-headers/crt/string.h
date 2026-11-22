@@ -161,6 +161,17 @@ extern "C++" {
   const char* __cdecl strstr(const char*, const char*) __MINGW_ASM_CALL(strstr);
   inline char* __cdecl strstr(char* _Str, const char* _SubStr)
   { return const_cast<char*>(strstr(const_cast<const char*>(_Str), _SubStr)); }
+
+#ifdef __mingw_builtin_ovr
+  __mingw_builtin_ovr const char* strchr(const char* _Str, int _Val)
+  { return __builtin_strchr(_Str, _Val); }
+  __mingw_builtin_ovr const char* strpbrk(const char* _Str, const char* _Control)
+  { return __builtin_strpbrk(_Str, _Control); }
+  __mingw_builtin_ovr const char* strrchr(const char* _Str, int _Val)
+  { return __builtin_strrchr(_Str, _Val); }
+  __mingw_builtin_ovr const char* strstr(const char* _Str, const char* _SubStr)
+  { return __builtin_strstr(_Str, _SubStr); }
+#endif
 }
 #else
   char* __cdecl strchr(const char* _Str, int _Val);

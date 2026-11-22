@@ -37,6 +37,11 @@ extern "C++" {
   const void* __cdecl memchr(const void*, int, size_t) __MINGW_ASM_CALL(memchr);
   inline void* __cdecl memchr(void* _Buf, int _Val, size_t _MaxCount)
   { return const_cast<void*>(memchr(const_cast<const void*>(_Buf), _Val, _MaxCount)); }
+
+#ifdef __mingw_builtin_ovr
+  __mingw_builtin_ovr const void* memchr(const void* _Buf, int _Val, size_t _MaxCount)
+  { return __builtin_memchr(_Buf, _Val, _MaxCount); }
+#endif
 }
 #else
   void* __cdecl memchr(const void* _Buf, int _Val, size_t _MaxCount);

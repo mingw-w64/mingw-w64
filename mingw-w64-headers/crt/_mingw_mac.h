@@ -318,6 +318,17 @@
 #  define __mingw_attribute_artificial
 #endif
 
+/* The const-correct C++ overloads of strchr, memchr, etc. are not the
+   compiler's builtins, so calls to them are not folded.  When optimizing,
+   define them inline in terms of the builtins, as glibc does; the
+   out-of-line symbol stays the CRT function.  */
+#if defined(__cplusplus) && defined(__OPTIMIZE__) \
+    && (__MINGW_GNUC_PREREQ(4, 3) || defined(__clang__))
+#  define __mingw_builtin_ovr extern __inline__ __cdecl \
+     __attribute__((__always_inline__, __gnu_inline__)) \
+     __mingw_attribute_artificial
+#endif
+
 #define __MINGW_SELECTANY  __attribute__((__selectany__))
 
 #ifdef __has_builtin
