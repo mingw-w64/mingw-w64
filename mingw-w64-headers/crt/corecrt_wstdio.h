@@ -34,7 +34,7 @@ _CRT_BEGIN_C_HEADER
 #define _FILE_DEFINED
 #endif
 
-  _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
+  _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index) __MINGW_NOTHROW;
   _CRTIMP FILE *__cdecl __iob_func(void);
 #define _iob __iob_func()
 

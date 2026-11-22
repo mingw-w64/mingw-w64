@@ -105,30 +105,30 @@ _CRT_BEGIN_C_HEADER
 
 extern
   __MINGW_GNU_SCANF(2, 3) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+  int __cdecl __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+  int __cdecl __mingw_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_SCANF(1, 2) __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __mingw_scanf(const char * __restrict__ _Format,...);
+  int __cdecl __mingw_scanf(const char * __restrict__ _Format,...) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_SCANF(1, 0) __MINGW_ATTRIB_NONNULL(1)
-  int __cdecl __mingw_vscanf(const char * __restrict__ Format, va_list argp);
+  int __cdecl __mingw_vscanf(const char * __restrict__ Format, va_list argp) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_SCANF(2, 3) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+  int __cdecl __mingw_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+  int __cdecl __mingw_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp) __MINGW_NOTHROW;
 
 extern
   __MINGW_GNU_PRINTF(3, 0) __MINGW_ATTRIB_NONNULL(3)
   int __cdecl __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
-                               va_list _ArgList);
+                               va_list _ArgList) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_PRINTF(3, 4) __MINGW_ATTRIB_NONNULL(3)
-  int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
+  int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...) __MINGW_NOTHROW;
 extern
   __MINGW_GNU_PRINTF(1, 2) __MINGW_ATTRIB_NONNULL(1)
   int __cdecl __mingw_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
@@ -242,11 +242,11 @@ extern
 #ifdef _GNU_SOURCE
 __MINGW_GNU_PRINTF(2, 3) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_asprintf);
+__MINGW_ASM_CALL(__mingw_asprintf) __MINGW_NOTHROW;
 
 __MINGW_GNU_PRINTF(2, 0) __attribute__((nonnull (1,2)))
 int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vasprintf);
+__MINGW_ASM_CALL(__mingw_vasprintf) __MINGW_NOTHROW;
 #endif /* _GNU_SOURCE */
 
 /* There seems to be a bug about builtins and static overrides of them
@@ -257,15 +257,15 @@ extern "C++" {
 
 __MINGW_GNU_SCANF(2, 3) __MINGW_ATTRIB_NONNULL(2)
 int sscanf(const char *__source, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_sscanf);
+__MINGW_ASM_CALL(__mingw_sscanf) __MINGW_NOTHROW;
 
 __MINGW_GNU_SCANF(1, 2) __MINGW_ATTRIB_NONNULL(1)
 int scanf(const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_scanf);
+__MINGW_ASM_CALL(__mingw_scanf) __MINGW_NOTHROW;
 
 __MINGW_GNU_SCANF(2, 3) __MINGW_ATTRIB_NONNULL(2)
 int fscanf(FILE *__stream, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_fscanf);
+__MINGW_ASM_CALL(__mingw_fscanf) __MINGW_NOTHROW;
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 #ifdef __GNUC__
@@ -275,15 +275,15 @@ __MINGW_ASM_CALL(__mingw_fscanf);
 
 __MINGW_GNU_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
 int vsscanf (const char *__source, const char *__format, __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vsscanf);
+__MINGW_ASM_CALL(__mingw_vsscanf) __MINGW_NOTHROW;
 
 __MINGW_GNU_SCANF(1, 0) __MINGW_ATTRIB_NONNULL(1)
 int vscanf(const char *__format,  __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vscanf);
+__MINGW_ASM_CALL(__mingw_vscanf) __MINGW_NOTHROW;
 
 __MINGW_GNU_SCANF(2, 0) __MINGW_ATTRIB_NONNULL(2)
 int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vfscanf);
+__MINGW_ASM_CALL(__mingw_vfscanf) __MINGW_NOTHROW;
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
@@ -294,15 +294,15 @@ __MINGW_ASM_CALL(__mingw_vfscanf);
 
 __MINGW_GNU_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
 int fprintf (FILE *__stream, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_fprintf);
+__MINGW_ASM_CALL(__mingw_fprintf) __MINGW_NOTHROW;
 
 __MINGW_GNU_PRINTF(1, 2) __MINGW_ATTRIB_NONNULL(1)
 int printf (const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_printf);
+__MINGW_ASM_CALL(__mingw_printf) __MINGW_NOTHROW;
 
 __MINGW_GNU_PRINTF(2, 3) __MINGW_ATTRIB_NONNULL(2)
 int sprintf (char *__stream, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_sprintf);
+__MINGW_ASM_CALL(__mingw_sprintf) __MINGW_NOTHROW;
 
 #if __MINGW_FORTIFY_VA_ARG
 
@@ -323,11 +323,11 @@ int sprintf (char *__stream, const char *__format, ...)
 
 __MINGW_GNU_PRINTF(2, 0) __MINGW_ATTRIB_NONNULL(2)
 int vfprintf (FILE *__stream, const char *__format, __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vfprintf);
+__MINGW_ASM_CALL(__mingw_vfprintf) __MINGW_NOTHROW;
 
 __MINGW_GNU_PRINTF(1, 0) __MINGW_ATTRIB_NONNULL(1)
 int vprintf (const char *__format, __builtin_va_list __local_argv)
-__MINGW_ASM_CALL(__mingw_vprintf);
+__MINGW_ASM_CALL(__mingw_vprintf) __MINGW_NOTHROW;
 
 __mingw_bos_ovr
 __MINGW_GNU_PRINTF(2, 0) __MINGW_ATTRIB_NONNULL(2)
@@ -347,7 +347,7 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 
 __MINGW_GNU_PRINTF(3, 4) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char *__stream, size_t __n, const char *__format, ...)
-__MINGW_ASM_CALL(__mingw_snprintf);
+__MINGW_ASM_CALL(__mingw_snprintf) __MINGW_NOTHROW;
 
 #if __MINGW_FORTIFY_VA_ARG
 
