@@ -19,4 +19,4 @@ static int my_lconv_init(void)
   return __lconv_init();
 }
 
-_CRTALLOC(".CRT$XIC") _PIFV __mingw_pinit = my_lconv_init;
+_CRTALLOC(".CRT$XIC") const _PIFV __mingw_pinit = my_lconv_init;
