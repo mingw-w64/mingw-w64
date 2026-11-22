@@ -424,6 +424,27 @@ typedef struct {
 #endif
 #endif /* C11 or C++11.  */
 
+/* C++11 and C23 additions, as in GCC's own stddef.h, which GCC includes
+   after this one.  GCCs before 13 lack nullptr in C, and in their -std=c2x
+   mode __STDC_VERSION__ is 202000L.  */
+#if defined(__cplusplus) && __cplusplus >= 201103L
+#ifndef _GXX_NULLPTR_T
+#define _GXX_NULLPTR_T
+  typedef decltype(nullptr) nullptr_t;
+#endif
+#endif /* C++11.  */
+
+#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#ifndef _GCC_NULLPTR_T
+#define _GCC_NULLPTR_T
+  typedef __typeof__(nullptr) nullptr_t;
+#endif
+#ifndef __STDC_VERSION_STDDEF_H__
+#define unreachable() (__builtin_unreachable ())
+#define __STDC_VERSION_STDDEF_H__	202311L
+#endif
+#endif /* C23.  */
+
 #endif /* _STDDEF_H was defined this time.  */
 
 #endif /* !_STDDEF_H && !_STDDEF_H_ && !_ANSI_STDDEF_H && !__STDDEF_H__
