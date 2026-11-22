@@ -335,6 +335,7 @@ EXTRA_DIST = \
 
 CLEANFILES = \
   libglbctors.dll \
+  libnoatexit.dll \
   libnontls.dll \
   libprocdetach.dll \
   libtls01.dll \
