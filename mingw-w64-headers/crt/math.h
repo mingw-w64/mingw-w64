@@ -934,17 +934,11 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 #if !defined (__ia64__)
   __CRT_INLINE double __cdecl copysign (double x, double y)
   {
-    __mingw_dbl_type_t hx, hy;
-    hx.x = x; hy.x = y;
-    hx.lh.high = (hx.lh.high & 0x7fffffff) | (hy.lh.high & 0x80000000);
-    return hx.x;
+    return __builtin_copysign (x, y);
   }
   __CRT_INLINE float __cdecl copysignf (float x, float y)
   {
-    __mingw_flt_type_t hx, hy;
-    hx.x = x; hy.x = y;
-    hx.val = (hx.val & 0x7fffffff) | (hy.val & 0x80000000);
-    return hx.x;
+    return __builtin_copysignf (x, y);
   }
 #endif
 #endif
