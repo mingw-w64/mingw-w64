@@ -1,4 +1,4 @@
-LIBRARY windows.ai.machinelearning
+LIBRARY Windows.AI.MachineLearning.dll
 
 EXPORTS
 
