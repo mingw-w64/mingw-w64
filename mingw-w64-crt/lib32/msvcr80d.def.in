@@ -1476,8 +1476,8 @@ longjmp
 malloc
 mblen
 ; mbrlen ; replaced, CRT version does not conform to C95
-: mbrtowc ; replaced, CRT version does not conform to C95
-: mbsrtowcs ; replaced, CRT version does not conform to C95
+; mbrtowc ; replaced, CRT version does not conform to C95
+; mbsrtowcs ; replaced, CRT version does not conform to C95
 mbsrtowcs_s
 mbstowcs
 mbstowcs_s
