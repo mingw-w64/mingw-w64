@@ -88,10 +88,13 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_unlock(pthread_rwlock_t *rw
 {
     int r = 0;
 
+    if (!rwl)
+        return EINVAL;
+
     pthread_spin_lock(&rwl_global);
 
-    if (!rwl || !*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
-    else if (STATIC_RWL_INITIALIZER(*rwl)) r= EPERM;
+    if (STATIC_RWL_INITIALIZER(*rwl)) r= EPERM;
+    else if (!*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
     else {
         ((rwlock_t *)*rwl)->busy ++;
     }
