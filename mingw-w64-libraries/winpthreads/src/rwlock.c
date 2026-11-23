@@ -32,8 +32,6 @@
 
 static pthread_spinlock_t rwl_global = PTHREAD_SPINLOCK_INITIALIZER;
 
-static WINPTHREADS_ATTRIBUTE((noinline)) int rwlock_static_init(pthread_rwlock_t *rw);
-
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_unref(volatile pthread_rwlock_t *rwl, int res)
 {
     pthread_spin_lock(&rwl_global);
@@ -148,21 +146,6 @@ static int rwlock_free_both_locks(rwlock_t *rwlock, int last_fail)
   else if (!last_fail && !ret)
     ret = ret2;
   return ret;
-}
-
-static WINPTHREADS_ATTRIBUTE((noinline)) int rwlock_static_init(pthread_rwlock_t *rw)
-{
-  int r;
-  pthread_spin_lock(&cond_locked);
-  if (*rw != PTHREAD_RWLOCK_INITIALIZER)
-  {
-    pthread_spin_unlock(&cond_locked);
-    return EINVAL;
-  }
-  r = pthread_rwlock_init (rw, NULL);
-  pthread_spin_unlock(&cond_locked);
-
-  return r;
 }
 
 int pthread_rwlock_init (pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *attr)
