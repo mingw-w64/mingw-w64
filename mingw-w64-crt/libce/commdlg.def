@@ -1,7 +1,0 @@
-LIBRARY  COMMDLG.DLL
-EXPORTS
-ChooseColor
-ChooseFontW
-CommDlgExtendedError
-PageSetupDlgW
-PrintDlg

@@ -1,3 +1,0 @@
-LIBRARY  D3DM.DLL
-EXPORTS
-Direct3DMobileCreate

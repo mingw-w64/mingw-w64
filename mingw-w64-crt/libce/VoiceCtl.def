@@ -1,3 +1,0 @@
-LIBRARY  VOICECTL.DLL
-EXPORTS
-VoiceRecorder_Create
