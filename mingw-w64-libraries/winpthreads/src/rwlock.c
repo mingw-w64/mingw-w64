@@ -43,17 +43,40 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_unref(volatile pthread_rwlock_t
     return res;
 }
 
+static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
+
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref(pthread_rwlock_t *rwl, int f )
 {
     int r = 0;
+
+    if (!rwl)
+        return EINVAL;
+
     if (STATIC_RWL_INITIALIZER(*rwl)) {
-        r = rwlock_static_init(rwl);
-        if (r != 0 && r != EBUSY)
+        pthread_rwlock_t rw_;
+        pthread_spin_lock(&cond_locked);
+        rw_ = *rwl;
+
+        if (rw_ == PTHREAD_RWLOCK_INITIALIZER) {
+            /* we initialize rwlock on a local variable */
+            r = pthread_rwlock_init (&rw_, NULL);
+            if (r == 0) {
+                ((rwlock_t *)rw_)->busy ++;
+                /**
+                 * only at the end do we change the *rwl state from
+                 * PTHREAD_RWLOCK_INITIALIZER to a fully initialized rwlock
+                 */
+                InterlockedExchangePointer((void * volatile*)rwl, (void *)rw_);
+            }
+            pthread_spin_unlock(&cond_locked);
             return r;
+        }
+        pthread_spin_unlock(&cond_locked);
     }
+
     pthread_spin_lock(&rwl_global);
 
-    if (!rwl || !*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
+    if (!*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
     else {
         ((rwlock_t *)*rwl)->busy ++;
     }
@@ -126,8 +149,6 @@ static int rwlock_free_both_locks(rwlock_t *rwlock, int last_fail)
     ret = ret2;
   return ret;
 }
-
-static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwlock_static_init(pthread_rwlock_t *rw)
 {
