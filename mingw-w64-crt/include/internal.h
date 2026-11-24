@@ -131,9 +131,6 @@ extern "C" {
   extern volatile __enative_startup_state __native_startup_state;
   extern void *volatile __native_startup_lock;
 
-  extern volatile unsigned int __native_dllmain_reason;
-  extern volatile unsigned int __native_vcclrit_reason;
-
   _CRTIMP void __cdecl __set_app_type (int);
 
   typedef LONG NTSTATUS;

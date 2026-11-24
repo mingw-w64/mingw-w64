@@ -7,8 +7,6 @@
 #include <crtdefs.h>
 #include <internal.h>
 
-_PGLOBAL
-volatile unsigned int __native_dllmain_reason = UINT_MAX;
-volatile unsigned int __native_vcclrit_reason = UINT_MAX;
+volatile unsigned int __native_dllmain_reason = UINT_MAX; /* Deprecated, may be removed future. */
 volatile __enative_startup_state __native_startup_state = __uninitialized;
 void *volatile __native_startup_lock = NULL;

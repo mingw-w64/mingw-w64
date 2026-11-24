@@ -188,18 +188,14 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   if (dwReason == DLL_PROCESS_ATTACH)
     __mingw_app_type = 0;
 
-  __native_dllmain_reason = dwReason;
   if (dwReason == DLL_PROCESS_DETACH && __proc_attached <= 0)
-    {
-	retcode = FALSE;
-	goto i__leave;
-    }
+    return FALSE;
 
   if (dwReason == DLL_PROCESS_ATTACH || dwReason == DLL_THREAD_ATTACH)
     {
         retcode = _CRT_INIT (hDllHandle, dwReason, lpreserved);
         if (!retcode)
-          goto i__leave;
+          return retcode;
     }
   retcode = DllMain(hDllHandle,dwReason,lpreserved);
   if (dwReason == DLL_PROCESS_ATTACH && ! retcode)
@@ -211,9 +207,7 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     {
 	retcode = _CRT_INIT (hDllHandle, dwReason, lpreserved);
     }
-i__leave:
-  __native_dllmain_reason = UINT_MAX;
-  return retcode ;
+  return retcode;
 }
 
 /* not available for DLL builds, must be non-tentative to not be overridden */
