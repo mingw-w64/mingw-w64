@@ -38,36 +38,4 @@
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY 0
 #endif /*defined(__cplusplus)*/
 
-#define __MINGW_CRT_NAME_CONCAT2(sym) ::sym##_s
-
-#ifdef __cplusplus
-extern "C++" {
-template <bool __test, typename __dsttype>
-  struct __if_array;
-template <typename __dsttype>
-  struct __if_array <true, __dsttype> {
-    typedef __dsttype __type;
-};
-}
-#endif /*__cplusplus*/
-
-/* https://blogs.msdn.com/b/sdl/archive/2010/02/16/vc-2010-and-memcpy.aspx?Redirected=true */
-/* fallback on default implementation if we can't know the size of the destination */
-#if (_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
-  extern "C" {_CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;}\
-  extern "C++" {\
-    template <size_t __size, typename __dsttype> inline\
-    typename __if_array < (__size > 1), void * >::__type __cdecl __func(\
-    __dsttype (&__arg1)[__size],\
-    __type2 __attrib2 (__arg2),\
-    __type3 __attrib3 (__arg3)) {\
-      return __MINGW_CRT_NAME_CONCAT2(__func) (__arg1,__size * sizeof(__dsttype),__arg2,__arg3) == 0 ? __arg1 : NULL;\
-    }\
-  }
-#else
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
-  _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#endif
-
 #endif /*_INC_MINGW_SECAPI*/
