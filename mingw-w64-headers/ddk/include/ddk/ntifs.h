@@ -1854,14 +1854,6 @@ RtlCreateVirtualAccountSid(
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN7) */
 
-
-#if defined(_AMD64_) || defined(_IA64_)
-
-
-#endif /* defined(_AMD64_) || defined(_IA64_) */
-
-
-
 #define RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE 1
 #define RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING 2
 
@@ -8792,17 +8784,6 @@ C_ASSERT(FIELD_OFFSET(ERESOURCE,Flag) == 0x0e);
 
 #endif
 /* #endif */
-
-#if defined(_IA64_)
-#if (NTDDI_VERSION >= NTDDI_WIN2K)
-//DECLSPEC_DEPRECATED_DDK
-NTHALAPI
-ULONG
-NTAPI
-HalGetDmaAlignmentRequirement(
-  VOID);
-#endif
-#endif
 
 #if defined(_M_IX86) || defined(_M_AMD64)
 #define HalGetDmaAlignmentRequirement() 1L

@@ -213,8 +213,6 @@ extern "C" {
 
 #ifdef _X86_
 #define szHrDispatchNotifications "_HrDispatchNotifications@4"
-#elif defined(_IA64_)
-#define szHrDispatchNotifications "HrDispatchNotifications"
 #endif
 
   typedef HRESULT (WINAPI DISPATCHNOTIFICATIONS)(ULONG ulFlags);
@@ -222,8 +220,6 @@ extern "C" {
 
 #ifdef _X86_
 #define szScCreateConversationIndex "_ScCreateConversationIndex@16"
-#elif defined(_IA64_)
-#define szScCreateConversationIndex "ScCreateConversationIndex"
 #endif
 
   typedef SCODE (WINAPI CREATECONVERSATIONINDEX)(ULONG cbParent,LPBYTE lpbParent,ULONG *lpcbConvIndex,LPBYTE *lppbConvIndex);

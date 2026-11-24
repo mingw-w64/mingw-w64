@@ -1456,8 +1456,6 @@ typedef struct _XSTATE_SAVE {
   struct _KTHREAD* Thread;
   UCHAR Level;
   XSTATE_CONTEXT XStateContext;
-#elif defined(_IA64_)
-  ULONG Dummy;
 #elif defined(_X86_)
   _ANONYMOUS_UNION union {
     _ANONYMOUS_STRUCT struct {
@@ -1799,14 +1797,14 @@ LOOKASIDE_CHECK(Future);
 
 typedef struct _PAGED_LOOKASIDE_LIST {
   GENERAL_LOOKASIDE L;
-#if !defined(_AMD64_) && !defined(_IA64_)
+#if !defined(_AMD64_)
   FAST_MUTEX Lock__ObsoleteButDoNotDelete;
 #endif
 } PAGED_LOOKASIDE_LIST, *PPAGED_LOOKASIDE_LIST;
 
 typedef struct LOOKASIDE_ALIGN _NPAGED_LOOKASIDE_LIST {
   GENERAL_LOOKASIDE L;
-#if !defined(_AMD64_) && !defined(_IA64_)
+#if !defined(_AMD64_)
   KSPIN_LOCK Lock__ObsoleteButDoNotDelete;
 #endif
 } NPAGED_LOOKASIDE_LIST, *PNPAGED_LOOKASIDE_LIST;
@@ -6441,7 +6439,7 @@ typedef struct _ACPI_INTERFACE_STANDARD2 {
   PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 UnregisterForDeviceNotifications;
 } ACPI_INTERFACE_STANDARD2, *PACPI_INTERFACE_STANDARD2;
 
-#if !defined(_AMD64_) && !defined(_IA64_)
+#if !defined(_AMD64_)
 #include <pshpack4.h>
 #endif
 typedef struct _IO_STACK_LOCATION {
@@ -6659,7 +6657,7 @@ typedef struct _IO_STACK_LOCATION {
   PIO_COMPLETION_ROUTINE CompletionRoutine;
   PVOID Context;
 } IO_STACK_LOCATION, *PIO_STACK_LOCATION;
-#if !defined(_AMD64_) && !defined(_IA64_)
+#if !defined(_AMD64_)
 #include <poppack.h>
 #endif
 
@@ -8673,7 +8671,7 @@ RtlEqualUnicodeString(
   IN CONST UNICODE_STRING *String2,
   IN BOOLEAN CaseInSensitive);
 
-#if !defined(_AMD64_) && !defined(_IA64_)
+#if !defined(_AMD64_)
 NTSYSAPI
 LARGE_INTEGER
 NTAPI
@@ -8690,7 +8688,7 @@ RtlExtendedLargeIntegerDivide(
   OUT PULONG Remainder OPTIONAL);
 #endif
 
-#if defined(_X86_) || defined(_IA64_)
+#if defined(_X86_)
 NTSYSAPI
 LARGE_INTEGER
 NTAPI
@@ -9393,7 +9391,7 @@ RtlInitEmptyUnicodeString(
   UnicodeString->Buffer = Buffer;
 }
 
-#if defined(_AMD64_) || defined(_IA64_)
+#if defined(_AMD64_)
 
 static __inline
 LARGE_INTEGER
@@ -9422,7 +9420,7 @@ RtlExtendedLargeIntegerDivide(
   return ret;
 }
 
-#endif /* defined(_AMD64_) || defined(_IA64_) */
+#endif /* defined(_AMD64_) */
 
 
 #if defined(_AMD64_)
@@ -9675,23 +9673,12 @@ VOID
 InitializeSListHead(
   OUT PSLIST_HEADER SListHead)
 {
-#if defined(_IA64_)
-  ULONG64 FeatureBits;
-#endif
-
 #if defined(_WIN64)
   if (((ULONG_PTR)SListHead & 0xf) != 0) {
     RtlRaiseStatus(STATUS_DATATYPE_MISALIGNMENT);
   }
 #endif
   RtlZeroMemory(SListHead, sizeof(SLIST_HEADER));
-#if defined(_IA64_)
-  FeatureBits = __getReg(CV_IA64_CPUID4);
-  if ((FeatureBits & KF_16BYTE_INSTR) != 0) {
-    SListHead->Header16.HeaderType = 1;
-    SListHead->Header16.Init = 1;
-  }
-#endif
 }
 
 #endif
@@ -10596,12 +10583,11 @@ NTAPI
 KeGetProcessorIndexFromNumber(
   IN PPROCESSOR_NUMBER ProcNumber);
 #endif /* (NTDDI_VERSION >= NTDDI_WIN7) */
-#if !defined(_IA64_)
+
 NTHALAPI
 VOID
 NTAPI
 KeFlushWriteBuffer(VOID);
-#endif
 
 /* VOID
  * KeInitializeCallbackRecord(
@@ -13777,7 +13763,7 @@ ExInterlockedAddUlong(
   IN ULONG Increment,
   IN OUT PKSPIN_LOCK Lock);
 
-#if defined(_AMD64_) || defined(_IA64_)
+#if defined(_AMD64_)
 
 #define ExInterlockedCompareExchange64(Destination, Exchange, Comperand, Lock) \
     InterlockedCompareExchange64(Destination, *(Exchange), *(Comperand))
@@ -13806,7 +13792,7 @@ ExInterlockedCompareExchange64(
   IN PLONGLONG Comparand,
   IN PKSPIN_LOCK Lock);
 
-#endif /* defined(_AMD64_) || defined(_IA64_) */
+#endif /* defined(_AMD64_) */
 
 NTKERNELAPI
 PLIST_ENTRY

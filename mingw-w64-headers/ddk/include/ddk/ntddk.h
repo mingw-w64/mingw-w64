@@ -1579,18 +1579,6 @@ typedef PVOID
   IN PCSTR OemId OPTIONAL,
   IN PCSTR OemTableId OPTIONAL);
 
-#if defined(_IA64_)
-typedef NTSTATUS
-(*pHalGetErrorCapList)(
-  IN OUT PULONG CapsListLength,
-  IN OUT PUCHAR ErrorCapList);
-
-typedef NTSTATUS
-(*pHalInjectError)(
-  IN ULONG BufferLength,
-  IN PUCHAR Buffer);
-#endif
-
 typedef VOID
 (NTAPI *PCI_ERROR_HANDLER_CALLBACK)(
   VOID);
@@ -1635,10 +1623,6 @@ typedef struct {
   pHalMirrorVerify HalMirrorVerify;
   pHalGetAcpiTable HalGetCachedAcpiTable;
   pHalSetPciErrorHandlerCallback  HalSetPciErrorHandlerCallback;
-#if defined(_IA64_)
-  pHalGetErrorCapList HalGetErrorCapList;
-  pHalInjectError HalInjectError;
-#endif
 } HAL_DISPATCH, *PHAL_DISPATCH;
 
 /* GCC/MSVC and WDK compatible declaration */
@@ -1671,10 +1655,6 @@ extern NTKERNELAPI HAL_DISPATCH HalDispatchTable;
 #define HalMirrorVerify                 HALDISPATCH->HalMirrorVerify
 #define HalGetCachedAcpiTable           HALDISPATCH->HalGetCachedAcpiTable
 #define HalSetPciErrorHandlerCallback   HALDISPATCH->HalSetPciErrorHandlerCallback
-#if defined(_IA64_)
-#define HalGetErrorCapList              HALDISPATCH->HalGetErrorCapList
-#define HalInjectError                  HALDISPATCH->HalInjectError
-#endif
 
 typedef struct _HAL_BUS_INFORMATION {
   INTERFACE_TYPE BusType;
@@ -1745,7 +1725,7 @@ typedef struct _HAL_AMLI_BAD_IO_ADDRESS_LIST {
   PHALIOREADWRITEHANDLER IOHandler;
 } HAL_AMLI_BAD_IO_ADDRESS_LIST, *PHAL_AMLI_BAD_IO_ADDRESS_LIST;
 
-#if defined(_X86_) || defined(_IA64_) || defined(_AMD64_)
+#if defined(_X86_) || defined(_AMD64_)
 
 typedef VOID
 (NTAPI *PHALMCAINTERFACELOCK)(
@@ -1787,13 +1767,8 @@ typedef ERROR_SEVERITY
 
 #endif
 
-#if defined(_X86_) || defined(_IA64_)
-typedef
-#if defined(_IA64_)
-ERROR_SEVERITY
-#else
-VOID
-#endif
+#if defined(_X86_)
+typedef VOID
 (NTAPI *PDRIVER_EXCPTN_CALLBACK)(
   IN PVOID Context,
   IN PMCA_EXCEPTION BankLog);
@@ -1871,38 +1846,7 @@ typedef struct _CPE_DRIVER_INFO {
   PVOID DeviceContext;
 } CPE_DRIVER_INFO, *PCPE_DRIVER_INFO;
 
-#endif // defined(_X86_) || defined(_IA64_) || defined(_AMD64_)
-
-#if defined(_IA64_)
-
-typedef NTSTATUS
-(*HALSENDCROSSPARTITIONIPI)(
-  IN USHORT ProcessorID,
-  IN UCHAR HardwareVector);
-
-typedef NTSTATUS
-(*HALRESERVECROSSPARTITIONINTERRUPTVECTOR)(
-  OUT PULONG Vector,
-  OUT PKIRQL Irql,
-  IN OUT PGROUP_AFFINITY Affinity,
-  OUT PUCHAR HardwareVector);
-
-typedef VOID
-(*HALFREECROSSPARTITIONINTERRUPTVECTOR)(
-  IN ULONG Vector,
-  IN PGROUP_AFFINITY Affinity);
-
-typedef struct _HAL_CROSS_PARTITION_IPI_INTERFACE {
-  HALSENDCROSSPARTITIONIPI HalSendCrossPartitionIpi;
-  HALRESERVECROSSPARTITIONINTERRUPTVECTOR HalReserveCrossPartitionInterruptVector;
-  HALFREECROSSPARTITIONINTERRUPTVECTOR HalFreeCrossPartitionInterruptVector;
-} HAL_CROSS_PARTITION_IPI_INTERFACE;
-
-#define HAL_CROSS_PARTITION_IPI_INTERFACE_MINIMUM_SIZE \
-    FIELD_OFFSET(HAL_CROSS_PARTITION_IPI_INTERFACE,    \
-                 HalFreeCrossPartitionInterruptVector)
-
-#endif /* defined(_IA64_) */
+#endif /* defined(_X86_) || defined(_AMD64_) */
 
 typedef struct _HAL_PLATFORM_INFORMATION {
   ULONG PlatformFlags;
@@ -3730,15 +3674,6 @@ HalFreeHardwareCounters(
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN7) */
 
-#if defined(_IA64_)
-#if (NTDDI_VERSION >= NTDDI_WIN2K)
-NTHALAPI
-ULONG
-NTAPI
-HalGetDmaAlignmentRequirement(VOID);
-#endif
-#endif /* defined(_IA64_) */
-
 #if defined(_M_IX86) || defined(_M_AMD64)
 #define HalGetDmaAlignmentRequirement() 1L
 #endif
@@ -5287,7 +5222,7 @@ RtlContractHashTable(
 #endif /* (NTDDI_VERSION >= NTDDI_WIN7) */
 
 
-#if defined(_AMD64_) || defined(_IA64_)
+#if defined(_AMD64_)
 
 
 
@@ -5320,7 +5255,7 @@ RtlLargeIntegerDivide(
 #endif
 
 
-#endif /* defined(_AMD64_) || defined(_IA64_) */
+#endif /* defined(_AMD64_) */
 
 
 
