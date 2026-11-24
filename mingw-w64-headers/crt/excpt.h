@@ -24,14 +24,6 @@ typedef enum _EXCEPTION_DISPOSITION {
   struct _CONTEXT;
 
   EXCEPTION_DISPOSITION __cdecl _except_handler(struct _EXCEPTION_RECORD *_ExceptionRecord,void *_EstablisherFrame,struct _CONTEXT *_ContextRecord,void *_DispatcherContext);
-#elif defined(__ia64__)
-
-  typedef struct _EXCEPTION_POINTERS *Exception_info_ptr;
-  struct _EXCEPTION_RECORD;
-  struct _CONTEXT;
-  struct _DISPATCHER_CONTEXT;
-
-  __MINGW_EXTENSION _CRTIMP EXCEPTION_DISPOSITION __cdecl __C_specific_handler (struct _EXCEPTION_RECORD *_ExceptionRecord,unsigned __int64 _MemoryStackFp,unsigned __int64 _BackingStoreFp,struct _CONTEXT *_ContextRecord,struct _DISPATCHER_CONTEXT *_DispatcherContext,unsigned __int64 _GlobalPointer);
 #elif defined(__x86_64) || defined(__arm__) || defined(__aarch64__)
 
   struct _EXCEPTION_RECORD;

@@ -30,68 +30,6 @@ _CRT_BEGIN_C_HEADER
     unsigned long UnwindData[6];
   } _JUMP_BUFFER;
 
-#elif defined(__ia64__)
-
-  typedef _CRT_ALIGN(16) struct _SETJMP_FLOAT128 {
-    __MINGW_EXTENSION __int64 LowPart;
-    __MINGW_EXTENSION __int64 HighPart;
-  } SETJMP_FLOAT128;
-
-#define _JBLEN 33
-  typedef SETJMP_FLOAT128 _JBTYPE;
-
-  typedef struct __JUMP_BUFFER {
-
-    unsigned long iAReserved[6];
-
-    unsigned long Registration;
-    unsigned long TryLevel;
-    unsigned long Cookie;
-    unsigned long UnwindFunc;
-
-    unsigned long UnwindData[6];
-
-    SETJMP_FLOAT128 FltS0;
-    SETJMP_FLOAT128 FltS1;
-    SETJMP_FLOAT128 FltS2;
-    SETJMP_FLOAT128 FltS3;
-    SETJMP_FLOAT128 FltS4;
-    SETJMP_FLOAT128 FltS5;
-    SETJMP_FLOAT128 FltS6;
-    SETJMP_FLOAT128 FltS7;
-    SETJMP_FLOAT128 FltS8;
-    SETJMP_FLOAT128 FltS9;
-    SETJMP_FLOAT128 FltS10;
-    SETJMP_FLOAT128 FltS11;
-    SETJMP_FLOAT128 FltS12;
-    SETJMP_FLOAT128 FltS13;
-    SETJMP_FLOAT128 FltS14;
-    SETJMP_FLOAT128 FltS15;
-    SETJMP_FLOAT128 FltS16;
-    SETJMP_FLOAT128 FltS17;
-    SETJMP_FLOAT128 FltS18;
-    SETJMP_FLOAT128 FltS19;
-    __MINGW_EXTENSION __int64 FPSR;
-    __MINGW_EXTENSION __int64 StIIP;
-    __MINGW_EXTENSION __int64 BrS0;
-    __MINGW_EXTENSION __int64 BrS1;
-    __MINGW_EXTENSION __int64 BrS2;
-    __MINGW_EXTENSION __int64 BrS3;
-    __MINGW_EXTENSION __int64 BrS4;
-    __MINGW_EXTENSION __int64 IntS0;
-    __MINGW_EXTENSION __int64 IntS1;
-    __MINGW_EXTENSION __int64 IntS2;
-    __MINGW_EXTENSION __int64 IntS3;
-    __MINGW_EXTENSION __int64 RsBSP;
-    __MINGW_EXTENSION __int64 RsPFS;
-    __MINGW_EXTENSION __int64 ApUNAT;
-    __MINGW_EXTENSION __int64 ApLC;
-    __MINGW_EXTENSION __int64 IntSp;
-    __MINGW_EXTENSION __int64 IntNats;
-    __MINGW_EXTENSION __int64 Preds;
-
-  } _JUMP_BUFFER;
-
 #elif defined(__x86_64__)
 
   typedef _CRT_ALIGN(16) struct _SETJMP_FLOAT128 {

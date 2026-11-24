@@ -194,7 +194,7 @@ _CRT_BEGIN_C_HEADER
   extern double __cdecl fabs (double _X);
 
 #ifndef __CRT__NO_INLINE
-#if !defined (__ia64__)
+
   __CRT_INLINE float __cdecl fabsf (float x)
   {
 #if defined(__x86_64__) || defined(__arm__) || defined(__aarch64__)
@@ -227,8 +227,8 @@ _CRT_BEGIN_C_HEADER
     return res;
 #endif
   }
-#endif
-#endif
+
+#endif /* !__CRT__NO_INLINE */
 
   double __cdecl ldexp(double _X,int _Y);
   double __cdecl frexp(double _X,int *_Y);
@@ -931,7 +931,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   extern long double __cdecl copysignl (long double, long double);
 
 #ifndef __CRT__NO_INLINE
-#if !defined (__ia64__)
+
   __CRT_INLINE double __cdecl copysign (double x, double y)
   {
     return __builtin_copysign (x, y);
@@ -940,7 +940,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   {
     return __builtin_copysignf (x, y);
   }
-#endif
+
 #endif
 
 /* 7.12.11.2 Return a NaN */
@@ -1037,7 +1037,6 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   _CRTIMP float __cdecl _hypotf(float _X,float _Y);
 #endif
 
-#if !defined(__ia64__)
    _CRTIMP float __cdecl _copysignf (float _Number,float _Sign);
    _CRTIMP float __cdecl _chgsignf (float _X);
    _CRTIMP float __cdecl _logbf(float _X);
@@ -1045,7 +1044,6 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
    _CRTIMP int __cdecl _finitef(float _X);
    _CRTIMP int __cdecl _isnanf(float _X);
    _CRTIMP int __cdecl _fpclassf(float _X);
-#endif
 
 #ifdef _SIGN_DEFINED
    extern long double __cdecl _chgsignl (long double);

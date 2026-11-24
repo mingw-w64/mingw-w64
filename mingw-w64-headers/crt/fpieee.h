@@ -18,9 +18,6 @@ _CRT_BEGIN_C_HEADER
     _FpFormatFp32,_FpFormatFp64,_FpFormatFp80,_FpFormatFp128,_FpFormatI16,_FpFormatI32,
     _FpFormatI64,_FpFormatU16,_FpFormatU32,_FpFormatU64,_FpFormatBcd80,_FpFormatCompare,
     _FpFormatString,
-#if defined(__ia64__)
-    _FpFormatFp82
-#endif
   } _FPIEEE_FORMAT;
 
   typedef enum {
@@ -42,11 +39,6 @@ _CRT_BEGIN_C_HEADER
     _XMMI2Cvtsd2si,_XMMI2Cvttpd2pi,_XMMI2Cvttsd2si,_XMMI2Cvtps2pd,_XMMI2Cvtss2sd,
     _XMMI2Cvtpd2ps,_XMMI2Cvtsd2ss,_XMMI2Cvtdq2ps,_XMMI2Cvttps2dq,_XMMI2Cvtps2dq,
     _XMMI2Cvttpd2dq,_XMMI2Cvtpd2dq,_XMMI2Addsubpd,_XMMI2Haddpd,_XMMI2Hsubpd,
-#if defined(__ia64__)
-    _FpCodeFma,_FpCodeFmaSingle,_FpCodeFmaDouble,_FpCodeFms,_FpCodeFmsSingle,
-    _FpCodeFmsDouble,_FpCodeFnma,_FpCodeFnmaSingle,_FpCodeFnmaDouble,_FpCodeFamin,
-    _FpCodeFamax
-#endif
   } _FP_OPERATION_CODE;
 
   typedef enum {
@@ -55,9 +47,6 @@ _CRT_BEGIN_C_HEADER
 
   typedef enum {
     _FpPrecisionFull,_FpPrecision53,_FpPrecision24,
-#if defined(__ia64__)
-    _FpPrecision64,_FpPrecision113
-#endif
   } _FPIEEE_PRECISION;
 
   typedef float _FP32;
@@ -68,11 +57,7 @@ _CRT_BEGIN_C_HEADER
   typedef unsigned int _U32;
   __MINGW_EXTENSION typedef __int64 _Q64;
 
-  typedef struct
-#if defined(__ia64__)
-    _CRT_ALIGN(16)
-#endif
-  {
+  typedef struct {
     unsigned short W[5];
   } _FP80;
 
@@ -88,11 +73,7 @@ _CRT_BEGIN_C_HEADER
     unsigned long W[2];
   } _U64;
 
-  typedef struct
-#if defined(__ia64__)
-    _CRT_ALIGN(16)
-#endif
-  {
+  typedef struct {
     unsigned short W[5];
   } _BCD80;
 
@@ -140,9 +121,6 @@ _CRT_BEGIN_C_HEADER
     _FPIEEE_VALUE Operand1;
     _FPIEEE_VALUE Operand2;
     _FPIEEE_VALUE Result;
-#if defined(__ia64__)
-    _FPIEEE_VALUE Operand3;
-#endif
   } _FPIEEE_RECORD,*_PFPIEEE_RECORD;
 
   struct _EXCEPTION_POINTERS;
