@@ -1,23 +1,27 @@
 #ifndef FUNC_DEF_IN
 #define FUNC_DEF_IN
 
-// F32         - function available on all 32 bit architectures
-// F64         - function available on all 64 bit architectures
-// F_X86_ANY   - function available on i386 and x86_64
-// F_I386      - function available only on i386
-// F_X64       - function available only on x86_64
-// F_ARM32     - function available only on arm32
-// F_ARM64     - function available only on arm64
-// F_ARM_ANY   - function available on 32 and 64 bit arm
-// F_NON_I386  - function available on everything but i386
-// F_NON_X64   - function available on everything but x86_64
-// F_NON_ARM64 - function available on everything but arm64
+// F32          - function available on all 32 bit architectures
+// F64          - function available on all 64 bit architectures
+// F_I386       - function available only on i386
+// F_X64        - function available only on x86_64 (including arm64ec)
+// F_ARM32      - function available only on arm32
+// F_ARM64      - function available only on arm64
+// F_X86_ANY    - function available on i386 and x86_64 (including arm64ec)
+// F_X86_NATIVE - function available on i386 and x86_64, but not arm64ec
+// F_ARM_ANY    - function available on arm32, arm64, and arm64ec
+// F_ARM_NATIVE - function available on arm32 and arm64, but not arm64ec
+// F_NON_I386   - function available on everything but i386
+// F_NON_X64    - function available on everything but x86_64 and arm64ec
+// F_NON_ARM32  - function available on everything but arm32
+// F_NON_ARM64  - function available on everything but arm64
 #if defined(__x86_64__)
 #define F64(x) x
 #define F_X64(x) x
 #define F_X86_ANY(x) x
 #define F_X86_NATIVE(x) x
 #define F_NON_I386(x) x
+#define F_NON_ARM32(x) x
 #define F_NON_ARM64(x) x
 #if defined(__arm64ec__)
 #define F_ARM_ANY(x) x
@@ -29,6 +33,7 @@
 #define F_X86_ANY(x) x
 #define F_X86_NATIVE(x) x
 #define F_NON_X64(x) x
+#define F_NON_ARM32(x) x
 #define F_NON_ARM64(x) x
 #elif defined(__arm__)
 #define F32(x) x
@@ -43,6 +48,7 @@
 #define F_ARM_NATIVE(x) x
 #define F_NON_I386(x) x
 #define F_NON_X64(x) x
+#define F_NON_ARM32(x) x
 #else
 #error Unrecognized architecture
 #endif
@@ -82,6 +88,9 @@
 #endif
 #ifndef F_NON_X64
 #define F_NON_X64(x)
+#endif
+#ifndef F_NON_ARM32
+#define F_NON_ARM32(x)
 #endif
 #ifndef F_NON_ARM64
 #define F_NON_ARM64(x)

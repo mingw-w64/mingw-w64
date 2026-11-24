@@ -138,14 +138,12 @@ EtwpGetCpuSpeed
 F_X64(EtwpNotificationThread)
 EvtIntReportAuthzEventAndSourceAsync
 EvtIntReportEventAndSourceAsync
-#ifndef __arm__
-ExpInterlockedPopEntrySListEnd
+F_NON_ARM32(ExpInterlockedPopEntrySListEnd)
 F_X64(ExpInterlockedPopEntrySListEnd16)
-ExpInterlockedPopEntrySListFault
+F_NON_ARM32(ExpInterlockedPopEntrySListFault)
 F_X64(ExpInterlockedPopEntrySListFault16)
-ExpInterlockedPopEntrySListResume
+F_NON_ARM32(ExpInterlockedPopEntrySListResume)
 F_X64(ExpInterlockedPopEntrySListResume16)
-#endif
 KiRaiseUserExceptionDispatcher
 KiUserApcDispatcher
 KiUserCallbackDispatcher
