@@ -9,6 +9,7 @@
 #include <corecrt.h>
 #include <corecrt_startup.h>
 #include <corecrt_wprocess.h>
+#include <_mingw_process.h>
 
 /* Includes a definition of _pid_t and pid_t */
 #include <sys/types.h>
@@ -37,23 +38,6 @@ _CRT_BEGIN_C_HEADER
   _CRTIMP uintptr_t __cdecl _beginthreadex(void *_Security,unsigned _StackSize,_beginthreadex_proc_type _StartAddress,void *_ArgList,unsigned _InitFlag,unsigned *_ThrdAddr);
   _CRTIMP void __cdecl _endthreadex(unsigned _Retval) __MINGW_ATTRIB_NORETURN;
 
-#ifndef _CRT_TERMINATE_DEFINED
-#define _CRT_TERMINATE_DEFINED
-  void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
-  void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
-#ifdef _UCRT
-  void __cdecl __MINGW_NOTHROW quick_exit(int _Code) __MINGW_ATTRIB_NORETURN;
-#endif
-
-  /* C99 function name */
-  void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
-
-#pragma push_macro("abort")
-#undef abort
-  void __cdecl __MINGW_ATTRIB_NORETURN abort(void);
-#pragma pop_macro("abort")
-
-#endif /* _CRT_TERMINATE_DEFINED */
 
   typedef void (__stdcall *_tls_callback_type)(void*,unsigned long,void*);
   _CRTIMP void __cdecl _register_thread_local_exe_atexit_callback(_tls_callback_type callback);
@@ -80,11 +64,6 @@ _CRT_BEGIN_C_HEADER
   _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
   _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
   _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-
-#ifndef _CRT_SYSTEM_DEFINED
-#define _CRT_SYSTEM_DEFINED
-  int __cdecl system(const char *_Command);
-#endif
 
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 

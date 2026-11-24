@@ -10,6 +10,7 @@
 #include <corecrt_malloc.h>
 #include <corecrt_wstdlib.h>
 #include <limits.h>
+#include <_mingw_process.h>
 
 _CRT_BEGIN_C_HEADER
 
@@ -236,24 +237,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 #endif
 
-#ifndef _CRT_TERMINATE_DEFINED
-#define _CRT_TERMINATE_DEFINED
-  void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
-  void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
-#ifdef _UCRT
-  void __cdecl __MINGW_NOTHROW quick_exit(int _Code) __MINGW_ATTRIB_NORETURN;
-#endif
-
-  /* C99 function name */
-  void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
-
-#pragma push_macro("abort")
-#undef abort
-  void __cdecl __MINGW_ATTRIB_NORETURN abort(void);
-#pragma pop_macro("abort")
-
-#endif /* _CRT_TERMINATE_DEFINED */
-
   _CRTIMP unsigned int __cdecl _set_abort_behavior(unsigned int _Flags,unsigned int _Mask);
 
 #ifndef _CRT_ABS_DEFINED
@@ -394,10 +377,6 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   _CRTIMP long __cdecl _strtol_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix,_locale_t _Locale);
   unsigned long __cdecl strtoul(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _strtoul_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,int _Radix,_locale_t _Locale);
-#ifndef _CRT_SYSTEM_DEFINED
-#define _CRT_SYSTEM_DEFINED
-  int __cdecl system(const char *_Command);
-#endif
   _CRTIMP char *__cdecl _ultoa(unsigned long _Value,char *_Dest,int _Radix) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl wctomb(char *_MbCh,wchar_t _WCh) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _wctomb_l(char *_MbCh,wchar_t _WCh,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
