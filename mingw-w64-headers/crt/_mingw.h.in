@@ -8,7 +8,6 @@
 #define _INC__MINGW_H
 
 #include <_mingw_mac.h>
-#include <_mingw_secapi.h>
 
 /* Include _cygwin.h if we're building a Cygwin application. */
 #ifdef __CYGWIN__
@@ -633,5 +632,35 @@ _CRT_END_C_HEADER
 
 #define __STDC_SECURE_LIB__ 200411L
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
+
+/* http://msdn.microsoft.com/en-us/library/ms175759%28v=VS.100%29.aspx */
+#if defined(__cplusplus)
+#  ifndef _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
+#    define _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES 1          /* default to 1 */
+#  endif
+#  ifndef _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY
+#    define _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY 0   /* default to 0 */
+#  endif
+#  ifndef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES
+#    define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 0        /* default to 0 */
+#  endif
+#  ifndef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT
+#    define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT 0  /* default to 0 */
+#  endif
+#  ifndef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY
+#    define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY 0 /* default to 0 */
+#  endif
+#else /* Templates won't work in C, will break if secure API is not enabled */
+#  undef _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
+#  undef _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY
+#  undef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES
+#  undef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT
+#  undef _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY
+#  define _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES 0
+#  define _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY 0
+#  define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 0
+#  define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT 0
+#  define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY 0
+#endif /*defined(__cplusplus)*/
 
 #endif /* _INC__MINGW_H */
