@@ -57,7 +57,10 @@ typedef struct _onexit_table_t {
     _PVFV* _end;
 } _onexit_table_t;
 
-typedef int (__cdecl *_onexit_t)(void);
+#ifndef _CRT_ONEXIT_T_DEFINED
+#define _CRT_ONEXIT_T_DEFINED /* Also in stdlib.h */
+typedef int (__cdecl* _onexit_t)(void);
+#endif
 
 _CRTIMP int __cdecl _initialize_onexit_table(_onexit_table_t*);
 _CRTIMP int __cdecl _register_onexit_function(_onexit_table_t*,_onexit_t);

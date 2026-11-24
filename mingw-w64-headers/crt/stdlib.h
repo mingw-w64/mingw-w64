@@ -16,14 +16,13 @@ _CRT_BEGIN_C_HEADER
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
-#ifndef _ONEXIT_T_DEFINED
-#define _ONEXIT_T_DEFINED
-
-  typedef int (__cdecl *_onexit_t)(void);
+#ifndef _CRT_ONEXIT_T_DEFINED
+#define _CRT_ONEXIT_T_DEFINED /* Also in corecrt_startup.h */
+typedef int (__cdecl *_onexit_t)(void);
+#endif
 
 #ifndef	NO_OLDNAMES
 #define onexit_t _onexit_t
-#endif
 #endif
 
   typedef struct _div_t {
