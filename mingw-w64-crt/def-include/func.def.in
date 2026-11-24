@@ -62,7 +62,7 @@
 #ifndef F_X86_ANY
 #define F_X86_ANY(x)
 #endif
-#ifndef F_X86_NATIVE(x)
+#ifndef F_X86_NATIVE
 #define F_X86_NATIVE(x)
 #endif
 #ifndef F_I386
