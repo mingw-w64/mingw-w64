@@ -159,7 +159,8 @@ fakelib_libgcc_s_a_AR = $(AR) $(ARFLAGS)
 fakelib_libgcc_s_a_LIBADD =
 am_fakelib_libgcc_s_a_OBJECTS =
 fakelib_libgcc_s_a_OBJECTS = $(am_fakelib_libgcc_s_a_OBJECTS)
-libwinpthread_la_LIBADD =
+am__DEPENDENCIES_1 =
+libwinpthread_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
 am_libwinpthread_la_OBJECTS = src/libwinpthread_la-affinity.lo \
 	src/libwinpthread_la-barrier.lo src/libwinpthread_la-cond.lo \
 	src/libwinpthread_la-misc.lo src/libwinpthread_la-mutex.lo \
@@ -410,6 +411,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 VERSION = @VERSION@
+WINPTHREADS_LIBS = @WINPTHREADS_LIBS@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -499,6 +501,7 @@ libwinpthread_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/include -DIN_WINPTHREAD
 libwinpthread_la_CFLAGS = $(AM_CFLAGS)
 libwinpthread_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined -version-info \
 	1:0:0 $(am__append_1)
+libwinpthread_la_LIBADD = $(WINPTHREADS_LIBS)
 @MSVC_FALSE@EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 
 # Break circular dep on bootstrap

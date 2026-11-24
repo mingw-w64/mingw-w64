@@ -657,6 +657,7 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+WINPTHREADS_LIBS
 LINKER_SUBSYSTEM
 DEFAULT_WARNINGS
 CRT_DEFINES
@@ -14770,6 +14771,8 @@ printf "%s\n" "#define WINPTHREADS_WINNT $winpthreads_winnt" >>confdefs.h
 CRT_DEFINES=
 DEFAULT_WARNINGS=
 LINKER_SUBSYSTEM=
+WINPTHREADS_LIBS=
+
 
 
 
@@ -14856,6 +14859,50 @@ then :
 fi
 
 LINKER_SUBSYSTEM="$LINKER_SUBSYSTEM $winpthreads_subsystem"
+
+# Check for required libraries.
+#
+# Synchronization.lib (-lsynchronization): required to use `WaitOnAddress`
+# and `WakeByAddress*` functions; only linked when configured for Windows 8
+# or later
+case $with_winnt in #(
+  win10 | win8.1 | win8) :
+    WINPTHREADS_LIBS="-lsynchronization"
+ ;; #(
+  *) :
+     ;;
+esac
+
+if test $ac_no_link = no && test -n "$WINPTHREADS_LIBS"
+then :
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether all required libraries ($WINPTHREADS_LIBS) are available" >&5
+printf %s "checking whether all required libraries ($WINPTHREADS_LIBS) are available... " >&6; }
+    save_LDFLAGS=$LDFLAGS
+    LDFLAGS="$LDFLAGS $WINPTHREADS_LIBS"
+    if test x$ac_no_link = xyes; then
+  as_fn_error $? "link tests are not allowed after AC_NO_EXECUTABLES" "$LINENO" 5
+fi
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+int main (void) {return 0;}
+
+_ACEOF
+if ac_fn_c_try_link "$LINENO"
+then :
+        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+printf "%s\n" "yes" >&6; }
+      LDFLAGS=$save_LDFLAGS
+else case e in #(
+  e)       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+      as_fn_error $? "Some of required libraries are missing." "$LINENO" 5
+     ;;
+esac
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext conftest.$ac_ext
+
+fi
 
 # config.h
 
