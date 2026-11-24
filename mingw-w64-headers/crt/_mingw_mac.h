@@ -44,8 +44,7 @@
 #  undef _X86_  /* _X86_ is not for __x86_64 */
 #endif
 
-#if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) \
-   && !defined(_M_AMD64) && !defined(__x86_64)
+#if defined(_X86_) && !defined(_M_IX86) && !defined(_M_AMD64) && !defined(__x86_64)
 #  if defined(__i486__)
 #    define _M_IX86 400
 #  elif defined(__i586__)
@@ -55,17 +54,11 @@
 #  else
 #    define _M_IX86 300
 #  endif
-#endif /* if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) ... */
+#endif /* if defined(_X86_) && !defined(_M_IX86) ... */
 
-#if defined(__x86_64) && !defined(_M_IX86) && !defined(_M_IA64) \
-   && !defined(_M_AMD64)
+#if defined(__x86_64) && !defined(_M_IX86) && !defined(_M_AMD64)
 #  define _M_AMD64 100
 #  define _M_X64 100
-#endif
-
-#if defined(__ia64__) && !defined(_M_IX86) && !defined(_M_IA64) \
-   && !defined(_M_AMD64) && !defined(_X86_) && !defined(__x86_64)
-#  define _M_IA64 100
 #endif
 
 #if defined(__arm__) && !defined(_M_ARM) && !defined(_M_ARMT) \

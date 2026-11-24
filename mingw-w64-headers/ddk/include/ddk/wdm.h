@@ -106,7 +106,7 @@ extern "C" {
 #pragma warning(disable:4820) /* Padding added, due to alignemnet requirement */
 
 /* Indicate if #pragma alloc_text() is supported */
-#if defined(_M_IX86) || defined(_M_AMD64) || defined(_M_IA64)
+#if defined(_M_IX86) || defined(_M_AMD64)
 #define ALLOC_PRAGMA 1
 #endif
 
@@ -8117,43 +8117,6 @@ KeGetCurrentThread(VOID)
 /* x86 and x64 performs a 0x2C interrupt */
 #define DbgRaiseAssertionFailure __int2c
 
-#elif defined(_M_IA64)
-/** Kernel definitions for IA64 **/
-
-/* Interrupt request levels */
-#define PASSIVE_LEVEL           0
-#define LOW_LEVEL               0
-#define APC_LEVEL               1
-#define DISPATCH_LEVEL          2
-#define CMC_LEVEL               3
-#define DEVICE_LEVEL_BASE       4
-#define PC_LEVEL                12
-#define IPI_LEVEL               14
-#define DRS_LEVEL               14
-#define CLOCK_LEVEL             13
-#define POWER_LEVEL             15
-#define PROFILE_LEVEL           15
-#define HIGH_LEVEL              15
-
-#define KI_USER_SHARED_DATA ((ULONG_PTR)(KADDRESS_BASE + 0xFFFE0000))
-extern volatile LARGE_INTEGER KeTickCount;
-
-#define PAUSE_PROCESSOR __yield();
-
-FORCEINLINE
-VOID
-KeFlushWriteBuffer(VOID)
-{
-  __mf ();
-  return;
-}
-
-NTSYSAPI
-PKTHREAD
-NTAPI
-KeGetCurrentThread(VOID);
-
-
 #elif defined(_M_PPC)
 
 /* Interrupt request levels */
@@ -9605,8 +9568,7 @@ RtlCheckBit(
 
 /* Byte Swap Functions */
 #if (defined(_M_IX86) && (_MSC_FULL_VER > 13009037 || defined(__GNUC__))) || \
-    ((defined(_M_AMD64) || defined(_M_IA64)) \
-        && (_MSC_FULL_VER > 13009175 || defined(__GNUC__)))
+    (defined(_M_AMD64) && (_MSC_FULL_VER > 13009175 || defined(__GNUC__)))
 
 #define RtlUshortByteSwap(_x) _byteswap_ushort((USHORT)(_x))
 #define RtlUlongByteSwap(_x) _byteswap_ulong((_x))

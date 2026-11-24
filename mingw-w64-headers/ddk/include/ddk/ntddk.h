@@ -3331,9 +3331,6 @@ extern NTKERNELAPI ULONG64 MmUserProbeAddress;
 #define MM_LOWEST_USER_ADDRESS   (PVOID)0x10000
 #define MM_LOWEST_SYSTEM_ADDRESS (PVOID)0xFFFF080000000000ULL
 
-
-#elif defined(_M_IA64)
-
 #elif defined(_M_PPC)
 
 
@@ -5421,7 +5418,7 @@ RtlConvertUlongToLuid(
 
 #endif /* !defined(MIDL_PASS) */
 
-#if (defined(_M_AMD64) || defined(_M_IA64)) && !defined(_REALLY_GET_CALLERS_CALLER_)
+#if defined(_M_AMD64) && !defined(_REALLY_GET_CALLERS_CALLER_)
 #define RtlGetCallersAddress(CallersAddress, CallersCaller) \
     *CallersAddress = (PVOID)_ReturnAddress(); \
     *CallersCaller = NULL;

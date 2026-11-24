@@ -45,16 +45,8 @@ _CRT_BEGIN_C_HEADER
 #elif defined(_MSC_VER)
 /* MSVC specific */
 
-#if defined(_M_IA64)
-#define _VA_ALIGN 8
-#define _SLOTSIZEOF(t) ((sizeof(t) + _VA_ALIGN - 1) & ~(_VA_ALIGN - 1))
-#define _VA_STRUCT_ALIGN 16
-#define _ALIGNOF(ap) ((((ap)+_VA_STRUCT_ALIGN - 1) & ~(_VA_STRUCT_ALIGN -1)) - (ap))
-#define _APALIGN(t,ap) (__alignof(t) > 8 ? _ALIGNOF((uintptr_t) ap) : 0)
-#else
 #define _SLOTSIZEOF(t) (sizeof(t))
 #define _APALIGN(t,ap) (__alignof(t))
-#endif
 
 #if defined(_M_IX86)
 
@@ -74,10 +66,6 @@ _CRT_BEGIN_C_HEADER
 				 ( *(t *)(((v) += sizeof(void*)) - sizeof(void*)))
 #define _crt_va_end(v)		((v) = (va_list)0)
 #define _crt_va_copy(d,s)	((d) = (s))
-
-#elif defined(_M_IA64)
-
-#error VARARGS not implemented for IA64
 
 #else
 
