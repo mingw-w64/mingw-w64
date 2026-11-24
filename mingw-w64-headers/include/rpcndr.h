@@ -314,11 +314,7 @@ typedef unsigned __LONG32 error_status_t;
     CS_STUB_INFO *pCSInfo;
     unsigned char *ConformanceMark;
     unsigned char *VarianceMark;
-#if defined(IA64)
-    void *BackingStoreLowMark;
-#else
     INT_PTR Unused;
-#endif
     struct _NDR_PROC_CONTEXT *pContext;
     void *ContextHandleHash;
     void *pUserMarshalList;

@@ -28,14 +28,6 @@ typedef const void *PNDR64_FORMAT;
 typedef NDR64_UINT8 NDR64_ALIGNMENT;
 typedef NDR64_UINT32 NDR64_FORMAT_UINT32;
 
-#if (defined(_X86_) && !defined(__x86_64))
-#define Ia64Axp(a,b) (a)
-#elif defined(__x86_64)
-#define Ia64Axp(a,b) (a)
-#else
-#error Unsupported platform
-#endif
-
 #define NDR64_FC_EXPLICIT_HANDLE 0
 #define NDR64_FC_BIND_GENERIC 1
 #define NDR64_FC_BIND_PRIMITIVE 2

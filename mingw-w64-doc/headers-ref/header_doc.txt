@@ -59,12 +59,12 @@ gdiplusimageattributes.h gdiplusimagecodec.h gdiplusimaging.h gdiplusinit.h gdip
 gdiplusmem.h gdiplusmetafile.h gdiplusmetaheader.h gdipluspath.h gdipluspen.h gdipluspixelformats.h gdiplusregion.h
 gdiplusstringformat.h gdiplustypes.h getopt.h gmp.h gpedit.h gpmgmt.h guiddef.h h323priv.h hlguids.h hliface.h
 hlink.h hostinfo.h htiface.h htiframe.h htmlguid.h htmlhelp.h http.h httpext.h httpfilt.h httprequestid.h
-i_cryptasn1tls.h ia64reg.h iaccess.h iadmext.h iadmw.h iads.h icm.h icmpapi.h icmui.dlg icrsint.h idf.h idispids.h
+i_cryptasn1tls.h iaccess.h iadmext.h iadmw.h iads.h icm.h icmpapi.h icmui.dlg icrsint.h idf.h idispids.h
 iedial.h ieverp.h iiis.h iiisext.h iimgctx.h iiscnfg.h iisext_i.c iisrsta.h ilogobj.hxx imagehlp.h ime.h imessage.h
 imm.h include indexsrv.h inetreg.h inetsdk.h initguid.h initoid.h inputscope.h intrin.h intshcut.h inttypes.h
 invkprxy.h io.h ioevent.h ipexport.h iphlpapi.h ipifcons.h ipinfoid.h ipmsp.h iprtrmib.h iptypes.h ipxconst.h
 ipxrip.h ipxrtdef.h ipxsap.h ipxtfflt.h isguids.h iso646.h issper16.h issperr.h iwamreg.h ks.h ksguid.h ksmedia.h
-ksproxy.h ksuuids.h kxia64.h limits.h lm.h lmaccess.h lmalert.h lmapibuf.h lmat.h lmaudit.h lmconfig.h lmcons.h
+ksproxy.h ksuuids.h limits.h lm.h lmaccess.h lmalert.h lmapibuf.h lmat.h lmaudit.h lmconfig.h lmcons.h
 lmdfs.h lmerr.h lmerrlog.h lmjoin.h lmmsg.h lmremutl.h lmrepl.h lmserver.h lmshare.h lmsname.h lmstats.h lmsvc.h
 lmuse.h lmuseflg.h lmwksta.h loadperf.h locale.h lpmapi.h lzexpand.h madcapcl.h mailmsgprops.h malloc.h
 mapi.h mapicode.h mapidbg.h mapidefs.h mapiform.h mapiguid.h mapihook.h mapinls.h mapioid.h mapispi.h mapitags.h
