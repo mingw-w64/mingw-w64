@@ -633,35 +633,6 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 
   typedef VOID (NTAPI *PIO_APC_ROUTINE)(PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,ULONG Reserved);
 
-#ifdef __ia64__
-  typedef struct _FRAME_POINTERS {
-    ULONGLONG MemoryStackFp;
-    ULONGLONG BackingStoreFp;
-  } FRAME_POINTERS,*PFRAME_POINTERS;
-
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-  typedef struct _RUNTIME_FUNCTION {
-    ULONG BeginAddress;
-    ULONG EndAddress;
-    ULONG UnwindInfoAddress;
-  } RUNTIME_FUNCTION,*PRUNTIME_FUNCTION;
-
-  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    ULONG64 ImageBase;
-    ULONG64 Gp;
-    PRUNTIME_FUNCTION FunctionEntry;
-  } UNWIND_HISTORY_TABLE_ENTRY,*PUNWIND_HISTORY_TABLE_ENTRY;
-
-  typedef struct _UNWIND_HISTORY_TABLE {
-    ULONG Count;
-    UCHAR Search;
-    ULONG64 LowAddress;
-    ULONG64 HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-  } UNWIND_HISTORY_TABLE,*PUNWIND_HISTORY_TABLE;
-#endif
-
   typedef struct _VM_COUNTERS {
     SIZE_T PeakVirtualSize;
     SIZE_T VirtualSize;
@@ -1130,10 +1101,6 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   BOOL NTAPI RtlDosPathNameToNtPathName_U(PCWSTR DosPathName, PUNICODE_STRING NtPathName, PCWSTR *NtFileNamePart, VOID *DirectoryInfo);
   BOOLEAN NTAPI RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive);
   BOOLEAN NTAPI RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING target, LPCSTR src);
-#ifdef __ia64__
-  VOID RtlUnwind2(FRAME_POINTERS TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue,PCONTEXT ContextRecord);
-  VOID RtlUnwindEx(FRAME_POINTERS TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue,PCONTEXT ContextRecord,PUNWIND_HISTORY_TABLE HistoryTable);
-#endif
 
   typedef NTSTATUS (NTAPI *PRTL_HEAP_COMMIT_ROUTINE) (PVOID Base, PVOID *CommitAddress, PSIZE_T CommitSize);
 

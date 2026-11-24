@@ -28,9 +28,7 @@ typedef const void *PNDR64_FORMAT;
 typedef NDR64_UINT8 NDR64_ALIGNMENT;
 typedef NDR64_UINT32 NDR64_FORMAT_UINT32;
 
-#ifdef __ia64__
-#define Ia64Axp(a,b) (a)
-#elif (defined(_X86_) && !defined(__x86_64))
+#if (defined(_X86_) && !defined(__x86_64))
 #define Ia64Axp(a,b) (a)
 #elif defined(__x86_64)
 #define Ia64Axp(a,b) (a)

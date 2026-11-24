@@ -481,14 +481,12 @@ extern "C" {
 #define RpcBindingInqAuthInfoEx __MINGW_NAME_AW(RpcBindingInqAuthInfoEx)
 #define RpcBindingSetAuthInfoEx __MINGW_NAME_AW(RpcBindingSetAuthInfoEx)
 
-#ifndef __ia64__
   typedef struct {
     unsigned char *UserName;
     unsigned char *ComputerName;
     unsigned short Privilege;
     unsigned __LONG32 AuthFlags;
   } RPC_CLIENT_INFORMATION1,*PRPC_CLIENT_INFORMATION1;
-#endif
 
 #define UuidFromString __MINGW_NAME_AW(UuidFromString)
 #define UuidToString __MINGW_NAME_AW(UuidToString)

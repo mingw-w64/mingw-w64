@@ -7,7 +7,7 @@
 #ifndef _BASETSD_H_
 #define _BASETSD_H_
 
-#if (defined (__x86_64__) || defined (__ia64__)) && !(defined (__WIDL__) || defined (RC_INVOKED))
+#if defined (__x86_64__) && !(defined (__WIDL__) || defined (RC_INVOKED))
 __MINGW_EXTENSION typedef unsigned __int64 POINTER_64_INT;
 #else
 typedef unsigned long POINTER_64_INT;

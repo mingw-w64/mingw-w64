@@ -25,7 +25,7 @@ extern "C" {
 
 #include <basetsd.h>
 
-#if defined(__ia64__) || defined(__x86_64)
+#if defined(__x86_64)
 #define __RPC_WIN64__
 #else
 #if !defined (_ARM_)

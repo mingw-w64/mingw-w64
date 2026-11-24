@@ -122,7 +122,7 @@ extern "C" {
 
 #define RPC_VAR_ENTRY __cdecl
 
-#if (defined(_X86_) && !defined(__x86_64)) || defined(__x86_64) || defined(__ia64__)
+#if defined(_X86_) || defined(__x86_64)
 #define __MIDL_DECLSPEC_DLLIMPORT __declspec(dllimport)
 #define __MIDL_DECLSPEC_DLLEXPORT __declspec(dllexport)
 #else

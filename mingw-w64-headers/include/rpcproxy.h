@@ -17,7 +17,7 @@
 #endif
 #endif
 
-#if defined(__ia64__) || defined(__x86_64)
+#if defined(__x86_64)
 #include <pshpack8.h>
 #endif
 
@@ -226,7 +226,7 @@ extern "C" {
 }
 #endif
 
-#if defined(__ia64__) || defined(__x86_64)
+#if defined(__x86_64)
 #include <poppack.h>
 #endif
 #endif

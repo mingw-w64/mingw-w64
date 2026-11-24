@@ -108,7 +108,7 @@ extern "C" {
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
 #undef  UNALIGNED64
-#if defined (__ia64__) || defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)
+#if defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)
 #define ALIGNMENT_MACHINE
 #define UNALIGNED __unaligned
 #if defined (_WIN64)
@@ -138,7 +138,7 @@ extern "C" {
 
 #if defined (__x86_64__) || defined (__i386__)
 #define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT (DWORD)
-#elif defined (__ia64__) || defined (__arm__) || defined(__aarch64__)
+#elif defined (__arm__) || defined(__aarch64__)
 #define PROBE_ALIGNMENT(_s) (TYPE_ALIGNMENT (_s) > TYPE_ALIGNMENT (DWORD) ? TYPE_ALIGNMENT (_s) : TYPE_ALIGNMENT (DWORD))
 #elif !defined (RC_INVOKED) && !defined (__WIDL__)
 #error No supported target architecture.
@@ -157,7 +157,7 @@ extern "C" {
 #include <basetsd.h>
 
 #ifndef DECLSPEC_IMPORT
-#if (defined (__i386__) || defined (__ia64__) || defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)) && !defined (__WIDL__)
+#if (defined (__i386__) || defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)) && !defined (__WIDL__)
 #define DECLSPEC_IMPORT __declspec (dllimport)
 #else
 #define DECLSPEC_IMPORT
@@ -513,10 +513,7 @@ typedef enum {
 #define ERROR_SEVERITY_WARNING 0x80000000
 #define ERROR_SEVERITY_ERROR 0xC0000000
 
-#if defined (__ia64__) && !defined (__WIDL__)
-  __declspec(align(16))
-#endif
-    typedef struct _FLOAT128 {
+  typedef struct _FLOAT128 {
       __MINGW_EXTENSION __int64 LowPart;
       __MINGW_EXTENSION __int64 HighPart;
   } FLOAT128;
@@ -2708,63 +2705,10 @@ __buildmemorybarrier()
     } LDT_ENTRY,*PLDT_ENTRY;
 #endif /* _LDT_ENTRY_DEFINED */
 
-#if defined(__ia64__) && !defined(RC_INVOKED)
-
-#ifdef __cplusplus
-    extern "C" {
-#endif
-
-      BOOLEAN BitScanForward64(DWORD *Index,DWORD64 Mask);
-      BOOLEAN BitScanReverse64(DWORD *Index,DWORD64 Mask);
-
-#ifdef __cplusplus
-    }
-#endif
-#endif /* defined(__ia64__) && !defined(RC_INVOKED) */
-
 #if !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_)
 
     void *_cdecl _rdteb(void);
 
-#ifdef __ia64__
-#define NtCurrentTeb() ((struct _TEB *)_rdteb())
-#define GetCurrentFiber() (((PNT_TIB)NtCurrentTeb())->FiberData)
-#define GetFiberData() (*(PVOID *)(GetCurrentFiber()))
-
-#ifdef __cplusplus
-    extern "C" {
-#endif
-
-      void __break(int);
-      void __yield(void);
-      void __mf(void);
-      void __lfetch(int Level,VOID CONST *Address);
-      void __lfetchfault(int Level,VOID CONST *Address);
-      void __lfetch_excl(int Level,VOID CONST *Address);
-      void __lfetchfault_excl(int Level,VOID CONST *Address);
-
-#define MD_LFHINT_NONE 0x00
-#define MD_LFHINT_NT1 0x01
-#define MD_LFHINT_NT2 0x02
-#define MD_LFHINT_NTA 0x03
-
-#ifdef __cplusplus
-    }
-#endif
-
-#define YieldProcessor __yield
-#define MemoryBarrier __mf
-#define PreFetchCacheLine __lfetch
-#define ReadForWriteAccess(p) (*(p))
-#define DbgRaiseAssertionFailure() __break(ASSERT_BREAKPOINT)
-
-#define PF_TEMPORAL_LEVEL_1 MD_LFHINT_NONE
-#define PF_NON_TEMPORAL_LEVEL_ALL MD_LFHINT_NTA
-
-#define UnsignedMultiplyHigh __UMULH
-
-    ULONGLONG UnsignedMultiplyHigh(ULONGLONG Multiplier,ULONGLONG Multiplicand);
-#endif /* __ia64__ */
 #endif /* !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_) */
 
 #ifdef _IA64_
@@ -3075,10 +3019,6 @@ __buildmemorybarrier()
       PEXCEPTION_RECORD ExceptionRecord;
       PCONTEXT ContextRecord;
     } EXCEPTION_POINTERS,*PEXCEPTION_POINTERS;
-
-#ifdef __ia64__
-    NTSYSAPI VOID NTAPI RtlUnwind2 (FRAME_POINTERS TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT ContextRecord);
-#endif
 
 #ifdef __x86_64__
 
@@ -9157,12 +9097,6 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
     NTSYSAPI BOOLEAN __cdecl RtlInstallFunctionTableCallback (ULONG_PTR TableIdentifier, ULONG_PTR BaseAddress, DWORD Length, PGET_RUNTIME_FUNCTION_CALLBACK Callback, PVOID Context, PCWSTR OutOfProcessCallbackDll);
     NTSYSAPI VOID __cdecl RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
 #endif
-#if defined (__ia64__)
-    NTSYSAPI BOOLEAN NTAPI RtlAddFunctionTable (PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, ULONGLONG BaseAddress, ULONGLONG TargetGp);
-    NTSYSAPI BOOLEAN NTAPI RtlDeleteFunctionTable (PRUNTIME_FUNCTION FunctionTable);
-    NTSYSAPI BOOLEAN NTAPI RtlInstallFunctionTableCallback (DWORD64 TableIdentifier, DWORD64 BaseAddress, DWORD Length, DWORD64 TargetGp, PGET_RUNTIME_FUNCTION_CALLBACK Callback, PVOID Context, PCWSTR OutOfProcessCallbackDll);
-    NTSYSAPI VOID NTAPI RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
-#endif
 
 #endif
 
@@ -9184,11 +9118,6 @@ DEFINE_ENUM_FLAG_OPERATORS(JOB_OBJECT_IO_RATE_CONTROL_FLAGS)
     NTSYSAPI PRUNTIME_FUNCTION NTAPI RtlLookupFunctionEntry (ULONG_PTR ControlPc, PULONG_PTR ImageBase, PUNWIND_HISTORY_TABLE HistoryTable);
     NTSYSAPI VOID NTAPI RtlUnwindEx (PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT ContextRecord, PUNWIND_HISTORY_TABLE HistoryTable);
     NTSYSAPI PEXCEPTION_ROUTINE NTAPI RtlVirtualUnwind (DWORD HandlerType, ULONG_PTR ImageBase, ULONG_PTR ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG_PTR EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers);
-#endif
-#if defined (__ia64__)
-    NTSYSAPI PRUNTIME_FUNCTION NTAPI RtlLookupFunctionEntry (ULONGLONG ControlPc, PULONGLONG ImageBase, PULONGLONG TargetGp);
-    NTSYSAPI VOID NTAPI RtlUnwindEx (FRAME_POINTERS TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT ContextRecord, PUNWIND_HISTORY_TABLE HistoryTable);
-    NTSYSAPI ULONGLONG NTAPI RtlVirtualUnwind (ULONGLONG ImageBase, ULONGLONG ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PBOOLEAN InFunction, PFRAME_POINTERS EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers);
 #endif
 #endif
 
@@ -10387,7 +10316,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     FORCEINLINE VOID TpDestroyCallbackEnviron (PTP_CALLBACK_ENVIRON cbe) { UNREFERENCED_PARAMETER (cbe); }
 #endif
 
-#if !defined(__ia64__) && !defined (__WIDL__)
+#if !defined (__WIDL__)
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
     PVOID GetFiberData(VOID);
@@ -10435,7 +10364,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #endif
 
     FORCEINLINE PVOID GetFiberData (VOID) { return *(void **)GetCurrentFiber (); }
-#endif /* !defined(__ia64__) && !defined (__WIDL__) */
+#endif /* !defined (__WIDL__) */
 
 #ifndef _NTTMAPI_
 #define _NTTMAPI_
