@@ -8,18 +8,15 @@
 #define _INC_INTERNAL
 
 #include <crtdefs.h>
+#include <crtdbg.h>
+#include <errno.h>
+#include <fenv.h>
+#include <limits.h>
+#include <windows.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <limits.h>
-#include <fenv.h>
-#include <windows.h>
-
-#define __IOINFO_TM_ANSI 0
-#define __IOINFO_TM_UTF8 1
-#define __IOINFO_TM_UTF16LE 2
 
 #ifdef _MSC_VER
 #pragma warning(push)
@@ -42,32 +39,10 @@ extern "C" {
 #pragma warning(pop)
 #endif
 
-#define IOINFO_ARRAY_ELTS (1 << 5)
-
-#define _pioinfo(i) (__pioinfo[(i) >> 5] + ((i) & (IOINFO_ARRAY_ELTS - 1)))
-#define _osfile(i) (_pioinfo(i)->osfile)
-#define _pipech2(i) (_pioinfo(i)->pipech2)
-#define _textmode(i) (_pioinfo(i)->textmode)
-#define _tm_unicode(i) (_pioinfo(i)->unicode)
-#define _pioinfo_safe(i) ((((i) != -1) && ((i) != -2)) ? _pioinfo(i) : &__badioinfo)
-#define _osfhnd_safe(i) (_pioinfo_safe(i)->osfhnd)
-#define _osfile_safe(i) (_pioinfo_safe(i)->osfile)
-#define _pipech_safe(i) (_pioinfo_safe(i)->pipech)
-#define _pipech2_safe(i) (_pioinfo_safe(i)->pipech2)
-#define _textmode_safe(i) (_pioinfo_safe(i)->textmode)
-#define _tm_unicode_safe(i) (_pioinfo_safe(i)->unicode)
-
 #ifndef __badioinfo
   extern ioinfo * __MINGW_IMP_SYMBOL(__badioinfo);
 #define __badioinfo (* __MINGW_IMP_SYMBOL(__badioinfo))
 #endif
-
-#ifndef __pioinfo
-  extern ioinfo ** __MINGW_IMP_SYMBOL(__pioinfo)[];
-#define __pioinfo (* __MINGW_IMP_SYMBOL(__pioinfo))
-#endif
-
-#define _NO_CONSOLE_FILENO (intptr_t)-2
 
 #ifndef _FILE_DEFINED
 #define _FILE_DEFINED
@@ -84,13 +59,10 @@ extern "C" {
   typedef struct _iobuf FILE;
 #endif
 
-#if !defined (_FILEX_DEFINED) && defined (_WINDOWS_)
-#define _FILEX_DEFINED
   typedef struct {
     FILE f;
     CRITICAL_SECTION lock;
   } _FILEX;
-#endif
 
   extern int _dowildcard;
   extern int _newmode;
@@ -111,12 +83,9 @@ extern "C" {
   int __CRTDECL main(int _Argc, char **_Argv, char **_Env);
   int __CRTDECL wmain(int _Argc, wchar_t **_Argv, wchar_t **_Env);
 
-#ifndef _STARTUP_INFO_DEFINED
-#define _STARTUP_INFO_DEFINED
   typedef struct {
     int newmode;
   } _startupinfo;
-#endif
 
   _CRTIMP int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
   _CRTIMP int __cdecl __wgetmainargs(int * _Argc, wchar_t ***_Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
@@ -134,9 +103,6 @@ extern "C" {
   _CRTIMP void __cdecl __set_app_type (int);
 
   typedef LONG NTSTATUS;
-
-#include <crtdbg.h>
-#include <errno.h>
 
 #if defined(__SSE__)
 # define __mingw_has_sse()  1
