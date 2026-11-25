@@ -94,10 +94,10 @@ size_t __mingw_aligned_msize (void *memblock, size_t alignment, size_t offset);
 #define _ALLOCA_S_STACK_MARKER 0xCCCC
 #define _ALLOCA_S_HEAP_MARKER 0xDDDD
 
-#if defined(_ARM_) || (defined(_X86_) && !defined(__x86_64))
-#define _ALLOCA_S_MARKER_SIZE 8
-#elif defined(__x86_64) || defined(__aarch64__)
+#ifdef _WIN64
 #define _ALLOCA_S_MARKER_SIZE 16
+#else
+#define _ALLOCA_S_MARKER_SIZE 8
 #endif
 
 #if !defined(RC_INVOKED)

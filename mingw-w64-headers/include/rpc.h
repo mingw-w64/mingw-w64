@@ -25,17 +25,17 @@ extern "C" {
 
 #include <basetsd.h>
 
-#if defined(__x86_64)
+#if defined(_M_ARM64)
+#define __RPC_ARM64__
+#elif defined(_M_AMD64)
 #define __RPC_WIN64__
-#else
-#if !defined (_ARM_)
-#define __RPC_WIN32__
-#else
+#elif defined(_ARM_)
 #define __RPC_ARM32__
-#endif
-#endif
+#else
+#define __RPC_WIN32__
+#endif /* defined(_M_ARM64) */
 
-#ifdef __RPC_WIN64__
+#if defined(__RPC_WIN64__) || defined(__RPC_ARM64__)
 #include <pshpack8.h>
 #endif
 
@@ -104,7 +104,7 @@ extern "C" {
 #include <rpcasync.h>
 #endif
 
-#ifdef __RPC_WIN64__
+#if defined(__RPC_WIN64__) || defined(__RPC_ARM64__)
 #include <poppack.h>
 #endif
 
