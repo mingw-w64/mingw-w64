@@ -225,13 +225,10 @@ static struct {
 /**
  * The finalization routine.
  *
- * This function is registered with `_onexit` in `winpthreads_init`.
- *
- * When winpthreads is statically linked into an executable,
- * `_onexit` behaves in the same way as standard `atexit`.
+ * This function is registered with `atexit` in `winpthreads_init`.
  *
  * When winpthreads is a DLL or is linked statically into another DLL,
- * the callback registered with `_onexit` is called when the DLL in question
+ * the callback registered with `atexit` is called when the DLL in question
  * is unloading, after `DllMain` is called with `DLL_PROCESS_DETACH`.
  *
  * This provides us a mechanism to free any resources which may be allocated
@@ -241,13 +238,11 @@ static struct {
  * `DLL_PROCESS_ATTACH`; any resources allocated from `winpthreads_init`
  * must be deallocated after `DllMain` is called with `DLL_PROCESS_DETACH`.
  */
-static int __cdecl winpthreads_fini (void) {
+static void __cdecl winpthreads_fini (void) {
   if (WinpthreadsImpl.TlsIndex != TLS_OUT_OF_INDEXES) {
     TlsFree (WinpthreadsImpl.TlsIndex);
     WinpthreadsImpl.TlsIndex = TLS_OUT_OF_INDEXES;
   }
-
-  return 0;
 }
 
 static void winpthreads_init (void)
@@ -348,7 +343,7 @@ static void winpthreads_init (void)
   winpthreads_affinity_init ();
   winpthreads_time_init ();
 
-  if (_onexit (winpthreads_fini) == NULL) {
+  if (atexit (winpthreads_fini) != 0) {
     abort ();
   }
 }
