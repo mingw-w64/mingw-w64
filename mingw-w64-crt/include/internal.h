@@ -18,70 +18,13 @@
 extern "C" {
 #endif
 
-#ifdef _MSC_VER
-#pragma warning(push)
-#pragma warning(disable:4214)
-#pragma warning(disable:4820)
-#endif
-
-  typedef struct {
-    intptr_t osfhnd;
-    char osfile;
-    char pipech;
-    int lockinitflag;
-    CRITICAL_SECTION lock;
-    char textmode : 7;
-    char unicode : 1;
-    char pipech2[2];
-  } ioinfo;
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
-#ifndef __badioinfo
-  extern ioinfo * __MINGW_IMP_SYMBOL(__badioinfo);
-#define __badioinfo (* __MINGW_IMP_SYMBOL(__badioinfo))
-#endif
-
-#ifndef _FILE_DEFINED
-#define _FILE_DEFINED
-  struct _iobuf {
-    char *_ptr;
-    int _cnt;
-    char *_base;
-    int _flag;
-    int _file;
-    int _charbuf;
-    int _bufsiz;
-    char *_tmpfname;
-  };
-  typedef struct _iobuf FILE;
-#endif
-
-  typedef struct {
-    FILE f;
-    CRITICAL_SECTION lock;
-  } _FILEX;
-
   extern int _dowildcard;
   extern int _newmode;
-
-  _CRTIMP wchar_t *** __cdecl __p___winitenv(void);
-#define __winitenv (*__p___winitenv())
-
-  _CRTIMP char *** __cdecl __p___initenv(void);
-#define __initenv (*__p___initenv())
 
   _CRTIMP void __cdecl _amsg_exit(int) __MINGW_ATTRIB_NORETURN;
 
   int __CRTDECL _setargv(void);
-  int __CRTDECL __setargv(void);
   int __CRTDECL _wsetargv(void);
-  int __CRTDECL __wsetargv(void);
-
-  int __CRTDECL main(int _Argc, char **_Argv, char **_Env);
-  int __CRTDECL wmain(int _Argc, wchar_t **_Argv, wchar_t **_Env);
 
   typedef struct {
     int newmode;

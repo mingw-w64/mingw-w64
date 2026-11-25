@@ -17,6 +17,11 @@ _CRTIMP void __cdecl _unlock(int locknum);
 #define _STREAM_LOCKS   16
 #define _IOLOCKED       0x8000
 
+typedef struct {
+  FILE f;
+  CRITICAL_SECTION lock;
+} _FILEX;
+
 
 /***
 * _lock_file - Lock a FILE

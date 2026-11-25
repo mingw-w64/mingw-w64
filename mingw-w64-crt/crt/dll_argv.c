@@ -6,7 +6,8 @@
 
 #include <internal.h>
 
-extern int _dowildcard;
+int __CRTDECL __setargv(void);
+int __CRTDECL __wsetargv(void);
 
 int __CRTDECL
 #ifdef _UNICODE

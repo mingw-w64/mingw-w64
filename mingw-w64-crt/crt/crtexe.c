@@ -30,14 +30,20 @@
 
 extern IMAGE_DOS_HEADER __ImageBase;
 
+int __cdecl _tmain(int, _TCHAR**, _TCHAR**);
 int *__cdecl __p__commode(void);
 int __cdecl _configthreadlocale(int);
+
+_CRTIMP wchar_t *** __cdecl __p___winitenv(void);
+#define __winitenv (*__p___winitenv())
+
+_CRTIMP char *** __cdecl __p___initenv(void);
+#define __initenv (*__p___initenv())
 
 #undef _fmode
 extern int _fmode;
 #undef _commode
 extern int _commode;
-extern int _dowildcard;
 extern int __globallocalestatus;
 
 static int __cdecl check_managed_app (void);

@@ -6,7 +6,27 @@
 
 #include <internal.h>
 
-#undef __badioinfo
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable:4214)
+#pragma warning(disable:4820)
+#endif
+
+typedef struct {
+  intptr_t osfhnd;
+  char osfile;
+  char pipech;
+  int lockinitflag;
+  CRITICAL_SECTION lock;
+  char textmode : 7;
+  char unicode : 1;
+  char pipech2[2];
+} ioinfo;
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
+
 static ioinfo __badioinfo = {
   .osfhnd = -1,
   .osfile = 0,
