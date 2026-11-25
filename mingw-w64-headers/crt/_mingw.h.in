@@ -379,7 +379,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #endif
 
 #ifndef UNALIGNED
-#if defined(__x86_64__)
+#if defined(__x86_64__) || defined(__arm__) || defined(__aarch64__)
 #define UNALIGNED __unaligned
 #else
 #define UNALIGNED
