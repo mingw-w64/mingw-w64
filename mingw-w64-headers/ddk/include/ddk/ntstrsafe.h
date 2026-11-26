@@ -37,11 +37,7 @@ typedef __LONG32 NTSTATUS;
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #if !defined(__CRT__NO_INLINE) && !defined(__CRT_STRSAFE_IMPL)

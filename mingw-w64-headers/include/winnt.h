@@ -283,11 +283,7 @@ extern "C" {
 #endif
 #endif /* FASTCALL */
 
-#if defined(_ARM_) || defined(_ARM64_)
-#define NTAPI
-#else
 #define NTAPI __stdcall
-#endif
 #define NTAPI_INLINE NTAPI
 
 #if !defined(_NTSYSTEM_)

@@ -21,11 +21,7 @@ typedef struct { char dummy; } D3DCOLOR;
 cpp_quote("#endif")
 
 cpp_quote("#ifndef CALLBACK")
-cpp_quote("#if defined(_ARM_)")
-cpp_quote("#define CALLBACK")
-cpp_quote("#else")
 cpp_quote("#define CALLBACK __stdcall")
-cpp_quote("#endif")
 cpp_quote("#endif")
 
 interface IDXVAHD_Device;
