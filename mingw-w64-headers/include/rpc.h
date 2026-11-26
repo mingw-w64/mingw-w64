@@ -50,11 +50,7 @@ extern "C" {
 
 #define RPC_UNICODE_SUPPORTED
 #define __RPC_FAR
-#if defined(_ARM_)
-#define __RPC_API
-#else
 #define __RPC_API __stdcall
-#endif
 #define __RPC_USER __RPC_API
 #define __RPC_STUB __RPC_API
 #define RPC_ENTRY __RPC_API

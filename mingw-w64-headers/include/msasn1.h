@@ -20,11 +20,7 @@ extern "C" {
   typedef signed __LONG32 ASN1int32_t;
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define ASN1_PUBLIC __declspec(dllimport)

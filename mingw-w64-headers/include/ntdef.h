@@ -176,11 +176,7 @@
 #define FASTCALL
 #endif
 
-#if defined(_ARM_)
-#define NTAPI
-#else
 #define NTAPI __stdcall
-#endif
 
 
 #ifndef NOP_FUNCTION

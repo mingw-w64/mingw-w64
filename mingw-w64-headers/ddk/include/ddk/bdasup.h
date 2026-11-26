@@ -6,11 +6,7 @@
 extern "C" {
 #endif
 
-#if defined(_ARM_)
-#define STDMETHODCALLTYPE
-#else
 #define STDMETHODCALLTYPE __stdcall
-#endif
 
 #ifndef _WDMDDK_
 typedef GUID *PGUID;

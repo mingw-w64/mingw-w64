@@ -90,11 +90,7 @@ typedef union __m128i { char v[16]; } __m128i;
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #if (defined(_X86_) || (defined(__x86_64) && !defined(__arm64ec__)))

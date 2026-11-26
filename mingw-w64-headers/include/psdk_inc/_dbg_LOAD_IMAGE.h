@@ -6,11 +6,7 @@
 #pragma once
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define IMAGEAPI DECLSPEC_IMPORT WINAPI

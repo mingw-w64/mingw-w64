@@ -23,11 +23,7 @@
 class _com_error;
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 void WINAPI _com_issue_error(HRESULT);

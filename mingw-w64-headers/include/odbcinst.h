@@ -75,11 +75,7 @@ extern "C" {
 #ifndef RC_INVOKED
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define INSTAPI WINAPI

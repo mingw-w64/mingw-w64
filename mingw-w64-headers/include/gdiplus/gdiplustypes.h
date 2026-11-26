@@ -26,11 +26,7 @@
 #pragma GCC system_header
 #endif
 
-#if defined(_ARM_)
-#define WINGDIPAPI
-#else
 #define WINGDIPAPI __stdcall
-#endif
 #define GDIPCONST const
 
 typedef enum GpStatus {

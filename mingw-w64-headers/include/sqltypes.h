@@ -18,11 +18,7 @@ extern "C" {
 #define EXPORT
 #endif
 
-#if defined(_ARM_)
-#define SQL_API
-#else
 #define SQL_API __stdcall
-#endif
 
 #ifndef RC_INVOKED
 

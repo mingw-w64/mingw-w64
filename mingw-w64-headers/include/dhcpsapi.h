@@ -7,11 +7,7 @@
 #define _DHCPSAPI_
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define DHCP_API_FUNCTION WINAPI

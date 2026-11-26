@@ -11,19 +11,11 @@ extern "C" {
 #endif
 
 #ifndef CALLBACK
-#if defined(_ARM_)
-#define CALLBACK
-#else
 #define CALLBACK __stdcall
-#endif
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #ifndef APIENTRY

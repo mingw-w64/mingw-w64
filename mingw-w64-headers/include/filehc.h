@@ -10,11 +10,7 @@
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #ifdef _FILEHC_IMPLEMENTATION_

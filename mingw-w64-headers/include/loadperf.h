@@ -13,11 +13,7 @@ extern "C" {
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define LOADPERF_FUNCTION __declspec(dllimport) DWORD WINAPI

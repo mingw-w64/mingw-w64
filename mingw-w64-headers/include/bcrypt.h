@@ -15,11 +15,7 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)

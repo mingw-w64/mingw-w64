@@ -30,17 +30,9 @@
 
 #if !defined (EVNTAPI) && !defined (__WIDL__) && !defined (MIDL_PASS)
 #ifdef _EVNT_SOURCE_
-#ifdef _ARM_
-#define EVNTAPI
-#else
 #define EVNTAPI __stdcall
-#endif
-#else
-#ifdef _ARM_
-#define EVNTAPI DECLSPEC_IMPORT
 #else
 #define EVNTAPI DECLSPEC_IMPORT __stdcall
-#endif
 #endif
 #endif
 

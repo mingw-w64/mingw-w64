@@ -19,11 +19,7 @@
 #include <comutil.h>
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #ifdef __cplusplus

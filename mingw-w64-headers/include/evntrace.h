@@ -14,17 +14,9 @@
 
 #if !defined (WMIAPI) && !defined (__WIDL__) && !defined (MIDL_PASS)
 #ifdef _WMI_SOURCE_
-#ifdef _ARM_
-#define WMIAPI
-#else
 #define WMIAPI __stdcall
-#endif
-#else
-#ifdef _ARM_
-#define WMIAPI DECLSPEC_IMPORT
 #else
 #define WMIAPI DECLSPEC_IMPORT __stdcall
-#endif
 #endif
 #endif
 

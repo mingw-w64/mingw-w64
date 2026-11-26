@@ -71,9 +71,6 @@ typedef struct __WIDL_dxvahd_generated_name_0000000C {
 } D3DCOLOR;
 #endif
 #ifndef CALLBACK
-#if defined(_ARM_)
-#define CALLBACK
-#else
 #define CALLBACK __stdcall
 #endif
 #endif

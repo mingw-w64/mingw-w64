@@ -49,11 +49,7 @@ typedef __LONG32 HRESULT;
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #if !defined(__CRT__NO_INLINE) && !defined(__CRT_STRSAFE_IMPL)

@@ -72,11 +72,7 @@ extern "C" {
 
 #define far
 #define near
-#if defined(_ARM_)
-#define pascal
-#else
 #define pascal __stdcall
-#endif
 
 #define cdecl
 #ifndef CDECL
@@ -84,30 +80,17 @@ extern "C" {
 #endif
 
 #ifndef CALLBACK
-#if defined(_ARM_)
-#define CALLBACK
-#else
 #define CALLBACK __stdcall
-#endif
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define WINAPIV __cdecl
 #define APIENTRY WINAPI
-#if defined(_ARM_)
-#define APIPRIVATE
-#define PASCAL
-#else
 #define APIPRIVATE __stdcall
 #define PASCAL __stdcall
-#endif
 
 #ifndef WINAPI_INLINE
 #define WINAPI_INLINE WINAPI

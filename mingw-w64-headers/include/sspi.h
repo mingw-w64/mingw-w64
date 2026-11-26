@@ -54,11 +54,7 @@ extern "C" {
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #define SEC_TEXT TEXT

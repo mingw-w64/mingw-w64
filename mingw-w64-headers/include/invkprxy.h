@@ -7,11 +7,7 @@
 #define _INC_INVKPRXY 1
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 HRESULT WINAPI _com_handle_excepinfo(EXCEPINFO& excepInfo,IErrorInfo **pperrinfo);

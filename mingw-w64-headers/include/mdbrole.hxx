@@ -7,11 +7,7 @@
 #define _MDBROLE_HXX_
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #ifdef FASTCALL_IN_STORE

@@ -12,11 +12,7 @@ extern "C" {
 #endif
 
 #ifndef WINAPI
-#if defined(_ARM_)
-#define WINAPI
-#else
 #define WINAPI __stdcall
-#endif
 #endif
 
 #ifndef __SECSTATUS_DEFINED__
