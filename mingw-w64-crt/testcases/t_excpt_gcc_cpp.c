@@ -67,7 +67,7 @@ static void __attribute__((noreturn)) __cdecl test_from_beginthread(void *arg __
   /* Do not return from _beginthread's startaddress and do not call _endthread()
    * as they invalidate the thread handle returned by _beginthread().
    * The thread handle is used by _beginthread()'s caller which will close it.
-   * So the only safe option is to exit this tread via WinAPI ExitThread() function.
+   * So the only safe option is to exit this thread via WinAPI ExitThread() function.
    */
   ExitThread(test());
 }
