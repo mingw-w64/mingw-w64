@@ -29,7 +29,7 @@
    The Cygwin-targeting gcc does not define it by default, same as
    with _WIN32.  Therefore we set it here.  The result is that _WIN64
    is only defined if Windows headers are included. */
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__aarch64__)
 #define _WIN64
 #endif
 
