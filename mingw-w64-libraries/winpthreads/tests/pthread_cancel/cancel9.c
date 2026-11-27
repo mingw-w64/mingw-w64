@@ -39,7 +39,7 @@
  * - 
  *
  * Requirements Tested:
- * - Cancel threads, including those blocked on system recources
+ * - Cancel threads, including those blocked on system resources
  *   such as network I/O.
  *
  * Features Tested:

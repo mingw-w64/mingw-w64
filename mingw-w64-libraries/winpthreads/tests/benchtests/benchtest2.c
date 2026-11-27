@@ -39,7 +39,7 @@
  *   Two threads iterate over lock/unlock for each mutex type.
  *   The two threads are forced into lock-step using two mutexes,
  *   forcing the threads to block on each lock operation. The
- *   time measured is therefore the worst case senario.
+ *   time measured is therefore the worst case scenario.
  */
 
 #include "test.h"

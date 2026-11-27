@@ -35,7 +35,7 @@
 #define POW10_9 1000000000
 
 /**
- * Get number of intervals `r` that occured between `t1` and `t2`.
+ * Get number of intervals `r` that occurred between `t1` and `t2`.
  */
 static double sub_and_div(const struct timespec *t1, const struct timespec *t2, const struct timespec *r)
 {
@@ -53,7 +53,7 @@ int main(void)
 
   assert(clock_getres(CLOCK_MONOTONIC, &res) == 0);
   /**
-   * If `res` is greater than or equal to 1ms, sleep to allign clock with `res`.
+   * If `res` is greater than or equal to 1ms, sleep to align clock with `res`.
    */
   if (res.tv_nsec / POW10_6 > 0) {
     request.tv_sec  = 0;

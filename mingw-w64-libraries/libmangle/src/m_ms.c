@@ -691,7 +691,7 @@ get_operator_name (sMSCtx *c, int fIsTemplate, int *pfReadTemplateArguments)
               return m_oper (c, m_rtti (c, "complete_object_locator"));
           }
         DEC_CHAR (c);
-        fprintf (stderr, " *** Unkown RTTI %c\n", ch);
+        fprintf (stderr, " *** Unknown RTTI %c\n", ch);
         c->err = 2;
         return NULL;
       case 'S':

@@ -570,5 +570,5 @@ __udivmoddi4(u_quad_t a, u_quad_t b, u_quad_t *rem)
 
 #else
 static int __attribute__((unused)) dummy;
-#endif /*deined (_X86_) && !defined (__x86_64__)*/
+#endif /*defined (_X86_) && !defined (__x86_64__)*/
 

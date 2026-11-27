@@ -1956,7 +1956,7 @@ static int WinpthreadsWaitInterrupt (winpthreads_wait_state *waitState, int flag
      *
      * Call `__pthread_shallcancel` to determine whether we should proceed
      * with cancellation. If not, stop waiting on the associated event handle;
-     * only the calling thread can modify its cancelability state.
+     * only the calling thread can modify its cancellability state.
      */
     case wait_interrupt_cancellation_notification:
       if (__pthread_shallcancel ()) {

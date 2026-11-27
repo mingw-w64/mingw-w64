@@ -37,7 +37,7 @@ in order to link with `msvcr120_app.dll`:
 
 ## UWP Apps
 
-Microsoft Documentaion for UWP can be found here:
+Microsoft Documentation for UWP can be found here:
 
 - <https://learn.microsoft.com/en-us/windows/uwp/>
 

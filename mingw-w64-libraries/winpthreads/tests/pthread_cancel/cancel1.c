@@ -164,7 +164,7 @@ main()
   assert(!failed);
 
   /*
-   * Check any results here. Set "failed" and only print ouput on failure.
+   * Check any results here. Set "failed" and only print output on failure.
    */
   for (i = 1; i <= NUMTHREADS; i++)
     { 

@@ -24,7 +24,7 @@
 /*! \def GET_CHAR(CTX)
     \brief Get currently marked character from \a CTX.
     
-    Get character from at current possition via \a CTX.
+    Get character from at current position via \a CTX.
 */
 /*! \def INC_CHAR(CTX)
      \brief Increments \a ctx position.

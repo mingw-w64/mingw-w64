@@ -55,12 +55,12 @@
  * four mutexes for each thread). It then schedules work (by storing
  * a number in 'todo') and releases the threads. When the work is done
  * the threads will block. The program then repeats the same thing once
- * more (just to test the logic) and when the work is done it destroyes
+ * more (just to test the logic) and when the work is done it destroys
  * the threads.
  *
  * The 'work' we do is simply burning CPU cycles in a loop.
  * The 'todo' work queue is trivial - each threads pops one element
- * off it by incrementing it, the poped number is the 'work' to do.
+ * off it by incrementing it, the popped number is the 'work' to do.
  * When 'todo' reaches the limit (nwork) the queue is considered
  * empty.
  *
@@ -72,7 +72,7 @@
  *
  * Note how each thread is given access to a thread control structure
  * (TC) which is used for communicating to/from the main program (e.g.
- * the threads knows its 'id' and also filles in the 'work' done).
+ * the threads knows its 'id' and also fills in the 'work' done).
 */
 
 #include "test.h"

@@ -55,7 +55,7 @@ int winpthreads_timespec_diff (const struct _timespec64 *ts1, const struct _time
 void winpthreads_timespec_add (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out);
 
 /**
- * Substract `ts2` from `ts1` and store result in `out`.
+ * Subtract `ts2` from `ts1` and store result in `out`.
  */
 void winpthreads_timespec_sub (const struct _timespec64 *ts1, const struct _timespec64 *ts2, struct _timespec64 *out);
 

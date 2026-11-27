@@ -1245,7 +1245,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
   /**
    * The maximum `FILETIME` value that can be passed to `FileTimeToSystemTime`
    * is defined as `FILETIME_TO_SYSTEMTIME_MAX`. However, since we will round
-   * it down to `resAsFileTime`, we may allow values slighty larger than that.
+   * it down to `resAsFileTime`, we may allow values slightly larger than that.
    */
   unsigned __int64 fileTimeMax = FILETIME_TO_SYSTEMTIME_MAX;
 

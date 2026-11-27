@@ -64,5 +64,5 @@ which makes function calls to them a bit more efficient.
 Be careful when you build static libraries; you probably do not want to define
 `WINPTHREADS_USE_DLLIMPORT` unconditionally, to ensure that your code can link
 against either shared or static winpthreads. Note that winpthreads does not
-export any variables, which means that `dllimport` is not requred, with both
+export any variables, which means that `dllimport` is not required, with both
 MSVC and mingw-w64 toolchains.

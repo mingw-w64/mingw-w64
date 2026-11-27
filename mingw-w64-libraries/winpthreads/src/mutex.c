@@ -93,7 +93,7 @@
  *
  * This has an implication that fast paths are not suitable for robust mutexes,
  * as they always require a call to `WaitForSingleObject` to check if the mutex
- * was abandoned. The syscall overhead may be very noticable in certain cases.
+ * was abandoned. The syscall overhead may be very noticeable in certain cases.
  */
 
 /**

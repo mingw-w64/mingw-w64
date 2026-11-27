@@ -35,7 +35,7 @@
 #define POW10_9 1000000000
 
 /**
- * Get number of intervals `r` that occured between `ts1` and `ts2`.
+ * Get number of intervals `r` that occurred between `ts1` and `ts2`.
  */
 static double sub_and_div(const struct timespec *ts1, const struct timespec *ts2, const struct timespec *r)
 {

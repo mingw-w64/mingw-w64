@@ -32,7 +32,7 @@
 typedef struct sGcElem {
   struct sGcElem *chain;        /**< Next element in chain. */
   size_t length;                /**< Size of allocated memory (excluding sGcElem and sGcCtx). */
-  char dta[1];                  /**< Starting adress marker of requested memory. */
+  char dta[1];                  /**< Starting address marker of requested memory. */
 } sGcElem;
 
 /**
@@ -84,7 +84,7 @@ typedef enum eMSToken {
   eMST_type = 11,                   /**< Function return type. */
   eMST_dim,                         /**< Print array-like expression. @see eMToken_dim */
   eMST_val,                         /**< Print value expression. @see sMToken_val */
-  eMST_gcarray, /* __gc[,,,,] */    /**< MSVC extenstion: "__gc" Managed C++ reference. */
+  eMST_gcarray, /* __gc[,,,,] */    /**< MSVC extension: "__gc" Managed C++ reference. */
   eMST_slashed,                     /**< MTOKEN_UNARY appended and prepended with "/". */
   eMST_array,                       /**< MTOKEN_UNARY enclosed by square brackets. */
   eMST_element,                     /**< MTOKEN_UNARY in an argument list. */
@@ -111,7 +111,7 @@ typedef enum eMSToken {
 
 /**
  * Token base descriptor header.
- * Descibes the type of token being processed.
+ * Describes the type of token being processed.
  */
 typedef struct sMToken_base {
   enum eMToken kind;            /**< Token kind. */
@@ -134,7 +134,7 @@ typedef struct sMToken_base {
 
 #define MTOKEN_FLAGS_UDC    0x1 /**< Indicates a following "name" token for named struct/union/class. */
 #define MTOKEN_FLAGS_NOTE   0x2 /**< Contains "note" name token.*/
-#define MTOKEN_FLAGS_PTRREF 0x4 /**< Decoded fragment is a referrence. */
+#define MTOKEN_FLAGS_PTRREF 0x4 /**< Decoded fragment is a reference. */
 #define MTOKEN_FLAGS_ARRAY  0x8 /**< Decoded fragment has an array-like expression.*/
 
 /**
