@@ -1,5 +1,5 @@
 /*
-    genidl - Generate interface defintion language listing from a
+    genidl - Generate interface definition language listing from a
     Portable Executable.
     Copyright (C) 2009-2016 mingw-w64 project
 

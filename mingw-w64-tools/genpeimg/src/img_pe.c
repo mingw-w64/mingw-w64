@@ -190,7 +190,7 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
   hdr_cha = ppeimg->pe_filehdr.characteristics;
   if (hdr_cha != 0)
     {
-      fprintf (outfp, "  Characterstics:");
+      fprintf (outfp, "  Characteristics:");
       if ((hdr_cha & 1) != 0)
         fprintf (outfp, " relocs-stripped");
       if ((hdr_cha & 2) != 0)
@@ -227,7 +227,7 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
       fprintf (outfp, "\n");
     }
   fprintf (outfp, "PE+ optional header information\n"
-    "  Linker version %u.%u, Code size: 0x%x, Intialized Data size: 0x%x\n"
+    "  Linker version %u.%u, Code size: 0x%x, Initialized Data size: 0x%x\n"
     "  Uninitialized Data size: 0x%x, Entry-point 0x%x\n",
       PEIMG_GET_UCHAR (ppeimg, ppeimg->optional_hdr_pos + 2),
       PEIMG_GET_UCHAR (ppeimg, ppeimg->optional_hdr_pos + 3),
@@ -284,7 +284,7 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
     case 14: fprintf (outfp, "XBOX (14)\n"); break;
     case 16: fprintf (outfp, "Windows Boot Application (16)\n"); break;
     default:
-      fprintf (outfp, "Unkown (%u)\n", PEIMG_GET_USHORT (ppeimg, ppeimg->optional_hdr_pos + 68));
+      fprintf (outfp, "Unknown (%u)\n", PEIMG_GET_USHORT (ppeimg, ppeimg->optional_hdr_pos + 68));
       break;
     }
   hdr_cha = PEIMG_GET_USHORT (ppeimg, ppeimg->optional_hdr_pos + 70);

@@ -116,7 +116,7 @@ opt_chain (const char *opts, const char *next)
     {
       if (!next)
         {
-	  fprintf (stderr, "Error: %s expects path as next arguement.", opts);
+	  fprintf (stderr, "Error: %s expects path as next argument.", opts);
 	  return 0;
         }
       gendef_addpath_def (next);
