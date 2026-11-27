@@ -24,17 +24,17 @@ DEFINE_GUID(IID_IWinInetInfo,0x79eac9d6,0xbafa,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0x
 DEFINE_OLEGUID(IID_IEnumSTATPROPSETSTG,0x13b,0,0);
 DEFINE_OLEGUID(IID_IEnumSTATPROPSTG,0x139,0,0);
 DEFINE_GUID(IID_IEnumSTATURL,0x3c374a42,0xbae4,0x11cf,0xbf,0x7d,0,0xaa,0,0x69,0x46,0xee);
-// file:, local: Asychronous Pluggable Protocol Handler CLSID
+// file:, local: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_FileProtocol,0x79eac9e7,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
-// ftp: Asychronous Pluggable Protocol Handler CLSID
+// ftp: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_FtpProtocol,0x79eac9e3,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
-// gopher: Asychronous Pluggable Protocol Handler CLSID
+// gopher: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_GopherProtocol,0x79eac9e4,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
-// http: Asychronous Pluggable Protocol Handler CLSID
+// http: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_HttpProtocol,0x79eac9e2,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
-// https: Asychronous Pluggable Protocol Handler CLSID
+// https: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_HttpSProtocol,0x79eac9e5,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
-// mk: Asychronous Pluggable Protocol Handler CLSID
+// mk: Asynchronous Pluggable Protocol Handler CLSID
 DEFINE_GUID(CLSID_MkProtocol,0x79eac9e6,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);
 // URLMoniker ProxyStub Factory CLSID
 DEFINE_GUID(CLSID_PSUrlMonProxy,0x79eac9f1,0xbaf9,0x11ce,0x8c,0x82,0,0xaa,0,0x4b,0xa9,0xb);

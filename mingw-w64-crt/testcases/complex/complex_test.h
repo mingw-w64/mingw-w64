@@ -231,7 +231,7 @@ conjugate_tests (const struct test_func_desc *fdesc,
   __FLT_TYPE complex ctest =    __FLT_ABI(conj) (test);
   __FLT_TYPE complex cexpected = __FLT_ABI(conj) (expected);
 
-  ret |= error_check_test (fdesc, "Congugate of expected", testindex, ctest, cexpected,
+  ret |= error_check_test (fdesc, "Conjugate of expected", testindex, ctest, cexpected,
 			  real_sign_dontcare, imag_sign_dontcare);
   return ret;
 }

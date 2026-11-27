@@ -46,7 +46,7 @@
  * It breaks when used on 2 strings where they are scanned A, B then A, B.
  * Thread-safety is not the issue.
  *
- * Sample strtok implemenatation, note the internal state:
+ * Sample strtok implementation, note the internal state:
  * char *strtok(char *s, const char *d) { static char *t; return strtok_r(s,d,t); }
  *
  */

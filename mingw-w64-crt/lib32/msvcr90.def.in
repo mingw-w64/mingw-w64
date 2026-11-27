@@ -1383,7 +1383,7 @@ ldexp DATA
 ldiv
 localeconv
 log DATA
-; If we have log10 implemtation too, we can set this to DATA only.
+; If we have log10 implementation too, we can set this to DATA only.
 log10
 longjmp
 malloc
@@ -1428,7 +1428,7 @@ setlocale
 setvbuf
 signal
 sin DATA
-; If we have sinh implemtation, we can set it to DATA only.
+; If we have sinh implementation, we can set it to DATA only.
 sinh
 sprintf
 sprintf_s

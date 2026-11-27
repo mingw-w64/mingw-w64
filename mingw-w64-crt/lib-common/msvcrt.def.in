@@ -1981,7 +1981,7 @@ F_X64(_ungetc_nolock) ; also available on all arm64 systems but only for i386-ch
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-; This includes list of some symbol alises for compatibility with C99 and POSIX functions and symbols from other msvcr* libraries
+; This includes list of some symbol aliases for compatibility with C99 and POSIX functions and symbols from other msvcr* libraries
 #define FIXED_SIZE_SYMBOLS
 #define NO_FIXED_SIZE_64_ALIAS
 #define NO_TIME_ALIAS
@@ -2004,7 +2004,7 @@ F_X64(_ungetc_nolock) ; also available on all arm64 systems but only for i386-ch
 #endif
 #if defined(__arm__) || defined(__aarch64__) || defined(__arm64ec__)
 ; This uses functions that are available since Vista. ARM/AArch64/ARM64EC
-; can assume that those fucntions always are available; on x86 we provide
+; can assume that those functions always are available; on x86 we provide
 ; fallbacks in the import library.
 #define WITH_FSEEKO64_ALIAS
 #endif

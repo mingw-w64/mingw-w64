@@ -89,7 +89,7 @@ int main (void) {
   assert (mbsinit (&state));
 
   /**
-   * Try convert character which cannot be repesented by a single byte
+   * Try convert character which cannot be represented by a single byte
    */
   if (1) {
     char buffer = EOF;

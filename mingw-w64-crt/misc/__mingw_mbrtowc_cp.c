@@ -135,7 +135,7 @@ size_t __mingw_mbrtowc_cp (
   );
 #ifdef __i386__
   if (ret == 0) {
-    /* Older Windows versons do not support MB_ERR_INVALID_CHARS.
+    /* Older Windows versions do not support MB_ERR_INVALID_CHARS.
      * WinNT 3.x signals ERROR_INVALID_PARAMETER and WinNT 4.0 signals ERROR_INVALID_FLAGS.
      * Fallback case when MB_ERR_INVALID_CHARS is not supported.
      */

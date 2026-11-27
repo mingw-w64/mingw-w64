@@ -786,7 +786,7 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
         *p++ = ',';
       }
       *p++ = tmp_buff[i];
-    if( i > bufflen - 1) break; /* sanity chec */
+    if( i > bufflen - 1) break; /* sanity check */
     if(  tmp_buff[i] == '\0' ) break; /* end */
   }
 #else
@@ -1378,7 +1378,7 @@ void __pformat_emit_float( int sign, char *value, int len, __pformat_t *stream )
     stream->width = PFORMAT_IGNORE;
 
   /* Reserve space in the output field, for display of the decimal point,
-   * unless the precision is explicity zero, with the `#' flag not set.
+   * unless the precision is explicitly zero, with the `#' flag not set.
    */
   if ((stream->width > 0)
       && ((stream->precision > 0) || (stream->flags & PFORMAT_HASHED)))
@@ -1401,7 +1401,7 @@ void __pformat_emit_float( int sign, char *value, int len, __pformat_t *stream )
     stream->width--;
 
   /* Emit any padding space, as required to correctly right justify
-   * the output within the alloted field width.
+   * the output within the allocated field width.
    */
   if( (stream->width > 0) && ((stream->flags & PFORMAT_JUSTIFY) == 0) )
     while( stream->width-- > 0 )
@@ -1982,7 +1982,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
   if (value.__pformat_fpreg_mantissa != 0 ||
      value.__pformat_fpreg_exponent != 0)
   {
-    /* Reduce the exponent since the leading digit emited will start at
+    /* Reduce the exponent since the leading digit emitted will start at
      * the 4th bit from the highest order bit instead, the later being
      * the leading digit of the floating point. Don't do this adjustment
      * if the value is an actual zero.
@@ -2138,7 +2138,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
     if( stream->precision > 0 )
       min_width += stream->precision;
 
-    /* Adjust the minimum width requirement, to accomodate the
+    /* Adjust the minimum width requirement, to accommodate the
      * sign, radix indicator and at least one exponent digit...
      */
     min_width += stream->flags & PFORMAT_SIGNED ? 6 : 5;

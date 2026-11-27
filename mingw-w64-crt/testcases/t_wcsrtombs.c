@@ -529,7 +529,7 @@ skip_sbcs:
    * - value of `test` must be NULL
    * - value of `errno` must not change
    * - `state` must be in initial state
-   * - converted string must be teminated with '\0'
+   * - converted string must be terminated with '\0'
    */
   memset (buffer, EOF, BUFSIZ);
   text = original_text;
@@ -547,7 +547,7 @@ skip_sbcs:
    * - value of `test` must be `original_text + 7`
    * - value of `errno` must not change
    * - `state` must be in initial state
-   * - converted string must not be teminated with '\0'
+   * - converted string must not be terminated with '\0'
    */
   memset (buffer, EOF, BUFSIZ);
   text = original_text;

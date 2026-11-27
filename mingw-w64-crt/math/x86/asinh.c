@@ -25,7 +25,7 @@ double asinh(double x)
   /* NB the previous formula
           z = __fast_log1p (z + z * z / (__fast_sqrt (z * z + 1.0) + 1.0));
      was defective in two ways:
-     1: It ommitted required brackets:
+     1: It omitted required brackets:
           z = __fast_log1p (z + z * (z / (__fast_sqrt (z * z + 1.0) + 1.0)));
                                     ^                                     ^
         so would still overflow for large z.

@@ -19,7 +19,7 @@
  * int __cdecl func1(int arg1, int arg2) { ... }
  *
  * This function "func1" would either call emulation function named "emu_func1"
- * which always has to be declarated (it should be defined as static in the
+ * which always has to be declared (it should be defined as static in the
  * same source file) or would call function named "func1" from "msvcrt.dll"
  * library if exists.
 */

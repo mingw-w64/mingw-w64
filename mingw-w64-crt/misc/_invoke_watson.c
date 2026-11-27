@@ -40,7 +40,7 @@ DECLSPEC_NOINLINE __MINGW_ATTRIB_NORETURN void __cdecl _invoke_watson(const wcha
     CONTEXT context; /* do not initialize context (to zeros) to prevent using registers and clobbering their content. */
     /*
      * RtlCaptureContext() is available since Windows XP.
-     * UCRT runtime uses inline assemly on 32-bit x86.
+     * UCRT runtime uses inline assembly on 32-bit x86.
      * For compatibility with UCRT do same thing.
      */
 #if defined(__i386__)

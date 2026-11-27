@@ -21,7 +21,7 @@
 #define _CHECK_SPACE_BY_PSAPI_METHOD_ 0 /* Requires psapi.dll */
 #define _CHECK_SPACE_BY_VISTA_METHOD_ 0 /* Won't work on XP */
 
-#if (_CHECK_SPACE_BY_PSAPI_METHOD_ == 1) /* Retrive actual volume path */
+#if (_CHECK_SPACE_BY_PSAPI_METHOD_ == 1) /* Retrieve actual volume path */
 static LPWSTR getdirpath(const LPWSTR __str){
   int len, walk = 0;
   LPWSTR dirname;
@@ -181,7 +181,7 @@ checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
   LPWSTR filepath = NULL;
   filepath = xp_getfilepath(f,currentsize);
 
-  /* Get durectory path */
+  /* Get directory path */
   dirpath = getdirpath(filepath);
   free(filepath);
   filepath =  NULL;

@@ -15,14 +15,14 @@ static int main_success = 0;
 
 static void __cdecl atexit1_callback(void)
 {
-  printf("Error: atexit1 calllback was called before __tlregdtor callback\n");
+  printf("Error: atexit1 callback was called before __tlregdtor callback\n");
   /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
   TerminateProcess(GetCurrentProcess(), 1);
 }
 
 static void __cdecl atexit2_callback(void)
 {
-  printf("Error: atexit2 calllback was called before __tlregdtor callback\n");
+  printf("Error: atexit2 callback was called before __tlregdtor callback\n");
   /* exit, _exit, or ExitProcess calls TLS callbacks, so use TerminateProcess() which is not calling them */
   TerminateProcess(GetCurrentProcess(), 1);
 }

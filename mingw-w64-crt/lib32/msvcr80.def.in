@@ -1432,7 +1432,7 @@ setlocale
 setvbuf
 signal
 sin DATA
-sinh ; If we impelement sinh, we can set it to DATA only.
+sinh ; If we implement sinh, we can set it to DATA only.
 sprintf
 sprintf_s
 sqrt DATA

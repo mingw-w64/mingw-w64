@@ -961,7 +961,7 @@ RtlUsageHeap@12 ; removed in Windows Vista
 RtlValidateProcessHeaps@0
 ZwAllocateUuids@16 ; Windows NT 3.51-4.0 has ABI "ZwAllocateUuids@12", Windows 2000 and new has ABI "ZwAllocateUuids@16"
 ZwCallbackReturn@12
-; ZwEnumerateBus@8 ; remvoed in Windows NT 4.0
+; ZwEnumerateBus@8 ; removed in Windows NT 4.0
 ZwGetPlugPlayEvent@16 ; removed in Windows 8
 ZwPlugPlayControl@12 ; Windows NT 3.51-4.0 has ABI "ZwPlugPlayControl@16", Windows 2000 and new has ABI "ZwPlugPlayControl@12"
 ; ZwRegisterNewDevice@8 ; removed in Windows NT 4.0
