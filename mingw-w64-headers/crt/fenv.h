@@ -35,7 +35,7 @@
 #define __MXCSR_EXCEPT_FLAG_SHIFT 0
 
 /* How much to shift FE status word exception flags
-   to get the MXCSR exeptions masks,  */
+   to get the MXCSR exceptions masks,  */
 #define __MXCSR_EXCEPT_MASK_SHIFT 7
 
 /* How much to shift FE status word exception flags

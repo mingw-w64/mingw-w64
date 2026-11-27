@@ -51,7 +51,7 @@
 /* See also float.h  */
 #ifndef __MINGW_FPCLASS_DEFINED
 #define __MINGW_FPCLASS_DEFINED 1
-/* IEEE 754 classication */
+/* IEEE 754 classification */
 #define	_FPCLASS_SNAN	0x0001	/* Signaling "Not a Number" */
 #define	_FPCLASS_QNAN	0x0002	/* Quiet "Not a Number" */
 #define	_FPCLASS_NINF	0x0004	/* Negative Infinity */

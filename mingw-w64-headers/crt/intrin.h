@@ -38,7 +38,7 @@
 #include <psdk_inc/intrin-impl.h>
 
 /*
- * Intrins shiped with GCC conflict with our versions in C++, because they don't use extern "C"
+ * Intrins shipped with GCC conflict with our versions in C++, because they don't use extern "C"
  * linkage while our variants use them. We try to work around this by including those headers
  * here wrapped in extern "C" block. It's still possible that those intrins will get default
  * C++ linkage (when GCC headers are explicitly included before intrin.h), but at least their

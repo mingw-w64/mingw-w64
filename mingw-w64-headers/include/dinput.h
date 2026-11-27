@@ -597,11 +597,11 @@ typedef WINBOOL (CALLBACK *LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEF
 #define DIK_F14             0x65    /*                     (NEC PC98) */
 #define DIK_F15             0x66    /*                     (NEC PC98) */
 #define DIK_KANA            0x70    /* (Japanese keyboard)            */
-#define DIK_ABNT_C1         0x73    /* / ? on Portugese (Brazilian) keyboards */
+#define DIK_ABNT_C1         0x73    /* / ? on Portuguese (Brazilian) keyboards */
 #define DIK_CONVERT         0x79    /* (Japanese keyboard)            */
 #define DIK_NOCONVERT       0x7B    /* (Japanese keyboard)            */
 #define DIK_YEN             0x7D    /* (Japanese keyboard)            */
-#define DIK_ABNT_C2         0x7E    /* Numpad . on Portugese (Brazilian) keyboards */
+#define DIK_ABNT_C2         0x7E    /* Numpad . on Portuguese (Brazilian) keyboards */
 #define DIK_NUMPADEQUALS    0x8D    /* = on numeric keypad (NEC PC98) */
 #define DIK_PREVTRACK       0x90    /* Previous Track (DIK_CIRCUMFLEX on Japanese keyboard) */
 #define DIK_CIRCUMFLEX      0x90    /* (Japanese keyboard)            */

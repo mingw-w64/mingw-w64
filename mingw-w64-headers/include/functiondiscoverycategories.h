@@ -22,7 +22,7 @@ extern "C" {
 #define FCTN_CATEGORY_WCN L"Provider\\Microsoft.Networking.WCN"
 #define FCTN_CATEGORY_WSDISCOVERY L"Provider\\Microsoft.Networking.WSD"
 
-/* Magic Subcatagory defintions - http://msdn.microsoft.com/en-us/library/aa364815%28v=VS.85%29.aspx */
+/* Magic Subcategory definitions - http://msdn.microsoft.com/en-us/library/aa364815%28v=VS.85%29.aspx */
 #ifdef __cplusplus
 }
 #endif
