@@ -33,7 +33,6 @@
 #include "misc.h"
 
 #include <signal.h> /* NSIG, SIGINT */
-#include <stdio.h> /* fprintf, size_t, snprintf, stderr */
 #include <stdlib.h> /* calloc, free, malloc, realloc */
 
 #define WIN32_LEAN_AND_MEAN
@@ -615,8 +614,6 @@ leaveOnceObject (collect_once_t *c)
 	  free (c);
 	}
     }
-  else
-    fprintf(stderr, "%p not found?!?!\n", (void *) c);
   pthread_spin_unlock (&once_global);
 }
 
@@ -656,8 +653,6 @@ pthread_once (pthread_once_t *o, void (*func)(void))
       pthread_cleanup_pop(0);
       *o = 1;
     }
-  else if (*o != 1)
-    fprintf (stderr," once %p is %ld\n", (void *) o, (long) *o);
   pthread_mutex_unlock(&co->m);
   leaveOnceObject(co);
 
