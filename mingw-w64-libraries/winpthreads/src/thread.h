@@ -61,10 +61,10 @@ struct _pthread_v
     int sched_pol;
     int ended;
     struct sched_param sched;
-    fenv_t fenv; /* Floating-point environment of the creating thread.  */
     jmp_buf jb;
     struct _pthread_v *next;
     pthread_t x; /* Internal posix handle.  */
+    fenv_t fenv; /* Floating-point environment of the creating thread.  */
 };
 
 typedef struct __pthread_idlist {
