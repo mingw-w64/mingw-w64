@@ -82,6 +82,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref(pthread_rwlock_t *rwl, int 
     pthread_spin_unlock(&rwl_global);
 
     return r;
+    UNREFERENCED_PARAMETER(f);
 }
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_unlock(pthread_rwlock_t *rwl )
@@ -185,6 +186,7 @@ int pthread_rwlock_init (pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *
     rwlock->valid = LIFE_RWLOCK;
     *rwlock_ = (pthread_rwlock_t)rwlock;
     return r;
+    UNREFERENCED_PARAMETER(attr);
 }
 
 int pthread_rwlock_destroy (pthread_rwlock_t *rwlock_)

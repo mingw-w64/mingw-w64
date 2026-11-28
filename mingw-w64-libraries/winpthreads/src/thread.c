@@ -81,6 +81,9 @@ SetThreadName_SEH (EXCEPTION_RECORD *ExceptionRecord, PVOID EstablisherFrame, CO
     return ExceptionContinueExecution;
 
   return ExceptionContinueSearch;
+  UNREFERENCED_PARAMETER (EstablisherFrame);
+  UNREFERENCED_PARAMETER (ContextRecord);
+  UNREFERENCED_PARAMETER (DispatcherContext);
 }
 #endif
 
@@ -484,6 +487,9 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  pthread_spin_destroy (&t->spin_keys);
 	}
     }
+
+  UNREFERENCED_PARAMETER (hDllHandle);
+  UNREFERENCED_PARAMETER (lpreserved);
 }
 
 #ifdef DLL_EXPORT
@@ -627,6 +633,7 @@ void *
 pthread_timechange_handler_np(void *dummy)
 {
   return NULL;
+  UNREFERENCED_PARAMETER (dummy);
 }
 
 int

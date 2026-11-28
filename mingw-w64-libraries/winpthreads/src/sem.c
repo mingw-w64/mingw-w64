@@ -339,18 +339,24 @@ sem_open (const char *name, int oflag, mode_t mode, unsigned int value)
 {
   sem_result (ENOSYS);
   return NULL;
+  UNREFERENCED_PARAMETER (name);
+  UNREFERENCED_PARAMETER (oflag);
+  UNREFERENCED_PARAMETER (mode);
+  UNREFERENCED_PARAMETER (value);
 }
 
 int
 sem_close (sem_t *sem)
 {
   return sem_result (ENOSYS);
+  UNREFERENCED_PARAMETER (sem);
 }
 
 int
 sem_unlink (const char *name)
 {
   return sem_result (ENOSYS);
+  UNREFERENCED_PARAMETER (name);
 }
 
 int
