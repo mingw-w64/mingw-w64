@@ -1025,14 +1025,14 @@ int nanosleep64 (const struct _timespec64 *request, struct _timespec64 *remain)
    *   greater than or equal to 1000 million.
    */
   if (request->tv_sec < 0 || request->tv_nsec < 0 || request->tv_nsec >= POW10_9) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return -1;
   }
 
   int error_code = WinpthreadsSleep (CLOCK_REALTIME, 0, request, remain);
 
   if (error_code != 0) {
-    _set_errno (error_code);
+    errno = error_code;
     return -1;
   }
 
@@ -1098,7 +1098,7 @@ int clock_getres64 (clockid_t clock_id, struct _timespec64 *res)
   }
 
   if (error_code != 0) {
-    _set_errno (error_code);
+    errno = error_code;
     return -1;
   }
 
@@ -1156,7 +1156,7 @@ int clock_gettime64 (clockid_t clock_id, struct _timespec64 *tp)
   }
 
   if (error_code != 0) {
-    _set_errno (error_code);
+    errno = error_code;
     return -1;
   }
 
@@ -1171,7 +1171,7 @@ int clock_gettime32 (clockid_t clock_id, struct _timespec32 *tp)
 
   if (error_code == 0) {
     if (tp64.tv_sec > INT_MAX) {
-      _set_errno (EOVERFLOW);
+      errno = EOVERFLOW;
       return -1;
     }
 
@@ -1192,7 +1192,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
    *   greater than or equal to 1000 million.
    */
   if (tp->tv_sec < 0 || tp->tv_nsec < 0 || tp->tv_nsec >= POW10_9) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return -1;
   }
 
@@ -1213,7 +1213,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
      */
     case CLOCK_PROCESS_CPUTIME_ID:
     case CLOCK_THREAD_CPUTIME_ID:
-      _set_errno (ENOTSUP);
+      errno = ENOTSUP;
       return -1;
     /**
      * The clock_settime() function shall fail if:
@@ -1229,7 +1229,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
      *   The clock_id argument does not specify a known clock.
      */
     default:
-      _set_errno(EINVAL);
+      errno = EINVAL;
       return -1;
   }
 
@@ -1272,14 +1272,14 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
   unsigned __int64 fileTimeFromNsec = (unsigned __int64) (tp->tv_nsec / 100);
 
   if (unlikely (fileTimeFromSec > ((fileTimeMax - value.QuadPart) / POW10_7))) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return -1;
   }
 
   value.QuadPart += (fileTimeFromSec * POW10_7);
 
   if (unlikely (fileTimeFromNsec > (fileTimeMax - value.QuadPart))) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return -1;
   }
 
@@ -1301,7 +1301,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
   SYSTEMTIME systemTime;
 
   if (!FileTimeToSystemTime (&fileTime, &systemTime)) {
-    _set_errno (EINVAL);
+    errno = EINVAL;
     return -1;
   }
 
@@ -1313,7 +1313,7 @@ int clock_settime64 (clockid_t clock_id, const struct _timespec64 *tp)
    *   to set the specified clock.
    */
   if (!SetSystemTime (&systemTime)) {
-    _set_errno (EPERM);
+    errno = EPERM;
     return -1;
   }
 
