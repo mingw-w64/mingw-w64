@@ -187,7 +187,7 @@ __pthread_get_pointer (pthread_t id)
 static void
 __pth_remove_use_for_key (pthread_key_t key)
 {
-  int i;
+  size_t i;
 
   pthread_mutex_lock (&mtx_pthr_locked);
   for (i = 0; i < idListCnt; i++)
