@@ -535,7 +535,7 @@ static __attribute__((destructor)) void _include_tls_used(void) { asm volatile (
 #   pragma comment(linker, "/include:__xl_f")
 # endif
 
-/* .CRT$XLA to .CRT$XLZ is an array of PIMAGE_TLS_CALLBACK
+/* .CRT$XLB to .CRT$XLY is an array of PIMAGE_TLS_CALLBACK
  * pointers. Pick an arbitrary location for our callback.
  *
  * See VC\...\crt\src\vcruntime\tlssup.cpp for reference. */
