@@ -73,7 +73,6 @@ typedef struct __WIDL_dxvahd_generated_name_0000000C {
 #ifndef CALLBACK
 #define CALLBACK __stdcall
 #endif
-#endif
 #ifndef __IDXVAHD_Device_FWD_DEFINED__
 #define __IDXVAHD_Device_FWD_DEFINED__
 typedef interface IDXVAHD_Device IDXVAHD_Device;
